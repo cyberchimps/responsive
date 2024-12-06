@@ -2,6 +2,7 @@ import { Fragment } from '@wordpress/element';
 import { Button, Dashicon, Popover, ButtonGroup } from '@wordpress/components';
 import { useState, useEffect } from 'react';
 import he from 'he';
+import Icons from '../icons';
 
 const BuilderAddBlockComponent = (props) => {
     const [isPopoverVisible, setIsPopoverVisible] = useState(false);
@@ -68,7 +69,14 @@ const BuilderAddBlockComponent = (props) => {
                             onClick={() => addItem(item)}
                         >
                             <span className="add-btn-icon">
-                                <Dashicon icon={props.choices[item].icon || 'block-default'} />
+                                {
+                                    Icons[item] ? (
+                                        // Render the Icon SVG.
+                                        Icons[item]
+                                    ) : (
+                                        <Dashicon icon={props.choices[item].icon || 'block-default'} />
+                                    )
+                                }
                             </span>
                             <span className="add-btn-title">
                                 {he.decode(props.choices[item].name || '')}

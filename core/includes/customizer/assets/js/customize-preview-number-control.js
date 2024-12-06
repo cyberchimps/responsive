@@ -188,11 +188,11 @@
     } );
 
     //Footer Border width
-    api( 'responsive_footer_border_size', function( value ) {
-        value.bind( function( newval ) {
-            $('.footer-bar').css('border-top-width', newval+'px' );
-        } );
-    } );
+    // api( 'responsive_footer_border_size', function( value ) {
+    //     value.bind( function( newval ) {
+    //         $('.footer-bar').css('border-top-width', newval+'px' );
+    //     } );
+    // } );
 
     //Buttons radius
     api( 'responsive_menu_button_radius', function( value ) {

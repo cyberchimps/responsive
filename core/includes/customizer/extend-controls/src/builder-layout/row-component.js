@@ -5,9 +5,14 @@ import BuilderSingleRowComponent from './single-row-component';
 const BuilderRowComponent = (props) => {
     let besideItems = [];
     const mode = (props.controlParams.group.indexOf('header') !== -1 ? 'header' : 'footer');
-
+    let footerClass=null;
+    if ('footer_items' === props.controlParams.group) {
+		var columns = props.customizer('responsive_footer_' + props.row + '_columns').get();
+		var layout  = props.customizer('responsive_footer_' + props.row + '_layout').get();
+		footerClass = 'footer-column-row footer-row-columns-' + columns + ' footer-row-layout-' + layout;
+	}
     return (
-        <div className={`responsive-builder-areas responsive-hfb-mode-${mode}`} data-row={props.row}>
+        <div className={`responsive-builder-areas responsive-hfb-mode-${mode} ${footerClass}`} data-row={props.row}>
             <Button
                 className="responsive-row-actions"
                 icon="admin-generic"
@@ -25,6 +30,11 @@ const BuilderRowComponent = (props) => {
                     }
                     if ('header_desktop_items' === props.controlParams.group && props.row + '_right' === zone) {
                         besideItems = props.items[props.row + '_right_center'];
+                    }
+                    if ( 'footer_items' === props.controlParams.group ) {
+                        if ( columns < ( index + 1 ) ) {
+                            return;
+                        }
                     }
 
                     return (

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BuilderRowComponent from './row-component';
 
 const BuilderComponent = props => {
@@ -25,6 +25,7 @@ const BuilderComponent = props => {
 	const [state, setState] = useState({
 		value: value,
 	});
+	let isUpdatingFooter = false;
 
 	const onDragStart = (e) => {
 		var dropzones = document.querySelectorAll('.responsive-builder-area');
@@ -78,11 +79,6 @@ const BuilderComponent = props => {
 		updateState[row][zone] = updateItems;
 		setState({ value: updateState });
 		updateValues(updateState);
-		let event = new CustomEvent(
-			'responsiveRemovedBuilderItem', {
-			'detail': controlParams.group
-		});
-		document.dispatchEvent(event);
 	}
 	const onDragEnd = (row, zone, items) => {
 		let updateState = state.value;
@@ -118,11 +114,6 @@ const BuilderComponent = props => {
 	}
 	const onAddItem = (row, zone, items) => {
 		onDragEnd(row, zone, items);
-		let event = new CustomEvent(
-			'responsiveRemovedBuilderItem', {
-			'detail': controlParams.group
-		});
-		document.dispatchEvent(event);
 	}
 	const arraysEqual = (a, b) => {
 		if (a === b) return true;
@@ -143,6 +134,82 @@ const BuilderComponent = props => {
 			props.customizer.section(item).focus();
 		}
 	}
+	const onFooterUpdate = (row) => {
+		let updateState = state.value;
+		let update = updateState[row];
+		const columns = (props.customizer('responsive_footer_' + row + '_columns').get(), 10);
+		if (columns < 6) {
+			if (undefined !== update[row + '_6'] && update[row + '_6'].length > 0) {
+				updateState[row][row + '_6'] = [];
+			}
+		}
+		if (columns < 5) {
+			if (undefined !== update[row + '_5'] && update[row + '_5'].length > 0) {
+				updateState[row][row + '_5'] = [];
+			}
+		}
+		if (columns < 4) {
+			if (undefined !== update[row + '_4'] && update[row + '_4'].length > 0) {
+				updateState[row][row + '_4'] = [];
+			}
+		}
+		if (columns < 3) {
+			if (undefined !== update[row + '_3'] && update[row + '_3'].length > 0) {
+				updateState[row][row + '_3'] = [];
+			}
+		}
+		if (columns < 2) {
+			if (undefined !== update[row + '_2'] && update[row + '_2'].length > 0) {
+				updateState[row][row + '_2'] = [];
+			}
+		}
+		setState({ value: updateState });
+		updateValues(updateState);
+	}
+
+	useEffect(() => {
+		const createFooterColumnsHandler = (row) => (newval) => {
+			if (!isUpdatingFooter) {
+				isUpdatingFooter = true;
+
+				onFooterUpdate(row);
+
+				setTimeout(() => {
+					isUpdatingFooter = false;
+				}, 0);
+			}
+		};
+	
+		const rows = ['above', 'primary', 'below'];
+	
+		// Bind handlers for each row.
+		rows.forEach((row) => {
+			props.customizer(`responsive_footer_${row}_columns`, (value) => {
+				const handler = createFooterColumnsHandler(row);
+				value.bind(handler);
+
+				return () => {
+					value.unbind(handler);
+				};
+			});
+		});
+
+		const handleFooterUpdate = (e) => {
+
+			if (undefined !== e.detail.trigger && 'footer_items' == e.detail.trigger) {
+				setTimeout(() => {
+					onFooterUpdate(e.detail.item);
+				}, 200);
+			}
+		};
+	
+		document.addEventListener('responsiveUpdateFooterColumns', handleFooterUpdate);
+	
+		// Cleanup to avoid multiple listeners
+		return () => {
+			document.removeEventListener('responsiveUpdateFooterColumns', handleFooterUpdate);
+		};
+	}, [props]);
 
     return (
         <div className='responsive-control-field responsive-builder-items'>

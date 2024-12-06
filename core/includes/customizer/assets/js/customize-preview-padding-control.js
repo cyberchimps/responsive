@@ -1881,4 +1881,92 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
         } );
     } );
 
+    const hfbFooterRows = [
+        { type: 'above', selector: '.rspv-site-above-footer-wrap' },
+        { type: 'primary', selector: '.rspv-site-primary-footer-wrap' },
+        { type: 'below', selector: '.rspv-site-below-footer-wrap' },
+    ];
+    const hfbFooterRowsItems = [
+        { type: 'above', selector: '.rspv-site-above-footer-wrap .footer-widget-area' },
+        { type: 'primary', selector: '.rspv-site-primary-footer-wrap .footer-widget-area' },
+        { type: 'below', selector: '.rspv-site-below-footer-wrap .footer-widget-area' },
+    ];
+
+    // Common suffixes for both margin and padding
+    const suffixes = [
+        'right_padding',
+        'left_padding',
+        'bottom_padding',
+        'top_padding',
+        'tablet_top_padding',
+        'tablet_bottom_padding',
+        'tablet_left_padding',
+        'tablet_right_padding',
+        'mobile_top_padding',
+        'mobile_bottom_padding',
+        'mobile_left_padding',
+        'mobile_right_padding',
+    ];
+
+    // Generic function to bind changes dynamically for both margin and padding
+    function responsive_bind_changes(type, suffix, row_type, selector, callback) {
+        const setting_id = `responsive_footer_${row_type}_row_${type}_${suffix}`;
+        wp.customize(setting_id, function (value) {
+            value.bind(function () {
+                callback(`footer_${row_type}_row_${type}`, selector);
+            });
+        });
+    }
+
+    // Loop through rows, suffixes, and types (margin/padding) to bind all settings
+    hfbFooterRows.forEach(function (row) {
+        suffixes.forEach(function (suffix) {
+
+            responsive_bind_changes('padding', suffix, row.type, row.selector, responsive_dynamic_padding);
+
+            responsive_bind_changes('margin', suffix, row.type, row.selector, responsive_dynamic_margin);
+        });
+    });
+
+    hfbFooterRowsItems.forEach(function (row) {
+        suffixes.forEach(function (suffix) {
+            const setting_id = `responsive_footer_${row.type}_row_item_padding_${suffix}`;
+            wp.customize(setting_id, function (value) {
+                value.bind(function () {
+                    responsive_dynamic_padding(`footer_${row.type}_row_item_padding`, row.selector);
+                });
+            });
+        });
+    });
+
+    // copyright padding
+    suffixes.forEach(function (suffix) {
+        // Bind padding changes
+        responsive_bind_copyright_padding_changes(suffix, responsive_dynamic_padding);
+    });
+
+    function responsive_bind_copyright_padding_changes( suffix, callback) {
+        const setting_id = `responsive_footer_copyright_${suffix}`;
+        wp.customize(setting_id, function (value) {
+            value.bind(function () {
+                callback(`footer_copyright`, '.footer-layouts.copyright');
+            });
+        });
+    }
+
+    // footer_menu padding
+    suffixes.forEach(function (suffix) {
+        // Bind padding changes
+        responsive_bind_footer_menu_padding_changes(suffix, responsive_dynamic_padding);
+    });
+
+    function responsive_bind_footer_menu_padding_changes( suffix, callback) {
+        const setting_id = `responsive_footer_menu_${suffix}`;
+        wp.customize(setting_id, function (value) {
+            value.bind(function () {
+                callback(`footer_menu`, '.footer-navigation');
+            });
+        });
+    }
+
 } )( jQuery );

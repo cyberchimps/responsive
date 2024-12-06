@@ -304,3 +304,12 @@ function responsive_sanitize_multi_select( $input ) {
 	}
 	return array();
 }
+/**
+ * Sanitize Row Layout Select Setting.
+ *
+ * @param string $input
+ * @return string
+ */
+function responsive_sanitize_row_layout_select( $input ) {
+	return esc_html( $input );
+}

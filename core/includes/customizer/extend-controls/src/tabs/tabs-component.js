@@ -115,6 +115,36 @@ const TabsComponent = props => {
 				}
 			});
 		});
+		if( api('responsive_footer_primary_row_top_border_size').get() > 0 && 'design' === tab ) {
+			document.getElementById('customize-control-responsive_footer_primary_row_border_color').style.display = 'block';
+		} else {
+			document.getElementById('customize-control-responsive_footer_primary_row_border_color').style.display = 'none';
+		}
+		if( api('responsive_footer_above_row_top_border_size').get() > 0 && 'design' === tab ) {
+			document.getElementById('customize-control-responsive_footer_above_row_border_color').style.display = 'block';
+		} else {
+			document.getElementById('customize-control-responsive_footer_above_row_border_color').style.display = 'none';
+		}
+		if( api('responsive_footer_below_row_top_border_size').get() > 0 && 'design' === tab ) {
+			document.getElementById('customize-control-responsive_footer_below_row_border_color').style.display = 'block';
+		} else {
+			document.getElementById('customize-control-responsive_footer_below_row_border_color').style.display = 'none';
+		}
+		if( api('responsive_footer_primary_columns').get() > 1 && 'general' === tab ) {
+			document.getElementById('customize-control-responsive_footer_primary_inner_column_spacing').style.display = 'block';
+		} else {
+			document.getElementById('customize-control-responsive_footer_primary_inner_column_spacing').style.display = 'none';
+		}
+		if( api('responsive_footer_above_columns').get() > 1 && 'general' === tab ) {
+			document.getElementById('customize-control-responsive_footer_above_inner_column_spacing').style.display = 'block';
+		} else {
+			document.getElementById('customize-control-responsive_footer_above_inner_column_spacing').style.display = 'none';
+		}
+		if( api('responsive_footer_below_columns').get() > 1 && 'general' === tab ) {
+			document.getElementById('customize-control-responsive_footer_below_inner_column_spacing').style.display = 'block';
+		} else {
+			document.getElementById('customize-control-responsive_footer_below_inner_column_spacing').style.display = 'none';
+		}
 	}, [tab]);
 
 	const toggleSidebarPositionWidthControls = (value, control) => {

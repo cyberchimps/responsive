@@ -409,7 +409,7 @@ function responsive_get_social_icons( $area ) {
 			$count++;
 		}
 	}
-	if ( $count > 0 && $area === '_header' || $count > 0 && $area === '_footer' && get_theme_mod( 'responsive_social_links_enable_footer', true ) ) {
+	if ( $count > 0 && $area === '_header' || $count > 0 && $area === '_footer' ) {
 		?>
 		<div class="footer-layouts social-icon">
 			<ul class="social-icons">

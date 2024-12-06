@@ -2885,33 +2885,33 @@ if ( ! function_exists( 'responsive_blog_pagination' ) ) {
 	}
 }
 
-if ( ! function_exists( 'responsive_footer_elements_positioning' ) ) {
-	/**
-	 * Returns footer elements positioning
-	 *
-	 * @since 0.2
-	 */
-	function responsive_footer_elements_positioning() {
+// if ( ! function_exists( 'responsive_footer_elements_positioning' ) ) {
+// 	/**
+// 	 * Returns footer elements positioning
+// 	 *
+// 	 * @since 0.2
+// 	 */
+// 	function responsive_footer_elements_positioning() {
 
-		// Default sections.
-		$sections = array( 'social_icons', 'footer_menu', 'copy_right_text' );
+// 		// Default sections.
+// 		$sections = array( 'social_icons', 'footer_menu', 'copy_right_text' );
 
-		// Get sections from Customizer.
-		$sections = get_theme_mod( 'responsive_footer_elements_positioning', $sections );
+// 		// Get sections from Customizer.
+// 		$sections = get_theme_mod( 'responsive_footer_elements_positioning', $sections );
 
-		// Turn into array if string.
-		if ( $sections && ! is_array( $sections ) ) {
-			$sections = explode( ',', $sections );
-		}
+// 		// Turn into array if string.
+// 		if ( $sections && ! is_array( $sections ) ) {
+// 			$sections = explode( ',', $sections );
+// 		}
 
-		// Apply filters for easy modification.
-		$sections = apply_filters( 'responsive_footer_elements_positioning', $sections );
+// 		// Apply filters for easy modification.
+// 		$sections = apply_filters( 'responsive_footer_elements_positioning', $sections );
 
-		// Return sections.
-		return $sections;
+// 		// Return sections.
+// 		return $sections;
 
-	}
-}
+// 	}
+// }
 /**
  * [responsive_blog_post_title_toggle description].
  *
@@ -3017,7 +3017,7 @@ function responsive_multi_select_button_control( $wp_customize, $element, $label
 /**
  * [responsive_different_logo_sticky_header description].
  *
- * @return [type] [description]
+ * @return bool
  */
 function responsive_different_logo_sticky_header() {
 
@@ -3026,9 +3026,49 @@ function responsive_different_logo_sticky_header() {
 /**
  * [responsive_different_logo_transparent_header description].
  *
- * @return [type] [description]
+ * @return bool
  */
 function responsive_different_logo_transparent_header() {
 
 	return ( 1 === get_theme_mod( 'responsive_transparent_header_logo_option', 0 ) ) ? true : false;
+}
+/**
+ * [responsive_builder_row_layout_control].
+ *
+ * @param  [type] $wp_customize [description].
+ * @param  [type] $element      [description].
+ * @param  [type] $label      [description].
+ * @param  [type] $section      [description].
+ * @param  [type] $priority     [description].
+ * @param  [type] $default      [description].
+ * @param  [type] $input_attrs  [description].
+ * @param  [type] $active_call  [description].
+ * @param  [type] $transport    [description].
+ *
+ * @return void
+ */
+function responsive_builder_row_layout_control( $wp_customize, $element, $label, $section, $priority, $default, $input_attrs, $active_call, $transport = 'postMessage' ) {
+
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'default'           => $default,
+			'sanitize_callback' => 'responsive_sanitize_row_layout_select',
+			'transport'         => $transport,
+		)
+	);
+	$wp_customize->add_control(
+		new Responsive_Customizer_Builder_Row_Layout_Control(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'label'           => $label,
+				'section'         => $section,
+				'settings'        => 'responsive_' . $element,
+				'priority'        => $priority,
+				'active_callback' => $active_call,
+				'input_attrs'     => $input_attrs,
+			)
+		)
+	);
 }

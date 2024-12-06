@@ -188,26 +188,26 @@
 
     // Footer -> Layout
     //Footer Bar Layout
-    api( 'responsive_footer_bar_layout', function( $swipe ) {
-            $swipe.bind(
-                function( newval ) {
-                    // remove class regex expression function
-                    $.fn.removeClassRegEx = function(regex) {
-                        var classes = $(this).attr('class');
-                        if (!classes || !regex) return false;
-                        var classArray = [];
-                        classes = classes.split(' ');
-                        for (var i = 0, len = classes.length; i < len; i++)
-                            if (!classes[i].match(regex)) classArray.push(classes[i]);
-                        $(this).attr('class', classArray.join(' '));
-                    };
+    // api( 'responsive_footer_bar_layout', function( $swipe ) {
+    //         $swipe.bind(
+    //             function( newval ) {
+    //                 // remove class regex expression function
+    //                 $.fn.removeClassRegEx = function(regex) {
+    //                     var classes = $(this).attr('class');
+    //                     if (!classes || !regex) return false;
+    //                     var classArray = [];
+    //                     classes = classes.split(' ');
+    //                     for (var i = 0, len = classes.length; i < len; i++)
+    //                         if (!classes[i].match(regex)) classArray.push(classes[i]);
+    //                     $(this).attr('class', classArray.join(' '));
+    //                 };
 
-                    $('body').removeClassRegEx('footer-bar-layout-');
-                    jQuery( 'body' ).addClass( 'footer-bar-layout-'+ newval );
-                }
-            );
-        }
-    );
+    //                 $('body').removeClassRegEx('footer-bar-layout-');
+    //                 jQuery( 'body' ).addClass( 'footer-bar-layout-'+ newval );
+    //             }
+    //         );
+    //     }
+    // );
 
     // Content hEader -> Layout
     // Alignment
@@ -597,5 +597,143 @@
 			}
 		});
 	});
+    // Primary Footer
+    api( 'responsive_footer_primary_width', function( value ){
+        value.bind( function( newValue ) {
+
+            const targetElement = document.querySelector('[data-section="responsive-primary-footer-builder"]');
+
+            if (targetElement) {
+                if (newValue === 'contained') {
+                    targetElement.classList.remove('rspv-hfb-footer-width-fullwidth');
+                    targetElement.classList.add('rspv-hfb-footer-width-contained');
+                } else if (newValue === 'fullwidth') {
+                    targetElement.classList.remove('rspv-hfb-footer-width-contained');
+                    targetElement.classList.add('rspv-hfb-footer-width-fullwidth');
+                }
+            }
+        });
+    } );
+
+    api( 'responsive_footer_primary_inner_elements_layout', function( value ){
+        value.bind( function( newValue ) {
+
+            const targetElement = document.querySelector('[data-section="responsive-primary-footer-builder"]');
+
+            if (targetElement) {
+                if (newValue === 'inline') {
+                    targetElement.classList.remove('rspv-hfb-footer-row-stack');
+                    targetElement.classList.add('rspv-hfb-footer-row-inline');
+                } else if (newValue === 'stack') {
+                    targetElement.classList.remove('rspv-hfb-footer-row-inline');
+                    targetElement.classList.add('rspv-hfb-footer-row-stack');
+                }
+            }
+        });
+    } );
+    api( 'responsive_footer_primary_vertical_alignment', function(value){
+        value.bind( function(newval){
+            $( '.rspv-site-primary-footer-wrap .site-footer-row, .rspv-site-primary-footer-wrap .site-footer-section' ).css( 'align-items', newval )
+        });
+    });
+    // above footer
+    api( 'responsive_footer_above_width', function( value ){
+        value.bind( function( newValue ) {
+
+            const targetElement = document.querySelector('[data-section="responsive-above-footer-builder"]');
+
+            if (targetElement) {
+                if (newValue === 'contained') {
+                    targetElement.classList.remove('rspv-hfb-footer-width-fullwidth');
+                    targetElement.classList.add('rspv-hfb-footer-width-contained');
+                } else if (newValue === 'fullwidth') {
+                    targetElement.classList.remove('rspv-hfb-footer-width-contained');
+                    targetElement.classList.add('rspv-hfb-footer-width-fullwidth');
+                }
+            }
+        });
+    } );
+
+    api( 'responsive_footer_above_inner_elements_layout', function( value ){
+        value.bind( function( newValue ) {
+
+            const targetElement = document.querySelector('[data-section="responsive-above-footer-builder"]');
+
+            if (targetElement) {
+                if (newValue === 'inline') {
+                    targetElement.classList.remove('rspv-hfb-footer-row-stack');
+                    targetElement.classList.add('rspv-hfb-footer-row-inline');
+                } else if (newValue === 'stack') {
+                    targetElement.classList.remove('rspv-hfb-footer-row-inline');
+                    targetElement.classList.add('rspv-hfb-footer-row-stack');
+                }
+            }
+        });
+    } );
+    api( 'responsive_footer_above_vertical_alignment', function(value){
+        value.bind( function(newval){
+            $( '.rspv-site-above-footer-wrap .site-footer-row, .rspv-site-above-footer-wrap .site-footer-section' ).css( 'align-items', newval )
+        });
+    });
+    // below footer
+    api( 'responsive_footer_below_width', function( value ){
+        value.bind( function( newValue ) {
+
+            const targetElement = document.querySelector('[data-section="responsive-below-footer-builder"]');
+
+            if (targetElement) {
+                if (newValue === 'contained') {
+                    targetElement.classList.remove('rspv-hfb-footer-width-fullwidth');
+                    targetElement.classList.add('rspv-hfb-footer-width-contained');
+                } else if (newValue === 'fullwidth') {
+                    targetElement.classList.remove('rspv-hfb-footer-width-contained');
+                    targetElement.classList.add('rspv-hfb-footer-width-fullwidth');
+                }
+            }
+        });
+    } );
+
+    api( 'responsive_footer_below_inner_elements_layout', function( value ){
+        value.bind( function( newValue ) {
+
+            const targetElement = document.querySelector('[data-section="responsive-below-footer-builder"]');
+
+            if (targetElement) {
+                if (newValue === 'inline') {
+                    targetElement.classList.remove('rspv-hfb-footer-row-stack');
+                    targetElement.classList.add('rspv-hfb-footer-row-inline');
+                } else if (newValue === 'stack') {
+                    targetElement.classList.remove('rspv-hfb-footer-row-inline');
+                    targetElement.classList.add('rspv-hfb-footer-row-stack');
+                }
+            }
+        });
+    } );
+    api( 'responsive_footer_below_vertical_alignment', function(value){
+        value.bind( function(newval){
+            $( '.rspv-site-below-footer-wrap .site-footer-row, .rspv-site-below-footer-wrap .site-footer-section' ).css( 'align-items', newval )
+        });
+    });
+
+    api('responsive_scroll_to_top_icon_position', function(value) {
+        value.bind(function(newval) {
+            const $scrollWrap = $('.responsive-scroll-wrap');
+
+            if (newval === 'left') {
+                $scrollWrap.css({
+                    'margin-left': '0',
+                    'margin-right': 'auto'
+                });
+                $( '.site-footer-row-columns-1:has(.footer-section-inner-items-1 .responsive-scroll-wrap)' ).css( 'justify-content', 'flex-start' );
+            } else if (newval === 'right') {
+                $scrollWrap.css({
+                    'margin-left': 'auto',
+                    'margin-right': '0'
+                });
+                $( '.site-footer-row-columns-1:has(.footer-section-inner-items-1 .responsive-scroll-wrap)' ).css( 'justify-content', 'flex-end' );
+            }
+        });
+    });
+    
 
 } )( jQuery );
