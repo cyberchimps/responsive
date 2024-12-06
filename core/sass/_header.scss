@@ -1082,3 +1082,8 @@ body.mega-menu-header-menu button.menu-toggle {
         background: transparent;
     }
 }
+.site-header-focus-item {
+    & > .customize-partial-edit-shortcut button {
+        left: 0;
+    }
+}

@@ -24,6 +24,7 @@ import './breadcrumb-toggle';
 import { responsiveBuilderControl } from './builder-layout/control';
 import { responsiveMultiSelectControl } from './multi-select/control';
 import { responsiveRangeWithSwitcher } from './range-with-switchers/control';
+import { responsiveRowLayout } from './builder-row-layout/control';
 
 wp.customize.controlConstructor['responsive-sortable'] = responsiveSortable;
 wp.customize.controlConstructor['responsive-range'] = responsiveSlider;
@@ -48,3 +49,4 @@ wp.customize.controlConstructor['responsive-typography-settings-group'] = respon
 wp.customize.controlConstructor['responsive-builder-control']           = responsiveBuilderControl;
 wp.customize.controlConstructor['responsive-multi-select']              = responsiveMultiSelectControl;
 wp.customize.controlConstructor['responsive-range-with-switchers']      = responsiveRangeWithSwitcher;
+wp.customize.controlConstructor['responsive-row-layout-select']         = responsiveRowLayout;

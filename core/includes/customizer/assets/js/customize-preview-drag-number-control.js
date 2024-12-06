@@ -498,5 +498,56 @@
             $('.responsive-site-below-header-wrap').css('border-bottom', newval + 'px solid ' + api('responsive_header_below_row_bottom_border_color').get());
         });
     });
+    // primary footer
+    api( 'responsive_footer_primary_height', function(value) {
+        value.bind(function(newval) {
+            $( '.rspv-site-primary-footer-inner-wrap' ).css( 'min-height', newval + 'px' );
+        });
+    });
+    api( 'responsive_footer_primary_inner_column_spacing', function(value) {
+        value.bind(function(newval) {
+            $( '.rspv-site-primary-footer-inner-wrap' ).css( 'grid-column-gap', newval + 'px' );
+            $( '.rspv-site-primary-footer-inner-wrap' ).css( 'grid-row-gap', newval + 'px' );
+        });
+    });
+    api( 'responsive_footer_primary_row_top_border_size', function(value){
+        value.bind(function(newval) {
+           $( '.rspv-site-primary-footer-wrap' ).css( 'border-top', newval + 'px solid '+ api('responsive_footer_primary_row_border_color').get() );
+        });
+    });
+    // above footer
+    api( 'responsive_footer_above_height', function(value) {
+        value.bind(function(newval) {
+            $( '.rspv-site-above-footer-inner-wrap' ).css( 'min-height', newval + 'px' );
+        });
+    });
+    api( 'responsive_footer_above_inner_column_spacing', function(value) {
+        value.bind(function(newval) {
+            $( '.rspv-site-above-footer-inner-wrap' ).css( 'grid-column-gap', newval + 'px' );
+            $( '.rspv-site-above-footer-inner-wrap' ).css( 'grid-row-gap', newval + 'px' );
+        });
+    });
+    api( 'responsive_footer_above_row_top_border_size', function(value){
+        value.bind(function(newval) {
+           $( '.rspv-site-above-footer-wrap' ).css( 'border-top', newval + 'px solid '+ api('responsive_footer_above_row_border_color').get() );
+        });
+    });
+    // below footer
+    api( 'responsive_footer_below_height', function(value) {
+        value.bind(function(newval) {
+            $( '.rspv-site-below-footer-inner-wrap' ).css( 'min-height', newval + 'px' );
+        });
+    });
+    api( 'responsive_footer_below_inner_column_spacing', function(value) {
+        value.bind(function(newval) {
+            $( '.rspv-site-below-footer-inner-wrap' ).css( 'grid-column-gap', newval + 'px' );
+            $( '.rspv-site-below-footer-inner-wrap' ).css( 'grid-row-gap', newval + 'px' );
+        });
+    });
+    api( 'responsive_footer_below_row_top_border_size', function(value){
+        value.bind(function(newval) {
+           $( '.rspv-site-below-footer-wrap' ).css( 'border-top', newval + 'px solid '+ api('responsive_footer_below_row_border_color').get() );
+        });
+    });
 
 } )( jQuery );
