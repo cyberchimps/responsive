@@ -1,9 +1,9 @@
 === Responsive ===
 Contributors: cyberchimps
 Requires at least: 5.0
-Tested up to: 6.6
+Tested up to: 6.7
 Requires PHP: 5.6
-Stable tag: 6.0.1
+Stable tag: 6.0.2
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 

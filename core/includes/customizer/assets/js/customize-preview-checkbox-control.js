@@ -42,25 +42,25 @@
     )
 
     // Full Width Footer
-    api(
-        "responsive_footer_full_width",
-        function( $swipe ) {
+    // api(
+    //     "responsive_footer_full_width",
+    //     function( $swipe ) {
 
-            $swipe.bind(
-                function( pair ) {
-                    var value = api( 'responsive_width' ).get();
-                    if( value == 'contained') {
-                        if (pair === true) {
-                            jQuery('body').addClass("footer-full-width");
-                        }
-                        else {
-                            jQuery('body').removeClass("footer-full-width");
-                        }
-                    }
-                }
-            );
-        }
-    )
+    //         $swipe.bind(
+    //             function( pair ) {
+    //                 var value = api( 'responsive_width' ).get();
+    //                 if( value == 'contained') {
+    //                     if (pair === true) {
+    //                         jQuery('body').addClass("footer-full-width");
+    //                     }
+    //                     else {
+    //                         jQuery('body').removeClass("footer-full-width");
+    //                     }
+    //                 }
+    //             }
+    //         );
+    //     }
+    // )
 
     // Hide Copyright Icon & Year.
     api(

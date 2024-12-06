@@ -46,7 +46,6 @@ if ( ! class_exists( 'Responsive_Site_Social_Links_Customizer' ) ) :
 					'priority' => 30,
 				)
 			);
-
 			
 			// Social Link New Tab.
 			$social_link_new_label = esc_html__( 'Open Social Icons in a new tab', 'responsive' );

@@ -318,6 +318,17 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'line-height' => '1.4',
 					),
 				),
+				'footer_copyright' => array(
+					'label'    => esc_html__( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['footer_copyright'],
+					'section'    => 'responsive_typography_footer',
+					'exclude'  => array( 'font-color' ),
+					'priority' => 80,
+					'defaults' => array(
+						'font-size'   => '13px',
+						'line-height' => '1.75',
+					),
+				),
 			);
 
 			if ( $this->is_responsive_version_greater() ) {
@@ -371,6 +382,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'breadcrumb'                 => '.site-content-header .breadcrumb-list,.woocommerce .woocommerce-breadcrumb',
 				'footer'                     => '.site-footer',
 				'page'                       => '.page .post-title, #main-blog h1',
+				'footer_copyright'           => '.footer-layouts.copyright',
 			);
 
 			if ( $this->is_responsive_version_greater() ) {
@@ -618,6 +630,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 									'priority'        => $priority,
 									'active_callback' => $active_callback,
 									'choices'         => array(
+										'none'       => esc_html__( 'None', 'responsive' ),
 										'capitalize' => esc_html__( 'Aa', 'responsive' ),
 										'lowercase'  => esc_html__( 'aa', 'responsive' ),
 										'uppercase'  => esc_html__( 'AA', 'responsive' ),

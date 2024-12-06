@@ -25,6 +25,8 @@
     background-color: #D9D9D9;
     border: none;
     height: 20px;
+    width: 36px;
+    border-radius: 9px;
 }
 .customize-control-responsive-toggle .components-form-toggle.is-checked .components-form-toggle__track,
 .customize-control-responsive-background-image .components-form-toggle.is-checked .components-form-toggle__track {
@@ -35,6 +37,7 @@
     background-color: #A5A5A5;
     width: 14px;
     height: 14px;
+    top: 3px;
 }
 .customize-control-responsive-toggle .components-form-toggle.is-checked .components-form-toggle__thumb,
 .customize-control-responsive-background-image .components-form-toggle.is-checked .components-form-toggle__thumb {
@@ -42,7 +45,7 @@
 }
 .customize-control-responsive-toggle .components-form-toggle.is-checked .components-form-toggle__thumb,
 .customize-control-responsive-background-image .components-form-toggle.is-checked .components-form-toggle__thumb {
-   left: 1px;
+   left: 3px;
 }
 #customize-control-responsive_enable_header_widget .responsive-toggle-control-wrapper {
     padding-top: 24px;

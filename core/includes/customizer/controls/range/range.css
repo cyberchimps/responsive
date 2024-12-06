@@ -17,7 +17,6 @@
 .customize-control-responsive-range span.responsive-reset-slider { display: inline-block; position: relative; width: 6%; margin: 0 2%; line-height: 1; color: rgba(0, 0, 0, 0.2); cursor: pointer; text-align: center; transition: all .3s ease; -webkit-transition: all .3s ease; -moz-transition: all .3s ease; -o-transition: all .3s ease; -ms-transition: all .3s ease; }
 .customize-control-responsive-range span.responsive-reset-slider:hover { color: #fe5252; }
 .customize-control-responsive-range span.responsive-reset-slider span { width: 16px; height: 16px; font-size: 16px; line-height: 1; }
-.preview-tablet #customize-control-responsive_header_height, .preview-mobile #customize-control-responsive_header_height { display: none; }
 .responsive-range-control-label {
     display: flex;
     align-items: center;
