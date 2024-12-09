@@ -34,6 +34,7 @@ const ImageRadioButtonComponent = props => {
 
 		return (
 			<button
+				id={`${id}-imageradiobtn-${choiceValue}`}
 				key={choiceValue}
 				type="button"
 				className={`customize-control-responsive-imageradiobtn__button imageradiobtn-text imagebutton ${props_value === choiceValue ? 'active' : ''}`}
