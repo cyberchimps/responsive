@@ -80,14 +80,14 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 						'height'          => 100, // pixels.
 						'width'           => 300, // pixels.
 						'priority'        => 28,
-						'active_callback' => null,
+						'active_callback' => 'responsive_different_logo_transparent_header',
 					)
 				)
 			);
 
 			// Transparent Header Height.
-			$transparent_header_height_label = __( 'Transparent Header Height', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'transparent_header_height', $transparent_header_height_label, 'responsive_header_transparent', 29, 0, null, 300, 0, 'postMessage', 1 );
+			// $transparent_header_height_label = __( 'Transparent Header Height', 'responsive' );
+			// responsive_drag_number_control( $wp_customize, 'transparent_header_height', $transparent_header_height_label, 'responsive_header_transparent', 29, 0, null, 300, 0, 'postMessage', 1 );
 
 			// Site Content Padding.
 			$site_content_padding_label = esc_html__( 'Site Content Padding (px)', 'responsive' );

@@ -3,43 +3,43 @@
     margin-left: -12px;
     width: 110%;
 }
-
 .customizer-redirect-button {
 	text-decoration: none;
     margin : 0px 0px;
     display: flex;
 	justify-content: space-between;
     align-items: center;
-    padding: 0px 24px;
+    padding: 24px 18px 24px 10px;
     border: 0.5px solid #D0D0D0
 }
-
 .customizer-redirect-button .dashicons-arrow-right-alt{
 	color: #50575E;
 }
-
 .customizer-redirect-button .arrow-head{
-	
     display: inline-block;
     width: 8px;
     height: 8px;
-    border-right: 2px solid #222222; /* Adjust the color and thickness */
-    border-bottom: 2px solid #222222; /* Adjust the color and thickness */
+    border-right: 1px solid #696969;
+    border-bottom: 1px solid #696969;
     transform: rotate(-45deg); 
 }
-
-
-
-.customizer-redirect-button > .redirect-button-label {
-	color: #50575E;
-	font-family: Roboto;
-	font-size: 14px;
-	font-weight: 600;
-	line-height: 16.41px;
-    margin-top: 24px;
-    margin-bottom: 24px;
-}
-
 .customize-control-site_icon .button-add-media{
     margin-bottom: 15px;
+}
+.responsive-customizer-redirect-button-inner-wrap {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 0.5px solid #8F8F8F;
+    border-radius: 2px;
+}
+.responsive-customizer-redirect-button-inner-wrap .redirect-button-label {
+    color: #434343;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    margin: 0;
 }
