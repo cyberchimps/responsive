@@ -201,6 +201,8 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 
 	$responsive_addons_cards_content = array(
 		array(
+			// WP-6871 This part add Free batch on Dashboard > Responsive Plus feature cards (no longer needed)
+			// 'tag'   => 'free',
 			'title' => __( 'Starter Templates', 'responsive' ),
 			'desc'  => __( 'Unlock the library of 100+ Premium Starter Templates.', 'responsive' ),
 			'links' => array(
@@ -212,6 +214,8 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 			),
 		),
 		array(
+			// WP-6871 This part add Free batch on Dashboard > Responsive Plus feature cards (no longer needed)
+			// 'tag'   => 'free',
 			'title' => __( 'White Label', 'responsive' ),
 			'desc'  => __( 'White Label the theme name & settings with the Pro Plugin.', 'responsive' ),
 			'links' => array(
@@ -395,6 +399,12 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 								<span class="responsive-theme-feature-card responsive-theme-feature-card-<?php echo esc_html( $feature['tag'] ); ?>"><span><?php echo esc_html( $feature['tag'] ); ?></span></span>
 								<?php
 							}
+							// WP-6871 This part add Free batch on Dashboard > Responsive Plus feature cards (no longer needed)
+							// if ( 'pro' !== $feature['tag'] ) {
+							// 	?>
+							<!-- // 	<span class="responsive-theme-feature-card responsive-theme-feature-card-<?php // echo esc_html( $feature['tag'] ); ?>"><span><?php // echo esc_html( $feature['tag'] ); ?></span></span> -->
+							  <?php
+							// }
 							?>
 							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html( $feature['title'] ); ?></div>
 							<div class="responsive-theme-feature-card-desc"><?php echo esc_html( $feature['desc'] ); ?></div>
@@ -467,9 +477,14 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 							if ( check_is_responsive_pro_activated() ) {
 								?>
 							<span class="responsive-theme-feature-card responsive-theme-feature-card-pro"><span><?php esc_html_e( 'PRO', 'responsive' ); ?></span></span>
-								<?php
+							<?php 
 							}
 							?>
+							<!-- WP-6871 This part add Free batch on Dashboard > Responsive Plus feature cards (no longer needed) -->
+							<!-- <?php
+							// } else {
+								?> -->
+							<!-- <span class="responsive-theme-feature-card responsive-theme-feature-card-free"><span><?php //esc_html_e( 'FREE', 'responsive' ); ?></span></span> -->
 							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html_e( 'Mega Menu', 'responsive' ); ?></div>
 							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Adds menu options such as mega menus, highlight tags, icons, etc.', 'responsive' ); ?></div>
 							<?php
@@ -659,9 +674,14 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 							if ( check_is_responsive_pro_activated() ) {
 								?>
 							<span class="responsive-theme-feature-card responsive-theme-feature-card-pro"><span><?php esc_html_e( 'PRO', 'responsive' ); ?></span></span>
-								<?php
+							<?php
 							}
 							?>
+							<!-- WP-6871 This part add Free batch on Dashboard > Responsive Plus feature cards (no longer needed) -->
+							<!-- } else {
+								?>
+							<span class="responsive-theme-feature-card responsive-theme-feature-card-free"><span><?php // esc_html_e( 'FREE', 'responsive' ); ?></span></span>
+							?>	-->
 							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html_e( 'Woocommerce', 'responsive' ); ?></div>
 							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Adds enhanced set of options in the WooCommerce store customizer.', 'responsive' ); ?></div>
 							<?php

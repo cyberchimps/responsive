@@ -61,6 +61,9 @@ class Responsive_Customizer_Notices extends Responsive_Register_Customizer_Contr
 	public function add_controls() {
 		$this->register_types();
 		$this->add_docs_link_section();
+		/* WP-6805 This part is removed as it was calling a function to add install notice for
+		RSPT int the theme customizer no longer required */
+		// $this->maybe_add_main_notice();
 		if(!responsive_is_user_pro()): 
 			$this->add_upsell_section();
 		endif;
@@ -148,6 +151,49 @@ class Responsive_Customizer_Notices extends Responsive_Register_Customizer_Contr
 			)
 		);
 	}
+
+	/* WP-6805 This part is removed as it is the function to add install notice for
+	RSPT int the theme customizer no longer required */
+	// /**
+	//  * Check for required plugins and add main notice if needed.
+	//  */
+	// private function maybe_add_main_notice() {
+	// 	if ( class_exists( 'Responsive_Add_Ons', false ) ) {
+	// 		return;
+	// 	}
+
+	// 	$this->add_section(
+	// 		new Responsive_Customizer_Section(
+	// 			'responsive_info_pro',
+	// 			array(
+	// 				'slug'        => 'responsive-add-ons',
+	// 				'priority'    => 0,
+	// 				'capability'  => 'install_plugins',
+	// 				'hide_notice' => (bool) get_option( 'dismissed-responsive_info_pro', false ),
+	// 				'title'       => __( 'Recommended Plugins', 'responsive' ),
+	// 				'options'     => array(
+	// 					'redirect' => admin_url( 'customize.php' ),
+	// 				),
+	// 				/* translators: Orbit Fox Companion */
+	// 				'description' => sprintf( esc_html__( 'Get free access to 100+ ready-to-use Elementor & Block templates. Import a template, edit content and launch your website.', 'responsive' ), sprintf( '<strong>%s</strong>', 'Upgrade To Pro' ) ),
+	// 			),
+	// 			'Responsive_Main_Notice_Section'
+	// 		)
+	// 	);
+
+	// 	$this->add_control(
+	// 		new Responsive_Customizer_Control(
+	// 			'responsive_control_to_enable_pro_recommendation',
+	// 			array(
+	// 				'sanitize_callback' => 'sanitize_text_field',
+	// 			),
+	// 			array(
+	// 				'section' => 'responsive_info_pro',
+	// 				'type'    => 'hidden',
+	// 			)
+	// 		)
+	// 	);
+	// }
 
 	/**
 	 * Add View Pro Features section.

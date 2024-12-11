@@ -250,6 +250,10 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 				'footer-menu' => __( 'Footer Menu', 'responsive' ),
 			)
 		);
+		
+		/* WP-6540 - This part is commented out as it was overlaying the background image 
+		it was causing a bug when updating from 5.1.2 to 6.0.1, */
+		// add_theme_support( 'custom-background' );
 
 		add_theme_support(
 			'custom-header',
