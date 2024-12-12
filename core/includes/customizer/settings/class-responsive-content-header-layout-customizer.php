@@ -160,10 +160,6 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 			$breadcrumb_enable_single_post = __( 'Enable on Single Post', 'responsive' );
 			responsive_toggle_control( $wp_customize, 'breadcrumb_enable_single_post', $breadcrumb_enable_single_post, 'responsive_breadcrumb', 45, 0, 'responsive_active_breadcrumb' );
 
-			// Option: Enable Breadcrumb on singular.
-			$breadcrumb_enable_singular = __( 'Enable on Singular', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'breadcrumb_enable_singular', $breadcrumb_enable_singular, 'responsive_breadcrumb', 45, 0, 'responsive_active_breadcrumb' );
-
 			// Option: Enable Breadcrumb on 404 page.
 			$breadcrumb_enable_404_page = __( 'Enable on 404 Page', 'responsive' );
 			responsive_toggle_control( $wp_customize, 'breadcrumb_enable_404_page', $breadcrumb_enable_404_page, 'responsive_breadcrumb', 45, 0, 'responsive_active_breadcrumb' );
