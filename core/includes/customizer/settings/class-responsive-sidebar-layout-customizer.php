@@ -80,7 +80,7 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
 
             // Page Sidebar Toggle
             $page_sidebar_toggle_label = esc_html__('Page Sidebar', 'responsive');
-            responsive_toggle_control($wp_customize, 'page_sidebar_toggle', $page_sidebar_toggle_label, 'responsive_sidebar', 15, 0, null);
+            responsive_toggle_control($wp_customize, 'page_sidebar_toggle', $page_sidebar_toggle_label, 'responsive_sidebar', 15, 1, null);
 
             // Page Sidebar.
             $sidebar_label   = esc_html__('Sidebar Position', 'responsive');
@@ -105,7 +105,7 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
 
             // Blog/Archive Sidebar Toggle
             $blog_sidebar_toggle_label = esc_html__('Blog/Archive Sidebar', 'responsive');
-            responsive_toggle_control($wp_customize, 'blog_sidebar_toggle', $blog_sidebar_toggle_label, 'responsive_sidebar', 28, 0, null);
+            responsive_toggle_control($wp_customize, 'blog_sidebar_toggle', $blog_sidebar_toggle_label, 'responsive_sidebar', 28, 1, null);
 
             // Blog/Archive Sidebar.
             $sidebar_label   = esc_html__('Sidebar Position', 'responsive');
@@ -130,7 +130,7 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
 
             // Single Post Sidebar Toggle
             $single_post_sidebar_toggle_label = esc_html__('Single Post Sidebar', 'responsive');
-            responsive_toggle_control($wp_customize, 'single_blog_sidebar_toggle', $single_post_sidebar_toggle_label, 'responsive_sidebar', 38, 0, null);
+            responsive_toggle_control($wp_customize, 'single_blog_sidebar_toggle', $single_post_sidebar_toggle_label, 'responsive_sidebar', 38, 1, null);
 
             // Single Post Sidebar.
             $sidebar_label   = esc_html__('Sidebar Position', 'responsive');
