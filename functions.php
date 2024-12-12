@@ -458,7 +458,7 @@ function responsive_edit_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial(
 		'footer_copyright',
 		array(
-			'selector' => '.footer-copyright',
+			'selector' => '.footer-layouts.copyright',
 		)
 	);
 	$wp_customize->selective_refresh->add_partial(

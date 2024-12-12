@@ -1196,38 +1196,81 @@ function defaults() {
 			'responsive_footer_primary_row_border_color'              => '#FFFFFF',
 			'responsive_footer_below_row_bg_color'                    => '#333333',
 			'responsive_footer_below_row_border_color'                => '#FFFFFF',
-			'responsive_footer_items'     					  => array(
-																		'above' => array(
-																			'above_1' => array(),
-																			'above_2' => array(),
-																			'above_3' => array(),
-																			'above_4' => array(),
-																			'above_5' => array(),
-																			'above_6' => array(),
+			'responsive_footer_items'     					          => array(
+																			'above' => array(
+																				'above_1' => array(),
+																				'above_2' => array(),
+																				'above_3' => array(),
+																				'above_4' => array(),
+																				'above_5' => array(),
+																				'above_6' => array(),
+																			),
+																			'primary' => array(
+																				'primary_1' => array( 'footer_copyright' ),
+																				'primary_2' => array(),
+																				'primary_3' => array(),
+																				'primary_4' => array(),
+																				'primary_5' => array(),
+																				'primary_6' => array(),
+																			),
+																			'below' => array(
+																				'below_1' => array(),
+																				'below_2' => array(),
+																				'below_3' => array(),
+																				'below_4' => array(),
+																				'below_5' => array(),
+																				'below_6' => array(),
+																			),
 																		),
-																		'primary' => array(
-																			'primary_1' => array( 'footer_copyright' ),
-																			'primary_2' => array(),
-																			'primary_3' => array(),
-																			'primary_4' => array(),
-																			'primary_5' => array(),
-																			'primary_6' => array(),
-																		),
-																		'below' => array(
-																			'below_1' => array(),
-																			'below_2' => array(),
-																			'below_3' => array(),
-																			'below_4' => array(),
-																			'below_5' => array(),
-																			'below_6' => array(),
-																		),
-																	),
 			'footer_copyright_text'                         			=> '#ffffff',
 			'footer_copyright_text_hover'                         		=> '#ffffff',
 			'footer_copyright_links'                                    => '#eaeaea',
 			'footer_copyright_links_hover'                              => '#ffffff',
 			'footer_menu_background'                                    => '#333333',
 			'footer_menu_background_hover'                              => '#333333',
+			'responsive_footer_builder_choices'      				    => array(
+																			'footer_copyright'          => array(
+																				'name'    => esc_html__( 'Copyright', 'responsive' ),
+																				'section' => 'responsive_footer_copyright',
+																			),
+																			'footer_navigation'          => array(
+																				'name'    => esc_html__( 'Footer Menu', 'responsive' ),
+																				'section' => 'responsive_footer_menu',
+																			),
+																			'social'      => array(
+																				'name'    => esc_html__( 'Social', 'responsive' ),
+																				'section' => 'responsive_social_links',
+																			),
+																			'widget-1' => array(
+																				'name'    => esc_html__( 'Widget 1', 'responsive' ),
+																				'section' => 'sidebar-widgets-footer-widget-1',
+																				'icon'    => 'wordpress',
+																			),
+																			'widget-2' => array(
+																				'name'    => esc_html__( 'Widget 2', 'responsive' ),
+																				'section' => 'sidebar-widgets-footer-widget-2',
+																				'icon'    => 'wordpress',
+																			),
+																			'widget-3' => array(
+																				'name'    => esc_html__( 'Widget 3', 'responsive' ),
+																				'section' => 'sidebar-widgets-footer-widget-3',
+																				'icon'    => 'wordpress',
+																			),
+																			'widget-4' => array(
+																				'name'    => esc_html__( 'Widget 4', 'responsive' ),
+																				'section' => 'sidebar-widgets-footer-widget-4',
+																				'icon'    => 'wordpress',
+																			),
+																			'colophon-widget' => array(
+																				'name'    => esc_html__( 'Colophon Widget', 'responsive' ),
+																				'section' => 'sidebar-widgets-colophon-widget',
+																				'icon'    => 'wordpress',
+																			),
+																			'scroll_to_top'          => array(
+																				'name'    => esc_html__( 'Scroll to Top', 'responsive' ),
+																				'section' => 'responsive_scrolltotop_section',
+																			),
+																		),
 		)
 	);
 	return $theme_options;

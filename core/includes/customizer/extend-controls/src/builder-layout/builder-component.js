@@ -79,6 +79,10 @@ const BuilderComponent = props => {
 		updateState[row][zone] = updateItems;
 		setState({ value: updateState });
 		updateValues(updateState);
+		const event = new CustomEvent('responsiveUpdateHFBuilderAvailable', {
+			detail: controlParams.group,
+		});
+		document.dispatchEvent(event);
 	}
 	const onDragEnd = (row, zone, items) => {
 		let updateState = state.value;
@@ -114,6 +118,10 @@ const BuilderComponent = props => {
 	}
 	const onAddItem = (row, zone, items) => {
 		onDragEnd(row, zone, items);
+		const event = new CustomEvent('responsiveUpdateHFBuilderAvailable', {
+			detail: controlParams.group,
+		});
+		document.dispatchEvent(event);
 	}
 	const arraysEqual = (a, b) => {
 		if (a === b) return true;
@@ -135,37 +143,29 @@ const BuilderComponent = props => {
 		}
 	}
 	const onFooterUpdate = (row) => {
-		let updateState = state.value;
-		let update = updateState[row];
-		const columns = (props.customizer('responsive_footer_' + row + '_columns').get(), 10);
-		if (columns < 6) {
-			if (undefined !== update[row + '_6'] && update[row + '_6'].length > 0) {
-				updateState[row][row + '_6'] = [];
+		let updateState = { ...state.value };
+		const update = updateState[row];
+		let updateAvailableItems = false;
+		const columns = parseInt(props.customizer(`responsive_footer_${row}_columns`).get(), 10);
+
+		for (let col = 6; col > 1; col--) {
+			const key = `${row}_${col}`;
+			if (columns < col && update[key] && update[key].length > 0) {
+				updateState[row][key] = [];
+				updateAvailableItems = true;
 			}
 		}
-		if (columns < 5) {
-			if (undefined !== update[row + '_5'] && update[row + '_5'].length > 0) {
-				updateState[row][row + '_5'] = [];
-			}
-		}
-		if (columns < 4) {
-			if (undefined !== update[row + '_4'] && update[row + '_4'].length > 0) {
-				updateState[row][row + '_4'] = [];
-			}
-		}
-		if (columns < 3) {
-			if (undefined !== update[row + '_3'] && update[row + '_3'].length > 0) {
-				updateState[row][row + '_3'] = [];
-			}
-		}
-		if (columns < 2) {
-			if (undefined !== update[row + '_2'] && update[row + '_2'].length > 0) {
-				updateState[row][row + '_2'] = [];
-			}
-		}
+
 		setState({ value: updateState });
 		updateValues(updateState);
-	}
+
+		if (updateAvailableItems) {
+			const event = new CustomEvent('responsiveUpdateHFBuilderAvailable', {
+				detail: controlParams.group,
+			});
+			document.dispatchEvent(event);
+		}
+	};
 
 	useEffect(() => {
 		const createFooterColumnsHandler = (row) => (newval) => {

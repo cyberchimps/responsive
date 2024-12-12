@@ -293,6 +293,7 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'multi-select/class-responsive-customizer-multi-select-control.php';
 	require_once $dir . 'range-with-switchers/class-responsive-customizer-range-with-switchers-control.php';
 	require_once $dir . 'builder-row-layout/class-responsive-customizer-builder-row-layout-control.php';
+	require_once $dir . 'builder-available-drag/class-responsive-customizer-builder-available-items-drag-control.php';
 
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-control-upsell.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-generic-notice-section.php';
@@ -324,6 +325,7 @@ function responsive_custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Multi_Select_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Range_With_Switcher_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Builder_Row_Layout_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Builder_Available_Items_Drag_Control' );
 
 }
 
