@@ -70,29 +70,58 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_footer_links_hover_color',
 				// $design_tab_ids_prefix . 'responsive_footer_border_color',
 				$design_tab_ids_prefix . 'responsive_footer_background_image',
+				$design_tab_ids_prefix . 'responsive_footer_bar_padding',
 			);
 
 			$general_tab_ids_prefix = 'customize-control-';
 			$general_tab_ids        = array(
+				$general_tab_ids_prefix . 'responsive_footer_available_items',
 				// $general_tab_ids_prefix . 'responsive_footer_full_width',
 				// $general_tab_ids_prefix . 'responsive_footer_elements_positioning',
-				$general_tab_ids_prefix . 'responsive_footer_widgets_separator',
-				$general_tab_ids_prefix . 'responsive_footer_widgets_columns',
-				$general_tab_ids_prefix . 'responsive_footer_widgets_padding',
-				$general_tab_ids_prefix . 'responsive_footer_widget_desktop_visibility',
-				$general_tab_ids_prefix . 'responsive_footer_widget_tablet_visibility',
-				$general_tab_ids_prefix . 'responsive_footer_widget_mobile_visibility',
+				// $general_tab_ids_prefix . 'responsive_footer_widgets_separator',
+				// $general_tab_ids_prefix . 'responsive_footer_widgets_columns',
+				// $general_tab_ids_prefix . 'responsive_footer_widgets_padding',
+				// $general_tab_ids_prefix . 'responsive_footer_widget_desktop_visibility',
+				// $general_tab_ids_prefix . 'responsive_footer_widget_tablet_visibility',
+				// $general_tab_ids_prefix . 'responsive_footer_widget_mobile_visibility',
 				// $general_tab_ids_prefix . 'responsive_footer_bar_separator',
-				$general_tab_ids_prefix . 'footer_copyright',
-				$general_tab_ids_prefix . 'responsive_copyright',
-				$general_tab_ids_prefix . 'responsive_copyright_tablet',
-				$general_tab_ids_prefix . 'responsive_copyright_mobile',
+				// $general_tab_ids_prefix . 'footer_copyright',
+				// $general_tab_ids_prefix . 'responsive_copyright',
+				// $general_tab_ids_prefix . 'responsive_copyright_tablet',
+				// $general_tab_ids_prefix . 'responsive_copyright_mobile',
 				// $general_tab_ids_prefix . 'responsive_footer_bar_layout',
-				$general_tab_ids_prefix . 'responsive_footer_bar_padding',
 				// $general_tab_ids_prefix . 'responsive_footer_border_size',
 			);
 
 			responsive_tabs_button_control( $wp_customize, 'footer_tabs', $tabs_label, 'responsive_footer_layout', 1, '', 'responsive_footer_general_tab', 'responsive_footer_design_tab', $general_tab_ids, $design_tab_ids, null );
+
+			$wp_customize->add_setting(
+				'responsive_footer_available_items',
+				array(
+					'sanitize_callback' => 'responsive_sanitize_builder',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$footer_builder_choices = Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_builder_choices' );
+
+			$wp_customize->add_control(
+				new Responsive_Customizer_Builder_Available_Items_Drag_Control(
+					$wp_customize,
+					'responsive_footer_available_items',
+					array(
+						'label'           => esc_html__( 'Available Items', 'responsie' ),
+						'section'         => 'responsive_footer_layout',
+						'settings'        => 'responsive_footer_available_items',
+						'priority'        => 10,
+						'input_attrs'     => array(
+							'group' => 'footer_items',
+							'rows'  => array( 'above', 'primary', 'below' ),
+						),
+						'builder_choices' => $footer_builder_choices,
+					)
+				)
+			);
 
 			// Full Width Footer.
 			// $footer_full_width_label = __( 'Full Width Footer', 'responsive' );
