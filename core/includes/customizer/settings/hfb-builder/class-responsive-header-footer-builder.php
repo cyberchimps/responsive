@@ -166,7 +166,8 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
                 )
             );
 
-			$footer_items = Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_items' );
+			$footer_items 			= Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_items' );
+			$footer_builder_choices = Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_builder_choices' );
 
 			$wp_customize->add_setting(
 				'responsive_footer_items',
@@ -215,49 +216,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 								),
 							),
 						),
-						'builder_choices'      => array(
-							'footer_copyright'          => array(
-								'name'    => esc_html__( 'Copyright', 'responsive' ),
-								'section' => 'responsive_footer_copyright',
-							),
-							'footer_navigation'          => array(
-								'name'    => esc_html__( 'Footer Menu', 'responsive' ),
-								'section' => 'responsive_footer_menu',
-							),
-							'social'      => array(
-								'name'    => esc_html__( 'Socials', 'responsive' ),
-								'section' => 'responsive_social_links',
-							),
-							'widget-1' => array(
-								'name'    => esc_html__( 'Widget 1', 'responsive' ),
-								'section' => 'sidebar-widgets-footer-widget-1',
-								'icon'    => 'wordpress',
-							),
-							'widget-2' => array(
-								'name'    => esc_html__( 'Widget 2', 'responsive' ),
-								'section' => 'sidebar-widgets-footer-widget-2',
-								'icon'    => 'wordpress',
-							),
-							'widget-3' => array(
-								'name'    => esc_html__( 'Widget 3', 'responsive' ),
-								'section' => 'sidebar-widgets-footer-widget-3',
-								'icon'    => 'wordpress',
-							),
-							'widget-4' => array(
-								'name'    => esc_html__( 'Widget 4', 'responsive' ),
-								'section' => 'sidebar-widgets-footer-widget-4',
-								'icon'    => 'wordpress',
-							),
-							'colophon-widget' => array(
-								'name'    => esc_html__( 'Colophon Widget', 'responsive' ),
-								'section' => 'sidebar-widgets-colophon-widget',
-								'icon'    => 'wordpress',
-							),
-							'scroll_to_top'          => array(
-								'name'    => esc_html__( 'Scroll to Top', 'responsive' ),
-								'section' => 'responsive_scrolltotop_section',
-							),
-						),
+						'builder_choices' => $footer_builder_choices,
 					)
 				)
 			);

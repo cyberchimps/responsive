@@ -1318,3 +1318,66 @@ body.rtl .customize-control .responsive-switchers li {
 .responsive-typography-settings-group.responsive-typography-settings-group-footer_copyright_typography li.customize-control:first-child {
 	margin-top: 0;
 }
+/* Footer Builder - Draggable */
+.responsive-footer-builder-is-active .in-sub-panel:not(.section-open) #sub-accordion-panel-responsive_footer .accordion-section.control-section {
+	display: none !important;
+}
+.responsive-footer-builder-is-active .in-sub-panel:not( .section-open ) ul#sub-accordion-section-responsive_footer_layout {
+    transform: none;
+    height: auto;
+    visibility: visible;
+	overflow: visible;
+    top: 73px;
+}
+.responsive-footer-builder-is-active .in-sub-panel:not( .section-open ) ul#sub-accordion-section-responsive_footer_layout .customize-section-description-container.section-meta {
+    display: none;
+}
+.responsive-footer-builder-is-active .in-sub-panel:not( .section-open ) #sub-accordion-section-responsive_footer_layout .customize-section-description-container {
+    display: none;
+}
+.customize-control-responsive-available-drag-control {
+	padding-top: 24px;
+}
+.responsive-hfb-item-wrap {
+    margin-bottom: 14px;
+    min-height: 35px;
+    display: flex;
+}
+.responsive-hfb-item{
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+    background: #FFF;
+    position: relative;
+	border: 0.5px solid #8F8F8F;
+    white-space: nowrap;
+    cursor: grab;
+    padding: 10px;
+    border-radius: 2px;
+	color: #434343;
+	font-size: 14px;
+	font-weight: 400;
+}
+.responsive-hfb-item-wrap .responsive-hfb-item {
+    flex: 1;
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+}
+.responsive-hfb-item-wrap button.responsive-hfb-item {
+	cursor: pointer;
+}
+.responsive-hfb-available-items .dashicon {
+	width: 15px;
+	height: 15px;
+	font-size: 15px;
+}
+.responsive-hfb-available-items-title {
+	border-top: 0.5px solid #D0D0D0;
+	padding-top: 24px;
+	padding-bottom: 14px;
+	margin-top: 24px;
+}
+.responsive-hfb-available-items-title .customize-control-title {
+	margin: 0px;
+}
