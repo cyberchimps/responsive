@@ -59,7 +59,6 @@ const TabsComponent = props => {
 		
 		api('responsive_page_sidebar_toggle', function( value ) {
 			value.bind( function( newval ) {
-				console.log(newval);
 				if( newval == 0){
 					api('responsive_page_sidebar_position', function(value) {
 						value.set('no');
