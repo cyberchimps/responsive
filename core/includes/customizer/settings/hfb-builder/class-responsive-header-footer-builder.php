@@ -51,7 +51,8 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
                 )
             );
 
-			$header_desktop_items = Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_desktop_items' );
+			$header_desktop_items   = Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_desktop_items' );
+			$header_desktop_choices = Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_builder_choices' );
 
 			$wp_customize->add_setting(
 				'responsive_header_desktop_items',
@@ -97,28 +98,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 								),
 							),
 						),
-						'builder_choices'      => array(
-							'logo'          => array(
-								'name'    => esc_html__( 'Site Title & Logo', 'responsive' ),
-								'section' => 'responsive_header_site_logo_title',
-								'icon'    => 'search',
-							),
-							'primary_navigation'          => array(
-								'name'    => esc_html__( 'Primary Menu', 'responsive' ),
-								'section' => 'responsive_header_menu_layout',
-								'icon'    => 'menu',
-							),
-							'secondary_navigation'          => array(
-								'name'    => esc_html__( 'Secondary Menu', 'responsive' ),
-								'section' => 'responsive_header_secondary_menu_layout',
-								'icon'    => 'menu',
-							),
-							'social'          => array(
-								'name'    => esc_html__( 'Social', 'responsive' ),
-								'section' => 'responsive_social_links',
-								'icon'    => 'share',
-							),
-						),
+						'builder_choices' => $header_desktop_choices,
 					)
 				)
 			);
