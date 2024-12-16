@@ -1381,3 +1381,36 @@ body.rtl .customize-control .responsive-switchers li {
 .responsive-hfb-available-items-title .customize-control-title {
 	margin: 0px;
 }
+
+/* Header Builder - Draggable */
+.responsive-header-builder-is-active .in-sub-panel:not(.section-open) #sub-accordion-panel-responsive_header .accordion-section.control-section {
+	display: none !important;
+}
+.responsive-header-builder-is-active .in-sub-panel:not( .section-open ) ul#sub-accordion-section-responsive_header_builder_section {
+    transform: none;
+    height: auto;
+    visibility: visible;
+	overflow: visible;
+    top: 73px;
+}
+.responsive-header-builder-is-active .in-sub-panel:not( .section-open ) ul#sub-accordion-section-responsive_header_builder_section .customize-section-description-container.section-meta {
+    display: none;
+}
+.responsive-header-builder-is-active .in-sub-panel:not( .section-open ) #sub-accordion-section-responsive_header_builder_section .customize-section-description-container {
+    display: none;
+}
+
+#customize-control-responsive_redirect_to_primary_header a {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+#customize-control-responsive_redirect_to_content_header a,
+#customize-control-responsive_redirect_to_header_widgets a,
+#customize-control-responsive_redirect_to_sticky_header a,
+#customize-control-responsive_redirect_to_transparent_header a {
+	padding-top: 18px;
+	padding-bottom: 0;
+	border-top: none;
+	border-bottom: none;
+}

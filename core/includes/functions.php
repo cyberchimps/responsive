@@ -1271,6 +1271,28 @@ function defaults() {
 																				'section' => 'responsive_scrolltotop_section',
 																			),
 																		),
+			'responsive_header_builder_choices'      				    => array(
+																			'logo'          => array(
+																				'name'    => esc_html__( 'Site Title & Logo', 'responsive' ),
+																				'section' => 'responsive_header_site_logo_title',
+																				'icon'    => 'search',
+																			),
+																			'primary_navigation'          => array(
+																				'name'    => esc_html__( 'Primary Menu', 'responsive' ),
+																				'section' => 'responsive_header_menu_layout',
+																				'icon'    => 'menu',
+																			),
+																			'secondary_navigation'          => array(
+																				'name'    => esc_html__( 'Secondary Menu', 'responsive' ),
+																				'section' => 'responsive_header_secondary_menu_layout',
+																				'icon'    => 'menu',
+																			),
+																			'social'          => array(
+																				'name'    => esc_html__( 'Social', 'responsive' ),
+																				'section' => 'responsive_social_links',
+																				'icon'    => 'share',
+																			),
+																		),
 		)
 	);
 	return $theme_options;

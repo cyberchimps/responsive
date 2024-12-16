@@ -71,6 +71,8 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 				// $design_tab_ids_prefix . 'responsive_footer_border_color',
 				$design_tab_ids_prefix . 'responsive_footer_background_image',
 				$design_tab_ids_prefix . 'responsive_footer_bar_padding',
+				$design_tab_ids_prefix . 'responsive_footer_typography_group',
+				$design_tab_ids_prefix . 'responsive_footer_copyright_typography_group',
 			);
 
 			$general_tab_ids_prefix = 'customize-control-';
@@ -245,7 +247,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			// responsive_select_control( $wp_customize, 'footer_bar_layout', $footer_bar_layout_label, 'responsive_footer_layout', 130, $footer_layout_choices, 'horizontal', null, 'postMessage' );
 
 			// Bar Padding.
-			responsive_padding_control( $wp_customize, 'footer_bar', 'responsive_footer_layout', 140, 20, 0, null );
+			responsive_padding_control( $wp_customize, 'footer_bar', 'responsive_footer_layout', 50, 20, 0, null );
 
 			// Bottom Border.
 
@@ -282,7 +284,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 
 			// Typography
 			$footer_typography_label = __( 'Footer Font', 'responsive' );
-			responsive_typography_group_control( $wp_customize, 'footer_typography_group', $footer_typography_label, 'responsive_typography_footer', 10, 'footer_typography' );
+			responsive_typography_group_control( $wp_customize, 'footer_typography_group', $footer_typography_label, 'responsive_footer_layout', 60, 'footer_typography' );
 
 		}
 	}

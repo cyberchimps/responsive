@@ -221,6 +221,7 @@ function responsive_register_options() {
 		'hfb-builder/footer/class-responsive-hfb-footer-below-row',
 		'class-responsive-footer-menu-customizer',
 		'class-responsive-footer-copyright-customizer',
+		'class-responsive-header-builder-section-customizer',
 	);
 
 	if ( is_responsive_version_greater() ) {

@@ -31,7 +31,7 @@ if ( ! class_exists( 'Responsive_Customizer_Builder_Available_Items_Drag_Control
 		 *
 		 * @var array
 		 */
-		public $input_attrs = array();
+		public $input_attrs 	= array();
 		public $builder_choices = array();
 
 		/**
