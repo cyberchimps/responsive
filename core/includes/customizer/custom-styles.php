@@ -3122,6 +3122,74 @@ function responsive_customizer_styles() {
 	}";
 
 	/**Header Footer Builder Styles */
+	$custom_css .= "
+		@media (min-width: 768px) {
+			.site-header-row {
+				display: grid;
+				grid-template-columns: auto auto;
+			}
+			.site-header-section-right {
+				justify-content: flex-end;
+			}
+		}
+
+		.site-header-row.site-header-row-center-column {
+			grid-template-columns: 1fr auto 1fr;
+		}
+
+		.site-header-section {
+			display: flex;
+			max-height: inherit;
+			align-items: center;
+		}
+
+		.site-header-section > .site-header-item:last-child {
+			margin-right: 0;
+		}
+
+		.site-header-section-center {
+			justify-content: center;
+		}
+
+		.site-header-item {
+			display: flex;
+			align-items: center;
+			margin-right: 10px;
+			max-height: inherit;
+		}
+
+		.site-header-row.site-header-row-only-center-column {
+			display: flex;
+			justify-content: center;
+		}
+
+		.site-header-row { /* for backward compatibility */
+			margin-right: -15px;
+			margin-left: -15px;
+		}
+
+		.site-header-row > .site-header-section {
+			flex-wrap: nowrap;
+		}
+
+		.site-header-section:has(.main-navigation.toggled) {
+			display: block;
+		}
+		.res-transparent-header {
+			#masthead,
+			.responsive-site-above-header-wrap,
+			.responsive-site-primary-header-wrap,
+			.responsive-site-below-header-wrap,
+			.responsive-site-below-header-wrap:hover,
+			.responsive-site-primary-header-wrap:hover,
+			.responsive-site-above-header-wrap:hover {
+				background: transparent;
+			}
+		}
+		.site-header-focus-item > .customize-partial-edit-shortcut button {
+			left: 0;
+		}
+	";
 	$hfb_header_above_row_visibility = get_theme_mod( 'responsive_header_above_row_visibility', array( 'desktop', 'tablet', 'mobile' ) );
 	if( ! in_array( 'desktop', $hfb_header_above_row_visibility ) ) {
 		$custom_css .= ".responsive-site-above-header-wrap {
