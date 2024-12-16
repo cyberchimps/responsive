@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { ReactSortable } from 'react-sortablejs';
 const { Fragment } = wp.element;
 import { Button, Dashicon } from '@wordpress/components';
+import he from 'he';
 
 const AvailableItemsDrag = (props) => {
 
@@ -75,7 +76,7 @@ const AvailableItemsDrag = (props) => {
                             onClick={() => focusPanel(item)}
                             data-section={choices[item]?.section || ''}
                         >
-                            {choices[item]?.name || ''}
+                            {he.decode(choices[item]?.name) || ''}
                             <span className="responsive-hfb-item-icon">
                                 <Dashicon icon="arrow-right-alt2" />
                             </span>

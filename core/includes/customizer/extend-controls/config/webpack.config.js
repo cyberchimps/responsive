@@ -6,7 +6,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 module.exports = {
 	...defaultConfig,
 	entry: {
-		'customizer': path.resolve( process.cwd(), '/src/index.js' ),
+		'customizer': path.resolve( process.cwd(), 'src/index.js' ),
 	},
 	output: {
 		filename: '[name].js',
