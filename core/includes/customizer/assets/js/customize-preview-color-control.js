@@ -201,11 +201,18 @@
     } );
 
     //H2 text Color
-    api( 'responsive_h2_text_color', function( value ) {
-        value.bind( function( newval ) {
-            $('h2').css('color', newval );
-        } );
-    } );
+    api('responsive_h2_text_color', function(value) {
+        value.bind(function(newval) {
+            $('h2').each(function() {
+                // Check if the <h2> is not inside an ancestor with the class "widget-area" or "site-title"
+                $isNotWidgetArea = $(this).closest('.widget-area').length === 0;
+                $isNotSiteTitle = $(this).closest('.site-title').length === 0
+                if ( $isNotSiteTitle && $isNotWidgetArea ) {
+                    $(this).css('color', newval);
+                }
+            });
+        });
+    });
 
     //H3 text Color
     api( 'responsive_h3_text_color', function( value ) {
