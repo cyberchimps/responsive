@@ -514,8 +514,8 @@ function responsive_customizer_styles() {
 
 		$sidebar_background_color = esc_html( get_theme_mod( 'responsive_sidebar_background_color', '#ffffff' ) );
 
-		if ( $sidebar_background_image ) {
-			$custom_css .= ".responsive-site-style-boxed aside#secondary .widget-wrapper {
+		if ( $sidebar_background_image || $sidebar_background_color ) {
+			$custom_css .= ".responsive-site-style-boxed aside#secondary.main-sidebar .widget-wrapper {
 				background-color: ' . $sidebar_background_color . ';
 				background-image: linear-gradient(to right, {$sidebar_background_color}, {$sidebar_background_color}), url({$sidebar_background_image});
 				background-repeat: no-repeat;

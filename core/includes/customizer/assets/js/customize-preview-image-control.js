@@ -80,32 +80,6 @@
 	        }
 	    } );
 	} );
-	//sidebar color
-	api( 'responsive_sidebar_background_image_toggle', function( value ) {
-	    value.bind( function( newval ) {
-			if( newval ) {
-				if( api('responsive_sidebar_background_image').get() ) {
-					$('.responsive-site-style-boxed aside#secondary .widget-wrapper').css({'background-image': 'linear-gradient(to right,' + api( 'responsive_sidebar_background_color' ).get() + ',' + api( 'responsive_sidebar_background_color' ).get() + '),url(' + api('responsive_sidebar_background_image').get() + ')', 'background-size': 'cover' });
-				}
-			} else {
-				$('.responsive-site-style-boxed aside#secondary .widget-wrapper').css('background-image', 'none');
-			}
-		} );
-	});
-	//sidebar color
-	api( 'responsive_sidebar_background_image', function( value ) {
-	    value.bind( function( newval ) {
-	        $('.responsive-site-style-boxed aside#secondary .widget-wrapper').css({'background-image': 'linear-gradient(to right,' + api('responsive_sidebar_background_color').get() + ',' + api('responsive_sidebar_background_color').get() + '),url(' + newval + ')', 'background-size': 'cover' });
-	    } );
-	} );
-	//sidebar color
-	api( 'responsive_sidebar_background_color', function( value ) {
-	    value.bind( function( newval ) {
-	        if( api('responsive_sidebar_background_image').get() && api( 'responsive_sidebar_background_image_toggle').get() ) {
-	            $('.responsive-site-style-boxed aside#secondary .widget-wrapper').css('background-image', 'linear-gradient(to right,' + newval + ',' + newval + '),url(' + api('responsive_sidebar_background_image').get() + ')' );
-	        }
-	    } );
-	} );
 	//footer color
 	api( 'responsive_footer_background_image_toggle', function( value ) {
 	    value.bind( function( newval ) {
@@ -226,6 +200,34 @@
 	        if( api('responsive_inputs_background_image').get() && api( 'responsive_inputs_background_image_toggle').get() ) {
 	            $('select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],body div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea').css('background-image', 'linear-gradient(to right,' + newval + ',' + newval + '),url(' + api('responsive_inputs_background_image').get() + ')' );
 	        }
+	    } );
+	} );
+	//sidebar color
+	api( 'responsive_sidebar_background_image_toggle', function( value ) {
+	    value.bind( function( newval ) {
+			if( newval ) {
+				if( api('responsive_sidebar_background_image').get() ) {
+					$('.responsive-site-style-boxed aside#secondary .widget-wrapper').css({'background-image': 'linear-gradient(to right,' + api( 'responsive_sidebar_background_color' ).get() + ',' + api( 'responsive_sidebar_background_color' ).get() + '),url(' + api('responsive_sidebar_background_image').get() + ')', 'background-size': 'cover' });
+				}
+			} else {
+				$('.responsive-site-style-boxed aside#secondary .widget-wrapper').css('background-image', 'none');
+			}
+		} );
+	});
+	//sidebar color
+	api( 'responsive_sidebar_background_image', function( value ) {
+	    value.bind( function( newval ) {
+	        $('.responsive-site-style-boxed aside#secondary .widget-wrapper').css({'background-image': 'linear-gradient(to right,' + api('responsive_sidebar_background_color').get() + ',' + api('responsive_sidebar_background_color').get() + '),url(' + newval + ')', 'background-size': 'cover' });
+	    } );
+	} );
+	//sidebar color
+	api( 'responsive_sidebar_background_color', function( value ) {
+	    value.bind( function( newval ) {
+	        if( api('responsive_sidebar_background_image').get() && api( 'responsive_sidebar_background_image_toggle').get() ) {
+	            $('.responsive-site-style-boxed aside#secondary .widget-wrapper').css('background-image', 'linear-gradient(to right,' + newval + ',' + newval + '),url(' + api('responsive_sidebar_background_image').get() + ')' );
+	        } else{
+				$('.responsive-site-style-boxed aside#secondary .widget-wrapper').css('background-image', 'linear-gradient(to right,' + newval + ',' + newval + ')');
+			}
 	    } );
 	} );
 
