@@ -78,7 +78,6 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				$tab_ids_prefix . 'responsive_breadcrumb_enable_archive',
 				$tab_ids_prefix . 'responsive_breadcrumb_enable_single_page',
 				$tab_ids_prefix . 'responsive_breadcrumb_enable_single_post',
-				$tab_ids_prefix . 'responsive_breadcrumb_enable_singular',
 				$tab_ids_prefix . 'responsive_breadcrumb_enable_404_page',
 				$tab_ids_prefix . 'responsive_breadcrumb_separator',
 				$tab_ids_prefix . 'responsive_breadcrumb_separator_separator',
