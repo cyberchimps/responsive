@@ -35,16 +35,16 @@ if ( is_home() && responsive_free_get_option( 'blog_post_title_toggle' ) ) {
 
 $responsive_show_breadcrumbs = false;
 if ( 1 === $responsive_options['breadcrumb'] ) {
-	if(is_home())
+	if(is_front_page())
 	{
-		if(1 === get_theme_mod( 'responsive_breadcrumb_enable_blog_posts_page', 0 ) )
+		if(1 === get_theme_mod( 'responsive_breadcrumb_enable_home_page', 0 ))
 		{
 			$responsive_show_breadcrumbs = true;
 		} 
 	}
-	else if(is_front_page())
+	else if(is_home())
 	{
-		if(1 === get_theme_mod( 'responsive_breadcrumb_enable_home_page', 0 ))
+		if(1 === get_theme_mod( 'responsive_breadcrumb_enable_blog_posts_page', 0 ) )
 		{
 			$responsive_show_breadcrumbs = true;
 		} 
