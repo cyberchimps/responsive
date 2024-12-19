@@ -515,8 +515,8 @@ function responsive_customizer_styles() {
 		$sidebar_background_color = esc_html( get_theme_mod( 'responsive_sidebar_background_color', '#ffffff' ) );
 		$box_background_color = esc_html( get_theme_mod( 'responsive_box_background_color', '#ffffff' ) );
 		
-		//TODO
-		if ( $sidebar_background_image || $sidebar_background_color ) {
+		// Priority to Sidebar Background Image and Color Over Box Background Image and Color
+		if ( $sidebar_background_image || ($sidebar_background_color && $box_background_color === '#ffffff') ) {
 			$custom_css .= ".responsive-site-style-boxed aside#secondary.main-sidebar .widget-wrapper {
 				background-color: $sidebar_background_color;
 				background-image: linear-gradient(to right, {$sidebar_background_color}, {$sidebar_background_color}), url({$sidebar_background_image});
@@ -524,7 +524,7 @@ function responsive_customizer_styles() {
 				background-size: cover;
 				background-attachment: scroll;
 			}";
-		} else if ( $box_background_image || $box_background_color ) {
+		} else {
 			$custom_css .= ".responsive-site-style-boxed aside#secondary.main-sidebar .widget-wrapper {
 				background-color: $box_background_color;
 				background-image: linear-gradient(to right, {$box_background_color}, {$box_background_color}), url({$box_background_image});
