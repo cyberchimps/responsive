@@ -512,14 +512,18 @@ function responsive_customizer_styles() {
 				}";
 		}
 
-		$sidebar_background_color = esc_html( get_theme_mod( 'responsive_sidebar_background_color', '#ffffff' ) );
+		$default_sidebar_color = '#ffffff';
+		$sidebar_background_color = esc_html( get_theme_mod( 'responsive_sidebar_background_color', $default_sidebar_color ) );
 		$box_background_color = esc_html( get_theme_mod( 'responsive_box_background_color', '#ffffff' ) );
+		$is_sidebar_color_default = ( get_theme_mod( 'responsive_sidebar_background_color', null ) === null );
 		
 		// Priority to Sidebar Background Image and Color Over Box Background Image and Color
-		if ( $sidebar_background_image || ($sidebar_background_color && $box_background_color === '#ffffff') ) {
+		if ( $sidebar_background_image || ( !$is_sidebar_color_default && $sidebar_background_color !== $default_sidebar_color ) ) {
+			$background_image = $sidebar_background_image ? $sidebar_background_image : $box_background_image;
+			error_log("sidebar_background_color: ".$sidebar_background_color);
 			$custom_css .= ".responsive-site-style-boxed aside#secondary.main-sidebar .widget-wrapper {
 				background-color: $sidebar_background_color;
-				background-image: linear-gradient(to right, {$sidebar_background_color}, {$sidebar_background_color}), url({$sidebar_background_image});
+				background-image: linear-gradient(to right, {$sidebar_background_color}, {$sidebar_background_color}), url({$background_image});
 				background-repeat: no-repeat;
 				background-size: cover;
 				background-attachment: scroll;
