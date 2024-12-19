@@ -9,17 +9,13 @@ Changelog Legend:
 [!] = Bugs
 
 (19/12/2024) = Fix - Version 6.0.3
-[*] = Improvement = Removed "Free" badge in the Responsive > Dashboard from Responsive Plus feature cards.
 [!] = Fix = Fixed the global styling for buttons not working in Elementor.
 [!] = Fix = Fixed the global setting form field - border width control visibility issue.
 [!] = Fix = Fixed the background image bug.
 [!] = Fix = Removed the 'Enable On Singular' breadcrumb option.
 [!] = Fix = Fixed the sidebar toggle buttons are not working.
 [!] = Fix = Fixed the color not working in - Global Settings > Typography > Design > h2 font color.
-[!] = Fix = Fixed the 404 redirect on the docs button under White label and Woocommerce.
 [!] = Fix = Fixed the global settings are overriding the sidebar background color settings.
-[!] = Fix = Fixed the unnecessary margin below header.
-[!] = Fix = Removed the Responsive Plus install notice in the theme customizer.
 
 (21/11/2024) = Fix - Version 6.0.2
 [*] = Improvement = Uses ARIA roles on incompatible elements.
