@@ -801,6 +801,12 @@ function responsive_customizer_styles() {
 				if ( 'font-family' === $key ) {
 					$custom_css .= '.has-h' . $i . '-font-family{' . $key . ':' . $value . '; }';
 				}
+				// Typography line height for heading widget.
+				if ( 'line-height' === $key ) {
+					if ( defined( 'ELEMENTOR_VERSION' ) ) {
+						$custom_css .= '.elementor-widget-heading h' . $i . '.elementor-heading-title{' . $key . ':' . $value . '; }';
+					}
+				}
 			}
 		}
 	}

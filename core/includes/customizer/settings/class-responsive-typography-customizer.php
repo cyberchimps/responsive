@@ -882,6 +882,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'googleFonts'       => responsive_get_google_fonts(),
 					'selectorArray'     => self::getSelectorArray(),
 					'isThemeGreater'    => $this->is_responsive_version_greater(),
+					'isElementorActive' => defined( 'ELEMENTOR_VERSION' ) ? true : false,
 				)
 			);
 		}
