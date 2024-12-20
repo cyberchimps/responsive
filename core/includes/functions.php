@@ -1287,7 +1287,7 @@ function defaults() {
 																			),
 																			'social'          => array(
 																				'name'    => esc_html__( 'Social', 'responsive' ),
-																				'section' => 'responsive_social_links',
+																				'section' => 'responsive_header_social',
 																				'icon'    => 'share',
 																			),
 																		),
