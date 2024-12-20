@@ -1551,20 +1551,23 @@
     //Header Top Row Background Color
     api( 'responsive_header_above_row_bg_color', function( value ) {
         value.bind( function( newval ) {
-            $('.responsive-site-above-header-wrap').css('background-color', newval );
+            jQuery('style#responsive-header-above-row-bg-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-above-row-bg-color">'
+                + '.responsive-site-above-header-wrap { background-color: ' + newval + ' }'
+                + '</style>'
+            );
         } );
     } );
 
     //Header Top Row Hover Background Color
     api( 'responsive_header_above_row_bg_hover_color', function( value ) {
         value.bind( function( newval ) {
-            $(".responsive-site-above-header-wrap").hover(
-                function() {
-                    $(this).css("background-color", api('responsive_header_above_row_bg_hover_color').get());
-                },
-                function() {
-                    $(this).css("background-color", api('responsive_header_above_row_bg_color').get());
-                }
+            jQuery('style#responsive-header-above-row-bg-hover-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-above-row-bg-hover-color">'
+                + '.responsive-site-above-header-wrap:hover { background-color: ' + newval + ' }'
+                + '</style>'
             );
         } );
     } );
@@ -1596,20 +1599,23 @@
     //Header Primary Row Background Color
     api( 'responsive_header_primary_row_bg_color', function( value ) {
         value.bind( function( newval ) {
-            $('.responsive-site-primary-header-wrap').css('background-color', newval );
+            jQuery('style#responsive-header-primary-row-bg-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-primary-row-bg-color">'
+                + '.responsive-site-primary-header-wrap { background-color: ' + newval + ' }'
+                + '</style>'
+            );
         } );
     } );
 
     //Header Primary Row Hover Background Color
     api( 'responsive_header_primary_row_bg_hover_color', function( value ) {
         value.bind( function( newval ) {
-            $(".responsive-site-primary-header-wrap").hover(
-                function() {
-                    $(this).css("background-color", api('responsive_header_primary_row_bg_hover_color').get());
-                },
-                function() {
-                    $(this).css("background-color", api('responsive_header_primary_row_bg_color').get());
-                }
+            jQuery('style#responsive-header-primary-row-bg-hover-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-primary-row-bg-hover-color">'
+                + '.responsive-site-primary-header-wrap:hover { background-color: ' + newval + ' }'
+                + '</style>'
             );
         } );
     } );
@@ -1641,20 +1647,23 @@
     //Header Below Row Background Color
     api( 'responsive_header_below_row_bg_color', function( value ) {
         value.bind( function( newval ) {
-            $('.responsive-site-below-header-wrap').css('background-color', newval );
+            jQuery('style#responsive-header-below-row-bg-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-below-row-bg-color">'
+                + '.responsive-site-below-header-wrap { background-color: ' + newval + ' }'
+                + '</style>'
+            );
         } );
     } );
 
     //Header Below Row Hover Background Color
     api( 'responsive_header_below_row_bg_hover_color', function( value ) {
         value.bind( function( newval ) {
-            $(".responsive-site-below-header-wrap").hover(
-                function() {
-                    $(this).css("background-color", api('responsive_header_below_row_bg_hover_color').get());
-                },
-                function() {
-                    $(this).css("background-color", api('responsive_header_below_row_bg_color').get());
-                }
+            jQuery('style#responsive-header-below-row-bg-hover-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-below-row-bg-hover-color">'
+                + '.responsive-site-below-header-wrap:hover { background-color: ' + newval + ' }'
+                + '</style>'
             );
         } );
     } );

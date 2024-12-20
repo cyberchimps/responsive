@@ -1887,9 +1887,9 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
         { type: 'below', selector: '.rspv-site-below-footer-wrap' },
     ];
     const hfbFooterRowsItems = [
-        { type: 'above', selector: '.rspv-site-above-footer-wrap .footer-widget-area' },
-        { type: 'primary', selector: '.rspv-site-primary-footer-wrap .footer-widget-area' },
-        { type: 'below', selector: '.rspv-site-below-footer-wrap .footer-widget-area' },
+        { type: 'above', selector: '.rspv-site-above-footer-wrap .footer-widget-area, .rspv-site-above-footer-wrap .footer-widget-wrapper' },
+        { type: 'primary', selector: '.rspv-site-primary-footer-wrap .footer-widget-area, .rspv-site-primary-footer-wrap .footer-widget-wrapper' },
+        { type: 'below', selector: '.rspv-site-below-footer-wrap .footer-widget-area, .rspv-site-below-footer-wrap .footer-widget-wrapper' },
     ];
 
     // Common suffixes for both margin and padding

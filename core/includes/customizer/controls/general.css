@@ -1406,7 +1406,7 @@ body.rtl .customize-control .responsive-switchers li {
 }
 
 #customize-control-responsive_redirect_to_content_header a,
-#customize-control-responsive_redirect_to_header_widgets a,
+#customize-control-responsive_redirect_to_header_widgets_section a,
 #customize-control-responsive_redirect_to_sticky_header a,
 #customize-control-responsive_redirect_to_transparent_header a {
 	padding-top: 18px;
