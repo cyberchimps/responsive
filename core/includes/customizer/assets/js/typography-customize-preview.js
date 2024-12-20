@@ -2436,5 +2436,16 @@
         } );
     } )
 
+    // Typography line height for heading widget.
+    if( responsive.isElementorActive ) {
+        for ( let i=1; i < 7; i++ ) {
+            api( 'heading_h'+i+'_typography[line-height]', function( $swipe ) {
+                $swipe.bind( function( newval ) {
+                    $(  '.elementor-widget-heading h' + i + '.elementor-heading-title').css( 'line-height', newval );
+                } );
+            } );
+        }
+    }
+
 } )( jQuery );
 
