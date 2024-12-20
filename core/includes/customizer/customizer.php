@@ -157,8 +157,11 @@ function responsive_customize_preview_js() {
 	}
 	$localize_array = array(
 		'isDisableElementorDefaultColors' => 'yes' === get_option( 'elementor_disable_color_schemes' ) ? true : false,
+		'isElementorVersion'              => defined( 'ELEMENTOR_VERSION' ) ? true : false,
 	);
 	wp_localize_script( 'responsive_theme_customizer_color', 'responsiveSiteLocalOptions', $localize_array );
+	wp_localize_script( 'responsive_theme_customizer_padding', 'responsiveSiteLocalOptions', $localize_array );
+	wp_localize_script( 'responsive_theme_customizer_number', 'responsiveSiteLocalOptions', $localize_array );
 }
 
 /**
