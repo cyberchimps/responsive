@@ -377,6 +377,10 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				$responsive_typography_selectors['page'] = '.page .post-title, #main-blog h1';
 			}
 
+			if ( 'yes' === get_option( 'elementor_disable_typography_schemes' ) ) {
+				$responsive_typography_selectors['button'] = '.elementor-button-wrapper .elementor-button';
+			}
+
 			$selectorArray = apply_filters(
 				'responsive_typography_selectors',
 				$responsive_typography_selectors

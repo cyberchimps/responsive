@@ -1209,6 +1209,45 @@ function responsive_customizer_styles() {
 	}
 	';
 
+	if ( defined( 'ELEMENTOR_VERSION' ) ) {
+		$custom_css .= '.elementor-button-wrapper .elementor-button{ padding: ' . responsive_spacing_css( $buttons_padding_top, $buttons_padding_right, $buttons_padding_bottom, $buttons_padding_left ) . '; }';
+		$custom_css .= '@media screen and ( max-width: 992px ) {
+			.elementor-button-wrapper .elementor-button {
+				padding: ' . responsive_spacing_css( $buttons_tablet_padding_top, $buttons_tablet_padding_right, $buttons_tablet_padding_bottom, $buttons_tablet_padding_left ) . '
+			}
+		}';
+		$custom_css .= '@media screen and ( max-width: 576px ) {
+			.elementor-button-wrapper .elementor-button {
+				padding: ' . responsive_spacing_css( $buttons_mobile_padding_top, $buttons_mobile_padding_right, $buttons_mobile_padding_bottom, $buttons_mobile_padding_left ) . '
+			}
+		}';
+
+		$custom_css .= '.elementor-button-wrapper .elementor-button {
+			border-top-left-radius: ' . $button_top_left_radius . 'px;
+			border-top-right-radius: ' . $button_top_right_radius . 'px;
+			border-bottom-left-radius: ' . $button_bottom_left_radius . 'px;
+			border-bottom-right-radius: ' . $button_bottom_right_radius . 'px;
+		}';
+
+		$custom_css .= '@media screen and ( max-width: 992px ) {
+			.elementor-button-wrapper .elementor-button {
+				border-top-left-radius: ' . $button_tablet_top_left_radius . 'px;
+				border-top-right-radius: ' . $button_tablet_top_right_radius . 'px;
+				border-bottom-left-radius: ' . $button_tablet_bottom_left_radius . 'px;
+				border-bottom-right-radius: ' . $button_tablet_bottom_right_radius . 'px;
+			}
+		}';
+
+		$custom_css .= '@media screen and ( max-width: 576px ) {
+			.elementor-button-wrapper .elementor-button {
+				border-top-left-radius: ' . $button_mobile_top_left_radius . 'px;
+				border-top-right-radius: ' . $button_mobile_top_right_radius . 'px;
+				border-bottom-left-radius: ' . $button_mobile_bottom_left_radius . 'px;
+				border-bottom-right-radius: ' . $button_mobile_bottom_right_radius . 'px;
+			}
+		}';
+	}
+
 	for ( $i = 1; $i < 7; $i++ ) {
 		$heading_color = get_theme_mod( 'responsive_all_heading_text_color', Responsive\Core\get_responsive_customizer_defaults( "h{$i}_text" ) );
 
