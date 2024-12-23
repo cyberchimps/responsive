@@ -71,6 +71,27 @@ if ( ! class_exists( 'Responsive_Header_Social_Icons_Customizer' ) ) :
 				)
 			);
 
+			$wp_customize->add_setting(
+				'responsive_header_social_show_label',
+				array(
+					'sanitize_callback' => 'Responsive\Customizer\\responsive_sanitize_checkbox',
+					'type'              => 'theme_mod',
+					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_social_show_label' ),
+				)
+			);
+			$wp_customize->add_control(
+				new Responsive_Customizer_Toggle_Control(
+					$wp_customize,
+					'responsive_header_social_show_label',
+					array(
+						'label'    => __( 'Show Icon Label', 'responsive' ),
+						'section'  => 'responsive_header_social',
+						'settings' => 'responsive_header_social_show_label',
+						'priority' => 50,
+					)
+				)
+			);
+
 			// Redirect to social links.
 			responsive_redirect_control( $wp_customize, 'redirect_to_social_links', __( 'Set Social Links', 'responsive' ), 'responsive_header_social', 60, 'section', 'responsive_social_links');
 		}

@@ -87,6 +87,8 @@ const ResponsiveSocialComponent = props => {
             { value: '500px', label: __('500PX', 'responsive') },
             { value: 'bandcamp', label: __('Bandcamp', 'responsive') },
             { value: 'anchor', label: __('Anchor', 'responsive') },
+            { value: 'stumbleupon', label: __('Stumbleupon', 'responsive') },
+            { value: 'foursquare', label: __('Foursquare', 'responsive') },
             { value: 'custom1', label: __('Custom 1', 'responsive') },
             { value: 'custom2', label: __('Custom 2', 'responsive') },
             { value: 'custom3', label: __('Custom 3', 'responsive') },

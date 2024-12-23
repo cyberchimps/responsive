@@ -1147,7 +1147,7 @@ function defaults() {
 			'blog_content_width'                  => 66,
 			'res_breadcrumb'                      => 1,
 			'blog_sidebar_position'               => 'right',
-
+			'responsive_header_social_show_label' => 0,
 			'responsive_h4_text_color'            => '#333333',
 			'responsive_box_background_color'     => '#ffffff',
 			'responsive_body_text_color'          => '#333333',
