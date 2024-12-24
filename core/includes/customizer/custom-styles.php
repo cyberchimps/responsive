@@ -122,6 +122,7 @@ if ( ! function_exists( 'typography_unit_conversion' ) ) {
  * @return void
  */
 function responsive_customizer_styles() {
+	error_log( 'body typo font family: ' . print_r( get_theme_mod( 'body_typography[font-family]' ), true ) );
 	responsive_get_color_palettes_schemes_as_customizer_choices();
 	$custom_css = '';
 

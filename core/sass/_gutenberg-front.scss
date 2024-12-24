@@ -131,3 +131,25 @@
     background-color: #0066CC;
     color: #ffffff;
 }
+
+.post-entry .wp-block-media-text.has-media-on-the-right .wp-block-media-text__content {
+	// padding: 0 8% 0 7%;
+    padding-left: 7%;
+    padding-right: 0;
+}
+.responsive-custom-home-hero {
+    &.wp-block-cover {
+        padding: 0;
+    }
+    &.wp-block-cover .wp-block-cover__inner-container {
+        max-width: none;
+    }
+    // & .wp-block-media-text__content {
+    //     padding-left: 60px;
+    // }
+}
+// .post-entry {
+//     & > .wp-block-group {
+//         padding-left: 78px;
+//     }
+// }

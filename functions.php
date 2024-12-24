@@ -55,6 +55,7 @@ require $responsive_template_directory . '/core/includes/modules/related-posts/c
 require $responsive_template_directory . '/core/includes/functions-deprecated.php';
 // Custom page walker.
 require $responsive_template_directory . '/core/includes/classes/class-responsive-walker-page.php';
+require $responsive_template_directory . '/admin/starter-custom-page/responsive-home-starter-content.php';
 
 if ( is_admin() ) {
 	/**
@@ -254,6 +255,12 @@ function responsive_free_setup() {
 			),
 		)
 	);
+
+	if ( class_exists( 'Responsive_Home_Starter_Content', false ) ) {
+		error_log( 'Responsive_Home_Starter_Content called' );
+		$responsive_home_starter_content = new Responsive_Home_Starter_Content();
+		add_theme_support( 'starter-content', $responsive_home_starter_content->get() );
+	}
 }
 add_action( 'after_setup_theme', 'responsive_free_setup' );
 
