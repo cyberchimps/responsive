@@ -3725,8 +3725,8 @@ function responsive_customizer_styles() {
 	$primary_footer_height 			     = get_theme_mod( 'responsive_footer_primary_height', 30 );
 	$primary_footer_vertical_alignment   = get_theme_mod( 'responsive_footer_primary_vertical_alignment', 'center' );
 	$primary_footer_bg_color   		     = get_theme_mod( 'responsive_footer_primary_row_bg_color', '#333' );
-	$primary_footer_top_border_size      = get_theme_mod( 'responsive_footer_primary_row_top_border_size', 0 );
-	$primary_footer_top_border_color     = get_theme_mod( 'responsive_footer_primary_row_border_color', '#FFF' );
+	$primary_footer_top_border_size      = get_theme_mod( 'responsive_footer_primary_row_top_border_size', 1 );
+	$primary_footer_top_border_color     = get_theme_mod( 'responsive_footer_primary_row_border_color', '#aaaaaa' );
 	$custom_css .= "
 		.rspv-site-primary-footer-inner-wrap {
 			grid-column-gap: {$primary_footer_inner_column_spacing}px;

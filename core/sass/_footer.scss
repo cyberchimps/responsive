@@ -26,6 +26,7 @@
 .footer-widgets {
     display: block;
     padding: $grid-gutter-width * 2  0;
+    flex-grow: 1;
     .row {
         justify-content: space-between;
     }
