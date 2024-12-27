@@ -195,3 +195,19 @@
 .responsive-social-remove-image {
     border: none;
 }
+#customize-control-responsive_header_social_show_label {
+    margin-top: 10px;
+}
+#customize-control-responsive_header_social_item_spacing {
+    margin-bottom: 18px;
+    border-top: 0.5px solid #D0D0D0;
+}
+#customize-control-responsive_header_social_item_spacing {
+    margin-bottom: 12px;
+}
+#customize-control-responsive_header_social_redirect_to_social_links a {
+    border-bottom: none;
+}
+#customize-control-responsive_header_social_item_typography_group {
+    margin-top: 22px;
+}

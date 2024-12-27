@@ -549,5 +549,10 @@
            $( '.rspv-site-below-footer-wrap' ).css( 'border-top', newval + 'px solid '+ api('responsive_footer_below_row_border_color').get() );
         });
     });
+    api( 'responsive_header_social_item_spacing', function(value){
+        value.bind(function(newval) {
+           $( '.header-layouts.social-icon .social-icons' ).css( 'gap', newval + 'px' );
+        });
+    });
 
 } )( jQuery );

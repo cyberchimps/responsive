@@ -3072,3 +3072,36 @@ function responsive_builder_row_layout_control( $wp_customize, $element, $label,
 		)
 	);
 }
+
+if ( ! function_exists( 'responsive_header_social_elements' ) ) {
+	/**
+	 * Returns header social elements for the customizer.
+	 *
+	 * @since 0.2
+	 */
+	function responsive_header_social_elements() {
+
+		// Default elements.
+		$elements = apply_filters(
+			'responsive_header_social_elements',
+			array(
+				'facebook'  => 'Facebook',
+				'x'         => 'X',
+			)
+		);
+
+		return $elements;
+
+	}
+}
+
+if ( ! function_exists( 'responsive_show_social_background_colors' ) ) {
+
+	function responsive_show_social_background_colors() {
+		$social_item_style = get_theme_mod( 'responsive_header_social_item_style', 'filled' );
+		if ( 'filled' === $social_item_style ) {
+			return true;
+		}
+		return false;
+	}
+}

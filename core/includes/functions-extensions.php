@@ -439,12 +439,11 @@ function responsive_get_social_icons( $area ) {
 		foreach ( $header_social_items as $social_item ) {
 			$social_icons_sequence[] = $social_item['id'];
 		}
-		error_log( print_r( $header_social_items, true ) );
 		if ( $count > 0 && $area === '_header' || $count > 0 && $area === '_footer' ) {
 			require get_stylesheet_directory() . '/core/includes/responsive-icon-library.php'
 			?>
 			<div class="header-layouts social-icon">
-				<ul class="social-icons" style="display: flex;flex-wrap: wrap;align-items: center;">
+				<ul class="social-icons">
 					<?php
 					$target_social_link = get_theme_mod( 'responsive_social_link_new_tab', '_self' );
 					$is_show_label = get_theme_mod( 'responsive_header_social_show_label' );
@@ -464,14 +463,28 @@ function responsive_get_social_icons( $area ) {
 							}
 						}
 						if ( ! empty( $responsive_options[ $key . '_uid' ] ) ) {
-							error_log( $key );
+							$use_brand_colors = get_theme_mod( 'responsive_header_social_item_use_brand_colors', 'no' );
+							$brand_color = '';
+							$brand_svg = '';
+							if ( 'yes' === $use_brand_colors ) {
+								$brand_color = ' responsive-social-icon-anchor-' . esc_html( $key );
+								$brand_svg = ' responsive-social-icon-custom-svg-brand';
+							}
+							if ( 'on-hover' === $use_brand_colors ) {
+								$brand_color = ' responsive-social-icon-anchor-hover-' . esc_html( $key );
+								$brand_svg = ' responsive-social-icon-custom-svg-brand-hover';
+							}
+							if ( 'until-hover' === $use_brand_colors ) {
+								$brand_color = ' responsive-social-icon-anchor-until-hover-' . esc_html( $key );
+							}
 							?>
-							<li class="responsive-social-icon-<?php echo esc_html( $key ); ?>">
-								<a aria-label=<?php echo esc_attr( $key ); ?> title=<?php echo esc_attr( $key ); ?> href="<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target=<?php echo esc_attr( $target_social_link ); ?> <?php responsive_schema_markup( 'url' ); ?>>
+							<li class="responsive-social-icon responsive-social-icon-<?php echo esc_html( $key ); ?>">
+								<a class="responsive-social-icon-anchor<?php echo $brand_color; ?>" aria-label=<?php echo esc_attr( $key ); ?> title=<?php echo esc_attr( $key ); ?> href="<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target=<?php echo esc_attr( $target_social_link ); ?> <?php responsive_schema_markup( 'url' ); ?>>
 									<?php
+									error_log( $key . ' -> ' . $icon_source );
 										if ( 'icon' === $icon_source ) {
 											?>
-											<span class="responsive-social-icon-custom-svg" style="max-width:24px; display: inline-flex;">
+											<span class="responsive-social-icon-custom-svg<?php echo esc_attr( $brand_svg ); ?>">
 												<?php
 												echo responsive_get_svg_icon( $icon_type );
 												?>
@@ -480,14 +493,14 @@ function responsive_get_social_icons( $area ) {
 										}
 										if ( 'image' === $icon_source ) {
 											?>
-											<span class="responsive-social-icon-custom-svg" style="max-width:24px; display: inline-flex;">
-												<img fetchpriority="high" src="<?php echo esc_url( $icon_url ); ?>" class="responsive-social-icon-image" style="max-width:24px;" decoding="async">
+											<span class="responsive-social-icon-custom-svg<?php echo esc_attr( $brand_svg ); ?>">
+												<img fetchpriority="high" src="<?php echo esc_url( $icon_url ); ?>" class="responsive-social-icon-image" decoding="async">
 											</span>
 											<?php
 										}
 										if ( 'svg' === $icon_source ) {
 											?>
-											<span class="responsive-social-icon-custom-svg" style="max-width:24px; display: inline-flex;">
+											<span class="responsive-social-icon-custom-svg<?php echo esc_attr( $brand_svg ); ?>">
 												<?php
 													echo $icon_svg;
 												?>
@@ -496,7 +509,7 @@ function responsive_get_social_icons( $area ) {
 										}
 										if ( $is_show_label ) {
 											?>
-											<span class="responsive-social-icon-label" style="max-width:24px; display: inline-flex;">
+											<span class="responsive-social-icon-label">
 												<?php
 												echo esc_html( $icon_label );
 												?>

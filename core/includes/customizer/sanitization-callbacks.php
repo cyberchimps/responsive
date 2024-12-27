@@ -306,12 +306,10 @@ function responsive_sanitize_multi_select( $input ) {
 }
 
 function responsive_sanitize_social( $input ) {
-	error_log( print_r( $input, true ) );
-	return $input;
-	// if ( is_array( $input ) ) {
-	// 	return $input;
-	// }
-	// return array();
+	if ( is_array( $input ) ) {
+		return $input;
+	}
+	return array();
 }
 
 /**

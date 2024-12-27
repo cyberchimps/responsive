@@ -1055,6 +1055,123 @@ body.mega-menu-header-menu button.menu-toggle {
     align-items: center;
     margin-right: 10px;
     max-height: inherit;
+
+    .social-icons {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        .responsive-social-icon {
+            .responsive-social-icon-anchor {
+                text-decoration: none;
+                height: 2em;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+                width: auto;
+                padding: 0 0.4em;
+
+                $socials: (
+                    twitter: #1DA1F2,
+                    facebook: #3b5998,
+                    linkedin: #4875B4,
+                    youtube: #FF3333,
+                    stumbleupon: #F1440C,
+                    rss: #FF6200,
+                    instagram: #517fa4,
+                    pinterest: #C92228,
+                    yelp: #c41200,
+                    vimeo: #4EBBFF,
+                    foursquare: #F94877,
+                    email: #181818,
+                    bandcamp: #1DA0C3,
+                    behance: #1769ff,
+                    discord: #7289DA,
+                    github: #4078c0,
+                    googlereviews: #DB4437,
+                    medium: #181818,
+                    patreon: #052D49,
+                    phone: #181818,
+                    reddit: #ff4500,
+                    soundcloud: #ff7700,
+                    spotify: #23CF5F,
+                    telegram: #0088cc,
+                    threads: #000000,
+                    tiktok: #69C9D0,
+                    vk: #45668e,
+                    whatsapp: #28cf54,
+                    wordpress: #00749C,
+                );
+
+                @each $name, $color in $socials {
+                    &-#{$name} {
+                        background-color: $color !important;
+                        color: #fff;
+                    }
+
+                    &-hover-#{$name}:hover {
+                        background-color: $color !important;
+                        color: #fff;
+                        fill: #fff;
+                    }
+
+                    &-until-hover-#{$name} {
+                        background-color: $color !important;
+                        color: #fff;
+                        fill: #fff;
+                    }
+                    &-until-hover-#{$name}:hover {
+                        background-color: #2B6CB0 !important;
+                        fill: #fff;
+                    }
+                }
+
+                &-custom1,
+                &-custom2,
+                &-custom3 {
+                    color: #FFFFFF;
+                }
+
+                &-until-hover-custom1,
+                &-until-hover-custom2,
+                &-until-hover-custom3 {
+                    color: #fff;
+                }
+
+                &-hover-custom1:hover,
+                &-hover-custom2:hover,
+                &-hover-custom3:hover,
+                &-until-hover-custom1:hover,
+                &-until-hover-custom2:hover,
+                &-until-hover-custom3:hover {
+                    background-color: #2B6CB0 !important;
+                    color: #fff;
+                }
+
+                .responsive-social-icon-custom-svg {
+                    max-width: 24px;
+                    display: inline-flex;
+
+                    &.responsive-social-icon-custom-svg-brand {
+                        fill: #FFFFFF;
+                    }
+
+                    // @each $color in $socials {
+                    //     &-brand {
+                    //         svg {
+                    //             fill: $color !important;
+                    //         }
+                    //     }
+                    // }
+                }
+
+                .responsive-social-icon-label {
+                    margin-left: 6px;
+                }
+            }
+        }
+    }
 }
 .site-header-row.site-header-row-only-center-column {
     display: flex;

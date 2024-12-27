@@ -3753,6 +3753,17 @@ function responsive_customizer_styles() {
 	$custom_css .= build_responsive_padding_spacing_css($below_footer_padding_values['mobile']);
 	$custom_css .= "}}";
 
+	// Header Social.
+	$social_item_spacing = get_theme_mod( 'responsive_header_social_item_spacing', 0 );
+	if ( $social_item_spacing > 0 ) {
+		$custom_css .= ".header-layouts.social-icon .social-icons { gap: " . $social_item_spacing . "px }";
+	}
+	$social_item_style = get_theme_mod( 'responsive_header_social_item_style', 'filled' );
+	if ( 'filled' === $social_item_style ) {
+		$custom_css .= '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { background-color: #EDF2F7}';
+	}
+
+
 	if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
 		// Outside Container Spacing.
 		$outside_container_padding_right  = esc_html( get_theme_mod( 'responsive_outside_container_right_padding', 15 ) );
