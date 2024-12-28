@@ -1149,21 +1149,12 @@ body.mega-menu-header-menu button.menu-toggle {
                     color: #fff;
                 }
 
-                .responsive-social-icon-custom-svg {
-                    max-width: 24px;
+                .responsive-social-icon-wrapper {
                     display: inline-flex;
 
-                    &.responsive-social-icon-custom-svg-brand {
+                    &.responsive-social-icon-wrapper-brand {
                         fill: #FFFFFF;
                     }
-
-                    // @each $color in $socials {
-                    //     &-brand {
-                    //         svg {
-                    //             fill: $color !important;
-                    //         }
-                    //     }
-                    // }
                 }
 
                 .responsive-social-icon-label {

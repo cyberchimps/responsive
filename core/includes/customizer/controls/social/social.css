@@ -211,3 +211,6 @@
 #customize-control-responsive_header_social_item_typography_group {
     margin-top: 22px;
 }
+#customize-control-responsive_header_social_item_border_style .customize-control-responsive-selectbtn .customize-control-responsive-selectbtn__button {
+    padding: 8px 6px;
+}

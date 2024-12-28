@@ -3754,15 +3754,78 @@ function responsive_customizer_styles() {
 	$custom_css .= "}}";
 
 	// Header Social.
-	$social_item_spacing = get_theme_mod( 'responsive_header_social_item_spacing', 0 );
-	if ( $social_item_spacing > 0 ) {
-		$custom_css .= ".header-layouts.social-icon .social-icons { gap: " . $social_item_spacing . "px }";
+	$header_social_item_spacing = get_theme_mod( 'responsive_header_social_item_spacing', 0 );
+	if ( $header_social_item_spacing > 0 ) {
+		$custom_css .= ".header-layouts.social-icon .social-icons { gap: " . $header_social_item_spacing . "px }";
 	}
-	$social_item_style = get_theme_mod( 'responsive_header_social_item_style', 'filled' );
-	if ( 'filled' === $social_item_style ) {
+	$header_social_item_style = get_theme_mod( 'responsive_header_social_item_style', 'filled' );
+	if ( 'filled' === $header_social_item_style ) {
 		$custom_css .= '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { background-color: #EDF2F7}';
 	}
+	$header_use_brand_colors = get_theme_mod( 'responsive_header_social_item_use_brand_colors', 'no' );
+	if ( 'no' === $header_use_brand_colors ) {
+		$header_social_item_color = get_theme_mod( 'responsive_header_social_item_color' );
+		if ( $header_social_item_color ) {
+			$custom_css .= '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { color: ' . $header_social_item_color . '; fill: ' . $header_social_item_color . '}';
+		}
+		$header_social_item_color_hover = get_theme_mod( 'responsive_header_social_item_hover_color' );
+		if ( $header_social_item_color_hover ) {
+			$custom_css .= '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { color: ' . $header_social_item_color_hover . '; fill: ' . $header_social_item_color_hover . '}';
+		}
+		if ( 'filled' === $header_social_item_style ) {
+			$header_social_item_bg_color = get_theme_mod( 'responsive_header_social_item_background_color' );
+			if ( $header_social_item_bg_color ) {
+				$custom_css .= '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { background-color: ' . $header_social_item_bg_color . '; }';
+			}
+			$header_social_item_bg_color_hover = get_theme_mod( 'responsive_header_social_item_background_hover_color' );
+			if ( $header_social_item_bg_color_hover ) {
+				$custom_css .= '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' . $header_social_item_bg_color_hover . '; }';
+			}
+		}
+		$header_social_item_border_style = get_theme_mod( 'responsive_header_social_item_border_style' );
+		if ( 'none' !== $header_social_item_border_style ) {
+			$header_social_item_border_width = get_theme_mod( 'responsive_header_social_item_border_width' );
+			if ( $header_social_item_border_style ) {
+				$custom_css .= '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { border-style: ' . $header_social_item_border_style . '; }';
+			}
+			if ( $header_social_item_border_width > 0 ) {
+				$custom_css .= '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { border-width: ' . $header_social_item_border_width . 'px; }';
+			}
+			$header_social_border_radius_top    = get_theme_mod( 'responsive_header_social_border_radius_top_padding' );
+			$header_social_border_radius_left   = get_theme_mod( 'responsive_header_social_border_radius_left_padding' );
+			$header_social_border_radius_bottom = get_theme_mod( 'responsive_header_social_border_radius_bottom_padding' );
+			$header_social_border_radius_right  = get_theme_mod( 'responsive_header_social_border_radius_right_padding' );
 
+			$header_social_border_radius_tablet_top    = get_theme_mod( 'responsive_header_social_border_radius_tablet_top_padding' );
+			$header_social_border_radius_tablet_right  = get_theme_mod( 'responsive_header_social_border_radius_tablet_right_padding' );
+			$header_social_border_radius_tablet_bottom = get_theme_mod( 'responsive_header_social_border_radius_tablet_bottom_padding' );
+			$header_social_border_radius_tablet_left   = get_theme_mod( 'responsive_header_social_border_radius_tablet_left_padding' );
+
+			$header_social_border_radius_mobile_top    = get_theme_mod( 'responsive_header_social_border_radius_mobile_top_padding' );
+			$header_social_border_radius_mobile_right  = get_theme_mod( 'responsive_header_social_border_radius_mobile_right_padding' );
+			$header_social_border_radius_mobile_bottom = get_theme_mod( 'responsive_header_social_border_radius_mobile_bottom_padding' );
+			$header_social_border_radius_mobile_left   = get_theme_mod( 'responsive_header_social_border_radius_mobile_left_padding' );
+			$custom_css .= '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { border-radius: ' . responsive_spacing_css( $header_social_border_radius_top, $header_social_border_radius_right, $header_social_border_radius_bottom, $header_social_border_radius_left ) . '; }';
+			$custom_css .= '@media screen and ( max-width: 992px ) {
+				.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { border-radius: ' . responsive_spacing_css( $header_social_border_radius_tablet_top, $header_social_border_radius_tablet_right, $header_social_border_radius_tablet_bottom, $header_social_border_radius_tablet_left ) . '; }
+			}';
+			$custom_css .= '@media screen and ( max-width: 576px ) {
+				.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { border-radius: ' . responsive_spacing_css( $header_social_border_radius_mobile_top, $header_social_border_radius_mobile_right, $header_social_border_radius_mobile_bottom, $header_social_border_radius_mobile_left ) . '; }
+			}';
+
+			$header_social_item_border_color = get_theme_mod( 'responsive_header_social_item_border_color' );
+			$custom_css .= '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { border-color: ' . $header_social_item_border_color . '; }';
+
+			$header_social_item_border_hover_color = get_theme_mod( 'responsive_header_social_item_border_hover_color' );
+			$custom_css .= '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { border-color: ' . $header_social_item_border_hover_color . '; }';
+
+		}
+	}
+
+	$header_social_item_icon_size = get_theme_mod( 'responsive_header_social_item_icon_size', 16 );
+	$custom_css .= '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { font-size: ' . $header_social_item_icon_size . 'px }';
+	$custom_css .= '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label { font-size: ' . $header_social_item_icon_size . 'px }';
+	$custom_css .= '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-wrapper svg { width: ' . $header_social_item_icon_size . 'px; height: ' . $header_social_item_icon_size . 'px }';
 
 	if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
 		// Outside Container Spacing.

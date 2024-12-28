@@ -554,5 +554,13 @@
            $( '.header-layouts.social-icon .social-icons' ).css( 'gap', newval + 'px' );
         });
     });
+    api( 'responsive_header_social_item_icon_size', function(value){
+        value.bind(function(newval) {
+           $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'font-size', newval + 'px' );
+           $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label' ).css( 'font-size', newval + 'px' );
+           $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-wrapper svg' ).css( 'width', newval + 'px' );
+           $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-wrapper svg' ).css( 'height', newval + 'px' );
+        });
+    });
 
 } )( jQuery );

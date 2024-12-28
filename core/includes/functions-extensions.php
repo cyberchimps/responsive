@@ -435,6 +435,7 @@ function responsive_get_social_icons( $area ) {
 	$social_icons_sequence = array();
 
 	if ( ! empty( $header_social['items'] ) ) {
+		error_log( print_r( $header_social, true ) );
 		$header_social_items = $header_social['items'];
 		foreach ( $header_social_items as $social_item ) {
 			$social_icons_sequence[] = $social_item['id'];
@@ -453,6 +454,7 @@ function responsive_get_social_icons( $area ) {
 						$icon_svg = '';
 						$icon_type = '';
 						$icon_label = '';
+						$icon_width = 24;
 						foreach ( $header_social_items as $social_item ) {
 							if ( $social_item['id'] === $key ) {
 								$icon_source = $social_item['source'];
@@ -460,6 +462,7 @@ function responsive_get_social_icons( $area ) {
 								$icon_svg = $social_item['svg'];
 								$icon_type = $social_item['icon'];
 								$icon_label = $social_item['label'];
+								$icon_width = $social_item['width'];
 							}
 						}
 						if ( ! empty( $responsive_options[ $key . '_uid' ] ) ) {
@@ -468,11 +471,11 @@ function responsive_get_social_icons( $area ) {
 							$brand_svg = '';
 							if ( 'yes' === $use_brand_colors ) {
 								$brand_color = ' responsive-social-icon-anchor-' . esc_html( $key );
-								$brand_svg = ' responsive-social-icon-custom-svg-brand';
+								$brand_svg = ' responsive-social-icon-wrapper-brand';
 							}
 							if ( 'on-hover' === $use_brand_colors ) {
 								$brand_color = ' responsive-social-icon-anchor-hover-' . esc_html( $key );
-								$brand_svg = ' responsive-social-icon-custom-svg-brand-hover';
+								$brand_svg = ' responsive-social-icon-wrapper-brand-hover';
 							}
 							if ( 'until-hover' === $use_brand_colors ) {
 								$brand_color = ' responsive-social-icon-anchor-until-hover-' . esc_html( $key );
@@ -481,10 +484,10 @@ function responsive_get_social_icons( $area ) {
 							<li class="responsive-social-icon responsive-social-icon-<?php echo esc_html( $key ); ?>">
 								<a class="responsive-social-icon-anchor<?php echo $brand_color; ?>" aria-label=<?php echo esc_attr( $key ); ?> title=<?php echo esc_attr( $key ); ?> href="<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target=<?php echo esc_attr( $target_social_link ); ?> <?php responsive_schema_markup( 'url' ); ?>>
 									<?php
-									error_log( $key . ' -> ' . $icon_source );
+
 										if ( 'icon' === $icon_source ) {
 											?>
-											<span class="responsive-social-icon-custom-svg<?php echo esc_attr( $brand_svg ); ?>">
+											<span class="responsive-social-icon-wrapper<?php echo esc_attr( $brand_svg ); ?>">
 												<?php
 												echo responsive_get_svg_icon( $icon_type );
 												?>
@@ -493,14 +496,14 @@ function responsive_get_social_icons( $area ) {
 										}
 										if ( 'image' === $icon_source ) {
 											?>
-											<span class="responsive-social-icon-custom-svg<?php echo esc_attr( $brand_svg ); ?>">
-												<img fetchpriority="high" src="<?php echo esc_url( $icon_url ); ?>" class="responsive-social-icon-image" decoding="async">
+											<span class="responsive-social-icon-wrapper<?php echo esc_attr( $brand_svg ); ?>">
+												<img fetchpriority="high" src="<?php echo esc_url( $icon_url ); ?>" class="responsive-social-icon-image" decoding="async" style="max-width: <?php echo esc_attr( $icon_width )?>px;">
 											</span>
 											<?php
 										}
 										if ( 'svg' === $icon_source ) {
 											?>
-											<span class="responsive-social-icon-custom-svg<?php echo esc_attr( $brand_svg ); ?>">
+											<span class="responsive-social-icon-wrapper<?php echo esc_attr( $brand_svg ); ?>" style="max-width: <?php echo esc_attr( $icon_width )?>px;">
 												<?php
 													echo $icon_svg;
 												?>
