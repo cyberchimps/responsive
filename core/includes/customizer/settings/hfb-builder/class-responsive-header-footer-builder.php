@@ -17,7 +17,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 		/**
 		 * Setup class.
 		 *
-		 * @since 6.0.2
+		 * @since 6.1.0
 		 */
 		public function __construct() {
 
@@ -28,7 +28,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 		/**
 		 * Customizer options
 		 *
-		 * @since 6.0.2
+		 * @since 6.1.0
 		 *
 		 * @param  object $wp_customize WordPress customization option.
 		 */

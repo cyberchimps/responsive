@@ -750,6 +750,10 @@ body.rtl .customize-control .responsive-switchers li {
     #customize-theme-controls #sub-accordion-section-responsive_footer_builder {
         left: 18%;
     }
+    .preview-only.collapsed #customize-theme-controls #sub-accordion-section-responsive_header_builder,
+    .preview-only.collapsed #customize-theme-controls #sub-accordion-section-responsive_footer_builder {
+        left: 0;
+    }
 }
 #customize-theme-controls #sub-accordion-section-responsive_header_builder.responsive-builder-active,
 #customize-theme-controls #sub-accordion-section-responsive_footer_builder.responsive-footer-builder-active {

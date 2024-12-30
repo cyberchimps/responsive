@@ -8,6 +8,12 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(30/12/2024) = New - Version 6.1.0
+[+] = New = Introduced the Header & Footer Builder in customizer.
+[!] = Fix = Fixed minor customizer issue with Responsive Elementor Addons Button widget.
+[!] = Fix = Fixed the customizer global typography settings not applying to Elementor Heading widget.
+[!] = Fix = Fixed the customizer global button padding and border settings not applying to Elementor Button.
+
 (19/12/2024) = Fix - Version 6.0.3
 [!] = Fix = Fixed the global styling for buttons not working in Elementor.
 [!] = Fix = Fixed the global setting form field - border width control visibility issue.

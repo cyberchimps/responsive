@@ -99,7 +99,7 @@ const AvailableItemsDrag = (props) => {
                             className="responsive-hfb-item"
                             data-section={choices[item]?.section || ''}
                         >
-                            {choices[item]?.name || ''}
+                            {he.decode(choices[item]?.name) || ''}
                         </div>
                     </ReactSortable>
                 )}

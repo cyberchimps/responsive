@@ -17,7 +17,7 @@ if( ! class_exists( 'Responsive_HFB_Footer_Primary_Row' ) ) {
         /**
          * Constructor
          *
-         * @since 6.0.2
+         * @since 6.1.0
          */
         public function __construct() {
 
@@ -29,7 +29,7 @@ if( ! class_exists( 'Responsive_HFB_Footer_Primary_Row' ) ) {
          * Customizer options
          *
          * @param  object $wp_customize WordPress customization option.
-         * @since 6.0.2
+         * @since 6.1.0
          */
         public function customizer_options( $wp_customize ) {
             
