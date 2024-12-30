@@ -15,7 +15,7 @@ $i = 0;
 ?>
 <div class="rspv-site-<?php echo esc_attr( $row ); ?>-footer-wrap rspv-site-footer-focus-item rspv-hfb-footer-width-<?php echo esc_attr( $width ); ?> rspv-hfb-footer-row-<?php echo esc_attr( $inline_layout ) ?>" data-section="responsive-<?php echo esc_attr( $row ); ?>-footer-builder">
 	<div class="container">
-		<div class="rspv-site-<?php echo esc_attr( $row ); ?>-footer-inner-wrap site-footer-row site-footer-row-columns-<?php echo esc_attr( $columns ); ?> rspv-hfb-footer-row-layout-<?php esc_attr_e( $columns_layout, 'responsive' ) ?>">
+		<div class="rspv-site-<?php echo esc_attr( $row ); ?>-footer-inner-wrap site-footer-row site-footer-row-columns-<?php echo esc_attr( $columns ); ?> rspv-hfb-footer-row-layout-<?php echo esc_attr( $columns_layout ) ?>">
 			<?php
                 while ( $i++ < $columns ) {
                     ?>
