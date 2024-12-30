@@ -257,7 +257,6 @@ function responsive_free_setup() {
 	);
 
 	if ( class_exists( 'Responsive_Home_Starter_Content', false ) ) {
-		error_log( 'Responsive_Home_Starter_Content called' );
 		$responsive_home_starter_content = new Responsive_Home_Starter_Content();
 		add_theme_support( 'starter-content', $responsive_home_starter_content->get() );
 	}

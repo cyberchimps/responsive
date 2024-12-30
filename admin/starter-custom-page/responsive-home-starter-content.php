@@ -17,7 +17,6 @@ class Responsive_Home_Starter_Content {
 	 */
 	public function __construct() {
         $is_fresh_site = get_option( 'fresh_site' );
-        error_log( 'is_fresh_site: ' . print_r( $is_fresh_site, true ) );
 		// Adding post meta and inserting post.
 		add_action(
 			'wp_insert_post',
@@ -91,9 +90,6 @@ class Responsive_Home_Starter_Content {
 		}
 		$custom_draft_post_name = get_post_meta( $post_ID, '_customize_draft_post_name', true );
 
-		error_log("Post ID: ". print_r( $post_ID, true ));
-		error_log("custom_draft_post_name : ". print_r( $custom_draft_post_name, true ));
-
 		$is_from_starter_content = ! empty( $custom_draft_post_name );
     
 		if ( ! $is_from_starter_content ) {
@@ -139,7 +135,6 @@ class Responsive_Home_Starter_Content {
 	 */
 	public function save_responsive_settings() {
         delete_option( 'responsive_insert_custom_home' );
-        error_log( 'deleted responsive_insert_custom_home option' );
 		// $settings = self::get_customizer_json();
 		// // Delete existing dynamic CSS cache.
 		// delete_option( 'responsive-settings' );
@@ -249,26 +244,43 @@ class Responsive_Home_Starter_Content {
 				'responsive_h3_text_color' => '#200c47',
 				'heading_h1_typography_font_size_value' => 64,
 				'heading_h1_typography[font-size]' => '64px',
+				'heading_h1_mobile_typography_font_size_value' => 50,
+				'heading_h1_mobile_typography[font-size]' => '50px',
 				'heading_h2_typography_font_size_value' => 52,
 				'heading_h2_typography[font-size]' => '52px',
+				'heading_h2_mobile_typography_font_size_value' => 24,
+				'heading_h2_mobile_typography[font-size]' => '24px',
 				'heading_h3_typography_font_size_value' => 26,
 				'heading_h3_typography[font-size]' => '26px',
+				'heading_h3_mobile_typography_font_size_value' => 24,
+				'heading_h3_mobile_typography[font-size]' => '24px',
 				'responsive_body_text_color' => '#1f1f1f',
 				// 'responsive_header_full_width' => true,
 				'responsive_button_color' => '#ffc300',
 				'responsive_button_hover_color' => '#ffc300',
+				'responsive_button_border_color' => '#ffc300',
+				'responsive_button_hover_border_color' => '#ffc300',
 				'responsive_button_text_color' => '#1c1c1c',
 				'responsive_button_hover_text_color' => '#1c1c1c',
+				'responsive_buttons_radius_bottom_left_radius' => 13,
 				'responsive_buttons_radius_top_left_radius' => 13,
 				'responsive_buttons_radius_top_right_radius' => 13,
-				'responsive_buttons_radius_top_top_radius' => 13,
-				'responsive_buttons_radius_top_bottom_radius' => 13,
+				'responsive_buttons_radius_bottom_right_radius' => 13,
+				'responsive_buttons_radius_mobile_top_left_radius' => 10,
+				'responsive_buttons_radius_mobile_top_right_radius' => 10,
+				'responsive_buttons_radius_mobile_bottom_right_radius' => 10,
+				'responsive_buttons_radius_mobile_bottom_left_radius' => 10,
 				'responsive_buttons_top_padding' => 22,
-				'responsive_buttons_left_padding' => 26,
+				'responsive_buttons_left_padding' => 27,
 				'responsive_buttons_bottom_padding' => 22,
-				'responsive_buttons_right_padding' => 26,
+				'responsive_buttons_right_padding' => 27,
+				'responsive_buttons_mobile_top_padding' => 20,
+				'responsive_buttons_mobile_right_padding' => 20,
+				'responsive_buttons_mobile_bottom_padding' => 20,
+				'responsive_buttons_mobile_left_padding' => 20,
 				'responsive_meta_text_color' => '#3a1d74',
 				'responsive_header_background_color' => '#2d2c52',
+				'responsive_header_mobile_menu_background_color' => '#2d2c52',
 				'responsive_header_active_menu_link_color' => '#ffffff',
 				'responsive_footer_background_color' => '#ffffff',
 				'responsive_footer_text_color' => '#747474',
@@ -277,9 +289,8 @@ class Responsive_Home_Starter_Content {
 				'responsive_content_header_heading_color' => '#ffffff',
 				'footer_typography_font_size_value' => 18,
 				'footer_typography[font-size]' => '18px',
-				'footer_typography' => array(
-					'font-size' => '18px',
-				),
+				'footer_mobile_typography_font_size_value' => 8,
+				'footer_mobile_typography[font-size]' => '8px',
 				'responsive_footer_bar_layout' => 'vertical',
                 'responsive_header_active_menu_background_color' => '#2d2c52',
                 'responsive_header_hover_menu_background_color' => '#2d2c52',
@@ -296,6 +307,14 @@ class Responsive_Home_Starter_Content {
 				'responsive_footer_bar_left_padding' => 0,
 				'responsive_footer_bar_bottom_padding' => 0,
 				'responsive_footer_bar_right_padding' => 0,
+                'responsive_footer_bar_tablet_top_padding' => 0,
+				'responsive_footer_bar_tablet_left_padding' => 0,
+				'responsive_footer_bar_tablet_bottom_padding' => 0,
+				'responsive_footer_bar_tablet_right_padding' => 0,
+                'responsive_footer_bar_mobile_top_padding' => 0,
+				'responsive_footer_bar_mobile_left_padding' => 0,
+				'responsive_footer_bar_mobile_bottom_padding' => 0,
+				'responsive_footer_bar_mobile_right_padding' => 0,
 				'responsive_header_menu_toggle_color' => '#ffffff',
 			),
 			'options'     => array(
