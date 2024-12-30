@@ -6,14 +6,9 @@ const SelectButtonComponent = props => {
 	const [props_value, setPropsValue] = useState(props.control.setting.get());
 
 	const onOptionClick = (value) => {
-		if (props_value === value) {
-			setPropsValue('none');
-			props.control.setting.set('none');
-		} else {
-			setPropsValue(value);
-			props.control.setting.set(value);
-		}
-	};
+        setPropsValue(value);
+        props.control.setting.set(value);
+    };
 
 	const {
 		label,
