@@ -195,6 +195,9 @@ module.exports = function(grunt) {
 					'core/includes/customizer/assets/min/css/sortable.min.css':'core/includes/customizer/controls/sortable/sortable.css',
 					'core/includes/customizer/assets/min/css/redirect.min.css':'core/includes/customizer/controls/redirect/redirect.css',
 					'core/includes/customizer/assets/min/css/typography.min.css':'core/includes/customizer/controls/typography/typography.css',
+					'core/includes/customizer/assets/min/css/multi-select.min.css':'core/includes/customizer/controls/multi-select/multi-select.css',
+					'core/includes/customizer/assets/min/css/range-switchers.min.css':'core/includes/customizer/controls/range-with-switchers/range-switchers.css',
+					'core/includes/customizer/assets/min/css/row-layout.min.css':'core/includes/customizer/controls/builder-row-layout/row-layout.css',
 				}
 			}
 		},

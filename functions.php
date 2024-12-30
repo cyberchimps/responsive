@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '6.0.3' );
+define( 'RESPONSIVE_THEME_VERSION', '6.1.0' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -380,13 +380,6 @@ function responsive_edit_customize_register( $wp_customize ) {
 		)
 	);
 	$wp_customize->selective_refresh->add_partial(
-		'responsive_theme_options[copyright_textbox]',
-		array(
-			'selector' => '.copyright',
-
-		)
-	);
-	$wp_customize->selective_refresh->add_partial(
 		'responsive_theme_options[contact_title]',
 		array(
 			'selector' => '.contact_title',
@@ -462,7 +455,48 @@ function responsive_edit_customize_register( $wp_customize ) {
 			'fallback_refresh'    => true,
 		)
 	);
-
+	$wp_customize->selective_refresh->add_partial(
+		'footer_copyright',
+		array(
+			'selector' => '.footer-layouts.copyright',
+		)
+	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_header_above_row_tabs',
+		array(
+			'selector' => '.responsive-site-above-header-wrap',
+		)
+	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_header_primary_row_tabs',
+		array(
+			'selector' => '.responsive-site-primary-header-wrap',
+		)
+	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_header_below_row_tabs',
+		array(
+			'selector' => '.responsive-site-below-header-wrap',
+		)
+	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_footer_above_row_tabs',
+		array(
+			'selector' => '.rspv-site-above-footer-wrap',
+		)
+	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_footer_primary_row_tabs',
+		array(
+			'selector' => '.rspv-site-primary-footer-wrap',
+		)
+	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_footer_below_row_tabs',
+		array(
+			'selector' => '.rspv-site-below-footer-wrap',
+		)
+	);
 }
 add_action( 'customize_register', 'responsive_edit_customize_register' );
 add_theme_support( 'customize-selective-refresh-widgets' );
@@ -702,7 +736,6 @@ if ( ! get_option( 'responsive_version_410' ) ) {
 
 			$header_layout = array( 'above_header', 'below_header' );
 			if ( in_array( get_theme_mod( 'menu_position' ), $header_layout, true ) ) {
-				! get_theme_mod( 'responsive_header_layout' ) ? set_theme_mod( 'responsive_header_layout', 'vertical' ) : '';
 
 				if ( 'above_header' === get_theme_mod( 'menu_position' ) ) {
 					! get_theme_mod( 'responsive_header_elements' ) ? set_theme_mod( 'responsive_header_elements', array( 'main-navigation', 'site-branding' ) ) : '';

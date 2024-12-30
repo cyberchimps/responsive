@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  */
 .site-header {
-    border-bottom: 1px solid map-get($colors, light-gray);
+    // border-bottom: 1px solid map-get($colors, light-gray);
 
     .container {
         position: relative;
@@ -40,6 +40,12 @@
 
 
     .site-mobile-header-layout-horizontal & {
+        @media( max-width: map-get($screens, sm) ) {
+            max-width: 250px;
+        }
+    }
+
+    .site-header-row-container & {
         @media( max-width: map-get($screens, sm) ) {
             max-width: 250px;
         }
@@ -244,21 +250,6 @@
         }
     }
 
-    &.site-header-site-branding-main-navigation {
-        &.last-item-spread-away {
-            .main-navigation .menu {
-                width: 100%;
-                float: left;
-                & > li.res-custom-text-menu,
-                & > li.res-button-menu,
-                & > li.res-cart-link,
-                & > li.res-search-link {
-                    float: right;
-                }
-            }
-        }
-    }
-
     &.site-header-main-navigation {
         &.last-item-spread-away {
             &.site-branding-off {
@@ -266,6 +257,17 @@
                     float: right;
                 }
             }
+        }
+    }
+}
+
+.last-item-spread-away {
+    .main-navigation .menu {
+        & > li.res-custom-text-menu,
+        & > li.res-button-menu,
+        & > li.res-cart-link,
+        & > li.res-search-link {
+            float: right;
         }
     }
 }
@@ -1008,14 +1010,13 @@ body.mega-menu-header-menu button.menu-toggle {
 
 #header-secondary-menu {
     display: flex;
-    width: 100vw;
+    // width: 100vw;
     justify-content: space-between;
 }
 
 // Secondary menu hidden in mobile for the time being.
 @media (max-width: 700px) {
-    .secondary-container{
+    .site-header-item-secondary-navigation{
         display: none !important;
     }
 }
-
