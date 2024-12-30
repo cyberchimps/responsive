@@ -114,7 +114,7 @@ function responsive_widgets_init() {
 			'id'            => 'footer-widget-1',
 			'before_title'  => '<div class="widget-title"><h4>',
 			'after_title'   => '</h4></div>',
-			'before_widget' => '<div id="%1$s" class="grid col %2$s"><div class="footer-widget-wrapper">',
+			'before_widget' => '<div id="%1$s" class="grid col %2$s"><div class="widget-wrapper">',
 			'after_widget'  => '</div></div>',
 		)
 	);
@@ -125,7 +125,7 @@ function responsive_widgets_init() {
 			'id'            => 'footer-widget-2',
 			'before_title'  => '<div class="widget-title"><h4>',
 			'after_title'   => '</h4></div>',
-			'before_widget' => '<div id="%1$s" class="grid col %2$s"><div class="footer-widget-wrapper">',
+			'before_widget' => '<div id="%1$s" class="grid col %2$s"><div class="widget-wrapper">',
 			'after_widget'  => '</div></div>',
 		)
 	);
@@ -136,7 +136,7 @@ function responsive_widgets_init() {
 			'id'            => 'footer-widget-3',
 			'before_title'  => '<div class="widget-title"><h4>',
 			'after_title'   => '</h4></div>',
-			'before_widget' => '<div id="%1$s" class="grid col %2$s"><div class="footer-widget-wrapper">',
+			'before_widget' => '<div id="%1$s" class="grid col %2$s"><div class="widget-wrapper">',
 			'after_widget'  => '</div></div>',
 		)
 	);
@@ -147,7 +147,7 @@ function responsive_widgets_init() {
 			'id'            => 'footer-widget-4',
 			'before_title'  => '<div class="widget-title"><h4>',
 			'after_title'   => '</h4></div>',
-			'before_widget' => '<div id="%1$s" class="grid col %2$s"><div class="footer-widget-wrapper">',
+			'before_widget' => '<div id="%1$s" class="grid col %2$s"><div class="widget-wrapper">',
 			'after_widget'  => '</div></div>',
 		)
 	);

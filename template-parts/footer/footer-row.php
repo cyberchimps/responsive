@@ -9,7 +9,7 @@ $row            = get_query_var( 'row' );
 $columns        = absint( get_theme_mod( 'responsive_footer_' . $row . '_columns', ( 'above' === $row ) ? 3 : ( 'primary' === $row ? 2 : 1 ) ) );
 $width          = get_theme_mod( 'responsive_footer_' . $row . '_width', 'contained' );
 $inline_layout  = get_theme_mod( 'responsive_footer_' . $row . '_inner_elements_layout', 'inline' );
-$columns_layout = get_theme_mod( 'responsive_footer_' . $row . '_layout', 'equal' );
+$columns_layout = get_theme_mod( 'responsive_footer_' . $row . '_layout',  ( 'primary' === $row ) ? 'left-heavy' : 'equal' );
 
 $i = 0;
 ?>

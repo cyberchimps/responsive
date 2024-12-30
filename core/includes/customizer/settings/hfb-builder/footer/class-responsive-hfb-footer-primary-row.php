@@ -72,7 +72,7 @@ if( ! class_exists( 'Responsive_HFB_Footer_Primary_Row' ) ) {
 
 			// Layout.
 			$layout_separator_label = __( 'Layout', 'responsive' );
-			responsive_builder_row_layout_control( $wp_customize, 'footer_primary_layout',$layout_separator_label, 'responsive_footer_primary_row', 30, 'equal', array( 'footer' => 'primary', 'rspv_event' => 'footer_items' ), null );
+			responsive_builder_row_layout_control( $wp_customize, 'footer_primary_layout',$layout_separator_label, 'responsive_footer_primary_row', 30, 'left-heavy', array( 'footer' => 'primary', 'rspv_event' => 'footer_items' ), null );
 
 			responsive_horizontal_separator_control($wp_customize, 'footer_primary_separator_5', 1, 'responsive_footer_primary_row', 35, 1, );
 
@@ -116,7 +116,7 @@ if( ! class_exists( 'Responsive_HFB_Footer_Primary_Row' ) ) {
 
             // Top Border Size.
             $footer_primary_row_top_border_size_label = __( 'Top Border Size (px)', 'responsive' );
-            responsive_drag_number_control( $wp_customize, 'footer_primary_row_top_border_size', $footer_primary_row_top_border_size_label, 'responsive_footer_primary_row', 100, 0, null, 300, 0, 'postMessage', 1 );
+            responsive_drag_number_control( $wp_customize, 'footer_primary_row_top_border_size', $footer_primary_row_top_border_size_label, 'responsive_footer_primary_row', 100, 1, null, 300, 0, 'postMessage', 1 );
 
             // Border Color.
 			$footer_primary_row_border_color_label = __( 'Border Color', 'responsive' );
