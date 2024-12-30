@@ -112,7 +112,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 					$wp_customize,
 					'responsive_footer_available_items',
 					array(
-						'label'           => esc_html__( 'Available Items', 'responsie' ),
+						'label'           => esc_html__( 'Available Items', 'responsive' ),
 						'section'         => 'responsive_footer_layout',
 						'settings'        => 'responsive_footer_available_items',
 						'priority'        => 10,
