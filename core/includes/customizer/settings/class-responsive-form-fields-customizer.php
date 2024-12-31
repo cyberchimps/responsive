@@ -75,8 +75,7 @@ if ( ! class_exists( 'Responsive_Form_Fields_Customizer' ) ) :
 
 			// Inputs Border Width.
 			$inputs_border_width_label = __( 'Border Width (px)', 'responsive' );
-			// responsive_number_control( $wp_customize, 'inputs_border_width', $inputs_border_width_label, 'responsive_form_fields', 19, 1 );
-			responsive_drag_number_control( $wp_customize, 'inputs_border_width', $inputs_border_width_label, 'responsive_form_fields', 17, 1, null, 200, 1, 'postMessage');
+			responsive_borderwidth_control( $wp_customize, 'inputs_border_width', 'responsive_form_fields', 17, 1, 1, null, $inputs_border_width_label );
 
 			// Inputs Radius.
 			$inputs_radius_label = __( 'Radius (px)', 'responsive' );

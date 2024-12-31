@@ -49,7 +49,6 @@ if ( ! function_exists( 'check_is_responsive_addons_greater' ) ) {
 
 <body <?php body_class(); ?> <?php responsive_schema_markup( 'body' ); ?> >
 	<?php wp_body_open(); ?>
-	<?php Responsive\responsive_header(); // before header hook. ?>
 	<div class="skip-container cf">
 		<a class="skip-link screen-reader-text focusable" href="#primary"><?php esc_html_e( '&darr; Skip to Main Content', 'responsive' ); ?></a>
 	</div><!-- .skip-container -->
@@ -80,41 +79,22 @@ if ( ! function_exists( 'check_is_responsive_addons_greater' ) ) {
 
 			if ( ! has_action( 'responsive_custom_header' ) ) {
 
+				/**
+					 * Responsive before header hook.
+					 */
+					do_action( 'responsive_before_header' );
+
+					/**
+					 * Responsive header hook.
+					 */
+					Responsive\responsive_header();
+
+					/**
+					 * Responsive after header hook.
+					 */
+					do_action( 'responsive_after_header' );
+
 				?>
-
-				<header id="masthead" class="site-header" role="banner" <?php responsive_schema_markup( 'site-header' ); ?> >
-					<!-- Secondary Menu above header -->
-
-					<div class="secondary-container">
-							<div class="row">
-						
-								<?php
-									$secondary_menu_element = 'secondary-navigation';
-									get_template_part('partials/header/' . $secondary_menu_element);			
-								?>
-
-							</div>
-					</div>
-						<div class="container">
-							<div class="row">
-								<?php
-								// Get elements.
-								$responsive_header_elements = get_theme_mod(
-									'responsive_header_elements',
-									array(
-										'site-branding',
-										'main-navigation',
-									)
-								);
-
-								// Loop through elements.
-								foreach ( $responsive_header_elements as $element ) {
-									get_template_part( 'partials/header/' . $element );
-								}
-								?>
-							</div>
-						</div>
-					</header>
 				<?php
 			}
 		}
