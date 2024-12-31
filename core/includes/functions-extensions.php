@@ -435,7 +435,7 @@ function responsive_get_social_icons( $area ) {
 	$social_icons_sequence = array();
 
 	if ( ! empty( $header_social['items'] ) ) {
-		error_log( print_r( $header_social, true ) );
+
 		$header_social_items = $header_social['items'];
 		foreach ( $header_social_items as $social_item ) {
 			$social_icons_sequence[] = $social_item['id'];

@@ -804,14 +804,6 @@
         } );
     } );
 
-    // api( 'responsive_header_social_border_radius_top_padding', function( value ) {
-    //     value.bind( function( newval ) {
-    //         console.log(value)
-    //         console.log(newval)
-    //         responsive_dynamic_border('header_social_border_radius', '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor');
-    //     } );
-    // } );
-
     const headerSocialBorderRadius = [
         'responsive_header_social_border_radius_top_padding',
         'responsive_header_social_border_radius_right_padding',
@@ -826,15 +818,29 @@
         'responsive_header_social_border_radius_mobile_bottom_padding',
         'responsive_header_social_border_radius_mobile_left_padding',
     ];
+
+    const headerSocialMargin = [
+        'responsive_header_social_item_margin_top_padding',
+        'responsive_header_social_item_margin_right_padding',
+        'responsive_header_social_item_margin_bottom_padding',
+        'responsive_header_social_item_margin_left_padding',
+        'responsive_header_social_item_margin_tablet_top_padding',
+        'responsive_header_social_item_margin_tablet_right_padding',
+        'responsive_header_social_item_margin_tablet_bottom_padding',
+        'responsive_header_social_item_margin_tablet_left_padding',
+        'responsive_header_social_item_margin_mobile_top_padding',
+        'responsive_header_social_item_margin_mobile_right_padding',
+        'responsive_header_social_item_margin_mobile_bottom_padding',
+        'responsive_header_social_item_margin_mobile_left_padding',
+    ];
     
-    headerSocialBorderRadius.forEach(setting => {
+    headerSocialMargin.forEach(setting => {
         api(setting, function(value) {
             value.bind(function(newval) {
-                responsive_dynamic_border('header_social_border_radius', '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor');
+                responsive_dynamic_margin('header_social_item_margin', '.header-layouts.social-icon .social-icons');
             });
         });
     });
-    
 
     // Sidebar Outside Padding
     api( 'responsive_sidebar_outside_container_top_padding', function( value ) {
