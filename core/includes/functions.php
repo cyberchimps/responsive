@@ -252,8 +252,10 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 				'footer-menu' => __( 'Footer Menu', 'responsive' ),
 			)
 		);
-
-		add_theme_support( 'custom-background' );
+		
+		/* WP-6540 - This part is commented out as it was overlaying the background image 
+		it was causing a bug when updating from 5.1.2 to 6.0.1, */
+		// add_theme_support( 'custom-background' );
 
 		add_theme_support(
 			'custom-header',
@@ -333,9 +335,9 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		responsive_background_images_background_compatibility();
 		responsive_font_sizes_background_compatibility();
 
-		if( ! get_option( 'responisve_old_header_footer_comaptibility_with_header_builder_done' ) ) {
-			responisve_old_header_footer_comaptibility_with_hfb();
-			update_option( 'responisve_old_header_footer_comaptibility_with_header_builder_done', true );
+		if( ! get_option( 'responsive_old_header_footer_comaptibility_with_header_builder_done' ) ) {
+			responsive_old_header_footer_comaptibility_with_hfb();
+			update_option( 'responsive_old_header_footer_comaptibility_with_header_builder_done', true );
 		}
 	}
 
@@ -1200,7 +1202,7 @@ function defaults() {
 			'responsive_footer_above_row_bg_color'                    => '#333333',
 			'responsive_footer_above_row_border_color'                => '#FFFFFF',
 			'responsive_footer_primary_row_bg_color'                  => '#333333',
-			'responsive_footer_primary_row_border_color'              => '#FFFFFF',
+			'responsive_footer_primary_row_border_color'              => '#aaaaaa',
 			'responsive_footer_below_row_bg_color'                    => '#333333',
 			'responsive_footer_below_row_border_color'                => '#FFFFFF',
 			'responsive_footer_items'     					          => array(
@@ -1383,7 +1385,7 @@ if ( ! function_exists( 'responsive_background_images_background_compatibility' 
 			if ( get_theme_mod( 'background_color' ) ) {
 				set_theme_mod( 'responsive_site_background_color', get_theme_mod( 'background_color' ) );
 			}
-			if ( get_theme_mod( 'responsive_inputs_border_width_top_border', 1 ) ) {
+			if ( get_theme_mod( 'responsive_inputs_border_width' ) ) {
 				set_theme_mod( 'responsive_inputs_border_width_top_border', get_theme_mod( 'responsive_inputs_border_width' ) );
 			}
 			update_option( 'responsive_old_background_images_compatible_done', true );
@@ -1479,8 +1481,8 @@ function responsive_extract_numeric_font_size($value) {
     return isset($matches[0]) ? $matches[0] : '16';
 }
 
-if( ! function_exists( 'responisve_old_header_footer_comaptibility_with_hfb' ) ) :
-	function responisve_old_header_footer_comaptibility_with_hfb() {
+if( ! function_exists( 'responsive_old_header_footer_comaptibility_with_hfb' ) ) :
+	function responsive_old_header_footer_comaptibility_with_hfb() {
 
 		$header_hfb_elements = get_theme_mod( 'responsive_header_desktop_items', get_responsive_customizer_defaults( 'responsive_header_desktop_items' ) );
 
@@ -1498,6 +1500,16 @@ if( ! function_exists( 'responisve_old_header_footer_comaptibility_with_hfb' ) )
 			$header_hfb_elements['primary']['primary_right'] = array();
 		}
 
+		// Vertical Header backward compatibility.
+		$responsive_header_layout = get_theme_mod( 'responsive_header_layout' );
+        if ( 'vertical' === $responsive_header_layout ) {
+            unset( $header_hfb_elements['primary']['primary_left'][0] );
+            unset( $header_hfb_elements['primary']['primary_right'][0] );
+            array_push( $header_hfb_elements['primary']['primary_center'], 'logo' );
+            unset( $header_hfb_elements['below']['below_center'][0] );
+            array_push( $header_hfb_elements['below']['below_center'], 'primary_navigation' );
+        }
+
 		set_theme_mod( 'responsive_header_desktop_items', $header_hfb_elements );
 		
 		if( get_theme_mod( 'responsive_header_height', 0 ) !== 0 ) {
@@ -1513,9 +1525,10 @@ if( ! function_exists( 'responisve_old_header_footer_comaptibility_with_hfb' ) )
 			set_theme_mod( 'responsive_header_primary_row_bg_hover_color', get_theme_mod( 'responsive_header_background_color' ) );
 		}
 
-		if( get_theme_mod( 'responsive_enable_header_bottom_border', 0 ) && get_theme_mod( 'responsive_bottom_border', 0 ) > 0 ) {
+		if( get_theme_mod( 'responsive_enable_header_bottom_border', 1 ) && get_theme_mod( 'responsive_bottom_border', 0 ) > 0 ) {
 			set_theme_mod( 'responsive_header_primary_row_bottom_border_size', get_theme_mod( 'responsive_bottom_border' ) );
 			set_theme_mod( 'responsive_header_primary_row_bottom_border_color', get_theme_mod( 'responsive_header_border_color' ) );
+			set_theme_mod( 'responsive_header_primary_row_bottom_border_hover_color', get_theme_mod( 'responsive_header_border_color' ) );
 		}
 
 		// Footer compatibility with new footer builder.
@@ -1562,6 +1575,7 @@ if( ! function_exists( 'responisve_old_header_footer_comaptibility_with_hfb' ) )
 				$footer_hfb_elements['primary']['primary_2'] = array();
 				array_push( $footer_hfb_elements['primary']['primary_2'], 'footer_navigation' );
 				array_push( $footer_hfb_elements['primary']['primary_3'], 'footer_copyright' );
+				set_theme_mod( 'responsive_footer_primary_layout', 'equal' );
 			} else {
 				set_theme_mod( 'responsive_footer_primary_columns', '2' );
 				$footer_hfb_elements['primary']['primary_1'] = array();
@@ -1633,8 +1647,8 @@ if( ! function_exists( 'responisve_old_header_footer_comaptibility_with_hfb' ) )
 
 			if ( get_theme_mod( $source_mod ) ) {
 				set_theme_mod( $target_mod, get_theme_mod( $source_mod ) );
-				set_theme_mod( $source_mod, 0 );
 			}
+			set_theme_mod( $source_mod, 0 );
 		}
 
 		$footer_widgets_columns     = get_theme_mod( 'responsive_footer_widgets_columns' );
@@ -1661,14 +1675,6 @@ if( ! function_exists( 'responisve_old_header_footer_comaptibility_with_hfb' ) )
 				if ( get_theme_mod( $source_mod ) ) {
 					set_theme_mod( $target_mod, get_theme_mod( $source_mod ) );
 				}
-				if( empty( get_theme_mod( 'responsive_style' ) ) || 'boxed' === get_theme_mod( 'responsive_style' ) ) {
-					$source_mod_2 = "responsive_box_$type";
-					$target_mod_2 = "responsive_footer_above_row_item_padding_$type";
-	
-					if ( get_theme_mod( $source_mod_2, 30 ) ) {
-						set_theme_mod( $target_mod_2, get_theme_mod( $source_mod_2, 30 ) );
-					}
-				}
 			}
 		}
 
@@ -1684,13 +1690,6 @@ if( ! function_exists( 'responisve_old_header_footer_comaptibility_with_hfb' ) )
 			set_theme_mod( 'responsive_footer_copyright_links_hover_color', get_theme_mod( 'responsive_footer_links_hover_color' ) );
 		}
 
-		// backward compatibility of layout -> border size & color.
-		if ( get_theme_mod( 'responsive_footer_border_size' ) ) {
-			set_theme_mod( 'responsive_footer_primary_row_top_border_size', get_theme_mod( 'responsive_footer_border_size' ) );
-		}
-		if ( get_theme_mod( 'responsive_footer_border_color' ) ) {
-			set_theme_mod( 'responsive_footer_primary_row_border_color', get_theme_mod( 'responsive_footer_border_color' ) );
-		}
 		// backward compatibility of layout -> background color.
 		if ( get_theme_mod( 'responsive_footer_background_color' ) && get_theme_mod( 'responsive_footer_background_image_toggle' ) ) {
 			$prev_footer_background_color = 'transparent';
@@ -1708,13 +1707,16 @@ if( ! function_exists( 'responisve_old_header_footer_comaptibility_with_hfb' ) )
 			set_theme_mod( 'responsive_footer_menu_background_hover_color', $prev_footer_background_color );
 		}
 
+		// Copyright typography backward compatibility
+		set_theme_mod( 'footer_copyright_typography', get_theme_mod( 'footer_typography' ) );
+
 		set_theme_mod( 'responsive_footer_items', $footer_hfb_elements );
 	}
 endif;
 
 /**
  * Function to check whethere an element present in given array.
- * @since 6.0.2
+ * @since 6.1.0
  */
 
 function responsive_check_element_present_in_hfb( $needle, $haystack ) {

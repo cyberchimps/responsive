@@ -79,7 +79,7 @@ if ( ! class_exists( 'Responsive_Header_Builder_Section_Customizer' ) ) :
 			responsive_redirect_control( $wp_customize, 'redirect_to_content_header', $configure_footer_menu_redirect_label, 'responsive_header_builder_section', 10, 'section', 'responsive_content_header_layout');
 
 			$configure_footer_menu_redirect_label = __( 'Header Widgets', 'responsive' );
-			responsive_redirect_control( $wp_customize, 'redirect_to_header_widgets', $configure_footer_menu_redirect_label, 'responsive_header_builder_section', 10, 'section', 'responsive_header_widget');
+			responsive_redirect_control( $wp_customize, 'redirect_to_header_widgets_section', $configure_footer_menu_redirect_label, 'responsive_header_builder_section', 10, 'section', 'responsive_header_widget');
 
 			$configure_footer_menu_redirect_label = __( 'Sticky Header', 'responsive' );
 			responsive_redirect_control( $wp_customize, 'redirect_to_sticky_header', $configure_footer_menu_redirect_label, 'responsive_header_builder_section', 10, 'section', 'responsive_header_sticky_menu_layout');

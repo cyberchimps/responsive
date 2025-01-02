@@ -431,7 +431,6 @@ function responsive_get_social_icons( $area ) {
 	}
 	
 	$header_social = get_theme_mod( 'responsive_header_social_items' );
-
 	$social_icons_sequence = array();
 
 	if ( ! empty( $header_social['items'] ) ) {

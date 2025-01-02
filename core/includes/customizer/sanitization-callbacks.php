@@ -305,13 +305,6 @@ function responsive_sanitize_multi_select( $input ) {
 	return array();
 }
 
-function responsive_sanitize_social( $input ) {
-	if ( is_array( $input ) ) {
-		return $input;
-	}
-	return array();
-}
-
 /**
  * Sanitize Row Layout Select Setting.
  *

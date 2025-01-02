@@ -33,6 +33,33 @@
             '</style>'
         );
     }
+    function responsive_dynamic_border_width(control, selector) {
+        var mobile_menu_breakpoint = api('responsive_mobile_menu_breakpoint').get();
+        if (0 == api('responsive_disable_mobile_menu').get()) {
+            mobile_menu_breakpoint = 0;
+        }
+        jQuery('style#responsive-' + control + '-radius').remove();
+        var desktopBorderWidth = 'border-top-width:' + api('responsive_' + control + '_top_border').get() + 'px; ' +
+                                 'border-right-width:' + api('responsive_' + control + '_right_border').get() + 'px; ' +
+                                 'border-bottom-width:' + api('responsive_' + control + '_bottom_border').get() + 'px; ' +
+                                 'border-left-width:' + api('responsive_' + control + '_left_border').get() + 'px;';
+        var tabletBorderWidth = 'border-top-width:' + api('responsive_' + control + '_tablet_top_border').get() + 'px; ' +
+                                'border-right-width:' + api('responsive_' + control + '_tablet_right_border').get() + 'px; ' +
+                                'border-bottom-width:' + api('responsive_' + control + '_tablet_bottom_border').get() + 'px; ' +
+                                'border-left-width:' + api('responsive_' + control + '_tablet_left_border').get() + 'px;';
+        var mobileBorderWidth = 'border-top-width:' + api('responsive_' + control + '_mobile_top_border').get() + 'px; ' +
+                                'border-right-width:' + api('responsive_' + control + '_mobile_right_border').get() + 'px; ' +
+                                'border-bottom-width:' + api('responsive_' + control + '_mobile_bottom_border').get() + 'px; ' +
+                                'border-left-width:' + api('responsive_' + control + '_mobile_left_border').get() + 'px;';
+
+        jQuery('head').append(
+            '<style id="responsive-' + control +'">' +
+            selector + ' { ' + desktopBorderWidth + ' }' +
+            '@media (max-width: ' + mobile_menu_breakpoint + 'px) {' + selector + ' { ' + tabletBorderWidth + ' } }' +
+            '@media (max-width: 544px) {' + selector + ' { ' + mobileBorderWidth + ' } }' +
+            '</style>'
+        );
+    }
 
     const headerSocialBorderRadius = [
         'responsive_header_social_radius_top_left_radius',
@@ -79,10 +106,25 @@
         api(controlName, function(value) {
             value.bind( function( newval ) {
                 let selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button';
+                if ( responsiveSiteLocalOptions.isElementorVersion ) {
+                    selector += ', .elementor-button-wrapper .elementor-button';
+                }
                 selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button';
                 selector += ', .edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button';
     
                 responsive_dynamic_radius('buttons', selector);
+            } );
+        });
+    }
+
+    function applyBorderWidth(controlName) {
+        api(controlName, function(value) {
+            value.bind( function( newval ) {
+                let selector = 'select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],body div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea';
+                selector += ', #add_payment_method table.cart td.actions .coupon .input-text,.woocommerce-cart table.cart td.actions .coupon .input-text,.woocommerce-checkout table.cart td.actions .coupon .input-text,.woocommerce form .form-row input.input-text,.woocommerce form .form-row textarea';
+                selector += ', div.wpforms-container-full .wpforms-form .wpforms-field input.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field input.user-invalid,div.wpforms-container-full .wpforms-form .wpforms-field textarea.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field textarea.user-invalid,div.wpforms-container-full .wpforms-form .wpforms-field select.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field select.user-invalid';
+    
+                responsive_dynamic_border_width('inputs_border_width', selector);
             } );
         });
     }
@@ -103,6 +145,22 @@
     applyBorderRadius('responsive_buttons_radius_mobile_bottom_left_radius');
     applyBorderRadius('responsive_buttons_radius_mobile_bottom_right_radius');
 
+    // Call the function for each form input fields border width
+    applyBorderWidth('responsive_inputs_border_width_top_border');
+    applyBorderWidth('responsive_inputs_border_width_right_border');
+    applyBorderWidth('responsive_inputs_border_width_bottom_border');
+    applyBorderWidth('responsive_inputs_border_width_left_border');
+
+    applyBorderWidth('responsive_inputs_border_width_tablet_top_border');
+    applyBorderWidth('responsive_inputs_border_width_tablet_right_border');
+    applyBorderWidth('responsive_inputs_border_width_tablet_bottom_border');
+    applyBorderWidth('responsive_inputs_border_width_tablet_left_border');
+
+    applyBorderWidth('responsive_inputs_border_width_mobile_top_border');
+    applyBorderWidth('responsive_inputs_border_width_mobile_right_border');
+    applyBorderWidth('responsive_inputs_border_width_mobile_bottom_border');
+    applyBorderWidth('responsive_inputs_border_width_mobile_left_border');
+
     //Buttons Border Width
     api( 'responsive_buttons_border_width', function( value ) {
         value.bind( function( newval ) {
@@ -111,6 +169,8 @@
             $('.woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button').css('border-width', newval+'px' );
             $('.edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button').css('border-width', newval+'px' );
             $('.edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link:focus,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button:focus,.edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link:hover,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button:hover').css('border-width', newval+'px' );
+            // Apply for RAE Button Widget.
+            $( '.elementor-widget-rael-button .rael-button' ).css( 'border-width', newval+'px' );
         } );
     } );
 

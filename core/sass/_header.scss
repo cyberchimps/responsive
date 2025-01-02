@@ -250,21 +250,6 @@
         }
     }
 
-    &.site-header-site-branding-main-navigation {
-        &.last-item-spread-away {
-            .main-navigation .menu {
-                width: 100%;
-                float: left;
-                & > li.res-custom-text-menu,
-                & > li.res-button-menu,
-                & > li.res-cart-link,
-                & > li.res-search-link {
-                    float: right;
-                }
-            }
-        }
-    }
-
     &.site-header-main-navigation {
         &.last-item-spread-away {
             &.site-branding-off {
@@ -272,6 +257,17 @@
                     float: right;
                 }
             }
+        }
+    }
+}
+
+.last-item-spread-away {
+    .main-navigation .menu {
+        & > li.res-custom-text-menu,
+        & > li.res-button-menu,
+        & > li.res-cart-link,
+        & > li.res-search-link {
+            float: right;
         }
     }
 }

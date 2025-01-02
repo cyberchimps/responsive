@@ -77,19 +77,19 @@ if ( 1 === $responsive_options['breadcrumb'] ) {
 			$responsive_show_breadcrumbs = true;
 		} 
 	}
-	else if( is_singular())
-	{
-		if(1 === get_theme_mod( 'responsive_breadcrumb_enable_singular', 0 ))
-		{
-			$responsive_show_breadcrumbs = true;
-		} 
-	}
 	else if( is_page())
 	{
 		if(1 === get_theme_mod( 'responsive_breadcrumb_enable_single_page', 0 ) )
 		{
 			$responsive_show_breadcrumbs = true;
 		} 
+	}
+	if(get_theme_mod( 'responsive_breadcrumb_enable_singular', 0 ) && (1 === get_theme_mod( 'responsive_breadcrumb_enable_singular', 0 )))
+	{
+		set_theme_mod( 'responsive_breadcrumb_enable_single_post', 1 );
+		set_theme_mod( 'responsive_breadcrumb_enable_single_page', 1 );
+		set_theme_mod( 'responsive_breadcrumb_enable_singular', 0 );
+		$responsive_show_breadcrumbs = true;
 	}
 }
 

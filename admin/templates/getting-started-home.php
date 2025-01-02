@@ -189,7 +189,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 			'links' => array(
 				array(
 					'name' => __( 'Docs', 'responsive' ),
-					'link' => 'https://cyberchimps.com/docs/how-to-white-label-cyberchimps-responsive-theme/',
+					'link' => 'https://cyberchimps.com/docs/responsive-plus/responsive-pro-plugin/how-to-white-label-cyberchimps-responsive-theme/',
 				),
 				array(
 					'name' => __( 'Settings', 'responsive' ),
@@ -201,7 +201,8 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 
 	$responsive_addons_cards_content = array(
 		array(
-			'tag'   => 'free',
+			// WP-6871 This part add Free batch on Dashboard > Responsive Plus feature cards (no longer needed)
+			// 'tag'   => 'free',
 			'title' => __( 'Starter Templates', 'responsive' ),
 			'desc'  => __( 'Unlock the library of 100+ Premium Starter Templates.', 'responsive' ),
 			'links' => array(
@@ -213,13 +214,14 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 			),
 		),
 		array(
-			'tag'   => 'free',
+			// WP-6871 This part add Free batch on Dashboard > Responsive Plus feature cards (no longer needed)
+			// 'tag'   => 'free',
 			'title' => __( 'White Label', 'responsive' ),
 			'desc'  => __( 'White Label the theme name & settings with the Pro Plugin.', 'responsive' ),
 			'links' => array(
 				array(
 					'name' => __( 'Docs', 'responsive' ),
-					'link' => 'https://cyberchimps.com/docs/how-to-white-label-cyberchimps-responsive-theme/',
+					'link' => 'https://cyberchimps.com/docs/responsive-plus/responsive-pro-plugin/how-to-white-label-cyberchimps-responsive-theme/',
 				),
 				array(
 					'name' => __( 'Settings', 'responsive' ),
@@ -397,12 +399,12 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 								<span class="responsive-theme-feature-card responsive-theme-feature-card-<?php echo esc_html( $feature['tag'] ); ?>"><span><?php echo esc_html( $feature['tag'] ); ?></span></span>
 								<?php
 							}
-
-							if ( 'pro' !== $feature['tag'] ) {
-								?>
-								<span class="responsive-theme-feature-card responsive-theme-feature-card-<?php echo esc_html( $feature['tag'] ); ?>"><span><?php echo esc_html( $feature['tag'] ); ?></span></span>
-								<?php
-							}
+							// WP-6871 This part add Free batch on Dashboard > Responsive Plus feature cards (no longer needed)
+							// if ( 'pro' !== $feature['tag'] ) {
+							// 	?>
+							<!-- // 	<span class="responsive-theme-feature-card responsive-theme-feature-card-<?php // echo esc_html( $feature['tag'] ); ?>"><span><?php // echo esc_html( $feature['tag'] ); ?></span></span> -->
+							  <?php
+							// }
 							?>
 							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html( $feature['title'] ); ?></div>
 							<div class="responsive-theme-feature-card-desc"><?php echo esc_html( $feature['desc'] ); ?></div>
@@ -475,13 +477,14 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 							if ( check_is_responsive_pro_activated() ) {
 								?>
 							<span class="responsive-theme-feature-card responsive-theme-feature-card-pro"><span><?php esc_html_e( 'PRO', 'responsive' ); ?></span></span>
-								<?php
-							} else {
-								?>
-							<span class="responsive-theme-feature-card responsive-theme-feature-card-free"><span><?php esc_html_e( 'FREE', 'responsive' ); ?></span></span>
-								<?php
+							<?php 
 							}
 							?>
+							<!-- WP-6871 This part add Free batch on Dashboard > Responsive Plus feature cards (no longer needed) -->
+							<!-- <?php
+							// } else {
+								?> -->
+							<!-- <span class="responsive-theme-feature-card responsive-theme-feature-card-free"><span><?php //esc_html_e( 'FREE', 'responsive' ); ?></span></span> -->
 							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html_e( 'Mega Menu', 'responsive' ); ?></div>
 							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Adds menu options such as mega menus, highlight tags, icons, etc.', 'responsive' ); ?></div>
 							<?php
@@ -671,13 +674,14 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 							if ( check_is_responsive_pro_activated() ) {
 								?>
 							<span class="responsive-theme-feature-card responsive-theme-feature-card-pro"><span><?php esc_html_e( 'PRO', 'responsive' ); ?></span></span>
-								<?php
-							} else {
-								?>
-							<span class="responsive-theme-feature-card responsive-theme-feature-card-free"><span><?php esc_html_e( 'FREE', 'responsive' ); ?></span></span>
-								<?php
+							<?php
 							}
 							?>
+							<!-- WP-6871 This part add Free batch on Dashboard > Responsive Plus feature cards (no longer needed) -->
+							<!-- } else {
+								?>
+							<span class="responsive-theme-feature-card responsive-theme-feature-card-free"><span><?php // esc_html_e( 'FREE', 'responsive' ); ?></span></span>
+							?>	-->
 							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html_e( 'Woocommerce', 'responsive' ); ?></div>
 							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Adds enhanced set of options in the WooCommerce store customizer.', 'responsive' ); ?></div>
 							<?php
@@ -690,7 +694,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 										echo 'disable-customize'; }
 									?>
 									">
-										<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/woocommerce-module/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
+										<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/responsive-plus/responsive-pro-plugin/woocommerce-module/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
 										<span class="responsive-theme-feature-seperator">|</span>
 										<a href="<?php echo esc_url( admin_url( 'customize.php' ) ) . '?autofocus[section]=woocommerce'; ?>" class="rpro-feature-customize-btn"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
 										<?php
@@ -726,7 +730,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 									echo 'disable-customize'; }
 								?>
 								">
-									<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/woocommerce-module/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
+									<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/responsive-plus/responsive-pro-plugin/woocommerce-module/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
 									<span class="responsive-theme-feature-seperator">|</span>
 									<a href="<?php echo esc_url( admin_url( 'customize.php' ) ) . '?autofocus[section]=woocommerce'; ?>" class="rpro-feature-customize-btn"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
 									<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
