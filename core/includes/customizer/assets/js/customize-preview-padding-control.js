@@ -804,21 +804,6 @@
         } );
     } );
 
-    const headerSocialBorderRadius = [
-        'responsive_header_social_border_radius_top_padding',
-        'responsive_header_social_border_radius_right_padding',
-        'responsive_header_social_border_radius_bottom_padding',
-        'responsive_header_social_border_radius_left_padding',
-        'responsive_header_social_border_radius_tablet_top_padding',
-        'responsive_header_social_border_radius_tablet_right_padding',
-        'responsive_header_social_border_radius_tablet_bottom_padding',
-        'responsive_header_social_border_radius_tablet_left_padding',
-        'responsive_header_social_border_radius_mobile_top_padding',
-        'responsive_header_social_border_radius_mobile_right_padding',
-        'responsive_header_social_border_radius_mobile_bottom_padding',
-        'responsive_header_social_border_radius_mobile_left_padding',
-    ];
-
     const headerSocialMargin = [
         'responsive_header_social_item_margin_top_padding',
         'responsive_header_social_item_margin_right_padding',

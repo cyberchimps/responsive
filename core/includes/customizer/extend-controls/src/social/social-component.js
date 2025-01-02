@@ -66,7 +66,7 @@ const ResponsiveSocialComponent = props => {
             { value: 'behance', label: __('Behance', 'responsive') },
             { value: 'discord', label: __('Discord', 'responsive') },
             { value: 'github', label: __('GitHub', 'responsive') },
-            { value: 'google_reviews', label: __('Google Reviews', 'responsive') },
+            { value: 'googlereviews', label: __('Google Reviews', 'responsive') },
             { value: 'medium', label: __('Medium', 'responsive') },
             { value: 'patreon', label: __('Patreon', 'responsive') },
             { value: 'phone', label: __('Phone', 'responsive') },

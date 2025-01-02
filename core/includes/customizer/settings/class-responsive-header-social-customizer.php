@@ -150,7 +150,7 @@ if ( ! class_exists( 'Responsive_Header_Social_Icons_Customizer' ) ) :
 
 			responsive_drag_number_control( $wp_customize, 'header_social_item_border_width', __( 'Border Width (px)', 'responsive' ), 'responsive_header_social', 85, 0, null, 100, 0, 'postMessage' );
 
-			responsive_padding_control( $wp_customize, 'header_social_border_radius', 'responsive_header_social', 86, Responsive\Core\get_responsive_customizer_defaults( 'header_social_border_radius' ), Responsive\Core\get_responsive_customizer_defaults( 'header_social_border_radius' ), null, __( 'Border Radius (px)', 'responsive' ) );
+			responsive_radius_control( $wp_customize, 'header_social_radius', 'responsive_header_social', 86, Responsive\Core\get_responsive_customizer_defaults( 'header_social_border_radius' ), Responsive\Core\get_responsive_customizer_defaults( 'header_social_border_radius' ), null, __( 'Border Radius (px)', 'responsive' ) );
 
 			responsive_color_control( $wp_customize, 'header_social_item_border', __( 'Border Color', 'responsive' ), 'responsive_header_social', 87, Responsive\Core\get_responsive_customizer_defaults( 'header_social_border_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'header_social_border_hover_color' ), 'header_social_item_border_hover' );
 
