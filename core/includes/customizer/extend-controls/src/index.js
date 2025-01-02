@@ -19,6 +19,7 @@ import { responsiveToggle } from './toggle/control';
 import { responsiveHorizontalSeparator } from './horizontal-separator/control';
 import { responsiveBackgroundImage } from './backgroundimage/control';
 import { responsiveTypographyGroup } from './typography_group/control';
+import { responsiveFontPreset } from './fontpresets/control';
 import './breadcrumb-toggle';
 
 wp.customize.controlConstructor['responsive-sortable'] = responsiveSortable;
@@ -41,3 +42,4 @@ wp.customize.controlConstructor['responsive-toggle'] = responsiveToggle;
 wp.customize.controlConstructor['responsive-horizontal-separator'] = responsiveHorizontalSeparator;
 wp.customize.controlConstructor['responsive-background-image'] = responsiveBackgroundImage;
 wp.customize.controlConstructor['responsive-typography-settings-group'] = responsiveTypographyGroup;
+wp.customize.controlConstructor['responsive-font-presets'] = responsiveFontPreset;

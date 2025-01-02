@@ -2902,3 +2902,45 @@ function responsive_typography_group_control( $wp_customize, $element, $label, $
 		)
 	);
 }
+
+function responsive_font_presets_control( $wp_customize, $element, $label, $section, $priority, $default = '', $transport = 'postMessage', $description = '' ) {
+
+	$choices = array(
+		'preset_1' => array('label' => 'Abril Fatface / Lato', 'bodyFont'        => 'Lato', 'headingFont'              => 'Abril Fatface' ),
+		'preset_2' => array('label' => 'Alegreya Sans / Alegreya','bodyFont'     => 'Alegreya','headingFont'           => 'Alegreya Sans' ),
+		'preset_3' => array('label' => 'Archivo Black  / Roboto','bodyFont'      => 'Roboto','headingFont'             => 'Archivo Black' ),
+		'preset_4' => array('label' => 'Bebas Neue / Old Standard TT','bodyFont' => 'Old Standard TT', 'headingFont'   => 'Bebas Neue'),
+		'preset_5' => array('label' => 'Exo 2 / Alegreya Sans','bodyFont'        => 'Alegreya Sans','headingFont'      => 'Exo 2'),
+		'preset_6' => array('label' => 'Fira Sans / TPT Serif','bodyFont'        => 'PT Serif','headingFont'           => 'Fira Sans'),
+		'preset_7' => array('label' => 'Josefin Sans / Josefin Slab', 'bodyFont' => 'Josefin Slab', 'headingFont'      => 'Josefin Sans'),
+		'preset_8' => array('label' => 'Karla / Spectral','bodyFont'             => 'Spectral','headingFont'           => 'Karla'),
+		'preset_9' => array('label' => 'Lato / Merriweather','bodyFont'          => 'Merriweather','headingFont'       => 'Lato'),
+	);
+	set_theme_mod('font_presets_value', json_encode($choices));
+
+	// Add setting for font presets.
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'default'           => $default,
+			'sanitize_callback' => 'sanitize_text_field',
+			'transport'         => $transport,
+		)
+	);
+
+	// Add control for font presets.
+	$wp_customize->add_control(
+		new Responsive_Customizer_Font_Presets_Control(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'label'       => $label,
+				'description' => $description,
+				'section'     => $section,
+				'settings'    => 'responsive_' . $element,
+				'priority'    => $priority,
+				'choices'     => $choices,
+			)
+		)
+	);
+}
