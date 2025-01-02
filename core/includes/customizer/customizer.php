@@ -322,6 +322,7 @@ function responsive_custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Range_With_Switcher_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Builder_Row_Layout_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Builder_Available_Items_Drag_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Social_Control' );
 
 }
 
