@@ -193,6 +193,7 @@ module.exports = function(grunt) {
 					'core/includes/customizer/assets/min/css/general.min.css': 'core/includes/customizer/controls/general.css',
 					'core/includes/customizer/assets/min/css/imageradiobtn.min.css':'core/includes/customizer/controls/imageradiobtn/imageradiobtn.css',
 					'core/includes/customizer/assets/min/css/sortable.min.css':'core/includes/customizer/controls/sortable/sortable.css',
+					'core/includes/customizer/assets/min/css/social.min.css':'core/includes/customizer/controls/social/social.css',
 					'core/includes/customizer/assets/min/css/redirect.min.css':'core/includes/customizer/controls/redirect/redirect.css',
 					'core/includes/customizer/assets/min/css/typography.min.css':'core/includes/customizer/controls/typography/typography.css',
 					'core/includes/customizer/assets/min/css/multi-select.min.css':'core/includes/customizer/controls/multi-select/multi-select.css',

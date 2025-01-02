@@ -99,7 +99,6 @@ if ( ! class_exists( 'Responsive_Customizer_Responsive_Tabs_Control' ) ) :
 		 * @access public
 		 */
 		public function enqueue() {
-			wp_enqueue_script( 'responsive-tabs', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/tabs.min.js', array( 'jquery', 'customize-base', 'jquery-ui-slider' ), RESPONSIVE_THEME_VERSION, true );
 			wp_enqueue_style( 'responsive-tabs', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/tabs.min.css', null, RESPONSIVE_THEME_VERSION );
 		}
 
