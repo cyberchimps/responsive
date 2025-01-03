@@ -222,6 +222,7 @@ function responsive_register_options() {
 		'class-responsive-footer-menu-customizer',
 		'class-responsive-footer-copyright-customizer',
 		'class-responsive-header-builder-section-customizer',
+		'class-responsive-header-button-customizer',
 	);
 
 	if ( is_responsive_version_greater() ) {
