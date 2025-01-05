@@ -107,7 +107,7 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 			
 			// Font Presets
 			$font_presets_label = esc_html__( 'Font Combinations', 'responsive' );
-			responsive_font_presets_control( $wp_customize, 'font_presets', $font_presets_label, 'responsive_typography', 1);
+			responsive_font_presets_control( $wp_customize, 'font_presets', $font_presets_label, 'responsive_typography', 1, '', 'postMessage', 'Presets');
 
 			// Body Typography.
 			$body_typography_label = esc_html__( 'Body Font', 'responsive' );

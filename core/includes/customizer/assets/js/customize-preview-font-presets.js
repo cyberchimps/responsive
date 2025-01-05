@@ -106,7 +106,7 @@
         jQuery( 'style.customizer-typography-font-preset-body-font-family' ).remove();
         jQuery( 'head' ).append(
             '<style class="customizer-typography-font-preset-body-font-family">'
-            + 'body' + '{ font-family:' + fontFamily +' !important;}'
+            + 'body' + '{ font-family:' + fontFamily +';}'
             + '</style>'
         );
     }
@@ -137,7 +137,7 @@
         jQuery( 'style.customizer-typography-font-preset-headings-font-family' ).remove();
         jQuery( 'head' ).append(
             '<style class="customizer-typography-font-preset-headings-font-family">'
-            + 'h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6' + '{ font-family:' + fontFamily +'!important;}'
+            + 'h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6' + '{ font-family:' + fontFamily +';}'
             + '</style>'
         );
     }

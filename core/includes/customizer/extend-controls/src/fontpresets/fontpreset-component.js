@@ -5,7 +5,6 @@ import { useState } from 'react';
 const FontPresetComponent = (props) => {
     const [selectedValue, setSelectedValue] = useState(props.control.setting.get());
     const onOptionClick = (value) => {
-        console.log(value, "this is clicked");
         setSelectedValue(value);
         props.control.setting.set(value);
     };
@@ -16,17 +15,27 @@ const FontPresetComponent = (props) => {
         descriptionHtml = null,
         reset = __('Back to default', 'responsive');
 
+    if (label){
+        htmlLabel = (
+            <span className='customize-control-title'>{label}</span>
+        );
+    }
+
     if (description) {
         descriptionHtml = (
-            <i
-                className="res-control-tooltip dashicons dashicons-editor-help"
-                title={description}
-            ></i>
+            <label className='responsive-font-preset-reset-control'>
+	            <span className="customize-control-font-preset-description">{description}</span>
+	                <div className="responsive-reset-slider" onClick={() => {
+	    	            onOptionClick( '' );
+	                }}>
+	    	            <span className="responsive-reset-slider"><span className="dashicons dashicons-image-rotate" title={reset}></span></span>
+	                </div>
+	        </label>
         );
     }
 
     const optionsHtml = Object.entries(choices).map(
-        ([choiceValue, { headingFont, bodyFont, label: choiceLabel }]) => {
+        ([choiceValue, { headingFont, bodyFont }]) => {
             return (
                 <button
                     id={`${id}-fontpreset-${choiceValue}`}
@@ -37,23 +46,17 @@ const FontPresetComponent = (props) => {
                     }`}
                     onClick={() => onOptionClick(choiceValue)}
                 >
-                    <div className="font-preview">
-                        <span
-                            className="heading-preview"
-                            style={{ fontFamily: headingFont }}
+                    <div className="heading-preview"
+                        style={{ fontFamily: headingFont }}
                         >
                             Ag
-                        </span>
-                        <br></br>
-                        <br></br>
-                        <span
-                            className="body-preview"
-                            style={{ fontFamily: bodyFont }}
-                        >
-                            Ag
-                        </span>
                     </div>
-                    <span className="font-label tooltiptext">{choiceLabel}</span>
+                    <div className="body-preview"
+                        style={{ fontFamily: bodyFont }}
+                        >
+                            Ag
+                    </div>
+                    <span className="font-label fontpreset-tooltiptext">{headingFont}/<br></br>{bodyFont}</span>
                 </button>
             );
         }
@@ -93,14 +96,6 @@ const FontPresetComponent = (props) => {
         <>
             {htmlLabel}
             {descriptionHtml}
-            <label className='responsive-range-control-label'>
-	    <span className="customize-control-title">{label}</span>
-	    <div className="responsive-reset-slider" onClick={() => {
-	    	onOptionClick( '' );
-	    }}>
-	    	<span className="responsive-reset-slider"><span className="dashicons dashicons-image-rotate" title={reset}></span></span>
-	    </div>
-	</label>
             <div
                 className="customize-control-responsive-fontpreset"
                 data-name={name}
