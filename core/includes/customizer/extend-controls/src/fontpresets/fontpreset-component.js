@@ -47,12 +47,12 @@ const FontPresetComponent = (props) => {
                     onClick={() => onOptionClick(choiceValue)}
                 >
                     <div className="heading-preview"
-                        style={{ fontFamily: headingFont }}
+                        style={{ fontFamily: "'" + headingFont + "'", fontWeight: 900 }}
                         >
                             Ag
                     </div>
                     <div className="body-preview"
-                        style={{ fontFamily: bodyFont }}
+                        style={{ fontFamily: "'" + bodyFont + "'" }}
                         >
                             Ag
                     </div>
@@ -68,10 +68,11 @@ const FontPresetComponent = (props) => {
             // Generate URL for Google Fonts link
             const fontsToLoad = [headingFont, bodyFont].map((fontName) => {
                 const fontUrl = fontName
-                    .replace(" ", "%20")
+                    .replace(" ", "+")
                     .replace(",", "%2C");
+                console.log(fontUrl);
 
-                return `https://fonts.googleapis.com/css?family=${fontUrl}:${responsive.googleFontsWeight}`;
+                return `https://fonts.googleapis.com/css?family=${fontUrl}`;
             });
 
             // Load each font by appending a <link> to the head
