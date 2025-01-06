@@ -53,6 +53,9 @@ function setup() {
 	if ( ! class_exists( 'Responsive_Addons_Pro_Public' ) && !responsive_is_user_pro()) {
 		add_action( 'customize_controls_print_footer_scripts', $n( 'responsive_add_pro_button' ) );
 	}
+	// Add Fragment Support.
+	add_filter( 'woocommerce_add_to_cart_fragments', $n( 'responsive_get_refreshed_fragments_number'), 11 );
+	add_action( 'responsive_header_woo_cart_label_markup', $n( 'responsive_woo_cart_label_markup' ), 10 );
 
 }
 
@@ -339,6 +342,10 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 			responsive_old_header_footer_comaptibility_with_hfb();
 			update_option( 'responsive_old_header_footer_comaptibility_with_header_builder_done', true );
 		}
+		if( ! get_option( 'responsive_old_woo_cart_comaptibility_with_header_builder_woo_cart' ) ) {
+			responsive_old_woo_cart_comaptibility_with_header_builder_woo_cart();
+			update_option( 'responsive_old_woo_cart_comaptibility_with_header_builder_woo_cart', true );
+		}
 	}
 
 endif;
@@ -498,9 +505,8 @@ function responsive_enqueue_comment_reply() {
  * Function enqueues scroll-to-top JS file
  */
 function responsive_enqueue_scrolltotop() {
-
-	$hfb_footer_desktop_elements =  get_theme_mod( 'responsive_footer_items', get_responsive_customizer_defaults( 'responsive_footer_items' ) );
-	if ( responsive_check_element_present_in_hfb( 'scroll_to_top', $hfb_footer_desktop_elements ) ) {
+	if ( responsive_check_element_present_in_hfb( 'scroll_to_top', 'footer' ) ) {
+        // Enqueue scroll-to-top JS file.
 		wp_enqueue_script( 'responsive_theme_scroll-to-top', get_template_directory_uri() . '/core/includes/customizer/assets/js/scroll-to-top.js', array(), RESPONSIVE_THEME_VERSION, true );
 	}
 }
@@ -559,9 +565,7 @@ function responsive_add_custom_body_classes( $classes ) {
 	// $classes[] = 'site-header-' . implode( '-', $elements );
 
 	
-	$hfb_header_desktop_elements =  get_theme_mod( 'responsive_header_desktop_items', get_responsive_customizer_defaults( 'responsive_header_desktop_items' ) );
-
-	if ( responsive_check_element_present_in_hfb( 'primary_navigation', $hfb_header_desktop_elements ) ) {
+	if ( responsive_check_element_present_in_hfb( 'primary_navigation', 'header' ) ) {
 		$classes[] = 'site-header-main-navigation';
 	}
 
@@ -1710,15 +1714,129 @@ endif;
  * @since 6.1.0
  */
 
-function responsive_check_element_present_in_hfb( $needle, $haystack ) {
-	foreach ($haystack as $key => $value) {
-        if (is_array($value)) {
-            if ( responsive_check_element_present_in_hfb( $needle, $value ) ) {
-                return true;
-            }
-        } elseif ($value === $needle) {
-            return true;
+ function responsive_check_element_present_in_hfb( $component, $builder_type ) {
+	if ( 'header' === $builder_type ) {
+		$haystack = get_theme_mod( 'responsive_header_desktop_items', get_responsive_customizer_defaults( 'responsive_header_desktop_items' ) );
+	} else if ( 'footer' === $builder_type ) {
+		$haystack = get_theme_mod( 'responsive_footer_items', get_responsive_customizer_defaults( 'responsive_footer_items' ) );
+	}
+	// If component is empty or not an array, return false immediately.
+	if ( empty( $haystack ) || ! is_array( $haystack ) || empty( $component ) ) {
+		return false;
+    }
+	return responsive_check_for_element( $component, $haystack );
+}
+function responsive_check_for_element($component, $haystack) {
+	foreach ( $haystack as $key => $value ) {
+		if ( is_array( $value ) ) {
+			// Recursive check for nested arrays.
+			if ( responsive_check_for_element( $component, $value ) ) {
+				return true;
+			}
+		} elseif ( $value === $component ) {
+			// Found the component
+			return true;
+		}
+	}
+	return false;
+}
+/**
+ * Refresh the cart for ajax adds.
+ *
+ * @param object $fragments the cart object.
+ */
+function responsive_get_refreshed_fragments_number( $fragments ) {
+	
+	ob_start();
+	
+	?><span class="responsive-header-cart-total"><?php echo wp_kses_post( WC()->cart->get_cart_contents_count() ); ?></span> 
+	<?php
+	$fragments['span.responsive-header-cart-total'] = ob_get_clean();
+	ob_start();
+	responsive_woo_cart_label_markup();
+	$fragments['span.responsive-woo-header-cart-info-wrap'] = ob_get_clean();
+	return $fragments;
+}
+function responsive_woo_cart_label_markup(){
+    $cart_title             = apply_filters( 'responsive_header_cart_title', __( 'Cart', 'responsive' ) );
+    $cart_title_markup      = '<span class="responsive-woo-header-cart-title">' . esc_html( $cart_title ) . '</span>';
+    $cart_total_markup      = '';
+    $cart_total_only_markup = '';
+    $cart_check_total = get_theme_mod( 'responsive_hide_cart_total_label' ) && null !== WC()->cart ? intval( WC()->cart->get_cart_contents_total() ) > 0 : true;
+    if ( null !== WC()->cart ) {
+        if ( $cart_check_total ) {
+            $cart_total_markup      = '<span class="responsive-woo-header-cart-total">' . WC()->cart->get_cart_subtotal() . '</span>';
+            $cart_total_only_markup = '<span class="responsive-woo-header-cart-total-only">' . WC()->cart->get_cart_contents_total() . '</span>';
         }
     }
-    return false;
+    $cart_cur_name_markup = '';
+    if ( function_exists( 'get_woocommerce_currency' ) && $cart_check_total ) {
+        $cart_cur_name_markup = '<span class="responsive-woo-header-cart-cur-name">' . get_woocommerce_currency() . '</span>';
+    }
+    $cart_cur_sym_markup = '';
+    if ( function_exists( 'get_woocommerce_currency_symbol' ) && $cart_check_total ) {
+        $cart_cur_sym_markup = '<span class="responsive-woo-header-cart-cur-symbol">' . get_woocommerce_currency_symbol() . '</span>';
+    }
+    $woo_cart_label_val = get_theme_mod( 'responsive_woo_cart_label', '' );
+    $shortcode_label       = array( '{cart_total_currency_symbol}', '{cart_title}', '{cart_total}', '{cart_currency_name}', '{cart_currency_symbol}' );
+    $shortcode_label_value = array( $cart_total_markup, $cart_title_markup, $cart_total_only_markup, $cart_cur_name_markup, $cart_cur_sym_markup );
+    $cart_label_markup = '';
+    $cart_label_markup = str_replace( $shortcode_label, $shortcode_label_value, $woo_cart_label_val );
+    $cart_info_markup = sprintf(
+        '<span class="responsive-woo-header-cart-info-wrap">
+                %1$s
+            </span>',
+        $cart_label_markup
+    );
+    echo $cart_info_markup;
+}
+/**
+ * Make Old Woo Cart compatible with new header builder woo cart
+ * 
+ * @since 6.1.1
+ */
+if( ! function_exists( 'responsive_old_woo_cart_comaptibility_with_header_builder_woo_cart' ) ) {
+	function responsive_old_woo_cart_comaptibility_with_header_builder_woo_cart() {
+		$is_cart_element_loaded = responsive_check_element_present_in_hfb( 'woo-cart', 'header' );
+		if ( $is_cart_element_loaded || ! class_exists( 'WooCommerce') ) {
+			return;
+		}
+		$menu_cart = get_theme_mod( 'responsive_menu_cart_icon' );
+		if ( 'icon-opencart' === $menu_cart ) {
+			$header_hfb_elements = get_theme_mod( 'responsive_header_desktop_items', get_responsive_customizer_defaults( 'responsive_header_desktop_items' ) );
+			array_push( $header_hfb_elements['primary']['primary_right'], 'woo-cart' );
+			set_theme_mod( 'responsive_header_desktop_items', $header_hfb_elements );
+			set_theme_mod( 'responsive_header_woo_cart_click_action', 'redirect' );
+			set_theme_mod( 'responsive_cart_hover_color', get_theme_mod( 'responsive_cart_color' ) );
+			if ( get_theme_mod( 'responsive_cart_title' ) && get_theme_mod( 'responsive_cart_count' ) ) {
+				set_theme_mod( 'responsive_woo_cart_label', 'Cart / {cart_currency_symbol}{cart_total}' );
+			} else {
+				if ( get_theme_mod( 'responsive_cart_title' ) ) {
+					set_theme_mod( 'responsive_woo_cart_label', 'Cart' );
+				}
+				if ( get_theme_mod( 'responsive_cart_count' ) ) {
+					set_theme_mod( 'responsive_woo_cart_label', '{cart_currency_symbol}{cart_total}' );
+				}
+			}
+			$padding_properties = [
+				'top_padding',
+				'right_padding',
+				'bottom_padding',
+				'left_padding',
+				'tablet_top_padding',
+				'tablet_right_padding',
+				'tablet_bottom_padding',
+				'tablet_left_padding',
+				'mobile_top_padding',
+				'mobile_right_padding',
+				'mobile_bottom_padding',
+				'mobile_left_padding',
+			];
+			
+			foreach ( $padding_properties as $type ) {
+				$target_mod = "responsive_header_woo_cart_padding_$type";
+				set_theme_mod( $target_mod, 4 );
+			}
+		}
+	}
 }
