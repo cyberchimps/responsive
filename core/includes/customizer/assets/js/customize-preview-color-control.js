@@ -1986,4 +1986,46 @@
             );
         });
     });
+    api( 'responsive_header_button_color', function(val){
+        val.bind(function(newval){
+            $( '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button' ).css( 'color', newval );
+        });
+    });
+    api( 'responsive_header_button_hover_color', function(val){
+        val.bind(function(newval){
+            $( '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover' ).css( 'color', newval );
+        });
+    });
+    api( 'responsive_header_button_bg_color', function(val){
+        val.bind(function(newval){
+            let header_button_style = api('responsive_header_button_style').get();
+            if ( 'filled' === header_button_style ) {
+                $( '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button' ).css( 'background-color', newval );
+            }
+        });
+    });
+    api( 'responsive_header_button_bg_hover_color', function(val){
+        val.bind(function(newval){
+            let header_button_style = api('responsive_header_button_style').get();
+            if ( 'filled' === header_button_style ) {
+                $( '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover' ).css( 'background-color', newval );
+            }
+        });
+    });
+    api( 'responsive_header_button_border_color', function(val){
+        val.bind(function(newval){
+            let header_button_border_style = api('responsive_header_button_border_style').get();
+            if ( 'none' !== header_button_border_style ) {
+                $( '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button' ).css( 'border-color', newval );
+            }
+        });
+    });
+    api( 'responsive_header_button_border_hover_color', function(val){
+        val.bind(function(newval){
+            let header_button_border_style = api('responsive_header_button_border_style').get();
+            if ( 'none' !== header_button_border_style ) {
+                $( '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover' ).css( 'border-color', newval );
+            }
+        });
+    });
 } )( jQuery );

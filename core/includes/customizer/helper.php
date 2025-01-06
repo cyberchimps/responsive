@@ -3072,3 +3072,51 @@ function responsive_builder_row_layout_control( $wp_customize, $element, $label,
 		)
 	);
 }
+
+/**
+ * Check if the header button padding should be displayed.
+ *
+ * Determines whether the custom header button padding option should be shown
+ * based on the value of the 'responsive_header_button_size' theme mod.
+ *
+ * @return bool True if the header button padding option should be shown, false otherwise.
+ */
+function responsive_show_header_button_padding() {
+	$header_button_size = get_theme_mod( 'responsive_header_button_size', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_size' ) );
+	if ( 'custom' === $header_button_size ) {
+		return true;
+	}
+	return false;
+}
+
+/**
+ * Check if the header button background colors should be displayed.
+ *
+ * Determines whether the header button background colors option should be shown
+ * based on the value of the 'responsive_header_button_style' theme mod.
+ *
+ * @return bool True if the header button background colors option should be shown, false otherwise.
+ */
+function responsive_show_header_button_bg_colors() {
+	$header_button_style = get_theme_mod( 'responsive_header_button_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_style' ) );
+	if ( 'filled' === $header_button_style ) {
+		return true;
+	}
+	return false;
+}
+
+/**
+ * Check if the header button border option should be displayed.
+ *
+ * Determines whether the header button border option should be shown
+ * based on the value of the 'responsive_header_button_border_style' theme mod.
+ *
+ * @return bool True if the header button border option should be shown, false otherwise.
+ */
+function responsive_show_header_button_border_option() {
+	$header_button_border_style = get_theme_mod( 'responsive_header_button_border_style' , Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_style' ) );
+	if ( 'none' !== $header_button_border_style ) {
+		return true;
+	}
+	return false;
+}

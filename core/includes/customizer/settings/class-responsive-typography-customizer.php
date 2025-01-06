@@ -394,7 +394,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'footer'                     => '.site-footer',
 				'page'                       => '.page .post-title, #main-blog h1',
 				'footer_copyright'           => '.footer-layouts.copyright',
-				'header_button'              => '.site-header .site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap',
+				'header_button'              => '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button',
 			);
 
 			if ( $this->is_responsive_version_greater() ) {
