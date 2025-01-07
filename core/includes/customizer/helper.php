@@ -2375,6 +2375,89 @@ function responsive_select_button_control( $wp_customize, $element, $label, $sec
 }
 
 /**
+ * Adds a custom shadow control to the WordPress Customizer.
+ *
+ * @param WP_Customize_Manager $wp_customize    The Customizer object.
+ * @param string               $element         The unique identifier for the control.
+ * @param string               $label           The label for the control.
+ * @param string               $section         The section in which the control will be added.
+ * @param int                  $priority        The priority order of the control within the section.
+ * @param int                  $default_value_x The default value for the X-axis offset of the shadow.
+ * @param int                  $default_value_y The default value for the Y-axis offset of the shadow.
+ * @param int                  $default_blur    The default value for the blur radius of the shadow.
+ * @param int                  $default_spread  The default value for the spread radius of the shadow.
+ * @param bool                 $default_inset   The default value indicating whether the shadow is inset.
+ * @param callable|null        $active_call     A callback to determine if the control is active.
+ * @param string               $transport       The transport method for live preview. Defaults to 'refresh'.
+ * @param string               $description     An optional description for the control.
+ *
+ * @return void
+ */
+function responsive_shadow_control( $wp_customize, $element, $label, $section, $priority, $default_value_x, $default_value_y, $default_blur, $default_spread, $default_inset, $active_call, $transport = 'refresh', $description = '' ) {
+
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_x_axis',
+		array(
+			'default'           => $default_value_x,
+			'sanitize_callback' => 'responsive_sanitize_number',
+			'transport'         => $transport,
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_y_axis',
+		array(
+			'default'           => $default_value_y,
+			'sanitize_callback' => 'responsive_sanitize_number',
+			'transport'         => $transport,
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_blur',
+		array(
+			'default'           => $default_blur,
+			'sanitize_callback' => 'responsive_sanitize_number',
+			'transport'         => $transport,
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_spread',
+		array(
+			'default'           => $default_spread,
+			'sanitize_callback' => 'responsive_sanitize_number',
+			'transport'         => $transport,
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_inset',
+		array(
+			'default'           => $default_inset,
+			'sanitize_callback' => 'responsive_boolean_validate',
+			'transport'         => $transport,
+		)
+	);
+	$wp_customize->add_control(
+		new Responsive_Customizer_Shadow_Control(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'label'           => $label,
+				'description'     => $description,
+				'section'         => $section,
+				'settings'        => array(
+					'x_axis' => 'responsive_' . $element . '_x_axis',
+					'y_axis' => 'responsive_' . $element . '_y_axis',
+					'blur'   => 'responsive_' . $element . '_blur',
+					'spread' => 'responsive_' . $element . '_spread',
+					'inset'  => 'responsive_' . $element . '_inset',
+				),
+				'priority'        => $priority,
+				'active_callback' => $active_call,
+			)
+		)
+	);
+}
+
+/**
  * Check if the user has a pro plan or not.
  *
  * @return bool
