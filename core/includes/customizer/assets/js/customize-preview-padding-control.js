@@ -2010,7 +2010,7 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
     headerButtonMargin.forEach(setting => {
         api(setting, function(value) {
             value.bind(function(newval) {
-                responsive_dynamic_margin('header_button', '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button');
+                responsive_dynamic_margin('header_button_margin', '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button');
             });
         });
     });

@@ -64,6 +64,7 @@ if ( ! class_exists( 'Responsive_Header_Button_Customizer' ) ) :
 				$tab_ids_prefix . 'responsive_header_button_bg_color',
 				$tab_ids_prefix . 'responsive_header_button_bg_color_separator',
 				$tab_ids_prefix . 'responsive_header_button_border_style',
+				$tab_ids_prefix . 'responsive_header_button_border_width',
 				$tab_ids_prefix . 'responsive_header_button_border_color',
 				$tab_ids_prefix . 'responsive_border_header_button_radius',
 				$tab_ids_prefix . 'responsive_header_button_border_separator',
