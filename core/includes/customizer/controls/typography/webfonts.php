@@ -181,7 +181,7 @@ function responsive_enqueue_google_font( $font ) {
 	$weights = apply_filters( 'responsive_google_font_enqueue_weights', $weights, $font );
 	$italics = apply_filters( 'responsive_google_font_enqueue_italics', true );
 	// Main URL.
-	$url = '//fonts.googleapis.com/css?family=' . str_replace( ' ', '%20', $font ) . ':';
+	$url = 'https://fonts.googleapis.com/css?family=' . str_replace( ' ', '%20', $font ) . ':';
 
 	// Add weights to URL.
 	if ( ! empty( $weights ) ) {
@@ -197,6 +197,11 @@ function responsive_enqueue_google_font( $font ) {
 
 	// Add subset to URL.
 	$url .= $subset;
+
+	$blockEditorData = array(
+		'fontHandle' => $handle,
+	);
+	wp_localize_script( 'responsive-block-editor-scripts', 'responsiveBlockEditorData', $blockEditorData );
 
 	// Enqueue style.
 	wp_enqueue_style( 'responsive-google-font-' . $handle, $url, false, false, 'all' );//phpcs:ignore
