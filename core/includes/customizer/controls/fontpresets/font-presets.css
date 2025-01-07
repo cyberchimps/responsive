@@ -5,7 +5,7 @@
     gap: 18px;
     align-items: center;
     justify-content: space-between;
-    background-color: #F0F0F1;  
+    background-color: #FFF;  
     padding: 20px 35px;
 }
 
@@ -17,7 +17,7 @@
     align-items: center;
     width: 54px;
     padding: 0;
-    border: 1px solid #F0F0F1;
+    border: 1px solid #eaeaea;
     color: black;
     background-color: white;
     border-radius: 4px;
@@ -28,26 +28,38 @@
     border: 1px solid black;
 }
 
-.customize-control-responsive-fontpreset .fontpreset-tooltiptext {
+.tooltiptext {
     visibility: hidden;
-    width: 84px;
-    height: 25px;
-    background-color: #3e3e3e;
+    width: auto;
+    background-color: #fff;
     color: #fff;
-    border-radius: 3px;
-    padding: 8px 10px;
+    text-align: center;
+    border-radius: 6px;
+    padding: 6px 11px;
     position: absolute;
     z-index: 1;
-    top: -50px;
-    font-size: 12px;
+    top: -36px;
+    font-size: 14px;
     line-height: 12px;
-    font-family: 'Roboto';
+    font-family: 'open sans';
     transform: translateX(-50%);
+    min-width: 70px;
+    width: fit-content;
     left: 48%;
-    box-shadow: 0 4px 4px 0 #00000040;
 }
 
-button.customize-control-responsive-fontpreset__button.fontpreset-button:hover .fontpreset-tooltiptext {
+.tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #3B3B3B transparent transparent transparent;
+}
+
+button.customize-control-responsive-fontpreset__button.fontpreset-button:hover .tooltiptext {
     visibility: visible;
 }
 
@@ -78,7 +90,7 @@ button.customize-control-responsive-fontpreset__button.fontpreset-button .body-p
     justify-content: space-between;
     padding: 15px;
     padding-bottom: 0;
-    background-color: #F0F0F1;
+    background-color: #FFF;
 }
 
 .customize-control-font-preset-description {

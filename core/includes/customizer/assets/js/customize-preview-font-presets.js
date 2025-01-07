@@ -11,39 +11,57 @@
     const choices = {
         preset_1: {
             bodyFont: "Lato",
-            headingFont: "Abril Fatface"
+            headingFont: "Abril Fatface",
+            bodyWeight: 400,
+            headingWeight: 400
         },
         preset_2: {
             bodyFont: "Alegreya",
-            headingFont: "Alegreya Sans"
+            headingFont: "Alegreya Sans",
+            bodyWeight: 400,
+            headingWeight: 900
         },
         preset_3: {
             bodyFont: "Roboto",
-            headingFont: "Archivo Black"
+            headingFont: "Archivo Black",
+            bodyWeight: 400,
+            headingWeight: 400
         },
         preset_4: {
             bodyFont: "Old Standard TT",
-            headingFont: "Bebas Neue"
+            headingFont: "Bebas Neue",
+            bodyWeight: 400,
+            headingWeight: 400
         },
         preset_5: {
             bodyFont: "Alegreya Sans",
-            headingFont: "Exo 2"
+            headingFont: "Exo 2",
+            bodyWeight: 400,
+            headingWeight: 900
         },
         preset_6: {
             bodyFont: "PT Serif",
-            headingFont: "Fira Sans"
+            headingFont: "Fira Sans",
+            bodyWeight: 400,
+            headingWeight: 900
         },
         preset_7: {
             bodyFont: "Josefin Slab",
-            headingFont: "Josefin Sans"
+            headingFont: "Josefin Sans",
+            bodyWeight: 600,
+            headingWeight: 700
         },
         preset_8: {
             bodyFont: "Spectral",
-            headingFont: "Karla"
+            headingFont: "Karla",
+            bodyWeight: 300,
+            headingWeight: 700
         },
         preset_9: {
             bodyFont: "Merriweather",
-            headingFont: "Lato"
+            headingFont: "Lato",
+            bodyWeight: 400,
+            headingWeight: 400
         }
     };    
     /******** FONT PRESET CONTROL FOR BODY AND HEADINGS *********/
@@ -57,19 +75,21 @@
             }
             var bodyFont = choices[value].bodyFont;
             var headingFont = choices[value].headingFont;
+            var bodyWeight = choices[value].bodyWeight;
+            var headingWeight = choices[value].headingWeight;
 
             // Apply body font to the page
-            applyFontToBody(bodyFont);
+            applyFontToBody(bodyFont, bodyWeight);
 
             // Apply heading font to all headings
-            applyFontToHeadings(headingFont);
+            applyFontToHeadings(headingFont, headingWeight);
         });
     });
 
     /**
      * Apply the selected font to the body.
      */
-    function applyFontToBody(fontFamily) {
+    function applyFontToBody(fontFamily, fontWeight) {
         if ( fontFamily ) {
             /** @type {string} */
             var fontName = fontFamily.split(",")[0];
@@ -90,7 +110,7 @@
         jQuery( 'style.customizer-typography-font-preset-body-font-family' ).remove();
         jQuery( 'head' ).append(
             '<style class="customizer-typography-font-preset-body-font-family">'
-            + 'body' + '{ font-family:' + fontFamily +';}'
+            + 'body' + '{ font-family:' + fontFamily +'; font-weight:' + fontWeight + ';}'
             + '</style>'
         );
     }
@@ -98,7 +118,7 @@
     /**
      * Apply the selected font to all headings (h1, h2, ..., h6).
      */
-    function applyFontToHeadings(fontFamily) {
+    function applyFontToHeadings(fontFamily, fontWeight) {
         if ( fontFamily ) {
             /** @type {string} */
             var fontName = fontFamily.split(",")[0];
@@ -119,7 +139,7 @@
         jQuery( 'style.customizer-typography-font-preset-headings-font-family' ).remove();
         jQuery( 'head' ).append(
             '<style class="customizer-typography-font-preset-headings-font-family">'
-            + 'h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6' + '{ font-family:' + fontFamily +';}'
+            + 'h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6' + '{ font-family:' + fontFamily +'; font-weight:' + fontWeight + ';}'
             + '</style>'
         );
     }

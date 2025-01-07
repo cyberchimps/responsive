@@ -35,7 +35,7 @@ const FontPresetComponent = (props) => {
     }
 
     const optionsHtml = Object.entries(choices).map(
-        ([choiceValue, { headingFont, bodyFont }]) => {
+        ([choiceValue, { headingFont, bodyFont, headingWeight, bodyWeight }]) => {
             return (
                 <button
                     id={`${id}-fontpreset-${choiceValue}`}
@@ -47,16 +47,16 @@ const FontPresetComponent = (props) => {
                     onClick={() => onOptionClick(choiceValue)}
                 >
                     <div className="heading-preview"
-                        style={{ fontFamily: "'" + headingFont + "'", fontWeight: 900 }}
+                        style={{ fontFamily: "'" + headingFont + "'", fontWeight: headingWeight }}
                         >
                             Ag
                     </div>
                     <div className="body-preview"
-                        style={{ fontFamily: "'" + bodyFont + "'" }}
+                        style={{ fontFamily: "'" + bodyFont + "'", fontWeight: bodyWeight}}
                         >
                             Ag
                     </div>
-                    <span className="font-label fontpreset-tooltiptext">{headingFont}/<br></br>{bodyFont}</span>
+                    <span className="font-label tooltiptext">{headingFont} / {bodyFont}</span>
                 </button>
             );
         }
@@ -64,15 +64,15 @@ const FontPresetComponent = (props) => {
 
     // Load all fonts from choices (both heading and body fonts)
     const loadFonts = () => {
-        Object.entries(choices).forEach(([choiceValue, { headingFont, bodyFont }]) => {
-            // Generate URL for Google Fonts link
-            const fontsToLoad = [headingFont, bodyFont].map((fontName) => {
-                const fontUrl = fontName
-                    .replace(" ", "+")
-                    .replace(",", "%2C");
-                console.log(fontUrl);
-
-                return `https://fonts.googleapis.com/css?family=${fontUrl}`;
+        Object.entries(choices).forEach(([choiceValue, { headingFont, bodyFont, headingWeight, bodyWeight }]) => {
+            // Generate URL for Google Fonts link including weights
+            const fontsToLoad = [
+                { font: headingFont, weight: headingWeight },
+                { font: bodyFont, weight: bodyWeight }
+            ].map(({ font, weight }) => {
+                const fontUrl = font.replace(/ /g, "+").replace(/,/g, "%2C");
+                console.log(fontUrl, weight);
+                return `https://fonts.googleapis.com/css?family=${fontUrl}:${weight}`;
             });
 
             // Load each font by appending a <link> to the head

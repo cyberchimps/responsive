@@ -2906,15 +2906,15 @@ function responsive_typography_group_control( $wp_customize, $element, $label, $
 function responsive_font_presets_control( $wp_customize, $element, $label, $section, $priority, $default = '', $transport = 'postMessage', $description = '' ) {
 
 	$choices = array(
-		'preset_1' => array('bodyFont' => 'Lato', 'headingFont'              => 'Abril Fatface' ),
-		'preset_2' => array('bodyFont' => 'Alegreya','headingFont'           => 'Alegreya Sans' ),
-		'preset_3' => array('bodyFont' => 'Roboto','headingFont'             => 'Archivo Black' ),
-		'preset_4' => array('bodyFont' => 'Old Standard TT', 'headingFont'   => 'Bebas Neue'),
-		'preset_5' => array('bodyFont' => 'Alegreya Sans','headingFont'      => 'Exo 2'),
-		'preset_6' => array('bodyFont' => 'PT Serif','headingFont'           => 'Fira Sans'),
-		'preset_7' => array('bodyFont' => 'Josefin Slab', 'headingFont'      => 'Josefin Sans'),
-		'preset_8' => array('bodyFont' => 'Spectral','headingFont'           => 'Karla'),
-		'preset_9' => array('bodyFont' => 'Merriweather','headingFont'       => 'Lato'),
+		'preset_1' => array('bodyFont' => 'Lato', 'headingFont'              => 'Abril Fatface', 'headingWeight' => '400', 'bodyWeight' => '400'),
+		'preset_2' => array('bodyFont' => 'Alegreya','headingFont'           => 'Alegreya Sans', 'headingWeight' => '900', 'bodyWeight' => '400' ),
+		'preset_3' => array('bodyFont' => 'Roboto','headingFont'             => 'Archivo Black', 'headingWeight' => '400', 'bodyWeight' => '400' ),
+		'preset_4' => array('bodyFont' => 'Old Standard TT', 'headingFont'   => 'Bebas Neue', 'headingWeight' => '400', 'bodyWeight' => '400'),
+		'preset_5' => array('bodyFont' => 'Alegreya Sans','headingFont'      => 'Exo 2', 'headingWeight' => '900', 'bodyWeight' => '400'),
+		'preset_6' => array('bodyFont' => 'PT Serif','headingFont'           => 'Fira Sans', 'headingWeight' => '900', 'bodyWeight' => '400'),
+		'preset_7' => array('bodyFont' => 'Josefin Slab', 'headingFont'      => 'Josefin Sans', 'headingWeight' => '700', 'bodyWeight' => '600'),
+		'preset_8' => array('bodyFont' => 'Spectral','headingFont'           => 'Karla', 'headingWeight' => '700', 'bodyWeight' => '300'),
+		'preset_9' => array('bodyFont' => 'Merriweather','headingFont'       => 'Lato', 'headingWeight' => '400', 'bodyWeight' => '400'),
 	);
 	set_theme_mod('font_presets_value', json_encode($choices));
 

@@ -107,65 +107,67 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 			$font_presets_label = esc_html__( 'Font Combinations', 'responsive' );
 			responsive_font_presets_control( $wp_customize, 'font_presets', $font_presets_label, 'responsive_typography', 1, '', 'postMessage', 'Presets');
 
+			responsive_horizontal_separator_control($wp_customize, 'font_preset_group_separator', 2, 'responsive_typography', 2, 1, );
+
 			// Body Typography.
 			$body_typography_label = esc_html__( 'Body Font', 'responsive' );
-			responsive_typography_group_control( $wp_customize, 'body_typography_group', $body_typography_label, 'responsive_typography', 2, 'body_typography' );
+			responsive_typography_group_control( $wp_customize, 'body_typography_group', $body_typography_label, 'responsive_typography', 3, 'body_typography' );
 
 			// Main Content Width.
 			$paragraph_margin_label = esc_html__( 'Paragraph Margin Bottom', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'paragraph_margin_bottom', $paragraph_margin_label, 'responsive_typography', 4, '', null, 5, 1, 'postMessage', 0.1 );
 
-			responsive_horizontal_separator_control($wp_customize, 'body_typography_group_separator', 3, 'responsive_typography', 3, 1, );
+			responsive_horizontal_separator_control($wp_customize, 'body_typography_group_separator', 2, 'responsive_typography', 5, 1, );
 
 			// Heading Fonts heading.
 			$heading_fonts_typography_label = esc_html__( 'Heading Font', 'responsive' );
-			responsive_separator_control( $wp_customize, 'heading_fonts_typography_separator', $heading_fonts_typography_label, 'responsive_typography', 4 );
+			responsive_separator_control( $wp_customize, 'heading_fonts_typography_separator', $heading_fonts_typography_label, 'responsive_typography', 6 );
 			
 			// ALL heading Typography.
 			$all_heading_typography_label = esc_html__( 'All Headings Font', 'responsive' );
-			responsive_typography_group_control( $wp_customize, 'headings_typography_group', $all_heading_typography_label, 'responsive_typography', 5, 'headings_typography' );
+			responsive_typography_group_control( $wp_customize, 'headings_typography_group', $all_heading_typography_label, 'responsive_typography', 7, 'headings_typography' );
 
-			responsive_horizontal_separator_control($wp_customize, 'headings_typography_group_separator', 1, 'responsive_typography', 6, 1, );
+			responsive_horizontal_separator_control($wp_customize, 'headings_typography_group_separator', 1, 'responsive_typography', 8, 1, );
 
 			// Body Typography.
 			$h1_typography_label = esc_html__( 'H1 Font', 'responsive' );
-			responsive_typography_group_control( $wp_customize, 'heading_h1_typography_group', $h1_typography_label, 'responsive_typography', 7, 'heading_h1_typography' );
+			responsive_typography_group_control( $wp_customize, 'heading_h1_typography_group', $h1_typography_label, 'responsive_typography', 9, 'heading_h1_typography' );
 
-			responsive_horizontal_separator_control($wp_customize, 'heading_h1_typography_group_separator', 1, 'responsive_typography', 8, 1, );
+			responsive_horizontal_separator_control($wp_customize, 'heading_h1_typography_group_separator', 1, 'responsive_typography', 10, 1, );
 
 			// H2 Typography.
 			$h2_typography_label = esc_html__( 'H2 Font', 'responsive' );
-			responsive_typography_group_control( $wp_customize, 'heading_h2_typography_group', $h2_typography_label, 'responsive_typography', 9, 'heading_h2_typography' );
+			responsive_typography_group_control( $wp_customize, 'heading_h2_typography_group', $h2_typography_label, 'responsive_typography', 11, 'heading_h2_typography' );
 
-			responsive_horizontal_separator_control($wp_customize, 'heading_h2_typography_group_separator', 1, 'responsive_typography', 10, 1, );
+			responsive_horizontal_separator_control($wp_customize, 'heading_h2_typography_group_separator', 1, 'responsive_typography', 12, 1, );
 
 			// H3 Typography.
 			$h3_typography_label = esc_html__( 'H3 Font', 'responsive' );
-			responsive_typography_group_control( $wp_customize, 'heading_h3_typography_group', $h3_typography_label, 'responsive_typography', 11, 'heading_h3_typography' );
+			responsive_typography_group_control( $wp_customize, 'heading_h3_typography_group', $h3_typography_label, 'responsive_typography', 13, 'heading_h3_typography' );
 
-			responsive_horizontal_separator_control($wp_customize, 'heading_h3_typography_group_separator', 1, 'responsive_typography', 12, 1, );
+			responsive_horizontal_separator_control($wp_customize, 'heading_h3_typography_group_separator', 1, 'responsive_typography', 14, 1, );
 	
 			// H4 Typography.
 			$h4_typography_label = esc_html__( 'H4 Font', 'responsive' );
-			responsive_typography_group_control( $wp_customize, 'heading_h4_typography_group', $h4_typography_label, 'responsive_typography', 13, 'heading_h4_typography' );
+			responsive_typography_group_control( $wp_customize, 'heading_h4_typography_group', $h4_typography_label, 'responsive_typography', 15, 'heading_h4_typography' );
 
-			responsive_horizontal_separator_control($wp_customize, 'heading_h4_typography_group_separator', 1, 'responsive_typography', 14, 1, );
+			responsive_horizontal_separator_control($wp_customize, 'heading_h4_typography_group_separator', 1, 'responsive_typography', 16, 1, );
 
 			// H5 Typography.
 			$h5_typography_label = esc_html__( 'H5 Font', 'responsive' );
-			responsive_typography_group_control( $wp_customize, 'heading_h5_typography_group', $h5_typography_label, 'responsive_typography', 15, 'heading_h5_typography' );
+			responsive_typography_group_control( $wp_customize, 'heading_h5_typography_group', $h5_typography_label, 'responsive_typography', 17, 'heading_h5_typography' );
 
-			responsive_horizontal_separator_control($wp_customize, 'heading_h5_typography_group_separator', 1, 'responsive_typography', 16, 1, );
+			responsive_horizontal_separator_control($wp_customize, 'heading_h5_typography_group_separator', 1, 'responsive_typography', 18, 1, );
 
 			// H6 Typography.
 			$h6_typography_label = esc_html__( 'H6 Font', 'responsive' );
-			responsive_typography_group_control( $wp_customize, 'heading_h6_typography_group', $h6_typography_label, 'responsive_typography', 17, 'heading_h6_typography' );
+			responsive_typography_group_control( $wp_customize, 'heading_h6_typography_group', $h6_typography_label, 'responsive_typography', 19, 'heading_h6_typography' );
 
-			responsive_horizontal_separator_control($wp_customize, 'heading_h6_typography_group_separator', 1, 'responsive_typography', 18, 1, );
+			responsive_horizontal_separator_control($wp_customize, 'heading_h6_typography_group_separator', 1, 'responsive_typography', 20, 1, );
 
 			// Meta Typography.
 			$meta_typography_label = esc_html__( 'Meta Font', 'responsive' );
-			responsive_typography_group_control( $wp_customize, 'meta_typography_group', $meta_typography_label, 'responsive_typography', 19, 'meta_typography' );
+			responsive_typography_group_control( $wp_customize, 'meta_typography_group', $meta_typography_label, 'responsive_typography', 21, 'meta_typography' );
 			
 			// Body Text Color.
 			$body_text_color_label = __( 'Body Text Color', 'responsive' );
@@ -233,15 +235,18 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 				if ( isset( $choices[ $preset ] ) ) {
 					$bodyFont = $choices[ $preset ]['bodyFont'];
 					$headingFont = $choices[ $preset ]['headingFont'];
+					$bodyWeight = $choices[ $preset ]['bodyWeight'];
+					$headingWeight = $choices[ $preset ]['headingWeight'];
+
 					$this->load_fonts($bodyFont);
 					$this->load_fonts($headingFont);
 					
 					echo "<style class='customizer-typography-font-preset-body-font-family'>
-							body { font-family: {$bodyFont}; }
+							body { font-family: {$bodyFont}; font-weight: {$bodyWeight}; }
 						  </style>";
 					
 					echo "<style class='customizer-typography-font-preset-headings-font-family'>
-						  	h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 { font-family: {$headingFont}; }
+						  	h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 { font-family: {$headingFont}; font-weight: {$headingWeight}; }
 						</style>";
 				}
 			}
