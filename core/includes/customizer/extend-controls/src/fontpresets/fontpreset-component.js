@@ -71,7 +71,7 @@ const FontPresetComponent = (props) => {
                 { font: bodyFont, weight: bodyWeight }
             ].map(({ font, weight }) => {
                 const fontUrl = font.replace(/ /g, "+").replace(/,/g, "%2C");
-                console.log(fontUrl, weight);
+                
                 return `https://fonts.googleapis.com/css?family=${fontUrl}:${weight}`;
             });
 
