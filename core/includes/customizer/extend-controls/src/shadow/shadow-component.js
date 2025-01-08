@@ -37,7 +37,6 @@ const ShadowComponent = props => {
                     <NumberControl
                         __next40pxDefaultSize
                         onChange={(xAxisValue) => {
-                            console.log(xAxisValue)
                             props.control.settings['x_axis'].set(xAxisValue)
                         }}
                         value={xAxis}
@@ -50,7 +49,6 @@ const ShadowComponent = props => {
                     <NumberControl
                         __next40pxDefaultSize
                         onChange={(yAxisValue) => {
-                            console.log(yAxisValue)
                             props.control.settings['y_axis'].set(yAxisValue)
                         }}
                         value={yAxis}
@@ -63,7 +61,6 @@ const ShadowComponent = props => {
                     <NumberControl
                         __next40pxDefaultSize
                         onChange={(blurValue) => {
-                            console.log(blurValue)
                             props.control.settings['blur'].set(blurValue)
                         }}
                         value={blur}
@@ -76,7 +73,6 @@ const ShadowComponent = props => {
                     <NumberControl
                         __next40pxDefaultSize
                         onChange={(spreadValue) => {
-                            console.log(spreadValue);
                             props.control.settings['spread'].set(spreadValue)
                         }}
                         value={spread}
@@ -93,7 +89,6 @@ const ShadowComponent = props => {
                         label={__('Inset', 'responsive')}
                         checked={inset}
                         onChange={(newValue) => {
-                            console.log(newValue);
                             setInset(!inset);
                             props.control.settings['inset'].set(!inset)
                         }}
