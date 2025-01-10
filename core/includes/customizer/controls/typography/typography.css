@@ -187,9 +187,6 @@ label.responsive_font_weight select option:checked {
 	width: auto;
 	gap: 8px;
 }
-.customize-control-responsive-selectbtn .customize-control-responsive-selectbtn__button:first-child {
-    display: none;
-}
 .responsive-typography-settings-group .responsive-selectbtn-control-wrapper {
 	justify-content: space-between;
 	align-items: center;

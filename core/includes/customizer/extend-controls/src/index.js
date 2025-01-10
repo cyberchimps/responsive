@@ -1,3 +1,4 @@
+import { Base } from './customizer.js';
 import { responsiveCore } from './core/control';
 import { responsiveSortable } from './sortable/control';
 import { responsiveSlider } from './slider/control';
@@ -21,6 +22,11 @@ import { responsiveBackgroundImage } from './backgroundimage/control';
 import { responsiveTypographyGroup } from './typography_group/control';
 import { responsiveFontPreset } from './fontpresets/control';
 import './breadcrumb-toggle';
+import { responsiveBuilderControl } from './builder-layout/control';
+import { responsiveMultiSelectControl } from './multi-select/control';
+import { responsiveRangeWithSwitcher } from './range-with-switchers/control';
+import { responsiveRowLayout } from './builder-row-layout/control';
+import { responsiveAvailableItemsDragControl } from './builder-available-drag/control';
 
 wp.customize.controlConstructor['responsive-sortable'] = responsiveSortable;
 wp.customize.controlConstructor['responsive-range'] = responsiveSlider;
@@ -43,3 +49,8 @@ wp.customize.controlConstructor['responsive-horizontal-separator'] = responsiveH
 wp.customize.controlConstructor['responsive-background-image'] = responsiveBackgroundImage;
 wp.customize.controlConstructor['responsive-typography-settings-group'] = responsiveTypographyGroup;
 wp.customize.controlConstructor['responsive-font-presets'] = responsiveFontPreset;
+wp.customize.controlConstructor['responsive-builder-control']           = responsiveBuilderControl;
+wp.customize.controlConstructor['responsive-multi-select']              = responsiveMultiSelectControl;
+wp.customize.controlConstructor['responsive-range-with-switchers']      = responsiveRangeWithSwitcher;
+wp.customize.controlConstructor['responsive-row-layout-select']         = responsiveRowLayout;
+wp.customize.controlConstructor['responsive-available-drag-control']    = responsiveAvailableItemsDragControl;

@@ -1,0 +1,19 @@
+
+.components-button-group.responsive-radio-container-control {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(121px, 1fr));
+    row-gap: 24px;
+    justify-items: start;
+}
+.components-button-group.responsive-radio-container-control .components-button.is-tertiary {
+    height: fit-content;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+.components-button-group.responsive-radio-container-control .components-button.is-tertiary.active-radio svg rect:first-child {
+    fill: #007CBA;
+}
+.components-button-group.responsive-radio-container-control .components-button.is-tertiary.active-radio svg rect:not(:first-child) {
+    fill: #FFF;
+}
