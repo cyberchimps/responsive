@@ -1,7 +1,6 @@
 /**
  * Update Font Preset settings live.
  *
- * @version 1.0.0
  */
 // phpcs:ignoreFile
 ( function( $ ) {
