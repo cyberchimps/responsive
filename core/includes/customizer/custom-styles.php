@@ -3971,6 +3971,42 @@ function responsive_customizer_styles() {
 	$custom_css .= build_responsive_padding_spacing_css($below_footer_padding_values['mobile']);
 	$custom_css .= "}}";
 
+	// Header HTML Element.
+	$header_html_link_color       = get_theme_mod( 'responsive_header_html_link_color', Responsive\Core\get_responsive_customizer_defaults( 'header_html_link_color' ) );
+	$header_html_link_color_hover = get_theme_mod( 'responsive_header_html_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_html_link_color_hover' ) );
+	$custom_css .= ".site-header .responsive-header-html .responsive-header-html-inner a { color:" . $header_html_link_color . "}";
+	$custom_css .= ".site-header .responsive-header-html .responsive-header-html-inner a:hover { color:" . $header_html_link_color_hover . "}";
+
+	$header_html_margin_top    = get_theme_mod( 'responsive_header_html_margin_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'header_html_margin_y' ) );
+	$header_html_margin_left   = get_theme_mod( 'responsive_header_html_margin_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'header_html_margin_x' ) );
+	$header_html_margin_bottom = get_theme_mod( 'responsive_header_html_margin_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'header_html_margin_y' ) );
+	$header_html_margin_right  = get_theme_mod( 'responsive_header_html_margin_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'header_html_margin_x' ) );
+
+	$header_html_margin_tablet_top    = get_theme_mod( 'responsive_header_html_margin_tablet_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'header_html_margin_y' ) );
+	$header_html_margin_tablet_right  = get_theme_mod( 'responsive_header_html_margin_tablet_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'header_html_margin_x' ) );
+	$header_html_margin_tablet_bottom = get_theme_mod( 'responsive_header_html_margin_tablet_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'header_html_margin_y' ) );
+	$header_html_margin_tablet_left   = get_theme_mod( 'responsive_header_html_margin_tablet_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'header_html_margin_x' ) );
+
+	$header_html_margin_mobile_top    = get_theme_mod( 'responsive_header_html_margin_mobile_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'header_html_margin_y' ) );
+	$header_html_margin_mobile_right  = get_theme_mod( 'responsive_header_html_margin_mobile_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'header_html_margin_x' ) );
+	$header_html_margin_mobile_bottom = get_theme_mod( 'responsive_header_html_margin_mobile_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'header_html_margin_y' ) );
+	$header_html_margin_mobile_left   = get_theme_mod( 'responsive_header_html_margin_mobile_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'header_html_margin_x' ) );
+
+	$custom_css .= '.site-header .responsive-header-html .responsive-header-html-inner {
+		margin: ' . responsive_spacing_css( $header_html_margin_top, $header_html_margin_right, $header_html_margin_bottom, $header_html_margin_left ) . ';
+	}';
+
+	$custom_css .= '@media screen and (max-width: 992px) {
+		.site-header .responsive-header-html .responsive-header-html-inner {
+			margin: ' . responsive_spacing_css( $header_html_margin_tablet_top, $header_html_margin_tablet_right, $header_html_margin_tablet_bottom, $header_html_margin_tablet_left ) . ';
+		}
+	}';
+	$custom_css .= '@media screen and (max-width: 576px) {
+		.site-header .responsive-header-html .responsive-header-html-inner {
+			margin: ' . responsive_spacing_css( $header_html_margin_mobile_top, $header_html_margin_mobile_right, $header_html_margin_mobile_bottom, $header_html_margin_mobile_left ) . ';
+		}
+	}';
+
 	if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
 		// Outside Container Spacing.
 		$outside_container_padding_right  = esc_html( get_theme_mod( 'responsive_outside_container_right_padding', 15 ) );

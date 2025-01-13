@@ -1418,3 +1418,13 @@ body.rtl .customize-control .responsive-switchers li {
 	border-top: none;
 	border-bottom: none;
 }
+#customize-control-responsive_header_html_content_separator {
+	margin-top: 24px;
+	margin-bottom: 24px;
+}
+#customize-control-responsive_header_html_link_style_separator {
+	margin-top: 24px;
+}
+#customize-control-header_html_typography-color .responsive-color-control-main-wrap .wp-picker-holder {
+	top: 70px;
+}

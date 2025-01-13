@@ -1986,4 +1986,24 @@
             );
         });
     });
+    api( 'responsive_header_html_link_color', function(val){
+        val.bind(function(newval){
+            jQuery('style#responsive-header-html-link-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-html-link-color">'
+                + '.site-header .responsive-header-html .responsive-header-html-inner a { color: ' + newval + '}'
+                + '</style>'
+            );
+        });
+    });
+    api( 'responsive_header_html_link_hover_color', function(val){
+        val.bind(function(newval){
+            jQuery('style#responsive-header-html-link-hover-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-html-link-hover-color">'
+                + '.site-header .responsive-header-html .responsive-header-html-inner a:hover { color: ' + newval + '!important; }'
+                + '</style>'
+            );
+        });
+    });
 } )( jQuery );

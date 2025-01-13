@@ -1020,3 +1020,15 @@ body.mega-menu-header-menu button.menu-toggle {
         display: none !important;
     }
 }
+
+.site-header {
+    .site-header-item {
+        .responsive-header-html {
+            .responsive-header-html-inner {
+                &.responsive-header-html-underline-link a {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

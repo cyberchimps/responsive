@@ -734,6 +734,12 @@
             }
         });
     });
+
+    api( 'responsive_header_html_link_style', function(value){
+        value.bind( function(newval){
+            $( '.site-header .responsive-header-html .responsive-header-html-inner a' ).css( 'text-decoration', newval )
+        });
+    });
     
 
 } )( jQuery );

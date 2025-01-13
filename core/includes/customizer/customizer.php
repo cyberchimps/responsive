@@ -222,6 +222,7 @@ function responsive_register_options() {
 		'class-responsive-footer-menu-customizer',
 		'class-responsive-footer-copyright-customizer',
 		'class-responsive-header-builder-section-customizer',
+		'class-responsive-header-html-customizer',
 	);
 
 	if ( is_responsive_version_greater() ) {
@@ -278,6 +279,7 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'text/class-responsive-customizer-text-control.php';
 	require_once $dir . 'typography/class-responsive-customizer-typography-control.php';
 	require_once $dir . 'tinymce/class-responsive-customizer-tinymce-control.php';
+	require_once $dir . 'html/class-responsive-customizer-html-control.php';
 	require_once $dir . 'dimensions/class-responsive-customizer-dimensions-control.php';
 	require_once $dir . 'heading/class-responsive-customizer-heading-control.php';
 	require_once $dir . 'select/class-responsive-customizer-responsive-select-control.php';
@@ -295,6 +297,7 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'range-with-switchers/class-responsive-customizer-range-with-switchers-control.php';
 	require_once $dir . 'builder-row-layout/class-responsive-customizer-builder-row-layout-control.php';
 	require_once $dir . 'builder-available-drag/class-responsive-customizer-builder-available-items-drag-control.php';
+	require_once $dir . 'html/class-responsive-customizer-html-control.php';
 
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-control-upsell.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-generic-notice-section.php';
@@ -327,6 +330,7 @@ function responsive_custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Range_With_Switcher_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Builder_Row_Layout_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Builder_Available_Items_Drag_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Html_Control' );
 
 }
 
