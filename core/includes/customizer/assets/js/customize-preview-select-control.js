@@ -734,6 +734,12 @@
             }
         });
     });
+
+    api('responsive_header_social_item_border_style', function(value) {
+        value.bind(function(newval) {
+            $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'border-style', newval );
+        });
+    });
     
 
 } )( jQuery );

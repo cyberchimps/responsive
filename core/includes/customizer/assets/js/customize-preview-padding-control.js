@@ -840,6 +840,29 @@
         } );
     } );
 
+    const headerSocialMargin = [
+        'responsive_header_social_item_margin_top_padding',
+        'responsive_header_social_item_margin_right_padding',
+        'responsive_header_social_item_margin_bottom_padding',
+        'responsive_header_social_item_margin_left_padding',
+        'responsive_header_social_item_margin_tablet_top_padding',
+        'responsive_header_social_item_margin_tablet_right_padding',
+        'responsive_header_social_item_margin_tablet_bottom_padding',
+        'responsive_header_social_item_margin_tablet_left_padding',
+        'responsive_header_social_item_margin_mobile_top_padding',
+        'responsive_header_social_item_margin_mobile_right_padding',
+        'responsive_header_social_item_margin_mobile_bottom_padding',
+        'responsive_header_social_item_margin_mobile_left_padding',
+    ];
+    
+    headerSocialMargin.forEach(setting => {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_margin('header_social_item_margin', '.header-layouts.social-icon .social-icons');
+            });
+        });
+    });
+
     // Sidebar Outside Padding
     api( 'responsive_sidebar_outside_container_top_padding', function( value ) {
         value.bind( function( newval ) {

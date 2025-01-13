@@ -388,18 +388,38 @@ function responsive_get_social_icons( $area ) {
 	$responsive_options = Responsive\Core\responsive_get_options();
 
 	$icons = array(
-		'twitter'     => __( 'Twitter', 'responsive' ),
-		'facebook'    => __( 'Facebook', 'responsive' ),
-		'linkedin'    => __( 'LinkedIn', 'responsive' ),
-		'youtube'     => __( 'YouTube', 'responsive' ),
-		'stumbleupon' => __( 'StumbleUpon', 'responsive' ),
-		'rss'         => __( 'RSS Feed', 'responsive' ),
-		'instagram'   => __( 'Instagram', 'responsive' ),
-		'pinterest'   => __( 'Pinterest', 'responsive' ),
-		'yelp'        => __( 'Yelp!', 'responsive' ),
-		'vimeo'       => __( 'Vimeo', 'responsive' ),
-		'foursquare'  => __( 'foursquare', 'responsive' ),
-		'email'       => __( 'Email', 'responsive' ),
+		'twitter'       => __( 'Twitter', 'responsive' ),
+		'facebook'      => __( 'Facebook', 'responsive' ),
+		'linkedin'      => __( 'LinkedIn', 'responsive' ),
+		'youtube'       => __( 'YouTube', 'responsive' ),
+		'stumbleupon'   => __( 'StumbleUpon', 'responsive' ),
+		'rss'           => __( 'RSS Feed', 'responsive' ),
+		'instagram'     => __( 'Instagram', 'responsive' ),
+		'pinterest'     => __( 'Pinterest', 'responsive' ),
+		'yelp'          => __( 'Yelp!', 'responsive' ),
+		'vimeo'         => __( 'Vimeo', 'responsive' ),
+		'foursquare'    => __( 'Foursquare', 'responsive' ),
+		'email'         => __( 'Email', 'responsive' ),
+		'bandcamp'      => __( 'Bandcamp', 'responsive' ),
+		'behance'       => __( 'Behance', 'responsive' ),
+		'discord'       => __( 'Discord', 'responsive' ),
+		'github'        => __( 'Github', 'responsive' ),
+		'googlereviews' => __( 'Googlereviews', 'responsive' ),
+		'medium'        => __( 'Medium', 'responsive' ),
+		'patreon'       => __( 'Patreon', 'responsive' ),
+		'phone'         => __( 'Phone', 'responsive' ),
+		'reddit'        => __( 'Reddit', 'responsive' ),
+		'soundcloud'    => __( 'Soundcloud', 'responsive' ),
+		'spotify'       => __( 'Spotify', 'responsive' ),
+		'telegram'      => __( 'Telegram', 'responsive' ),
+		'threads'       => __( 'Threads', 'responsive' ),
+		'tiktok'        => __( 'Tiktok', 'responsive' ),
+		'vk'            => __( 'VK', 'responsive' ),
+		'whatsapp'      => __( 'Whatsapp', 'responsive' ),
+		'wordpress'     => __( 'Wordpress', 'responsive' ),
+		'custom1'       => __( 'Custom1', 'responsive' ),
+		'custom2'       => __( 'Custom2', 'responsive' ),
+		'custom3'       => __( 'Custom3', 'responsive' ),
 	);
 
 	$count = 0;
@@ -409,37 +429,105 @@ function responsive_get_social_icons( $area ) {
 			$count++;
 		}
 	}
-	if ( $count > 0 && $area === '_header' || $count > 0 && $area === '_footer' ) {
-		?>
-		<div class="footer-layouts social-icon">
-			<ul class="social-icons">
-				<?php
-				$target_social_link = get_theme_mod( 'responsive_social_link_new_tab', '_self' );
+	
+	$header_social = get_theme_mod( 'responsive_header_social_items' );
+	$social_icons_sequence = array();
 
-				foreach ( $icons as $key => $value ) {
-					if ( ! empty( $responsive_options[ $key . '_uid' ] ) ) {
-						if ( 'email' === $key ) {
+	if ( ! empty( $header_social['items'] ) ) {
+
+		$header_social_items = $header_social['items'];
+		foreach ( $header_social_items as $social_item ) {
+			$social_icons_sequence[] = $social_item['id'];
+		}
+		if ( $count > 0 && $area === '_header' || $count > 0 && $area === '_footer' ) {
+			require get_stylesheet_directory() . '/core/includes/responsive-icon-library.php'
+			?>
+			<div class="header-layouts social-icon">
+				<ul class="social-icons">
+					<?php
+					$target_social_link = get_theme_mod( 'responsive_social_link_new_tab', '_self' );
+					$is_show_label = get_theme_mod( 'responsive_header_social_show_label' );
+					foreach ( $social_icons_sequence as $key ) {
+						$icon_source = 'icon';
+						$icon_url = '';
+						$icon_svg = '';
+						$icon_type = '';
+						$icon_label = '';
+						$icon_width = 24;
+						foreach ( $header_social_items as $social_item ) {
+							if ( $social_item['id'] === $key ) {
+								$icon_source = $social_item['source'];
+								$icon_url = $social_item['url'];
+								$icon_svg = $social_item['svg'];
+								$icon_type = $social_item['icon'];
+								$icon_label = $social_item['label'];
+								$icon_width = $social_item['width'];
+							}
+						}
+						if ( ! empty( $responsive_options[ $key . '_uid' ] ) ) {
+							$use_brand_colors = get_theme_mod( 'responsive_header_social_item_use_brand_colors', 'no' );
+							$brand_color = '';
+							$brand_svg = '';
+							if ( 'yes' === $use_brand_colors ) {
+								$brand_color = ' responsive-social-icon-anchor-' . esc_html( $key );
+								$brand_svg = ' responsive-social-icon-wrapper-brand';
+							}
+							if ( 'on-hover' === $use_brand_colors ) {
+								$brand_color = ' responsive-social-icon-anchor-hover-' . esc_html( $key );
+								$brand_svg = ' responsive-social-icon-wrapper-brand-hover';
+							}
+							if ( 'until-hover' === $use_brand_colors ) {
+								$brand_color = ' responsive-social-icon-anchor-until-hover-' . esc_html( $key );
+							}
 							?>
-							<li>
-								<a aria-label="email" title="email" href="mailto:<?php echo esc_html( $responsive_options[ $key . '_uid' ] ); ?>" <?php responsive_schema_markup( 'url' ); ?>>
-									<i class="icon-envelope-o" alt="email" aria-hidden="true"></i>
-								</a>
-							</li>
-							<?php
-						} else {
-							?>
-							<li>
-								<a aria-label=<?php echo esc_attr( $key ); ?> title=<?php echo esc_attr( $key ); ?> href="<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target=<?php echo esc_attr( $target_social_link ); ?> <?php responsive_schema_markup( 'url' ); ?>>
-									<i class="icon-<?php echo esc_attr( $key ); ?>" alt="<?php echo esc_attr( $key ); ?>" aria-hidden="true"></i>
+							<li class="responsive-social-icon responsive-social-icon-<?php echo esc_html( $key ); ?>">
+								<a class="responsive-social-icon-anchor<?php echo $brand_color; ?>" aria-label=<?php echo esc_attr( $key ); ?> title=<?php echo esc_attr( $key ); ?> href="<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target=<?php echo esc_attr( $target_social_link ); ?> <?php responsive_schema_markup( 'url' ); ?>>
+									<?php
+
+										if ( 'icon' === $icon_source ) {
+											?>
+											<span class="responsive-social-icon-wrapper<?php echo esc_attr( $brand_svg ); ?>">
+												<?php
+												echo responsive_get_svg_icon( $icon_type );
+												?>
+											</span>
+											<?php
+										}
+										if ( 'image' === $icon_source ) {
+											?>
+											<span class="responsive-social-icon-wrapper<?php echo esc_attr( $brand_svg ); ?>">
+												<img fetchpriority="high" src="<?php echo esc_url( $icon_url ); ?>" class="responsive-social-icon-image" decoding="async" style="max-width: <?php echo esc_attr( $icon_width )?>px;">
+											</span>
+											<?php
+										}
+										if ( 'svg' === $icon_source ) {
+											?>
+											<span class="responsive-social-icon-wrapper<?php echo esc_attr( $brand_svg ); ?>" style="max-width: <?php echo esc_attr( $icon_width )?>px;">
+												<?php
+													echo $icon_svg;
+												?>
+											</span>
+											<?php
+										}
+										if ( $is_show_label ) {
+											?>
+											<span class="responsive-social-icon-label">
+												<?php
+												echo esc_html( $icon_label );
+												?>
+											</span>
+											<?php
+										}
+									?>
 								</a>
 							</li>
 							<?php
 						}
 					}
-				}
-				?>
-			</ul>
-		</div>
-		<?php
+					?>
+				</ul>
+			</div>
+			<?php
+		}
 	}
 }

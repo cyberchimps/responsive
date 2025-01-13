@@ -329,6 +329,17 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'line-height' => '1.75',
 					),
 				),
+				'header_social_item' => array(
+					'label'    => esc_html__( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['header_social'],
+					'section'  => 'responsive_header_social',
+					'exclude'  => array( 'font-color' ),
+					'priority' => 90,
+					'defaults' => array(
+						'font-size'   => '16px',
+						'line-height' => '1.75',
+					),
+				),
 			);
 
 			if ( $this->is_responsive_version_greater() ) {
@@ -383,6 +394,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'footer'                     => '.site-footer',
 				'page'                       => '.page .post-title, #main-blog h1',
 				'footer_copyright'           => '.footer-layouts.copyright',
+				'header_social'              => '.header-layouts .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label',
 			);
 
 			if ( $this->is_responsive_version_greater() ) {
