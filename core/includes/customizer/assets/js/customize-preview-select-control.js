@@ -734,6 +734,16 @@
             }
         });
     });
+    api( 'responsive_cart_label_position', function (setting) {
+        setting.bind(function (position) {
+            const cartSelector = '.responsive-header-cart';
+            if($(cartSelector).find('.res-addon-cart-wrap').length){
+                const iconCart = $(document).find('.res-addon-cart-wrap');
+                iconCart.removeClass( 'res-cart-label-position-left res-cart-label-position-right res-cart-label-position-bottom' );
+                iconCart.addClass('res-cart-label-position-' + position );
+            }
+        });
+    });
     
 
 } )( jQuery );

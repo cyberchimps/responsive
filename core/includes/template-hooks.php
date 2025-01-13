@@ -75,3 +75,6 @@ add_action( 'responsive_below_footer', 'below_footer' );
 add_action( 'responsive_render_footer_column', 'footer_column', 10, 2 );
 
 add_action( 'responsive_footer_social', 'responsive_get_social_icons' );
+
+// Load Cart Flyout Markup on Footer.
+add_action( 'responsive_footer_before', 'responsive_header_woo_cart_slide_in' );

@@ -176,3 +176,10 @@
     padding-top: 18px;
     padding-bottom: 0;
 }
+.responsive-toggle-control-wrapper .description {
+	padding-top: 8px;
+    margin: 0;
+}
+#customize-control-responsive_hide_cart_total_label .responsive-toggle-control-wrapper {
+    padding: 0;
+}

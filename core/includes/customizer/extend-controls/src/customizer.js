@@ -195,5 +195,29 @@
             });
 		});
     });
+	/**
+	 * Header Woo Cart Label
+	 */
+	wp.customize( 'responsive_woo_cart_label', function( setting ) {
+		setting.bind( function( newval ) {
+			$( document.body ).trigger( 'wc_fragment_refresh' );
+		} );
+	} );
+	/**
+	 * Header Woo Cart - Hide Cart Label
+	 */
+	wp.customize( 'responsive_hide_cart_total_label', function( setting ) {
+		setting.bind( function( newval ) {
+			$( document.body ).trigger( 'wc_fragment_refresh' );
+		} );
+	} );
+	/**
+	 * Header Woo Cart Click Action
+	 */
+	wp.customize( 'responsive_header_woo_cart_click_action', function( setting ) {
+		setting.bind( function( newval ) {
+			$( document.body ).trigger( 'wc_fragment_refresh' );
+		} );
+	} );
 
 } )( jQuery, wp );
