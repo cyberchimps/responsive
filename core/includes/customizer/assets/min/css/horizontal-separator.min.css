@@ -18,3 +18,23 @@
 #customize-control-responsive_content_header_alignment_separator hr {
     margin-top: 24px;
 }
+#sub-accordion-section-responsive_header_woo_cart .responsive-horizontal-separator-control-wrapper {
+	padding-top: 24px;
+}
+#customize-control-responsive_header_woo_cart_separator_1 .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_header_woo_cart_separator_2 .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_header_woo_cart_separator_4 .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_header_woo_cart_separator_6 .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_header_woo_cart_separator_9 .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_header_woo_cart_separator_11 .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_header_woo_cart_separator_13 .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_header_woo_cart_separator_14 .responsive-horizontal-separator-control-wrapper {
+	margin-left: 0;
+	margin-right: 0;
+}
+#customize-control-responsive_header_woo_cart_separator_9 .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_header_woo_cart_separator_11 .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_header_woo_cart_separator_13 .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_header_woo_cart_separator_14 .responsive-horizontal-separator-control-wrapper {
+	padding-bottom: 24px;
+}
