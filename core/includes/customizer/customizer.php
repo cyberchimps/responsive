@@ -152,6 +152,7 @@ function responsive_customize_preview_js() {
 	wp_enqueue_script( 'responsive_theme_customizer_select', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-select-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive_theme_customizer_text', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-text-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive_theme_lifter_customize', get_template_directory_uri() . '/core/includes/customizer/assets/js/lifter-customize-preview.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
+	wp_enqueue_script( 'responsive_theme_font-preset_customize', get_template_directory_uri() . 'core/includes/customizer/assets/js/customize-preview-font-presets.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	if ( is_responsive_version_greater() ) {
 		wp_enqueue_script( 'responsive_theme_customizer_image', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-image-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	}
@@ -296,6 +297,7 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'builder-row-layout/class-responsive-customizer-builder-row-layout-control.php';
 	require_once $dir . 'builder-available-drag/class-responsive-customizer-builder-available-items-drag-control.php';
 	require_once $dir . 'input-with-dropdown/class-responsive-customizer-input-with-dropdown-control.php';
+	require_once $dir . 'fontpresets/class-responsive-customizer-font-preset-control.php';
 
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-control-upsell.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-generic-notice-section.php';
@@ -329,6 +331,7 @@ function responsive_custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Builder_Row_Layout_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Builder_Available_Items_Drag_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Input_With_Dropdown_Control' );
+
 
 }
 
