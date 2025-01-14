@@ -52,6 +52,7 @@ if ( ! class_exists( 'Responsive_Header_Social_Icons_Customizer' ) ) :
 				$tab_ids_prefix . 'responsive_header_social_item_border_spacing',
 				$tab_ids_prefix . 'responsive_header_social_item_border_style',
 				$tab_ids_prefix . 'responsive_header_social_item_border_width',
+				$tab_ids_prefix . 'responsive_border_header_social_radius',
 				$tab_ids_prefix . 'responsive_header_social_border_radius_padding',
 				$tab_ids_prefix . 'responsive_header_social_item_border_color',
 				$tab_ids_prefix . 'responsive_header_social_item_icon_spacing',

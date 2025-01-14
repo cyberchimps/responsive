@@ -3202,7 +3202,8 @@ function responsive_show_header_button_border_option() {
 		return true;
 	}
 	return false;
-=======
+}
+
 if ( ! function_exists( 'responsive_header_social_elements' ) ) {
 	/**
 	 * Returns header social elements for the customizer.
@@ -3242,6 +3243,7 @@ if ( ! function_exists( 'responsive_show_social_background_colors' ) ) {
 		}
 		return false;
 	}
+}
 
 function responsive_font_presets_control( $wp_customize, $element, $label, $section, $priority, $default = '', $transport = 'postMessage', $description = '' ) {
 

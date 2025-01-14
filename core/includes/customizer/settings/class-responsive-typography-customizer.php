@@ -337,6 +337,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 60,
 					'defaults' => array(
 						'font-size'   => '13px',
+						'line-height' => '1.75',
+					),
+				),
 				'header_social_item' => array(
 					'label'    => esc_html__( 'Typography', 'responsive' ),
 					'target'   => $selectorArray['header_social'],

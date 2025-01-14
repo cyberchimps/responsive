@@ -1218,6 +1218,8 @@ function defaults() {
 			'responsive_header_button_style'                          => 'filled',
 			'responsive_header_button_visibility'                     => 'everyone',
 			'responsive_header_button_size'                           => 'md',
+			'responsive_header_button_padding_y'                      => 0,
+			'responsive_header_button_padding_x'                      => 0,
 			'responsive_header_button_color'                          => '#FFFFFF',
 			'responsive_header_button_hover_color'                    => '#2B6CB0',
 			'responsive_header_button_bg_color'                       => '#2B6CB0',
@@ -1336,7 +1338,7 @@ function defaults() {
 																			'header_button'          => array(
 																				'name'    => esc_html__( 'Button', 'responsive' ),
 																				'section' => 'responsive_header_button',
-																				'icon'    => 'share',
+																				'icon'    => 'button',
 																			),
 																		),
 		)
