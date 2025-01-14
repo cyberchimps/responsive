@@ -3112,4 +3112,45 @@ if ( ! function_exists( 'responsive_show_social_background_colors' ) ) {
 		}
 		return false;
 	}
+
+function responsive_font_presets_control( $wp_customize, $element, $label, $section, $priority, $default = '', $transport = 'postMessage', $description = '' ) {
+
+	$choices = array(
+		'preset_1' => array('bodyFont' => 'Lato', 'headingFont'              => 'Abril Fatface', 'headingWeight' => '400', 'bodyWeight' => '400'),
+		'preset_2' => array('bodyFont' => 'Alegreya','headingFont'           => 'Alegreya Sans', 'headingWeight' => '900', 'bodyWeight' => '400' ),
+		'preset_3' => array('bodyFont' => 'Roboto','headingFont'             => 'Archivo Black', 'headingWeight' => '400', 'bodyWeight' => '400' ),
+		'preset_4' => array('bodyFont' => 'Old Standard TT', 'headingFont'   => 'Bebas Neue', 'headingWeight' => '400', 'bodyWeight' => '400'),
+		'preset_5' => array('bodyFont' => 'Alegreya Sans','headingFont'      => 'Exo 2', 'headingWeight' => '900', 'bodyWeight' => '400'),
+		'preset_6' => array('bodyFont' => 'PT Serif','headingFont'           => 'Fira Sans', 'headingWeight' => '900', 'bodyWeight' => '400'),
+		'preset_7' => array('bodyFont' => 'Josefin Slab', 'headingFont'      => 'Josefin Sans', 'headingWeight' => '700', 'bodyWeight' => '600'),
+		'preset_8' => array('bodyFont' => 'Spectral','headingFont'           => 'Karla', 'headingWeight' => '700', 'bodyWeight' => '300'),
+		'preset_9' => array('bodyFont' => 'Merriweather','headingFont'       => 'Lato', 'headingWeight' => '400', 'bodyWeight' => '400'),
+	);
+	set_theme_mod('font_presets_value', json_encode($choices));
+
+	// Add setting for font presets.
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'default'           => $default,
+			'sanitize_callback' => 'sanitize_text_field',
+			'transport'         => $transport,
+		)
+	);
+
+	// Add control for font presets.
+	$wp_customize->add_control(
+		new Responsive_Customizer_Font_Presets_Control(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'label'       => $label,
+				'description' => $description,
+				'section'     => $section,
+				'settings'    => 'responsive_' . $element,
+				'priority'    => $priority,
+				'choices'     => $choices,
+			)
+		)
+	);
 }

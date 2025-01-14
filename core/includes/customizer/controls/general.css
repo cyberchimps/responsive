@@ -1418,3 +1418,83 @@ body.rtl .customize-control .responsive-switchers li {
 	border-top: none;
 	border-bottom: none;
 }
+
+#customize-control-responsive_cart_icon_separator .responsive-customizer-heading,
+#customize-control-responsive_cart_label_separator .responsive-customizer-heading,
+#customize-control-responsive_cart_border_separator .responsive-customizer-heading,
+#customize-control-responsive_header_woo_cart_button_separator .responsive-customizer-heading,
+#customize-control-responsive_header_cart_checkout_button_separator .responsive-customizer-heading,
+#customize-control-responsive_cart_spacing_separator .responsive-customizer-heading,
+#customize-control-responsive_header_cart_tray_separator .responsive-customizer-heading {
+	margin-top: 0;
+	padding-top: 0;
+	padding-bottom: 10px;
+	border: none;
+}
+#customize-control-responsive_cart_icon_color_separator .responsive-customizer-heading {
+	margin-top: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	border: none;
+}
+#customize-control-responsive_cart_icon_separator,
+#customize-control-responsive_cart_label_separator,
+#customize-control-responsive_cart_icon_color_separator,
+#customize-control-responsive_header_woo_cart_button_separator,
+#customize-control-responsive_header_cart_checkout_button_separator,
+#customize-control-responsive_cart_spacing_separator,
+#customize-control-responsive_header_cart_tray_separator {
+	margin-top: 24px;
+}
+.responsive-input-with-dropdown-inputs-wrap {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	margin-bottom: 20px;
+}
+.responsive-input-with-dropdown-wrapper {
+	position: relative;
+}
+.responsive-input-with-dropdown-wrapper input {
+	padding: 8px 12px;
+	border: 1px solid #A5A5A5;
+	border-radius: 4px;
+	max-height: 32px;
+	min-height: 32px;
+}
+.responsive-input-with-dropdown-wrapper button {
+	padding: 8px 12px;
+	border: 1px solid #A5A5A5;
+	border-radius: 4px;
+	height: 32px;
+	width: 32px;
+	background: #007CBA;
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 24px;
+	color: #FFF;
+	cursor: pointer;
+}
+.responsive-customize-control-desc {
+	font-family: 'Roboto', sans-serif;
+	font-size: 12px;
+	font-style: italic;
+	font-weight: 400;
+	line-height: 18px;
+	text-align: left;
+}
+.responsive-customize-control-desc .note {
+	font-weight: 600;
+}
+#customize-control-responsive_display_cart_count .responsive-toggle-control-wrapper{
+	padding-top: 24px;
+	padding-bottom: 24px;
+}
+#sub-accordion-section-responsive_header_woo_cart .responsive-color-control-main-wrap {
+	padding: 0;
+}
+#customize-control-responsive_cart_count_color {
+	padding-top: 24px;
+}
