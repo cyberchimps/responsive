@@ -27,6 +27,7 @@ import { responsiveMultiSelectControl } from './multi-select/control';
 import { responsiveRangeWithSwitcher } from './range-with-switchers/control';
 import { responsiveRowLayout } from './builder-row-layout/control';
 import { responsiveAvailableItemsDragControl } from './builder-available-drag/control';
+import { responsiveShadow } from './shadow/control';
 import { responsiveSocial } from './social/controls';
 import { responsiveInputWithDropdown } from './input-with-dropdown/control';
 
@@ -56,6 +57,7 @@ wp.customize.controlConstructor['responsive-multi-select']              = respon
 wp.customize.controlConstructor['responsive-range-with-switchers']      = responsiveRangeWithSwitcher;
 wp.customize.controlConstructor['responsive-row-layout-select']         = responsiveRowLayout;
 wp.customize.controlConstructor['responsive-available-drag-control']    = responsiveAvailableItemsDragControl;
+wp.customize.controlConstructor['responsive-shadow-control'] = responsiveShadow;
 wp.customize.controlConstructor['responsive-social']    = responsiveSocial;
 wp.customize.controlConstructor['responsive-available-drag-control']    = responsiveAvailableItemsDragControl;
 wp.customize.controlConstructor['responsive-input-with-dropdown']       = responsiveInputWithDropdown;

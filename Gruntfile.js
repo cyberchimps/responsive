@@ -199,6 +199,7 @@ module.exports = function(grunt) {
 					'core/includes/customizer/assets/min/css/multi-select.min.css':'core/includes/customizer/controls/multi-select/multi-select.css',
 					'core/includes/customizer/assets/min/css/range-switchers.min.css':'core/includes/customizer/controls/range-with-switchers/range-switchers.css',
 					'core/includes/customizer/assets/min/css/row-layout.min.css':'core/includes/customizer/controls/builder-row-layout/row-layout.css',
+					'core/includes/customizer/assets/min/css/shadow.min.css':'core/includes/customizer/controls/shadow/shadow.css',
 					'core/includes/customizer/assets/min/css/font-presets.min.css':'core/includes/customizer/controls/fontpresets/font-presets.css',
 				}
 			}

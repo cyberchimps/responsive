@@ -1418,6 +1418,27 @@ body.rtl .customize-control .responsive-switchers li {
 	border-top: none;
 	border-bottom: none;
 }
+#customize-control-responsive_header_button_label_text_separator,
+#customize-control-responsive_header_button_url_text_separator,
+#customize-control-responsive_header_button_url_text_separator,
+#customize-control-responsive_header_button_button_style_separator,
+#customize-control-responsive_header_button_border_separator,
+#customize-control-responsive_header_button_typography_separator {
+	margin-top: 12px;
+}
+
+#customize-control-responsive_header_button_url_text_separator,
+#customize-control-responsive_header_button_open_new_tab_separator,
+#customize-control-responsive_header_button_set_nofollow_separator,
+#customize-control-responsive_header_button_set_sponsored_separator,
+#customize-control-responsive_header_button_border_separator {
+	margin-bottom: 12px;
+}
+#customize-control-responsive_header_button_visibility .customize-control-responsive-selectbtn .customize-control-responsive-selectbtn__button {
+	padding: 8px 0;
+}
+#customize-control-responsive_header_button_border_style .customize-control-responsive-selectbtn .customize-control-responsive-selectbtn__button {
+	padding: 8px 5px;
 
 #customize-control-responsive_cart_icon_separator .responsive-customizer-heading,
 #customize-control-responsive_cart_label_separator .responsive-customizer-heading,

@@ -40,6 +40,16 @@
             );
         } );
     } );
+    api( 'responsive_header_button_label', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('.site-header .site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap a.responsive-header-button').text(newval);
+        } );
+    } );
+    api( 'responsive_header_button_url', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('.site-header .site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap a.responsive-header-button').prop('href', newval);
+        } );
+    } );
 
     
 } )( jQuery );

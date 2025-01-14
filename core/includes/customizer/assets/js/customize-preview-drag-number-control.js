@@ -549,6 +549,13 @@
            $( '.rspv-site-below-footer-wrap' ).css( 'border-top', newval + 'px solid '+ api('responsive_footer_below_row_border_color').get() );
         });
     });
+    api( 'responsive_header_button_border_width', function(value) {
+        value.bind(function(newval) {
+            let header_button_border_style = api('responsive_header_button_border_style').get();
+            if ( 'none' !== header_button_border_style ) {
+                $( '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button' ).css( 'border-width', newval + 'px' );
+            }
+
     api( 'responsive_header_social_item_spacing', function(value){
         value.bind(function(newval) {
            $( '.header-layouts.social-icon .social-icons' ).css( 'gap', newval + 'px' );

@@ -1021,6 +1021,23 @@ body.mega-menu-header-menu button.menu-toggle {
     }
 }
 
+.site-header-item {
+    .responsive-header-button-wrap {
+        .responsive-header-button-inner-wrap {
+            .responsive-header-button {
+                display: inline-block;
+                &.responsive-header-button-sm-size {
+                    padding: 4px 6px;
+                }
+                &.responsive-header-button-md-size {
+                    padding: 10px 16px;
+                }
+                &.responsive-header-button-lg-size {
+                    padding: 18px 26px;
+                }
+            }
+        }
+    }
 
 @media ( min-width: map-get( $screens, md ) ) {
     .site-header-row {
