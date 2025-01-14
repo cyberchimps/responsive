@@ -1302,7 +1302,7 @@ function defaults() {
 																			'header_html'          => array(
 																				'name'    => esc_html__( 'HTML', 'responsive' ),
 																				'section' => 'responsive_header_html',
-																				'icon'    => 'share',
+																				'icon'    => 'html',
 																			),
 																		),
 		)
