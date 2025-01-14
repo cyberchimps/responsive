@@ -321,6 +321,7 @@ function responsive_sanitize_multi_select( $input ) {
 	}
 	return array();
 }
+
 /**
  * Sanitize Row Layout Select Setting.
  *

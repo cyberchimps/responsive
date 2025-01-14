@@ -58,11 +58,6 @@ if ( class_exists( 'WooCommerce' ) ) {
 				$general_tab_ids_prefix . 'responsive_cart_layout_seperator',
 				$general_tab_ids_prefix . 'responsive_disable_cart_fragments',
 				$general_tab_ids_prefix . 'responsive_cart_content_width',
-				$general_tab_ids_prefix . 'responsive_menu_cart_icon',
-				$general_tab_ids_prefix . 'responsive_cart_icon',
-				$general_tab_ids_prefix . 'responsive_cart_style',
-				$general_tab_ids_prefix . 'responsive_cart_title',
-				$general_tab_ids_prefix . 'responsive_cart_count',
 			);
 
 
@@ -106,30 +101,6 @@ if ( class_exists( 'WooCommerce' ) ) {
 				$disable_cart_fragments_label = esc_html__( 'Disable Cart Fragments', 'responsive' );
 				responsive_toggle_control( $wp_customize, 'disable_cart_fragments', $disable_cart_fragments_label, 'responsive_woocommerce_cart', 2, 0, null );
 
-				$wp_customize->add_setting(
-					'responsive_menu_cart_icon',
-					array(
-						'sanitize_callback' => 'responsive_sanitize_select',
-						'transport'         => 'refresh',
-						'default'           => 'disabled',
-					)
-				);
-				$wp_customize->add_control(
-					new Responsive_Customizer_Select_Control(
-						$wp_customize,
-						'responsive_menu_cart_icon',
-						array(
-							'label'       => __( 'Cart Icon Visibility', 'responsive' ),
-							'description' => __( 'Cart Icon Will be displayed only when Header Menu is set', 'responsive' ),
-							'section'     => 'responsive_woocommerce_cart',
-							'settings'    => 'responsive_menu_cart_icon',
-							'choices'     => array(
-								'icon-opencart' => __( 'Display On All Devices', 'responsive' ),
-								'disabled'      => __( 'Disabled On All Devices', 'responsive' ),
-							),
-						)
-					)
-				);
 			}
 		}
 

@@ -3202,4 +3202,85 @@ function responsive_show_header_button_border_option() {
 		return true;
 	}
 	return false;
+=======
+if ( ! function_exists( 'responsive_header_social_elements' ) ) {
+	/**
+	 * Returns header social elements for the customizer.
+	 *
+	 * @since 0.2
+	 */
+	function responsive_header_social_elements() {
+
+		// Default elements.
+		$elements = apply_filters(
+			'responsive_header_social_elements',
+			array(
+				'facebook'  => 'Facebook',
+				'x'         => 'X',
+			)
+		);
+
+		return $elements;
+
+	}
+}
+
+if ( ! function_exists( 'responsive_show_social_background_colors' ) ) {
+	/**
+	 * Determines whether social icons in the header should display with a filled background color.
+	 *
+	 * This function checks the theme modification setting 'responsive_header_social_item_style' 
+	 * to see if it's set to 'filled'. If so, it returns true, indicating that the social icons
+	 * should display with a filled background color. Otherwise, it returns false.
+	 *
+	 * @return bool True if the social icons should have a filled background, false otherwise.
+	 */
+	function responsive_show_social_background_colors() {
+		$social_item_style = get_theme_mod( 'responsive_header_social_item_style', 'filled' );
+		if ( 'filled' === $social_item_style ) {
+			return true;
+		}
+		return false;
+	}
+
+function responsive_font_presets_control( $wp_customize, $element, $label, $section, $priority, $default = '', $transport = 'postMessage', $description = '' ) {
+
+	$choices = array(
+		'preset_1' => array('bodyFont' => 'Lato', 'headingFont'              => 'Abril Fatface', 'headingWeight' => '400', 'bodyWeight' => '400'),
+		'preset_2' => array('bodyFont' => 'Alegreya','headingFont'           => 'Alegreya Sans', 'headingWeight' => '900', 'bodyWeight' => '400' ),
+		'preset_3' => array('bodyFont' => 'Roboto','headingFont'             => 'Archivo Black', 'headingWeight' => '400', 'bodyWeight' => '400' ),
+		'preset_4' => array('bodyFont' => 'Old Standard TT', 'headingFont'   => 'Bebas Neue', 'headingWeight' => '400', 'bodyWeight' => '400'),
+		'preset_5' => array('bodyFont' => 'Alegreya Sans','headingFont'      => 'Exo 2', 'headingWeight' => '900', 'bodyWeight' => '400'),
+		'preset_6' => array('bodyFont' => 'PT Serif','headingFont'           => 'Fira Sans', 'headingWeight' => '900', 'bodyWeight' => '400'),
+		'preset_7' => array('bodyFont' => 'Josefin Slab', 'headingFont'      => 'Josefin Sans', 'headingWeight' => '700', 'bodyWeight' => '600'),
+		'preset_8' => array('bodyFont' => 'Spectral','headingFont'           => 'Karla', 'headingWeight' => '700', 'bodyWeight' => '300'),
+		'preset_9' => array('bodyFont' => 'Merriweather','headingFont'       => 'Lato', 'headingWeight' => '400', 'bodyWeight' => '400'),
+	);
+	set_theme_mod('font_presets_value', json_encode($choices));
+
+	// Add setting for font presets.
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'default'           => $default,
+			'sanitize_callback' => 'sanitize_text_field',
+			'transport'         => $transport,
+		)
+	);
+
+	// Add control for font presets.
+	$wp_customize->add_control(
+		new Responsive_Customizer_Font_Presets_Control(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'label'       => $label,
+				'description' => $description,
+				'section'     => $section,
+				'settings'    => 'responsive_' . $element,
+				'priority'    => $priority,
+				'choices'     => $choices,
+			)
+		)
+	);
 }
