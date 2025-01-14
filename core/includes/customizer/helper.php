@@ -3073,6 +3073,46 @@ function responsive_builder_row_layout_control( $wp_customize, $element, $label,
 	);
 }
 
+if ( ! function_exists( 'responsive_header_social_elements' ) ) {
+	/**
+	 * Returns header social elements for the customizer.
+	 *
+	 * @since 0.2
+	 */
+	function responsive_header_social_elements() {
+
+		// Default elements.
+		$elements = apply_filters(
+			'responsive_header_social_elements',
+			array(
+				'facebook'  => 'Facebook',
+				'x'         => 'X',
+			)
+		);
+
+		return $elements;
+
+	}
+}
+
+if ( ! function_exists( 'responsive_show_social_background_colors' ) ) {
+	/**
+	 * Determines whether social icons in the header should display with a filled background color.
+	 *
+	 * This function checks the theme modification setting 'responsive_header_social_item_style' 
+	 * to see if it's set to 'filled'. If so, it returns true, indicating that the social icons
+	 * should display with a filled background color. Otherwise, it returns false.
+	 *
+	 * @return bool True if the social icons should have a filled background, false otherwise.
+	 */
+	function responsive_show_social_background_colors() {
+		$social_item_style = get_theme_mod( 'responsive_header_social_item_style', 'filled' );
+		if ( 'filled' === $social_item_style ) {
+			return true;
+		}
+		return false;
+	}
+
 function responsive_font_presets_control( $wp_customize, $element, $label, $section, $priority, $default = '', $transport = 'postMessage', $description = '' ) {
 
 	$choices = array(
