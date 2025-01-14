@@ -4403,90 +4403,6 @@ function responsive_customizer_styles() {
            border-top: {$below_footer_top_border_size}px solid {$below_footer_top_border_color};
         }";
 	}
-	// Function to get padding and margin values dynamically for different breakpoints
-	function get_responsive_spacing_values($prefix, $default_top = 0,$default_right = 0, $default_bottom = 0, $default_left = 0, $breakpoints = ['desktop', 'tablet', 'mobile']) {
-		$values = [];
-		foreach ($breakpoints as $breakpoint) {
-			if ($breakpoint === 'desktop') {
-				$values[$breakpoint] = [
-					'top'    => esc_html(get_theme_mod("{$prefix}_top_padding", $default_top)),
-					'right'  => esc_html(get_theme_mod("{$prefix}_right_padding", $default_right)),
-					'bottom' => esc_html(get_theme_mod("{$prefix}_bottom_padding", $default_bottom)),
-					'left'   => esc_html(get_theme_mod("{$prefix}_left_padding", $default_left)),
-				];
-			} else {
-				$values[$breakpoint] = [
-					'top'    => esc_html(get_theme_mod("{$prefix}_{$breakpoint}_top_padding", $default_top)),
-					'right'  => esc_html(get_theme_mod("{$prefix}_{$breakpoint}_right_padding", $default_right)),
-					'bottom' => esc_html(get_theme_mod("{$prefix}_{$breakpoint}_bottom_padding", $default_bottom)),
-					'left'   => esc_html(get_theme_mod("{$prefix}_{$breakpoint}_left_padding", $default_left)),
-				];
-			}
-		}
-		return $values;
-	}
-
-	function build_responsive_spacing_css($padding, $margin) {
-		return "padding: " . responsive_spacing_css($padding['top'], $padding['right'], $padding['bottom'], $padding['left']) . ";
-				margin: " . responsive_spacing_css($margin['top'], $margin['right'], $margin['bottom'], $margin['left']) . ";";
-	}
-	function build_responsive_padding_spacing_css( $padding ) {
-		return "padding: " . responsive_spacing_css($padding['top'], $padding['right'], $padding['bottom'], $padding['left']) . "";
-	}
-
-	// Fetch above footer row padding and margin values.
-	$above_footer_padding_values = get_responsive_spacing_values('responsive_footer_above_row_padding', 20, 0, 20, 0);
-	$above_footer_margin_values  = get_responsive_spacing_values('responsive_footer_above_row_margin');
-
-	$custom_css .= ".rspv-site-above-footer-wrap {";
-	$custom_css .= build_responsive_spacing_css($above_footer_padding_values['desktop'], $above_footer_margin_values['desktop']);
-	$custom_css .= "}";
-
-	$custom_css .= "@media screen and (max-width: 992px) {";
-	$custom_css .= ".rspv-site-above-footer-wrap {";
-	$custom_css .= build_responsive_spacing_css($above_footer_padding_values['tablet'], $above_footer_margin_values['tablet']);
-	$custom_css .= "}}";
-
-	$custom_css .= "@media screen and (max-width: 576px) {";
-	$custom_css .= ".rspv-site-above-footer-wrap {";
-	$custom_css .= build_responsive_spacing_css($above_footer_padding_values['mobile'], $above_footer_margin_values['mobile']);
-	$custom_css .= "}}";
-
-	// Fetch padding and margin values.
-	$primary_footer_padding_values = get_responsive_spacing_values('responsive_footer_primary_row_padding', 20, 0, 20, 0);
-	$primary_footer_margin_values  = get_responsive_spacing_values('responsive_footer_primary_row_margin');
-
-	$custom_css .= ".rspv-site-primary-footer-wrap {";
-	$custom_css .= build_responsive_spacing_css($primary_footer_padding_values['desktop'], $primary_footer_margin_values['desktop']);
-	$custom_css .= "}";
-
-	$custom_css .= "@media screen and (max-width: 992px) {";
-	$custom_css .= ".rspv-site-primary-footer-wrap {";
-	$custom_css .= build_responsive_spacing_css($primary_footer_padding_values['tablet'], $primary_footer_margin_values['tablet']);
-	$custom_css .= "}}";
-
-	$custom_css .= "@media screen and (max-width: 576px) {";
-	$custom_css .= ".rspv-site-primary-footer-wrap {";
-	$custom_css .= build_responsive_spacing_css($primary_footer_padding_values['mobile'], $primary_footer_margin_values['mobile']);
-	$custom_css .= "}}";
-
-	// Fetch padding and margin values.
-	$below_footer_padding_values = get_responsive_spacing_values('responsive_footer_below_row_padding', 20, 0, 20, 0);
-	$below_footer_margin_values  = get_responsive_spacing_values('responsive_footer_below_row_margin');
-
-	$custom_css .= ".rspv-site-below-footer-wrap {";
-	$custom_css .= build_responsive_spacing_css($below_footer_padding_values['desktop'], $below_footer_margin_values['desktop']);
-	$custom_css .= "}";
-
-	$custom_css .= "@media screen and (max-width: 992px) {";
-	$custom_css .= ".rspv-site-below-footer-wrap {";
-	$custom_css .= build_responsive_spacing_css($below_footer_padding_values['tablet'], $below_footer_margin_values['tablet']);
-	$custom_css .= "}}";
-
-	$custom_css .= "@media screen and (max-width: 576px) {";
-	$custom_css .= ".rspv-site-below-footer-wrap {";
-	$custom_css .= build_responsive_spacing_css($below_footer_padding_values['mobile'], $below_footer_margin_values['mobile']);
-	$custom_css .= "}}";
 
 	$copyright_alignment         = get_theme_mod( 'responsive_footer_copyright_alignment', 'left' );
 	$copyright_text_color        = get_theme_mod( 'responsive_footer_copyright_text_color', '#FFF' );
@@ -4508,39 +4424,6 @@ function responsive_customizer_styles() {
 			color: {$copyright_links_hover_color};
 		}
 	";
-	// copyright padding
-	$copyright_padding_values = get_responsive_spacing_values('responsive_footer_copyright', 15, 15, 15, 15);
-
-	$custom_css .= ".footer-layouts.copyright {";
-	$custom_css .= build_responsive_padding_spacing_css($copyright_padding_values['desktop']);
-	$custom_css .= "}";
-
-	$custom_css .= "@media screen and (max-width: 992px) {";
-	$custom_css .= ".footer-layouts.copyright {";
-	$custom_css .= build_responsive_padding_spacing_css($copyright_padding_values['tablet']);
-	$custom_css .= "}}";
-
-	$custom_css .= "@media screen and (max-width: 576px) {";
-	$custom_css .= ".footer-layouts.copyright {";
-	$custom_css .= build_responsive_padding_spacing_css($copyright_padding_values['mobile']);
-	$custom_css .= "}}";
-
-	// footer menu padding
-	$footer_menu_padding_values = get_responsive_spacing_values('responsive_footer_menu', 15, 15, 15, 15);
-
-	$custom_css .= ".footer-navigation {";
-	$custom_css .= build_responsive_padding_spacing_css($footer_menu_padding_values['desktop']);
-	$custom_css .= "}";
-
-	$custom_css .= "@media screen and (max-width: 992px) {";
-	$custom_css .= ".footer-navigation {";
-	$custom_css .= build_responsive_padding_spacing_css($footer_menu_padding_values['tablet']);
-	$custom_css .= "}}";
-
-	$custom_css .= "@media screen and (max-width: 576px) {";
-	$custom_css .= ".footer-navigation {";
-	$custom_css .= build_responsive_padding_spacing_css($footer_menu_padding_values['mobile']);
-	$custom_css .= "}}";
 
 	$footer_menu_bg_color       = get_theme_mod( 'responsive_footer_menu_background_color', '#333' );
 	$footer_menu_bg_hover_color = get_theme_mod( 'responsive_footer_menu_background_hover_color', '#333' );
@@ -4552,57 +4435,6 @@ function responsive_customizer_styles() {
 			background-color: {$footer_menu_bg_hover_color};
 		}
 	";
-
-	// Fetch above footer row items padding and margin values.
-	$above_footer_padding_values = get_responsive_spacing_values('responsive_footer_above_row_item_padding');
-
-	$custom_css .= ".rspv-site-above-footer-wrap .footer-widget-area {";
-	$custom_css .= build_responsive_padding_spacing_css($above_footer_padding_values['desktop']);
-	$custom_css .= "}";
-
-	$custom_css .= "@media screen and (max-width: 992px) {";
-	$custom_css .= ".rspv-site-above-footer-wrap .footer-widget-area {";
-	$custom_css .= build_responsive_padding_spacing_css($above_footer_padding_values['tablet']);
-	$custom_css .= "}}";
-
-	$custom_css .= "@media screen and (max-width: 576px) {";
-	$custom_css .= ".rspv-site-above-footer-wrap .footer-widget-area {";
-	$custom_css .= build_responsive_padding_spacing_css($above_footer_padding_values['mobile']);
-	$custom_css .= "}}";
-
-	// Fetch primary footer row items padding and margin values.
-	$primary_footer_padding_values = get_responsive_spacing_values('responsive_footer_primary_row_item_padding');
-
-	$custom_css .= ".rspv-site-primary-footer-wrap .footer-widget-area {";
-	$custom_css .= build_responsive_padding_spacing_css($primary_footer_padding_values['desktop']);
-	$custom_css .= "}";
-
-	$custom_css .= "@media screen and (max-width: 992px) {";
-	$custom_css .= ".rspv-site-primary-footer-wrap .footer-widget-area {";
-	$custom_css .= build_responsive_padding_spacing_css($primary_footer_padding_values['tablet']);
-	$custom_css .= "}}";
-
-	$custom_css .= "@media screen and (max-width: 576px) {";
-	$custom_css .= ".rspv-site-primary-footer-wrap .footer-widget-area {";
-	$custom_css .= build_responsive_padding_spacing_css($primary_footer_padding_values['mobile']);
-	$custom_css .= "}}";
-
-	// Fetch below footer row items padding and margin values.
-	$below_footer_padding_values = get_responsive_spacing_values('responsive_footer_below_row_item_padding');
-
-	$custom_css .= ".rspv-site-below-footer-wrap .footer-widget-area {";
-	$custom_css .= build_responsive_padding_spacing_css($below_footer_padding_values['desktop']);
-	$custom_css .= "}";
-
-	$custom_css .= "@media screen and (max-width: 992px) {";
-	$custom_css .= ".rspv-site-below-footer-wrap .footer-widget-area {";
-	$custom_css .= build_responsive_padding_spacing_css($below_footer_padding_values['tablet']);
-	$custom_css .= "}}";
-
-	$custom_css .= "@media screen and (max-width: 576px) {";
-	$custom_css .= ".rspv-site-below-footer-wrap .footer-widget-area {";
-	$custom_css .= build_responsive_padding_spacing_css($below_footer_padding_values['mobile']);
-	$custom_css .= "}}";
 
 	// Header Button.
 	$header_button_style = get_theme_mod( 'responsive_header_button_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_style' ) );

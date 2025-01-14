@@ -2020,7 +2020,7 @@
             }
         });
     });
-=======
+
     api( 'responsive_header_social_item_style', function(val){
         val.bind(function(newval){
             if ( 'filled' === newval || '' == newval ) {
@@ -2075,9 +2075,10 @@
         val.bind(function(newval){
             var header_social_item_use_brand_colors = api('responsive_header_social_item_use_brand_colors').get();
             if ( 'no' === header_social_item_use_brand_colors ) {
-                console.log(newval)
                 $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'border-color', newval );
             }
+        });
+    });
     api( 'responsive_cart_count_color', function(setting){
         setting.bind(function(color){
             jQuery('style#responsive-cart-count-color').remove();
