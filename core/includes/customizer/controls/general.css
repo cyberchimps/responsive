@@ -1440,6 +1440,10 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_header_button_border_style .customize-control-responsive-selectbtn .customize-control-responsive-selectbtn__button {
 	padding: 8px 5px;
 }
+#customize-control-responsive_header_button_label #_customize-input-responsive_header_button_label,
+#customize-control-responsive_header_button_url #_customize-input-responsive_header_button_url {
+	border: 1px solid #A5A5A5;
+}
 #customize-control-responsive_cart_icon_separator .responsive-customizer-heading,
 #customize-control-responsive_cart_label_separator .responsive-customizer-heading,
 #customize-control-responsive_cart_border_separator .responsive-customizer-heading,

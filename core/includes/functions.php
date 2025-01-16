@@ -1220,7 +1220,7 @@ function defaults() {
 			'responsive_header_button_size'                           => 'md',
 			'responsive_header_button_padding_y'                      => 0,
 			'responsive_header_button_padding_x'                      => 0,
-			'responsive_header_button_color'                          => '#FFFFFF',
+			'responsive_header_button_color'                          => '#000000',
 			'responsive_header_button_hover_color'                    => '#2B6CB0',
 			'responsive_header_button_bg_color'                       => '#2B6CB0',
 			'responsive_header_button_bg_hover_color'                 => '#215387',

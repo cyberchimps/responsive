@@ -4439,7 +4439,7 @@ function responsive_customizer_styles() {
 	// Header Button.
 	$header_button_style = get_theme_mod( 'responsive_header_button_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_style' ) );
 	$header_button_color = get_theme_mod( 'responsive_header_button_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_color' ) );
-	$header_button_hover_color = get_theme_mod( 'responsive_header_button_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_color_hover' ) );
+	$header_button_hover_color = get_theme_mod( 'responsive_header_button_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_color' ) );
 	$header_button_bg_color = get_theme_mod( 'responsive_header_button_bg_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_bg_color' ) );
 	$header_button_bg_hover_color = get_theme_mod( 'responsive_header_button_bg_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_bg_hover_color' ) );
 
@@ -4456,7 +4456,7 @@ function responsive_customizer_styles() {
 
 	if ( 'outlined' === $header_button_style ) {
 		$custom_css .= ".site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button {
-			color: " . $header_button_color . ";
+			color: " . get_theme_mod( 'responsive_header_button_color', '#2B6CB0' ) . ";
 			background: transparent;
 		}";
 		$custom_css .= ".site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover {
