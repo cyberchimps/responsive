@@ -38,7 +38,7 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 			add_action( 'enqueue_block_editor_assets', array( $this, 'load_fonts' ) );
 
 			if ( is_customize_preview() ) {
-				$path = get_stylesheet_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-font-presets.js';
+				$path = get_stylesheet_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-font-presets.min.js';
 				wp_enqueue_script( 'responsive-customize-preview-font-preset', $path, array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 				add_action( 'wp_head', array($this, 'live_preview_styles' ), 99 );			
 			}
@@ -242,11 +242,11 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 					$this->load_fonts($headingFont);
 					
 					echo "<style class='customizer-typography-font-preset-body-font-family'>
-							body { font-family: {$bodyFont}; font-weight: {$bodyWeight}; }
+							body { font-family: " . $bodyFont . "; font-weight: {$bodyWeight}; }
 						  </style>";
 					
 					echo "<style class='customizer-typography-font-preset-headings-font-family'>
-						  	h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 { font-family: {$headingFont}; font-weight: {$headingWeight}; }
+						  	h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 { font-family: " . $headingFont . "; font-weight: {$headingWeight}; }
 						</style>";
 				}
 			}
@@ -255,6 +255,9 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 		public static function loop( $type = 'css' ) {
 			// Get the selected font preset.
 			$preset = get_theme_mod( 'responsive_font_presets', '' );
+			if ( '' === $preset ) {
+				return "";
+			}
 		
 			// Get the choices array stored in theme mods.
 			$choices = json_decode( get_theme_mod( 'font_presets_value' ), true );

@@ -97,14 +97,8 @@
             var fontSize = fontName.replace( " ", "%20" );
             fontSize = fontSize.replace( ",", "%2C" );
             /** @type {string} */
-            fontSize = "//fonts.googleapis.com/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-            if ( fontName in responsive.googleFonts ) {
-                if ($("#" + idfirst).length) {
-                    $("#" + idfirst).attr("href", fontSize);
-                } else {
-                    $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
-                }
-            }
+            fontSize = "//fonts.googleapis.com/css?family=" + fontName + ":" + fontWeight;
+            $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
         }
         jQuery( 'style.customizer-typography-font-preset-body-font-family' ).remove();
         jQuery( 'head' ).append(
@@ -126,14 +120,8 @@
             var fontSize = fontName.replace( " ", "%20" );
             fontSize = fontSize.replace( ",", "%2C" );
             /** @type {string} */
-            fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-            if ( fontName in responsive.googleFonts ) {
-                if ($("#" + idfirst).length) {
-                    $("#" + idfirst).attr("href", fontSize);
-                } else {
-                    $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
-                }
-            }
+            fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + fontWeight;
+            $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
         }
         jQuery( 'style.customizer-typography-font-preset-headings-font-family' ).remove();
         jQuery( 'head' ).append(
