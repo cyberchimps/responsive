@@ -159,7 +159,7 @@ if ( ! class_exists( 'Responsive_Header_Social_Icons_Customizer' ) ) :
 
 			responsive_drag_number_control( $wp_customize, 'header_social_item_icon_size', __( 'Icon Size (px)', 'responsive' ), 'responsive_header_social', 89, 16, null, 200, 0, 'postMessage' );
 
-			responsive_typography_group_control( $wp_customize, 'header_social_item_typography_group', esc_html__( 'Font', 'responsive' ), 'responsive_header_social', 90, 'header_social_item_typography' );
+			responsive_typography_group_control( $wp_customize, 'header_social_item_typography_group', esc_html__( 'Label Font', 'responsive' ), 'responsive_header_social', 90, 'header_social_item_typography' );
 
 			responsive_padding_control( $wp_customize, 'header_social_item_margin', 'responsive_header_social', 91, Responsive\Core\get_responsive_customizer_defaults( 'header_social_margin_y' ), Responsive\Core\get_responsive_customizer_defaults( 'header_social_margin_x' ), null, 'Margin (px)' );
 		}
