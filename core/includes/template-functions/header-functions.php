@@ -169,6 +169,7 @@ function responsive_header_woo_cart_slide_in() {
 			'isMobile'          => wp_is_mobile()
 		);
 		wp_localize_script( 'responsive-cart-slide-in', 'responsive_woo_cart', $rspv_cart_localize_data );
+		wp_enqueue_style( 'dashicons' );
 	?>
 		<div class="rspv-slide-cart-overlay"></div>
 		<div id="rspv-slide-cart-drawer" class="rspv-header-cart-drawer">
