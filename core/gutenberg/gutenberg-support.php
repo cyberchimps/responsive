@@ -218,7 +218,7 @@ function responsive_gutenberg_customizer_css() {
 	}
 	// All headings typography
 	$all_headings_typography           = get_theme_mod( 'headings_typography' );
-
+	$box_background_image              = get_theme_mod( 'responsive_box_background_image_toggle' ) ? esc_url( get_theme_mod( 'responsive_box_background_image' ) ) : null ;
 	$custom_css = '';
 
 	$block_editor_form_fields_css_selector = '
@@ -290,15 +290,31 @@ function responsive_gutenberg_customizer_css() {
 		}
 	}
 
+	if ( 'flat' !== get_theme_mod( 'responsive_style', 'boxed' ) ) {
+		$custom_css .= "
+			.editor-styles-wrapper {
+				background-color: {$box_background_color};
+			}
+		";
+		if ( $box_background_image ) {
+			$custom_css .= "
+				.editor-styles-wrapper {
+					background-image: linear-gradient(to right, {$box_background_color}, {$box_background_color}), url({$box_background_image});
+					background-repeat: no-repeat;
+					background-size: cover;
+					background-attachment: scroll;
+				}
+			";
+		}
+	}
 	$custom_css .= "
 	.editor-styles-wrapper,
 	.wp-block-freeform,
 	.editor-writing-flow {
-		background-color: {$box_background_color};
 		color: {$body_text_color};
 	}
 	
-	.edit-post-visual-editor.editor-styles-wrapper .editor-block-list__layout a,
+	.edit-post-visual-editor .editor-styles-wrapper .editor-block-list__layout a,
 	.wp-block-freeform.block-library-rich-text__tinymce a,
 	.editor-writing-flow a,
 	.editor-styles-wrapper .wp-block a,
@@ -306,16 +322,15 @@ function responsive_gutenberg_customizer_css() {
 		color:{$link_color};
 		text-decoration: none;
 	}
-	.edit-post-visual-editor.editor-styles-wrapper{
-		background-color: {$box_background_color};
-	}
 
-	.edit-post-visual-editor.editor-styles-wrapper .editor-block-list__layout a:focus,
-	.edit-post-visual-editor.editor-styles-wrapper .editor-block-list__layout a:hover,
+	.edit-post-visual-editor .editor-styles-wrapper .editor-block-list__layout a:focus,
+	.edit-post-visual-editor .editor-styles-wrapper .editor-block-list__layout a:hover,
 	.wp-block-freeform.block-library-rich-text__tinymce a:hover,
 	.wp-block-freeform.block-library-rich-text__tinymce a:focus,
 	.editor-writing-flow a:hover,
-	.editor-writing-flow a:focus{
+	.editor-writing-flow a:focus,
+	.editor-styles-wrapper .wp-block a:hover,
+	.editor-styles-wrapper .wp-block a:focus {
 		color: {$link_hover_color};
 	}
 

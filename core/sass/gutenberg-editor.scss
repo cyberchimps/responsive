@@ -8,6 +8,7 @@
     font-family: $text-font;
     font-size: map-get($font-sizes, normal);
     letter-spacing: -0.015em;
+    line-height: $base-line-height;
     -moz-font-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
 
@@ -15,7 +16,6 @@
     blockquote,
     pre {
         padding: $base-line-height-px;
-        background-color: map-get($colors, light-gray);
         font-style: italic;
     }
     blockquote {
