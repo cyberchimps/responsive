@@ -36,6 +36,8 @@ const FontPresetComponent = (props) => {
 
     const optionsHtml = Object.entries(choices).map(
         ([choiceValue, { headingFont, bodyFont, headingWeight, bodyWeight }]) => {
+            // for Exo 2 font and fonts which need ''.
+            headingFont = headingFont.replace(/'/g, '');
             return (
                 <button
                     id={`${id}-fontpreset-${choiceValue}`}

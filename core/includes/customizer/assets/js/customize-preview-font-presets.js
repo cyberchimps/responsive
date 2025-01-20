@@ -34,7 +34,7 @@
         },
         preset_5: {
             bodyFont: "Alegreya Sans",
-            headingFont: "Exo 2",
+            headingFont: "'Exo 2'",
             bodyWeight: 400,
             headingWeight: 900
         },

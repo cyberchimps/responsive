@@ -1003,6 +1003,32 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							$fonts[] = $val;
 						}
 
+						if ( 'font-weight' === $attribute ) {
+							$preset = get_theme_mod( 'responsive_font_presets', '' );
+							if ( $preset !== '' ) {
+								$choices = json_decode( get_theme_mod( 'font_presets_value' ), true );
+								if ( isset( $choices[ $preset ] ) ) {
+									$bodyFontWeight = $choices[ $preset ]['bodyWeight'];
+									$headingFontWeight = $choices[ $preset ]['headingWeight'];
+								}
+								if($element === 'body'){
+									$fontpreset_val = $bodyFontWeight;
+								}else{
+									$fontpreset_val = $headingFontWeight;
+								}
+							}
+							// No brackets can be added as it cause issue with sans serif fonts.
+							if ( 'preview_styles' === $return ) {
+								$val = str_replace( '\'', '', $val );
+							} else {
+								if( '' !== $preset) {
+									$val = $fontpreset_val;
+								} else {
+									$val = $val;
+								}
+							}
+						}
+
 						// Add to inline CSS.
 						if ( 'css' === $return ) {
 							$add_css .= $attribute . ':' . $val . $px . ';';

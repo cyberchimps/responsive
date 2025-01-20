@@ -4352,7 +4352,6 @@ function responsive_customizer_styles() {
 	}
 
 	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', responsive_minimize_css( $custom_css ) ) );
-	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css_font_presets', responsive_minimize_css( $custom_css ) ) );
 
 	if ( class_exists( 'WooCommerce' ) ) {
 		// WooCommerce.

@@ -3080,7 +3080,7 @@ function responsive_font_presets_control( $wp_customize, $element, $label, $sect
 		'preset_2' => array('bodyFont' => 'Alegreya','headingFont'           => 'Alegreya Sans', 'headingWeight' => '900', 'bodyWeight' => '400' ),
 		'preset_3' => array('bodyFont' => 'Roboto','headingFont'             => 'Archivo Black', 'headingWeight' => '400', 'bodyWeight' => '400' ),
 		'preset_4' => array('bodyFont' => 'Old Standard TT', 'headingFont'   => 'Bebas Neue', 'headingWeight' => '400', 'bodyWeight' => '400'),
-		'preset_5' => array('bodyFont' => 'Alegreya Sans','headingFont'      => 'Exo 2', 'headingWeight' => '900', 'bodyWeight' => '400'),
+		'preset_5' => array('bodyFont' => 'Alegreya Sans','headingFont'      => "'Exo 2'", 'headingWeight' => '900', 'bodyWeight' => '400'),
 		'preset_6' => array('bodyFont' => 'PT Serif','headingFont'           => 'Fira Sans', 'headingWeight' => '900', 'bodyWeight' => '400'),
 		'preset_7' => array('bodyFont' => 'Josefin Slab', 'headingFont'      => 'Josefin Sans', 'headingWeight' => '700', 'bodyWeight' => '600'),
 		'preset_8' => array('bodyFont' => 'Spectral','headingFont'           => 'Karla', 'headingWeight' => '700', 'bodyWeight' => '300'),
