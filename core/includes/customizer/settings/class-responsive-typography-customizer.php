@@ -1131,9 +1131,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 
 			// Loop through and enqueue fonts.
 			if ( ! empty( $fonts ) && is_array( $fonts ) ) {
-				foreach ( $fonts as $font ) {
-					responsive_enqueue_google_font( $font );
-				}
+				responsive_render_google_fonts_url( $fonts );
 			}
 
 		}

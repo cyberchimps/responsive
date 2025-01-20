@@ -124,8 +124,6 @@ function responsive_gutenberg_customizer_css() {
 	$box_background_color = esc_html( get_theme_mod( 'responsive_box_background_color', '#ffffff' ) );
 	$alt_background_color = esc_html( get_theme_mod( 'responsive_alt_background_color', '#eaeaea' ) );
 
-	$h1_typography   = get_theme_mod( 'heading_h1_typography' );
-	$body_typography = get_theme_mod( 'body_typography' );
 	// button desktop border radius
 	$button_top_left_radius            = esc_html( get_theme_mod( 'responsive_buttons_radius_top_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_buttons_radius' ) ) );
 	$button_top_right_radius           = esc_html( get_theme_mod( 'responsive_buttons_radius_top_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_buttons_radius' ) ) );
@@ -207,6 +205,20 @@ function responsive_gutenberg_customizer_css() {
 	$input_tablet_typography           = get_theme_mod( 'input_tablet_typography' );
 	$input_mobile_typography           = get_theme_mod( 'input_mobile_typography' );
 
+	$alt_background_color              = esc_html( get_theme_mod( 'responsive_alt_background_color', Responsive\Core\get_responsive_customizer_defaults( 'alt_background' ) ) );
+
+	$body_typography                   = get_theme_mod( 'body_typography' );
+	$body_tablet_typography            = get_theme_mod( 'body_tablet_typography' );
+	$body_mobile_typography            = get_theme_mod( 'body_mobile_typography' );
+	// h1 typography.
+	for ( $i=1; $i<7; $i++ ) {
+		${"h{$i}_typography"}          = get_theme_mod( "heading_h{$i}_typography" );
+		${"h{$i}_tablet_typography"}   = get_theme_mod( "heading_h{$i}_tablet_typography" );
+		${"h{$i}_mobile_typography"}   = get_theme_mod( "heading_h{$i}_mobile_typography" );
+	}
+	// All headings typography
+	$all_headings_typography           = get_theme_mod( 'headings_typography' );
+
 	$custom_css = '';
 
 	$block_editor_form_fields_css_selector = '
@@ -243,17 +255,14 @@ function responsive_gutenberg_customizer_css() {
 	.editor-styles-wrapper div.wpforms-container-full .wpforms-form select,
 	.editor-styles-wrapper div.wpforms-container-full .wpforms-form textarea';
 
-	if ( $h1_typography ) {
-		$custom_css .= '
-		.edit-post-visual-editor.editor-styles-wrapper .editor-post-title__block .editor-post-title__input,
-		.editor-post-title__block .editor-post-title__input {
-			color: ' . esc_html( get_theme_mod( 'responsive_h1_text_color', '#333333' ) ) . ';';
-
-		foreach ( $h1_typography as $key => $value ) {
-			$custom_css .= $key . ':' . $value . ';';
-		}
-		$custom_css .= '}';
-	}
+	$block_editor_body_selector         = '.edit-post-visual-editor .editor-styles-wrapper, .block-editor-iframe__body.editor-styles-wrapper';
+	$block_editor_h1_selector           = '.editor-styles-wrapper h1';
+	$block_editor_h2_selector           = '.editor-styles-wrapper h2';
+	$block_editor_h3_selector           = '.editor-styles-wrapper h3';
+	$block_editor_h4_selector           = '.editor-styles-wrapper h4';
+	$block_editor_h5_selector           = '.editor-styles-wrapper h5';
+	$block_editor_h6_selector           = '.editor-styles-wrapper h6';
+	$block_editor_all_headings_selector = '.editor-styles-wrapper h1,.editor-styles-wrapper h2,.editor-styles-wrapper h3,.editor-styles-wrapper h4,.editor-styles-wrapper h5,.editor-styles-wrapper h6,.editor-styles-wrapper .h1,.editor-styles-wrapper .h2,.editor-styles-wrapper .h3,.editor-styles-wrapper .h4,.editor-styles-wrapper .h5,.editor-styles-wrapper .h6';
 
 	for ( $i = 1; $i < 7; $i++ ) {
 		$custom_css .= '
@@ -282,36 +291,14 @@ function responsive_gutenberg_customizer_css() {
 	}
 
 	$custom_css .= "
-	.edit-post-visual-editor.editor-styles-wrapper,
+	.editor-styles-wrapper,
 	.wp-block-freeform,
-	.editor-writing-flow,
-	.editor-styles-wrapper{
+	.editor-writing-flow {
 		background-color: {$box_background_color};
 		color: {$body_text_color};
-	}";
-
-	if ( $body_typography ) {
-
-		foreach ( $body_typography as $key => $value ) {
-			if ( 'font-family' === $key ) {
-				$custom_css .= '.has-body-font-family{' . $key . ':' . $value . '; }';
-			}
-		}
-
-		$custom_css .= '
-		.edit-post-visual-editor.editor-styles-wrapper,
-		.wp-block-freeform,
-		.editor-writing-flow,
-		.editor-styles-wrapper,
-		.wp-block-quote__citation {';
-
-		foreach ( $body_typography as $key => $value ) {
-			$custom_css .= $key . ':' . $value . ';';
-		}
-		$custom_css .= '}';
 	}
-
-	$custom_css .= ".edit-post-visual-editor.editor-styles-wrapper .editor-block-list__layout a,
+	
+	.edit-post-visual-editor.editor-styles-wrapper .editor-block-list__layout a,
 	.wp-block-freeform.block-library-rich-text__tinymce a,
 	.editor-writing-flow a,
 	.editor-styles-wrapper .wp-block a,
@@ -416,6 +403,9 @@ function responsive_gutenberg_customizer_css() {
 	.editor-styles-wrapper label,
 	.editor-styles-wrapper .wp-block-search__label {
 		color:' . $label_color .';
+	}
+	address, blockquote, pre, code, kbd, tt, var {
+		background-color:'. $alt_background_color .';
 	}
 
 	@media screen and ( max-width: 992px ) {
@@ -552,7 +542,105 @@ function responsive_gutenberg_customizer_css() {
 		}
 		$custom_css .= "}}";
 	}
+	// Apply body typography styles.
+	if ( $body_typography ) {
+		foreach ( $body_typography as $key => $value ) {
+			if ( 'font-family' === $key ) {
+				$custom_css .= '.has-body-font-family{' . $key . ':' . $value . '; }';
+				break;
+			}
+		}
+		$custom_css .= "
+			$block_editor_body_selector {
+		";
+		foreach ( $body_typography as $key => $value ) {
+			$custom_css .= $key . ':' . $value . ';';
+		}
+		$custom_css .= "}";
+	}
+	if ( $body_tablet_typography ) { // body tablet typography
+		$custom_css .= "
+		@media screen and ( max-width: 992px ) {
+			$block_editor_body_selector {
+		";
+		foreach ( $body_tablet_typography as $key => $value ) {
+			$custom_css .= $key . ':' . $value . ';';
+		}
+		$custom_css .= "}}";
+	}
+	if ( $body_mobile_typography ) { // body mobile typography
+		$custom_css .= "
+		@media screen and ( max-width: 576px ) {
+			$block_editor_body_selector {
+		";
+		foreach ( $body_mobile_typography as $key => $value ) {
+			$custom_css .= $key . ':' . $value . ';';
+		}
+		$custom_css .= "}}";
+	}
+
+	// Apply all headings typography styles.
+	if ( $all_headings_typography ) {
+		$custom_css .= "
+			$block_editor_all_headings_selector {
+		";
+		foreach ( $all_headings_typography as $key => $value ) {
+			$custom_css .= $key . ':' . $value . ';';
+		}
+		$custom_css .= "}";
+	}
+
+	// Apply h1-h6 Typography styles.
+	for ( $i = 1; $i <= 6; $i++ ) {
+		// Update the selector for h1 to h6.
+		$heading_selector   = ${"block_editor_h{$i}_selector"};
+		// Dynamically get the heading typography variable.
+		$typography_var     = ${"h{$i}_typography"};
+		$_tablet_typography = ${"h{$i}_tablet_typography"};
+		$_mobile_typography = ${"h{$i}_mobile_typography"};
 	
+		$custom_css .= "
+		$heading_selector {
+			color: " . esc_html( get_theme_mod( "responsive_h{$i}_text_color", get_theme_mod( 'responsive_all_heading_text_color', Responsive\Core\get_responsive_customizer_defaults( "h{$i}_text" ) ) ) ) . ";
+		}
+		";
+	
+		// Generate the typography rules if available.
+		if ( $typography_var ) {
+			$custom_css .= "
+			$heading_selector {";
+
+			foreach ( $typography_var as $key => $value ) {
+				if ( 'letter-spacing' === $key ) {
+					$custom_css .= "$key: {$value}px;";
+				} else {
+					$custom_css .= "$key: $value;";
+				}
+			}
+			$custom_css .= "}
+			";
+		}
+		if ( $_tablet_typography ) { // body tablet typography
+			$custom_css .= "
+			@media screen and ( max-width: 992px ) {
+				$heading_selector {
+			";
+			foreach ( $_tablet_typography as $key => $value ) {
+				$custom_css .= $key . ':' . $value . ';';
+			}
+			$custom_css .= "}}";
+		}
+		if ( $_mobile_typography ) { // body mobile typography
+			$custom_css .= "
+			@media screen and ( max-width: 576px ) {
+				$heading_selector {
+			";
+			foreach ( $_mobile_typography as $key => $value ) {
+				$custom_css .= $key . ':' . $value . ';';
+			}
+			$custom_css .= "}}";
+		}
+	}
 
 	return $custom_css;
 }
