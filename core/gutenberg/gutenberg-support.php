@@ -219,6 +219,23 @@ function responsive_gutenberg_customizer_css() {
 	// All headings typography
 	$all_headings_typography           = get_theme_mod( 'headings_typography' );
 	$box_background_image              = get_theme_mod( 'responsive_box_background_image_toggle' ) ? esc_url( get_theme_mod( 'responsive_box_background_image' ) ) : null ;
+
+	$responsive_container_width        = get_theme_mod( 'responsive_container_width', 1140 );
+	$responsive_page_content_width     = get_theme_mod( 'responsive_page_content_width', Responsive\Core\get_responsive_customizer_defaults( 'page_content_width' ) );
+	$responsive_page_sidebar_width     = get_theme_mod( 'responsive_page_sidebar_width', 30 );
+	$responsive_page_sidebar_position  = esc_html( get_theme_mod( 'responsive_page_sidebar_position' ) );
+	$page_content_width                = ( $responsive_page_content_width / 100 ) * $responsive_container_width;
+	
+	if ( $responsive_page_sidebar_position !== 'no' ) {
+		$page_content_width            = ( ( 100 - $responsive_page_sidebar_width ) / 100 ) * $responsive_container_width;
+	}
+
+	$page_title_alignment              = get_theme_mod( 'responsive_page_title_alignment', 'left' );
+	$page_content_alignment            = get_theme_mod( 'responsive_page_content_alignment', 'left' );
+	$page_title_typography             = get_theme_mod( 'page_title_typography' );
+	$page_title_tablet_typography      = get_theme_mod( 'page_title_tablet_typography' );
+	$page_title_mobile_typography      = get_theme_mod( 'page_title_mobile_typography' );
+
 	$custom_css = '';
 
 	$block_editor_form_fields_css_selector = '
@@ -263,6 +280,7 @@ function responsive_gutenberg_customizer_css() {
 	$block_editor_h5_selector           = '.editor-styles-wrapper h5';
 	$block_editor_h6_selector           = '.editor-styles-wrapper h6';
 	$block_editor_all_headings_selector = '.editor-styles-wrapper h1,.editor-styles-wrapper h2,.editor-styles-wrapper h3,.editor-styles-wrapper h4,.editor-styles-wrapper h5,.editor-styles-wrapper h6,.editor-styles-wrapper .h1,.editor-styles-wrapper .h2,.editor-styles-wrapper .h3,.editor-styles-wrapper .h4,.editor-styles-wrapper .h5,.editor-styles-wrapper .h6';
+	$page_title_editor_selector         = '.editor-styles-wrapper.post-type-page .edit-post-visual-editor__post-title-wrapper h1.editor-post-title__input';
 
 	for ( $i = 1; $i < 7; $i++ ) {
 		$custom_css .= '
@@ -421,6 +439,23 @@ function responsive_gutenberg_customizer_css() {
 	}
 	address, blockquote, pre, code, kbd, tt, var {
 		background-color:'. $alt_background_color .';
+	}
+	.editor-styles-wrapper.post-type-page .edit-post-visual-editor__post-title-wrapper {
+		text-align: '. $page_title_alignment .';
+	}
+	.editor-styles-wrapper.post-type-page .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+		text-align: '. $page_content_alignment .';
+	}
+	@media screen and ( min-width: 992px ) {
+
+		.editor-styles-wrapper.post-type-page .edit-post-visual-editor__post-title-wrapper h1.editor-post-title__input,
+		.editor-styles-wrapper.post-type-page .edit-post-visual-editor__post-title-wrapper,
+		.editor-styles-wrapper.post-type-page .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+			max-width:' . $page_content_width.'px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
 	}
 
 	@media screen and ( max-width: 992px ) {
@@ -655,6 +690,41 @@ function responsive_gutenberg_customizer_css() {
 			}
 			$custom_css .= "}}";
 		}
+	}
+
+	// Apply page title typography styles.
+	if ( $page_title_typography ) {
+		$custom_css .= "
+			$page_title_editor_selector {
+		";
+		foreach ( $page_title_typography as $key => $value ) {
+			if ( 'letter-spacing' === $key ) {
+				$custom_css .= $key . ':' . $value . 'px;';
+			} else {
+				$custom_css .= $key . ':' . $value . ';';
+			}
+		}
+		$custom_css .= "}";
+	}
+	if ( $page_title_tablet_typography ) {
+		$custom_css .= "
+		@media screen and ( max-width: 992px ) {
+			$page_title_editor_selector {
+		";
+		foreach ( $page_title_tablet_typography as $key => $value ) {
+			$custom_css .= $key . ':' . $value . ';';
+		}
+		$custom_css .= "}}";
+	}
+	if ( $page_title_mobile_typography ) {
+		$custom_css .= "
+		@media screen and ( max-width: 576px ) {
+			$page_title_editor_selector {
+		";
+		foreach ( $page_title_mobile_typography as $key => $value ) {
+			$custom_css .= $key . ':' . $value . ';';
+		}
+		$custom_css .= "}}";
 	}
 
 	return $custom_css;
