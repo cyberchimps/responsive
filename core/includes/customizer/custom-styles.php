@@ -5769,7 +5769,7 @@ function responsive_customizer_styles() {
 				border-bottom-color: {$header_cart_tray_separator_color};
 			}
 			";
-		if ( 'slide-in' === $cart_click_action || 'dropdown' === $cart_click_action && wp_is_mobile() ) {
+		if ( 'slide-in' === $cart_click_action && ! is_cart() && ! is_checkout() || 'dropdown' === $cart_click_action && wp_is_mobile() && ! is_cart() && ! is_checkout() ) {
 			$woocommerce_custom_css .= "
 				.responsive-header-cart .res-cart-link a {
 					pointer-events: none;

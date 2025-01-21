@@ -1165,6 +1165,9 @@ span.res-header-cart-info-wrap, .res-addon-cart-wrap{
             color: #334155 !important;
             border: 1px solid #334155;
         }
+        & .woocommerce-mini-cart__empty-message {
+            padding: 14px 20px;
+        }
     }
 }
 .rspv-header-cart-drawer {
@@ -1268,5 +1271,11 @@ span.res-header-cart-info-wrap, .res-addon-cart-wrap{
         cursor: pointer;
         visibility: visible;
         z-index: 999;
+    }
+}
+.rspv-cart-drawer-content {
+    & .woocommerce-mini-cart__empty-message {
+        text-align: center;
+        padding: 20px;
     }
 }
