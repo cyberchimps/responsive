@@ -35,6 +35,17 @@ const ResponsiveSocialComponent = props => {
                 label: 'X',
                 svg: '',
             },
+            {
+                id: 'instagram',
+                enabled: true,
+                source: 'icon',
+                url: '',
+                imageid: '',
+                width: 24,
+                icon: 'instagram',
+                label: 'Instagram',
+                svg: '',
+            }
         ],
     };
 
@@ -81,7 +92,7 @@ const ResponsiveSocialComponent = props => {
             { value: 'whatsapp', label: __('WhatsApp', 'responsive') },
             { value: 'custom1', label: __('Custom 1', 'responsive') },
             { value: 'custom2', label: __('Custom 2', 'responsive') },
-            { value: 'custom3', label: __('Custom 3', 'responsive') },    
+            { value: 'custom3', label: __('Custom 3', 'responsive') },
         ],
     };
 
@@ -118,7 +129,6 @@ const ResponsiveSocialComponent = props => {
     const addItem = (selectedControl) => {
 
         if (selectedControl) {
-            console.log('inside current control')
             const newItem = {
                 id: selectedControl,
                 enabled: true,
@@ -171,6 +181,7 @@ const ResponsiveSocialComponent = props => {
                 setList={onDragEnd}
                 group={controlParams.group}
                 className="responsive-social-items-wrapper"
+                handle=".responsive-social-item-panel-header"
             >
                 {value.items.map((item, index) => (
                     <ResponsiveSocialItemComponent
@@ -184,28 +195,28 @@ const ResponsiveSocialComponent = props => {
                         onChangeURL={(url) => saveArrayUpdate({ url }, index)}
                         onChangeWidth={(width) => saveArrayUpdate({ width }, index)}
                         onChangeSource={(source) => saveArrayUpdate({ source }, index)}
-                        onChangeSVG={ (svg) => saveArrayUpdate( { svg }, index ) }
+                        onChangeSVG={(svg) => saveArrayUpdate({ svg }, index)}
                     />
                 ))}
             </ReactSortable>
-            <Button
-                className="responsive-add-social-item"
-                primary
-                onClick={() => {
-                    console.log('social')
-                    setIsVisible(!isVisible);
-                }}
-            >
-                <Dashicon icon="plus" />
-                {__('Add Social', 'responsive')}
-            </Button>
+            {availableSocialOptions.length > 0 &&
+                <Button
+                    className="responsive-add-social-item"
+                    primary
+                    onClick={() => {
+                        setIsVisible(!isVisible);
+                    }}
+                >
+                    <Dashicon icon="plus" />
+                    {__('Add Social', 'responsive')}
+                </Button>
+            }
             {availableSocialOptions.length > 0 && isVisible && (
                 <div className="responsive-social-icons-container">
                     {availableSocialOptions.map((option) => (
                         <Button
                             key={option.value}
                             onClick={() => {
-                                console.log(option.value)
                                 setCurrentControl(option.value);
                                 addItem(option.value);
                             }}

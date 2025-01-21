@@ -3218,6 +3218,7 @@ if ( ! function_exists( 'responsive_header_social_elements' ) ) {
 			array(
 				'facebook'  => 'Facebook',
 				'x'         => 'X',
+				'instagram' => 'Instagram',
 			)
 		);
 

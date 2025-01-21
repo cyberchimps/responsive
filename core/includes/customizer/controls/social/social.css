@@ -196,14 +196,12 @@
     border: none;
 }
 #customize-control-responsive_header_social_show_label {
-    margin-top: 10px;
-}
-#customize-control-responsive_header_social_item_spacing {
-    margin-bottom: 18px;
+    padding-top: 18px;
     border-top: 0.5px solid #D0D0D0;
 }
 #customize-control-responsive_header_social_item_spacing {
     margin-bottom: 12px;
+    border-top: 0.5px solid #D0D0D0;
 }
 #customize-control-responsive_header_social_redirect_to_social_links a {
     border-bottom: none;
@@ -213,4 +211,25 @@
 }
 #customize-control-responsive_header_social_item_border_style .customize-control-responsive-selectbtn .customize-control-responsive-selectbtn__button {
     padding: 8px 6px;
+}
+#customize-control-responsive_header_social_item_style,
+#customize-control-responsive_header_social_item_use_brand_colors {
+    padding-bottom: 18px;
+    border-bottom: 0.5px solid #D0D0D0;
+}
+#customize-control-responsive_header_social_item_color {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-bottom: 0.5px solid #D0D0D0;
+}
+#customize-control-responsive_header_social_item_border_style,
+#customize-control-responsive_header_social_item_border_width,
+#customize-control-responsive_border_header_social_radius,
+#customize-control-responsive_header_social_item_icon_size,
+#customize-control-responsive_header_social_item_typography_group {
+    padding-bottom: 18px;
+    border-bottom: 0.5px solid #D0D0D0;
+}
+#customize-control-responsive_header_social_item_border_color {
+    margin-top: 10px;
 }

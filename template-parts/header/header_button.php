@@ -24,14 +24,18 @@ if( ! defined('ABSPATH') ) {
 				Responsive\Core\get_responsive_customizer_defaults('responsive_header_button_open_in_new_tab')
 			);
 			$target = $new_tab ? 'target="_blank"' : 'target="_self"';
-			$rel = $new_tab ? 'rel="noopener noreferrer"' : '';
+			$rel = array();
+			if ( $new_tab ) {
+				$rel[] = 'noopener';
+				$rel[] = 'noreferrer';
+			}
 
 			// Append additional rel attributes.
 			if (get_theme_mod('responsive_header_button_set_nofollow', Responsive\Core\get_responsive_customizer_defaults('responsive_header_button_set_nofollow'))) {
-				$rel = $rel ? $rel . ' nofollow' : 'rel="nofollow"';
+				$rel[] = 'nofollow';
 			}
 			if (get_theme_mod('responsive_header_button_set_sponsored', Responsive\Core\get_responsive_customizer_defaults('responsive_header_button_set_sponsored'))) {
-				$rel = $rel ? $rel . ' sponsored' : 'rel="sponsored"';
+				$rel[] = 'sponsored';
 			}
 
 			// Determine download attribute.
@@ -52,6 +56,8 @@ if( ! defined('ABSPATH') ) {
 
 			$header_button_size_class = 'responsive-header-button-' . $header_button_size . '-size';
 
+			$rel_display = ! empty( $rel ) ? ' rel="' . esc_attr( implode( ' ', $rel ) ) . '"' : '';
+
 			if ($is_visible) {
 				$button_label = get_theme_mod(
 					'responsive_header_button_label',
@@ -59,9 +65,9 @@ if( ! defined('ABSPATH') ) {
 				);
 				?>
 				<a 
-					href="<?php echo esc_attr($href); ?>" 
+					href="<?php echo $href; ?>" 
 					<?php echo $target; ?> 
-					<?php echo $rel; ?> 
+					<?php echo $rel_display; ?>
 					<?php echo esc_attr($download); ?>  
 					class="button responsive-header-button <?php echo esc_attr( $header_button_size_class ); ?>">
 					<?php echo esc_html__($button_label, 'responsive'); ?>
