@@ -4694,6 +4694,7 @@ function responsive_customizer_styles() {
 	$custom_css .= "@media screen and (max-width: 576px) {";
 	$custom_css .= ".responsive-header-cart .res-addon-cart-wrap {";
 	$custom_css .= build_responsive_spacing_css($header_woo_cart_padding_values['mobile'], $header_woo_cart_margin_values['mobile']);
+	$custom_css .= "}}";
 
 	if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
 		// Outside Container Spacing.
