@@ -145,6 +145,14 @@ const TabsComponent = props => {
 		} else {
 			document.getElementById('customize-control-responsive_footer_below_inner_column_spacing').style.display = 'none';
 		}
+		if( api('responsive_cart_style').get() !== 'outline' && 'design' === tab ) {
+			document.getElementById('customize-control-responsive_cart_border_width').style.display = 'none';
+		}
+		if( api('responsive_cart_style').get() === 'none' && 'design' === tab ) {
+			document.getElementById('customize-control-responsive_cart_border_separator').style.display = 'none';
+			document.getElementById('customize-control-responsive_border_cart_radius').style.display = 'none';
+			document.getElementById('customize-control-responsive_header_woo_cart_separator_8').style.display = 'none';
+		}
 	}, [tab]);
 
 	const toggleSidebarPositionWidthControls = (value, control) => {
