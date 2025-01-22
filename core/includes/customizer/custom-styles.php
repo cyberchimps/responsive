@@ -5076,7 +5076,33 @@ function responsive_customizer_styles() {
 		}
 	}
 
+	//font preset css conditional addition
+	$font_preset_css = "";
+	$preset = get_theme_mod( 'responsive_font_presets', '' );
+	if ( $preset !== '' ) {
+		$choices = json_decode( get_theme_mod( 'font_presets_value'),true );
+		if ( isset( $choices[ $preset ] ) ) {
+			$headingFontFamily = $choices[ $preset ]['headingFont'];
+			$bodyFontFamily = $choices[ $preset ]['bodyFont'];
+			$bodyFontWeight = $choices[ $preset ]['bodyWeight'];
+			$headingFontWeight = $choices[ $preset ]['headingWeight'];
+			responsive_enqueue_google_font($bodyFontFamily);
+			responsive_enqueue_google_font($headingFontFamily);
+			$font_preset_css .= "
+			/* Font Preset */
+			body {
+				font-family: {$bodyFontFamily};
+				font-weight: {$bodyFontWeight};
+			}
+			h1, h2, h3, h4, h5, h6 {
+				font-family: {$headingFontFamily};
+				font-weight: {$headingFontWeight};
+			}";
+		}
+	}
+
 	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', responsive_minimize_css( $custom_css ) ) );
+	wp_add_inline_style('responsive-style', responsive_minimize_css( $font_preset_css));
 
 	if ( class_exists( 'WooCommerce' ) ) {
 		// WooCommerce.
