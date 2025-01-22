@@ -236,6 +236,15 @@ function responsive_gutenberg_customizer_css() {
 	$page_title_tablet_typography      = get_theme_mod( 'page_title_tablet_typography' );
 	$page_title_mobile_typography      = get_theme_mod( 'page_title_mobile_typography' );
 
+	$single_post_content_width         = esc_html( get_theme_mod( 'responsive_single_blog_content_width', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_content_width' ) ) );
+	$single_post_sidebar_position      = esc_html( get_theme_mod( 'responsive_single_blog_sidebar_position' ) );
+	$single_post_sidebar_width         = get_theme_mod( 'responsive_single_blog_sidebar_width', 30 );
+	$_post_content_custom_width        = ( $single_post_content_width / 100 ) * $responsive_container_width;
+	if ( $single_post_sidebar_position !== 'no' ) {
+		$_post_content_custom_width    = ( ( 100 - $single_post_sidebar_width ) / 100 ) * $responsive_container_width;
+	}
+	$single_blog_title_alignment       = get_theme_mod( 'responsive_single_blog_title_alignment', 'left' );
+	$single_blog_content_alignment     = get_theme_mod( 'responsive_single_blog_content_alignment', 'left' );
 	$custom_css = '';
 
 	$block_editor_form_fields_css_selector = '
@@ -446,12 +455,25 @@ function responsive_gutenberg_customizer_css() {
 	.editor-styles-wrapper.post-type-page .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
 		text-align: '. $page_content_alignment .';
 	}
+	.editor-styles-wrapper.post-type-post .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+		text-align: '. $single_blog_content_alignment .';
+	}
+	.editor-styles-wrapper.post-type-post .edit-post-visual-editor__post-title-wrapper {
+		text-align: '. $single_blog_title_alignment .';
+	}
 	@media screen and ( min-width: 992px ) {
 
 		.editor-styles-wrapper.post-type-page .edit-post-visual-editor__post-title-wrapper h1.editor-post-title__input,
 		.editor-styles-wrapper.post-type-page .edit-post-visual-editor__post-title-wrapper,
 		.editor-styles-wrapper.post-type-page .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
 			max-width:' . $page_content_width.'px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.editor-styles-wrapper.post-type-post .edit-post-visual-editor__post-title-wrapper h1.editor-post-title__input,
+		.editor-styles-wrapper.post-type-post .edit-post-visual-editor__post-title-wrapper,
+		.editor-styles-wrapper.post-type-post .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+			max-width:' . $_post_content_custom_width.'px;
 			margin-left: auto;
 			margin-right: auto;
 		}
