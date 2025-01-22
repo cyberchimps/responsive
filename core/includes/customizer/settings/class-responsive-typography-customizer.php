@@ -976,56 +976,19 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 
 						// Add quotes around font-family && font family to scripts array.
 						if ( 'font-family' === $attribute ) {
-							$preset = get_theme_mod( 'responsive_font_presets', '' );
-							if ( $preset !== '' ) {
-								$choices = json_decode( get_theme_mod( 'font_presets_value' ), true );
-								if ( isset( $choices[ $preset ] ) ) {
-									$bodyFont = $choices[ $preset ]['bodyFont'];
-									$headingFont = $choices[ $preset ]['headingFont'];
-								}
-								if($element === 'body'){
-									$fontpreset_val = $bodyFont;
-								}else{
-									$fontpreset_val = $headingFont;
-								}
-							}
-							// No brackets can be added as it cause issue with sans serif fonts.
 							if ( 'preview_styles' === $return ) {
 								$val = str_replace( '\'', '', $val );
 							} else {
-								if( '' !== $preset) {
-									$fonts[] = $val;
-									$val = $fontpreset_val;
-								} else {
-									$val = $val;
-								}
+								$val = $val;
 							}
 							$fonts[] = $val;
 						}
 
 						if ( 'font-weight' === $attribute ) {
-							$preset = get_theme_mod( 'responsive_font_presets', '' );
-							if ( $preset !== '' ) {
-								$choices = json_decode( get_theme_mod( 'font_presets_value' ), true );
-								if ( isset( $choices[ $preset ] ) ) {
-									$bodyFontWeight = $choices[ $preset ]['bodyWeight'];
-									$headingFontWeight = $choices[ $preset ]['headingWeight'];
-								}
-								if($element === 'body'){
-									$fontpreset_val = $bodyFontWeight;
-								}else{
-									$fontpreset_val = $headingFontWeight;
-								}
-							}
-							// No brackets can be added as it cause issue with sans serif fonts.
 							if ( 'preview_styles' === $return ) {
 								$val = str_replace( '\'', '', $val );
 							} else {
-								if( '' !== $preset) {
-									$val = $fontpreset_val;
-								} else {
-									$val = $val;
-								}
+								$val = $val;
 							}
 						}
 
