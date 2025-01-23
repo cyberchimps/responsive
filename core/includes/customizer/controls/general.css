@@ -1213,7 +1213,9 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_footer_above_row_bg_color .responsive-color-control-main-wrap .wp-picker-holder,
 #customize-control-responsive_footer_primary_row_bg_color .responsive-color-control-main-wrap .wp-picker-holder,
 #customize-control-responsive_footer_below_row_bg_color .responsive-color-control-main-wrap .wp-picker-holder,
-#customize-control-responsive_scroll_to_top_icon_color .responsive-color-control-main-wrap .wp-picker-holder {
+#customize-control-responsive_scroll_to_top_icon_color .responsive-color-control-main-wrap .wp-picker-holder,
+#customize-control-responsive_cart_color .responsive-color-control-main-wrap .wp-picker-holder,
+#customize-control-responsive_cart_count_color .responsive-color-control-main-wrap .wp-picker-holder {
 	top: 60px;
 }
 #customize-control-responsive_footer_above_row_border_color .responsive-color-control-main-wrap .wp-picker-holder,
