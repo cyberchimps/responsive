@@ -3263,14 +3263,12 @@ function responsive_customizer_styles() {
 
 	/**Header Footer Builder Styles */
 	$custom_css .= "
-		@media (min-width: 768px) {
-			.site-header-row {
-				display: grid;
-				grid-template-columns: auto auto;
-			}
-			.site-header-section-right {
-				justify-content: flex-end;
-			}
+		.site-header-row {
+			display: grid;
+			grid-template-columns: auto auto;
+		}
+		.site-header-section-right {
+			justify-content: flex-end;
 		}
 
 		.site-header-row.site-header-row-center-column {
@@ -3296,11 +3294,6 @@ function responsive_customizer_styles() {
 			align-items: center;
 			margin-right: 10px;
 			max-height: inherit;
-		}
-
-		.site-header-row.site-header-row-only-center-column {
-			display: flex;
-			justify-content: center;
 		}
 
 		.site-header-row { /* for backward compatibility */

@@ -1542,12 +1542,26 @@ if( ! function_exists( 'responsive_old_header_footer_comaptibility_with_hfb' ) )
 		// Vertical Header backward compatibility.
 		$responsive_header_layout = get_theme_mod( 'responsive_header_layout' );
         if ( 'vertical' === $responsive_header_layout ) {
-            unset( $header_hfb_elements['primary']['primary_left'][0] );
-            unset( $header_hfb_elements['primary']['primary_right'][0] );
-            array_push( $header_hfb_elements['primary']['primary_center'], 'logo' );
-            unset( $header_hfb_elements['below']['below_center'][0] );
-            array_push( $header_hfb_elements['below']['below_center'], 'primary_navigation' );
+			// Vertical Header Alignment preserve with hfb.
+			$vertical_header_alignment = get_theme_mod( 'responsive_header_alignment' );
+			if ( 'left' === $vertical_header_alignment ) {
+				$header_hfb_elements['primary']['primary_right'] = array();
+				$header_hfb_elements['below']['below_left']      = array();
+				array_push( $header_hfb_elements['below']['below_left'], 'primary_navigation' );
+			} else if ( 'right' === $vertical_header_alignment ) {
+				$header_hfb_elements['primary']['primary_left']  = array();
+				$header_hfb_elements['primary']['primary_right'] = array();
+				array_push( $header_hfb_elements['primary']['primary_right'], 'logo' );
+                array_push( $header_hfb_elements['below']['below_right'], 'primary_navigation' );
+			} else {
+				$header_hfb_elements['primary']['primary_left']  = array();
+				$header_hfb_elements['primary']['primary_right'] = array();
+				$header_hfb_elements['below']['below_center']    = array();
+				array_push( $header_hfb_elements['primary']['primary_center'], 'logo' );
+				array_push( $header_hfb_elements['below']['below_center'], 'primary_navigation' );
+			}
         }
+
 
 		set_theme_mod( 'responsive_header_desktop_items', $header_hfb_elements );
 		
