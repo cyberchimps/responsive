@@ -145,13 +145,29 @@ const TabsComponent = props => {
 		} else {
 			document.getElementById('customize-control-responsive_footer_below_inner_column_spacing').style.display = 'none';
 		}
-		if( api('responsive_cart_style').get() !== 'outline' && 'design' === tab ) {
-			document.getElementById('customize-control-responsive_cart_border_width').style.display = 'none';
+		if( api('responsive_cart_style') ) {
+            if( api('responsive_cart_style').get() !== 'outline' && 'design' === tab ) {
+                document.getElementById('customize-control-responsive_cart_border_width').style.display = 'none';
+            }
+            if( api('responsive_cart_style').get() === 'none' && 'design' === tab ) {
+                document.getElementById('customize-control-responsive_cart_border_separator').style.display = 'none';
+                document.getElementById('customize-control-responsive_border_cart_radius').style.display = 'none';
+                document.getElementById('customize-control-responsive_header_woo_cart_separator_8').style.display = 'none';
+            }
+        }
+		if( api('responsive_header_button_size').get() === 'custom' && 'design' === tab ) {
+			document.getElementById('customize-control-responsive_header_button_padding').style.display = 'block';
+			document.getElementById('customize-control-responsive_header_button_size_separator').style.display = 'block';
+		} else {
+			document.getElementById('customize-control-responsive_header_button_padding').style.display = 'none';
+			document.getElementById('customize-control-responsive_header_button_size_separator').style.display = 'none';
 		}
-		if( api('responsive_cart_style').get() === 'none' && 'design' === tab ) {
-			document.getElementById('customize-control-responsive_cart_border_separator').style.display = 'none';
-			document.getElementById('customize-control-responsive_border_cart_radius').style.display = 'none';
-			document.getElementById('customize-control-responsive_header_woo_cart_separator_8').style.display = 'none';
+		if( api('responsive_header_button_style').get() === 'filled' && 'design' === tab ) {
+			document.getElementById('customize-control-responsive_header_button_bg_color').style.display = 'block';
+			document.getElementById('customize-control-responsive_header_button_bg_color_separator').style.display = 'block';
+		} else {
+			document.getElementById('customize-control-responsive_header_button_bg_color').style.display = 'none';
+			document.getElementById('customize-control-responsive_header_button_bg_color_separator').style.display = 'none';
 		}
 	}, [tab]);
 
