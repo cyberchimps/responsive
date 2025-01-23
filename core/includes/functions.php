@@ -335,8 +335,9 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 			}
 		}
 
-		responsive_background_images_background_compatibility();
-		responsive_font_sizes_background_compatibility();
+		responsive_background_images_backward_compatibility();
+		responsive_font_sizes_backward_compatibility();
+		responsive_border_width_backward_compatibility();
 
 		if( ! get_option( 'responsive_old_header_footer_comaptibility_with_header_builder_done' ) ) {
 			responsive_old_header_footer_comaptibility_with_hfb();
@@ -1405,9 +1406,9 @@ function responsive_register_widgets() {
  * @since 6.0.0
  */
 
-if ( ! function_exists( 'responsive_background_images_background_compatibility' ) ) :
+if ( ! function_exists( 'responsive_background_images_backward_compatibility' ) ) :
 
-	function responsive_background_images_background_compatibility() {
+	function responsive_background_images_backward_compatibility() {
 		if ( ! get_option( 'responsive_old_background_images_compatible_done' ) ) {
 			$background_image_elements = array( 'footer_background', 'header_background', 'header_widget_background', 'transparent_header_widget_background', 'sidebar_background', 'box_background', 'button_background', 'inputs_background' );
 			
@@ -1424,9 +1425,6 @@ if ( ! function_exists( 'responsive_background_images_background_compatibility' 
 			if ( get_theme_mod( 'background_color' ) ) {
 				set_theme_mod( 'responsive_site_background_color', get_theme_mod( 'background_color' ) );
 			}
-			if ( get_theme_mod( 'responsive_inputs_border_width' ) ) {
-				set_theme_mod( 'responsive_inputs_border_width_top_border', get_theme_mod( 'responsive_inputs_border_width' ) );
-			}
 			update_option( 'responsive_old_background_images_compatible_done', true );
 		}
 	}
@@ -1437,9 +1435,9 @@ endif;
  * @since 6.0.0
  */
 
-if ( ! function_exists( 'responsive_font_sizes_background_compatibility' ) ) :
+if ( ! function_exists( 'responsive_font_sizes_backward_compatibility' ) ) :
 
-	function responsive_font_sizes_background_compatibility() {
+	function responsive_font_sizes_backward_compatibility() {
 		if ( ! get_option( 'responsive_old_font_sizes_compatible_done' ) ) {
 			$font_size_typo_elements = array(
 				'body',
@@ -1509,6 +1507,23 @@ if ( ! function_exists( 'responsive_font_sizes_background_compatibility' ) ) :
 
 			}
 			update_option( 'responsive_old_font_sizes_compatible_done', true );
+		}
+	}
+endif;
+
+/**
+ * Function to make old border width control with new control.
+ * @since 6.1.2
+ */
+
+ if ( ! function_exists( 'responsive_border_width_backward_compatibility' ) ) :
+
+	function responsive_border_width_backward_compatibility() {
+		if ( get_theme_mod( 'responsive_inputs_border_width' )){
+			set_theme_mod( 'responsive_inputs_border_width_top_border', get_theme_mod( 'responsive_inputs_border_width' ) );
+			set_theme_mod( 'responsive_inputs_border_width_right_border', get_theme_mod( 'responsive_inputs_border_width' ) );
+			set_theme_mod( 'responsive_inputs_border_width_bottom_border', get_theme_mod( 'responsive_inputs_border_width' ) );
+			set_theme_mod( 'responsive_inputs_border_width_left_border', get_theme_mod( 'responsive_inputs_border_width' ) );
 		}
 	}
 endif;
