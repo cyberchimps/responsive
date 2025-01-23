@@ -1862,6 +1862,11 @@ if( ! function_exists( 'responsive_old_woo_cart_comaptibility_with_header_builde
 					set_theme_mod( 'responsive_woo_cart_label', '{cart_currency_symbol}{cart_total}' );
 				}
 			}
+			//make cart icon color backward compatible.
+			$menu_items_color = get_theme_mod( 'responsive_header_menu_link_color' );
+			set_theme_mod( 'responsive_cart_color', $menu_items_color );
+			set_theme_mod( 'responsive_cart_hover_color', $menu_items_color );
+
 			$padding_properties = [
 				'top_padding',
 				'right_padding',
