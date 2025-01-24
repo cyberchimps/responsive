@@ -121,7 +121,6 @@ function responsive_gutenberg_customizer_css() {
 	$buttons_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_buttons_mobile_bottom_padding', 10 ) );
 
 	$buttons_radius       = esc_html( get_theme_mod( 'responsive_buttons_radius', Responsive\Core\get_responsive_customizer_defaults( 'buttons_radius' ) ) );
-	$buttons_border_width = esc_html( get_theme_mod( 'responsive_buttons_border_width', 1 ) );
 
 	$box_background_color = esc_html( get_theme_mod( 'responsive_box_background_color', '#ffffff' ) );
 	$alt_background_color = esc_html( get_theme_mod( 'responsive_alt_background_color', '#eaeaea' ) );
@@ -236,7 +235,6 @@ function responsive_gutenberg_customizer_css() {
 	.edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link,
 	.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button{
 		background-color:' . $button_color . ';
-		border: ' . $buttons_border_width . 'px solid ' . $button_border_color . ';
 		border-radius:' . $buttons_radius . 'px;
 	    color: ' . $button_text_color . ';
 		padding: ' . responsive_spacing_css( $buttons_padding_top, $buttons_padding_right, $buttons_padding_bottom, $buttons_padding_left ) . ';
@@ -287,7 +285,6 @@ function responsive_gutenberg_customizer_css() {
 	.edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link:hover,
 	.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button:hover {
 		color:' . $button_hover_text_color . ';
-		border: ' . $buttons_border_width . 'px solid ' . $button_hover_border_color . ';
 		background-color:' . $button_hover_color . ';
 	}
 
