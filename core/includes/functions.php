@@ -1853,19 +1853,22 @@ if( ! function_exists( 'responsive_old_woo_cart_comaptibility_with_header_builde
 			set_theme_mod( 'responsive_header_woo_cart_click_action', 'redirect' );
 			set_theme_mod( 'responsive_cart_hover_color', get_theme_mod( 'responsive_cart_color' ) );
 			if ( get_theme_mod( 'responsive_cart_title' ) && get_theme_mod( 'responsive_cart_count' ) ) {
-				set_theme_mod( 'responsive_woo_cart_label', 'Cart / {cart_currency_symbol}{cart_total}' );
+				set_theme_mod( 'responsive_woo_cart_label', 'Cart / {cart_total_currency_symbol}' );
 			} else {
 				if ( get_theme_mod( 'responsive_cart_title' ) ) {
 					set_theme_mod( 'responsive_woo_cart_label', 'Cart' );
 				}
 				if ( get_theme_mod( 'responsive_cart_count' ) ) {
-					set_theme_mod( 'responsive_woo_cart_label', '{cart_currency_symbol}{cart_total}' );
+					set_theme_mod( 'responsive_woo_cart_label', '{cart_total_currency_symbol}' );
+					set_theme_mod( 'responsive_cart_label_position', 'right' );
 				}
 			}
 			//make cart icon color backward compatible.
 			$menu_items_color = get_theme_mod( 'responsive_header_menu_link_color' );
-			set_theme_mod( 'responsive_cart_color', $menu_items_color );
-			set_theme_mod( 'responsive_cart_hover_color', $menu_items_color );
+			if( $menu_items_color ) {
+				set_theme_mod( 'responsive_cart_color', $menu_items_color );
+				set_theme_mod( 'responsive_cart_hover_color', $menu_items_color );
+			}
 
 			$padding_properties = [
 				'top_padding',
