@@ -216,6 +216,12 @@
           } else {
               sub_menu.style.display = 'block';
           }
+		  sub_menu_edge = document.querySelectorAll( 'sub-menu-edge' );
+		  if ( sub_menu_edge.style.display == 'block' ) {
+			  sub_menu_edge.style.display = 'none';
+		  } else {
+			  sub_menu_edge.style.display = 'block';
+		  }
     }
     }
 
