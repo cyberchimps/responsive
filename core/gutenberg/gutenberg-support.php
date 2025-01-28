@@ -122,7 +122,6 @@ function responsive_gutenberg_customizer_css() {
 	$buttons_border_width          = esc_html( get_theme_mod( 'responsive_buttons_border_width', 1 ) );
 
 	$box_background_color = esc_html( get_theme_mod( 'responsive_box_background_color', '#ffffff' ) );
-	$alt_background_color = esc_html( get_theme_mod( 'responsive_alt_background_color', '#eaeaea' ) );
 
 	// button desktop border radius
 	$button_top_left_radius            = esc_html( get_theme_mod( 'responsive_buttons_radius_top_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_buttons_radius' ) ) );
@@ -387,15 +386,20 @@ function responsive_gutenberg_customizer_css() {
 		color: {$link_hover_color};
 	}
 
-	.edit-post-visual-editor.editor-styles-wrapper blockquote,
-	.edit-post-visual-editor.editor-styles-wrapper blockquote p,
-	.edit-post-visual-editor.editor-styles-wrapper .wp-block-quote,
+	.editor-styles-wrapper blockquote,
+	.editor-styles-wrapper blockquote p,
+	.editor-styles-wrapper .wp-block-quote,
 	.wp-block-freeform.block-library-rich-text__tinymce code,
-	.edit-post-visual-editor.editor-styles-wrapper .wp-block-freeform.block-library-rich-text__tinymce pre,
-	.edit-post-visual-editor.editor-styles-wrapper .wp-block-preformatted pre,
-	.edit-post-visual-editor.editor-styles-wrapper .wp-block-code .block-editor-plain-text,
-	.edit-post-visual-editor.editor-styles-wrapper .wp-block-verse pre,
-	.edit-post-visual-editor.editor-styles-wrapper pre {
+	.editor-styles-wrapper .wp-block-freeform.block-library-rich-text__tinymce pre,
+	.editor-styles-wrapper .wp-block-preformatted pre,
+	.editor-styles-wrapper .wp-block-code .block-editor-plain-text,
+	.editor-styles-wrapper .wp-block-verse pre,
+	.editor-styles-wrapper pre,
+	.editor-styles-wrapper address,
+	.editor-styles-wrapper code,
+	.editor-styles-wrapper kbd,
+	.editor-styles-wrapper tt,
+	.editor-styles-wrapper var {
     	background: {$alt_background_color};
 	}";
 
@@ -403,6 +407,7 @@ function responsive_gutenberg_customizer_css() {
 	.editor-styles-wrapper .wp-block-button__link,
 	.editor-styles-wrapper .wp-block-file__button,
 	.editor-styles-wrapper .wp-block-search__button,
+	.editor-styles-wrapper div.wpforms-container-full .wpforms-form button[type=submit],
 	.editor-styles-wrapper button:not(.block-editor-button-block-appender) {
 		background-color:' . $button_color . ';
 		border: ' . $buttons_border_width . 'px solid ' . $button_border_color . ';
@@ -447,6 +452,8 @@ function responsive_gutenberg_customizer_css() {
 	.editor-styles-wrapper .wp-block-file__button:hover,
 	.editor-styles-wrapper .wp-block-search__button:hover,
 	.editor-styles-wrapper .wp-block-search__button:focus,
+	.editor-styles-wrapper div.wpforms-container-full .wpforms-form button[type=submit]:hover,
+	.editor-styles-wrapper div.wpforms-container-full .wpforms-form button[type=submit]:focus,
 	.editor-styles-wrapper button:not(.block-editor-button-block-appender):hover,
 	.editor-styles-wrapper button:not(.block-editor-button-block-appender):focus {
 		color:' . $button_hover_text_color . ';
@@ -471,9 +478,6 @@ function responsive_gutenberg_customizer_css() {
 	.editor-styles-wrapper label,
 	.editor-styles-wrapper .wp-block-search__label {
 		color:' . $label_color .';
-	}
-	address, blockquote, pre, code, kbd, tt, var {
-		background-color:'. $alt_background_color .';
 	}
 	.editor-styles-wrapper.post-type-page .edit-post-visual-editor__post-title-wrapper {
 		text-align: '. $page_title_alignment .';
@@ -526,6 +530,7 @@ function responsive_gutenberg_customizer_css() {
 		.editor-styles-wrapper .wp-block-button__link,
 		.editor-styles-wrapper .wp-block-file__button,
 		.editor-styles-wrapper .wp-block-search__button,
+		.editor-styles-wrapper div.wpforms-container-full .wpforms-form button[type=submit],
 		.editor-styles-wrapper button:not(.block-editor-button-block-appender){
 			padding: ' . responsive_spacing_css( $buttons_tablet_padding_top, $buttons_tablet_padding_right, $buttons_tablet_padding_bottom, $buttons_tablet_padding_left ) . ';
 			border-radius:' . responsive_spacing_css( $button_tablet_top_left_radius, $button_tablet_top_right_radius, $button_tablet_bottom_right_radius, $button_tablet_bottom_left_radius ) . ';
@@ -543,6 +548,7 @@ function responsive_gutenberg_customizer_css() {
 		.editor-styles-wrapper .wp-block-button__link,
 		.editor-styles-wrapper .wp-block-file__button,
 		.editor-styles-wrapper .wp-block-search__button,
+		.editor-styles-wrapper div.wpforms-container-full .wpforms-form button[type=submit],
 		.editor-styles-wrapper button:not(.block-editor-button-block-appender){
 		    padding: ' . responsive_spacing_css( $buttons_mobile_padding_top, $buttons_mobile_padding_right, $buttons_mobile_padding_bottom, $buttons_mobile_padding_left ) . ';
 			border-radius:' . responsive_spacing_css( $button_mobile_top_left_radius, $button_mobile_top_right_radius, $button_mobile_bottom_right_radius, $button_mobile_bottom_left_radius ) . ';
@@ -562,6 +568,7 @@ function responsive_gutenberg_customizer_css() {
 		.editor-styles-wrapper .wp-block-button__link,
 		.editor-styles-wrapper .wp-block-file__button,
 		.editor-styles-wrapper .wp-block-search__button,
+		.editor-styles-wrapper div.wpforms-container-full .wpforms-form button[type=submit],
 		.editor-styles-wrapper button:not(.block-editor-button-block-appender) {
 			background-color:{$button_color};
 			background-image: linear-gradient(to right, {$button_color}, {$button_color}), url({$button_background_image});
@@ -585,6 +592,7 @@ function responsive_gutenberg_customizer_css() {
 			.editor-styles-wrapper .wp-block-button__link,
 			.editor-styles-wrapper .wp-block-file__button,
 			.editor-styles-wrapper .wp-block-search__button,
+			.editor-styles-wrapper div.wpforms-container-full .wpforms-form button[type=submit],
 			.editor-styles-wrapper button:not(.block-editor-button-block-appender) {
 		";
 		foreach ( $button_typography as $key => $value ) {
@@ -602,6 +610,7 @@ function responsive_gutenberg_customizer_css() {
 			.editor-styles-wrapper .wp-block-button__link,
 			.editor-styles-wrapper .wp-block-file__button,
 			.editor-styles-wrapper .wp-block-search__button,
+			.editor-styles-wrapper div.wpforms-container-full .wpforms-form button[type=submit],
 			.editor-styles-wrapper button:not(.block-editor-button-block-appender) {
 		";
 		foreach ( $button_tablet_typography as $key => $value ) {
@@ -615,6 +624,7 @@ function responsive_gutenberg_customizer_css() {
 			.editor-styles-wrapper .wp-block-button__link,
 			.editor-styles-wrapper .wp-block-file__button,
 			.editor-styles-wrapper .wp-block-search__button,
+			.editor-styles-wrapper div.wpforms-container-full .wpforms-form button[type=submit],
 			.editor-styles-wrapper button:not(.block-editor-button-block-appender) {
 		";
 		foreach ( $button_mobile_typography as $key => $value ) {
@@ -668,7 +678,11 @@ function responsive_gutenberg_customizer_css() {
 			$block_editor_body_selector {
 		";
 		foreach ( $body_typography as $key => $value ) {
-			$custom_css .= $key . ':' . $value . ';';
+			if ( 'letter-spacing' === $key ) {
+				$custom_css .= $key . ':' . $value . 'px;';
+			} else {
+				$custom_css .= $key . ':' . $value . ';';
+			}
 		}
 		$custom_css .= "}";
 	}
