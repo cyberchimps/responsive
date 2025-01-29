@@ -1315,30 +1315,35 @@ function defaults() {
 																			),
 																		),
 			'responsive_header_builder_choices'      				    => array(
-																			'logo'          => array(
+																			'logo'                 => array(
 																				'name'    => esc_html__( 'Site Title & Logo', 'responsive' ),
 																				'section' => 'responsive_header_site_logo_title',
 																				'icon'    => 'search',
 																			),
-																			'primary_navigation'          => array(
+																			'primary_navigation'   => array(
 																				'name'    => esc_html__( 'Primary Menu', 'responsive' ),
 																				'section' => 'responsive_header_menu_layout',
 																				'icon'    => 'menu',
 																			),
-																			'secondary_navigation'          => array(
+																			'secondary_navigation' => array(
 																				'name'    => esc_html__( 'Secondary Menu', 'responsive' ),
 																				'section' => 'responsive_header_secondary_menu_layout',
 																				'icon'    => 'menu',
 																			),
-																			'social'          => array(
+																			'social'               => array(
 																				'name'    => esc_html__( 'Social', 'responsive' ),
 																				'section' => 'responsive_header_social',
 																				'icon'    => 'share',
 																			),
-																			'header_button'          => array(
+																			'header_button'        => array(
 																				'name'    => esc_html__( 'Button', 'responsive' ),
 																				'section' => 'responsive_header_button',
 																				'icon'    => 'button',
+																			),
+																			'header_contact_info'  => array(
+																				'name'    => esc_html__( 'Contact Info', 'responsive' ),
+																				'section' => 'responsive_header_contact_info',
+																				'icon'    => 'contact',
 																			),
 																		),
 		)
