@@ -3,7 +3,6 @@
   $(document).ready(function () {
     // Get all navigation toggle elements
     var navTOGGLE = document.querySelectorAll('.menu-item:not(.sub-menu .menu-item)');
-    console.log('this is navtoogle', navTOGGLE);
 
     // Exit if no navigation toggles are found
     if (!navTOGGLE.length) {
