@@ -1525,3 +1525,9 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_cart_count_color {
 	padding-top: 24px;
 }
+#customize-control-responsive_redirect_to_header_widgets a.customizer-redirect-button {
+	border: none;
+}
+#customize-control-responsive_header_widget_color_separator {
+	margin-top: 0;
+}
