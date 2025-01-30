@@ -3132,7 +3132,8 @@ function responsive_customizer_styles() {
 	    content: "769"; } }
 
 	    #scroll {
-	        position: relative;
+	        position: fixed;
+		bottom: 10px;
 	        cursor: pointer;
 	        width: 50px;
 	        height: 50px;
@@ -5090,11 +5091,11 @@ function responsive_customizer_styles() {
 			responsive_enqueue_google_font($headingFontFamily);
 			$font_preset_css .= "
 			/* Font Preset */
-			body {
+			body, .post-meta * {
 				font-family: {$bodyFontFamily};
 				font-weight: {$bodyFontWeight};
 			}
-			h1, h2, h3, h4, h5, h6 {
+			h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 				font-family: {$headingFontFamily};
 				font-weight: {$headingFontWeight};
 			}";
@@ -5797,6 +5798,7 @@ function responsive_customizer_styles() {
 			}
 			";
 		wp_add_inline_style( 'responsive-woocommerce-style', apply_filters( 'responsive_head_css', responsive_minimize_css( $woocommerce_custom_css ) ) );
+		wp_add_inline_style('responsive-woocommerce-style', responsive_minimize_css($font_preset_css));
 	}
 }
 add_action( 'wp_enqueue_scripts', 'responsive_customizer_styles', 99 );

@@ -17,14 +17,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! is_active_sidebar( 'header-widgets' ) ) {
-	return;
-}
+// This file was used for header widgets till 6.1.0
+
+// if ( ! is_active_sidebar( 'header-widgets' ) ) {
+// 	return;
+// }
 ?>
-<div class="header-widgets">
+<!-- <div class="header-widgets">
 	<div class="container">
 		<div class="header-widgets-wrapper">
-			<?php dynamic_sidebar( 'header-widgets' ); ?>
+			<?php 
+			// dynamic_sidebar( 'header-widgets' ); 
+			?>
 		</div>
 	</div>
-</div>
+</div> -->
+

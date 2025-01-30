@@ -73,7 +73,6 @@ if ( ! class_exists( 'Responsive_Header_Social_Icons_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_header_social_items',
 				array(
-					'default'           => array( 'facebook', 'x', 'instagram' ),
 					'sanitize_callback' => 'responsive_sanitize_multi_select',
 					'transport'         => 'refresh',
 				)

@@ -338,6 +338,12 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		responsive_background_images_background_compatibility();
 		responsive_font_sizes_background_compatibility();
 
+		if ( ! get_option( 'responsive_header_footer_builder_compatibility_header_widgets' ) ) {
+			if ( is_active_sidebar( 'header-widgets' ) ) {
+				responsive_header_footer_builder_compatibility_header_widgets();
+			}
+			update_option( 'responsive_header_footer_builder_compatibility_header_widgets', true );
+		}
 		if( ! get_option( 'responsive_old_header_footer_comaptibility_with_header_builder_done' ) ) {
 			responsive_old_header_footer_comaptibility_with_hfb();
 			update_option( 'responsive_old_header_footer_comaptibility_with_header_builder_done', true );
@@ -603,12 +609,12 @@ function responsive_add_custom_body_classes( $classes ) {
 	// Mobile Header alignment class.
 	// $classes[] = 'site-mobile-header-alignment-' . get_theme_mod( 'responsive_mobile_header_alignment', 'center' );
 
-	if ( get_theme_mod( 'responsive_enable_header_widget', 1 ) ) {
-		// Header Widget Aligmnmnet.
-		$classes[] = 'header-widget-alignment-' . get_theme_mod( 'responsive_header_widget_alignment', 'spread' );
-		// Header Widget POsition.
-		$classes[] = 'header-widget-position-' . get_theme_mod( 'responsive_header_widget_position', 'top' );
-	}
+	// if ( get_theme_mod( 'responsive_enable_header_widget', 1 ) ) {
+	// 	// Header Widget Aligmnmnet.
+	// 	$classes[] = 'header-widget-alignment-' . get_theme_mod( 'responsive_header_widget_alignment', 'spread' );
+	// 	// Header Widget POsition.
+	// 	$classes[] = 'header-widget-position-' . get_theme_mod( 'responsive_header_widget_position', 'top' );
+	// }
 
 	// Header width.
 	if ( get_theme_mod( 'responsive_inline_logo_site_title', 0 ) ) {
@@ -1340,6 +1346,11 @@ function defaults() {
 																				'section' => 'responsive_header_button',
 																				'icon'    => 'button',
 																			),
+																			'header_widgets1'        => array(
+																				'name'    => esc_html__( 'Header Widgets', 'responsive' ),
+																				'section' => 'responsive_header_widget',
+																				'icon'    => 'wordpress',
+																			),
 																			'header_contact_info'  => array(
 																				'name'    => esc_html__( 'Contact Info', 'responsive' ),
 																				'section' => 'responsive_header_contact_info',
@@ -1757,6 +1768,49 @@ if( ! function_exists( 'responsive_old_header_footer_comaptibility_with_hfb' ) )
 		set_theme_mod( 'responsive_footer_items', $footer_hfb_elements );
 	}
 endif;
+
+/**
+ * Adjusts the header widgets for compatibility with the Header Footer Builder.
+ *
+ * Retrieves and modifies the desktop header elements based on the header widget's
+ * position and alignment settings to ensure backward compatibility. The function
+ * updates the header layout dynamically based on the user's customizer settings.
+ */
+function responsive_header_footer_builder_compatibility_header_widgets() {
+	$header_hfb_elements = get_theme_mod( 'responsive_header_desktop_items', get_responsive_customizer_defaults( 'responsive_header_desktop_items' ) );
+
+	$header_widget_position  = get_theme_mod( 'responsive_header_widget_position', 'with_logo' );
+	$header_widget_alignment = get_theme_mod( 'responsive_header_widget_alignment', 'center' );
+
+	if ( 'top' === $header_widget_position && ( 'spread' === $header_widget_alignment || 'space-around' === $header_widget_alignment || 'center' === $header_widget_alignment ) ) {
+		array_push( $header_hfb_elements['above']['above_center'], 'header_widgets1' );
+	}
+	if ( 'top' === $header_widget_position && 'left' === $header_widget_alignment ) {
+		array_push( $header_hfb_elements['above']['above_left'], 'header_widgets1' );
+	}
+	if ( 'top' === $header_widget_position && 'right' === $header_widget_alignment ) {
+		array_push( $header_hfb_elements['above']['above_right'], 'header_widgets1' );
+	}
+	if ( 'with_logo' === $header_widget_position && ( 'spread' === $header_widget_alignment || 'space-around' === $header_widget_alignment || 'center' === $header_widget_alignment ) ) {
+		array_push( $header_hfb_elements['primary']['primary_center'], 'header_widgets1' );
+	}
+	if ( 'with_logo' === $header_widget_position && 'left' === $header_widget_alignment ) {
+		array_push( $header_hfb_elements['primary']['primary_left'], 'header_widgets1' );
+	}
+	if ( 'with_logo' === $header_widget_position && 'right' === $header_widget_alignment ) {
+		array_push( $header_hfb_elements['primary']['primary_right'], 'header_widgets1' );
+	}
+	if ( 'bottom' === $header_widget_position && ( 'spread' === $header_widget_alignment || 'space-around' === $header_widget_alignment || 'center' === $header_widget_alignment ) ) {
+		array_push( $header_hfb_elements['below']['below_center'], 'header_widgets1' );
+	}
+	if ( 'bottom' === $header_widget_position && 'left' === $header_widget_alignment ) {
+		array_push( $header_hfb_elements['below']['below_left'], 'header_widgets1' );
+	}
+	if ( 'bottom' === $header_widget_position && 'right' === $header_widget_alignment ) {
+		array_push( $header_hfb_elements['below']['below_right'], 'header_widgets1' );
+	}
+	set_theme_mod( 'responsive_header_desktop_items', $header_hfb_elements );
+}
 
 /**
  * Function to check whethere an element present in given array.

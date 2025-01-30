@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '6.1.0' );
+define( 'RESPONSIVE_THEME_VERSION', '6.1.1' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -915,27 +915,27 @@ add_action( 'elementor/theme/register_locations', 'responsive_register_elementor
  *
  * @return void [description]
  */
-function responsive_header_sidebar() {
-	get_sidebar( 'header' );
-}
+// function responsive_header_sidebar() {
+// 	get_sidebar( 'header' );
+// }
 
 /**
  * [responsive_header_widget_position description]
  *
  * @return void [description].
  */
-function responsive_header_widget_position() {
+// function responsive_header_widget_position() {
 
-	if ( ! get_theme_mod( 'responsive_enable_header_widget', 1 ) ) {
-		return;
-	}
+// 	if ( ! get_theme_mod( 'responsive_enable_header_widget', 1 ) ) {
+// 		return;
+// 	}
 
-	$responsive_header_widget_position = 'responsive_header_' . get_theme_mod( 'responsive_header_widget_position', 'top' );
+// 	$responsive_header_widget_position = 'responsive_header_' . get_theme_mod( 'responsive_header_widget_position', 'top' );
 
-	add_action( $responsive_header_widget_position, 'responsive_header_sidebar', 30 );
+// 	add_action( $responsive_header_widget_position, 'responsive_header_sidebar', 30 );
 
-}
-add_action( 'wp_head', 'responsive_header_widget_position' );
+// }
+// add_action( 'wp_head', 'responsive_header_widget_position' );
 
 if ( ! function_exists( 'wp_body_open' ) ) {
 	/**
