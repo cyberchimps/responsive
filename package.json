@@ -47,7 +47,6 @@
     "google-fonts": "^1.0.0",
     "he": "^1.2.0",
     "lodash": "^4.17.21",
-    "react-select": "^5.10.0",
     "react-sortablejs": "^6.1.4",
     "request": "^2.88.0",
     "sass": "^1.49.9",

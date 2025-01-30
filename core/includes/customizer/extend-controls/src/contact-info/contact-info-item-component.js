@@ -7,22 +7,19 @@ import { Dashicon, Tooltip, TextControl } from '@wordpress/components';
 const ContactInfoItemComponent = props => {
 
     const [open, setOpen] = useState(false);
-
+    const [isVisible, setIsVisible] = useState(true);
     const { id, label } = props.item;
 
     console.log('props')
     console.log(props)
-    
-    // console.log('id')
-    // console.log(id)
 
     let showLinks = true;
-    if ( 'address' === id || 'work_hours' === id ) {
+    if ('address' === id || 'work_hours' === id) {
         showLinks = false;
     }
 
     let displayLabel = id;
-    switch( id ) {
+    switch (id) {
         case 'phone':
             displayLabel = 'Phone No.';
             break;
@@ -36,47 +33,56 @@ const ContactInfoItemComponent = props => {
             displayLabel = label;
     }
 
-    console.log('displayLabel')
-    console.log(displayLabel)
-
     return <>
-        <div className="responsive-contact-info-item" data-id={id}>
+        <div className="responsive-contact-info-item" data-id={id} key={id}>
             <div className="responsive-contact-info-panel-header">
                 <div className="responsive-contact-info-menu-choice-wrap">
                     <div className="responsive-contact-info-menu">
                         {Icons.sort}
                     </div>
-                    <div className="responsive-contact-info-icon-choice">{ContactIcons[id+'_outline']}</div>
+                    <div className="responsive-contact-info-icon-choice">{ContactIcons[id + '_outline']}</div>
                     <div className="responsive-contact-info-item-choice">{label}</div>
                 </div>
                 <div className="responsive-contact-info-item-actions">
-                    {Icons.eye}
+                    <Tooltip text={isVisible ? __('Enable Item', 'responsive') : __('Disable Item', 'responsive')}>
+                        <span className="responsive-contact-info-visibility-action" onClick={() => {
+                            setIsVisible(!isVisible);
+                            props.updateItem({ ...props.item, enable: !isVisible }, props.index);
+                        }}>
+                            {isVisible ? Icons.eye_active : Icons.eye}</span>
+                    </Tooltip>
                     <Tooltip text={__('Expand Item Controls', 'responsive')}>
                         <Dashicon onClick={() => setOpen(!open)} icon={open ? 'arrow-up-alt2' : 'arrow-down-alt2'} />
                     </Tooltip>
                 </div>
             </div>
             {open && (
-                <div className="responsive-social-item-panel-content">
+                <div className="responsive-contact-info-panel-content">
                     <TextControl
                         label={__('Title', 'responsive')}
-                        value={props.item.label || ''}
+                        value={props.item.title || ''}
                         className="responsive-contact-info-content-item"
-                        onChange={(value) => console.log(value)}
+                        onChange={(value) => {
+                            props.updateItem({ ...props.item, title: value }, props.index);
+                        }}
                     />
                     <TextControl
                         label={displayLabel}
-                        value={props.item.label || ''}
+                        value={props.item.content || ''}
                         className="responsive-contact-info-content-item"
-                        onChange={(value) => console.log(value)}
+                        onChange={(value) => {
+                            props.updateItem({ ...props.item, content: value }, props.index);
+                        }}
                     />
                     {showLinks &&
-                    <TextControl
-                        label={__('Link', 'responsive')}
-                        value={props.item.label || ''}
-                        className="responsive-contact-info-content-item"
-                        onChange={(value) => console.log(value)}
-                    />}
+                        <TextControl
+                            label={__('Link', 'responsive')}
+                            value={props.item.link || ''}
+                            className="responsive-contact-info-content-item"
+                            onChange={(value) => {
+                                props.updateItem({ ...props.item, link: value }, props.index);
+                            }}
+                        />}
                 </div>
             )}
         </div>

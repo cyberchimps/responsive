@@ -3228,7 +3228,6 @@ if ( ! function_exists( 'responsive_header_contact_info_elements' ) ) {
 					'enable'  => true,
 					'label'   => 'Email',
 					'title'   => 'Email',
-					'value'   => 'email',
 					'content' => '',
 					'link'    => '',
 				),
@@ -3237,52 +3236,42 @@ if ( ! function_exists( 'responsive_header_contact_info_elements' ) ) {
 					'enable'  => true,
 					'label'   => 'Phone',
 					'title'   => 'Phone',
-					'value'   => 'phone',
+					'content' => '',
+					'link'    => '',
+				),
+			),
+		);
+
+		return $elements;
+
+	}
+}
+
+if ( ! function_exists( 'responsive_header_contact_info_default_elements' ) ) {
+	/**
+	 * Returns header social elements for the customizer.
+	 *
+	 * @since 0.2
+	 */
+	function responsive_header_contact_info_default_elements() {
+
+		// Default elements.
+		$elements = apply_filters(
+			'responsive_header_contact_info_default_elements',
+			array(
+				array(
+					'id'      => 'email',
+					'enable'  => true,
+					'label'   => 'Email',
+					'title'   => 'Email',
 					'content' => '',
 					'link'    => '',
 				),
 				array(
-					'id'      => 'address',
+					'id'      => 'phone',
 					'enable'  => true,
-					'label'   => 'Address',
-					'title'   => 'Address',
-					'value'   => 'address',
-					'content' => '',
-					'link'    => '',
-				),
-				array(
-					'id'      => 'mobile',
-					'enable'  => true,
-					'label'   => 'Mobile',
-					'title'   => 'Mobile',
-					'value'   => 'mobile',
-					'content' => '',
-					'link'    => '',
-				),
-				array(
-					'id'      => 'work_hours',
-					'enable'  => true,
-					'label'   => 'Work Hours',
-					'title'   => 'Work Hours',
-					'value'   => 'work_hours',
-					'content' => '',
-					'link'    => '',
-				),
-				array(
-					'id'      => 'website',
-					'enable'  => true,
-					'label'   => 'Website',
-					'title'   => 'Website',
-					'value'   => 'website',
-					'content' => '',
-					'link'    => '',
-				),
-				array(
-					'id'      => 'fax',
-					'enable'  => true,
-					'label'   => 'Fax',
-					'title'   => 'Fax',
-					'value'   => 'fax',
+					'label'   => 'Phone',
+					'title'   => 'Phone',
 					'content' => '',
 					'link'    => '',
 				),
