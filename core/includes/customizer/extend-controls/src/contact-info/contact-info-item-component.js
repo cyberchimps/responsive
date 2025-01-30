@@ -6,12 +6,9 @@ import { Dashicon, Tooltip, TextControl } from '@wordpress/components';
 
 const ContactInfoItemComponent = props => {
 
+    const { id, label, enable } = props.item;
     const [open, setOpen] = useState(false);
-    const [isVisible, setIsVisible] = useState(true);
-    const { id, label } = props.item;
-
-    console.log('props')
-    console.log(props)
+    const [isVisible, setIsVisible] = useState(enable);
 
     let showLinks = true;
     if ('address' === id || 'work_hours' === id) {

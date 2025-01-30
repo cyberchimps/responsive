@@ -70,11 +70,6 @@ const ContactInfoComponent = (props) => {
 
     const [open, setOpen] = useState(false);
 
-    console.log(props)
-    console.log(props.control.params.default)
-    console.log('SELECTED');
-    console.log(selectedOptions)
-
     const updateItem = (newItem, index) => {
         const updatedOptions = [...selectedOptions];
         updatedOptions[index] = newItem;
@@ -94,7 +89,12 @@ const ContactInfoComponent = (props) => {
         props.control.setting.set(updatedOptions);
     };
 
+    const firstSort = useRef(true);
     const handleSort = (newList) => {
+        if (firstSort.current) {
+            firstSort.current = false;
+            return;
+        }
         setSelectedOptions(newList);
         props.control.setting.set(newList);
     };
