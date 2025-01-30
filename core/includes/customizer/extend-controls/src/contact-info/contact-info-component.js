@@ -5,18 +5,11 @@ import { ReactSortable } from 'react-sortablejs';
 import Select from "react-select";
 import ContactInfoItemComponent from './contact-info-item-component';
 
-const options = [
-    { value: "email", label: "Email" },
-    { value: "phone", label: "Phone" },
-    { value: "address", label: "Address" },
-];
-
 const ContactInfoComponent = (props) => {
 
     const [selectedOptions, setSelectedOptions] = useState([]);
 
     console.log(props)
-    console.log(options)
     console.log(props.control.params.default)
     console.log('SELECTED');
     console.log(selectedOptions)
@@ -44,8 +37,6 @@ const ContactInfoComponent = (props) => {
                         {selectedOptions.map((item, index) => (
                             <>
                                 <ContactInfoItemComponent item={item} index={index} />
-                                {console.log(index)}
-                                {console.log(item)}
                             </>
                         ))}
                     </div>

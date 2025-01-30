@@ -31,8 +31,14 @@
     align-items: center;
     cursor: grab;
 }
-.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .dashicons-arrow-up-alt2,
-.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .dashicons-arrow-down-alt2 {
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-item-actions svg,
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-item-actions .dashicons-arrow-up-alt2,
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-item-actions .dashicons-arrow-down-alt2 {
     cursor: pointer;
 }
 .customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-menu-choice-wrap {
@@ -46,11 +52,17 @@
 .customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-menu-choice-wrap .responsive-contact-info-menu {
     line-height: 0;
 }
-.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-menu-choice-wrap .responsive-social-icon-choice {
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-menu-choice-wrap .responsive-contact-info-icon-choice {
     margin-top: 4px;
 }
-.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-menu-choice-wrap .responsive-social-icon-choice svg {
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-menu-choice-wrap .responsive-contact-info-icon-choice svg {
     width: 20px;
     height: 20px;
-    fill: #007CBA;
 }
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-social-item-panel-content {
+    margin-top: 10px;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-social-item-panel-content .responsive-contact-info-content-item:not(:first-child) {
+    margin-top: 20px;
+}
+

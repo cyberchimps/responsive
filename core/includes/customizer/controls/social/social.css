@@ -34,7 +34,7 @@
 .responsive-social-icon-choice {
     margin-top: 4px;
 }
-.responsive-social-icon-choice svg {
+.customize-control-responsive-social .responsive-social-icon-choice svg {
     width: 20px;
     height: 20px;
     fill: #007CBA;
