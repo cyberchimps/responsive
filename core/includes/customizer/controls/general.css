@@ -1531,3 +1531,17 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_header_widget_color_separator {
 	margin-top: 0;
 }
+#customize-control-responsive_header_contact_info_icons_color_separator,
+#customize-control-responsive_header_contact_info_icons_bg_color_separator,
+#customize-control-responsive_header_contact_info_font_color_separator {
+	margin-top: 18px;
+	margin-bottom: 18px;
+}
+#customize-control-responsive_header_contact_info_separator,
+#customize-control-responsive_header_contact_info_icon_style_separator,
+#customize-control-responsive_header_contact_info_icon_shape_separator,
+#customize-control-responsive_header_contact_info_icon_size_separator,
+#customize-control-responsive_header_contact_info_typography_separator,
+#customize-control-responsive_header_contact_info_icons_color {
+	margin-top: 18px;
+}

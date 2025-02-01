@@ -1209,3 +1209,41 @@ body.mega-menu-header-menu button.menu-toggle {
         left: 0;
     }
 }
+
+.site-header-item {
+    .responsive-header-contact-info {
+        .responsive-header-contact-info-icons-types {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin: 0;
+            gap: 15px;
+            .responsive-header-contact-info-icons-list {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                grid-column-gap: 15px;
+                align-items: center;
+                .responsive-header-contact-info-icon-container {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 240ms ease-in-out, border-color 240ms ease-in-out;
+                    svg {
+                        transition: fill 240ms ease-in-out;
+                    }
+                }
+                .responsive-header-contact-info-contact-info {
+                    .responsive-header-contact-info-contact-title {
+                        display: block;
+                    }
+                    .responsive-header-contact-info-contact-text {
+                        display: block;
+                        .responsive-header-contact-info-contact-link {
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

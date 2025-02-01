@@ -39,10 +39,26 @@ if ( ! class_exists( 'Responsive_Header_Contact_Info_Customizer' ) ) :
             $tabs_label      = esc_html__( 'Tabs', 'responsive' );
             $tab_ids_prefix  = 'customize-control-';
             $general_tab_ids  = array(
-				
+				$tab_ids_prefix . 'responsive_header_contact_info',
+				$tab_ids_prefix . 'responsive_header_contact_info_separator',
+				$tab_ids_prefix . 'responsive_header_contact_info_icon_style',
+				$tab_ids_prefix . 'responsive_header_contact_info_icon_style_separator',
+				$tab_ids_prefix . 'responsive_header_contact_info_icon_shape',
+				$tab_ids_prefix . 'responsive_header_contact_info_icon_shape_separator',
+				$tab_ids_prefix . 'responsive_header_contact_info_icon_size',
+				$tab_ids_prefix . 'responsive_header_contact_info_icon_size_separator',
+				$tab_ids_prefix . 'responsive_header_contact_info_item_spacing',
 			);
 			$design_tab_ids = array(
-				
+				$tab_ids_prefix . 'responsive_header_contact_info_icons_color',
+				$tab_ids_prefix . 'responsive_header_contact_info_icons_color_separator',
+				$tab_ids_prefix . 'responsive_header_contact_info_background_color',
+				$tab_ids_prefix . 'responsive_header_contact_info_icons_bg_color_separator',
+				$tab_ids_prefix . 'responsive_header_contact_info_font_color',
+				$tab_ids_prefix . 'responsive_header_contact_info_font_color_separator',
+				$tab_ids_prefix . 'responsive_header_contact_info_typography_group',
+				$tab_ids_prefix . 'responsive_header_contact_info_typography_separator',
+				$tab_ids_prefix . 'responsive_header_contact_info_margin_padding',
 			);
 
 			responsive_tabs_button_control( $wp_customize, 'responsive_header_contact_info', $tabs_label, 'responsive_header_contact_info', 10, '', 'responsive_contact_info_general_tab', 'responsive_contact_info_design_tab', $general_tab_ids, $design_tab_ids, null );
@@ -69,32 +85,51 @@ if ( ! class_exists( 'Responsive_Header_Contact_Info_Customizer' ) ) :
 				),
 			);
 
-            // Buttons Padding (px).
-			$buttons_padding_label = __( 'Padding (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'buttons', 'responsive_header_contact_info', 14, 10, 10, null, $buttons_padding_label );
+            responsive_horizontal_separator_control($wp_customize, 'header_contact_info_separator', 1, 'responsive_header_contact_info', 10, 1, );
 
-			// Buttons Radius.
-			$buttons_radius_label = __( 'Radius (px)', 'responsive' );
-			// responsive_number_control( $wp_customize, 'buttons_radius', $buttons_radius_label, 'responsive_header_contact_info', 16, Responsive\Core\get_responsive_customizer_defaults( 'buttons_radius' ) );
-			responsive_radius_control( $wp_customize, 'buttons_radius', 'responsive_header_contact_info', 17, 0, 0, null, $buttons_radius_label );
+			$icon_style = array(
+				'filled'  => esc_html__( 'Filled', 'responsive' ),
+				'outline' => esc_html__( 'Outline', 'responsive' ),
+			);
 
-			// Buttons Border Width.
-			$buttons_border_width_label = __( 'Border Width (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'buttons_border_width', $buttons_border_width_label, 'responsive_header_contact_info', 16, 1, null, 200,1, 'postMessage' );
-			// responsive_borderwidth_control( $wp_customize, 'buttons_border_width', 'responsive_header_contact_info', 17, 0, 0, null, $buttons_border_width_label );
+			responsive_select_button_control( $wp_customize, 'header_contact_info_icon_style', esc_html__( 'Icon Style', 'responsive' ), 'responsive_header_contact_info', 10, $icon_style, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_icon_style' ), null );
 
-			// Buttons Typography.
-			$buttons_typography_label = esc_html__( 'Font', 'responsive' );
-			responsive_typography_group_control( $wp_customize, 'button_typography_group', $buttons_typography_label, 'responsive_header_contact_info', 19, 'button_typography' );
+			responsive_horizontal_separator_control($wp_customize, 'header_contact_info_icon_style_separator', 1, 'responsive_header_contact_info', 10, 1, );
 
-			// Buttons.
-			$general_buttons_label = esc_html__( 'Button Colors', 'responsive' );
-			responsive_separator_control( $wp_customize, 'responsive_general_buttons_separator', $general_buttons_label, 'responsive_header_contact_info', 130 );
+			$icon_shape = array(
+				'none'    => esc_html__( 'None', 'responsive' ),
+				'rounded' => esc_html__( 'Rounded', 'responsive' ),
+				'shape'   => esc_html__( 'Square', 'responsive' ),
+			);
 
-			// Button Color.
-			$button_color_label = __( 'Color', 'responsive' );
+			responsive_select_button_control( $wp_customize, 'header_contact_info_icon_shape', esc_html__( 'Icon Shape', 'responsive' ), 'responsive_header_contact_info', 10, $icon_shape, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_icon_shape' ), null );
 
-			responsive_color_control( $wp_customize, 'button', $button_color_label, 'responsive_header_contact_info', 130, Responsive\Core\get_responsive_customizer_defaults( 'button' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'button_hover' ), 'button_hover' );
+			responsive_horizontal_separator_control($wp_customize, 'header_contact_info_icon_shape_separator', 1, 'responsive_header_contact_info', 10, 1, );
+
+			responsive_drag_number_control( $wp_customize, 'header_contact_info_icon_size', __( 'Icon Size (px)', 'responsive' ), 'responsive_header_contact_info', 10, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_icon_size' ), null, 100, 1, 'postMessage' );
+
+			responsive_horizontal_separator_control($wp_customize, 'header_contact_info_icon_size_separator', 1, 'responsive_header_contact_info', 10, 1, );
+
+			responsive_drag_number_control( $wp_customize, 'header_contact_info_item_spacing', __( 'Item Spacing (px)', 'responsive' ), 'responsive_header_contact_info', 10, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_item_spacing' ), null, 100, 1, 'postMessage' );
+
+			responsive_color_control( $wp_customize, 'header_contact_info_icons', __( 'Icons Color', 'responsive' ), 'responsive_header_contact_info', 10, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_icons_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_icons_hover_color' ), 'header_contact_info_icons_hover' );
+
+			responsive_horizontal_separator_control($wp_customize, 'header_contact_info_icons_color_separator', 1, 'responsive_header_contact_info', 10, 1, );
+
+			responsive_color_control( $wp_customize, 'header_contact_info_background', __( 'Background Color', 'responsive' ), 'responsive_header_contact_info', 10, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_background_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_background_hover_color' ), 'header_contact_info_background_hover' );
+
+			responsive_horizontal_separator_control($wp_customize, 'header_contact_info_icons_bg_color_separator', 1, 'responsive_header_contact_info', 10, 1, );
+			
+			responsive_color_control( $wp_customize, 'header_contact_info_font', __( 'Font Color', 'responsive' ), 'responsive_header_contact_info', 10, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_font_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'header_contact_info_font_hover_color' ), 'header_contact_info_font_hover' );
+
+			responsive_horizontal_separator_control($wp_customize, 'header_contact_info_font_color_separator', 1, 'responsive_header_contact_info', 10, 1, );
+
+			responsive_typography_group_control( $wp_customize, 'header_contact_info_typography_group', __( 'Font', 'responsive' ), 'responsive_header_contact_info', 10, 'header_contact_info_typography' );
+
+			responsive_horizontal_separator_control($wp_customize, 'header_contact_info_typography_separator', 1, 'responsive_header_contact_info', 10, 1, );
+
+			responsive_padding_control( $wp_customize, 'header_contact_info_margin', 'responsive_header_contact_info', 10, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_margin_y' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_margin_x' ), '', __( 'Margin', 'responsive' ) );
+
 		}
 
 	}

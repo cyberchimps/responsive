@@ -109,6 +109,16 @@
     width: 20px;
     height: 20px;
 }
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-menu-choice-wrap .responsive-contact-info-icon-choice svg path,
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-menu-choice-wrap .responsive-contact-info-icon-choice svg circle,
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-menu-choice-wrap .responsive-contact-info-icon-choice svg rect{
+    stroke: #007CBA;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-menu-choice-wrap .responsive-contact-info-item-choice {
+    font-size: 14px;
+    color: #007cba;
+    font-weight: 400;
+}
 .customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-content {
     margin-top: 10px;
 }

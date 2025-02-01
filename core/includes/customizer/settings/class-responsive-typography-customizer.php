@@ -351,6 +351,17 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'line-height' => '1.75',
 					),
 				),
+				'header_contact_info' => array(
+					'label'    => esc_html__( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['header_contact_info'],
+					'section'  => 'responsive_header_contact_info',
+					'exclude'  => array( 'font-color' ),
+					'priority' => 10,
+					'defaults' => array(
+						'font-size'   => '16px',
+						'line-height' => '1.75',
+					),
+				),
 			);
 
 			if ( $this->is_responsive_version_greater() ) {
@@ -407,6 +418,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'footer_copyright'           => '.footer-layouts.copyright',
 				'header_button'              => '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button',
 				'header_social'              => '.header-layouts .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label',
+				'header_contact_info'        => '.header-layouts .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label',
 			);
 
 			if ( $this->is_responsive_version_greater() ) {
