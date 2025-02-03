@@ -4700,9 +4700,63 @@ function responsive_customizer_styles() {
 	// Header Contact Info Element.
 	$header_contact_info_icons_color       = get_theme_mod( 'responsive_header_contact_info_icons_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_icons_color' ) );
 	$header_contact_info_icons_hover_color = get_theme_mod( 'responsive_header_contact_info_icons_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_icons_hover_color' ) );
+	$header_contact_info_icon_shape        = get_theme_mod( 'responsive_header_contact_info_icon_shape', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_icon_shape' ) );
+	$header_contact_info_icon_style        = get_theme_mod( 'responsive_header_contact_info_icon_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_icon_style' ) );
 
 	$custom_css .= ".site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-icon-container svg { fill:" . $header_contact_info_icons_color . "}";
 	$custom_css .= ".site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-icon-container svg:hover { fill:" . $header_contact_info_icons_hover_color . "}";
+	
+	$header_contact_info_background_color       = get_theme_mod( 'responsive_header_contact_info_background_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_background_color' ) );
+	$header_contact_info_background_hover_color = get_theme_mod( 'responsive_header_contact_info_background_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_background_hover_color' ) );
+
+	if ( 'none' !== $header_contact_info_icon_shape ) {
+		if ( 'filled' === $header_contact_info_icon_style ) {
+			$custom_css .= '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-icon-container { background-color: ' . $header_contact_info_background_color . '}';
+			$custom_css .= '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-icon-container:hover { background-color: ' . $header_contact_info_background_hover_color . '}';
+		}
+		if ( 'outline' === $header_contact_info_icon_style ) {
+			$custom_css .= '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-icon-container { border: 1px solid ' . $header_contact_info_background_color . '}';
+			$custom_css .= '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-icon-container:hover { border: 1px solid ' . $header_contact_info_background_hover_color . '}';
+		}
+	}
+
+	$header_contact_info_font_color = get_theme_mod( 'responsive_header_contact_info_font_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_font_color' ) );
+	$header_contact_info_font_hover_color = get_theme_mod( 'responsive_header_contact_info_font_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_font_hover_color' ) );
+
+	$custom_css .= '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list  .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-title, .site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text, .site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text .responsive-header-contact-info-contact-link { color: ' . $header_contact_info_font_color . '}';
+	$custom_css .= '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list  .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-title:hover, .site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text:hover, .site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text .responsive-header-contact-info-contact-link:hover { color: ' . $header_contact_info_font_hover_color . '}';
+
+	$header_contact_info_margin_top    = get_theme_mod( 'responsive_header_contact_info_margin_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_margin_y' ) );
+	$header_contact_info_margin_right  = get_theme_mod( 'responsive_header_contact_info_margin_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_margin_x' ) );
+	$header_contact_info_margin_bottom = get_theme_mod( 'responsive_header_contact_info_margin_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_margin_y' ) );
+	$header_contact_info_margin_left   = get_theme_mod( 'responsive_header_contact_info_margin_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_margin_x' ) );
+
+	$header_contact_info_margin_top_tablet    = get_theme_mod( 'responsive_header_contact_info_margin_tablet_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_margin_y' ) );
+	$header_contact_info_margin_right_tablet  = get_theme_mod( 'responsive_header_contact_info_margin_tablet_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_margin_x' ) );
+	$header_contact_info_margin_bottom_tablet = get_theme_mod( 'responsive_header_contact_info_margin_tablet_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_margin_y' ) );
+	$header_contact_info_margin_left_tablet   = get_theme_mod( 'responsive_header_contact_info_margin_tablet_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_margin_x' ) );
+
+	$header_contact_info_margin_top_mobile    = get_theme_mod( 'responsive_header_contact_info_margin_mobile_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_margin_y' ) );
+	$header_contact_info_margin_right_mobile  = get_theme_mod( 'responsive_header_contact_info_margin_mobile_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_margin_x' ) );
+	$header_contact_info_margin_bottom_mobile = get_theme_mod( 'responsive_header_contact_info_margin_mobile_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_margin_y' ) );
+	$header_contact_info_margin_left_mobile   = get_theme_mod( 'responsive_header_contact_info_margin_mobile_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_margin_x' ) );
+
+	$custom_css .= '.site-header-item .responsive-header-contact-info { margin: ' . responsive_spacing_css( $header_contact_info_margin_top, $header_contact_info_margin_right, $header_contact_info_margin_bottom, $header_contact_info_margin_left ) . ' }';
+	$custom_css .= '@media screen and ( max-width: 992px ) {
+		.site-header-item .responsive-header-contact-info { margin: ' . responsive_spacing_css( $header_contact_info_margin_top_tablet, $header_contact_info_margin_right_tablet, $header_contact_info_margin_bottom_tablet, $header_contact_info_margin_left_tablet ) . '; }
+	}';
+	$custom_css .= '@media screen and ( max-width: 576px ) {
+		.site-header-item .responsive-header-contact-info { margin: ' . responsive_spacing_css( $header_contact_info_margin_top_mobile, $header_contact_info_margin_right_mobile, $header_contact_info_margin_bottom_mobile, $header_contact_info_margin_left_mobile ) . '; }
+	}';
+
+	$header_contact_info_icon_size = get_theme_mod( 'responsive_header_contact_info_icon_size', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_icon_size' ) );
+
+	$custom_css .= '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-icon-container { width: ' . ($header_contact_info_icon_size * 2.5) . 'px }';
+	$custom_css .= '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-icon-container { height: ' . ($header_contact_info_icon_size * 2.5) . 'px }';
+
+	$header_contact_info_icon_spacing = get_theme_mod( 'responsive_header_contact_info_item_spacing', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_item_spacing' ) );
+
+	$custom_css .= '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types { gap: ' . $header_contact_info_icon_spacing . 'px }';
 
 	if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
 		// Outside Container Spacing.

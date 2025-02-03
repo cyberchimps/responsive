@@ -1217,7 +1217,6 @@ body.mega-menu-header-menu button.menu-toggle {
             flex-wrap: wrap;
             align-items: center;
             margin: 0;
-            gap: 15px;
             .responsive-header-contact-info-icons-list {
                 display: grid;
                 grid-template-columns: auto 1fr;
@@ -1228,6 +1227,9 @@ body.mega-menu-header-menu button.menu-toggle {
                     align-items: center;
                     justify-content: center;
                     transition: all 240ms ease-in-out, border-color 240ms ease-in-out;
+                    &.responsive-header-contact-info-rounded {
+                        border-radius: 50%;
+                    }
                     svg {
                         transition: fill 240ms ease-in-out;
                     }

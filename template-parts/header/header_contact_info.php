@@ -14,6 +14,7 @@ require_once get_stylesheet_directory() . '/core/includes/responsive-icon-librar
 	<?php
     $contact_infos      = get_theme_mod( 'responsive_header_contact_info' );
     $contact_icon_style = get_theme_mod( 'responsive_header_contact_info_icon_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_icon_style' ) );
+    $contact_icon_shape = get_theme_mod( 'responsive_header_contact_info_icon_shape', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_icon_shape' ) );
     // error_log( print_r( $contact_infos, true ) );
 	?>
     <div class="responsive-header-contact-info">
@@ -21,9 +22,11 @@ require_once get_stylesheet_directory() . '/core/includes/responsive-icon-librar
             <?php
                 foreach( $contact_infos as $contact_info ) {
                     ?>
+                    <?php
+                        if ( $contact_info['enable'] ) {
+                    ?>
                     <li class="responsive-header-contact-info-icons-list">
-                        <span class="responsive-header-contact-info-icon-container">
-                            <!-- svg -->
+                        <span class="responsive-header-contact-info-icon-container <?php echo 'rounded' === $contact_icon_shape ? esc_attr( 'responsive-header-contact-info-rounded' ) : ''; ?>">
                             <?php echo responsive_get_svg_icon( 'contact_' . $contact_info['id'] ); ?>
                         </span>
                         <div class="responsive-header-contact-info-contact-info">
@@ -33,6 +36,9 @@ require_once get_stylesheet_directory() . '/core/includes/responsive-icon-librar
                             </span>
                         </div>
                     </li>
+                    <?php
+                        }
+                    ?>
                     <?php
                 }
             ?>
