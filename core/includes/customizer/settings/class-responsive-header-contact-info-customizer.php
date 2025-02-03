@@ -120,7 +120,7 @@ if ( ! class_exists( 'Responsive_Header_Contact_Info_Customizer' ) ) :
 
 			responsive_horizontal_separator_control($wp_customize, 'header_contact_info_icons_bg_color_separator', 1, 'responsive_header_contact_info', 10, 1, );
 			
-			responsive_color_control( $wp_customize, 'header_contact_info_font', __( 'Font Color', 'responsive' ), 'responsive_header_contact_info', 10, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_font_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'header_contact_info_font_hover_color' ), 'header_contact_info_font_hover' );
+			responsive_color_control( $wp_customize, 'header_contact_info_font', __( 'Font Color', 'responsive' ), 'responsive_header_contact_info', 10, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_font_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_font_hover_color' ), 'header_contact_info_font_hover' );
 
 			responsive_horizontal_separator_control($wp_customize, 'header_contact_info_font_color_separator', 1, 'responsive_header_contact_info', 10, 1, );
 

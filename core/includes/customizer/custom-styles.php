@@ -4720,7 +4720,7 @@ function responsive_customizer_styles() {
 		}
 	}
 
-	$header_contact_info_font_color = get_theme_mod( 'responsive_header_contact_info_font_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_font_color' ) );
+	$header_contact_info_font_color       = get_theme_mod( 'responsive_header_contact_info_font_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_font_color' ) );
 	$header_contact_info_font_hover_color = get_theme_mod( 'responsive_header_contact_info_font_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_font_hover_color' ) );
 
 	$custom_css .= '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list  .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-title, .site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text, .site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text .responsive-header-contact-info-contact-link { color: ' . $header_contact_info_font_color . '}';
@@ -4751,8 +4751,9 @@ function responsive_customizer_styles() {
 
 	$header_contact_info_icon_size = get_theme_mod( 'responsive_header_contact_info_icon_size', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_icon_size' ) );
 
-	$custom_css .= '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-icon-container { width: ' . ($header_contact_info_icon_size * 2.5) . 'px }';
-	$custom_css .= '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-icon-container { height: ' . ($header_contact_info_icon_size * 2.5) . 'px }';
+	$custom_css .= '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-icon-container { width: ' . ($header_contact_info_icon_size * 2.5) . 'px; height: ' . ($header_contact_info_icon_size * 2.5) . 'px }';
+
+	$custom_css .= '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-icon-container svg { width: ' . $header_contact_info_icon_size . 'px; height: ' . $header_contact_info_icon_size . 'px }';
 
 	$header_contact_info_icon_spacing = get_theme_mod( 'responsive_header_contact_info_item_spacing', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_item_spacing' ) );
 
