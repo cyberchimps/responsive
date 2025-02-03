@@ -53,6 +53,13 @@ if ( ! class_exists( 'Responsive_Header_Builder_Section_Customizer' ) ) :
 			);
 
 			$header_builder_choices = Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_builder_choices' );
+			if ( class_exists( 'woocommerce' ) ) {
+				$header_builder_choices['woo-cart'] = array(
+					'name'    => esc_html__( 'Cart', 'responsive' ),
+					'section' => 'responsive_header_woo_cart',
+					'icon'    => 'cart',
+				);
+			}
 
 			$wp_customize->add_control(
 				new Responsive_Customizer_Builder_Available_Items_Drag_Control(
@@ -78,8 +85,8 @@ if ( ! class_exists( 'Responsive_Header_Builder_Section_Customizer' ) ) :
 			$configure_footer_menu_redirect_label = __( 'Content Header', 'responsive' );
 			responsive_redirect_control( $wp_customize, 'redirect_to_content_header', $configure_footer_menu_redirect_label, 'responsive_header_builder_section', 10, 'section', 'responsive_content_header_layout');
 
-			$configure_footer_menu_redirect_label = __( 'Header Widgets', 'responsive' );
-			responsive_redirect_control( $wp_customize, 'redirect_to_header_widgets_section', $configure_footer_menu_redirect_label, 'responsive_header_builder_section', 10, 'section', 'responsive_header_widget');
+			// $configure_footer_menu_redirect_label = __( 'Header Widgets', 'responsive' );
+			// responsive_redirect_control( $wp_customize, 'redirect_to_header_widgets_section', $configure_footer_menu_redirect_label, 'responsive_header_builder_section', 10, 'section', 'responsive_header_widget');
 
 			$configure_footer_menu_redirect_label = __( 'Sticky Header', 'responsive' );
 			responsive_redirect_control( $wp_customize, 'redirect_to_sticky_header', $configure_footer_menu_redirect_label, 'responsive_header_builder_section', 10, 'section', 'responsive_header_sticky_menu_layout');

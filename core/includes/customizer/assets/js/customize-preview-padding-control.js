@@ -840,6 +840,29 @@
         } );
     } );
 
+    const headerSocialMargin = [
+        'responsive_header_social_item_margin_top_padding',
+        'responsive_header_social_item_margin_right_padding',
+        'responsive_header_social_item_margin_bottom_padding',
+        'responsive_header_social_item_margin_left_padding',
+        'responsive_header_social_item_margin_tablet_top_padding',
+        'responsive_header_social_item_margin_tablet_right_padding',
+        'responsive_header_social_item_margin_tablet_bottom_padding',
+        'responsive_header_social_item_margin_tablet_left_padding',
+        'responsive_header_social_item_margin_mobile_top_padding',
+        'responsive_header_social_item_margin_mobile_right_padding',
+        'responsive_header_social_item_margin_mobile_bottom_padding',
+        'responsive_header_social_item_margin_mobile_left_padding',
+    ];
+    
+    headerSocialMargin.forEach(setting => {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_margin('header_social_item_margin', '.header-layouts.social-icon .social-icons');
+            });
+        });
+    });
+
     // Sidebar Outside Padding
     api( 'responsive_sidebar_outside_container_top_padding', function( value ) {
         value.bind( function( newval ) {
@@ -1968,5 +1991,64 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
             });
         });
     }
+    // Generic function to bind cart padding and amrgin changes dynamically.
+    function responsive_bind_spacing_changes(type, suffix, control, selector, callback) {
+        const setting_id = `responsive_${control}_${type}_${suffix}`;
+        wp.customize(setting_id, function (value) {
+            value.bind(function () {
+                callback(`${control}_${type}`, selector);
+            });
+        });
+    }
+    suffixes.forEach(function (suffix) {
+        responsive_bind_spacing_changes('padding', suffix, 'header_woo_cart', '.responsive-header-cart .res-addon-cart-wrap', responsive_dynamic_padding);
+        responsive_bind_spacing_changes('margin', suffix, 'header_woo_cart', '.responsive-header-cart .res-addon-cart-wrap', responsive_dynamic_margin);
+    });
+
+    const headerButtonPadding = [
+        'responsive_header_button_top_padding',
+        'responsive_header_button_right_padding',
+        'responsive_header_button_bottom_padding',
+        'responsive_header_button_left_padding',
+        'responsive_header_button_tablet_top_padding',
+        'responsive_header_button_tablet_right_padding',
+        'responsive_header_button_tablet_bottom_padding',
+        'responsive_header_button_tablet_left_padding',
+        'responsive_header_button_mobile_top_padding',
+        'responsive_header_button_mobile_right_padding',
+        'responsive_header_button_mobile_bottom_padding',
+        'responsive_header_button_mobile_left_padding',
+    ];
+    
+    headerButtonPadding.forEach(setting => {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_padding('header_button', '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button.responsive-header-button-custom-size');
+            });
+        });
+    });
+
+    const headerButtonMargin = [
+        'responsive_header_button_margin_top_padding',
+        'responsive_header_button_margin_right_padding',
+        'responsive_header_button_margin_bottom_padding',
+        'responsive_header_button_margin_left_padding',
+        'responsive_header_button_margin_tablet_top_padding',
+        'responsive_header_button_margin_tablet_right_padding',
+        'responsive_header_button_margin_tablet_bottom_padding',
+        'responsive_header_button_margin_tablet_left_padding',
+        'responsive_header_button_margin_mobile_top_padding',
+        'responsive_header_button_margin_mobile_right_padding',
+        'responsive_header_button_margin_mobile_bottom_padding',
+        'responsive_header_button_margin_mobile_left_padding',
+    ];
+
+    headerButtonMargin.forEach(setting => {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_margin('header_button_margin', '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button');
+            });
+        });
+    });
 
 } )( jQuery );

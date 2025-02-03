@@ -734,6 +734,23 @@
             }
         });
     });
+
+    api('responsive_header_social_item_border_style', function(value) {
+        value.bind(function(newval) {
+            $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'border-style', newval );
+        });
+    });
+
+    api( 'responsive_cart_label_position', function (setting) {
+        setting.bind(function (position) {
+            const cartSelector = '.responsive-header-cart';
+            if($(cartSelector).find('.res-addon-cart-wrap').length){
+                const iconCart = $(document).find('.res-addon-cart-wrap');
+                iconCart.removeClass( 'res-cart-label-position-left res-cart-label-position-right res-cart-label-position-bottom' );
+                iconCart.addClass('res-cart-label-position-' + position );
+            }
+        });
+    });
     
 
 } )( jQuery );

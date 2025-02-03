@@ -190,6 +190,10 @@
                     }
                 }
             }
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             jQuery( 'style.customizer-typography-body-font-family' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-body-font-family">'
@@ -200,6 +204,10 @@
         } );
     } ), api( "body_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             jQuery( 'style.customizer-typography-body-font-weight' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-body-font-weight">'
@@ -281,6 +289,11 @@
         } );
     } ), api( "headings_typography[font-family]", function( $swipe ) {
         $swipe.bind( function( pair ) {
+
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             if ( pair ) {
                 /** @type {string} */
                 var fontName = pair.split(",")[0];
@@ -308,6 +321,10 @@
         } );
     } ), api( "headings_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             jQuery( 'style.customizer-typography-headings-font-weight' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-headings-font-weight">'
@@ -348,6 +365,10 @@
         } );
     } ), api( "heading_h1_typography[font-family]", function( $swipe ) {
         $swipe.bind( function( pair ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             if ( pair ) {
                 /** @type {string} */
                 var fontName = pair.split(",")[0];
@@ -375,6 +396,10 @@
         } );
     } ), api( "heading_h1_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             jQuery( 'style.customizer-typography-heading_h1-font-weight' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h1-font-weight">'
@@ -458,6 +483,10 @@
         } );
     } ), api( "heading_h2_typography[font-family]", function( $swipe ) {
         $swipe.bind( function( pair ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             if ( pair ) {
                 /** @type {string} */
                 var fontName = pair.split(",")[0];
@@ -485,6 +514,10 @@
         } );
     } ), api( "heading_h2_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             jQuery( 'style.customizer-typography-heading_h2-font-weight' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h2-font-weight">'
@@ -568,6 +601,10 @@
         } );
     } ), api( "heading_h3_typography[font-family]", function( $swipe ) {
         $swipe.bind( function( pair ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             if ( pair ) {
                 /** @type {string} */
                 var fontName = pair.split(",")[0];
@@ -595,6 +632,10 @@
         } );
     } ), api( "heading_h3_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             jQuery( 'style.customizer-typography-heading_h3-font-weight' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h3-font-weight">'
@@ -678,6 +719,10 @@
         } );
     } ), api( "heading_h4_typography[font-family]", function( $swipe ) {
         $swipe.bind( function( pair ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             if ( pair ) {
                 /** @type {string} */
                 var fontName = pair.split(",")[0];
@@ -705,6 +750,10 @@
         } );
     } ), api( "heading_h4_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             jQuery( 'style.customizer-typography-heading_h4-font-weight' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h4-font-weight">'
@@ -788,6 +837,10 @@
         } );
     } ),api( "heading_h5_typography[font-family]", function( $swipe ) {
         $swipe.bind( function( pair ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             if ( pair ) {
                 /** @type {string} */
                 var fontName = pair.split(",")[0];
@@ -815,6 +868,10 @@
         } );
     } ), api( "heading_h5_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             jQuery( 'style.customizer-typography-heading_h5-font-weight' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h5-font-weight">'
@@ -898,6 +955,10 @@
         } );
     } ), api( "heading_h6_typography[font-family]", function( $swipe ) {
         $swipe.bind( function( pair ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             if ( pair ) {
                 /** @type {string} */
                 var fontName = pair.split(",")[0];
@@ -925,6 +986,10 @@
         } );
     } ), api( "heading_h6_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             jQuery( 'style.customizer-typography-heading_h6-font-weight' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h6-font-weight">'
@@ -1008,6 +1073,10 @@
         } );
     } ), api( "meta_typography[font-family]", function( $swipe ) {
         $swipe.bind( function( pair ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             if ( pair ) {
                 /** @type {string} */
                 var fontName = pair.split(",")[0];
@@ -1035,6 +1104,10 @@
         } );
     } ), api( "meta_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+            
             jQuery( 'style.customizer-typography-meta-font-weight' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-meta-font-weight">'
@@ -2543,6 +2616,126 @@
                 + '</style>'
             );
         } );
+    } ),
+    api( "header_social_item_typography[text-transform]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-header_social_item_typography-text-transform' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-header_social_item_typography-text-transform">'
+                +  responsive.selectorArray['header_social'] + '{ text-transform:' + dataAndEvents +';}'
+                + '</style>'
+            );
+        } );
+    } ),
+    api( "header_social_item_typography[font-family]", function( $swipe ) {
+        $swipe.bind( function( pair ) {
+            if ( pair ) {
+                /** @type {string} */
+                var fontName = pair.split(",")[0];
+                fontName = fontName.replace(/'/g, '');
+                var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customize-control-header_social_item_typography-font-family" );
+                var fontSize = fontName.replace( " ", "%20" );
+                fontSize = fontSize.replace( ",", "%2C" );
+                /** @type {string} */
+                fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+                if ( fontName in responsive.googleFonts ) {
+                    if ($("#" + idfirst).length) {
+                        $("#" + idfirst).attr("href", fontSize);
+                    } else {
+                        $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
+                    }
+                }
+            }
+            jQuery( 'style.customizer-typography-header_social_item_typography-font-family' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-header_social_item_typography-font-family">'
+                +  responsive.selectorArray['header_social'] + '{ font-family:' + pair +';}'
+                + '</style>'
+            );
+        } );
+    } ),
+    api( "header_social_item_typography[font-weight]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-header_social_item_typography-font-weight' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-header_social_item_typography-font-weight">'
+                +  responsive.selectorArray['header_social'] + '{ font-weight:' + dataAndEvents +';}'
+                + '</style>'
+            );
+        } );
+    } ),
+    api( "header_social_item_typography[font-size]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-header_social_item_typography-font-size' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-header_social_item_typography-font-size">'
+                + responsive.selectorArray['header_social'] + '{ font-size:' + dataAndEvents +';}'
+		        + '@media (max-width: 768px){'+ responsive.selectorArray['header_social'] +'{ font-size:' + api( "footer_tablet_typography[font-size]").get() +';}}'
+		        + '@media (max-width: 480px){'+ responsive.selectorArray['header_social'] +'{ font-size:' + api( "footer_mobile_typography[font-size]").get() +';}}'
+                + '</style>'
+            );
+        } );
+    } ), 
+    api( "header_social_item_tablet_typography[font-size]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-header_social_item_typography-tablet-font-size' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-header_social_item_typography-tablet-font-size">'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['header_social'] +'{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['header_social'] +'{ font-size:' + api( "footer_mobile_typography[font-size]").get() +';}}'
+                + '</style>'
+            );
+        } );
+    } ),
+    api( "header_social_item_mobile_typography[font-size]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-header_social_item_typography-mobile-font-size' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-header_social_item_typography-mobile-font-size">'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['header_social'] + '{ font-size:' + dataAndEvents +';}}'
+                + '</style>'
+            );
+        } );
+    }),
+    api( "header_social_item_typography[line-height]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-header_social_item_typography-line-height' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-header_social_item_typography-line-height">'
+                +  responsive.selectorArray['header_social'] + '{ line-height:' + dataAndEvents +';}'
+                + '</style>'
+            );
+        } );
+    } ),
+    api( "header_social_item_typography[letter-spacing]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-header_social_item_typography-letter-spacing' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-header_social_item_typography-letter-spacing">'
+                +  responsive.selectorArray['header_social'] + '{ letter-spacing:' + dataAndEvents +'px;}'
+                + '</style>'
+            );
+        } );
+    } ),
+    api( "header_social_item_typography[text-transform]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-header_social_item_typography-text-transform' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-header_social_item_typography-text-transform">'
+                +  responsive.selectorArray['header_social'] + '{ text-transform:' + dataAndEvents +';}'
+                + '</style>'
+            );
+        } );
+    } ),
+    api( "header_social_item_typography[font-style]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-header_social_item_typography-font-style' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-header_social_item_typography-font-style">'
+                +  responsive.selectorArray['header_social'] + '{ font-style:' + dataAndEvents +';}'
+                + '</style>'
+            );
+        } );
     } )
 
     // Typography line height for heading widget.
@@ -2555,6 +2748,127 @@
             } );
         }
     }
+
+    api( "header_button_typography[text-transform]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-header_button_typography-text-transform' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-header_button_typography-text-transform">'
+                +  responsive.selectorArray['header_button'] + '{ text-transform:' + dataAndEvents +';}'
+                + '</style>'
+            );
+        } );
+    } ),
+    api( "header_button_typography[font-family]", function( $swipe ) {
+        $swipe.bind( function( pair ) {
+            if ( pair ) {
+                /** @type {string} */
+                var fontName = pair.split(",")[0];
+                fontName = fontName.replace(/'/g, '');
+                var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customize-control-header_button_typography-font-family" );
+                var fontSize = fontName.replace( " ", "%20" );
+                fontSize = fontSize.replace( ",", "%2C" );
+                /** @type {string} */
+                fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+                if ( fontName in responsive.googleFonts ) {
+                    if ($("#" + idfirst).length) {
+                        $("#" + idfirst).attr("href", fontSize);
+                    } else {
+                        $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
+                    }
+                }
+            }
+            jQuery( 'style.customizer-typography-header_button_typography-font-family' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-header_button_typography-font-family">'
+                +  responsive.selectorArray['header_button'] + '{ font-family:' + pair +';}'
+                + '</style>'
+            );
+        } );
+    } ),
+    api( "header_button_typography[font-weight]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-header_button_typography-font-weight' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-header_button_typography-font-weight">'
+                +  responsive.selectorArray['header_button'] + '{ font-weight:' + dataAndEvents +';}'
+                + '</style>'
+            );
+        } );
+    } ),
+    api( "header_button_typography[font-size]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-header_button_typography-font-size' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-header_button_typography-font-size">'
+                + responsive.selectorArray['header_button'] + '{ font-size:' + dataAndEvents +';}'
+		        + '@media (max-width: 768px){'+ responsive.selectorArray['header_button'] +'{ font-size:' + api( "footer_tablet_typography[font-size]").get() +';}}'
+		        + '@media (max-width: 480px){'+ responsive.selectorArray['header_button'] +'{ font-size:' + api( "footer_mobile_typography[font-size]").get() +';}}'
+                + '</style>'
+            );
+        } );
+    } ), 
+    api( "header_button_tablet_typography[font-size]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-header_button_typography-tablet-font-size' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-header_button_typography-tablet-font-size">'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['header_button'] +'{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['header_button'] +'{ font-size:' + api( "footer_mobile_typography[font-size]").get() +';}}'
+                + '</style>'
+            );
+        } );
+    } ),
+    api( "header_button_mobile_typography[font-size]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-header_button_typography-mobile-font-size' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-header_button_typography-mobile-font-size">'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['header_button'] + '{ font-size:' + dataAndEvents +';}}'
+                + '</style>'
+            );
+        } );
+    }),
+    api( "header_button_typography[line-height]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-header_button_typography-line-height' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-header_button_typography-line-height">'
+                +  responsive.selectorArray['header_button'] + '{ line-height:' + dataAndEvents +';}'
+                + '</style>'
+            );
+        } );
+    } ),
+    api( "header_button_typography[letter-spacing]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-header_button_typography-letter-spacing' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-header_button_typography-letter-spacing">'
+                +  responsive.selectorArray['header_button'] + '{ letter-spacing:' + dataAndEvents +'px;}'
+                + '</style>'
+            );
+        } );
+    } ),
+    api( "header_button_typography[text-transform]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-header_button_typography-text-transform' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-header_button_typography-text-transform">'
+                +  responsive.selectorArray['header_button'] + '{ text-transform:' + dataAndEvents +';}'
+                + '</style>'
+            );
+        } );
+    } ),
+    api( "header_button_typography[font-style]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-header_button_typography-font-style' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-header_button_typography-font-style">'
+                +  responsive.selectorArray['header_button'] + '{ font-style:' + dataAndEvents +';}'
+                + '</style>'
+            );
+        } );
+    } )
 
 } )( jQuery );
 

@@ -218,7 +218,8 @@ label.responsive_font_weight select option:checked {
 }
 #customize-control-responsive_body_typography_group_separator .responsive-horizontal-separator-control-wrapper,
 #customize-control-responsive_body_text_separator .responsive-horizontal-separator-control-wrapper,
-#customize-control-responsive_h6_text_separator .responsive-horizontal-separator-control-wrapper {
+#customize-control-responsive_h6_text_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_font_preset_group_separator .responsive-horizontal-separator-control-wrapper {
 	margin-left: -12px;
 	margin-right: -12px;
 }

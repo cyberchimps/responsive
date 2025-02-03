@@ -304,6 +304,386 @@ if ( ! class_exists( 'Responsive_Site_Social_Links_Customizer' ) ) :
 					)
 				)
 			);
+			$wp_customize->add_setting(
+				'responsive_theme_options[bandcamp_uid]',
+				array(
+					'sanitize_callback' => 'esc_url_raw',
+					'type'              => 'option',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'bandcamp_uid',
+					array(
+						'label'    => __( 'Bandcamp', 'responsive' ),
+						'section'  => 'responsive_social_links',
+						'settings' => 'responsive_theme_options[bandcamp_uid]',
+						'priority' => 157,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_theme_options[behance_uid]',
+				array(
+					'sanitize_callback' => 'esc_url_raw',
+					'type'              => 'option',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'behance_uid',
+					array(
+						'label'    => __( 'Behance', 'responsive' ),
+						'section'  => 'responsive_social_links',
+						'settings' => 'responsive_theme_options[behance_uid]',
+						'priority' => 157,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_theme_options[discord_uid]',
+				array(
+					'sanitize_callback' => 'esc_url_raw',
+					'type'              => 'option',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'discord_uid',
+					array(
+						'label'    => __( 'Discord', 'responsive' ),
+						'section'  => 'responsive_social_links',
+						'settings' => 'responsive_theme_options[discord_uid]',
+						'priority' => 157,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_theme_options[github_uid]',
+				array(
+					'sanitize_callback' => 'esc_url_raw',
+					'type'              => 'option',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'github_uid',
+					array(
+						'label'    => __( 'Github', 'responsive' ),
+						'section'  => 'responsive_social_links',
+						'settings' => 'responsive_theme_options[github_uid]',
+						'priority' => 157,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_theme_options[googlereviews_uid]',
+				array(
+					'sanitize_callback' => 'esc_url_raw',
+					'type'              => 'option',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'googlereviews_uid',
+					array(
+						'label'    => __( 'Google Reviews', 'responsive' ),
+						'section'  => 'responsive_social_links',
+						'settings' => 'responsive_theme_options[googlereviews_uid]',
+						'priority' => 157,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_theme_options[medium_uid]',
+				array(
+					'sanitize_callback' => 'esc_url_raw',
+					'type'              => 'option',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'medium_uid',
+					array(
+						'label'    => __( 'Medium', 'responsive' ),
+						'section'  => 'responsive_social_links',
+						'settings' => 'responsive_theme_options[medium_uid]',
+						'priority' => 157,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_theme_options[patreon_uid]',
+				array(
+					'sanitize_callback' => 'esc_url_raw',
+					'type'              => 'option',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'patreon_uid',
+					array(
+						'label'    => __( 'Patreon', 'responsive' ),
+						'section'  => 'responsive_social_links',
+						'settings' => 'responsive_theme_options[patreon_uid]',
+						'priority' => 157,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_theme_options[phone_uid]',
+				array(
+					'sanitize_callback' => 'esc_url_raw',
+					'type'              => 'option',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'phone_uid',
+					array(
+						'label'    => __( 'Phone', 'responsive' ),
+						'section'  => 'responsive_social_links',
+						'settings' => 'responsive_theme_options[phone_uid]',
+						'priority' => 157,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_theme_options[reddit_uid]',
+				array(
+					'sanitize_callback' => 'esc_url_raw',
+					'type'              => 'option',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'reddit_uid',
+					array(
+						'label'    => __( 'Reddit', 'responsive' ),
+						'section'  => 'responsive_social_links',
+						'settings' => 'responsive_theme_options[reddit_uid]',
+						'priority' => 157,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_theme_options[soundcloud_uid]',
+				array(
+					'sanitize_callback' => 'esc_url_raw',
+					'type'              => 'option',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'soundcloud_uid',
+					array(
+						'label'    => __( 'Soundcloud', 'responsive' ),
+						'section'  => 'responsive_social_links',
+						'settings' => 'responsive_theme_options[soundcloud_uid]',
+						'priority' => 157,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_theme_options[spotify_uid]',
+				array(
+					'sanitize_callback' => 'esc_url_raw',
+					'type'              => 'option',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'spotify_uid',
+					array(
+						'label'    => __( 'Spotify', 'responsive' ),
+						'section'  => 'responsive_social_links',
+						'settings' => 'responsive_theme_options[spotify_uid]',
+						'priority' => 157,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_theme_options[telegram_uid]',
+				array(
+					'sanitize_callback' => 'esc_url_raw',
+					'type'              => 'option',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'telegram_uid',
+					array(
+						'label'    => __( 'Telegram', 'responsive' ),
+						'section'  => 'responsive_social_links',
+						'settings' => 'responsive_theme_options[telegram_uid]',
+						'priority' => 157,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_theme_options[threads_uid]',
+				array(
+					'sanitize_callback' => 'esc_url_raw',
+					'type'              => 'option',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'threads_uid',
+					array(
+						'label'    => __( 'Threads', 'responsive' ),
+						'section'  => 'responsive_social_links',
+						'settings' => 'responsive_theme_options[threads_uid]',
+						'priority' => 157,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_theme_options[tiktok_uid]',
+				array(
+					'sanitize_callback' => 'esc_url_raw',
+					'type'              => 'option',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'tiktok_uid',
+					array(
+						'label'    => __( 'Tiktok', 'responsive' ),
+						'section'  => 'responsive_social_links',
+						'settings' => 'responsive_theme_options[tiktok_uid]',
+						'priority' => 157,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_theme_options[vk_uid]',
+				array(
+					'sanitize_callback' => 'esc_url_raw',
+					'type'              => 'option',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'vk_uid',
+					array(
+						'label'    => __( 'VK', 'responsive' ),
+						'section'  => 'responsive_social_links',
+						'settings' => 'responsive_theme_options[vk_uid]',
+						'priority' => 157,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_theme_options[whatsapp_uid]',
+				array(
+					'sanitize_callback' => 'esc_url_raw',
+					'type'              => 'option',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'whatsapp_uid',
+					array(
+						'label'    => __( 'Whatsapp', 'responsive' ),
+						'section'  => 'responsive_social_links',
+						'settings' => 'responsive_theme_options[whatsapp_uid]',
+						'priority' => 157,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_theme_options[wordpress_uid]',
+				array(
+					'sanitize_callback' => 'esc_url_raw',
+					'type'              => 'option',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'wordpress_uid',
+					array(
+						'label'    => __( 'WordPress', 'responsive' ),
+						'section'  => 'responsive_social_links',
+						'settings' => 'responsive_theme_options[wordpress_uid]',
+						'priority' => 157,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_theme_options[custom1_uid]',
+				array(
+					'sanitize_callback' => 'esc_url_raw',
+					'type'              => 'option',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'custom1_uid',
+					array(
+						'label'    => __( 'Custom1', 'responsive' ),
+						'section'  => 'responsive_social_links',
+						'settings' => 'responsive_theme_options[custom1_uid]',
+						'priority' => 157,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_theme_options[custom2_uid]',
+				array(
+					'sanitize_callback' => 'esc_url_raw',
+					'type'              => 'option',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'custom2_uid',
+					array(
+						'label'    => __( 'Custom2', 'responsive' ),
+						'section'  => 'responsive_social_links',
+						'settings' => 'responsive_theme_options[custom2_uid]',
+						'priority' => 157,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_theme_options[custom3_uid]',
+				array(
+					'sanitize_callback' => 'esc_url_raw',
+					'type'              => 'option',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'custom3_uid',
+					array(
+						'label'    => __( 'Custom3', 'responsive' ),
+						'section'  => 'responsive_social_links',
+						'settings' => 'responsive_theme_options[custom3_uid]',
+						'priority' => 157,
+					)
+				)
+			);
 		}
 
 

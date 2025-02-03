@@ -19,6 +19,10 @@ const ToggleComponent = props => {
 		id,
 	} = props.control.params;
 
+    let descriptionHtml = null;
+    if (description) {
+		descriptionHtml = <span className="description customize-control-description">{description}</span>;
+	}
 
     return (
         <div className="responsive-toggle-control-wrapper">
@@ -30,6 +34,7 @@ const ToggleComponent = props => {
                 } }
                 className="responsive-toggle-control"
             />
+            {descriptionHtml}
         </div>
     );
 };

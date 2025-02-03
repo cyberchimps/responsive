@@ -54,6 +54,14 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 			$header_desktop_items   = Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_desktop_items' );
 			$header_desktop_choices = Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_builder_choices' );
 
+			if ( class_exists( 'woocommerce' ) ) {
+				$header_desktop_choices['woo-cart'] = array(
+					'name'    => esc_html__( 'Cart', 'responsive' ),
+					'section' => 'responsive_header_woo_cart',
+					'icon'    => 'cart',
+				);
+			}
+
 			$wp_customize->add_setting(
 				'responsive_header_desktop_items',
 				array(

@@ -19,8 +19,6 @@ function setup() {
 	};
 
 	add_action( 'wp', $n( 'woocommerce_checkout' ) );
-	add_filter( 'wp_nav_menu_items', $n( 'responsive_menu_cart_icon' ), 10, 2 );
-	add_filter( 'woocommerce_add_to_cart_fragments', $n( 'woocommerce_header_add_to_cart_fragment' ), 10, 1 );
 
 }
 
@@ -184,60 +182,4 @@ if ( ! function_exists( 'check_is_responsive_addons_greater' ) ) {
 		}
 		return false;
 	}
-}
-
-/**
- * Adds cart icon to menu
- *
- * @param string $menu default menu.
- * @param array  $args check menu.
- */
-function responsive_menu_cart_icon( $menu, $args ) {
-
-	$menu_cart = get_theme_mod( 'responsive_menu_cart_icon' );
-	// Only used for the main menu.
-	if ( 'header-menu' === $args->theme_location ) {
-		if ( 'icon-opencart' === $menu_cart ) {
-			if ( null !== WC()->cart ) {
-				$cart_contents_count = WC()->cart->get_cart_contents_count();
-				$cart_total_markup   = '<span class="res-header-cart-total">' . WC()->cart->get_cart_total() . '</span>';
-
-			}
-			if ( class_exists( 'Responsive_Addons_Pro' ) || check_is_responsive_addons_greater() ) {
-				$cart_title_markup = '<span class="res-woo-header-cart-title">' . __( 'Cart', 'responsive' ) . '</span>';
-				$cart_title        = get_theme_mod( 'responsive_cart_title' );
-				$cart_icon         = get_theme_mod( 'responsive_cart_icon', 'icon-opencart' );
-				$cart_total        = get_theme_mod( 'responsive_cart_count' );
-
-				if ( 1 === $cart_title && 1 === $cart_total ) {
-					$menu .= '<li class="res-cart-link"><a href="' . esc_url( wc_get_cart_url() ) . '"><div class="res-addon-cart-wrap"><span class="res-header-cart-info-wrap"> ' . $cart_title_markup . '' . __( ' / ', 'responsive' ) . '' . $cart_total_markup . '</span><span class="res-cart-icon icon ' . esc_attr( $cart_icon ) . '" data-cart-total="' . $cart_contents_count . '"></span></div></a></li>';
-				} elseif ( isset( $cart_title ) && 1 === $cart_title ) {
-					$menu .= '<li class="res-cart-link"><a href="' . esc_url( wc_get_cart_url() ) . '"><div class="res-addon-cart-wrap">' . $cart_title_markup . ' <span class="res-cart-icon icon ' . esc_attr( $cart_icon ) . '" data-cart-total="' . $cart_contents_count . '"></span></div></a></li>';
-				} elseif ( isset( $cart_total ) && 1 === $cart_total ) {
-					$menu .= '<li class="res-cart-link"><a href="' . esc_url( wc_get_cart_url() ) . '"><div class="res-addon-cart-wrap"> ' . ' <span class="res-cart-icon icon ' . esc_attr( $cart_icon ) . '" data-cart-total="' . $cart_contents_count . '"></span>' . $cart_total_markup . '</div></a></li>';
-				} else {
-					$menu .= '<li class="res-cart-link"><a href="' . esc_url( wc_get_cart_url() ) . '"><div class="res-addon-cart-wrap"><span class="res-cart-icon fa ' . esc_attr( $cart_icon ) . '"  data-cart-total="' . $cart_contents_count . '"></span></div></a></li>';
-				}
-			} else {
-				$menu .= '<li class="res-cart-link"><a href="' . esc_url( wc_get_cart_url() ) . '"><div class="res-addon-cart-wrap"><span class="res-cart-icon fa ' . esc_attr( $menu_cart ) . '" data-cart-total="' . $cart_contents_count . '"></span></div></a></li>';
-			}
-		}
-	}
-	return $menu;
-}
-/**
- * Show cart contents / total Ajax
- *
- * @param mixed $fragments Fragments.
- */
-function woocommerce_header_add_to_cart_fragment( $fragments ) {
-	global $woocommerce;
-
-	ob_start();
-
-	?>
-	<span class="res-header-cart-total" ><?php echo wp_kses_post( $woocommerce->cart->get_cart_total() ); ?></span>
-	<?php
-	$fragments['span.res-header-cart-total'] = ob_get_clean();
-	return $fragments;
 }

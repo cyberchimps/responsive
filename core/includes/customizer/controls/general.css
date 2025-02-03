@@ -1213,7 +1213,9 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_footer_above_row_bg_color .responsive-color-control-main-wrap .wp-picker-holder,
 #customize-control-responsive_footer_primary_row_bg_color .responsive-color-control-main-wrap .wp-picker-holder,
 #customize-control-responsive_footer_below_row_bg_color .responsive-color-control-main-wrap .wp-picker-holder,
-#customize-control-responsive_scroll_to_top_icon_color .responsive-color-control-main-wrap .wp-picker-holder {
+#customize-control-responsive_scroll_to_top_icon_color .responsive-color-control-main-wrap .wp-picker-holder,
+#customize-control-responsive_cart_color .responsive-color-control-main-wrap .wp-picker-holder,
+#customize-control-responsive_cart_count_color .responsive-color-control-main-wrap .wp-picker-holder {
 	top: 60px;
 }
 #customize-control-responsive_footer_above_row_border_color .responsive-color-control-main-wrap .wp-picker-holder,
@@ -1417,4 +1419,115 @@ body.rtl .customize-control .responsive-switchers li {
 	padding-bottom: 0;
 	border-top: none;
 	border-bottom: none;
+}
+#customize-control-responsive_header_button_label_text_separator,
+#customize-control-responsive_header_button_url_text_separator,
+#customize-control-responsive_header_button_url_text_separator,
+#customize-control-responsive_header_button_button_style_separator,
+#customize-control-responsive_header_button_border_separator,
+#customize-control-responsive_header_button_typography_separator {
+	margin-top: 12px;
+}
+
+#customize-control-responsive_header_button_url_text_separator,
+#customize-control-responsive_header_button_open_new_tab_separator,
+#customize-control-responsive_header_button_set_nofollow_separator,
+#customize-control-responsive_header_button_set_sponsored_separator,
+#customize-control-responsive_header_button_border_separator {
+	margin-bottom: 12px;
+}
+#customize-control-responsive_header_button_visibility .customize-control-responsive-selectbtn .customize-control-responsive-selectbtn__button {
+	padding: 8px 0;
+}
+#customize-control-responsive_header_button_border_style .customize-control-responsive-selectbtn .customize-control-responsive-selectbtn__button {
+	padding: 8px 5px;
+}
+#customize-control-responsive_header_button_label #_customize-input-responsive_header_button_label,
+#customize-control-responsive_header_button_url #_customize-input-responsive_header_button_url {
+	border: 1px solid #A5A5A5;
+}
+#customize-control-responsive_cart_icon_separator .responsive-customizer-heading,
+#customize-control-responsive_cart_label_separator .responsive-customizer-heading,
+#customize-control-responsive_cart_border_separator .responsive-customizer-heading,
+#customize-control-responsive_header_woo_cart_button_separator .responsive-customizer-heading,
+#customize-control-responsive_header_cart_checkout_button_separator .responsive-customizer-heading,
+#customize-control-responsive_cart_spacing_separator .responsive-customizer-heading,
+#customize-control-responsive_header_cart_tray_separator .responsive-customizer-heading {
+	margin-top: 0;
+	padding-top: 0;
+	padding-bottom: 10px;
+	border: none;
+}
+#customize-control-responsive_cart_icon_color_separator .responsive-customizer-heading {
+	margin-top: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	border: none;
+}
+#customize-control-responsive_cart_icon_separator,
+#customize-control-responsive_cart_label_separator,
+#customize-control-responsive_cart_icon_color_separator,
+#customize-control-responsive_header_woo_cart_button_separator,
+#customize-control-responsive_header_cart_checkout_button_separator,
+#customize-control-responsive_cart_spacing_separator,
+#customize-control-responsive_header_cart_tray_separator {
+	margin-top: 24px;
+}
+.responsive-input-with-dropdown-inputs-wrap {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	margin-bottom: 20px;
+}
+.responsive-input-with-dropdown-wrapper {
+	position: relative;
+}
+.responsive-input-with-dropdown-wrapper input {
+	padding: 8px 12px;
+	border: 1px solid #A5A5A5;
+	border-radius: 4px;
+	max-height: 32px;
+	min-height: 32px;
+}
+.responsive-input-with-dropdown-wrapper button {
+	padding: 8px 12px;
+	border: 1px solid #A5A5A5;
+	border-radius: 4px;
+	height: 32px;
+	width: 32px;
+	background: #007CBA;
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 24px;
+	color: #FFF;
+	cursor: pointer;
+}
+.responsive-customize-control-desc {
+	font-family: 'Roboto', sans-serif;
+	font-size: 12px;
+	font-style: italic;
+	font-weight: 400;
+	line-height: 18px;
+	text-align: left;
+}
+.responsive-customize-control-desc .note {
+	font-weight: 600;
+}
+#customize-control-responsive_display_cart_count .responsive-toggle-control-wrapper{
+	padding-top: 24px;
+	padding-bottom: 24px;
+}
+#sub-accordion-section-responsive_header_woo_cart .responsive-color-control-main-wrap {
+	padding: 0;
+}
+#customize-control-responsive_cart_count_color {
+	padding-top: 24px;
+}
+#customize-control-responsive_redirect_to_header_widgets a.customizer-redirect-button {
+	border: none;
+}
+#customize-control-responsive_header_widget_color_separator {
+	margin-top: 0;
 }
