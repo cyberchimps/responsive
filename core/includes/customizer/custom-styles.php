@@ -3796,12 +3796,16 @@ function responsive_customizer_styles() {
 		}
 	}
 
-	function build_responsive_spacing_css($padding, $margin) {
-		return "padding: " . responsive_spacing_css($padding['top'], $padding['right'], $padding['bottom'], $padding['left']) . ";
-				margin: " . responsive_spacing_css($margin['top'], $margin['right'], $margin['bottom'], $margin['left']) . ";";
+	if ( ! function_exists( 'build_responsive_spacing_css' ) ) {
+		function build_responsive_spacing_css($padding, $margin) {
+			return "padding: " . responsive_spacing_css($padding['top'], $padding['right'], $padding['bottom'], $padding['left']) . ";
+					margin: " . responsive_spacing_css($margin['top'], $margin['right'], $margin['bottom'], $margin['left']) . ";";
+		}
 	}
-	function build_responsive_padding_spacing_css( $padding ) {
-		return "padding: " . responsive_spacing_css($padding['top'], $padding['right'], $padding['bottom'], $padding['left']) . "";
+	if ( ! function_exists( 'build_responsive_padding_spacing_css' ) ) {
+		function build_responsive_padding_spacing_css( $padding ) {
+			return "padding: " . responsive_spacing_css($padding['top'], $padding['right'], $padding['bottom'], $padding['left']) . "";
+		}
 	}
 
 	// Fetch above footer row padding and margin values.
