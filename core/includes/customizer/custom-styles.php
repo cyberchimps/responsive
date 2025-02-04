@@ -1639,7 +1639,7 @@ function responsive_customizer_styles() {
   	@media screen and ( max-width: {$mobile_menu_breakpoint}px ) {
 		.main-navigation .menu-toggle{
 			display: flex;
-			justif-content: center;
+			justify-content: center;
 			align-items: center;
 		}
 		.site-mobile-header-layout-horizontal.site-header-main-navigation-site-branding .main-navigation .menu-toggle {
