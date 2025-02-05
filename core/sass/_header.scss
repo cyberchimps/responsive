@@ -102,24 +102,20 @@
         font-weight: 600;
     }
 
-    .menu-toggle {
-        @extend .show-xs;
-        @extend .hide-xxxl;
-
+    &.toggled .menu-toggle {
         position: absolute;
         margin: auto;
-        top: $base-line-height-px * 0.875;
+        top: 0;
         right: $grid-gutter-width / 2;
-        width: $base-line-height-px * 1.75;
         height: $base-line-height-px * 1.75;
-        padding: 0;
-        border: 0;
-        background-color: transparent;
-        color: map-get($colors, dark-gray);
         font-size: map-get($font-sizes, medium);
         line-height: $base-line-height-px * 1.75;
         text-align: center;
         z-index: 9999;
+    }
+    .menu-toggle {
+        @extend .show-xs;
+        @extend .hide-xxxl;
 
         &-cancel {
             display: none;
@@ -1178,16 +1174,19 @@ body.mega-menu-header-menu button.menu-toggle {
         }
     }
 }
-.site-header-row.site-header-row-only-center-column {
-    display: flex;
-    justify-content: center;
-}
 .site-header-row {                          // for backward compatibility
     margin-right: $grid-gutter-width/ -2;
     margin-left: $grid-gutter-width/ -2;
     
     & > .site-header-section {
         flex-wrap: nowrap;
+    }
+    &.site-header-row-only-center-column {
+        display: flex;
+        justify-content: center;
+    }
+    &.site-header-row-center-column:has(.main-navigation.toggled) {
+        justify-content: normal;
     }
 }
 .site-header-section:has(.main-navigation.toggled) {
@@ -1207,5 +1206,30 @@ body.mega-menu-header-menu button.menu-toggle {
 .site-header-focus-item {
     & > .customize-partial-edit-shortcut button {
         left: 0;
+    }
+}
+@media screen and (max-width: 767px) {
+    .site-below-header-inner-wrap:has(.main-navigation.toggled),
+    .site-above-header-inner-wrap:has(.main-navigation.toggled) {
+        grid-template-columns: none;
+    }
+    .site-primary-header-inner-wrap:has(.main-navigation.toggled) {
+        display: block;
+    }
+    .site-primary-header-inner-wrap {
+    
+        .main-navigation {
+            .menu-toggle {
+                margin: auto;
+                top: $base-line-height-px * 0.575;
+                right: $grid-gutter-width / 2;
+                height: $base-line-height-px * 1.75;
+                font-size: map-get($font-sizes, medium);
+                line-height: $base-line-height-px * 1.75;
+                text-align: center;
+                z-index: 9999;
+                display: flex;
+            }
+        }
     }
 }

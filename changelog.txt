@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(30/01/2025) = New - Version 6.1.1
+[+] = New = Introducing new elements for the Header Builder: Social, Button and WooCommerce Cart.
+[+] = New = Fonts Presets in Responsive theme customizer. 
+[!] = Fix = Strengthen the backward compatibility for header widgets in Header Footer Builder.
+
 (30/12/2024) = New - Version 6.1.0
 [+] = New = Introduced the Header & Footer Builder in customizer.
 [!] = Fix = Fixed minor customizer issue with Responsive Elementor Addons Button widget.
