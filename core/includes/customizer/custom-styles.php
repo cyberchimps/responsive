@@ -1499,6 +1499,18 @@ function responsive_customizer_styles() {
 	if ( 0 === $disable_mobile_menu ) {
 		$mobile_menu_breakpoint = 0;
 	}
+	// adding custom css when the menu is going out of the screen
+	$custom_css .= "
+		.main-navigation .children > li.focus > .children, .main-navigation .children > li.focus > .sub-menu-edge, .main-navigation .children > li:hover > .children, .main-navigation .children > li:hover > .sub-menu-edge,
+		.main-navigation .sub-menu > li.focus > .children,
+		.main-navigation .sub-menu > li.focus > .sub-menu-edge,
+		.main-navigation .sub-menu > li:hover > .children,
+		.main-navigation .sub-menu > li:hover > .sub-menu-edge,
+		.sub-menu .sub-menu-edge:hover {
+			left: auto !important;
+			right: 100%;
+			top: 0 !important;
+		}";
 
 	$custom_css .= "@media (min-width:{$mobile_menu_breakpoint}px) {
 		.main-navigation .menu-toggle {

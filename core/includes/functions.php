@@ -420,6 +420,8 @@ if ( ! function_exists( 'responsive_js' ) ) {
 		$mobile_menu_breakpoint = array( 'mobileBreakpoint' => get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
 		wp_localize_script( 'navigation-scripts', 'responsive_breakpoint', $mobile_menu_breakpoint );
 
+		wp_enqueue_script('responsive_theme_nested_menus', get_template_directory_uri() . '/core/js/nested-menus.js', array('customize-preview'), RESPONSIVE_THEME_VERSION, true);
+
 	}
 }
 
