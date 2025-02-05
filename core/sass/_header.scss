@@ -111,11 +111,7 @@
         font-size: map-get($font-sizes, medium);
         line-height: $base-line-height-px * 1.75;
         text-align: center;
-        z-index: 9999;
-    }
-    .menu-toggle {
-        @extend .show-xs;
-        @extend .hide-xxxl;
+        z-index: 999;
 
         &-cancel {
             display: none;
@@ -599,26 +595,20 @@ body.mega-menu-header-menu button.menu-toggle {
     z-index: 99998;
 }
 
-.main-navigation #searchform {
-    display: none;
-    position: absolute;
-    top: 3em;
-    width: 300px;
-    transition: all 0.3s ease;
-    box-shadow: 0 3px 2px 2px #eee;
+.site-header-item #searchform {
+    display: flex;
+    visibility: hidden;
+    position: relative;
+    top: 0;
     z-index: 9999;
-
 	.res-search-wrapper {
-		display: block;
+		display: flex;
+        flex-grow: 1;
 		.res-search-icon.icon-search {
 			position: absolute;
 			top: 10px;
 			right: 0;
 			font-size: 16px;
-		}
-
-		.search-submit {
-			display: none;
 		}
 	}
 
@@ -641,27 +631,25 @@ body.mega-menu-header-menu button.menu-toggle {
 	left: 25%;
 }
 
-.full-screen .main-navigation .main-navigation-wrapper .full-screen-search-wrapper {
+.full-screen .site-header-item .full-screen-search-wrapper {
+    display: none;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     transition: opacity .2s;
     background: rgba(255,255,255,.95);
-    z-index: 999;
+    z-index: 9999;
 
 	#search-close{
 		position: absolute;
-	    top: 1.5em;
-	    right: 1em;
-	    color: #000;
+	    top: 50px;
+	    right: 50px;
 		font-family: icomoon !important;
-	    font-size: 2em;
+	    font-size: 28px;
 	    font-style: normal;
 	    font-variant: normal;
 	    font-weight: 400;
-	    font-weight: 400;
-	    line-height: 1;
 	    line-height: 1;
 	    text-transform: none;
 	    cursor: pointer;
@@ -675,8 +663,8 @@ body.mega-menu-header-menu button.menu-toggle {
 
 	.full-screen-search-container {
 		position: absolute;
-		top: 35%;
-		left: 73%;
+		top: 50%;
+		left: 50%;
 		width: 100%;
 		transform: translate(-50%,-50%);
 
@@ -684,15 +672,14 @@ body.mega-menu-header-menu button.menu-toggle {
 			width: 50%;
 			margin: 20px auto;
 			box-shadow: none;
+            visibility: visible;
 
 			.res-search-wrapper {
-				display: block;
 			    height: auto;
 			    padding: 6px 15px;
 			    border: 0;
-			    border-bottom: 1px solid #ddd;
+			    border-bottom: 1px solid currentColor;
 			    background: 0 0;
-				color: #000;
 			    font-weight: 900;
 
 				input[type="search"] {
@@ -735,9 +722,10 @@ body.mega-menu-header-menu button.menu-toggle {
 
 .res-search-wrapper {
 	display: inline-block;
-	border: 1px solid #ccc;
+	border: 1px solid currentColor;
 	input[type="search"] {
 		border: 0;
+        padding: 0;
 	}
 }
 
@@ -1230,6 +1218,65 @@ body.mega-menu-header-menu button.menu-toggle {
                 z-index: 9999;
                 display: flex;
             }
+        }
+    }
+}
+.responsive-header-search-icon {
+    display: flex;
+}
+.responsive-header-search-icon-wrap {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    .responsive-header-search-label {
+        display: none;
+    }
+}
+.responsive-header-search {
+
+    position: relative;
+
+    .responsive-header-inline-search {
+        #searchform {
+           display: flex;
+           visibility: visible;
+           position: relative;
+           top: 0;
+           transition: all .3s ease;
+           z-index: 0;
+    
+        }
+    }
+    .search-submit {
+         background: none;
+         border: none;
+         color: currentColor;
+         padding: 0;
+     }
+     .search-type-responsive-slide {
+        &.search-active {
+            #searchform {
+               visibility: visible;
+               transition: all 0.2s ease;
+            }
+        }
+        #searchform {
+           position: absolute;
+           right: 0;
+           top: 0;
+        }
+    }
+}
+.site-header-section-left {
+    .responsive-header-search {
+        #searchform {
+            left: 0;
+        }
+    }
+    .search-type-responsive-slide {
+        .res-search-wrapper {
+            flex-direction: row-reverse;
+            gap: 10px;
         }
     }
 }
