@@ -931,6 +931,7 @@ function responsive_customizer_styles() {
 	button,
 	.button,
 	.wp-block-button__link,
+	.wp-block-file__button,
 	body div.wpforms-container-full .wpforms-form input[type=submit],
 	body div.wpforms-container-full .wpforms-form button[type=submit],
 	body div.wpforms-container-full .wpforms-form .wpforms-page-button, .main-navigation .menu .res-button-menu .res-custom-button {
@@ -952,6 +953,7 @@ function responsive_customizer_styles() {
 		.read-more-button .hentry .read-more .more-link,
 		input[type=button],
 		.wp-block-button__link,
+		.wp-block-file__button,
 		input[type=submit],
 		button,
 		.button,
@@ -974,6 +976,7 @@ function responsive_customizer_styles() {
 		.read-more-button .hentry .read-more .more-link,
 		input[type=button],
 		.wp-block-button__link,
+		.wp-block-file__button,
 		input[type=submit],
 		button,
 		.button,
@@ -1006,6 +1009,8 @@ function responsive_customizer_styles() {
 	' . $sensei_button_hover . '
 	.wp-block-button__link:focus,
 	.wp-block-button__link:hover,
+	.wp-block-file__button:focus,
+	.wp-block-file__button:hover,
 	.read-more-button .hentry .read-more .more-link:hover,
 	.read-more-button .hentry .read-more .more-link:focus,
 	input[type=button]:hover,
