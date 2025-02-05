@@ -304,7 +304,9 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 					<p class="responsive-theme-home-settings-text fw-bolder"><?php esc_html_e( 'Customizer Settings', 'responsive' ); ?></p>
 				</div>
 				<div class="col-md-3 text-end mb-3">
-					<a class="text-decoration-none shadow-none fw-bolder" href="<?php echo esc_attr( $admin_customize_url ); ?>">Go to customizer</a>
+					<a class="text-decoration-none shadow-none fw-bolder" href="<?php echo esc_attr( $admin_customize_url ); ?>">
+						<?php echo esc_html( 'Go to customizer' ); ?>
+					</a>
 				</div>
 			</div>
 			<div class="row">
