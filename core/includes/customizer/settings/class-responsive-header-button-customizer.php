@@ -173,7 +173,7 @@ if ( ! class_exists( 'Responsive_Header_Button_Customizer' ) ) :
 
 			responsive_horizontal_separator_control( $wp_customize, 'header_button_color_separator', 1, 'responsive_header_button', 52, 1 );
 
-			responsive_color_control( $wp_customize, 'header_button_bg', __( 'Background Color', 'responsive' ), 'responsive_header_button', 53, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_bg_color' ), 'responsive_show_header_button_bg_colors', '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_bg_hover_color' ), 'header_button_bg_hover' );
+			responsive_color_control( $wp_customize, 'header_button_bg', __( 'Background Color', 'responsive' ), 'responsive_header_button', 53, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_bg_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_bg_hover_color' ), 'header_button_bg_hover' );
 
 			responsive_horizontal_separator_control( $wp_customize, 'header_button_bg_color_separator', 1, 'responsive_header_button', 53, 1 );
 

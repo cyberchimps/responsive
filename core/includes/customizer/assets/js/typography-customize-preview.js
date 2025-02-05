@@ -190,6 +190,10 @@
                     }
                 }
             }
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             jQuery( 'style.customizer-typography-body-font-family' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-body-font-family">'
@@ -200,6 +204,10 @@
         } );
     } ), api( "body_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             jQuery( 'style.customizer-typography-body-font-weight' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-body-font-weight">'
@@ -281,6 +289,11 @@
         } );
     } ), api( "headings_typography[font-family]", function( $swipe ) {
         $swipe.bind( function( pair ) {
+
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             if ( pair ) {
                 /** @type {string} */
                 var fontName = pair.split(",")[0];
@@ -308,6 +321,10 @@
         } );
     } ), api( "headings_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             jQuery( 'style.customizer-typography-headings-font-weight' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-headings-font-weight">'
@@ -348,6 +365,10 @@
         } );
     } ), api( "heading_h1_typography[font-family]", function( $swipe ) {
         $swipe.bind( function( pair ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             if ( pair ) {
                 /** @type {string} */
                 var fontName = pair.split(",")[0];
@@ -375,6 +396,10 @@
         } );
     } ), api( "heading_h1_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             jQuery( 'style.customizer-typography-heading_h1-font-weight' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h1-font-weight">'
@@ -458,6 +483,10 @@
         } );
     } ), api( "heading_h2_typography[font-family]", function( $swipe ) {
         $swipe.bind( function( pair ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             if ( pair ) {
                 /** @type {string} */
                 var fontName = pair.split(",")[0];
@@ -485,6 +514,10 @@
         } );
     } ), api( "heading_h2_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             jQuery( 'style.customizer-typography-heading_h2-font-weight' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h2-font-weight">'
@@ -568,6 +601,10 @@
         } );
     } ), api( "heading_h3_typography[font-family]", function( $swipe ) {
         $swipe.bind( function( pair ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             if ( pair ) {
                 /** @type {string} */
                 var fontName = pair.split(",")[0];
@@ -595,6 +632,10 @@
         } );
     } ), api( "heading_h3_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             jQuery( 'style.customizer-typography-heading_h3-font-weight' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h3-font-weight">'
@@ -678,6 +719,10 @@
         } );
     } ), api( "heading_h4_typography[font-family]", function( $swipe ) {
         $swipe.bind( function( pair ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             if ( pair ) {
                 /** @type {string} */
                 var fontName = pair.split(",")[0];
@@ -705,6 +750,10 @@
         } );
     } ), api( "heading_h4_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             jQuery( 'style.customizer-typography-heading_h4-font-weight' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h4-font-weight">'
@@ -788,6 +837,10 @@
         } );
     } ),api( "heading_h5_typography[font-family]", function( $swipe ) {
         $swipe.bind( function( pair ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             if ( pair ) {
                 /** @type {string} */
                 var fontName = pair.split(",")[0];
@@ -815,6 +868,10 @@
         } );
     } ), api( "heading_h5_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             jQuery( 'style.customizer-typography-heading_h5-font-weight' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h5-font-weight">'
@@ -898,6 +955,10 @@
         } );
     } ), api( "heading_h6_typography[font-family]", function( $swipe ) {
         $swipe.bind( function( pair ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             if ( pair ) {
                 /** @type {string} */
                 var fontName = pair.split(",")[0];
@@ -925,6 +986,10 @@
         } );
     } ), api( "heading_h6_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             jQuery( 'style.customizer-typography-heading_h6-font-weight' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h6-font-weight">'
@@ -1008,6 +1073,10 @@
         } );
     } ), api( "meta_typography[font-family]", function( $swipe ) {
         $swipe.bind( function( pair ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+
             if ( pair ) {
                 /** @type {string} */
                 var fontName = pair.split(",")[0];
@@ -1035,6 +1104,10 @@
         } );
     } ), api( "meta_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
+            // if font preset is set then it should be having max priority
+            $font_preset_set  = api( "responsive_font_presets" ).get();
+            if ( '' !== $font_preset_set )  return;
+            
             jQuery( 'style.customizer-typography-meta-font-weight' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-meta-font-weight">'

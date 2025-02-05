@@ -162,6 +162,44 @@ function responsive_enqueue_google_font( $font ) {
 	$handle = strtolower( $handle );
 	$handle = str_replace( ' ', '-', $handle );
 
+	// Weights.
+	$weights = array( '100', '200', '300', '400', '500', '600', '700', '800', '900' );
+	$weights = apply_filters( 'responsive_google_font_enqueue_weights', $weights, $font );
+	$italics = apply_filters( 'responsive_google_font_enqueue_italics', true );
+	// Main URL.
+	$query_url = str_replace( ' ', '%20', $font ) . ':';
+
+	// Add weights to URL.
+	if ( ! empty( $weights ) ) {
+		$query_url     .= implode( ',', $weights ) . ',';
+		$italic_weights = array();
+		if ( $italics ) {
+			foreach ( $weights as $weight ) {
+				$italic_weights[] = $weight . 'i';
+			}
+			$query_url .= implode( ',', $italic_weights );
+		}
+	}
+
+	return $query_url;
+
+}
+/**
+ * Adds data to the $fonts array for a font to be rendered.
+ */
+function responsive_render_google_fonts_url( $fonts ) {
+
+	// Return if disabled.
+	if ( true === get_theme_mod( 'responsive_disable_google_font', false ) ) {
+		return;
+	}
+
+	// Main URL.
+	$url = 'https://fonts.googleapis.com/css?family=';
+	foreach ( $fonts as $font ) {
+		$url .= responsive_enqueue_google_font( $font ) . '%7C';
+	}
+
 	// Subset.
 	$get_subsets = get_theme_mod( 'responsive_google_font_subsets', array( 'latin' ) );
 	$subsets     = '';
@@ -175,30 +213,9 @@ function responsive_enqueue_google_font( $font ) {
 		$subsets = 'latin';
 	}
 	$subset = '&amp;subset=' . $subsets;
-
-	// Weights.
-	$weights = array( '100', '200', '300', '400', '500', '600', '700', '800', '900' );
-	$weights = apply_filters( 'responsive_google_font_enqueue_weights', $weights, $font );
-	$italics = apply_filters( 'responsive_google_font_enqueue_italics', true );
-	// Main URL.
-	$url = '//fonts.googleapis.com/css?family=' . str_replace( ' ', '%20', $font ) . ':';
-
-	// Add weights to URL.
-	if ( ! empty( $weights ) ) {
-		$url           .= implode( ',', $weights ) . ',';
-		$italic_weights = array();
-		if ( $italics ) {
-			foreach ( $weights as $weight ) {
-				$italic_weights[] = $weight . 'i';
-			}
-			$url .= implode( ',', $italic_weights );
-		}
-	}
-
-	// Add subset to URL.
 	$url .= $subset;
 
 	// Enqueue style.
-	wp_enqueue_style( 'responsive-google-font-' . $handle, $url, false, false, 'all' );//phpcs:ignore
+	wp_enqueue_style( 'responsive-google-font', $url, false, false, 'all' );//phpcs:ignore
 
 }

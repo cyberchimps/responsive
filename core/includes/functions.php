@@ -339,6 +339,12 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		responsive_font_sizes_backward_compatibility();
 		responsive_border_width_backward_compatibility();
 
+		if ( ! get_option( 'responsive_header_footer_builder_compatibility_header_widgets' ) ) {
+			if ( is_active_sidebar( 'header-widgets' ) ) {
+				responsive_header_footer_builder_compatibility_header_widgets();
+			}
+			update_option( 'responsive_header_footer_builder_compatibility_header_widgets', true );
+		}
 		if( ! get_option( 'responsive_old_header_footer_comaptibility_with_header_builder_done' ) ) {
 			responsive_old_header_footer_comaptibility_with_hfb();
 			update_option( 'responsive_old_header_footer_comaptibility_with_header_builder_done', true );
@@ -414,6 +420,8 @@ if ( ! function_exists( 'responsive_js' ) ) {
 
 		$mobile_menu_breakpoint = array( 'mobileBreakpoint' => get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
 		wp_localize_script( 'navigation-scripts', 'responsive_breakpoint', $mobile_menu_breakpoint );
+
+		wp_enqueue_script('responsive_theme_nested_menus', get_template_directory_uri() . '/core/js/nested-menus.js', array('customize-preview'), RESPONSIVE_THEME_VERSION, true);
 
 	}
 }
@@ -604,12 +612,12 @@ function responsive_add_custom_body_classes( $classes ) {
 	// Mobile Header alignment class.
 	// $classes[] = 'site-mobile-header-alignment-' . get_theme_mod( 'responsive_mobile_header_alignment', 'center' );
 
-	if ( get_theme_mod( 'responsive_enable_header_widget', 1 ) ) {
-		// Header Widget Aligmnmnet.
-		$classes[] = 'header-widget-alignment-' . get_theme_mod( 'responsive_header_widget_alignment', 'spread' );
-		// Header Widget POsition.
-		$classes[] = 'header-widget-position-' . get_theme_mod( 'responsive_header_widget_position', 'top' );
-	}
+	// if ( get_theme_mod( 'responsive_enable_header_widget', 1 ) ) {
+	// 	// Header Widget Aligmnmnet.
+	// 	$classes[] = 'header-widget-alignment-' . get_theme_mod( 'responsive_header_widget_alignment', 'spread' );
+	// 	// Header Widget POsition.
+	// 	$classes[] = 'header-widget-position-' . get_theme_mod( 'responsive_header_widget_position', 'top' );
+	// }
 
 	// Header width.
 	if ( get_theme_mod( 'responsive_inline_logo_site_title', 0 ) ) {
@@ -1341,6 +1349,11 @@ function defaults() {
 																				'section' => 'responsive_header_button',
 																				'icon'    => 'button',
 																			),
+																			'header_widgets1'        => array(
+																				'name'    => esc_html__( 'Header Widgets', 'responsive' ),
+																				'section' => 'responsive_header_widget',
+																				'icon'    => 'wordpress',
+																			),
 																		),
 		)
 	);
@@ -1601,12 +1614,26 @@ if( ! function_exists( 'responsive_old_header_footer_comaptibility_with_hfb' ) )
 		// Vertical Header backward compatibility.
 		$responsive_header_layout = get_theme_mod( 'responsive_header_layout' );
         if ( 'vertical' === $responsive_header_layout ) {
-            unset( $header_hfb_elements['primary']['primary_left'][0] );
-            unset( $header_hfb_elements['primary']['primary_right'][0] );
-            array_push( $header_hfb_elements['primary']['primary_center'], 'logo' );
-            unset( $header_hfb_elements['below']['below_center'][0] );
-            array_push( $header_hfb_elements['below']['below_center'], 'primary_navigation' );
+			// Vertical Header Alignment preserve with hfb.
+			$vertical_header_alignment = get_theme_mod( 'responsive_header_alignment' );
+			if ( 'left' === $vertical_header_alignment ) {
+				$header_hfb_elements['primary']['primary_right'] = array();
+				$header_hfb_elements['below']['below_left']      = array();
+				array_push( $header_hfb_elements['below']['below_left'], 'primary_navigation' );
+			} else if ( 'right' === $vertical_header_alignment ) {
+				$header_hfb_elements['primary']['primary_left']  = array();
+				$header_hfb_elements['primary']['primary_right'] = array();
+				array_push( $header_hfb_elements['primary']['primary_right'], 'logo' );
+                array_push( $header_hfb_elements['below']['below_right'], 'primary_navigation' );
+			} else {
+				$header_hfb_elements['primary']['primary_left']  = array();
+				$header_hfb_elements['primary']['primary_right'] = array();
+				$header_hfb_elements['below']['below_center']    = array();
+				array_push( $header_hfb_elements['primary']['primary_center'], 'logo' );
+				array_push( $header_hfb_elements['below']['below_center'], 'primary_navigation' );
+			}
         }
+
 
 		set_theme_mod( 'responsive_header_desktop_items', $header_hfb_elements );
 		
@@ -1813,6 +1840,49 @@ if( ! function_exists( 'responsive_old_header_footer_comaptibility_with_hfb' ) )
 endif;
 
 /**
+ * Adjusts the header widgets for compatibility with the Header Footer Builder.
+ *
+ * Retrieves and modifies the desktop header elements based on the header widget's
+ * position and alignment settings to ensure backward compatibility. The function
+ * updates the header layout dynamically based on the user's customizer settings.
+ */
+function responsive_header_footer_builder_compatibility_header_widgets() {
+	$header_hfb_elements = get_theme_mod( 'responsive_header_desktop_items', get_responsive_customizer_defaults( 'responsive_header_desktop_items' ) );
+
+	$header_widget_position  = get_theme_mod( 'responsive_header_widget_position', 'with_logo' );
+	$header_widget_alignment = get_theme_mod( 'responsive_header_widget_alignment', 'center' );
+
+	if ( 'top' === $header_widget_position && ( 'spread' === $header_widget_alignment || 'space-around' === $header_widget_alignment || 'center' === $header_widget_alignment ) ) {
+		array_push( $header_hfb_elements['above']['above_center'], 'header_widgets1' );
+	}
+	if ( 'top' === $header_widget_position && 'left' === $header_widget_alignment ) {
+		array_push( $header_hfb_elements['above']['above_left'], 'header_widgets1' );
+	}
+	if ( 'top' === $header_widget_position && 'right' === $header_widget_alignment ) {
+		array_push( $header_hfb_elements['above']['above_right'], 'header_widgets1' );
+	}
+	if ( 'with_logo' === $header_widget_position && ( 'spread' === $header_widget_alignment || 'space-around' === $header_widget_alignment || 'center' === $header_widget_alignment ) ) {
+		array_push( $header_hfb_elements['primary']['primary_center'], 'header_widgets1' );
+	}
+	if ( 'with_logo' === $header_widget_position && 'left' === $header_widget_alignment ) {
+		array_push( $header_hfb_elements['primary']['primary_left'], 'header_widgets1' );
+	}
+	if ( 'with_logo' === $header_widget_position && 'right' === $header_widget_alignment ) {
+		array_push( $header_hfb_elements['primary']['primary_right'], 'header_widgets1' );
+	}
+	if ( 'bottom' === $header_widget_position && ( 'spread' === $header_widget_alignment || 'space-around' === $header_widget_alignment || 'center' === $header_widget_alignment ) ) {
+		array_push( $header_hfb_elements['below']['below_center'], 'header_widgets1' );
+	}
+	if ( 'bottom' === $header_widget_position && 'left' === $header_widget_alignment ) {
+		array_push( $header_hfb_elements['below']['below_left'], 'header_widgets1' );
+	}
+	if ( 'bottom' === $header_widget_position && 'right' === $header_widget_alignment ) {
+		array_push( $header_hfb_elements['below']['below_right'], 'header_widgets1' );
+	}
+	set_theme_mod( 'responsive_header_desktop_items', $header_hfb_elements );
+}
+
+/**
  * Function to check whethere an element present in given array.
  * @since 6.1.0
  */
@@ -1912,15 +1982,23 @@ if( ! function_exists( 'responsive_old_woo_cart_comaptibility_with_header_builde
 			set_theme_mod( 'responsive_header_woo_cart_click_action', 'redirect' );
 			set_theme_mod( 'responsive_cart_hover_color', get_theme_mod( 'responsive_cart_color' ) );
 			if ( get_theme_mod( 'responsive_cart_title' ) && get_theme_mod( 'responsive_cart_count' ) ) {
-				set_theme_mod( 'responsive_woo_cart_label', 'Cart / {cart_currency_symbol}{cart_total}' );
+				set_theme_mod( 'responsive_woo_cart_label', 'Cart / {cart_total_currency_symbol}' );
 			} else {
 				if ( get_theme_mod( 'responsive_cart_title' ) ) {
 					set_theme_mod( 'responsive_woo_cart_label', 'Cart' );
 				}
 				if ( get_theme_mod( 'responsive_cart_count' ) ) {
-					set_theme_mod( 'responsive_woo_cart_label', '{cart_currency_symbol}{cart_total}' );
+					set_theme_mod( 'responsive_woo_cart_label', '{cart_total_currency_symbol}' );
+					set_theme_mod( 'responsive_cart_label_position', 'right' );
 				}
 			}
+			//make cart icon color backward compatible.
+			$menu_items_color = get_theme_mod( 'responsive_header_menu_link_color' );
+			if( $menu_items_color ) {
+				set_theme_mod( 'responsive_cart_color', $menu_items_color );
+				set_theme_mod( 'responsive_cart_hover_color', $menu_items_color );
+			}
+
 			$padding_properties = [
 				'top_padding',
 				'right_padding',
