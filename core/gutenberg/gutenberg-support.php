@@ -245,30 +245,32 @@ function responsive_gutenberg_customizer_css() {
 	$single_blog_title_alignment       = get_theme_mod( 'responsive_single_blog_title_alignment', 'left' );
 	$single_blog_content_alignment     = get_theme_mod( 'responsive_single_blog_content_alignment', 'left' );
 
-	$cart_content_width                = get_theme_mod( 'responsive_cart_content_width', 70 );
-	$checkout_content_width            = get_theme_mod( 'responsive_checkout_content_width', 70 );
-	global $post;
+	if ( class_exists( 'WooCommerce' ) ) {
+		$cart_content_width                = get_theme_mod( 'responsive_cart_content_width', 70 );
+		$checkout_content_width            = get_theme_mod( 'responsive_checkout_content_width', 70 );
+		global $post;
 
-	if ( $post && in_array( get_post_type( $post ), get_post_types() ) ) {
-		$current_post_id = $post->ID;
-	} else {
-		$current_post_id = null;
-	}
+		if ( $post && in_array( get_post_type( $post ), get_post_types() ) ) {
+			$current_post_id = $post->ID;
+		} else {
+			$current_post_id = null;
+		}
 	
-	$cart_page_id                      = wc_get_page_id( 'cart' );
-	$checkout_page_id                  = wc_get_page_id( 'checkout' );
-	$cart_content_custom_width         = ( $cart_content_width / 100 ) * $responsive_container_width;
-	$checkout_custom_content_width     = ( $checkout_content_width / 100 ) * $responsive_container_width;
-
-	$cart_buttons_color            	   = esc_html( get_theme_mod( 'responsive_cart_buttons_color', '#10659C' ) );
-	$cart_buttons_text_color       	   = esc_html( get_theme_mod( 'responsive_cart_buttons_text_color', '#ffffff' ) );
-	$cart_buttons_hover_color      	   = esc_html( get_theme_mod( 'responsive_cart_buttons_hover_color', '#0066CC' ) );
-	$cart_buttons_hover_text_color 	   = esc_html( get_theme_mod( 'responsive_cart_buttons_hover_text_color', '#ffffff' ) );
-
-	$cart_checkout_button_color             = esc_html( get_theme_mod( 'responsive_cart_checkout_button_color', '#0066CC' ) );
-	$cart_checkout_button_hover_color       = esc_html( get_theme_mod( 'responsive_cart_checkout_button_hover_color', '#10659C' ) );
-	$cart_checkout_button_text_color        = esc_html( get_theme_mod( 'responsive_cart_checkout_button_text_color', '#ffffff' ) );
-	$cart_checkout_button_hover_text_color  = esc_html( get_theme_mod( 'responsive_cart_checkout_button_hover_text_color', '#ffffff' ) );
+		$cart_page_id                      = wc_get_page_id( 'cart' );
+		$checkout_page_id                  = wc_get_page_id( 'checkout' );
+		$cart_content_custom_width         = ( $cart_content_width / 100 ) * $responsive_container_width;
+		$checkout_custom_content_width     = ( $checkout_content_width / 100 ) * $responsive_container_width;
+	
+		$cart_buttons_color            	   = esc_html( get_theme_mod( 'responsive_cart_buttons_color', '#10659C' ) );
+		$cart_buttons_text_color       	   = esc_html( get_theme_mod( 'responsive_cart_buttons_text_color', '#ffffff' ) );
+		$cart_buttons_hover_color      	   = esc_html( get_theme_mod( 'responsive_cart_buttons_hover_color', '#0066CC' ) );
+		$cart_buttons_hover_text_color 	   = esc_html( get_theme_mod( 'responsive_cart_buttons_hover_text_color', '#ffffff' ) );
+	
+		$cart_checkout_button_color             = esc_html( get_theme_mod( 'responsive_cart_checkout_button_color', '#0066CC' ) );
+		$cart_checkout_button_hover_color       = esc_html( get_theme_mod( 'responsive_cart_checkout_button_hover_color', '#10659C' ) );
+		$cart_checkout_button_text_color        = esc_html( get_theme_mod( 'responsive_cart_checkout_button_text_color', '#ffffff' ) );
+		$cart_checkout_button_hover_text_color  = esc_html( get_theme_mod( 'responsive_cart_checkout_button_hover_text_color', '#ffffff' ) );
+	}
 
 	$custom_css = '';
 
@@ -490,22 +492,6 @@ function responsive_gutenberg_customizer_css() {
 	}
 	.editor-styles-wrapper.post-type-post .edit-post-visual-editor__post-title-wrapper {
 		text-align: '. $single_blog_title_alignment .';
-	}
-	.editor-styles-wrapper .wp-block .add_to_cart_button {
-		background-color: '. $cart_buttons_color .';
-		color: '. $cart_buttons_text_color .';
-	}
-	.editor-styles-wrapper .wp-block .add_to_cart_button:hover {
-		background-color: '. $cart_buttons_hover_color .';
-		color: '. $cart_buttons_hover_text_color .';
-	}
-	.editor-styles-wrapper button.wc-block-cart__submit-button {
-		background-color: '. $cart_checkout_button_color .';
-		color: '. $cart_checkout_button_text_color .';
-	}
-	.editor-styles-wrapper button.wc-block-cart__submit-button:hover {
-		background-color: '. $cart_checkout_button_hover_color .';
-		color: '. $cart_checkout_button_hover_text_color .';
 	}
 	@media screen and ( min-width: 992px ) {
 
@@ -805,31 +791,51 @@ function responsive_gutenberg_customizer_css() {
 		$custom_css .= "}}";
 	}
 
-	// cart content width.
-	if ( $current_post_id === $cart_page_id ) {
-		$custom_css .= "
-		@media screen and ( min-width: 992px ) {
-			.editor-styles-wrapper.post-type-page .edit-post-visual-editor__post-title-wrapper h1.editor-post-title__input,
-			.editor-styles-wrapper.post-type-page .edit-post-visual-editor__post-title-wrapper,
-			.editor-styles-wrapper.post-type-page .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
-				max-width:{$cart_content_custom_width}px;
-				margin-left: auto;
-				margin-right: auto;
+	if ( class_exists( 'WooCommerce' ) ) {
+		$custom_css .= '
+			.editor-styles-wrapper .wp-block .add_to_cart_button {
+				background-color: '. $cart_buttons_color .';
+				color: '. $cart_buttons_text_color .';
 			}
-		}";
-	}
-	// checkout content width.
-	if ( $current_post_id === $checkout_page_id ) {
-		$custom_css .= "
-		@media screen and ( min-width: 992px ) {
-			.editor-styles-wrapper.post-type-page .edit-post-visual-editor__post-title-wrapper h1.editor-post-title__input,
-			.editor-styles-wrapper.post-type-page .edit-post-visual-editor__post-title-wrapper,
-			.editor-styles-wrapper.post-type-page .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
-				max-width:{$checkout_custom_content_width}px;
-				margin-left: auto;
-				margin-right: auto;
+			.editor-styles-wrapper .wp-block .add_to_cart_button:hover {
+				background-color: '. $cart_buttons_hover_color .';
+				color: '. $cart_buttons_hover_text_color .';
 			}
-		}";
+			.editor-styles-wrapper button.wc-block-cart__submit-button {
+				background-color: '. $cart_checkout_button_color .';
+				color: '. $cart_checkout_button_text_color .';
+			}
+			.editor-styles-wrapper button.wc-block-cart__submit-button:hover {
+				background-color: '. $cart_checkout_button_hover_color .';
+				color: '. $cart_checkout_button_hover_text_color .';
+			}
+		';
+		// cart content width.
+		if ( $current_post_id === $cart_page_id ) {
+			$custom_css .= "
+			@media screen and ( min-width: 992px ) {
+				.editor-styles-wrapper.post-type-page .edit-post-visual-editor__post-title-wrapper h1.editor-post-title__input,
+				.editor-styles-wrapper.post-type-page .edit-post-visual-editor__post-title-wrapper,
+				.editor-styles-wrapper.post-type-page .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+					max-width:{$cart_content_custom_width}px;
+					margin-left: auto;
+					margin-right: auto;
+				}
+			}";
+		}
+		// checkout content width.
+		if ( $current_post_id === $checkout_page_id ) {
+			$custom_css .= "
+			@media screen and ( min-width: 992px ) {
+				.editor-styles-wrapper.post-type-page .edit-post-visual-editor__post-title-wrapper h1.editor-post-title__input,
+				.editor-styles-wrapper.post-type-page .edit-post-visual-editor__post-title-wrapper,
+				.editor-styles-wrapper.post-type-page .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+					max-width:{$checkout_custom_content_width}px;
+					margin-left: auto;
+					margin-right: auto;
+				}
+			}";
+		}
 	}
 	return $custom_css;
 }

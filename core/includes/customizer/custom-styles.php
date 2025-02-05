@@ -3352,7 +3352,7 @@ function responsive_customizer_styles() {
 	// $button_
 	$custom_css .="
 		.elementor-widget-rael-button .rael-button {
-			border-style: solid;' 
+			border-style: solid;
 			border-color: ' . $button_border_color . ';
 			border-top-width: ' . $buttons_border_width_top . 'px;
 			border-right-width: ' . $buttons_border_width_right . 'px;
