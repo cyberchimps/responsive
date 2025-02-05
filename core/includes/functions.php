@@ -335,8 +335,9 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 			}
 		}
 
-		responsive_background_images_background_compatibility();
-		responsive_font_sizes_background_compatibility();
+		responsive_background_images_backward_compatibility();
+		responsive_font_sizes_backward_compatibility();
+		responsive_border_width_backward_compatibility();
 
 		if ( ! get_option( 'responsive_header_footer_builder_compatibility_header_widgets' ) ) {
 			if ( is_active_sidebar( 'header-widgets' ) ) {
@@ -1418,9 +1419,9 @@ function responsive_register_widgets() {
  * @since 6.0.0
  */
 
-if ( ! function_exists( 'responsive_background_images_background_compatibility' ) ) :
+if ( ! function_exists( 'responsive_background_images_backward_compatibility' ) ) :
 
-	function responsive_background_images_background_compatibility() {
+	function responsive_background_images_backward_compatibility() {
 		if ( ! get_option( 'responsive_old_background_images_compatible_done' ) ) {
 			$background_image_elements = array( 'footer_background', 'header_background', 'header_widget_background', 'transparent_header_widget_background', 'sidebar_background', 'box_background', 'button_background', 'inputs_background' );
 			
@@ -1437,9 +1438,6 @@ if ( ! function_exists( 'responsive_background_images_background_compatibility' 
 			if ( get_theme_mod( 'background_color' ) ) {
 				set_theme_mod( 'responsive_site_background_color', get_theme_mod( 'background_color' ) );
 			}
-			if ( get_theme_mod( 'responsive_inputs_border_width' ) ) {
-				set_theme_mod( 'responsive_inputs_border_width_top_border', get_theme_mod( 'responsive_inputs_border_width' ) );
-			}
 			update_option( 'responsive_old_background_images_compatible_done', true );
 		}
 	}
@@ -1450,9 +1448,9 @@ endif;
  * @since 6.0.0
  */
 
-if ( ! function_exists( 'responsive_font_sizes_background_compatibility' ) ) :
+if ( ! function_exists( 'responsive_font_sizes_backward_compatibility' ) ) :
 
-	function responsive_font_sizes_background_compatibility() {
+	function responsive_font_sizes_backward_compatibility() {
 		if ( ! get_option( 'responsive_old_font_sizes_compatible_done' ) ) {
 			$font_size_typo_elements = array(
 				'body',
@@ -1524,6 +1522,67 @@ if ( ! function_exists( 'responsive_font_sizes_background_compatibility' ) ) :
 			update_option( 'responsive_old_font_sizes_compatible_done', true );
 		}
 	}
+endif;
+
+/**
+ * Function to make old border width control with new control.
+ * @since 6.1.2
+ */
+
+ if ( ! function_exists( 'responsive_border_width_backward_compatibility' ) ) :
+
+	function responsive_border_width_backward_compatibility() {
+		if ( ! get_option( 'responsive_old_border_width_compatible_done' ) ) {
+			// Set default fallback value
+			$default_value = '1px';
+			
+			// Inputs border width 
+			$input_border_width = get_theme_mod( 'responsive_inputs_border_width', $default_value );
+
+			foreach ( [ 'top', 'right', 'bottom', 'left' ] as $side ) {
+				$option_name = "responsive_inputs_border_width_{$side}_border";
+				if ( ! get_option( $option_name ) ) {
+					set_theme_mod( $option_name, $input_border_width );
+				}
+			}
+
+			// Mobile inputs border width
+			foreach ( [ 'top', 'right', 'bottom', 'left' ] as $side ) {
+				$mobile_option_name = "responsive_inputs_border_width_mobile_{$side}_border";
+				$desktop_option_name = "responsive_inputs_border_width_{$side}_border";
+				if ( ! get_option( $mobile_option_name ) ) {
+					set_theme_mod(
+						$mobile_option_name,
+						get_theme_mod( $desktop_option_name, $input_border_width )
+					);
+				}
+			}
+
+			// Tablet inputs border width 
+			foreach ( [ 'top', 'right', 'bottom', 'left' ] as $side ) {
+				$tablet_option_name = "responsive_inputs_border_width_tablet_{$side}_border";
+				$desktop_option_name = "responsive_inputs_border_width_{$side}_border";
+				if ( ! get_option( $tablet_option_name ) ) {
+					set_theme_mod(
+						$tablet_option_name,
+						get_theme_mod( $desktop_option_name, $input_border_width )
+					);
+				}
+			}
+
+			// Buttons border width 
+			$button_border_width = get_theme_mod( 'responsive_buttons_border_width', $default_value );
+
+			foreach ( [ 'top', 'right', 'bottom', 'left' ] as $side ) {
+				set_theme_mod( "responsive_buttons_border_width_{$side}_border", $button_border_width );
+				set_theme_mod( "responsive_buttons_border_width_mobile_{$side}_border", $button_border_width );
+				set_theme_mod( "responsive_buttons_border_width_tablet_{$side}_border", $button_border_width );
+			}
+
+			update_option( 'responsive_old_border_width_compatible_done', true );
+		}
+	}
+
 endif;
 
 function responsive_extract_numeric_font_size($value) {

@@ -119,8 +119,8 @@ function responsive_gutenberg_customizer_css() {
 	$buttons_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_buttons_mobile_left_padding', 10 ) );
 	$buttons_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_buttons_mobile_top_padding', 10 ) );
 	$buttons_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_buttons_mobile_bottom_padding', 10 ) );
+  $buttons_radius       = esc_html( get_theme_mod( 'responsive_buttons_radius', Responsive\Core\get_responsive_customizer_defaults( 'buttons_radius' ) ) );
 	$buttons_border_width          = esc_html( get_theme_mod( 'responsive_buttons_border_width', 1 ) );
-
 	$box_background_color = esc_html( get_theme_mod( 'responsive_box_background_color', '#ffffff' ) );
 
 	// button desktop border radius
@@ -410,6 +410,7 @@ function responsive_gutenberg_customizer_css() {
 	.editor-styles-wrapper div.wpforms-container-full .wpforms-form button[type=submit],
 	.editor-styles-wrapper button:not(.block-editor-button-block-appender) {
 		background-color:' . $button_color . ';
+		border-radius:' . $buttons_radius . 'px;
 		border: ' . $buttons_border_width . 'px solid ' . $button_border_color . ';
 		border-radius:' . responsive_spacing_css( $button_top_left_radius, $button_top_right_radius, $button_bottom_right_radius, $button_bottom_left_radius ) . ';
 	    color: ' . $button_text_color . ';
@@ -457,7 +458,6 @@ function responsive_gutenberg_customizer_css() {
 	.editor-styles-wrapper button:not(.block-editor-button-block-appender):hover,
 	.editor-styles-wrapper button:not(.block-editor-button-block-appender):focus {
 		color:' . $button_hover_text_color . ';
-		border: ' . $buttons_border_width . 'px solid ' . $button_hover_border_color . ';
 		background-color:' . $button_hover_color . ';
 	}
 
