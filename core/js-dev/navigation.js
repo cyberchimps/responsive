@@ -172,41 +172,6 @@
 		}
 	}( container ) );
 
-    search_link = document.getElementById( 'res-search-link' );
-
-    if ( search_link ) {
-        search_link.onclick = function() {
-            search_form = container.getElementsByTagName( 'form' )[0];
-            if ( search_form.style.display == 'block' ) {
-                search_form.style.display = 'none';
-            } else {
-                search_form.style.display = 'block';
-            }
-        }
-    }
-
-	search_style = document.getElementById( 'full-screen-res-search-link' );
-
-    if ( search_style ) {
-		search_style_form = document.getElementById( 'full-screen-search-wrapper' );
-		search_style_form.style.display = 'none';
-        search_style.onclick = function() {
-			search_style_form.style.display = 'block';
-            search_style_form.style.position = 'fixed';
-			search_form = container.getElementsByTagName( 'form' )[0];
-            search_form.style.display = 'block';
-        }
-    }
-
-	search_close = document.getElementById( 'search-close' );
-	if( search_close  ) {
-        search_close.onclick = function() {
-            search_style_form = document.getElementById( 'full-screen-search-wrapper' );
-                search_style_form.style.display = 'none';
-        }
-    }
-
-
       menu_close = document.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
     	if( menu_close  ) {
         menu_close.onclick = function() {

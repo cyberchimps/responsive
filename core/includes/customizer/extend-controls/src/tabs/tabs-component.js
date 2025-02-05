@@ -169,6 +169,70 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_header_button_bg_color').style.display = 'none';
 			document.getElementById('customize-control-responsive_header_button_bg_color_separator').style.display = 'none';
 		}
+		if( api('responsive_header_search_style_design').get() === 'bordered' && 'design' === tab ) {
+			document.getElementById('customize-control-responsive_header_search_border').style.display = 'block';
+			document.getElementById('customize-control-responsive_header_search_separator6').style.display = 'block';
+			document.getElementById('customize-control-responsive_border_header_search_border_radius').style.display = 'block';
+			document.getElementById('customize-control-responsive_header_search_separator14').style.display = 'block';
+		} else {
+			document.getElementById('customize-control-responsive_header_search_border').style.display = 'none';
+			document.getElementById('customize-control-responsive_header_search_separator6').style.display = 'none';
+			document.getElementById('customize-control-responsive_border_header_search_border_radius').style.display = 'none';
+			document.getElementById('customize-control-responsive_header_search_separator14').style.display = 'none';
+		}
+		// Header Search Border control toggle.
+		wp.customize( 'responsive_header_search_style_design', function( setting ) {
+			setting.bind( function( newval ) {
+				if( 'default' === newval ) {
+					document.getElementById('customize-control-responsive_header_search_border').style.display = 'none';
+					document.getElementById('customize-control-responsive_header_search_separator6').style.display = 'none';
+					document.getElementById('customize-control-responsive_border_header_search_border_radius').style.display = 'none';
+					document.getElementById('customize-control-responsive_header_search_separator14').style.display = 'none';
+				} else if( 'bordered' === newval && 'design' === tab ) {
+					document.getElementById('customize-control-responsive_header_search_border').style.display = 'block';
+					document.getElementById('customize-control-responsive_header_search_separator6').style.display = 'block';
+					document.getElementById('customize-control-responsive_border_header_search_border_radius').style.display = 'block';
+					document.getElementById('customize-control-responsive_header_search_separator14').style.display = 'block';
+				}
+			} );
+		} );
+		if( api('responsive_header_search_label').get() !== '' ) {
+			if( 'design' === tab ) {
+				document.getElementById('customize-control-responsive_header_search_label_typography_group').style.display = 'block';
+				document.getElementById('customize-control-responsive_header_search_separator10').style.display = 'block';
+			}
+			if( 'general' === tab ) {
+				document.getElementById('customize-control-responsive_header_search_label_visibility').style.display = 'block';
+				document.getElementById('customize-control-responsive_header_search_separator3').style.display = 'block';
+			}
+		} else {
+			document.getElementById('customize-control-responsive_header_search_label_visibility').style.display = 'none';
+			document.getElementById('customize-control-responsive_header_search_separator3').style.display = 'none';
+			document.getElementById('customize-control-responsive_header_search_label_typography_group').style.display = 'none';
+			document.getElementById('customize-control-responsive_header_search_separator10').style.display = 'none';
+		}
+		if( api('search_style').get() ) {
+			const search_style = api('search_style').get();
+			if( search_style !== 'full-screen' ) {
+				document.getElementById('customize-control-responsive_header_search_separator12').style.display = 'none';
+				document.getElementById('customize-control-responsive_header_search_modal_options_separator').style.display = 'none';
+				document.getElementById('customize-control-responsive_header_search_text_color').style.display = 'none';
+				document.getElementById('customize-control-responsive_header_search_separator4').style.display = 'none';
+				document.getElementById('customize-control-responsive_header_search_modal_background_color').style.display = 'none';
+
+				document.getElementById('customize-control-responsive_header_search_label').style.display = 'none';
+				document.getElementById('customize-control-responsive_header_search_separator2').style.display = 'none';
+				document.getElementById('customize-control-responsive_header_search_label_visibility').style.display = 'none';
+				document.getElementById('customize-control-responsive_header_search_separator3').style.display = 'none';
+				document.getElementById('customize-control-responsive_header_search_label_typography_group').style.display = 'none';
+				document.getElementById('customize-control-responsive_header_search_separator10').style.display = 'none';			
+			}
+			if( search_style === 'full-screen' ) {
+				document.getElementById('customize-control-responsive_header_search_width').style.display = 'none';
+				document.getElementById('customize-control-responsive_header_search_separator13').style.display = 'none';
+			}
+		}
+		
 	}, [tab]);
 
 	const toggleSidebarPositionWidthControls = (value, control) => {

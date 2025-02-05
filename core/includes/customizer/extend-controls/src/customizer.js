@@ -220,4 +220,52 @@
 		} );
 	} );
 
+	wp.customize('responsive_header_search_label', function(setting) {
+		setting.bind(function(label) {
+			const general_tab = $('#responsive_header_search_general_tab'); 
+			const design_tab  = $('#responsive_header_search_design_tab'); 
+
+			const controls = {
+				visibility: $('#customize-control-responsive_header_search_label_visibility'),
+				separator2: $('#customize-control-responsive_header_search_separator3'),
+				typography: $('#customize-control-responsive_header_search_label_typography_group'),
+				separator10: $('#customize-control-responsive_header_search_separator10')
+			};
+
+			if (label.length > 0) {
+				if (general_tab.hasClass('nav-tab-active')) {
+					controls.visibility.fadeIn(300);
+					controls.separator2.fadeIn(300);
+				}
+				if (design_tab.hasClass('nav-tab-active')) {
+					controls.typography.fadeIn(300);
+					controls.separator10.fadeIn(300);
+				}
+			} else {
+				$.each(controls, function(_, control) {
+					control.fadeOut(300);
+				});
+			}
+		});
+	});
+	wp.customize( 'search_style', function(setting){
+		setting.bind( function( type ) {
+			if( 'full-screen' !== type ) {
+				$('#customize-control-responsive_header_search_label').fadeOut(300);
+                $('#customize-control-responsive_header_search_separator2').fadeOut(300);
+                $('#customize-control-responsive_header_search_label_visibility').fadeOut(300);
+                $('#customize-control-responsive_header_search_separator3').fadeOut(300);
+                document.getElementById('customize-control-responsive_header_search_label_typography_group').style.display = 'none';
+                document.getElementById('customize-control-responsive_header_search_separator10').style.display = 'none';
+			} else {
+				$('#customize-control-responsive_header_search_label').fadeIn(300);
+                $('#customize-control-responsive_header_search_separator2').fadeIn(300);
+                if( wp.customize('responsive_header_search_label').get().length > 0 ) {
+                    $('#customize-control-responsive_header_search_label_visibility').fadeIn(300);
+                    $('#customize-control-responsive_header_search_separator3').fadeIn(300);
+                }
+			}
+        } );
+	} );
+	
 } )( jQuery, wp );

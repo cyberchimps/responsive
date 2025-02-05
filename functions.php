@@ -497,6 +497,12 @@ function responsive_edit_customize_register( $wp_customize ) {
 			'selector' => '.rspv-site-below-footer-wrap',
 		)
 	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_header_search_tabs',
+		array(
+			'selector' => '.responsive-header-search',
+		)
+	);
 }
 add_action( 'customize_register', 'responsive_edit_customize_register' );
 add_theme_support( 'customize-selective-refresh-widgets' );

@@ -751,6 +751,22 @@
             }
         });
     });
+    // Header Search Style Design
+    api( 'responsive_header_search_style_design', function (style){
+        style.bind(function (design) {
+            if( 'bordered' === design ){
+                $( '.responsive-header-search-icon-wrap' ).css( 'border', api( 'responsive_header_search_border' ).get()+'px solid currentColor' );
+            } else {
+                $( '.responsive-header-search-icon-wrap' ).css( 'border', 0 );
+            }
+        });
+    });
+    // Header Search Border.
+    api( 'responsive_header_search_border', function (setting){
+        setting.bind(function (width) {
+            $( '.responsive-header-search-icon-wrap' ).css( 'border', width+'px solid currentColor' );
+        });
+    });
     
 
 } )( jQuery );

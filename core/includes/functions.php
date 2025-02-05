@@ -417,6 +417,11 @@ if ( ! function_exists( 'responsive_js' ) ) {
 		$template_directory_uri = get_template_directory_uri();
 
 		wp_enqueue_script( 'navigation-scripts', $template_directory_uri . '/core/' . $directory . '/navigation' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, true );
+		
+		// enqueue searchform script only when search element is present in builder.
+		if ( responsive_check_element_present_in_hfb( 'search', 'header' ) ) {
+			wp_enqueue_script( 'searchform-script', $template_directory_uri . '/core/' . $directory . '/searchform' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, true );
+		}
 
 		$mobile_menu_breakpoint = array( 'mobileBreakpoint' => get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
 		wp_localize_script( 'navigation-scripts', 'responsive_breakpoint', $mobile_menu_breakpoint );
@@ -589,9 +594,8 @@ function responsive_add_custom_body_classes( $classes ) {
 		$classes[] = 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' );
 	}
 
-	$search_icon   = get_theme_mod( 'responsive_menu_last_item', 'none' );
 	$search_screen = get_theme_mod( 'search_style', 'search' );
-	if ( 'search' === $search_icon && 'full-screen' == $search_screen ) {
+	if ( 'full-screen' == $search_screen ) {
 		$classes[] = 'full-screen';
 	}
 
@@ -1177,6 +1181,12 @@ function defaults() {
 			'responsive_body_text_color'          => '#333333',
 			'responsive_link_color'               => '#0066CC',
 			'responsive_link_hover_color'         => '#10659C',
+			'responsive_header_search_color'      => '#333333',
+			'responsive_header_search_hover_color'=> '#333333',
+			'responsive_header_search_background_color'       => '#ffffff',
+			'responsive_header_search_background_hover_color' => '#ffffff',
+			'responsive_header_search_text_color'             => '#333333',
+			'responsive_header_search_text_hover_color'       => '#333333',
 			'responsive_header_desktop_items'     => array(
 				'above' => array(
 					'above_left'           => array(),
@@ -1353,6 +1363,10 @@ function defaults() {
 																				'name'    => esc_html__( 'Header Widgets', 'responsive' ),
 																				'section' => 'responsive_header_widget',
 																				'icon'    => 'wordpress',
+																			'search'          => array(
+																				'name'    => esc_html__( 'Search', 'responsive' ),
+																				'section' => 'responsive_header_search',
+																				'icon'    => 'search',
 																			),
 																		),
 		)

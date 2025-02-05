@@ -88,31 +88,31 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			responsive_select_control( $wp_customize, 'menu_last_item', $menu_last_item, 'responsive_header_menu_layout', 30, $menu_last_item_choices, 'none', 'responsive_disabled_main_menu' );
 
 			// Search Style.
-			$wp_customize->add_setting(
-				'search_style',
-				array(
-					'default'           => 'default',
-					'transport'         => 'refresh',
-					'sanitize_callback' => 'responsive_sanitize_select',
-				)
-			);
-			$wp_customize->add_control(
-				new Responsive_Customizer_Select_Control(
-					$wp_customize,
-					'search_style',
-					array(
-						'label'           => __( 'Search Style', 'responsive' ),
-						'section'         => 'responsive_header_menu_layout',
-						'priority'        => 31,
-						'settings'        => 'search_style',
-						'active_callback' => 'responsive_menu_search_icon',
-						'choices'         => array(
-							'search'      => esc_html__( 'Default', 'responsive' ),
-							'full-screen' => esc_html__( 'Full Screen Search', 'responsive' ),
-						),
-					)
-				)
-			);
+			// $wp_customize->add_setting(
+			// 	'search_style',
+			// 	array(
+			// 		'default'           => 'default',
+			// 		'transport'         => 'refresh',
+			// 		'sanitize_callback' => 'responsive_sanitize_select',
+			// 	)
+			// );
+			// $wp_customize->add_control(
+			// 	new Responsive_Customizer_Select_Control(
+			// 		$wp_customize,
+			// 		'search_style',
+			// 		array(
+			// 			'label'           => __( 'Search Style', 'responsive' ),
+			// 			'section'         => 'responsive_header_menu_layout',
+			// 			'priority'        => 31,
+			// 			'settings'        => 'search_style',
+			// 			'active_callback' => 'responsive_menu_search_icon',
+			// 			'choices'         => array(
+			// 				'search'      => esc_html__( 'Default', 'responsive' ),
+			// 				'full-screen' => esc_html__( 'Full Screen Search', 'responsive' ),
+			// 			),
+			// 		)
+			// 	)
+			// );
 
 			// Last Item In Menu CTA Text.
 			$menu_button_text = __( 'CTA Button Text', 'responsive' );

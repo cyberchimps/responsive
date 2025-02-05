@@ -267,5 +267,37 @@
             });
         });
     });
+    // Apply Header Search element border radius - Start.
+    const headerSearchBorderRadius = [
+        'responsive_header_search_border_radius_top_left_radius',
+        'responsive_header_search_border_radius_bottom_left_radius',
+        'responsive_header_search_border_radius_bottom_right_radius',
+        'responsive_header_search_border_radius_top_right_radius',
+        'responsive_header_search_border_radius_tablet_top_left_radius',
+        'responsive_header_search_border_radius_tablet_top_right_radius',
+        'responsive_header_search_border_radius_tablet_bottom_right_radius',
+        'responsive_header_search_border_radius_tablet_bottom_left_radius',
+        'responsive_header_search_border_radius_mobile_top_left_radius',
+        'responsive_header_search_border_radius_mobile_top_right_radius',
+        'responsive_header_search_border_radius_mobile_bottom_right_radius',
+        'responsive_header_search_border_radius_mobile_bottom_left_radius',
+    ];
 
+    headerSearchBorderRadius.forEach(setting => {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_radius( 'header_search_border', '.responsive-header-search-icon-wrap' );
+            });
+        });
+    });
+    api( 'responsive_header_search_style_design', function(setting) {
+        setting.bind(function(style) {
+            if( 'bordered' === style ) {
+                headerSearchBorderRadius.forEach(setting => {
+                    responsive_dynamic_radius( 'header_search_border', '.responsive-header-search-icon-wrap' );
+                });
+            }
+        });
+    });
+    // Apply Header Search element border radius - End
 } )( jQuery );
