@@ -8,7 +8,7 @@
 if( ! defined('ABSPATH') ) {
     exit; // Exit if accessed directly.
 }
-require_once get_stylesheet_directory() . '/core/includes/responsive-icon-library.php';
+require_once get_template_directory_uri() . '/core/includes/responsive-icon-library.php';
 ?>
 <div class="site-header-item site-header-focus-item" data-section="responsive_customizer_header_contact_info">
 	<?php
