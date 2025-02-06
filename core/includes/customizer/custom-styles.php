@@ -1279,32 +1279,11 @@ function responsive_customizer_styles() {
 		}';
 
 		$custom_css .= '.elementor-button-wrapper .elementor-button {
+			border-style: solid;
 			border-top-left-radius: ' . $button_top_left_radius . 'px;
 			border-top-right-radius: ' . $button_top_right_radius . 'px;
 			border-bottom-left-radius: ' . $button_bottom_left_radius . 'px;
 			border-bottom-right-radius: ' . $button_bottom_right_radius . 'px;
-		}';
-
-		$custom_css .= '@media screen and ( max-width: 992px ) {
-			.elementor-button-wrapper .elementor-button {
-				border-top-left-radius: ' . $button_tablet_top_left_radius . 'px;
-				border-top-right-radius: ' . $button_tablet_top_right_radius . 'px;
-				border-bottom-left-radius: ' . $button_tablet_bottom_left_radius . 'px;
-				border-bottom-right-radius: ' . $button_tablet_bottom_right_radius . 'px;
-			}
-		}';
-
-		$custom_css .= '@media screen and ( max-width: 576px ) {
-			.elementor-button-wrapper .elementor-button {
-				border-top-left-radius: ' . $button_mobile_top_left_radius . 'px;
-				border-top-right-radius: ' . $button_mobile_top_right_radius . 'px;
-				border-bottom-left-radius: ' . $button_mobile_bottom_left_radius . 'px;
-				border-bottom-right-radius: ' . $button_mobile_bottom_right_radius . 'px;
-			}
-		}';
-
-		$custom_css .= '.elementor-button-wrapper .elementor-button {
-			border-style: solid;
 			border-top-width: ' . $buttons_border_width_top . 'px;
 			border-right-width: ' . $buttons_border_width_right . 'px;
 			border-bottom-width: ' . $buttons_border_width_bottom . 'px;
@@ -1314,7 +1293,10 @@ function responsive_customizer_styles() {
 
 		$custom_css .= '@media screen and ( max-width: 992px ) {
 			.elementor-button-wrapper .elementor-button {
-				border-style: solid;
+				border-top-left-radius: ' . $button_tablet_top_left_radius . 'px;
+				border-top-right-radius: ' . $button_tablet_top_right_radius . 'px;
+				border-bottom-left-radius: ' . $button_tablet_bottom_left_radius . 'px;
+				border-bottom-right-radius: ' . $button_tablet_bottom_right_radius . 'px;
 				border-top-width: ' . $buttons_border_tablet_width_top . 'px;
 				border-right-width: ' . $buttons_border_tablet_width_right . 'px;
 				border-bottom-width: ' . $buttons_border_tablet_width_bottom . 'px;
@@ -1324,7 +1306,10 @@ function responsive_customizer_styles() {
 
 		$custom_css .= '@media screen and ( max-width: 576px ) {
 			.elementor-button-wrapper .elementor-button {
-				border-style: solid;
+				border-top-left-radius: ' . $button_mobile_top_left_radius . 'px;
+				border-top-right-radius: ' . $button_mobile_top_right_radius . 'px;
+				border-bottom-left-radius: ' . $button_mobile_bottom_left_radius . 'px;
+				border-bottom-right-radius: ' . $button_mobile_bottom_right_radius . 'px;
 				border-top-width: ' . $buttons_border_mobile_width_top . 'px;
 				border-right-width: ' . $buttons_border_mobile_width_right . 'px;
 				border-bottom-width: ' . $buttons_border_mobile_width_bottom . 'px;

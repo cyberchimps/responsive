@@ -1534,23 +1534,28 @@ endif;
 	function responsive_border_width_backward_compatibility() {
 		if ( ! get_option( 'responsive_old_border_width_compatible_done' ) ) {
 			// Set default fallback value
-			$default_value = '1px';
+			$default_value = 1;
 			
 			// Inputs border width 
 			$input_border_width = get_theme_mod( 'responsive_inputs_border_width', $default_value );
+			error_log('this is current input border width'. $input_border_width);
 
-			foreach ( [ 'top', 'right', 'bottom', 'left' ] as $side ) {
+			$sides = [ 'top', 'right', 'bottom', 'left' ];
+
+			foreach ( $sides as $side ) {
 				$option_name = "responsive_inputs_border_width_{$side}_border";
-				if ( ! get_option( $option_name ) ) {
+				if ( false === get_theme_mod( $option_name ) ) {
+					error_log('this option is not present'. $option_name);
 					set_theme_mod( $option_name, $input_border_width );
 				}
 			}
 
 			// Mobile inputs border width
-			foreach ( [ 'top', 'right', 'bottom', 'left' ] as $side ) {
+			foreach ( $sides as $side ) {
 				$mobile_option_name = "responsive_inputs_border_width_mobile_{$side}_border";
 				$desktop_option_name = "responsive_inputs_border_width_{$side}_border";
-				if ( ! get_option( $mobile_option_name ) ) {
+				if ( false === get_theme_mod( $mobile_option_name ) ) {
+					error_log('this option is not present'. $mobile_option_name);
 					set_theme_mod(
 						$mobile_option_name,
 						get_theme_mod( $desktop_option_name, $input_border_width )
@@ -1559,10 +1564,11 @@ endif;
 			}
 
 			// Tablet inputs border width 
-			foreach ( [ 'top', 'right', 'bottom', 'left' ] as $side ) {
+			foreach ( $sides as $side ) {
 				$tablet_option_name = "responsive_inputs_border_width_tablet_{$side}_border";
 				$desktop_option_name = "responsive_inputs_border_width_{$side}_border";
-				if ( ! get_option( $tablet_option_name ) ) {
+				if ( false === get_theme_mod( $tablet_option_name ) ) {
+					error_log('this option is not present'. $tablet_option_name);
 					set_theme_mod(
 						$tablet_option_name,
 						get_theme_mod( $desktop_option_name, $input_border_width )
@@ -1573,7 +1579,7 @@ endif;
 			// Buttons border width 
 			$button_border_width = get_theme_mod( 'responsive_buttons_border_width', $default_value );
 
-			foreach ( [ 'top', 'right', 'bottom', 'left' ] as $side ) {
+			foreach ( $sides as $side ) {
 				set_theme_mod( "responsive_buttons_border_width_{$side}_border", $button_border_width );
 				set_theme_mod( "responsive_buttons_border_width_mobile_{$side}_border", $button_border_width );
 				set_theme_mod( "responsive_buttons_border_width_tablet_{$side}_border", $button_border_width );
