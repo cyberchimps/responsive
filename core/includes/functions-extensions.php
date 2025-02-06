@@ -440,7 +440,7 @@ function responsive_get_social_icons( $area ) {
 			$social_icons_sequence[] = $social_item['id'];
 		}
 		if ( $count > 0 && $area === '_header' || $count > 0 && $area === '_footer' ) {
-			require get_stylesheet_directory() . '/core/includes/responsive-icon-library.php'
+			require get_template_directory_uri() . '/core/includes/responsive-icon-library.php';
 			?>
 			<div class="header-layouts social-icon">
 				<ul class="social-icons">
