@@ -353,6 +353,10 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 			responsive_old_woo_cart_comaptibility_with_header_builder_woo_cart();
 			update_option( 'responsive_old_woo_cart_comaptibility_with_header_builder_woo_cart', true );
 		}
+		if ( ! get_option( 'responsive_old_header_search_compatibility_with_hfb_header_search' ) ) {
+			responsive_old_header_search_compatibility_with_hfb_header_search_element();
+            update_option( 'responsive_old_header_search_compatibility_with_hfb_header_search', true );
+		}
 	}
 
 endif;
@@ -1364,6 +1368,7 @@ function defaults() {
 																				'name'    => esc_html__( 'Header Widgets', 'responsive' ),
 																				'section' => 'responsive_header_widget',
 																				'icon'    => 'wordpress',
+																			),
 																			'search'          => array(
 																				'name'    => esc_html__( 'Search', 'responsive' ),
 																				'section' => 'responsive_header_search',
@@ -2035,6 +2040,33 @@ if( ! function_exists( 'responsive_old_woo_cart_comaptibility_with_header_builde
 				$target_mod = "responsive_header_woo_cart_padding_$type";
 				set_theme_mod( $target_mod, 4 );
 			}
+		}
+	}
+}
+
+/**
+ * Make Search Icon in Menu compatible with new hfb header Search element.
+ * @since 6.1.3
+ */
+if ( ! function_exists( 'responsive_old_header_search_compatibility_with_hfb_header_search_element' ) ) {
+
+	/**
+	 * Make Search Icon in Menu (deprecated) compatible with new hfb header Search element.
+	 * @since 6.1.3
+	 */
+	function responsive_old_header_search_compatibility_with_hfb_header_search_element() {
+
+		$is_search_element_already_loaded = responsive_check_element_present_in_hfb( 'search', 'header' );
+		if ( $is_search_element_already_loaded ) {
+			return;
+		}
+
+		$search_icon = get_theme_mod( 'responsive_menu_last_item', 'none' );
+		error_log( 'responsive_menu_last_item: ' . print_r( $search_icon, true ) );
+		if ( 'search' === $search_icon ) {
+			$header_hfb_elements = get_theme_mod( 'responsive_header_desktop_items', get_responsive_customizer_defaults( 'responsive_header_desktop_items' ) );
+			array_push( $header_hfb_elements['primary']['primary_right'], 'search' );
+			set_theme_mod( 'responsive_header_desktop_items', $header_hfb_elements );
 		}
 	}
 }
