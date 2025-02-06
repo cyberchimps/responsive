@@ -1258,12 +1258,17 @@ body.mega-menu-header-menu button.menu-toggle {
             #searchform {
                visibility: visible;
                transition: all 0.2s ease;
+               opacity: 1;
+               transform: translateY(0);
             }
         }
         #searchform {
-           position: absolute;
-           right: 0;
-           top: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            opacity: 0;
+            transform: translateY(0);
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s;
         }
     }
 }

@@ -4943,15 +4943,15 @@ function responsive_customizer_styles() {
 		$header_search_padding_values = get_responsive_spacing_values('responsive_header_search_padding', 10, 10, 10, 10);
 		$header_search_margin_values  = get_responsive_spacing_values('responsive_header_search_margin');
 		$custom_css .= ".responsive-header-search-icon-wrap {";
-		$custom_css .= build_responsive_spacing_css($header_search_padding_values['desktop'], $header_search_margin_values['desktop']);
+		$custom_css .= responsive_build_responsive_spacing_css($header_search_padding_values['desktop'], $header_search_margin_values['desktop']);
 		$custom_css .= "}";
 		$custom_css .= "@media screen and (max-width: 992px) {";
 		$custom_css .= ".responsive-header-search-icon-wrap {";
-		$custom_css .= build_responsive_spacing_css($header_search_padding_values['tablet'], $header_search_margin_values['tablet']);
+		$custom_css .= responsive_build_responsive_spacing_css($header_search_padding_values['tablet'], $header_search_margin_values['tablet']);
 		$custom_css .= "}}";
 		$custom_css .= "@media screen and (max-width: 576px) {";
 		$custom_css .= ".responsive-header-search-icon-wrap {";
-		$custom_css .= build_responsive_spacing_css($header_search_padding_values['mobile'], $header_search_margin_values['mobile']);
+		$custom_css .= responsive_build_responsive_spacing_css($header_search_padding_values['mobile'], $header_search_margin_values['mobile']);
 		$custom_css .= "}}";
 	
 		//Header Search Element CSS - End
