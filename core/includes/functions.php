@@ -1538,14 +1538,12 @@ endif;
 			
 			// Inputs border width 
 			$input_border_width = get_theme_mod( 'responsive_inputs_border_width', $default_value );
-			error_log('this is current input border width'. $input_border_width);
 
 			$sides = [ 'top', 'right', 'bottom', 'left' ];
 
 			foreach ( $sides as $side ) {
 				$option_name = "responsive_inputs_border_width_{$side}_border";
 				if ( false === get_theme_mod( $option_name ) ) {
-					error_log('this option is not present'. $option_name);
 					set_theme_mod( $option_name, $input_border_width );
 				}
 			}
@@ -1555,7 +1553,6 @@ endif;
 				$mobile_option_name = "responsive_inputs_border_width_mobile_{$side}_border";
 				$desktop_option_name = "responsive_inputs_border_width_{$side}_border";
 				if ( false === get_theme_mod( $mobile_option_name ) ) {
-					error_log('this option is not present'. $mobile_option_name);
 					set_theme_mod(
 						$mobile_option_name,
 						get_theme_mod( $desktop_option_name, $input_border_width )
@@ -1568,7 +1565,6 @@ endif;
 				$tablet_option_name = "responsive_inputs_border_width_tablet_{$side}_border";
 				$desktop_option_name = "responsive_inputs_border_width_{$side}_border";
 				if ( false === get_theme_mod( $tablet_option_name ) ) {
-					error_log('this option is not present'. $tablet_option_name);
 					set_theme_mod(
 						$tablet_option_name,
 						get_theme_mod( $desktop_option_name, $input_border_width )
