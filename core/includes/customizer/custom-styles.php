@@ -1063,10 +1063,8 @@ function responsive_customizer_styles() {
 	input[type=submit]:hover,
 	input[type=button]:focus,
 	input[type=submit]:focus,
-	button:not(.customize-partial-edit-shortcut-button):hover,
-	button:not(.customize-partial-edit-shortcut-button):focus,
-	.button:not(.customize-partial-edit-shortcut-button):hover,
-	.button:not(.customize-partial-edit-shortcut-button):focus,
+	button,
+	.button,
 	body div.wpforms-container-full .wpforms-form input[type=submit]:hover,
 	body div.wpforms-container-full .wpforms-form input[type=submit]:focus,
 	body div.wpforms-container-full .wpforms-form input[type=submit]:active,
@@ -1077,12 +1075,7 @@ function responsive_customizer_styles() {
 	body div.wpforms-container-full .wpforms-form .wpforms-page-button:active,
 	body div.wpforms-container-full .wpforms-form .wpforms-page-button:focus, .main-navigation .menu .res-button-menu .res-custom-button:hover {
 	    color:' . $button_hover_text_color . ';
-		border-color: ' . $button_hover_border_color . ';
-		border-style: solid;
-		border-top-width: ' . $buttons_border_width_top . 'px;
-		border-right-width: ' . $buttons_border_width_right . 'px;
-		border-bottom-width: ' . $buttons_border_width_bottom . 'px;
-		border-left-width: ' . $buttons_border_width_left . 'px;
+		border-color: ' . $button_hover_border_color . ';	
 		background-color:' . $button_hover_color . ';
 	}
 
