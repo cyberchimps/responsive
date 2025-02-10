@@ -1233,3 +1233,14 @@ body.mega-menu-header-menu button.menu-toggle {
         }
     }
 }
+// custom css for custom home page socials
+.custom-home-page-set {
+    & .site-header .social-icons {
+        & a, a:hover {
+            color: #FFF !important;
+        }
+        & a i {
+            font-size:18px;
+        }
+    }
+}

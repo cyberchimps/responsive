@@ -17,6 +17,11 @@ class Responsive_Home_Starter_Content {
 	 */
 	public function __construct() {
         $is_fresh_site = get_option( 'fresh_site' );
+		error_log( 'is_fresh_site: ' . print_r( $is_fresh_site, true ) );
+		if ( ! $is_fresh_site ) {
+			return;
+		}
+
 		// Adding post meta and inserting post.
 		add_action(
 			'wp_insert_post',
@@ -28,18 +33,21 @@ class Responsive_Home_Starter_Content {
 			99
 		);
 		// Save responsiiive settings into database.
-		add_action(
-			'customize_save_after',
-			array(
-				$this,
-				'save_responsive_settings',
-			),
-			10,
-			3
-		);
+		// add_action(
+		// 	'customize_save_after',
+		// 	array(
+		// 		$this,
+		// 		'save_responsive_settings',
+		// 	),
+		// 	10,
+		// 	3
+		// );
 		if ( ! is_customize_preview() ) {
 			return;
 		}
+
+		add_filter( 'body_class', array( $this, 'responsive_add_custom_home_body_class' ), 999 );
+
 		// preview customizer values.
 		// add_filter( 'default_post_metadata', array( $this, 'starter_meta' ), 99, 3 );
 
@@ -48,6 +56,17 @@ class Responsive_Home_Starter_Content {
 		// add_filter( 'responsive_global_color_palette', array( $this, 'theme_color_palettes_defaults' ) );
 
 	}
+
+	/**
+	 * Funtion to add CSS class to body
+	 *
+	 * @param array $classes html classes.
+	 */
+	function responsive_add_custom_home_body_class( $classes ) {
+		$classes[] = 'custom-home-page-set';
+		return $classes;
+	}
+
 	/**
 	 * Load default starter meta.
 	 *
@@ -181,6 +200,11 @@ class Responsive_Home_Starter_Content {
 	 * @since 4.0.0
 	 */
 	public function get() {
+		$header_hfb_elements = get_theme_mod( 'responsive_header_desktop_items', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_desktop_items' ) );
+		if ( ! in_array( 'social', $header_hfb_elements['primary']['primary_right'], true ) ) {
+			array_push( $header_hfb_elements['primary']['primary_right'], 'social' );
+		}
+		set_theme_mod( 'responsive_header_desktop_items', $header_hfb_elements );
         update_option( 'responsive_insert_custom_home', true );
 		$nav_items_header = array(
 			'home'     => array(
@@ -281,16 +305,26 @@ class Responsive_Home_Starter_Content {
 				'responsive_meta_text_color' => '#3a1d74',
 				'responsive_header_background_color' => '#2d2c52',
 				'responsive_header_mobile_menu_background_color' => '#2d2c52',
+				'responsive_header_primary_row_bg_color' => '#2d2c52',
+				'responsive_header_primary_row_bg_hover_color' => '#2d2c52',
 				'responsive_header_active_menu_link_color' => '#ffffff',
-				'responsive_footer_background_color' => '#ffffff',
-				'responsive_footer_text_color' => '#747474',
-				'responsive_footer_links_color' => '#3a1d74',
-				'responsive_footer_links_hover_color' => '#3a1d74',
+				// 'responsive_footer_background_color' => '#ffffff',
+				// 'responsive_footer_text_color' => '#747474',
+				// 'responsive_footer_links_color' => '#3a1d74',
+				// 'responsive_footer_links_hover_color' => '#3a1d74',
+				'responsive_footer_copyright_text_color' => '#747474',
+				'responsive_footer_copyright_text_hover_color' => '#747474',
+				'responsive_footer_copyright_links_color' => '#3a1d74',
+				'responsive_footer_copyright_links_hovercolor' => '#3a1d74',
 				'responsive_content_header_heading_color' => '#ffffff',
-				'footer_typography_font_size_value' => 18,
-				'footer_typography[font-size]' => '18px',
-				'footer_mobile_typography_font_size_value' => 8,
-				'footer_mobile_typography[font-size]' => '8px',
+				// 'footer_typography_font_size_value' => 18,
+				// 'footer_typography[font-size]' => '18px',
+				// 'footer_mobile_typography_font_size_value' => 8,
+				// 'footer_mobile_typography[font-size]' => '8px',
+				'footer_copyright_typography_font_size_value' => 18,
+				'footer_copyright_typography[font-size]' => '18px',
+				'footer_copyright_mobile_typography_font_size_value' => 8,
+				'footer_copyright_mobile_typography[font-size]' => '8px',
 				'responsive_footer_bar_layout' => 'vertical',
                 'responsive_header_active_menu_background_color' => '#2d2c52',
                 'responsive_header_hover_menu_background_color' => '#2d2c52',
@@ -316,6 +350,10 @@ class Responsive_Home_Starter_Content {
 				'responsive_footer_bar_mobile_bottom_padding' => 0,
 				'responsive_footer_bar_mobile_right_padding' => 0,
 				'responsive_header_menu_toggle_color' => '#ffffff',
+				'responsive_theme_options[twitter_uid]' => '#',
+				'responsive_theme_options[facebook_uid]' => '#',
+				'responsive_theme_options[instagram_uid]' => '#',
+				'responsive_footer_primary_row_bg_color' => '#ffffff',
 			),
 			'options'     => array(
 				'show_on_front' => 'page',
