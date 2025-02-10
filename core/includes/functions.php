@@ -2059,11 +2059,20 @@ if ( ! function_exists( 'responsive_old_header_search_compatibility_with_hfb_hea
 		}
 
 		$search_icon = get_theme_mod( 'responsive_menu_last_item', 'none' );
-		error_log( 'responsive_menu_last_item: ' . print_r( $search_icon, true ) );
 		if ( 'search' === $search_icon ) {
 			$header_hfb_elements = get_theme_mod( 'responsive_header_desktop_items', get_responsive_customizer_defaults( 'responsive_header_desktop_items' ) );
 			array_push( $header_hfb_elements['primary']['primary_right'], 'search' );
 			set_theme_mod( 'responsive_header_desktop_items', $header_hfb_elements );
+			//make search border color backward compatible.
+			$menu_items_color       = get_theme_mod( 'responsive_header_menu_link_color' );
+			$menu_items_hover_color = get_theme_mod( 'responsive_header_menu_link_hover_color' );
+			if( $menu_items_color ) {
+				set_theme_mod( 'responsive_header_search_color', $menu_items_color );
+				set_theme_mod( 'responsive_header_search_hover_color', $menu_items_color );
+			}
+			if( $menu_items_hover_color ) {
+				set_theme_mod( 'responsive_header_search_hover_color', $menu_items_hover_color );
+			}
 		}
 	}
 }

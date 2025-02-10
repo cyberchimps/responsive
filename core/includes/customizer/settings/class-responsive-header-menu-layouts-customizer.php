@@ -81,7 +81,6 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			$menu_last_item         = __( 'Last Item in Menu', 'responsive' );
 			$menu_last_item_choices = array(
 				'none'      => __( 'None', 'responsive' ),
-				'search'    => __( 'Search Icon', 'responsive' ),
 				'button'    => __( 'CTA Button', 'responsive' ),
 				'text-html' => __( 'Text / HTML', 'responsive' ),
 			);

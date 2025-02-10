@@ -36,7 +36,7 @@
             // Hide search form if clicking outside
             document.addEventListener("click", function (event) {
                 Array.from(containers).forEach(function (container) {
-                    var search_form = container.querySelector("#searchform");
+                    let search_form = container.querySelector("#searchform");
                     if (search_form && sibling && !container.contains(event.target)) {
                         sibling.classList.remove('search-active');
                     }
@@ -65,13 +65,13 @@
         });
     
         if (search_style && containers.length > 0) {
-            var search_style_form = document.getElementById("full-screen-search-wrapper");
+            let search_style_form = document.getElementById("full-screen-search-wrapper");
             if (search_style_form) {
                 search_style.onclick = function () {
                     search_style_form.style.display = "block";
                     search_style_form.style.position = "fixed";
                     Array.from(containers).forEach(function (container) {
-                        var search_form = container.getElementsByTagName("form")[0];
+                        let search_form = container.getElementsByTagName("form")[0];
                         if (search_form) {
                             search_form.style.display = "block";
                             search_form.querySelector("input[type='search']").focus();
@@ -83,7 +83,7 @@
     
         if (search_close) {
             search_close.onclick = function () {
-                var search_style_form = document.getElementById("full-screen-search-wrapper");
+                let search_style_form = document.getElementById("full-screen-search-wrapper");
                 if (search_style_form) {
                     search_style_form.style.display = "none";
                 }

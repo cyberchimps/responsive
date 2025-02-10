@@ -147,12 +147,24 @@ const TabsComponent = props => {
 		}
 		if( api('responsive_cart_style') ) {
             if( api('responsive_cart_style').get() !== 'outline' && 'design' === tab ) {
-                document.getElementById('customize-control-responsive_cart_border_width').style.display = 'none';
+				let cartBorderWidth = document.getElementById('customize-control-responsive_cart_border_width');
+				if (cartBorderWidth) {
+					cartBorderWidth.style.display = 'none';
+				}
             }
             if( api('responsive_cart_style').get() === 'none' && 'design' === tab ) {
-                document.getElementById('customize-control-responsive_cart_border_separator').style.display = 'none';
-                document.getElementById('customize-control-responsive_border_cart_radius').style.display = 'none';
-                document.getElementById('customize-control-responsive_header_woo_cart_separator_8').style.display = 'none';
+				let cartElementIds = [
+					'customize-control-responsive_cart_border_separator',
+					'customize-control-responsive_border_cart_radius',
+					'customize-control-responsive_header_woo_cart_separator_8'
+				];
+		
+				cartElementIds.forEach(id => {
+					let el = document.getElementById(id);
+					if (el) {
+						el.style.display = 'none';
+					}
+				});
             }
         }
 		if( api('responsive_header_button_size').get() === 'custom' && 'design' === tab ) {
