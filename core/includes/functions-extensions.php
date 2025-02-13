@@ -422,6 +422,44 @@ function responsive_get_social_icons( $area ) {
 		'custom3'       => __( 'Custom3', 'responsive' ),
 	);
 
+	$default_social_icons = array(
+        'items' => array(
+            array(
+                'id' => 'facebook',
+                'enabled' => true,
+                'source' => 'icon',
+                'url' => '',
+                'imageid' => '',
+                'width' => 24,
+                'icon' => 'facebook',
+                'label' => 'Facebook',
+                'svg' => '',
+            ),
+            array(
+                'id' => 'twitter',
+                'enabled' => true,
+                'source' => 'icon',
+                'url' => '',
+                'imageid' => '',
+                'width' => 24,
+                'icon' => 'twitterAlt2',
+                'label' => 'X',
+                'svg' => '',
+            ),
+            array(
+                'id' => 'instagram',
+                'enabled' => true,
+                'source' => 'icon',
+                'url' => '',
+                'imageid' => '',
+                'width' => 24,
+                'icon' => 'instagramAlt',
+                'label' => 'Instagram',
+                'svg' => '',
+            ),
+        ),
+    );
+
 	$count = 0;
 
 	foreach ( $icons as $key => $value ) {
@@ -431,6 +469,9 @@ function responsive_get_social_icons( $area ) {
 	}
 	
 	$header_social = get_theme_mod( 'responsive_header_social_items' );
+	if ( empty( $header_social ) ) {
+		$header_social = $default_social_icons;
+	}
 	$social_icons_sequence = array();
 
 	if ( ! empty( $header_social['items'] ) ) {
@@ -440,7 +481,7 @@ function responsive_get_social_icons( $area ) {
 			$social_icons_sequence[] = $social_item['id'];
 		}
 		if ( $count > 0 && $area === '_header' || $count > 0 && $area === '_footer' ) {
-			require get_stylesheet_directory() . '/core/includes/responsive-icon-library.php'
+			require get_template_directory() . '/core/includes/responsive-icon-library.php'
 			?>
 			<div class="header-layouts social-icon">
 				<ul class="social-icons">

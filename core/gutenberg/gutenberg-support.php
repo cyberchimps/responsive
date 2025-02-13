@@ -517,14 +517,14 @@ function responsive_gutenberg_customizer_css() {
 
 		.editor-styles-wrapper.post-type-page .edit-post-visual-editor__post-title-wrapper h1.editor-post-title__input,
 		.editor-styles-wrapper.post-type-page .edit-post-visual-editor__post-title-wrapper,
-		.editor-styles-wrapper.post-type-page .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+		.editor-styles-wrapper.post-type-page .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull):not([data-align="full"])) {
 			max-width:' . $page_content_width.'px;
 			margin-left: auto;
 			margin-right: auto;
 		}
 		.editor-styles-wrapper.post-type-post .edit-post-visual-editor__post-title-wrapper h1.editor-post-title__input,
 		.editor-styles-wrapper.post-type-post .edit-post-visual-editor__post-title-wrapper,
-		.editor-styles-wrapper.post-type-post .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+		.editor-styles-wrapper.post-type-post .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull):not([data-align="full"])) {
 			max-width:' . $_post_content_custom_width.'px;
 			margin-left: auto;
 			margin-right: auto;
@@ -844,7 +844,7 @@ function responsive_gutenberg_customizer_css() {
 			@media screen and ( min-width: 992px ) {
 				.editor-styles-wrapper.post-type-page .edit-post-visual-editor__post-title-wrapper h1.editor-post-title__input,
 				.editor-styles-wrapper.post-type-page .edit-post-visual-editor__post-title-wrapper,
-				.editor-styles-wrapper.post-type-page .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+				.editor-styles-wrapper.post-type-page .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull):not([data-align='full'])) {
 					max-width:{$cart_content_custom_width}px;
 					margin-left: auto;
 					margin-right: auto;
@@ -857,7 +857,7 @@ function responsive_gutenberg_customizer_css() {
 			@media screen and ( min-width: 992px ) {
 				.editor-styles-wrapper.post-type-page .edit-post-visual-editor__post-title-wrapper h1.editor-post-title__input,
 				.editor-styles-wrapper.post-type-page .edit-post-visual-editor__post-title-wrapper,
-				.editor-styles-wrapper.post-type-page .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+				.editor-styles-wrapper.post-type-page .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull):not([data-align='full'])) {
 					max-width:{$checkout_custom_content_width}px;
 					margin-left: auto;
 					margin-right: auto;
