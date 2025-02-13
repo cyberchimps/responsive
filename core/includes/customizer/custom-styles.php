@@ -185,6 +185,27 @@ function responsive_customizer_styles() {
 
 	$site_background_color = get_theme_mod( 'responsive_site_background_color' );
 
+	// Detect the operating system and set the typical scrollbar width.
+	$user_agent = isset( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : '';
+	$scrollbar_widths = [
+		'Win'     => '17px',
+		'Mac'     => '15px',
+		'Linux'   => '15px',
+	];
+
+	$scrollbar_width = '0';
+	foreach ( $scrollbar_widths as $platform => $width ) {
+		if ( strpos( $user_agent, $platform ) !== false ) {
+			$scrollbar_width = $width;
+			break;
+		}
+	}
+
+	$custom_css .= '
+		:root {
+			--responsive-scrollbar-width: ' . $scrollbar_width . ';
+		}
+	';
 	$custom_css .= "
 	.container,
 	[class*='__inner-container'],
