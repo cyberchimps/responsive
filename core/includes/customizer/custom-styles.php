@@ -185,6 +185,27 @@ function responsive_customizer_styles() {
 
 	$site_background_color = get_theme_mod( 'responsive_site_background_color' );
 
+	// Detect the operating system and set the typical scrollbar width.
+	$user_agent = isset( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : '';
+	$scrollbar_widths = [
+		'Win'     => '17px',
+		'Mac'     => '15px',
+		'Linux'   => '15px',
+	];
+
+	$scrollbar_width = '0';
+	foreach ( $scrollbar_widths as $platform => $width ) {
+		if ( strpos( $user_agent, $platform ) !== false ) {
+			$scrollbar_width = $width;
+			break;
+		}
+	}
+
+	$custom_css .= '
+		:root {
+			--responsive-scrollbar-width: ' . $scrollbar_width . ';
+		}
+	';
 	$custom_css .= "
 	.container,
 	[class*='__inner-container'],
@@ -1063,10 +1084,8 @@ function responsive_customizer_styles() {
 	input[type=submit]:hover,
 	input[type=button]:focus,
 	input[type=submit]:focus,
-	button:hover,
-	button:focus,
-	.button:hover,
-	.button:focus,
+	button,
+	.button,
 	body div.wpforms-container-full .wpforms-form input[type=submit]:hover,
 	body div.wpforms-container-full .wpforms-form input[type=submit]:focus,
 	body div.wpforms-container-full .wpforms-form input[type=submit]:active,
@@ -1077,12 +1096,7 @@ function responsive_customizer_styles() {
 	body div.wpforms-container-full .wpforms-form .wpforms-page-button:active,
 	body div.wpforms-container-full .wpforms-form .wpforms-page-button:focus, .main-navigation .menu .res-button-menu .res-custom-button:hover {
 	    color:' . $button_hover_text_color . ';
-		border-color: ' . $button_hover_border_color . ';
-		border-style: solid;
-		border-top-width: ' . $buttons_border_width_top . 'px;
-		border-right-width: ' . $buttons_border_width_right . 'px;
-		border-bottom-width: ' . $buttons_border_width_bottom . 'px;
-		border-left-width: ' . $buttons_border_width_left . 'px;
+		border-color: ' . $button_hover_border_color . ';	
 		background-color:' . $button_hover_color . ';
 	}
 
@@ -1279,32 +1293,11 @@ function responsive_customizer_styles() {
 		}';
 
 		$custom_css .= '.elementor-button-wrapper .elementor-button {
+			border-style: solid;
 			border-top-left-radius: ' . $button_top_left_radius . 'px;
 			border-top-right-radius: ' . $button_top_right_radius . 'px;
 			border-bottom-left-radius: ' . $button_bottom_left_radius . 'px;
 			border-bottom-right-radius: ' . $button_bottom_right_radius . 'px;
-		}';
-
-		$custom_css .= '@media screen and ( max-width: 992px ) {
-			.elementor-button-wrapper .elementor-button {
-				border-top-left-radius: ' . $button_tablet_top_left_radius . 'px;
-				border-top-right-radius: ' . $button_tablet_top_right_radius . 'px;
-				border-bottom-left-radius: ' . $button_tablet_bottom_left_radius . 'px;
-				border-bottom-right-radius: ' . $button_tablet_bottom_right_radius . 'px;
-			}
-		}';
-
-		$custom_css .= '@media screen and ( max-width: 576px ) {
-			.elementor-button-wrapper .elementor-button {
-				border-top-left-radius: ' . $button_mobile_top_left_radius . 'px;
-				border-top-right-radius: ' . $button_mobile_top_right_radius . 'px;
-				border-bottom-left-radius: ' . $button_mobile_bottom_left_radius . 'px;
-				border-bottom-right-radius: ' . $button_mobile_bottom_right_radius . 'px;
-			}
-		}';
-
-		$custom_css .= '.elementor-button-wrapper .elementor-button {
-			border-style: solid;
 			border-top-width: ' . $buttons_border_width_top . 'px;
 			border-right-width: ' . $buttons_border_width_right . 'px;
 			border-bottom-width: ' . $buttons_border_width_bottom . 'px;
@@ -1314,7 +1307,10 @@ function responsive_customizer_styles() {
 
 		$custom_css .= '@media screen and ( max-width: 992px ) {
 			.elementor-button-wrapper .elementor-button {
-				border-style: solid;
+				border-top-left-radius: ' . $button_tablet_top_left_radius . 'px;
+				border-top-right-radius: ' . $button_tablet_top_right_radius . 'px;
+				border-bottom-left-radius: ' . $button_tablet_bottom_left_radius . 'px;
+				border-bottom-right-radius: ' . $button_tablet_bottom_right_radius . 'px;
 				border-top-width: ' . $buttons_border_tablet_width_top . 'px;
 				border-right-width: ' . $buttons_border_tablet_width_right . 'px;
 				border-bottom-width: ' . $buttons_border_tablet_width_bottom . 'px;
@@ -1324,7 +1320,10 @@ function responsive_customizer_styles() {
 
 		$custom_css .= '@media screen and ( max-width: 576px ) {
 			.elementor-button-wrapper .elementor-button {
-				border-style: solid;
+				border-top-left-radius: ' . $button_mobile_top_left_radius . 'px;
+				border-top-right-radius: ' . $button_mobile_top_right_radius . 'px;
+				border-bottom-left-radius: ' . $button_mobile_bottom_left_radius . 'px;
+				border-bottom-right-radius: ' . $button_mobile_bottom_right_radius . 'px;
 				border-top-width: ' . $buttons_border_mobile_width_top . 'px;
 				border-right-width: ' . $buttons_border_mobile_width_right . 'px;
 				border-bottom-width: ' . $buttons_border_mobile_width_bottom . 'px;
