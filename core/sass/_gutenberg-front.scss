@@ -144,7 +144,7 @@
     padding-left: 0;
     padding-right: 0;
     & {
-        @media( max-width: map-get($screens, sm) ) {
+        @media( max-width: map-get($screens, md) ) {
             padding: 0 21px 88px 21px;
             text-align: center;
         }
@@ -152,15 +152,31 @@
 }
 .home-banner {
     &.wp-block-cover {
-        padding: 0;
+        @media (min-width: 769px) {
+            padding-left: 80px;
+        }
     }
     @media (min-width: 601px) and (max-width: map-get($screens, md)) {
         &.wp-block-cover {
             padding: 30px;
         }
+        & .wp-block-media-text.has-media-on-the-right {
+            grid-template-columns: 100% !important;
+        }
+        & .wp-block-media-text.is-stacked-on-mobile {
+
+            & >.wp-block-media-text__media {
+                grid-column: 1;
+                grid-row: 1;
+            }
+            & >.wp-block-media-text__content {
+                grid-row: 2;
+                grid-column: 1;
+            }
+        }
     }
     & .wp-block-buttons.is-layout-flex {
-        @media( max-width: map-get($screens, sm) ) {
+        @media( max-width: map-get($screens, md) ) {
             justify-content: center;
         }
     }
@@ -168,20 +184,22 @@
         color: #FFFFFF;
         @media( max-width: map-get($screens, sm) ) {
             font-size: 18px !important;
-            text-align: center;
             margin-top: 18px;
             margin-bottom: 18px;
         }
     }
-    @media( max-width: map-get($screens, sm) ) {
+    @media( max-width: map-get($screens, md) ) {
         & .wp-block-heading {
+            text-align: center;
+        }
+        & .wp-block-media-text__content > p {
             text-align: center;
         }
     }
 
 }
 .wp-block-group.services {
-    @media( max-width: map-get($screens, sm) ) {
+    @media( max-width: map-get($screens, md) ) {
         padding: 56px 32px 0 32px !important;
     }
     & .wp-block-group__inner-container {
@@ -208,7 +226,7 @@
     }
 }
 .wp-block-group.about {
-    @media( max-width: map-get($screens, sm) ) {
+    @media( max-width: map-get($screens, md) ) {
         padding: 90px 25px 105px 20px !important;
     }
 
@@ -226,10 +244,11 @@
         }
         & .wp-block-media-text__content {
             padding: 0;
+            text-align: left;
             @media( max-width: map-get($screens, md) ) {
                 grid-row: 1;
                 & .wp-block-heading {
-                    font-size: 36px;
+                    font-size: 52px;
                     font-weight: 500;
                     margin-bottom: 20px;
                 }
@@ -238,6 +257,11 @@
                 }
                 & p:not(:last-child) {
                     margin-bottom: 4px;
+                }
+            }
+            @media( max-width: map-get($screens, sm) ) {
+                & .wp-block-heading {
+                    font-size: 36px;
                 }
             }
             @media( min-width: map-get($screens, md) ) {
@@ -262,7 +286,7 @@
     }
 }
 .wp-block-group.whyus {
-    @media( max-width: map-get($screens, sm) ) {
+    @media( max-width: map-get($screens, md) ) {
         padding: 171px 24px 171px 20px !important;
     }
     & .wp-block-columns {
@@ -273,13 +297,12 @@
     }
     & .wp-block-column {
         & h3 {
-            font-size: 30px;
             line-height: 36px;
         }
     }
 }
 .wp-block-group.testimonials {
-    @media( max-width: map-get($screens, sm) ) {
+    @media( max-width: map-get($screens, md) ) {
         padding: 78px 22px !important;
     }
     @media( min-width: map-get($screens, md) ) {
@@ -296,7 +319,7 @@
     }
 }
 .wp-block-group.contact {
-    @media( max-width: map-get($screens, sm) ) {
+    @media( max-width: map-get($screens, md) ) {
         padding: 96px 22px !important;
     }
     @media( min-width: map-get($screens, md) ) {
