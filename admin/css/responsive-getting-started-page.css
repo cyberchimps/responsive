@@ -232,6 +232,7 @@ body.toplevel_page_responsive #wpbody-content {
     font-size: 20px;
     line-height: 27px;
     color: #374151;
+    margin-bottom: 20px;
 }
 
 .responsive-theme-home-setting {
@@ -971,6 +972,11 @@ input:checked + .resp-megamenu-slider:before {
     color: #431669 !important;
     background-color: #fff !important;
     box-shadow: none;
+}
+
+.responsive-theme-go-to-customizer-link {
+    color: #2271B1;
+    font-weight: 500;
 }
 
 /* Help Tab Ends */
