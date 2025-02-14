@@ -180,27 +180,37 @@ class Responsive_Home_Starter_Content {
 				// Typography
 				'body_typography[font-family]'                        => "'Libre Franklin', sans-serif",
 				'button_typography[font-family]'                      => "'Libre Franklin', sans-serif",
-				'button_typography[font-size]'                        => '20px',
+				'button_typography[font-size]'                        => '22px',
+				'button_typography_font_size_value'                   => 22,
+				'button_tablet_typography[font-size]'                 => '20px',
+				'button_tablet_typography_font_size_value'            => 20,
 				'button_typography[font-weight]'                      => '600',
 				'heading_h2_typography[font-weight]'                  => '500',
 			
 				// H1 Typography
 				'heading_h1_typography_font_size_value'               => 64,
 				'heading_h1_typography[font-size]'                    => '64px',
-				'heading_h1_mobile_typography_font_size_value'        => 50,
-				'heading_h1_mobile_typography[font-size]'             => '50px',
+				'heading_h1_mobile_typography_font_size_value'        => 52,
+				'heading_h1_mobile_typography[font-size]'             => '52px',
+				'heading_h1_tablet_typography_font_size_value'        => 64,
+				'heading_h1_tablet_typography[font-size]'             => '64px',
 			
 				// H2 Typography
 				'heading_h2_typography_font_size_value'                => 52,
 				'heading_h2_typography[font-size]'                     => '52px',
+				'heading_h2_tablet_typography_font_size_value'         => 32,
+				'heading_h2_tablet_typography[font-size]'              => '32px',
 				'heading_h2_mobile_typography_font_size_value'         => 24,
 				'heading_h2_mobile_typography[font-size]'              => '24px',
 			
 				// H3 Typography
 				'heading_h3_typography_font_size_value'                => 26,
 				'heading_h3_typography[font-size]'                     => '26px',
+				'heading_h3_tablet_typography_font_size_value'         => 26,
+				'heading_h3_tablet_typography[font-size]'              => '26px',
 				'heading_h3_mobile_typography_font_size_value'         => 24,
 				'heading_h3_mobile_typography[font-size]'              => '24px',
+				'heading_h3_typography[font-weight]'                   => '600',
 			
 				// Footer Typography
 				'footer_copyright_typography_font_size_value'          => 18,
@@ -226,6 +236,12 @@ class Responsive_Home_Starter_Content {
 				'responsive_buttons_radius_top_right_radius'           => 13,
 				'responsive_buttons_radius_bottom_right_radius'        => 13,
 			
+				// Buttons Tablet Radius
+				'responsive_buttons_radius_tablet_top_left_radius'     => 13,
+				'responsive_buttons_radius_tablet_top_right_radius'    => 13,
+				'responsive_buttons_radius_tablet_bottom_right_radius' => 13,
+				'responsive_buttons_radius_tablet_bottom_left_radius'  => 13,
+
 				// Buttons Mobile Radius
 				'responsive_buttons_radius_mobile_top_left_radius'     => 10,
 				'responsive_buttons_radius_mobile_top_right_radius'    => 10,
@@ -238,6 +254,12 @@ class Responsive_Home_Starter_Content {
 				'responsive_buttons_bottom_padding'                    => 22,
 				'responsive_buttons_right_padding'                     => 27,
 			
+				// Buttons Tablet Padding
+				'responsive_buttons_tablet_top_padding'                => 22,
+				'responsive_buttons_tablet_right_padding'              => 27,
+				'responsive_buttons_tablet_bottom_padding'             => 22,
+				'responsive_buttons_tablet_left_padding'               => 27,
+
 				// Buttons Mobile Padding
 				'responsive_buttons_mobile_top_padding'                => 20,
 				'responsive_buttons_mobile_right_padding'              => 20,
