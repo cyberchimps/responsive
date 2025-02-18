@@ -35,6 +35,7 @@ function responsive_get_color_palettes_schemes_as_customizer_choices() {
 	set_theme_mod( 'responsive_box_background_color', $responsive_color_schemes['background'] );
 	set_theme_mod( 'responsive_link_color', $responsive_color_schemes['accent'] );
 	set_theme_mod( 'responsive_button_color', $responsive_color_schemes['accent'] );
+	set_theme_mod( 'responsive_button_hover_color', $responsive_color_schemes['accent'] );
 	set_theme_mod( 'responsive_sidebar_headings_color', $responsive_color_schemes['text'] );
 	set_theme_mod( 'responsive_sidebar_background_color', $responsive_color_schemes['background'] );
 	set_theme_mod( 'responsive_body_text_color', $responsive_color_schemes['text'] );

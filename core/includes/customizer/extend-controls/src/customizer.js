@@ -220,4 +220,89 @@
 		} );
 	} );
 
+	wp.customize.bind('ready', function() {
+		wp.customize('responsive_color_scheme', function(value) {
+			value.bind(function(newval) {
+	
+				// Extract design style and color palette.
+				let customizerColorSchemes = newval.split('-');
+				let designStyle = customizerColorSchemes[0];
+				let colorPalette = customizerColorSchemes[1];
+	
+				// Get available design styles.
+				let designStyles = localize.paletteDesignStyles;
+	
+				if (designStyles[designStyle] && designStyles[designStyle].color_schemes[colorPalette]) {
+					let responsiveColorSchemes = designStyles[designStyle].color_schemes[colorPalette];
+	
+					// List of theme mods to update dynamically.
+					let themeMods = {
+						'responsive_alt_background_color': responsiveColorSchemes.alt_background,
+						'responsive_box_background_color': responsiveColorSchemes.background,
+						'responsive_link_color': responsiveColorSchemes.accent,
+						'responsive_button_color': responsiveColorSchemes.accent,
+						'responsive_button_hover_color': responsiveColorSchemes.accent,
+						'responsive_sidebar_headings_color': responsiveColorSchemes.text,
+						'responsive_sidebar_background_color': responsiveColorSchemes.background,
+						'responsive_body_text_color': responsiveColorSchemes.text,
+						'responsive_meta_text_color': responsiveColorSchemes.accent,
+						'responsive_sidebar_text_color': responsiveColorSchemes.text,
+						'responsive_h1_text_color': responsiveColorSchemes.text,
+						'responsive_h2_text_color': responsiveColorSchemes.text,
+						'responsive_h3_text_color': responsiveColorSchemes.text,
+						'responsive_h4_text_color': responsiveColorSchemes.text,
+						'responsive_h5_text_color': responsiveColorSchemes.text,
+						'responsive_h6_text_color': responsiveColorSchemes.text,
+						'responsive_sidebar_link_color': responsiveColorSchemes.accent,
+						'responsive_shop_product_rating_color': responsiveColorSchemes.accent,
+						'responsive_add_to_cart_button_text_color': responsiveColorSchemes.background,
+						'responsive_add_to_cart_button_hover_text_color': responsiveColorSchemes.background,
+						'responsive_cart_buttons_text_color': responsiveColorSchemes.background,
+						'responsive_cart_buttons_hover_color': responsiveColorSchemes.accent,
+						'responsive_cart_buttons_hover_text_color': responsiveColorSchemes.background,
+						'responsive_cart_checkout_button_color': responsiveColorSchemes.accent,
+						'responsive_cart_checkout_button_text_color': responsiveColorSchemes.background,
+						'responsive_cart_checkout_button_hover_text_color': responsiveColorSchemes.background
+					};
+	
+					// Loop through theme mods and set values only if they exist.
+					Object.keys(themeMods).forEach(function(mod) {
+						if (wp.customize(mod)) {
+							wp.customize(mod).set(themeMods[mod]);
+						}
+					});
+	
+					// Handle header/footer separately with fallbacks.
+					let headerBackground = responsiveColorSchemes.header_background || '#ffffff';
+					let footerBackground = responsiveColorSchemes.footer_background || '#333333';
+					let headerText = responsiveColorSchemes.header_text || '#333333';
+					let footerText = responsiveColorSchemes.footer_text || '#ffffff';
+	
+					let additionalMods = {
+						'responsive_header_text_color': headerText,
+						'responsive_footer_text_color': footerText,
+						'responsive_footer_background_color': footerBackground,
+						'responsive_header_site_title_color': headerText,
+						'responsive_header_site_title_hover_color': headerText,
+						'responsive_header_menu_background_color': headerBackground,
+						'responsive_header_mobile_menu_background_color': headerBackground,
+						'responsive_header_menu_link_color': headerText,
+						'responsive_header_secondary_menu_background_color': headerBackground,
+						'responsive_header_secondary_menu_link_color': headerText
+					};
+	
+					// Apply additional mods safely.
+					Object.keys(additionalMods).forEach(function(mod) {
+						if (wp.customize(mod)) {
+							wp.customize(mod).set(additionalMods[mod]);
+						}
+					});
+	
+				} else {
+					console.error('Invalid color scheme or design style.');
+				}
+			});
+		});
+	});
+
 } )( jQuery, wp );

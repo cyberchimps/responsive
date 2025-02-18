@@ -181,7 +181,6 @@
         }
     }
     & .wp-block-media-text__content > p {
-        color: #FFFFFF;
         @media( max-width: map-get($screens, sm) ) {
             font-size: 18px !important;
             margin-top: 18px;

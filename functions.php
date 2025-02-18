@@ -190,6 +190,7 @@ function responsive_free_setup() {
 	// Gutenberg editor color palette.
 	add_theme_support( 'editor-color-palette', responsive_gutenberg_color_palette() );
 
+	// Render Custom Starter content.
 	if ( class_exists( 'Responsive_Home_Starter_Content', false ) ) {
 		$responsive_home_starter_content = new Responsive_Home_Starter_Content();
 		add_theme_support( 'starter-content', $responsive_home_starter_content->get() );
