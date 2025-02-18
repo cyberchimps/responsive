@@ -124,7 +124,7 @@ class Responsive_Home_Starter_Content {
     			    'header-menu' => '{{header-menu}}', // Assign the menu to the primary location
     			),
 				// Layout & Design
-				'responsive_style'                                    => 'contained',
+				'responsive_style'                                    => 'flat',
 				'responsive_hide_title'                               => true,
 				'responsive_page_content_width'                       => 100,
 				'responsive_container_width'                          => 1200,
@@ -153,7 +153,7 @@ class Responsive_Home_Starter_Content {
 				'responsive_footer_copyright_text_color'              => '#747474',
 				'responsive_footer_copyright_text_hover_color'        => '#747474',
 				'responsive_footer_copyright_links_color'             => '#3a1d74',
-				'responsive_footer_copyright_links_hovercolor'        => '#3a1d74',
+				'responsive_footer_copyright_links_hover_color'       => '#3a1d74',
 				'responsive_footer_primary_row_bg_color'              => '#ffffff',
 				'responsive_footer_primary_columns'                   => 1,
 				'responsive_footer_primary_layout'                    => 'full',
@@ -211,6 +211,15 @@ class Responsive_Home_Starter_Content {
 				'heading_h3_mobile_typography_font_size_value'         => 24,
 				'heading_h3_mobile_typography[font-size]'              => '24px',
 				'heading_h3_typography[font-weight]'                   => '600',
+
+				// H4 Typography
+				'heading_h4_typography_font_size_value'                => 52,
+				'heading_h4_typography[font-size]'                     => '52px',
+				'heading_h4_tablet_typography_font_size_value'         => 32,
+				'heading_h4_tablet_typography[font-size]'              => '32px',
+				'heading_h4_mobile_typography_font_size_value'         => 24,
+				'heading_h4_mobile_typography[font-size]'              => '24px',
+				'heading_h4_typography[font-weight]'                   => '700',
 			
 				// Footer Typography
 				'footer_copyright_typography_font_size_value'          => 18,
@@ -219,8 +228,10 @@ class Responsive_Home_Starter_Content {
 				'footer_copyright_mobile_typography[font-size]'        => '8px',
 			
 				// Colors
+				'responsive_h1_text_color'                             => '#ffffff',
 				'responsive_h2_text_color'                             => '#200c47',
 				'responsive_h3_text_color'                             => '#200c47',
+				'responsive_h4_text_color'                             => '#ffffff',
 				'responsive_body_text_color'                           => '#1f1f1f',
 				'responsive_button_color'                              => '#ffc300',
 				'responsive_button_hover_color'                        => '#ffc300',
