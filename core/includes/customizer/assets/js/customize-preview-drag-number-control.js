@@ -506,8 +506,30 @@
     });
     api( 'responsive_footer_primary_inner_column_spacing', function(value) {
         value.bind(function(newval) {
-            $( '.rspv-site-primary-footer-inner-wrap' ).css( 'grid-column-gap', newval + 'px' );
-            $( '.rspv-site-primary-footer-inner-wrap' ).css( 'grid-row-gap', newval + 'px' );
+            $( '.rspv-site-primary-footer-inner-wrap' ).css( 'gap', newval + 'px' );
+        });
+    });
+    api('responsive_footer_primary_inner_column_spacing_tablet', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-primary-inner-column-spacing-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-primary-inner-column-spacing-tablet">'
+                + '@media screen and (max-width: 992px) {'
+                + '.rspv-site-primary-footer-inner-wrap { gap: ' + newval + 'px !important; }'
+                + '} </style>'
+            );
+        });
+    });
+    
+    api('responsive_footer_primary_inner_column_spacing_mobile', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-primary-inner-column-spacing-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-primary-inner-column-spacing-mobile">'
+                + '@media screen and (max-width: 576px) {'
+                + '.rspv-site-primary-footer-inner-wrap { gap: ' + newval + 'px !important; }'
+                + '} </style>'
+            );
         });
     });
     api( 'responsive_footer_primary_row_top_border_size', function(value){
@@ -523,8 +545,29 @@
     });
     api( 'responsive_footer_above_inner_column_spacing', function(value) {
         value.bind(function(newval) {
-            $( '.rspv-site-above-footer-inner-wrap' ).css( 'grid-column-gap', newval + 'px' );
-            $( '.rspv-site-above-footer-inner-wrap' ).css( 'grid-row-gap', newval + 'px' );
+            $( '.rspv-site-above-footer-inner-wrap' ).css( 'gap', newval + 'px' );
+        });
+    });
+    api('responsive_footer_above_inner_column_spacing_tablet', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-above-inner-column-spacing-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-above-inner-column-spacing-tablet">'
+                + '@media screen and (max-width: 992px) {'
+                + '.rspv-site-above-footer-inner-wrap { gap: ' + newval + 'px !important; }'
+                + '} </style>'
+            );
+        });
+    });
+    api('responsive_footer_above_inner_column_spacing_mobile', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-above-inner-column-spacing-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-above-inner-column-spacing-mobile">'
+                + '@media screen and (max-width: 576px) {'
+                + '.rspv-site-above-footer-inner-wrap { gap: ' + newval + 'px !important; }'
+                + '} </style>'
+            );
         });
     });
     api( 'responsive_footer_above_row_top_border_size', function(value){
@@ -540,8 +583,29 @@
     });
     api( 'responsive_footer_below_inner_column_spacing', function(value) {
         value.bind(function(newval) {
-            $( '.rspv-site-below-footer-inner-wrap' ).css( 'grid-column-gap', newval + 'px' );
-            $( '.rspv-site-below-footer-inner-wrap' ).css( 'grid-row-gap', newval + 'px' );
+            $( '.rspv-site-below-footer-inner-wrap' ).css( 'gap', newval + 'px' );
+        });
+    });
+    api('responsive_footer_below_inner_column_spacing_tablet', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-below-inner-column-spacing-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-below-inner-column-spacing-tablet">'
+                + '@media screen and (max-width: 992px) {'
+                + '.rspv-site-below-footer-inner-wrap { gap: ' + newval + 'px !important; }'
+                + '} </style>'
+            );
+        });
+    });
+    api('responsive_footer_below_inner_column_spacing_mobile', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-below-inner-column-spacing-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-below-inner-column-spacing-mobile">'
+                + '@media screen and (max-width: 576px) {'
+                + '.rspv-site-below-footer-inner-wrap { gap: ' + newval + 'px !important; }'
+                + '} </style>'
+            );
         });
     });
     api( 'responsive_footer_below_row_top_border_size', function(value){
