@@ -39,6 +39,7 @@
             mobile_menu_breakpoint = 0;
         }
         jQuery('style#responsive-' + control + '-radius').remove();
+        jQuery('style#responsive-' + control).remove();
         var desktopBorderWidth = 'border-top-width:' + api('responsive_' + control + '_top_border').get() + 'px; ' +
                                  'border-right-width:' + api('responsive_' + control + '_right_border').get() + 'px; ' +
                                  'border-bottom-width:' + api('responsive_' + control + '_bottom_border').get() + 'px; ' +
@@ -162,17 +163,36 @@
     applyBorderWidth('responsive_inputs_border_width_mobile_left_border');
 
     //Buttons Border Width
-    api( 'responsive_buttons_border_width', function( value ) {
-        value.bind( function( newval ) {
-            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').css('border-width', newval+'px' );
-            $('.wp-block-button__link:focus,.wp-block-button__link:hover,.read-more-button .hentry .read-more .more-link:hover,.read-more-button .hentry .read-more .more-link:focus,input[type=button]:hover,input[type=submit]:hover,input[type=button]:focus,input[type=submit]:focus,button:hover,button:focus,.button:hover,.button:focus,div.wpforms-container-full .wpforms-form input[type=submit]:hover,div.wpforms-container-full .wpforms-form input[type=submit]:focus,div.wpforms-container-full .wpforms-form input[type=submit]:active,div.wpforms-container-full .wpforms-form button[type=submit]:hover,div.wpforms-container-full .wpforms-form button[type=submit]:focus,div.wpforms-container-full .wpforms-form button[type=submit]:active,div.wpforms-container-full .wpforms-form .wpforms-page-button:hover,div.wpforms-container-full .wpforms-form .wpforms-page-button:active,div.wpforms-container-full .wpforms-form .wpforms-page-button:focus').css('border-width', newval+'px' );
-            $('.woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button').css('border-width', newval+'px' );
-            $('.edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button').css('border-width', newval+'px' );
-            $('.edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link:focus,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button:focus,.edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link:hover,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button:hover').css('border-width', newval+'px' );
-            // Apply for RAE Button Widget.
-            $( '.elementor-widget-rael-button .rael-button' ).css( 'border-width', newval+'px' );
+    function applyButtonsBorderWidth(controlName) {
+        api( controlName, function( value ) {
+            value.bind( function( newval ) {
+                let selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button';
+                selector += ', .wp-block-button__link:focus,.wp-block-button__link:hover,.read-more-button .hentry .read-more .more-link:hover,.read-more-button .hentry .read-more .more-link:focus,input[type=button]:hover,input[type=submit]:hover,input[type=button]:focus,input[type=submit]:focus,button:not(.customize-partial-edit-shortcut-button):hover,button:not(.customize-partial-edit-shortcut-button):focus,.button:not(.customize-partial-edit-shortcut-button):hover,.button:not(.customize-partial-edit-shortcut-button):focus,div.wpforms-container-full .wpforms-form input[type=submit]:hover,div.wpforms-container-full .wpforms-form input[type=submit]:focus,div.wpforms-container-full .wpforms-form input[type=submit]:active,div.wpforms-container-full .wpforms-form button[type=submit]:hover,div.wpforms-container-full .wpforms-form button[type=submit]:focus,div.wpforms-container-full .wpforms-form button[type=submit]:active,div.wpforms-container-full .wpforms-form .wpforms-page-button:hover,div.wpforms-container-full .wpforms-form .wpforms-page-button:active,div.wpforms-container-full .wpforms-form .wpforms-page-button:focus';
+                selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button';
+                selector += ', .edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button';
+                selector += ', .edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link:focus,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button:focus,.edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link:hover,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button:hover';
+                selector += ', .elementor-widget-rael-button .rael-button, .wp-block-search__button';
+                responsive_dynamic_border_width("buttons_border_width", selector);
+
+            } );
         } );
-    } );
+    }   
+
+    //Call the function for each button border width
+    applyButtonsBorderWidth('responsive_buttons_border_width_top_border');
+    applyButtonsBorderWidth('responsive_buttons_border_width_right_border');
+    applyButtonsBorderWidth('responsive_buttons_border_width_bottom_border');
+    applyButtonsBorderWidth('responsive_buttons_border_width_left_border');
+
+    applyButtonsBorderWidth('responsive_buttons_border_width_tablet_top_border');
+    applyButtonsBorderWidth('responsive_buttons_border_width_tablet_right_border');
+    applyButtonsBorderWidth('responsive_buttons_border_width_tablet_bottom_border');
+    applyButtonsBorderWidth('responsive_buttons_border_width_tablet_left_border');
+
+    applyButtonsBorderWidth('responsive_buttons_border_width_mobile_top_border');
+    applyButtonsBorderWidth('responsive_buttons_border_width_mobile_right_border');
+    applyButtonsBorderWidth('responsive_buttons_border_width_mobile_bottom_border');
+    applyButtonsBorderWidth('responsive_buttons_border_width_mobile_left_border');
 
     function applyInputsRadius(controlName) {
         api(controlName, function(value) {

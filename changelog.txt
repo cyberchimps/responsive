@@ -8,6 +8,13 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(20/02/2025) = New - Version 6.1.2
+[+] = New = Added a default template that automatically loads upon the first-time installation of the Responsive theme.
+[*] = Improvement = Enhanced compatibility between the theme's Global Settings and the Gutenberg editor.
+[*] = Improvement = Changed the Customizer form fields & buttons border width control to a 4-dimension box control for better customization.
+[!] = Fix = Resolved an issue where submenu items were displaying off-page.
+[!] = Fix = Resolved the vertical header alignment issue to ensure backward compatibility with the new Header & Footer Builder.
+
 (30/01/2025) = New - Version 6.1.1
 [+] = New = Introducing new elements for the Header Builder: Social, Button and WooCommerce Cart.
 [+] = New = Fonts Presets in Responsive theme customizer. 

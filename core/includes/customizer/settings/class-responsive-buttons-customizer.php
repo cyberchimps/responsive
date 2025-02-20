@@ -51,7 +51,7 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 			$tab_ids_prefix = 'customize-control-';
 			$design_tab_ids = array(
 				$tab_ids_prefix . 'responsive_border_buttons_radius',
-				$tab_ids_prefix . 'responsive_buttons_border_width',
+				$tab_ids_prefix . 'responsive_buttons_border_width_border',
 				$tab_ids_prefix . 'responsive_button_typography_group',
 				$tab_ids_prefix . 'responsive_responsive_general_buttons_separator',
 				$tab_ids_prefix . 'responsive_button_color',
@@ -79,8 +79,8 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 
 			// Buttons Border Width.
 			$buttons_border_width_label = __( 'Border Width (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'buttons_border_width', $buttons_border_width_label, 'responsive_button', 16, 1, null, 200,1, 'postMessage' );
-			// responsive_borderwidth_control( $wp_customize, 'buttons_border_width', 'responsive_button', 17, 0, 0, null, $buttons_border_width_label );
+			// responsive_drag_number_control( $wp_customize, 'buttons_border_width', $buttons_border_width_label, 'responsive_button', 16, 1, null, 200,1, 'postMessage' );
+			responsive_borderwidth_control( $wp_customize, 'buttons_border_width', 'responsive_button', 16, 0, 0, null, $buttons_border_width_label, 'postMessage' );
 
 			// Buttons Typography.
 			$buttons_typography_label = esc_html__( 'Font', 'responsive' );
