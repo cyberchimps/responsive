@@ -3124,6 +3124,25 @@ function responsive_builder_row_layout_control( $wp_customize, $element, $label,
 			'transport'         => $transport,
 		)
 	);
+
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_tablet',
+		array(
+			'transport'         => $transport,
+			'default'           => 'equal',
+			'sanitize_callback' => 'responsive_sanitize_row_layout_select',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_mobile',
+		array(
+			'transport'         => $transport,
+			'default'           => 'row',
+			'sanitize_callback' => 'responsive_sanitize_row_layout_select',
+		)
+	);
+
 	$wp_customize->add_control(
 		new Responsive_Customizer_Builder_Row_Layout_Control(
 			$wp_customize,
@@ -3131,7 +3150,11 @@ function responsive_builder_row_layout_control( $wp_customize, $element, $label,
 			array(
 				'label'           => $label,
 				'section'         => $section,
-				'settings'        => 'responsive_' . $element,
+				'settings'        => array(
+					'desktop' => 'responsive_' . $element,
+					'tablet'  => 'responsive_' . $element . '_tablet',
+					'mobile'  => 'responsive_' . $element . '_mobile',
+				),
 				'priority'        => $priority,
 				'active_callback' => $active_call,
 				'input_attrs'     => $input_attrs,

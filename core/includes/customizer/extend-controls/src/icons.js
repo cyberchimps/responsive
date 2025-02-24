@@ -86,6 +86,60 @@ const Icons = {
     <rect x="80" y="20" width="11" height="24" rx="1" fill="#9CB0C9"/>
     <rect x="96" y="20" width="11" height="24" rx="1" fill="#9CB0C9"/>
     </svg>,
+    collapserowsix: <svg width="121" height="64" viewBox="0 0 121 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="-0.5" y="0.5" width="120" height="63" rx="3.5" transform="matrix(-1 0 0 1 120 0)" fill="white" stroke="#D2D2D2"/>
+    <rect width="93" height="6" rx="1" transform="matrix(-1 0 0 1 107 6)" fill="#9CB0C9"/>
+    <rect width="93" height="7" rx="1" transform="matrix(-1 0 0 1 107 15)" fill="#9CB0C9"/>
+    <rect width="93" height="7" rx="1" transform="matrix(-1 0 0 1 107 24)" fill="#9CB0C9"/>
+    <rect width="93" height="7" rx="1" transform="matrix(-1 0 0 1 107 33)" fill="#9CB0C9"/>
+    <rect width="93" height="7" rx="1" transform="matrix(-1 0 0 1 107 42)" fill="#9CB0C9"/>
+    <rect width="93" height="6" rx="1" transform="matrix(-1 0 0 1 107 52)" fill="#9CB0C9"/>
+    </svg>,
+    collapserowfive: <svg width="121" height="64" viewBox="0 0 121 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="-0.5" y="0.5" width="120" height="63" rx="3.5" transform="matrix(-1 0 0 1 120 0)" fill="white" stroke="#D2D2D2"/>
+    <rect width="93" height="7" rx="1" transform="matrix(-1 0 0 1 107 8)" fill="#9CB0C9"/>
+    <rect width="93" height="7" rx="1" transform="matrix(-1 0 0 1 107 18)" fill="#9CB0C9"/>
+    <rect width="93" height="7" rx="1" transform="matrix(-1 0 0 1 107 28)" fill="#9CB0C9"/>
+    <rect width="93" height="7" rx="1" transform="matrix(-1 0 0 1 107 38)" fill="#9CB0C9"/>
+    <rect width="93" height="7" rx="1" transform="matrix(-1 0 0 1 107 48)" fill="#9CB0C9"/>
+    </svg>,
+    fourgrid: <svg width="121" height="64" viewBox="0 0 121 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0.5" y="0.5" width="120" height="63" rx="3.5" fill="white" stroke="#D2D2D2"/>
+    <rect x="14" y="9" width="44" height="20" rx="1" fill="#9CB0C9"/>
+    <rect x="14" y="34" width="44" height="20" rx="1" fill="#9CB0C9"/>
+    <rect x="63" y="9" width="44" height="20" rx="1" fill="#9CB0C9"/>
+    <rect x="63" y="34" width="44" height="20" rx="1" fill="#9CB0C9"/>
+    </svg>,
+    collapserowfour: <svg width="121" height="64" viewBox="0 0 121 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="-0.5" y="0.5" width="120" height="63" rx="3.5" transform="matrix(-1 0 0 1 120 0)" fill="white" stroke="#D2D2D2"/>
+    <rect width="93" height="9" rx="1" transform="matrix(-1 0 0 1 107 10)" fill="#9CB0C9"/>
+    <rect width="93" height="9" rx="1" transform="matrix(-1 0 0 1 107 22)" fill="#9CB0C9"/>
+    <rect width="93" height="9" rx="1" transform="matrix(-1 0 0 1 107 34)" fill="#9CB0C9"/>
+    <rect width="93" height="9" rx="1" transform="matrix(-1 0 0 1 107 46)" fill="#9CB0C9"/>
+    </svg>,
+    threefirstrow: <svg width="121" height="64" viewBox="0 0 121 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="-0.5" y="0.5" width="120" height="63" rx="3.5" transform="matrix(-1 0 0 1 120 0)" fill="white" stroke="#D2D2D2"/>
+    <rect width="93" height="20" rx="1" transform="matrix(-1 0 0 1 107 10)" fill="#9CB0C9"/>
+    <rect width="44" height="20" rx="1" transform="matrix(-1 0 0 1 58 34)" fill="#9CB0C9"/>
+    <rect width="44" height="20" rx="1" transform="matrix(-1 0 0 1 107 34)" fill="#9CB0C9"/>
+    </svg>,
+    threelastrow: <svg width="121" height="64" viewBox="0 0 121 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="-0.5" y="0.5" width="120" height="63" rx="3.5" transform="matrix(-1 0 0 1 120 0)" fill="white" stroke="#D2D2D2"/>
+    <rect width="93" height="20" rx="1" transform="matrix(-1 0 0 1 107 34)" fill="#9CB0C9"/>
+    <rect width="19" height="20" rx="1" transform="matrix(-1 0 0 1 33 10)" fill="#9CB0C9"/>
+    <rect width="70" height="20" rx="1" transform="matrix(-1 0 0 1 107 10)" fill="#9CB0C9"/>
+    </svg>,
+    collapserowthree: <svg width="121" height="64" viewBox="0 0 121 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="-0.5" y="0.5" width="120" height="63" rx="3.5" transform="matrix(-1 0 0 1 120 0)" fill="white" stroke="#D2D2D2"/>
+    <rect width="93" height="12" rx="1" transform="matrix(-1 0 0 1 107 10)" fill="#9CB0C9"/>
+    <rect width="93" height="12" rx="1" transform="matrix(-1 0 0 1 107 26)" fill="#9CB0C9"/>
+    <rect width="93" height="12" rx="1" transform="matrix(-1 0 0 1 107 42)" fill="#9CB0C9"/>
+    </svg>,
+    collapserowtwo: <svg width="121" height="64" viewBox="0 0 121 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0.5" y="0.5" width="120" height="63" rx="3.5" fill="white" stroke="#D2D2D2"/>
+    <rect x="14" y="10" width="93" height="20" rx="1" fill="#9CB0C9"/>
+    <rect x="14" y="34" width="93" height="20" rx="1" fill="#9CB0C9"/>
+    </svg>,                     
     footer_copyright: <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g clip-path="url(#clip0_1583_1126)">
     <path d="M24 0C37.2552 0 48 10.7448 48 24C48 37.2552 37.2552 48 24 48C10.7448 48 0 37.2552 0 24C0 10.7448 10.7448 0 24 0ZM24 3.348C18.5227 3.348 13.2698 5.52383 9.39683 9.39683C5.52383 13.2698 3.348 18.5227 3.348 24C3.348 29.4773 5.52383 34.7302 9.39683 38.6032C13.2698 42.4762 18.5227 44.652 24 44.652C29.4773 44.652 34.7302 42.4762 38.6032 38.6032C42.4762 34.7302 44.652 29.4773 44.652 24C44.652 18.5227 42.4762 13.2698 38.6032 9.39683C34.7302 5.52383 29.4773 3.348 24 3.348ZM24.384 11.1624C26.976 11.1624 29.4648 11.8896 31.5912 13.236C31.9456 13.4823 32.1912 13.8559 32.2769 14.2789C32.3626 14.7018 32.2818 15.1416 32.0512 15.5064C31.8207 15.8712 31.4583 16.133 31.0395 16.2372C30.6207 16.3414 30.1778 16.2799 29.8032 16.0656C28.1819 15.0436 26.3029 14.5049 24.3864 14.5128C18.9192 14.5128 14.5128 18.7728 14.5128 24C14.5128 29.2272 18.9192 33.4872 24.3864 33.4872C26.3088 33.4872 28.1472 32.9592 29.724 31.9824C29.9111 31.8666 30.1191 31.7887 30.3362 31.7533C30.5534 31.7179 30.7754 31.7256 30.9895 31.7759C31.2037 31.8263 31.4059 31.9184 31.5844 32.0468C31.763 32.1753 31.9146 32.3377 32.0304 32.5248C32.1462 32.7119 32.2241 32.9199 32.2595 33.137C32.2949 33.3542 32.2872 33.5762 32.2369 33.7903C32.1865 34.0045 32.0944 34.2067 31.966 34.3853C31.8375 34.5638 31.6751 34.7154 31.488 34.8312C29.3537 36.1499 26.8929 36.845 24.384 36.8376C17.0952 36.8376 11.1624 31.1016 11.1624 24C11.1624 16.8984 17.0952 11.1624 24.3864 11.1624" fill="#696969"/>

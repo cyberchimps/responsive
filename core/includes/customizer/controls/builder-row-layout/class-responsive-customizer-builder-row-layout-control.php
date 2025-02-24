@@ -34,6 +34,20 @@ if ( ! class_exists( 'Responsive_Customizer_Builder_Row_Layout_Control' ) ) :
 			wp_enqueue_style( 'responsive-row-layout-select', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/row-layout.min.css', null );
 		}
 
+		/**
+		 * Renders the control wrapper and calls $this->render_content() for the internals.
+		 *
+		 * @see WP_Customize_Control::render()
+		 */
+		protected function render() {
+			$id    = 'customize-control-' . str_replace( array( '[', ']' ), array( '-', '' ), $this->id );
+			$class = 'customize-control has-switchers customize-control-' . $this->type;
+
+			?><li id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $class ); ?>">
+			<?php $this->render_content(); ?>
+		</li>
+			<?php
+		}
 
 		/**
 		 * Refresh the parameters passed to JavaScript via JSON.
@@ -42,12 +56,17 @@ if ( ! class_exists( 'Responsive_Customizer_Builder_Row_Layout_Control' ) ) :
 		 */
 		public function to_json() {
 			parent::to_json();
-			$this->json['value']       = $this->value();
-			$this->json['choices']     = $this->choices;
-			$this->json['link']        = $this->get_link();
-			$this->json['id']          = $this->id;
 			$this->json['type']        = $this->type;
             $this->json['input_attrs'] = $this->input_attrs;
+
+			foreach ( $this->settings as $setting_key => $setting ) {
+				$this->json[ $setting_key ] = array(
+					'id'      => $setting->id,
+					'default' => $setting->default,
+					'link'    => $this->get_link( $setting_key ),
+					'value'   => $this->value( $setting_key ),
+				);
+			}
 		}
 
 		/**
