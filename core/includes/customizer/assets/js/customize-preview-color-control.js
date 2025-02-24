@@ -2264,4 +2264,105 @@
             jQuery('head').append(`<style id="responsive-header-cart-tray-link-hover-color">${css}</style>`);
         });
     });
+    // Header Search Color.
+    api( 'responsive_header_search_color', function(setting){
+        setting.bind(function(color){
+            jQuery('style#responsive-header-search-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-search-color">'
+                + '.responsive-header-search-icon-wrap { color: ' + color + '!important; }'
+                + '</style>'
+            );
+        });
+    });
+    // Header Search Hover Color.
+    api( 'responsive_header_search_hover_color', function(setting){
+        setting.bind(function(color){
+            jQuery('style#responsive-header-search-hover-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-search-hover-color">'
+                + '.responsive-header-search-icon-wrap:hover { color: ' + color + '!important; }'
+                + '</style>'
+            );
+        });
+    });
+    // Header Search Background Color.
+    api( 'responsive_header_search_background_color', function(setting){
+        setting.bind(function(color){
+            jQuery('style#responsive-header-search-background-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-search-background-color">'
+                + '.responsive-header-search-icon-wrap, .responsive-header-search input[type=search] { background: ' + color + '!important; }'
+                + '</style>'
+            );
+        });
+    });
+    // Header Search Background Hover Color.
+    api( 'responsive_header_search_background_hover_color', function(setting){
+        setting.bind(function(color){
+            jQuery('style#responsive-header-search-background-hover-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-search-background-hover-color">'
+                + '.responsive-header-search-icon-wrap:hover, .responsive-header-search-icon-wrap:hover input[type=search] { background: ' + color + '!important; }'
+                + '</style>'
+            );
+        });
+    });
+    // Header Search Text Color.
+    api( 'responsive_header_search_text_color', function(setting){
+        setting.bind(function(color){
+            jQuery('style#responsive-header-search-text-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-search-text-color">'
+                + '.full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper input[type=search], .full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper input::placeholder,.full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper,.full-screen .site-header-item .full-screen-search-wrapper #search-close { color: ' + color + '!important; }'
+                + '</style>'
+            );
+        });
+    });
+    // Header Search Text Hover Color.
+    api( 'responsive_header_search_text_hover_color', function(setting){
+        setting.bind(function(color){
+            jQuery('style#responsive-header-search-text-hover-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-search-text-hover-color">'
+                + '.full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper input[type=search]:hover,.full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper input:hover::placeholder,.full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper:hover,.full-screen .site-header-item .full-screen-search-wrapper #search-close:hover { color: ' + color + '!important; }'
+                + '</style>'
+            );
+        });
+    });
+    // Header Search Modal Background.
+    api('responsive_header_search_modal_background_color', function(setting) {
+        setting.bind(function(color) {
+            jQuery('style#responsive-header-search-modal-background-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-search-modal-background-color">'
+                + '.full-screen .site-header-item .full-screen-search-wrapper { background: ' + color + '; }'
+                + '</style>'
+            );
+        });
+    });
+    // Header Search Modal Background Tablet.
+    api('responsive_header_search_modal_background_color_tablet', function(setting) {
+        setting.bind(function(color) {
+            jQuery('style#responsive-header-search-modal-background-color-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-search-modal-background-color-tablet">'
+                + '@media screen and (max-width: 992px) {'
+                + '.full-screen .site-header-item .full-screen-search-wrapper { background: ' + color + ' !important; }'
+                + '} </style>'
+            );
+        });
+    });
+    // Header Search Modal Background Mobile.
+    api('responsive_header_search_modal_background_color_mobile', function(setting) {
+        setting.bind(function(color) {
+            jQuery('style#responsive-header-search-modal-background-color-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-search-modal-background-color-mobile">'
+                + '@media screen and (max-width: 576px) {'
+                + '.full-screen .site-header-item .full-screen-search-wrapper { background: ' + color + ' !important; }'
+                + '} </style>'
+            );
+        });
+    });
 } )( jQuery );

@@ -1387,7 +1387,7 @@ function responsive_drag_number_control( $wp_customize, $element, $label, $secti
  * @param  [type]  $step  [description].
  * @return void                [description].
  */
-function responsive_drag_number_control_with_switchers( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $max = 4096, $min = 1, $transport = 'refresh', $step = 1 ) {
+function responsive_drag_number_control_with_switchers( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $max = 4096, $min = 1, $transport = 'refresh', $step = 1, $tablet_default = null, $mobile_default = null ) {
 
 	$wp_customize->add_setting(
 		'responsive_' . $element,
@@ -1402,7 +1402,7 @@ function responsive_drag_number_control_with_switchers( $wp_customize, $element,
 		'responsive_' . $element . '_tablet',
 		array(
 			'transport'         => $transport,
-			'default'           => $default,
+			'default'           => $tablet_default ? $tablet_default : $default,
 			'sanitize_callback' => 'responsive_sanitize_number',
 		)
 	);
@@ -1411,7 +1411,7 @@ function responsive_drag_number_control_with_switchers( $wp_customize, $element,
 		'responsive_' . $element . '_mobile',
 		array(
 			'transport'         => $transport,
-			'default'           => $default,
+			'default'           => $mobile_default ? $mobile_default : $default,
 			'sanitize_callback' => 'responsive_sanitize_number',
 		)
 	);
@@ -2742,22 +2742,6 @@ function responsive_secondary_menu_last_item_text() {
 	return ( 'text-html' === get_theme_mod( 'responsive_secondary_menu_last_item', 'none' ) ) ? true : false;
 }
 
-if ( ! function_exists( 'responsive_menu_search_icon' ) ) {
-	/**
-	 * [responsive_menu_search_icon description]
-	 *
-	 * @return [type] [description]
-	 */
-	function responsive_menu_search_icon() {
-		$menu_last_item = get_theme_mod( 'responsive_menu_last_item', 'none' );
-		if ( 'search' === $menu_last_item ) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-}
-
 /**
  * [responsive_checkbox_control description]
  *
@@ -3270,4 +3254,68 @@ function responsive_font_presets_control( $wp_customize, $element, $label, $sect
 			)
 		)
 	);
+}
+
+/**
+ * [responsive_color_control_with_device_switchers description]
+ *
+ * @param  [type]  $wp_customize [description].
+ * @param  [type]  $element      [description].
+ * @param  [type]  $label        [description].
+ * @param  [type]  $section      [description].
+ * @param  [type]  $priority     [description].
+ * @param  [type]  $default      [description].
+ * @param  [type]  $active_call  [description].
+ * @param  [type]  $transport    [description].
+ * @param  [type]  $desc         [description].
+ * @return void [description].
+ */
+function responsive_color_control_with_device_switchers( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $desc='', $transport = 'postMessage' ) {
+
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_color',
+		array(
+			'transport'         => $transport,
+			'default'           => $default,
+			'sanitize_callback' => 'responsive_sanitize_background',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_color_tablet',
+		array(
+			'transport'         => $transport,
+			'default'           => $default,
+			'sanitize_callback' => 'responsive_sanitize_background',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_color_mobile',
+		array(
+			'transport'         => $transport,
+			'default'           => $default,
+			'sanitize_callback' => 'responsive_sanitize_background',
+		)
+	);
+
+	$wp_customize->add_control(
+		new Responsive_Customizer_Color_With_Devices_Control(
+			$wp_customize,
+			'responsive_' . $element . '_color',
+			array(
+				'label'           => $label,
+				'section'         => $section,
+				'settings'        => array(
+					'desktop' => 'responsive_' . $element . '_color',
+					'tablet'  => 'responsive_' . $element . '_color_tablet',
+					'mobile'  => 'responsive_' . $element . '_color_mobile',
+				),
+				'priority'        => $priority,
+				'active_callback' => $active_call,
+				'description'     => $desc,
+			)
+		)
+	);
+
 }

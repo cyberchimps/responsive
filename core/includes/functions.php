@@ -353,6 +353,10 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 			responsive_old_woo_cart_comaptibility_with_header_builder_woo_cart();
 			update_option( 'responsive_old_woo_cart_comaptibility_with_header_builder_woo_cart', true );
 		}
+		if ( ! get_option( 'responsive_old_header_search_compatibility_with_hfb_header_search' ) ) {
+			responsive_old_header_search_compatibility_with_hfb_header_search_element();
+            update_option( 'responsive_old_header_search_compatibility_with_hfb_header_search', true );
+		}
 	}
 
 endif;
@@ -417,6 +421,11 @@ if ( ! function_exists( 'responsive_js' ) ) {
 		$template_directory_uri = get_template_directory_uri();
 
 		wp_enqueue_script( 'navigation-scripts', $template_directory_uri . '/core/' . $directory . '/navigation' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, true );
+		
+		// enqueue searchform script only when search element is present in builder.
+		if ( responsive_check_element_present_in_hfb( 'search', 'header' ) ) {
+			wp_enqueue_script( 'searchform-script', $template_directory_uri . '/core/' . $directory . '/searchform' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, true );
+		}
 
 		$mobile_menu_breakpoint = array( 'mobileBreakpoint' => get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
 		wp_localize_script( 'navigation-scripts', 'responsive_breakpoint', $mobile_menu_breakpoint );
@@ -590,9 +599,8 @@ function responsive_add_custom_body_classes( $classes ) {
 		$classes[] = 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' );
 	}
 
-	$search_icon   = get_theme_mod( 'responsive_menu_last_item', 'none' );
 	$search_screen = get_theme_mod( 'search_style', 'search' );
-	if ( 'search' === $search_icon && 'full-screen' == $search_screen ) {
+	if ( 'full-screen' == $search_screen ) {
 		$classes[] = 'full-screen';
 	}
 
@@ -1178,6 +1186,12 @@ function defaults() {
 			'responsive_body_text_color'          => '#333333',
 			'responsive_link_color'               => '#0066CC',
 			'responsive_link_hover_color'         => '#10659C',
+			'responsive_header_search_color'      => '#333333',
+			'responsive_header_search_hover_color'=> '#333333',
+			'responsive_header_search_background_color'       => '#ffffff',
+			'responsive_header_search_background_hover_color' => '#ffffff',
+			'responsive_header_search_text_color'             => '#333333',
+			'responsive_header_search_text_hover_color'       => '#333333',
 			'responsive_header_desktop_items'     => array(
 				'above' => array(
 					'above_left'           => array(),
@@ -1354,6 +1368,11 @@ function defaults() {
 																				'name'    => esc_html__( 'Header Widgets', 'responsive' ),
 																				'section' => 'responsive_header_widget',
 																				'icon'    => 'wordpress',
+																			),
+																			'search'          => array(
+																				'name'    => esc_html__( 'Search', 'responsive' ),
+																				'section' => 'responsive_header_search',
+																				'icon'    => 'search',
 																			),
 																		),
 		)
@@ -2020,6 +2039,42 @@ if( ! function_exists( 'responsive_old_woo_cart_comaptibility_with_header_builde
 			foreach ( $padding_properties as $type ) {
 				$target_mod = "responsive_header_woo_cart_padding_$type";
 				set_theme_mod( $target_mod, 4 );
+			}
+		}
+	}
+}
+
+/**
+ * Make Search Icon in Menu compatible with new hfb header Search element.
+ * @since 6.1.3
+ */
+if ( ! function_exists( 'responsive_old_header_search_compatibility_with_hfb_header_search_element' ) ) {
+
+	/**
+	 * Make Search Icon in Menu (deprecated) compatible with new hfb header Search element.
+	 * @since 6.1.3
+	 */
+	function responsive_old_header_search_compatibility_with_hfb_header_search_element() {
+
+		$is_search_element_already_loaded = responsive_check_element_present_in_hfb( 'search', 'header' );
+		if ( $is_search_element_already_loaded ) {
+			return;
+		}
+
+		$search_icon = get_theme_mod( 'responsive_menu_last_item', 'none' );
+		if ( 'search' === $search_icon ) {
+			$header_hfb_elements = get_theme_mod( 'responsive_header_desktop_items', get_responsive_customizer_defaults( 'responsive_header_desktop_items' ) );
+			array_push( $header_hfb_elements['primary']['primary_right'], 'search' );
+			set_theme_mod( 'responsive_header_desktop_items', $header_hfb_elements );
+			//make search border color backward compatible.
+			$menu_items_color       = get_theme_mod( 'responsive_header_menu_link_color' );
+			$menu_items_hover_color = get_theme_mod( 'responsive_header_menu_link_hover_color' );
+			if( $menu_items_color ) {
+				set_theme_mod( 'responsive_header_search_color', $menu_items_color );
+				set_theme_mod( 'responsive_header_search_hover_color', $menu_items_color );
+			}
+			if( $menu_items_hover_color ) {
+				set_theme_mod( 'responsive_header_search_hover_color', $menu_items_hover_color );
 			}
 		}
 	}

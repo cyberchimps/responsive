@@ -2,7 +2,7 @@
 /**
  * Template part for displaying the header Social Modual
  *
- * @package kadence
+ * @package responsive
  */
 
 if( ! defined('ABSPATH') ) {
