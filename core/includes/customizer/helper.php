@@ -3218,6 +3218,89 @@ if ( ! function_exists( 'responsive_header_social_elements' ) ) {
 	}
 }
 
+if ( ! function_exists( 'responsive_header_contact_info_elements' ) ) {
+	/**
+	 * Returns header social elements for the customizer.
+	 *
+	 * @since 0.2
+	 */
+	function responsive_header_contact_info_elements() {
+
+		// Default elements.
+		$elements = apply_filters(
+			'responsive_header_contact_info_elements',
+			array(
+				array(
+					'id'      => 'email',
+					'enable'  => true,
+					'label'   => 'Email',
+					'title'   => 'Email',
+					'content' => '',
+					'link'    => '',
+				),
+				array(
+					'id'      => 'phone',
+					'enable'  => true,
+					'label'   => 'Phone',
+					'title'   => 'Phone',
+					'content' => '',
+					'link'    => '',
+				),
+			),
+		);
+
+		return $elements;
+
+	}
+}
+
+if ( ! function_exists( 'responsive_header_contact_info_default_elements' ) ) {
+	/**
+	 * Returns header social elements for the customizer.
+	 *
+	 * @since 0.2
+	 */
+	function responsive_header_contact_info_default_elements() {
+
+		// Default elements.
+		$elements = apply_filters(
+			'responsive_header_contact_info_default_elements',
+			array(
+				array(
+					'id'      => 'email',
+					'enable'  => true,
+					'label'   => 'Email',
+					'title'   => 'Email',
+					'content' => '',
+					'link'    => '',
+				),
+				array(
+					'id'      => 'phone',
+					'enable'  => true,
+					'label'   => 'Phone',
+					'title'   => 'Phone',
+					'content' => '',
+					'link'    => '',
+				),
+			),
+		);
+
+		return $elements;
+
+	}
+}
+
+if ( ! function_exists( 'responsive_header_contact_info_icon_style_visibility' ) ) {
+
+	function responsive_header_contact_info_icon_style_visibility() {
+		$icon_shape = get_theme_mod( 'responsive_header_contact_info_icon_shape', 'rounded' );
+		if ( 'none' != $icon_shape ) {
+			return true;
+		}
+		return false;
+	}
+}
+
 if ( ! function_exists( 'responsive_show_social_background_colors' ) ) {
 	/**
 	 * Determines whether social icons in the header should display with a filled background color.

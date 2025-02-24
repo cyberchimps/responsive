@@ -30,6 +30,7 @@ import { responsiveAvailableItemsDragControl } from './builder-available-drag/co
 import { responsiveShadow } from './shadow/control';
 import { responsiveSocial } from './social/controls';
 import { responsiveInputWithDropdown } from './input-with-dropdown/control';
+import { responsiveContactInfo } from './contact-info/control';
 import { responsiveColorWithDevices } from './color-with-devices/control';
 
 wp.customize.controlConstructor['responsive-sortable'] = responsiveSortable;
@@ -62,4 +63,5 @@ wp.customize.controlConstructor['responsive-shadow-control'] = responsiveShadow;
 wp.customize.controlConstructor['responsive-social']    = responsiveSocial;
 wp.customize.controlConstructor['responsive-available-drag-control']    = responsiveAvailableItemsDragControl;
 wp.customize.controlConstructor['responsive-input-with-dropdown']       = responsiveInputWithDropdown;
+wp.customize.controlConstructor['responsive-contact-info'] = responsiveContactInfo;
 wp.customize.controlConstructor['responsive-color-with-devices']        = responsiveColorWithDevices;

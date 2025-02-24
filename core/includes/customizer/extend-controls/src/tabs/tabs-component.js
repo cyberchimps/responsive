@@ -181,6 +181,10 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_header_button_bg_color').style.display = 'none';
 			document.getElementById('customize-control-responsive_header_button_bg_color_separator').style.display = 'none';
 		}
+		if( api('responsive_header_contact_info_icon_shape').get() === 'none' && 'general' === tab ) {
+			document.getElementById('customize-control-responsive_header_contact_info_icon_style').style.display = 'none';
+			document.getElementById('customize-control-responsive_header_contact_info_icon_style_separator').style.display = 'none';
+		}
 		if( api('responsive_header_search_style_design').get() === 'bordered' && 'design' === tab ) {
 			document.getElementById('customize-control-responsive_header_search_border').style.display = 'block';
 			document.getElementById('customize-control-responsive_header_search_separator6').style.display = 'block';

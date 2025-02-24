@@ -2065,4 +2065,27 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
         });
     });
 
+    const headerContactInfoMargin = [
+        'responsive_header_contact_info_margin_top_padding',
+        'responsive_header_contact_info_margin_right_padding',
+        'responsive_header_contact_info_margin_bottom_padding',
+        'responsive_header_contact_info_margin_left_padding',
+        'responsive_header_contact_info_margin_tablet_top_padding',
+        'responsive_header_contact_info_margin_tablet_right_padding',
+        'responsive_header_contact_info_margin_tablet_bottom_padding',
+        'responsive_header_contact_info_margin_tablet_left_padding',
+        'responsive_header_contact_info_margin_mobile_top_padding',
+        'responsive_header_contact_info_margin_mobile_right_padding',
+        'responsive_header_contact_info_margin_mobile_bottom_padding',
+        'responsive_header_contact_info_margin_mobile_left_padding',
+    ];
+
+    headerContactInfoMargin.forEach(setting => {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_margin('header_contact_info_margin', '.site-header-item .responsive-header-contact-info');
+            });
+        });
+    });
+
 } )( jQuery );

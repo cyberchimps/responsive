@@ -2264,6 +2264,72 @@
             jQuery('head').append(`<style id="responsive-header-cart-tray-link-hover-color">${css}</style>`);
         });
     });
+    api( 'responsive_header_contact_info_icons_color', function(val){
+        val.bind(function(newval){
+            $( '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-icon-container svg' ).css( 'fill', newval );
+        });
+    });
+    api('responsive_header_contact_info_icons_hover_color', function(val) {
+        val.bind(function(newval) {
+            $('.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-icon-container svg').off('mouseenter mouseleave');
+    
+            $('.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-icon-container svg').on('mouseenter', function() {
+                $(this).css('fill', newval);
+            }).on('mouseleave', function() {
+                $(this).css('fill', '');
+            });
+        });
+    });
+    api( 'responsive_header_contact_info_background_color', function(val){
+        val.bind(function(newval){
+            let header_contact_info_icon_style = api('responsive_header_contact_info_icon_style').get() || 'filled';
+            if ( 'filled' === header_contact_info_icon_style ) {
+                $( '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-icon-container' ).css( 'background-color', newval );
+            } else {
+                $( '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-icon-container' ).css( 'border', '1px solid ' + newval );
+            }
+        });
+    });
+    api( 'responsive_header_contact_info_background_hover_color', function(val){
+        val.bind(function(newval){
+            console.log(newval)
+            let header_contact_info_icon_style = api('responsive_header_contact_info_icon_style').get() || 'filled';
+            if ( 'filled' === header_contact_info_icon_style ) {
+                $('.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-icon-container').off('mouseenter mouseleave');
+    
+                $('.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-icon-container').on('mouseenter', function() {
+                    $(this).css('background-color', newval);
+                }).on('mouseleave', function() {
+                    $(this).css('background-color', api('responsive_header_contact_info_background_color').get());
+                });
+            } else {
+                $('.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-icon-container').off('mouseenter mouseleave');
+    
+                $('.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-icon-container').on('mouseenter', function() {
+                    $(this).css( 'border', '1px solid ' + newval );
+                }).on('mouseleave', function() {
+                    $(this).css('border', '1px solid ' + api('responsive_header_contact_info_background_color').get());
+                });
+            }
+        });
+    });
+    api( 'responsive_header_contact_info_font_color', function(val){
+        val.bind(function(newval){
+            $('.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list  .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-title, .site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text, .site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text .responsive-header-contact-info-contact-link').css('color', newval);
+        });
+    });
+    api( 'responsive_header_contact_info_font_hover_color', function(val){
+        val.bind(function(newval){
+            $('.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list  .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-title, .site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text, .site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text .responsive-header-contact-info-contact-link').off('mouseenter mouseleave');
+
+            $('.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list  .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-title, .site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text, .site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text .responsive-header-contact-info-contact-link').on('mouseenter', function() {
+                $(this).css('color', newval);
+            }).on('mouseleave', function() {
+                $(this).css('color', api('responsive_header_contact_info_font_color').get());
+            });
+        });
+    });
+    
     // Header Search Color.
     api( 'responsive_header_search_color', function(setting){
         setting.bind(function(color){

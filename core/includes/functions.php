@@ -1263,6 +1263,18 @@ function defaults() {
 			'responsive_header_button_margin_x'                       => 0,
 			'responsive_header_button_border_style'                   => 'none',
 			'responsive_header_button_border_width'                   => 1,
+			'responsive_header_contact_info_icon_style'               => 'filled',
+			'responsive_header_contact_info_icon_shape'               => 'rounded',
+			'responsive_header_contact_info_icon_size'                => 15,
+			'responsive_header_contact_info_item_spacing'             => 15,
+			'responsive_header_contact_info_icons_color'              => '#292929E6',
+			'responsive_header_contact_info_icons_hover_color'        => '#216BDB',
+			'responsive_header_contact_info_background_color'         => '#EDF2FE',
+			'responsive_header_contact_info_background_hover_color'   => '#DADEE3B5',
+			'responsive_header_contact_info_font_color'               => '#292929E6',
+			'responsive_header_contact_info_font_hover_color'         => '#216BDB',
+			'responsive_header_contact_info_margin_y'                 => 0,
+			'responsive_header_contact_info_margin_x'                 => 0,
 			'responsive_footer_items'     					          => array(
 																			'above' => array(
 																				'above_1' => array(),
@@ -1339,27 +1351,27 @@ function defaults() {
 																			),
 																		),
 			'responsive_header_builder_choices'      				    => array(
-																			'logo'          => array(
+																			'logo'                 => array(
 																				'name'    => esc_html__( 'Site Title & Logo', 'responsive' ),
 																				'section' => 'responsive_header_site_logo_title',
 																				'icon'    => 'search',
 																			),
-																			'primary_navigation'          => array(
+																			'primary_navigation'   => array(
 																				'name'    => esc_html__( 'Primary Menu', 'responsive' ),
 																				'section' => 'responsive_header_menu_layout',
 																				'icon'    => 'menu',
 																			),
-																			'secondary_navigation'          => array(
+																			'secondary_navigation' => array(
 																				'name'    => esc_html__( 'Secondary Menu', 'responsive' ),
 																				'section' => 'responsive_header_secondary_menu_layout',
 																				'icon'    => 'menu',
 																			),
-																			'social'          => array(
+																			'social'               => array(
 																				'name'    => esc_html__( 'Social', 'responsive' ),
 																				'section' => 'responsive_header_social',
 																				'icon'    => 'share',
 																			),
-																			'header_button'          => array(
+																			'header_button'        => array(
 																				'name'    => esc_html__( 'Button', 'responsive' ),
 																				'section' => 'responsive_header_button',
 																				'icon'    => 'button',
@@ -1368,6 +1380,11 @@ function defaults() {
 																				'name'    => esc_html__( 'Header Widgets', 'responsive' ),
 																				'section' => 'responsive_header_widget',
 																				'icon'    => 'wordpress',
+																			),
+																			'header_contact_info'  => array(
+																				'name'    => esc_html__( 'Contact Info', 'responsive' ),
+																				'section' => 'responsive_header_contact_info',
+																				'icon'    => 'contact',
 																			),
 																			'search'          => array(
 																				'name'    => esc_html__( 'Search', 'responsive' ),
