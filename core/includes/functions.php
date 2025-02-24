@@ -335,8 +335,9 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 			}
 		}
 
-		responsive_background_images_background_compatibility();
-		responsive_font_sizes_background_compatibility();
+		responsive_background_images_backward_compatibility();
+		responsive_font_sizes_backward_compatibility();
+		responsive_border_width_backward_compatibility();
 
 		if ( ! get_option( 'responsive_header_footer_builder_compatibility_header_widgets' ) ) {
 			if ( is_active_sidebar( 'header-widgets' ) ) {
@@ -351,6 +352,10 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		if( ! get_option( 'responsive_old_woo_cart_comaptibility_with_header_builder_woo_cart' ) ) {
 			responsive_old_woo_cart_comaptibility_with_header_builder_woo_cart();
 			update_option( 'responsive_old_woo_cart_comaptibility_with_header_builder_woo_cart', true );
+		}
+		if ( ! get_option( 'responsive_old_header_search_compatibility_with_hfb_header_search' ) ) {
+			responsive_old_header_search_compatibility_with_hfb_header_search_element();
+            update_option( 'responsive_old_header_search_compatibility_with_hfb_header_search', true );
 		}
 	}
 
@@ -416,9 +421,17 @@ if ( ! function_exists( 'responsive_js' ) ) {
 		$template_directory_uri = get_template_directory_uri();
 
 		wp_enqueue_script( 'navigation-scripts', $template_directory_uri . '/core/' . $directory . '/navigation' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, true );
+		
+		// enqueue searchform script only when search element is present in builder.
+		if ( responsive_check_element_present_in_hfb( 'search', 'header' ) ) {
+			wp_enqueue_script( 'searchform-script', $template_directory_uri . '/core/' . $directory . '/searchform' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, true );
+		}
 
 		$mobile_menu_breakpoint = array( 'mobileBreakpoint' => get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
 		wp_localize_script( 'navigation-scripts', 'responsive_breakpoint', $mobile_menu_breakpoint );
+		if ( responsive_check_element_present_in_hfb( 'primary_navigation', 'header' ) ) {
+			wp_enqueue_script( 'responsive_theme_nested_menus', $template_directory_uri . '/core/' . $directory . '/nested-menus' . $suffix . '.js', array('customize-preview'), RESPONSIVE_THEME_VERSION, true );
+		}
 
 	}
 }
@@ -586,9 +599,8 @@ function responsive_add_custom_body_classes( $classes ) {
 		$classes[] = 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' );
 	}
 
-	$search_icon   = get_theme_mod( 'responsive_menu_last_item', 'none' );
 	$search_screen = get_theme_mod( 'search_style', 'search' );
-	if ( 'search' === $search_icon && 'full-screen' == $search_screen ) {
+	if ( 'full-screen' == $search_screen ) {
 		$classes[] = 'full-screen';
 	}
 
@@ -1174,6 +1186,12 @@ function defaults() {
 			'responsive_body_text_color'          => '#333333',
 			'responsive_link_color'               => '#0066CC',
 			'responsive_link_hover_color'         => '#10659C',
+			'responsive_header_search_color'      => '#333333',
+			'responsive_header_search_hover_color'=> '#333333',
+			'responsive_header_search_background_color'       => '#ffffff',
+			'responsive_header_search_background_hover_color' => '#ffffff',
+			'responsive_header_search_text_color'             => '#333333',
+			'responsive_header_search_text_hover_color'       => '#333333',
 			'responsive_header_desktop_items'     => array(
 				'above' => array(
 					'above_left'           => array(),
@@ -1368,6 +1386,11 @@ function defaults() {
 																				'section' => 'responsive_header_contact_info',
 																				'icon'    => 'contact',
 																			),
+																			'search'          => array(
+																				'name'    => esc_html__( 'Search', 'responsive' ),
+																				'section' => 'responsive_header_search',
+																				'icon'    => 'search',
+																			),
 																		),
 		)
 	);
@@ -1433,9 +1456,9 @@ function responsive_register_widgets() {
  * @since 6.0.0
  */
 
-if ( ! function_exists( 'responsive_background_images_background_compatibility' ) ) :
+if ( ! function_exists( 'responsive_background_images_backward_compatibility' ) ) :
 
-	function responsive_background_images_background_compatibility() {
+	function responsive_background_images_backward_compatibility() {
 		if ( ! get_option( 'responsive_old_background_images_compatible_done' ) ) {
 			$background_image_elements = array( 'footer_background', 'header_background', 'header_widget_background', 'transparent_header_widget_background', 'sidebar_background', 'box_background', 'button_background', 'inputs_background' );
 			
@@ -1452,9 +1475,6 @@ if ( ! function_exists( 'responsive_background_images_background_compatibility' 
 			if ( get_theme_mod( 'background_color' ) ) {
 				set_theme_mod( 'responsive_site_background_color', get_theme_mod( 'background_color' ) );
 			}
-			if ( get_theme_mod( 'responsive_inputs_border_width' ) ) {
-				set_theme_mod( 'responsive_inputs_border_width_top_border', get_theme_mod( 'responsive_inputs_border_width' ) );
-			}
 			update_option( 'responsive_old_background_images_compatible_done', true );
 		}
 	}
@@ -1465,9 +1485,9 @@ endif;
  * @since 6.0.0
  */
 
-if ( ! function_exists( 'responsive_font_sizes_background_compatibility' ) ) :
+if ( ! function_exists( 'responsive_font_sizes_backward_compatibility' ) ) :
 
-	function responsive_font_sizes_background_compatibility() {
+	function responsive_font_sizes_backward_compatibility() {
 		if ( ! get_option( 'responsive_old_font_sizes_compatible_done' ) ) {
 			$font_size_typo_elements = array(
 				'body',
@@ -1541,6 +1561,69 @@ if ( ! function_exists( 'responsive_font_sizes_background_compatibility' ) ) :
 	}
 endif;
 
+/**
+ * Function to make old border width control with new control.
+ * @since 6.1.2
+ */
+
+ if ( ! function_exists( 'responsive_border_width_backward_compatibility' ) ) :
+
+	function responsive_border_width_backward_compatibility() {
+		if ( ! get_option( 'responsive_old_border_width_compatible_done' ) ) {
+			// Set default fallback value
+			$default_value = 1;
+			
+			// Inputs border width 
+			$input_border_width = get_theme_mod( 'responsive_inputs_border_width', $default_value );
+
+			$sides = [ 'top', 'right', 'bottom', 'left' ];
+
+			foreach ( $sides as $side ) {
+				$option_name = "responsive_inputs_border_width_{$side}_border";
+				if ( false === get_theme_mod( $option_name ) ) {
+					set_theme_mod( $option_name, $input_border_width );
+				}
+			}
+
+			// Mobile inputs border width
+			foreach ( $sides as $side ) {
+				$mobile_option_name = "responsive_inputs_border_width_mobile_{$side}_border";
+				$desktop_option_name = "responsive_inputs_border_width_{$side}_border";
+				if ( false === get_theme_mod( $mobile_option_name ) ) {
+					set_theme_mod(
+						$mobile_option_name,
+						get_theme_mod( $desktop_option_name, $input_border_width )
+					);
+				}
+			}
+
+			// Tablet inputs border width 
+			foreach ( $sides as $side ) {
+				$tablet_option_name = "responsive_inputs_border_width_tablet_{$side}_border";
+				$desktop_option_name = "responsive_inputs_border_width_{$side}_border";
+				if ( false === get_theme_mod( $tablet_option_name ) ) {
+					set_theme_mod(
+						$tablet_option_name,
+						get_theme_mod( $desktop_option_name, $input_border_width )
+					);
+				}
+			}
+
+			// Buttons border width 
+			$button_border_width = get_theme_mod( 'responsive_buttons_border_width', $default_value );
+
+			foreach ( $sides as $side ) {
+				set_theme_mod( "responsive_buttons_border_width_{$side}_border", $button_border_width );
+				set_theme_mod( "responsive_buttons_border_width_mobile_{$side}_border", $button_border_width );
+				set_theme_mod( "responsive_buttons_border_width_tablet_{$side}_border", $button_border_width );
+			}
+
+			update_option( 'responsive_old_border_width_compatible_done', true );
+		}
+	}
+
+endif;
+
 function responsive_extract_numeric_font_size($value) {
 
     preg_match('/[-+]?[0-9]+/', $value, $matches);
@@ -1570,12 +1653,26 @@ if( ! function_exists( 'responsive_old_header_footer_comaptibility_with_hfb' ) )
 		// Vertical Header backward compatibility.
 		$responsive_header_layout = get_theme_mod( 'responsive_header_layout' );
         if ( 'vertical' === $responsive_header_layout ) {
-            unset( $header_hfb_elements['primary']['primary_left'][0] );
-            unset( $header_hfb_elements['primary']['primary_right'][0] );
-            array_push( $header_hfb_elements['primary']['primary_center'], 'logo' );
-            unset( $header_hfb_elements['below']['below_center'][0] );
-            array_push( $header_hfb_elements['below']['below_center'], 'primary_navigation' );
+			// Vertical Header Alignment preserve with hfb.
+			$vertical_header_alignment = get_theme_mod( 'responsive_header_alignment' );
+			if ( 'left' === $vertical_header_alignment ) {
+				$header_hfb_elements['primary']['primary_right'] = array();
+				$header_hfb_elements['below']['below_left']      = array();
+				array_push( $header_hfb_elements['below']['below_left'], 'primary_navigation' );
+			} else if ( 'right' === $vertical_header_alignment ) {
+				$header_hfb_elements['primary']['primary_left']  = array();
+				$header_hfb_elements['primary']['primary_right'] = array();
+				array_push( $header_hfb_elements['primary']['primary_right'], 'logo' );
+                array_push( $header_hfb_elements['below']['below_right'], 'primary_navigation' );
+			} else {
+				$header_hfb_elements['primary']['primary_left']  = array();
+				$header_hfb_elements['primary']['primary_right'] = array();
+				$header_hfb_elements['below']['below_center']    = array();
+				array_push( $header_hfb_elements['primary']['primary_center'], 'logo' );
+				array_push( $header_hfb_elements['below']['below_center'], 'primary_navigation' );
+			}
         }
+
 
 		set_theme_mod( 'responsive_header_desktop_items', $header_hfb_elements );
 		
@@ -1959,6 +2056,42 @@ if( ! function_exists( 'responsive_old_woo_cart_comaptibility_with_header_builde
 			foreach ( $padding_properties as $type ) {
 				$target_mod = "responsive_header_woo_cart_padding_$type";
 				set_theme_mod( $target_mod, 4 );
+			}
+		}
+	}
+}
+
+/**
+ * Make Search Icon in Menu compatible with new hfb header Search element.
+ * @since 6.1.3
+ */
+if ( ! function_exists( 'responsive_old_header_search_compatibility_with_hfb_header_search_element' ) ) {
+
+	/**
+	 * Make Search Icon in Menu (deprecated) compatible with new hfb header Search element.
+	 * @since 6.1.3
+	 */
+	function responsive_old_header_search_compatibility_with_hfb_header_search_element() {
+
+		$is_search_element_already_loaded = responsive_check_element_present_in_hfb( 'search', 'header' );
+		if ( $is_search_element_already_loaded ) {
+			return;
+		}
+
+		$search_icon = get_theme_mod( 'responsive_menu_last_item', 'none' );
+		if ( 'search' === $search_icon ) {
+			$header_hfb_elements = get_theme_mod( 'responsive_header_desktop_items', get_responsive_customizer_defaults( 'responsive_header_desktop_items' ) );
+			array_push( $header_hfb_elements['primary']['primary_right'], 'search' );
+			set_theme_mod( 'responsive_header_desktop_items', $header_hfb_elements );
+			//make search border color backward compatible.
+			$menu_items_color       = get_theme_mod( 'responsive_header_menu_link_color' );
+			$menu_items_hover_color = get_theme_mod( 'responsive_header_menu_link_hover_color' );
+			if( $menu_items_color ) {
+				set_theme_mod( 'responsive_header_search_color', $menu_items_color );
+				set_theme_mod( 'responsive_header_search_hover_color', $menu_items_color );
+			}
+			if( $menu_items_hover_color ) {
+				set_theme_mod( 'responsive_header_search_hover_color', $menu_items_hover_color );
 			}
 		}
 	}

@@ -74,6 +74,7 @@ if ( ! function_exists( 'check_is_responsive_addons_greater' ) ) {
 }
 
 $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_plugin_installed_activated( 'responsive-add-ons' );
+	$admin_customize_url = admin_url('customize.php');
 
 	$home_settings = array(
 		array(
@@ -298,9 +299,14 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 <div class="container">
 	<div class="row">
 		<div class="col-lg-8 col-md-7">
-			<div class="row">
-				<div class="col-md-12">
+			<div class="row d-flex justify-content-between align-items-center">
+				<div class="col-md-9">
 					<p class="responsive-theme-home-settings-text fw-bolder"><?php esc_html_e( 'Customizer Settings', 'responsive' ); ?></p>
+				</div>
+				<div class="col-md-3 text-end mb-4">
+					<a class="responsive-theme-go-to-customizer-link text-decoration-none shadow-none" href="<?php echo esc_attr( $admin_customize_url ); ?>">
+						<?php echo esc_html( 'Go to Customizer' ); ?>
+					</a>
 				</div>
 			</div>
 			<div class="row">

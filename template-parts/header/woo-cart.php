@@ -2,7 +2,7 @@
 /**
  * Template part for displaying the Header Builder Woo Cart Component.
  *
- * @package kadence
+ * @package responsive
  */
 if ( ! defined('ABSPATH') ) {
     exit; // Exit if accessed directly

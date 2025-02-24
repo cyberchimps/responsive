@@ -2005,6 +2005,20 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
         responsive_bind_spacing_changes('margin', suffix, 'header_woo_cart', '.responsive-header-cart .res-addon-cart-wrap', responsive_dynamic_margin);
     });
 
+    // Generic function to bind header search padding and amrgin changes dynamically.
+    function responsive_bind_spacing_changes(type, suffix, control, selector, callback) {
+        const setting_id = `responsive_${control}_${type}_${suffix}`;
+        wp.customize(setting_id, function (value) {
+            value.bind(function () {
+                callback(`${control}_${type}`, selector);
+            });
+        });
+    }
+    suffixes.forEach(function (suffix) {
+        responsive_bind_spacing_changes('padding', suffix, 'header_search', '.responsive-header-search-icon-wrap', responsive_dynamic_padding);
+        responsive_bind_spacing_changes('margin', suffix, 'header_search', '.responsive-header-search-icon-wrap', responsive_dynamic_margin);
+    });
+
     const headerButtonPadding = [
         'responsive_header_button_top_padding',
         'responsive_header_button_right_padding',

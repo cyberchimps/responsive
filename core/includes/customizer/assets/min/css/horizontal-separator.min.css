@@ -38,3 +38,7 @@
 #customize-control-responsive_header_woo_cart_separator_14 .responsive-horizontal-separator-control-wrapper {
 	padding-bottom: 24px;
 }
+#sub-accordion-section-responsive_header_search .customize-control-responsive-horizontal-separator {
+    padding-top: 24px;
+    padding-bottom: 24px;
+}

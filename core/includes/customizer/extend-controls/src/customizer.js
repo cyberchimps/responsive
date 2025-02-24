@@ -220,4 +220,137 @@
 		} );
 	} );
 
+	wp.customize.bind('ready', function() {
+		wp.customize('responsive_color_scheme', function(value) {
+			value.bind(function(newval) {
+	
+				// Extract design style and color palette.
+				let customizerColorSchemes = newval.split('-');
+				let designStyle = customizerColorSchemes[0];
+				let colorPalette = customizerColorSchemes[1];
+	
+				// Get available design styles.
+				let designStyles = localize.paletteDesignStyles;
+	
+				if (designStyles[designStyle] && designStyles[designStyle].color_schemes[colorPalette]) {
+					let responsiveColorSchemes = designStyles[designStyle].color_schemes[colorPalette];
+	
+					// List of theme mods to update dynamically.
+					let themeMods = {
+						'responsive_alt_background_color': responsiveColorSchemes.alt_background,
+						'responsive_box_background_color': responsiveColorSchemes.background,
+						'responsive_link_color': responsiveColorSchemes.accent,
+						'responsive_button_color': responsiveColorSchemes.accent,
+						'responsive_button_hover_color': responsiveColorSchemes.accent,
+						'responsive_sidebar_headings_color': responsiveColorSchemes.text,
+						'responsive_sidebar_background_color': responsiveColorSchemes.background,
+						'responsive_body_text_color': responsiveColorSchemes.text,
+						'responsive_meta_text_color': responsiveColorSchemes.accent,
+						'responsive_sidebar_text_color': responsiveColorSchemes.text,
+						'responsive_h1_text_color': responsiveColorSchemes.text,
+						'responsive_h2_text_color': responsiveColorSchemes.text,
+						'responsive_h3_text_color': responsiveColorSchemes.text,
+						'responsive_h4_text_color': responsiveColorSchemes.text,
+						'responsive_h5_text_color': responsiveColorSchemes.text,
+						'responsive_h6_text_color': responsiveColorSchemes.text,
+						'responsive_sidebar_link_color': responsiveColorSchemes.accent,
+						'responsive_shop_product_rating_color': responsiveColorSchemes.accent,
+						'responsive_add_to_cart_button_text_color': responsiveColorSchemes.background,
+						'responsive_add_to_cart_button_hover_text_color': responsiveColorSchemes.background,
+						'responsive_cart_buttons_text_color': responsiveColorSchemes.background,
+						'responsive_cart_buttons_hover_color': responsiveColorSchemes.accent,
+						'responsive_cart_buttons_hover_text_color': responsiveColorSchemes.background,
+						'responsive_cart_checkout_button_color': responsiveColorSchemes.accent,
+						'responsive_cart_checkout_button_text_color': responsiveColorSchemes.background,
+						'responsive_cart_checkout_button_hover_text_color': responsiveColorSchemes.background
+					};
+	
+					// Loop through theme mods and set values only if they exist.
+					Object.keys(themeMods).forEach(function(mod) {
+						if (wp.customize(mod)) {
+							wp.customize(mod).set(themeMods[mod]);
+						}
+					});
+	
+					// Handle header/footer separately with fallbacks.
+					let headerBackground = responsiveColorSchemes.header_background || '#ffffff';
+					let footerBackground = responsiveColorSchemes.footer_background || '#333333';
+					let headerText = responsiveColorSchemes.header_text || '#333333';
+					let footerText = responsiveColorSchemes.footer_text || '#ffffff';
+	
+					let additionalMods = {
+						'responsive_header_text_color': headerText,
+						'responsive_footer_text_color': footerText,
+						'responsive_footer_background_color': footerBackground,
+						'responsive_header_site_title_color': headerText,
+						'responsive_header_site_title_hover_color': headerText,
+						'responsive_header_menu_background_color': headerBackground,
+						'responsive_header_mobile_menu_background_color': headerBackground,
+						'responsive_header_menu_link_color': headerText,
+						'responsive_header_secondary_menu_background_color': headerBackground,
+						'responsive_header_secondary_menu_link_color': headerText
+					};
+	
+					// Apply additional mods safely.
+					Object.keys(additionalMods).forEach(function(mod) {
+						if (wp.customize(mod)) {
+							wp.customize(mod).set(additionalMods[mod]);
+						}
+					});
+	
+				} else {
+					console.error('Invalid color scheme or design style.');
+				}
+			});
+		});
+	});
+
+	wp.customize('responsive_header_search_label', function(setting) {
+		setting.bind(function(label) {
+			const general_tab = $('#responsive_header_search_general_tab'); 
+			const design_tab  = $('#responsive_header_search_design_tab'); 
+
+			const controls = {
+				visibility: $('#customize-control-responsive_header_search_label_visibility'),
+				separator2: $('#customize-control-responsive_header_search_separator3'),
+				typography: $('#customize-control-responsive_header_search_label_typography_group'),
+				separator10: $('#customize-control-responsive_header_search_separator10')
+			};
+
+			if (label.length > 0) {
+				if (general_tab.hasClass('nav-tab-active')) {
+					controls.visibility.fadeIn(300);
+					controls.separator2.fadeIn(300);
+				}
+				if (design_tab.hasClass('nav-tab-active')) {
+					controls.typography.fadeIn(300);
+					controls.separator10.fadeIn(300);
+				}
+			} else {
+				$.each(controls, function(_, control) {
+					control.fadeOut(300);
+				});
+			}
+		});
+	});
+	wp.customize( 'search_style', function(setting){
+		setting.bind( function( type ) {
+			if( 'full-screen' !== type ) {
+				$('#customize-control-responsive_header_search_label').fadeOut(300);
+                $('#customize-control-responsive_header_search_separator2').fadeOut(300);
+                $('#customize-control-responsive_header_search_label_visibility').fadeOut(300);
+                $('#customize-control-responsive_header_search_separator3').fadeOut(300);
+                document.getElementById('customize-control-responsive_header_search_label_typography_group').style.display = 'none';
+                document.getElementById('customize-control-responsive_header_search_separator10').style.display = 'none';
+			} else {
+				$('#customize-control-responsive_header_search_label').fadeIn(300);
+                $('#customize-control-responsive_header_search_separator2').fadeIn(300);
+                if( wp.customize('responsive_header_search_label').get().length > 0 ) {
+                    $('#customize-control-responsive_header_search_label_visibility').fadeIn(300);
+                    $('#customize-control-responsive_header_search_separator3').fadeIn(300);
+                }
+			}
+        } );
+	} );
+	
 } )( jQuery, wp );
