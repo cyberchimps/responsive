@@ -43,8 +43,6 @@ const HtmlComponent = ({ control, customizer }) => {
         setEditor(tinymceEditor);
     };
 
-    console.log(value)
-
     useEffect(() => {
         if (window.tinymce.get(controlParams.id)) {
             setRestoreTextMode(window.tinymce.get(controlParams.id).isHidden());
