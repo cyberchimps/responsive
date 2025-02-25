@@ -1005,6 +1005,18 @@ body.mega-menu-header-menu button.menu-toggle {
     }
 }
 
+.site-header {
+    .site-header-item {
+        .responsive-header-html {
+            .responsive-header-html-inner {
+                &.responsive-header-html-underline-link a {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
 .site-header-item {
     .responsive-header-button-wrap {
         .responsive-header-button-inner-wrap {
