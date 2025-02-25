@@ -41,3 +41,6 @@
 #customize-control-responsive_header_woo_cart_click_action label {
     margin-top: 22px;
 }
+#customize-control-responsive_header_search_icon .customize-control-responsive-selectbtn__button.active svg path{
+    fill: #FFF;
+}

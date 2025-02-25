@@ -80,6 +80,7 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 
 			$general_tab_ids = array(
 				$tab_ids_prefix . 'responsive_font_presets',
+				$tab_ids_prefix . 'responsive_font_preset_group_separator',
 				$tab_ids_prefix . 'responsive_body_typography_group',
 				$tab_ids_prefix . 'responsive_body_typography_group_separator',
 				$tab_ids_prefix . 'responsive_heading_fonts_typography_separator',

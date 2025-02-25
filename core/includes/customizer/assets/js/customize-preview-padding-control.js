@@ -2005,6 +2005,20 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
         responsive_bind_spacing_changes('margin', suffix, 'header_woo_cart', '.responsive-header-cart .res-addon-cart-wrap', responsive_dynamic_margin);
     });
 
+    // Generic function to bind header search padding and amrgin changes dynamically.
+    function responsive_bind_spacing_changes(type, suffix, control, selector, callback) {
+        const setting_id = `responsive_${control}_${type}_${suffix}`;
+        wp.customize(setting_id, function (value) {
+            value.bind(function () {
+                callback(`${control}_${type}`, selector);
+            });
+        });
+    }
+    suffixes.forEach(function (suffix) {
+        responsive_bind_spacing_changes('padding', suffix, 'header_search', '.responsive-header-search-icon-wrap', responsive_dynamic_padding);
+        responsive_bind_spacing_changes('margin', suffix, 'header_search', '.responsive-header-search-icon-wrap', responsive_dynamic_margin);
+    });
+
     const headerButtonPadding = [
         'responsive_header_button_top_padding',
         'responsive_header_button_right_padding',
@@ -2047,6 +2061,52 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
         api(setting, function(value) {
             value.bind(function(newval) {
                 responsive_dynamic_margin('header_button_margin', '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button');
+            });
+        });
+    });
+
+    const headerContactInfoMargin = [
+        'responsive_header_contact_info_margin_top_padding',
+        'responsive_header_contact_info_margin_right_padding',
+        'responsive_header_contact_info_margin_bottom_padding',
+        'responsive_header_contact_info_margin_left_padding',
+        'responsive_header_contact_info_margin_tablet_top_padding',
+        'responsive_header_contact_info_margin_tablet_right_padding',
+        'responsive_header_contact_info_margin_tablet_bottom_padding',
+        'responsive_header_contact_info_margin_tablet_left_padding',
+        'responsive_header_contact_info_margin_mobile_top_padding',
+        'responsive_header_contact_info_margin_mobile_right_padding',
+        'responsive_header_contact_info_margin_mobile_bottom_padding',
+        'responsive_header_contact_info_margin_mobile_left_padding',
+    ];
+
+    headerContactInfoMargin.forEach(setting => {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_margin('header_contact_info_margin', '.site-header-item .responsive-header-contact-info');
+            });
+        });
+    });
+
+    const headerHtmlMargin = [
+        'responsive_header_html_margin_top_padding',
+        'responsive_header_html_margin_right_padding',
+        'responsive_header_html_margin_bottom_padding',
+        'responsive_header_html_margin_left_padding',
+        'responsive_header_html_margin_tablet_top_padding',
+        'responsive_header_html_margin_tablet_right_padding',
+        'responsive_header_html_margin_tablet_bottom_padding',
+        'responsive_header_html_margin_tablet_left_padding',
+        'responsive_header_html_margin_mobile_top_padding',
+        'responsive_header_html_margin_mobile_right_padding',
+        'responsive_header_html_margin_mobile_bottom_padding',
+        'responsive_header_html_margin_mobile_left_padding',
+    ];
+
+    headerHtmlMargin.forEach(setting => {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_margin('header_html_margin', '.site-header .responsive-header-html .responsive-header-html-inner');
             });
         });
     });

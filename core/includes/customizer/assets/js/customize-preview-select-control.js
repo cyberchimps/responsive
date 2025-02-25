@@ -734,7 +734,11 @@
             }
         });
     });
-
+    api( 'responsive_header_html_link_style', function(value){
+        value.bind( function(newval){
+            $( '.site-header .responsive-header-html .responsive-header-html-inner a' ).css( 'text-decoration', newval )
+        });
+    });
     api('responsive_header_social_item_border_style', function(value) {
         value.bind(function(newval) {
             $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'border-style', newval );
@@ -749,6 +753,22 @@
                 iconCart.removeClass( 'res-cart-label-position-left res-cart-label-position-right res-cart-label-position-bottom' );
                 iconCart.addClass('res-cart-label-position-' + position );
             }
+        });
+    });
+    // Header Search Style Design
+    api( 'responsive_header_search_style_design', function (style){
+        style.bind(function (design) {
+            if( 'bordered' === design ){
+                $( '.responsive-header-search-icon-wrap' ).css( 'border', api( 'responsive_header_search_border' ).get()+'px solid currentColor' );
+            } else {
+                $( '.responsive-header-search-icon-wrap' ).css( 'border', 0 );
+            }
+        });
+    });
+    // Header Search Border.
+    api( 'responsive_header_search_border', function (setting){
+        setting.bind(function (width) {
+            $( '.responsive-header-search-icon-wrap' ).css( 'border', width+'px solid currentColor' );
         });
     });
     

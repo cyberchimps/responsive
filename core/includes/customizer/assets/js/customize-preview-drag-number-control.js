@@ -506,8 +506,30 @@
     });
     api( 'responsive_footer_primary_inner_column_spacing', function(value) {
         value.bind(function(newval) {
-            $( '.rspv-site-primary-footer-inner-wrap' ).css( 'grid-column-gap', newval + 'px' );
-            $( '.rspv-site-primary-footer-inner-wrap' ).css( 'grid-row-gap', newval + 'px' );
+            $( '.rspv-site-primary-footer-inner-wrap' ).css( 'gap', newval + 'px' );
+        });
+    });
+    api('responsive_footer_primary_inner_column_spacing_tablet', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-primary-inner-column-spacing-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-primary-inner-column-spacing-tablet">'
+                + '@media screen and (max-width: 992px) {'
+                + '.rspv-site-primary-footer-inner-wrap { gap: ' + newval + 'px !important; }'
+                + '} </style>'
+            );
+        });
+    });
+    
+    api('responsive_footer_primary_inner_column_spacing_mobile', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-primary-inner-column-spacing-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-primary-inner-column-spacing-mobile">'
+                + '@media screen and (max-width: 576px) {'
+                + '.rspv-site-primary-footer-inner-wrap { gap: ' + newval + 'px !important; }'
+                + '} </style>'
+            );
         });
     });
     api( 'responsive_footer_primary_row_top_border_size', function(value){
@@ -523,8 +545,29 @@
     });
     api( 'responsive_footer_above_inner_column_spacing', function(value) {
         value.bind(function(newval) {
-            $( '.rspv-site-above-footer-inner-wrap' ).css( 'grid-column-gap', newval + 'px' );
-            $( '.rspv-site-above-footer-inner-wrap' ).css( 'grid-row-gap', newval + 'px' );
+            $( '.rspv-site-above-footer-inner-wrap' ).css( 'gap', newval + 'px' );
+        });
+    });
+    api('responsive_footer_above_inner_column_spacing_tablet', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-above-inner-column-spacing-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-above-inner-column-spacing-tablet">'
+                + '@media screen and (max-width: 992px) {'
+                + '.rspv-site-above-footer-inner-wrap { gap: ' + newval + 'px !important; }'
+                + '} </style>'
+            );
+        });
+    });
+    api('responsive_footer_above_inner_column_spacing_mobile', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-above-inner-column-spacing-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-above-inner-column-spacing-mobile">'
+                + '@media screen and (max-width: 576px) {'
+                + '.rspv-site-above-footer-inner-wrap { gap: ' + newval + 'px !important; }'
+                + '} </style>'
+            );
         });
     });
     api( 'responsive_footer_above_row_top_border_size', function(value){
@@ -540,8 +583,29 @@
     });
     api( 'responsive_footer_below_inner_column_spacing', function(value) {
         value.bind(function(newval) {
-            $( '.rspv-site-below-footer-inner-wrap' ).css( 'grid-column-gap', newval + 'px' );
-            $( '.rspv-site-below-footer-inner-wrap' ).css( 'grid-row-gap', newval + 'px' );
+            $( '.rspv-site-below-footer-inner-wrap' ).css( 'gap', newval + 'px' );
+        });
+    });
+    api('responsive_footer_below_inner_column_spacing_tablet', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-below-inner-column-spacing-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-below-inner-column-spacing-tablet">'
+                + '@media screen and (max-width: 992px) {'
+                + '.rspv-site-below-footer-inner-wrap { gap: ' + newval + 'px !important; }'
+                + '} </style>'
+            );
+        });
+    });
+    api('responsive_footer_below_inner_column_spacing_mobile', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-below-inner-column-spacing-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-below-inner-column-spacing-mobile">'
+                + '@media screen and (max-width: 576px) {'
+                + '.rspv-site-below-footer-inner-wrap { gap: ' + newval + 'px !important; }'
+                + '} </style>'
+            );
         });
     });
     api( 'responsive_footer_below_row_top_border_size', function(value){
@@ -572,6 +636,96 @@
     api( 'responsive_header_social_item_border_width', function(value) {
         value.bind(function(newval) {
             $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'border-width', newval + 'px' );
+        });
+    });
+    api( 'responsive_header_contact_info_icon_size', function(value) {
+        value.bind(function(newval) {
+            $( '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-icon-container' ).css( 'width', (newval * 2.5) + 'px' );
+            $( '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-icon-container' ).css( 'height', (newval * 2.5) + 'px' );
+            $( '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-icon-container svg' ).css( 'width', newval + 'px' );
+            $( '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-icon-container svg' ).css( 'height', newval + 'px' );
+        });
+    });
+    api( 'responsive_header_contact_info_item_spacing', function(value) {
+        value.bind(function(newval) {
+            $( '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types' ).css( 'gap', newval + 'px' );
+        });
+    });
+
+    // Header Search Icon Size.
+    api('responsive_header_search_icon_size', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-header-search-icon-size').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-search-icon-size">'
+                + '.responsive-header-search-icon svg { height: ' + newval + 'px; }'
+                + '.responsive-header-search-icon svg { width: ' + newval + 'px; }'
+                + '.responsive-header-search input[type=search] { height: ' + newval + 'px; }'
+                + '</style>'
+            );
+        });
+    });
+    
+    api('responsive_header_search_icon_size_tablet', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-header-search-icon-size-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-search-icon-size-tablet">'
+                + '@media screen and (max-width: 992px) {'
+                + '.responsive-header-search-icon svg { height: ' + newval + 'px !important; }'
+                + '.responsive-header-search-icon svg { width: ' + newval + 'px !important; }'
+                + '.responsive-header-search input[type=search] { height: ' + newval + 'px; }'
+                + '} </style>'
+            );
+        });
+    });
+    
+    api('responsive_header_search_icon_size_mobile', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-header-search-icon-size-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-search-icon-size-mobile">'
+                + '@media screen and (max-width: 576px) {'
+                + '.responsive-header-search-icon svg { height: ' + newval + 'px !important; }'
+                + '.responsive-header-search-icon svg { width: ' + newval + 'px !important; }'
+                + '.responsive-header-search input[type=search] { height: ' + newval + 'px; }'
+                + '} </style>'
+            );
+        });
+    });
+    // Header Search Width.
+    api('responsive_header_search_width', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-header-search-width').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-search-width">'
+                + '.responsive-header-search input[type=search].search-field { width: ' + newval + 'px; }'
+                + '</style>'
+            );
+        });
+    });
+    
+    api('responsive_header_search_width_tablet', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-header-search-width-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-search-width-tablet">'
+                + '@media screen and (max-width: 992px) {'
+                + '.responsive-header-search input[type=search].search-field { width: ' + newval + 'px !important; }'
+                + '} </style>'
+            );
+        });
+    });
+    
+    api('responsive_header_search_width_mobile', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-header-search-width-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-search-width-mobile">'
+                + '@media screen and (max-width: 576px) {'
+                + '.responsive-header-search input[type=search].search-field { width: ' + newval + 'px !important; }'
+                + '} </style>'
+            );
         });
     });
 
