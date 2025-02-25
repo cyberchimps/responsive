@@ -32,7 +32,7 @@ require get_template_directory() . '/core/includes/responsive-icon-library.php';
                             <?php echo responsive_get_svg_icon( 'contact_' . $contact_info['id'] ); ?>
                         </span>
                         <div class="responsive-header-contact-info-contact-info">
-                            <span class="responsive-header-contact-info-contact-title"><?php echo esc_html( $contact_info['label'] ); ?></span>
+                            <span class="responsive-header-contact-info-contact-title"><?php echo esc_html( $contact_info['title'] ); ?></span>
                             <span class="responsive-header-contact-info-contact-text">
                                 <?php
                                     if ( '' === $contact_info['link'] ) {

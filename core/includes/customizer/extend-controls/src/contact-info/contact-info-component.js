@@ -121,7 +121,7 @@ const ContactInfoComponent = (props) => {
                         </Tooltip>
                     </span>
                 </div>
-                <p style={{ fontSize: "12px", color: "#888", marginTop: "5px" }}>
+                <p className="responsive-contact-info-add-item-desc">
                     {__('Select the items that you want to display.', 'responsive')}
                 </p>
                 {open && availableItems?.length > 0 &&
