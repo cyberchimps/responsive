@@ -845,9 +845,13 @@
 
     //Checkout Button Color
     api( 'responsive_cart_checkout_button_color', function( value ) {
-        value.bind( function( newval ) {
-            $('.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button,.page.woocommerce-checkout .woocommerce button.button.alt,.page.woocommerce-checkout .woocommerce button.button').css('background-color', newval );
-            $('.page.woocommerce-cart .wp-block-woocommerce-cart a.wc-block-cart__submit-button, .page.woocommerce-checkout .wp-block-woocommerce-checkout button.wc-block-components-checkout-place-order-button').css('background-color', newval );
+        value.bind( function( color ) {
+            jQuery('style#responsive-cart-checkout-button-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-cart-checkout-button-color">'
+                + '.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button,.page.woocommerce-checkout .woocommerce button.button.alt,.page.woocommerce-checkout .woocommerce button.button, .page.woocommerce-cart .wp-block-woocommerce-cart a.wc-block-cart__submit-button, .page.woocommerce-checkout .wp-block-woocommerce-checkout button.wc-block-components-checkout-place-order-button { background-color: ' + color + ' !important; }'
+                + '</style>'
+            );
         } );
     } );
 
@@ -886,14 +890,12 @@
     } );
     //Checkout Button Hover Color
     api ( 'responsive_cart_checkout_button_hover_color', function(value){
-        value.bind( function( newval ) {
-            $(".page.woocommerce-cart .wp-block-woocommerce-cart a.wc-block-cart__submit-button, .page.woocommerce-checkout .wp-block-woocommerce-checkout button.wc-block-components-checkout-place-order-button").hover(
-                function() {
-                    $(this).css("background-color", api('responsive_cart_checkout_button_hover_color').get());
-                },
-                function() {
-                    $(this).css("background-color", api('responsive_cart_checkout_button_color').get());
-                }
+        value.bind( function( color ) {
+            jQuery('style#responsive-cart-checkout-button-hover-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-cart-checkout-button-hover-color">'
+                + '.page.woocommerce-cart .woocommerce a.button.alt:hover,.page.woocommerce-cart .woocommerce a.button:hover,.page.woocommerce-checkout .woocommerce button.button.alt:hover,.page.woocommerce-checkout .woocommerce button.button:hover, .page.woocommerce-cart .wp-block-woocommerce-cart a.wc-block-cart__submit-button:hover, .page.woocommerce-checkout .wp-block-woocommerce-checkout button.wc-block-components-checkout-place-order-button:hover { background-color: ' + color + ' !important; }'
+                + '</style>'
             );
         } );
     } );
@@ -1446,16 +1448,6 @@
             $(this).css("background-color", api('responsive_cart_buttons_color').get());
         }
     );
-    //Checkout Button Hover Color
-    $(".page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button,.page.woocommerce-checkout .woocommerce button.button.alt,.page.woocommerce-checkout .woocommerce button.button").hover(
-        function() {
-            $(this).css("background-color", api('responsive_cart_checkout_button_hover_color').get());
-        },
-
-        function() {
-            $(this).css("background-color", api('responsive_cart_checkout_button_color').get());
-        }
-    );
     // Woocommerce off canvas filter.
     api( 'responsive_off_canvas_close_button_color', function( value ) {
         value.bind( function( newval ) {
@@ -1982,26 +1974,6 @@
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-links-hover-color">'
                 + '.footer-layouts.copyright a:hover { color: ' + newval + '!important; }'
-                + '</style>'
-            );
-        });
-    });
-    api( 'responsive_header_html_link_color', function(val){
-        val.bind(function(newval){
-            jQuery('style#responsive-header-html-link-color').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-html-link-color">'
-                + '.site-header .responsive-header-html .responsive-header-html-inner a { color: ' + newval + '}'
-                + '</style>'
-            );
-        });
-    });
-    api( 'responsive_header_html_link_hover_color', function(val){
-        val.bind(function(newval){
-            jQuery('style#responsive-header-html-link-hover-color').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-html-link-hover-color">'
-                + '.site-header .responsive-header-html .responsive-header-html-inner a:hover { color: ' + newval + '!important; }'
                 + '</style>'
             );
         });

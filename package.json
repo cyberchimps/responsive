@@ -1,6 +1,6 @@
 {
   "name": "responsive",
-  "version": "6.1.0",
+  "version": "6.1.2",
   "description": "Responsive theme by CyberChimps",
   "main": "Gruntfile.js",
   "sasslintConfig": ".sasslintrc.json",
@@ -43,6 +43,7 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
+    "dompurify": "^2.3.4",
     "google-fonts": "^1.0.0",
     "he": "^1.2.0",
     "lodash": "^4.17.21",

@@ -329,6 +329,50 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'line-height' => '1.75',
 					),
 				),
+				'header_button' => array(
+					'label'    => esc_html__( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['header_button'],
+					'section'  => 'responsive_header_button',
+					'exclude'  => array( 'font-color' ),
+					'priority' => 60,
+					'defaults' => array(
+						'font-size'   => '13px',
+						'line-height' => '1.75',
+					),
+				),
+				'header_social_item' => array(
+					'label'    => esc_html__( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['header_social'],
+					'section'  => 'responsive_header_social',
+					'exclude'  => array( 'font-color' ),
+					'priority' => 90,
+					'defaults' => array(
+						'font-size'   => '16px',
+						'line-height' => '1.75',
+					),
+				),
+				'header_search_label' => array(
+					'label'    => esc_html__( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['header_search_label'],
+					'section'  => 'responsive_header_search',
+					'exclude'  => array( 'font-color' ),
+					'priority' => 100,
+					'defaults' => array(
+						'font-size'   => '16px',
+						'line-height' => '1.75',
+					),
+				),
+				'header_contact_info' => array(
+					'label'    => esc_html__( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['header_contact_info'],
+					'section'  => 'responsive_header_contact_info',
+					'exclude'  => array( 'font-color' ),
+					'priority' => 10,
+					'defaults' => array(
+						'font-size'   => '16px',
+						'line-height' => '1.75',
+					),
+				),
 			);
 
 			if ( $this->is_responsive_version_greater() ) {
@@ -368,7 +412,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'heading_h5'                 => 'h5',
 				'heading_h6'                 => 'h6',
 				'meta'                       => '.hentry .post-data,.post-meta *',
-				'button'                     => '.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, .entry-content div.wpforms-container-full .wpforms-form input[type=submit], body .entry-content div.wpforms-container-full .wpforms-form button[type=submit], .entry-content div.wpforms-container-full .wpforms-form .wpforms-page-button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,.entry-content div.wpforms-container-full .wpforms-form input[type=submit],.entry-content div.wpforms-container-full .wpforms-form button[type=submit],.entry-content div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link,body div.wpforms-container-full .wpforms-form button[type=submit], button,div.wpforms-container-full .wpforms-form .wpforms-submit-container,.elementor-widget-rael-button .rael-button .rael-text',
+				'button'                     => '.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, .entry-content div.wpforms-container-full .wpforms-form input[type=submit], body .entry-content div.wpforms-container-full .wpforms-form button[type=submit], .entry-content div.wpforms-container-full .wpforms-form .wpforms-page-button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,.entry-content div.wpforms-container-full .wpforms-form input[type=submit],.entry-content div.wpforms-container-full .wpforms-form button[type=submit],.entry-content div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link,body div.wpforms-container-full .wpforms-form button[type=submit], button,div.wpforms-container-full .wpforms-form .wpforms-submit-container,.elementor-widget-rael-button .rael-button .rael-text, .wp-block-file__button',
 				'input'                      => 'select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],.entry-content div.wpforms-container-full .wpforms-form input[type=date],.entry-content div.wpforms-container-full .wpforms-form input[type=datetime],.entry-content div.wpforms-container-full .wpforms-form input[type=datetime-local],.entry-content div.wpforms-container-full .wpforms-form input[type=email],.entry-content div.wpforms-container-full .wpforms-form input[type=month],.entry-content div.wpforms-container-full .wpforms-form input[type=number],.entry-content div.wpforms-container-full .wpforms-form input[type=password],.entry-content div.wpforms-container-full .wpforms-form input[type=range],.entry-content div.wpforms-container-full .wpforms-form input[type=search],.entry-content div.wpforms-container-full .wpforms-form input[type=tel],.entry-content div.wpforms-container-full .wpforms-form input[type=text],.entry-content div.wpforms-container-full .wpforms-form input[type=time],.entry-content div.wpforms-container-full .wpforms-form input[type=url],.entry-content div.wpforms-container-full .wpforms-form input[type=week],.entry-content div.wpforms-container-full .wpforms-form select,.entry-content div.wpforms-container-full .wpforms-form textarea,body div.wpforms-container-full .wpforms-form input[type=text],body div.wpforms-container-full .wpforms-form input[type=email],body div.wpforms-container-full .wpforms-form textarea',
 				'header_site_title'          => '.site-title',
 				'header_site_title2'         => '.site-title a',
@@ -383,6 +427,10 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'footer'                     => '.site-footer',
 				'page'                       => '.page .post-title, #main-blog h1',
 				'footer_copyright'           => '.footer-layouts.copyright',
+				'header_button'              => '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button',
+				'header_social'              => '.header-layouts .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label',
+				'header_search_label'        => '.responsive-header-search-label',
+				'header_contact_info'        => '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list  .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-title, .site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text',
 			);
 
 			if ( $this->is_responsive_version_greater() ) {
@@ -976,9 +1024,15 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 
 						// Add quotes around font-family && font family to scripts array.
 						if ( 'font-family' === $attribute ) {
+							if ( 'preview_styles' === $return ) {
+								$val = str_replace( '\'', '', $val );
+							} else {
+								$val = $val;
+							}
 							$fonts[] = $val;
+						}
 
-							// No brackets can be added as it cause issue with sans serif fonts.
+						if ( 'font-weight' === $attribute ) {
 							if ( 'preview_styles' === $return ) {
 								$val = str_replace( '\'', '', $val );
 							} else {
@@ -1131,9 +1185,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 
 			// Loop through and enqueue fonts.
 			if ( ! empty( $fonts ) && is_array( $fonts ) ) {
-				foreach ( $fonts as $font ) {
-					responsive_enqueue_google_font( $font );
-				}
+				responsive_render_google_fonts_url( $fonts );
 			}
 
 		}

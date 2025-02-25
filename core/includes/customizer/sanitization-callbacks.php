@@ -240,6 +240,23 @@ if ( ! function_exists( 'responsive_checkbox_validate' ) ) {
 }
 
 /**
+ * Check if function present
+ */
+if ( ! function_exists( 'responsive_boolean_validate' ) ) {
+	/**
+	 * Validates Boolean inputs.
+	 *
+	 * @param  boolean $input Boolean.
+	 *
+	 * @return true or false
+	 */
+	function responsive_boolean_validate( $input ) {
+		$input = ( true == $input ? true : false );
+		return $input;
+	}
+}
+
+/**
  * Check if responsive_check_sidebar_menu_type function is present.
  */
 if ( ! function_exists( 'responsive_check_sidebar_menu_type' ) ) {
@@ -304,6 +321,7 @@ function responsive_sanitize_multi_select( $input ) {
 	}
 	return array();
 }
+
 /**
  * Sanitize Row Layout Select Setting.
  *

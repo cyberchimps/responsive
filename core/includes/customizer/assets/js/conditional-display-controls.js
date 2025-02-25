@@ -109,42 +109,42 @@
 		}
 	);
 
-	api(
-		'responsive_enable_header_widget',
-		function( $swipe ) {
-			$swipe.bind(
-				function( newval ) {
-					switch (newval) {
-						case false:
-							api.control( 'responsive_header_widget_position' ).toggle( false );
-							api.control( 'responsive_header_widget_alignment' ).toggle( false );
-							api.control( 'responsive_header_widget_color_separator' ).toggle( false );
-							api.control( 'responsive_header_widget_text_color' ).toggle( false );
-							api.control( 'responsive_header_widget_background_color' ).toggle( false );
-							api.control( 'responsive_header_widget_border_color' ).toggle( false );
-							api.control( 'responsive_header_widget_link_color' ).toggle( false );
-							api.control( 'responsive_header_widget_link_hover_color' ).toggle( false );
+	// api(
+	// 	'responsive_enable_header_widget',
+	// 	function( $swipe ) {
+	// 		$swipe.bind(
+	// 			function( newval ) {
+	// 				switch (newval) {
+	// 					case false:
+	// 						api.control( 'responsive_header_widget_position' ).toggle( false );
+	// 						api.control( 'responsive_header_widget_alignment' ).toggle( false );
+	// 						api.control( 'responsive_header_widget_color_separator' ).toggle( false );
+	// 						api.control( 'responsive_header_widget_text_color' ).toggle( false );
+	// 						api.control( 'responsive_header_widget_background_color' ).toggle( false );
+	// 						api.control( 'responsive_header_widget_border_color' ).toggle( false );
+	// 						api.control( 'responsive_header_widget_link_color' ).toggle( false );
+	// 						api.control( 'responsive_header_widget_link_hover_color' ).toggle( false );
 
-							break;
-						/**
-						 * The select was switched to »show«.
-						 */
-						case true:
-							api.control( 'responsive_header_widget_position' ).toggle( true );
-							api.control( 'responsive_header_widget_alignment' ).toggle( true );
-							api.control( 'responsive_header_widget_color_separator' ).toggle( true );
-							api.control( 'responsive_header_widget_text_color' ).toggle( true );
-							api.control( 'responsive_header_widget_background_color' ).toggle( true );
-							api.control( 'responsive_header_widget_border_color' ).toggle( true );
-							api.control( 'responsive_header_widget_link_color' ).toggle( true );
-							api.control( 'responsive_header_widget_link_hover_color' ).toggle( true );
+	// 						break;
+	// 					/**
+	// 					 * The select was switched to »show«.
+	// 					 */
+	// 					case true:
+	// 						api.control( 'responsive_header_widget_position' ).toggle( true );
+	// 						api.control( 'responsive_header_widget_alignment' ).toggle( true );
+	// 						api.control( 'responsive_header_widget_color_separator' ).toggle( true );
+	// 						api.control( 'responsive_header_widget_text_color' ).toggle( true );
+	// 						api.control( 'responsive_header_widget_background_color' ).toggle( true );
+	// 						api.control( 'responsive_header_widget_border_color' ).toggle( true );
+	// 						api.control( 'responsive_header_widget_link_color' ).toggle( true );
+	// 						api.control( 'responsive_header_widget_link_hover_color' ).toggle( true );
 
-							break;
-					}
-				}
-			);
-		}
-	);
+	// 						break;
+	// 				}
+	// 			}
+	// 		);
+	// 	}
+	// );
 
 	api(
 		'responsive_disable_mobile_menu',

@@ -152,6 +152,7 @@ function responsive_customize_preview_js() {
 	wp_enqueue_script( 'responsive_theme_customizer_select', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-select-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive_theme_customizer_text', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-text-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive_theme_lifter_customize', get_template_directory_uri() . '/core/includes/customizer/assets/js/lifter-customize-preview.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
+	wp_enqueue_script( 'responsive_theme_font-preset_customize', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-font-presets.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	if ( is_responsive_version_greater() ) {
 		wp_enqueue_script( 'responsive_theme_customizer_image', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-image-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	}
@@ -222,7 +223,6 @@ function responsive_register_options() {
 		'class-responsive-footer-menu-customizer',
 		'class-responsive-footer-copyright-customizer',
 		'class-responsive-header-builder-section-customizer',
-		'class-responsive-header-html-customizer',
 	);
 
 	if ( is_responsive_version_greater() ) {
@@ -276,6 +276,7 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'range/class-responsive-customizer-range-control.php';
 	require_once $dir . 'slider/class-responsive-customizer-slider-control.php';
 	require_once $dir . 'sortable/class-responsive-customizer-sortable-control.php';
+	require_once $dir . 'social/class-responsive-customizer-social-control.php';
 	require_once $dir . 'text/class-responsive-customizer-text-control.php';
 	require_once $dir . 'typography/class-responsive-customizer-typography-control.php';
 	require_once $dir . 'tinymce/class-responsive-customizer-tinymce-control.php';
@@ -297,7 +298,6 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'range-with-switchers/class-responsive-customizer-range-with-switchers-control.php';
 	require_once $dir . 'builder-row-layout/class-responsive-customizer-builder-row-layout-control.php';
 	require_once $dir . 'builder-available-drag/class-responsive-customizer-builder-available-items-drag-control.php';
-	require_once $dir . 'html/class-responsive-customizer-html-control.php';
 
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-control-upsell.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-generic-notice-section.php';
@@ -313,7 +313,6 @@ function responsive_custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Text_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Typography_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Dimensions_Control' );
-	$wp_customize->register_control_type( 'Responsive_Customizer_Color_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Heading_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Select_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Checkbox_Control' );
@@ -330,7 +329,6 @@ function responsive_custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Range_With_Switcher_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Builder_Row_Layout_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Builder_Available_Items_Drag_Control' );
-	$wp_customize->register_control_type( 'Responsive_Customizer_Html_Control' );
 
 }
 
@@ -345,6 +343,9 @@ function responsive_controls_helpers() {
  * Custom styles and js for customizer
  */
 function responsive_custom_customize_enqueue() {
+	$responsive = wp_get_theme( 'responsive' );
+	$suffix     = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+	wp_enqueue_style( 'icomoon-style', get_template_directory_uri() . "/core/css/icomoon/style{$suffix}.css", false, $responsive['Version'] );
 	wp_enqueue_style( 'responsive-general', get_template_directory_uri() . '/core/includes/customizer/assets/min/css/general.min.css', RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive-general', get_template_directory_uri() . '/core/includes/customizer/assets/min/js/general.min.js', array( 'jquery', 'customize-base' ), RESPONSIVE_THEME_VERSION, true );
 
@@ -371,6 +372,7 @@ function responsive_custom_customize_enqueue() {
 		}
 		$localize_array = array(
 			'path' => RESPONSIVE_THEME_URI . '/core/includes/customizer/assets/images/',
+			'paletteDesignStyles' => responsive_get_available_design_styles(),
 		);
 		wp_localize_script( 'responsive-custom-control-react-script', 'localize', $localize_array );
 }

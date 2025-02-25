@@ -54,6 +54,14 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 			$header_desktop_items   = Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_desktop_items' );
 			$header_desktop_choices = Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_builder_choices' );
 
+			if ( class_exists( 'woocommerce' ) ) {
+				$header_desktop_choices['woo-cart'] = array(
+					'name'    => esc_html__( 'Cart', 'responsive' ),
+					'section' => 'responsive_header_woo_cart',
+					'icon'    => 'cart',
+				);
+			}
+
 			$wp_customize->add_setting(
 				'responsive_header_desktop_items',
 				array(
@@ -112,7 +120,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 			);
 
 			ob_start(); ?>
-			<span class="button button-secondary responsive-hfb-builder-hide-button responsive-hfb-builder-tab-toggle"><?php esc_html_e( 'Hide', 'responsive' ); ?><img class="rhfb-toggle-icon rhfb-no" src="<?php echo esc_url( get_stylesheet_directory_uri().'/core/includes/customizer/assets/images/hfb-hide.svg' ); ?>"></img></span>
+			<span class="button button-secondary responsive-hfb-builder-hide-button responsive-hfb-builder-tab-toggle"><?php esc_html_e( 'Hide', 'responsive' ); ?><img class="rhfb-toggle-icon rhfb-no" src="<?php echo esc_url( get_template_directory_uri().'/core/includes/customizer/assets/images/hfb-hide.svg' ); ?>"></img></span>
 			<span class="button button-secondary responsive-hfb-builder-show-button responsive-hfb-builder-tab-toggle"><?php esc_html_e( 'Header Builder', 'responsive' ); ?><img class="rhfb-toggle-icon rhfb-edit" src="<?php echo esc_url( get_template_directory_uri() .'/core/includes/customizer/assets/images/hfb-show.svg'  ) ?>"></img></span>
 			<?php
 			$responsive_hfb_header_builder_toggle = ob_get_clean();
@@ -210,7 +218,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 			);
 
 			ob_start(); ?>
-			<span class="button button-secondary responsive-hfb-builder-hide-button responsive-hfb-builder-tab-toggle"><?php esc_html_e( 'Hide', 'responsive' ); ?><img class="rhfb-toggle-icon rhfb-no" src="<?php echo esc_url( get_stylesheet_directory_uri().'/core/includes/customizer/assets/images/hfb-hide.svg' ); ?>"></img></span>
+			<span class="button button-secondary responsive-hfb-builder-hide-button responsive-hfb-builder-tab-toggle"><?php esc_html_e( 'Hide', 'responsive' ); ?><img class="rhfb-toggle-icon rhfb-no" src="<?php echo esc_url( get_template_directory_uri().'/core/includes/customizer/assets/images/hfb-hide.svg' ); ?>"></img></span>
 			<span class="button button-secondary responsive-hfb-builder-show-button responsive-hfb-builder-tab-toggle"><?php esc_html_e( 'Footer Builder', 'responsive' ); ?><img class="rhfb-toggle-icon rhfb-edit" src="<?php echo esc_url( get_template_directory_uri() .'/core/includes/customizer/assets/images/hfb-show.svg'  ) ?>"></img></span>
 			<?php
 			$responsive_hfb_footer_builder_toggle = ob_get_clean();
