@@ -1396,7 +1396,7 @@ function defaults() {
 																			'header_contact_info'  => array(
 																				'name'    => esc_html__( 'Contact Info', 'responsive' ),
 																				'section' => 'responsive_header_contact_info',
-																				'icon'    => 'contact',
+																				'icon'    => 'id-alt',
 																			),
 																			'search'          => array(
 																				'name'    => esc_html__( 'Search', 'responsive' ),
