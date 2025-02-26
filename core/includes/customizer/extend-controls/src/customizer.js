@@ -352,5 +352,16 @@
 			}
         } );
 	} );
+	wp.customize( 'responsive_header_contact_info_icon_shape', function(setting){
+		setting.bind( function( shape ){
+			if( shape === 'none' ) {
+				$('#customize-control-responsive_header_contact_info_icon_style').fadeOut(300);
+                $('#customize-control-responsive_header_contact_info_icon_style_separator').fadeOut(300);
+			} else {
+				$('#customize-control-responsive_header_contact_info_icon_style').fadeIn(300);
+                $('#customize-control-responsive_header_contact_info_icon_style_separator').fadeIn(300);
+			}
+		});
+	});
 	
 } )( jQuery, wp );
