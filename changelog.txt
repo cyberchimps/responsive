@@ -8,6 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(27/02/2025) = New - Version 6.1.3
+[+] = New = Introducing new elements for the Header Builder: Search, Contact Info and HTML.
+[*] = Improvement = Introduced Responsive Options for all three footer rows Layout setting in the footer builder.
+
 (20/02/2025) = New - Version 6.1.2
 [+] = New = Added a default template that automatically loads upon the first-time installation of the Responsive theme.
 [*] = Improvement = Enhanced compatibility between the theme's Global Settings and the Gutenberg editor.
