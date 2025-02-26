@@ -56,8 +56,8 @@ if ( ! class_exists( 'Responsive_Header_Html_Customizer' ) ) :
 				'responsive_header_html_content',
 				array(
 					'sanitize_callback' => 'wp_kses_post',
-					'transport'   => 'refresh',
-					'default' => __( Responsive\Core\get_responsive_customizer_defaults( 'header_html_content' ), 'responsive' ),
+					'transport'         => 'refresh',
+					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'header_html_content' ),
 				)
 			);
 			

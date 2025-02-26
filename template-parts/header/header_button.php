@@ -68,9 +68,9 @@ if( ! defined('ABSPATH') ) {
 					href="<?php echo $href; ?>" 
 					<?php echo $target; ?> 
 					<?php echo $rel_display; ?>
-					<?php echo esc_attr($download); ?>  
+					<?php echo esc_attr( $download ); ?>  
 					class="button responsive-header-button <?php echo esc_attr( $header_button_size_class ); ?>">
-					<?php echo esc_html__($button_label, 'responsive'); ?>
+					<?php echo esc_html( $button_label, 'responsive' ); ?>
 				</a>
 				<?php
 			}
