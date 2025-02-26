@@ -1140,7 +1140,7 @@ function defaults() {
 			'header_sub_secondary_menu_link'                => '#333333',
 			'header_html_content'                 => 'Insert HTML here',
 			'header_html_auto_add_paragraph'      => 1,
-			'header_html_link_style_choices'      => 'underline',
+			'header_html_link_style'              => 'underline',
 			'header_html_link_color'              => '#000000',
 			'header_html_link_color_hover'        => '#0066CC',
 			'header_html_margin_x'                => 0,
