@@ -3290,17 +3290,6 @@ if ( ! function_exists( 'responsive_header_contact_info_default_elements' ) ) {
 	}
 }
 
-if ( ! function_exists( 'responsive_header_contact_info_icon_style_visibility' ) ) {
-
-	function responsive_header_contact_info_icon_style_visibility() {
-		$icon_shape = get_theme_mod( 'responsive_header_contact_info_icon_shape', 'rounded' );
-		if ( 'none' != $icon_shape ) {
-			return true;
-		}
-		return false;
-	}
-}
-
 if ( ! function_exists( 'responsive_show_social_background_colors' ) ) {
 	/**
 	 * Determines whether social icons in the header should display with a filled background color.

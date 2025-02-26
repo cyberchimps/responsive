@@ -95,14 +95,14 @@ if ( ! class_exists( 'Responsive_Header_Contact_Info_Customizer' ) ) :
 
 			responsive_select_button_control( $wp_customize, 'header_contact_info_icon_shape', esc_html__( 'Icon Shape', 'responsive' ), 'responsive_header_contact_info', 10, $icon_shape, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_icon_shape' ), null );
 
-			responsive_horizontal_separator_control($wp_customize, 'header_contact_info_icon_shape_separator', 1, 'responsive_header_contact_info', 10, 1, 'responsive_header_contact_info_icon_style_visibility' );
+			responsive_horizontal_separator_control($wp_customize, 'header_contact_info_icon_shape_separator', 1, 'responsive_header_contact_info', 10, 1 );
 
 			$icon_style = array(
 				'filled'  => esc_html__( 'Filled', 'responsive' ),
 				'outline' => esc_html__( 'Outline', 'responsive' ),
 			);
 
-			responsive_select_button_control( $wp_customize, 'header_contact_info_icon_style', esc_html__( 'Icon Style', 'responsive' ), 'responsive_header_contact_info', 10, $icon_style, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_icon_style' ), 'responsive_header_contact_info_icon_style_visibility' );
+			responsive_select_button_control( $wp_customize, 'header_contact_info_icon_style', esc_html__( 'Icon Style', 'responsive' ), 'responsive_header_contact_info', 10, $icon_style, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_icon_style' ), null );
 
 			responsive_horizontal_separator_control($wp_customize, 'header_contact_info_icon_style_separator', 1, 'responsive_header_contact_info', 10, 1, );
 
