@@ -17,19 +17,21 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="responsive-header-html-inner<?php echo $header_html_link_style === 'underline' ? ' responsive-header-html-underline-link' : '' ?>">
             <?php
             $header_html_content       = get_theme_mod( 'responsive_header_html_content', Responsive\Core\get_responsive_customizer_defaults( 'header_html_content' ) );
-            $header_html_auto_add_para = get_theme_mod( 'responsive_header_html_auto_add_paragraph', Responsive\Core\get_responsive_customizer_defaults( 'header_html_auto_add_paragraph' ) );
-            if ( $header_html_auto_add_para || is_customize_preview() ) {
-                echo do_shortcode( wpautop( $header_html_content ) );
-            } else {
-                $array = array(
-                    '<p>[' => '[',
-                    ']</p>' => ']',
-                    '<p></p>' => '',
-                    ']<br />' => ']',
-                    '<br />[' => '[',
-                );
-                $header_html_content = strtr( $header_html_content, $array );
-                echo do_shortcode( $header_html_content );
+            if ( $header_html_content || is_customize_preview() ) {
+                $header_html_auto_add_para = get_theme_mod( 'responsive_header_html_auto_add_paragraph', Responsive\Core\get_responsive_customizer_defaults( 'header_html_auto_add_paragraph' ) );
+                if ( $header_html_auto_add_para ) {
+                    echo do_shortcode( wpautop( $header_html_content ) );
+                } else {
+                    $array = array(
+                        '<p>[' => '[',
+                        ']</p>' => ']',
+                        '<p></p>' => '',
+                        ']<br />' => ']',
+                        '<br />[' => '[',
+                    );
+                    $header_html_content = strtr( $header_html_content, $array );
+                    echo do_shortcode( $header_html_content );
+                }
             }
             ?>
         </div>

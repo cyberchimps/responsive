@@ -2430,4 +2430,21 @@
             );
         });
     });
+    // HTML Element Link Color.
+    api( 'responsive_header_html_link_color', function(val){
+        val.bind(function(newval){
+            $( '.site-header .responsive-header-html .responsive-header-html-inner a' ).css( 'color', newval );
+        });
+    });
+    api('responsive_header_html_link_hover_color', function(val) {
+        val.bind(function(newval) {
+            $('.site-header .responsive-header-html .responsive-header-html-inner a').off('mouseenter mouseleave');
+
+            $('.site-header .responsive-header-html .responsive-header-html-inner a').on('mouseenter', function() {
+                $(this).css('color', newval);
+            }).on('mouseleave', function() {
+                $(this).css('color', api('responsive_header_html_link_color').get());
+            });
+        });
+    });
 } )( jQuery );

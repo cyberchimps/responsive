@@ -1589,3 +1589,7 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_header_contact_info_icons_color {
 	margin-top: 18px;
 }
+#customize-control-responsive_header_html_link_color {
+	margin-top: 14px;
+	margin-bottom: 14px;
+}

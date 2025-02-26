@@ -4,9 +4,8 @@ import debounce from 'lodash/debounce';
 import { __ } from '@wordpress/i18n';
 import { useState, useEffect, useRef } from 'react';
 
-const HtmlComponent = ({ control, customizer }) => {
+const HtmlComponent = ({ control }) => {
     const [value, setValue] = useState(control.setting.get());
-    const [editor, setEditor] = useState(null);
     const [restoreTextMode, setRestoreTextMode] = useState(false);
     const controlParams = control.params.input_attrs
         ? {
@@ -20,7 +19,6 @@ const HtmlComponent = ({ control, customizer }) => {
             toolbar1: 'bold,italic,bullist,numlist,link',
             toolbar2: '',
         };
-    const defaultValue = control.params.default || '';
 
     const editorRef = useRef(null);
 
@@ -40,7 +38,6 @@ const HtmlComponent = ({ control, customizer }) => {
             window.switchEditors.go(controlParams.id, 'html');
         }
         tinymceEditor.on('NodeChange', triggerChangeIfDirty);
-        setEditor(tinymceEditor);
     };
 
     useEffect(() => {
@@ -94,7 +91,6 @@ const HtmlComponent = ({ control, customizer }) => {
 
 HtmlComponent.propTypes = {
     control: PropTypes.object.isRequired,
-    customizer: PropTypes.object.isRequired,
 };
 
 export default HtmlComponent;
