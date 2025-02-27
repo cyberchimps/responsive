@@ -81,7 +81,7 @@ if ( ! class_exists( 'Responsive_Header_Html_Customizer' ) ) :
 				'underline' => esc_html__( 'Underline', 'responsive' ),
 				'none'      => esc_html__( 'No Underline', 'responsive' ),
 			);
-			responsive_select_button_control( $wp_customize, 'header_html_link_style', esc_html__( 'Link Style', 'responsive' ), 'responsive_header_html', 10, $header_html_link_style_choices, Responsive\Core\get_responsive_customizer_defaults( 'header_html_link_style_choices' ), null, 'postMessage' );
+			responsive_select_button_control( $wp_customize, 'header_html_link_style', esc_html__( 'Link Style', 'responsive' ), 'responsive_header_html', 10, $header_html_link_style_choices, Responsive\Core\get_responsive_customizer_defaults( 'header_html_link_style' ), null, 'postMessage' );
 
 			responsive_horizontal_separator_control( $wp_customize, 'header_html_link_style_separator', 1, 'responsive_header_html', 10, 1 );
 
