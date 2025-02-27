@@ -340,8 +340,10 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		responsive_border_width_backward_compatibility();
 
 		if ( ! get_option( 'responsive_header_footer_builder_compatibility_header_widgets' ) ) {
-			if ( is_active_sidebar( 'header-widgets' ) ) {
-				responsive_header_footer_builder_compatibility_header_widgets();
+			if ( 1 === get_theme_mod( 'responsive_enable_header_widget', 1 ) ) {
+				if ( is_active_sidebar( 'header-widgets' ) ) {
+					responsive_header_footer_builder_compatibility_header_widgets();
+				}
 			}
 			update_option( 'responsive_header_footer_builder_compatibility_header_widgets', true );
 		}
