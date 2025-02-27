@@ -357,6 +357,10 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 			responsive_old_header_search_compatibility_with_hfb_header_search_element();
             update_option( 'responsive_old_header_search_compatibility_with_hfb_header_search', true );
 		}
+		if ( ! get_option( 'responsive_footer_rows_inner_column_spacing_compatibility_with_new_control' ) ) {
+			responsive_footer_rows_inner_column_spacing_backward_compatibility();
+            update_option( 'responsive_footer_rows_inner_column_spacing_compatibility_with_new_control', true );
+		}
 	}
 
 endif;
@@ -2108,3 +2112,25 @@ if ( ! function_exists( 'responsive_old_header_search_compatibility_with_hfb_hea
 		}
 	}
 }
+
+/**
+ * Make footer rows inner column spacing compatible with new control.
+ * @since 6.1.3
+ */
+if( ! function_exists('responsive_footer_rows_inner_column_spacing_backward_compatibility') ) :
+
+	/**
+	 * Make footer rows inner column spacing compatible with new control.
+	 * @since 6.1.3
+	 */
+	function responsive_footer_rows_inner_column_spacing_backward_compatibility() {
+		$rows = array( 'above', 'primary', 'below' );
+		foreach ( $rows as $row ) {
+            $spacing_control_id = "responsive_footer_{$row}_inner_column_spacing";
+            $spacing_value      = get_theme_mod( $spacing_control_id, 30 );
+            set_theme_mod( "responsive_footer_{$row}_inner_column_spacing_tablet", $spacing_value );
+            set_theme_mod( "responsive_footer_{$row}_inner_column_spacing_mobile", $spacing_value );
+        }
+	}
+
+endif;
