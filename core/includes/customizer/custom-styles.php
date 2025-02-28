@@ -1820,25 +1820,22 @@ function responsive_customizer_styles() {
 		color: {$header_text_color};
 	}
 
-	.header-full-width.site-header-layout-vertical .main-navigation,
-	.site-header-layout-vertical.site-header-full-width-main-navigation .main-navigation,
-	.responsive-site-full-width.site-header-layout-vertical .main-navigation,
-	.site-header-layout-vertical .main-navigation div, .site-header-layout-vertical.site-header-site-branding-main-navigation.last-item-spread-away .main-navigation .menu {
+	.site-header-row .main-navigation .main-navigation-wrapper {
 		background-color: {$header_menu_background_color};
 	}
 
 	.header-full-width.site-header-layout-vertical .main-navigation.toggled,
 	.site-header-layout-vertical.site-header-full-width-main-navigation .main-navigation.toggled,
 	.responsive-site-full-width.site-header-layout-vertical .main-navigation.toggled,
-	.site-header-layout-vertical .main-navigation.toggled div,
-	.main-navigation.toggled {
+	.site-header-row .main-navigation.toggled,
+	.site-header-row .main-navigation.toggled .main-navigation-wrapper {
 		background-color: {$header_mobile_menu_background_color};
 	}
 	@media ( max-width: {$mobile_menu_breakpoint}px ) {
 		.site-mobile-header-layout-vertical .main-navigation {
 			background-color: {$header_menu_background_color};
 		}
-		.site-mobile-header-layout-vertical .main-navigation.toggled {
+		.site-header-row .main-navigation.toggled {
 			background-color: {$header_mobile_menu_background_color};
 		}
 		.site-mobile-header-layout-vertical.site-header-site-branding-main-navigation:not(.site-header-full-width-main-navigation) .main-navigation {
@@ -4998,7 +4995,7 @@ function responsive_customizer_styles() {
 			#masthead.sticky-header .site-description, .res-transparent-header #masthead.sticky-header .site-description {
 				color: {$sticky_header_text_color};
 			}
-			#masthead.sticky-header .main-navigation, .res-transparent-header #masthead.sticky-header .main-navigation, #masthead.sticky-header .main-navigation div, .res-transparent-header #masthead.sticky-header .main-navigation div {
+			#masthead.sticky-header .site-header-row .main-navigation .main-navigation-wrapper, #masthead.sticky-header .site-header-row .main-navigation.toggled {
 				background-color: {$sticky_header_menu_background_color};
 			}
 			#masthead.sticky-header .main-navigation .menu > li > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu > li > a {

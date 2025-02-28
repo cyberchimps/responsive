@@ -339,6 +339,10 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		responsive_font_sizes_backward_compatibility();
 		responsive_border_width_backward_compatibility();
 
+		if ( ! get_option( 'responsive_header_menu_background_color_backward_compatibility' ) ) {
+			responsive_header_menu_background_color_backward_compatibility();
+            update_option( 'responsive_header_menu_background_color_backward_compatibility', true );
+		}
 		if ( ! get_option( 'responsive_header_footer_builder_compatibility_header_widgets' ) ) {
 			if ( is_active_sidebar( 'header-widgets' ) ) {
 				responsive_header_footer_builder_compatibility_header_widgets();
@@ -1132,7 +1136,7 @@ function defaults() {
 			'header_sub_menu_background'          => '#ffffff',
 			'header_sub_menu_link'                => '#333333',
 			'header_sub_menu_link_hover'          => '#10659C',
-			'header_menu_toggle_background'       => 'transparent',
+			'header_menu_toggle_background'       => '#ffffff',
 			'header_menu_toggle'                  => '#333333',
 			'hamburger_secondary_menu_padding'    => 15,
 			'header_secondary_menu_background'    => '#ffffff',
@@ -2131,6 +2135,41 @@ if( ! function_exists('responsive_footer_rows_inner_column_spacing_backward_comp
             set_theme_mod( "responsive_footer_{$row}_inner_column_spacing_tablet", $spacing_value );
             set_theme_mod( "responsive_footer_{$row}_inner_column_spacing_mobile", $spacing_value );
         }
+	}
+
+endif;
+
+/**
+ * Make header menu background coolor backward compatible.
+ * 
+ * @since 6.1.4
+ * 
+ */
+if( ! function_exists('responsive_header_menu_background_color_backward_compatibility') ) :
+
+	/**
+	 * Make header menu background coolor backward compatible.
+	 * 
+	 * @since 6.1.4
+	 * 
+	 */
+	function responsive_header_menu_background_color_backward_compatibility() {
+		if( get_option( 'responsive_old_header_footer_comaptibility_with_header_builder_done' ) ) {
+			$header_hfb_elements = get_theme_mod( 'responsive_header_desktop_items', get_responsive_customizer_defaults( 'responsive_header_desktop_items' ) );
+			foreach ( $header_hfb_elements as $section => $positions ) {
+				foreach ( $positions as $values ) {
+					if ( in_array( 'primary_navigation', $values, true ) ) {
+						$header_row_bg_color = get_theme_mod( "responsive_header_{$section}_row_bg_color", '#ffffff' );
+						set_theme_mod( 'responsive_header_menu_background_color', $header_row_bg_color );
+						return;
+					}
+				}
+			}
+		} else {
+			if ( 'vertical' !== get_theme_mod( 'responsive_header_layout', 'horizontal' ) ) {
+				set_theme_mod( 'responsive_header_menu_background_color', get_theme_mod( 'responsive_header_background_color', '#ffffff' ) );
+			}
+		}
 	}
 
 endif;

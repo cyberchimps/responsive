@@ -1234,7 +1234,7 @@ function responsive_borderwidth_control( $wp_customize, $element, $section, $pri
  * @param  string  $section      [description].
  * @param  integer $priority     [description].
  * @param  integer $default     [description].
- * @param  bool    $active_call     [description].
+ * @param  callable    $active_call     [description].
  * @param  string  $desc     [description].
  * @return void               [description].
  */
