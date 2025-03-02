@@ -744,6 +744,11 @@
             $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'border-style', newval );
         });
     });
+    api('responsive_footer_social_item_border_style', function(value) {
+        value.bind(function(newval) {
+            $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'border-style', newval );
+        });
+    });
 
     api( 'responsive_cart_label_position', function (setting) {
         setting.bind(function (position) {
