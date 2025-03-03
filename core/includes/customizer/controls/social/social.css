@@ -5,7 +5,7 @@
     padding: 9px 8px;
     margin-bottom: 18px;
     line-height: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #ccc ;
     background: #fff;
     border: 1px solid #EAEAEA;
     box-shadow: 0px 0px 8px -3px #00000040;
@@ -49,24 +49,24 @@
 }
 .responsive-social-tab {
     border-bottom: 4px solid transparent;
-    border-top: none;
-    border-left: none;
-    border-right: none;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
     color: #838383;
     font-size: 12px;
     font-weight: 500;
 }
 .responsive-social-active-tab {
-    border-bottom-color: #007cba;
+    border-bottom-color: #007cba !important;
     color: #007CBA;
 }
 .responsive-add-social-item {
-    margin-top: 12px;
-    margin-bottom: 12px;
+    margin-top: 12px !important;
+    margin-bottom: 12px !important;
     font-size: 14px;
     font-weight: 400;
     color: #007cba;
-    border: none;
+    border: none !important;
 }
 .responsive-add-social-item:active {
     color: #007cba !important;
@@ -171,7 +171,7 @@
     max-height: 100%;
 }
 .responsive-social-sorter-item-remove {
-    border: none;
+    border: none !important;
 }
 .responsive-social-item-panel-header .dashicons-arrow-up-alt2,
 .responsive-social-item-panel-header .dashicons-arrow-down-alt2 {
@@ -195,29 +195,36 @@
 .responsive-social-remove-image {
     border: none;
 }
-#customize-control-responsive_header_social_show_label {
+#customize-control-responsive_header_social_show_label,
+#customize-control-responsive_footer_social_show_label {
     padding-top: 18px;
     border-top: 0.5px solid #D0D0D0;
 }
-#customize-control-responsive_header_social_item_spacing {
+#customize-control-responsive_header_social_item_spacing,
+#customize-control-responsive_footer_social_item_spacing {
     margin-bottom: 12px;
     border-top: 0.5px solid #D0D0D0;
 }
 #customize-control-responsive_header_social_redirect_to_social_links a {
     border-bottom: none;
 }
-#customize-control-responsive_header_social_item_typography_group {
+#customize-control-responsive_header_social_item_typography_group,
+#customize-control-responsive_footer_social_item_typography_group {
     margin-top: 22px;
 }
-#customize-control-responsive_header_social_item_border_style .customize-control-responsive-selectbtn .customize-control-responsive-selectbtn__button {
+#customize-control-responsive_header_social_item_border_style .customize-control-responsive-selectbtn .customize-control-responsive-selectbtn__button,
+#customize-control-responsive_footer_social_item_border_style .customize-control-responsive-selectbtn .customize-control-responsive-selectbtn__button {
     padding: 8px 6px;
 }
 #customize-control-responsive_header_social_item_style,
-#customize-control-responsive_header_social_item_use_brand_colors {
+#customize-control-responsive_header_social_item_use_brand_colors,
+#customize-control-responsive_footer_social_item_style,
+#customize-control-responsive_footer_social_item_use_brand_colors {
     padding-bottom: 18px;
     border-bottom: 0.5px solid #D0D0D0;
 }
-#customize-control-responsive_header_social_item_color {
+#customize-control-responsive_header_social_item_color,
+#customize-control-responsive_footer_social_item_color {
     padding-top: 6px;
     padding-bottom: 6px;
     border-bottom: 0.5px solid #D0D0D0;
@@ -226,10 +233,16 @@
 #customize-control-responsive_header_social_item_border_width,
 #customize-control-responsive_border_header_social_radius,
 #customize-control-responsive_header_social_item_icon_size,
-#customize-control-responsive_header_social_item_typography_group {
+#customize-control-responsive_header_social_item_typography_group,
+#customize-control-responsive_footer_social_item_border_style,
+#customize-control-responsive_footer_social_item_border_width,
+#customize-control-responsive_border_footer_social_radius,
+#customize-control-responsive_footer_social_item_icon_size,
+#customize-control-responsive_footer_social_item_typography_group {
     padding-bottom: 18px;
     border-bottom: 0.5px solid #D0D0D0;
 }
-#customize-control-responsive_header_social_item_border_color {
+#customize-control-responsive_header_social_item_border_color,
+#customize-control-responsive_footer_social_item_border_color {
     margin-top: 10px;
 }

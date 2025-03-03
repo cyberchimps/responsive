@@ -2028,12 +2028,28 @@
             }
         });
     });
+    api( 'responsive_footer_social_item_style', function(val){
+        val.bind(function(newval){
+            if ( 'filled' === newval || '' == newval ) {
+                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'background-color', '#EDF2F7' );
+            }
+        });
+    });
     api( 'responsive_header_social_item_color', function(val){
         val.bind(function(newval){
             var header_social_item_use_brand_colors = api('responsive_header_social_item_use_brand_colors').get();
             if ( 'no' === header_social_item_use_brand_colors ) {
                 $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'color', newval );
                 $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'fill', newval );
+            }
+        });
+    });
+    api( 'responsive_footer_social_item_color', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'color', newval );
+                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'fill', newval );
             }
         });
     });
@@ -2046,12 +2062,28 @@
             }
         });
     });
+    api( 'responsive_footer_social_item_hover_color', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'color', newval );
+                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'fill', newval );
+            }
+        });
+    });
     api( 'responsive_header_social_item_background_color', function(val){
         val.bind(function(newval){
             var header_social_item_use_brand_colors = api('responsive_header_social_item_use_brand_colors').get();
-            var header_social_item_style = api('responsive_header_social_item_style').get();
             if ( 'no' === header_social_item_use_brand_colors ) {
                 $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'background-color', newval );
+            }
+        });
+    });
+    api( 'responsive_footer_social_item_background_color', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'background-color', newval );
             }
         });
     });
@@ -2063,6 +2095,14 @@
             }
         });
     });
+    api( 'responsive_footer_social_item_background_hover_color', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'background-color', newval );
+            }
+        });
+    });
     api( 'responsive_header_social_item_border_color', function(val){
         val.bind(function(newval){
             var header_social_item_use_brand_colors = api('responsive_header_social_item_use_brand_colors').get();
@@ -2071,11 +2111,27 @@
             }
         });
     });
+    api( 'responsive_footer_social_item_border_color', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'border-color', newval );
+            }
+        });
+    });
     api( 'responsive_header_social_item_border_hover_color', function(val){
         val.bind(function(newval){
             var header_social_item_use_brand_colors = api('responsive_header_social_item_use_brand_colors').get();
             if ( 'no' === header_social_item_use_brand_colors ) {
                 $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'border-color', newval );
+            }
+        });
+    });
+    api( 'responsive_footer_social_item_border_hover_color', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'border-color', newval );
             }
         });
     });
