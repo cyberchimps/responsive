@@ -250,6 +250,82 @@ function responsive_customizer_styles() {
 		background-color:{$box_background_color};
 		border-radius:{$box_top_left_radius}px {$box_top_right_radius}px {$box_bottom_left_radius}px {$box_bottom_left_radius}px;
 	}
+	@media screen and ( max-width: 992px ) {
+		.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,
+		.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,
+		.responsive-site-style-content-boxed .custom-home-about-section,
+		.responsive-site-style-content-boxed .custom-home-feature-section,
+		.responsive-site-style-content-boxed .custom-home-team-section,
+		.responsive-site-style-content-boxed .custom-home-testimonial-section,
+		.responsive-site-style-content-boxed .custom-home-contact-section,
+		.responsive-site-style-content-boxed .custom-home-widget-section,
+		.responsive-site-style-content-boxed .custom-home-featured-area,
+		.responsive-site-style-content-boxed .site-content-header,
+		.responsive-site-style-content-boxed .content-area-wrapper,
+		.responsive-site-style-content-boxed .site-content .hentry,
+		.responsive-site-style-content-boxed .give-wrap .give_forms,
+		.responsive-site-style-content-boxed .navigation,
+		.responsive-site-style-content-boxed .responsive-single-related-posts-container,
+		.responsive-site-style-content-boxed .comments-area,
+		.responsive-site-style-content-boxed .comment-respond,
+		.responsive-site-style-boxed .custom-home-about-section,
+		.responsive-site-style-boxed .custom-home-feature-section,
+		.responsive-site-style-boxed .custom-home-team-section,
+		.responsive-site-style-boxed .custom-home-testimonial-section,
+		.responsive-site-style-boxed .custom-home-contact-section,
+		.responsive-site-style-boxed .custom-home-widget-section,
+		.responsive-site-style-boxed .custom-home-featured-area,
+		.responsive-site-style-boxed .site-content-header,
+		.responsive-site-style-boxed .site-content .hentry,
+		.responsive-site-style-boxed .give-wrap .give_forms,
+		.responsive-site-style-boxed .navigation,
+		.responsive-site-style-boxed .responsive-single-related-posts-container,
+		.responsive-site-style-boxed .comments-area,
+		.responsive-site-style-boxed .comment-respond,
+		.responsive-site-style-boxed .comment-respond,
+		.responsive-site-style-boxed aside#secondary .widget-wrapper,
+		.responsive-site-style-boxed .site-content article.product {
+			border-radius:{$box_tablet_top_left_radius}px {$box_tablet_top_right_radius}px {$box_tablet_bottom_left_radius}px {$box_tablet_bottom_left_radius}px;
+		}
+	}
+	@media screen and ( max-width: 576px ) {
+		.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,
+		.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,
+		.responsive-site-style-content-boxed .custom-home-about-section,
+		.responsive-site-style-content-boxed .custom-home-feature-section,
+		.responsive-site-style-content-boxed .custom-home-team-section,
+		.responsive-site-style-content-boxed .custom-home-testimonial-section,
+		.responsive-site-style-content-boxed .custom-home-contact-section,
+		.responsive-site-style-content-boxed .custom-home-widget-section,
+		.responsive-site-style-content-boxed .custom-home-featured-area,
+		.responsive-site-style-content-boxed .site-content-header,
+		.responsive-site-style-content-boxed .content-area-wrapper,
+		.responsive-site-style-content-boxed .site-content .hentry,
+		.responsive-site-style-content-boxed .give-wrap .give_forms,
+		.responsive-site-style-content-boxed .navigation,
+		.responsive-site-style-content-boxed .responsive-single-related-posts-container,
+		.responsive-site-style-content-boxed .comments-area,
+		.responsive-site-style-content-boxed .comment-respond,
+		.responsive-site-style-boxed .custom-home-about-section,
+		.responsive-site-style-boxed .custom-home-feature-section,
+		.responsive-site-style-boxed .custom-home-team-section,
+		.responsive-site-style-boxed .custom-home-testimonial-section,
+		.responsive-site-style-boxed .custom-home-contact-section,
+		.responsive-site-style-boxed .custom-home-widget-section,
+		.responsive-site-style-boxed .custom-home-featured-area,
+		.responsive-site-style-boxed .site-content-header,
+		.responsive-site-style-boxed .site-content .hentry,
+		.responsive-site-style-boxed .give-wrap .give_forms,
+		.responsive-site-style-boxed .navigation,
+		.responsive-site-style-boxed .responsive-single-related-posts-container,
+		.responsive-site-style-boxed .comments-area,
+		.responsive-site-style-boxed .comment-respond,
+		.responsive-site-style-boxed .comment-respond,
+		.responsive-site-style-boxed aside#secondary .widget-wrapper,
+		.responsive-site-style-boxed .site-content article.product {
+			border-radius:{$box_mobile_top_left_radius}px {$box_mobile_top_right_radius}px {$box_mobile_bottom_left_radius}px {$box_mobile_bottom_left_radius}px;
+		}
+	}
 	address, blockquote, pre, code, kbd, tt, var {
 		background-color:{$alt_background_color};
 	}
