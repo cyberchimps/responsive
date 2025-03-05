@@ -1668,6 +1668,16 @@ function responsive_customizer_styles() {
 			left: auto !important;
 			right: 100%;
 			top: 0 !important;
+		}
+		.main-navigation .children > li.focus > .children, .main-navigation .children > li.focus > .sub-menu-edge-rtl, .main-navigation .children > li:hover > .children, .main-navigation .children > li:hover > .sub-menu-edge-rtl,
+		.main-navigation .sub-menu > li.focus > .children,
+		.main-navigation .sub-menu > li.focus > .sub-menu-edge-rtl,
+		.main-navigation .sub-menu > li:hover > .children,
+		.main-navigation .sub-menu > li:hover > .sub-menu-edge-rtl,
+		.sub-menu .sub-menu-edge-rtl:hover {
+			left: 100% !important;
+			right: auto !important;
+			top: 0 !important;
 		}";
 
 	$custom_css .= "@media (min-width:{$mobile_menu_breakpoint}px) {
@@ -2151,7 +2161,7 @@ function responsive_customizer_styles() {
 			.main-navigation .sub-menu > li.focus > .sub-menu,
 			.main-navigation .sub-menu > li:hover > .children,
 			.main-navigation .sub-menu > li:hover > .sub-menu {
-				right: 100% !important;
+				right: 100%;
 			}
 
 			.site-header-layout-horizontal.site-header-main-navigation-site-branding .main-navigation .menu > li {
