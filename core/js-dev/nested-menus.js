@@ -26,9 +26,10 @@
         return {
           top: rect.top + window.pageYOffset,
           left: rect.left + window.pageXOffset,
+          right: rect.right + window.pageXOffset,
         };
       }
-      return { top: null, left: null };
+      return { top: null, left: null, right: null };
     }
 
     /**
@@ -44,6 +45,36 @@
       for (let i = 0; i < navTOGGLE.length; i++) {
         initEachNavToggleSubmenuInside(navTOGGLE[i]);
       }
+
+      let menuItemHasChildren = document.querySelectorAll('.menu-item-has-children');
+
+      if ( !menuItemHasChildren.length ) {
+        return;
+      }
+
+      menuItemHasChildren.forEach((menuItem) => {
+        let subMenu = menuItem.querySelector( 'ul.sub-menu' );
+        if ( !subMenu ) {
+          return;
+        }
+
+        menuItem.addEventListener("mouseenter", function () {
+          let off = getOffset(subMenu);
+          let l = off.left;
+          let r = off.right;
+          let docW = window.innerWidth;
+
+          if ( l < 0 ) {
+            subMenu.style.right = l+'px';
+          } else if ( 15+r > docW ) {
+            subMenu.style.left = (docW-r-15)+'px';
+          }
+        });
+        menuItem.addEventListener("mouseleave", function () {
+          subMenu.style.right = "";
+          subMenu.style.left = "";
+        });
+      });
     }
 
     /**
@@ -68,12 +99,19 @@
             if (submenu) {
               let off  = getOffset(submenu);
               let l    = off.left;
+              let r    = off.right;
               let w    = submenu.offsetWidth;
               let docW = window.innerWidth;
-
-              let isEntirelyVisible = l + w <= docW;
-              if (!isEntirelyVisible) {
-                submenu.classList.add("sub-menu-edge");
+              if ( l <= 0 ) {
+                let isEntirelyVisible = r + w >= docW;
+                if (!isEntirelyVisible) {
+                  submenu.classList.add("sub-menu-edge-rtl");
+                }
+              } else {
+                let isEntirelyVisible = l + w <= docW;
+                if (!isEntirelyVisible) {
+                  submenu.classList.add("sub-menu-edge");
+                }
               }
             }
           });

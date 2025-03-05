@@ -196,8 +196,8 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			responsive_separator_control( $wp_customize, 'header_menu_color_separator', $header_menu_color_separator_label, 'responsive_header_menu_layout', 115, 'responsive_disabled_main_menu' );
 
 			// Background Color.
-			// $menu_background_color_label = __( 'Background Color', 'responsive' );
-			// responsive_color_control( $wp_customize, 'header_menu_background', $menu_background_color_label, 'responsive_header_menu_layout', 120, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ), 'responsive_active_vertical_header_and_main_menu' );
+			$menu_background_color_label = __( 'Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_menu_background', $menu_background_color_label, 'responsive_header_menu_layout', 120, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ) );
 
 			// Border Color.
 			// $menu_border_color_label = __( 'Border Color', 'responsive' );
