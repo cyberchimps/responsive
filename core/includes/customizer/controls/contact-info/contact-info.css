@@ -1,0 +1,136 @@
+.customize-control-responsive-contact-info {
+    margin-top: 12px;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-label {
+    font-size: 14px;
+    font-weight: bold;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-selector {
+    margin-top: 8px;
+    min-width: 100px;
+    color: rgb(43, 48, 52);
+    border: 1px solid #d2d2d2;
+    border-radius: 4px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    -webkit-box-align: center;
+    padding: 10px 12px;
+    gap: 8px;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-selector .responsive-contact-info-selector-group {
+    display: flex;
+    gap: 8px;
+    flex-grow: 1;
+    flex-wrap: wrap;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-selector .responsive-contact-info-item-selected {
+    display: inline-flex;
+    gap: 4px;
+    -webkit-box-align: center;
+    align-items: center;
+    color: rgb(43, 48, 52);
+    padding: 6px 6px;
+    background-color: #007CBA1A;
+    border-radius: 4px;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-selector .responsive-contact-info-add-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-available-items {
+    border: 1px solid #d2d2d2;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+    padding: 10px;
+    margin-bottom: 18px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-list-container {
+    margin-top: 24px;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper {
+    padding: 18px;
+    border: 1px solid #d2d2d2;
+    border-radius: 8px;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item {
+    padding: 9px 8px;
+    line-height: 20px;
+    background: #fff;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 0 8px -3px #00000040;
+    border-radius: 5px;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item:not(:last-child) {
+    margin-bottom: 18px;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: grab;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-item-actions .responsive-contact-info-visibility-action{
+    display: flex;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-select-wrapper .responsive-contact-info-add-item-desc {
+    margin-top: 5px;
+    font-size: 12px;
+    font-style: italic;
+    color: #888;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-select-wrapper .responsive-contact-info-selector .dashicons-no-alt,
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-select-wrapper .responsive-contact-info-selector .responsive-contact-info-add-item,
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-item-actions svg,
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-item-actions .dashicons-arrow-up-alt2,
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-item-actions .dashicons-arrow-down-alt2 {
+    cursor: pointer;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-menu-choice-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-menu-choice-wrap .responsive-contact-info-menu {
+    line-height: 0;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-menu-choice-wrap .responsive-contact-info-menu {
+    line-height: 0;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-menu-choice-wrap .responsive-contact-info-icon-choice {
+    margin-top: 4px;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-menu-choice-wrap .responsive-contact-info-icon-choice svg {
+    width: 20px;
+    height: 20px;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-menu-choice-wrap .responsive-contact-info-icon-choice svg path,
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-menu-choice-wrap .responsive-contact-info-icon-choice svg circle,
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-menu-choice-wrap .responsive-contact-info-icon-choice svg rect{
+    stroke: #007CBA;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-header .responsive-contact-info-menu-choice-wrap .responsive-contact-info-item-choice {
+    font-size: 14px;
+    color: #007cba;
+    font-weight: 400;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-content {
+    margin-top: 10px;
+}
+.customize-control-responsive-contact-info .responsive-contact-info-container .responsive-contact-info-wrapper .responsive-contact-info-item .responsive-contact-info-panel-content .responsive-contact-info-content-item:not(:first-child) {
+    margin-top: 20px;
+}
+

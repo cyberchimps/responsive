@@ -86,6 +86,60 @@ const Icons = {
     <rect x="80" y="20" width="11" height="24" rx="1" fill="#9CB0C9"/>
     <rect x="96" y="20" width="11" height="24" rx="1" fill="#9CB0C9"/>
     </svg>,
+    collapserowsix: <svg width="121" height="64" viewBox="0 0 121 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="-0.5" y="0.5" width="120" height="63" rx="3.5" transform="matrix(-1 0 0 1 120 0)" fill="white" stroke="#D2D2D2"/>
+    <rect width="93" height="6" rx="1" transform="matrix(-1 0 0 1 107 6)" fill="#9CB0C9"/>
+    <rect width="93" height="7" rx="1" transform="matrix(-1 0 0 1 107 15)" fill="#9CB0C9"/>
+    <rect width="93" height="7" rx="1" transform="matrix(-1 0 0 1 107 24)" fill="#9CB0C9"/>
+    <rect width="93" height="7" rx="1" transform="matrix(-1 0 0 1 107 33)" fill="#9CB0C9"/>
+    <rect width="93" height="7" rx="1" transform="matrix(-1 0 0 1 107 42)" fill="#9CB0C9"/>
+    <rect width="93" height="6" rx="1" transform="matrix(-1 0 0 1 107 52)" fill="#9CB0C9"/>
+    </svg>,
+    collapserowfive: <svg width="121" height="64" viewBox="0 0 121 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="-0.5" y="0.5" width="120" height="63" rx="3.5" transform="matrix(-1 0 0 1 120 0)" fill="white" stroke="#D2D2D2"/>
+    <rect width="93" height="7" rx="1" transform="matrix(-1 0 0 1 107 8)" fill="#9CB0C9"/>
+    <rect width="93" height="7" rx="1" transform="matrix(-1 0 0 1 107 18)" fill="#9CB0C9"/>
+    <rect width="93" height="7" rx="1" transform="matrix(-1 0 0 1 107 28)" fill="#9CB0C9"/>
+    <rect width="93" height="7" rx="1" transform="matrix(-1 0 0 1 107 38)" fill="#9CB0C9"/>
+    <rect width="93" height="7" rx="1" transform="matrix(-1 0 0 1 107 48)" fill="#9CB0C9"/>
+    </svg>,
+    fourgrid: <svg width="121" height="64" viewBox="0 0 121 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0.5" y="0.5" width="120" height="63" rx="3.5" fill="white" stroke="#D2D2D2"/>
+    <rect x="14" y="9" width="44" height="20" rx="1" fill="#9CB0C9"/>
+    <rect x="14" y="34" width="44" height="20" rx="1" fill="#9CB0C9"/>
+    <rect x="63" y="9" width="44" height="20" rx="1" fill="#9CB0C9"/>
+    <rect x="63" y="34" width="44" height="20" rx="1" fill="#9CB0C9"/>
+    </svg>,
+    collapserowfour: <svg width="121" height="64" viewBox="0 0 121 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="-0.5" y="0.5" width="120" height="63" rx="3.5" transform="matrix(-1 0 0 1 120 0)" fill="white" stroke="#D2D2D2"/>
+    <rect width="93" height="9" rx="1" transform="matrix(-1 0 0 1 107 10)" fill="#9CB0C9"/>
+    <rect width="93" height="9" rx="1" transform="matrix(-1 0 0 1 107 22)" fill="#9CB0C9"/>
+    <rect width="93" height="9" rx="1" transform="matrix(-1 0 0 1 107 34)" fill="#9CB0C9"/>
+    <rect width="93" height="9" rx="1" transform="matrix(-1 0 0 1 107 46)" fill="#9CB0C9"/>
+    </svg>,
+    threefirstrow: <svg width="121" height="64" viewBox="0 0 121 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="-0.5" y="0.5" width="120" height="63" rx="3.5" transform="matrix(-1 0 0 1 120 0)" fill="white" stroke="#D2D2D2"/>
+    <rect width="93" height="20" rx="1" transform="matrix(-1 0 0 1 107 10)" fill="#9CB0C9"/>
+    <rect width="44" height="20" rx="1" transform="matrix(-1 0 0 1 58 34)" fill="#9CB0C9"/>
+    <rect width="44" height="20" rx="1" transform="matrix(-1 0 0 1 107 34)" fill="#9CB0C9"/>
+    </svg>,
+    threelastrow: <svg width="121" height="64" viewBox="0 0 121 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="-0.5" y="0.5" width="120" height="63" rx="3.5" transform="matrix(-1 0 0 1 120 0)" fill="white" stroke="#D2D2D2"/>
+    <rect width="93" height="20" rx="1" transform="matrix(-1 0 0 1 107 34)" fill="#9CB0C9"/>
+    <rect width="19" height="20" rx="1" transform="matrix(-1 0 0 1 33 10)" fill="#9CB0C9"/>
+    <rect width="70" height="20" rx="1" transform="matrix(-1 0 0 1 107 10)" fill="#9CB0C9"/>
+    </svg>,
+    collapserowthree: <svg width="121" height="64" viewBox="0 0 121 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="-0.5" y="0.5" width="120" height="63" rx="3.5" transform="matrix(-1 0 0 1 120 0)" fill="white" stroke="#D2D2D2"/>
+    <rect width="93" height="12" rx="1" transform="matrix(-1 0 0 1 107 10)" fill="#9CB0C9"/>
+    <rect width="93" height="12" rx="1" transform="matrix(-1 0 0 1 107 26)" fill="#9CB0C9"/>
+    <rect width="93" height="12" rx="1" transform="matrix(-1 0 0 1 107 42)" fill="#9CB0C9"/>
+    </svg>,
+    collapserowtwo: <svg width="121" height="64" viewBox="0 0 121 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0.5" y="0.5" width="120" height="63" rx="3.5" fill="white" stroke="#D2D2D2"/>
+    <rect x="14" y="10" width="93" height="20" rx="1" fill="#9CB0C9"/>
+    <rect x="14" y="34" width="93" height="20" rx="1" fill="#9CB0C9"/>
+    </svg>,                     
     footer_copyright: <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g clip-path="url(#clip0_1583_1126)">
     <path d="M24 0C37.2552 0 48 10.7448 48 24C48 37.2552 37.2552 48 24 48C10.7448 48 0 37.2552 0 24C0 10.7448 10.7448 0 24 0ZM24 3.348C18.5227 3.348 13.2698 5.52383 9.39683 9.39683C5.52383 13.2698 3.348 18.5227 3.348 24C3.348 29.4773 5.52383 34.7302 9.39683 38.6032C13.2698 42.4762 18.5227 44.652 24 44.652C29.4773 44.652 34.7302 42.4762 38.6032 38.6032C42.4762 34.7302 44.652 29.4773 44.652 24C44.652 18.5227 42.4762 13.2698 38.6032 9.39683C34.7302 5.52383 29.4773 3.348 24 3.348ZM24.384 11.1624C26.976 11.1624 29.4648 11.8896 31.5912 13.236C31.9456 13.4823 32.1912 13.8559 32.2769 14.2789C32.3626 14.7018 32.2818 15.1416 32.0512 15.5064C31.8207 15.8712 31.4583 16.133 31.0395 16.2372C30.6207 16.3414 30.1778 16.2799 29.8032 16.0656C28.1819 15.0436 26.3029 14.5049 24.3864 14.5128C18.9192 14.5128 14.5128 18.7728 14.5128 24C14.5128 29.2272 18.9192 33.4872 24.3864 33.4872C26.3088 33.4872 28.1472 32.9592 29.724 31.9824C29.9111 31.8666 30.1191 31.7887 30.3362 31.7533C30.5534 31.7179 30.7754 31.7256 30.9895 31.7759C31.2037 31.8263 31.4059 31.9184 31.5844 32.0468C31.763 32.1753 31.9146 32.3377 32.0304 32.5248C32.1462 32.7119 32.2241 32.9199 32.2595 33.137C32.2949 33.3542 32.2872 33.5762 32.2369 33.7903C32.1865 34.0045 32.0944 34.2067 31.966 34.3853C31.8375 34.5638 31.6751 34.7154 31.488 34.8312C29.3537 36.1499 26.8929 36.845 24.384 36.8376C17.0952 36.8376 11.1624 31.1016 11.1624 24C11.1624 16.8984 17.0952 11.1624 24.3864 11.1624" fill="#696969"/>
@@ -116,6 +170,12 @@ const Icons = {
     </svg>,
     icon_label_bottom: <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M11.4963 15.5835L11.4963 2.75016M17 10.0835L11.5 15.5835L6 10.0835M17 19.7085L6 19.7085" stroke="#666666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>,                              
+    </svg>, 
+    icon_header_search1: <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.375 16.125L12.75 11.5C13.5 10.375 14 9 14 7.625C14 3.875 10.875 0.75 7.125 0.75C3.375 0.75 0.25 3.875 0.25 7.625C0.25 11.375 3.375 14.5 7.125 14.5C8.625 14.5 9.875 14 11 13.25L15.625 17.875L17.375 16.125ZM2.125 7.625C2.125 4.875 4.375 2.625 7.125 2.625C9.875 2.625 12.125 4.875 12.125 7.625C12.125 10.375 9.875 12.625 7.125 12.625C4.375 12.625 2.125 10.375 2.125 7.625Z" fill="#A5A5A5"/></svg>,
+    icon_header_search2: <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.7656 15.1895L10.6934 10.1172C11.4805 9.09961 11.9062 7.85547 11.9062 6.54688C11.9062 4.98047 11.2949 3.51172 10.1895 2.4043C9.08398 1.29687 7.61133 0.6875 6.04688 0.6875C4.48242 0.6875 3.00977 1.29883 1.9043 2.4043C0.796875 3.50977 0.1875 4.98047 0.1875 6.54688C0.1875 8.11133 0.798828 9.58398 1.9043 10.6895C3.00977 11.7969 4.48047 12.4062 6.04688 12.4062C7.35547 12.4062 8.59766 11.9805 9.61523 11.1953L14.6875 16.2656C14.7024 16.2805 14.72 16.2923 14.7395 16.3004C14.7589 16.3084 14.7797 16.3126 14.8008 16.3126C14.8218 16.3126 14.8427 16.3084 14.8621 16.3004C14.8815 16.2923 14.8992 16.2805 14.9141 16.2656L15.7656 15.416C15.7805 15.4011 15.7923 15.3835 15.8004 15.364C15.8084 15.3446 15.8126 15.3238 15.8126 15.3027C15.8126 15.2817 15.8084 15.2609 15.8004 15.2414C15.7923 15.222 15.7805 15.2043 15.7656 15.1895ZM9.14062 9.64062C8.3125 10.4668 7.21484 10.9219 6.04688 10.9219C4.87891 10.9219 3.78125 10.4668 2.95312 9.64062C2.12695 8.8125 1.67188 7.71484 1.67188 6.54688C1.67188 5.37891 2.12695 4.2793 2.95312 3.45312C3.78125 2.62695 4.87891 2.17188 6.04688 2.17188C7.21484 2.17188 8.31445 2.625 9.14062 3.45312C9.9668 4.28125 10.4219 5.37891 10.4219 6.54688C10.4219 7.71484 9.9668 8.81445 9.14062 9.64062Z" fill="#A5A5A5"/></svg>,         
+    eye_active: <svg xmlns="http://www.w3.org/2000/svg" width="19px" height="19px" viewBox="0 0 28 28"><path fill="#000000" d="M25.257 16h.005h-.01zm-.705-.52c.1.318.387.518.704.52c.07 0 .148-.02.226-.04c.39-.12.61-.55.48-.94C25.932 14.93 22.932 6 14 6S2.067 14.93 2.037 15.02c-.13.39.09.81.48.94c.4.13.82-.09.95-.48l.003-.005c.133-.39 2.737-7.975 10.54-7.975c7.842 0 10.432 7.65 10.542 7.98M9 16a5 5 0 1 1 10 0a5 5 0 0 1-10 0"></path></svg>,
+    eye: <svg xmlns="http://www.w3.org/2000/svg" width="19px" height="19px" viewBox="0 0 24 24"><path fill="#000" d="M2.22 2.22a.75.75 0 0 0-.073.976l.073.084l4.034 4.035a10 10 0 0 0-3.955 5.75a.75.75 0 0 0 1.455.364a8.5 8.5 0 0 1 3.58-5.034l1.81 1.81A4 4 0 0 0 14.8 15.86l5.919 5.92a.75.75 0 0 0 1.133-.977l-.073-.084l-6.113-6.114l.001-.002l-6.95-6.946l.002-.002l-1.133-1.13L3.28 2.22a.75.75 0 0 0-1.06 0M12 5.5c-1 0-1.97.148-2.889.425l1.237 1.236a8.503 8.503 0 0 1 9.899 6.272a.75.75 0 0 0 1.455-.363A10 10 0 0 0 12 5.5m.195 3.51l3.801 3.8a4.003 4.003 0 0 0-3.801-3.8"></path></svg>,
 }
 export default Icons;

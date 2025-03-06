@@ -86,7 +86,7 @@ if( ! class_exists( 'Responsive_HFB_Footer_Primary_Row' ) ) {
 
             // Inner Column Spacing (px).
 			$inner_column_spacing_label = __( 'Inner Column Spacing (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'footer_primary_inner_column_spacing', $inner_column_spacing_label, 'responsive_footer_primary_row', 50, 30, null, 300, 0, 'postMessage', 1 );
+			responsive_drag_number_control_with_switchers( $wp_customize, 'footer_primary_inner_column_spacing', $inner_column_spacing_label, 'responsive_footer_primary_row', 50, 30, null, 300, 0, 'postMessage', 1 );
 
             // Height.
 			$row_height_label = __( 'Footer Height (px)', 'responsive' );

@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '6.1.2' );
+define( 'RESPONSIVE_THEME_VERSION', '6.1.3' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -503,6 +503,12 @@ function responsive_edit_customize_register( $wp_customize ) {
 		'responsive_footer_below_row_tabs',
 		array(
 			'selector' => '.rspv-site-below-footer-wrap',
+		)
+	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_header_search_tabs',
+		array(
+			'selector' => '.responsive-header-search',
 		)
 	);
 }
