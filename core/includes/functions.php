@@ -1085,6 +1085,7 @@ function defaults() {
 		array(
 			'entry_columns'                       => 1,
 			'buttons_radius'                      => 0,
+			'responsive_border_box'               => 0,
 			'shop_content_width'                  => 100,
 			'blog_content_width'                  => 66,
 			'single_blog_content_width'           => 66,
