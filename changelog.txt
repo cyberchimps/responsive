@@ -8,6 +8,47 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(27/02/2025) = New - Version 6.1.3
+[+] = New = Introducing new elements for the Header Builder: Search, Contact Info and HTML.
+[*] = Improvement = Introduced Responsive Options for all three footer rows Layout setting in the footer builder.
+
+(20/02/2025) = New - Version 6.1.2
+[+] = New = Added a default template that automatically loads upon the first-time installation of the Responsive theme.
+[*] = Improvement = Enhanced compatibility between the theme's Global Settings and the Gutenberg editor.
+[*] = Improvement = Changed the Customizer form fields & buttons border width control to a 4-dimension box control for better customization.
+[!] = Fix = Resolved an issue where submenu items were displaying off-page.
+[!] = Fix = Resolved the vertical header alignment issue to ensure backward compatibility with the new Header & Footer Builder.
+
+(30/01/2025) = New - Version 6.1.1
+[+] = New = Introducing new elements for the Header Builder: Social, Button and WooCommerce Cart.
+[+] = New = Fonts Presets in Responsive theme customizer. 
+[!] = Fix = Strengthen the backward compatibility for header widgets in Header Footer Builder.
+
+(30/12/2024) = New - Version 6.1.0
+[+] = New = Introduced the Header & Footer Builder in customizer.
+[!] = Fix = Fixed minor customizer issue with Responsive Elementor Addons Button widget.
+[!] = Fix = Fixed the customizer global typography settings not applying to Elementor Heading widget.
+[!] = Fix = Fixed the customizer global button padding and border settings not applying to Elementor Button.
+
+(19/12/2024) = Fix - Version 6.0.3
+[!] = Fix = Fixed the global styling for buttons not working in Elementor.
+[!] = Fix = Fixed the global setting form field - border width control visibility issue.
+[!] = Fix = Fixed the background image bug.
+[!] = Fix = Removed the 'Enable On Singular' breadcrumb option.
+[!] = Fix = Fixed the sidebar toggle buttons are not working.
+[!] = Fix = Fixed the color not working in - Global Settings > Typography > Design > h2 font color.
+[!] = Fix = Fixed the global settings are overriding the sidebar background color settings.
+
+(21/11/2024) = Fix - Version 6.0.2
+[*] = Improvement = Uses ARIA roles on incompatible elements.
+[*] = Improvement = Added search template style setting.
+[!] = Fix = Fixed breadcrumbs itemListElement issue in Rich test results.
+[!] = Fix = Fixed breadcrumbs compatibility issue with yoast SEO.
+[!] = Fix = Fixed related settings visibility issue while navigating to the breadcrumbs option.
+[!] = Fix = Fixed responsive theme page option settings not working.
+[!] = Fix = Fixed the layout images in width from global settings.
+[!] = Fix = Fixed Activate button in notification not working.
+
 (01/10/2024) = Improvement - Version 6.0.1
 [*] = Improvement = Added control to redirect to Site Title and Logo in Site Identity.
 [!] = Fix = Fixed Breadcrumbs itemListElement issue in Rich test results.

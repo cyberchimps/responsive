@@ -56,8 +56,8 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			responsive_toggle_control( $wp_customize, 'disable_menu', $disable_menu_label, 'responsive_header_menu_layout', 15, 0, null );
 
 			// Full Width Menu.
-			$header_menu_full_width_label = __( 'Full Width Main Navigation', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'header_menu_full_width', $header_menu_full_width_label, 'responsive_header_menu_layout', 20, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_full_width' ), 'responsive_active_vertical_header_and_main_menu' );
+			// $header_menu_full_width_label = __( 'Full Width Main Navigation', 'responsive' );
+			// responsive_toggle_control( $wp_customize, 'header_menu_full_width', $header_menu_full_width_label, 'responsive_header_menu_layout', 20, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_full_width' ), 'responsive_active_vertical_header_and_main_menu' );
 
 			// Sidebar Menu Alignment.
 			$sidebar_menu_alignment_label   = esc_html__( 'Sidebar Menu Alignment', 'responsive' );
@@ -81,11 +81,37 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			$menu_last_item         = __( 'Last Item in Menu', 'responsive' );
 			$menu_last_item_choices = array(
 				'none'      => __( 'None', 'responsive' ),
-				'search'    => __( 'Search Icon', 'responsive' ),
 				'button'    => __( 'CTA Button', 'responsive' ),
 				'text-html' => __( 'Text / HTML', 'responsive' ),
 			);
 			responsive_select_control( $wp_customize, 'menu_last_item', $menu_last_item, 'responsive_header_menu_layout', 30, $menu_last_item_choices, 'none', 'responsive_disabled_main_menu' );
+
+			// Search Style.
+			// $wp_customize->add_setting(
+			// 	'search_style',
+			// 	array(
+			// 		'default'           => 'default',
+			// 		'transport'         => 'refresh',
+			// 		'sanitize_callback' => 'responsive_sanitize_select',
+			// 	)
+			// );
+			// $wp_customize->add_control(
+			// 	new Responsive_Customizer_Select_Control(
+			// 		$wp_customize,
+			// 		'search_style',
+			// 		array(
+			// 			'label'           => __( 'Search Style', 'responsive' ),
+			// 			'section'         => 'responsive_header_menu_layout',
+			// 			'priority'        => 31,
+			// 			'settings'        => 'search_style',
+			// 			'active_callback' => 'responsive_menu_search_icon',
+			// 			'choices'         => array(
+			// 				'search'      => esc_html__( 'Default', 'responsive' ),
+			// 				'full-screen' => esc_html__( 'Full Screen Search', 'responsive' ),
+			// 			),
+			// 		)
+			// 	)
+			// );
 
 			// Last Item In Menu CTA Text.
 			$menu_button_text = __( 'CTA Button Text', 'responsive' );
@@ -171,11 +197,11 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 
 			// Background Color.
 			$menu_background_color_label = __( 'Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_menu_background', $menu_background_color_label, 'responsive_header_menu_layout', 120, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ), 'responsive_active_vertical_header_and_main_menu' );
+			responsive_color_control( $wp_customize, 'header_menu_background', $menu_background_color_label, 'responsive_header_menu_layout', 120, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ) );
 
 			// Border Color.
-			$menu_border_color_label = __( 'Border Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_menu_border', $menu_border_color_label, 'responsive_header_menu_layout', 125, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_border' ), 'responsive_active_vertical_header_and_main_menu' );
+			// $menu_border_color_label = __( 'Border Color', 'responsive' );
+			// responsive_color_control( $wp_customize, 'header_menu_border', $menu_border_color_label, 'responsive_header_menu_layout', 125, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_border' ), 'responsive_active_vertical_header_and_main_menu' );
 
 			// Active Menu Color.
 			$active_menu_background_color_label = __( 'Active Menu Background Color', 'responsive' );

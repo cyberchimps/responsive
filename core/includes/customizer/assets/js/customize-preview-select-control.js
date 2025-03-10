@@ -48,97 +48,97 @@
 
     // Header -> Layout
     //Header Layout
-    api( 'responsive_header_layout', function( $swipe ) {
-            $swipe.bind(
-                function( newval ) {
-                    // remove class regex expression function
-                    $.fn.removeClassRegEx = function(regex) {
-                        var classes = $(this).attr('class');
-                        if (!classes || !regex) return false;
-                        var classArray = [];
-                        classes = classes.split(' ');
-                        for (var i = 0, len = classes.length; i < len; i++)
-                            if (!classes[i].match(regex)) classArray.push(classes[i]);
-                        $(this).attr('class', classArray.join(' '));
-                    };
+    // api( 'responsive_header_layout', function( $swipe ) {
+    //         $swipe.bind(
+    //             function( newval ) {
+    //                 // remove class regex expression function
+    //                 $.fn.removeClassRegEx = function(regex) {
+    //                     var classes = $(this).attr('class');
+    //                     if (!classes || !regex) return false;
+    //                     var classArray = [];
+    //                     classes = classes.split(' ');
+    //                     for (var i = 0, len = classes.length; i < len; i++)
+    //                         if (!classes[i].match(regex)) classArray.push(classes[i]);
+    //                     $(this).attr('class', classArray.join(' '));
+    //                 };
 
-                    $('body').removeClassRegEx('site-header-layout-');
-                    jQuery( 'body' ).addClass( 'site-header-layout-'+ newval );
-                }
-            );
-        }
-    );
+    //                 $('body').removeClassRegEx('site-header-layout-');
+    //                 jQuery( 'body' ).addClass( 'site-header-layout-'+ newval );
+    //             }
+    //         );
+    //     }
+    // );
 
 
     // Header -> Layout
     //Header Layout
-    api( 'responsive_mobile_header_layout', function( $swipe ) {
-            $swipe.bind(
-                function( newval ) {
-                    // remove class regex expression function
-                    $.fn.removeClassRegEx = function(regex) {
-                        var classes = $(this).attr('class');
-                        if (!classes || !regex) return false;
-                        var classArray = [];
-                        classes = classes.split(' ');
-                        for (var i = 0, len = classes.length; i < len; i++)
-                            if (!classes[i].match(regex)) classArray.push(classes[i]);
-                        $(this).attr('class', classArray.join(' '));
-                    };
+    // api( 'responsive_mobile_header_layout', function( $swipe ) {
+    //         $swipe.bind(
+    //             function( newval ) {
+    //                 // remove class regex expression function
+    //                 $.fn.removeClassRegEx = function(regex) {
+    //                     var classes = $(this).attr('class');
+    //                     if (!classes || !regex) return false;
+    //                     var classArray = [];
+    //                     classes = classes.split(' ');
+    //                     for (var i = 0, len = classes.length; i < len; i++)
+    //                         if (!classes[i].match(regex)) classArray.push(classes[i]);
+    //                     $(this).attr('class', classArray.join(' '));
+    //                 };
 
-                    $('body').removeClassRegEx('site-mobile-header-layout-');
-                    jQuery( 'body' ).addClass( 'site-mobile-header-layout-'+ newval );
-                }
-            );
-        }
-    );
-
-    // Header -> Layout
-    //Header Alignment
-    api( 'responsive_header_alignment', function( $swipe ) {
-            $swipe.bind(
-                function( newval ) {
-                    // remove class regex expression function
-                    $.fn.removeClassRegEx = function(regex) {
-                        var classes = $(this).attr('class');
-                        if (!classes || !regex) return false;
-                        var classArray = [];
-                        classes = classes.split(' ');
-                        for (var i = 0, len = classes.length; i < len; i++)
-                            if (!classes[i].match(regex)) classArray.push(classes[i]);
-                        $(this).attr('class', classArray.join(' '));
-                    };
-
-                    $('body').removeClassRegEx('site-header-alignment-');
-                    jQuery( 'body' ).addClass( 'site-header-alignment-'+ newval );
-                }
-            );
-        }
-    );
-
+    //                 $('body').removeClassRegEx('site-mobile-header-layout-');
+    //                 jQuery( 'body' ).addClass( 'site-mobile-header-layout-'+ newval );
+    //             }
+    //         );
+    //     }
+    // );
 
     // Header -> Layout
     //Header Alignment
-    api( 'responsive_mobile_header_alignment', function( $swipe ) {
-            $swipe.bind(
-                function( newval ) {
-                    // remove class regex expression function
-                    $.fn.removeClassRegEx = function(regex) {
-                        var classes = $(this).attr('class');
-                        if (!classes || !regex) return false;
-                        var classArray = [];
-                        classes = classes.split(' ');
-                        for (var i = 0, len = classes.length; i < len; i++)
-                            if (!classes[i].match(regex)) classArray.push(classes[i]);
-                        $(this).attr('class', classArray.join(' '));
-                    };
+    // api( 'responsive_header_alignment', function( $swipe ) {
+    //         $swipe.bind(
+    //             function( newval ) {
+    //                 // remove class regex expression function
+    //                 $.fn.removeClassRegEx = function(regex) {
+    //                     var classes = $(this).attr('class');
+    //                     if (!classes || !regex) return false;
+    //                     var classArray = [];
+    //                     classes = classes.split(' ');
+    //                     for (var i = 0, len = classes.length; i < len; i++)
+    //                         if (!classes[i].match(regex)) classArray.push(classes[i]);
+    //                     $(this).attr('class', classArray.join(' '));
+    //                 };
 
-                    $('body').removeClassRegEx('site-mobile-header-alignment-');
-                    jQuery( 'body' ).addClass( 'site-mobile-header-alignment-'+ newval );
-                }
-            );
-        }
-    );
+    //                 $('body').removeClassRegEx('site-header-alignment-');
+    //                 jQuery( 'body' ).addClass( 'site-header-alignment-'+ newval );
+    //             }
+    //         );
+    //     }
+    // );
+
+
+    // Header -> Layout
+    //Header Alignment
+    // api( 'responsive_mobile_header_alignment', function( $swipe ) {
+    //         $swipe.bind(
+    //             function( newval ) {
+    //                 // remove class regex expression function
+    //                 $.fn.removeClassRegEx = function(regex) {
+    //                     var classes = $(this).attr('class');
+    //                     if (!classes || !regex) return false;
+    //                     var classArray = [];
+    //                     classes = classes.split(' ');
+    //                     for (var i = 0, len = classes.length; i < len; i++)
+    //                         if (!classes[i].match(regex)) classArray.push(classes[i]);
+    //                     $(this).attr('class', classArray.join(' '));
+    //                 };
+
+    //                 $('body').removeClassRegEx('site-mobile-header-alignment-');
+    //                 jQuery( 'body' ).addClass( 'site-mobile-header-alignment-'+ newval );
+    //             }
+    //         );
+    //     }
+    // );
 
     // Header -> Layout
     //Header Widgets Position
@@ -188,26 +188,26 @@
 
     // Footer -> Layout
     //Footer Bar Layout
-    api( 'responsive_footer_bar_layout', function( $swipe ) {
-            $swipe.bind(
-                function( newval ) {
-                    // remove class regex expression function
-                    $.fn.removeClassRegEx = function(regex) {
-                        var classes = $(this).attr('class');
-                        if (!classes || !regex) return false;
-                        var classArray = [];
-                        classes = classes.split(' ');
-                        for (var i = 0, len = classes.length; i < len; i++)
-                            if (!classes[i].match(regex)) classArray.push(classes[i]);
-                        $(this).attr('class', classArray.join(' '));
-                    };
+    // api( 'responsive_footer_bar_layout', function( $swipe ) {
+    //         $swipe.bind(
+    //             function( newval ) {
+    //                 // remove class regex expression function
+    //                 $.fn.removeClassRegEx = function(regex) {
+    //                     var classes = $(this).attr('class');
+    //                     if (!classes || !regex) return false;
+    //                     var classArray = [];
+    //                     classes = classes.split(' ');
+    //                     for (var i = 0, len = classes.length; i < len; i++)
+    //                         if (!classes[i].match(regex)) classArray.push(classes[i]);
+    //                     $(this).attr('class', classArray.join(' '));
+    //                 };
 
-                    $('body').removeClassRegEx('footer-bar-layout-');
-                    jQuery( 'body' ).addClass( 'footer-bar-layout-'+ newval );
-                }
-            );
-        }
-    );
+    //                 $('body').removeClassRegEx('footer-bar-layout-');
+    //                 jQuery( 'body' ).addClass( 'footer-bar-layout-'+ newval );
+    //             }
+    //         );
+    //     }
+    // );
 
     // Content hEader -> Layout
     // Alignment
@@ -597,5 +597,180 @@
 			}
 		});
 	});
+    // Primary Footer
+    api( 'responsive_footer_primary_width', function( value ){
+        value.bind( function( newValue ) {
+
+            const targetElement = document.querySelector('[data-section="responsive-primary-footer-builder"]');
+
+            if (targetElement) {
+                if (newValue === 'contained') {
+                    targetElement.classList.remove('rspv-hfb-footer-width-fullwidth');
+                    targetElement.classList.add('rspv-hfb-footer-width-contained');
+                } else if (newValue === 'fullwidth') {
+                    targetElement.classList.remove('rspv-hfb-footer-width-contained');
+                    targetElement.classList.add('rspv-hfb-footer-width-fullwidth');
+                }
+            }
+        });
+    } );
+
+    api( 'responsive_footer_primary_inner_elements_layout', function( value ){
+        value.bind( function( newValue ) {
+
+            const targetElement = document.querySelector('[data-section="responsive-primary-footer-builder"]');
+
+            if (targetElement) {
+                if (newValue === 'inline') {
+                    targetElement.classList.remove('rspv-hfb-footer-row-stack');
+                    targetElement.classList.add('rspv-hfb-footer-row-inline');
+                } else if (newValue === 'stack') {
+                    targetElement.classList.remove('rspv-hfb-footer-row-inline');
+                    targetElement.classList.add('rspv-hfb-footer-row-stack');
+                }
+            }
+        });
+    } );
+    api( 'responsive_footer_primary_vertical_alignment', function(value){
+        value.bind( function(newval){
+            $( '.rspv-site-primary-footer-wrap .site-footer-row, .rspv-site-primary-footer-wrap .site-footer-section' ).css( 'align-items', newval )
+        });
+    });
+    // above footer
+    api( 'responsive_footer_above_width', function( value ){
+        value.bind( function( newValue ) {
+
+            const targetElement = document.querySelector('[data-section="responsive-above-footer-builder"]');
+
+            if (targetElement) {
+                if (newValue === 'contained') {
+                    targetElement.classList.remove('rspv-hfb-footer-width-fullwidth');
+                    targetElement.classList.add('rspv-hfb-footer-width-contained');
+                } else if (newValue === 'fullwidth') {
+                    targetElement.classList.remove('rspv-hfb-footer-width-contained');
+                    targetElement.classList.add('rspv-hfb-footer-width-fullwidth');
+                }
+            }
+        });
+    } );
+
+    api( 'responsive_footer_above_inner_elements_layout', function( value ){
+        value.bind( function( newValue ) {
+
+            const targetElement = document.querySelector('[data-section="responsive-above-footer-builder"]');
+
+            if (targetElement) {
+                if (newValue === 'inline') {
+                    targetElement.classList.remove('rspv-hfb-footer-row-stack');
+                    targetElement.classList.add('rspv-hfb-footer-row-inline');
+                } else if (newValue === 'stack') {
+                    targetElement.classList.remove('rspv-hfb-footer-row-inline');
+                    targetElement.classList.add('rspv-hfb-footer-row-stack');
+                }
+            }
+        });
+    } );
+    api( 'responsive_footer_above_vertical_alignment', function(value){
+        value.bind( function(newval){
+            $( '.rspv-site-above-footer-wrap .site-footer-row, .rspv-site-above-footer-wrap .site-footer-section' ).css( 'align-items', newval )
+        });
+    });
+    // below footer
+    api( 'responsive_footer_below_width', function( value ){
+        value.bind( function( newValue ) {
+
+            const targetElement = document.querySelector('[data-section="responsive-below-footer-builder"]');
+
+            if (targetElement) {
+                if (newValue === 'contained') {
+                    targetElement.classList.remove('rspv-hfb-footer-width-fullwidth');
+                    targetElement.classList.add('rspv-hfb-footer-width-contained');
+                } else if (newValue === 'fullwidth') {
+                    targetElement.classList.remove('rspv-hfb-footer-width-contained');
+                    targetElement.classList.add('rspv-hfb-footer-width-fullwidth');
+                }
+            }
+        });
+    } );
+
+    api( 'responsive_footer_below_inner_elements_layout', function( value ){
+        value.bind( function( newValue ) {
+
+            const targetElement = document.querySelector('[data-section="responsive-below-footer-builder"]');
+
+            if (targetElement) {
+                if (newValue === 'inline') {
+                    targetElement.classList.remove('rspv-hfb-footer-row-stack');
+                    targetElement.classList.add('rspv-hfb-footer-row-inline');
+                } else if (newValue === 'stack') {
+                    targetElement.classList.remove('rspv-hfb-footer-row-inline');
+                    targetElement.classList.add('rspv-hfb-footer-row-stack');
+                }
+            }
+        });
+    } );
+    api( 'responsive_footer_below_vertical_alignment', function(value){
+        value.bind( function(newval){
+            $( '.rspv-site-below-footer-wrap .site-footer-row, .rspv-site-below-footer-wrap .site-footer-section' ).css( 'align-items', newval )
+        });
+    });
+
+    api('responsive_scroll_to_top_icon_position', function(value) {
+        value.bind(function(newval) {
+            const $scrollWrap = $('.responsive-scroll-wrap');
+
+            if (newval === 'left') {
+                $scrollWrap.css({
+                    'margin-left': '0',
+                    'margin-right': 'auto'
+                });
+                $( '.site-footer-row-columns-1:has(.footer-section-inner-items-1 .responsive-scroll-wrap)' ).css( 'justify-content', 'flex-start' );
+            } else if (newval === 'right') {
+                $scrollWrap.css({
+                    'margin-left': 'auto',
+                    'margin-right': '0'
+                });
+                $( '.site-footer-row-columns-1:has(.footer-section-inner-items-1 .responsive-scroll-wrap)' ).css( 'justify-content', 'flex-end' );
+            }
+        });
+    });
+    api( 'responsive_header_html_link_style', function(value){
+        value.bind( function(newval){
+            $( '.site-header .responsive-header-html .responsive-header-html-inner a' ).css( 'text-decoration', newval )
+        });
+    });
+    api('responsive_header_social_item_border_style', function(value) {
+        value.bind(function(newval) {
+            $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'border-style', newval );
+        });
+    });
+
+    api( 'responsive_cart_label_position', function (setting) {
+        setting.bind(function (position) {
+            const cartSelector = '.responsive-header-cart';
+            if($(cartSelector).find('.res-addon-cart-wrap').length){
+                const iconCart = $(document).find('.res-addon-cart-wrap');
+                iconCart.removeClass( 'res-cart-label-position-left res-cart-label-position-right res-cart-label-position-bottom' );
+                iconCart.addClass('res-cart-label-position-' + position );
+            }
+        });
+    });
+    // Header Search Style Design
+    api( 'responsive_header_search_style_design', function (style){
+        style.bind(function (design) {
+            if( 'bordered' === design ){
+                $( '.responsive-header-search-icon-wrap' ).css( 'border', api( 'responsive_header_search_border' ).get()+'px solid currentColor' );
+            } else {
+                $( '.responsive-header-search-icon-wrap' ).css( 'border', 0 );
+            }
+        });
+    });
+    // Header Search Border.
+    api( 'responsive_header_search_border', function (setting){
+        setting.bind(function (width) {
+            $( '.responsive-header-search-icon-wrap' ).css( 'border', width+'px solid currentColor' );
+        });
+    });
+    
 
 } )( jQuery );

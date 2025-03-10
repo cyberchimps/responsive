@@ -193,8 +193,16 @@ module.exports = function(grunt) {
 					'core/includes/customizer/assets/min/css/general.min.css': 'core/includes/customizer/controls/general.css',
 					'core/includes/customizer/assets/min/css/imageradiobtn.min.css':'core/includes/customizer/controls/imageradiobtn/imageradiobtn.css',
 					'core/includes/customizer/assets/min/css/sortable.min.css':'core/includes/customizer/controls/sortable/sortable.css',
+					'core/includes/customizer/assets/min/css/social.min.css':'core/includes/customizer/controls/social/social.css',
 					'core/includes/customizer/assets/min/css/redirect.min.css':'core/includes/customizer/controls/redirect/redirect.css',
 					'core/includes/customizer/assets/min/css/typography.min.css':'core/includes/customizer/controls/typography/typography.css',
+					'core/includes/customizer/assets/min/css/multi-select.min.css':'core/includes/customizer/controls/multi-select/multi-select.css',
+					'core/includes/customizer/assets/min/css/range-switchers.min.css':'core/includes/customizer/controls/range-with-switchers/range-switchers.css',
+					'core/includes/customizer/assets/min/css/row-layout.min.css':'core/includes/customizer/controls/builder-row-layout/row-layout.css',
+					'core/includes/customizer/assets/min/css/shadow.min.css':'core/includes/customizer/controls/shadow/shadow.css',
+					'core/includes/customizer/assets/min/css/font-presets.min.css':'core/includes/customizer/controls/fontpresets/font-presets.css',
+					'core/includes/customizer/assets/min/css/color.min.css':'core/includes/customizer/controls/color/color.css',
+					'core/includes/customizer/assets/min/css/contact-info.min.css':'core/includes/customizer/controls/contact-info/contact-info.css',
 				}
 			}
 		},

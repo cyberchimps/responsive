@@ -22,7 +22,7 @@ if ( ! class_exists( 'Responsive_Footer_Customizer' ) ) :
 		 */
 		public function __construct() {
 
-			add_action( 'customize_register', array( $this, 'customizer_options' ) );
+			// add_action( 'customize_register', array( $this, 'customizer_options' ) );
 			add_action( 'customize_preview_init', array( $this, 'customize_preview_init' ) );
 
 		}
@@ -33,46 +33,46 @@ if ( ! class_exists( 'Responsive_Footer_Customizer' ) ) :
 		 * @param  object $wp_customize WordPress customization option.
 		 * @since 1.0.5
 		 */
-		public function customizer_options( $wp_customize ) {
-			$theme = wp_get_theme();
+		// public function customizer_options( $wp_customize ) {
+		// 	$theme = wp_get_theme();
 
 			/*
 			------------------------------------------------------------------
 				// Footer Elements Positioning
 			-------------------------------------------------------------------
 			*/
-			if ( 'Responsive' === $theme->name || 'Responsive' === $theme->parent_theme ) {
-				$wp_customize->add_setting(
-					'responsive_footer_elements_positioning',
-					array(
-						'default'           => array( 'social_icons', 'footer_menu', 'copy_right_text' ),
-						'sanitize_callback' => 'responsive_sanitize_multi_choices',
-						'transport'         => 'refresh',
-					)
-				);
-				$wp_customize->add_control(
-					new Responsive_Customizer_Sortable_Control(
-						$wp_customize,
-						'responsive_footer_elements_positioning',
-						array(
-							'label'    => esc_html__( 'Footer Elements', 'responsive' ),
-							'section'  => 'responsive_footer_layout',
-							'settings' => 'responsive_footer_elements_positioning',
-							'priority' => 11,
-							'choices'  =>
-								apply_filters(
-									'responsie_footer_elements',
-									array(
-										'social_icons'    => esc_html__( 'Social Icons', 'responsive' ),
-										'footer_menu'     => esc_html__( 'Footer Menu', 'responsive' ),
-										'copy_right_text' => esc_html__( 'Copy Right Text', 'responsive' ),
-									)
-								),
-						)
-					)
-				);
-			}
-		}
+			// if ( 'Responsive' === $theme->name || 'Responsive' === $theme->parent_theme ) {
+			// 	$wp_customize->add_setting(
+			// 		'responsive_footer_elements_positioning',
+			// 		array(
+			// 			'default'           => array( 'social_icons', 'footer_menu', 'copy_right_text' ),
+			// 			'sanitize_callback' => 'responsive_sanitize_multi_choices',
+			// 			'transport'         => 'refresh',
+			// 		)
+			// 	);
+			// 	$wp_customize->add_control(
+			// 		new Responsive_Customizer_Sortable_Control(
+			// 			$wp_customize,
+			// 			'responsive_footer_elements_positioning',
+			// 			array(
+			// 				'label'    => esc_html__( 'Footer Elements', 'responsive' ),
+			// 				'section'  => 'responsive_footer_layout',
+			// 				'settings' => 'responsive_footer_elements_positioning',
+			// 				'priority' => 11,
+			// 				'choices'  =>
+			// 					apply_filters(
+			// 						'responsie_footer_elements',
+			// 						array(
+			// 							'social_icons'    => esc_html__( 'Social Icons', 'responsive' ),
+			// 							'footer_menu'     => esc_html__( 'Footer Menu', 'responsive' ),
+			// 							'copy_right_text' => esc_html__( 'Copy Right Text', 'responsive' ),
+			// 						)
+			// 					),
+			// 			)
+			// 		)
+			// 	);
+			// }
+		// }
 
 		/**
 		 * Loads js file for customizer preview

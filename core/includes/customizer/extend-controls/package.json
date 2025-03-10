@@ -11,7 +11,7 @@
     "react-dom": "^17.0.1",
     "react-html-parser": "^2.0.2",
     "react-select": "^3.1.0",
-    "react-sortablejs": "^6.0.0",
+    "react-sortablejs": "^2.0.9",
     "sortablejs": "^1.12.0",
     "webfontloader": "^1.6.28"
   },
@@ -19,7 +19,7 @@
     "@wordpress/scripts": "^12.5.0"
   },
   "scripts": {
-    "build": "wp-scripts build",
-    "start": "wp-scripts start"
+    "start": "wp-scripts start --config config/webpack.config.js --progress",
+    "build": "wp-scripts build --config config/webpack.config.js"
   }
 }

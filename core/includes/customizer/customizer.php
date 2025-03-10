@@ -152,9 +152,17 @@ function responsive_customize_preview_js() {
 	wp_enqueue_script( 'responsive_theme_customizer_select', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-select-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive_theme_customizer_text', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-text-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive_theme_lifter_customize', get_template_directory_uri() . '/core/includes/customizer/assets/js/lifter-customize-preview.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
+	wp_enqueue_script( 'responsive_theme_font-preset_customize', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-font-presets.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	if ( is_responsive_version_greater() ) {
 		wp_enqueue_script( 'responsive_theme_customizer_image', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-image-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	}
+	$localize_array = array(
+		'isDisableElementorDefaultColors' => 'yes' === get_option( 'elementor_disable_color_schemes' ) ? true : false,
+		'isElementorVersion'              => defined( 'ELEMENTOR_VERSION' ) ? true : false,
+	);
+	wp_localize_script( 'responsive_theme_customizer_color', 'responsiveSiteLocalOptions', $localize_array );
+	wp_localize_script( 'responsive_theme_customizer_padding', 'responsiveSiteLocalOptions', $localize_array );
+	wp_localize_script( 'responsive_theme_customizer_number', 'responsiveSiteLocalOptions', $localize_array );
 }
 
 /**
@@ -184,7 +192,7 @@ function responsive_register_options() {
 		'class-responsive-site-social-links-customizer',
 		'class-responsive-header-layout-customizer',
 		'class-responsive-header-title-tagline-customizer',
-		'class-responsive-header-colors-customizer',
+		// 'class-responsive-header-colors-customizer',
 		'class-responsive-header-transparent-customizer',
 		'class-responsive-header-menu-layouts-customizer',
 		'class-responsive-header-secondary-menu-layouts-customizer',
@@ -205,6 +213,21 @@ function responsive_register_options() {
 		'class-responsive-form-fields-customizer',
 		'class-responsive-header-widgets-customizer',
 		'class-responsive-sidebar-layout-customizer',
+		'hfb-builder/class-responsive-header-footer-builder',
+		'hfb-builder/header/class-responsive-hfb-header-above-row',
+		'hfb-builder/header/class-responsive-hfb-header-pimary-row',
+		'hfb-builder/header/class-responsive-hfb-header-below-row',
+		'hfb-builder/footer/class-responsive-hfb-footer-above-row',
+		'hfb-builder/footer/class-responsive-hfb-footer-primary-row',
+		'hfb-builder/footer/class-responsive-hfb-footer-below-row',
+		'class-responsive-footer-menu-customizer',
+		'class-responsive-footer-copyright-customizer',
+		'class-responsive-header-builder-section-customizer',
+		'class-responsive-header-button-customizer',
+		'class-responsive-header-social-customizer',
+		'class-responsive-header-contact-info-customizer',
+		'class-responsive-header-search-customizer',
+		'class-responsive-header-html-customizer',
 	);
 
 	if ( is_responsive_version_greater() ) {
@@ -258,9 +281,11 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'range/class-responsive-customizer-range-control.php';
 	require_once $dir . 'slider/class-responsive-customizer-slider-control.php';
 	require_once $dir . 'sortable/class-responsive-customizer-sortable-control.php';
+	require_once $dir . 'social/class-responsive-customizer-social-control.php';
 	require_once $dir . 'text/class-responsive-customizer-text-control.php';
 	require_once $dir . 'typography/class-responsive-customizer-typography-control.php';
 	require_once $dir . 'tinymce/class-responsive-customizer-tinymce-control.php';
+	require_once $dir . 'html/class-responsive-customizer-html-control.php';
 	require_once $dir . 'dimensions/class-responsive-customizer-dimensions-control.php';
 	require_once $dir . 'heading/class-responsive-customizer-heading-control.php';
 	require_once $dir . 'select/class-responsive-customizer-responsive-select-control.php';
@@ -273,6 +298,16 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'horizontal-separator/class-responsive-customizer-responsive-horizontal-separator.php';
 	require_once $dir . 'backgroundimage/class-responsive-customizer-background-image-control.php';
 	require_once $dir . 'typography_group/class-responsive-customizer-responsive-group-typography-control.php';
+	require_once $dir . 'builder-layout/class-responsive-customizer-layout-builder-control.php';
+	require_once $dir . 'multi-select/class-responsive-customizer-multi-select-control.php';
+	require_once $dir . 'range-with-switchers/class-responsive-customizer-range-with-switchers-control.php';
+	require_once $dir . 'builder-row-layout/class-responsive-customizer-builder-row-layout-control.php';
+	require_once $dir . 'builder-available-drag/class-responsive-customizer-builder-available-items-drag-control.php';
+	require_once $dir . 'shadow/class-responsive-customizer-shadow-control.php';
+	require_once $dir . 'input-with-dropdown/class-responsive-customizer-input-with-dropdown-control.php';
+	require_once $dir . 'fontpresets/class-responsive-customizer-font-preset-control.php';
+	require_once $dir . 'contact-info/class-responsive-customizer-contact-info-control.php';
+	require_once $dir . 'color-with-devices/class-responsive-customizer-color-with-devices-control.php';
 
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-control-upsell.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-generic-notice-section.php';
@@ -288,7 +323,6 @@ function responsive_custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Text_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Typography_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Dimensions_Control' );
-	$wp_customize->register_control_type( 'Responsive_Customizer_Color_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Heading_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Select_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Checkbox_Control' );
@@ -300,6 +334,16 @@ function responsive_custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Horizontal_Separator' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Background_Image_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Typography_Group_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Layout_Builder_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Multi_Select_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Range_With_Switcher_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Builder_Row_Layout_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Builder_Available_Items_Drag_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Shadow_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Social_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Input_With_Dropdown_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Contact_Info_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Color_With_Devices_Control' );
 
 }
 
@@ -314,6 +358,9 @@ function responsive_controls_helpers() {
  * Custom styles and js for customizer
  */
 function responsive_custom_customize_enqueue() {
+	$responsive = wp_get_theme( 'responsive' );
+	$suffix     = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+	wp_enqueue_style( 'icomoon-style', get_template_directory_uri() . "/core/css/icomoon/style{$suffix}.css", false, $responsive['Version'] );
 	wp_enqueue_style( 'responsive-general', get_template_directory_uri() . '/core/includes/customizer/assets/min/css/general.min.css', RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive-general', get_template_directory_uri() . '/core/includes/customizer/assets/min/js/general.min.js', array( 'jquery', 'customize-base' ), RESPONSIVE_THEME_VERSION, true );
 
@@ -327,7 +374,8 @@ function responsive_custom_customize_enqueue() {
 			'wp-block-editor',
 		);
 		if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
-			wp_enqueue_script( 'responsive-custom-control-react-script', get_template_directory_uri() . '/core/includes/customizer/extend-controls/build/index.js', $custom_controls_react_deps, RESPONSIVE_THEME_VERSION, true );
+			// wp_enqueue_script( 'responsive-custom-control-react-script', get_template_directory_uri() . '/core/includes/customizer/extend-controls/build/index.js', $custom_controls_react_deps, RESPONSIVE_THEME_VERSION, true );
+			wp_enqueue_script( 'responsive-custom-control-react-script', get_template_directory_uri() . '/core/includes/customizer/extend-controls/dist/customizer.js', $custom_controls_react_deps, RESPONSIVE_THEME_VERSION, true );
 		} else {
 			$plugin_path            = WP_PLUGIN_DIR . '/responsive-addons-pro/responsive-addons-pro.php';
 			$plugin_info            = get_plugin_data( $plugin_path );
@@ -339,6 +387,7 @@ function responsive_custom_customize_enqueue() {
 		}
 		$localize_array = array(
 			'path' => RESPONSIVE_THEME_URI . '/core/includes/customizer/assets/images/',
+			'paletteDesignStyles' => responsive_get_available_design_styles(),
 		);
 		wp_localize_script( 'responsive-custom-control-react-script', 'localize', $localize_array );
 }

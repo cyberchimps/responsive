@@ -256,6 +256,15 @@ function responsive_widgets_after() {
 }
 
 /**
+ * Just before opening <div id="footer">
+ *
+ * @see footer.php
+ */
+function responsive_footer_before() {
+	do_action( 'responsive_footer_before' );
+}
+
+/**
  * Just after opening <div id="footer">
  *
  * @see footer.php

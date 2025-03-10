@@ -80,14 +80,14 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 						'height'          => 100, // pixels.
 						'width'           => 300, // pixels.
 						'priority'        => 28,
-						'active_callback' => null,
+						'active_callback' => 'responsive_different_logo_transparent_header',
 					)
 				)
 			);
 
 			// Transparent Header Height.
-			$transparent_header_height_label = __( 'Transparent Header Height', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'transparent_header_height', $transparent_header_height_label, 'responsive_header_transparent', 29, 0, null, 300, 0, 'postMessage', 1 );
+			// $transparent_header_height_label = __( 'Transparent Header Height', 'responsive' );
+			// responsive_drag_number_control( $wp_customize, 'transparent_header_height', $transparent_header_height_label, 'responsive_header_transparent', 29, 0, null, 300, 0, 'postMessage', 1 );
 
 			// Site Content Padding.
 			$site_content_padding_label = esc_html__( 'Site Content Padding (px)', 'responsive' );
@@ -140,7 +140,7 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 
 			// Background Color.
 			$menu_background_color_label = __( 'Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'transparent_header_menu_background', $menu_background_color_label, 'responsive_header_transparent', 160, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ), 'responsive_active_vertical_transparent_header' );
+			responsive_color_control( $wp_customize, 'transparent_header_menu_background', $menu_background_color_label, 'responsive_header_transparent', 160, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ) );
 
 			$mobile_menu_background_color_label = __( 'Mobile Menu Background Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'transparent_header_mobile_menu_background', $mobile_menu_background_color_label, 'responsive_header_transparent', 170, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ), null );

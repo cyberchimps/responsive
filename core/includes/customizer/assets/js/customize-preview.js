@@ -155,13 +155,13 @@
 			} );
 		} );
 		//header color
-		api( 'responsive_header_background_color', function( value ) {
-			value.bind( function( newval ) {
-				if( api('responsive_header_background_image').get() ) {
-					$('body:not(.res-transparent-header) .site-header').css('background-image', 'linear-gradient(to right,' + newval + ',' + newval + '),url(' + api('responsive_header_background_image').get() + ')' );
-				}
-			} );
-		} );
+		// api( 'responsive_header_background_color', function( value ) {
+		// 	value.bind( function( newval ) {
+		// 		if( api('responsive_header_background_image').get() ) {
+		// 			$('body:not(.res-transparent-header) .site-header').css('background-image', 'linear-gradient(to right,' + newval + ',' + newval + '),url(' + api('responsive_header_background_image').get() + ')' );
+		// 		}
+		// 	} );
+		// } );
 
 	}
 

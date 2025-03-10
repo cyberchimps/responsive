@@ -1,0 +1,15 @@
+.customize-control-responsive-shadow-control .responsive-shadow-controls-container .responsive-shadow-controls-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.customize-control-responsive-shadow-control .responsive-shadow-controls-container .responsive-shadow-inset-control {
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+
+.customize-control-responsive-shadow-control .responsive-shadow-controls-container .responsive-shadow-controls-wrapper .responsive-shadow-number-control .components-number-control .components-input-control__input {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+

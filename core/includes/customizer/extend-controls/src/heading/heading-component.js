@@ -1,5 +1,12 @@
 import PropTypes from 'prop-types';
 
+const descriptionStyle = {
+	fontSize: '12px',
+    lineHeight: '18px',
+    color: '#A4A4A4',
+    marginTop: '10px',
+	fontStyle: 'italic',
+}
 const HeadingComponent = props => {
 
 	const {
@@ -15,7 +22,7 @@ const HeadingComponent = props => {
 	}
 
 	if (description) {
-		descriptionHtml = <div className="description">{description}</div>;
+		descriptionHtml = <div className="description" style={descriptionStyle}><span style={{ fontWeight: 600 }} >Note: </span>{description}</div>;
 	}
 
 	return <>

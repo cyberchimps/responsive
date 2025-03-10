@@ -240,6 +240,23 @@ if ( ! function_exists( 'responsive_checkbox_validate' ) ) {
 }
 
 /**
+ * Check if function present
+ */
+if ( ! function_exists( 'responsive_boolean_validate' ) ) {
+	/**
+	 * Validates Boolean inputs.
+	 *
+	 * @param  boolean $input Boolean.
+	 *
+	 * @return true or false
+	 */
+	function responsive_boolean_validate( $input ) {
+		$input = ( true == $input ? true : false );
+		return $input;
+	}
+}
+
+/**
  * Check if responsive_check_sidebar_menu_type function is present.
  */
 if ( ! function_exists( 'responsive_check_sidebar_menu_type' ) ) {
@@ -278,4 +295,39 @@ if ( ! function_exists( 'responsive_check_submenu_divider' ) ) {
 		}
 
 	}
+}
+/**
+ * Sanitize Builder Setting.
+ *
+ * @param [type] $input
+ * @return array
+ */
+function responsive_sanitize_builder( $input ) {
+	if ( is_array( $input ) ) {
+		return $input;
+	}
+	return array();
+}
+
+/**
+ * Sanitize Multi Select Setting.
+ *
+ * @param [type] $input
+ * @return array
+ */
+function responsive_sanitize_multi_select( $input ) {
+	if ( is_array( $input ) ) {
+		return $input;
+	}
+	return array();
+}
+
+/**
+ * Sanitize Row Layout Select Setting.
+ *
+ * @param string $input
+ * @return string
+ */
+function responsive_sanitize_row_layout_select( $input ) {
+	return esc_html( $input );
 }
