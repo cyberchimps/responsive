@@ -1085,6 +1085,7 @@ function defaults() {
 		array(
 			'entry_columns'                       => 1,
 			'buttons_radius'                      => 0,
+			'responsive_border_box'               => 0,
 			'shop_content_width'                  => 100,
 			'blog_content_width'                  => 66,
 			'single_blog_content_width'           => 66,
@@ -1198,6 +1199,16 @@ function defaults() {
 			'header_social_margin_y'              => 0,
 			'header_social_item_bg_color'         => '#FFFFFF',
 			'header_social_item_bg_hover_color'   => '#FFFFFF',
+			'footer_social_show_label'            => 0,
+			'footer_social_item_color'            => '#2D3748',
+			'footer_social_item_hover_color'      => '#FFFFFF',
+			'footer_social_border_radius'         => 0,
+			'footer_social_border_color'          => '#FFFFFF',
+			'footer_social_border_hover_color'    => '#FFFFFF',
+			'footer_social_margin_x'              => 0,
+			'footer_social_margin_y'              => 0,
+			'footer_social_item_bg_color'         => '#FFFFFF',
+			'footer_social_item_bg_hover_color'   => '#FFFFFF',
 			'responsive_h4_text_color'            => '#333333',
 			'responsive_box_background_color'     => '#ffffff',
 			'responsive_body_text_color'          => '#333333',
@@ -1335,7 +1346,7 @@ function defaults() {
 																			),
 																			'social'      => array(
 																				'name'    => esc_html__( 'Social', 'responsive' ),
-																				'section' => 'responsive_social_links',
+																				'section' => 'responsive_footer_social',
 																			),
 																			'widget-1' => array(
 																				'name'    => esc_html__( 'Widget 1', 'responsive' ),

@@ -1453,7 +1453,7 @@ function responsive_drag_number_control_with_switchers( $wp_customize, $element,
  *
  * @return void               [description].
  */
-function responsive_separator_control( $wp_customize, $element, $label, $section, $priority, $desc='', $active_call = null ) {
+function responsive_separator_control( $wp_customize, $element, $label, $section, $priority, $active_call = null, $desc='' ) {
 
 	/**
 	*  Heading.
