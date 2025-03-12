@@ -182,7 +182,7 @@ add_action( 'wp_ajax_responsive_delete_header_footer_builder_admin_notice_action
  */
 function responsive_delete_header_footer_builder_admin_notice_action() {
 	$nonce = ( isset( $_POST['nonce'] ) ) ? sanitize_key( $_POST['nonce'] ) : '';
-	error_log( 'nonce: ' . print_r( $nonce, true ));
+
 	if ( false === wp_verify_nonce( $nonce, 'responsive-plugin-notices-handler' ) ) {
 		return;
 	}
