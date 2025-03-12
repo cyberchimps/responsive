@@ -560,7 +560,6 @@
     //Background Color
     api( 'responsive_transparent_header_menu_background_color', function( value ) {
         value.bind( function( color ) {
-            console.log( api('responsive_transparent_header').get() );
             if( 1 === api('responsive_transparent_header').get()) {
 
                 let mobileBreakPoint = api('responsive_mobile_menu_breakpoint').get()+"px";

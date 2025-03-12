@@ -3169,20 +3169,20 @@ function responsive_customizer_styles() {
 	}
 
 	// footer_widgets Padding.
-	$footer_widgets_padding_right  = esc_html( get_theme_mod( 'responsive_footer_widgets_right_padding', 0 ) );
-	$footer_widgets_padding_left   = esc_html( get_theme_mod( 'responsive_footer_widgets_left_padding', 0 ) );
-	$footer_widgets_padding_top    = esc_html( get_theme_mod( 'responsive_footer_widgets_top_padding', 20 ) );
-	$footer_widgets_padding_bottom = esc_html( get_theme_mod( 'responsive_footer_widgets_bottom_padding', 20 ) );
+	// $footer_widgets_padding_right  = esc_html( get_theme_mod( 'responsive_footer_widgets_right_padding', 0 ) );
+	// $footer_widgets_padding_left   = esc_html( get_theme_mod( 'responsive_footer_widgets_left_padding', 0 ) );
+	// $footer_widgets_padding_top    = esc_html( get_theme_mod( 'responsive_footer_widgets_top_padding', 20 ) );
+	// $footer_widgets_padding_bottom = esc_html( get_theme_mod( 'responsive_footer_widgets_bottom_padding', 20 ) );
 
-	$footer_widgets_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_footer_widgets_tablet_right_padding', 0 ) );
-	$footer_widgets_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_footer_widgets_tablet_left_padding', 0 ) );
-	$footer_widgets_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_footer_widgets_tablet_top_padding', 20 ) );
-	$footer_widgets_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_footer_widgets_tablet_bottom_padding', 20 ) );
+	// $footer_widgets_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_footer_widgets_tablet_right_padding', 0 ) );
+	// $footer_widgets_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_footer_widgets_tablet_left_padding', 0 ) );
+	// $footer_widgets_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_footer_widgets_tablet_top_padding', 20 ) );
+	// $footer_widgets_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_footer_widgets_tablet_bottom_padding', 20 ) );
 
-	$footer_widgets_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_footer_widgets_mobile_right_padding', 0 ) );
-	$footer_widgets_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_footer_widgets_mobile_left_padding', 0 ) );
-	$footer_widgets_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_footer_widgets_mobile_top_padding', 20 ) );
-	$footer_widgets_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_footer_widgets_mobile_bottom_padding', 20 ) );
+	// $footer_widgets_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_footer_widgets_mobile_right_padding', 0 ) );
+	// $footer_widgets_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_footer_widgets_mobile_left_padding', 0 ) );
+	// $footer_widgets_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_footer_widgets_mobile_top_padding', 20 ) );
+	// $footer_widgets_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_footer_widgets_mobile_bottom_padding', 20 ) );
 
 	// Hide on select Devices.
 	$footer_widget_desktop_visibility = get_theme_mod( 'responsive_footer_widget_desktop_visibility', 0 );
@@ -3196,21 +3196,18 @@ function responsive_customizer_styles() {
 
 	$custom_css .= ".footer-widgets {
 		display: {$footer_widget_desktop_visibility};
-	    padding: " . responsive_spacing_css( $footer_widgets_padding_top, $footer_widgets_padding_right, $footer_widgets_padding_bottom, $footer_widgets_padding_left ) . ";
 
 	}
 	@media screen and ( max-width: 992px ) {
 	    .footer-widgets {
 			display: {$footer_widget_tablet_visibility};
-	        padding: " . responsive_spacing_css( $footer_widgets_tablet_padding_top, $footer_widgets_tablet_padding_right, $footer_widgets_tablet_padding_bottom, $footer_widgets_tablet_padding_left ) . ";
 	    }
 	}
 	@media screen and ( max-width: 576px ) {
 	    .footer-widgets {
 			display: {$footer_widget_mobile_visibility};
-	        padding: " . responsive_spacing_css( $footer_widgets_mobile_padding_top, $footer_widgets_mobile_padding_right, $footer_widgets_mobile_padding_bottom, $footer_widgets_mobile_padding_left ) . ';
 	    }
-	}';
+	}";
 
 	// footer_bar Padding.
 	$footer_bar_padding_right  = esc_html( get_theme_mod( 'responsive_footer_bar_right_padding', 0 ) );
@@ -4148,50 +4145,50 @@ function responsive_customizer_styles() {
 	// Fetch above footer row items padding and margin values.
 	$above_footer_padding_values = get_responsive_spacing_values('responsive_footer_above_row_item_padding');
 
-	$custom_css .= ".rspv-site-above-footer-wrap .footer-widget-area {";
+	$custom_css .= ".rspv-site-above-footer-wrap .footer-widget-wrapper {";
 	$custom_css .= responsive_build_responsive_padding_spacing_css($above_footer_padding_values['desktop']);
 	$custom_css .= "}";
 
 	$custom_css .= "@media screen and (max-width: 992px) {";
-	$custom_css .= ".rspv-site-above-footer-wrap .footer-widget-area {";
+	$custom_css .= ".rspv-site-above-footer-wrap .footer-widget-wrapper {";
 	$custom_css .= responsive_build_responsive_padding_spacing_css($above_footer_padding_values['tablet']);
 	$custom_css .= "}}";
 
 	$custom_css .= "@media screen and (max-width: 576px) {";
-	$custom_css .= ".rspv-site-above-footer-wrap .footer-widget-area {";
+	$custom_css .= ".rspv-site-above-footer-wrap .footer-widget-wrapper {";
 	$custom_css .= responsive_build_responsive_padding_spacing_css($above_footer_padding_values['mobile']);
 	$custom_css .= "}}";
 	// Fetch primary footer row items padding and margin values.
 	$primary_footer_padding_values = get_responsive_spacing_values('responsive_footer_primary_row_item_padding');
 
-	$custom_css .= ".rspv-site-primary-footer-wrap .footer-widget-area {";
+	$custom_css .= ".rspv-site-primary-footer-wrap .footer-widget-wrapper {";
 	$custom_css .= responsive_build_responsive_padding_spacing_css($primary_footer_padding_values['desktop']);
 	$custom_css .= "}";
 
 	$custom_css .= "@media screen and (max-width: 992px) {";
-	$custom_css .= ".rspv-site-primary-footer-wrap .footer-widget-area {";
+	$custom_css .= ".rspv-site-primary-footer-wrap .footer-widget-wrapper {";
 	$custom_css .= responsive_build_responsive_padding_spacing_css($primary_footer_padding_values['tablet']);
 	$custom_css .= "}}";
 
 	$custom_css .= "@media screen and (max-width: 576px) {";
-	$custom_css .= ".rspv-site-primary-footer-wrap .footer-widget-area {";
+	$custom_css .= ".rspv-site-primary-footer-wrap .footer-widget-wrapper {";
 	$custom_css .= responsive_build_responsive_padding_spacing_css($primary_footer_padding_values['mobile']);
 	$custom_css .= "}}";
 
 	// Fetch below footer row items padding and margin values.
 	$below_footer_padding_values = get_responsive_spacing_values('responsive_footer_below_row_item_padding');
 
-	$custom_css .= ".rspv-site-below-footer-wrap .footer-widget-area {";
+	$custom_css .= ".rspv-site-below-footer-wrap .footer-widget-wrapper {";
 	$custom_css .= responsive_build_responsive_padding_spacing_css($below_footer_padding_values['desktop']);
 	$custom_css .= "}";
 
 	$custom_css .= "@media screen and (max-width: 992px) {";
-	$custom_css .= ".rspv-site-below-footer-wrap .footer-widget-area {";
+	$custom_css .= ".rspv-site-below-footer-wrap .footer-widget-wrapper {";
 	$custom_css .= responsive_build_responsive_padding_spacing_css($below_footer_padding_values['tablet']);
 	$custom_css .= "}}";
 
 	$custom_css .= "@media screen and (max-width: 576px) {";
-	$custom_css .= ".rspv-site-below-footer-wrap .footer-widget-area {";
+	$custom_css .= ".rspv-site-below-footer-wrap .footer-widget-wrapper {";
 	$custom_css .= responsive_build_responsive_padding_spacing_css($below_footer_padding_values['mobile']);
 	$custom_css .= "}}";
 
