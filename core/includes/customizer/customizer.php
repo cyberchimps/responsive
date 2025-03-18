@@ -228,6 +228,7 @@ function responsive_register_options() {
 		'class-responsive-header-contact-info-customizer',
 		'class-responsive-header-search-customizer',
 		'class-responsive-header-html-customizer',
+		'class-responsive-footer-social-customizer',
 	);
 
 	if ( is_responsive_version_greater() ) {

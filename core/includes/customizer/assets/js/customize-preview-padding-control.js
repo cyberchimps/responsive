@@ -863,6 +863,29 @@
         });
     });
 
+    const footerSocialMargin = [
+        'responsive_footer_social_item_margin_top_padding',
+        'responsive_footer_social_item_margin_right_padding',
+        'responsive_footer_social_item_margin_bottom_padding',
+        'responsive_footer_social_item_margin_left_padding',
+        'responsive_footer_social_item_margin_tablet_top_padding',
+        'responsive_footer_social_item_margin_tablet_right_padding',
+        'responsive_footer_social_item_margin_tablet_bottom_padding',
+        'responsive_footer_social_item_margin_tablet_left_padding',
+        'responsive_footer_social_item_margin_mobile_top_padding',
+        'responsive_footer_social_item_margin_mobile_right_padding',
+        'responsive_footer_social_item_margin_mobile_bottom_padding',
+        'responsive_footer_social_item_margin_mobile_left_padding',
+    ];
+    
+    footerSocialMargin.forEach(setting => {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_margin('footer_social_item_margin', '.footer-layouts.social-icon .social-icons');
+            });
+        });
+    });
+
     // Sidebar Outside Padding
     api( 'responsive_sidebar_outside_container_top_padding', function( value ) {
         value.bind( function( newval ) {
@@ -1910,9 +1933,9 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
         { type: 'below', selector: '.rspv-site-below-footer-wrap' },
     ];
     const hfbFooterRowsItems = [
-        { type: 'above', selector: '.rspv-site-above-footer-wrap .footer-widget-area, .rspv-site-above-footer-wrap .footer-widget-wrapper' },
-        { type: 'primary', selector: '.rspv-site-primary-footer-wrap .footer-widget-area, .rspv-site-primary-footer-wrap .footer-widget-wrapper' },
-        { type: 'below', selector: '.rspv-site-below-footer-wrap .footer-widget-area, .rspv-site-below-footer-wrap .footer-widget-wrapper' },
+        { type: 'above', selector: '.rspv-site-above-footer-wrap .footer-widget-wrapper' },
+        { type: 'primary', selector: '.rspv-site-primary-footer-wrap .footer-widget-wrapper' },
+        { type: 'below', selector: '.rspv-site-below-footer-wrap .footer-widget-wrapper' },
     ];
 
     // Common suffixes for both margin and padding

@@ -114,6 +114,29 @@
         });
     });
 
+    const footerSocialBorderRadius = [
+        'responsive_footer_social_radius_top_left_radius',
+        'responsive_footer_social_radius_bottom_left_radius',
+        'responsive_footer_social_radius_bottom_right_radius',
+        'responsive_footer_social_radius_top_right_radius',
+        'responsive_footer_social_radius_tablet_top_left_radius',
+        'responsive_footer_social_radius_tablet_top_right_radius',
+        'responsive_footer_social_radius_tablet_bottom_right_radius',
+        'responsive_footer_social_radius_tablet_bottom_left_radius',
+        'responsive_footer_social_radius_mobile_top_left_radius',
+        'responsive_footer_social_radius_mobile_top_right_radius',
+        'responsive_footer_social_radius_mobile_bottom_right_radius',
+        'responsive_footer_social_radius_mobile_bottom_left_radius',
+    ];
+
+    footerSocialBorderRadius.forEach(setting => {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_radius( 'footer_social', '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' );
+            });
+        });
+    });
+
     //Theme Options Layout
     //Box Radius
     api( 'responsive_border_box', function( value ) {
