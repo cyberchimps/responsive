@@ -173,7 +173,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 
 			// Inside Container.
 			$inside_container_label = __( 'Margin (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'product_card_inside_container', 'responsive_woocommerce_shop', 36, 15, 15, '', $inside_container_label );
+			responsive_padding_control( $wp_customize, 'product_card_inside_container', 'responsive_woocommerce_shop', 36, 10, 10, '', $inside_container_label );
 
 			// Shop Elements.
 			$shop_elements_label = esc_html__( 'Shop Product', 'responsive' );

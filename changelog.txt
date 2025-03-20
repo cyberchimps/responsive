@@ -8,6 +8,12 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(13/03/2025) Version 6.1.4
+[+] = New = Added a setting to change background color of menu and transparent header's menu.
+[!] = Fix = Fixed menu going off screen in RTL mode.
+[!] = Fix = Resolved Global settings Layout border radius not working in customizer preview.
+[!] = Fix = Fixed backward compatibility issue of header widgets position, footer widgets padding and footer social icons stylings.
+
 (27/02/2025) = New - Version 6.1.3
 [+] = New = Introducing new elements for the Header Builder: Search, Contact Info and HTML.
 [*] = Improvement = Introduced Responsive Options for all three footer rows Layout setting in the footer builder.

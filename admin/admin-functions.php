@@ -137,3 +137,54 @@ if ( class_exists( 'responsive_addons_pro' ) ) {
 		add_action( 'admin_notices', 'responsive_upgrade_pro_react', 20 );
 	}
 }
+
+/**
+ * Display Header Footer Builder update admin notice.
+ *
+ * @since 6.1.4
+ */
+function responsive_header_footer_builder_update_done_notice() {
+	if ( isset( $_GET['page'] ) && 'responsive' === $_GET['page'] ) {
+		return;
+	}
+	if ( get_option( 'responsive-hfbuilder-admin-notice-display' ) ) {
+		return;
+	}
+	?>
+	<div class="postbox responsive-header-footer-builder-update-notice" id="responsive-sites-active">
+		<div class="responsive-admin-notices-main-wrapper">
+			<div class="header-footer-builder-update-notice-wrapper">
+				<div class="header-footer-builder-update-notice-content">
+                    <h2><?php esc_html_e( 'Important Theme Update Notice:', 'responsive' );?></h2>
+                    <p><?php esc_html_e( 'Our new Header & Footer Builder is here from version 6.1.0! If this has affected your current setup, follow these steps:', 'responsive' );?></p>
+                    <ul class="responsive-steps-to-follow">
+						<li><?php esc_html_e( 'Check for any custom code added.', 'responsive' );?></li>
+						<li><?php esc_html_e( 'If using a child theme, check for changes related to the header and footer template files.', 'responsive' );?></li>
+					</ul>
+					<p class="responsive-notice-help"><?php esc_html_e( 'Need help? Check our ', 'responsive' ); ?>
+					<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/responsive-theme/responsive-theme-walkthrough/create-a-header-using-responsive-themes-header-builder/' ) ?>" target="_blank"><?php esc_html_e( 'doc', 'responsive' ) ?></a><?php esc_html_e( ' or ask for ', 'responsive' ) ?><a href="<?php echo esc_url( 'https://cyberchimps.com/open-a-ticket/' ) ?>" target="_blank"><?php esc_html_e( 'support.', 'responsive' ); ?></a>
+					</p>
+                </div>
+            </div>
+		</div>
+		<button type="button" class="notice-dismiss"></button>
+	</div>
+	<?php
+}
+
+add_action( 'admin_notices', 'responsive_header_footer_builder_update_done_notice', 10 );
+add_action( 'wp_ajax_responsive_delete_header_footer_builder_admin_notice_action', 'responsive_delete_header_footer_builder_admin_notice_action' );
+
+/**
+ * Remove Header Footer Builder update admin notice.
+ *
+ * @since 6.1.4
+ */
+function responsive_delete_header_footer_builder_admin_notice_action() {
+	$nonce = ( isset( $_POST['nonce'] ) ) ? sanitize_key( $_POST['nonce'] ) : '';
+
+	if ( false === wp_verify_nonce( $nonce, 'responsive-plugin-notices-handler' ) ) {
+		return;
+	}
+	update_option( 'responsive-hfbuilder-admin-notice-display', true, false );
+}

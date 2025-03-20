@@ -34,4 +34,22 @@ jQuery( function ( $ ) {
 			}
 		} );
 	} );
+
+	$( document ).on( 'click', '.responsive-header-footer-builder-update-notice .notice-dismiss', function () {
+
+		$.ajax( {
+			url: dismissNotices.ajaxurl,
+			type: 'POST',
+			data: {
+				action: 'responsive_delete_header_footer_builder_admin_notice_action',
+        		nonce: dismissNotices._notice_nonce,
+			},
+			success: function () {
+				$( '.responsive-header-footer-builder-update-notice' ).fadeOut( 300, function () {
+					$( this ).remove();
+				} );
+			}
+		} );
+
+	} );
 } );

@@ -31,7 +31,7 @@ if ( ! class_exists( 'Responsive_Container_Spacing_Customizer' ) ) :
 		public function customizer_options( $wp_customize ) {
 
 			$container_spacing_label = esc_html__( 'SPACING', 'responsive' );
-			responsive_separator_control( $wp_customize, 'container_spacing', $container_spacing_label, 'responsive_layout', 60 );
+			responsive_separator_control( $wp_customize, 'container_spacing', $container_spacing_label, 'responsive_layout', 60, 'responsive_not_active_site_style_flat', 'This spacing applies to all pages and single product pages.' );
 
 			// Outside Container.
 			$outside_container_label = __( 'Outside Container (px)', 'responsive' );

@@ -1234,7 +1234,7 @@ function responsive_borderwidth_control( $wp_customize, $element, $section, $pri
  * @param  string  $section      [description].
  * @param  integer $priority     [description].
  * @param  integer $default     [description].
- * @param  bool    $active_call     [description].
+ * @param  callable    $active_call     [description].
  * @param  string  $desc     [description].
  * @return void               [description].
  */
@@ -1453,7 +1453,7 @@ function responsive_drag_number_control_with_switchers( $wp_customize, $element,
  *
  * @return void               [description].
  */
-function responsive_separator_control( $wp_customize, $element, $label, $section, $priority, $active_call = null ) {
+function responsive_separator_control( $wp_customize, $element, $label, $section, $priority, $active_call = null, $desc='' ) {
 
 	/**
 	*  Heading.
@@ -1474,6 +1474,7 @@ function responsive_separator_control( $wp_customize, $element, $label, $section
 				'section'         => $section,
 				'priority'        => $priority,
 				'active_callback' => $active_call,
+				'description'     => $desc,
 			)
 		)
 	);

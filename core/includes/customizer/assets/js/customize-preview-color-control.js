@@ -352,19 +352,17 @@
     //Main Menu Colors Section
     //Background Color
     api( 'responsive_header_menu_background_color', function( value ) {
-        value.bind( function( newval ) {
+        value.bind( function( color ) {
             if( 0 == api('responsive_transparent_header').get()) {
-                $('.header-full-width.site-header-layout-vertical .main-navigation:not(.toggled),.site-header-layout-vertical.site-header-full-width-main-navigation .main-navigation:not(.toggled),.responsive-site-full-width.site-header-layout-vertical .main-navigation:not(.toggled),.site-header-layout-vertical .main-navigation:not(.toggled) div').css('background-color', newval);
+                let mobileBreakPoint = api('responsive_mobile_menu_breakpoint').get()+"px";
 
-                function isMobile(x) {
-                    if (x.matches) { // If media query matches
-                        $('.site-header-layout-vertical .main-navigation:not(.toggled)').css('background-color', newval);
-                    }
-                }
-
-                var x = window.matchMedia("(max-width:" + api('responsive_mobile_menu_breakpoint').get() + "px)")
-                isMobile(x) // Call listener function at run time
-                x.addListener(isMobile)
+                jQuery( 'style#responsive-header-menu-background-color' ).remove();
+                jQuery( 'head' ).append(
+                    '<style id="responsive-header-menu-background-color">'
+                    + '@media screen and (min-width: ' + mobileBreakPoint + ') {'
+                    + '.site-header-row .main-navigation:not(.toggled) .main-navigation-wrapper { background-color: ' + color + ' !important; }'
+                    + '} </style>'
+                );
             }
         } );
     } );
@@ -372,19 +370,16 @@
     //Main Menu Colors Section
     //Background Color
     api( 'responsive_header_mobile_menu_background_color', function( value ) {
-        value.bind( function( newval ) {
+        value.bind( function( color ) {
             if( 0 == api('responsive_transparent_header').get()) {
-                $('.header-full-width.site-header-layout-vertical .main-navigation.toggled,.site-header-layout-vertical.site-header-full-width-main-navigation .main-navigation.toggled,.responsive-site-full-width.site-header-layout-vertical .main-navigation.toggled,.site-header-layout-vertical .main-navigation.toggled div, .main-navigation.toggled').css('background-color', newval);
-
-                function isMobile(x) {
-                    if (x.matches) { // If media query matches
-                        $('.site-header-layout-vertical .main-navigation.toggled').css('background-color', newval);
-                    }
-                }
-
-                var x = window.matchMedia("(max-width:" + api('responsive_mobile_menu_breakpoint').get() + "px)")
-                isMobile(x) // Call listener function at run time
-                x.addListener(isMobile)
+                let mobileBreakPoint = api('responsive_mobile_menu_breakpoint').get()+"px";
+                jQuery( 'style#responsive-header-mobile-menu-background-color' ).remove();
+                jQuery( 'head' ).append(
+                    '<style id="responsive-header-mobile-menu-background-color">'
+                    + '@media screen and (max-width: ' + mobileBreakPoint + ') {'
+                    + '.site-header-row .main-navigation.toggled,.site-header-row .main-navigation.toggled .main-navigation-wrapper { background-color: ' + color + ' !important; }'
+                    + '} </style>'
+                );
             }
             else {
                 $('.res-transparent-header .main-navigation.toggled').css('background-color', newval);
@@ -564,19 +559,18 @@
     //Transparent Header Main Menu Colors Section
     //Background Color
     api( 'responsive_transparent_header_menu_background_color', function( value ) {
-        value.bind( function( newval ) {
-            if( 0 == api('responsive_transparent_header').get()) {
-                $('.res-transparent-header.header-full-width.site-header-layout-vertical .main-navigation:not(.toggled),.res-transparent-header.site-header-layout-vertical.site-header-full-width-main-navigation .main-navigation:not(.toggled),.res-transparent-header.responsive-site-full-width.site-header-layout-vertical .main-navigation:not(.toggled),.res-transparent-header.site-header-layout-vertical .main-navigation:not(.toggled) div').css('background-color', newval);
+        value.bind( function( color ) {
+            if( 1 === api('responsive_transparent_header').get()) {
 
-                function isMobile(x) {
-                    if (x.matches) { // If media query matches
-                        $('.res-transparent-header .site-header-layout-vertical .main-navigation:not(.toggled)').css('background-color', newval);
-                    }
-                }
+                let mobileBreakPoint = api('responsive_mobile_menu_breakpoint').get()+"px";
 
-                var x = window.matchMedia("(max-width:" + api('responsive_mobile_menu_breakpoint').get() + "px)")
-                isMobile(x) // Call listener function at run time
-                x.addListener(isMobile)
+                jQuery( 'style#responsive-transparent-header-menu-background-color' ).remove();
+                jQuery( 'head' ).append(
+                    '<style id="responsive-transparent-header-menu-background-color">'
+                    + '@media screen and (min-width: ' + mobileBreakPoint + ') {'
+                    + '.res-transparent-header .site-header-row .main-navigation:not(.toggled) .main-navigation-wrapper { background-color: ' + color + ' !important; }'
+                    + '} </style>'
+                );
             }
         } );
     } );
@@ -584,22 +578,16 @@
     //Main Menu Colors Section
     //Background Color
     api( 'responsive_transparent_header_mobile_menu_background_color', function( value ) {
-        value.bind( function( newval ) {
-            if( 0 == api('responsive_transparent_header').get()) {
-                $('.res-transparent-header.header-full-width.site-header-layout-vertical .main-navigation.toggled,.res-transparent-header.site-header-layout-vertical.site-header-full-width-main-navigation .main-navigation.toggled,.res-transparent-header.responsive-site-full-width.site-header-layout-vertical .main-navigation.toggled,.res-transparent-header.site-header-layout-vertical .main-navigation.toggled div,.res-transparent-header .main-navigation.toggled').css('background-color', newval);
-
-                function isMobile(x) {
-                    if (x.matches) { // If media query matches
-                        $('.res-transparent-header.site-header-layout-vertical .main-navigation.toggled').css('background-color', newval);
-                    }
-                }
-
-                var x = window.matchMedia("(max-width:" + api('responsive_mobile_menu_breakpoint').get() + "px)")
-                isMobile(x) // Call listener function at run time
-                x.addListener(isMobile)
-            }
-            else {
-                $('.res-transparent-header .main-navigation.toggled').css('background-color', newval);
+        value.bind( function( color ) {
+            if( 1 === api('responsive_transparent_header').get()) {
+                let mobileBreakPoint = api('responsive_mobile_menu_breakpoint').get()+"px";
+                jQuery( 'style#responsive-transparent-header-mobile-menu-background-color' ).remove();
+                jQuery( 'head' ).append(
+                    '<style id="responsive-transparent-header-mobile-menu-background-color">'
+                    + '@media screen and (max-width: ' + mobileBreakPoint + ') {'
+                    + '.res-transparent-header .site-header-row .main-navigation.toggled,.res-transparent-header .site-header-row .main-navigation.toggled .main-navigation-wrapper { background-color: ' + color + ' !important; }'
+                    + '} </style>'
+                );
             }
         } );
     } );
@@ -1091,7 +1079,7 @@
         }
     );
     //Buttons Hover Color
-    $(".page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button, .elementor-widget-rael-button .rael-button").hover(
+    $(".page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button:not(.menu-toggle),.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button, .elementor-widget-rael-button .rael-button").hover(
         function() {
             $(this).css("background-color", api('responsive_button_hover_color').get());
             $(this).css("color", api('responsive_button_hover_text_color').get());
@@ -1819,7 +1807,7 @@
             jQuery('style#responsive-sticky-header-menu-background-color').remove();
             jQuery('head').append(
                 '<style id="responsive-sticky-header-menu-background-color">'
-                + '#masthead.sticky-header .main-navigation, .res-transparent-header #masthead.sticky-header .main-navigation, #masthead.sticky-header .main-navigation div, .res-transparent-header #masthead.sticky-header .main-navigation div { background-color: ' + newval + '; }'
+                + '#masthead.sticky-header .site-header-row .main-navigation .main-navigation-wrapper, #masthead.sticky-header .site-header-row .main-navigation.toggled { background-color: ' + newval + ' !important; }'
                 + '</style>'
             );
         } );
@@ -2028,12 +2016,28 @@
             }
         });
     });
+    api( 'responsive_footer_social_item_style', function(val){
+        val.bind(function(newval){
+            if ( 'filled' === newval || '' == newval ) {
+                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'background-color', '#EDF2F7' );
+            }
+        });
+    });
     api( 'responsive_header_social_item_color', function(val){
         val.bind(function(newval){
             var header_social_item_use_brand_colors = api('responsive_header_social_item_use_brand_colors').get();
             if ( 'no' === header_social_item_use_brand_colors ) {
                 $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'color', newval );
                 $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'fill', newval );
+            }
+        });
+    });
+    api( 'responsive_footer_social_item_color', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'color', newval );
+                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'fill', newval );
             }
         });
     });
@@ -2046,12 +2050,28 @@
             }
         });
     });
+    api( 'responsive_footer_social_item_hover_color', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'color', newval );
+                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'fill', newval );
+            }
+        });
+    });
     api( 'responsive_header_social_item_background_color', function(val){
         val.bind(function(newval){
             var header_social_item_use_brand_colors = api('responsive_header_social_item_use_brand_colors').get();
-            var header_social_item_style = api('responsive_header_social_item_style').get();
             if ( 'no' === header_social_item_use_brand_colors ) {
                 $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'background-color', newval );
+            }
+        });
+    });
+    api( 'responsive_footer_social_item_background_color', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'background-color', newval );
             }
         });
     });
@@ -2063,6 +2083,14 @@
             }
         });
     });
+    api( 'responsive_footer_social_item_background_hover_color', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'background-color', newval );
+            }
+        });
+    });
     api( 'responsive_header_social_item_border_color', function(val){
         val.bind(function(newval){
             var header_social_item_use_brand_colors = api('responsive_header_social_item_use_brand_colors').get();
@@ -2071,11 +2099,27 @@
             }
         });
     });
+    api( 'responsive_footer_social_item_border_color', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'border-color', newval );
+            }
+        });
+    });
     api( 'responsive_header_social_item_border_hover_color', function(val){
         val.bind(function(newval){
             var header_social_item_use_brand_colors = api('responsive_header_social_item_use_brand_colors').get();
             if ( 'no' === header_social_item_use_brand_colors ) {
                 $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'border-color', newval );
+            }
+        });
+    });
+    api( 'responsive_footer_social_item_border_hover_color', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'border-color', newval );
             }
         });
     });

@@ -62,6 +62,35 @@
         );
     }
 
+    function responsive_layout_box_radius(control, selector) {
+        let mobile_menu_breakpoint = api('responsive_mobile_menu_breakpoint').get();
+        if (0 == api('responsive_disable_mobile_menu').get()) {
+            mobile_menu_breakpoint = 0;
+        }
+
+        jQuery('style#responsive-' + control + '-radius').remove();
+        let desktopRadius = 'border-top-left-radius:' + api('responsive_' + control + '_top_left_radius').get() + 'px; ' +
+                            'border-top-right-radius:' + api('responsive_' + control + '_top_right_radius').get() + 'px; ' +
+                            'border-bottom-left-radius:' + api('responsive_' + control + '_bottom_left_radius').get() + 'px; ' +
+                            'border-bottom-right-radius:' + api('responsive_' + control + '_bottom_right_radius').get() + 'px;';
+        let tabletRadius  = 'border-top-left-radius:' + api('responsive_' + control + '_tablet_top_left_radius').get() + 'px; ' +
+                            'border-top-right-radius:' + api('responsive_' + control + '_tablet_top_right_radius').get() + 'px; ' +
+                            'border-bottom-left-radius:' + api('responsive_' + control + '_tablet_bottom_left_radius').get() + 'px; ' +
+                            'border-bottom-right-radius:' + api('responsive_' + control + '_tablet_bottom_right_radius').get() + 'px;';
+        let mobileRadius  = 'border-top-left-radius:' + api('responsive_' + control + '_mobile_top_left_radius').get() + 'px; ' +
+                            'border-top-right-radius:' + api('responsive_' + control + '_mobile_top_right_radius').get() + 'px; ' +
+                            'border-bottom-left-radius:' + api('responsive_' + control + '_mobile_bottom_left_radius').get() + 'px; ' +
+                            'border-bottom-right-radius:' + api('responsive_' + control + '_mobile_bottom_right_radius').get() + 'px;';
+
+        jQuery('head').append(
+            '<style id="responsive-' + control + '-radius">' +
+            selector + ' { ' + desktopRadius + ' }' +
+            '@media (max-width: ' + mobile_menu_breakpoint + 'px) {' + selector + ' { ' + tabletRadius + ' } }' +
+            '@media (max-width: 544px) {' + selector + ' { ' + mobileRadius + ' } }' +
+            '</style>'
+        );
+    }
+
     const headerSocialBorderRadius = [
         'responsive_header_social_radius_top_left_radius',
         'responsive_header_social_radius_bottom_left_radius',
@@ -81,6 +110,29 @@
         api(setting, function(value) {
             value.bind(function(newval) {
                 responsive_dynamic_radius( 'header_social', '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' );
+            });
+        });
+    });
+
+    const footerSocialBorderRadius = [
+        'responsive_footer_social_radius_top_left_radius',
+        'responsive_footer_social_radius_bottom_left_radius',
+        'responsive_footer_social_radius_bottom_right_radius',
+        'responsive_footer_social_radius_top_right_radius',
+        'responsive_footer_social_radius_tablet_top_left_radius',
+        'responsive_footer_social_radius_tablet_top_right_radius',
+        'responsive_footer_social_radius_tablet_bottom_right_radius',
+        'responsive_footer_social_radius_tablet_bottom_left_radius',
+        'responsive_footer_social_radius_mobile_top_left_radius',
+        'responsive_footer_social_radius_mobile_top_right_radius',
+        'responsive_footer_social_radius_mobile_bottom_right_radius',
+        'responsive_footer_social_radius_mobile_bottom_left_radius',
+    ];
+
+    footerSocialBorderRadius.forEach(setting => {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_radius( 'footer_social', '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' );
             });
         });
     });
@@ -300,4 +352,30 @@
         });
     });
     // Apply Header Search element border radius - End
+
+    function applyLayoutBoxRadius(controlName) {
+        api(controlName, function(value) {
+            value.bind( function( newval ) {
+                let selector = '.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,.responsive-site-style-content-boxed .custom-home-about-section,.responsive-site-style-content-boxed .custom-home-feature-section,.responsive-site-style-content-boxed .custom-home-team-section,.responsive-site-style-content-boxed .custom-home-testimonial-section,.responsive-site-style-content-boxed .custom-home-contact-section,.responsive-site-style-content-boxed .custom-home-widget-section,.responsive-site-style-content-boxed .custom-home-featured-area,.responsive-site-style-content-boxed .site-content-header,.responsive-site-style-content-boxed .content-area-wrapper,.responsive-site-style-content-boxed .site-content .hentry,.responsive-site-style-content-boxed .give-wrap .give_forms,.responsive-site-style-content-boxed .navigation,.responsive-site-style-content-boxed .responsive-single-related-posts-container,.responsive-site-style-content-boxed .comments-area,.responsive-site-style-content-boxed .comment-respond,.responsive-site-style-boxed .custom-home-about-section,.responsive-site-style-boxed .custom-home-feature-section,.responsive-site-style-boxed .custom-home-team-section,.responsive-site-style-boxed .custom-home-testimonial-section,.responsive-site-style-boxed .custom-home-contact-section,.responsive-site-style-boxed .custom-home-widget-section,.responsive-site-style-boxed .custom-home-featured-area,.responsive-site-style-boxed .site-content-header,.responsive-site-style-boxed .site-content .hentry,.responsive-site-style-boxed .give-wrap .give_forms,.responsive-site-style-boxed .navigation,.responsive-site-style-boxed .responsive-single-related-posts-container,.responsive-site-style-boxed .comments-area,.responsive-site-style-boxed .comment-respond,.responsive-site-style-boxed .comment-respond,.responsive-site-style-boxed aside#secondary .widget-wrapper,.responsive-site-style-boxed .site-content article.product';
+    
+                responsive_layout_box_radius('box', selector);
+            } );
+        });
+    }
+
+    // Call the function for each box radius
+    applyLayoutBoxRadius('responsive_box_top_left_radius');
+    applyLayoutBoxRadius('responsive_box_top_right_radius');
+    applyLayoutBoxRadius('responsive_box_bottom_left_radius');
+    applyLayoutBoxRadius('responsive_box_bottom_right_radius');
+
+    applyLayoutBoxRadius('responsive_box_tablet_top_left_radius');
+    applyLayoutBoxRadius('responsive_box_tablet_top_right_radius');
+    applyLayoutBoxRadius('responsive_box_tablet_bottom_left_radius');
+    applyLayoutBoxRadius('responsive_box_tablet_bottom_right_radius');
+
+    applyLayoutBoxRadius('responsive_box_mobile_top_left_radius');
+    applyLayoutBoxRadius('responsive_box_mobile_top_right_radius');
+    applyLayoutBoxRadius('responsive_box_mobile_bottom_left_radius');
+    applyLayoutBoxRadius('responsive_box_mobile_bottom_right_radius');
 } )( jQuery );
