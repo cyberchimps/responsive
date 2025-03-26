@@ -126,8 +126,8 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			responsive_text_control( $wp_customize, 'text_html', $menu_html_text, 'responsive_header_menu_layout', 50, 'Contact Us', 'responsive_menu_last_item_text', 'wp_kses_post', 'textarea' );
 
 			// Last item floating.
-			$last_item_floating_label = __( 'Spread Menu and Last Item', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'last_item_floating', $last_item_floating_label, 'responsive_header_menu_layout', 51, 0, 'responsive_last_item_in_menu_active' );
+			// $last_item_floating_label = __( 'Spread Menu and Last Item', 'responsive' );
+			// responsive_toggle_control( $wp_customize, 'last_item_floating', $last_item_floating_label, 'responsive_header_menu_layout', 51, 0, 'responsive_last_item_in_menu_active' );
 
 			// Mobile Menu Settings.
 			$mobile_menu_separator_label = __( 'Mobile Menu Settings', 'responsive' );
@@ -250,10 +250,6 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			// Sub-menu Container Top Offset.
 			$sub_menu_container_top_offset_label = esc_html__( 'Container Top Offset', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'sub_menu_container_top_offset', $sub_menu_container_top_offset_label, 'responsive_header_menu_layout', 180, 0, 'responsive_disabled_main_menu', 200, 0, 'postMessage' );
-
-			// Enable Sub Menu Divider.
-			$sub_menu_divider_label = __( 'Item Divider', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'sub_menu_divider', $sub_menu_divider_label, 'responsive_header_menu_layout', 185, 0, 'responsive_disabled_main_menu' );
 
 			// Sub Menu Colors.
 			$sub_menu_colors_separator_label = esc_html__( 'Sub Menu Colors', 'responsive' );

@@ -2086,8 +2086,7 @@ function responsive_customizer_styles() {
 			border-style: solid;
 		}
 	}";
-
-	if ( 1 === $sub_menu_divider ) {
+	if ( "1" === $sub_menu_divider ) {
 		$custom_css .= "
 	.main-navigation .children li, .main-navigation .sub-menu li {
 		border-bottom-width: 1px;
