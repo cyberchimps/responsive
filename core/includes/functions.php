@@ -651,9 +651,9 @@ function responsive_add_custom_body_classes( $classes ) {
 	if ( get_theme_mod( 'responsive_header_menu_full_width', 0 ) ) {
 		$classes[] = 'site-header-full-width-main-navigation';
 	}
-	if ( get_theme_mod( 'responsive_last_item_floating', 0 ) ) {
-		$classes[] = 'last-item-spread-away';
-	}
+	// if ( get_theme_mod( 'responsive_last_item_floating', 0 ) ) {
+	// 	$classes[] = 'last-item-spread-away';
+	// }
 	if ( 'sidebar' === get_theme_mod( 'responsive_mobile_menu_style', 'dropdown' ) ) {
 		$classes[] = 'mobile-menu-style-sidebar';
 	}
