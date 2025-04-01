@@ -270,7 +270,29 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 	);
 
 	$rpro_megamenu_status    = 'on' === get_option( 'rpo_megamenu_enable' ) ? 'checked' : '';
-	$rpro_woocommerce_status = 'on' === get_option( 'rpro_woocommerce_enable' ) ? 'checked' : '';
+
+	// WooCommerce plugin slug
+	$woocommerce_slug = 'woocommerce/woocommerce.php';
+
+	// Ensure the required function is available
+	if ( ! function_exists( 'get_plugins' ) ) {
+	    require_once ABSPATH . 'wp-admin/includes/plugin.php';
+	}
+
+	$all_plugins = get_plugins();
+	$woocommerce_active = ! empty( $all_plugins[ $woocommerce_slug ] ) && is_plugin_active( $woocommerce_slug );
+
+	// Check if the option exists in the database
+	$rpro_woocommerce_enable = get_option( 'rpro_woocommerce_enable', false );
+
+	// Only set to "on" if WooCommerce is activated AND the option has never been set before
+	if ( $woocommerce_active && false === $rpro_woocommerce_enable ) {
+	    update_option( 'rpro_woocommerce_enable', 'on' );
+	}
+
+	// Set the checked status for the checkbox
+	$rpro_woocommerce_status = ( 'on' === get_option( 'rpro_woocommerce_enable' ) ) ? 'checked' : '';
+	
 	if ( ! is_responsive_version_greater() ) {
 		$rpro_typography_status         = 'on' === get_option( 'rpro_typography_enable' ) ? 'checked' : '';
 		$rpro_colors_backgrounds_status = 'on' === get_option( 'rpro_colors_backgrounds_enable' ) ? 'checked' : '';
