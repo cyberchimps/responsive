@@ -1742,6 +1742,12 @@ if( ! function_exists( 'responsive_old_header_footer_comaptibility_with_hfb' ) )
 			set_theme_mod( 'responsive_footer_above_width', 'fullwidth' );
 			set_theme_mod( 'responsive_footer_primary_width', 'fullwidth' );
 		}
+
+		// Footer default sections.
+		$footer_layout_elements = array( 'social_icons', 'footer_menu', 'copy_right_text' );
+		// Get sections from Customizer.
+		$footer_layout_elements = get_theme_mod( 'responsive_footer_elements_positioning', $footer_layout_elements );
+
 		$responsive_options = responsive_get_options();
 
 		$icons = array(
@@ -1759,18 +1765,20 @@ if( ! function_exists( 'responsive_old_header_footer_comaptibility_with_hfb' ) )
 			'email'       => __( 'Email', 'responsive' ),
 		);
 		$has_footer_social_icons = false;
-		foreach ( $icons as $key => $value ) {
-			if ( ! empty( $responsive_options[ $key . '_uid' ] ) ) {
-				$footer_hfb_elements['primary']['primary_1'] = array();
-				set_theme_mod( 'responsive_footer_primary_columns', 2 );
-				array_push( $footer_hfb_elements['primary']['primary_1'], 'social' );
-				array_push( $footer_hfb_elements['primary']['primary_2'], 'footer_copyright' );
-				$has_footer_social_icons = true;
-				break;
+		if ( in_array( 'social_icons', $footer_layout_elements ) ) {
+			foreach ( $icons as $key => $value ) {
+				if ( ! empty( $responsive_options[ $key . '_uid' ] ) ) {
+					$footer_hfb_elements['primary']['primary_1'] = array();
+					set_theme_mod( 'responsive_footer_primary_columns', 2 );
+					array_push( $footer_hfb_elements['primary']['primary_1'], 'social' );
+					array_push( $footer_hfb_elements['primary']['primary_2'], 'footer_copyright' );
+					$has_footer_social_icons = true;
+					break;
+				}
 			}
 		}
 
-		if ( has_nav_menu( ( 'footer-menu' )) ) {
+		if ( has_nav_menu( ( 'footer-menu' )) && in_array( 'footer_menu', $footer_layout_elements ) ) {
 			if ( $has_footer_social_icons ) {
 				set_theme_mod( 'responsive_footer_primary_columns', '3' );
 				$footer_hfb_elements['primary']['primary_2'] = array();
@@ -1790,7 +1798,7 @@ if( ! function_exists( 'responsive_old_header_footer_comaptibility_with_hfb' ) )
 			$footer_hfb_elements['primary']['primary_1'] = array();
 			$footer_hfb_elements['primary']['primary_2'] = array();
 			$footer_hfb_elements['primary']['primary_3'] = array();
-			if( $has_footer_social_icons && has_nav_menu( 'footer-menu' ) ) {
+			if( $has_footer_social_icons && has_nav_menu( 'footer-menu' ) && in_array( 'footer_menu', $footer_layout_elements ) ) {
 				set_theme_mod( 'responsive_footer_primary_columns', '4' );
                 array_push( $footer_hfb_elements['primary']['primary_1'], 'colophon-widget' );
                 array_push( $footer_hfb_elements['primary']['primary_2'], 'social' );
@@ -1801,7 +1809,7 @@ if( ! function_exists( 'responsive_old_header_footer_comaptibility_with_hfb' ) )
                 array_push( $footer_hfb_elements['primary']['primary_1'], 'colophon-widget' );
                 array_push( $footer_hfb_elements['primary']['primary_2'], 'social' );
                 array_push( $footer_hfb_elements['primary']['primary_3'], 'footer_copyright' );
-			} else if ( ! $has_footer_social_icons && has_nav_menu( 'footer-menu' ) ) {
+			} else if ( ! $has_footer_social_icons && has_nav_menu( 'footer-menu' ) && in_array( 'footer_menu', $footer_layout_elements )) {
 				set_theme_mod( 'responsive_footer_primary_columns', '3' );
                 array_push( $footer_hfb_elements['primary']['primary_1'], 'colophon-widget' );
                 array_push( $footer_hfb_elements['primary']['primary_2'], 'footer_navigation' );
@@ -1910,6 +1918,42 @@ if( ! function_exists( 'responsive_old_header_footer_comaptibility_with_hfb' ) )
 
 		// Copyright typography backward compatibility
 		set_theme_mod( 'footer_copyright_typography', get_theme_mod( 'footer_typography' ) );
+
+		// Footer Layout Elements backward compatibility.
+		$footer_layout_elements_count = count( $footer_layout_elements );
+		set_theme_mod( 'responsive_footer_primary_columns', is_active_sidebar( 'colophon-widget' ) ? (string) $footer_layout_elements_count + 1: (string) $footer_layout_elements_count );
+
+		$footer_element_map = array(
+			'social_icons'      => 'social',
+			'footer_menu'       => 'footer_navigation',
+			'copy_right_text'   => 'footer_copyright',
+		);
+
+		// Clean up previous assignments (remove social, footer_navigation, and footer_copyright from all positions).
+		$footer_elements_to_reorder = array('social', 'footer_navigation', 'footer_copyright');
+
+		foreach ( $footer_hfb_elements['primary'] as $key => &$section ) {
+			foreach ( $section as $index => $element ) {
+				if ( in_array( $element, $footer_elements_to_reorder, true ) ) {
+					unset( $section[$index] );
+				}
+			}
+		}
+		// Reindex the arrays to prevent empty gaps.
+		foreach ( $footer_hfb_elements['primary'] as &$section ) {
+			$section = array_values($section);
+		}
+
+		// Now reassign based on the layout order.
+		$position = is_active_sidebar( 'colophon-widget' ) ? 2 : 1;
+		foreach ( $footer_layout_elements as $layout_key ) {
+			if ( isset( $footer_element_map[ $layout_key ] ) ) {
+				$element = $footer_element_map[ $layout_key ];
+				$primary_key = 'primary_' . $position;
+				array_push( $footer_hfb_elements['primary'][ $primary_key ], $element );
+				$position++;
+			}
+		}
 
 		set_theme_mod( 'responsive_footer_items', $footer_hfb_elements );
 	}
