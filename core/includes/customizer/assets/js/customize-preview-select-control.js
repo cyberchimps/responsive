@@ -408,9 +408,9 @@
     //Icon Position
     api( 'responsive_scroll_to_top_icon_position', function( value ) {
         value.bind( function( newval ) {
-                $('#scroll').css('left', '');
-                $('#scroll').css('right', '');
-                $('#scroll').css(newval, '2px');
+                $('.rspv-hfb-footer-width-fullwidth #scroll').css('left', '');
+                $('.rspv-hfb-footer-width-fullwidth #scroll').css('right', '');
+                $('.rspv-hfb-footer-width-fullwidth #scroll').css(newval, '2px !important');
 
         } );
     } );

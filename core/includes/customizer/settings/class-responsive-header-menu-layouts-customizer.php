@@ -251,6 +251,10 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			$sub_menu_container_top_offset_label = esc_html__( 'Container Top Offset', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'sub_menu_container_top_offset', $sub_menu_container_top_offset_label, 'responsive_header_menu_layout', 180, 0, 'responsive_disabled_main_menu', 200, 0, 'postMessage' );
 
+			// Enable Sub Menu Divider.
+			$sub_menu_divider_label = __( 'Item Divider', 'responsive' );
+			responsive_toggle_control( $wp_customize, 'sub_menu_divider', $sub_menu_divider_label, 'responsive_header_menu_layout', 185, 0, 'responsive_disabled_main_menu' );
+
 			// Sub Menu Colors.
 			$sub_menu_colors_separator_label = esc_html__( 'Sub Menu Colors', 'responsive' );
 			responsive_separator_control( $wp_customize, 'sub_menu_colors_separator', $sub_menu_colors_separator_label, 'responsive_header_menu_layout', 190, 'responsive_disabled_main_menu' );
