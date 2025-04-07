@@ -3311,7 +3311,7 @@ function responsive_customizer_styles() {
 	// Scroll To Top.
 	if ( Responsive\Core\responsive_check_element_present_in_hfb( 'scroll_to_top', 'footer' ) ) {
 		$stt_devices                     = get_theme_mod( 'responsive_scroll_to_top_on_devices' );
-		$stt_position                    = get_theme_mod( 'responsive_scroll_to_top_icon_position' );
+		$stt_position                    = get_theme_mod( 'responsive_scroll_to_top_icon_position', 'right' );
 		$stt_icon_size                   = get_theme_mod( 'responsive_scroll_to_top_icon_size' );
 		$stt_icon_radius                 = get_theme_mod( 'responsive_scroll_to_top_icon_radius', 50 );
 		$stt_icon_color                  = get_theme_mod( 'responsive_scroll_to_top_icon_color' );
@@ -3357,7 +3357,7 @@ function responsive_customizer_styles() {
 			}";
 		}
 		if ( ! empty( $stt_position ) ) {
-			$custom_css .= "#scroll {
+			$custom_css .= ".rspv-hfb-footer-width-fullwidth #scroll {
 				{$stt_position}: 2px;
 			}";
 		}
