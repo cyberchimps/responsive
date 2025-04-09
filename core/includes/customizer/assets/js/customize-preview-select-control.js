@@ -408,10 +408,9 @@
     //Icon Position
     api( 'responsive_scroll_to_top_icon_position', function( value ) {
         value.bind( function( newval ) {
-                $('.rspv-hfb-footer-width-fullwidth #scroll').css('left', '');
-                $('.rspv-hfb-footer-width-fullwidth #scroll').css('right', '');
-                $('.rspv-hfb-footer-width-fullwidth #scroll').css(newval, '2px !important');
-
+            const $scroll = $('#scroll');
+            $scroll.removeClass('stt-on-left stt-on-right');
+            $scroll.addClass('stt-on-' + newval);
         } );
     } );
     // Footer Widget Alignment.

@@ -3356,11 +3356,6 @@ function responsive_customizer_styles() {
 				width: {$stt_icon_size}px;
 			}";
 		}
-		if ( ! empty( $stt_position ) ) {
-			$custom_css .= ".rspv-hfb-footer-width-fullwidth #scroll {
-				{$stt_position}: 2px;
-			}";
-		}
 		if ( ! empty( $stt_position ) && 'left' === $stt_position ) {
 			$custom_css .= ".responsive-scroll-wrap {
 				margin-right: auto;
