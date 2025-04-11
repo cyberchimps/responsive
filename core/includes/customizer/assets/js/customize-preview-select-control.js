@@ -408,10 +408,9 @@
     //Icon Position
     api( 'responsive_scroll_to_top_icon_position', function( value ) {
         value.bind( function( newval ) {
-                $('#scroll').css('left', '');
-                $('#scroll').css('right', '');
-                $('#scroll').css(newval, '2px');
-
+            const $scroll = $('#scroll');
+            $scroll.removeClass('stt-on-left stt-on-right');
+            $scroll.addClass('stt-on-' + newval);
         } );
     } );
     // Footer Widget Alignment.

@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(10/04/2025) Version 6.1.5
+[!] = Fix = Resolved issue where both the primary menu and hamburger menu were visible at the mobile breakpoint.
+[!] = Fix = Addressed bugs related to certain customizer settings.
+[!] = Fix = Minor UI fixes.
+
 (13/03/2025) Version 6.1.4
 [+] = New = Added a setting to change background color of menu and transparent header's menu.
 [!] = Fix = Fixed menu going off screen in RTL mode.
