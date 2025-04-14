@@ -83,7 +83,7 @@ if ( ! function_exists( 'responsive_blog_entry_meta' ) ) {
 	function responsive_blog_entry_meta() {
 
 		// Default sections.
-		$sections = array( 'author', 'date', 'categories', 'comments', 'tag' );
+		$sections = array( 'author', 'date', 'categories', 'tag' );
 
 		// Get sections from Customizer.
 		$sections = get_theme_mod( 'responsive_blog_entry_meta', $sections );
@@ -1644,7 +1644,7 @@ function responsive_not_active_page_sidebar() {
  */
 function responsive_not_active_blog_archive_sidebar() {
 
-	$blog_archive_sidebar_position = get_theme_mod( 'responsive_blog_sidebar_position' );
+	$blog_archive_sidebar_position = get_theme_mod( 'responsive_blog_sidebar_position', 'no' );
 
 	return ( 'no' === $blog_archive_sidebar_position ) ? false : true;
 }
