@@ -206,7 +206,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_blog_entry_meta',
 				array(
-					'default'           => apply_filters( 'responsive_blog_meta_default', array( 'author', 'date', 'categories', 'comments', 'tag' ) ),
+					'default'           => apply_filters( 'responsive_blog_meta_default', array( 'author', 'date', 'categories', 'tag' ) ),
 					'sanitize_callback' => 'responsive_sanitize_multi_choices',
 					'transport'         => 'refresh',
 				)

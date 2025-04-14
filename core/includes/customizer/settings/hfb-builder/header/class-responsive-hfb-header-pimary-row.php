@@ -69,7 +69,7 @@ if( ! class_exists( 'Responsive_HFB_Header_Primary_Row' ) ) {
 
             // Bottom Border Size.
             $header_primary_row_bottom_border_size_label = __( 'Bottom Border Size (px)', 'responsive' );
-            responsive_drag_number_control( $wp_customize, 'header_primary_row_bottom_border_size', $header_primary_row_bottom_border_size_label, 'responsive_header_primary_row', 60, 0, null, 300, 0, 'postMessage', 1 );
+            responsive_drag_number_control( $wp_customize, 'header_primary_row_bottom_border_size', $header_primary_row_bottom_border_size_label, 'responsive_header_primary_row', 60, 1, null, 300, 0, 'postMessage', 1 );
 
             responsive_horizontal_separator_control($wp_customize, 'header_primary_row_spacing_separator', 1, 'responsive_header_primary_row', 70, 1, );
 
