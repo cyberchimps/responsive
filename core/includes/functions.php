@@ -339,9 +339,9 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		responsive_font_sizes_backward_compatibility();
 		responsive_border_width_backward_compatibility();
 
-		if ( ! get_option( 'responsive_header_menu_background_color_backward_compatibility' ) ) {
+		if ( ! get_option( 'responsive_header_menu_background_color_backward_compatibility_v2' ) ) {
 			responsive_header_menu_background_color_backward_compatibility();
-            update_option( 'responsive_header_menu_background_color_backward_compatibility', true );
+            update_option( 'responsive_header_menu_background_color_backward_compatibility_v2', true );
 		}
 		if ( ! get_option( 'responsive_header_footer_builder_compatibility_header_widgets' ) ) {
 			if ( 1 === get_theme_mod( 'responsive_enable_header_widget', 1 ) ) {
@@ -1137,7 +1137,7 @@ function defaults() {
 			'hamburger_menu_padding'              => 15,
 			'secondary_menu_padding'              => 0,
 			'secondary_menu_margin'               => 0,
-			'header_menu_background'              => '#ffffff',
+			'header_menu_background'              => 'transparent',
 			'header_menu_border'                  => '#eaeaea',
 			'header_active_menu_background'       => '#ffffff',
 			'header_menu_link'                    => '#333333',
@@ -2229,7 +2229,7 @@ if( ! function_exists('responsive_header_menu_background_color_backward_compatib
 			}
 		} else {
 			if ( 'vertical' !== get_theme_mod( 'responsive_header_layout', 'horizontal' ) ) {
-				set_theme_mod( 'responsive_header_menu_background_color', get_theme_mod( 'responsive_header_background_color', '#ffffff' ) );
+				set_theme_mod( 'responsive_header_menu_background_color', get_theme_mod( 'responsive_header_background_color', get_responsive_customizer_defaults( 'header_menu_background' ) ) );
 			}
 		}
 	}
@@ -2313,7 +2313,7 @@ if ( ! function_exists( 'responsive_site_backwardcompatibility_with_new_blog_fro
 			if ( ! $has_footer_copyright ) {
 				set_theme_mod( 'responsive_footer_copyright_text_color', get_theme_mod( 'responsive_footer_copyright_text_color', '#ffffff' ) );
 				set_theme_mod( 'responsive_footer_copyright_text_hover_color', get_theme_mod( 'responsive_footer_copyright_text_hover_color', '#ffffff' ) );
-				set_theme_mod( 'responsive_footer_copyright_links_color', get_theme_mod( 'responsive_footer_copyright_links_color', '#ffffff' ) );
+				set_theme_mod( 'responsive_footer_copyright_links_color', get_theme_mod( 'responsive_footer_copyright_links_color', '#eaeaea' ) );
 				set_theme_mod( 'responsive_footer_copyright_links_hover_color', get_theme_mod( 'responsive_footer_copyright_links_hover_color', '#ffffff' ) );
 				set_theme_mod( 'responsive_header_primary_row_bottom_border_size', get_theme_mod( 'responsive_header_primary_row_bottom_border_size', 0 ) );
 			}
