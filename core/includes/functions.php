@@ -339,9 +339,9 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		responsive_font_sizes_backward_compatibility();
 		responsive_border_width_backward_compatibility();
 
-		if ( ! get_option( 'responsive_header_menu_background_color_backward_compatibility_v2' ) ) {
+		if ( ! get_option( 'responsive_header_menu_background_color_backward_compatibility' ) ) {
 			responsive_header_menu_background_color_backward_compatibility();
-            update_option( 'responsive_header_menu_background_color_backward_compatibility_v2', true );
+            update_option( 'responsive_header_menu_background_color_backward_compatibility', true );
 		}
 		if ( ! get_option( 'responsive_header_footer_builder_compatibility_header_widgets' ) ) {
 			if ( 1 === get_theme_mod( 'responsive_enable_header_widget', 1 ) ) {
@@ -1137,7 +1137,7 @@ function defaults() {
 			'hamburger_menu_padding'              => 15,
 			'secondary_menu_padding'              => 0,
 			'secondary_menu_margin'               => 0,
-			'header_menu_background'              => 'transparent',
+			'header_menu_background'              => '#ffffff',
 			'header_menu_border'                  => '#eaeaea',
 			'header_active_menu_background'       => '#ffffff',
 			'header_menu_link'                    => '#333333',
@@ -1788,6 +1788,7 @@ if( ! function_exists( 'responsive_old_header_footer_comaptibility_with_hfb' ) )
 				$footer_hfb_elements['primary']['primary_1'] = array();
 				array_push( $footer_hfb_elements['primary']['primary_1'], 'footer_navigation' );
 				array_push( $footer_hfb_elements['primary']['primary_2'], 'footer_copyright' );
+				set_theme_mod( 'responsive_footer_primary_layout', 'left-heavy' );
 			}
 		}
 
@@ -1939,6 +1940,7 @@ if( ! function_exists( 'responsive_old_header_footer_comaptibility_with_hfb' ) )
 					}
 				}
 			}
+			$footer_hfb_elements['below']['below_1'] = array();
 			// Reindex the arrays to prevent empty gaps.
 			foreach ( $footer_hfb_elements['primary'] as &$section ) {
 				$section = array_values($section);
@@ -2229,7 +2231,7 @@ if( ! function_exists('responsive_header_menu_background_color_backward_compatib
 			}
 		} else {
 			if ( 'vertical' !== get_theme_mod( 'responsive_header_layout', 'horizontal' ) ) {
-				set_theme_mod( 'responsive_header_menu_background_color', get_theme_mod( 'responsive_header_background_color', get_responsive_customizer_defaults( 'header_menu_background' ) ) );
+				set_theme_mod( 'responsive_header_menu_background_color', get_theme_mod( 'responsive_header_background_color', '#ffffff' ) );
 			}
 		}
 	}
