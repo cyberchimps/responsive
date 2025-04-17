@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '6.1.5' );
+define( 'RESPONSIVE_THEME_VERSION', '6.1.6' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -710,6 +710,7 @@ if ( ! get_option( 'responsive_version_410' ) ) {
 			( ! get_theme_mod( 'responsive_header_menu_background_color' ) && get_theme_mod( 'responsive_menu_background_colorpicker' ) ) ? set_theme_mod( 'responsive_header_menu_background_color', get_theme_mod( 'responsive_menu_background_colorpicker', '#ffffff' ) ) : '';
 			( ! get_theme_mod( 'responsive_header_active_menu_background_color' ) && get_theme_mod( 'responsive_menu_active_colorpicker' ) ) ? set_theme_mod( 'responsive_header_active_menu_background_color', get_theme_mod( 'responsive_menu_active_colorpicker', '#ffffff' ) ) : '';
 			if ( '#ffffff' !== get_theme_mod( 'responsive_header_menu_background_color', '#ffffff' ) ) {
+				! get_theme_mod( 'responsive_header_menu_link_color' ) ? set_theme_mod( 'responsive_header_menu_link_color', get_theme_mod( 'responsive_menu_text_colorpicker', '#ffffff' ) ) : '';
 				! get_theme_mod( 'responsive_header_menu_toggle_color' ) ? set_theme_mod( 'responsive_header_menu_toggle_color', get_theme_mod( 'responsive_menu_text_colorpicker', '#ffffff' ) ) : '';
 			}
 			if ( '#ffffff' !== get_theme_mod( 'responsive_header_active_menu_background_color', '#ffffff' ) ) {
