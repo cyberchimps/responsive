@@ -68,7 +68,6 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 				$tab_ids_prefix . 'responsive_h5_text_color',
 				$tab_ids_prefix . 'responsive_h6_text_color',
 				$tab_ids_prefix . 'responsive_meta_text_color',
-				$tab_ids_prefix . 'responsive_body_text_separator',
 				$tab_ids_prefix . 'responsive_all_heading_text_separator',
 				$tab_ids_prefix . 'responsive_h1_text_separator',
 				$tab_ids_prefix . 'responsive_h2_text_separator',
@@ -82,7 +81,6 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 				$tab_ids_prefix . 'responsive_font_presets',
 				$tab_ids_prefix . 'responsive_font_preset_group_separator',
 				$tab_ids_prefix . 'responsive_body_typography_group',
-				$tab_ids_prefix . 'responsive_body_typography_group_separator',
 				$tab_ids_prefix . 'responsive_heading_fonts_typography_separator',
 				$tab_ids_prefix . 'responsive_headings_typography_group',
 				$tab_ids_prefix . 'responsive_headings_typography_group_separator',
@@ -117,8 +115,6 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 			// Main Content Width.
 			$paragraph_margin_label = esc_html__( 'Paragraph Margin Bottom', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'paragraph_margin_bottom', $paragraph_margin_label, 'responsive_typography', 4, '', null, 5, 1, 'postMessage', 0.1 );
-
-			responsive_horizontal_separator_control($wp_customize, 'body_typography_group_separator', 2, 'responsive_typography', 5, 1, );
 
 			// Heading Fonts heading.
 			$heading_fonts_typography_label = esc_html__( 'Heading Font', 'responsive' );
@@ -174,8 +170,6 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 			$body_text_color_label = __( 'Body Text Color', 'responsive' );
 			
 			responsive_color_control( $wp_customize, 'body_text', $body_text_color_label, 'responsive_typography', 30, Responsive\Core\get_responsive_customizer_defaults( 'body_text' ) );
-			
-			responsive_horizontal_separator_control( $wp_customize, 'body_text_separator', 2, 'responsive_typography',31, 1 );
 
 			// Texts.
 			$general_texts_label = esc_html__( 'Heading Color', 'responsive' );

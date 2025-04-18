@@ -173,7 +173,7 @@ function responsive_customizer_styles() {
 	$responsive_page_sidebar_width    = esc_html( get_theme_mod( 'responsive_page_sidebar_width', 30 ) );
 	$page_primary_content_area_width  = 100 - $responsive_page_sidebar_width;
 
-	$responsive_blog_archive_sidebar_position = esc_html( get_theme_mod( 'responsive_blog_sidebar_position' ) );
+	$responsive_blog_archive_sidebar_position = esc_html( get_theme_mod( 'responsive_blog_sidebar_position', 'no' ) );
 	$responsive_blog_archive_sidebar_width    = esc_html( get_theme_mod( 'responsive_blog_sidebar_width', 30 ) );
 	$blog_archive_primary_content_area_width  = 100 - $responsive_blog_archive_sidebar_width;
 

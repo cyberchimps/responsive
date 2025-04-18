@@ -1,0 +1,17 @@
+<svg width="81" height="61" viewBox="0 0 81 61" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="44" height="3" rx="1" fill="#EFF2F6"/>
+<rect y="5" width="44" height="3" rx="1" fill="#EFF2F6"/>
+<rect y="10" width="44" height="3" rx="1" fill="#EFF2F6"/>
+<rect y="15" width="44" height="3" rx="1" fill="#EFF2F6"/>
+<rect y="20" width="44" height="3" rx="1" fill="#EFF2F6"/>
+<rect y="25" width="44" height="3" rx="1" fill="#EFF2F6"/>
+<rect y="30" width="44" height="3" rx="1" fill="#EFF2F6"/>
+<rect y="35" width="44" height="3" rx="1" fill="#EFF2F6"/>
+<rect y="40" width="44" height="3" rx="1" fill="#EFF2F6"/>
+<rect y="45" width="44" height="3" rx="1" fill="#EFF2F6"/>
+<rect y="50" width="44" height="3" rx="1" fill="#EFF2F6"/>
+<rect y="55" width="44" height="3" rx="1" fill="#EFF2F6"/>
+<rect y="60" width="44" height="3" rx="1" fill="#EFF2F6"/>
+<rect x="47" width="34" height="25" rx="3" fill="#EFF2F6"/>
+<path d="M72.6281 19.2112V5.78946C72.6281 4.7349 71.7653 3.87207 70.7107 3.87207H57.289C56.2344 3.87207 55.3716 4.7349 55.3716 5.78946V19.2112C55.3716 20.2658 56.2344 21.1286 57.289 21.1286H70.7107C71.7653 21.1286 72.6281 20.2658 72.6281 19.2112ZM60.6444 13.9384L63.0412 16.8241L66.3966 12.5003L70.7107 18.2525H57.289L60.6444 13.9384Z" fill="#9CB0C9"/>
+</svg>

@@ -1606,16 +1606,6 @@ function responsive_active_page_sidebar_toggle() {
 }
 
 /**
- * [responsive_active_blog_sidebar_toggle description]
- *
- * @return [type] [description]
- */
-function responsive_active_blog_sidebar_toggle() {
-
-	return ( 1 === get_theme_mod( 'responsive_blog_sidebar_toggle', 0 ) ) ? true : false;
-}
-
-/**
  * [responsive_active_single_blog_sidebar_toggle description]
  *
  * @return [type] [description]
@@ -1682,13 +1672,6 @@ function responsive_breadcrumb_separator_unicode() {
 	$responsive_breadcrumb_separator = get_theme_mod( 'responsive_breadcrumb_separator', 'rsaquo' );
 	return ( responsive_active_breadcrumb() && 'unicode' === $responsive_breadcrumb_separator ) ? true : false;
 }
-
-/**
- * [responsive_enable_header_bottom_border_check description].
- */
-// function responsive_enable_header_bottom_border_check() {
-// 	return ( 1 === get_theme_mod( 'responsive_enable_header_bottom_border', 1 ) ) ? true : false;
-// }
 
 /**
  * [responsive_enable_transparent_header_bottom_border_check description].
@@ -2262,7 +2245,7 @@ function responsive_radius_control( $wp_customize, $element, $section, $priority
  *
  * @return void               [description].
  */
-function responsive_imageradio_button_control( $wp_customize, $element, $label, $section, $priority, $choices, $default, $active_call, $transport = 'refresh', $description = '' ) {
+function responsive_imageradio_button_control( $wp_customize, $element, $label, $section, $priority, $choices, $default, $active_call, $image_ext = 'png', $transport = 'refresh', $description = '' ) {
 
 	$wp_customize->add_setting(
 		'responsive_' . $element,
@@ -2284,6 +2267,7 @@ function responsive_imageradio_button_control( $wp_customize, $element, $label, 
 				'priority'        => $priority,
 				'active_callback' => $active_call,
 				'choices'         => apply_filters( 'responsive_' . $element . '_choices', $choices ),
+				'image_ext'       => $image_ext,
 			)
 		)
 	);
@@ -2623,7 +2607,7 @@ function responsive_active_blog_entry_content_type_excerpt() {
  * @return [type] [description]
  */
 function responsive_active_blog_entry_columns_multi_column() {
-	return ( 1 < get_theme_mod( 'responsive_blog_entry_columns', 1 ) ) ? true : false;
+	return ( 1 < get_theme_mod( 'responsive_blog_entry_columns', 1 ) ) && responsive_active_blog_layout_grid() ? true : false;
 }
 
 /**
@@ -2952,43 +2936,13 @@ if ( ! function_exists( 'responsive_blog_pagination' ) ) {
 
 	}
 }
-
-// if ( ! function_exists( 'responsive_footer_elements_positioning' ) ) {
-// 	/**
-// 	 * Returns footer elements positioning
-// 	 *
-// 	 * @since 0.2
-// 	 */
-// 	function responsive_footer_elements_positioning() {
-
-// 		// Default sections.
-// 		$sections = array( 'social_icons', 'footer_menu', 'copy_right_text' );
-
-// 		// Get sections from Customizer.
-// 		$sections = get_theme_mod( 'responsive_footer_elements_positioning', $sections );
-
-// 		// Turn into array if string.
-// 		if ( $sections && ! is_array( $sections ) ) {
-// 			$sections = explode( ',', $sections );
-// 		}
-
-// 		// Apply filters for easy modification.
-// 		$sections = apply_filters( 'responsive_footer_elements_positioning', $sections );
-
-// 		// Return sections.
-// 		return $sections;
-
-// 	}
-// }
 /**
  * [responsive_blog_post_title_toggle description].
  *
  * @return [type] [description]
  */
-function responsive_blog_post_title_toggle() {
-
-	$responsive_options = get_option( 'responsive_theme_options' );
-	return ( $responsive_options['blog_post_title_toggle'] ) ? true : false;
+function responsive_blog_post_title_toggle_callback() {
+	return get_theme_mod( 'responsive_blog_post_title_toggle') ? true : false;
 }
 /**
  * [responsive_date_box_toggle_callback description].
@@ -3415,3 +3369,28 @@ function responsive_color_control_with_device_switchers( $wp_customize, $element
 	);
 
 }
+
+	
+if ( ! function_exists( 'responsive_active_blog_layout_list' ) ) :
+
+	/**
+	 * Determines whether active blog layout is list or grid.
+	 *
+	 * @return bool true if the active layout is list, false otherwise.
+	 */
+	function responsive_active_blog_layout_list() {
+		return get_theme_mod( 'responsive_blog_layout', 'grid' ) === 'list';
+	}
+endif;
+
+if ( ! function_exists( 'responsive_active_blog_layout_grid' ) ) :
+
+	/**
+	 * Determines whether active blog layout is list or grid.
+	 *
+	 * @return bool true if the active layout is grid, false otherwise.
+	 */
+	function responsive_active_blog_layout_grid() {
+		return get_theme_mod( 'responsive_blog_layout', 'grid' ) === 'grid';
+	}
+endif;

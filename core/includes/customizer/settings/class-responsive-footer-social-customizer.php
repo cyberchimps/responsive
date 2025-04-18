@@ -154,7 +154,7 @@ if ( ! class_exists( 'Responsive_Footer_Social_Icons_Customizer' ) ) :
 
 			responsive_color_control( $wp_customize, 'footer_social_item_border', __( 'Border Color', 'responsive' ), 'responsive_footer_social', 87, Responsive\Core\get_responsive_customizer_defaults( 'footer_social_border_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'footer_social_border_hover_color' ), 'footer_social_item_border_hover' );
 
-			responsive_separator_control( $wp_customize, 'footer_social_item_icon_spacing', esc_html__( ' ', 'responsive' ), 'responsive_footer_social', 88 );
+			responsive_horizontal_separator_control($wp_customize, 'footer_social_item_icon_spacing', 2, 'responsive_footer_social', 88, 1, );
 
 			responsive_drag_number_control( $wp_customize, 'footer_social_item_icon_size', __( 'Icon Size (px)', 'responsive' ), 'responsive_footer_social', 89, 21, null, 200, 0, 'postMessage' );
 

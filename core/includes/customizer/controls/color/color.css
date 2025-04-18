@@ -617,3 +617,16 @@ body.wp-customizer .responsive-color-control-main-wrap .wp-picker-container .wp-
 #sub-accordion-section-responsive_header_search .wp-picker-holder {
     top: 35px;
 }
+#sub-accordion-section-responsive_header_woo_cart #customize-control-responsive_header_cart_button_color .responsive-color-control-main-wrap,
+#sub-accordion-section-responsive_header_woo_cart #customize-control-responsive_header_cart_checkout_button_color .responsive-color-control-main-wrap,
+#sub-accordion-section-responsive_header_woo_cart #customize-control-responsive_header_cart_tray_bg_color .responsive-color-control-main-wrap {
+    padding-top: 24px;
+}
+#customize-control-responsive_header_cart_button_color .responsive-color-control-main-wrap .wp-picker-holder,
+#customize-control-responsive_header_cart_checkout_button_color .responsive-color-control-main-wrap .wp-picker-holder,
+#customize-control-responsive_header_cart_tray_bg_color .responsive-color-control-main-wrap .wp-picker-holder {
+    top: 60px;
+}
+#sub-accordion-section-responsive_woocommerce_cart #customize-control-responsive_cart_buttons_text_color .responsive-color-control-main-wrap {
+    padding-bottom: 24px;
+}

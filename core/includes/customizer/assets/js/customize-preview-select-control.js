@@ -235,47 +235,81 @@
     //Blog -> Content
     // Entry Featured Image  -> style
     api( 'responsive_blog_entry_featured_image_style', function( $swipe ) {
-        var box_padding_left = api( 'responsive_box_left_padding' );
-        var box_padding_right = api( 'responsive_box_right_padding' );
-        var box_padding_top = api( 'responsive_box_top_padding' );
+        var box_padding_left         = api( 'responsive_box_left_padding' ).get();
+        var box_padding_right        = api( 'responsive_box_right_padding' ).get();
+        var box_padding_top          = api( 'responsive_box_top_padding' ).get();
+        var box_tablet_padding_left  = api( 'responsive_box_tablet_left_padding' ).get();
+        var box_tablet_padding_right = api( 'responsive_box_tablet_right_padding' ).get();
+        var box_tablet_padding_top   = api( 'responsive_box_tablet_top_padding' ).get();
 
-        var box_tablet_padding_left = api( 'responsive_box_tablet_left_padding' );
-        var box_tablet_padding_right = api( 'responsive_box_tablet_right_padding' );
-        var box_tablet_padding_top = api( 'responsive_box_tablet_top_padding' );
+        var box_mobile_padding_left  = api( 'responsive_box_mobile_left_padding' ).get();
+        var box_mobile_padding_right = api( 'responsive_box_mobile_right_padding' ).get();
+        var box_mobile_padding_top   = api( 'responsive_box_mobile_top_padding' ).get();
 
-        var box_mobile_padding_left = api( 'responsive_box_mobile_left_padding' );
-        var box_mobile_padding_right = api( 'responsive_box_mobile_right_padding' );
-        var box_mobile_padding_top = api( 'responsive_box_mobile_top_padding' );
-            $swipe.bind( function( newval ) {
-                if('stretched' === newval ) {
-                    $('.search .thumbnail-caption,.archive .thumbnail-caption,.blog .thumbnail-caption').css('text-align', 'center');
-                    $('.search.responsive-site-style-boxed .site-content article.product .post-entry .thumbnail,.search.responsive-site-style-content-boxed .hentry .thumbnail,.search.responsive-site-style-boxed .hentry .thumbnail,.archive.responsive-site-style-content-boxed .hentry .thumbnail,.archive.responsive-site-style-boxed .hentry .thumbnail,.blog.responsive-site-style-content-boxed .hentry .thumbnail,.blog.responsive-site-style-boxed .hentry .thumbnail').css({'margin-left': '-' + box_padding_left + 'px', 'margin-right': '-' + box_padding_right + 'px'});
-                    $('.search.responsive-site-style-boxed article.product .post-entry > .thumbnail:first-child,.search.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,.search.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child,.archive.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,.archive.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child,.blog.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,.blog.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child').css('margin-top', '-' + box_padding_top + 'px');
+        $swipe.bind(function(newval) {
 
-                    function isTablet(x) {
-                        if (x.matches) { // If media query matches
-                            $('.search.responsive-site-style-boxed .site-content article.product .post-entry .thumbnail,.search.responsive-site-style-content-boxed .hentry .thumbnail,.search.responsive-site-style-boxed .hentry .thumbnail,.archive.responsive-site-style-content-boxed .hentry .thumbnail,.archive.responsive-site-style-boxed .hentry .thumbnail,.blog.responsive-site-style-content-boxed .hentry .thumbnail,.blog.responsive-site-style-boxed .hentry .thumbnail').css( {'margin-left': '-' + box_tablet_padding_left + 'px', 'margin-right': '-' + box_tablet_padding_right + 'px'} );
-                            $('.search.responsive-site-style-boxed article.product .post-entry > .thumbnail:first-child,.search.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,.search.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child,.archive.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,.archive.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child,.blog.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,.blog.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child').css('margin-top', '-' + box_tablet_padding_top + 'px')
-                        }
+            var thumbnails   = '.search .thumbnail-caption,.archive .thumbnail-caption,.blog .thumbnail-caption';
+            var thumbMargins = '.search.responsive-site-style-boxed .site-content article.product .post-entry .thumbnail, \
+                .search.responsive-site-style-content-boxed .hentry .thumbnail, \
+                .search.responsive-site-style-boxed .hentry .thumbnail, \
+                .archive.responsive-site-style-content-boxed .hentry .thumbnail, \
+                .archive.responsive-site-style-boxed .hentry .thumbnail, \
+                .blog.responsive-site-style-content-boxed .hentry .thumbnail, \
+                .blog.responsive-site-style-boxed .hentry .thumbnail';
+        
+            var thumbTops   = '.search.responsive-site-style-boxed article.product .post-entry > .thumbnail:first-child, \
+                .search.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child, \
+                .search.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child, \
+                .archive.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child, \
+                .archive.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child, \
+                .blog.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child, \
+                .blog.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child';
+        
+            if ('stretched' === newval) {
+                $(thumbnails).css('text-align', 'center');
+                $(thumbMargins).css({
+                    'margin-left': '-' + box_padding_left + 'px',
+                    'margin-right': '-' + box_padding_right + 'px'
+                });
+                $(thumbTops).css('margin-top', '-' + box_padding_top + 'px');
+        
+                function isTablet(x) {
+                    if (x.matches) {
+                        $(thumbMargins).css({
+                            'margin-left': '-' + box_tablet_padding_left + 'px',
+                            'margin-right': '-' + box_tablet_padding_right + 'px'
+                        });
+                        $(thumbTops).css('margin-top', '-' + box_tablet_padding_top + 'px');
                     }
-                    var x = window.matchMedia("(max-width: 992px)")
-                    isTablet(x) // Call listener function at run time
-                    x.addListener(isTablet)
-
-                    function isMobile(x) {
-                        if (x.matches) { // If media query matches
-                            $('.search.responsive-site-style-boxed .site-content article.product .post-entry .thumbnail,.search.responsive-site-style-content-boxed .hentry .thumbnail,.search.responsive-site-style-boxed .hentry .thumbnail,.archive.responsive-site-style-content-boxed .hentry .thumbnail,.archive.responsive-site-style-boxed .hentry .thumbnail,.blog.responsive-site-style-content-boxed .hentry .thumbnail,.blog.responsive-site-style-boxed .hentry .thumbnail').css( {'margin-left': '-' + box_mobile_padding_left + 'px', 'margin-right': '-' + box_mobile_padding_right + 'px'} );
-                            $('.search.responsive-site-style-boxed article.product .post-entry > .thumbnail:first-child,.search.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,.search.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child,.archive.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,.archive.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child,.blog.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,.blog.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child').css('margin-top', '-' + box_mobile_padding_top + 'px')
-                        }
-                    }
-                    var x = window.matchMedia("(max-width: 576px)")
-                    isMobile(x) // Call listener function at run time
-                    x.addListener(isMobile)
-
                 }
-            } );
-        }
-    );
+                var xTablet = window.matchMedia("(max-width: 992px)");
+                isTablet(xTablet);
+                xTablet.addListener(isTablet);
+        
+                function isMobile(x) {
+                    if (x.matches) {
+                        $(thumbMargins).css({
+                            'margin-left': '-' + box_mobile_padding_left + 'px',
+                            'margin-right': '-' + box_mobile_padding_right + 'px'
+                        });
+                        $(thumbTops).css('margin-top', '-' + box_mobile_padding_top + 'px');
+                    }
+                }
+                var xMobile = window.matchMedia("(max-width: 576px)");
+                isMobile(xMobile);
+                xMobile.addListener(isMobile);
+        
+            } else {
+                // Revert styles when it's not "stretched"
+                $(thumbnails).css('text-align', '');
+                $(thumbMargins).css({
+                    'margin-left': '0px',
+                    'margin-right': '0px'
+                });
+                $(thumbTops).css('margin-top', '');
+            }
+        });        
+    });
 
     // Blog -> Content
     // Entry Featured Image Alignment

@@ -23,7 +23,7 @@ $responsive_options = get_option( 'responsive_theme_options' );
 $responsive_page_title       = '';
 $responsive_page_description = '';
 
-if ( is_home() && responsive_free_get_option( 'blog_post_title_toggle' ) ) {
+if ( is_home() && get_theme_mod( 'responsive_blog_post_title_toggle' ) ) {
 	$responsive_page_title = '<h1 class="page-title">' . responsive_free_get_option( 'blog_post_title_text' ) . '</h1>';
 } elseif ( is_archive() ) {
 	$responsive_page_title       = get_the_archive_title( '<h1 class="title-archive page-title">', '</h1>' );
