@@ -600,11 +600,8 @@ body.rtl .customize-control .responsive-switchers li {
 	border-radius: 50%;
 }
 #customize-control-responsive_date_box_style .customize-control-responsive-imageradiobtn__button {
-	width: 25%;
-	height: 77px;
-}
-#customize-control-responsive_date_box_style .customize-control-responsive-imageradiobtn__button.active {
-	width: 25%;
+	width: 80%;
+	height: 120px;
 }
 #sub-accordion-section-responsive_woocommerce_cart .responsive-horizontal-separator-control-wrapper {
 	padding-top: 22px;

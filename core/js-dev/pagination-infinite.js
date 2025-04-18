@@ -14,21 +14,14 @@
 		pagination     = responsivePaginationInfinite.pagination || '',
 		loadStatus     = true,
 		infinite_event = responsivePaginationInfinite.infinite_scroll_event || '',
-		loader         = jQuery( '.responsive-pagination-infinite .responsive-loader' );
+		loader         = jQuery( '.responsive-pagination-infinite .responsive-loader' ),
+		in_customizer  = responsivePaginationInfinite.in_customizer || false;
 
 	// Is 'infinite' pagination?
 	if ( typeof pagination != '' && pagination == 'infinite' ) {
 
-		var in_customizer = false;
-
-		// check for wp.customize return boolean.
-		if ( typeof wp !== 'undefined' ) {
-
-			in_customizer = typeof wp.customize !== 'undefined' ? true : false;
-
-			if ( in_customizer ) {
-				return;
-			}
+		if ( in_customizer ) {
+			return;
 		}
 
 		if (	typeof infinite_event != '' ) {

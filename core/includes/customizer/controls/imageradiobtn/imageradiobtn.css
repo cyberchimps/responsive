@@ -5,7 +5,7 @@
   gap:10px */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: 12px;
 }
 .customize-control-responsive-imageradiobtn__button{
   padding:8px;
@@ -58,9 +58,9 @@
   button.customize-control-responsive-imageradiobtn__button.imageradiobtn-text.imagebutton:hover .tooltiptext {
     visibility: visible;
   }
-#customize-control-responsive_page_sidebar_position .imagebutton,
+/* #customize-control-responsive_page_sidebar_position .imagebutton,
 #customize-control-responsive_blog_sidebar_position .imagebutton,
 #customize-control-responsive_single_blog_sidebar_position .imagebutton,
 #customize-control-responsive_blog_layout_options .imagebutton {
 	padding-bottom: 0px;
-}
+} */

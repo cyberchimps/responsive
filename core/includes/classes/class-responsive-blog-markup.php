@@ -47,7 +47,7 @@ if ( ! class_exists( 'Responsive_Blog_Markup' ) ) :
 		 * Enqueue pagination js
 		 */
 		public function responsive_pro_pagination_infinite_enqueue() {
-			wp_enqueue_script( 'responsive-pagination-infinite', get_template_directory_uri() . '/core/js/pagination-infinite.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
+			wp_enqueue_script( 'responsive-pagination-infinite', get_template_directory_uri() . '/core/js/pagination-infinite.min.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
 			wp_enqueue_script( 'jquery' );
 			wp_enqueue_script( 'wp-util' );
 
@@ -66,6 +66,7 @@ if ( ! class_exists( 'Responsive_Blog_Markup' ) ) :
 			$data['infinite_nonce']        = wp_create_nonce( 'responsive-load-more-nonce' );
 			$data['no_more_post_message']  = apply_filters( 'responsive_blog_no_more_post', __( 'No more posts to show.', 'responsive' ) );
 			$data['site_url']              = get_site_url();
+			$data['in_customizer']         = is_customize_preview();
 
 			$data['show_comments'] = __( 'Show Comments', 'responsive' );
 
