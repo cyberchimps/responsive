@@ -3708,7 +3708,7 @@ function responsive_customizer_styles() {
 
 	$header_primary_row_bg_color = get_theme_mod( 'responsive_header_primary_row_bg_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_primary_row_bg_color' ) );
 	$header_primary_row_bg_hover_color = get_theme_mod( 'responsive_header_primary_row_bg_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_primary_row_bg_hover_color' ) );
-	$header_primary_row_bottom_border_size  = get_theme_mod( 'responsive_header_primary_row_bottom_border_size', 0 );
+	$header_primary_row_bottom_border_size  = get_theme_mod( 'responsive_header_primary_row_bottom_border_size', 1 );
 	$header_primary_row_bottom_border_color = get_theme_mod( 'responsive_header_primary_row_bottom_border_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_primary_row_bottom_border_color' ) );
 	$header_primary_row_bottom_border_hover_color = get_theme_mod( 'responsive_header_primary_row_bottom_border_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_primary_row_bottom_border_hover_color' ) );
 
@@ -3933,7 +3933,7 @@ function responsive_customizer_styles() {
 	$primary_footer_inner_column_mobile_spacing = get_theme_mod( 'responsive_footer_primary_inner_column_spacing_mobile', 30 );
 	$primary_footer_height 			     = get_theme_mod( 'responsive_footer_primary_height', 30 );
 	$primary_footer_vertical_alignment   = get_theme_mod( 'responsive_footer_primary_vertical_alignment', 'center' );
-	$primary_footer_bg_color   		     = get_theme_mod( 'responsive_footer_primary_row_bg_color', '#333' );
+	$primary_footer_bg_color   		     = get_theme_mod( 'responsive_footer_primary_row_bg_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_primary_row_bg_color' ) );
 	$primary_footer_top_border_size      = get_theme_mod( 'responsive_footer_primary_row_top_border_size', 1 );
 	$primary_footer_top_border_color     = get_theme_mod( 'responsive_footer_primary_row_border_color', '#aaaaaa' );
 	$custom_css .= "
@@ -3969,9 +3969,9 @@ function responsive_customizer_styles() {
 	$below_footer_inner_column_mobile_spacing = get_theme_mod( 'responsive_footer_below_inner_column_spacing_mobile', 30 );
 	$below_footer_height 			   = get_theme_mod( 'responsive_footer_below_height', 30 );
 	$below_footer_vertical_alignment   = get_theme_mod( 'responsive_footer_below_vertical_alignment', 'flex-start' );
-	$below_footer_bg_color   		   = get_theme_mod( 'responsive_footer_below_row_bg_color', '#333' );
-	$below_footer_top_border_size      = get_theme_mod( 'responsive_footer_below_row_top_border_size', 0 );
-	$below_footer_top_border_color     = get_theme_mod( 'responsive_footer_below_row_border_color', '#FFF' );
+	$below_footer_bg_color   		   = get_theme_mod( 'responsive_footer_below_row_bg_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_below_row_bg_color' ) );
+	$below_footer_top_border_size      = get_theme_mod( 'responsive_footer_below_row_top_border_size', 1 );
+	$below_footer_top_border_color     = get_theme_mod( 'responsive_footer_below_row_border_color', '#0066CC' );
 	$custom_css .= "
 		.rspv-site-below-footer-inner-wrap {
 			gap: {$below_footer_inner_column_spacing}px;
@@ -4091,10 +4091,10 @@ function responsive_customizer_styles() {
 	$custom_css .= "}}";
 
 	$copyright_alignment         = get_theme_mod( 'responsive_footer_copyright_alignment', 'left' );
-	$copyright_text_color        = get_theme_mod( 'responsive_footer_copyright_text_color', '#FFF' );
-	$copyright_text_hover_color  = get_theme_mod( 'responsive_footer_copyright_text_hover_color', '#FFF' );
-	$copyright_links_color       = get_theme_mod( 'responsive_footer_copyright_links_color', '#FFF' );
-	$copyright_links_hover_color = get_theme_mod( 'responsive_footer_copyright_links_hover_color', '#FFF' );
+	$copyright_text_color        = get_theme_mod( 'responsive_footer_copyright_text_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_copyright_text' ) );
+	$copyright_text_hover_color  = get_theme_mod( 'responsive_footer_copyright_text_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_copyright_text_hover' )  );
+	$copyright_links_color       = get_theme_mod( 'responsive_footer_copyright_links_color', '#0066CC' );
+	$copyright_links_hover_color = get_theme_mod( 'responsive_footer_copyright_links_hover_color', '#0066CC' );
 	$custom_css .= "
 		.footer-layouts.copyright {
 			text-align: {$copyright_alignment};

@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(17/04/2025) Version 6.1.6
+[*] = Improvement = Enhanced the layout of default blog page.
+[!] = Fix = Fixed footer layout elements compatibility issue with Footer Builder.
+[!] = Fix = Fixed global button color overriding unintended buttons within the Gutenberg editor.
+
 (10/04/2025) Version 6.1.5
 [!] = Fix = Resolved issue where both the primary menu and hamburger menu were visible at the mobile breakpoint.
 [!] = Fix = Addressed bugs related to certain customizer settings.
