@@ -106,7 +106,7 @@ if ( ! class_exists( 'Responsive_Customizer_Typography_Control' ) ) :
 					'googleFonts' => responsive_get_google_fonts(),
 					'weigthMap'   => $this->all_font_weight,
 					'std_fonts'   => responsive_standard_fonts(),
-
+					'custom_fonts' => $this->get_custom_fonts(),
 				)
 			);
 		}
@@ -114,7 +114,13 @@ if ( ! class_exists( 'Responsive_Customizer_Typography_Control' ) ) :
 		 * Get Custom Fonts.
 		 */
 		public function get_custom_fonts() {
-					return class_exists( 'Responsive_Addons_Pro' ) ? Responsive_Pro_Custom_Fonts_Taxonomy::get_fonts() : null;
+			if ( class_exists( 'Responsive_Addons_Pro' ) ) {
+				return Responsive_Pro_Custom_Fonts_Taxonomy::get_fonts();
+			}
+			if ( class_exists( 'Responsive_Add_Ons' ) && 'on' === get_option( 'rplus_custom_fonts_enable' ) ) {
+				return Responsive_Add_Ons_Custom_Fonts_Taxonomy::get_fonts();
+			}
+			return null;
 		}
 
 		/**
