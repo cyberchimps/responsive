@@ -57,6 +57,7 @@ function setup() {
 	add_filter( 'woocommerce_add_to_cart_fragments', $n( 'responsive_get_refreshed_fragments_number'), 11 );
 	add_action( 'responsive_header_woo_cart_label_markup', $n( 'responsive_woo_cart_label_markup' ), 10 );
 
+	require_once trailingslashit( get_template_directory() ) . '/core/includes/theme-updates/class-responsive-theme-background-updater.php';
 }
 
 /*
@@ -139,6 +140,7 @@ function responsive_get_option_defaults() {
 		'site_footer_option'              => 'footer-3-col',
 		'res_hide_site_title'             => false,
 		'res_hide_tagline'                => true,
+		'theme_version'                   => '0.0.0',
 	);
 
 	return apply_filters( 'responsive_option_defaults', $defaults );
@@ -737,7 +739,9 @@ function responsive_add_custom_body_classes( $classes ) {
 			$classes[] = 'content-alignment-' . get_theme_mod( 'responsive_blog_entry_content_alignment', 'left' );
 			// Entry Blog Columns.
 			$masonry   = ( 1 === get_theme_mod( 'responsive_blog_entry_display_masonry', 0 ) ) ? '-masonry' : '';
-			$classes[] = 'blog-entry-columns-' . get_theme_mod( 'responsive_blog_entry_columns', get_responsive_customizer_defaults( 'entry_columns' ) ) . $masonry;
+			if ( get_theme_mod( 'responsive_blog_layout', 'grid' ) === 'grid' ) {
+				$classes[] = 'blog-entry-columns-' . get_theme_mod( 'responsive_blog_entry_columns', get_responsive_customizer_defaults( 'entry_columns' ) ) . $masonry;
+			}
 			// Entry Blog sidebar Position.
 			$classes[] = 'sidebar-position-' . get_theme_mod( 'responsive_blog_sidebar_position', get_responsive_customizer_defaults( 'blog_sidebar_position' ) );
 
@@ -773,9 +777,9 @@ function responsive_add_custom_body_classes( $classes ) {
 			if ( get_theme_mod( 'responsive_blog_layout_options' ) ) {
 				if ( 'blog-layout-1' === get_theme_mod( 'responsive_blog_layout_options' ) ) {
 					$classes[] = 'standard-blog-layout';
-				} elseif ( 'blog-layout-2' === get_theme_mod( 'responsive_blog_layout_options' ) && 1 >= $blog_entry_columns_count ) {
+				} elseif ( 'blog-layout-2' === get_theme_mod( 'responsive_blog_layout_options' ) && get_theme_mod( 'responsive_blog_layout' ) === 'list' ) {
 					$classes[] = 'blog-layout-two';
-				} elseif ( 'blog-layout-3' === get_theme_mod( 'responsive_blog_layout_options' ) && 1 >= $blog_entry_columns_count ) {
+				} elseif ( 'blog-layout-3' === get_theme_mod( 'responsive_blog_layout_options' ) && get_theme_mod( 'responsive_blog_layout'  ) === 'list' ) {
 					$classes[] = 'blog-layout-three';
 				}
 			}

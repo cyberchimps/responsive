@@ -79,7 +79,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 /**
  * Return value of the supplied responsive free theme option.
  *
- * @param  array   $option  options.
+ * @param  string   $option  options.
  * @param  boolean $default flag.
  */
 function responsive_free_get_option( $option, $default = false ) {
@@ -509,6 +509,12 @@ function responsive_edit_customize_register( $wp_customize ) {
 		'responsive_header_search_tabs',
 		array(
 			'selector' => '.responsive-header-search',
+		)
+	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_header_woo_cart_tabs',
+		array(
+			'selector' => '.responsive-header-cart',
 		)
 	);
 }
@@ -1258,4 +1264,33 @@ function remove_unnecessary_wordpress_menus() {
 	global $submenu;
 	unset( $submenu['themes.php'][15] );
 	unset( $submenu['themes.php'][20] );
+}
+
+if ( ! function_exists( 'responsive_theme_background_updater_6_1_7' ) ) {
+
+	/**
+	 * Handle backward compatibility on version 6.1.7.
+	 *
+	 * @since 4.8.10
+	 * @return void
+	 */
+	function responsive_theme_background_updater_6_1_7() {
+
+		$theme_options = get_option( 'responsive_theme_options' );
+		/**
+		 * Ensure Blog page title, blog layout backward compatibility for existing users.
+		 */
+		if ( ! isset( $theme_options['v6-1-7-backward-done'] ) ) {
+	
+			if ( isset( $theme_options['blog_post_title_toggle'] ) && $theme_options['blog_post_title_toggle'] ) {
+				set_theme_mod( 'responsive_blog_post_title_toggle', 1 );
+			}
+			if ( 1 == get_theme_mod( 'responsive_blog_entry_columns' ) ) {
+				set_theme_mod( 'responsive_blog_entry_columns', 2 );
+				set_theme_mod( 'responsive_blog_layout', 'list' );
+			}
+			$theme_options['v6-1-7-backward-done'] = true;
+			update_option( 'responsive_theme_options', $theme_options );
+		}
+	}
 }

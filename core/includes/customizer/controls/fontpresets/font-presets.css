@@ -108,7 +108,3 @@ button.customize-control-responsive-fontpreset__button.fontpreset-button .body-p
 .responsive-font-preset-reset-control .dashicons:hover{
     cursor: pointer;
 }
-
-#customize-control-responsive_font_preset_group_separator .responsive-horizontal-separator-control-wrapper{
-    padding-bottom: 0 !important;
-}

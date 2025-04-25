@@ -68,7 +68,6 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 				$tab_ids_prefix . 'responsive_h5_text_color',
 				$tab_ids_prefix . 'responsive_h6_text_color',
 				$tab_ids_prefix . 'responsive_meta_text_color',
-				$tab_ids_prefix . 'responsive_body_text_separator',
 				$tab_ids_prefix . 'responsive_all_heading_text_separator',
 				$tab_ids_prefix . 'responsive_h1_text_separator',
 				$tab_ids_prefix . 'responsive_h2_text_separator',
@@ -80,9 +79,8 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 
 			$general_tab_ids = array(
 				$tab_ids_prefix . 'responsive_font_presets',
-				$tab_ids_prefix . 'responsive_font_preset_group_separator',
+				$tab_ids_prefix . 'responsive_base_fonts_typography_separator',
 				$tab_ids_prefix . 'responsive_body_typography_group',
-				$tab_ids_prefix . 'responsive_body_typography_group_separator',
 				$tab_ids_prefix . 'responsive_heading_fonts_typography_separator',
 				$tab_ids_prefix . 'responsive_headings_typography_group',
 				$tab_ids_prefix . 'responsive_headings_typography_group_separator',
@@ -108,7 +106,9 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 			$font_presets_label = esc_html__( 'Font Combinations', 'responsive' );
 			responsive_font_presets_control( $wp_customize, 'font_presets', $font_presets_label, 'responsive_typography', 1, '', 'postMessage', 'Presets');
 
-			responsive_horizontal_separator_control($wp_customize, 'font_preset_group_separator', 2, 'responsive_typography', 2, 1, );
+			// Heading Fonts heading.
+			$heading_fonts_typography_label = esc_html__( 'Base Font', 'responsive' );
+			responsive_separator_control( $wp_customize, 'base_fonts_typography_separator', $heading_fonts_typography_label, 'responsive_typography', 2 );
 
 			// Body Typography.
 			$body_typography_label = esc_html__( 'Body Font', 'responsive' );
@@ -118,17 +118,15 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 			$paragraph_margin_label = esc_html__( 'Paragraph Margin Bottom', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'paragraph_margin_bottom', $paragraph_margin_label, 'responsive_typography', 4, '', null, 5, 1, 'postMessage', 0.1 );
 
-			responsive_horizontal_separator_control($wp_customize, 'body_typography_group_separator', 2, 'responsive_typography', 5, 1, );
+			responsive_horizontal_separator_control($wp_customize, 'headings_typography_group_separator', 1, 'responsive_typography', 4, 1, );
+
+			// ALL heading Typography.
+			$all_heading_typography_label = esc_html__( 'Headings Font', 'responsive' );
+			responsive_typography_group_control( $wp_customize, 'headings_typography_group', $all_heading_typography_label, 'responsive_typography', 5, 'headings_typography' );
 
 			// Heading Fonts heading.
 			$heading_fonts_typography_label = esc_html__( 'Heading Font', 'responsive' );
 			responsive_separator_control( $wp_customize, 'heading_fonts_typography_separator', $heading_fonts_typography_label, 'responsive_typography', 6 );
-			
-			// ALL heading Typography.
-			$all_heading_typography_label = esc_html__( 'All Headings Font', 'responsive' );
-			responsive_typography_group_control( $wp_customize, 'headings_typography_group', $all_heading_typography_label, 'responsive_typography', 7, 'headings_typography' );
-
-			responsive_horizontal_separator_control($wp_customize, 'headings_typography_group_separator', 1, 'responsive_typography', 8, 1, );
 
 			// Body Typography.
 			$h1_typography_label = esc_html__( 'H1 Font', 'responsive' );
@@ -174,8 +172,6 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 			$body_text_color_label = __( 'Body Text Color', 'responsive' );
 			
 			responsive_color_control( $wp_customize, 'body_text', $body_text_color_label, 'responsive_typography', 30, Responsive\Core\get_responsive_customizer_defaults( 'body_text' ) );
-			
-			responsive_horizontal_separator_control( $wp_customize, 'body_text_separator', 2, 'responsive_typography',31, 1 );
 
 			// Texts.
 			$general_texts_label = esc_html__( 'Heading Color', 'responsive' );

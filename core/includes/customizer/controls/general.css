@@ -439,13 +439,6 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_single_blog_meta_alignment {
 	padding-bottom: 24px;
 }
-#sub-accordion-section-responsive_single_blog_layout .responsive-customizer-heading {
-	padding-top: 24px;
-}
-#customize-control-responsive_single_blog_featured_image_separator .responsive-customizer-heading,
-#customize-control-responsive_single_blog_meta_control_separator .responsive-customizer-heading {
-	padding-bottom: 0;
-}
 #customize-control-responsive_single_blog_featured_image_width_separator .responsive-horizontal-separator-control-wrapper,
 #customize-control-responsive_single_blog_featured_image_style_separator .responsive-horizontal-separator-control-wrapper,
 #customize-control-responsive_responsive_disable_author_meta_separator .responsive-horizontal-separator-control-wrapper,
@@ -496,9 +489,6 @@ body.rtl .customize-control .responsive-switchers li {
 	text-align: left;
 	color: #50575E;
 }
-#customize-control-responsive_single_blog_container_spacing .responsive-customizer-heading {
-	padding-bottom: 0;
-}
 #customize-control-responsive_single_blog_padding_separator .responsive-horizontal-separator-control-wrapper {
 	margin: 0;
 	padding-top: 15px;
@@ -507,12 +497,11 @@ body.rtl .customize-control .responsive-switchers li {
 	margin-top: 12px;
 }
 #customize-control-responsive_page_sidebar_toggle .responsive-toggle-control-wrapper,
-#customize-control-responsive_blog_sidebar_toggle .responsive-toggle-control-wrapper {
+#customize-control-responsive_blog_entry_display_masonry .responsive-toggle-control-wrapper {
 	padding-top: 24px;
 	padding-bottom: 0;
 }
-#customize-control-responsive_page_sidebar_controls_separator,
-#customize-control-responsive_blod_sidebar_controls_separator {
+#customize-control-responsive_page_sidebar_controls_separator {
 	padding-top: 24px;
 }
 #customize-control-responsive_single_blog_sidebar_toggle .responsive-toggle-control-wrapper {
@@ -562,15 +551,6 @@ body.rtl .customize-control .responsive-switchers li {
 #sub-accordion-section-responsive_page .responsive-horizontal-separator-control-wrapper {
 	padding-top: 24px;
 }
-#customize-control-responsive_page_featured_image_separator .responsive-customizer-heading,
-#customize-control-responsive_blog_entry_featured_image_separator .responsive-customizer-heading,
-#customize-control-responsive_blog_entry_meta_control_separator .responsive-customizer-heading,
-#customize-control-responsive_blog_entry_content_separator .responsive-customizer-heading,
-#customize-control-responsive_blog_container_spacing .responsive-customizer-heading {
-	padding-top: 24px;
-	padding-bottom: 0;
-	border: none;
-}
 #customize-control-responsive_page_featured_image_separator,
 #customize-control-responsive_blog_entry_featured_image_separator,
 #customize-control-responsive_blog_entry_meta_control_separator,
@@ -587,9 +567,6 @@ body.rtl .customize-control .responsive-switchers li {
 }
 #sub-accordion-section-responsive_blog_layout .responsive-horizontal-separator-control-wrapper {
 	padding-top: 24px;
-}
-#sub-accordion-section-responsive_blog_layout .customize-control-title {
-	margin-top: 22px;
 }
 #customize-control-responsive_blog_layout_options .customize-control-title {
 	margin-top: 9px;
@@ -623,11 +600,8 @@ body.rtl .customize-control .responsive-switchers li {
 	border-radius: 50%;
 }
 #customize-control-responsive_date_box_style .customize-control-responsive-imageradiobtn__button {
-	width: 25%;
-	height: 77px;
-}
-#customize-control-responsive_date_box_style .customize-control-responsive-imageradiobtn__button.active {
-	width: 25%;
+	width: 80%;
+	height: 120px;
 }
 #sub-accordion-section-responsive_woocommerce_cart .responsive-horizontal-separator-control-wrapper {
 	padding-top: 22px;
@@ -641,8 +615,6 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_cart_checkout_button_separator {
 	margin-top: 0;
 }
-#customize-control-responsive_cart_cart_button_separator .responsive-customizer-heading,
-#customize-control-responsive_cart_checkout_button_separator .responsive-customizer-heading,
 #customize-control-responsive_footer_above_design .responsive-customizer-heading,
 #customize-control-responsive_footer_above_border_head .responsive-customizer-heading,
 #customize-control-responsive_footer_primary_design .responsive-customizer-heading,
@@ -652,15 +624,9 @@ body.rtl .customize-control .responsive-switchers li {
 	border: none;
 	padding-bottom: 24px;
 }
-#customize-control-responsive_cart_cart_button_separator .responsive-customizer-heading {
-	padding-top: 24px;
-}
+#customize-control-responsive_cart_cart_button_separator .responsive-customizer-heading,
 #customize-control-responsive_cart_checkout_button_separator .responsive-customizer-heading {
-	padding-top: 0;
-}
-#customize-control-responsive_cart_checkout_buttons_separator .responsive-horizontal-separator-control-wrapper {
-	margin-right: -12px;
-	margin-left: -12px;
+	margin-bottom: 24px;
 }
 #customize-control-responsive_cart_checkout_button_text_color .responsive-color-control-main-wrap {
 	padding-bottom: 12px;
@@ -1110,7 +1076,8 @@ body.rtl .customize-control .responsive-switchers li {
 #sub-accordion-section-responsive_footer_below_row,
 #sub-accordion-section-responsive_footer_menu,
 #sub-accordion-section-responsive_footer_copyright,
-#sub-accordion-section-responsive_scrolltotop_section {
+#sub-accordion-section-responsive_scrolltotop_section,
+#sub-accordion-section-responsive_blog_layout {
 	border-bottom: none !important;
 }
 .responsive-builder-areas .components-button.responsive-row-actions:hover {
@@ -1311,13 +1278,8 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_scroll_to_top_on_devices {
 	padding-top: 24px;
 }
-#customize-control-responsive_footer_widgets_separator .responsive-customizer-heading {
-	border: none;
-	padding-top: 0;
-	padding-bottom: 6px;
-}
 #customize-control-responsive_footer_widgets_separator {
-	margin-top: 24px;
+	margin-top: 0;
 }
 #customize-control-responsive_footer_copyright_alignment {
 	padding-bottom: 12px;
@@ -1457,32 +1419,16 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_header_button_url #_customize-input-responsive_header_button_url {
 	border: 1px solid #A5A5A5;
 }
-#customize-control-responsive_cart_icon_separator .responsive-customizer-heading,
-#customize-control-responsive_cart_label_separator .responsive-customizer-heading,
-#customize-control-responsive_cart_border_separator .responsive-customizer-heading,
-#customize-control-responsive_header_woo_cart_button_separator .responsive-customizer-heading,
-#customize-control-responsive_header_cart_checkout_button_separator .responsive-customizer-heading,
-#customize-control-responsive_cart_spacing_separator .responsive-customizer-heading,
-#customize-control-responsive_header_cart_tray_separator .responsive-customizer-heading {
-	margin-top: 0;
-	padding-top: 0;
-	padding-bottom: 10px;
-	border: none;
-}
-#customize-control-responsive_cart_icon_color_separator .responsive-customizer-heading {
-	margin-top: 0;
-	padding-top: 0;
-	padding-bottom: 0;
-	border: none;
-}
-#customize-control-responsive_cart_icon_separator,
 #customize-control-responsive_cart_label_separator,
-#customize-control-responsive_cart_icon_color_separator,
 #customize-control-responsive_header_woo_cart_button_separator,
 #customize-control-responsive_header_cart_checkout_button_separator,
 #customize-control-responsive_cart_spacing_separator,
 #customize-control-responsive_header_cart_tray_separator {
 	margin-top: 24px;
+}
+#customize-control-responsive_cart_icon_separator,
+#customize-control-responsive_cart_icon_color_separator {
+	margin-top: 0;
 }
 .responsive-input-with-dropdown-inputs-wrap {
 	display: flex;
@@ -1592,4 +1538,20 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_header_html_link_color {
 	margin-top: 14px;
 	margin-bottom: 14px;
+}
+#customize-control-responsive_blog_sidebar_width .responsive-range-control-label {
+	margin-bottom: 8px;
+}
+#customize-control-responsive_blog_sidebar_width .customize-control-title {
+	margin: 0;
+}
+#customize-control-responsive_blog_entry_elements_positioning,
+#customize-control-responsive_blog_entry_meta_alignment,
+#customize-control-responsive_blog_entry_title_alignment,
+#customize-control-blog_pagination,
+#customize-control-responsive_page_single_elements_positioning {
+	margin-bottom: 24px;	
+}
+.customize-section-description-container {
+	margin-bottom: 0;
 }

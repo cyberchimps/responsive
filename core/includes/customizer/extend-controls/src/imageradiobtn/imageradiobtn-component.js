@@ -15,7 +15,8 @@ const ImageRadioButtonComponent = props => {
 		name,
 		choices,
 		description,
-		id
+		id,
+		image_ext
 	} = props.control.params;
 
 	let htmlLabel = null;
@@ -41,7 +42,7 @@ const ImageRadioButtonComponent = props => {
 				onClick={() => onOptionClick(choiceValue)}
 				>
         		<span class="responsive-image-caption tooltiptext">{icon}</span>
-				<img className={`responsive-imageradiobtn-text ${icon}`}  src={`${localize.path}${choiceValue}.png`}></img>
+				<img className={`responsive-imageradiobtn-text ${icon}`}  src={`${localize.path}${choiceValue}.${image_ext}`}></img>
 			</button>
       
 		);

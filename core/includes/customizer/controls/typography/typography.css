@@ -11,11 +11,10 @@ body .select2-container--default .select2-selection--single .select2-selection__
 }
 #customize-control-responsive_body_text_color .responsive-color-control-main-wrap {
 	padding-top: 24px;
+	padding-bottom: 24px;
 }
-#sub-accordion-section-responsive_typography h4.responsive-customizer-heading {
-	padding-top: 0;
-    border: none;
-    padding-bottom: 24px;
+#customize-control-responsive_all_heading_text_color .responsive-color-control-main-wrap {
+	padding-top: 24px;
 }
 #customize-control-responsive_meta_text_color .responsive-color-control-main-wrap {
     padding-bottom: 12px;
@@ -66,6 +65,9 @@ body .select2-container--default .select2-selection--single .select2-selection__
 .responsive-typography-settings-group.responsive-typography-settings-group-content_header_description_typography li.customize-control:first-child,
 .responsive-typography-settings-group.responsive-typography-settings-group-breadcrumb_typography li.customize-control:first-child {
 	margin-top: 8px;
+}
+.responsive-typography-settings-group.responsive-typography-settings-group-headings_typography li.customize-control:first-child {
+	margin-top: 0;
 }
 .responsive-typography-settings-group  li.customize-control:not(:last-child) {
 	border-bottom: 0.5px solid #D0D0D0;
@@ -205,6 +207,12 @@ label.responsive_font_weight select option:checked {
 #customize-control-responsive_body_typography_group {
 	padding-top: 24px;
 }
+#customize-control-responsive_headings_typography_group {
+	padding-bottom: 24px;
+}
+#customize-control-responsive_heading_h1_typography_group {
+	padding-top: 24px;
+}
 #sub-accordion-section-responsive_typography .responsive-horizontal-separator-control-wrapper,
 #sub-accordion-section-responsive_woocommerce_shop .responsive-horizontal-separator-control-wrapper,
 #sub-accordion-section-responsive_woocommerce_single_product_layout .responsive-horizontal-separator-control-wrapper {
@@ -216,10 +224,7 @@ label.responsive_font_weight select option:checked {
 #customize-control-responsive_heading_fonts_typography_separator {
 	margin-top: 0;
 }
-#customize-control-responsive_body_typography_group_separator .responsive-horizontal-separator-control-wrapper,
-#customize-control-responsive_body_text_separator .responsive-horizontal-separator-control-wrapper,
-#customize-control-responsive_h6_text_separator .responsive-horizontal-separator-control-wrapper,
-#customize-control-responsive_font_preset_group_separator .responsive-horizontal-separator-control-wrapper {
+#customize-control-responsive_h6_text_separator .responsive-horizontal-separator-control-wrapper {
 	margin-left: -12px;
 	margin-right: -12px;
 }

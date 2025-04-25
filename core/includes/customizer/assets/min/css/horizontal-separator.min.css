@@ -28,7 +28,10 @@
 #customize-control-responsive_header_woo_cart_separator_9 .responsive-horizontal-separator-control-wrapper,
 #customize-control-responsive_header_woo_cart_separator_11 .responsive-horizontal-separator-control-wrapper,
 #customize-control-responsive_header_woo_cart_separator_13 .responsive-horizontal-separator-control-wrapper,
-#customize-control-responsive_header_woo_cart_separator_14 .responsive-horizontal-separator-control-wrapper {
+#customize-control-responsive_header_woo_cart_separator_14 .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_blog_layout_options_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_blog_content_width_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_blog_image_positions_layout_separator .responsive-horizontal-separator-control-wrapper {
 	margin-left: 0;
 	margin-right: 0;
 }
