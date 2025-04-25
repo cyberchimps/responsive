@@ -72,15 +72,15 @@ if ( ! function_exists( 'check_is_responsive_addons_greater' ) ) {
 		return false;
 	}
 }
-if ( ! function_exists( 'responsive_addons_3_2_1_above_installed' ) ) {
+if ( ! function_exists( 'responsive_addons_3_2_0_above_installed' ) ) {
 	/**
 	 * Check if Responsive Addons is installed.
 	 */
-	function responsive_addons_3_2_1_above_installed() {
+	function responsive_addons_3_2_0_above_installed() {
 		if ( is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) ) {
 			$raddons_version    = get_plugin_data( WP_PLUGIN_DIR . '/responsive-add-ons/responsive-add-ons.php' )['Version'];
 			$is_raddons_greater = false;
-			if ( version_compare( $raddons_version, '3.2.1', '>=' ) ) {
+			if ( version_compare( $raddons_version, '3.2.0', '>=' ) ) {
 				$is_raddons_greater = true;
 			}
 			return $is_raddons_greater;
@@ -800,7 +800,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html_e( 'Custom Fonts', 'responsive' ); ?></div>
 							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Enables you to upload custom fonts directly, no additional font plugin required.', 'responsive' ); ?></div>
 							<?php
-							if ( responsive_addons_3_2_1_above_installed() ) {
+							if ( responsive_addons_3_2_0_above_installed() ) {
 								?>
 								<div class="responsive-theme-pro-features mt-2 
 								<?php
