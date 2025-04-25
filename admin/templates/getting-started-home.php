@@ -72,6 +72,22 @@ if ( ! function_exists( 'check_is_responsive_addons_greater' ) ) {
 		return false;
 	}
 }
+if ( ! function_exists( 'responsive_addons_3_2_0_above_installed' ) ) {
+	/**
+	 * Check if Responsive Addons is installed.
+	 */
+	function responsive_addons_3_2_0_above_installed() {
+		if ( is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) ) {
+			$raddons_version    = get_plugin_data( WP_PLUGIN_DIR . '/responsive-add-ons/responsive-add-ons.php' )['Version'];
+			$is_raddons_greater = false;
+			if ( version_compare( $raddons_version, '3.2.0', '>=' ) ) {
+				$is_raddons_greater = true;
+			}
+			return $is_raddons_greater;
+		}
+		return false;
+	}
+}
 
 $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_plugin_installed_activated( 'responsive-add-ons' );
 	$admin_customize_url = admin_url('customize.php');
@@ -292,6 +308,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 
 	// Set the checked status for the checkbox
 	$rpro_woocommerce_status = ( 'on' === get_option( 'rpro_woocommerce_enable' ) ) ? 'checked' : '';
+	$rplus_custom_fonts_status = ( 'on' === get_option( 'rplus_custom_fonts_enable' ) ) ? 'checked' : '';
 	
 	if ( ! is_responsive_version_greater() ) {
 		$rpro_typography_status         = 'on' === get_option( 'rpro_typography_enable' ) ? 'checked' : '';
@@ -768,6 +785,39 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 											echo 'checked'; }
 										?>
 										 data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_woocommerce' ) ); ?>" <?php echo esc_attr( $rpro_woocommerce_status ); ?>>
+										<span class="resp-megamenu-slider resp-megamenu-round"></span>
+									</label>
+								</div>
+								<?php
+							}
+							?>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-4 col-lg-6 col-md-6">
+					<div class="responsive-theme-feature-cards h-100">
+						<div class="responsive-theme-feature-cards-content">
+							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html_e( 'Custom Fonts', 'responsive' ); ?></div>
+							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Enables you to upload custom fonts directly, no additional font plugin required.', 'responsive' ); ?></div>
+							<?php
+							if ( responsive_addons_3_2_0_above_installed() ) {
+								?>
+								<div class="responsive-theme-pro-features mt-2 
+								<?php
+								if ( 'on' !== get_option( 'rplus_custom_fonts_enable' ) ) {
+									echo 'disable-customize'; }
+								?>
+								">
+									<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/responsive-plus/responsive-pro-plugin/custom-fonts/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
+									<span class="responsive-theme-feature-seperator">|</span>
+									<a href="<?php echo esc_url( admin_url() ) . 'edit-tags.php?taxonomy=responsive_custom_fonts'; ?>" class="rpro-feature-customize-btn"><?php esc_html_e( 'Settings', 'responsive' ); ?></a>
+									<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
+										<input class="resp-custom-fonts-input-checkbox" type="checkbox" 
+										<?php
+										if ( 'on' === get_option( 'rplus_custom_fonts_enable' ) ) {
+											echo 'checked'; }
+										?>
+										 data-nonce="<?php echo esc_attr( wp_create_nonce( 'rplus_toggle_custom_fonts' ) ); ?>" <?php echo esc_attr( $rplus_custom_fonts_status ); ?>>
 										<span class="resp-megamenu-slider resp-megamenu-round"></span>
 									</label>
 								</div>
