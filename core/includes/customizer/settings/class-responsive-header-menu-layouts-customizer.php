@@ -225,7 +225,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 
 			// Mobile Menu Background Color.
 			$mobile_menu_background_color_label = __( 'Mobile Menu Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_mobile_menu_background', $mobile_menu_background_color_label, 'responsive_header_menu_layout', 155, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ), 'responsive_disabled_mobile_menu' );
+			responsive_color_control( $wp_customize, 'header_mobile_menu_background', $mobile_menu_background_color_label, 'responsive_header_menu_layout', 155, Responsive\Core\get_responsive_customizer_defaults( 'header_mobile_menu_background' ), 'responsive_disabled_mobile_menu' );
 
 			// Mobile Menu Border Color.
 			$menu_menu_toggle_border_color = __( 'Mobile Menu Border Color', 'responsive' );
