@@ -263,6 +263,14 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_date_box_toggle_separator').style.display = 'none';
 			document.getElementById('customize-control-responsive_date_box_style').style.display = 'none';
 		}
+		if( 'excerpt' !== api('responsive_blog_entry_content_type').get() ) {
+			document.getElementById('customize-control-responsive_blog_entry_content_alignment_separator').style.display = 'none';
+			document.getElementById('customize-control-responsive_excerpt_length').style.display = 'none';
+			document.getElementById('customize-control-responsive_excerpt_length_separator').style.display = 'none';
+			document.getElementById('customize-control-responsive_blog_read_more_text').style.display = 'none';
+			document.getElementById('customize-control-responsive_blog_read_more_text_separator').style.display = 'none';
+			document.getElementById('customize-control-responsive_blog_entry_read_more_type').style.display = 'none';
+		}
 		
 	}, [tab]);
 
