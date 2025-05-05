@@ -38,16 +38,32 @@ Responsive\responsive_entry_before();
 		// Get elements.
 		$elements = responsive_blog_entry_elements_positioning();
 		// Loop through elements.
-		foreach ( $elements as $element ) {
-
+		if ( 'blog-layout-1' === get_theme_mod( 'responsive_blog_layout_options' ) || responsive_active_blog_layout_grid() ) {
+			foreach ( $elements as $element ) {
 				// Featured Image.
-			if ( 'featured_image' === $element
-					&& ! post_password_required() ) {
-				get_template_part( 'partials/entry/media/blog-entry', $format );
-			} else {
-				get_template_part( 'partials/entry/' . $element );
+				if ( 'featured_image' === $element && ! post_password_required() ) {
+					get_template_part( 'partials/entry/media/blog-entry', $format );
+				} else {
+					get_template_part( 'partials/entry/' . $element );
+				}
 			}
+		} else {
+			// Featured Image.
+			foreach ( $elements as $element ) {
+				if ( 'featured_image' === $element && ! post_password_required() ) {
+					get_template_part( 'partials/entry/media/blog-entry', $format );
+				}
+			}
+
+			echo '<div class="blog-entry-content-wrapper">';
+			foreach ( $elements as $element ) {
+				if ( 'featured_image' !== $element ) {
+					get_template_part( 'partials/entry/' . $element );
+				}
+			}
+			echo '</div>';
 		}
+		
 		?>
 
 			<?php
