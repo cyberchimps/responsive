@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(05/05/2025) Version 6.1.7
+[*] = New = Added List/Grid Layout option setting in Blog/Archive customizer screen.
+[*] = Improvement = Restructured the UI of Blog/Archive and Typography customizer screen.
+[!] = Fix = Minor bug fixes.
+
 (17/04/2025) Version 6.1.6
 [*] = Improvement = Enhanced the layout of default blog page.
 [!] = Fix = Fixed footer layout elements compatibility issue with Footer Builder.
