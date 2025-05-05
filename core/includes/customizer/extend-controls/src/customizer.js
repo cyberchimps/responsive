@@ -363,5 +363,24 @@
 			}
 		});
 	});
+	wp.customize( 'responsive_blog_entry_content_type', function(setting){
+		setting.bind( function( type ){
+			if( type !== 'excerpt' ) {
+				$('#customize-control-responsive_blog_entry_content_alignment_separator').fadeOut(300);
+                $('#customize-control-responsive_excerpt_length').fadeOut(300);
+                $('#customize-control-responsive_excerpt_length_separator').fadeOut(300);
+                $('#customize-control-responsive_blog_read_more_text').fadeOut(300);
+                $('#customize-control-responsive_blog_read_more_text_separator').fadeOut(300);
+                $('#customize-control-responsive_blog_entry_read_more_type').fadeOut(300);
+			} else {
+				$('#customize-control-responsive_blog_entry_content_alignment_separator').fadeIn(300);
+                $('#customize-control-responsive_excerpt_length').fadeIn(300);
+                $('#customize-control-responsive_excerpt_length_separator').fadeIn(300);
+                $('#customize-control-responsive_blog_read_more_text').fadeIn(300);
+                $('#customize-control-responsive_blog_read_more_text_separator').fadeIn(300);
+                $('#customize-control-responsive_blog_entry_read_more_type').fadeIn(300);
+			}
+		});
+	});
 	
 } )( jQuery, wp );

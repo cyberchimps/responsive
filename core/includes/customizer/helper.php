@@ -2592,16 +2592,6 @@ function responsive_horizontal_separator_control( $wp_customize, $element, $coun
 }
 
 /**
- * [responsive_active_blog_entry_content_type_excerpt description]
- *
- * @return [type] [description]
- */
-function responsive_active_blog_entry_content_type_excerpt() {
-	return ( 'excerpt' === get_theme_mod( 'responsive_blog_entry_content_type', 'excerpt' ) ) ? true : false;
-}
-
-
-/**
  * [responsive_active_blog_entry_columns_multi_column description]
  *
  * @return [type] [description]
