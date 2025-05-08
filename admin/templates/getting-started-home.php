@@ -131,7 +131,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 		array(
 			'label' => __( 'Update page layout', 'responsive' ),
 			'icon'  => 'dashicons-text-page',
-			'link'  => admin_url( 'customize.php?autofocus[section]=responsive_page_content' ),
+			'link'  => admin_url( 'customize.php?autofocus[section]=responsive_page' ),
 		),
 	);
 
