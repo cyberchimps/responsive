@@ -13,7 +13,7 @@
 }
 .palette__wrapper.color_scheme {
     position: absolute;
-    top: -10px;
+    top: -22px;
     left: 0;
     transform: translateX(0px) translateY(118px) translateY(0px) scale(1) translateZ(0px);
     overflow: auto;
@@ -22,7 +22,7 @@
     box-shadow: 0px 0px 16px 0px #00000026;
     border: 1px solid #D0D0D0;
     border-radius: 4px;
-    height: 300px;
+    height: 400px;
 }
 
 .palette__wrapper .palette__choice .label {
@@ -154,12 +154,12 @@
 }
 .responsive-color-picker-btn-wrap {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     align-items: center;
 }
 .component-color-indicator.responsive-color-palette-indicate {
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
 }
 .responsive-selected-palette-details {
     display: flex;
@@ -171,11 +171,11 @@
 .responsive-selected-palette-details .label {
     font-family: "Roboto", sans-serif;
     font-size: 14px;
-    font-weight: 600;
-    line-height: 16px;
+    font-weight: 400;
+    line-height: 14px;
     text-align: left;
 }
 #responsive-color-palette-btn {
     cursor: pointer;
-    margin-left: 6px;
+    margin-left: 4px;
 }

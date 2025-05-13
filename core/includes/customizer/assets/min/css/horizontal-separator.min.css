@@ -5,10 +5,6 @@
     border-top: 1px solid #D0D0D0;
     border-bottom: 0px solid #D0D0D0;
 }
-.responsive-horizontal-separator-control-wrapper {
-    margin-left: -12px;
-    margin-right: -12px;
-}
 #customize-control-responsive_breadcrumb_position_separator hr {
     margin-top: 24px;
 }
@@ -44,4 +40,15 @@
 #sub-accordion-section-responsive_header_search .customize-control-responsive-horizontal-separator {
     padding-top: 24px;
     padding-bottom: 24px;
+}
+#customize-control-responsive_paragraph_margin_bottom_separator .responsive-horizontal-separator-control-wrapper {
+	padding-top: 22px;
+	padding-bottom: 22px;
+}
+#customize-control-responsive_paragraph_margin_bottom_separator hr {
+    margin-right: -24px;
+    margin-left: -24px;
+}
+#customize-control-responsive_header_redirects_separator .responsive-horizontal-separator-control-wrapper {
+    padding-top: 10px;
 }

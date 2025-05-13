@@ -3384,3 +3384,14 @@ if ( ! function_exists( 'responsive_active_blog_layout_grid' ) ) :
 		return get_theme_mod( 'responsive_blog_layout', 'grid' ) === 'grid';
 	}
 endif;
+
+if( ! function_exists( 'responsive_site_background_image_present' ) ) :
+		/**
+	 * Determines whether site background image is present or not.
+	 *
+	 * @return bool true if site background image is present, false otherwise.
+	 */
+	function responsive_site_background_image_present() {
+		return get_theme_mod( 'responsive_site_background_image_toggle' ) && esc_url( get_theme_mod( 'responsive_site_background_image' ) ) ? true : false;
+	}
+endif;
