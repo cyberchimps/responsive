@@ -16,8 +16,8 @@
 .customize-control-responsive-background-image .responsive-toggle-control .components-toggle-control__label {
     font-family: "Roboto", sans-serif;
     font-size: 14px;
-    font-weight: 600;
-    line-height: 16.41px;
+    font-weight: 400;
+    line-height: 100%;
     text-align: left;
 }
 .customize-control-responsive-toggle .components-form-toggle .components-form-toggle__track,

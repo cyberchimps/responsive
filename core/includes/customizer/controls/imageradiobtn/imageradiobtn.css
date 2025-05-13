@@ -30,19 +30,21 @@
  .tooltiptext {
     visibility: hidden;
     width: auto;
-    background-color: #3b3b3b;
+    background-color: #3E3E3E;
     color: #fff;
     text-align: center;
     border-radius: 6px;
-    padding: 6px 11px;
+    padding: 10px 18px;
     position: absolute;
     z-index: 1;
-    top: -36px;
-    font-size: 10px;
-    line-height: 12px;
-    font-family: 'open sans';
+    top: -38px;
+    font-size: 12px;
+    line-height: 100%;
+    font-family: "Roboto", sans-serif;
     transform: translateX(-50%);
     left: 48%;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    min-width: 82px;
   }
   
  .tooltiptext::after {
@@ -58,9 +60,3 @@
   button.customize-control-responsive-imageradiobtn__button.imageradiobtn-text.imagebutton:hover .tooltiptext {
     visibility: visible;
   }
-/* #customize-control-responsive_page_sidebar_position .imagebutton,
-#customize-control-responsive_blog_sidebar_position .imagebutton,
-#customize-control-responsive_single_blog_sidebar_position .imagebutton,
-#customize-control-responsive_blog_layout_options .imagebutton {
-	padding-bottom: 0px;
-} */

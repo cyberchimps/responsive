@@ -109,12 +109,17 @@
 .customize-control-title {
   font-family: 'Roboto','sans-serif';
   color: #50575e;
+  /* line-height: 100%; */
+  margin-bottom: 6px;
+  font-weight: 400;
 }
 
 #customize-control-responsive_cart_color {
   padding-top: 24px;
 }
-
-#customize-control-responsive_box_background_color{
-  margin-top: 14px;
-}
+ #sub-accordion-section-responsive_colors .customize-control-title {
+  font-weight: 400;
+ }
+ #customize-controls .customize-info {
+  margin-bottom: 0;
+ }

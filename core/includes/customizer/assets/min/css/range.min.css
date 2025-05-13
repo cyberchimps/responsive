@@ -8,3 +8,9 @@
    position: relative;
    top: 0;
 }
+#customize-control-responsive_paragraph_margin_bottom .customize-control-title {
+    margin: 0;
+}
+#customize-control-responsive_paragraph_margin_bottom .responsive-range-control-label {
+    margin-bottom: 4px;
+}

@@ -5,8 +5,8 @@
 .responsive-customizer-heading {
     font-family: 'Roboto', sans-serif;
     display: block;
-    margin: 0 -12px;
-    padding: 15px 12px;
+    margin: 0 -24px;
+    padding: 15px 24px;
     background-color: #F2F2F2;
     color: #505050;
     border-top: 1px solid #B2B2B2;
@@ -25,7 +25,6 @@
 }
 
 #customize-control-responsive_body_typography_separator,
-#customize-control-responsive_responsive_general_texts_separator,
 #customize-control-responsive_content_header_color,
 #customize-control-responsive_page_typography_title_separator {
     margin-top: 0;
@@ -38,4 +37,8 @@
 #customize-control-responsive_cart_layout_seperator,
 #customize-control-responsive_single_product_layout_elements_separator {
     margin-top: 0;
+}
+#sub-accordion-section-responsive_colors .customize-control-responsive-horizontal-separator {
+    padding-top: 12px;
+    padding-bottom: 12px;
 }

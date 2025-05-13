@@ -30,7 +30,7 @@ if ( ! class_exists( 'Responsive_Container_Spacing_Customizer' ) ) :
 		 */
 		public function customizer_options( $wp_customize ) {
 
-			$container_spacing_label = esc_html__( 'SPACING', 'responsive' );
+			$container_spacing_label = esc_html__( 'Spacing', 'responsive' );
 			responsive_separator_control( $wp_customize, 'container_spacing', $container_spacing_label, 'responsive_layout', 60, 'responsive_not_active_site_style_flat', 'This spacing applies to all pages and single product pages.' );
 
 			// Outside Container.
@@ -48,7 +48,7 @@ if ( ! class_exists( 'Responsive_Container_Spacing_Customizer' ) ) :
 			$outside_container_label = __( 'Inside Container (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'blog_inside_container', 'responsive_blog_layout', 270, 15, 15, 'responsive_not_active_site_style_flat', $outside_container_label );
 
-			$container_spacing_label = esc_html__( 'SPACING', 'responsive' );
+			$container_spacing_label = esc_html__( 'Spacing', 'responsive' );
 			responsive_separator_control( $wp_customize, 'single_blog_container_spacing', $container_spacing_label, 'responsive_single_blog_layout', 250 );
 
 			// Outside Container.
@@ -59,7 +59,7 @@ if ( ! class_exists( 'Responsive_Container_Spacing_Customizer' ) ) :
 			$outside_container_label = __( 'Inside Container (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'single_blog_inside_container', 'responsive_single_blog_layout', 270, 15, 15, 'responsive_not_active_site_style_flat', $outside_container_label );
 
-			$sidebar_spacing_label = esc_html__( 'SPACING', 'responsive' );
+			$sidebar_spacing_label = esc_html__( 'Spacing', 'responsive' );
 			responsive_separator_control( $wp_customize, 'sidebar_spacing', $sidebar_spacing_label, 'responsive_sidebar', 70 );
 
 			// Outside Container.

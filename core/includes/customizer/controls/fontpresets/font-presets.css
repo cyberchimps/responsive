@@ -1,12 +1,13 @@
 /* Styles for Font Presets Control */
 .customize-control-responsive-fontpreset {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 18px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
     align-items: center;
     justify-content: space-between;
-    background-color: #FFF;  
-    padding: 20px 35px;
+    background-color: #FFF;
+    padding-top: 24px;
+    padding-bottom: 0;
 }
 
 .customize-control-responsive-fontpreset__button {
@@ -15,11 +16,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 54px;
+    height: 78px;
     padding: 0;
-    border: 1px solid #eaeaea;
+    border: 1px solid #DDDDDD;
     color: black;
-    background-color: white;
+    background-color: #FFF;
     border-radius: 4px;
     cursor: pointer;
 }
@@ -28,24 +29,25 @@
     border: 1px solid black;
 }
 
-.tooltiptext {
+.fontpreset-button .tooltiptext {
     visibility: hidden;
     width: auto;
-    background-color: #fff;
+    background-color: #3E3E3E;
     color: #fff;
     text-align: center;
     border-radius: 6px;
-    padding: 6px 11px;
+    padding: 10px 18px;
     position: absolute;
     z-index: 1;
-    top: -36px;
-    font-size: 14px;
-    line-height: 12px;
-    font-family: 'open sans';
+    top: -50px;
+    font-size: 12px;
+    line-height: 100%;
+    font-family: "Roboto", sans-serif;
     transform: translateX(-50%);
-    min-width: 70px;
+    min-width: 82px;
     width: fit-content;
     left: 48%;
+    box-shadow: 0px 4px 4px 0px #00000040;
 }
 
 .tooltiptext::after {
@@ -68,9 +70,8 @@ button.customize-control-responsive-fontpreset__button.fontpreset-button .headin
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 30px;
-    font-size: 17px;
-    border-bottom: 1px solid #F0F0F1;
+    height: 38px;
+    font-size: 20px;
 }
 
 button.customize-control-responsive-fontpreset__button.fontpreset-button .body-preview{
@@ -78,9 +79,9 @@ button.customize-control-responsive-fontpreset__button.fontpreset-button .body-p
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 30px;
-    font-size: 17px;
-    border-top: 1px solid #F0F0F1;
+    height: 38px;
+    font-size: 20px;
+    border-top: 1px solid #DDDDDD;
 }
 
 .preview-tablet #customize-control-responsive_header_height, .preview-mobile #customize-control-responsive_header_height { display: none; }
@@ -88,7 +89,7 @@ button.customize-control-responsive-fontpreset__button.fontpreset-button .body-p
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px;
+    padding-top: 14px;
     padding-bottom: 0;
     background-color: #FFF;
 }

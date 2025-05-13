@@ -382,5 +382,23 @@
 			}
 		});
 	});
+
+	wp.customize( 'responsive_site_background_image_toggle', function( setting ) {
+		setting.bind( function( toggle ) {
+			displaySiteBackgroundImageSettings( toggle && wp.customize('responsive_site_background_image').get() );
+		} );
+	});
+	wp.customize( 'responsive_site_background_image', function( setting ) {
+		setting.bind( function( img ) {
+			displaySiteBackgroundImageSettings( img && wp.customize('responsive_site_background_image_toggle').get() );
+		} );
+	});
+	const displaySiteBackgroundImageSettings = (display) => {
+		const method = display ? 'fadeIn' : 'fadeOut';
+		$('#customize-control-responsive_site_background_img_position')[method](300);
+		$('#customize-control-responsive_site_background_image_attachment')[method](300);
+		$('#customize-control-responsive_site_background_image_repeat')[method](300);
+		$('#customize-control-responsive_site_background_image_size')[method](300);
+	};
 	
 } )( jQuery, wp );

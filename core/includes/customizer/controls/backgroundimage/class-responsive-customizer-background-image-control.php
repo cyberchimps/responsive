@@ -26,6 +26,13 @@ if ( ! class_exists( 'Responsive_Customizer_Background_Image_Control' ) ) :
 		 */
 		public $type = 'responsive-background-image';
 
+		public $map_bg_color;
+
+		public function __construct($manager, $id, $args = array()) {
+			parent::__construct($manager, $id, $args);
+			$this->map_bg_color = isset($args['map_bg_color']) ? $args['map_bg_color'] : false;
+		}
+
 		/**
 		 * Enqueue control related scripts/styles.
 		 *
@@ -51,10 +58,11 @@ if ( ! class_exists( 'Responsive_Customizer_Background_Image_Control' ) ) :
 				'enable'     => $this->get_link('enable'),
 				'image_url'  => $this->get_link('image_url'),
 			);
-			$this->json['choices']            = $this->choices;
-			$this->json['id']                 = $this->id;
-			$this->json['type']               = $this->type;
-			$this->json['description']        = $this->description;
+			$this->json['choices']      = $this->choices;
+			$this->json['id']           = $this->id;
+			$this->json['type']         = $this->type;
+			$this->json['description']  = $this->description;
+			$this->json['map_bg_color'] = $this->map_bg_color;
 		}
 
 		/**
