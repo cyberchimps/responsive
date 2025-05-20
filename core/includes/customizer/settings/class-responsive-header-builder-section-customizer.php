@@ -79,6 +79,8 @@ if ( ! class_exists( 'Responsive_Header_Builder_Section_Customizer' ) ) :
 				)
 			);
 
+			responsive_horizontal_separator_control( $wp_customize, 'header_redirects_separator', 1, 'responsive_header_builder_section',10, 1 );
+
 			$configure_footer_menu_redirect_label = __( 'Primary Header', 'responsive' );
 			responsive_redirect_control( $wp_customize, 'redirect_to_primary_header', $configure_footer_menu_redirect_label, 'responsive_header_builder_section', 10, 'section', 'responsive_header_layout');
 

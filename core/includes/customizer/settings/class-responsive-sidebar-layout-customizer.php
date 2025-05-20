@@ -60,7 +60,6 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
                 $general_tab_ids_prefix . 'responsive_blog_sidebar_width',
                 $general_tab_ids_prefix . 'responsive_page_sidebar_position',
                 $general_tab_ids_prefix . 'responsive_page_sidebar_width',
-                $general_tab_ids_prefix . 'responsive_blog_sidebar_position',
                 $general_tab_ids_prefix . 'responsive_single_blog_sidebar_position',
                 $general_tab_ids_prefix . 'responsive_single_blog_sidebar_width',
                 $general_tab_ids_prefix . 'responsive_page_sidebar_controls_separator',

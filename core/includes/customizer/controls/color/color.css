@@ -1,4 +1,4 @@
-body.wp-customizer .wp-picker-container .wp-color-result.button { width: 100%; box-sizing: border-box; padding: 0 0 0 40px; box-shadow: inset 0 0 1px rgba(0,0,0,.5) !important; -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,.5) !important; border: none; height: 30px; border-radius: 4px; margin: 0; }
+body.wp-customizer .wp-picker-container .wp-color-result.button { width: 100%; box-sizing: border-box; padding: 0 0 0 40px; box-shadow: inset 0 0 1px rgba(0,0,0,.5) !important; -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,.5) !important; border: none; height: 26px; border-radius: 4px; margin: 0; }
 body.wp-customizer .wp-color-result-text { background-color: rgba(0,0,0,.2); color: #fff; height: 30px; line-height: 30px; border: none; box-shadow: none; font-size: 12px; border-radius: 0 4px 4px 0; padding: 0 15px; }
 body.wp-customizer .wp-picker-container { max-width: 255px; }
 body.wp-customizer .wp-picker-container .iris-picker { margin: 15px 0 0 0; border-bottom:none; }
@@ -469,8 +469,8 @@ element.style {
     justify-content: space-between;
     align-items: center;
     height: 30px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
 }
 .responsive-color-control-main-wrap .customize-control-title {
     margin: 0;
@@ -486,12 +486,13 @@ element.style {
 }
 body.wp-customizer .responsive-color-control-main-wrap .wp-picker-container {
     display: flex;
-    gap: 20px;
+    gap: 16px;
 }
 body.wp-customizer .responsive-color-control-main-wrap .wp-picker-container .wp-color-result.button {
     padding: 0;
-    width: 30px;
+    width: 26px;
     border-radius: 50%;
+    min-height: 26px;
 }
 .responsive-color-control-main-wrap .components-color-picker,
 .responsive-color-control-main-wrap .components-color-picker .react-colorful {
@@ -622,6 +623,7 @@ body.wp-customizer .responsive-color-control-main-wrap .wp-picker-container .wp-
 #sub-accordion-section-responsive_header_woo_cart #customize-control-responsive_header_cart_tray_bg_color .responsive-color-control-main-wrap {
     padding-top: 24px;
 }
+#customize-control-responsive_body_text_color .responsive-color-control-main-wrap .wp-picker-holder,
 #customize-control-responsive_header_cart_button_color .responsive-color-control-main-wrap .wp-picker-holder,
 #customize-control-responsive_header_cart_checkout_button_color .responsive-color-control-main-wrap .wp-picker-holder,
 #customize-control-responsive_header_cart_tray_bg_color .responsive-color-control-main-wrap .wp-picker-holder {

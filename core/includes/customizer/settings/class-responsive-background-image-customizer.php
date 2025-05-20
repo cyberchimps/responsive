@@ -15,6 +15,18 @@ if ( ! class_exists( 'Responsive_Background_Image_Customizer' ) ) :
 	 */
 	class Responsive_Background_Image_Customizer {
 
+		private $bg_image_color_map = array (
+			'site_background'   				   => 'Background Color',
+			'box_background'    				   => 'Content Background Color',
+			'footer_background' 				   => 'Background Color',
+			'header_background' 				   => 'Background Color',
+			'header_widget_background'             => 'Background Color',
+			'transparent_header_widget_background' => 'Background Color',
+			'sidebar_background'                   => 'Background Color',
+			'button_background'                    => 'Button Color',
+			'inputs_background'                    => 'Input Color',
+		);
+
 		/**
 		 * Constructor
 		 *
@@ -66,9 +78,12 @@ if ( ! class_exists( 'Responsive_Background_Image_Customizer' ) ) :
 							'image_url'    => 'responsive_' . $element . '_image',
 							'enable' => 'responsive_' . $element . '_image_toggle',
 						),
-						'description'     => __( 'Please reduce the opacity of background color to make the background image visible. You can change the opacity by using drag control in background color options. Set the value as per your requirements.', 'responsive' ),
 						'priority'        => $priority,
 						'active_callback' => null,
+						'map_bg_color'    => array(
+							'label' => isset($this->bg_image_color_map[ $element ] ) ? $this->bg_image_color_map[ $element ] : 'Background Color',
+							'control_id' => 'responsive_' . $element . '_color',
+						),
 					)
 				)
 			);
@@ -90,14 +105,18 @@ if ( ! class_exists( 'Responsive_Background_Image_Customizer' ) ) :
 			-------------------------------------------------------------------
 			*/
 			if ( 'Responsive' === $theme->name || 'Responsive' === $theme->parent_theme ) {
-				$background_label = __( 'Background Image', 'responsive' );
-				$this->background_image_control( $wp_customize, 'site_background', $background_label, 'responsive_colors', 15 );
+
+				$background_label         = __( 'Background Image', 'responsive' );
+				$site_background_label    = __( 'Site Background Image', 'responsive' );
+				$content_background_label = __( 'Content Background Image', 'responsive' );
+
+				$this->background_image_control( $wp_customize, 'site_background', $site_background_label, 'responsive_colors', 105 );
 				$this->background_image_control( $wp_customize, 'footer_background', $background_label, 'responsive_footer_layout', 15 );
 				$this->background_image_control( $wp_customize, 'header_background', $background_label, 'responsive_header_colors', 15 );
 				$this->background_image_control( $wp_customize, 'header_widget_background', $background_label, 'responsive_header_widget', 145 );
 				$this->background_image_control( $wp_customize, 'transparent_header_widget_background', $background_label, 'responsive_header_transparent', 295 );
 				$this->background_image_control( $wp_customize, 'sidebar_background', $background_label, 'responsive_sidebar', 45 );
-				$this->background_image_control( $wp_customize, 'box_background', $background_label, 'responsive_colors', 21 );
+				$this->background_image_control( $wp_customize, 'box_background', $content_background_label, 'responsive_colors', 115 );
 				$this->background_image_control( $wp_customize, 'button_background', $background_label, 'responsive_button', 135 );
 				$this->background_image_control( $wp_customize, 'inputs_background', $background_label, 'responsive_form_fields', 205 );
 			}

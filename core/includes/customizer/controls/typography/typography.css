@@ -11,20 +11,11 @@ body .select2-container--default .select2-selection--single .select2-selection__
 }
 #customize-control-responsive_body_text_color .responsive-color-control-main-wrap {
 	padding-top: 24px;
-	padding-bottom: 24px;
 }
-#customize-control-responsive_all_heading_text_color .responsive-color-control-main-wrap {
-	padding-top: 24px;
+#customize-control-responsive_alt_background_color .responsive-color-control-main-wrap {
+    padding-bottom: 0;
 }
-#customize-control-responsive_meta_text_color .responsive-color-control-main-wrap {
-    padding-bottom: 12px;
-}
-#customize-control-responsive_all_heading_text_separator .responsive-horizontal-separator-control-wrapper,
-#customize-control-responsive_h1_text_separator .responsive-horizontal-separator-control-wrapper,
-#customize-control-responsive_h2_text_separator .responsive-horizontal-separator-control-wrapper,
-#customize-control-responsive_h3_text_separator .responsive-horizontal-separator-control-wrapper,
-#customize-control-responsive_h4_text_separator .responsive-horizontal-separator-control-wrapper,
-#customize-control-responsive_h5_text_separator .responsive-horizontal-separator-control-wrapper
+#customize-control-responsive_all_heading_text_separator .responsive-horizontal-separator-control-wrapper
  {
     margin: 0;
 }
@@ -37,6 +28,7 @@ body .select2-container--default .select2-selection--single .select2-selection__
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	min-height: 36px;
 }
 .responsive-typography-settings-group-icon .customize-control-title {
 	margin: 0 !important;
@@ -54,9 +46,10 @@ body .select2-container--default .select2-selection--single .select2-selection__
 	background: #F9F9F9;
 	padding-top: 20px;
 	padding-bottom: 20px !important;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
 }
 .responsive-typography-settings-group li.customize-control:first-child {
-	margin-top: 20px;
+	margin-top: 14px;
 }
 #sub-accordion-section-responsive_page .responsive-typography-settings-group li.customize-control:first-child,
 #sub-accordion-section-responsive_sidebar .responsive-typography-settings-group li.customize-control:first-child,
@@ -67,10 +60,10 @@ body .select2-container--default .select2-selection--single .select2-selection__
 	margin-top: 8px;
 }
 .responsive-typography-settings-group.responsive-typography-settings-group-headings_typography li.customize-control:first-child {
-	margin-top: 0;
+	margin-top: -10px;
 }
 .responsive-typography-settings-group  li.customize-control:not(:last-child) {
-	border-bottom: 0.5px solid #D0D0D0;
+	border-bottom: 0.5px solid #d0d0d060;
 }
 label.responsive_font_family,
 label.responsive_font_weight {
@@ -208,12 +201,17 @@ label.responsive_font_weight select option:checked {
 	padding-top: 24px;
 }
 #customize-control-responsive_headings_typography_group {
+	padding-top: 24px;
 	padding-bottom: 24px;
 }
-#customize-control-responsive_heading_h1_typography_group {
+#customize-control-responsive_heading_h1_typography_group,
+#customize-control-responsive_heading_h2_typography_group,
+#customize-control-responsive_heading_h3_typography_group,
+#customize-control-responsive_heading_h4_typography_group,
+#customize-control-responsive_heading_h5_typography_group,
+#customize-control-responsive_heading_h6_typography_group {
 	padding-top: 24px;
 }
-#sub-accordion-section-responsive_typography .responsive-horizontal-separator-control-wrapper,
 #sub-accordion-section-responsive_woocommerce_shop .responsive-horizontal-separator-control-wrapper,
 #sub-accordion-section-responsive_woocommerce_single_product_layout .responsive-horizontal-separator-control-wrapper {
 	padding-top: 24px;
@@ -221,17 +219,9 @@ label.responsive_font_weight select option:checked {
 	margin-left: 0;
 	margin-right: 0;
 }
-#customize-control-responsive_heading_fonts_typography_separator {
-	margin-top: 0;
-}
-#customize-control-responsive_h6_text_separator .responsive-horizontal-separator-control-wrapper {
-	margin-left: -12px;
-	margin-right: -12px;
-}
 #customize-control-responsive_meta_typography_group_separator .responsive-horizontal-separator-control-wrapper {
 	padding-bottom: 0;
 }
-#customize-control-responsive_meta_typography_group,
 #customize-control-responsive_product_content_shop_typography_group,
 #customize-control-responsive_single_product_page_breadcrumb_shop_typography_group
 {
@@ -264,8 +254,11 @@ label.responsive_font_weight select option:checked {
 	padding-top: 24px;
 }
 #customize-control-responsive_box_background_image .responsive-background-image-control {
-	padding-top: 20px;
-	padding-bottom: 0;
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
+#customize-control-responsive_site_background_image .responsive-background-image-control {
+	padding-bottom: 12px;
 }
 #customize-control-responsive_header_site_title_typo_separator .responsive-horizontal-separator-control-wrapper,
 #customize-control-responsive_content_header_heading_typography_group_separator .responsive-horizontal-separator-control-wrapper {
