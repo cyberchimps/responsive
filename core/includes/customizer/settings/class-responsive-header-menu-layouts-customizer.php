@@ -126,8 +126,8 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			responsive_text_control( $wp_customize, 'text_html', $menu_html_text, 'responsive_header_menu_layout', 50, 'Contact Us', 'responsive_menu_last_item_text', 'wp_kses_post', 'textarea' );
 
 			// Last item floating.
-			$last_item_floating_label = __( 'Spread Menu and Last Item', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'last_item_floating', $last_item_floating_label, 'responsive_header_menu_layout', 51, 0, 'responsive_last_item_in_menu_active' );
+			// $last_item_floating_label = __( 'Spread Menu and Last Item', 'responsive' );
+			// responsive_toggle_control( $wp_customize, 'last_item_floating', $last_item_floating_label, 'responsive_header_menu_layout', 51, 0, 'responsive_last_item_in_menu_active' );
 
 			// Mobile Menu Settings.
 			$mobile_menu_separator_label = __( 'Mobile Menu Settings', 'responsive' );
@@ -225,7 +225,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 
 			// Mobile Menu Background Color.
 			$mobile_menu_background_color_label = __( 'Mobile Menu Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_mobile_menu_background', $mobile_menu_background_color_label, 'responsive_header_menu_layout', 155, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ), 'responsive_disabled_mobile_menu' );
+			responsive_color_control( $wp_customize, 'header_mobile_menu_background', $mobile_menu_background_color_label, 'responsive_header_menu_layout', 155, Responsive\Core\get_responsive_customizer_defaults( 'header_mobile_menu_background' ), 'responsive_disabled_mobile_menu' );
 
 			// Mobile Menu Border Color.
 			$menu_menu_toggle_border_color = __( 'Mobile Menu Border Color', 'responsive' );

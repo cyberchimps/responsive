@@ -203,6 +203,7 @@ module.exports = function(grunt) {
 					'core/includes/customizer/assets/min/css/font-presets.min.css':'core/includes/customizer/controls/fontpresets/font-presets.css',
 					'core/includes/customizer/assets/min/css/color.min.css':'core/includes/customizer/controls/color/color.css',
 					'core/includes/customizer/assets/min/css/contact-info.min.css':'core/includes/customizer/controls/contact-info/contact-info.css',
+					'core/includes/customizer/assets/min/css/heading.min.css':'core/includes/customizer/controls/heading/heading.css',
 				}
 			}
 		},

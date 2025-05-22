@@ -363,5 +363,42 @@
 			}
 		});
 	});
+	wp.customize( 'responsive_blog_entry_content_type', function(setting){
+		setting.bind( function( type ){
+			if( type !== 'excerpt' ) {
+				$('#customize-control-responsive_blog_entry_content_alignment_separator').fadeOut(300);
+                $('#customize-control-responsive_excerpt_length').fadeOut(300);
+                $('#customize-control-responsive_excerpt_length_separator').fadeOut(300);
+                $('#customize-control-responsive_blog_read_more_text').fadeOut(300);
+                $('#customize-control-responsive_blog_read_more_text_separator').fadeOut(300);
+                $('#customize-control-responsive_blog_entry_read_more_type').fadeOut(300);
+			} else {
+				$('#customize-control-responsive_blog_entry_content_alignment_separator').fadeIn(300);
+                $('#customize-control-responsive_excerpt_length').fadeIn(300);
+                $('#customize-control-responsive_excerpt_length_separator').fadeIn(300);
+                $('#customize-control-responsive_blog_read_more_text').fadeIn(300);
+                $('#customize-control-responsive_blog_read_more_text_separator').fadeIn(300);
+                $('#customize-control-responsive_blog_entry_read_more_type').fadeIn(300);
+			}
+		});
+	});
+
+	wp.customize( 'responsive_site_background_image_toggle', function( setting ) {
+		setting.bind( function( toggle ) {
+			displaySiteBackgroundImageSettings( toggle && wp.customize('responsive_site_background_image').get() );
+		} );
+	});
+	wp.customize( 'responsive_site_background_image', function( setting ) {
+		setting.bind( function( img ) {
+			displaySiteBackgroundImageSettings( img && wp.customize('responsive_site_background_image_toggle').get() );
+		} );
+	});
+	const displaySiteBackgroundImageSettings = (display) => {
+		const method = display ? 'fadeIn' : 'fadeOut';
+		$('#customize-control-responsive_site_background_img_position')[method](300);
+		$('#customize-control-responsive_site_background_image_attachment')[method](300);
+		$('#customize-control-responsive_site_background_image_repeat')[method](300);
+		$('#customize-control-responsive_site_background_image_size')[method](300);
+	};
 	
 } )( jQuery, wp );

@@ -43,6 +43,7 @@
       display: inline-block;
       padding: 0 1.5em;
       line-height: 3em;
+      cursor: default;
     }
   }
   .responsive-pagination-infinite{
@@ -95,11 +96,9 @@
       grid-area: meta;
     }
     #main-blog .datebox-container {
-      grid-area: rightside;
       position: relative;
     }
     #main-blog .thumbnail {
-      grid-area: rightside;
       position: relative;
       margin-top: 0;
     }
@@ -111,10 +110,15 @@
       grid-template-columns: auto auto;
       grid-template-rows: auto;
       grid-column-gap: 15px;
-      grid-template-areas:
-       'title rightside'
-       'meta rightside'
-       'content rightside';
+      & > .blog-entry-content-wrapper {
+        order: 1;
+      }
+      & > .thumbnail {
+        order: 2;
+      }
+      & .datebox-container {
+        order: 2;
+      }
     }
     .responsive-date-box.without-thumbnail {
       position: relative;
@@ -129,7 +133,6 @@
     }
     #main-blog .thumbnail > .thumbnail-link>img {
       max-height: 230px;
-      width: 360px;
     }
     @include blog-layout-medias();
   }
@@ -145,11 +148,9 @@
       grid-area: meta;
     }
     #main-blog .datebox-container {
-      grid-area: leftside;
       position: relative;
     }
     #main-blog .thumbnail {
-      grid-area: leftside;
       position: relative;
       margin-top: 0;
     }
@@ -161,10 +162,6 @@
       grid-template-columns: auto auto;
       grid-template-rows: auto;
       grid-column-gap: 15px;
-      grid-template-areas:
-       'leftside title'
-       'leftside meta'
-       'leftside content';
     }
     .responsive-date-box.without-thumbnail {
       position: relative;
@@ -179,7 +176,6 @@
     }
     #main-blog .thumbnail > .thumbnail-link>img {
       max-height: 230px;
-      width: 360px;
     }
     @include blog-layout-medias();
   }

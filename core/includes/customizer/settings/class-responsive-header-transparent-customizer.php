@@ -143,7 +143,7 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			responsive_color_control( $wp_customize, 'transparent_header_menu_background', $menu_background_color_label, 'responsive_header_transparent', 160, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ) );
 
 			$mobile_menu_background_color_label = __( 'Mobile Menu Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'transparent_header_mobile_menu_background', $mobile_menu_background_color_label, 'responsive_header_transparent', 170, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ), null );
+			responsive_color_control( $wp_customize, 'transparent_header_mobile_menu_background', $mobile_menu_background_color_label, 'responsive_header_transparent', 170, Responsive\Core\get_responsive_customizer_defaults( 'header_mobile_menu_background' ), null );
 
 			// Border Color.
 			$menu_border_color_label = __( 'Border Color', 'responsive' );

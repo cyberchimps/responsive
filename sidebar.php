@@ -27,7 +27,7 @@ if ( ( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_ch
 		( is_page() && 'no' === get_post_meta( get_the_ID(), 'responsive_page_meta_sidebar_position', true ) ) ||
 		( ( is_single() && ( ! is_woocommerce() && ! is_product() ) ) && 'no' === get_theme_mod( 'responsive_single_blog_sidebar_position', 'right' ) ) ||
 		( ( is_woocommerce() && is_product() ) && 'no' === get_theme_mod( 'responsive_single_product_sidebar_position', 'right' ) ) ||
-		( ( is_home() || is_search() || is_archive() && ( ! is_woocommerce() && ! is_shop() ) ) && 'no' === get_theme_mod( 'responsive_blog_sidebar_position', 'right' ) ) ||
+		( ( is_home() || is_search() || is_archive() && ( ! is_woocommerce() && ! is_shop() ) ) && 'no' === get_theme_mod( 'responsive_blog_sidebar_position', 'no' ) ) ||
 		( ( is_woocommerce() && is_shop() ) && 'no' === get_theme_mod( 'responsive_shop_sidebar_position', 'right' ) )
 	) {
 		return;
@@ -53,7 +53,7 @@ if ( ( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_ch
 		if ( ( is_page() && 'no' === get_theme_mod( 'responsive_page_sidebar_position', 'right' ) ) ||
 		( is_page() && 'no' === get_post_meta( get_the_ID(), 'responsive_page_meta_sidebar_position', true ) ) ||
 		( is_single() && 'no' === get_theme_mod( 'responsive_single_blog_sidebar_position', 'right' ) ) ||
-		( ( is_home() || is_search() || is_archive() ) && 'no' === get_theme_mod( 'responsive_blog_sidebar_position', 'right' ) )
+		( ( is_home() || is_search() || is_archive() ) && 'no' === get_theme_mod( 'responsive_blog_sidebar_position', 'no' ) )
 		) {
 			return;
 		}
@@ -79,7 +79,7 @@ if ( ( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_ch
 	if ( ( is_page() && 'no' === get_theme_mod( 'responsive_page_sidebar_position', 'right' ) ) ||
 		( is_page() && 'no' === get_post_meta( get_the_ID(), 'responsive_page_meta_sidebar_position', true ) ) ||
 		( is_single() && 'no' === get_theme_mod( 'responsive_single_blog_sidebar_position', 'right' ) ) ||
-		( ( is_home() || is_search() || is_archive() ) && 'no' === get_theme_mod( 'responsive_blog_sidebar_position', 'right' ) )
+		( ( is_home() || is_search() || is_archive() ) && 'no' === get_theme_mod( 'responsive_blog_sidebar_position', 'no' ) )
 	) {
 		return;
 	}
