@@ -8,8 +8,13 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(23/05/2025) Version 6.1.8
+[*] = Improvement = Restructured the UI of Colors & Backgrounds and Typography customizer screen.
+[!] = Fix = Fixed Shop page responsiveness issue.
+[!] = Fix = Minor customizer UI fixes.
+
 (05/05/2025) Version 6.1.7
-[*] = New = Added List/Grid Layout option setting in Blog/Archive customizer screen.
+[+] = New = Added List/Grid Layout option setting in Blog/Archive customizer screen.
 [*] = Improvement = Restructured the UI of Blog/Archive and Typography customizer screen.
 [!] = Fix = Minor bug fixes.
 
