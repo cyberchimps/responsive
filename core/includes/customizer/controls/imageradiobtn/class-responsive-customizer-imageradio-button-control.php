@@ -26,6 +26,13 @@ if ( ! class_exists( 'Responsive_Customizer_Imageradio_Button_Control' ) ) :
 		 */
 		public $type = 'responsive-imageradiobtn';
 
+		public $image_ext;
+
+		public function __construct($manager, $id, $args = array()) {
+			parent::__construct($manager, $id, $args);
+			$this->image_ext = isset($args['image_ext']) ? $args['image_ext'] : 'png';
+		}
+
 		/**
 		 * Enqueue control related scripts/styles.
 		 *
@@ -49,6 +56,7 @@ if ( ! class_exists( 'Responsive_Customizer_Imageradio_Button_Control' ) ) :
 			$this->json['id']          = $this->id;
 			$this->json['type']        = $this->type;
 			$this->json['description'] = $this->description;
+			$this->json['image_ext']   = $this->image_ext;
 		}
 
 		/**

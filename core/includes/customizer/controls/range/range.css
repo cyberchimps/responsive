@@ -1,5 +1,5 @@
 .customize-control-responsive-range .control-wrap { display: -webkit-box; display: -ms-flexbox; display: flex; flex-wrap: wrap; -webkit-align-items: center; align-items: center; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; justify-content: space-between; }
-.customize-control-responsive-range input[type=range] { background-color: rgba(0, 0, 0, 0.1); height: 5px; width: 69%; padding: 0; cursor: pointer; -webkit-transition: background .5s; -moz-transition: background .5s; transition: background .5s; -webkit-appearance: none; }
+.customize-control-responsive-range input[type=range] { background-color: rgba(0, 0, 0, 0.1); height: 4px; width: 69%; padding: 0; cursor: pointer; -webkit-transition: background .5s; -moz-transition: background .5s; transition: background .5s; -webkit-appearance: none; }
 .customize-control-responsive-range input[type="range"]:focus { box-shadow: none !important; outline: none !important; }
 .customize-control-responsive-range input[type="range"]:hover { background-color: rgba(0, 0, 0, 0.15); }
 .customize-control-responsive-range input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; background-color: #2e86b9; width: 15px; height: 15px; border-radius: 15px; -webkit-border-radius: 15px; }

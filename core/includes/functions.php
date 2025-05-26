@@ -57,6 +57,7 @@ function setup() {
 	add_filter( 'woocommerce_add_to_cart_fragments', $n( 'responsive_get_refreshed_fragments_number'), 11 );
 	add_action( 'responsive_header_woo_cart_label_markup', $n( 'responsive_woo_cart_label_markup' ), 10 );
 
+	require_once trailingslashit( get_template_directory() ) . '/core/includes/theme-updates/class-responsive-theme-background-updater.php';
 }
 
 /*
@@ -139,6 +140,7 @@ function responsive_get_option_defaults() {
 		'site_footer_option'              => 'footer-3-col',
 		'res_hide_site_title'             => false,
 		'res_hide_tagline'                => true,
+		'theme_version'                   => RESPONSIVE_THEME_VERSION,
 	);
 
 	return apply_filters( 'responsive_option_defaults', $defaults );
@@ -339,9 +341,9 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		responsive_font_sizes_backward_compatibility();
 		responsive_border_width_backward_compatibility();
 
-		if ( ! get_option( 'responsive_header_menu_background_color_backward_compatibility' ) ) {
+		if ( ! get_option( 'responsive_header_menu_background_color_backward_compatibility_v2' ) ) {
 			responsive_header_menu_background_color_backward_compatibility();
-            update_option( 'responsive_header_menu_background_color_backward_compatibility', true );
+            update_option( 'responsive_header_menu_background_color_backward_compatibility_v2', true );
 		}
 		if ( ! get_option( 'responsive_header_footer_builder_compatibility_header_widgets' ) ) {
 			if ( 1 === get_theme_mod( 'responsive_enable_header_widget', 1 ) ) {
@@ -737,7 +739,9 @@ function responsive_add_custom_body_classes( $classes ) {
 			$classes[] = 'content-alignment-' . get_theme_mod( 'responsive_blog_entry_content_alignment', 'left' );
 			// Entry Blog Columns.
 			$masonry   = ( 1 === get_theme_mod( 'responsive_blog_entry_display_masonry', 0 ) ) ? '-masonry' : '';
-			$classes[] = 'blog-entry-columns-' . get_theme_mod( 'responsive_blog_entry_columns', get_responsive_customizer_defaults( 'entry_columns' ) ) . $masonry;
+			if ( get_theme_mod( 'responsive_blog_layout', 'grid' ) === 'grid' ) {
+				$classes[] = 'blog-entry-columns-' . get_theme_mod( 'responsive_blog_entry_columns', get_responsive_customizer_defaults( 'entry_columns' ) ) . $masonry;
+			}
 			// Entry Blog sidebar Position.
 			$classes[] = 'sidebar-position-' . get_theme_mod( 'responsive_blog_sidebar_position', get_responsive_customizer_defaults( 'blog_sidebar_position' ) );
 
@@ -773,9 +777,9 @@ function responsive_add_custom_body_classes( $classes ) {
 			if ( get_theme_mod( 'responsive_blog_layout_options' ) ) {
 				if ( 'blog-layout-1' === get_theme_mod( 'responsive_blog_layout_options' ) ) {
 					$classes[] = 'standard-blog-layout';
-				} elseif ( 'blog-layout-2' === get_theme_mod( 'responsive_blog_layout_options' ) && 1 >= $blog_entry_columns_count ) {
+				} elseif ( 'blog-layout-2' === get_theme_mod( 'responsive_blog_layout_options' ) && get_theme_mod( 'responsive_blog_layout' ) === 'list' ) {
 					$classes[] = 'blog-layout-two';
-				} elseif ( 'blog-layout-3' === get_theme_mod( 'responsive_blog_layout_options' ) && 1 >= $blog_entry_columns_count ) {
+				} elseif ( 'blog-layout-3' === get_theme_mod( 'responsive_blog_layout_options' ) && get_theme_mod( 'responsive_blog_layout'  ) === 'list' ) {
 					$classes[] = 'blog-layout-three';
 				}
 			}
@@ -1137,7 +1141,8 @@ function defaults() {
 			'hamburger_menu_padding'              => 15,
 			'secondary_menu_padding'              => 0,
 			'secondary_menu_margin'               => 0,
-			'header_menu_background'              => '#ffffff',
+			'header_menu_background'              => 'transparent',
+			'header_mobile_menu_background'       => '#ffffff',
 			'header_menu_border'                  => '#eaeaea',
 			'header_active_menu_background'       => '#ffffff',
 			'header_menu_link'                    => '#333333',
@@ -2231,7 +2236,7 @@ if( ! function_exists('responsive_header_menu_background_color_backward_compatib
 			}
 		} else {
 			if ( 'vertical' !== get_theme_mod( 'responsive_header_layout', 'horizontal' ) ) {
-				set_theme_mod( 'responsive_header_menu_background_color', get_theme_mod( 'responsive_header_background_color', '#ffffff' ) );
+				set_theme_mod( 'responsive_header_menu_background_color', get_theme_mod( 'responsive_header_background_color', get_responsive_customizer_defaults( 'header_menu_background' ) ) );
 			}
 		}
 	}

@@ -16,8 +16,8 @@ const ResponsiveBackgroundImageComponent = props => {
 
     const {
         label,
-        description,
         id,
+        map_bg_color,
     } = props.control.params;
 
     const frameRef = useRef(null);
@@ -106,7 +106,16 @@ const ResponsiveBackgroundImageComponent = props => {
         // Update the Customizer setting for the URL
         props.control.settings['image_url'].set('');
     }
-
+    
+    const focusColorSetting = (controlId) => {
+        const wrapper = document.querySelector(`#customize-control-${controlId}`);
+        if (wrapper) {
+            wrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            wrapper.classList.add('highlighted'); // Add a visual effect
+            setTimeout(() => wrapper.classList.remove('highlighted'), 1000);
+        }
+    };
+    
     let NoImageSelected = <div className="responsive-bgimage-not-selected" onClick={responsiveAddBGMedia}>
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM12 18C11.4477 18 11 17.5523 11 17V13H7C6.44772 13 6 12.5523 6 12C6 11.4477 6.44772 11 7 11H11V7C11 6.44772 11.4477 6 12 6C12.5523 6 13 6.44772 13 7V11H17C17.5523 11 18 11.4477 18 12C18 12.5523 17.5523 13 17 13H13V17C13 17.5523 12.5523 18 12 18Z" fill="#007CBA"/>
@@ -124,7 +133,14 @@ const ResponsiveBackgroundImageComponent = props => {
                 <path d="M8.54159 5.04173C8.54159 5.04173 8.83325 4.45825 9.99992 4.45825C11.1666 4.45825 11.4583 5.04159 11.4583 5.04159" stroke="#666666" stroke-width="0.8" stroke-linecap="round"/>
             </svg>
             {id !== "responsive_site_background_image" && (
-                <p class="responsive-bgimage-description"><span>Note: </span>{description}</p>
+                <p className="responsive-bgimage-description">
+                    <span>Note: </span>
+                    Please reduce the opacity of{" "}
+                    <span onClick={() => focusColorSetting(map_bg_color.control_id)} style={{ cursor: "pointer", color: "#007cba" }}>
+                    {map_bg_color.label}
+                    </span>{" "}
+                    to make the background image visible. You can change the opacity by using drag control in color options. Set the value as per your requirements.
+                </p>
             )}
         </div>
     ) 

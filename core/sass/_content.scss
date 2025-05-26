@@ -180,7 +180,7 @@
     }
 
     .post-entry {
-        @include make-clearfix;
+        // @include make-clearfix;
         & > :first-child {
             margin-top: 0;
         }

@@ -66,7 +66,7 @@ if ( ! class_exists( 'Responsive_Theme_Options_Customizer' ) ) :
 							'description' => __( 'Please choose the post categories that should not be displayed on the blog page', 'responsive' ),
 							'settings'    => 'exclude_post_cat',
 							'choices'     => $option_all_post_cat,
-							'priority'    => 50,
+							'priority'    => 230,
 						)
 					)
 				);

@@ -3,7 +3,7 @@
  * @package Responsive
  * */
 
- ( function( $ ) {
+( function ( $ ) {
 
 	var api              = wp.customize;
 	ResponsiveTypography = {
@@ -15,7 +15,7 @@
 		 * @method init
 		 */
 
-		init: function() {
+		init: function () {
 			ResponsiveTypography._initFonts();
 		},
 
@@ -26,10 +26,9 @@
 		 * @access private
 		 * @method _initFonts
 		 */
-		_initFonts: function()
-		{
+		_initFonts: function () {
 			$( '.responsive-font-family-select' ).each(
-				function(e) {
+				function (e) {
 
 					var optionName;
 					optionName = $( this ).data( 'name' );
@@ -47,8 +46,7 @@
 		 * @access private
 		 * @method _initFont
 		 */
-		_initFont: function(optionName)
-		{
+		_initFont: function (optionName) {
 			var select = api.control( optionName ).container.find( 'select' ),
 				link   = select.data( 'customize-setting-link' ),
 				weight = select.data( 'connected-control' );
@@ -56,7 +54,7 @@
 			if ( 'undefined' != typeof weight ) {
 				api(
 					link,
-					function($swipe) {
+					function ($swipe) {
 						$swipe.bind(
 							function (controlValue) {
 								ResponsiveTypography._setFontWeightOptions.apply( api( link ), [false] );
@@ -77,8 +75,7 @@
 		 * @method _setFontWeightOptions
 		 * @param {Boolean} init Whether or not we're initializing this font weight control.
 		 */
-		_setFontWeightOptions: function( init )
-		{
+		_setFontWeightOptions: function ( init ) {
 			var i                   = 0,
 				fontSelect          = api.control( this.id ).container.find( 'select' ),
 				fontValue           = this(),
@@ -112,27 +109,36 @@
 			}
 		},
 	}
-	$( function() { ResponsiveTypography.init(); } );
+	$(
+		function () {
+			ResponsiveTypography.init(); }
+	);
 
 })( jQuery );
 
 function get_associated_fonts(fontValue){
-	var weightObject = [], isStandardFont = false, weight, isCustomFont = false, custom_fonts_data = false, missingCustomFont = false;
+	var weightObject = [], isStandardFont = false, weight, isCustomFont = false, custom_fonts_data = responsive.custom_fonts, missingCustomFont = false;
+
 	for (var propName in responsive.std_fonts) {
 		if (fontValue === propName) {
 			isStandardFont = true;
 			for (var i = 0; i < JSON.stringify( responsive.std_fonts[fontValue][0].length ); i++) {
-				weight = JSON.stringify( responsive.std_fonts[fontValue][0][i] ).replace( /"/g, '' );
-				if ( ! weight.includes( 'italic' )) {
-					weightObject.push( weight );
-				}
+				weightObject.push( JSON.stringify( responsive.std_fonts[fontValue][0][i] ) );
 			}
 		}
 	}
+
+	for (var propName in  custom_fonts_data ) {
+		if ( fontValue === propName && ! isStandardFont ) {
+			isCustomFont = true;
+			weightObject = [ 100, 200, 300, 400, 500, 600, 700, 800, 900];
+		}
+	}
+
 	if ( ! isStandardFont && ! isCustomFont ) {
 		if ( responsive.googleFonts[fontValue] == undefined ) {
 			missingCustomFont = true;
-		}else{
+		} else {
 			for (var i = 0; i < JSON.stringify( responsive.googleFonts[fontValue][0].length ); i++) {
 				weight = JSON.stringify( responsive.googleFonts[fontValue][0][i] ).replace( /"/g, '' );
 				if ( ! weight.includes( 'italic' )) {
@@ -142,22 +148,21 @@ function get_associated_fonts(fontValue){
 		}
 	}
 	if ( missingCustomFont ) {
-		( function( $ ) {
+		( function ( $ ) {
 			var api = wp.customize;
 			$( '.responsive-font-family-select' ).each(
-				function(e) {
+				function (e) {
 					var optionName;
 					optionName = $( this ).data( 'name' );
 					var select = api.control( optionName ).container.find( 'select' ),
-					link   = select.data( 'customize-setting-link' ),
-					value = select.data( 'value' );
-					if(fontValue  === value ){
-						api( link ).set('');
+					link       = select.data( 'customize-setting-link' ),
+					value      = select.data( 'value' );
+					if (fontValue === value ) {
+						api( link ).set( '' );
 					}
 				}
 			);
 		})( jQuery );
 	}
-
 	return weightObject;
 }
