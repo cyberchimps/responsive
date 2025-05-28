@@ -117,7 +117,9 @@ if ( ! class_exists( 'Responsive_Customizer_Typography_Control' ) ) :
 			if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 				return Responsive_Pro_Custom_Fonts_Taxonomy::get_fonts();
 			}
-			if ( class_exists( 'Responsive_Add_Ons' ) && 'on' === get_option( 'rplus_custom_fonts_enable' ) ) {
+			if ( class_exists( 'Responsive_Add_Ons' ) 
+			&& 'on' === get_option( 'rplus_custom_fonts_enable' ) 
+			&& class_exists( 'Responsive_Add_Ons_Custom_Fonts_Taxonomy' ) ) {
 				return Responsive_Add_Ons_Custom_Fonts_Taxonomy::get_fonts();
 			}
 			return null;
