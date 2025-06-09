@@ -1379,6 +1379,16 @@ function defaults() {
 																				'section' => 'sidebar-widgets-footer-widget-4',
 																				'icon'    => 'wordpress',
 																			),
+																			'widget-5' => array(
+																				'name'    => esc_html__( 'Widget 5', 'responsive' ),
+																				'section' => 'sidebar-widgets-footer-widget-5',
+																				'icon'    => 'wordpress',
+																			),
+																			'widget-6' => array(
+																				'name'    => esc_html__( 'Widget 6', 'responsive' ),
+																				'section' => 'sidebar-widgets-footer-widget-6',
+																				'icon'    => 'wordpress',
+																			),
 																			'colophon-widget' => array(
 																				'name'    => esc_html__( 'Colophon Widget', 'responsive' ),
 																				'section' => 'sidebar-widgets-colophon-widget',
