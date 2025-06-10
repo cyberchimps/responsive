@@ -139,51 +139,69 @@ function responsive_get_google_fonts() {
  */
 function responsive_enqueue_google_font( $font ) {
 
-	// Return if disabled.
-	if ( true === get_theme_mod( 'responsive_disable_google_font', false ) ) {
-		return;
-	}
-
-	// Get list of all Google Fonts.
-	$google_fonts = responsive_get_google_fonts();
-
-	$font_name_array = explode( ',', $font, 2 );
-
-	// Sanitize font name.
-	$font_name = trim( $font_name_array[0], "'" );
-	// Make sure font is in our list of fonts.
-	if ( ! $google_fonts || ! array_key_exists( $font_name, $google_fonts ) ) {
-		return;
-	}
-	$font = str_replace( ' ', '+', $font_name );
-
-	// Sanitize handle.
-	$handle = trim( $font_name );
-	$handle = strtolower( $handle );
-	$handle = str_replace( ' ', '-', $handle );
-
-	// Weights.
-	$weights = array( '100', '200', '300', '400', '500', '600', '700', '800', '900' );
-	$weights = apply_filters( 'responsive_google_font_enqueue_weights', $weights, $font );
-	$italics = apply_filters( 'responsive_google_font_enqueue_italics', true );
-	// Main URL.
-	$query_url = str_replace( ' ', '%20', $font ) . ':';
-
-	// Add weights to URL.
-	if ( ! empty( $weights ) ) {
-		$query_url     .= implode( ',', $weights ) . ',';
-		$italic_weights = array();
-		if ( $italics ) {
-			foreach ( $weights as $weight ) {
-				$italic_weights[] = $weight . 'i';
-			}
-			$query_url .= implode( ',', $italic_weights );
+		// Return if disabled.
+		if ( true === get_theme_mod( 'responsive_disable_google_font', false ) ) {
+			return;
 		}
-	}
 
-	return $query_url;
+		// Get list of all Google Fonts.
+		$google_fonts = responsive_get_google_fonts();
 
+		$font_name_array = explode( ',', $font, 2 );
+
+		// Sanitize font name.
+		$font_name = trim( $font_name_array[0], "'" );
+		// Make sure font is in our list of fonts.
+		if ( ! $google_fonts || ! array_key_exists( $font_name, $google_fonts ) ) {
+			return;
+		}
+		$font = str_replace( ' ', '+', $font_name );
+
+		// Sanitize handle.
+		$handle = trim( $font_name );
+		$handle = strtolower( $handle );
+		$handle = str_replace( ' ', '-', $handle );
+
+		// Subset.
+		$get_subsets = get_theme_mod( 'responsive_google_font_subsets', array( 'latin' ) );
+		$subsets     = '';
+		if ( ! empty( $get_subsets ) ) {
+			$font_subsets = array();
+			foreach ( $get_subsets as $get_subset ) {
+				$font_subsets[] = $get_subset;
+			}
+			$subsets .= implode( ',', $font_subsets );
+		} else {
+			$subsets = 'latin';
+		}
+		$subset = '&amp;subset=' . $subsets;
+
+		// Weights.
+		$weights = array( '100', '200', '300', '400', '500', '600', '700', '800', '900' );
+		$weights = apply_filters( 'responsive_google_font_enqueue_weights', $weights, $font );
+		$italics = apply_filters( 'responsive_google_font_enqueue_italics', true );
+		// Main URL.
+		$url = '//fonts.googleapis.com/css?family=' . str_replace( ' ', '%20', $font ) . ':';
+
+		// Add weights to URL.
+		if ( ! empty( $weights ) ) {
+			$url           .= implode( ',', $weights ) . ',';
+			$italic_weights = array();
+			if ( $italics ) {
+				foreach ( $weights as $weight ) {
+					$italic_weights[] = $weight . 'i';
+				}
+				$url .= implode( ',', $italic_weights );
+			}
+		}
+
+		// Add subset to URL.
+		$url .= $subset;
+
+		// Enqueue style.
+        wp_enqueue_style('responsive-google-font-' . $handle, $url, false, false, 'all');//phpcs:ignore
 }
+
 /**
  * Adds data to the $fonts array for a font to be rendered.
  */
