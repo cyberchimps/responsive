@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				else :
 
 					?>
-					<p class="site-title"><a href="<?php echo esc_url( get_theme_mod( 'responsive_custom_logo_url', home_url( '/' ) ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+					<h1 class="site-title"><a href="<?php echo esc_url( get_theme_mod( 'responsive_custom_logo_url', home_url( '/' ) ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 					<?php
 
 				endif;
