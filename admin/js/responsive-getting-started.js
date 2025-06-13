@@ -209,6 +209,37 @@ jQuery(document).ready(function ($) {
             }
         );
     })
+    // Toggle for Custom Fonts.
+    $('.resp-custom-fonts-input-checkbox').on('change', function(event){
+        event.preventDefault();
+        $(this).parents('.responsive-theme-pro-features').toggleClass('disable-customize');
+        let value = $(this).prop("checked") ? 'on' : 'off'
+
+        let nonce = $(this).data('nonce')
+        $.ajax(
+            {
+                type: 'POST',
+                url: localize.ajaxurl,
+                data:
+                {
+                    action: 'responsive-plus-enable-custom-fonts',
+                    _nonce: nonce,
+                    value
+                },
+                success: function success( data )
+                {
+                    if (data.success) {
+                        displayToast( 'Settings Saved', 'success' );
+                        setTimeout( ()=> {
+                            window.location.reload();
+                        }, 100 );
+                    } else {
+                        displayToast( 'Error', 'error' );
+                    }
+                }
+            }
+        );
+    })
     // Toggle for Typography.
     $('.resp-typography-input-checkbox').on('change', function(event){
         event.preventDefault();

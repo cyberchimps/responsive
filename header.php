@@ -52,7 +52,7 @@ if ( ! function_exists( 'check_is_responsive_addons_greater' ) ) {
 	<div class="skip-container cf">
 		<a class="skip-link screen-reader-text focusable" href="#primary"><?php esc_html_e( '&darr; Skip to Main Content', 'responsive' ); ?></a>
 	</div><!-- .skip-container -->
-	<div class="site hfeed">
+	<div class="site hfeed" id="page">
 		<?php
 		Responsive\responsive_header_top();
 		$responsive_show_header = true;

@@ -146,6 +146,7 @@ class Responsive_Home_Starter_Content {
 				'responsive_menu_item_hover_style'                    => 'underline',
 				'responsive_header_menu_background_color'             => '#2D2C52',
 				'responsive_header_menu_toggle_background_color'      => '#2D2C52',
+				'responsive_header_primary_row_bottom_border_size'    => 0,
 			
 				// Header Primary Row Padding
 				'responsive_header_primary_row_padding_right_padding' => 50,

@@ -20,6 +20,7 @@ class ResponsiveColorPickerControl extends Component {
 			modalCanClose: true,
 			backgroundType: this.props.backgroundType,
 			inputattr: this.props.inputattr,
+			opacityZero: this.extractOpacity(this.props.color) === 0,
 		};
 	}
 
@@ -29,6 +30,22 @@ class ResponsiveColorPickerControl extends Component {
 		} else {
 			this.setState( { refresh: true } );
 		}
+	}
+
+	extractOpacity(colorStr) {
+		if (!colorStr) return 1;
+
+		if (colorStr === 'transparent') {
+			return 0;
+		}
+
+		// Match rgba(r, g, b, a)
+		const rgbaMatch = colorStr.match(/rgba\(\s*\d+,\s*\d+,\s*\d+,\s*(\d*\.?\d+)\s*\)/);
+		if (rgbaMatch) {
+			return parseFloat(rgbaMatch[1]);
+		}
+
+		return 1;
 	}
 
 	render() {
@@ -114,7 +131,9 @@ class ResponsiveColorPickerControl extends Component {
 
 										</>
 									) }
-									
+								{ this.state.opacityZero && 
+									<div className='responsive-color-picker-zero-opac'><strong>{ __( 'Note: ', 'responsive' ) }</strong>{ __( 'Opacity is set to zero. Increase it to make the color visible.', 'responsive' ) }</div>
+								}
 								<button type="button" onClick = { () => { this.onColorClearClick(defaultValue) } } className="responsive-clear-btn-inside-picker components-button components-circular-option-picker__clear is-secondary is-small">{ __( 'Default', 'responsive' ) }</button>
 					
 								
@@ -129,6 +148,9 @@ class ResponsiveColorPickerControl extends Component {
 
 	onColorClearClick(color) {
 
+		if( color === 'transparent' ) {
+			this.setState({ opacityZero: true });
+		}
 		if ( this.state.refresh === true ) {
 			this.setState( { refresh: false } );
 		} else {
@@ -141,9 +163,22 @@ class ResponsiveColorPickerControl extends Component {
 	onChangeComplete( color ) {
 
 		let newColor;
-		if ( color.rgb && color.rgb.a && 1 !== color.rgb.a ) {
-			newColor = 'rgba(' +  color.rgb.r + ',' +  color.rgb.g + ',' +  color.rgb.b + ',' + color.rgb.a + ')';
+
+		if ( color.rgb && color.rgb.a !== undefined ) {
+			if ( color.rgb.a === 0 ) {
+				// Show a notice when opacity is 0
+				this.setState({ opacityZero: true });
+			} else {
+				this.setState({ opacityZero: false });
+			}
+	
+			if ( color.rgb.a !== 1 ) {
+				newColor = 'rgba(' +  color.rgb.r + ',' +  color.rgb.g + ',' +  color.rgb.b + ',' + color.rgb.a + ')';
+			} else {
+				newColor = color.hex;
+			}
 		} else {
+			this.setState({ opacityZero: false });
 			newColor = color.hex;
 		}
 		this.setState( { backgroundType: 'color' } );

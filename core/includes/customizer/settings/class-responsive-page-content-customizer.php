@@ -72,7 +72,6 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 				$general_tab_ids_prefix . 'content_separator',
 				$general_tab_ids_prefix . 'content_alignment',
 				$general_tab_ids_prefix . 'content_width_separator',
-				$general_tab_ids_prefix . 'single_elements_positioning_separator',
 				$general_tab_ids_prefix . 'featured_image_width_separator',
 				$general_tab_ids_prefix . 'featured_image_style_separator',
 				$general_tab_ids_prefix . 'featured_image_alignment_separator',
@@ -111,8 +110,6 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 					)
 				)
 			);
-
-			responsive_horizontal_separator_control($wp_customize, 'page_single_elements_positioning_separator', 2, 'responsive_page', 22, 1, );
 
 			/**
 			 * Entry Elements.

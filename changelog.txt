@@ -8,6 +8,26 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(23/05/2025) Version 6.1.8
+[*] = Improvement = Restructured the UI of Colors & Backgrounds and Typography customizer screen.
+[!] = Fix = Fixed Shop page responsiveness issue.
+[!] = Fix = Minor customizer UI fixes.
+
+(05/05/2025) Version 6.1.7
+[+] = New = Added List/Grid Layout option setting in Blog/Archive customizer screen.
+[*] = Improvement = Restructured the UI of Blog/Archive and Typography customizer screen.
+[!] = Fix = Minor bug fixes.
+
+(17/04/2025) Version 6.1.6
+[*] = Improvement = Enhanced the layout of default blog page.
+[!] = Fix = Fixed footer layout elements compatibility issue with Footer Builder.
+[!] = Fix = Fixed global button color overriding unintended buttons within the Gutenberg editor.
+
+(10/04/2025) Version 6.1.5
+[!] = Fix = Resolved issue where both the primary menu and hamburger menu were visible at the mobile breakpoint.
+[!] = Fix = Addressed bugs related to certain customizer settings.
+[!] = Fix = Minor UI fixes.
+
 (13/03/2025) Version 6.1.4
 [+] = New = Added a setting to change background color of menu and transparent header's menu.
 [!] = Fix = Fixed menu going off screen in RTL mode.

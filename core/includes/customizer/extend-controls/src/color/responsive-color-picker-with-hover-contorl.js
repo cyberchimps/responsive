@@ -21,6 +21,8 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 			modalCanClose: true,
 			backgroundType: this.props.backgroundType,
 			inputattr: this.props.inputattr,
+			normalOpacityZero: this.extractOpacity(this.props.color) === 0,
+			hoverOpacityZero: this.extractOpacity(this.props.hover_color) === 0,
 		};
 	}
 
@@ -30,6 +32,22 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 		} else {
 			this.setState({ refresh: true });
 		}
+	}
+
+	extractOpacity(colorStr) {
+		if (!colorStr) return 1;
+
+		if (colorStr === 'transparent') {
+			return 0;
+		}
+
+		// Match rgba(r, g, b, a)
+		const rgbaMatch = colorStr.match(/rgba\(\s*\d+,\s*\d+,\s*\d+,\s*(\d*\.?\d+)\s*\)/);
+		if (rgbaMatch) {
+			return parseFloat(rgbaMatch[1]);
+		}
+
+		return 1;
 	}
 
     toggleNormalVisible() {		
@@ -107,6 +125,9 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 										onChangeComplete={(color) => this.onChangeComplete(color, 'normal')}
 									/>
 								)}
+								{ this.state.normalOpacityZero && 
+									<div className='responsive-color-picker-zero-opac'><strong>{ __( 'Note: ', 'responsive' ) }</strong>{ __( 'Opacity is set to zero. Increase the opacity to see the color changes.', 'responsive' ) }</div>
+								}
 								<button type="button" onClick={() => { this.onColorClearClick(defaultValue.normal, 'normal') }} className="responsive-clear-btn-inside-picker components-button components-circular-option-picker__clear is-secondary is-small">{__('Default', 'responsive')}</button>
 							</>
 						)}
@@ -133,6 +154,9 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 										onChangeComplete={(color) => this.onChangeComplete(color, 'hover')}
 									/>
 								)}
+								{ this.state.hoverOpacityZero && 
+									<div className='responsive-color-picker-zero-opac'><strong>{ __( 'Note: ', 'responsive' ) }</strong>{ __( 'Opacity is set to zero. Increase it to make the color visible.', 'responsive' ) }</div>
+								}
 								<button type="button" onClick={() => { this.onColorClearClick(defaultValue.hover, 'hover') }} className="responsive-clear-btn-inside-picker components-button components-circular-option-picker__clear is-secondary is-small">{__('Default', 'responsive')}</button>
 							</>
 						)}
@@ -143,6 +167,18 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 	}
 
 	onColorClearClick(color, type) {
+
+		if( color === 'transparent' && type === 'normal' ) {
+			this.setState({ opacityZero: true });
+		} else if( color !== 'transparent' && type === 'normal' ) {
+			this.setState({ opacityZero: false });
+		}
+		if( color === 'transparent' && type === 'hover' ) {
+			this.setState({ opacityZero: true });
+		} else if( color !== 'transparent' && type === 'hover' ) {
+			this.setState({ opacityZero: false });
+		}
+
 		if (this.state.refresh === true) {
 			this.setState({ refresh: false });
 		} else {
@@ -154,9 +190,22 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 
 	onChangeComplete(color, type) {
 		let newColor;
-		if (color.rgb && color.rgb.a && 1 !== color.rgb.a) {
-			newColor = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
+		if ( color.rgb && color.rgb.a !== undefined ) {
+			if ( color.rgb.a === 0 ) {
+				// Show a notice when opacity is 0
+				'hover' === type ? this.setState({ hoverOpacityZero: true }) : this.setState({ normalOpacityZero: true });
+			} else {
+				'hover' === type ? this.setState({ hoverOpacityZero: false }) : this.setState({ normalOpacityZero: false });
+			}
+	
+			if ( color.rgb.a !== 1 ) {
+				newColor = 'rgba(' +  color.rgb.r + ',' +  color.rgb.g + ',' +  color.rgb.b + ',' + color.rgb.a + ')';
+			} else {
+				newColor = color.hex;
+			}
 		} else {
+			this.setState({ hoverOpacityZero: false });
+			this.setState({ normalOpacityZero: false });
 			newColor = color.hex;
 		}
 

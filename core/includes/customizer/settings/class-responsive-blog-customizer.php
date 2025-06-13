@@ -52,19 +52,23 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 					$wp_customize,
 					'responsive_blog_layout_options',
 					array(
-						'label'    => esc_html__( 'Blog/Archive Layouts (Desktop)', 'responsive' ),
+						'label'    => esc_html__( 'Image Position', 'responsive' ),
 						'section'  => 'responsive_blog_layout',
 						'settings' => 'responsive_blog_layout_options',
-						'priority' => 5,
+						'priority' => 50,
 						'choices'  => $blog_layout_choices,
+						'active_callback' => 'responsive_active_blog_layout_list',
+						'image_ext' => 'svg',
 					)
 				)
 			);
 
+			responsive_horizontal_separator_control($wp_customize, 'blog_image_positions_layout_separator', 1, 'responsive_blog_layout', 47, 1, 'responsive_active_blog_layout_list' );
+
 			/* End of blog layout setting */
 
 			$date_box_label = esc_html__( 'Enable Date Box', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'date_box_toggle', $date_box_label, 'responsive_blog_layout', 35, 0, '' );
+			responsive_toggle_control( $wp_customize, 'date_box_toggle', $date_box_label, 'responsive_blog_layout', 280, 0, '' );
 			/* End of date box setting */
 
 			/* Setting for changing style of the date box */
@@ -82,7 +86,7 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 				)
 			);
 
-			responsive_horizontal_separator_control($wp_customize, 'date_box_toggle_separator', 1, 'responsive_blog_layout', 37, 1, 'responsive_date_box_toggle_callback' );
+			responsive_horizontal_separator_control($wp_customize, 'date_box_toggle_separator', 1, 'responsive_blog_layout', 285, 1, 'responsive_date_box_toggle_callback' );
 
 			$wp_customize->add_control(
 				new Responsive_Customizer_Imageradio_Button_Control(
@@ -92,7 +96,7 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 						'label'    => esc_html__( 'Date Box Style', 'responsive' ),
 						'section'  => 'responsive_blog_layout',
 						'settings' => 'responsive_date_box_style',
-						'priority' => 40,
+						'priority' => 290,
 						'choices'  => array(
 							'square' => esc_html__( 'Square', 'responsive' ),
 							'round'  => esc_html__( 'Round', 'responsive' ),
@@ -101,7 +105,7 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 					)
 				)
 			);
-			responsive_horizontal_separator_control($wp_customize, 'date_box_style_separator', 1, 'responsive_blog_layout', 42, 1, );
+
 			/* End of date box style setting */
 
 			$wp_customize->add_setting(
@@ -119,7 +123,7 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 					array(
 						'label'    => __( 'Post Pagination', 'responsive' ),
 						'section'  => 'responsive_blog_layout',
-						'priority' => 20,
+						'priority' => 240,
 						'settings' => 'blog_pagination',
 						'choices'  => array(
 							'default'  => esc_html__( 'Default', 'responsive' ),
@@ -128,8 +132,6 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 					)
 				)
 			);
-
-			responsive_horizontal_separator_control($wp_customize, 'blog_pagination_separator', 1, 'responsive_blog_layout', 22, 1, );
 
 			$theme = wp_get_theme(); // gets the current theme.
 			if ( 'Responsive' === $theme->name || 'Responsive' === $theme->parent_theme ) {
