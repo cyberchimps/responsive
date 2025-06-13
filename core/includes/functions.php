@@ -1923,6 +1923,46 @@ if( ! function_exists( 'responsive_old_header_footer_comaptibility_with_hfb' ) )
 		// Copyright typography backward compatibility
 		set_theme_mod( 'footer_copyright_typography', get_theme_mod( 'footer_typography' ) );
 
+		if ( ! empty( $footer_layout_elements ) ) {
+
+			// Footer Layout Elements backward compatibility.
+			$footer_layout_elements_count = count( $footer_layout_elements );
+			set_theme_mod( 'responsive_footer_primary_columns', is_active_sidebar( 'colophon-widget' ) ? (string) $footer_layout_elements_count + 1: (string) $footer_layout_elements_count );
+	
+			$footer_element_map = array(
+				'social_icons'      => 'social',
+				'footer_menu'       => 'footer_navigation',
+				'copy_right_text'   => 'footer_copyright',
+			);
+	
+			// Clean up previous assignments (remove social, footer_navigation, and footer_copyright from all positions).
+			$footer_elements_to_reorder = array('social', 'footer_navigation', 'footer_copyright');
+	
+			foreach ( $footer_hfb_elements['primary'] as $key => &$section ) {
+				foreach ( $section as $index => $element ) {
+					if ( in_array( $element, $footer_elements_to_reorder, true ) ) {
+						unset( $section[$index] );
+					}
+				}
+			}
+			$footer_hfb_elements['below']['below_1'] = array();
+			// Reindex the arrays to prevent empty gaps.
+			foreach ( $footer_hfb_elements['primary'] as &$section ) {
+				$section = array_values($section);
+			}
+	
+			// Now reassign based on the layout order.
+			$position = is_active_sidebar( 'colophon-widget' ) ? 2 : 1;
+			foreach ( $footer_layout_elements as $layout_key ) {
+				if ( isset( $footer_element_map[ $layout_key ] ) ) {
+					$element = $footer_element_map[ $layout_key ];
+					$primary_key = 'primary_' . $position;
+					array_push( $footer_hfb_elements['primary'][ $primary_key ], $element );
+					$position++;
+				}
+			}
+		}
+
 		set_theme_mod( 'responsive_footer_items', $footer_hfb_elements );
 	}
 endif;
