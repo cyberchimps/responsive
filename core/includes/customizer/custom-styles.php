@@ -4418,9 +4418,9 @@ function responsive_customizer_styles() {
 	$header_button_border_style = get_theme_mod( 'responsive_header_button_border_style' , Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_style' ) );
 
 	if ( 'none' !== $header_button_border_style ) {
-		$header_button_border_width       = get_theme_mod( 'responsive_header_button_border_width', 'responsive_header_button_border_width' );
-		$header_button_border_color       = get_theme_mod( 'responsive_header_button_border_color', 'responsive_header_button_border_color' );
-		$header_button_border_color_hover = get_theme_mod( 'responsive_header_button_border_hover_color', 'responsive_header_button_border_color_hover' );
+		$header_button_border_width       = get_theme_mod( 'responsive_header_button_border_width', Responsive\Core\get_responsive_customizer_defaults(  'responsive_header_button_border_width' ) );
+		$header_button_border_color       = get_theme_mod( 'responsive_header_button_border_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_color' ) );
+		$header_button_border_color_hover = get_theme_mod( 'responsive_header_button_border_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_color_hover' ) );
 
 		$header_button_border_radius_top_left     = get_theme_mod( 'responsive_header_button_radius_top_left_radius' );
 		$header_button_border_radius_top_right    = get_theme_mod( 'responsive_header_button_radius_top_right_radius' );
