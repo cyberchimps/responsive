@@ -819,6 +819,32 @@ function responsive_gutenberg_customizer_css() {
 		$custom_css .= "}}";
 	}
 
+	// Apply typography styles if font presets are selected
+	$preset = get_theme_mod( 'responsive_font_presets', '' );
+
+	if ( $preset !== '' ) {
+		$choices = json_decode( get_theme_mod( 'font_presets_value'),true );
+		if ( isset( $choices[ $preset ] ) ) {
+			$headingFontFamily = $choices[ $preset ]['headingFont'];
+			$bodyFontFamily = $choices[ $preset ]['bodyFont'];
+			$bodyFontWeight = $choices[ $preset ]['bodyWeight'];
+			$headingFontWeight = $choices[ $preset ]['headingWeight'];
+			responsive_render_google_fonts_url(array($bodyFontFamily, $headingFontFamily));
+
+			$custom_css .= "
+			$block_editor_body_selector {
+
+				font-family: {$bodyFontFamily};
+				font-weight: {$bodyFontWeight};
+			}
+			$block_editor_all_headings_selector {
+				font-family: {$headingFontFamily};
+				font-weight: {$headingFontWeight};
+			}";
+		}
+	}
+
+
 	if ( class_exists( 'WooCommerce' ) ) {
 		$custom_css .= '
 			.editor-styles-wrapper .wp-block .add_to_cart_button {
