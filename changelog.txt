@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(16/06/2025) Version 6.1.9
+[!] = Fix = Fixed Typography font presets issue in the frontend.
+[!] = Fix = Fixed an issue where Paragraph Margin Bottom setting was applying on unintended areas in the frontend.   
+[!] = Fix = Fixed border radius issue in the Header Builder Button element.
+
 (23/05/2025) Version 6.1.8
 [*] = Improvement = Restructured the UI of Colors & Backgrounds and Typography customizer screen.
 [!] = Fix = Fixed Shop page responsiveness issue.
