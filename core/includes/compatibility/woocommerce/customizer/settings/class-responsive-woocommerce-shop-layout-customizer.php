@@ -66,29 +66,35 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				$general_tab_ids_prefix . 'toolbar_options',
 				$general_tab_ids_prefix . 'responsive_native_cart_popup_separator',
 				$general_tab_ids_prefix . 'responsive_enable_native_cart_popup',
-				$general_tab_ids_prefix . 'responsive_native_cart_popup_display',
-				$general_tab_ids_prefix . 'responsive_popup_elements_positioning',
-				$general_tab_ids_prefix . 'responsive_popup_title_text',
-				$general_tab_ids_prefix . 'responsive_popup_content',
-				$general_tab_ids_prefix . 'responsive_popup_continue_btn_text',
-				$general_tab_ids_prefix . 'responsive_popup_cart_btn_text',
-				$general_tab_ids_prefix . 'responsive_popup_bottom_text',
-				$general_tab_ids_prefix . 'responsive_native_cart_popup_styling_separator',
-				$general_tab_ids_prefix . 'responsive_popup_width',
-				$general_tab_ids_prefix . 'responsive_popup_width_tablet',
-				$general_tab_ids_prefix . 'responsive_popup_width_mobile',
-				$general_tab_ids_prefix . 'responsive_popup_height',
-				$general_tab_ids_prefix . 'responsive_popup_height_tablet',
-				$general_tab_ids_prefix . 'responsive_popup_height_mobile',
-				$general_tab_ids_prefix . 'responsive_popup_padding',
-				$general_tab_ids_prefix . 'responsive_popup_radius_padding',
+				
 				$general_tab_ids_prefix . 'content_alignment_options',
 				$general_tab_ids_prefix . 'shop_pagination',
 				$general_tab_ids_prefix . 'shop_pagination_style',
 				$general_tab_ids_prefix . 'shop_pagination_quick_view',
 			);
-
-
+			
+			$enable_native_popup_flag = get_theme_mod('enable_native_cart_popup');
+			
+			$native_general_pop_up_options = array(
+			$general_tab_ids_prefix . 'responsive_native_cart_popup_display',
+			$general_tab_ids_prefix . 'responsive_popup_elements_positioning',
+			$general_tab_ids_prefix . 'responsive_popup_title_text',
+			$general_tab_ids_prefix . 'responsive_popup_content',
+			$general_tab_ids_prefix . 'responsive_popup_continue_btn_text',
+			$general_tab_ids_prefix . 'responsive_popup_cart_btn_text',
+			$general_tab_ids_prefix . 'responsive_popup_bottom_text',
+			$general_tab_ids_prefix . 'responsive_native_cart_popup_styling_separator',
+			$general_tab_ids_prefix . 'responsive_popup_width',
+			$general_tab_ids_prefix . 'responsive_popup_width_tablet',
+			$general_tab_ids_prefix . 'responsive_popup_width_mobile',
+			$general_tab_ids_prefix . 'responsive_popup_height',
+			$general_tab_ids_prefix . 'responsive_popup_height_tablet',
+			$general_tab_ids_prefix . 'responsive_popup_height_mobile',
+			$general_tab_ids_prefix . 'responsive_popup_padding',
+			$general_tab_ids_prefix . 'responsive_popup_radius_padding',
+			);
+			
+			
 			$design_tab_ids_prefix = 'customize-control-';
 			$design_tab_ids        = array(
 				$design_tab_ids_prefix . 'responsive_shop_product_rating_color',
@@ -102,6 +108,22 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_sorting_option_text_color',
 				$design_tab_ids_prefix . 'responsive_sorting_option_background_color',
 				$design_tab_ids_prefix . 'responsive_off_canvas_close_button_color',
+				$design_tab_ids_prefix . 'box_shadow_options',
+				$design_tab_ids_prefix . 'box_shadow_hover_options',
+				$design_tab_ids_prefix . 'product_image_hover_style_options',
+				$design_tab_ids_prefix . 'responsive_shop_page_title_seperator',
+				$design_tab_ids_prefix . 'responsive_shop_page_title_shop_typography_group',
+				$design_tab_ids_prefix . 'responsive_product_title_shop_typography_group',
+				$design_tab_ids_prefix . 'responsive_product_price_shop_typography_group',
+				$design_tab_ids_prefix . 'responsive_product_content_shop_typography_group',
+				$design_tab_ids_prefix . 'responsive_shop_page_title_shop_typography_group_seperator',
+				$design_tab_ids_prefix . 'responsive_product_title_shop_typography_group_seperator',
+				$design_tab_ids_prefix . 'responsive_product_price_shop_typography_group_seperator',
+				$design_tab_ids_prefix . 'responsive_product_content_shop_typography_group_seperator',
+				
+			);
+			
+			$native_design_pop_up_options = array(
 				$design_tab_ids_prefix . 'responsive_native_cart_popup_styling_color_separator',
 				$design_tab_ids_prefix . 'responsive_popup_bg_color',
 				$design_tab_ids_prefix . 'responsive_popup_overlay_color',
@@ -122,25 +144,16 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_popup_cart_btn_hover_border_color',
 				$design_tab_ids_prefix . 'responsive_popup_text_color',
 				$design_tab_ids_prefix . 'responsive_popup_continue_btn_color',
-				$design_tab_ids_prefix . 'box_shadow_options',
-				$design_tab_ids_prefix . 'box_shadow_hover_options',
-				$design_tab_ids_prefix . 'product_image_hover_style_options',
-				$design_tab_ids_prefix . 'responsive_shop_page_title_seperator',
-				$design_tab_ids_prefix . 'responsive_shop_page_title_shop_typography_group',
-				$design_tab_ids_prefix . 'responsive_product_title_shop_typography_group',
-				$design_tab_ids_prefix . 'responsive_product_price_shop_typography_group',
-				$design_tab_ids_prefix . 'responsive_product_content_shop_typography_group',
-				$design_tab_ids_prefix . 'responsive_shop_page_title_shop_typography_group_seperator',
-				$design_tab_ids_prefix . 'responsive_product_title_shop_typography_group_seperator',
-				$design_tab_ids_prefix . 'responsive_product_price_shop_typography_group_seperator',
-				$design_tab_ids_prefix . 'responsive_product_content_shop_typography_group_seperator',
-				
 			);
-
-		
+			
+			if ( $enable_native_popup_flag === true || $enable_native_popup_flag === '1' || $enable_native_popup_flag === 1 ) {
+				$general_tab_ids = array_merge( $general_tab_ids, $native_general_pop_up_options );
+				$design_tab_ids = array_merge($design_tab_ids, $native_design_pop_up_options);
+			}
+			
 			responsive_tabs_button_control( $wp_customize, 'woocommerce_shop_tabs', $tabs_label, 'responsive_woocommerce_shop', 1, '', 'responsive_woocommerce_shop_general_tab', 'responsive_woocommerce_shop_design_tab', $general_tab_ids, $design_tab_ids, null );
-
-
+			
+			
 			// Layouts.
 			$shop_layout_elements_label = esc_html__( 'Layouts', 'responsive' );
 			responsive_separator_control( $wp_customize, 'shop_layout_elements_separator', $shop_layout_elements_label, 'responsive_woocommerce_shop', 10 );
