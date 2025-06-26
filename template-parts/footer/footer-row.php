@@ -20,7 +20,7 @@ $i = 0;
 			<?php
                 while ( $i++ < $columns ) {
                     ?>
-                    <div class="site-footer-<?php echo esc_attr( $row ); ?>-section-<?php echo esc_attr( $i ); ?> site-footer-section footer-section-inner-items-<?php echo esc_attr( footer_column_item_count( $row, $i ) ); ?>">
+                    <div class="site-footer-<?php echo esc_attr( $row ); ?>-section-<?php echo esc_attr( $i ); ?> site-footer-section footer-section-inner-items-<?php echo esc_attr( Responsive_Builder_Footer::get_instance()->footer_column_item_count( $row, $i ) ); ?>">
                         <?php
                         /**
                          * Responsive Render Footer Column
