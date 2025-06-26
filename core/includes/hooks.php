@@ -45,6 +45,8 @@ function setup() {
 
 	add_filter( 'get_custom_logo', $n( 'responsive_custom_logo_link' ) );
 
+	add_action( 'responsive_404_content', $n( 'responsive_404_content_markup' ), 10 );
+
 	/**
 	 * Sensei
 	 *
@@ -546,4 +548,24 @@ function responsive_custom_footer() {
  */
 function responsive_single_blog_related_posts_entry() {
 	do_action( 'responsive_single_blog_related_posts_entry' );
+}
+
+/**
+ * Responsive 404 content wrapper.
+ */
+function responsive_404_content() {
+	do_action( 'responsive_404_content' );
+}
+
+function responsive_404_content_markup() {
+	if ( is_404() ) {
+		get_template_part( 'template-parts/content', '404' );
+	}
+}
+
+/**
+ * 404
+ */
+function resposive_entry_content_404_page() {
+	do_action( 'resposive_entry_content_404_page' );
 }
