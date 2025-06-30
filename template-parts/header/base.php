@@ -6,7 +6,7 @@
  */
 
 ?>
-<header id="masthead" class="site-header" role="banner" <?php responsive_schema_markup( 'site-header' ); ?>>
+<header id="masthead" class="<?php echo esc_attr( join( ' ', apply_filters( 'responsive_header_class', array( 'site-header' ) ) ) ); ?>" role="banner" <?php responsive_schema_markup( 'site-header' ); ?>>
 	<div id="main-header" class="responsive-site-header-wrap">
 		<div class="site-header-inner-wrap<?php /* echo esc_attr( 'top_main_bottom' === get_theme_mod( 'header_sticky' ) ? ' responsive-sticky-header' : '' ); */ ?>"
 		>
