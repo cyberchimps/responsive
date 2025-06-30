@@ -832,7 +832,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 					<div class="responsive-theme-feature-cards h-100">
 						<div class="responsive-theme-feature-cards-content">
 							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html_e( 'Site Builder', 'responsive' ); ?></div>
-							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam blanditiis iusto', 'responsive' ); ?></div>
+							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Site Builder lets you edit parts of site like the header, footer, 404, and archive templates.', 'responsive' ); ?></div>
 							<?php
 							if ( is_responsive_addons_installed_above( '3.2.4' ) ) {
 							?>
@@ -842,7 +842,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 								echo 'disable-customize'; }
 							?>
 							">
-								<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/responsive-plus/responsive-pro-plugin/custom-fonts/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
+								<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/responsive-plus/responsive-pro-plugin/site-builder' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
 								<span class="responsive-theme-feature-seperator">|</span>
 								<a href="<?php echo esc_url( admin_url() ) . 'admin.php?page=responsive-site-builder'; ?>" class="rpro-feature-customize-btn"><?php esc_html_e( 'Settings', 'responsive' ); ?></a>
 								<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
