@@ -30,25 +30,7 @@ if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_d
 	?>
 <div id="wrapper" class="site-content clearfix">
 	<div class="content-outer container">
-		<div class="row">
-			<?php Responsive\responsive_in_wrapper(); // wrapper hook. ?>
-			<main id="primary" class="content-area grid col-940" <?php responsive_schema_markup( 'main' ); ?> role="main">
-				<?php get_template_part( 'loop-header', get_post_type() ); ?>
-				<?php Responsive\responsive_entry_before(); ?>
-				<section id="post-0" class="error404 hentry">
-					<?php Responsive\responsive_entry_top(); ?>
-
-					<div class="post-entry">
-							<?php get_template_part( 'loop-no-posts', get_post_type() ); ?>
-					</div><!-- end of .post-entry -->
-
-					<?php Responsive\responsive_entry_bottom(); ?>
-				</section><!-- end of #post-0 -->
-				<?php Responsive\responsive_entry_after(); ?>
-
-			</main><!-- end of #content-full -->
-			<?php get_sidebar(); ?>
-		</div>
+		<?php Responsive\responsive_404_content(); ?>
 		<?php Responsive\responsive_wrapper_bottom(); // after wrapper content hook. ?>
 	</div> <!-- row -->
 </div> <!-- end of #wrapper -->
