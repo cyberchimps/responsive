@@ -46,7 +46,7 @@ add_action( 'resposive_entry_content_404_page', 'resposive_entry_content_404_pag
 
 function resposive_entry_content_404_page_template() {
    ?>
-      <div class="row">
+      <div class="<?php echo esc_attr( join( ' ', apply_filters( 'responsive_404_class', array( 'row' ) ) ) ); ?>">
          <?php Responsive\responsive_in_wrapper(); // wrapper hook. ?>
          <main id="primary" class="content-area grid col-940" <?php responsive_schema_markup( 'main' ); ?> role="main">
             <?php get_template_part( 'loop-header', get_post_type() ); ?>
