@@ -30,6 +30,23 @@ body.toplevel_page_responsive #wpbody-content {
     padding-bottom: 30px;
 }
 
+.responsive-theme-getting-started-page-notification {
+    display: flex;
+    align-items: baseline;
+    background-color: #6c21dc;
+}
+
+.responsive-theme-getting-started-page-notification p {
+    margin: 0;
+    padding: 15px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.responsive-theme-getting-started-page-notification a {
+    color: #fff;
+}
+
 .responsive-theme-getting-started-header {
     display: flex;
     flex-direction: column;
