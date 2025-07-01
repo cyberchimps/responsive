@@ -76,11 +76,17 @@ if ( ! function_exists( 'is_responsive_addons_installed_above' ) ) {
 	/**
 	 * Check if Responsive Addons is installed.
 	 */
-	function is_responsive_addons_installed_above( $version = '3.2.0' ) {
+	function is_responsive_addons_installed_above( $version = '3.2.0', $compare = 'greater_equal' ) {
 		if ( is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) ) {
 			$raddons_version    = get_plugin_data( WP_PLUGIN_DIR . '/responsive-add-ons/responsive-add-ons.php' )['Version'];
 			$is_raddons_greater = false;
-			if ( version_compare( $raddons_version, $version, '>=' ) ) {
+			if ( 'greater_equal' === $compare ) {
+				if ( version_compare( $raddons_version, $version, '>=' ) ) {
+					$is_raddons_greater = true;
+				}
+				return $is_raddons_greater;
+			}
+			if ( version_compare( $raddons_version, $version, '>' ) ) {
 				$is_raddons_greater = true;
 			}
 			return $is_raddons_greater;
@@ -834,7 +840,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html_e( 'Site Builder', 'responsive' ); ?></div>
 							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Site Builder lets you edit parts of site like the header, footer, 404, and archive templates.', 'responsive' ); ?></div>
 							<?php
-							if ( is_responsive_addons_installed_above( '3.2.4' ) ) {
+							if ( is_responsive_addons_installed_above( '3.2.4', 'greater' ) ) {
 							?>
 							<div class="responsive-theme-pro-features mt-2 
 							<?php
