@@ -108,7 +108,20 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 			// Paragraph Margin Bottom.
 			$paragraph_margin_label = esc_html__( 'Paragraph Margin Bottom', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'paragraph_margin_bottom', $paragraph_margin_label, 'responsive_typography', 21, 1.75, null, 5, 1, 'postMessage', 0.1 );
-
+			
+			// Underline Content Links
+			$underline_label = esc_html__( 'Underline Content Links', 'responsive' );
+			responsive_toggle_control(
+				$wp_customize,
+				'underline_content_links', 
+				esc_html__( 'Underline Content Links', 'responsive' ),
+				'responsive_typography',
+				32, 
+				false, 
+				'',
+				'refresh',
+			);
+			
 		}
 
 		public function live_preview_styles() {
