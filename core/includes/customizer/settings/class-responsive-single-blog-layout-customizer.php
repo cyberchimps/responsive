@@ -72,7 +72,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 						'label'    => esc_html__( 'Post Elements', 'responsive' ),
 						'section'  => 'responsive_single_blog_layout',
 						'settings' => 'responsive_blog_single_elements_positioning',
-						'priority' => 40,
+						'priority' => 36,
 						'choices'  => responsive_blog_single_elements(),
 					)
 				)
