@@ -261,36 +261,44 @@ function responsive_enqueue_google_font_url($font)
 /**
  * Adds data to the $fonts array for a font to be rendered.
  */
-function responsive_render_google_fonts_url($fonts)
-{
-
+function responsive_render_google_fonts_url( $fonts ) {
+	$isGoogleFont = false; // Flag to check if the font is a Google Font.
 	// Return if disabled.
-	if (true === get_theme_mod('responsive_disable_google_font', false)) {
+	if ( true === get_theme_mod( 'responsive_disable_google_font', false ) ) {
 		return;
 	}
 
 	// Main URL.
 	$url = 'https://fonts.googleapis.com/css?family=';
-	foreach ($fonts as $font) {
-		$url .= responsive_enqueue_google_font_url($font) . '%7C';
+	foreach ( $fonts as $font ) {
+		// Clean font name: remove quotes and fallback (after comma)
+		$clean_font = trim( preg_replace( "/['\"]/", '', explode(',', $font)[0] ) );
+		$google_fonts = responsive_get_google_fonts();
+		if ( isset($google_fonts) && array_key_exists( $clean_font, $google_fonts ) ) {
+			$isGoogleFont = true; // Change the value to true if any one font is a Google Font.
+		}
+		$url .= responsive_enqueue_google_font( $clean_font ) . '%7C';
 	}
 
 	// Subset.
-	$get_subsets = get_theme_mod('responsive_google_font_subsets', array('latin'));
+	$get_subsets = get_theme_mod( 'responsive_google_font_subsets', array( 'latin' ) );
 	$subsets     = '';
-	if (! empty($get_subsets)) {
+	if ( ! empty( $get_subsets ) ) {
 		$font_subsets = array();
-		foreach ($get_subsets as $get_subset) {
+		foreach ( $get_subsets as $get_subset ) {
 			$font_subsets[] = $get_subset;
 		}
-		$subsets .= implode(',', $font_subsets);
+		$subsets .= implode( ',', $font_subsets );
 	} else {
 		$subsets = 'latin';
 	}
 	$subset = '&amp;subset=' . $subsets;
 	$url .= $subset;
 
-	// Enqueue style.
-	wp_enqueue_style('responsive-google-font', $url, false, false, 'all'); //phpcs:ignore
-
+	// Check if already enqueued, then dequeue.
+	if ( !$isGoogleFont ) {
+		wp_dequeue_style( 'responsive-google-font-css' );
+	} else {
+		wp_enqueue_style( 'responsive-google-font', $url, false, false, 'all' );//phpcs:ignore
+	}
 }
