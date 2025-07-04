@@ -829,6 +829,7 @@ body.mega-menu-header-menu button.menu-toggle {
     .menu-item-has-children > a {
         display: flex;
         align-items: flex-start;
+        justify-content: space-between;
     }
 }
 
