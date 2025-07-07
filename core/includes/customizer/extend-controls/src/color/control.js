@@ -40,23 +40,6 @@ export const responsiveColor = wp.customize.responsiveControl.extend({
 				container.find('button.wp-color-result.wp-picker-open').click();
 			}
 
-			// var container = jQuery(control.container);
-			// var colorWrap = container.find('.wp-picker-container');
-			// console.log("Color Wrap: ", colorWrap);
-			// console.log("E target: ", e.target);
-			// // jQuery('.components-dropdown-content-wrapper').on('click', function (event) {
-			// // 	event.preventDefault();
-			// // });
-			// // jQuery('.responsive-color-picker-tab-content').on('click', function (event) {
-			// // 	event.preventDefault();
-			// // });
-			// jQuery('.components-color-picker').on('click', function( event ){
-			// 	event.preventDefault();
-			// });
-			// // If the target of the click isn't the container nor a descendant of the container.
-			// if (!colorWrap.is(e.target) && colorWrap.has(e.target).length === 0 ){
-			// 	container.find('button.wp-color-result.wp-picker-open').click();
-			// }
 		});
 	}
 } );

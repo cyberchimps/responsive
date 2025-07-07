@@ -87,17 +87,6 @@ class ResponsiveColorPickerControl extends Component {
 
 		return newState; // Return the new state object or null
 
-
-		// // If the color type or gradient prop has changed, update the internal state
-		// console.log("nextProps: ", nextProps);
-		// console.log("prevState: ", prevState);
-		// if (nextProps.colorType !== prevState.activeTab || nextProps.gradient !== prevState.gradient) {
-		// 	return {
-		// 		activeTab: nextProps.colorType,
-		// 		gradient: nextProps.gradient,
-		// 	};
-		// }
-		// return null; // No state update needed
 	}
 
 	render() {
@@ -108,7 +97,6 @@ class ResponsiveColorPickerControl extends Component {
 			isVisible,
 			inputattr,
 			gradient,
-			inputSettings,
 			is_gradient_available,
 			activeTab,
 			color
@@ -119,10 +107,7 @@ class ResponsiveColorPickerControl extends Component {
             ? { background: gradient } // Apply gradient string
             : { backgroundColor: color }; // Apply solid color from state.color
 
-        console.log("buttonBackgroundStyle: ", buttonBackgroundStyle);
-        console.log("Current state.color:", color); // Debugging
-
-		const toggleVisible = () => {
+		const toggleVisible = (desiredTab = this.state.activeTab) => {
 			if ( refresh === true ) {
 				this.setState( { refresh: false } );
 			} else {
@@ -131,7 +116,13 @@ class ResponsiveColorPickerControl extends Component {
 			this.setState( { isVisible: true } );
 
 			const currentElementID = inputattr.content.match(/id="([^"]*)"/)[1];
-			document.getElementById(currentElementID).style.paddingBottom ='480px';
+			if(is_gradient_available && desiredTab === "color") {
+				document.getElementById(currentElementID).style.paddingBottom ='560px';
+			} else if(is_gradient_available && desiredTab === "gradient") {
+				document.getElementById(currentElementID).style.paddingBottom ='400px';
+			} else {
+				document.getElementById(currentElementID).style.paddingBottom ='480px';
+			}
 		};
 		
 		const toggleClose = () => {
@@ -172,7 +163,7 @@ class ResponsiveColorPickerControl extends Component {
 					
 					<Button
                         className={isVisible ? 'button wp-color-result wp-picker-open' : 'button wp-color-result '}
-                        onClick={() => { isVisible ? toggleClose() : toggleVisible() }}
+                        onClick={() => { isVisible ? toggleClose() : toggleVisible(this.state.activeTab) }}
                         aria-expanded='false'
                         style={buttonBackgroundStyle}
                     >
@@ -187,6 +178,7 @@ class ResponsiveColorPickerControl extends Component {
 										initialTabName={activeTab}
 										onSelect={(tabName) => {
 											this.setState({ activeTab: tabName })
+											toggleVisible(tabName)
 										}}
 										tabs={[
 											{

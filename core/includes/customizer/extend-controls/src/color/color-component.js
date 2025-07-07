@@ -44,7 +44,6 @@ const ColorComponent = props => {
 		}
 
 		if (is_gradient_available && type === 'gradient') {
-			console.log("Color Value: ", colorValue);
 			props.control?.settings?.gradient.set(colorValue);
 			props.control?.settings?.color_type.set('gradient');
 			// Update local state to reflect the change for potential re-renders or prop updates
