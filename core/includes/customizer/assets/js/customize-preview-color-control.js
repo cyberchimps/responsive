@@ -67,6 +67,7 @@
         });
 	} );
 
+    //Box Background Color
     function setBoxBackground(type) {
         if (type === 'gradient') {
             api('responsive_box_background_gradient_color', function (value) {
@@ -210,16 +211,6 @@
         });
     });
 
-    // api( 'responsive_site_background_color', function( value ) {
-	// 	value.bind( function( newval ) {
-	// 		// if( api( 'responsive_site_background_image_toggle' ).get() ) {
-	// 		// 	$('body.custom-background').css({'background-color': newval });
-	// 		// }
-	// 		$('body').addClass( 'custom-background' );
-	// 		$('body.custom-background').css({'background-color': newval });
-	// 	} );
-	// } );
-
     //Header section
     //Update header background color...
     // api( 'responsive_header_background_color', function( value ) {
@@ -360,19 +351,6 @@
             $('.res-transparent-header .header-widgets a:focus, .res-transparent-header .header-widgets a:hover').css('color', newval );
         } );
     } );
-
-    //Site Colors
-    //Box Background Color
-    // api( 'responsive_box_background_color', function( value ) {
-    //     value.bind( function( newval ) {
-    //         $('.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,.responsive-site-style-content-boxed .custom-home-about-section,.responsive-site-style-content-boxed .custom-home-feature-section,.responsive-site-style-content-boxed .custom-home-team-section,.responsive-site-style-content-boxed .custom-home-testimonial-section,.responsive-site-style-content-boxed .custom-home-contact-section,.responsive-site-style-content-boxed .custom-home-widget-section,.responsive-site-style-content-boxed .custom-home-featured-area,.responsive-site-style-content-boxed .site-content-header,.responsive-site-style-content-boxed .content-area-wrapper,.responsive-site-style-content-boxed .site-content .hentry,.responsive-site-style-content-boxed .navigation,.responsive-site-style-content-boxed .responsive-single-related-posts-container,.responsive-site-style-content-boxed .comments-area,.responsive-site-style-content-boxed .comment-respond,.responsive-site-style-boxed .custom-home-about-section,.responsive-site-style-boxed .custom-home-feature-section,.responsive-site-style-boxed .custom-home-team-section,.responsive-site-style-boxed .custom-home-testimonial-section,.responsive-site-style-boxed .custom-home-contact-section,.responsive-site-style-boxed .custom-home-widget-section,.responsive-site-style-boxed .custom-home-featured-area,.responsive-site-style-boxed .site-content-header,.responsive-site-style-boxed .site-content .hentry:not(.bbp-forum-status-open),.responsive-site-style-boxed .navigation,.responsive-site-style-boxed .responsive-single-related-posts-container,.responsive-site-style-boxed .comments-area,.responsive-site-style-boxed .comment-respond,.responsive-site-style-boxed .comment-respond,.responsive-site-style-boxed .site-content article.product,.woocommerce.responsive-site-style-content-boxed .related-product-wrapper,.woocommerce-page.responsive-site-style-content-boxed .related-product-wrapper,.woocommerce-page.responsive-site-style-content-boxed .products-wrapper,.woocommerce.responsive-site-style-content-boxed .products-wrapper,.woocommerce-page:not(.responsive-site-style-flat) .woocommerce-pagination,.woocommerce-page.responsive-site-style-boxed ul.products li.product,.woocommerce.responsive-site-style-boxed ul.products li.product,.woocommerce-page.single-product:not(.responsive-site-style-flat) div.product,.woocommerce.single-product:not(.responsive-site-style-flat) div.product').css('background-color', newval );
-
-    //         if( ! api('responsive_sidebar_background_color').get() ) {
-    //             $('.responsive-site-style-boxed aside#secondary .widget-wrapper').css('background-color', newval );
-    //         }
-
-    //     } );
-    // } );
 
     //Alternate Background Color
     api( 'responsive_alt_background_color', function( value ) {
