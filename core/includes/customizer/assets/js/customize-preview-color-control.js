@@ -9,8 +9,10 @@
     var api = wp.customize;
     
     function setBackground( type ) {
+        console.log("Type: ", type);
 		if ( type === 'gradient' ) {
 			api( 'responsive_site_background_gradient_color', function( value ) {
+                console.log("Value from gradient: ", value.get());
 				var gradient = value.get();
 				$('body').addClass( 'custom-background' ).css({
 					'background': gradient,
@@ -19,6 +21,7 @@
 			});
 		} else {
 			api( 'responsive_site_background_color', function( value ) {
+                console.log("Value from color: ", value.get());
 				var color = value.get();
 				$('body').addClass( 'custom-background' ).css({
 					'background': '',
@@ -38,7 +41,9 @@
 	// On solid color change
 	api( 'responsive_site_background_color', function( value ) {
 		value.bind( function( newColor ) {
+            console.log("newColor: ", newColor);
 			api( 'responsive_site_background_color_type', function( typeValue ) {
+                console.log("TypeValue from color: ", typeValue);
 				if ( typeValue.get() === 'color' ) {
 					setBackground( 'color' );
 				}
@@ -49,7 +54,9 @@
 	// On gradient change
 	api( 'responsive_site_background_gradient_color', function( value ) {
 		value.bind( function( newGradient ) {
+            console.log("newGradient: ", newGradient);
 			api( 'responsive_site_background_color_type', function( typeValue ) {
+                console.log("TypeValue from gradient: ", typeValue);
 				if ( typeValue.get() === 'gradient' ) {
 					setBackground( 'gradient' );
 				}
@@ -62,153 +69,7 @@
 		api( 'responsive_site_background_color_type', function( value ) {
 			setBackground( value.get() );
 		});
-        api('responsive_box_background_color_type', function (value) {
-            setBoxBackground(value.get());
-        });
 	} );
-
-    function setBoxBackground(type) {
-        if (type === 'gradient') {
-            api('responsive_box_background_gradient_color', function (value) {
-                var gradient = value.get();
-                $(
-                    '.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,' +
-                    '.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,' +
-                    '.responsive-site-style-content-boxed .custom-home-about-section,' +
-                    '.responsive-site-style-content-boxed .custom-home-feature-section,' +
-                    '.responsive-site-style-content-boxed .custom-home-team-section,' +
-                    '.responsive-site-style-content-boxed .custom-home-testimonial-section,' +
-                    '.responsive-site-style-content-boxed .custom-home-contact-section,' +
-                    '.responsive-site-style-content-boxed .custom-home-widget-section,' +
-                    '.responsive-site-style-content-boxed .custom-home-featured-area,' +
-                    '.responsive-site-style-content-boxed .site-content-header,' +
-                    '.responsive-site-style-content-boxed .content-area-wrapper,' +
-                    '.responsive-site-style-content-boxed .site-content .hentry,' +
-                    '.responsive-site-style-content-boxed .navigation,' +
-                    '.responsive-site-style-content-boxed .responsive-single-related-posts-container,' +
-                    '.responsive-site-style-content-boxed .comments-area,' +
-                    '.responsive-site-style-content-boxed .comment-respond,' +
-                    '.responsive-site-style-boxed .custom-home-about-section,' +
-                    '.responsive-site-style-boxed .custom-home-feature-section,' +
-                    '.responsive-site-style-boxed .custom-home-team-section,' +
-                    '.responsive-site-style-boxed .custom-home-testimonial-section,' +
-                    '.responsive-site-style-boxed .custom-home-contact-section,' +
-                    '.responsive-site-style-boxed .custom-home-widget-section,' +
-                    '.responsive-site-style-boxed .custom-home-featured-area,' +
-                    '.responsive-site-style-boxed .site-content-header,' +
-                    '.responsive-site-style-boxed .site-content .hentry:not(.bbp-forum-status-open),' +
-                    '.responsive-site-style-boxed .navigation,' +
-                    '.responsive-site-style-boxed .responsive-single-related-posts-container,' +
-                    '.responsive-site-style-boxed .comments-area,' +
-                    '.responsive-site-style-boxed .comment-respond,' +
-                    '.responsive-site-style-boxed .site-content article.product,' +
-                    '.woocommerce.responsive-site-style-content-boxed .related-product-wrapper,' +
-                    '.woocommerce-page.responsive-site-style-content-boxed .related-product-wrapper,' +
-                    '.woocommerce-page.responsive-site-style-content-boxed .products-wrapper,' +
-                    '.woocommerce.responsive-site-style-content-boxed .products-wrapper,' +
-                    '.woocommerce-page:not(.responsive-site-style-flat) .woocommerce-pagination,' +
-                    '.woocommerce-page.responsive-site-style-boxed ul.products li.product,' +
-                    '.woocommerce.responsive-site-style-boxed ul.products li.product,' +
-                    '.woocommerce-page.single-product:not(.responsive-site-style-flat) div.product,' +
-                    '.woocommerce.single-product:not(.responsive-site-style-flat) div.product'
-                ).css({
-                    'background': gradient,
-                    'background-color': ''
-                });
-    
-                if (!api('responsive_sidebar_background_color').get()) {
-                    $('.responsive-site-style-boxed aside#secondary .widget-wrapper').css({
-                        'background': gradient,
-                        'background-color': ''
-                    });
-                }
-            });
-        } else {
-            api('responsive_box_background_color', function (value) {
-                var color = value.get();
-                $(
-                    '.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,' +
-                    '.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,' +
-                    '.responsive-site-style-content-boxed .custom-home-about-section,' +
-                    '.responsive-site-style-content-boxed .custom-home-feature-section,' +
-                    '.responsive-site-style-content-boxed .custom-home-team-section,' +
-                    '.responsive-site-style-content-boxed .custom-home-testimonial-section,' +
-                    '.responsive-site-style-content-boxed .custom-home-contact-section,' +
-                    '.responsive-site-style-content-boxed .custom-home-widget-section,' +
-                    '.responsive-site-style-content-boxed .custom-home-featured-area,' +
-                    '.responsive-site-style-content-boxed .site-content-header,' +
-                    '.responsive-site-style-content-boxed .content-area-wrapper,' +
-                    '.responsive-site-style-content-boxed .site-content .hentry,' +
-                    '.responsive-site-style-content-boxed .navigation,' +
-                    '.responsive-site-style-content-boxed .responsive-single-related-posts-container,' +
-                    '.responsive-site-style-content-boxed .comments-area,' +
-                    '.responsive-site-style-content-boxed .comment-respond,' +
-                    '.responsive-site-style-boxed .custom-home-about-section,' +
-                    '.responsive-site-style-boxed .custom-home-feature-section,' +
-                    '.responsive-site-style-boxed .custom-home-team-section,' +
-                    '.responsive-site-style-boxed .custom-home-testimonial-section,' +
-                    '.responsive-site-style-boxed .custom-home-contact-section,' +
-                    '.responsive-site-style-boxed .custom-home-widget-section,' +
-                    '.responsive-site-style-boxed .custom-home-featured-area,' +
-                    '.responsive-site-style-boxed .site-content-header,' +
-                    '.responsive-site-style-boxed .site-content .hentry:not(.bbp-forum-status-open),' +
-                    '.responsive-site-style-boxed .navigation,' +
-                    '.responsive-site-style-boxed .responsive-single-related-posts-container,' +
-                    '.responsive-site-style-boxed .comments-area,' +
-                    '.responsive-site-style-boxed .comment-respond,' +
-                    '.responsive-site-style-boxed .site-content article.product,' +
-                    '.woocommerce.responsive-site-style-content-boxed .related-product-wrapper,' +
-                    '.woocommerce-page.responsive-site-style-content-boxed .related-product-wrapper,' +
-                    '.woocommerce-page.responsive-site-style-content-boxed .products-wrapper,' +
-                    '.woocommerce.responsive-site-style-content-boxed .products-wrapper,' +
-                    '.woocommerce-page:not(.responsive-site-style-flat) .woocommerce-pagination,' +
-                    '.woocommerce-page.responsive-site-style-boxed ul.products li.product,' +
-                    '.woocommerce.responsive-site-style-boxed ul.products li.product,' +
-                    '.woocommerce-page.single-product:not(.responsive-site-style-flat) div.product,' +
-                    '.woocommerce.single-product:not(.responsive-site-style-flat) div.product'
-                ).css({
-                    'background': '',
-                    'background-color': color
-                });
-    
-                if (!api('responsive_sidebar_background_color').get()) {
-                    $('.responsive-site-style-boxed aside#secondary .widget-wrapper').css({
-                        'background': '',
-                        'background-color': color
-                    });
-                }
-            });
-        }
-    }
-    
-    // On color type change
-    api('responsive_box_background_color_type', function (value) {
-        value.bind(function (newType) {
-            setBoxBackground(newType);
-        });
-    });
-    
-    // On solid color change
-    api('responsive_box_background_color', function (value) {
-        value.bind(function () {
-            api('responsive_box_background_color_type', function (typeValue) {
-                if (typeValue.get() === 'color') {
-                    setBoxBackground('color');
-                }
-            });
-        });
-    });
-    
-    // On gradient change
-    api('responsive_box_background_gradient_color', function (value) {
-        value.bind(function () {
-            api('responsive_box_background_color_type', function (typeValue) {
-                if (typeValue.get() === 'gradient') {
-                    setBoxBackground('gradient');
-                }
-            });
-        });
-    });
 
     // api( 'responsive_site_background_color', function( value ) {
 	// 	value.bind( function( newval ) {
@@ -363,16 +224,16 @@
 
     //Site Colors
     //Box Background Color
-    // api( 'responsive_box_background_color', function( value ) {
-    //     value.bind( function( newval ) {
-    //         $('.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,.responsive-site-style-content-boxed .custom-home-about-section,.responsive-site-style-content-boxed .custom-home-feature-section,.responsive-site-style-content-boxed .custom-home-team-section,.responsive-site-style-content-boxed .custom-home-testimonial-section,.responsive-site-style-content-boxed .custom-home-contact-section,.responsive-site-style-content-boxed .custom-home-widget-section,.responsive-site-style-content-boxed .custom-home-featured-area,.responsive-site-style-content-boxed .site-content-header,.responsive-site-style-content-boxed .content-area-wrapper,.responsive-site-style-content-boxed .site-content .hentry,.responsive-site-style-content-boxed .navigation,.responsive-site-style-content-boxed .responsive-single-related-posts-container,.responsive-site-style-content-boxed .comments-area,.responsive-site-style-content-boxed .comment-respond,.responsive-site-style-boxed .custom-home-about-section,.responsive-site-style-boxed .custom-home-feature-section,.responsive-site-style-boxed .custom-home-team-section,.responsive-site-style-boxed .custom-home-testimonial-section,.responsive-site-style-boxed .custom-home-contact-section,.responsive-site-style-boxed .custom-home-widget-section,.responsive-site-style-boxed .custom-home-featured-area,.responsive-site-style-boxed .site-content-header,.responsive-site-style-boxed .site-content .hentry:not(.bbp-forum-status-open),.responsive-site-style-boxed .navigation,.responsive-site-style-boxed .responsive-single-related-posts-container,.responsive-site-style-boxed .comments-area,.responsive-site-style-boxed .comment-respond,.responsive-site-style-boxed .comment-respond,.responsive-site-style-boxed .site-content article.product,.woocommerce.responsive-site-style-content-boxed .related-product-wrapper,.woocommerce-page.responsive-site-style-content-boxed .related-product-wrapper,.woocommerce-page.responsive-site-style-content-boxed .products-wrapper,.woocommerce.responsive-site-style-content-boxed .products-wrapper,.woocommerce-page:not(.responsive-site-style-flat) .woocommerce-pagination,.woocommerce-page.responsive-site-style-boxed ul.products li.product,.woocommerce.responsive-site-style-boxed ul.products li.product,.woocommerce-page.single-product:not(.responsive-site-style-flat) div.product,.woocommerce.single-product:not(.responsive-site-style-flat) div.product').css('background-color', newval );
+    api( 'responsive_box_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,.responsive-site-style-content-boxed .custom-home-about-section,.responsive-site-style-content-boxed .custom-home-feature-section,.responsive-site-style-content-boxed .custom-home-team-section,.responsive-site-style-content-boxed .custom-home-testimonial-section,.responsive-site-style-content-boxed .custom-home-contact-section,.responsive-site-style-content-boxed .custom-home-widget-section,.responsive-site-style-content-boxed .custom-home-featured-area,.responsive-site-style-content-boxed .site-content-header,.responsive-site-style-content-boxed .content-area-wrapper,.responsive-site-style-content-boxed .site-content .hentry,.responsive-site-style-content-boxed .navigation,.responsive-site-style-content-boxed .responsive-single-related-posts-container,.responsive-site-style-content-boxed .comments-area,.responsive-site-style-content-boxed .comment-respond,.responsive-site-style-boxed .custom-home-about-section,.responsive-site-style-boxed .custom-home-feature-section,.responsive-site-style-boxed .custom-home-team-section,.responsive-site-style-boxed .custom-home-testimonial-section,.responsive-site-style-boxed .custom-home-contact-section,.responsive-site-style-boxed .custom-home-widget-section,.responsive-site-style-boxed .custom-home-featured-area,.responsive-site-style-boxed .site-content-header,.responsive-site-style-boxed .site-content .hentry:not(.bbp-forum-status-open),.responsive-site-style-boxed .navigation,.responsive-site-style-boxed .responsive-single-related-posts-container,.responsive-site-style-boxed .comments-area,.responsive-site-style-boxed .comment-respond,.responsive-site-style-boxed .comment-respond,.responsive-site-style-boxed .site-content article.product,.woocommerce.responsive-site-style-content-boxed .related-product-wrapper,.woocommerce-page.responsive-site-style-content-boxed .related-product-wrapper,.woocommerce-page.responsive-site-style-content-boxed .products-wrapper,.woocommerce.responsive-site-style-content-boxed .products-wrapper,.woocommerce-page:not(.responsive-site-style-flat) .woocommerce-pagination,.woocommerce-page.responsive-site-style-boxed ul.products li.product,.woocommerce.responsive-site-style-boxed ul.products li.product,.woocommerce-page.single-product:not(.responsive-site-style-flat) div.product,.woocommerce.single-product:not(.responsive-site-style-flat) div.product').css('background-color', newval );
 
-    //         if( ! api('responsive_sidebar_background_color').get() ) {
-    //             $('.responsive-site-style-boxed aside#secondary .widget-wrapper').css('background-color', newval );
-    //         }
+            if( ! api('responsive_sidebar_background_color').get() ) {
+                $('.responsive-site-style-boxed aside#secondary .widget-wrapper').css('background-color', newval );
+            }
 
-    //     } );
-    // } );
+        } );
+    } );
 
     //Alternate Background Color
     api( 'responsive_alt_background_color', function( value ) {

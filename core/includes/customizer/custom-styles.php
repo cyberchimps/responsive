@@ -184,9 +184,6 @@ function responsive_customizer_styles() {
 	$single_blog_primary_content_area_width  = 100 - $responsive_single_blog_sidebar_width;
 
 	$box_background_color = esc_html( get_theme_mod( 'responsive_box_background_color', Responsive\Core\get_responsive_customizer_defaults( 'box_background' ) ) );
-	$box_background_gradient_color = esc_html( get_theme_mod( 'responsive_box_background_gradient_color', Responsive\Core\get_responsive_customizer_defaults( 'background_gradient_color' ) ) );
-	$box_background_color_type = get_theme_mod( 'responsive_box_background_color_type', 'color' );
-
 	$alt_background_color = esc_html( get_theme_mod( 'responsive_alt_background_color', Responsive\Core\get_responsive_customizer_defaults( 'alt_background' ) ) );
 
 	$site_background_color = get_theme_mod( 'responsive_site_background_color' );
@@ -214,21 +211,6 @@ function responsive_customizer_styles() {
 			--responsive-scrollbar-width: ' . $scrollbar_width . ';
 		}
 	';
-	if ( 'gradient' === $box_background_color_type && ! empty( $box_background_gradient_color ) ) {
-		$custom_css .= "
-		.responsive-site-style-boxed .site-content .hentry {
-			background: " . esc_attr( $box_background_gradient_color ) . ";
-			border-radius: {$box_top_left_radius}px {$box_top_right_radius}px {$box_bottom_right_radius}px {$box_bottom_left_radius}px;
-		}
-		";
-	} elseif ( 'color' === $box_background_color_type && ! empty( $box_background_color ) ) {
-		$custom_css .= "
-		.responsive-site-style-boxed .site-content .hentry {
-			background-color: " . esc_attr( $box_background_color ) . ";
-			border-radius: {$box_top_left_radius}px {$box_top_right_radius}px {$box_bottom_right_radius}px {$box_bottom_left_radius}px;
-		}
-		";
-	}
 	$custom_css .= "
 	.container,
 	[class*='__inner-container'],
@@ -259,7 +241,8 @@ function responsive_customizer_styles() {
 	.responsive-site-style-boxed .custom-home-contact-section,
 	.responsive-site-style-boxed .custom-home-widget-section,
 	.responsive-site-style-boxed .custom-home-featured-area,
-	.responsive-site-style-boxed .site-content-header,,
+	.responsive-site-style-boxed .site-content-header,
+	.responsive-site-style-boxed .site-content .hentry,
 	.responsive-site-style-boxed .give-wrap .give_forms,
 	.responsive-site-style-boxed .navigation,
 	.responsive-site-style-boxed .responsive-single-related-posts-container,
@@ -271,7 +254,6 @@ function responsive_customizer_styles() {
 		background-color:{$box_background_color};
 		border-radius:{$box_top_left_radius}px {$box_top_right_radius}px {$box_bottom_right_radius}px {$box_bottom_left_radius}px;
 	}
-	
 	@media screen and ( max-width: 992px ) {
 		.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,
 		.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,
@@ -656,9 +638,6 @@ function responsive_customizer_styles() {
 		$default_sidebar_color = '#ffffff';
 		$sidebar_background_color = esc_html( get_theme_mod( 'responsive_sidebar_background_color', $default_sidebar_color ) );
 		$box_background_color = esc_html( get_theme_mod( 'responsive_box_background_color', '#ffffff' ) );
-		$box_background_gradient_color = esc_html( get_theme_mod( 'responsive_box_background_gradient_color', Responsive\Core\get_responsive_customizer_defaults( 'background_gradient_color' ) ) );
-		$box_background_color_type = get_theme_mod( 'responsive_box_background_color_type', 'color' );
-
 		$is_sidebar_color_default = ( get_theme_mod( 'responsive_sidebar_background_color', null ) === null );
 		
 		// Priority to Sidebar Background Image and Color Over Box Background Image and Color
@@ -737,6 +716,9 @@ function responsive_customizer_styles() {
 			}";
 		}
 
+		error_log("Site Background Color: {$site_background_color}");
+		error_log("Site Background Gradient Color: {$site_background_gradient_color}");
+		error_log("Site Background Color Type: {$site_background_color_type}");
 		if ( 'gradient' === $site_background_color_type && ! empty( $site_background_gradient_color ) ) {
 			// If gradient is active and has a value, use 'background'
 			$custom_css .= "body.custom-background {
@@ -752,6 +734,11 @@ function responsive_customizer_styles() {
 				background-color: " . esc_attr( $site_background_color ) . ";
 			}";
 		}
+		// if ( $site_background_color ) {
+		// 	$custom_css .= "body.custom-background {
+		// 		background-color: $site_background_color;
+		// 	}";
+		// }
 	}
 
 	// lifter settings
@@ -833,9 +820,6 @@ function responsive_customizer_styles() {
 	$body_text_color      = esc_html( get_theme_mod( 'responsive_body_text_color', Responsive\Core\get_responsive_customizer_defaults( 'body_text' ) ) );
 	$meta_text_color      = esc_html( get_theme_mod( 'responsive_meta_text_color', Responsive\Core\get_responsive_customizer_defaults( 'meta_text' ) ) );
 	$box_background_color = esc_html( get_theme_mod( 'responsive_box_background_color', Responsive\Core\get_responsive_customizer_defaults( 'box_background' ) ) );
-	$box_background_gradient_color = esc_html( get_theme_mod( 'responsive_box_background_gradient_color', Responsive\Core\get_responsive_customizer_defaults( 'background_gradient_color' ) ) );
-	$box_background_color_type = get_theme_mod( 'responsive_box_background_color_type', 'color' );
-
 
 	$link_color       = esc_html( get_theme_mod( 'responsive_link_color', Responsive\Core\get_responsive_customizer_defaults( 'link' ) ) );
 	$link_hover_color = esc_html( get_theme_mod( 'responsive_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'link_hover' ) ) );
@@ -4478,9 +4462,9 @@ function responsive_customizer_styles() {
 	$header_button_border_style = get_theme_mod( 'responsive_header_button_border_style' , Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_style' ) );
 
 	if ( 'none' !== $header_button_border_style ) {
-		$header_button_border_width       = get_theme_mod( 'responsive_header_button_border_width', Responsive\Core\get_responsive_customizer_defaults('responsive_header_button_border_width') );
-		$header_button_border_color       = get_theme_mod( 'responsive_header_button_border_color', Responsive\Core\get_responsive_customizer_defaults('responsive_header_button_border_color') );
-		$header_button_border_color_hover = get_theme_mod( 'responsive_header_button_border_hover_color', Responsive\Core\get_responsive_customizer_defaults('responsive_header_button_border_color_hover') );
+		$header_button_border_width       = get_theme_mod( 'responsive_header_button_border_width', 'responsive_header_button_border_width' );
+		$header_button_border_color       = get_theme_mod( 'responsive_header_button_border_color', 'responsive_header_button_border_color' );
+		$header_button_border_color_hover = get_theme_mod( 'responsive_header_button_border_hover_color', 'responsive_header_button_border_color_hover' );
 
 		$header_button_border_radius_top_left     = get_theme_mod( 'responsive_header_button_radius_top_left_radius' );
 		$header_button_border_radius_top_right    = get_theme_mod( 'responsive_header_button_radius_top_right_radius' );

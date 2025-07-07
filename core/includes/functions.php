@@ -417,29 +417,10 @@ if ( ! function_exists( 'responsive_css' ) ) {
 			wp_enqueue_style( 'responsive-sensei_content', get_template_directory_uri() . "/core/css/sensei_content{$suffix}.css", false, $responsive['Version'] );
 		}
 
-		wp_enqueue_style( 'responsive-style', get_template_directory_uri() . "/core/css/content.min.css", false, $responsive['Version'] );
-		wp_enqueue_style( 'wordpress-core-style', get_template_directory_uri() . "/core/css/wordpress.min.css", false, $responsive['Version'] );
-		wp_enqueue_style( 'gutenberg-front-style', get_template_directory_uri() . "/core/css/gutenberg-front.min.css", false, $responsive['Version'] );
-		if ( is_home() || is_archive() || is_search() || is_category() || is_tag() ) {
-			wp_enqueue_style(
-				'blog-archive-style',
-				get_template_directory_uri() . '/core/css/blog.min.css',
-				false,
-				$responsive['Version']
-			);
-		}
-		
+		wp_enqueue_style( 'responsive-style', get_template_directory_uri() . "/core/css/style{$suffix}.css", false, $responsive['Version'] );
 		wp_add_inline_style( 'responsive-style', responsive_gutenberg_colors( responsive_gutenberg_color_palette() ) );
 		wp_enqueue_style( 'icomoon-style', get_template_directory_uri() . "/core/css/icomoon/style{$suffix}.css", false, $responsive['Version'] );
 
-		if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-			wp_enqueue_style(
-				'woocommerce-style',
-				get_template_directory_uri() . '/core/css/woocommerce-pro.min.css',
-				false,
-				$responsive['Version']
-			);
-		}
 		// If plugin - 'WooCommerce' is active.
 		if ( class_exists( 'WooCommerce' ) ) {
 			wp_enqueue_style( 'responsive-woocommerce-style', get_template_directory_uri() . "/core/css/woocommerce{$suffix}.css", false, $responsive['Version'] );
@@ -841,7 +822,7 @@ function responsive_add_custom_body_classes( $classes ) {
 		}
 	}
 
-	if ( get_theme_mod( 'responsive_site_background_image_toggle' ) && get_theme_mod( 'responsive_site_background_image' ) || get_theme_mod( 'responsive_site_background_color' ) ) {
+	if ( get_theme_mod( 'responsive_site_background_image_toggle' ) && get_theme_mod( 'responsive_site_background_image' ) || get_theme_mod( 'responsive_site_background_color' ) || get_theme_mod( 'responsive_site_background_gradient_color' ) ) {
 		$classes[] = 'custom-background';
 	}
 	
@@ -1129,9 +1110,10 @@ function defaults() {
 			'blog_entry_meta_alignment'           => 'left',
 			// Padding.
 			'box_padding'                         => 30,
-			'logo_padding'                        => 28,
+			'logo_padding'                        => 0, // Default Value for Starter Template - Before 28
 			// Colors.
 			'background_color'                    => '#F0F5FA',
+			'background_gradient_color'           => 'linear-gradient(135deg, #12c2e9 0%, #c471ed 50%, #f64f59 100%)',
 			'scroll_to_top_icon'                  => '#ffffff',
 			'scroll_to_top_icon_hover'            => '#ffffff',
 			'scroll_to_top_icon_background'       => '#a8a6a6',
@@ -1141,11 +1123,11 @@ function defaults() {
 			'content_header_heading'              => '#333333',
 			'content_header_description'          => '#999999',
 			'breadcrumb'                          => '#1e73be',
-			'footer_background'                   => '#333333',
-			'footer_text'                         => '#ffffff',
-			'footer_links'                        => '#eaeaea',
-			'footer_links_hover'                  => '#ffffff',
-			'header_background'                   => '#ffffff',
+			'footer_background'                   => '#ffffff', // Default Value for Starter Template - Before #333333
+			'footer_text'                         => '#747474', // Default Value for Starter Template - Before #ffffff
+			'footer_links'                        => '#3A1D74', // Default Value for Starter Template - Before #eaeaea
+			'footer_links_hover'                  => '#747474',	// Default Value for Starter Template - Before #ffffff
+			'header_background'                   => '#2D2C52', // Default Value for Starter Template - Before #ffffff
 			'header_border'                       => '#eaeaea',
 			'header_site_title'                   => '#333333',
 			'header_site_title_hover'             => '#10659C',
@@ -1164,7 +1146,7 @@ function defaults() {
 			'header_mobile_menu_background'       => '#ffffff',
 			'header_menu_border'                  => '#eaeaea',
 			'header_active_menu_background'       => '#ffffff',
-			'header_menu_link'                    => '#333333',
+			'header_menu_link'                    => '#ffffff', // Default Value for Starter Template - Before #333333
 			'header_menu_link_hover'              => '#10659C',
 			'header_sub_menu_background'          => '#ffffff',
 			'header_sub_menu_link'                => '#333333',
@@ -1191,12 +1173,12 @@ function defaults() {
 			'box_background'                      => '#ffffff',
 			'alt_background'                      => '#eaeaea',
 			'body_text'                           => '#333333',
-			'h1_text'                             => '#333333',
-			'h2_text'                             => '#333333',
-			'h3_text'                             => '#333333',
-			'h4_text'                             => '#333333',
-			'h5_text'                             => '#333333',
-			'h6_text'                             => '#333333',
+			'h1_text'                             => '#ffffff', // Default Value for Starter Template - Before #333333
+			'h2_text'                             => '#200c47', // Default Value for Starter Template - Before #333333
+			'h3_text'                             => '#200c47', // Default Value for Starter Template - Before #333333
+			'h4_text'                             => '#333333', 
+			'h5_text'                             => '#333333', 
+			'h6_text'                             => '#333333', 
 			'meta_text'                           => '#999999',
 			'link'                                => '#0066CC',
 			'link_hover'                          => '#10659C',
@@ -1398,16 +1380,6 @@ function defaults() {
 																				'section' => 'sidebar-widgets-footer-widget-4',
 																				'icon'    => 'wordpress',
 																			),
-																			'widget-5' => array(
-																				'name'    => esc_html__( 'Widget 5', 'responsive' ),
-																				'section' => 'sidebar-widgets-footer-widget-5',
-																				'icon'    => 'wordpress',
-																			),
-																			'widget-6' => array(
-																				'name'    => esc_html__( 'Widget 6', 'responsive' ),
-																				'section' => 'sidebar-widgets-footer-widget-6',
-																				'icon'    => 'wordpress',
-																			),
 																			'colophon-widget' => array(
 																				'name'    => esc_html__( 'Colophon Widget', 'responsive' ),
 																				'section' => 'sidebar-widgets-colophon-widget',
@@ -1547,6 +1519,9 @@ if ( ! function_exists( 'responsive_background_images_backward_compatibility' ) 
 			}
 			if ( get_theme_mod( 'background_color' ) ) {
 				set_theme_mod( 'responsive_site_background_color', get_theme_mod( 'background_color' ) );
+			}
+			if ( get_theme_mod( 'background_gradient_color' ) ) {
+				set_theme_mod( 'responsive_site_background_gradient_color', get_theme_mod( 'background_gradient_color' ) );
 			}
 			update_option( 'responsive_old_background_images_compatible_done', true );
 		}
