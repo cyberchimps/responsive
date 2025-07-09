@@ -15,6 +15,15 @@
         const search_close  = document.getElementById("search-close");
         const searchSubmits = document.querySelectorAll('.search-submit');
 
+        // Debounce function for the live search functionality.
+        function debounce(func, delay) {
+            let timer;
+            return function (...args) {
+                clearTimeout(timer);
+                timer = setTimeout(() => func.apply(this, args), delay);
+            };
+        }
+
         if (search_link && containers.length > 0) {
             let sibling;
         
@@ -63,6 +72,100 @@
                 }
             });
         });
+
+        if (wpApiSettings.enable_live_search || wpApiSettings.enable_live_search === 1) {
+            document.querySelectorAll('.search-field').forEach(input => {
+                // Select the results panel relative to the current input's form
+                const resultsPanel = input.closest('form').querySelector('.live-search-results');
+                const performSearch = debounce(async () => {
+                const term = input.value.trim();
+                
+                if (!term) {
+                    // Hide panel when input is empty
+                    resultsPanel.classList.remove('active');
+                    resultsPanel.innerHTML = '';
+                    return;
+                }
+                
+                // Show loading state
+                resultsPanel.innerHTML = '<p>Searching…</p>';
+                resultsPanel.classList.add('active');
+                
+                try {
+                    // Your existing data fetching logic using WordPress REST API
+                    const response = await fetch(`${wpApiSettings.root}wp/v2/search?search=${encodeURIComponent(term)}&per_page=5`);
+                    const data = await response.json();
+                    // Clear previous results before adding new ones
+                    resultsPanel.innerHTML = '';
+                    if (data.length === 0) {
+                        // resultsPanel.innerHTML = '<p>No results found.</p>';
+                        const pageTitle = document.createElement('h3'); // Use h3 for the section title
+                        pageTitle.textContent = 'No results found';
+                        pageTitle.classList.add('live-search-section-title'); // Add a class for styling
+                        resultsPanel.appendChild(pageTitle);
+                        resultsPanel.classList.add('active'); // Keep panel open even if no results
+                        return;
+                    }
+    
+                    let isPageTitleAdded = false;
+                    let isPostTitleAdded = false;
+                    data.forEach(item => {
+                        // Create a container for each search result item for better styling
+                        const itemContainer = document.createElement('div');
+                        itemContainer.classList.add('live-search-result-item'); // Add class for styling
+    
+                        if (item.subtype === "page") {
+                        
+                            if (!isPageTitleAdded) {
+                            
+                                const pageTitle = document.createElement('h3'); // Use h3 for the section title
+                                pageTitle.textContent = 'Pages';
+                                pageTitle.classList.add('live-search-section-title'); // Add a class for styling
+                                resultsPanel.appendChild(pageTitle);
+                                isPageTitleAdded = true;
+                            }
+    
+                            const pageAnchor = document.createElement('a');
+                            pageAnchor.href = item.url;
+                            pageAnchor.textContent = item.title;
+                            pageAnchor.classList.add('live-search-result-link'); // Add a class for styling
+                            // itemContainer.appendChild(pageAnchor);
+                            resultsPanel.appendChild(pageAnchor);
+                        } else if (item.subtype === "post") {
+                    
+                            if (!isPostTitleAdded) {
+                                
+                                const postTitle = document.createElement('h3'); // Use h3 for the section title
+                                postTitle.textContent = 'Posts';
+                                postTitle.classList.add('live-search-section-title'); // Add a class for styling
+                                postTitle.classList.add('posts');
+                                resultsPanel.appendChild(postTitle);
+                                isPostTitleAdded = true;
+                            }
+    
+                            const postAnchor = document.createElement('a');
+                            postAnchor.href = item.url;
+                            postAnchor.textContent = item.title;
+                            postAnchor.classList.add('live-search-result-link'); // Add a class for styling
+                            // itemContainer.appendChild(postAnchor);
+                            resultsPanel.appendChild(postAnchor);
+                        }
+    
+                    });
+    
+                    // Ensure the panel is visible after results are added
+                    resultsPanel.classList.add('active');
+                
+                } catch (err) {
+                    console.error(err); 
+                    resultsPanel.innerHTML = '<p>Error fetching results.</p>';
+                    resultsPanel.classList.add('active');
+                }
+                }, 300); // Your debounce delay
+                input.addEventListener('input', performSearch);
+            });
+        }
+        
     
         if (search_style && containers.length > 0) {
             let search_style_form = document.getElementById("full-screen-search-wrapper");
