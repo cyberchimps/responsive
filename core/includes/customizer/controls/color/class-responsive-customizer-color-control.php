@@ -46,9 +46,42 @@ if ( ! class_exists( 'Responsive_Customizer_Color_Control' ) ) :
 
 		public $is_hover_required;
 
+		/**
+		 * Add support for gradient colors.
+		 *
+		 * @var bool
+		 */
+		public $is_gradient_available;
+
+		/**
+		 * The gradient element key from the customizer.
+		 *
+		 * @var string
+		 */
+		public $gradient_element;
+
+		/**
+		 * The default gradient value.
+		 *
+		 * @var string
+		 */
+		public $gradient_default;
+
+		/**
+		 * Whether the control is a gradient or color.
+		 *
+		 * @var string
+		 */
+		public $color_type;
+		
+
 		public function __construct($manager, $id, $args = array()) {
 			parent::__construct($manager, $id, $args);
 			$this->is_hover_required = isset($args['is_hover_required']) ? $args['is_hover_required'] : false;
+			$this->is_gradient_available    = isset($args['is_gradient_available']) ? $args['is_gradient_available'] : false;
+			$this->gradient_element   = isset($args['gradient_element']) ? $args['gradient_element'] : '';
+			$this->gradient_default    = isset($args['gradient_default']) ? $args['gradient_default'] : '';
+			$this->color_type            = isset($args['color_type']) ? $args['color_type'] : 'color';
 		}
 
 		/**
@@ -84,7 +117,7 @@ if ( ! class_exists( 'Responsive_Customizer_Color_Control' ) ) :
 					'hover'  => $this->get_link('hover'),
 				);
 			} else {
-				$this->json['default'] = $this->setting->default;
+				$this->json['default'] = $this->settings['default']->default;
 				$this->json['value']   = $this->value();
 				$this->json['link']    = $this->get_link();
 			}
@@ -94,6 +127,13 @@ if ( ! class_exists( 'Responsive_Customizer_Color_Control' ) ) :
 			$this->json['id']                = $this->id;
 			$this->json['colorPalettes']     = responsive_default_color_palettes();
 
+			if($this->is_gradient_available && isset($this->settings['gradient'])) {
+				$this->json['gradient'] = !is_null($this->settings['gradient']->value()) ? $this->settings['gradient']->value() : get_theme_mod( 'responsive_' . $this->gradient_element . '_color', $this->gradient_default );
+				$this->json['color_type']           = $this->color_type;
+				$this->json['is_gradient_available']   = $this->is_gradient_available;
+				$this->json['gradient_element']  = 'responsive_' . $this->gradient_element . '_color';
+				$this->json['gradient_default']  = get_theme_mod( 'responsive_' . $this->gradient_element . '_color', $this->gradient_default );
+			}
 		}
 
 		/**

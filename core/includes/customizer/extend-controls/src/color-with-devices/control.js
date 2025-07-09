@@ -14,7 +14,7 @@ export const responsiveColorWithDevices = wp.customize.responsiveControl.extend(
 		jQuery(document).mouseup(function(e){
 			var container = jQuery(control.container);
 			var colorWrap = container.find('.wp-picker-container');
-			jQuery('.wp-picker-holder').on('click', function( event ){
+			jQuery('.components-color-picker').on('click', function( event ){
 				event.preventDefault();
 			});
 			// If the target of the click isn't the container nor a descendant of the container.
