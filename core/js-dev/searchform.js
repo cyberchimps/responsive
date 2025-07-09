@@ -92,35 +92,35 @@
                 resultsPanel.classList.add('active');
                 
                 try {
-                    // Your existing data fetching logic using WordPress REST API
+                    // Data fetching logic using WordPress REST API
                     const response = await fetch(`${wpApiSettings.root}wp/v2/search?search=${encodeURIComponent(term)}&per_page=5`);
                     const data = await response.json();
                     // Clear previous results before adding new ones
                     resultsPanel.innerHTML = '';
+
                     if (data.length === 0) {
-                        // resultsPanel.innerHTML = '<p>No results found.</p>';
-                        const pageTitle = document.createElement('h3'); // Use h3 for the section title
-                        pageTitle.textContent = 'No results found';
-                        pageTitle.classList.add('live-search-section-title'); // Add a class for styling
-                        resultsPanel.appendChild(pageTitle);
-                        resultsPanel.classList.add('active'); // Keep panel open even if no results
+                        const noResultFound = document.createElement('h3'); 
+                        noResultFound.textContent = 'No results found';
+                        noResultFound.classList.add('live-search-section-title');
+                        resultsPanel.appendChild(noResultFound);
+                        resultsPanel.classList.add('active'); 
                         return;
                     }
     
                     let isPageTitleAdded = false;
                     let isPostTitleAdded = false;
                     data.forEach(item => {
-                        // Create a container for each search result item for better styling
+                        // Container for each search result
                         const itemContainer = document.createElement('div');
-                        itemContainer.classList.add('live-search-result-item'); // Add class for styling
+                        itemContainer.classList.add('live-search-result-item');
     
                         if (item.subtype === "page") {
                         
                             if (!isPageTitleAdded) {
                             
-                                const pageTitle = document.createElement('h3'); // Use h3 for the section title
+                                const pageTitle = document.createElement('h3'); 
                                 pageTitle.textContent = 'Pages';
-                                pageTitle.classList.add('live-search-section-title'); // Add a class for styling
+                                pageTitle.classList.add('live-search-section-title');
                                 resultsPanel.appendChild(pageTitle);
                                 isPageTitleAdded = true;
                             }
@@ -128,16 +128,15 @@
                             const pageAnchor = document.createElement('a');
                             pageAnchor.href = item.url;
                             pageAnchor.textContent = item.title;
-                            pageAnchor.classList.add('live-search-result-link'); // Add a class for styling
-                            // itemContainer.appendChild(pageAnchor);
+                            pageAnchor.classList.add('live-search-result-link');
                             resultsPanel.appendChild(pageAnchor);
                         } else if (item.subtype === "post") {
                     
                             if (!isPostTitleAdded) {
                                 
-                                const postTitle = document.createElement('h3'); // Use h3 for the section title
+                                const postTitle = document.createElement('h3'); 
                                 postTitle.textContent = 'Posts';
-                                postTitle.classList.add('live-search-section-title'); // Add a class for styling
+                                postTitle.classList.add('live-search-section-title');
                                 postTitle.classList.add('posts');
                                 resultsPanel.appendChild(postTitle);
                                 isPostTitleAdded = true;
@@ -146,8 +145,7 @@
                             const postAnchor = document.createElement('a');
                             postAnchor.href = item.url;
                             postAnchor.textContent = item.title;
-                            postAnchor.classList.add('live-search-result-link'); // Add a class for styling
-                            // itemContainer.appendChild(postAnchor);
+                            postAnchor.classList.add('live-search-result-link');
                             resultsPanel.appendChild(postAnchor);
                         }
     
@@ -158,10 +156,13 @@
                 
                 } catch (err) {
                     console.error(err); 
-                    resultsPanel.innerHTML = '<p>Error fetching results.</p>';
-                    resultsPanel.classList.add('active');
+                    const errorFetchingResultMessage = document.createElement('h3'); 
+                    errorFetchingResultMessage.textContent = 'Error fetching results.';
+                    errorFetchingResultMessage.classList.add('live-search-section-title');
+                    resultsPanel.appendChild(errorFetchingResultMessage);
+                    resultsPanel.classList.add('active'); 
                 }
-                }, 300); // Your debounce delay
+                }, 300);
                 input.addEventListener('input', performSearch);
             });
         }
