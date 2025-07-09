@@ -416,6 +416,7 @@ if ( ! function_exists( 'responsive_css' ) ) {
 		if ( class_exists( 'Sensei_Main' ) ) {
 			wp_enqueue_style( 'responsive-sensei_content', get_template_directory_uri() . "/core/css/sensei_content{$suffix}.css", false, $responsive['Version'] );
 		}
+		
 
 		wp_enqueue_style( 'responsive-style', get_template_directory_uri() . "/core/css/content.min.css", false, $responsive['Version'] );
 		wp_enqueue_style( 'wordpress-core-style', get_template_directory_uri() . "/core/css/wordpress.min.css", false, $responsive['Version'] );
@@ -428,6 +429,7 @@ if ( ! function_exists( 'responsive_css' ) ) {
 				$responsive['Version']
 			);
 		}
+		wp_enqueue_style( 'header-mixin-style', get_template_directory_uri() . "/core/css/header_mixin_pro.min.css", false, $responsive['Version'] );
 		
 		wp_add_inline_style( 'responsive-style', responsive_gutenberg_colors( responsive_gutenberg_color_palette() ) );
 		wp_enqueue_style( 'icomoon-style', get_template_directory_uri() . "/core/css/icomoon/style{$suffix}.css", false, $responsive['Version'] );
@@ -462,6 +464,36 @@ if ( ! function_exists( 'responsive_js' ) ) {
 		// enqueue searchform script only when search element is present in builder.
 		if ( responsive_check_element_present_in_hfb( 'search', 'header' ) ) {
 			wp_enqueue_script( 'searchform-script', $template_directory_uri . '/core/' . $directory . '/searchform' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, true );
+			// Get the toggle value
+			$live_search_enabled = get_theme_mod( 'responsive_header_search_enable_live_search', false );
+			$selected_post_types_setting = get_theme_mod( 'responsive_header_search_live_search_post_type', array('pages', 'posts') ); 
+			error_log("responsive_header_search_live_search_post_type: ". print_r($selected_post_types_setting, true));
+			if ( ! is_array( $selected_post_types_setting ) ) {
+				$selected_post_types_setting = array_map('trim', explode(',', $selected_post_types_setting));
+			}
+			// Map the customizer choices ('pages', 'posts') to actual WP REST API post types ('page', 'post')
+			$rest_api_post_types = [];
+			foreach ($selected_post_types_setting as $type) {
+				if ($type === 'pages') {
+					$rest_api_post_types[] = 'page';
+				} elseif ($type === 'posts') {
+					$rest_api_post_types[] = 'post';
+				}
+			}
+
+			error_log("rest_api_post_types: ".print_r($rest_api_post_types, true));
+
+			// Localize script with REST API settings
+			wp_localize_script(
+				'searchform-script',
+				'wpApiSettings',
+				array(
+					'root' => esc_url_raw( rest_url() ),
+					'nonce' => wp_create_nonce( 'wp_rest' ),
+					'enable_live_search' => (bool) $live_search_enabled,
+					'live_search_post_types' => $rest_api_post_types,
+				)
+			);
 		}
 
 		$mobile_menu_breakpoint = array( 'mobileBreakpoint' => get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );

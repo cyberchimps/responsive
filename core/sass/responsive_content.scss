@@ -1,11 +1,13 @@
 @import 'reset';
 @import 'variables';
 @import 'mixins';
-@import 'mixins-pro';
 @import 'layout';
 @import 'typography';
 @import 'form';
+@import 'header';
 @import 'content';
+@import 'sidebar';
+@import 'footer';
 
 /**
  * Common Site styles
