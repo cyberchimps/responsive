@@ -71,6 +71,15 @@ if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_d
 	if ( ! has_action( 'responsive_custom_footer' ) ) {
 
 		?>
+			<?php
+				$responsive = wp_get_theme('responsive');
+				wp_enqueue_style(
+					'footer-style',
+					get_template_directory_uri() . '/core/css/footer.min.css',
+					false,
+					$responsive['Version']
+				);
+			?>
 			<footer id="footer" class="clearfix site-footer" role="contentinfo" <?php responsive_schema_markup( 'site-footer' ); ?>>
 				<?php Responsive\responsive_footer_top(); ?>
 				<?php do_action( 'responsive_footer' ); ?>

@@ -164,6 +164,7 @@ function responsive_customizer_styles() {
 	// Paragraph Margin Bottom.
 	$paragraph_margin_bottom = esc_html( get_theme_mod( 'responsive_paragraph_margin_bottom', '' ) );
 
+	$underline_content_links = esc_html( get_theme_mod( 'responsive_underline_content_links', false ) );
 	// Site custom styles.
 
 	$container_max_width = esc_html( get_theme_mod( 'responsive_container_width', 1140 ) );
@@ -334,6 +335,27 @@ function responsive_customizer_styles() {
 	}
 	";
 
+	if ( $underline_content_links === '1' || $underline_content_links === true ) {
+		$custom_css .= '
+			.entry-content a:not(li > a),
+			.comment-content a:not(.comment-edit-link):not(li > a),
+			.woocommerce div.product .woocommerce-product-details__short-description a:not(li > a) {
+				text-decoration: underline;
+			}
+			.woocommerce-MyAccount-content a {
+				text-decoration: unset !important;
+			}
+		';
+	} else {
+		$custom_css .= '
+			.entry-content a:not(li > a),
+			.comment-content a:not(.comment-edit-link):not(li > a),
+			.woocommerce div.product .woocommerce-product-details__short-description a:not(li > a) {
+				text-decoration: unset;
+			}
+		';
+	}
+	
 	$custom_css .= '.responsive-site-style-content-boxed .hentry,
 	.responsive-site-style-content-boxed .give-wrap .give_forms,
 	.responsive-site-style-content-boxed .navigation,
@@ -4418,9 +4440,9 @@ function responsive_customizer_styles() {
 	$header_button_border_style = get_theme_mod( 'responsive_header_button_border_style' , Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_style' ) );
 
 	if ( 'none' !== $header_button_border_style ) {
-		$header_button_border_width       = get_theme_mod( 'responsive_header_button_border_width', Responsive\Core\get_responsive_customizer_defaults(  'responsive_header_button_border_width' ) );
-		$header_button_border_color       = get_theme_mod( 'responsive_header_button_border_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_color' ) );
-		$header_button_border_color_hover = get_theme_mod( 'responsive_header_button_border_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_color_hover' ) );
+		$header_button_border_width       = get_theme_mod( 'responsive_header_button_border_width', Responsive\Core\get_responsive_customizer_defaults('responsive_header_button_border_width') );
+		$header_button_border_color       = get_theme_mod( 'responsive_header_button_border_color', Responsive\Core\get_responsive_customizer_defaults('responsive_header_button_border_color') );
+		$header_button_border_color_hover = get_theme_mod( 'responsive_header_button_border_hover_color', Responsive\Core\get_responsive_customizer_defaults('responsive_header_button_border_color_hover') );
 
 		$header_button_border_radius_top_left     = get_theme_mod( 'responsive_header_button_radius_top_left_radius' );
 		$header_button_border_radius_top_right    = get_theme_mod( 'responsive_header_button_radius_top_right_radius' );

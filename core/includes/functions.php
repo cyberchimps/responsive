@@ -417,10 +417,29 @@ if ( ! function_exists( 'responsive_css' ) ) {
 			wp_enqueue_style( 'responsive-sensei_content', get_template_directory_uri() . "/core/css/sensei_content{$suffix}.css", false, $responsive['Version'] );
 		}
 
-		wp_enqueue_style( 'responsive-style', get_template_directory_uri() . "/core/css/style{$suffix}.css", false, $responsive['Version'] );
+		wp_enqueue_style( 'responsive-style', get_template_directory_uri() . "/core/css/content.min.css", false, $responsive['Version'] );
+		wp_enqueue_style( 'wordpress-core-style', get_template_directory_uri() . "/core/css/wordpress.min.css", false, $responsive['Version'] );
+		wp_enqueue_style( 'gutenberg-front-style', get_template_directory_uri() . "/core/css/gutenberg-front.min.css", false, $responsive['Version'] );
+		if ( is_home() || is_archive() || is_search() || is_category() || is_tag() ) {
+			wp_enqueue_style(
+				'blog-archive-style',
+				get_template_directory_uri() . '/core/css/blog.min.css',
+				false,
+				$responsive['Version']
+			);
+		}
+		
 		wp_add_inline_style( 'responsive-style', responsive_gutenberg_colors( responsive_gutenberg_color_palette() ) );
 		wp_enqueue_style( 'icomoon-style', get_template_directory_uri() . "/core/css/icomoon/style{$suffix}.css", false, $responsive['Version'] );
 
+		if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+			wp_enqueue_style(
+				'woocommerce-style',
+				get_template_directory_uri() . '/core/css/woocommerce-pro.min.css',
+				false,
+				$responsive['Version']
+			);
+		}
 		// If plugin - 'WooCommerce' is active.
 		if ( class_exists( 'WooCommerce' ) ) {
 			wp_enqueue_style( 'responsive-woocommerce-style', get_template_directory_uri() . "/core/css/woocommerce{$suffix}.css", false, $responsive['Version'] );
@@ -1395,6 +1414,16 @@ function defaults() {
 																			'widget-4' => array(
 																				'name'    => esc_html__( 'Widget 4', 'responsive' ),
 																				'section' => 'sidebar-widgets-footer-widget-4',
+																				'icon'    => 'wordpress',
+																			),
+																			'widget-5' => array(
+																				'name'    => esc_html__( 'Widget 5', 'responsive' ),
+																				'section' => 'sidebar-widgets-footer-widget-5',
+																				'icon'    => 'wordpress',
+																			),
+																			'widget-6' => array(
+																				'name'    => esc_html__( 'Widget 6', 'responsive' ),
+																				'section' => 'sidebar-widgets-footer-widget-6',
 																				'icon'    => 'wordpress',
 																			),
 																			'colophon-widget' => array(

@@ -1,0 +1,106 @@
+@import 'reset';
+@import 'variables';
+@import 'mixins';
+@import 'mixins-pro';
+@import 'layout';
+@import 'typography';
+@import 'form';
+@import 'content';
+
+/**
+ * Common Site styles
+ * -----------------------------------------------------------------------------
+ */
+body {
+    background-color: map-get( $colors, light-blue );
+}
+
+.responsive-site-full-width {
+    .container {
+        max-width: none;
+    }
+}
+
+.site-header-full-width-main-navigation.site-mobile-header-layout-vertical {
+    &:not(.responsive-site-full-width) {
+        .main-navigation-wrapper {
+            @extend .container;
+        }
+    }
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+    margin-right: 5px;
+}
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+
+    &:focus {
+    	display: block;
+    	top: 5px;
+    	left: 5px;
+    	width: auto;
+    	height: auto;
+    	padding: 15px 23px 14px;
+    	border-radius: 3px;
+    	background-color: #f1f1f1;
+    	color: #21759b;
+    	font-size: 14px;
+    	font-size: 0.875rem;
+    	font-weight: bold;
+    	line-height: normal;
+    	text-decoration: none;
+    	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    	z-index: 100000;
+    	clip: auto !important;
+    	clip-path: none;
+    	/* Above WP toolbar. */
+    }
+}
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+	outline: 0;
+}
+
+/* Static styles of Single Blog related posts  */
+.responsive-single-related-posts-container .responsive-related-single-posts-wrapper .responsive-related-single-post{
+	margin: 0;
+	padding: 0 !important;
+}
+.responsive-related-single-posts-title-section{
+	padding-bottom: 20px;
+}
+.responsive-single-related-posts-container .responsive-related-single-post-content .responsive-related-single-post-title{
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+.responsive-single-related-posts-container .responsive-related-single-post-content .post-meta{
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+.responsive-related-single-post-excerpt{
+	margin: 0;
+}
+.responsive-related-single-post-not-found{
+	margin: 0;
+}
+.page.sidebar-position-no:not(.woocommerce) .alignwide{
+	margin-left: auto;
+	margin-right: auto;
+}
