@@ -416,6 +416,7 @@ if ( ! function_exists( 'responsive_css' ) ) {
 		if ( class_exists( 'Sensei_Main' ) ) {
 			wp_enqueue_style( 'responsive-sensei_content', get_template_directory_uri() . "/core/css/sensei_content{$suffix}.css", false, $responsive['Version'] );
 		}
+		
 
 		wp_enqueue_style( 'responsive-style', get_template_directory_uri() . "/core/css/content.min.css", false, $responsive['Version'] );
 		wp_enqueue_style( 'wordpress-core-style', get_template_directory_uri() . "/core/css/wordpress.min.css", false, $responsive['Version'] );
@@ -428,6 +429,7 @@ if ( ! function_exists( 'responsive_css' ) ) {
 				$responsive['Version']
 			);
 		}
+		wp_enqueue_style( 'header-mixin-style', get_template_directory_uri() . "/core/css/header_mixin_pro.min.css", false, $responsive['Version'] );
 		
 		wp_add_inline_style( 'responsive-style', responsive_gutenberg_colors( responsive_gutenberg_color_palette() ) );
 		wp_enqueue_style( 'icomoon-style', get_template_directory_uri() . "/core/css/icomoon/style{$suffix}.css", false, $responsive['Version'] );
