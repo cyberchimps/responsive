@@ -133,6 +133,11 @@ module.exports = function(grunt) {
 					{
 						'core/css/about-me.css': 'core/sass/responsive_about-me.scss',
 					},
+					
+					{
+						'core/css/header_mixin_pro.css': 'core/sass/responsive_header_mixin_pro.scss',
+					},
+
 
 					/* Sensei CSS file */
 					{
@@ -235,6 +240,7 @@ module.exports = function(grunt) {
 					'core/css/wordpress.min.css': 'core/css/wordpress.css',
 					'core/css/typography.min.css': 'core/css/typography.css',
 					'core/css/gutenberg-front.min.css': 'core/css/gutenberg-front.css',
+					'core/css/header_mixin_pro.min.css': 'core/css/header_mixin_pro.css',
 					'core/css/woocommerce-pro.min.css': 'core/css/woocommerce-pro.css',
 					'core/css/about-me.min.css': 'core/css/about-me.css',
 					'core/includes/customizer/assets/min/css/dimensions.min.css':'core/includes/customizer/controls/dimensions/dimensions.css',
