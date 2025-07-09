@@ -79,6 +79,9 @@
                 const resultsPanel = input.closest('form').querySelector('.live-search-results');
                 const performSearch = debounce(async () => {
                 const term = input.value.trim();
+
+                // Clear the result panel before each new request
+                resultsPanel.innerHTML = '';
                 
                 if (!term) {
                     // Hide panel when input is empty
@@ -87,16 +90,28 @@
                     return;
                 }
                 
-                // Show loading state
-                resultsPanel.innerHTML = '<p>Searching…</p>';
-                resultsPanel.classList.add('active');
-                
                 try {
+                    const params = new URLSearchParams({
+                        search: term,
+                        per_page: 5
+                    });
+                    
+                    if(wpApiSettings.live_search_post_types.length > 0) {
+                        wpApiSettings.live_search_post_types.forEach(type => {
+                            params.append('subtype[]', type);
+                        });
+                    } else {
+                        const noResultFound = document.createElement('h3'); 
+                        noResultFound.textContent = 'No results found';
+                        noResultFound.classList.add('live-search-section-title');
+                        resultsPanel.appendChild(noResultFound);
+                        resultsPanel.classList.add('active'); 
+                        return;
+                    }
                     // Data fetching logic using WordPress REST API
-                    const response = await fetch(`${wpApiSettings.root}wp/v2/search?search=${encodeURIComponent(term)}&per_page=5`);
+                    // const response = await fetch(`${wpApiSettings.root}wp/v2/search?search=${encodeURIComponent(term)}&per_page=5`);
+                    const response = await fetch(`${wpApiSettings.root}wp/v2/search?${params.toString()}`);
                     const data = await response.json();
-                    // Clear previous results before adding new ones
-                    resultsPanel.innerHTML = '';
 
                     if (data.length === 0) {
                         const noResultFound = document.createElement('h3'); 
