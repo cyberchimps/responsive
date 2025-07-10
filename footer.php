@@ -71,7 +71,6 @@ if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_d
 	if ( ! has_action( 'responsive_custom_footer' ) ) {
 
 		?>
-			
 			<footer id="footer" class="clearfix site-footer" role="contentinfo" <?php responsive_schema_markup( 'site-footer' ); ?>>
 				<?php Responsive\responsive_footer_top(); ?>
 				<?php do_action( 'responsive_footer' ); ?>

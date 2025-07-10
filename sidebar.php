@@ -59,16 +59,6 @@ if ( ( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_ch
 		}
 
 		?>
-
-				<?php
-					$responsive = wp_get_theme('responsive');
-					wp_enqueue_style(
-						'sidebar-style',
-						get_template_directory_uri() . '/core/css/sidebar.css',
-						false,
-						$responsive['Version']
-					);
-				?>
 				<aside id="secondary" class="main-sidebar widget-area <?php echo esc_attr( implode( ' ', responsive_get_sidebar_classes() ) ); ?>" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
 
 				<?php
@@ -94,15 +84,6 @@ if ( ( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_ch
 		return;
 	}
 
-	?>
-	<?php
-		$responsive = wp_get_theme('responsive');
-		wp_enqueue_style(
-			'sidebar-style',
-			get_template_directory_uri() . '/core/css/sidebar.css',
-			false,
-			$responsive['Version']
-		);
 	?>
 	<aside id="secondary" class="main-sidebar widget-area <?php echo esc_attr( implode( ' ', responsive_get_sidebar_classes() ) ); ?>" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
 
