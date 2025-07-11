@@ -2,8 +2,9 @@
 .components-button-group.responsive-radio-container-control {
     display: grid;
     grid-template-columns: repeat(2, minmax(121px, 1fr));
-    row-gap: 24px;
+    row-gap: 16px;
     justify-items: start;
+    column-gap: 8px;
 }
 .components-button-group.responsive-radio-container-control .components-button.is-tertiary {
     height: fit-content;
