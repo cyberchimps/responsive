@@ -8,6 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(11/07/2025) Version 6.2.0
+[+] = New = Introduced a setting to Underline Content Links in Typography Panel.
+[*] = Improvement = Added two additional footer widget areas.
+
 (16/06/2025) Version 6.1.9
 [!] = Fix = Fixed Typography font presets issue in the frontend.
 [!] = Fix = Fixed an issue where Paragraph Margin Bottom setting was applying on unintended areas in the frontend.   
