@@ -50,8 +50,6 @@ if( ! class_exists( 'Responsive_HFB_Footer_Below_Row' ) ) {
 			);
 			responsive_select_button_control( $wp_customize, 'footer_below_width', $footer_below_row_width_label, 'responsive_footer_below_row', 10, $footer_below_row_width_choices, 'contained', null, 'postMessage' );
 
-            responsive_horizontal_separator_control($wp_customize, 'footer_below_separator_1', 2, 'responsive_footer_below_row', 15, 1, );
-
             // Design.
 			$design_separator_label = __( 'Design', 'responsive' );
 			responsive_separator_control( $wp_customize, 'footer_below_design', $design_separator_label, 'responsive_footer_below_row', 18 );
@@ -107,8 +105,6 @@ if( ! class_exists( 'Responsive_HFB_Footer_Below_Row' ) ) {
             // Background Color.
 			$footer_below_row_color_label = __( 'Background Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'footer_below_row_bg', $footer_below_row_color_label, 'responsive_footer_below_row', 80, Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_below_row_bg_color' ), null, '' );
-            
-            responsive_horizontal_separator_control($wp_customize, 'footer_below_separator_4', 2, 'responsive_footer_below_row', 85, 1, );
 
             // Border.
 			$border_head_label = __( 'Border', 'responsive' );
@@ -165,7 +161,6 @@ if( ! class_exists( 'Responsive_HFB_Footer_Below_Row' ) ) {
 				$tab_ids_prefix . 'responsive_footer_below_inner_column_spacing',
 				$tab_ids_prefix . 'responsive_footer_below_height',
 				$tab_ids_prefix . 'responsive_footer_below_vertical_alignment',
-                $tab_ids_prefix . 'responsive_footer_below_separator_1',
                 $tab_ids_prefix . 'responsive_footer_below_separator_2',
                 $tab_ids_prefix . 'responsive_footer_below_separator_3',
                 $tab_ids_prefix . 'responsive_footer_below_separator_5',
