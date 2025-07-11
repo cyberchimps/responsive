@@ -416,7 +416,7 @@ if ( ! function_exists( 'responsive_css' ) ) {
 		if ( class_exists( 'Sensei_Main' ) ) {
 			wp_enqueue_style( 'responsive-sensei_content', get_template_directory_uri() . "/core/css/sensei_content{$suffix}.css", false, $responsive['Version'] );
 		}
-
+		
 		wp_enqueue_style( 'responsive-style', get_template_directory_uri() . "/core/css/style{$suffix}.css", false, $responsive['Version'] );
 		wp_add_inline_style( 'responsive-style', responsive_gutenberg_colors( responsive_gutenberg_color_palette() ) );
 		wp_enqueue_style( 'icomoon-style', get_template_directory_uri() . "/core/css/icomoon/style{$suffix}.css", false, $responsive['Version'] );
@@ -1377,6 +1377,16 @@ function defaults() {
 																			'widget-4' => array(
 																				'name'    => esc_html__( 'Widget 4', 'responsive' ),
 																				'section' => 'sidebar-widgets-footer-widget-4',
+																				'icon'    => 'wordpress',
+																			),
+																			'widget-5' => array(
+																				'name'    => esc_html__( 'Widget 5', 'responsive' ),
+																				'section' => 'sidebar-widgets-footer-widget-5',
+																				'icon'    => 'wordpress',
+																			),
+																			'widget-6' => array(
+																				'name'    => esc_html__( 'Widget 6', 'responsive' ),
+																				'section' => 'sidebar-widgets-footer-widget-6',
 																				'icon'    => 'wordpress',
 																			),
 																			'colophon-widget' => array(

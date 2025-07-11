@@ -271,7 +271,11 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_blog_read_more_text_separator').style.display = 'none';
 			document.getElementById('customize-control-responsive_blog_entry_read_more_type').style.display = 'none';
 		}
-		
+		if( 'none' === api('responsive_header_button_border_style').get() ) {
+			document.getElementById('customize-control-responsive_header_button_border_width').style.display = 'none';
+			document.getElementById('customize-control-responsive_header_button_border_color').style.display = 'none';
+			document.getElementById('customize-control-responsive_border_header_button_radius').style.display = 'none';
+		}
 	}, [tab]);
 
 	const toggleSidebarPositionWidthControls = (value, control) => {

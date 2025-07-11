@@ -43,7 +43,7 @@ class Responsive_About_Me extends WP_Widget {
 		$title = apply_filters( 'widget_title', isset( $instance['title'] ) ? $instance['title'] : '' );
 		$image = isset( $instance['author_image'] ) ? $instance['author_image'] : '';
 		$bio   = isset( $instance['author_bio'] ) ? $instance['author_bio'] : '';
-
+		
 		if ( ! empty( $title ) ) { ?>
 		<div class="widget-title">
 			<h4><?php echo esc_html( $title ); ?></h4>

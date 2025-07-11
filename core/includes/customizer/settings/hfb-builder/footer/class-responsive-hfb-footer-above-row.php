@@ -50,8 +50,6 @@ if( ! class_exists( 'Responsive_HFB_Footer_Above_Row' ) ) {
 			);
 			responsive_select_button_control( $wp_customize, 'footer_above_width', $footer_above_row_width_label, 'responsive_footer_above_row', 10, $footer_above_row_width_choices, 'contained', null, 'postMessage' );
 
-            responsive_horizontal_separator_control($wp_customize, 'footer_above_separator_1', 2, 'responsive_footer_above_row', 15, 1, );
-
             // Design.
 			$design_separator_label = __( 'Design', 'responsive' );
 			responsive_separator_control( $wp_customize, 'footer_above_design', $design_separator_label, 'responsive_footer_above_row', 18 );
@@ -107,8 +105,6 @@ if( ! class_exists( 'Responsive_HFB_Footer_Above_Row' ) ) {
             // Background Color.
 			$footer_above_row_color_label = __( 'Background Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'footer_above_row_bg', $footer_above_row_color_label, 'responsive_footer_above_row', 80, Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_above_row_bg_color' ), null, '' );
-            
-            responsive_horizontal_separator_control($wp_customize, 'footer_above_separator_4', 2, 'responsive_footer_above_row', 85, 1, );
 
             // Border.
 			$border_head_label = __( 'Border', 'responsive' );
@@ -154,7 +150,6 @@ if( ! class_exists( 'Responsive_HFB_Footer_Above_Row' ) ) {
 				$tab_ids_prefix . 'responsive_footer_above_row_margin_padding',
 				$tab_ids_prefix . 'responsive_footer_above_items_spacing_separator',
 				$tab_ids_prefix . 'responsive_footer_above_row_item_padding_padding',
-				$tab_ids_prefix . 'responsive_footer_above_separator_4',
 			);
             
 			$general_tab_ids = array(
@@ -165,7 +160,6 @@ if( ! class_exists( 'Responsive_HFB_Footer_Above_Row' ) ) {
 				$tab_ids_prefix . 'responsive_footer_above_inner_column_spacing',
 				$tab_ids_prefix . 'responsive_footer_above_height',
 				$tab_ids_prefix . 'responsive_footer_above_vertical_alignment',
-                $tab_ids_prefix . 'responsive_footer_above_separator_1',
                 $tab_ids_prefix . 'responsive_footer_above_separator_2',
                 $tab_ids_prefix . 'responsive_footer_above_separator_3',
                 $tab_ids_prefix . 'responsive_footer_above_separator_5',

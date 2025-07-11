@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				else :
 
 					?>
-					<p class="site-title"><a href="<?php echo esc_url( get_theme_mod( 'responsive_custom_logo_url', home_url( '/' ) ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+					<span class="site-title"><a href="<?php echo esc_url( get_theme_mod( 'responsive_custom_logo_url', home_url( '/' ) ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
 					<?php
 
 				endif;
@@ -47,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				if ( $response_description || is_customize_preview() ) :
 
 					?>
-					<p class="site-description"><?php echo esc_html( $response_description ); ?></p>
+					<span style="display: block;" class="site-description"><?php echo esc_html( $response_description ); ?></span>
 					<?php
 
 				endif;

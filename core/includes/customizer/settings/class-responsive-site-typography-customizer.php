@@ -104,11 +104,25 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 			responsive_typography_group_control( $wp_customize, 'heading_h6_typography_group', $h6_typography_label, 'responsive_typography', 19, 'heading_h6_typography' );
 
 			responsive_horizontal_separator_control($wp_customize, 'paragraph_margin_bottom_separator', 1, 'responsive_typography', 20, 1, );
-
+			
 			// Paragraph Margin Bottom.
 			$paragraph_margin_label = esc_html__( 'Paragraph Margin Bottom', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'paragraph_margin_bottom', $paragraph_margin_label, 'responsive_typography', 21, 1.75, null, 5, 1, 'postMessage', 0.1 );
 
+			responsive_horizontal_separator_control($wp_customize, 'underline_content_links_separator', 1, 'responsive_typography', 22, 1, );
+
+			// Underline Content Links
+			responsive_toggle_control(
+				$wp_customize,
+				'underline_content_links', 
+				esc_html__( 'Underline Content Links', 'responsive' ),
+				'responsive_typography',
+				32, 
+				false, 
+				'',
+				'refresh',
+			);
+			
 		}
 
 		public function live_preview_styles() {
