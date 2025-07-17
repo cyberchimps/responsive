@@ -105,7 +105,7 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 						'label'    => esc_html__( 'Page Elements', 'responsive' ),
 						'section'  => 'responsive_page',
 						'settings' => 'responsive_page_single_elements_positioning',
-						'priority' => 20,
+						'priority' => 14,
 						'choices'  => responsive_page_elements(),
 					)
 				)
