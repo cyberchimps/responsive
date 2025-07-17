@@ -94,6 +94,51 @@ module.exports = function(grunt) {
 						'core/css/style.css': 'core/sass/style.scss'
 					},
 
+					{
+						'core/css/sidebar.css': 'core/sass/responsive_sidebar.scss',
+					},
+
+					{
+						'core/css/header.css': 'core/sass/responsive_header.scss',
+					},
+
+					{
+						'core/css/footer.css': 'core/sass/responsive_footer.scss',
+					},
+
+					{
+						'core/css/content.css': 'core/sass/responsive_content.scss',
+					},
+
+					{
+						'core/css/blog.css': 'core/sass/responsive_blog.scss',
+					},
+
+					{
+						'core/css/typography.css': 'core/sass/responsive_typography.scss',
+					},
+
+					{
+						'core/css/wordpress.css': 'core/sass/responsive_wordpress.scss',
+					},
+
+					{
+						'core/css/gutenberg-front.css': 'core/sass/responsive_gutenberg-front.scss',
+					},
+
+					{
+						'core/css/woocommerce-pro.css': 'core/sass/responsive_woocommerce-pro.scss',
+					},
+
+					{
+						'core/css/about-me.css': 'core/sass/responsive_about-me.scss',
+					},
+					
+					{
+						'core/css/header_mixin_pro.css': 'core/sass/responsive_header_mixin_pro.scss',
+					},
+
+
 					/* Sensei CSS file */
 					{
 						'core/css/sensei_content.css': 'core/sass/sensei_content.scss'
@@ -188,6 +233,16 @@ module.exports = function(grunt) {
 					'core/css/lifterlms/lifter_notice.min.css': 'core/css/lifterlms/lifter_notice.css',
 					'core/css/lifterlms/lifter_style.min.css': 'core/css/lifterlms/lifter_style.css',
 					'core/css/lifterlms/llms.min.css': 'core/css/lifterlms/llms.css',
+					'core/css/content.min.css': 'core/css/content.css',
+					'core/css/header.min.css': 'core/css/header.css',
+					'core/css/footer.min.css': 'core/css/footer.css',
+					'core/css/blog.min.css': 'core/css/blog.css',
+					'core/css/wordpress.min.css': 'core/css/wordpress.css',
+					'core/css/typography.min.css': 'core/css/typography.css',
+					'core/css/gutenberg-front.min.css': 'core/css/gutenberg-front.css',
+					'core/css/header_mixin_pro.min.css': 'core/css/header_mixin_pro.css',
+					'core/css/woocommerce-pro.min.css': 'core/css/woocommerce-pro.css',
+					'core/css/about-me.min.css': 'core/css/about-me.css',
 					'core/includes/customizer/assets/min/css/dimensions.min.css':'core/includes/customizer/controls/dimensions/dimensions.css',
 					'core/includes/customizer/assets/min/css/selectbtn.min.css':'core/includes/customizer/controls/selectbtn/selectbtn.css',
 					'core/includes/customizer/assets/min/css/general.min.css': 'core/includes/customizer/controls/general.css',

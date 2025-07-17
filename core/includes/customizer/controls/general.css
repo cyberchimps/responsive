@@ -1572,3 +1572,6 @@ body.rtl .customize-control .responsive-switchers li {
 .responsive-hfb-builder-item.sortable-ghost .responsive-hfb-builder-item-icon {
     display: none;
 }
+.responsive-dragging-dropzones .responsive-builder-add-item {
+	display: none;
+}
