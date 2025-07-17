@@ -5,7 +5,11 @@ import {useState} from 'react';
 
 const ColorComponent = props => {
 
-	let value = props.control.params.value;
+	const { label, description, is_hover_required, value, is_gradient_available } = props.control.params;
+	
+	const colorType = props.control.settings?.color_type?.get() || 'color';
+
+	const currentGradientValue = props.control.settings?.gradient?.get() || props.control.params.gradient_default;
 
 	const [state, setState] = useState({
 		value: value,
@@ -16,22 +20,38 @@ const ColorComponent = props => {
 			...prevState,
 			value: value
 		}));
-		if (props.control.params.is_hover_required) {
+		if (is_hover_required) {
             props.control.settings['normal'].set(value.normal);
             props.control.settings['hover'].set(value.hover);
-        } else {
+        } else if (is_gradient_available && props.control.settings?.default) {
+			props.control?.settings?.default?.set(value);
+			props.control?.settings?.color_type?.set('color');
+		} else {
             props.control.setting.set(value);
         }
 	};
-	const handleChangeComplete = ( color, type ) => {
+	const handleChangeComplete = ( color, type='color' ) => {
 		let colorValue;
 
-		if (typeof color === 'string' || color instanceof String) {
+		if(type === 'gradient') {
+			colorValue = color;
+		} else if (typeof color === 'string' || color instanceof String) {
 			colorValue = color;
 		} else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
 			colorValue = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
 		} else {
 			colorValue = color.hex;
+		}
+
+		if (is_gradient_available && type === 'gradient') {
+			props.control?.settings?.gradient.set(colorValue);
+			props.control?.settings?.color_type.set('gradient');
+			// Update local state to reflect the change for potential re-renders or prop updates
+            setState(prevState => ({
+                ...prevState,
+                value: colorValue // If gradient, set the value to the gradient string
+            }));
+			return;
 		}
 
 		let updatedValue = { ...state.value };
@@ -40,7 +60,7 @@ const ColorComponent = props => {
         } else if (type === 'hover') {
             updatedValue.hover = colorValue;
         }
-		if( props.control.params.is_hover_required ) {
+		if( is_hover_required ) {
 			updateValues(updatedValue);
 		} else {
 			updateValues(colorValue);
@@ -49,11 +69,7 @@ const ColorComponent = props => {
 
 	let labelHtml = null;
     let htmlDescription = null;
-	const {
-		label,
-        description,
-		is_hover_required
-	} = props.control.params;
+	
 
 	if (label) {
 		labelHtml = <span className="customize-control-title">{label}</span>;
@@ -75,9 +91,13 @@ const ColorComponent = props => {
 				) }
 				{ ! is_hover_required && (
 					<ResponsiveColorPickerControl color={undefined !== state.value && state.value ? state.value : ''}
-						onChangeComplete={(color) => handleChangeComplete(color)}
+						onChangeComplete={(color, type) => handleChangeComplete(color, type)}
 						backgroundType={'color'}
 						inputattr={props.control.params}
+						inputSettings={props.control.settings}
+						is_gradient_available={is_gradient_available ? is_gradient_available : false}
+						colorType={colorType}
+						gradient={currentGradientValue}
 					/>
 				)}
 
