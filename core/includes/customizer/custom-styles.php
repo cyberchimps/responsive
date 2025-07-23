@@ -216,16 +216,94 @@ function responsive_customizer_styles() {
 	';
 	if ( 'gradient' === $box_background_color_type && ! empty( $box_background_gradient_color ) ) {
 		$custom_css .= "
-		.responsive-site-style-boxed .site-content .hentry {
+		.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,
+		.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,
+		.responsive-site-style-content-boxed .custom-home-about-section,
+		.responsive-site-style-content-boxed .custom-home-feature-section,
+		.responsive-site-style-content-boxed .custom-home-team-section,
+		.responsive-site-style-content-boxed .custom-home-testimonial-section,
+		.responsive-site-style-content-boxed .custom-home-contact-section,
+		.responsive-site-style-content-boxed .custom-home-widget-section,
+		.responsive-site-style-content-boxed .custom-home-featured-area,
+		.responsive-site-style-content-boxed .site-content-header,
+		.responsive-site-style-content-boxed .content-area-wrapper,
+		.responsive-site-style-content-boxed .site-content .hentry,
+		.responsive-site-style-content-boxed .give-wrap .give_forms,
+		.responsive-site-style-content-boxed .navigation,
+		.responsive-site-style-content-boxed .comments-area,
+		.responsive-site-style-content-boxed .comment-respond,
+		.responsive-site-style-boxed .custom-home-about-section,
+		.responsive-site-style-boxed .custom-home-feature-section,
+		.responsive-site-style-boxed .custom-home-team-section,
+		.responsive-site-style-boxed .custom-home-testimonial-section,
+		.responsive-site-style-boxed .custom-home-contact-section,
+		.responsive-site-style-boxed .custom-home-widget-section,
+		.responsive-site-style-boxed .custom-home-featured-area,
+		.responsive-site-style-boxed .site-content-header,
+		.responsive-site-style-boxed .site-content .hentry,
+		.responsive-site-style-boxed .give-wrap .give_forms,
+		.responsive-site-style-boxed .navigation,
+		.responsive-site-style-boxed .comments-area,
+		.responsive-site-style-boxed .comment-respond,
+		.responsive-site-style-boxed .comment-respond,
+		.responsive-site-style-boxed aside#secondary .widget-wrapper,
+		.responsive-site-style-boxed .site-content article.product,
+		.woocommerce.responsive-site-style-content-boxed .related-product-wrapper,
+		.woocommerce-page.responsive-site-style-content-boxed .related-product-wrapper,
+		.woocommerce-page.responsive-site-style-content-boxed .products-wrapper,
+		.woocommerce.responsive-site-style-content-boxed .products-wrapper,
+		.woocommerce-page:not(.responsive-site-style-flat) .woocommerce-pagination,
+		.woocommerce-page.single-product:not(.responsive-site-style-flat) div.product,
+		.woocommerce.single-product:not(.responsive-site-style-flat) div.product,
+		.elementor-element.elementor-products-grid ul.products li.product .responsive-shop-summary-wrap {
 			background: " . esc_attr( $box_background_gradient_color ) . ";
 			border-radius: {$box_top_left_radius}px {$box_top_right_radius}px {$box_bottom_right_radius}px {$box_bottom_left_radius}px;
 		}
 		";
 	} elseif ( 'color' === $box_background_color_type && ! empty( $box_background_color ) ) {
 		$custom_css .= "
-		.responsive-site-style-boxed .site-content .hentry {
+		.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,
+		.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,
+		.responsive-site-style-content-boxed .custom-home-about-section,
+		.responsive-site-style-content-boxed .custom-home-feature-section,
+		.responsive-site-style-content-boxed .custom-home-team-section,
+		.responsive-site-style-content-boxed .custom-home-testimonial-section,
+		.responsive-site-style-content-boxed .custom-home-contact-section,
+		.responsive-site-style-content-boxed .custom-home-widget-section,
+		.responsive-site-style-content-boxed .custom-home-featured-area,
+		.responsive-site-style-content-boxed .site-content-header,
+		.responsive-site-style-content-boxed .content-area-wrapper,
+		.responsive-site-style-content-boxed .site-content .hentry,
+		.responsive-site-style-content-boxed .give-wrap .give_forms,
+		.responsive-site-style-content-boxed .navigation,
+		.responsive-site-style-content-boxed .comments-area,
+		.responsive-site-style-content-boxed .comment-respond,
+		.responsive-site-style-boxed .custom-home-about-section,
+		.responsive-site-style-boxed .custom-home-feature-section,
+		.responsive-site-style-boxed .custom-home-team-section,
+		.responsive-site-style-boxed .custom-home-testimonial-section,
+		.responsive-site-style-boxed .custom-home-contact-section,
+		.responsive-site-style-boxed .custom-home-widget-section,
+		.responsive-site-style-boxed .custom-home-featured-area,
+		.responsive-site-style-boxed .site-content-header,
+		.responsive-site-style-boxed .site-content .hentry,
+		.responsive-site-style-boxed .give-wrap .give_forms,
+		.responsive-site-style-boxed .navigation,
+		.responsive-site-style-boxed .comments-area,
+		.responsive-site-style-boxed .comment-respond,
+		.responsive-site-style-boxed .comment-respond,
+		.responsive-site-style-boxed aside#secondary .widget-wrapper,
+		.responsive-site-style-boxed .site-content article.product,
+		.woocommerce.responsive-site-style-content-boxed .related-product-wrapper,
+		.woocommerce-page.responsive-site-style-content-boxed .related-product-wrapper,
+		.woocommerce-page.responsive-site-style-content-boxed .products-wrapper,
+		.woocommerce.responsive-site-style-content-boxed .products-wrapper,
+		.woocommerce-page:not(.responsive-site-style-flat) .woocommerce-pagination,
+		.woocommerce-page.single-product:not(.responsive-site-style-flat) div.product,
+		.woocommerce.single-product:not(.responsive-site-style-flat) div.product, .elementor-element.elementor-products-grid ul.products li.product .responsive-shop-summary-wrap {
 			background-color: " . esc_attr( $box_background_color ) . ";
 			border-radius: {$box_top_left_radius}px {$box_top_right_radius}px {$box_bottom_right_radius}px {$box_bottom_left_radius}px;
+			background: '';
 		}
 		";
 	}
@@ -234,42 +312,6 @@ function responsive_customizer_styles() {
 	[class*='__inner-container'],
 	.site-header-full-width-main-navigation.site-mobile-header-layout-vertical:not(.responsive-site-full-width) .main-navigation-wrapper {
 		max-width: {$container_max_width}px;
-	}
-	.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,
-	.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,
-	.responsive-site-style-content-boxed .custom-home-about-section,
-	.responsive-site-style-content-boxed .custom-home-feature-section,
-	.responsive-site-style-content-boxed .custom-home-team-section,
-	.responsive-site-style-content-boxed .custom-home-testimonial-section,
-	.responsive-site-style-content-boxed .custom-home-contact-section,
-	.responsive-site-style-content-boxed .custom-home-widget-section,
-	.responsive-site-style-content-boxed .custom-home-featured-area,
-	.responsive-site-style-content-boxed .site-content-header,
-	.responsive-site-style-content-boxed .content-area-wrapper,
-	.responsive-site-style-content-boxed .site-content .hentry,
-	.responsive-site-style-content-boxed .give-wrap .give_forms,
-	.responsive-site-style-content-boxed .navigation,
-	.responsive-site-style-content-boxed .responsive-single-related-posts-container,
-	.responsive-site-style-content-boxed .comments-area,
-	.responsive-site-style-content-boxed .comment-respond,
-	.responsive-site-style-boxed .custom-home-about-section,
-	.responsive-site-style-boxed .custom-home-feature-section,
-	.responsive-site-style-boxed .custom-home-team-section,
-	.responsive-site-style-boxed .custom-home-testimonial-section,
-	.responsive-site-style-boxed .custom-home-contact-section,
-	.responsive-site-style-boxed .custom-home-widget-section,
-	.responsive-site-style-boxed .custom-home-featured-area,
-	.responsive-site-style-boxed .site-content-header,,
-	.responsive-site-style-boxed .give-wrap .give_forms,
-	.responsive-site-style-boxed .navigation,
-	.responsive-site-style-boxed .responsive-single-related-posts-container,
-	.responsive-site-style-boxed .comments-area,
-	.responsive-site-style-boxed .comment-respond,
-	.responsive-site-style-boxed .comment-respond,
-	.responsive-site-style-boxed aside#secondary .widget-wrapper,
-	.responsive-site-style-boxed .site-content article.product {
-		background-color:{$box_background_color};
-		border-radius:{$box_top_left_radius}px {$box_top_right_radius}px {$box_bottom_right_radius}px {$box_bottom_left_radius}px;
 	}
 	
 	@media screen and ( max-width: 992px ) {
@@ -672,13 +714,22 @@ function responsive_customizer_styles() {
 				background-attachment: scroll;
 			}";
 		} else {
-			$custom_css .= ".responsive-site-style-boxed aside#secondary.main-sidebar .widget-wrapper {
-				background-color: $box_background_color;
-				background-image: linear-gradient(to right, {$box_background_color}, {$box_background_color}), url({$box_background_image});
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-attachment: scroll;
-			}";
+			if( 'gradient' === $box_background_color_type ) {
+				$custom_css .= ".responsive-site-style-boxed aside#secondary.main-sidebar .widget-wrapper {
+					background: $box_background_gradient_color;
+					background-repeat: no-repeat;
+					background-size: cover;
+					background-attachment: scroll;
+				}";
+			} else {
+				$custom_css .= ".responsive-site-style-boxed aside#secondary.main-sidebar .widget-wrapper {
+					background-color: $box_background_color;
+					background-image: linear-gradient(to right, {$box_background_color}, {$box_background_color}), url({$box_background_image});
+					background-repeat: no-repeat;
+					background-size: cover;
+					background-attachment: scroll;
+				}";
+			}
 		}
 
 		$header_background_color = esc_html( get_theme_mod( 'responsive_header_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ) ) );
