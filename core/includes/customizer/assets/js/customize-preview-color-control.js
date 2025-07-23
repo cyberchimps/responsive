@@ -76,7 +76,6 @@
         if (type === 'gradient') {
             api('responsive_box_background_gradient_color', function (value) {
                 var gradient = value.get();
-                console.log( api('responsive_site_background_img_position').get().replace( '-', ' ' ) );
                 $(
                     '.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,' +
                     '.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,' +
