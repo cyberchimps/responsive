@@ -14,7 +14,11 @@
 				var gradient = value.get();
 				$('body').addClass( 'custom-background' ).css({
 					'background': gradient,
-					'background-color': ''
+					'background-color': '',
+                    'background-position': api('responsive_site_background_img_position').get().replace( '-', ' ' ),
+                    'background-attachment': api('responsive_site_background_image_attachment').get(),
+                    'background-repeat': api('responsive_site_background_image_repeat').get(),
+                    'background-size': api('responsive_site_background_image_size').get(),
 				});
 			});
 		} else {

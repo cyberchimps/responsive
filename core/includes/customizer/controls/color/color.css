@@ -557,15 +557,21 @@ body.wp-customizer .responsive-color-control-main-wrap .wp-picker-container .wp-
     width: auto;
     height: auto;
     background: #FFF;
+    box-shadow: none;
 }
 .responsive-clear-btn-inside-picker.components-button:hover {
     background: #FFF;
     border: 0.5px solid #007CBA;
     color: #007CBA;
+    box-shadow: none;
 }
 .responsive-color-control-main-wrap .components-base-control.components-number-control .components-base-control__field .components-input-base{
     width: 90px;
     height: 36px;
+}
+.responsive-color-picker-tab-content .components-base-control.components-number-control .components-base-control__field .components-input-base{
+    width: 80px;
+    height: 60px;
 }
 .responsive-color-control-main-wrap .components-base-control.components-number-control .components-base-control__field .components-input-base .components-input-control__backdrop{
     border-radius: 4px;
@@ -653,6 +659,9 @@ body.wp-customizer .responsive-color-control-main-wrap .wp-picker-container .wp-
     font-size: 14px;
     border: none;
     border-bottom: 1px solid #007CBA;
+    height: 32px !important;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
 .responsive-color-picker-tabs .components-tab-panel__tabs .components-tab-panel__tabs-item:after {
@@ -674,14 +683,14 @@ body.wp-customizer .responsive-color-control-main-wrap .wp-picker-container .wp-
 }
 
 .responsive-color-picker-tabs .components-tab-panel__tab-content .responsive-color-picker-tab-content .components-custom-gradient-picker .components-custom-gradient-picker__gradient-bar {
-    margin-bottom: 24px;
+    margin-bottom: 8px;
 }
 
 .responsive-color-picker-tabs .components-tab-panel__tab-content .responsive-color-picker-tab-content .components-custom-gradient-picker .components-custom-gradient-picker__ui-line  {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    gap: 24px;
+    gap: 16px;
 }
 
 .responsive-color-picker-tabs .components-tab-panel__tab-content .responsive-color-picker-tab-content .components-custom-gradient-picker .components-custom-gradient-picker__ui-line > div  {
@@ -694,6 +703,7 @@ body.wp-customizer .responsive-color-control-main-wrap .wp-picker-container .wp-
 
 .responsive-color-picker-tabs .components-tab-panel__tab-content .responsive-color-picker-tab-content .components-custom-gradient-picker .components-custom-gradient-picker__ui-line > div .components-angle-picker-control {
     width: 136px;
+    margin-bottom: 22px;
 }
 
 .responsive-color-control-main-wrap .components-custom-gradient-picker .components-input-control .components-input-control__container {

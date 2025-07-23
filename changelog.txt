@@ -8,6 +8,13 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(21/07/2025) Version 6.2.1
+[+] = New = Introduced a gradient color picker in the Customizer.
+[+] = New = Introduced a "Last Updated" setting for the Blog page and Single post meta.
+[*] = Improvement = Restructured the Sidebar menu in the Customizer for better workflow.
+[!] = Fix = Fixed an issue where Google Fonts were being loaded as a stylesheet even when not selected.
+[!] = Fix = Added the missing WooCommerce sidebar display setting in the Customizer.
+
 (11/07/2025) Version 6.2.0
 [+] = New = Introduced a setting to Underline Content Links in Typography Panel.
 [*] = Improvement = Added two additional footer widget areas.

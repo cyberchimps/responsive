@@ -41,14 +41,16 @@ class ResponsiveColorPickerControl extends Component {
 	extractOpacity(colorStr) {
 		if (!colorStr) return 1;
 
-		if (colorStr === 'transparent') {
-			return 0;
+		if (typeof color === 'string') {
+			if (color === 'transparent') return 0;
+
+			const rgbaMatch = color.match(/rgba\(\s*\d+,\s*\d+,\s*\d+,\s*(\d*\.?\d+)\s*\)/);
+			return rgbaMatch ? parseFloat(rgbaMatch[1]) : 1;
 		}
 
-		// Match rgba(r, g, b, a)
-		const rgbaMatch = colorStr.match(/rgba\(\s*\d+,\s*\d+,\s*\d+,\s*(\d*\.?\d+)\s*\)/);
-		if (rgbaMatch) {
-			return parseFloat(rgbaMatch[1]);
+		// If color is an object
+		if (typeof color === 'object' && color.rgb && typeof color.rgb.a !== 'undefined') {
+			return color.rgb.a;
 		}
 
 		return 1;
@@ -89,6 +91,19 @@ class ResponsiveColorPickerControl extends Component {
 
 	}
 
+	componentDidUpdate(prevProps, prevState){
+		const { inputattr, is_gradient_available } = this.props;
+		const { activeTab } = this.state;
+		if ( prevProps.inputattr !== inputattr || prevProps.is_gradient_available !== is_gradient_available ||	prevState.activeTab !== activeTab ) {
+			const currentElementID = inputattr.content.match(/id="([^"]*)"/)[1];
+			if( ! currentElementID ) return;
+			const parentEl     = document.getElementById(currentElementID);
+			const pickerHolder = parentEl.querySelector('.wp-picker-holder');
+			const pickerHeight = pickerHolder.offsetHeight;
+			document.getElementById(currentElementID).style.paddingBottom =`${pickerHeight + 20}px`;
+		}
+	}
+
 	render() {
 
 		const {
@@ -116,13 +131,10 @@ class ResponsiveColorPickerControl extends Component {
 			this.setState( { isVisible: true } );
 
 			const currentElementID = inputattr.content.match(/id="([^"]*)"/)[1];
-			if(is_gradient_available && desiredTab === "color") {
-				document.getElementById(currentElementID).style.paddingBottom ='560px';
-			} else if(is_gradient_available && desiredTab === "gradient") {
-				document.getElementById(currentElementID).style.paddingBottom ='400px';
-			} else {
-				document.getElementById(currentElementID).style.paddingBottom ='480px';
-			}
+			const parentEl = document.getElementById(currentElementID);
+			const pickerHolder = parentEl.querySelector('.wp-picker-holder');
+			const pickerHeight = pickerHolder.offsetHeight;
+			document.getElementById(currentElementID).style.paddingBottom =`${pickerHeight + 20}px`;
 		};
 		
 		const toggleClose = () => {
@@ -177,8 +189,9 @@ class ResponsiveColorPickerControl extends Component {
 										activeClass="is-active"
 										initialTabName={activeTab}
 										onSelect={(tabName) => {
-											this.setState({ activeTab: tabName })
-											toggleVisible(tabName)
+											this.setState({ activeTab: tabName }, () => {
+												toggleVisible(tabName);
+											});
 										}}
 										tabs={[
 											{
@@ -216,6 +229,7 @@ class ResponsiveColorPickerControl extends Component {
 																this.onChangeComplete(currentGradient, 'gradient');
 															}
 														}}
+														clearable={false}
 													/>
 												)}
 											</div>

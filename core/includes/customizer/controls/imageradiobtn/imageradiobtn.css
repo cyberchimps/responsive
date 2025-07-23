@@ -15,6 +15,7 @@
   /* width: 48%; */
   position: relative;
   /* margin-right: 12px; */
+  cursor: pointer;
 }
 .customize-control-responsive-imageradiobtn__button.active{
   color:#fff;
