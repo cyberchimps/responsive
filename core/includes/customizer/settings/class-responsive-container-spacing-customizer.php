@@ -42,7 +42,7 @@ if ( ! class_exists( 'Responsive_Container_Spacing_Customizer' ) ) :
 
 			// Outside Container.
 			$outside_container_label = __( 'Outside Container (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'blog_outside_container', 'responsive_blog_layout', 260, 15, 15, 'responsive_not_active_site_style_flat', $outside_container_label );
+			responsive_padding_control( $wp_customize, 'blog_outside_container', 'responsive_blog_layout', 260, 0, 15, 'responsive_not_active_site_style_flat', $outside_container_label );
 
 			// Inside Container.
 			$outside_container_label = __( 'Inside Container (px)', 'responsive' );
@@ -53,7 +53,7 @@ if ( ! class_exists( 'Responsive_Container_Spacing_Customizer' ) ) :
 
 			// Outside Container.
 			$outside_container_label = __( 'Outside Container (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'single_blog_outside_container', 'responsive_single_blog_layout', 260, 15, 15, 'responsive_not_active_site_style_flat', $outside_container_label );
+			responsive_padding_control( $wp_customize, 'single_blog_outside_container', 'responsive_single_blog_layout', 260, 0, 15, 'responsive_not_active_site_style_flat', $outside_container_label );
 
 			// Inside Container.
 			$outside_container_label = __( 'Inside Container (px)', 'responsive' );

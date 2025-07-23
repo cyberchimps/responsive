@@ -148,7 +148,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_blog_single_meta',
 				array(
-					'default'           => array( 'author', 'date', 'updated', 'categories', 'comments', 'tag' ),
+					'default'           => array( 'author', 'date', 'categories', 'comments', 'tag' ),
 					'sanitize_callback' => 'responsive_sanitize_multi_choices',
 					'transport'         => 'refresh',
 				)

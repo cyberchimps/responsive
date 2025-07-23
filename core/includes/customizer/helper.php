@@ -210,7 +210,7 @@ if ( ! function_exists( 'responsive_blog_single_meta' ) ) {
 	function responsive_blog_single_meta() {
 
 		/** Default sections */
-		$sections = array( 'author', 'date', 'updated', 'categories', 'comments', 'tag' );
+		$sections = array( 'author', 'date', 'categories', 'comments', 'tag' );
 
 		/** Get sections from Customizer */
 		$sections = get_theme_mod( 'responsive_blog_single_meta', $sections );
@@ -1631,23 +1631,13 @@ function responsive_not_active_site_style_flat() {
 }
 
 /**
- * [responsive_active_page_sidebar_toggle description]
- *
- * @return [type] [description]
- */
-function responsive_active_page_sidebar_toggle() {
-
-	return ( 1 === get_theme_mod( 'responsive_page_sidebar_toggle', 0 ) ) ? true : false;
-}
-
-/**
  * [responsive_active_single_blog_sidebar_toggle description]
  *
  * @return [type] [description]
  */
-function responsive_active_single_blog_sidebar_toggle() {
+function responsive_active_single_blog_sidebar_position() {
 
-	return ( 1 === get_theme_mod( 'responsive_single_blog_sidebar_toggle', 0 ) ) ? true : false;
+	return ( 'no' !== get_theme_mod( 'responsive_single_blog_sidebar_position', 0 ) ) ? true : false;
 }
 
 /**
