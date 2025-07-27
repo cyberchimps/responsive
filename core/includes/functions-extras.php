@@ -141,7 +141,7 @@ function responsive_read_more() {
  * @param int $more More.
  */
 function responsive_auto_excerpt_more( $more = 0 ) {
-	return '<span class="ellipsis">&hellip;</span>' . responsive_read_more();
+	return '<span class="ellipsis">&hellip;</span>';
 }
 
 /**

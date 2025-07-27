@@ -55,6 +55,9 @@ function setup() {
 	}
 	// Add Fragment Support.
 	add_filter( 'woocommerce_add_to_cart_fragments', $n( 'responsive_get_refreshed_fragments_number'), 11 );
+	add_filter( 'responsive_related_single_posts_excerpt_count', function( $length ) {
+		return get_theme_mod( 'responsive_rp_excerpt_length', 20 );
+	} );
 	add_action( 'responsive_header_woo_cart_label_markup', $n( 'responsive_woo_cart_label_markup' ), 10 );
 
 	require_once trailingslashit( get_template_directory() ) . '/core/includes/theme-updates/class-responsive-theme-background-updater.php';
