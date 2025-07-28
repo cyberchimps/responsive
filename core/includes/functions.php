@@ -822,7 +822,7 @@ function responsive_add_custom_body_classes( $classes ) {
 		}
 	}
 
-	if ( get_theme_mod( 'responsive_site_background_image_toggle' ) && get_theme_mod( 'responsive_site_background_image' ) || get_theme_mod( 'responsive_site_background_color' ) ) {
+	if ( get_theme_mod( 'responsive_site_background_image_toggle' ) && get_theme_mod( 'responsive_site_background_image' ) || get_theme_mod( 'responsive_site_background_color' ) || get_theme_mod( 'responsive_site_background_gradient_color' ) ) {
 		$classes[] = 'custom-background';
 	}
 	
@@ -1113,6 +1113,7 @@ function defaults() {
 			'logo_padding'                        => 28,
 			// Colors.
 			'background_color'                    => '#F0F5FA',
+			'background_gradient_color'           => 'linear-gradient(135deg, #12c2e9 0%, #c471ed 50%, #f64f59 100%)',
 			'scroll_to_top_icon'                  => '#ffffff',
 			'scroll_to_top_icon_hover'            => '#ffffff',
 			'scroll_to_top_icon_background'       => '#a8a6a6',
@@ -1175,9 +1176,9 @@ function defaults() {
 			'h1_text'                             => '#333333',
 			'h2_text'                             => '#333333',
 			'h3_text'                             => '#333333',
-			'h4_text'                             => '#333333',
-			'h5_text'                             => '#333333',
-			'h6_text'                             => '#333333',
+			'h4_text'                             => '#333333', 
+			'h5_text'                             => '#333333', 
+			'h6_text'                             => '#333333', 
 			'meta_text'                           => '#999999',
 			'link'                                => '#0066CC',
 			'link_hover'                          => '#10659C',
@@ -1528,6 +1529,9 @@ if ( ! function_exists( 'responsive_background_images_backward_compatibility' ) 
 			}
 			if ( get_theme_mod( 'background_color' ) ) {
 				set_theme_mod( 'responsive_site_background_color', get_theme_mod( 'background_color' ) );
+			}
+			if ( get_theme_mod( 'background_gradient_color' ) ) {
+				set_theme_mod( 'responsive_site_background_gradient_color', get_theme_mod( 'background_gradient_color' ) );
 			}
 			update_option( 'responsive_old_background_images_compatible_done', true );
 		}

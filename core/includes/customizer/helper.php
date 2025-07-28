@@ -1238,8 +1238,9 @@ function responsive_borderwidth_control( $wp_customize, $element, $section, $pri
  * @param  string  $desc     [description].
  * @return void               [description].
  */
-function responsive_color_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $desc = '', $is_hover_required = false, $hover_default = null, $hover_element = null ) {
-	// Menu Background Color.
+function responsive_color_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $desc = '', $is_hover_required = false, $hover_default = null, $hover_element = null, $is_gradient_available = false, $gradient_element = null, $gradient_default = null, $color_type = 'color' ) {
+	try {
+		// Menu Background Color.
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_color',
 		array(
@@ -1257,6 +1258,27 @@ function responsive_color_control( $wp_customize, $element, $label, $section, $p
 				'default'           => $hover_default,
 				'type'              => 'theme_mod',
 				'sanitize_callback' => 'responsive_sanitize_background',
+				'transport'         => 'postMessage',
+			)
+		);
+	}
+	if( $is_gradient_available && $gradient_element ) {
+		$wp_customize->add_setting(
+			'responsive_' . $gradient_element . '_color',
+			array(
+				'default'           => $gradient_default,
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'responsive_sanitize_background',
+				'transport'         => 'postMessage',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'responsive_' . $element . '_color_type',
+			array(
+				'default'           => $color_type,
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
 		);
@@ -1307,16 +1329,29 @@ function responsive_color_control( $wp_customize, $element, $label, $section, $p
 					'label'            => $label,
 					'section'          => $section,
 					'is_hover_required'=> $is_hover_required,
-        			'settings'         => $is_hover_required ? array(
-                            'normal'   => 'responsive_' . $element . '_color',
-                            'hover'    => 'responsive_' . $hover_element . '_color',
-                        ) : 'responsive_' . $element . '_color',
+					'settings'         =>  $is_hover_required ? array(
+						'normal'   => 'responsive_' . $element . '_color',
+						'hover'    => 'responsive_' . $hover_element . '_color',
+					) : ($is_gradient_available ? array(
+						'default'   => 'responsive_' . $element . '_color',
+						'gradient'  => 'responsive_' . $gradient_element . '_color',
+						'color_type'   => 'responsive_' .$element . '_color_type',
+					) : 'responsive_' . $element . '_color'),
 					'priority'         => $priority,
 					'active_callback'  => $active_call,
 					'description'      => $desc,
+					'is_gradient_available'  => $is_gradient_available,
+					'gradient_element' => $gradient_element,
+					'gradient_default' => $gradient_default,
 				)
 			)
+
+			
 		);
+	}
+	} catch (\Throwable $th) {
+		//throw $th;
+		error_log("Something went wrong here");
 	}
 }
 
@@ -1596,23 +1631,13 @@ function responsive_not_active_site_style_flat() {
 }
 
 /**
- * [responsive_active_page_sidebar_toggle description]
- *
- * @return [type] [description]
- */
-function responsive_active_page_sidebar_toggle() {
-
-	return ( 1 === get_theme_mod( 'responsive_page_sidebar_toggle', 0 ) ) ? true : false;
-}
-
-/**
  * [responsive_active_single_blog_sidebar_toggle description]
  *
  * @return [type] [description]
  */
-function responsive_active_single_blog_sidebar_toggle() {
+function responsive_active_single_blog_sidebar_position() {
 
-	return ( 1 === get_theme_mod( 'responsive_single_blog_sidebar_toggle', 0 ) ) ? true : false;
+	return ( 'no' !== get_theme_mod( 'responsive_single_blog_sidebar_position', 0 ) ) ? true : false;
 }
 
 /**

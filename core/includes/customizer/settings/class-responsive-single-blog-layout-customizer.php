@@ -72,7 +72,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 						'label'    => esc_html__( 'Post Elements', 'responsive' ),
 						'section'  => 'responsive_single_blog_layout',
 						'settings' => 'responsive_blog_single_elements_positioning',
-						'priority' => 40,
+						'priority' => 36,
 						'choices'  => responsive_blog_single_elements(),
 					)
 				)
@@ -167,7 +167,8 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 							'responsive_blog_meta_choices',
 							array(
 								'author'     => esc_html__( 'Author', 'responsive' ),
-								'date'       => esc_html__( 'Date', 'responsive' ),
+								'date'       => esc_html__( 'Date Published', 'responsive' ),
+								'updated'       => esc_html__( 'Last Updated', 'responsive' ),
 								'categories' => esc_html__( 'Categories', 'responsive' ),
 								'comments'   => esc_html__( 'Comments', 'responsive' ),
 								'tag'        => esc_html__( 'Tag', 'responsive' ),

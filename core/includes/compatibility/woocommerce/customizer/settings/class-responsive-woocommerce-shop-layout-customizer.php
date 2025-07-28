@@ -176,7 +176,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 					'no'    => esc_html__( 'dashicons-hidden', 'responsive' ),
 				);
 			}
-			responsive_select_button_control( $wp_customize, 'shop_sidebar_position', $sidebar_label, 'responsive_sidebar_layout', 50, $sidebar_choices, 'no', null );
+			responsive_select_button_control( $wp_customize, 'shop_sidebar_position', $sidebar_label, 'responsive_woocommerce_shop', 49, $sidebar_choices, 'no', null );
 
 			$container_spacing_label = esc_html__( 'Product Card Spacing', 'responsive' );
 			responsive_separator_control( $wp_customize, 'product_card_spacing', $container_spacing_label, 'responsive_woocommerce_shop', 30 );

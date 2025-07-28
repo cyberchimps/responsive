@@ -508,8 +508,8 @@ body.wp-customizer .responsive-color-control-main-wrap .wp-picker-container .wp-
     width: 80%;
 }
 .responsive-color-control-main-wrap .components-h-stack .components-base-control.css-qy3gpb {
-    width: 77px;
-    height: 34px;
+    width: 100%;
+    height: max-content;
     background-color: #FFF;
 }
 .responsive-color-control-main-wrap .components-select-control__input {
@@ -557,15 +557,21 @@ body.wp-customizer .responsive-color-control-main-wrap .wp-picker-container .wp-
     width: auto;
     height: auto;
     background: #FFF;
+    box-shadow: none;
 }
 .responsive-clear-btn-inside-picker.components-button:hover {
     background: #FFF;
     border: 0.5px solid #007CBA;
     color: #007CBA;
+    box-shadow: none;
 }
 .responsive-color-control-main-wrap .components-base-control.components-number-control .components-base-control__field .components-input-base{
     width: 90px;
     height: 36px;
+}
+.responsive-color-picker-tab-content .components-base-control.components-number-control .components-base-control__field .components-input-base{
+    width: 80px;
+    height: 60px;
 }
 .responsive-color-control-main-wrap .components-base-control.components-number-control .components-base-control__field .components-input-base .components-input-control__backdrop{
     border-radius: 4px;
@@ -640,4 +646,81 @@ body.wp-customizer .responsive-color-control-main-wrap .wp-picker-container .wp-
     font-weight: 400;
     line-height: 18px;
     color: #a4a4a4;
+}
+
+.responsive-color-picker-tabs .components-tab-panel__tabs {
+    padding: 18px 18px 0px 18px;
+}
+
+.responsive-color-picker-tabs .components-tab-panel__tabs .components-tab-panel__tabs-item {
+    color: #838383;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    border: none;
+    border-bottom: 1px solid #007CBA;
+    height: 32px !important;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.responsive-color-picker-tabs .components-tab-panel__tabs .components-tab-panel__tabs-item:after {
+    background: none;
+}
+
+.responsive-color-picker-tabs .components-tab-panel__tabs .components-tab-panel__tabs-item.is-active {
+    background-color: #007CBA;
+    color: #FFFFFF;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 14px;
+}
+
+.responsive-color-picker-tabs .components-tab-panel__tab-content .responsive-color-picker-tab-content {
+    padding: 18px 12px 0px 12px;
+
+}
+
+.responsive-color-picker-tabs .components-tab-panel__tab-content .responsive-color-picker-tab-content .components-custom-gradient-picker .components-custom-gradient-picker__gradient-bar {
+    margin-bottom: 8px;
+}
+
+.responsive-color-picker-tabs .components-tab-panel__tab-content .responsive-color-picker-tab-content .components-custom-gradient-picker .components-custom-gradient-picker__ui-line  {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 16px;
+}
+
+.responsive-color-picker-tabs .components-tab-panel__tab-content .responsive-color-picker-tab-content .components-custom-gradient-picker .components-custom-gradient-picker__ui-line > div  {
+    width: 136px;
+}
+
+.responsive-color-control-main-wrap .responsive-color-picker-tabs .components-tab-panel__tab-content .responsive-color-picker-tab-content .components-custom-gradient-picker .components-custom-gradient-picker__ui-line > div .components-base-control.css-qy3gpb .components-select-control {
+    border: none;
+}
+
+.responsive-color-picker-tabs .components-tab-panel__tab-content .responsive-color-picker-tab-content .components-custom-gradient-picker .components-custom-gradient-picker__ui-line > div .components-angle-picker-control {
+    width: 136px;
+    margin-bottom: 22px;
+}
+
+.responsive-color-control-main-wrap .components-custom-gradient-picker .components-input-control .components-input-control__container {
+    padding: 10px;
+}
+
+.responsive-color-picker-tab-content .components-circular-option-picker .components-circular-option-picker__custom-clear-wrappercomponents-circular-option-picker__custom-clear-wrapper {
+    justify-content: flex-start;
+    border: 0.5px solid #007CBA;
+    padding: 8px 10px;
+    width: min-content;
+    border-radius: 4px;
+    margin-top: 24px;
+}
+
+
+.responsive-color-picker-tab-content .components-circular-option-picker .components-circular-option-picker__custom-clear-wrappercomponents-circular-option-picker__custom-clear-wrapper .components-circular-option-picker__clear {
+    color: #007CBA;
+    height: auto;
 }

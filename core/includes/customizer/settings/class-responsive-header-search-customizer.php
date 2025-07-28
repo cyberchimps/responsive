@@ -68,7 +68,6 @@ if ( ! class_exists( 'Responsive_Header_Search_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_header_search_separator9',
 				$design_tab_ids_prefix . 'responsive_header_search_separator10',
 				$design_tab_ids_prefix . 'responsive_header_search_separator11',
-				$design_tab_ids_prefix . 'responsive_header_search_separator12',
 				$design_tab_ids_prefix . 'responsive_header_search_width',
 				$design_tab_ids_prefix . 'responsive_header_search_separator13',
 				$design_tab_ids_prefix . 'responsive_border_header_search_border_radius',
@@ -227,8 +226,6 @@ if ( ! class_exists( 'Responsive_Header_Search_Customizer' ) ) :
 			// Search Margin.
 			$search_margin_label = esc_html__( 'Margin (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'header_search_margin', 'responsive_header_search', 120, 0, 0, null, $search_margin_label );
-
-			responsive_horizontal_separator_control($wp_customize, 'header_search_separator12', 2, 'responsive_header_search', 125, 1 );
 
 			// Modal Options.
 			$search_modal_options_label = __( 'Modal Options', 'responsive' );

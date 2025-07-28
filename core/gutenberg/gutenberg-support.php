@@ -237,7 +237,7 @@ function responsive_gutenberg_customizer_css() {
 	$responsive_page_content_width     = get_theme_mod( 'responsive_page_content_width', Responsive\Core\get_responsive_customizer_defaults( 'page_content_width' ) );
 	$responsive_page_sidebar_width     = get_theme_mod( 'responsive_page_sidebar_width', 30 );
 	$responsive_page_sidebar_position  = esc_html( get_theme_mod( 'responsive_page_sidebar_position' ) );
-	$page_content_width                = ( $responsive_page_content_width / 100 ) * $responsive_container_width;
+	$page_content_width                = ( (int) $responsive_page_content_width / 100 ) * $responsive_container_width;
 	
 	if ( $responsive_page_sidebar_position !== 'no' ) {
 		$page_content_width            = ( ( 100 - $responsive_page_sidebar_width ) / 100 ) * $responsive_container_width;
@@ -252,7 +252,7 @@ function responsive_gutenberg_customizer_css() {
 	$single_post_content_width         = esc_html( get_theme_mod( 'responsive_single_blog_content_width', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_content_width' ) ) );
 	$single_post_sidebar_position      = esc_html( get_theme_mod( 'responsive_single_blog_sidebar_position' ) );
 	$single_post_sidebar_width         = get_theme_mod( 'responsive_single_blog_sidebar_width', 30 );
-	$_post_content_custom_width        = ( $single_post_content_width / 100 ) * $responsive_container_width;
+	$_post_content_custom_width        = ( (int) $single_post_content_width / 100 ) * $responsive_container_width;
 	if ( $single_post_sidebar_position !== 'no' ) {
 		$_post_content_custom_width    = ( ( 100 - $single_post_sidebar_width ) / 100 ) * $responsive_container_width;
 	}

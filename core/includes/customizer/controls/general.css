@@ -498,9 +498,6 @@ body.rtl .customize-control .responsive-switchers li {
 	padding-top: 24px;
 	padding-bottom: 0;
 }
-#customize-control-responsive_page_sidebar_controls_separator {
-	padding-top: 24px;
-}
 #customize-control-responsive_single_blog_sidebar_toggle .responsive-toggle-control-wrapper {
 	padding-top: 24px;
 	padding-bottom: 12px;
@@ -527,7 +524,7 @@ body.rtl .customize-control .responsive-switchers li {
 	margin-bottom: 12px;
 	line-height: 16px;
 }
-#customize-control-responsive_page_sidebar_width .customize-control-title,
+#customize-control-responsive_page_sidebar_width label .customize-control-title,
 #customize-control-responsive_blog_sidebar_width .customize-control-title,
 #customize-control-responsive_single_blog_sidebar_width .customize-control-title {
 	margin-top: 0;
@@ -548,7 +545,6 @@ body.rtl .customize-control .responsive-switchers li {
 #sub-accordion-section-responsive_page .responsive-horizontal-separator-control-wrapper {
 	padding-top: 24px;
 }
-#customize-control-responsive_page_featured_image_separator,
 #customize-control-responsive_blog_entry_featured_image_separator,
 #customize-control-responsive_blog_entry_meta_control_separator,
 #customize-control-responsive_blog_entry_content_separator,
@@ -1475,12 +1471,7 @@ body.rtl .customize-control .responsive-switchers li {
 	padding-top: 24px;
 }
 #customize-control-responsive_header_search_modal_options_separator {
-	margin-top: 0;
-}
-#customize-control-responsive_header_search_modal_options_separator h4 {
-    border: none;
-	padding-top: 0;
-	padding-bottom: 24px;
+	margin-bottom: 24px;
 }
 #customize-control-responsive_header_contact_info_icons_color_separator,
 #customize-control-responsive_header_contact_info_icons_bg_color_separator,
@@ -1509,8 +1500,7 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_blog_entry_elements_positioning,
 #customize-control-responsive_blog_entry_meta_alignment,
 #customize-control-responsive_blog_entry_title_alignment,
-#customize-control-blog_pagination,
-#customize-control-responsive_page_single_elements_positioning {
+#customize-control-blog_pagination {
 	margin-bottom: 24px;	
 }
 .customize-section-description-container {

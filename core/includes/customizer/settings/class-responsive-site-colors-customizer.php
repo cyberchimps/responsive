@@ -103,11 +103,43 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 
 			// Site Background Color.
 			$site_background_color_label = __( 'Site Background', 'responsive' );
-			responsive_color_control( $wp_customize, 'site_background', $site_background_color_label, 'responsive_colors', 90, Responsive\Core\get_responsive_customizer_defaults( 'background_color' ) );
+			responsive_color_control( 
+				$wp_customize, 
+				'site_background',
+				$site_background_color_label,
+				'responsive_colors',
+				90,
+				Responsive\Core\get_responsive_customizer_defaults( 'background_color' ),
+				null,
+				'',
+				false,
+				null,
+				null,
+				true,
+				'site_background_gradient',
+				Responsive\Core\get_responsive_customizer_defaults( 'background_gradient_color' ),
+				'color',
+			);
 
 			// Box Background Color.
 			$box_background_color_label = __( 'Content Background', 'responsive' );
-			responsive_color_control( $wp_customize, 'box_background', $box_background_color_label, 'responsive_colors', 95, Responsive\Core\get_responsive_customizer_defaults( 'box_background' ), 'responsive_not_active_site_style_flat' );
+			responsive_color_control( 
+				$wp_customize,
+				'box_background',
+				$box_background_color_label,
+				'responsive_colors',
+				95,
+				Responsive\Core\get_responsive_customizer_defaults( 'box_background' ),
+				'responsive_not_active_site_style_flat',
+				'',
+				false,
+				null,
+				null,
+				true,
+				'box_background_gradient',
+				Responsive\Core\get_responsive_customizer_defaults( 'background_gradient_color' ),
+				'color',
+			);
 
 			// Alt Background Color for pre prequotes blockquotes etc.
 			$alt_background_color_label = __( 'Alternate Background Color', 'responsive' );
