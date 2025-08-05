@@ -542,7 +542,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 										echo 'disable-customize'; }
 									?>
 									">
-										<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/mega-menu/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
+										<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/responsive-plus/modules-settings/mega-menu/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
 										<span class="responsive-theme-feature-seperator">|</span>
 										<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>" class="rpro-feature-customize-btn"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
 										<?php
@@ -577,7 +577,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 									echo 'disable-customize'; }
 								?>
 								">
-									<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/mega-menu/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
+									<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/responsive-plus/modules-settings/mega-menu/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
 									<span class="responsive-theme-feature-seperator">|</span>
 									<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>" class="rpro-feature-customize-btn"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
 									<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
