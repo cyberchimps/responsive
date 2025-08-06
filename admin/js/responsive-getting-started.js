@@ -10,12 +10,46 @@ jQuery(document).ready(function ($) {
         if ( hash === '#blocks' || hash === '#rae' ) {
             $(".responsive-theme-tabs-inner-content").css("background-image", "url('" + localize.responsiveurl + "admin/images/" +  hash.substring(1) + "-template-preview.jpg')");
         }
-        navigateTo(hash);
-        $('.responsive-theme-tab-content').hide()
-        $('.responsive-theme-tab').removeClass('responsive-theme-active-tab')
-        $('.responsive-theme-' + hash.substring(1) + '-tab').addClass('responsive-theme-active-tab')
-        $('#responsive_' + hash.substring(1)).show()
-    
+        if (hash.startsWith('#raddons-settings')) {
+
+            // Activating the Settings tab
+            $('.responsive-theme-tab').removeClass('responsive-theme-active-tab');
+            $('.responsive-theme-raddons-settings-tab').addClass('responsive-theme-active-tab');
+            $('#responsive_raddons-settings').show();
+        
+            // Check if it's the white-label subtab
+            if (hash.includes('subtab=white-label')) {
+                console.log("Triggering White Label tab");
+                
+                if ($("#responsive-theme-setting-wl-tab").length === 0) {
+                    console.log("White Label tab not found"); 
+                    return;
+                }
+                
+                // Set White Label as active subtab
+                $('.responsive-theme-setting-active-tab').removeClass('responsive-theme-setting-active-tab');
+                $('#responsive-theme-setting-wl-tab .responsive-theme-setting-item-icon, #responsive-theme-setting-wl-tab .responsive-theme-setting-item-title').addClass('responsive-theme-setting-active-tab');
+                
+                // Hiding the 
+                $('#responsive-theme-setting-app-connection-section').hide();
+                $('#responsive-theme-raddons-setting-wl-section').show();
+            } 
+            else {
+                // Default to Connect Account subtab
+                $('.responsive-theme-setting-active-tab').removeClass('responsive-theme-setting-active-tab');
+                $('#responsive-setting-item-app-connection-tab .responsive-theme-setting-item-icon, #responsive-setting-item-app-connection-tab .responsive-theme-setting-item-title').addClass('responsive-theme-setting-active-tab');
+                $('#responsive-theme-setting-app-connection-section').show();
+                $('#responsive-theme-raddons-setting-wl-section').hide();
+            }
+            navigateTo(hash);
+        }
+        else {
+            navigateTo(hash);
+            $('.responsive-theme-tab-content').hide()
+            $('.responsive-theme-tab').removeClass('responsive-theme-active-tab')
+            $('.responsive-theme-' + hash.substring(1) + '-tab').addClass('responsive-theme-active-tab')
+            $('#responsive_' + hash.substring(1)).show()
+        }
 
     $('.responsive-theme-tab').click(function () {
         $('.responsive-theme-tab-content').hide()

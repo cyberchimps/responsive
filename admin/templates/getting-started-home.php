@@ -140,7 +140,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 
 	$white_label_url = admin_url( 'themes.php?page=responsive#settings' );
 	if ( ! check_is_responsive_pro_activated() && $is_rst_active && check_is_responsive_addons_greater() ) {
-		$white_label_url = admin_url( 'themes.php?page=responsive#raddons-settings' );
+		$white_label_url = admin_url( 'themes.php?page=responsive#raddons-settings:subtab=white-label' );
 	}
 
 	$upgrade_to_pro = array(
@@ -242,7 +242,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 				),
 				array(
 					'name' => __( 'Settings', 'responsive' ),
-					'link' => admin_url( 'themes.php?page=responsive#raddons-settings' ),
+					'link' => admin_url( 'themes.php?page=responsive#raddons-settings:subtab=white-label' )
 				),
 			),
 		),
