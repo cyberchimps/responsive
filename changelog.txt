@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(11/08/2025) Version 6.2.2
+[*] = Improvement = Made compatible with Responsive Plus plugin's Site Builder Module.
+
 (21/07/2025) Version 6.2.1
 [+] = New = Introduced a gradient color picker in the Customizer.
 [+] = New = Introduced a "Last Updated" setting for the Blog page and Single post meta.
