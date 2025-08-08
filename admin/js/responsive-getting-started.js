@@ -19,10 +19,7 @@ jQuery(document).ready(function ($) {
         
             // Check if it's the white-label subtab
             if (hash.includes('subtab=white-label')) {
-                console.log("Triggering White Label tab");
-                
-                if ($("#responsive-theme-setting-wl-tab").length === 0) {
-                    console.log("White Label tab not found"); 
+                if ($("#responsive-theme-setting-wl-tab").length === 0) { 
                     return;
                 }
                 
@@ -30,8 +27,9 @@ jQuery(document).ready(function ($) {
                 $('.responsive-theme-setting-active-tab').removeClass('responsive-theme-setting-active-tab');
                 $('#responsive-theme-setting-wl-tab .responsive-theme-setting-item-icon, #responsive-theme-setting-wl-tab .responsive-theme-setting-item-title').addClass('responsive-theme-setting-active-tab');
                 
-                // Hiding the 
+                // Hiding the Connect Account subtab
                 $('#responsive-theme-setting-app-connection-section').hide();
+                // Show the White Label section
                 $('#responsive-theme-raddons-setting-wl-section').show();
             } 
             else {
@@ -41,7 +39,7 @@ jQuery(document).ready(function ($) {
                 $('#responsive-theme-setting-app-connection-section').show();
                 $('#responsive-theme-raddons-setting-wl-section').hide();
             }
-            navigateTo(hash);
+            // navigateTo(hash);
         }
         else {
             navigateTo(hash);
