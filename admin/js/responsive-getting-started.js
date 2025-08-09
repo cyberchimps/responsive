@@ -10,27 +10,25 @@ jQuery(document).ready(function ($) {
         if ( hash === '#blocks' || hash === '#rae' ) {
             $(".responsive-theme-tabs-inner-content").css("background-image", "url('" + localize.responsiveurl + "admin/images/" +  hash.substring(1) + "-template-preview.jpg')");
         }
-        if (hash.startsWith('#raddons-settings')) {
-
-            // Activating the Settings tab
-            $('.responsive-theme-tab').removeClass('responsive-theme-active-tab');
-            $('.responsive-theme-raddons-settings-tab').addClass('responsive-theme-active-tab');
-            $('#responsive_raddons-settings').show();
-        
+        if (hash.startsWith('#raddons-settings')) {        
             // Check if it's the white-label subtab
             if (hash.includes('subtab=white-label')) {
                 if ($("#responsive-theme-setting-wl-tab").length === 0) { 
                     return;
                 }
-                
-                // Set White Label as active subtab
-                $('.responsive-theme-setting-active-tab').removeClass('responsive-theme-setting-active-tab');
-                $('#responsive-theme-setting-wl-tab .responsive-theme-setting-item-icon, #responsive-theme-setting-wl-tab .responsive-theme-setting-item-title').addClass('responsive-theme-setting-active-tab');
-                
                 // Hiding the Connect Account subtab
                 $('#responsive-theme-setting-app-connection-section').hide();
                 // Show the White Label section
                 $('#responsive-theme-raddons-setting-wl-section').show();
+                 // Activating the Settings tab
+                $('.responsive-theme-home-tab').removeClass('responsive-theme-active-tab');
+                $('.responsive-theme-raddons-settings-tab').addClass('responsive-theme-active-tab');
+                $('#responsive_home').hide();
+                $('#responsive_raddons-settings').show();
+                
+                // Set White Label as active subtab
+                $('.responsive-theme-setting-active-tab').removeClass('responsive-theme-setting-active-tab');
+                $('#responsive-theme-setting-wl-tab .responsive-theme-setting-item-icon, #responsive-theme-setting-wl-tab .responsive-theme-setting-item-title').addClass('responsive-theme-setting-active-tab');
             } 
             else {
                 // Default to Connect Account subtab
@@ -49,7 +47,18 @@ jQuery(document).ready(function ($) {
             $('#responsive_' + hash.substring(1)).show()
         }
 
-    $('.responsive-theme-tab').click(function () {
+    $('#feature-link-white-label-settings').click(function(e) {
+            $('.responsive-theme-home-tab').removeClass('responsive-theme-active-tab');
+            $('.responsive-theme-raddons-settings-tab').addClass('responsive-theme-active-tab');
+            $('#responsive_home').hide();
+            $('.responsive-theme-setting-active-tab').removeClass('responsive-theme-setting-active-tab');
+            $('#responsive-theme-setting-wl-tab .responsive-theme-setting-item-icon, #responsive-theme-setting-wl-tab .responsive-theme-setting-item-title').addClass('responsive-theme-setting-active-tab');
+            $('#responsive-theme-setting-app-connection-section').hide();
+            $('#responsive-theme-raddons-setting-wl-section').show();
+            $('#responsive_raddons-settings').show();
+    });
+
+    $('.responsive-theme-tab').click(function (e) {
         $('.responsive-theme-tab-content').hide()
         $('.responsive-theme-tab').removeClass('responsive-theme-active-tab')
         let tab = $(this).data('tab');
