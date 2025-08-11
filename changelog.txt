@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(11/08/2025) Version 6.2.2.1
+[*] = Fix = Minor Site Builder Module-related bug
+
 (11/08/2025) Version 6.2.2
 [*] = Improvement = Made compatible with Responsive Plus plugin's Site Builder Module.
 
