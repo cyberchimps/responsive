@@ -37,7 +37,7 @@ jQuery(document).ready(function ($) {
                 $('#responsive-theme-setting-app-connection-section').show();
                 $('#responsive-theme-raddons-setting-wl-section').hide();
             }
-            // navigateTo(hash);
+            navigateTo(hash);
         }
         else {
             navigateTo(hash);
