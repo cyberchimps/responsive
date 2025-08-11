@@ -477,6 +477,23 @@ body.rtl .customize-control .responsive-switchers li {
 	padding-top: 24px;
 	margin: 0;
 }
+#customize-control-responsive_rp_excerpt_length{
+	padding-bottom: 20px;
+}
+
+#customize-control-responsive_related_section_title_typography_separator, #customize-control-responsive_related_post_title_typography_separator, #customize-control-responsive_related_meta_typography_separator{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+#customize-control-responsive_rp_section_title_typography_group{
+	margin-top: 10px;
+}
+
+#accordion-section-responsive_rp_layout {
+	display: none !important;
+}
+
 #_customize-input-responsive_single_blog_related_posts_title {
 	padding: 12px;
 	font-family: 'Roboto', sans-serif;
