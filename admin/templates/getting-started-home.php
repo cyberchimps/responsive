@@ -840,7 +840,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html_e( 'Site Builder', 'responsive' ); ?></div>
 							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Site Builder lets you edit parts of site like the header, footer, 404, and archive templates.', 'responsive' ); ?></div>
 							<?php
-							if ( is_responsive_addons_installed_above( '3.2.4', 'greater' ) ) {
+							if ( is_responsive_addons_installed_above( '3.2.5', 'greater' ) ) {
 							?>
 							<div class="responsive-theme-pro-features mt-2 
 							<?php
