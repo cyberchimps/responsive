@@ -91,7 +91,7 @@ if ( ! class_exists( 'Responsive_Header_Builder_Section_Customizer' ) ) :
 			// responsive_redirect_control( $wp_customize, 'redirect_to_header_widgets_section', $configure_footer_menu_redirect_label, 'responsive_header_builder_section', 10, 'section', 'responsive_header_widget');
 
 			$configure_footer_menu_redirect_label = __( 'Sticky Header', 'responsive' );
-			responsive_redirect_control( $wp_customize, 'redirect_to_sticky_header', $configure_footer_menu_redirect_label, 'responsive_header_builder_section', 10, 'section', 'responsive_header_sticky_menu_layout');
+			responsive_redirect_control( $wp_customize, 'redirect_to_sticky_header', $configure_footer_menu_redirect_label, 'responsive_header_builder_section', 10, 'section', 'responsive_sticky_header_menu');
 
 			$configure_footer_menu_redirect_label = __( 'Transparent Header', 'responsive' );
 			responsive_redirect_control( $wp_customize, 'redirect_to_transparent_header', $configure_footer_menu_redirect_label, 'responsive_header_builder_section', 10, 'section', 'responsive_header_transparent');

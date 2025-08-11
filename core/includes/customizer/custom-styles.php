@@ -1630,10 +1630,17 @@ function responsive_customizer_styles() {
 		$header_widget_link_color       = esc_html( get_theme_mod( 'responsive_transparent_header_widget_link_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link' ) ) );
 		$header_widget_link_hover_color = esc_html( get_theme_mod( 'responsive_transparent_header_widget_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link_hover' ) ) );
 
-		// $header_bottom_border = 0;
-		// if ( 1 === get_theme_mod( 'responsive_enable_transparent_header_bottom_border', 1 ) ) {
-		// 	$header_bottom_border = esc_html( get_theme_mod( 'responsive_transparent_bottom_border', 0 ) );
-		// }
+		$header_bottom_border = 0;
+		if ( 1 === get_theme_mod( 'responsive_enable_transparent_header_bottom_border', 1 ) ) {
+			$header_bottom_border = esc_html( get_theme_mod( 'responsive_transparent_bottom_border', 0 ) );
+		}
+		$custom_css .= "
+			.res-transparent-header .site-header {
+				border-bottom-width: {$header_bottom_border}px;
+				border-bottom-style: solid;
+				border-bottom-color: {$header_border_color};
+			}
+		";
 	} else {
 
 		// Header colors.
@@ -2158,9 +2165,6 @@ function responsive_customizer_styles() {
 	.main-navigation .menu-toggle {
 		background-color: {$header_menu_toggle_background_color};
 		color: {$header_menu_toggle_color};
-	}
-	.site-header {
-		border-bottom-style: solid;
 	}";
 
 	$sub_menu_border_right  = esc_html( get_theme_mod( 'responsive_sub_menu_border_right_padding', 0 ) );

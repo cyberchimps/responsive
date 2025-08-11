@@ -60,10 +60,8 @@
     padding-bottom: 0;
 }
 #customize-control-responsive_transparent_header .responsive-toggle-control-wrapper {
-    padding-top: 18px;
-}
-#customize-control-responsive_disable_archive_transparent_header .responsive-toggle-control-wrapper {
-    padding-top: 18px;
+    padding-top: 24px;
+    padding-bottom: 24px;
 }
 #customize-control-responsive_disable_woo_products_transparent_header .responsive-toggle-control-wrapper {
     padding-bottom: 0;
@@ -188,4 +186,7 @@
 #customize-control-res_sticky-header .responsive-toggle-control-wrapper,
 #customize-control-responsive_breadcrumb_enable_home_page .responsive-toggle-control-wrapper {
     padding-top: 24px;
+}
+#sub-accordion-section-responsive_header_transparent .responsive-toggle-control-wrapper {
+    padding-bottom: 24px;
 }

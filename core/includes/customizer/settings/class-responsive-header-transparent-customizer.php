@@ -43,6 +43,62 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 				)
 			);
 
+			// Adding General and Design tabs
+			$tabs_label            = esc_html__( 'Tabs', 'responsive' );
+
+			$general_tab_ids_prefix = 'customize-control-';
+			$general_tab_ids        = array(
+				$general_tab_ids_prefix . 'responsive_transparent_header_separator',
+				$general_tab_ids_prefix . 'responsive_transparent_header',
+				$general_tab_ids_prefix . 'responsive_transparent_header_logo_option',
+				$general_tab_ids_prefix . 'responsive_enable_transparent_header_bottom_border',
+				$general_tab_ids_prefix . 'responsive_transparent_header_logo',
+				$general_tab_ids_prefix . 'responsive_transparent_bottom_border',
+				$general_tab_ids_prefix . 'responsive_disable_archive_transparent_header',
+				$general_tab_ids_prefix . 'responsive_disable_blog_page_transparent_header',
+				$general_tab_ids_prefix . 'responsive_disable_homepage_transparent_header',
+				$general_tab_ids_prefix . 'responsive_disable_pages_transparent_header',
+				$general_tab_ids_prefix . 'responsive_disable_posts_transparent_header',
+				$general_tab_ids_prefix . 'responsive_disable_woo_products_transparent_header',
+				
+			);
+
+			$design_tab_ids_prefix = 'customize-control-';
+			$design_tab_ids        = array(
+				$design_tab_ids_prefix . 'responsive_site_content_padding',
+				$design_tab_ids_prefix . 'responsive_tranparent_header_color_separator',
+				$design_tab_ids_prefix . 'responsive_transparent_header_border_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_site_title_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_site_title_hover_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_text_color',
+				$design_tab_ids_prefix . 'responsive_tranparent_header_menu_color_separator',
+				$design_tab_ids_prefix . 'responsive_transparent_header_menu_background_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_mobile_menu_background_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_menu_border_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_active_menu_background_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_hover_menu_background_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_menu_link_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_active_menu_link_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_menu_link_hover_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_sub_menu_background_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_active_sub_menu_background_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_hover_sub_menu_background_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_sub_menu_link_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_sub_menu_active_link_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_sub_menu_link_hover_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_menu_toggle_background_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_menu_toggle_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_widget_color_separator',
+				$design_tab_ids_prefix . 'responsive_transparent_header_widget_text_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_widget_background_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_widget_background_image',
+				$design_tab_ids_prefix . 'responsive_transparent_header_widget_border_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_widget_link_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_widget_link_hover_color',
+			);
+
+			responsive_tabs_button_control( $wp_customize, 'header_transparent_tabs', $tabs_label, 'responsive_header_transparent', 1, '', 'responsive_header_transparent_general_tab', 'responsive_header_transparent_design_tab', $general_tab_ids, $design_tab_ids, null );
+
 			/**
 			 * Transparent Header Separator.
 			 */
@@ -205,28 +261,28 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			 * Header Widget Separator.
 			 */
 			$transparent_header_widget_separator_label = esc_html__( 'Header Widget', 'responsive' );
-			responsive_separator_control( $wp_customize, 'transparent_header_widget_color_separator', $transparent_header_widget_separator_label, 'responsive_header_transparent', 270, 'responsive_is_transparent_header_enabled' );
+			responsive_separator_control( $wp_customize, 'transparent_header_widget_color_separator', $transparent_header_widget_separator_label, 'responsive_header_transparent', 270, null );
 
 			// Text Color.
 			$menu_text_color_label = __( 'Text Color', 'responsive' );
 
-			responsive_color_control( $wp_customize, 'transparent_header_widget_text', $menu_text_color_label, 'responsive_header_transparent', 280, Responsive\Core\get_responsive_customizer_defaults( 'header_widget_text' ), 'responsive_is_transparent_header_enabled' );
+			responsive_color_control( $wp_customize, 'transparent_header_widget_text', $menu_text_color_label, 'responsive_header_transparent', 280, Responsive\Core\get_responsive_customizer_defaults( 'header_widget_text' ), null );
 
 			// Background Color.
 			$menu_background_color_label = __( 'Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'transparent_header_widget_background', $menu_background_color_label, 'responsive_header_transparent', 290, Responsive\Core\get_responsive_customizer_defaults( 'header_widget_background' ), 'responsive_is_transparent_header_enabled' );
+			responsive_color_control( $wp_customize, 'transparent_header_widget_background', $menu_background_color_label, 'responsive_header_transparent', 290, Responsive\Core\get_responsive_customizer_defaults( 'header_widget_background' ), null );
 
 			// Border Color.
 			$menu_border_color_label = __( 'Border Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'transparent_header_widget_border', $menu_border_color_label, 'responsive_header_transparent', 300, Responsive\Core\get_responsive_customizer_defaults( 'header_widget_border' ), 'responsive_is_transparent_header_enabled' );
+			responsive_color_control( $wp_customize, 'transparent_header_widget_border', $menu_border_color_label, 'responsive_header_transparent', 300, Responsive\Core\get_responsive_customizer_defaults( 'header_widget_border' ), null );
 
 			// Link Color.
 			$menu_link_color_label = __( 'Links Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'transparent_header_widget_link', $menu_link_color_label, 'responsive_header_transparent', 310, Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link' ), 'responsive_is_transparent_header_enabled' );
+			responsive_color_control( $wp_customize, 'transparent_header_widget_link', $menu_link_color_label, 'responsive_header_transparent', 310, Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link' ), null );
 
 			// Link Hover Color.
 			$menu_link_hover_color_label = __( 'Links Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'transparent_header_widget_link_hover', $menu_link_hover_color_label, 'responsive_header_transparent', 320, Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link_hover' ), 'responsive_is_transparent_header_enabled' );
+			responsive_color_control( $wp_customize, 'transparent_header_widget_link_hover', $menu_link_hover_color_label, 'responsive_header_transparent', 320, Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link_hover' ), null );
 
 		}
 	}
