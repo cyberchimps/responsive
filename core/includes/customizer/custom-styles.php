@@ -5517,6 +5517,49 @@ function responsive_customizer_styles() {
 		$add_to_cart_button_hover_text_color = esc_html( get_theme_mod( 'responsive_add_to_cart_button_hover_text_color', '#ffffff' ) );
 		$shop_sidebar_position               = esc_html( get_theme_mod( 'responsive_shop_sidebar_position', 'no' ) );
 		$single_product_sidebar_position     = esc_html( get_theme_mod( 'responsive_single_product_sidebar_position', 'no' ) );
+		$product_bg_color 					 = esc_html( get_theme_mod( 'responsive_shop_product_background_color', '#ffffff'));
+		$tl 								 = intval  ( get_theme_mod( 'responsive_shop_product_top_left_radius', 8 ) );
+		$tr 								 = intval  ( get_theme_mod( 'responsive_shop_product_top_right_radius', 8 ) );
+		$br 								 = intval  ( get_theme_mod( 'responsive_shop_product_bottom_right_radius', 8 ) );
+		$bl 								 = intval  ( get_theme_mod( 'responsive_shop_product_bottom_left_radius', 8 ) );
+
+		$border_radius_css = sprintf( '%dpx %dpx %dpx %dpx', $tl, $tr, $br, $bl );
+
+		$woocommerce_custom_css .= '<style id="responsive-live-preview">';
+		$woocommerce_custom_css .= sprintf(
+		'li.product {
+			background-color: %s;
+			border-radius: 8px;
+			padding: 15px;
+			margin-bottom: 20px;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+			transition: background-color 0.3s ease;
+    	}',
+			$product_bg_color
+		);
+		$woocommerce_custom_css .= '</style>';
+
+		$woocommerce_custom_css .= '<style id="responsive-product-radius">';
+		$woocommerce_custom_css .= sprintf(
+			// Card radius
+			'.woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
+				border-radius: %1$dpx %2$dpx %3$dpx %4$dpx;
+				position: relative; /* keep badge positioning stable */
+			}' .
+
+			// Clipping the top corners of product images - doesnt affect the Sale badge
+			'.woocommerce ul.products li.product a.woocommerce-LoopProduct-link img,
+			.woocommerce-page ul.products li.product a.woocommerce-LoopProduct-link img {
+				-webkit-clip-path: inset(0 round %1$dpx %2$dpx 0 0);
+						clip-path: inset(0 round %1$dpx %2$dpx 0 0);
+				/* Fallback for older browsers */
+				border-top-left-radius: %1$dpx;
+				border-top-right-radius: %2$dpx;
+			}',
+			$tl, $tr, $br, $bl
+		);
+		$woocommerce_custom_css .= '</style>';
+
 
 		if ( 'no' !== $shop_sidebar_position ) {
 			$woocommerce_custom_css .= '
