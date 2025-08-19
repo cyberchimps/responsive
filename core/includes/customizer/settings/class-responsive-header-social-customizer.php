@@ -65,7 +65,6 @@ if ( ! class_exists( 'Responsive_Header_Social_Icons_Customizer' ) ) :
 				$tab_ids_prefix . 'responsive_header_social_items',
 				$tab_ids_prefix . 'responsive_header_social_show_label',
 				$tab_ids_prefix . 'responsive_header_social_item_spacing',
-				$tab_ids_prefix . 'responsive_header_social_redirect_to_social_links',
 			);
 
 			responsive_tabs_button_control( $wp_customize, 'header_social_tabs', $tabs_label, 'responsive_header_social', 1, '', 'responsive_social_general_tab', 'responsive_social_design_tab', $general_tab_ids, $design_tab_ids, null );
@@ -114,9 +113,6 @@ if ( ! class_exists( 'Responsive_Header_Social_Icons_Customizer' ) ) :
 			);
 
 			responsive_drag_number_control( $wp_customize, 'header_social_item_spacing', __( 'Item Spacing (px)', 'responsive' ), 'responsive_header_social', 55, 5, null, 50, 0, 'postMessage' );
-
-			// Redirect to social links.
-			responsive_redirect_control( $wp_customize, 'header_social_redirect_to_social_links', __( 'Set Social Links', 'responsive' ), 'responsive_header_social', 60, 'section', 'responsive_social_links');
 			
 			$social_item_style_choices = array(
 				'filled'  => esc_html__( 'Filled', 'responsive' ),

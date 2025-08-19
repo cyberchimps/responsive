@@ -1582,3 +1582,15 @@ body.rtl .customize-control .responsive-switchers li {
 .responsive-dragging-dropzones .responsive-builder-add-item {
 	display: none;
 }
+#customize-control-responsive_transparent_header_logo .customize-control-title {
+	margin-top: 0;
+}
+#customize-control-responsive_transparent_bottom_border .customize-control-title {
+	margin-top: 0;
+}
+#customize-control-responsive_transparent_header_logo {
+	padding-bottom: 24px;
+}
+#accordion-section-responsive_docs_section .accordion-section-title::after {
+	display: none;
+}

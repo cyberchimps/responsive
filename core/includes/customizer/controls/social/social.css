@@ -205,9 +205,6 @@
     margin-bottom: 12px;
     border-top: 0.5px solid #D0D0D0;
 }
-#customize-control-responsive_header_social_redirect_to_social_links a {
-    border-bottom: none;
-}
 #customize-control-responsive_header_social_item_typography_group,
 #customize-control-responsive_footer_social_item_typography_group {
     margin-top: 22px;
@@ -245,4 +242,7 @@
 #customize-control-responsive_header_social_item_border_color,
 #customize-control-responsive_footer_social_item_border_color {
     margin-top: 10px;
+}
+.responsive-social-item .responsive-builder-social-url-wrap .components-checkbox-control {
+    padding-bottom: 10px;
 }

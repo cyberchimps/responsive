@@ -17,6 +17,9 @@ if ( ! class_exists( 'Responsive_Theme_Background_Updater' ) ) {
 			'6.1.7'  => array(
                 'responsive_theme_background_updater_6_1_7',
             ),
+			'6.2.3'  => array(
+                'responsive_theme_background_updater_6_2_3',
+            ),
 		);
 
         /**

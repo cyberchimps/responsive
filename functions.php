@@ -1267,7 +1267,7 @@ if ( ! function_exists( 'responsive_theme_background_updater_6_1_7' ) ) {
 	/**
 	 * Handle backward compatibility on version 6.1.7.
 	 *
-	 * @since 4.8.10
+	 * @since 6.1.7
 	 * @return void
 	 */
 	function responsive_theme_background_updater_6_1_7() {
@@ -1287,6 +1287,53 @@ if ( ! function_exists( 'responsive_theme_background_updater_6_1_7' ) ) {
 			}
 			$theme_options['v6-1-7-backward-done'] = true;
 			update_option( 'responsive_theme_options', $theme_options );
+		}
+	}
+}
+
+if ( ! function_exists( 'responsive_theme_background_updater_6_2_3' ) ) {
+
+	/**
+	 * Handle backward compatibility on version 6.2.3
+	 *
+	 * @since 6.2.3
+	 * @return void
+	 */
+	function responsive_theme_background_updater_6_2_3() {
+
+		if ( ! isset( $responsive_options['v6-2-3-backward-done'] ) ) {
+			$responsive_options = Responsive\Core\responsive_get_options();
+			$header_social      = get_theme_mod( 'responsive_header_social_items' );
+			$footer_social      = get_theme_mod( 'responsive_footer_social_items' );
+			$target_social_link = get_theme_mod( 'responsive_social_link_new_tab', '_self' ) === '_blank' ? true : false;
+
+			if ( empty( $header_social ) && empty( $footer_social ) ) {
+				$responsive_options['v6-2-3-backward-done'] = true;
+				return;
+			}
+
+			if ( ! empty( $header_social ) && ! empty( $header_social['items'] ) ) {
+				$social_items = $header_social['items'];
+				foreach ( $social_items as &$social_item ) {
+					$social_item['link']   = $responsive_options[ $social_item['id'] . '_uid' ] ?? '';
+					$social_item['newTab'] = $target_social_link;
+				}
+				unset( $social_item );
+				$header_social['items'] = $social_items;
+				set_theme_mod( 'responsive_header_social_items', $header_social );
+			}
+			if ( ! empty( $footer_social ) && ! empty( $footer_social['items'] ) ) {
+				$social_items = $footer_social['items'];
+				foreach ( $social_items as &$social_item ) {
+					$social_item['link']   = $responsive_options[ $social_item['id'] . '_uid' ] ?? '';
+					$social_item['newTab'] = $target_social_link;
+				}
+				unset( $social_item );
+				$footer_social['items'] = $social_items;
+				set_theme_mod( 'responsive_footer_social_items', $footer_social );
+			}
+			$responsive_options['v6-2-3-backward-done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
 		}
 	}
 }
