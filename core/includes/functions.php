@@ -1500,6 +1500,14 @@ function responsive_mobile_custom_logo() {
 
 	if ( '' !== $responsive_mobile_logo && '1' == $responsive_mobile_logo_option ) {
 
+		// Fetching the alt text for the mobile logo from media library
+		$mobile_logo_alt = get_post_meta( $responsive_mobile_logo, '_wp_attachment_image_alt', true );
+
+		// Fallback if no alt is set
+		if ( empty( $mobile_logo_alt ) ) {
+			$mobile_logo_alt = get_bloginfo( 'name' );
+		}
+
 		/* Replace transparent header logo and width */
 
 		$html = sprintf(
@@ -1510,7 +1518,7 @@ function responsive_mobile_custom_logo() {
 				'full',
 				false,
 				array(
-					'alt'      => get_bloginfo( 'name' ),
+					'alt'      => esc_attr( $mobile_logo_alt ),
 					'class'    => 'custom-logo',
 					'itemprop' => 'logo',
 					'size'     => '(max-width: 204px) 100vw, 204px',
