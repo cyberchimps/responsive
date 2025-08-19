@@ -2375,3 +2375,33 @@ if ( ! function_exists( 'responsive_site_backwardcompatibility_with_new_blog_fro
 		}
 	}
 endif;
+
+// Remove WooCommerce default breadcrumbs everywhere.
+add_action( 'init', function() {
+    remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
+});
+
+// Add breadcrumbs back conditionally.
+add_action( 'woocommerce_before_main_content', function() {
+    // Shop / catalog pages.
+    if ( get_theme_mod( 'breadcrumbs_options', 1 ) && ( is_shop() || is_product_taxonomy() ) ) {
+        woocommerce_breadcrumb();
+    }
+
+    // Single product pages.
+    if ( get_theme_mod( 'responsive_single_product_breadcrumbs', 1 ) && is_product() ) {
+        woocommerce_breadcrumb();
+    }
+}, 20 );
+
+
+add_filter('woocommerce_breadcrumb_defaults', function ($defaults) {
+    $class = 'woocommerce-breadcrumb';
+    if (is_product()) {
+        $class .= ' is-single-product';
+    } elseif (is_shop() || is_product_taxonomy()) {
+        $class .= ' is-shop';
+    }
+    $defaults['wrap_before'] = '<nav class="' . esc_attr($class) . '" aria-label="Breadcrumb">';
+    return $defaults;
+});

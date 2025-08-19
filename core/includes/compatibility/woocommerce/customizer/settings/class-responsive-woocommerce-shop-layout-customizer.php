@@ -38,7 +38,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				array(
 					'title'    => esc_html__( 'Product Catalog Options', 'responsive' ),
 					'panel'    => 'woocommerce',
-					'priority' => 100,
+					'priority' => 5,
 				)
 			);
 

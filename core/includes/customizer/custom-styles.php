@@ -6181,3 +6181,21 @@ function responsive_minimize_css( $css ) {
 	$css = preg_replace( '/;}/', '}', $css );
 	return $css;
 }
+
+add_action( 'customize_register', function( $wp_customize ) {
+    $catalog_section = $wp_customize->get_section( 'woocommerce_product_catalog' );
+    if ( $catalog_section ) {
+        $catalog_section->priority = 1;
+    }
+
+	 $checkout_section = $wp_customize->get_section( 'woocommerce_checkout' );
+    if ( $checkout_section ) {
+        $checkout_section->priority = 3;
+    }
+
+    $section = $wp_customize->get_section( 'woocommerce_product_images' );
+    if ( $section ) {
+        $section->priority = 7;
+    }
+}, 20 );
+
