@@ -74,8 +74,6 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 						'section'         => 'responsive_header_site_logo_title',
 						'flex-height'     => true,
 						'flex-width'      => true,
-						'height'          => 100, // pixels.
-						'width'           => 300, // pixels.
 						'priority'        => 11,
 						'active_callback' => null,
 					)
