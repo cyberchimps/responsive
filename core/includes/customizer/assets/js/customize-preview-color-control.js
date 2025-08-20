@@ -1065,47 +1065,12 @@
             }
             styleTag.html(
                 'li.product {' +
-                'background-color: ' + newval + ';' +
-                'border-radius: 8px;' +
-                'padding: 15px;' +
-                'margin-bottom: 20px;' +
-                'box-shadow: 0 2px 4px rgba(0,0,0,0.1);' +
-                'transition: background-color 0.3s ease;' +
+                'background-color: ' + newval + '!important;' +
                 '}'
             );  
         });
     });
 
-
-
-     // Border radius live preview (card + image top corners)
-    function refreshRadius(){
-        var tl = parseInt(api('responsive_shop_product_top_left_radius')(), 10) || 0,
-            tr = parseInt(api('responsive_shop_product_top_right_radius')(), 10) || 0,
-            br = parseInt(api('responsive_shop_product_bottom_right_radius')(), 10) || 0,
-            bl = parseInt(api('responsive_shop_product_bottom_left_radius')(), 10) || 0;
-
-        var cardRadius = tl + 'px ' + tr + 'px ' + br + 'px ' + bl + 'px';
-        $('.woocommerce ul.products li.product, .woocommerce-page ul.products li.product')
-        .css('border-radius', cardRadius);
-
-        var clipTop = 'inset(0 round ' + tl + 'px ' + tr + 'px 0 0)';
-        $('.woocommerce ul.products li.product a.woocommerce-LoopProduct-link img, .woocommerce-page ul.products li.product a.woocommerce-LoopProduct-link img')
-        .css({
-            'clip-path': clipTop,
-            '-webkit-clip-path': clipTop,
-            'border-top-left-radius': tl + 'px',   // fallback
-            'border-top-right-radius': tr + 'px'   // fallback
-        });
-    }
-
-    ['responsive_shop_product_top_left_radius',
-    'responsive_shop_product_top_right_radius',
-    'responsive_shop_product_bottom_right_radius',
-    'responsive_shop_product_bottom_left_radius'
-    ].forEach(function(id){
-        api(id, function(value){ value.bind(refreshRadius); });
-    });
 
 
     //Buttons Color
