@@ -380,29 +380,36 @@
     applyLayoutBoxRadius('responsive_box_mobile_bottom_right_radius');
 
     function shopPageCardRadius() {
+        function getRadiusValues(prefix) {
+            return {
+            tl: parseInt(api(prefix + '_top_left_radius')(), 10) || 0,
+            tr: parseInt(api(prefix + '_top_right_radius')(), 10) || 0,
+            br: parseInt(api(prefix + '_bottom_right_radius')(), 10) || 0,
+            bl: parseInt(api(prefix + '_bottom_left_radius')(), 10) || 0
+            };
+        }
+
         // Desktop
-        var tl = parseInt(api('responsive_shop_product_top_left_radius')(), 10) || 0,
-            tr = parseInt(api('responsive_shop_product_top_right_radius')(), 10) || 0,
-            br = parseInt(api('responsive_shop_product_bottom_right_radius')(), 10) || 0,
-            bl = parseInt(api('responsive_shop_product_bottom_left_radius')(), 10) || 0;
+        var { tl, tr, br, bl } = getRadiusValues('responsive_shop_product');
 
         // Tablet
-        var tablet_tl = parseInt(api('responsive_shop_product_tablet_top_left_radius')(), 10) || 0,
-            tablet_tr = parseInt(api('responsive_shop_product_tablet_top_right_radius')(), 10) || 0,
-            tablet_br = parseInt(api('responsive_shop_product_tablet_bottom_right_radius')(), 10) || 0,
-            tablet_bl = parseInt(api('responsive_shop_product_tablet_bottom_left_radius')(), 10) || 0;
+        var { tl: tablet_tl, tr: tablet_tr, br: tablet_br, bl: tablet_bl } = getRadiusValues('responsive_shop_product_tablet');
 
         // Mobile
-        var mobile_tl = parseInt(api('responsive_shop_product_mobile_top_left_radius')(), 10) || 0,
-            mobile_tr = parseInt(api('responsive_shop_product_mobile_top_right_radius')(), 10) || 0,
-            mobile_br = parseInt(api('responsive_shop_product_mobile_bottom_right_radius')(), 10) || 0,
-            mobile_bl = parseInt(api('responsive_shop_product_mobile_bottom_left_radius')(), 10) || 0;
+        var { tl: mobile_tl, tr: mobile_tr, br: mobile_br, bl: mobile_bl } = getRadiusValues('responsive_shop_product_mobile');
 
         // Breakpoints
         var mobileBreakPoint = 544;
 
-        // Default desktop
-        var radiusCSS = `
+        // Helper to generate CSS for a given set of radius values and a media query
+        function generateProductRadiusCSS({ tl, tr, br, bl }, minWidth, maxWidth) {
+            let media = '';
+            if (minWidth !== undefined && maxWidth !== undefined) {
+            media = `@media screen and (max-width: ${maxWidth}px) and (min-width: ${minWidth}px) {`;
+            } else if (maxWidth !== undefined) {
+            media = `@media screen and (max-width: ${maxWidth}px) {`;
+            }
+            let css = `
             .woocommerce ul.products li.product,
             .woocommerce-page ul.products li.product {
                 border-radius: ${tl}px ${tr}px ${br}px ${bl}px !important;
@@ -410,45 +417,35 @@
             .woocommerce ul.products li.product a.woocommerce-LoopProduct-link img,
             .woocommerce-page ul.products li.product a.woocommerce-LoopProduct-link img {
                 -webkit-clip-path: inset(0 round ${tl}px ${tr}px 0 0) !important;
-                        clip-path: inset(0 round ${tl}px ${tr}px 0 0) !important;
+                    clip-path: inset(0 round ${tl}px ${tr}px 0 0) !important;
                 border-top-left-radius: ${tl}px !important;
                 border-top-right-radius: ${tr}px !important;
             }
-        `;
+            `;
+            if (media) {
+            css = `${media}${css}\n}`;
+            }
+            return css;
+        }
+
+        // Default desktop
+        var radiusCSS = generateProductRadiusCSS(
+            { tl, tr, br, bl }
+        );
 
         // Tablet (mobileBreakPoint < width < 992px)
-        radiusCSS += `
-            @media screen and (max-width: 991px) and (min-width: ${parseInt(mobileBreakPoint) + 1}px) {
-                .woocommerce ul.products li.product,
-                .woocommerce-page ul.products li.product {
-                    border-radius: ${tablet_tl}px ${tablet_tr}px ${tablet_br}px ${tablet_bl}px !important;
-                }
-                .woocommerce ul.products li.product a.woocommerce-LoopProduct-link img,
-                .woocommerce-page ul.products li.product a.woocommerce-LoopProduct-link img {
-                    -webkit-clip-path: inset(0 round ${tablet_tl}px ${tablet_tr}px 0 0) !important;
-                            clip-path: inset(0 round ${tablet_tl}px ${tablet_tr}px 0 0) !important;
-                    border-top-left-radius: ${tablet_tl}px !important;
-                    border-top-right-radius: ${tablet_tr}px !important;
-                }
-            }
-        `;
+        radiusCSS += generateProductRadiusCSS(
+            { tl: tablet_tl, tr: tablet_tr, br: tablet_br, bl: tablet_bl },
+            parseInt(mobileBreakPoint) + 1,
+            991
+        );
 
         // Mobile (<= mobileBreakPoint)
-        radiusCSS += `
-            @media screen and (max-width: ${mobileBreakPoint}px) {
-                .woocommerce ul.products li.product,
-                .woocommerce-page ul.products li.product {
-                    border-radius: ${mobile_tl}px ${mobile_tr}px ${mobile_br}px ${mobile_bl}px !important;
-                }
-                .woocommerce ul.products li.product a.woocommerce-LoopProduct-link img,
-                .woocommerce-page ul.products li.product a.woocommerce-LoopProduct-link img {
-                    -webkit-clip-path: inset(0 round ${mobile_tl}px ${mobile_tr}px 0 0) !important;
-                            clip-path: inset(0 round ${mobile_tl}px ${mobile_tr}px 0 0) !important;
-                    border-top-left-radius: ${mobile_tl}px !important;
-                    border-top-right-radius: ${mobile_tr}px !important;
-                }
-            }
-        `;
+        radiusCSS += generateProductRadiusCSS(
+            { tl: mobile_tl, tr: mobile_tr, br: mobile_br, bl: mobile_bl },
+            undefined,
+            mobileBreakPoint
+        );
 
         var styleTag = $('#responsive-product-radius-live');
         if (!styleTag.length) {
