@@ -378,4 +378,97 @@
     applyLayoutBoxRadius('responsive_box_mobile_top_right_radius');
     applyLayoutBoxRadius('responsive_box_mobile_bottom_left_radius');
     applyLayoutBoxRadius('responsive_box_mobile_bottom_right_radius');
+
+    function shopPageCardRadius() {
+        function getRadiusValues(prefix) {
+            return {
+            tl: parseInt(api(prefix + '_top_left_radius')(), 10) || 0,
+            tr: parseInt(api(prefix + '_top_right_radius')(), 10) || 0,
+            br: parseInt(api(prefix + '_bottom_right_radius')(), 10) || 0,
+            bl: parseInt(api(prefix + '_bottom_left_radius')(), 10) || 0
+            };
+        }
+
+        // Desktop
+        var { tl, tr, br, bl } = getRadiusValues('responsive_shop_product');
+
+        // Tablet
+        var { tl: tablet_tl, tr: tablet_tr, br: tablet_br, bl: tablet_bl } = getRadiusValues('responsive_shop_product_tablet');
+
+        // Mobile
+        var { tl: mobile_tl, tr: mobile_tr, br: mobile_br, bl: mobile_bl } = getRadiusValues('responsive_shop_product_mobile');
+
+        // Breakpoints
+        var mobileBreakPoint = 544;
+
+        // Helper to generate CSS for a given set of radius values and a media query
+        function generateProductRadiusCSS({ tl, tr, br, bl }, minWidth, maxWidth) {
+            let media = '';
+            if (minWidth !== undefined && maxWidth !== undefined) {
+            media = `@media screen and (max-width: ${maxWidth}px) and (min-width: ${minWidth}px) {`;
+            } else if (maxWidth !== undefined) {
+            media = `@media screen and (max-width: ${maxWidth}px) {`;
+            }
+            let css = `
+            .woocommerce ul.products li.product,
+            .woocommerce-page ul.products li.product {
+                border-radius: ${tl}px ${tr}px ${br}px ${bl}px !important;
+            }
+            .woocommerce ul.products li.product a.woocommerce-LoopProduct-link img,
+            .woocommerce-page ul.products li.product a.woocommerce-LoopProduct-link img {
+                -webkit-clip-path: inset(0 round ${tl}px ${tr}px 0 0) !important;
+                    clip-path: inset(0 round ${tl}px ${tr}px 0 0) !important;
+                border-top-left-radius: ${tl}px !important;
+                border-top-right-radius: ${tr}px !important;
+            }
+            `;
+            if (media) {
+            css = `${media}${css}\n}`;
+            }
+            return css;
+        }
+
+        // Default desktop
+        var radiusCSS = generateProductRadiusCSS(
+            { tl, tr, br, bl }
+        );
+
+        // Tablet (mobileBreakPoint < width < 992px)
+        radiusCSS += generateProductRadiusCSS(
+            { tl: tablet_tl, tr: tablet_tr, br: tablet_br, bl: tablet_bl },
+            parseInt(mobileBreakPoint) + 1,
+            991
+        );
+
+        // Mobile (<= mobileBreakPoint)
+        radiusCSS += generateProductRadiusCSS(
+            { tl: mobile_tl, tr: mobile_tr, br: mobile_br, bl: mobile_bl },
+            undefined,
+            mobileBreakPoint
+        );
+
+        var styleTag = $('#responsive-product-radius-live');
+        if (!styleTag.length) {
+            styleTag = $('<style id="responsive-product-radius-live"></style>').appendTo('head');
+        }
+        styleTag.html(radiusCSS);
+    }
+
+    [
+        'responsive_shop_product_top_left_radius',
+        'responsive_shop_product_top_right_radius',
+        'responsive_shop_product_bottom_right_radius',
+        'responsive_shop_product_bottom_left_radius',
+        'responsive_shop_product_tablet_top_left_radius',
+        'responsive_shop_product_tablet_top_right_radius',
+        'responsive_shop_product_tablet_bottom_right_radius',
+        'responsive_shop_product_tablet_bottom_left_radius',
+        'responsive_shop_product_mobile_top_left_radius',
+        'responsive_shop_product_mobile_top_right_radius',
+        'responsive_shop_product_mobile_bottom_right_radius',
+        'responsive_shop_product_mobile_bottom_left_radius'
+    ].forEach(function(id){
+        api(id, function(value){ value.bind(shopPageCardRadius); });
+    });
+
 } )( jQuery );

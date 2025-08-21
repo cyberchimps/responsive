@@ -5532,42 +5532,88 @@ function responsive_customizer_styles() {
 		$tr 								 = intval  ( get_theme_mod( 'responsive_shop_product_top_right_radius', 8 ) );
 		$br 								 = intval  ( get_theme_mod( 'responsive_shop_product_bottom_right_radius', 8 ) );
 		$bl 								 = intval  ( get_theme_mod( 'responsive_shop_product_bottom_left_radius', 8 ) );
-
-		$border_radius_css = sprintf( '%dpx %dpx %dpx %dpx', $tl, $tr, $br, $bl );
-
+		$mobile_tl 							 = intval  ( get_theme_mod( 'responsive_shop_product_mobile_top_left_radius', 8)); 
+		$mobile_tr 							 = intval  ( get_theme_mod( 'responsive_shop_product_mobile_top_right_radius', 8));
+		$mobile_br							 = intval  ( get_theme_mod( 'responsive_shop_product_mobile_bottom_right_radius', 8));
+		$mobile_bl							 = intval  ( get_theme_mod( 'responsive_shop_product_mobile_bottom_left_radius', 8)); 
+		$tablet_tl							 = intval  ( get_theme_mod( 'responsive_shop_product_tablet_top_left_radius', 8)); 
+		$tablet_tr							 = intval  ( get_theme_mod( 'responsive_shop_product_tablet_top_right_radius', 8)); 
+		$tablet_br 							 = intval  ( get_theme_mod( 'responsive_shop_product_tablet_bottom_right_radius', 8)); 
+		$tablet_bl							 = intval  ( get_theme_mod( 'responsive_shop_product_tablet_bottom_left_radius', 8)); 
+		$mobile_breakpoint 					 = 544; 
 		$woocommerce_custom_css .= '<style id="responsive-live-preview">';
 		$woocommerce_custom_css .= sprintf(
 		'li.product {
-			background-color: %s;
-			border-radius: 8px;
-			padding: 15px;
-			margin-bottom: 20px;
-			box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-			transition: background-color 0.3s ease;
+			background-color: %s !important;
     	}',
 			$product_bg_color
 		);
 		$woocommerce_custom_css .= '</style>';
 
-		$woocommerce_custom_css .= '<style id="responsive-product-radius">';
-		$woocommerce_custom_css .= sprintf(
-			// Card radius
-			'.woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
-				border-radius: %1$dpx %2$dpx %3$dpx %4$dpx;
-				position: relative; /* keep badge positioning stable */
-			}' .
 
-			// Clipping the top corners of product images - doesnt affect the Sale badge
-			'.woocommerce ul.products li.product a.woocommerce-LoopProduct-link img,
+		$woocommerce_custom_css .= '<style id="responsive-product-radius">';
+
+		/**
+		 * Desktop (≥992px)
+		 */
+		$woocommerce_custom_css .= sprintf(
+			'.woocommerce ul.products li.product,
+			.woocommerce-page ul.products li.product {
+				border-radius: %1$dpx %2$dpx %3$dpx %4$dpx !important;
+				position: relative;
+			}
+			.woocommerce ul.products li.product a.woocommerce-LoopProduct-link img,
 			.woocommerce-page ul.products li.product a.woocommerce-LoopProduct-link img {
-				-webkit-clip-path: inset(0 round %1$dpx %2$dpx 0 0);
-						clip-path: inset(0 round %1$dpx %2$dpx 0 0);
-				/* Fallback for older browsers */
-				border-top-left-radius: %1$dpx;
-				border-top-right-radius: %2$dpx;
+				-webkit-clip-path: inset(0 round %1$dpx %2$dpx 0 0) !important;
+						clip-path: inset(0 round %1$dpx %2$dpx 0 0) !important;
+				border-top-left-radius: %1$dpx !important;
+				border-top-right-radius: %2$dpx !important;
 			}',
 			$tl, $tr, $br, $bl
 		);
+
+		/**
+		 * Tablet (mobile_breakpoint+1 → 991px)
+		 */
+		$woocommerce_custom_css .= sprintf(
+			'@media screen and (max-width: 991px) and (min-width: %5$dpx) {
+				.woocommerce ul.products li.product,
+				.woocommerce-page ul.products li.product {
+					border-radius: %1$dpx %2$dpx %3$dpx %4$dpx !important;
+				}
+				.woocommerce ul.products li.product a.woocommerce-LoopProduct-link img,
+				.woocommerce-page ul.products li.product a.woocommerce-LoopProduct-link img {
+					-webkit-clip-path: inset(0 round %1$dpx %2$dpx 0 0) !important;
+							clip-path: inset(0 round %1$dpx %2$dpx 0 0) !important;
+					border-top-left-radius: %1$dpx !important;
+					border-top-right-radius: %2$dpx !important;
+				}
+			}',
+			$tablet_tl, $tablet_tr, $tablet_br, $tablet_bl,
+			($mobile_breakpoint + 1)
+		);
+
+		/**
+		 * Mobile (≤ mobile_breakpoint)
+		 */
+		$woocommerce_custom_css .= sprintf(
+			'@media screen and (max-width: %5$dpx) {
+				.woocommerce ul.products li.product,
+				.woocommerce-page ul.products li.product {
+					border-radius: %1$dpx %2$dpx %3$dpx %4$dpx !important;
+				}
+				.woocommerce ul.products li.product a.woocommerce-LoopProduct-link img,
+				.woocommerce-page ul.products li.product a.woocommerce-LoopProduct-link img {
+					-webkit-clip-path: inset(0 round %1$dpx %2$dpx 0 0) !important;
+							clip-path: inset(0 round %1$dpx %2$dpx 0 0) !important;
+					border-top-left-radius: %1$dpx !important;
+					border-top-right-radius: %2$dpx !important;
+				}
+			}',
+			$mobile_tl, $mobile_tr, $mobile_br, $mobile_bl,
+			$mobile_breakpoint
+		);
+
 		$woocommerce_custom_css .= '</style>';
 
 

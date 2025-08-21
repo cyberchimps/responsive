@@ -36,6 +36,8 @@ jQuery(document).ready(function ($) {
                 $('#responsive-setting-item-app-connection-tab .responsive-theme-setting-item-icon, #responsive-setting-item-app-connection-tab .responsive-theme-setting-item-title').addClass('responsive-theme-setting-active-tab');
                 $('#responsive-theme-setting-app-connection-section').show();
                 $('#responsive-theme-raddons-setting-wl-section').hide();
+                $('.responsive-theme-raddons-settings-tab').addClass('responsive-theme-active-tab');
+                $('#responsive_raddons-settings').show();
             }
             navigateTo(hash);
         }
