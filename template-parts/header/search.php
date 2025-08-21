@@ -53,7 +53,7 @@ $search_id = ( $search_style === 'search' ) ? 'res-search-link' : ( ( $search_st
                 <label class="screen-reader-text" for="s"><?php esc_html_e( 'Search for:', 'responsive' ); ?></label>
                 <div class="res-search-wrapper responsive-header-search-icon-wrap">
                     <input type="search" class="search-field" name="s" id="s" placeholder="<?php esc_attr_e( 'Search &hellip;', 'responsive' ); ?>" autocomplete="off" />
-                    <div class="live-search-results" style="display:none;"></div>
+                    <div class="live-search-results"></div>
                     <button type="submit" class="search-submit responsive-header-slide-search" value="Search">
                         <span class="responsive-header-search-icon">
                             <?php echo $search_icon_svg; ?>

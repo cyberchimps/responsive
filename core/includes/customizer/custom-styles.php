@@ -3517,7 +3517,16 @@ function responsive_customizer_styles() {
 		text-align : $responsive_single_blog_related_posts_title_alignment;
 	}";
 	$related_single_posts_per_row_count = absint( get_theme_mod( 'responsive_single_blog_related_posts_per_row', 2 ) );
-	$custom_css                        .= ".responsive-single-related-posts-container .responsive-related-single-posts-wrapper {
+	$section_background_color           = get_theme_mod( 'responsive_rp_section_bg_color', get_theme_mod( 'responsive_box_background_color', Responsive\Core\get_responsive_customizer_defaults( 'rp_section_bg' ) ) );
+	$section_title_color 				= get_theme_mod( 'responsive_rp_section_title_color', '#333333' );
+	$custom_css                        .= "
+	.responsive-single-related-posts-container, .responsive-single-related-posts-container .responsive-related-single-posts-wrapper .responsive-related-single-post {
+		background: {$section_background_color};
+	}
+	.responsive-related-single-posts-title {
+		color: {$section_title_color};
+	}
+	.responsive-single-related-posts-container .responsive-related-single-posts-wrapper {
 	    display: grid;
 		grid-column-gap: 25px;
 		grid-row-gap: 25px;

@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '6.2.2.1' );
+define( 'RESPONSIVE_THEME_VERSION', '6.2.3' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -1303,6 +1303,14 @@ if ( ! function_exists( 'responsive_theme_background_updater_6_2_3' ) ) {
 
 		if ( ! isset( $responsive_options['v6-2-3-backward-done'] ) ) {
 			$responsive_options = Responsive\Core\responsive_get_options();
+
+			// Backward compatibility for Related Posts.
+			if( get_theme_mod( 'responsive_single_blog_enable_related_posts', 0 ) ) {
+				// If the related posts are enabled, set the excerpt to be enabled by default.
+				set_theme_mod( 'responsive_rp_enable_excerpt', 1 );
+			}
+
+			// Backward compatibility for social links.
 			$header_social      = get_theme_mod( 'responsive_header_social_items' );
 			$footer_social      = get_theme_mod( 'responsive_footer_social_items' );
 			$target_social_link = get_theme_mod( 'responsive_social_link_new_tab', '_self' ) === '_blank' ? true : false;
