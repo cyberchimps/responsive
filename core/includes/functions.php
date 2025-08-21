@@ -55,9 +55,6 @@ function setup() {
 	}
 	// Add Fragment Support.
 	add_filter( 'woocommerce_add_to_cart_fragments', $n( 'responsive_get_refreshed_fragments_number'), 11 );
-	add_filter( 'responsive_related_single_posts_excerpt_count', function( $length ) {
-		return get_theme_mod( 'responsive_rp_excerpt_length', 20 );
-	} );
 	add_action( 'responsive_header_woo_cart_label_markup', $n( 'responsive_woo_cart_label_markup' ), 10 );
 
 	require_once trailingslashit( get_template_directory() ) . '/core/includes/theme-updates/class-responsive-theme-background-updater.php';
@@ -437,7 +434,7 @@ if ( ! function_exists( 'responsive_js' ) ) {
 			// Get the toggle value
 			$live_search_enabled = get_theme_mod( 'responsive_header_search_enable_live_search', false );
 			$selected_post_types_setting = get_theme_mod( 'responsive_header_search_live_search_post_type', array('pages', 'posts') ); 
-			error_log("responsive_header_search_live_search_post_type: ". print_r($selected_post_types_setting, true));
+
 			if ( ! is_array( $selected_post_types_setting ) ) {
 				$selected_post_types_setting = array_map('trim', explode(',', $selected_post_types_setting));
 			}
@@ -450,8 +447,6 @@ if ( ! function_exists( 'responsive_js' ) ) {
 					$rest_api_post_types[] = 'post';
 				}
 			}
-
-			error_log("rest_api_post_types: ".print_r($rest_api_post_types, true));
 
 			// Localize script with REST API settings
 			wp_localize_script(
@@ -1468,6 +1463,7 @@ function defaults() {
 																				'icon'    => 'search',
 																			),
 																		),
+		'rp_section_bg' => '#ffffff',
 		)
 	);
 	return $theme_options;

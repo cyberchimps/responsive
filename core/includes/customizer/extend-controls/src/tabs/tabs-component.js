@@ -268,6 +268,9 @@ const TabsComponent = props => {
 		if( ! api('responsive_sticky_header_logo_option').get() ) {
 			document.getElementById('customize-control-responsive_sticky_header_logo').style.display = 'none';
 		}
+		if( ! api('responsive_rp_enable_excerpt').get() ) {
+			document.getElementById('customize-control-responsive_rp_excerpt_length').style.display = 'none';
+		}
 	}, [tab]);
 
 	const hideSidebarWidthControl = (value, control) => {

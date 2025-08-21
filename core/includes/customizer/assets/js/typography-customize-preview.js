@@ -2498,6 +2498,16 @@
             );
 
         } );
+    } ), api( "rp_section_title_typography[text-transform]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-rp-section-title-text-transform' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-rp-section-title-text-transform">'
+                + responsive.selectorArray['rp_section_title'] + '{ text-transform:' + dataAndEvents +';}'
+                + '</style>'
+            );
+
+        } );
     } ), api( "rp_post_title_typography[font-family]", function( $swipe ) {
         $swipe.bind( function( pair ) {
             if ( pair ) {
@@ -2593,6 +2603,16 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-rp_post_title_typography-letter-spacing">'
                 +  responsive.selectorArray['rp_post_title'] + '{ letter-spacing:' + dataAndEvents +'px;}'
+                + '</style>'
+            );
+
+        } );
+    } ), api( "rp_post_title_typography[text-transform]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-rp-post-title-text-transform' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-rp-post-title-text-transform">'
+                + responsive.selectorArray['rp_post_title'] + '{ text-transform:' + dataAndEvents +';}'
                 + '</style>'
             );
 
@@ -2696,6 +2716,16 @@
             );
 
         } );
+    } ), api( "rp_meta_typography[text-transform]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-rp-meta-text-transform' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-rp-meta-text-transform">'
+                + responsive.selectorArray['rp_meta'] + '{ text-transform:' + dataAndEvents +';}'
+                + '</style>'
+            );
+
+        } );
     } ),api( "rp_content_typography[font-family]", function( $swipe ) {
         $swipe.bind( function( pair ) {
             if ( pair ) {
@@ -2791,6 +2821,16 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-rp_content_typography-letter-spacing">'
                 +  responsive.selectorArray['rp_content'] + '{ letter-spacing:' + dataAndEvents +'px;}'
+                + '</style>'
+            );
+
+        } );
+    } ), api( "rp_content_typography[text-transform]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-rp-content-text-transform' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-rp-content-text-transform">'
+                + responsive.selectorArray['rp_content'] + '{ text-transform:' + dataAndEvents +';}'
                 + '</style>'
             );
 

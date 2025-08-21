@@ -3411,12 +3411,64 @@ if ( ! function_exists( 'responsive_active_blog_layout_grid' ) ) :
 endif;
 
 if( ! function_exists( 'responsive_site_background_image_present' ) ) :
-		/**
+	/**
 	 * Determines whether site background image is present or not.
-	 *
-	 * @return bool true if site background image is present, false otherwise.
-	 */
+	*
+	* @return bool true if site background image is present, false otherwise.
+	*/
 	function responsive_site_background_image_present() {
 		return get_theme_mod( 'responsive_site_background_image_toggle' ) && esc_url( get_theme_mod( 'responsive_site_background_image' ) ) ? true : false;
 	}
 endif;
+
+if ( ! function_exists( 'responsive_enable_related_posts_excerpt' ) ) :
+
+	/**
+	 * Determines whether Related Posts excerpt is enabled or not.
+	 *
+	 * @return bool true if the excerpt is enabled, false otherwise.
+	 */
+	function responsive_enable_related_posts_excerpt() {
+		return 1 === get_theme_mod( 'responsive_rp_enable_excerpt', 0 ) ? true : false;
+	}
+endif;
+
+/**
+ * [responsive_section_toggle_control description]
+ *
+ * @param  [type] $wp_customize [description].
+ * @param  [type] $element      [description].
+ * @param  [type] $label        [description].
+ * @param  [type] $section      [description].
+ * @param  [type] $priority     [description].
+ * @param  [type] $linktype  [description].
+ * @param  [type] $linkval  [description].
+ * @param  [type] $active_call  [description].
+ * @return void                 [description].
+ */
+function responsive_section_toggle_control( $wp_customize, $element, $label, $section, $priority, $linktype, $linkval, $active_call = null, $transport = 'refresh', $description = '' ) {
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_checkbox_validate',
+		)
+	);
+
+	$wp_customize->add_control(
+		new Responsive_Customizer_Section_Toggle(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'label'           => $label,
+				'description'     => $description,
+				'section'         => $section,
+				'settings'        => 'responsive_' . $element,
+				'priority'        => $priority,
+				'active_callback' => $active_call,
+				'link_type'       => $linktype,
+				'linked'          => $linkval,
+			)
+		)
+	);
+}

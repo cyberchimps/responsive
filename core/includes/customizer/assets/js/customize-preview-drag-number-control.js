@@ -175,18 +175,6 @@
         } );
     } );
 
-    api('responsive_rp_excerpt_length', function(value) {
-        value.bind(function(newval) {
-            console.log("Excerpt length changed to:", newval);
-
-            // Updating the preview DOM dynamically
-            jQuery('.responsive-related-single-post-excerpt').each(function () {
-                const fullText = jQuery(this).data('full-text');
-                const words = fullText.split(/\s+/).slice(0, newval).join(' ');
-                jQuery(this).text(words);
-            });
-        });
-    });
     //Page Layout
     //Main Content Width
     api( 'responsive_page_content_width', function( value ) {

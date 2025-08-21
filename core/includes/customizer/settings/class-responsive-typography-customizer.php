@@ -726,7 +726,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 									'priority'        => $priority,
 									'active_callback' => $active_callback,
 									'choices'         => array(
-										'default'    => esc_html__( 'Default', 'responsive' ),
+										''    => esc_html__( 'Default', 'responsive' ),
 										'capitalize' => esc_html__( 'Aa', 'responsive' ),
 										'lowercase'  => esc_html__( 'aa', 'responsive' ),
 										'uppercase'  => esc_html__( 'AA', 'responsive' ),

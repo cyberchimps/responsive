@@ -308,6 +308,7 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'fontpresets/class-responsive-customizer-font-preset-control.php';
 	require_once $dir . 'contact-info/class-responsive-customizer-contact-info-control.php';
 	require_once $dir . 'color-with-devices/class-responsive-customizer-color-with-devices-control.php';
+	require_once $dir . 'section-toggle/class-responsive-customizer-section-toggle.php';
 
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-control-upsell.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-generic-notice-section.php';

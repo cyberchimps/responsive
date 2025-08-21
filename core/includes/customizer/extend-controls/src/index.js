@@ -33,6 +33,7 @@ import { responsiveSocial } from './social/controls';
 import { responsiveInputWithDropdown } from './input-with-dropdown/control';
 import { responsiveContactInfo } from './contact-info/control';
 import { responsiveColorWithDevices } from './color-with-devices/control';
+import { responsiveSectionToggle } from './section-toggle/control';
 
 wp.customize.controlConstructor['responsive-sortable'] = responsiveSortable;
 wp.customize.controlConstructor['responsive-range'] = responsiveSlider;
@@ -67,3 +68,4 @@ wp.customize.controlConstructor['responsive-available-drag-control']    = respon
 wp.customize.controlConstructor['responsive-input-with-dropdown']       = responsiveInputWithDropdown;
 wp.customize.controlConstructor['responsive-contact-info'] = responsiveContactInfo;
 wp.customize.controlConstructor['responsive-color-with-devices']        = responsiveColorWithDevices;
+wp.customize.controlConstructor['responsive-section-toggle']            = responsiveSectionToggle;

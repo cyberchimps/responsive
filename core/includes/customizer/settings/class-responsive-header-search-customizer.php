@@ -179,7 +179,9 @@ if ( ! class_exists( 'Responsive_Header_Search_Customizer' ) ) :
 				'responsive_header_search', 
 				45, 
 				0, 
-				null 
+				null,
+				'refresh',
+				'Note: Live Search does not work with Full Screen search type.'
 			);
 
 			responsive_horizontal_separator_control($wp_customize, 'header_search_separator16', 1, 'responsive_header_search', 46, 1 );
