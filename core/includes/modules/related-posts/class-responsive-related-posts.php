@@ -287,9 +287,9 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 				if ('meta' == $section) {
 					$this->responsive_get_related_single_post_meta_data($current_post_id);
 				}
-				if ('excerpt' == $section) {
-					$this->responsive_get_related_single_post_excerpt($current_post_id);
-				}
+			}
+			if ( get_theme_mod( 'responsive_rp_enable_excerpt', 0 ) ) {
+				$this->responsive_get_related_single_post_excerpt($current_post_id);
 			}
 
 			do_action('responsive_after_related_single_post_structure');

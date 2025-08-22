@@ -270,6 +270,19 @@ const TabsComponent = props => {
 		}
 		if( ! api('responsive_rp_enable_excerpt').get() ) {
 			document.getElementById('customize-control-responsive_rp_excerpt_length').style.display = 'none';
+			document.getElementById('customize-control-responsive_rp_read_more').style.display = 'none';
+		}
+		if( ! api('responsive_transparent_header').get() ) {
+			document.getElementById('customize-control-responsive_transparent_header_logo_option').style.display = 'none';
+			document.getElementById('customize-control-responsive_enable_transparent_header_bottom_border').style.display = 'none';
+			document.getElementById('customize-control-responsive_disable_archive_transparent_header').style.display = 'none';
+			document.getElementById('customize-control-responsive_disable_blog_page_transparent_header').style.display = 'none';
+			document.getElementById('customize-control-responsive_disable_homepage_transparent_header').style.display = 'none';
+			document.getElementById('customize-control-responsive_disable_pages_transparent_header').style.display = 'none';
+			document.getElementById('customize-control-responsive_disable_posts_transparent_header').style.display = 'none';
+			document.getElementById('customize-control-responsive_disable_woo_products_transparent_header').style.display = 'none';
+			document.getElementById('customize-control-responsive_transparent_bottom_border').style.display = 'none';
+			document.getElementById('customize-control-responsive_transparent_header_logo').style.display = 'none';
 		}
 	}, [tab]);
 

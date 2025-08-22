@@ -1631,7 +1631,7 @@ function responsive_customizer_styles() {
 		$header_widget_link_hover_color = esc_html( get_theme_mod( 'responsive_transparent_header_widget_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link_hover' ) ) );
 
 		$header_bottom_border = 0;
-		if ( 1 === get_theme_mod( 'responsive_enable_transparent_header_bottom_border', 1 ) ) {
+		if ( 1 === get_theme_mod( 'responsive_enable_transparent_header_bottom_border', 0 ) ) {
 			$header_bottom_border = esc_html( get_theme_mod( 'responsive_transparent_bottom_border', 0 ) );
 		}
 		$custom_css .= "
