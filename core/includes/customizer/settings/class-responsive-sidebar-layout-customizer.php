@@ -36,6 +36,36 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
          */
         public function customizer_options($wp_customize)
         {
+            $general_tab_ids_prefix = 'customize-control-';
+            $general_tab_ids = array(
+                $general_tab_ids_prefix . 'responsive_sidebar_outside_container_padding', 
+                $general_tab_ids_prefix . 'responsive_sidebar_inside_container_padding', 
+                $general_tab_ids_prefix . 'responsive_sidebar_spacing', 
+                // $general_tab_ids_prefix . 'default_sidebar_width'
+            ); 
+
+            $design_tab_ids_prefix = 'customize-control-'; 
+            $design_tab_ids = array(
+                $design_tab_ids_prefix . 'responsive_sidebar_background_color', 
+                $design_tab_ids_prefix . 'responsive_sidebar_headings_color', 
+                $design_tab_ids_prefix . 'responsive_sidebar_text_color',
+                $design_tab_ids_prefix . 'responsive_sidebar_link_color',
+                $design_tab_ids_prefix . 'responsive_sidebar_background_image', 
+                $design_tab_ids_prefix . 'responsive_sidebar_typography_group',
+                $design_tab_ids_prefix . 'responsive_sidebar_background_separator', 
+                $design_tab_ids_prefix . 'responsive_sidebar_headings_separator', 
+                $design_tab_ids_prefix . 'responsive_sidebar_text_separator', 
+                $design_tab_ids_prefix . 'responsive_sidebar_link_separator', 
+                $design_tab_ids_prefix . 'responsive_sidebar_typography_separator'
+            ); 
+
+            $tabs_label            = esc_html__( 'Tabs', 'responsive' );
+            responsive_tabs_button_control( $wp_customize, 'sidebar_tabs', $tabs_label, 'responsive_sidebar', 1, '', 'responsive_sidebar_general_tab', 'responsive_sidebar_design_tab', $general_tab_ids, $design_tab_ids, null );
+
+            // $page_sidebar_width_label = esc_html__('Sidebar Width (%)', 'responsive');
+            // responsive_drag_number_control( $wp_customize, 'default_sidebar_width',$page_sidebar_width_label, 'responsive_sidebar', 45, 30,'responsive_active_sidebar_position', 50, 20,'postMessage');
+
+
             responsive_horizontal_separator_control($wp_customize, 'sidebar_typography_separator', 1, 'responsive_sidebar', 58, 1, );
 
             /**
