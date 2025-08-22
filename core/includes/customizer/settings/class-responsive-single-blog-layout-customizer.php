@@ -59,7 +59,6 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 			$general_tab_ids = [
 				'customize-control-rp_show_related',
 				'customize-control-responsive_rp_order',
-				'customize-control-responsive_rp_read_more_separator',
 				'customize-control-responsive_rp_excerpt_length',
 				'customize-control-responsive_single_blog_related_posts_title',
 				'customize-control-responsive_single_blog_related_posts_title_alignment',
@@ -151,10 +150,8 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 
 			responsive_toggle_control( $wp_customize, 'rp_enable_excerpt', __( 'Enable Post Excerpt', 'responsive' ), 'responsive_rp_layout', 100, 0, null );
 			responsive_drag_number_control( $wp_customize, 'rp_excerpt_length', __( 'Excerpt Word Count', 'responsive' ), 'responsive_rp_layout', 110, 25, 'responsive_enable_related_posts_excerpt', 100, 1 );
-
-			responsive_horizontal_separator_control( $wp_customize, 'rp_read_more_separator', 1, 'responsive_rp_layout',115, 1 );
 			
-			responsive_toggle_control( $wp_customize, 'rp_read_more', __( 'Show Read More Button', 'responsive' ), 'responsive_rp_layout', 120, 0, null );
+			responsive_toggle_control( $wp_customize, 'rp_read_more', __( 'Show Read More Button', 'responsive' ), 'responsive_rp_layout', 120, 0, 'responsive_enable_related_posts_excerpt' );
 		
 			responsive_separator_control( $wp_customize, 'rp_color_separator', __( 'Color Controls', 'responsive' ), 'responsive_rp_layout', 8 );
 			responsive_color_control( $wp_customize, 'rp_section_title', __( 'Section Title', 'responsive' ), 'responsive_rp_layout', 9, Responsive\Core\get_responsive_customizer_defaults( 'footer_background' ) );
@@ -449,7 +446,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_single_blog_related_post_structure',
 				array(
-					'default'           => array( 'title', 'featured-image', 'meta', 'excerpt' ),
+					'default'           => array( 'title', 'featured-image', 'meta' ),
 					'sanitize_callback' => 'responsive_sanitize_multi_choices',
 					'transport'         => 'refresh',
 				)
@@ -470,7 +467,6 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 								'title'          => esc_html__( 'Title', 'responsive' ),
 								'featured-image' => esc_html__( 'Featured Image', 'responsive' ),
 								'meta'           => esc_html__( 'Meta', 'responsive' ),
-								'excerpt'        => esc_html__( 'Excerpt', 'responsive' ),
 							)
 						),
 						'active_callback' => null,

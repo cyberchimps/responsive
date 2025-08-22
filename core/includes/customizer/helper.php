@@ -236,7 +236,7 @@ if ( ! function_exists( 'responsive_single_blog_related_post_structure' ) ) {
 	function responsive_single_blog_related_post_structure() {
 
 		/** Default sections */
-		$sections = array( 'title', 'featured-image', 'meta', 'excerpt' );
+		$sections = array( 'title', 'featured-image', 'meta' );
 
 		/** Get sections from Customizer */
 		$sections = get_theme_mod( 'responsive_single_blog_related_post_structure', $sections );
@@ -1702,7 +1702,7 @@ function responsive_breadcrumb_separator_unicode() {
  * [responsive_enable_transparent_header_bottom_border_check description].
  */
 function responsive_enable_transparent_header_bottom_border_check() {
-	return ( 1 === get_theme_mod( 'responsive_enable_transparent_header_bottom_border', 1 ) ) ? true : false;
+	return ( 1 === get_theme_mod( 'responsive_enable_transparent_header_bottom_border', 0 ) && responsive_is_transparent_header_enabled() ) ? true : false;
 }
 
 /**
@@ -3067,7 +3067,7 @@ function responsive_different_logo_sticky_header() {
  */
 function responsive_different_logo_transparent_header() {
 
-	return ( 1 === get_theme_mod( 'responsive_transparent_header_logo_option', 0 ) ) ? true : false;
+	return ( 1 === get_theme_mod( 'responsive_transparent_header_logo_option', 0 ) && responsive_is_transparent_header() ) ? true : false;
 }
 /**
  * [responsive_builder_row_layout_control].

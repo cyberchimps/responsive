@@ -1304,10 +1304,21 @@ if ( ! function_exists( 'responsive_theme_background_updater_6_2_3' ) ) {
 		if ( ! isset( $responsive_options['v6-2-3-backward-done'] ) ) {
 			$responsive_options = Responsive\Core\responsive_get_options();
 
-			// Backward compatibility for Related Posts.
-			if( get_theme_mod( 'responsive_single_blog_enable_related_posts', 0 ) ) {
+			// Backward compatibility for Related Posts
+			/** Default sections */
+			$related_post_elements = array( 'title', 'featured-image', 'meta', 'excerpt' );
+
+			/** Get sections from Customizer */
+			$related_post_elements = get_theme_mod( 'responsive_single_blog_related_post_structure', $related_post_elements );
+
+			if( get_theme_mod( 'responsive_single_blog_enable_related_posts', 0 ) && in_array( 'excerpt', $related_post_elements, true ) ) {
 				// If the related posts are enabled, set the excerpt to be enabled by default.
 				set_theme_mod( 'responsive_rp_enable_excerpt', 1 );
+			}
+
+			// Transparent Header backward compatibility.
+			if( get_theme_mod( 'responsive_transparent_header', 0 ) ) {
+				set_theme_mod( 'responsive_enable_transparent_header_bottom_border', 1 );
 			}
 
 			// Backward compatibility for social links.

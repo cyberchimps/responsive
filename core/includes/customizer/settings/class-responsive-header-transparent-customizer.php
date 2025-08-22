@@ -48,7 +48,6 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 
 			$general_tab_ids_prefix = 'customize-control-';
 			$general_tab_ids        = array(
-				$general_tab_ids_prefix . 'responsive_transparent_header_separator',
 				$general_tab_ids_prefix . 'responsive_transparent_header',
 				$general_tab_ids_prefix . 'responsive_transparent_header_logo_option',
 				$general_tab_ids_prefix . 'responsive_enable_transparent_header_bottom_border',
@@ -99,23 +98,17 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 
 			responsive_tabs_button_control( $wp_customize, 'header_transparent_tabs', $tabs_label, 'responsive_header_transparent', 1, '', 'responsive_header_transparent_general_tab', 'responsive_header_transparent_design_tab', $general_tab_ids, $design_tab_ids, null );
 
-			/**
-			 * Transparent Header Separator.
-			 */
-			$transparent_header_separator_label = esc_html__( 'Transparent Header Layout', 'responsive' );
-			responsive_separator_control( $wp_customize, 'transparent_header_separator', $transparent_header_separator_label, 'responsive_header_transparent', 10 );
-
 			// Transperant Header.
 			$transparent_header_label = __( 'Enable on Complete Website', 'responsive' );
 			responsive_toggle_control( $wp_customize, 'transparent_header', $transparent_header_label, 'responsive_header_transparent', 20, 0, null );
 
 			// Different Logo For Transparent Header.
 			$transparent_header_logo_option_label = __( 'Different Logo For Transparent Header ', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'transparent_header_logo_option', $transparent_header_logo_option_label, 'responsive_header_transparent', 25, 0, null );
+			responsive_toggle_control( $wp_customize, 'transparent_header_logo_option', $transparent_header_logo_option_label, 'responsive_header_transparent', 25, 0, 'responsive_is_transparent_header_enabled' );
 
 			// Enable Header Bottom Border.
 			$enable_transparent_header_bottom_border_label = __( 'Enable Transparent Header Bottom Border', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'enable_transparent_header_bottom_border', $enable_transparent_header_bottom_border_label, 'responsive_header_transparent', 26, 1, null );
+			responsive_toggle_control( $wp_customize, 'enable_transparent_header_bottom_border', $enable_transparent_header_bottom_border_label, 'responsive_header_transparent', 26, 0, 'responsive_is_transparent_header_enabled' );
 
 			$wp_customize->add_setting(
 				'responsive_transparent_header_logo',
@@ -153,22 +146,22 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			responsive_drag_number_control( $wp_customize, 'transparent_bottom_border', $bottom_border_label, 'responsive_header_transparent', 35, 0, 'responsive_enable_transparent_header_bottom_border_check', 300, 0, 'postMessage', 1 );
 
 			$disable_archive_transparent_header_label = __( 'Disable on 404, Search & Archives?', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'disable_archive_transparent_header', $disable_archive_transparent_header_label, 'responsive_header_transparent', 40, 0, null );
+			responsive_toggle_control( $wp_customize, 'disable_archive_transparent_header', $disable_archive_transparent_header_label, 'responsive_header_transparent', 40, 0, 'responsive_is_transparent_header_enabled' );
 
 			$disable_blog_page_transparent_header_label = __( 'Disable on Blog page?', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'disable_blog_page_transparent_header', $disable_blog_page_transparent_header_label, 'responsive_header_transparent', 50, 0, null );
+			responsive_toggle_control( $wp_customize, 'disable_blog_page_transparent_header', $disable_blog_page_transparent_header_label, 'responsive_header_transparent', 50, 0, 'responsive_is_transparent_header_enabled' );
 
 			$disable_homepage_transparent_header_label = __( 'Disable on Homepage?', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'disable_homepage_transparent_header', $disable_homepage_transparent_header_label, 'responsive_header_transparent', 60, 0, null );
+			responsive_toggle_control( $wp_customize, 'disable_homepage_transparent_header', $disable_homepage_transparent_header_label, 'responsive_header_transparent', 60, 0, 'responsive_is_transparent_header_enabled' );
 
 			$disable_pages_transparent_header_label = __( 'Disable on Pages?', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'disable_pages_transparent_header', $disable_pages_transparent_header_label, 'responsive_header_transparent', 70, 0, null );
+			responsive_toggle_control( $wp_customize, 'disable_pages_transparent_header', $disable_pages_transparent_header_label, 'responsive_header_transparent', 70, 0, 'responsive_is_transparent_header_enabled' );
 
 			$disable_posts_transparent_header_label = __( 'Disable on Single Posts?', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'disable_posts_transparent_header', $disable_posts_transparent_header_label, 'responsive_header_transparent', 80, 0, null );
+			responsive_toggle_control( $wp_customize, 'disable_posts_transparent_header', $disable_posts_transparent_header_label, 'responsive_header_transparent', 80, 0, 'responsive_is_transparent_header_enabled' );
 
 			$disable_woo_products_transparent_header_label = __( 'Disable on WooCommerce Pages?', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'disable_woo_products_transparent_header', $disable_woo_products_transparent_header_label, 'responsive_header_transparent', 90, 0, null );
+			responsive_toggle_control( $wp_customize, 'disable_woo_products_transparent_header', $disable_woo_products_transparent_header_label, 'responsive_header_transparent', 90, 0, 'responsive_is_transparent_header_enabled' );
 
 			/**
 			 * Transparent Header Colors Separator.
