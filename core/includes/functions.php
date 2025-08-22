@@ -1464,6 +1464,10 @@ function defaults() {
 																			),
 																		),
 		'rp_section_bg' => '#ffffff',
+		'responsive_rp_link_color'               => '#0066CC',
+		'responsive_rp_link_hover_color'         => '#10659C', 
+		'responsive_rp_meta_text'                => '#999999',
+		'responsive_rp_body_text_color'          => '#333333',
 		)
 	);
 	return $theme_options;

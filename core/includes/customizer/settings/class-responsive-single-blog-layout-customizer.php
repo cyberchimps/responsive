@@ -157,9 +157,9 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 			responsive_color_control( $wp_customize, 'rp_section_title', __( 'Section Title', 'responsive' ), 'responsive_rp_layout', 9, Responsive\Core\get_responsive_customizer_defaults( 'footer_background' ) );
 			responsive_color_control( $wp_customize, 'rp_section_bg', __( 'Section Background', 'responsive' ), 'responsive_rp_layout', 10, Responsive\Core\get_responsive_customizer_defaults( 'rp_section_bg' ) );
 			
-			responsive_color_control( $wp_customize, 'rp_text', __( 'Text Color', 'responsive' ), 'responsive_rp_layout', 11, Responsive\Core\get_responsive_customizer_defaults( 'footer_background' ), null, '', true, '#000000', 'rp_text_hover' );
-			responsive_color_control( $wp_customize, 'rp_link', __( 'Link Color', 'responsive' ), 'responsive_rp_layout', 13, Responsive\Core\get_responsive_customizer_defaults( 'footer_background' ), null, '', true, '#000000', 'rp_link_hover' );
-			responsive_color_control( $wp_customize, 'rp_meta', __( 'Meta Color', 'responsive' ), 'responsive_rp_layout', 15, Responsive\Core\get_responsive_customizer_defaults( 'footer_background' ), null, '', true, '#000000', 'rp_meta_hover' );
+			responsive_color_control( $wp_customize, 'rp_text', __( 'Text Color', 'responsive' ), 'responsive_rp_layout', 11, Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_body_text_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_body_text_color' ), 'rp_text_hover' );
+			responsive_color_control( $wp_customize, 'rp_link', __( 'Link Color', 'responsive' ), 'responsive_rp_layout', 13, Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_link_color' ), null, '', true,  Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_link_hover_color' ), 'rp_link_hover' );
+			responsive_color_control( $wp_customize, 'rp_meta', __( 'Meta Color', 'responsive' ), 'responsive_rp_layout', 15, Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_meta_text' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_meta_text' ), 'rp_meta_hover' );
 			
 			responsive_separator_control( $wp_customize, 'rp_font_separator', __( 'Font Controls', 'responsive' ), 'responsive_rp_layout', 17 );
 			responsive_typography_group_control( $wp_customize, 'rp_section_title_typography_group', __( 'Section Title Font', 'responsive' ), 'responsive_rp_layout', 18, 'rp_section_title_typography' );
