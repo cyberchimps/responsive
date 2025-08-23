@@ -1646,8 +1646,12 @@ function responsive_active_single_blog_sidebar_position() {
  * @return [type] [description]
  */
 function responsive_not_active_page_sidebar() {
-
-	$page_sidebar_position = get_theme_mod( 'responsive_page_sidebar_position' );
+	$get_sidebar_position = function( $context, $default = 'default' ) {
+		$global = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
+		$value  = get_theme_mod( "responsive_{$context}_sidebar_position", $default );
+		return ( $value === 'default' ) ? $global : $value;
+	};
+	$page_sidebar_position = $get_sidebar_position( 'page_sidebar' );
 
 	return ( 'no' === $page_sidebar_position ) ? false : true;
 }
@@ -1658,8 +1662,12 @@ function responsive_not_active_page_sidebar() {
  * @return [type] [description]
  */
 function responsive_not_active_blog_archive_sidebar() {
-
-	$blog_archive_sidebar_position = get_theme_mod( 'responsive_blog_sidebar_position', 'no' );
+	$get_sidebar_position = function( $context, $default = 'default' ) {
+		$global = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
+		$value  = get_theme_mod( "responsive_{$context}_sidebar_position", $default );
+		return ( $value === 'default' ) ? $global : $value;
+	};
+	$blog_archive_sidebar_position = $get_sidebar_position( 'blog' );
 
 	return ( 'no' === $blog_archive_sidebar_position ) ? false : true;
 }
@@ -1670,8 +1678,12 @@ function responsive_not_active_blog_archive_sidebar() {
  * @return [type] [description]
  */
 function responsive_not_active_single_post_sidebar() {
-
-	$single_post_sidebar_position = get_theme_mod( 'responsive_single_blog_sidebar_position' );
+	$get_sidebar_position = function( $context, $default = 'default' ) {
+		$global = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
+		$value  = get_theme_mod( "responsive_{$context}_sidebar_position", $default );
+		return ( $value === 'default' ) ? $global : $value;
+	};
+	$single_post_sidebar_position = $get_sidebar_position( 'single_blog_' );
 
 	return ( 'no' === $single_post_sidebar_position ) ? false : true;
 }

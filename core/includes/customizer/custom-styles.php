@@ -171,11 +171,18 @@ function responsive_customizer_styles() {
 	$container_max_width = esc_html( get_theme_mod( 'responsive_container_width', 1140 ) );
 	$logo_custom_width   = esc_html( get_theme_mod( 'responsive_logo_width' ) );
 
-	$responsive_page_sidebar_position = esc_html( get_theme_mod( 'responsive_page_sidebar_position' ) );
+	$global_sidebar_position = esc_html(get_theme_mod( 'responsive_default_sidebar_position', 'no' ));
+	$page_sidebar_setting= esc_html( get_theme_mod( 'responsive_page_sidebar_position', 'default' ) );
+	$responsive_page_sidebar_position = esc_html( ($page_sidebar_setting === 'default') ? $global_sidebar_position : $page_sidebar_setting);
 	$responsive_page_sidebar_width    = esc_html( get_theme_mod( 'responsive_page_sidebar_width', 30 ) );
 	$page_primary_content_area_width  = 100 - $responsive_page_sidebar_width;
 
-	$responsive_blog_archive_sidebar_position = esc_html( get_theme_mod( 'responsive_blog_sidebar_position', 'no' ) );
+	$blog_sidebar_setting    = get_theme_mod( 'responsive_blog_sidebar_position', 'default' );
+
+	$responsive_blog_archive_sidebar_position = esc_html(
+		( $blog_sidebar_setting === 'default' ) ? $global_sidebar_position : $blog_sidebar_setting
+	);
+
 	$responsive_blog_archive_sidebar_width    = esc_html( get_theme_mod( 'responsive_blog_sidebar_width', 30 ) );
 	$blog_archive_primary_content_area_width  = 100 - $responsive_blog_archive_sidebar_width;
 
@@ -5515,7 +5522,9 @@ function responsive_customizer_styles() {
 		$add_to_cart_button_text_color       = esc_html( get_theme_mod( 'responsive_add_to_cart_button_text_color', '#ffffff' ) );
 		$add_to_cart_button_hover_color      = esc_html( get_theme_mod( 'responsive_add_to_cart_button_hover_color', '#10659C' ) );
 		$add_to_cart_button_hover_text_color = esc_html( get_theme_mod( 'responsive_add_to_cart_button_hover_text_color', '#ffffff' ) );
-		$shop_sidebar_position               = esc_html( get_theme_mod( 'responsive_shop_sidebar_position', 'no' ) );
+		
+		$shop_sidebar_position = esc_html(get_theme_mod( 'responsive_shop_sidebar_position', 'default')) == 'default' ? esc_html(get_theme_mod('responsive_default_sidebar_position','no')) : esc_html(get_theme_mod('responsive_shop_sidebar_position','no')); 
+
 		$single_product_sidebar_position     = esc_html( get_theme_mod( 'responsive_single_product_sidebar_position', 'no' ) );
 
 		if ( 'no' !== $shop_sidebar_position ) {
@@ -6181,21 +6190,3 @@ function responsive_minimize_css( $css ) {
 	$css = preg_replace( '/;}/', '}', $css );
 	return $css;
 }
-
-add_action( 'customize_register', function( $wp_customize ) {
-    $catalog_section = $wp_customize->get_section( 'woocommerce_product_catalog' );
-    if ( $catalog_section ) {
-        $catalog_section->priority = 1;
-    }
-
-	 $checkout_section = $wp_customize->get_section( 'woocommerce_checkout' );
-    if ( $checkout_section ) {
-        $checkout_section->priority = 3;
-    }
-
-    $section = $wp_customize->get_section( 'woocommerce_product_images' );
-    if ( $section ) {
-        $section->priority = 7;
-    }
-}, 20 );
-
