@@ -1,0 +1,63 @@
+.responsive-customizer-section-toggle-control .responsive-section-toggle-control-wrapper {
+    position: relative;
+    text-decoration: none;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 70% 20% 10%;
+    align-items: center;
+    align-content: center;
+    max-height: 38px;
+    padding: 10px;
+    border: .5px solid #8f8f8f;
+    border-radius: 2px;
+}
+.responsive-customizer-section-toggle-control .responsive-section-toggle-control-wrapper h3 {
+    color: #434343;
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    line-height: 17px;
+    margin: 0;
+}
+.responsive-customizer-section-toggle-control .arrow-head {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-right: 1px solid #696969;
+    border-bottom: 1px solid #696969;
+    transform: rotate(-45deg);
+    justify-self: end;
+}
+.responsive-customizer-section-toggle-control .components-toggle-control {
+    justify-self: end;
+}
+.responsive-section-toggle-control-wrapper.active {
+    cursor: pointer;
+}
+.responsive-customizer-section-toggle-control .responsive-tooltip {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #3b3b3b;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 10px;
+  white-space: nowrap;
+  z-index: 10;
+  font-family: 'Open Sans', sans-serif;
+}
+.responsive-customizer-section-toggle-control .responsive-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -6px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: #3b3b3b transparent transparent transparent;
+}
+#customize-control-responsive_single_blog_enable_related_posts {
+    padding-top: 24px;
+    padding-bottom: 24px;
+}

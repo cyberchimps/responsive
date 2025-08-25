@@ -23,6 +23,8 @@ const ResponsiveSocialComponent = props => {
                 icon: 'facebook',
                 label: 'Facebook',
                 svg: '',
+                link: '',
+                newTab: false,
             },
             {
                 id: 'twitter',
@@ -34,6 +36,8 @@ const ResponsiveSocialComponent = props => {
                 icon: 'twitterAlt2',
                 label: 'X',
                 svg: '',
+                link: '',
+                newTab: false,
             },
             {
                 id: 'instagram',
@@ -45,6 +49,8 @@ const ResponsiveSocialComponent = props => {
                 icon: 'instagram',
                 label: 'Instagram',
                 svg: '',
+                link: '',
+                newTab: false,
             }
         ],
     };
@@ -139,6 +145,8 @@ const ResponsiveSocialComponent = props => {
                 icon: selectedControl,
                 label: controlParams.options.find((o) => o.value === selectedControl)?.label || '',
                 svg: '',
+                link: '',
+                newTab: false,
             };
 
             const updatedValue = { ...value, items: [...value.items, newItem] };
@@ -196,6 +204,8 @@ const ResponsiveSocialComponent = props => {
                         onChangeWidth={(width) => saveArrayUpdate({ width }, index)}
                         onChangeSource={(source) => saveArrayUpdate({ source }, index)}
                         onChangeSVG={(svg) => saveArrayUpdate({ svg }, index)}
+                        onChangeLink = { (link) => saveArrayUpdate({ link }, index) }
+                        onChangeNewTab = { (newTab) => saveArrayUpdate({ newTab }, index) }
                     />
                 ))}
             </ReactSortable>

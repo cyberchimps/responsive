@@ -33,12 +33,15 @@
 #customize-control-responsive_breadcrumb_enable_404_page .responsive-toggle-control-wrapper {
     padding-bottom: 12px;
 }
-#customize-control-responsive_transparent_header_separator,
 #customize-control-responsive_cart_layout_seperator,
-#customize-control-responsive_single_product_layout_elements_separator {
+#customize-control-responsive_single_product_layout_elements_separator,
+#customize-control-responsive_rp_color_separator {
     margin-top: 0;
 }
 #sub-accordion-section-responsive_colors .customize-control-responsive-horizontal-separator {
     padding-top: 12px;
     padding-bottom: 12px;
+}
+#customize-control-responsive_sticky_header_color_separator {
+    margin-top: 0;
 }

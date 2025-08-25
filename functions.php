@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '6.2.2.1' );
+define( 'RESPONSIVE_THEME_VERSION', '6.2.3' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -1267,7 +1267,7 @@ if ( ! function_exists( 'responsive_theme_background_updater_6_1_7' ) ) {
 	/**
 	 * Handle backward compatibility on version 6.1.7.
 	 *
-	 * @since 4.8.10
+	 * @since 6.1.7
 	 * @return void
 	 */
 	function responsive_theme_background_updater_6_1_7() {
@@ -1287,6 +1287,72 @@ if ( ! function_exists( 'responsive_theme_background_updater_6_1_7' ) ) {
 			}
 			$theme_options['v6-1-7-backward-done'] = true;
 			update_option( 'responsive_theme_options', $theme_options );
+		}
+	}
+}
+
+if ( ! function_exists( 'responsive_theme_background_updater_6_2_3' ) ) {
+
+	/**
+	 * Handle backward compatibility on version 6.2.3
+	 *
+	 * @since 6.2.3
+	 * @return void
+	 */
+	function responsive_theme_background_updater_6_2_3() {
+
+		if ( ! isset( $responsive_options['v6-2-3-backward-done'] ) ) {
+			$responsive_options = Responsive\Core\responsive_get_options();
+
+			// Backward compatibility for Related Posts
+			/** Default sections */
+			$related_post_elements = array( 'title', 'featured-image', 'meta', 'excerpt' );
+
+			/** Get sections from Customizer */
+			$related_post_elements = get_theme_mod( 'responsive_single_blog_related_post_structure', $related_post_elements );
+
+			if( get_theme_mod( 'responsive_single_blog_enable_related_posts', 0 ) && in_array( 'excerpt', $related_post_elements, true ) ) {
+				// If the related posts are enabled, set the excerpt to be enabled by default.
+				set_theme_mod( 'responsive_rp_enable_excerpt', 1 );
+			}
+
+			// Transparent Header backward compatibility.
+			if( get_theme_mod( 'responsive_transparent_header', 0 ) ) {
+				set_theme_mod( 'responsive_enable_transparent_header_bottom_border', 1 );
+			}
+
+			// Backward compatibility for social links.
+			$header_social      = get_theme_mod( 'responsive_header_social_items' );
+			$footer_social      = get_theme_mod( 'responsive_footer_social_items' );
+			$target_social_link = get_theme_mod( 'responsive_social_link_new_tab', '_self' ) === '_blank' ? true : false;
+
+			if ( empty( $header_social ) && empty( $footer_social ) ) {
+				$responsive_options['v6-2-3-backward-done'] = true;
+				return;
+			}
+
+			if ( ! empty( $header_social ) && ! empty( $header_social['items'] ) ) {
+				$social_items = $header_social['items'];
+				foreach ( $social_items as &$social_item ) {
+					$social_item['link']   = $responsive_options[ $social_item['id'] . '_uid' ] ?? '';
+					$social_item['newTab'] = $target_social_link;
+				}
+				unset( $social_item );
+				$header_social['items'] = $social_items;
+				set_theme_mod( 'responsive_header_social_items', $header_social );
+			}
+			if ( ! empty( $footer_social ) && ! empty( $footer_social['items'] ) ) {
+				$social_items = $footer_social['items'];
+				foreach ( $social_items as &$social_item ) {
+					$social_item['link']   = $responsive_options[ $social_item['id'] . '_uid' ] ?? '';
+					$social_item['newTab'] = $target_social_link;
+				}
+				unset( $social_item );
+				$footer_social['items'] = $social_items;
+				set_theme_mod( 'responsive_footer_social_items', $footer_social );
+			}
+			$responsive_options['v6-2-3-backward-done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
 		}
 	}
 }

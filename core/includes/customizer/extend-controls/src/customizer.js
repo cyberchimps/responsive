@@ -400,5 +400,15 @@
 		$('#customize-control-responsive_site_background_image_repeat')[method](300);
 		$('#customize-control-responsive_site_background_image_size')[method](300);
 	};
+
+	wp.customize.section('responsive_rp_layout', function( section ) {
+		section.container.find('.customize-section-back').on('click', function(e) {
+			e.preventDefault(); // stop default back navigation
+
+			// Navigate to the Single Post section
+			wp.customize.section('responsive_single_blog_layout').expand();
+		});
+	});
+
 	
 } )( jQuery, wp );

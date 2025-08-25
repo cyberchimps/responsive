@@ -241,19 +241,50 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_header_button_border_color').style.display = 'none';
 			document.getElementById('customize-control-responsive_border_header_button_radius').style.display = 'none';
 		}
-	}, [tab]);
-
-	const toggleSidebarPositionWidthControls = (value, control) => {
-		if( value && tab === 'general' ) {
-			document.getElementById(`customize-control-responsive_${control}_sidebar_position`).style.display = 'block';
-			if( api(`responsive_${control}_sidebar_position`).get() !== 'no' ) {
-				document.getElementById(`customize-control-responsive_${control}_sidebar_width`).style.display = 'block';
-			}
-		} else {
-			document.getElementById(`customize-control-responsive_${control}_sidebar_position`).style.display = 'none';
-			document.getElementById(`customize-control-responsive_${control}_sidebar_width`).style.display = 'none';
+		// Transparent Header Settings
+		if( ! api( 'responsive_transparent_header' ).get() ) {
+			document.getElementById('customize-control-responsive_transparent_header_widget_color_separator').style.display = 'none';
+			document.getElementById('customize-control-responsive_transparent_header_widget_text_color').style.display = 'none';
+			document.getElementById('customize-control-responsive_transparent_header_widget_background_color').style.display = 'none';
+			document.getElementById('customize-control-responsive_transparent_header_widget_background_image').style.display = 'none';
+			document.getElementById('customize-control-responsive_transparent_header_widget_border_color').style.display = 'none';
+			document.getElementById('customize-control-responsive_transparent_header_widget_link_color').style.display = 'none';
+			document.getElementById('customize-control-responsive_transparent_header_widget_link_hover_color').style.display = 'none';
+		} else if ( api( 'responsive_transparent_header' ).get() && 'design' === tab ) {
+			document.getElementById('customize-control-responsive_transparent_header_widget_color_separator').style.display = 'block';
+			document.getElementById('customize-control-responsive_transparent_header_widget_text_color').style.display = 'block';
+			document.getElementById('customize-control-responsive_transparent_header_widget_background_color').style.display = 'block';
+			document.getElementById('customize-control-responsive_transparent_header_widget_background_image').style.display = 'block';
+			document.getElementById('customize-control-responsive_transparent_header_widget_border_color').style.display = 'block';
+			document.getElementById('customize-control-responsive_transparent_header_widget_link_color').style.display = 'block';
+			document.getElementById('customize-control-responsive_transparent_header_widget_link_hover_color').style.display = 'block';
 		}
-	};
+		if( ! api('responsive_transparent_header_logo_option').get() ) {
+			document.getElementById('customize-control-responsive_transparent_header_logo').style.display = 'none';
+		}
+		if( ! api('responsive_enable_transparent_header_bottom_border').get() ) {
+			document.getElementById('customize-control-responsive_transparent_bottom_border').style.display = 'none';
+		}
+		if( ! api('responsive_sticky_header_logo_option').get() ) {
+			document.getElementById('customize-control-responsive_sticky_header_logo').style.display = 'none';
+		}
+		if( ! api('responsive_rp_enable_excerpt').get() ) {
+			document.getElementById('customize-control-responsive_rp_excerpt_length').style.display = 'none';
+			document.getElementById('customize-control-responsive_rp_read_more').style.display = 'none';
+		}
+		if( ! api('responsive_transparent_header').get() ) {
+			document.getElementById('customize-control-responsive_transparent_header_logo_option').style.display = 'none';
+			document.getElementById('customize-control-responsive_enable_transparent_header_bottom_border').style.display = 'none';
+			document.getElementById('customize-control-responsive_disable_archive_transparent_header').style.display = 'none';
+			document.getElementById('customize-control-responsive_disable_blog_page_transparent_header').style.display = 'none';
+			document.getElementById('customize-control-responsive_disable_homepage_transparent_header').style.display = 'none';
+			document.getElementById('customize-control-responsive_disable_pages_transparent_header').style.display = 'none';
+			document.getElementById('customize-control-responsive_disable_posts_transparent_header').style.display = 'none';
+			document.getElementById('customize-control-responsive_disable_woo_products_transparent_header').style.display = 'none';
+			document.getElementById('customize-control-responsive_transparent_bottom_border').style.display = 'none';
+			document.getElementById('customize-control-responsive_transparent_header_logo').style.display = 'none';
+		}
+	}, [tab]);
 
 	const hideSidebarWidthControl = (value, control) => {
 		const controlId = `customize-control-responsive_${control}_sidebar_width`;

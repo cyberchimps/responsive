@@ -604,6 +604,7 @@ body.mega-menu-header-menu button.menu-toggle {
 	.res-search-wrapper {
 		display: flex;
         flex-grow: 1;
+        position: relative;
 		.res-search-icon.icon-search {
 			position: absolute;
 			top: 10px;

@@ -21,30 +21,35 @@
     text-align: left;
 }
 .customize-control-responsive-toggle .components-form-toggle .components-form-toggle__track,
-.customize-control-responsive-background-image .components-form-toggle .components-form-toggle__track {
+.customize-control-responsive-background-image .components-form-toggle .components-form-toggle__track,
+.customize-control-responsive-section-toggle .components-form-toggle .components-form-toggle__track {
     background-color: #D9D9D9;
     border: none;
-    height: 20px;
+    height: 18px;
     width: 36px;
     border-radius: 9px;
 }
 .customize-control-responsive-toggle .components-form-toggle.is-checked .components-form-toggle__track,
-.customize-control-responsive-background-image .components-form-toggle.is-checked .components-form-toggle__track {
+.customize-control-responsive-background-image .components-form-toggle.is-checked .components-form-toggle__track,
+.customize-control-responsive-section-toggle .components-form-toggle.is-checked .components-form-toggle__track {
     background-color: #007CBA;
 }
 .customize-control-responsive-toggle .components-form-toggle .components-form-toggle__thumb,
-.customize-control-responsive-background-image .components-form-toggle .components-form-toggle__thumb {
+.customize-control-responsive-background-image .components-form-toggle .components-form-toggle__thumb,
+.customize-control-responsive-section-toggle .components-form-toggle .components-form-toggle__thumb {
     background-color: #A5A5A5;
     width: 14px;
-    height: 14px;
-    top: 3px;
+    height: 13px;
+    top: 2.5px;
 }
 .customize-control-responsive-toggle .components-form-toggle.is-checked .components-form-toggle__thumb,
-.customize-control-responsive-background-image .components-form-toggle.is-checked .components-form-toggle__thumb {
+.customize-control-responsive-background-image .components-form-toggle.is-checked .components-form-toggle__thumb,
+.customize-control-responsive-section-toggle .components-form-toggle.is-checked .components-form-toggle__thumb {
     background-color: #FFF;
 }
 .customize-control-responsive-toggle .components-form-toggle.is-checked .components-form-toggle__thumb,
-.customize-control-responsive-background-image .components-form-toggle.is-checked .components-form-toggle__thumb {
+.customize-control-responsive-background-image .components-form-toggle.is-checked .components-form-toggle__thumb,
+.customize-control-responsive-section-toggle .components-form-toggle.is-checked .components-form-toggle__thumb {
    left: 3px;
 }
 #customize-control-responsive_enable_header_widget .responsive-toggle-control-wrapper {
@@ -60,10 +65,8 @@
     padding-bottom: 0;
 }
 #customize-control-responsive_transparent_header .responsive-toggle-control-wrapper {
-    padding-top: 18px;
-}
-#customize-control-responsive_disable_archive_transparent_header .responsive-toggle-control-wrapper {
-    padding-top: 18px;
+    padding-top: 24px;
+    padding-bottom: 24px;
 }
 #customize-control-responsive_disable_woo_products_transparent_header .responsive-toggle-control-wrapper {
     padding-bottom: 0;
@@ -81,11 +84,11 @@
     padding-bottom: 8px;
 }
 
-#customize-control-responsive_rp_read_more .responsive-toggle-control-wrapper, #customize-control-responsive_single_blog_enable_related_posts .responsive-toggle-control-wrapper     {
+#customize-control-responsive_single_blog_enable_related_posts .responsive-toggle-control-wrapper     {
     padding-top: 24px;
 }
 #customize-control-responsive_rp_read_more .responsive-toggle-control-wrapper {
-    padding-bottom: 0;
+    padding-bottom: 12px;
 }
 #customize-control-responsive_footer_full_width .responsive-toggle-control-wrapper {
     padding-top: 8px;
@@ -191,4 +194,17 @@
 #customize-control-res_sticky-header .responsive-toggle-control-wrapper,
 #customize-control-responsive_breadcrumb_enable_home_page .responsive-toggle-control-wrapper {
     padding-top: 24px;
+}
+#sub-accordion-section-responsive_header_transparent .responsive-toggle-control-wrapper {
+    padding-bottom: 24px;
+}
+#customize-control-responsive_header_search_enable_live_search .responsive-toggle-control-wrapper {
+    padding-bottom: 0;
+}
+#customize-control-responsive_rp_enable_excerpt .responsive-toggle-control-wrapper {
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+#customize-control-responsive_rp_excerpt_length .customize-control-title{
+	margin: 0;
 }

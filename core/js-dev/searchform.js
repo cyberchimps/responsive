@@ -109,9 +109,9 @@
                         return;
                     }
                     // Data fetching logic using WordPress REST API
-                    // const response = await fetch(`${wpApiSettings.root}wp/v2/search?search=${encodeURIComponent(term)}&per_page=5`);
-                    const response = await fetch(`${wpApiSettings.root}wp/v2/search?${params.toString()}`);
-                    const data = await response.json();
+                    const url      = buildApiUrl('wp/v2/search', params);
+                    const response = await fetch(url);
+                    const data     = await response.json();
 
                     if (data.length === 0) {
                         const noResultFound = document.createElement('h3'); 
@@ -207,6 +207,12 @@
                     search_style_form.style.display = "none";
                 }
             };
+        }
+
+        function buildApiUrl(path, params) {
+            // If root already has a "?" (plain permalinks), append with &
+            const separator = wpApiSettings.root.includes('?') ? '&' : '?';
+            return `${wpApiSettings.root}${path}${separator}${params.toString()}`;
         }
     });
     
