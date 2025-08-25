@@ -794,7 +794,7 @@ if ( ! get_option( 'responsive_version_410' ) ) {
 			if ( in_array( $responsive_options['blog_posts_index_layout_default'], $responsive_options_blog, true ) ) {
 
 				if ( ! get_theme_mod( 'responsive_blog_sidebar_position' ) ) {
-					set_theme_mod( 'responsive_blog_sidebar_position', 'default' ); // allow fallback
+					set_theme_mod( 'responsive_blog_sidebar_position', 'default' ); 
 				}
 
 				if ( ! get_theme_mod( 'responsive_blog_content_width' ) ) {
@@ -817,7 +817,7 @@ if ( ! get_option( 'responsive_version_410' ) ) {
 
 			if ( 'sidebar-content-page' === $responsive_options['blog_posts_index_layout_default'] ) {
 				if ( ! get_theme_mod( 'responsive_blog_sidebar_position' ) ) {
-					set_theme_mod( 'responsive_blog_sidebar_position', 'default' ); // instead of forcing left
+					set_theme_mod( 'responsive_blog_sidebar_position', 'default' ); 
 				}
 			}
 
@@ -828,13 +828,13 @@ if ( ! get_option( 'responsive_version_410' ) ) {
 
 			if ( 'sidebar-content-page' === $responsive_options['single_post_layout_default'] ) {
 				if ( ! get_theme_mod( 'responsive_single_blog_sidebar_position' ) ) {
-					set_theme_mod( 'responsive_single_blog_sidebar_position', 'default' ); // allow fallback
+					set_theme_mod( 'responsive_single_blog_sidebar_position', 'default' ); 
 				}
 			}
 
 			if ( 'full-width-page' === $responsive_options['single_post_layout_default'] ) {
 				if ( ! get_theme_mod( 'responsive_single_blog_sidebar_position' ) ) {
-					set_theme_mod( 'responsive_single_blog_sidebar_position', 'default' ); // fallback instead of forcing 'no'
+					set_theme_mod( 'responsive_single_blog_sidebar_position', 'default' ); 
 				}
 				if ( ! get_theme_mod( 'responsive_single_blog_content_width' ) ) {
 					set_theme_mod( 'responsive_single_blog_content_width', 100 );
@@ -844,13 +844,13 @@ if ( ! get_option( 'responsive_version_410' ) ) {
 			// Static page layout defaults.
 			if ( 'sidebar-content-page' === $responsive_options['static_page_layout_default'] ) {
 				if ( ! get_theme_mod( 'responsive_page_sidebar_position' ) ) {
-					set_theme_mod( 'responsive_page_sidebar_position', 'default' ); // allow fallback to global
+					set_theme_mod( 'responsive_page_sidebar_position', 'default' ); 
 				}
 			}
 
 			if ( 'full-width-page' === $responsive_options['static_page_layout_default'] ) {
 				if ( ! get_theme_mod( 'responsive_page_sidebar_position' ) ) {
-					set_theme_mod( 'responsive_page_sidebar_position', 'default' ); // fallback instead of forcing 'no'
+					set_theme_mod( 'responsive_page_sidebar_position', 'default' ); 
 				}
 				if ( ! get_theme_mod( 'responsive_page_content_width' ) ) {
 					set_theme_mod( 'responsive_page_content_width', 100 );

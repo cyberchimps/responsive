@@ -82,9 +82,13 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
 				);
 			}
             
+            function responsive_is_sidebar_active() {
+                $position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
+                return ( $position === 'left' || $position === 'right' );
+            }
             responsive_imageradio_button_control( $wp_customize, 'default_sidebar_position', $default_sidebar_label, 'responsive_sidebar', 10, $default_sidebar_choices, 'no', null, 'svg');
             $default_sidebar_width_label = esc_html__('Sidebar Width (%)', 'responsive');
-            responsive_drag_number_control( $wp_customize, 'default_sidebar_width',$default_sidebar_width_label, 'responsive_sidebar', 45, 30, null , 50, 15,'postMessage');
+            responsive_drag_number_control( $wp_customize, 'default_sidebar_width',$default_sidebar_width_label, 'responsive_sidebar', 45, 30, 'responsive_is_sidebar_active' , 50, 15,'postMessage');
 
 
             responsive_horizontal_separator_control($wp_customize, 'sidebar_typography_separator', 1, 'responsive_sidebar', 58, 1, );
@@ -103,16 +107,16 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
             $sidebar_label   = esc_html__('Sidebar Position', 'responsive');
             $sidebar_choices = array(
                 'default' => esc_html__( 'Default', 'responsive'),
+                'no'    => esc_html__('No Sidebar', 'responsive'),
                 'right' => esc_html__('Right', 'responsive'),
                 'left'  => esc_html__('Left', 'responsive'),
-                'no'    => esc_html__('No Sidebar', 'responsive'),
             );
             if (is_rtl()) {
                 $sidebar_choices = array(
                     'default' => esc_html__( 'Default', 'responsive' ),
+                    'no'    => esc_html__('No Sidebar', 'responsive'),
                     'right' => esc_html__('Right', 'responsive'),
                     'left'  => esc_html__('Left', 'responsive'),
-                    'no'    => esc_html__('No Sidebar', 'responsive'),
                 );
             }
             responsive_imageradio_button_control($wp_customize, 'page_sidebar_position', $sidebar_label, 'responsive_page', 20, $sidebar_choices, 'right', null, 'svg');
@@ -127,16 +131,16 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
             $sidebar_label   = esc_html__('Sidebar Position', 'responsive');
             $sidebar_choices = array(
                 'default' => esc_html__( 'Default', 'responsive' ), 
+                'no'    => esc_html__('No Sidebar', 'responsive'),
                 'right' => esc_html__('Right', 'responsive'),
                 'left'  => esc_html__('Left', 'responsive'),
-                'no'    => esc_html__('No Sidebar', 'responsive'),
             );
             if (is_rtl()) {
                 $sidebar_choices = array(
                     'default' => esc_html__( 'Default', 'responsive' ),
+                    'no'    => esc_html__('No Sidebar', 'responsive'),
                     'right' => esc_html__('Right', 'responsive'),
                     'left'  => esc_html__('Left', 'responsive'),
-                    'no'    => esc_html__('No Sidebar', 'responsive'),
                 );
             }
             responsive_imageradio_button_control($wp_customize, 'blog_sidebar_position', $sidebar_label, 'responsive_blog_layout', 30, $sidebar_choices, Responsive\Core\get_responsive_customizer_defaults('blog_sidebar_position'), null, 'svg');
