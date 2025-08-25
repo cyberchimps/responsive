@@ -8,6 +8,16 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(25/09/2025) Version 6.2.3
+[+] Added Related Posts feature with ordering, excerpt control, read more toggle, typography, and color options in Customizer
+[*] Improved UX for Social Icons element in Header/Footer Builder by adding direct URL fields and removing dependency on Global Settings
+[*] Divided Transparent Header & Sticky Header Customizer panels into General and Design tabs for better usability
+[+] Added Product Background Color and Border Radius settings for WooCommerce Product Cards in the Shop page (Product Catalog Options tab)
+[+] Added Live Search funtionality in header builder Search element.
+[!] Fixed logo cropping issue in Site Identity > Site Title & Logo settings (Different Logo for Mobile Devices) by enabling better cropping support
+[!] Fixed missing alt attribute issue for mobile logo in Site Identity > Site Title & Logo settings
+
+
 (11/08/2025) Version 6.2.2.1
 [*] = Fix = Minor Site Builder Module-related bug
 
