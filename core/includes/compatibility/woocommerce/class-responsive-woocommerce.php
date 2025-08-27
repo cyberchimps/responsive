@@ -382,21 +382,16 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		 */
 		public function add_body_class( $classes ) {
 
-			$get_sidebar_position = function( $context, $default = 'no' ) {
-				$global = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
-				$value  = get_theme_mod( "responsive_{$context}_sidebar_position", $default );
-				return ( $value === 'default' ) ? $global : $value;
-			};
 
 			if ( is_woocommerce() && is_product() ) {
 				// Single Product Page
-				$classes[] = 'sidebar-position-' . $get_sidebar_position( 'single_product' );
+				$classes[] = 'sidebar-position-' . get_theme_mod( 'responsive_single_product_sidebar_position', 'no' );
 				$classes[] = 'product-gallery-layout-' . get_theme_mod( 'responsive_single_product_gallery_layout', 'horizontal' );
 			}
 
 			if ( ( is_woocommerce() && is_shop() ) || is_cart() || is_checkout() || is_product_category() ) {
 				// Shop / Catalog Pages
-				$classes[] = 'sidebar-position-' . $get_sidebar_position( 'shop' );
+				$classes[] = 'sidebar-position-' . get_theme_mod( 'responsive_shop_sidebar_position', 'no' );
 				$classes[] = 'responsive-catalog-view-' . get_theme_mod( 'responsive_woocommerce_catalog_view', 'grid' );
 			}
 

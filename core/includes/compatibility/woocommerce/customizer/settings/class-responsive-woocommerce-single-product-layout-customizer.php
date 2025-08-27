@@ -103,22 +103,20 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 			// Sidebar Position.
 			$sidebar_label   = esc_html__( 'Sidebar Position', 'responsive' );
 			$sidebar_choices = array(
-				'default' => esc_html__( 'Default', 'responsive' ),
-				'no'    => esc_html__( 'No Sidebar', 'responsive' ),
 				'left'  => esc_html__( 'Left', 'responsive' ),
 				'right' => esc_html__( 'Right', 'responsive' ),
+				'no'    => esc_html__( 'No Sidebar', 'responsive' ),
 			);
 
 			if ( is_rtl() ) {
 				$sidebar_choices = array(
-					'default' => esc_html__( 'Default', 'responsive'), 
-					'no'    => esc_html__( 'No Sidebar', 'responsive' ),
 					'left'  => esc_html__( 'Left', 'responsive' ),
 					'right' => esc_html__( 'Right', 'responsive' ),
+					'no'    => esc_html__( 'No Sidebar', 'responsive' ),
 				);
 			}
 
-			responsive_imageradio_button_control( $wp_customize, 'single_product_sidebar_position', $sidebar_label, 'responsive_woocommerce_single_product_layout', 66, $sidebar_choices, 'default', null, 'svg' );
+			responsive_imageradio_button_control( $wp_customize, 'single_product_sidebar_position', $sidebar_label, 'responsive_woocommerce_single_product_layout', 66, $sidebar_choices, 'no', null, 'svg' );
 
 			// Product Elements.
 			$single_product_elements_label = esc_html__( 'Product Elements', 'responsive' );

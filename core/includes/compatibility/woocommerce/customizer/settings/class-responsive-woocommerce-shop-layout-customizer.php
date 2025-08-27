@@ -171,22 +171,20 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			// Sidebar Position.
 			$sidebar_label   = esc_html__( 'WooCommerce Sidebar Position', 'responsive' );
 			$sidebar_choices = array(
-				'default' => esc_html__('Default', 'responsive'),
-				'no'    => esc_html__( 'No Sidebar', 'responsive' ),
 				'left'  => esc_html__( 'Left', 'responsive' ),
 				'right' => esc_html__( 'Right', 'responsive' ),
+				'no'    => esc_html__( 'No Sidebar', 'responsive' ),
 			);
 
 			if ( is_rtl() ) {
 				$sidebar_choices = array(
-					'default' => esc_html__( 'Default', 'responsive' ),
-					'no'    => esc_html__( 'No Sidebar', 'responsive' ),
 					'left'  => esc_html__( 'Left', 'responsive' ),
 					'right' => esc_html__( 'Right', 'responsive' ),
+					'no'    => esc_html__( 'No Sidebar', 'responsive' ),
 				);
 			}
 
-			responsive_imageradio_button_control( $wp_customize, 'shop_sidebar_position', $sidebar_label, 'responsive_woocommerce_shop', 38, $sidebar_choices, 'default', null, 'svg');
+			responsive_imageradio_button_control( $wp_customize, 'shop_sidebar_position', $sidebar_label, 'responsive_woocommerce_shop', 38, $sidebar_choices, 'no', null, 'svg');
 			$container_spacing_label = esc_html__( 'Product Card Spacing', 'responsive' );
 			responsive_separator_control( $wp_customize, 'product_card_spacing', $container_spacing_label, 'responsive_woocommerce_shop', 30 );
 

@@ -108,15 +108,15 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
             $sidebar_choices = array(
                 'default' => esc_html__( 'Default', 'responsive'),
                 'no'    => esc_html__('No Sidebar', 'responsive'),
-                'right' => esc_html__('Right', 'responsive'),
                 'left'  => esc_html__('Left', 'responsive'),
+                'right' => esc_html__('Right', 'responsive'),
             );
             if (is_rtl()) {
                 $sidebar_choices = array(
                     'default' => esc_html__( 'Default', 'responsive' ),
                     'no'    => esc_html__('No Sidebar', 'responsive'),
-                    'right' => esc_html__('Right', 'responsive'),
                     'left'  => esc_html__('Left', 'responsive'),
+                    'right' => esc_html__('Right', 'responsive'),
                 );
             }
             responsive_imageradio_button_control($wp_customize, 'page_sidebar_position', $sidebar_label, 'responsive_page', 20, $sidebar_choices, 'right', null, 'svg');
@@ -132,15 +132,15 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
             $sidebar_choices = array(
                 'default' => esc_html__( 'Default', 'responsive' ), 
                 'no'    => esc_html__('No Sidebar', 'responsive'),
-                'right' => esc_html__('Right', 'responsive'),
                 'left'  => esc_html__('Left', 'responsive'),
+                'right' => esc_html__('Right', 'responsive'),
             );
             if (is_rtl()) {
                 $sidebar_choices = array(
                     'default' => esc_html__( 'Default', 'responsive' ),
                     'no'    => esc_html__('No Sidebar', 'responsive'),
-                    'right' => esc_html__('Right', 'responsive'),
                     'left'  => esc_html__('Left', 'responsive'),
+                    'right' => esc_html__('Right', 'responsive'),
                 );
             }
             responsive_imageradio_button_control($wp_customize, 'blog_sidebar_position', $sidebar_label, 'responsive_blog_layout', 30, $sidebar_choices, Responsive\Core\get_responsive_customizer_defaults('blog_sidebar_position'), null, 'svg');
@@ -155,16 +155,16 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
             $sidebar_label   = esc_html__('Sidebar Position', 'responsive');
             $sidebar_choices = array(
                 'default' => esc_html__( 'Default', 'responsive' ),
-                'right' => esc_html__('Right', 'responsive'),
                 'left'  => esc_html__('Left', 'responsive'),
+                'right' => esc_html__('Right', 'responsive'),
                 'no'    => esc_html__('No Sidebar', 'responsive'),
             );
             if (is_rtl()) {
                 $sidebar_choices = array(
                     'default' => esc_html__( 'Default', 'responsive'),
-                    'right' => esc_html__('Right', 'responsive'),
-                    'left'  => esc_html__('Left', 'responsive'),
                     'no'    => esc_html__('No Sidebar', 'responsive'),
+                    'left'  => esc_html__('Left', 'responsive'),
+                    'right' => esc_html__('Right', 'responsive'),
                 );
             }
             responsive_imageradio_button_control($wp_customize, 'single_blog_sidebar_position', $sidebar_label, 'responsive_single_blog_layout', 40, $sidebar_choices, 'right', null, 'svg');

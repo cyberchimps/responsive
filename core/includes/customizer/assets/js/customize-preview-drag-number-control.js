@@ -165,6 +165,20 @@
         }
     };
 
+    var mq = window.matchMedia("(min-width:992px)");
+    function refreshAllSidebars() {
+        Object.keys(sidebarContexts).forEach(function(type) {
+            var posSettingId = 'responsive_' + type + '_sidebar_position';
+            api(posSettingId, function(posSetting) {
+                var width = (posSetting.get() === 'default') ? globalSidebarWidth : parseInt(api('responsive_' + type + '_sidebar_width').get()) || globalSidebarWidth;
+                applySidebarWidth(sidebarContexts[type], width);
+            });
+        });
+    }
+
+    mq.addListener(refreshAllSidebars);
+    refreshAllSidebars(); 
+    
     Object.keys(sidebarContexts).forEach(function(type) {
         var posSettingId = 'responsive_' + type + '_sidebar_position';
         api(posSettingId, function(posSetting) {
