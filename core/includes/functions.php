@@ -464,7 +464,8 @@ if ( ! function_exists( 'responsive_js' ) ) {
 		$mobile_menu_breakpoint = array( 'mobileBreakpoint' => get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
 		wp_localize_script( 'navigation-scripts', 'responsive_breakpoint', $mobile_menu_breakpoint );
 		if ( responsive_check_element_present_in_hfb( 'primary_navigation', 'header' ) ) {
-			wp_enqueue_script( 'responsive_theme_nested_menus', $template_directory_uri . '/core/' . $directory . '/nested-menus' . $suffix . '.js', array('customize-preview'), RESPONSIVE_THEME_VERSION, true );
+			// jQuery is loading in frontend because of this. We will remove jquery in upcoming versions.
+			wp_enqueue_script( 'responsive_theme_nested_menus', $template_directory_uri . '/core/' . $directory . '/nested-menus' . $suffix . '.js', array('jquery'), RESPONSIVE_THEME_VERSION, true );
 		}
 
 	}
