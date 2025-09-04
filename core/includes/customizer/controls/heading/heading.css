@@ -2,6 +2,10 @@
     margin-top: 24px;
 }
 
+#customize-control-responsive_sidebar_separator {
+    margin-top: 0px;
+}
+
 .responsive-customizer-heading {
     font-family: 'Roboto', sans-serif;
     display: block;
