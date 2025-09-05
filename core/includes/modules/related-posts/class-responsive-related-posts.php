@@ -65,12 +65,12 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 					if (is_array($exclude_ids) && !in_array($post_id, $exclude_ids)) {
 ?>
 						<?php
-						$text_color       = get_theme_mod( 'responsive_rp_text_color', '#000000' );
-						$text_hover_color       = get_theme_mod( 'responsive_rp_text_hover_color', '#000000' );
-						$link_color       = get_theme_mod( 'responsive_rp_link_color', '#1e73be' );
-						$link_hover_color = get_theme_mod( 'responsive_rp_link_hover_color', '#dd3333' );
-						$meta_color       = get_theme_mod( 'responsive_rp_meta_color', '#666666' );
-						$meta_hover_color       = get_theme_mod( 'responsive_rp_meta_hover_color', '#666666' );
+						$text_color       = get_theme_mod( 'responsive_rp_text_color', get_theme_mod( 'responsive_body_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_body_text_color' ) ) );
+						$text_hover_color = get_theme_mod( 'responsive_rp_text_hover_color', get_theme_mod( 'responsive_body_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_body_text_color' ) ) );
+						$link_color       = get_theme_mod( 'responsive_rp_link_color', get_theme_mod( 'responsive_link_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_link_color' ) ) );
+						$link_hover_color = get_theme_mod( 'responsive_rp_link_hover_color', get_theme_mod( 'responsive_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_link_hover_color' ) ) );
+						$meta_color       = get_theme_mod( 'responsive_rp_meta_color', get_theme_mod( 'responsive_meta_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_meta_text' ) ) );
+						$meta_hover_color = get_theme_mod( 'responsive_rp_meta_hover_color', get_theme_mod( 'responsive_meta_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_meta_text' ) ) );
 
 						echo '<style>
 						.responsive-single-related-posts-container,
@@ -106,21 +106,15 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 						</style>';
 
 						if (false === $related_single_posts_section_loaded) {
-							$section_background_color = get_theme_mod( 'responsive_rp_section_bg_color', '#444444' );
-							echo sprintf( '<div class="responsive-single-related-posts-container" style="background-color: %1$s;">' , esc_attr( $section_background_color ) );
-
-							$section_title_color = get_theme_mod( 'responsive_rp_section_title_color', '#333333' ); // fallback color
+							echo '<div class="responsive-single-related-posts-container">';
 
 							if ('' !== $single_blog_related_posts_title) {
 								echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 									'responsive_single_blog_related_posts_title',
 									sprintf(
-										'<div class="responsive-related-single-posts-title-section">
-											<%1$s class="responsive-related-single-posts-title entry-title" style="color: %3$s;">%2$s</%1$s>
-										</div>',
+										'<div class="responsive-related-single-posts-title-section"> <%1$s class="responsive-related-single-posts-title entry-title"> %2$s </%1$s> </div>',
 										'h2',
-										esc_html( $single_blog_related_posts_title ),
-										esc_attr( $section_title_color )
+										$single_blog_related_posts_title
 									)
 								);
 							}
@@ -128,7 +122,7 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 							$related_single_posts_section_loaded = true;
 						}
 						?>
-						<article <?php post_class('responsive-related-single-post'); echo sprintf('style="background-color: %1$s;"',  esc_attr( $section_background_color )) ?>>
+						<article <?php post_class('responsive-related-single-post'); ?>>
 							<div class="responsive-related-single-posts-inner-section">
 								<div class="responsive-related-single-post-content">
 									<?php
@@ -162,7 +156,6 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 		{
 			$orderby                          = get_theme_mod( 'rp_orderby', 'date' );
 			$order                            = get_theme_mod( 'responsive_rp_order', 'desc');
-			error_log(print_r($order, true));
 			$term_ids                         = array();
 			$current_post_type                = get_post_type($post_id);
 			$related_single_posts_total_count = absint(get_theme_mod('responsive_single_blog_related_posts_count', 2));
@@ -294,9 +287,9 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 				if ('meta' == $section) {
 					$this->responsive_get_related_single_post_meta_data($current_post_id);
 				}
-				if ('excerpt' == $section) {
-					$this->responsive_get_related_single_post_excerpt($current_post_id);
-				}
+			}
+			if ( get_theme_mod( 'responsive_rp_enable_excerpt', 0 ) ) {
+				$this->responsive_get_related_single_post_excerpt($current_post_id);
 			}
 
 			do_action('responsive_after_related_single_post_structure');
@@ -433,13 +426,17 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 		public function responsive_get_related_single_post_excerpt($current_post_id)
 		{
 
+			if ( ! get_theme_mod( 'responsive_rp_enable_excerpt', 0 ) ) {
+				return;
+			}
+
 			$related_single_posts_content_type = apply_filters('responsive_related_single_posts_content_type', 'excerpt');
 
 			if ('full-content' === $related_single_posts_content_type) {
 				return the_content();
 			}
-			$excerpt_length = apply_filters('responsive_related_single_posts_excerpt_count', 25);
-			$excerpt_length = absint($excerpt_length);
+
+			$excerpt_length = absint(get_theme_mod( 'responsive_rp_excerpt_length', 25 ));
 
 			$excerpt = wp_trim_words(get_the_excerpt(), $excerpt_length);
 
@@ -455,7 +452,7 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 			<p class="responsive-related-single-post-excerpt entry-content clear">
 				<?php echo wp_kses_post($excerpt); ?>
 		        <?php
-				if ( get_theme_mod( 'responsive_rp_read_more', true ) ) : ?>
+				if ( 1 === get_theme_mod( 'responsive_rp_read_more', 0 ) ) : ?>
 				<a href="<?php the_permalink(); ?>" class="read-more-button">
 					<?php esc_html_e( 'Read More', 'responsive' ); ?>
 				</a>

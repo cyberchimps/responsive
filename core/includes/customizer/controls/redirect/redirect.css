@@ -42,3 +42,6 @@
     line-height: 17px;
     margin: 0;
 }
+.customize-control-responsive-redirect a:focus {
+    box-shadow: none;
+}

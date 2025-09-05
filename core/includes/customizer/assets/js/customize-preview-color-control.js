@@ -61,16 +61,6 @@
 		} );
 	} );
 
-	// Initial load
-	$(document).ready( function() {
-		api( 'responsive_site_background_color_type', function( value ) {
-			setBackground( value.get() );
-		});
-        api('responsive_box_background_color_type', function (value) {
-            setBoxBackground(value.get());
-        });
-	} );
-
     //Box Background Color
     function setBoxBackground(type) {
         if (type === 'gradient') {
@@ -365,24 +355,17 @@
         } );
     } );
 
-    api( 'responsive_rp_section_title_color', ( value ) => {
-		value.bind( ( newval ) => {
-			const elems = document.querySelectorAll( '.responsive-related-single-posts-title' );
+    api( 'responsive_rp_section_title_color', function ( value ){
+        value.bind( function ( newval ) {
+            const elems = document.querySelectorAll( '.responsive-related-single-posts-title' );
 			elems.forEach( el => {
-				el.style.color = newval;
+                el.style.color = newval;
 			});
 		});
 	});
     api( 'responsive_rp_section_bg_color', ( value ) => {
-		value.bind( ( newval ) => {
-			const elems = document.querySelectorAll( '.responsive-single-related-posts-container' );
-			elems.forEach( el => {
-				el.style.backgroundColor = newval;
-			});
-			const elems1 = document.querySelectorAll( '.responsive-related-single-post' );
-			elems1.forEach( el => {
-				el.style.backgroundColor = newval;
-			});
+        value.bind( ( newval ) => {
+            $('.responsive-single-related-posts-container, .responsive-single-related-posts-container .responsive-related-single-posts-wrapper .responsive-related-single-post').css('background', newval);
 		});
 	});
 
@@ -1055,6 +1038,23 @@
             $('.wc-block-grid__product-price,.woocommerce ul.products li.product .price').css('color', newval );
         } );
     } );
+
+    // Product Background Color
+    api('responsive_shop_product_background_color', function (value) {
+        value.bind(function (newval) {
+            var styleTag = $('#responsive-live-preview');
+            if (!styleTag.length) {
+                styleTag = $('<style id="responsive-live-preview"></style>').appendTo('head');
+            }
+            styleTag.html(
+                'li.product {' +
+                'background-color: ' + newval + '!important;' +
+                '}'
+            );  
+        });
+    });
+
+
 
     //Buttons Color
     api( 'responsive_add_to_cart_button_color', function( value ) {

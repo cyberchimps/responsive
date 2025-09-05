@@ -10,14 +10,57 @@ jQuery(document).ready(function ($) {
         if ( hash === '#blocks' || hash === '#rae' ) {
             $(".responsive-theme-tabs-inner-content").css("background-image", "url('" + localize.responsiveurl + "admin/images/" +  hash.substring(1) + "-template-preview.jpg')");
         }
-        navigateTo(hash);
-        $('.responsive-theme-tab-content').hide()
-        $('.responsive-theme-tab').removeClass('responsive-theme-active-tab')
-        $('.responsive-theme-' + hash.substring(1) + '-tab').addClass('responsive-theme-active-tab')
-        $('#responsive_' + hash.substring(1)).show()
-    
+        if (hash.startsWith('#raddons-settings')) {        
+            // Check if it's the white-label subtab
+            if (hash.includes('subtab=white-label')) {
+                if ($("#responsive-theme-setting-wl-tab").length === 0) { 
+                    return;
+                }
+                // Hiding the Connect Account subtab
+                $('#responsive-theme-setting-app-connection-section').hide();
+                // Show the White Label section
+                $('#responsive-theme-raddons-setting-wl-section').show();
+                 // Activating the Settings tab
+                $('.responsive-theme-home-tab').removeClass('responsive-theme-active-tab');
+                $('.responsive-theme-raddons-settings-tab').addClass('responsive-theme-active-tab');
+                $('#responsive_home').hide();
+                $('#responsive_raddons-settings').show();
+                
+                // Set White Label as active subtab
+                $('.responsive-theme-setting-active-tab').removeClass('responsive-theme-setting-active-tab');
+                $('#responsive-theme-setting-wl-tab .responsive-theme-setting-item-icon, #responsive-theme-setting-wl-tab .responsive-theme-setting-item-title').addClass('responsive-theme-setting-active-tab');
+            } 
+            else {
+                // Default to Connect Account subtab
+                $('.responsive-theme-setting-active-tab').removeClass('responsive-theme-setting-active-tab');
+                $('#responsive-setting-item-app-connection-tab .responsive-theme-setting-item-icon, #responsive-setting-item-app-connection-tab .responsive-theme-setting-item-title').addClass('responsive-theme-setting-active-tab');
+                $('#responsive-theme-setting-app-connection-section').show();
+                $('#responsive-theme-raddons-setting-wl-section').hide();
+                $('.responsive-theme-raddons-settings-tab').addClass('responsive-theme-active-tab');
+                $('#responsive_raddons-settings').show();
+            }
+            navigateTo(hash);
+        }
+        else {
+            navigateTo(hash);
+            $('.responsive-theme-tab-content').hide()
+            $('.responsive-theme-tab').removeClass('responsive-theme-active-tab')
+            $('.responsive-theme-' + hash.substring(1) + '-tab').addClass('responsive-theme-active-tab')
+            $('#responsive_' + hash.substring(1)).show()
+        }
 
-    $('.responsive-theme-tab').click(function () {
+    $('#feature-link-white-label-settings').click(function(e) {
+            $('.responsive-theme-home-tab').removeClass('responsive-theme-active-tab');
+            $('.responsive-theme-raddons-settings-tab').addClass('responsive-theme-active-tab');
+            $('#responsive_home').hide();
+            $('.responsive-theme-setting-active-tab').removeClass('responsive-theme-setting-active-tab');
+            $('#responsive-theme-setting-wl-tab .responsive-theme-setting-item-icon, #responsive-theme-setting-wl-tab .responsive-theme-setting-item-title').addClass('responsive-theme-setting-active-tab');
+            $('#responsive-theme-setting-app-connection-section').hide();
+            $('#responsive-theme-raddons-setting-wl-section').show();
+            $('#responsive_raddons-settings').show();
+    });
+
+    $('.responsive-theme-tab').click(function (e) {
         $('.responsive-theme-tab-content').hide()
         $('.responsive-theme-tab').removeClass('responsive-theme-active-tab')
         let tab = $(this).data('tab');

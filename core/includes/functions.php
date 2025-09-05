@@ -55,9 +55,6 @@ function setup() {
 	}
 	// Add Fragment Support.
 	add_filter( 'woocommerce_add_to_cart_fragments', $n( 'responsive_get_refreshed_fragments_number'), 11 );
-	add_filter( 'responsive_related_single_posts_excerpt_count', function( $length ) {
-		return get_theme_mod( 'responsive_rp_excerpt_length', 20 );
-	} );
 	add_action( 'responsive_header_woo_cart_label_markup', $n( 'responsive_woo_cart_label_markup' ), 10 );
 
 	require_once trailingslashit( get_template_directory() ) . '/core/includes/theme-updates/class-responsive-theme-background-updater.php';
@@ -110,19 +107,7 @@ function responsive_get_option_defaults() {
 		'bing_site_verification'          => '',
 		'yahoo_site_verification'         => '',
 		'site_statistics_tracker'         => '',
-		'twitter_uid'                     => '',
-		'facebook_uid'                    => '',
-		'linkedin_uid'                    => '',
-		'youtube_uid'                     => '',
 		'stumble_uid'                     => '',
-		'rss_uid'                         => '',
-		'google_plus_uid'                 => '',
-		'instagram_uid'                   => '',
-		'pinterest_uid'                   => '',
-		'yelp_uid'                        => '',
-		'vimeo_uid'                       => '',
-		'foursquare_uid'                  => '',
-		'email_uid'                       => '',
 		'testimonial_val'                 => null,
 		'teammember1'                     => null,
 		'teammember2'                     => null,
@@ -449,7 +434,7 @@ if ( ! function_exists( 'responsive_js' ) ) {
 			// Get the toggle value
 			$live_search_enabled = get_theme_mod( 'responsive_header_search_enable_live_search', false );
 			$selected_post_types_setting = get_theme_mod( 'responsive_header_search_live_search_post_type', array('pages', 'posts') ); 
-			error_log("responsive_header_search_live_search_post_type: ". print_r($selected_post_types_setting, true));
+
 			if ( ! is_array( $selected_post_types_setting ) ) {
 				$selected_post_types_setting = array_map('trim', explode(',', $selected_post_types_setting));
 			}
@@ -462,8 +447,6 @@ if ( ! function_exists( 'responsive_js' ) ) {
 					$rest_api_post_types[] = 'post';
 				}
 			}
-
-			error_log("rest_api_post_types: ".print_r($rest_api_post_types, true));
 
 			// Localize script with REST API settings
 			wp_localize_script(
@@ -481,7 +464,8 @@ if ( ! function_exists( 'responsive_js' ) ) {
 		$mobile_menu_breakpoint = array( 'mobileBreakpoint' => get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
 		wp_localize_script( 'navigation-scripts', 'responsive_breakpoint', $mobile_menu_breakpoint );
 		if ( responsive_check_element_present_in_hfb( 'primary_navigation', 'header' ) ) {
-			wp_enqueue_script( 'responsive_theme_nested_menus', $template_directory_uri . '/core/' . $directory . '/nested-menus' . $suffix . '.js', array('customize-preview'), RESPONSIVE_THEME_VERSION, true );
+			// jQuery is loading in frontend because of this. We will remove jquery in upcoming versions.
+			wp_enqueue_script( 'responsive_theme_nested_menus', $template_directory_uri . '/core/' . $directory . '/nested-menus' . $suffix . '.js', array('jquery'), RESPONSIVE_THEME_VERSION, true );
 		}
 
 	}
@@ -1254,7 +1238,7 @@ function defaults() {
 			'blog_sidebar_position'               => 'no',
 			'header_social_show_label'            => 0,
 			'header_social_item_color'            => '#2D3748',
-			'header_social_item_hover_color'      => '#FFFFFF',
+			'header_social_item_hover_color'      => '#2D3748',
 			'header_social_border_radius'         => 0,
 			'header_social_border_color'          => '#FFFFFF',
 			'header_social_border_hover_color'    => '#FFFFFF',
@@ -1498,6 +1482,11 @@ function defaults() {
 																				'icon'    => 'search',
 																			),
 																		),
+		'rp_section_bg' => '#ffffff',
+		'responsive_rp_link_color'               => '#0066CC',
+		'responsive_rp_link_hover_color'         => '#10659C', 
+		'responsive_rp_meta_text'                => '#999999',
+		'responsive_rp_body_text_color'          => '#333333',
 		)
 	);
 	return $theme_options;
@@ -1518,6 +1507,14 @@ function responsive_mobile_custom_logo() {
 
 	if ( '' !== $responsive_mobile_logo && '1' == $responsive_mobile_logo_option ) {
 
+		// Fetching the alt text for the mobile logo from media library
+		$mobile_logo_alt = get_post_meta( $responsive_mobile_logo, '_wp_attachment_image_alt', true );
+
+		// Fallback if no alt is set
+		if ( empty( $mobile_logo_alt ) ) {
+			$mobile_logo_alt = get_bloginfo( 'name' );
+		}
+
 		/* Replace transparent header logo and width */
 
 		$html = sprintf(
@@ -1528,7 +1525,7 @@ function responsive_mobile_custom_logo() {
 				'full',
 				false,
 				array(
-					'alt'      => get_bloginfo( 'name' ),
+					'alt'      => esc_attr( $mobile_logo_alt ),
 					'class'    => 'custom-logo',
 					'itemprop' => 'logo',
 					'size'     => '(max-width: 204px) 100vw, 204px',

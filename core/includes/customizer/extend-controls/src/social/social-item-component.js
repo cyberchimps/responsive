@@ -4,7 +4,7 @@ import DOMPurify from 'dompurify';
 
 import { __ } from '@wordpress/i18n';
 const { MediaUpload } = wp.blockEditor;
-import { ButtonGroup, Dashicon, Tooltip, Button, TabPanel, RangeControl, TextControl } from '@wordpress/components';
+import { ButtonGroup, Dashicon, Tooltip, Button, TabPanel, RangeControl, TextControl, CheckboxControl } from '@wordpress/components';
 import { useState, Fragment } from 'react';
 
 const ResponsiveSocialItemComponent = props => {
@@ -215,6 +215,21 @@ const ResponsiveSocialItemComponent = props => {
                         value={props.item.label || ''}
                         onChange={(value) => props.onChangeLabel(value, props.index)}
                     />
+                    <div className='responsive-builder-social-url-wrap' style={ {display: 'flex', flexDirection: 'column', gap: '10px'} }>
+                        <TextControl
+                            label={__('URL', 'responsive')}
+                            value={props.item.link || ''}
+                            onChange={(value) => props.onChangeLink(value, props.index)}
+                        />
+                        { props.item.link &&
+                            <CheckboxControl
+                                __nextHasNoMarginBottom
+                                label={__('Open in New Tab', 'responsive')}
+                                checked={ props.item.newTab }
+                                onChange={ (value) => props.onChangeNewTab(value, props.index) }
+                            />
+                        }
+                    </div>
                     <Button
                         className="responsive-social-sorter-item-remove"
                         isDestructive

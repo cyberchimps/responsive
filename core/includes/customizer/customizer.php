@@ -189,7 +189,6 @@ function responsive_register_options() {
 		'class-responsive-site-color-palettes-scheme-customizer',
 		'class-responsive-site-colors-customizer',
 		'class-responsive-site-typography-customizer',
-		'class-responsive-site-social-links-customizer',
 		'class-responsive-header-layout-customizer',
 		'class-responsive-header-title-tagline-customizer',
 		// 'class-responsive-header-colors-customizer',
@@ -309,6 +308,7 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'fontpresets/class-responsive-customizer-font-preset-control.php';
 	require_once $dir . 'contact-info/class-responsive-customizer-contact-info-control.php';
 	require_once $dir . 'color-with-devices/class-responsive-customizer-color-with-devices-control.php';
+	require_once $dir . 'section-toggle/class-responsive-customizer-section-toggle.php';
 
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-control-upsell.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-generic-notice-section.php';

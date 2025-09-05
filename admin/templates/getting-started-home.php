@@ -144,9 +144,9 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 	$is_rea_active = class_exists( 'Responsive_Elementor_Addons' ) ? true : false;
 	$is_rst_active = class_exists( 'Responsive_Add_Ons' ) ? true : false;
 
-	$white_label_url = admin_url( 'themes.php?page=responsive#settings' );
+	$white_label_url = admin_url( 'admin.php?page=responsive#settings' );
 	if ( ! check_is_responsive_pro_activated() && $is_rst_active && check_is_responsive_addons_greater() ) {
-		$white_label_url = admin_url( 'themes.php?page=responsive#raddons-settings' );
+		$white_label_url = admin_url( 'admin.php?page=responsive#raddons-settings:subtab=white-label' );
 	}
 
 	$upgrade_to_pro = array(
@@ -248,7 +248,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 				),
 				array(
 					'name' => __( 'Settings', 'responsive' ),
-					'link' => admin_url( 'themes.php?page=responsive#raddons-settings' ),
+					'link' => admin_url( 'admin.php?page=responsive#raddons-settings:subtab=white-label' )
 				),
 			),
 		),
@@ -470,12 +470,15 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 											$disabled_links = ( isset( $feature_link['status'] ) && false === $feature_link['status'] ) ? 'responsive-theme-disabled-links' : '';
 											?>
 
-												<a href="<?php echo esc_url( $feature_link['link'] ); ?>" class="<?php echo esc_attr( $disabled_links ); ?>" target="
-																	<?php
-																	if ( 'Docs' === $feature_link['name'] || 'Open Ticket' === $feature_link['name'] ) {
-																		echo esc_attr( '_blank' );}
-																	?>
-												"><?php echo esc_html( $feature_link['name'] ); ?></a>
+												<a 
+													id="feature-link-<?php echo esc_attr( strtolower( str_replace( ' ', '-', $feature['title'] ) ) ); ?>-<?php echo esc_attr( strtolower( str_replace( ' ', '-', $feature_link['name'] ) ) ); ?>"
+													href="<?php echo esc_url( $feature_link['link'] ); ?>"
+													class="<?php echo esc_attr( $disabled_links ); ?>"
+													<?php if ( 'Docs' === $feature_link['name'] || 'Open Ticket' === $feature_link['name'] ) : ?>
+														target="_blank"
+													<?php endif; ?>>
+													<?php echo esc_html( $feature_link['name'] ); ?>
+												</a>
 
 											<?php
 											if ( ( count( $feature['links'] ) - $index ) !== 1 ) {
@@ -497,13 +500,14 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 										$disabled_links = ( isset( $feature_link['status'] ) && false === $feature_link['status'] ) ? 'responsive-theme-disabled-links' : '';
 										?>
 
-											<a href="<?php echo esc_url( $feature_link['link'] ); ?>" class="<?php echo esc_attr( $disabled_links ); ?>" target="
-																<?php
-																if ( 'Docs' === $feature_link['name'] || 'Open Ticket' === $feature_link['name'] ) {
-																	echo esc_attr( '_blank' );}
-																?>
-											"><?php echo esc_html( $feature_link['name'] ); ?></a>
-											
+											<a id="feature-link-<?php echo esc_attr( strtolower( str_replace( ' ', '-', $feature['title'] ) ) ); ?>-<?php echo esc_attr( strtolower( str_replace( ' ', '-', $feature_link['name'] ) ) ); ?>"
+												href="<?php echo esc_url( $feature_link['link'] ); ?>"
+												class="<?php echo esc_attr( $disabled_links ); ?>"
+												<?php if ( 'Docs' === $feature_link['name'] || 'Open Ticket' === $feature_link['name'] ) : ?>
+													target="_blank"
+												<?php endif; ?>>
+												<?php echo esc_html( $feature_link['name'] ); ?>
+											</a>
 										<?php
 										if ( ( count( $feature['links'] ) - $index ) !== 1 ) {
 											?>
@@ -549,7 +553,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 										echo 'disable-customize'; }
 									?>
 									">
-										<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/mega-menu/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
+										<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/responsive-plus/modules-settings/mega-menu/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
 										<span class="responsive-theme-feature-seperator">|</span>
 										<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>" class="rpro-feature-customize-btn"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
 										<?php
@@ -584,7 +588,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 									echo 'disable-customize'; }
 								?>
 								">
-									<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/mega-menu/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
+									<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/responsive-plus/modules-settings/mega-menu/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
 									<span class="responsive-theme-feature-seperator">|</span>
 									<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>" class="rpro-feature-customize-btn"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
 									<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
