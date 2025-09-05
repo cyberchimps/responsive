@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 Responsive\responsive_widgets_before(); // above widgets container hook.
 if ( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_checkout() ) ) {
 
-    $get_sidebar_position = function( $context, $default = 'default' ) {
+    $get_sidebar_position = function( $context, $default = 'no' ) {
         $global = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
         $value  = get_theme_mod( "responsive_{$context}_sidebar_position", $default );
         return ( $value === 'default' ) ? $global : $value;
@@ -61,7 +61,7 @@ elseif ( class_exists( 'LifterLMS' ) ) {
 		return;
 	} else {
 		
-        $get_sidebar_position = function( $context, $default = 'default' ) {
+        $get_sidebar_position = function( $context, $default = 'no' ) {
             $global = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
             $value  = get_theme_mod( "responsive_{$context}_sidebar_position", $default );
             return ( $value === 'default' ) ? $global : $value;
@@ -96,7 +96,7 @@ elseif ( class_exists( 'LifterLMS' ) ) {
 	}
 } else {
 
-	$get_sidebar_position = function( $context, $default = 'default' ) {
+	$get_sidebar_position = function( $context, $default = 'no' ) {
 		$global = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
 		$value  = get_theme_mod( "responsive_{$context}_sidebar_position", $default );
 		return ( $value === 'default' ) ? $global : $value;

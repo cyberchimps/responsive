@@ -172,7 +172,7 @@ function responsive_customizer_styles() {
 	$logo_custom_width   = esc_html( get_theme_mod( 'responsive_logo_width' ) );
 
 	$global_sidebar_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
-	$page_sidebar_setting = get_theme_mod( 'responsive_page_sidebar_position', 'default' );
+	$page_sidebar_setting = get_theme_mod( 'responsive_page_sidebar_position', 'no' );
 	$responsive_page_sidebar_position = esc_html( ($page_sidebar_setting === 'default') ? $global_sidebar_position : $page_sidebar_setting);
 	if($page_sidebar_setting === 'default')
 	{
@@ -184,7 +184,7 @@ function responsive_customizer_styles() {
 	}
 	$page_primary_content_area_width  = 100 - $responsive_page_sidebar_width;
 
-	$blog_sidebar_setting    = get_theme_mod( 'responsive_blog_sidebar_position', 'default' );
+	$blog_sidebar_setting    = get_theme_mod( 'responsive_blog_sidebar_position', 'no' );
 
 	$responsive_blog_archive_sidebar_position = esc_html(
 		( $blog_sidebar_setting === 'default' ) ? $global_sidebar_position : $blog_sidebar_setting
@@ -5553,7 +5553,7 @@ function responsive_customizer_styles() {
 		$add_to_cart_button_hover_color      = esc_html( get_theme_mod( 'responsive_add_to_cart_button_hover_color', '#10659C' ) );
 		$add_to_cart_button_hover_text_color = esc_html( get_theme_mod( 'responsive_add_to_cart_button_hover_text_color', '#ffffff' ) );
 		
-		$shop_sidebar_setting  = get_theme_mod( 'responsive_shop_sidebar_position', 'default' );
+		$shop_sidebar_setting  = get_theme_mod( 'responsive_shop_sidebar_position', 'no' );
 		$global_sidebar        = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
 		$shop_sidebar_position = esc_html( $shop_sidebar_setting === 'default' ? $global_sidebar : $shop_sidebar_setting );
 		if( $shop_sidebar_setting === 'default')
@@ -5570,7 +5570,7 @@ function responsive_customizer_styles() {
         }
 		";
 
-		$single_product_setting        = get_theme_mod( 'responsive_single_product_sidebar_position', 'default' );
+		$single_product_setting        = get_theme_mod( 'responsive_single_product_sidebar_position', 'no' );
 		$single_product_sidebar_position = esc_html( $single_product_setting === 'default' ? $global_sidebar : $single_product_setting );
 		if ( 'no' !== $shop_sidebar_position ) {
 			$woocommerce_custom_css .= '

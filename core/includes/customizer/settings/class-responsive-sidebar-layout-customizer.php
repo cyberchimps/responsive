@@ -119,7 +119,7 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
                     'right' => esc_html__('Right', 'responsive'),
                 );
             }
-            responsive_imageradio_button_control($wp_customize, 'page_sidebar_position', $sidebar_label, 'responsive_page', 20, $sidebar_choices, 'right', null, 'svg');
+            responsive_imageradio_button_control($wp_customize, 'page_sidebar_position', $sidebar_label, 'responsive_page', 20, $sidebar_choices, 'no', null, 'svg');
 
             $page_sidebar_width_label = esc_html__('Sidebar Width (%)', 'responsive');
             responsive_drag_number_control($wp_customize, 'page_sidebar_width', $page_sidebar_width_label, 'responsive_page', 25, 30, null, 50, 20, 'postMessage');
@@ -155,9 +155,9 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
             $sidebar_label   = esc_html__('Sidebar Position', 'responsive');
             $sidebar_choices = array(
                 'default' => esc_html__( 'Default', 'responsive' ),
+                'no'    => esc_html__('No Sidebar', 'responsive'),
                 'left'  => esc_html__('Left', 'responsive'),
                 'right' => esc_html__('Right', 'responsive'),
-                'no'    => esc_html__('No Sidebar', 'responsive'),
             );
             if (is_rtl()) {
                 $sidebar_choices = array(
@@ -167,7 +167,7 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
                     'right' => esc_html__('Right', 'responsive'),
                 );
             }
-            responsive_imageradio_button_control($wp_customize, 'single_blog_sidebar_position', $sidebar_label, 'responsive_single_blog_layout', 40, $sidebar_choices, 'right', null, 'svg');
+            responsive_imageradio_button_control($wp_customize, 'single_blog_sidebar_position', $sidebar_label, 'responsive_single_blog_layout', 40, $sidebar_choices, 'no', null, 'svg');
 
             $page_sidebar_width_label = esc_html__('Sidebar Width (%)', 'responsive');
             responsive_drag_number_control($wp_customize, 'single_blog_sidebar_width', $page_sidebar_width_label, 'responsive_single_blog_layout', 45, 30, 'responsive_active_single_blog_sidebar_position', 50, 20, 'postMessage');
