@@ -164,6 +164,9 @@
 #customize-control-breadcrumbs_options .responsive-toggle-control-wrapper {
     padding-top: 8px;
 }
+#customize-control-responsive_single_product_breadcrumbs .responsive-toggle-control-wrapper {
+    padding-top: 14px;
+}
 #customize-control-toolbar_options .responsive-toggle-control-wrapper {
     padding-bottom: 8px;
 }

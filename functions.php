@@ -108,68 +108,92 @@ function responsive_setup_content_width() {
 	if ( ( 'contained' === get_theme_mod( 'responsive_width', 'contained' ) ) ) {
 		$container_max_width = esc_html( get_theme_mod( 'responsive_container_width', 1140 ) );
 
-		if ( is_page() && ( class_exists( 'WooCommerce' ) && ( ! is_cart() || ! is_checkout() ) ) ) {
-			if ( 'no' !== get_theme_mod( 'responsive_page_sidebar_position', 'right' ) ) {
-				$blog_content_width = esc_html( get_theme_mod( 'responsive_page_content_width', 66 ) );
+		// Helper to resolve sidebar position with "default" fallback
+		$get_sidebar_position = function( $context, $fallback = 'no' ) {
+			$global = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
+			$value  = get_theme_mod( "responsive_{$context}_sidebar_position", $fallback );
+			return ( $value === 'default' ) ? $global : $value;
+		};
 
-				$content_width = ( $blog_content_width / 100 ) * $container_max_width;
+		if ( is_page() && ( class_exists( 'WooCommerce' ) && ( ! is_cart() && ! is_checkout() ) ) ) {
+
+			$sidebar_position = $get_sidebar_position( 'page', 'no' );
+
+			if ( 'no' !== $sidebar_position ) {
+				$page_content_width = esc_html( get_theme_mod( 'responsive_page_content_width', 66 ) );
+				$content_width      = ( $page_content_width / 100 ) * $container_max_width;
 			} else {
 				$content_width = $container_max_width;
 			}
+
 		} elseif ( is_single() ) {
 
-			if ( 'no' !== get_theme_mod( 'responsive_single_blog_sidebar_position', 'right' ) ) {
-				$blog_content_width = esc_html( get_theme_mod( 'responsive_single_blog_content_width', 66 ) );
+			$sidebar_position = $get_sidebar_position( 'single_blog', 'no' );
 
-				$content_width = ( $blog_content_width / 100 ) * $container_max_width;
+			if ( 'no' !== $sidebar_position ) {
+				$single_content_width = esc_html( get_theme_mod( 'responsive_single_blog_content_width', 66 ) );
+				$content_width        = ( $single_content_width / 100 ) * $container_max_width;
 			} else {
 				$content_width = $container_max_width;
 			}
-		} else {
-			if ( 'no' !== get_theme_mod( 'responsive_blog_sidebar_position', 'no' ) ) {
-				$blog_content_width = esc_html( get_theme_mod( 'responsive_blog_content_width', Responsive\Core\get_responsive_customizer_defaults( 'blog_content_width' ) ) );
 
-				$content_width = ( $blog_content_width / 100 ) * $container_max_width;
+		} else {
+
+			$sidebar_position = $get_sidebar_position( 'blog', 'no' );
+
+			if ( 'no' !== $sidebar_position ) {
+				$blog_content_width = esc_html( get_theme_mod( 'responsive_blog_content_width', Responsive\Core\get_responsive_customizer_defaults( 'blog_content_width' ) ) );
+				$content_width      = ( $blog_content_width / 100 ) * $container_max_width;
 			} else {
 				$content_width = $container_max_width;
 			}
 		}
+
 
 		if ( class_exists( 'WooCommerce' ) ) {
+
+			// Global default sidebar position
+			$global_sidebar_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
+
+			$resolve_sidebar_position = function( $context_setting ) use ( $global_sidebar_position ) {
+				$value = get_theme_mod( $context_setting, 'default' );
+				return ( $value === 'default' ) ? $global_sidebar_position : $value;
+			};
+
 			if ( is_product() ) {
-				if ( 'no' !== get_theme_mod( 'responsive_single_product_sidebar_position', 'no' ) ) {
-					$blog_content_width = esc_html( get_theme_mod( 'responsive_single_product_content_width', 100 ) );
-
-					$content_width = ( $blog_content_width / 100 ) * $container_max_width;
+				$sidebar_position = $resolve_sidebar_position( 'responsive_single_product_sidebar_position' );
+				if ( $sidebar_position !== 'no' ) {
+					$content_width = ( floatval( get_theme_mod( 'responsive_single_product_content_width', 100 ) ) / 100 ) * $container_max_width;
 				} else {
 					$content_width = $container_max_width;
 				}
+
 			} elseif ( is_shop() ) {
-				if ( 'no' !== get_theme_mod( 'responsive_shop_sidebar_position', 'no' ) ) {
-					$blog_content_width = esc_html( get_theme_mod( 'responsive_shop_content_width', Responsive\Core\get_responsive_customizer_defaults( 'shop_content_width' ) ) );
-
-					$content_width = ( $blog_content_width / 100 ) * $container_max_width;
+				$sidebar_position = $resolve_sidebar_position( 'responsive_shop_sidebar_position' );
+				if ( $sidebar_position !== 'no' ) {
+					$content_width = ( floatval( get_theme_mod( 'responsive_shop_content_width', Responsive\Core\get_responsive_customizer_defaults( 'shop_content_width' ) ) ) / 100 ) * $container_max_width;
 				} else {
 					$content_width = $container_max_width;
 				}
+
 			} elseif ( is_cart() ) {
-				if ( 'no' !== get_theme_mod( 'responsive_shop_sidebar_position', 'no' ) ) {
-					$blog_content_width = esc_html( get_theme_mod( 'responsive_cart_content_width', 70 ) );
-
-					$content_width = ( $blog_content_width / 100 ) * $container_max_width;
+				$sidebar_position = $resolve_sidebar_position( 'responsive_cart_sidebar_position' );
+				if ( $sidebar_position !== 'no' ) {
+					$content_width = ( floatval( get_theme_mod( 'responsive_cart_content_width', 70 ) ) / 100 ) * $container_max_width;
 				} else {
 					$content_width = $container_max_width;
 				}
-			} elseif ( is_checkout() ) {
-				if ( 'no' !== get_theme_mod( 'responsive_shop_sidebar_position', 'no' ) ) {
-					$blog_content_width = esc_html( get_theme_mod( 'responsive_checkout_content_width', 70 ) );
 
-					$content_width = ( $blog_content_width / 100 ) * $container_max_width;
+			} elseif ( is_checkout() ) {
+				$sidebar_position = $resolve_sidebar_position( 'responsive_checkout_sidebar_position' );
+				if ( $sidebar_position !== 'no' ) {
+					$content_width = ( floatval( get_theme_mod( 'responsive_checkout_content_width', 70 ) ) / 100 ) * $container_max_width;
 				} else {
 					$content_width = $container_max_width;
 				}
 			}
 		}
+
 	}
 }
 add_action( 'wp', 'responsive_setup_content_width' );
@@ -768,41 +792,71 @@ if ( ! get_option( 'responsive_version_410' ) ) {
 			$responsive_options_blog = array( 'full-width-page', 'blog-2-col', 'blog-3-col', 'blog-4-col' );
 
 			if ( in_array( $responsive_options['blog_posts_index_layout_default'], $responsive_options_blog, true ) ) {
-				! get_theme_mod( 'responsive_blog_sidebar_position' ) ? set_theme_mod( 'responsive_blog_sidebar_position', 'no' ) : '';
-				! get_theme_mod( 'responsive_blog_content_width' ) ? set_theme_mod( 'responsive_blog_content_width', 100 ) : '';
+
+				if ( ! get_theme_mod( 'responsive_blog_sidebar_position' ) ) {
+					set_theme_mod( 'responsive_blog_sidebar_position', 'default' ); 
+				}
+
+				if ( ! get_theme_mod( 'responsive_blog_content_width' ) ) {
+					set_theme_mod( 'responsive_blog_content_width', 100 );
+				}
+
 				for ( $i = 0; $i < 4; $i++ ) {
 					if ( 'blog-' . $i . '-col' === $responsive_options['blog_posts_index_layout_default'] ) {
-						! get_theme_mod( 'responsive_blog_entry_columns' ) ? set_theme_mod( 'responsive_blog_entry_columns', $i ) : '';
-						! get_theme_mod( 'responsive_blog_entry_display_masonry' ) ? set_theme_mod( 'responsive_blog_entry_display_masonry', get_theme_mod( 'responsive_display_masonry' ) ) : '';
+
+						if ( ! get_theme_mod( 'responsive_blog_entry_columns' ) ) {
+							set_theme_mod( 'responsive_blog_entry_columns', $i );
+						}
+
+						if ( ! get_theme_mod( 'responsive_blog_entry_display_masonry' ) ) {
+							set_theme_mod( 'responsive_blog_entry_display_masonry', get_theme_mod( 'responsive_display_masonry' ) );
+						}
 					}
 				}
 			}
 
 			if ( 'sidebar-content-page' === $responsive_options['blog_posts_index_layout_default'] ) {
-				! get_theme_mod( 'responsive_blog_sidebar_position' ) ? set_theme_mod( 'responsive_blog_sidebar_position', 'left' ) : '';
+				if ( ! get_theme_mod( 'responsive_blog_sidebar_position' ) ) {
+					set_theme_mod( 'responsive_blog_sidebar_position', 'default' ); 
+				}
 			}
+
 
 			if ( get_theme_mod( 'responsive_display_thumbnail_without_padding' ) ) {
 				! get_theme_mod( 'responsive_blog_entry_featured_image_style' ) ? set_theme_mod( 'responsive_blog_entry_featured_image_style', 'stretched' ) : '';
 			}
 
 			if ( 'sidebar-content-page' === $responsive_options['single_post_layout_default'] ) {
-				! get_theme_mod( 'responsive_single_blog_sidebar_position' ) ? set_theme_mod( 'responsive_single_blog_sidebar_position', 'left' ) : '';
+				if ( ! get_theme_mod( 'responsive_single_blog_sidebar_position' ) ) {
+					set_theme_mod( 'responsive_single_blog_sidebar_position', 'no' ); 
+				}
 			}
 
 			if ( 'full-width-page' === $responsive_options['single_post_layout_default'] ) {
-				! get_theme_mod( 'responsive_single_blog_sidebar_position' ) ? set_theme_mod( 'responsive_single_blog_sidebar_position', 'no' ) : '';
-				! get_theme_mod( 'responsive_single_blog_content_width' ) ? set_theme_mod( 'responsive_single_blog_content_width', 100 ) : '';
+				if ( ! get_theme_mod( 'responsive_single_blog_sidebar_position' ) ) {
+					set_theme_mod( 'responsive_single_blog_sidebar_position', 'no' ); 
+				}
+				if ( ! get_theme_mod( 'responsive_single_blog_content_width' ) ) {
+					set_theme_mod( 'responsive_single_blog_content_width', 100 );
+				}
 			}
 
+			// Static page layout defaults.
 			if ( 'sidebar-content-page' === $responsive_options['static_page_layout_default'] ) {
-				! get_theme_mod( 'responsive_single_blog_sidebar_position' ) ? set_theme_mod( 'responsive_single_blog_sidebar_position', 'left' ) : '';
+				if ( ! get_theme_mod( 'responsive_page_sidebar_position' ) ) {
+					set_theme_mod( 'responsive_page_sidebar_position', 'no' ); 
+				}
 			}
 
 			if ( 'full-width-page' === $responsive_options['static_page_layout_default'] ) {
-				! get_theme_mod( 'responsive_page_sidebar_position' ) ? set_theme_mod( 'responsive_page_sidebar_position', 'no' ) : '';
-				! get_theme_mod( 'responsive_page_content_width' ) ? set_theme_mod( 'responsive_page_content_width', 100 ) : '';
+				if ( ! get_theme_mod( 'responsive_page_sidebar_position' ) ) {
+					set_theme_mod( 'responsive_page_sidebar_position', 'no' ); 
+				}
+				if ( ! get_theme_mod( 'responsive_page_content_width' ) ) {
+					set_theme_mod( 'responsive_page_content_width', 100 );
+				}
 			}
+
 
 			if ( 'fullwidth-stretched' === $responsive_options['site_layout_option'] ) {
 				if ( '#ffffff' === get_theme_mod( 'responsive_box_background_color' ) ) {

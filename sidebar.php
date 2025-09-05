@@ -20,43 +20,63 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 Responsive\responsive_widgets_before(); // above widgets container hook.
+if ( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_checkout() ) ) {
 
-if ( ( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_checkout() ) ) ) {
+    $get_sidebar_position = function( $context, $default = 'no' ) {
+        $global = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
+        $value  = get_theme_mod( "responsive_{$context}_sidebar_position", $default );
+        return ( $value === 'default' ) ? $global : $value;
+    };
 
-	if ( ( ( ( is_page() && ! is_checkout() ) && ( is_page() && ! is_cart() ) ) && 'no' === get_theme_mod( 'responsive_page_sidebar_position', 'right' ) ) ||
-		( is_page() && 'no' === get_post_meta( get_the_ID(), 'responsive_page_meta_sidebar_position', true ) ) ||
-		( ( is_single() && ( ! is_woocommerce() && ! is_product() ) ) && 'no' === get_theme_mod( 'responsive_single_blog_sidebar_position', 'right' ) ) ||
-		( ( is_woocommerce() && is_product() ) && 'no' === get_theme_mod( 'responsive_single_product_sidebar_position', 'right' ) ) ||
-		( ( is_home() || is_search() || is_archive() && ( ! is_woocommerce() && ! is_shop() ) ) && 'no' === get_theme_mod( 'responsive_blog_sidebar_position', 'no' ) ) ||
-		( ( is_woocommerce() && is_shop() ) && 'no' === get_theme_mod( 'responsive_shop_sidebar_position', 'right' ) )
-	) {
-		return;
-	}
-	$responsive_options = Responsive\Core\responsive_get_options();
-	if ( ( 'no' === get_theme_mod( 'responsive_shop_sidebar_position', 'no' ) && ! is_product() ) || ( 'no' === get_theme_mod( 'responsive_single_product_sidebar_position', 'no' ) && is_product() ) ) {
-		return;
-	}
-	?>
-	<aside id="secondary" class="widget-area <?php echo esc_attr( implode( ' ', responsive_get_sidebar_classes() ) ); ?>" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
-		<?php dynamic_sidebar( 'responsive-woo-shop-sidebar' ); ?>
-	</aside>
-		<?php
+    if ( is_product() ) {
+        $sidebar_position = $get_sidebar_position( 'single_product' );
+    } elseif ( is_shop() ) {
+        $sidebar_position = $get_sidebar_position( 'shop' );
+    } elseif ( is_cart() ) {
+        $sidebar_position = $get_sidebar_position( 'cart' );
+    } elseif ( is_checkout() ) {
+        $sidebar_position = $get_sidebar_position( 'checkout' );
+    } else {
+        $sidebar_position = $get_sidebar_position( 'shop' ); // fallback
+    }
 
-} elseif ( class_exists( 'LifterLMS' ) ) {
+    if ( $sidebar_position === 'no' ) {
+        return;
+    }
+
+    ?>
+    <aside id="secondary"
+        class="widget-area <?php echo esc_attr( implode( ' ', responsive_get_sidebar_classes() ) ); ?>"
+        role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
+        <?php dynamic_sidebar( 'responsive-woo-shop-sidebar' ); ?>
+    </aside>
+    <?php
+}
+
+elseif ( class_exists( 'LifterLMS' ) ) {
 
 
 	if ( in_array( 'post-type-archive-course', get_body_class() ) || in_array( 'post-type-archive-llms_membership', get_body_class() ) ) {
 
 		return;
 	} else {
+		
+        $get_sidebar_position = function( $context, $default = 'no' ) {
+            $global = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
+            $value  = get_theme_mod( "responsive_{$context}_sidebar_position", $default );
+            return ( $value === 'default' ) ? $global : $value;
+        };
 
-		if ( ( is_page() && 'no' === get_theme_mod( 'responsive_page_sidebar_position', 'right' ) ) ||
-		( is_page() && 'no' === get_post_meta( get_the_ID(), 'responsive_page_meta_sidebar_position', true ) ) ||
-		( is_single() && 'no' === get_theme_mod( 'responsive_single_blog_sidebar_position', 'right' ) ) ||
-		( ( is_home() || is_search() || is_archive() ) && 'no' === get_theme_mod( 'responsive_blog_sidebar_position', 'no' ) )
-		) {
-			return;
-		}
+        if ( is_page() ) {
+            $meta_value = get_post_meta( get_the_ID(), 'responsive_page_meta_sidebar_position', true );
+            $sidebar_position = $meta_value ? $meta_value : $get_sidebar_position( 'page' );
+        } elseif ( is_single() ) {
+            $sidebar_position = $get_sidebar_position( 'single_blog' );
+        } elseif ( is_home() || is_search() || is_archive() ) {
+            $sidebar_position = $get_sidebar_position( 'blog' );
+        } else {
+            $sidebar_position = $get_sidebar_position( 'blog' );
+        }
 
 		?>
 				<aside id="secondary" class="main-sidebar widget-area <?php echo esc_attr( implode( ' ', responsive_get_sidebar_classes() ) ); ?>" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
@@ -76,10 +96,16 @@ if ( ( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_ch
 	}
 } else {
 
-	if ( ( is_page() && 'no' === get_theme_mod( 'responsive_page_sidebar_position', 'right' ) ) ||
-		( is_page() && 'no' === get_post_meta( get_the_ID(), 'responsive_page_meta_sidebar_position', true ) ) ||
-		( is_single() && 'no' === get_theme_mod( 'responsive_single_blog_sidebar_position', 'right' ) ) ||
-		( ( is_home() || is_search() || is_archive() ) && 'no' === get_theme_mod( 'responsive_blog_sidebar_position', 'no' ) )
+	$get_sidebar_position = function( $context, $default = 'no' ) {
+		$global = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
+		$value  = get_theme_mod( "responsive_{$context}_sidebar_position", $default );
+		return ( $value === 'default' ) ? $global : $value;
+	};
+
+	if (
+		( is_page() && 'no' === ( get_post_meta( get_the_ID(), 'responsive_page_meta_sidebar_position', true ) ?: $get_sidebar_position( 'page' ) ) ) ||
+		( is_single() && 'no' === $get_sidebar_position( 'single_blog' ) ) ||
+		( ( is_home() || is_search() || is_archive() ) && 'no' === $get_sidebar_position( 'blog' ) )
 	) {
 		return;
 	}
