@@ -272,12 +272,6 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		$responsive_logo_width  = 300;
 		$responsive_logo_height = 100;
 
-		// If the retina setting is active, double the recommended width and height.
-		if ( get_theme_mod( 'responsive_retina_logo', 0 ) ) {
-			$responsive_logo_width  = floor( $responsive_logo_width * 2 );
-			$responsive_logo_height = floor( $responsive_logo_height * 2 );
-		}
-
 		/**
 		 * Add support for core custom logo.
 		 *
@@ -415,6 +409,21 @@ if ( ! function_exists( 'responsive_css' ) ) {
 		}
 	}
 }
+
+/**
+ * Custom retina logo
+ */
+add_filter( 'get_custom_logo_image_attributes', function( $attr, $attachment_id, $size ) {
+    $retina_logo = get_theme_mod( 'responsive_retina_logo_image', '' );
+
+    if ( get_theme_mod( 'responsive_retina_logo', 0 ) && $retina_logo ) {
+        $attr['srcset'] = esc_url( wp_get_attachment_url( $attachment_id ) ) . ' 1x, ' . esc_url( $retina_logo ) . ' 2x';
+        unset( $attr['sizes'] ); // optional
+    }
+
+    return $attr;
+}, 10, 3 );
+
 
 /**
  * A safe way of adding JavaScripts to a WordPress generated page.
