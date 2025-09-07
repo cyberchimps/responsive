@@ -2409,6 +2409,14 @@ add_action( 'woocommerce_before_main_content', function() {
     }
 }, 20 );
 
+add_filter( 'body_class', function( $classes ) {
+    if ( is_shop() || is_product_taxonomy() ) {
+        $classes[] = 'shop-has-site-header';
+    } elseif ( is_product() ) {
+        $classes[] = 'single-product-has-site-header';
+    }
+    return $classes;
+});
 
 add_filter('woocommerce_breadcrumb_defaults', function ($defaults) {
     $class = 'woocommerce-breadcrumb';
