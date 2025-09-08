@@ -82,13 +82,9 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
 				);
 			}
             
-            function responsive_is_sidebar_active() {
-                $position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
-                return ( $position === 'left' || $position === 'right' );
-            }
             responsive_imageradio_button_control( $wp_customize, 'default_sidebar_position', $default_sidebar_label, 'responsive_sidebar', 10, $default_sidebar_choices, 'no', null, 'svg');
             $default_sidebar_width_label = esc_html__('Sidebar Width (%)', 'responsive');
-            responsive_drag_number_control( $wp_customize, 'default_sidebar_width',$default_sidebar_width_label, 'responsive_sidebar', 45, 30, 'responsive_is_sidebar_active' , 50, 15,'postMessage');
+            responsive_drag_number_control( $wp_customize, 'default_sidebar_width',$default_sidebar_width_label, 'responsive_sidebar', 45, 30, 'responsive_active_default_sidebar_position' , 50, 15,'postMessage');
 
 
             responsive_horizontal_separator_control($wp_customize, 'sidebar_typography_separator', 1, 'responsive_sidebar', 58, 1, );
