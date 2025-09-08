@@ -190,13 +190,27 @@ function responsive_customizer_styles() {
 		( $blog_sidebar_setting === 'default' ) ? $global_sidebar_position : $blog_sidebar_setting
 	);
 
-	$responsive_blog_archive_sidebar_width    = esc_html( get_theme_mod( 'responsive_blog_sidebar_width', 30 ) );
-	$blog_archive_primary_content_area_width  = 100 - $responsive_blog_archive_sidebar_width;
+	if($blog_sidebar_setting === 'left' || $blog_sidebar_setting === 'right')
+	{
+		$responsive_blog_archive_sidebar_width    = esc_html( get_theme_mod( 'responsive_blog_sidebar_width', 30 ) );
+		$blog_archive_primary_content_area_width  = 100 - $responsive_blog_archive_sidebar_width;
+	}
+	else if($blog_sidebar_setting === 'default')
+	{
+		$responsive_blog_archive_sidebar_width = esc_html( get_theme_mod( 'responsive_default_sidebar_width', 30) ); 
+		$blog_archive_primary_content_area_width  = 100 - $responsive_blog_archive_sidebar_width;
+	}
+	else 
+	{
+		$responsive_blog_archive_sidebar_width = 0; 
+		$blog_archive_primary_content_area_width  = 100;
+
+	}
 
 	$responsive_single_blog_sidebar_position = esc_html( get_theme_mod( 'responsive_single_blog_sidebar_position' ) );
 	if($responsive_single_blog_sidebar_position === 'default')
 	{
-		$responsive_single_blog_sidebar_width = esc_html(get_theme_mod('responsive_default_sidebar_width', 80));
+		$responsive_single_blog_sidebar_width = esc_html(get_theme_mod('responsive_default_sidebar_width', 30));
 	}
 	else 
 	{
