@@ -701,7 +701,7 @@ function responsive_add_custom_body_classes( $classes ) {
 
 			if ( ! $sidebar_position ) {
 				$global_sidebar_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
-				$page_sidebar_setting    = get_theme_mod( 'responsive_page_sidebar_position', 'default' );
+				$page_sidebar_setting    = get_theme_mod( 'responsive_page_sidebar_position', 'no' );
 
 				$sidebar_position = ( $page_sidebar_setting === 'default' ) ? $global_sidebar_position : $page_sidebar_setting;
 			}
@@ -731,7 +731,7 @@ function responsive_add_custom_body_classes( $classes ) {
 
 			// Single Blog sidebar Position.
 			$global_sidebar_position   = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
-			$single_blog_sidebar_value = get_theme_mod( 'responsive_single_blog_sidebar_position', 'default' );
+			$single_blog_sidebar_value = get_theme_mod( 'responsive_single_blog_sidebar_position', 'no' );
 
 			$classes[] = 'sidebar-position-' . (
 				$single_blog_sidebar_value === 'default' ? $global_sidebar_position : $single_blog_sidebar_value
@@ -772,7 +772,7 @@ function responsive_add_custom_body_classes( $classes ) {
 			if ( get_theme_mod( 'responsive_blog_layout', 'grid' ) === 'grid' ) {
 				$classes[] = 'blog-entry-columns-' . get_theme_mod( 'responsive_blog_entry_columns', get_responsive_customizer_defaults( 'entry_columns' ) ) . $masonry;
 			}
-			$get_sidebar_position = function( $context, $default = 'default' ) {
+			$get_sidebar_position = function( $context, $default = 'no' ) {
 				$global = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
 				$value  = get_theme_mod( "responsive_{$context}_sidebar_position", $default );
 				return ( $value === 'default' ) ? $global : $value;
@@ -2410,6 +2410,10 @@ add_action( 'woocommerce_before_main_content', function() {
 }, 20 );
 
 add_filter( 'body_class', function( $classes ) {
+	if(! class_exists( 'WooCommerce') )
+	{
+		return $classes;
+	}
     if ( is_shop() || is_product_taxonomy() ) {
         $classes[] = 'shop-has-site-header';
     } elseif ( is_product() ) {
