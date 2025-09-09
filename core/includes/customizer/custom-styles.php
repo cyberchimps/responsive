@@ -5608,6 +5608,9 @@ function responsive_customizer_styles() {
 		$tablet_tr							 = intval  ( get_theme_mod( 'responsive_shop_product_tablet_top_right_radius', 8)); 
 		$tablet_br 							 = intval  ( get_theme_mod( 'responsive_shop_product_tablet_bottom_right_radius', 8)); 
 		$tablet_bl							 = intval  ( get_theme_mod( 'responsive_shop_product_tablet_bottom_left_radius', 8)); 
+		$single_product_breadcrumbs_flag = get_theme_mod( 'responsive_single_product_breadcrumbs', 1 );
+		$single_product_breadcrumb_display_value     = $single_product_breadcrumbs_flag ? 'block' : 'none';
+
 		$mobile_breakpoint 					 = 544; 
 
 		if( $shop_sidebar_position === 'default')
@@ -5648,6 +5651,16 @@ function responsive_customizer_styles() {
 
 
 		$woocommerce_custom_css .= '<style id="responsive-product-radius">';
+
+		$woocommerce_custom_css .= sprintf(
+			'.woocommerce-breadcrumb.is-single-product {
+				display: %1$s;
+			}
+			body.single-product-has-site-header .site-content-header {
+				display: %1$s;
+			}',
+			$single_product_breadcrumb_display_value
+		);
 
 		/**
 		 * Desktop (≥992px)
