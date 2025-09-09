@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '6.2.3' );
+define( 'RESPONSIVE_THEME_VERSION', '6.2.4' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -1406,6 +1406,41 @@ if ( ! function_exists( 'responsive_theme_background_updater_6_2_3' ) ) {
 				set_theme_mod( 'responsive_footer_social_items', $footer_social );
 			}
 			$responsive_options['v6-2-3-backward-done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+
+if( ! function_exists( 'responsive_theme_background_updater_6_2_4') ) {
+	/**
+	 * Handle backward compatibility on version 6.2.4
+	 *
+	 * @since 6.2.4
+	 * @return void
+	 */
+	function responsive_theme_background_updater_6_2_4() {
+
+		$responsive_options = Responsive\Core\responsive_get_options();
+
+		if ( ! isset( $responsive_options['v6-2-4-backward-done'] ) ) {
+
+			// Get all saved theme mods.
+			// $all_mods = get_theme_mods();
+
+			/**
+			 * Check if 'page_sidebar_position' exists in saved mods.
+			 * - If it exists: user already set a value ('right', 'left', or 'no') → do nothing.
+			 * - If it does NOT exist: means old fallback 'right' was being used → set it explicitly.
+			 */
+			if ( 'right' === get_theme_mod( 'responsive_page_sidebar_position', 'right' ) ) {
+				set_theme_mod( 'responsive_page_sidebar_position', 'right' );
+			}
+			if ( 'right' === get_theme_mod( 'responsive_single_blog_sidebar_position', 'right' ) ) {
+				set_theme_mod( 'responsive_single_blog_sidebar_position', 'right' );
+			}
+
+			// Mark update as done
+			$responsive_options['v6-2-4-backward-done'] = true;
 			update_option( 'responsive_theme_options', $responsive_options );
 		}
 	}
