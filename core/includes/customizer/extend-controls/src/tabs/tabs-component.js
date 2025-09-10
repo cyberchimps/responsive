@@ -52,6 +52,7 @@ const TabsComponent = props => {
 
 		hideSidebarWidthControl( api('responsive_page_sidebar_position').get(), 'page' );
 		hideSidebarWidthControl( api('responsive_blog_sidebar_position').get(), 'blog' );
+		hideSidebarWidthControl( api('responsive_default_sidebar_position').get(), 'default');
 
 		api('responsive_page_sidebar_position', function( value ) {
 			value.bind( function( newval ) {
@@ -66,6 +67,13 @@ const TabsComponent = props => {
 					hideSidebarWidthControl(newval, 'blog');
 				}
 			});
+		});
+		api('responsive_default_sidebar_position', function( value ){
+			value.bind( function( newval ) {
+				if( newval ) {
+					hideSidebarWidthControl(newval, 'default');
+				}
+			})
 		});
 
 		if( api('responsive_footer_primary_row_top_border_size').get() > 0 && 'design' === tab ) {
@@ -287,19 +295,27 @@ const TabsComponent = props => {
 	}, [tab]);
 
 	const hideSidebarWidthControl = (value, control) => {
-		const controlId = `customize-control-responsive_${control}_sidebar_width`;
-		const controlElement = document.getElementById(controlId);
-		const isBlog = control === 'blog';
-		const isVisible = value !== 'no' && tab === 'general';
+    const controlId = `customize-control-responsive_${control}_sidebar_width`;
+    const controlElement = document.getElementById(controlId);
 
-		if (!controlElement) return;
+    if (!controlElement) return;
 
-		controlElement.style.display = 'none';
+    controlElement.style.display = 'none';
 
-		if (isVisible) {
-			controlElement.style.display = 'block';
-		}
-	};
+    let isVisible = false;
+    if (control === 'default') {
+        // For default sidebar: only hide when 'no'
+        isVisible = value !== 'no' && tab === 'general';
+    } else {
+        // For page/blog: hide when 'no' or 'default'
+        isVisible = value !== 'no' && value !== 'default' && tab === 'general';
+    }
+
+    if (isVisible) {
+        controlElement.style.display = 'block';
+    }
+};
+
 
 	return <>
 		<div className='responsive-component-tabs nav-tab-wrapper wp-clearfix' data-name={name}>
