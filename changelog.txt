@@ -8,6 +8,15 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(10/09/2025) Version 6.2.4
+[+] = New = Added ability to set up a Default Sidebar (position and width) in the Sidebar tab of Customizer
+[+] = New = Added Default Sidebar position option support across Blogs/Archives, Single Blogs, and Pages
+[+] = New = Added separate Breadcrumbs option for Single Product and Shop Page in WooCommerce
+[*] = Improvement = Renamed Product Options to Single Product in WooCommerce Customizer
+[*] = Improvement = Rearranged menu items in WooCommerce Customizer for better usability
+[!] = Fix = Made compatible with Jetpack's Related Post Feature
+
+
 (25/08/2025) Version 6.2.3
 [+] = New = Added Related Posts feature with ordering, excerpt control, read more toggle, typography, and color options in Customizer
 [*] = Improvement = Improved UX for Social Icons element in Header/Footer Builder by adding direct URL fields and removing dependency on Global Settings
