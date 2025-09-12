@@ -177,12 +177,18 @@ function responsive_customizer_styles() {
 	if($page_sidebar_setting === 'default')
 	{
 		$responsive_page_sidebar_width = esc_html(get_theme_mod('responsive_default_sidebar_width', 30)); 
+		$page_primary_content_area_width  = 100 - $responsive_page_sidebar_width;
+	}
+	else if( $page_sidebar_setting === 'left' || $page_sidebar_setting === 'right' )
+	{
+		$responsive_page_sidebar_width = esc_html(get_theme_mod('responsive_page_sidebar_width', 30)); 
+		$page_primary_content_area_width  = 100 - $responsive_page_sidebar_width;
 	}
 	else 
 	{
-		$responsive_page_sidebar_width = esc_html(get_theme_mod('responsive_page_sidebar_width', 30)); 
+		$responsive_page_sidebar_width = 0; 
+		$page_primary_content_area_width = 100;
 	}
-	$page_primary_content_area_width  = 100 - $responsive_page_sidebar_width;
 
 	$blog_sidebar_setting    = get_theme_mod( 'responsive_blog_sidebar_position', 'no' );
 
@@ -190,19 +196,44 @@ function responsive_customizer_styles() {
 		( $blog_sidebar_setting === 'default' ) ? $global_sidebar_position : $blog_sidebar_setting
 	);
 
-	$responsive_blog_archive_sidebar_width    = esc_html( get_theme_mod( 'responsive_blog_sidebar_width', 30 ) );
-	$blog_archive_primary_content_area_width  = 100 - $responsive_blog_archive_sidebar_width;
-
-	$responsive_single_blog_sidebar_position = esc_html( get_theme_mod( 'responsive_single_blog_sidebar_position' ) );
-	if($responsive_single_blog_sidebar_position === 'default')
+	if($blog_sidebar_setting === 'left' || $blog_sidebar_setting === 'right')
 	{
-		$responsive_single_blog_sidebar_width = esc_html(get_theme_mod('responsive_default_sidebar_width', 80));
+		$responsive_blog_archive_sidebar_width    = esc_html( get_theme_mod( 'responsive_blog_sidebar_width', 30 ) );
+		$blog_archive_primary_content_area_width  = 100 - $responsive_blog_archive_sidebar_width;
+	}
+	else if($blog_sidebar_setting === 'default')
+	{
+		$responsive_blog_archive_sidebar_width = esc_html( get_theme_mod( 'responsive_default_sidebar_width', 30) ); 
+		$blog_archive_primary_content_area_width  = 100 - $responsive_blog_archive_sidebar_width;
 	}
 	else 
 	{
-		$responsive_single_blog_sidebar_width = esc_html(get_theme_mod('responsive_single_blog_sidebar_width', 30)); 
+		$responsive_blog_archive_sidebar_width = 0; 
+		$blog_archive_primary_content_area_width  = 100;
+
 	}
-	$single_blog_primary_content_area_width  = 100 - $responsive_single_blog_sidebar_width;
+
+	$single_blog_sidebar_setting = get_theme_mod('responsive_single_blog_sidebar_position', 'no');
+
+	$responsive_single_blog_sidebar_position = esc_html(
+		( $single_blog_sidebar_setting === 'default' ) ? $global_sidebar_position : $single_blog_sidebar_setting 
+	);
+
+	if($single_blog_sidebar_setting === 'default')
+	{
+		$responsive_single_blog_sidebar_width = esc_html(get_theme_mod('responsive_default_sidebar_width', 30));
+		$single_blog_primary_content_area_width  = 100 - $responsive_single_blog_sidebar_width;
+	}
+	else if($single_blog_sidebar_setting === 'left' || $single_blog_sidebar_setting === 'right' )
+	{
+		$responsive_single_blog_sidebar_width = esc_html(get_theme_mod('responsive_single_blog_sidebar_width', 30)); 
+		$single_blog_primary_content_area_width  = 100 - $responsive_single_blog_sidebar_width;
+	}
+	else 
+	{
+		$responsive_single_blog_sidebar_width = 0; 
+		$single_blog_primary_content_area_width = 100;
+	}
 
 	$box_background_color = esc_html( get_theme_mod( 'responsive_box_background_color', Responsive\Core\get_responsive_customizer_defaults( 'box_background' ) ) );
 	$box_background_gradient_color = esc_html( get_theme_mod( 'responsive_box_background_gradient_color', Responsive\Core\get_responsive_customizer_defaults( 'background_gradient_color' ) ) );
@@ -5562,11 +5593,6 @@ function responsive_customizer_styles() {
 		$add_to_cart_button_text_color       = esc_html( get_theme_mod( 'responsive_add_to_cart_button_text_color', '#ffffff' ) );
 		$add_to_cart_button_hover_color      = esc_html( get_theme_mod( 'responsive_add_to_cart_button_hover_color', '#10659C' ) );
 		$add_to_cart_button_hover_text_color = esc_html( get_theme_mod( 'responsive_add_to_cart_button_hover_text_color', '#ffffff' ) );
-		
-		$shop_sidebar_setting  = get_theme_mod( 'responsive_shop_sidebar_position', 'no' );
-		$global_sidebar        = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
-		$shop_sidebar_position = esc_html( $shop_sidebar_setting === 'default' ? $global_sidebar : $shop_sidebar_setting );
-		
 		$shop_sidebar_position               = esc_html( get_theme_mod( 'responsive_shop_sidebar_position', 'no' ) );
 		$single_product_sidebar_position     = esc_html( get_theme_mod( 'responsive_single_product_sidebar_position', 'no' ) );
 		$product_bg_color 					 = esc_html( get_theme_mod( 'responsive_shop_product_background_color', '#ffffff'));
@@ -5582,20 +5608,36 @@ function responsive_customizer_styles() {
 		$tablet_tr							 = intval  ( get_theme_mod( 'responsive_shop_product_tablet_top_right_radius', 8)); 
 		$tablet_br 							 = intval  ( get_theme_mod( 'responsive_shop_product_tablet_bottom_right_radius', 8)); 
 		$tablet_bl							 = intval  ( get_theme_mod( 'responsive_shop_product_tablet_bottom_left_radius', 8)); 
+		$single_product_breadcrumbs_flag = get_theme_mod( 'responsive_single_product_breadcrumbs', 1 );
+		$single_product_breadcrumb_display_value     = $single_product_breadcrumbs_flag ? 'block' : 'none';
+
 		$mobile_breakpoint 					 = 544; 
 
-		if( $shop_sidebar_setting === 'default')
+		if( $shop_sidebar_position === 'default')
 		{
 			$shop_sidebar_width = esc_html( get_theme_mod('responsive_default_sidebar_width',30)); 
 		}
-		else 
+		else if( $shop_sidebar_position !== 'no')
 		{
 			$shop_sidebar_width = esc_html( get_theme_mod('responsive_shop_sidebar_width', 30));
 		}
+		else 
+		{
+			$shop_sidebar_width = 0;
+		}
+
 		$woocommerce_custom_css .= "
-			 #secondary.widget-area {
-            width: {$shop_sidebar_width}%;
-        }
+			/* Default: 100% width for mobile & tablet */
+			#secondary.widget-area {
+				width: 100%;
+			}
+
+			/* Laptops and above */
+			@media (min-width: 992px) {
+				#secondary.widget-area {
+					width: {$shop_sidebar_width}%;
+				}
+			}
 		";
 		
 		$woocommerce_custom_css .= '<style id="responsive-live-preview">';
@@ -5609,6 +5651,16 @@ function responsive_customizer_styles() {
 
 
 		$woocommerce_custom_css .= '<style id="responsive-product-radius">';
+
+		$woocommerce_custom_css .= sprintf(
+			'.woocommerce-breadcrumb.is-single-product {
+				display: %1$s;
+			}
+			body.single-product-has-site-header .site-content-header {
+				display: %1$s;
+			}',
+			$single_product_breadcrumb_display_value
+		);
 
 		/**
 		 * Desktop (≥992px)
