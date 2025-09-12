@@ -18,12 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Globalize Theme options
- */
-global $responsive_options;
-$responsive_options = Responsive\Core\responsive_get_options();
-
-/**
  * Get content classes
  */
 function responsive_get_content_classes() {

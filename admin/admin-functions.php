@@ -37,7 +37,7 @@ add_action( 'admin_enqueue_scripts', 'responsive_admin_scripts' );
  * Responsive_enqueue_notices_handler.
  */
 function responsive_enqueue_notices_handler() {
-	wp_register_script( 'responsive-plugin-notices-handler', trailingslashit( get_template_directory_uri() ) . '/admin/js/notices.js', array( 'jquery' ), true, RESPONSIVE_THEME_VERSION );
+	wp_register_script( 'responsive-plugin-notices-handler', trailingslashit( get_template_directory_uri() ) . '/admin/js/notices.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
 	wp_localize_script(
 		'responsive-plugin-notices-handler',
 		'dismissNotices',
@@ -62,11 +62,14 @@ function responsive_welcome_banner_notice() {
 	if ( isset( $_GET['page'] ) && 'responsive' === $_GET['page'] ) {
 		return;
 	}
+	if( is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) ) {
+		return;
+	}
 	if ( '1' !== get_option( 'responsive-readysite-promotion' ) ) {
 		?>
 
 	<?php echo Responsive_Plugin_Install_Helper::instance()->get_rateus_content( 'responsive-add-ons' ); //phpcs:ignore ?>
-	<div class="postbox responsive-sites-active" id="responsive-sites-active">
+	<div class="notice postbox responsive-sites-active" id="responsive-sites-active">
 		<div class="responsive-banner-outer-container">
 			<div class="responisve-addons-banner-header">
 				<div class="responsive-notice-image">
@@ -90,7 +93,7 @@ function responsive_welcome_banner_notice() {
 		</div>			
 			
 			<button type="button" class="notice-dismiss"></button>
-		</div>
+	</div>
 	<?php echo Responsive_Plugin_Install_Helper::instance()->get_rateus_end_content( 'responsive-add-ons' ); //phpcs:ignore
 	}
 }

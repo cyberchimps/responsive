@@ -60,11 +60,6 @@ function setup() {
 	require_once trailingslashit( get_template_directory() ) . '/core/includes/theme-updates/class-responsive-theme-background-updater.php';
 }
 
-/*
- * Globalize Theme options
- */
-$responsive_options = responsive_get_options();
-
 /** Function to load controls */
 function responsive_load_customize_controls() {
 
@@ -394,7 +389,6 @@ if ( ! function_exists( 'responsive_css' ) ) {
 	function responsive_css() {
 		$theme              = wp_get_theme();
 		$responsive         = wp_get_theme( 'responsive' );
-		$responsive_options = responsive_get_options();
 		$suffix             = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 		if ( is_rtl() ) {
 			$suffix = '-rtl' . $suffix;
@@ -682,7 +676,7 @@ function responsive_add_custom_body_classes( $classes ) {
 	$classes[] = 'site-content-header-alignment-' . get_theme_mod( 'responsive_content_header_alignment', get_responsive_customizer_defaults( 'breadcrumb_alignment' ) );
 
 	// Custom Homepage Class class.
-	$responsive_options = responsive_get_options();
+	global $responsive_options;
 	if ( is_front_page() && $responsive_options['front_page'] ) {
 		$classes[] = 'custom-home-page-active';
 	}

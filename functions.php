@@ -289,8 +289,6 @@ function responsive_free_setup() {
 }
 add_action( 'after_setup_theme', 'responsive_free_setup' );
 
-$responsive_options = Responsive\Core\responsive_get_options();
-
 /**
  * Edit Customize Register
  *
@@ -598,7 +596,6 @@ if ( ! function_exists( 'responsive_page_featured_image' ) ) :
 	 */
 	function responsive_page_featured_image() {
 		// check if the page has a Post Thumbnail assigned to it.
-		$responsive_options = Responsive\Core\responsive_get_options();
 		if ( has_post_thumbnail() ) {
 			?>
 						<div class="featured-image">
@@ -623,7 +620,6 @@ if ( ! function_exists( 'responsive_exclude_post_cat' ) ) :
 	 * @param  object $query Query.
 	 */
 	function responsive_exclude_post_cat( $query ) {
-		$responsive_options = Responsive\Core\responsive_get_options();
 		$cat                = get_theme_mod( 'exclude_post_cat' );
 
 		if ( $cat && ! is_admin() && $query->is_main_query() ) {
