@@ -430,7 +430,6 @@
 
     //All Heading text Color
     api( 'responsive_all_heading_text_color', function( value ) {
-        console.log("Updating all headers");
         value.bind( function( newval ) {
             $('h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6').css('color', newval );
             
@@ -458,7 +457,6 @@
 
     //H1 text Color
     api( 'responsive_h1_text_color', function( value ) {
-        console.log("Updating h1");
         value.bind( function( newval ) {
             $('h1').css('color', newval );
         } );

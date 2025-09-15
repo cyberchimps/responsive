@@ -1604,3 +1604,30 @@ body.rtl .customize-control .responsive-switchers li {
 .responsive-palette-edit-icon:hover svg path {
 	stroke: #0073aa;
 }
+
+/* Reset button for color controls */
+.responsive-color-reset-btn {
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 4px;
+	margin-left: 8px;
+	border-radius: 3px;
+	transition: all 0.2s ease;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.responsive-color-reset-btn:hover {
+	background-color: #f0f0f1;
+}
+
+.responsive-color-reset-btn:hover svg path {
+	fill: #0073aa;
+}
+
+.responsive-color-reset-btn:focus {
+	outline: 1px solid #0073aa;
+	outline-offset: 2px;
+}
