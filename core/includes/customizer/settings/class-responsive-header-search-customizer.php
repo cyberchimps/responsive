@@ -46,6 +46,10 @@ if ( ! class_exists( 'Responsive_Header_Search_Customizer' ) ) :
 				$general_tab_ids_prefix . 'responsive_header_search_separator1',
 				$general_tab_ids_prefix . 'responsive_header_search_separator2',
 				$general_tab_ids_prefix . 'responsive_header_search_separator3',
+				$general_tab_ids_prefix . 'responsive_header_search_enable_live_search',
+				$general_tab_ids_prefix . 'responsive_header_search_separator15',
+				$general_tab_ids_prefix . 'responsive_header_search_live_search_post_type',
+				$general_tab_ids_prefix . 'responsive_header_search_separator16'
 			);
 			$design_tab_ids_prefix = 'customize-control-';
 			$design_tab_ids        = array(
@@ -164,6 +168,31 @@ if ( ! class_exists( 'Responsive_Header_Search_Customizer' ) ) :
 					)
 				)
 			);
+
+			responsive_horizontal_separator_control($wp_customize, 'header_search_separator15', 1, 'responsive_header_search', 42, 1 );
+
+			$live_search_toggle_label = __( 'Live Search', 'responsive' );
+			responsive_toggle_control( 
+				$wp_customize, 
+				'header_search_enable_live_search', 
+				$live_search_toggle_label, 
+				'responsive_header_search', 
+				45, 
+				0, 
+				null,
+				'refresh',
+				'Note: Live Search does not work with Full Screen search type.'
+			);
+
+			responsive_horizontal_separator_control($wp_customize, 'header_search_separator16', 1, 'responsive_header_search', 46, 1 );
+
+			// Search Label Visibility.
+			$live_search_post_type   = esc_html__( 'Search Within Post Types', 'responsive' );
+			$live_search_post_type_choices = array(
+				'pages'   => esc_html__( 'Pages', 'responsive' ),
+				'posts'    => esc_html__( 'Posts', 'responsive' ),
+			);
+			responsive_multi_select_button_control( $wp_customize, 'header_search_live_search_post_type', $live_search_post_type, 'responsive_header_search', 47, $live_search_post_type_choices, array( 'pages', 'posts' ) , null );
 
 			// Search Style.
 			$search_style_label   = esc_html__( 'Search Style', 'responsive' );

@@ -11,7 +11,7 @@ if( ! defined( 'ABSPATH' ) ) {
 }
 
 require get_template_directory() . '/core/includes/template-functions/header-functions.php';
-require get_template_directory() . '/core/includes/template-functions/footer-functions.php';
+require get_template_directory() . '/core/includes/builder/class-responsive-builder-footer.php';
 
 /**
  * Responsive Header.
@@ -39,42 +39,31 @@ add_action( 'responsive_header_social', 'responsive_get_social_icons' );
  */
 add_action( 'responsive_render_header_column', 'header_column', 10, 2 );
 
-/**
- * Main Call for responsive footer
- *
- * @see footer_markup();
- */
-add_action( 'responsive_footer', 'footer_markup' );
-
-/**
- * Footer Above Row
- *
- * @see above_footer();
- */
-add_action( 'responsive_above_footer', 'above_footer' );
-
-/**
- * Footer Primary Row
- *
- * @see primary_footer()
- */
-add_action( 'responsive_primary_footer', 'primary_footer' );
-
-/**
- * Footer Below Row
- *
- * @see below_footer()
- */
-add_action( 'responsive_below_footer', 'below_footer' );
-
-/**
- * Footer Column
- *
- * @see footer_column()
- */
-add_action( 'responsive_render_footer_column', 'footer_column', 10, 2 );
-
-add_action( 'responsive_footer_social', 'responsive_get_social_icons' );
-
 // Load Cart Flyout Markup on Footer.
 add_action( 'responsive_footer_before', 'responsive_header_woo_cart_slide_in' );
+
+add_action( 'resposive_entry_content_404_page', 'resposive_entry_content_404_page_template', 10 );
+
+function resposive_entry_content_404_page_template() {
+   ?>
+      <div class="<?php echo esc_attr( join( ' ', apply_filters( 'responsive_404_class', array( 'row' ) ) ) ); ?>">
+         <?php Responsive\responsive_in_wrapper(); // wrapper hook. ?>
+         <main id="primary" class="content-area grid col-940" <?php responsive_schema_markup( 'main' ); ?> role="main">
+            <?php get_template_part( 'loop-header', get_post_type() ); ?>
+            <?php Responsive\responsive_entry_before(); ?>
+            <section id="post-0" class="error404 hentry">
+               <?php Responsive\responsive_entry_top(); ?>
+
+               <div class="post-entry">
+                     <?php get_template_part( 'loop-no-posts', get_post_type() ); ?>
+               </div><!-- end of .post-entry -->
+
+               <?php Responsive\responsive_entry_bottom(); ?>
+            </section><!-- end of #post-0 -->
+            <?php Responsive\responsive_entry_after(); ?>
+
+         </main><!-- end of #content-full -->
+         <?php get_sidebar(); ?>
+      </div>
+   <?php
+}

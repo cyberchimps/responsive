@@ -46,7 +46,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 					array(
 						'title'    => esc_html__( 'Cart Options', 'responsive' ),
 						'panel'    => 'woocommerce',
-						'priority' => 130,
+						'priority' => 4,
 					)
 				);
 

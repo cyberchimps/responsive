@@ -65,6 +65,46 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 					if (is_array($exclude_ids) && !in_array($post_id, $exclude_ids)) {
 ?>
 						<?php
+						$text_color       = get_theme_mod( 'responsive_rp_text_color', get_theme_mod( 'responsive_body_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_body_text_color' ) ) );
+						$text_hover_color = get_theme_mod( 'responsive_rp_text_hover_color', get_theme_mod( 'responsive_body_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_body_text_color' ) ) );
+						$link_color       = get_theme_mod( 'responsive_rp_link_color', get_theme_mod( 'responsive_link_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_link_color' ) ) );
+						$link_hover_color = get_theme_mod( 'responsive_rp_link_hover_color', get_theme_mod( 'responsive_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_link_hover_color' ) ) );
+						$meta_color       = get_theme_mod( 'responsive_rp_meta_color', get_theme_mod( 'responsive_meta_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_meta_text' ) ) );
+						$meta_hover_color = get_theme_mod( 'responsive_rp_meta_hover_color', get_theme_mod( 'responsive_meta_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_meta_text' ) ) );
+
+						echo '<style>
+						.responsive-single-related-posts-container,
+						.responsive-single-related-posts-container p,
+						.responsive-single-related-posts-container .entry-content {
+							color: ' . esc_attr( $text_color ) . ';
+						}
+						.responsive-single-related-posts-container:hover,
+						.responsive-single-related-posts-container p:hover,
+						.responsive-single-related-posts-container .entry-content:hover {
+							color: ' . esc_attr( $text_hover_color ) . ';
+						}
+						.responsive-single-related-posts-container a {
+							color: ' . esc_attr( $link_color ) . ';
+						}
+						.responsive-single-related-posts-container a:hover {
+							color: ' . esc_attr( $link_hover_color ) . ';
+						}
+						.responsive-single-related-posts-container .post-meta span,
+						.responsive-single-related-posts-container .post-meta span i,
+						.responsive-single-related-posts-container .post-meta span a ,
+						.responsive-single-related-posts-container .post-meta span a time,
+						.responsive-single-related-posts-container .entry-meta {
+							color: ' . esc_attr( $meta_color ) . ';
+						}
+						.responsive-single-related-posts-container .post-meta span:hover,
+						.responsive-single-related-posts-container .post-meta span i:hover,
+						.responsive-single-related-posts-container .post-meta span a:hover ,
+						.responsive-single-related-posts-container .post-meta span a time:hover,
+						.responsive-single-related-posts-container .entry-meta:hover {
+							color: ' . esc_attr( $meta_hover_color ) . ';
+						}
+						</style>';
+
 						if (false === $related_single_posts_section_loaded) {
 							echo '<div class="responsive-single-related-posts-container">';
 
@@ -114,12 +154,14 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 		 */
 		public function responsive_single_blog_get_related_posts_by_query($post_id)
 		{
+			$orderby                          = get_theme_mod( 'rp_orderby', 'date' );
+			$order                            = get_theme_mod( 'responsive_rp_order', 'desc');
 			$term_ids                         = array();
 			$current_post_type                = get_post_type($post_id);
 			$related_single_posts_total_count = absint(get_theme_mod('responsive_single_blog_related_posts_count', 2));
 			$updated_related_single_posts_total_count = $related_single_posts_total_count + 1;
-			$related_single_posts_order_by    = 'date';
-			$related_single_posts_order       = 'desc';
+			$related_single_posts_order_by    = $orderby;
+			$related_single_posts_order       = $order;
 			$related_single_posts_based_on    = get_theme_mod('responsive_single_blog_related_posts_taxonomy', 'category');
 
 			$query_args = array(
@@ -245,9 +287,9 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 				if ('meta' == $section) {
 					$this->responsive_get_related_single_post_meta_data($current_post_id);
 				}
-				if ('excerpt' == $section) {
-					$this->responsive_get_related_single_post_excerpt($current_post_id);
-				}
+			}
+			if ( get_theme_mod( 'responsive_rp_enable_excerpt', 0 ) ) {
+				$this->responsive_get_related_single_post_excerpt($current_post_id);
 			}
 
 			do_action('responsive_after_related_single_post_structure');
@@ -384,13 +426,17 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 		public function responsive_get_related_single_post_excerpt($current_post_id)
 		{
 
+			if ( ! get_theme_mod( 'responsive_rp_enable_excerpt', 0 ) ) {
+				return;
+			}
+
 			$related_single_posts_content_type = apply_filters('responsive_related_single_posts_content_type', 'excerpt');
 
 			if ('full-content' === $related_single_posts_content_type) {
 				return the_content();
 			}
-			$excerpt_length = apply_filters('responsive_related_single_posts_excerpt_count', 25);
-			$excerpt_length = absint($excerpt_length);
+
+			$excerpt_length = absint(get_theme_mod( 'responsive_rp_excerpt_length', 25 ));
 
 			$excerpt = wp_trim_words(get_the_excerpt(), $excerpt_length);
 
@@ -405,7 +451,14 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 		?>
 			<p class="responsive-related-single-post-excerpt entry-content clear">
 				<?php echo wp_kses_post($excerpt); ?>
-			</p>
+		        <?php
+				if ( 1 === get_theme_mod( 'responsive_rp_read_more', 0 ) ) : ?>
+				<a href="<?php the_permalink(); ?>" class="read-more-button">
+					<?php esc_html_e( 'Read More', 'responsive' ); ?>
+				</a>
+			<?php
+			endif; ?>
+						</p>
 <?php
 
 			do_action('responsive_related_single_post_after_excerpt', $current_post_id);

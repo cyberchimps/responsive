@@ -604,6 +604,7 @@ body.mega-menu-header-menu button.menu-toggle {
 	.res-search-wrapper {
 		display: flex;
         flex-grow: 1;
+        position: relative;
 		.res-search-icon.icon-search {
 			position: absolute;
 			top: 10px;
@@ -1310,5 +1311,46 @@ body.mega-menu-header-menu button.menu-toggle {
             flex-direction: row-reverse;
             gap: 10px;
         }
+    }
+}
+
+.live-search-results {
+    display: flex;
+    flex-direction: column;
+	top: 40px;
+	right: 0;
+	position: absolute;
+	background: #fff;
+	border: 1px solid #ddd;
+	width: 100%;
+	z-index: 999;
+	max-height: 0;
+	opacity: 0;
+	transition: max-height 0.3s ease, opacity 0.3s ease;
+	box-sizing: border-box;
+
+	&.active {
+		max-height: 500px;
+        height: auto;
+		opacity: 1;
+	}
+
+    .live-search-section-title {
+        margin-bottom: 0px;
+        margin-top: 0px;
+        text-transform: capitalize;
+        padding: 16px 16px 10px;
+        color: #333333;
+        font-size: 14px;
+    }
+
+    .live-search-section-title.posts {
+        border-top: 1px solid #cccccc;
+    }
+
+    .live-search-result-link {
+        color: #0066CC;
+        font-size: 0.9em;
+        padding: 10px 20px;
     }
 }

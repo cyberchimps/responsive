@@ -220,13 +220,13 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
 
-			if ( class_exists( 'Responsive_Addons_Pro' ) ) {
-				$breadcrumb_flag = get_theme_mod( 'breadcrumbs_options', 1 );
-				if ( ! $breadcrumb_flag ) {
+			// if ( class_exists( 'Responsive_Addons_Pro' ) ) {
+				$single_product_breadcrumb_flag = get_theme_mod( 'responsive_single_product_breadcrumbs', 1 );
+				if ( ! $single_product_breadcrumb_flag ) {
 					remove_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 10 );
 					add_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 10 );
 				}
-			}
+			// }
 
 			/* Add single product content */
 			add_action( 'woocommerce_single_product_summary', array( $this, 'single_product_content_structure' ), 10 );
@@ -382,23 +382,26 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		 */
 		public function add_body_class( $classes ) {
 
+
 			if ( is_woocommerce() && is_product() ) {
-				// Single Product Page sidebar Position.
+				// Single Product Page
 				$classes[] = 'sidebar-position-' . get_theme_mod( 'responsive_single_product_sidebar_position', 'no' );
 				$classes[] = 'product-gallery-layout-' . get_theme_mod( 'responsive_single_product_gallery_layout', 'horizontal' );
 			}
 
 			if ( ( is_woocommerce() && is_shop() ) || is_cart() || is_checkout() || is_product_category() ) {
-				// Product catalog Page sidebar Position.
+				// Shop / Catalog Pages
 				$classes[] = 'sidebar-position-' . get_theme_mod( 'responsive_shop_sidebar_position', 'no' );
 				$classes[] = 'responsive-catalog-view-' . get_theme_mod( 'responsive_woocommerce_catalog_view', 'grid' );
 			}
 
+			// Global WooCommerce styling
 			$classes[] = 'product-sale-style-' . get_theme_mod( 'responsive_product_sale_style', 'circle' );
 			$classes[] = 'product-content-aligmnment-' . get_theme_mod( 'responsive_product_content_aligmnment', 'center' );
 
 			return $classes;
 		}
+
 
 		/**
 		 * Store widgets init

@@ -434,6 +434,8 @@ function responsive_get_social_icons( $area ) {
                 'icon' => 'facebook',
                 'label' => 'Facebook',
                 'svg' => '',
+				'link' => '',
+				'newTab' => false,
             ),
             array(
                 'id' => 'twitter',
@@ -445,6 +447,8 @@ function responsive_get_social_icons( $area ) {
                 'icon' => 'twitterAlt2',
                 'label' => 'X',
                 'svg' => '',
+				'link' => '',
+				'newTab' => false,
             ),
             array(
                 'id' => 'instagram',
@@ -456,17 +460,11 @@ function responsive_get_social_icons( $area ) {
                 'icon' => 'instagramAlt',
                 'label' => 'Instagram',
                 'svg' => '',
+				'link' => '',
+				'newTab' => false,
             ),
         ),
     );
-
-	$count = 0;
-
-	foreach ( $icons as $key => $value ) {
-		if ( ! empty( $responsive_options[ $key . '_uid' ] ) ) {
-			$count++;
-		}
-	}
 	
 	$social = '_header' === $area ? get_theme_mod( 'responsive_header_social_items' ) : get_theme_mod( 'responsive_footer_social_items' ) ;
 
@@ -481,7 +479,7 @@ function responsive_get_social_icons( $area ) {
 		foreach ( $social_items as $social_item ) {
 			$social_icons_sequence[] = $social_item['id'];
 		}
-		if ( $count > 0 ) {
+
 			require get_template_directory() . '/core/includes/responsive-icon-library.php'
 			?>
 			<div class="<?php echo '_header' === $area ? 'header' : 'footer'?>-layouts social-icon">
@@ -504,9 +502,11 @@ function responsive_get_social_icons( $area ) {
 								$icon_type = $social_item['icon'];
 								$icon_label = $social_item['label'];
 								$icon_width = $social_item['width'];
+								$icon_link = esc_url( $social_item['link'] );
+								$icon_link_openat = $social_item['newTab'] ? '_blank' : '_self';
 							}
 						}
-						if ( ! empty( $responsive_options[ $key . '_uid' ] ) ) {
+
 							$use_brand_colors = get_theme_mod( 'responsive' . $area . '_social_item_use_brand_colors', 'no' );
 							$brand_color = '';
 							$brand_svg = '';
@@ -523,7 +523,7 @@ function responsive_get_social_icons( $area ) {
 							}
 							?>
 							<li class="responsive-social-icon responsive-social-icon-<?php echo esc_html( $key ); ?>">
-								<a class="responsive-social-icon-anchor<?php echo $brand_color; ?>" aria-label=<?php echo esc_attr( $key ); ?> title=<?php echo esc_attr( $key ); ?> href="<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target=<?php echo esc_attr( $target_social_link ); ?> <?php responsive_schema_markup( 'url' ); ?>>
+								<a class="responsive-social-icon-anchor<?php echo $brand_color; ?>" aria-label=<?php echo esc_attr( $key ); ?> title=<?php echo esc_attr( $key ); ?> href="<?php echo $icon_link; ?>" target=<?php echo esc_attr( $icon_link_openat ); ?> <?php responsive_schema_markup( 'url' ); ?>>
 									<?php
 
 										if ( 'icon' === $icon_source ) {
@@ -564,12 +564,12 @@ function responsive_get_social_icons( $area ) {
 								</a>
 							</li>
 							<?php
-						}
+
 					}
 					?>
 				</ul>
 			</div>
 			<?php
-		}
+
 	}
 }

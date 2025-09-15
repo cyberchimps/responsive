@@ -36,9 +36,9 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 			$wp_customize->add_section(
 				'responsive_woocommerce_single_product_layout',
 				array(
-					'title'    => esc_html__( 'Product  Options', 'responsive' ),
+					'title'    => esc_html__( 'Single Product', 'responsive' ),
 					'panel'    => 'woocommerce',
-					'priority' => 115,
+					'priority' => 2,
 				)
 			);
 
@@ -55,6 +55,9 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				$general_tab_ids_prefix . 'responsive_single_product_floating_bar_separator',
 				$general_tab_ids_prefix . 'responsive_single_product_floating_bar',
 				$general_tab_ids_prefix . 'responsive_single_product_image_width',
+				$general_tab_ids_prefix . 'responsive_single_product_breadcrumbs',
+				$general_tab_ids_prefix . 'responsive_single_product_sidebar_position',
+				$general_tab_ids_prefix . 'responsive_single_product_sidebar_separator'
 			);
 
 
@@ -93,25 +96,35 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 			$single_product_content_width_label = esc_html__( 'Main Content Width (%)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'single_product_content_width', $single_product_content_width_label, 'responsive_woocommerce_single_product_layout', 20, 100, null, 100, 1, 'postMessage' );
 
+			// Sidebar Options Heading.
+			$single_product_sidebar_heading = esc_html__( 'Sidebar Layout', 'responsive' );
+			responsive_separator_control( $wp_customize, 'single_product_sidebar_separator', $single_product_sidebar_heading, 'responsive_woocommerce_single_product_layout', 65);
+
 			// Sidebar Position.
-			$sidebar_label   = esc_html__( 'Single Product Sidebar Position', 'responsive' );
+			$sidebar_label   = esc_html__( 'Sidebar Position', 'responsive' );
 			$sidebar_choices = array(
-				'left'  => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
-				'right' => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
-				'no'    => esc_html__( 'dashicons-hidden', 'responsive' ),
+				'left'  => esc_html__( 'Left', 'responsive' ),
+				'right' => esc_html__( 'Right', 'responsive' ),
+				'no'    => esc_html__( 'No Sidebar', 'responsive' ),
 			);
+
 			if ( is_rtl() ) {
 				$sidebar_choices = array(
-					'left'  => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
-					'right' => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
-					'no'    => esc_html__( 'dashicons-hidden', 'responsive' ),
+					'left'  => esc_html__( 'Left', 'responsive' ),
+					'right' => esc_html__( 'Right', 'responsive' ),
+					'no'    => esc_html__( 'No Sidebar', 'responsive' ),
 				);
 			}
-			responsive_select_button_control( $wp_customize, 'single_product_sidebar_position', $sidebar_label, 'responsive_sidebar_layout', 60, $sidebar_choices, 'no', null );
+
+			responsive_imageradio_button_control( $wp_customize, 'single_product_sidebar_position', $sidebar_label, 'responsive_woocommerce_single_product_layout', 66, $sidebar_choices, 'no', null, 'svg' );
 
 			// Product Elements.
 			$single_product_elements_label = esc_html__( 'Product Elements', 'responsive' );
 			responsive_separator_control( $wp_customize, 'single_product_elements_separator', $single_product_elements_label, 'responsive_woocommerce_single_product_layout', 40 );
+
+			// Breadcrumbs toggle for Single Product pages.
+			$single_product_breadcrumbs_label = esc_html__( 'Breadcrumbs', 'responsive' );
+			responsive_toggle_control($wp_customize, 'single_product_breadcrumbs', $single_product_breadcrumbs_label, 'responsive_woocommerce_single_product_layout', 45, 1, null);
 
 			// Gallery Layout.
 			$single_product_gallery_layout_label   = esc_html__( 'Gallery Layout', 'responsive' );

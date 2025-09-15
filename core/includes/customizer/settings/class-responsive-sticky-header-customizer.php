@@ -46,13 +46,46 @@ if ( ! class_exists( 'Responsive_Sticky_Header_Customizer' ) ) :
 				 * Menu Layouts.
 				 */
 				$wp_customize->add_section(
-					'responsive_header_sticky_menu_layout',
+					'responsive_sticky_header_menu',
 					array(
 						'title'    => __( 'Sticky Header', 'responsive' ),
 						'panel'    => 'responsive_header',
 						'priority' => 27,
 					)
 				);
+
+				// Adding General and Design tabs
+				$tabs_label            = esc_html__( 'Tabs', 'responsive' );
+
+				$general_tab_ids_prefix = 'customize-control-';
+				$general_tab_ids        = array(
+					$general_tab_ids_prefix . 'res_sticky-header',
+					$general_tab_ids_prefix . 'responsive_shrink_sticky_header',
+					$general_tab_ids_prefix . 'responsive_disable_sticky_header_mobile_menu',
+					$general_tab_ids_prefix . 'responsive_sticky_header_logo_option',
+					$general_tab_ids_prefix . 'responsive_sticky_header_logo',
+					
+				);
+
+				$design_tab_ids_prefix = 'customize-control-';
+				$design_tab_ids        = array(
+					$design_tab_ids_prefix . 'responsive_sticky_header_color_separator',
+					$design_tab_ids_prefix . 'responsive_sticky_header_background_color',
+					$design_tab_ids_prefix . 'responsive_sticky_header_site_title_color',
+					$design_tab_ids_prefix . 'responsive_sticky_header_site_title_hover_color',
+					$design_tab_ids_prefix . 'responsive_sticky_header_text_color',
+					$design_tab_ids_prefix . 'responsive_sticky_header_menu_background_color',
+					$design_tab_ids_prefix . 'responsive_sticky_header_active_menu_background_color',
+					$design_tab_ids_prefix . 'responsive_sticky_header_menu_link_color',
+					$design_tab_ids_prefix . 'responsive_sticky_header_menu_link_hover_color',
+					$design_tab_ids_prefix . 'responsive_sticky_header_sub_menu_background_color',
+					$design_tab_ids_prefix . 'responsive_sticky_header_sub_menu_link_color',
+					$design_tab_ids_prefix . 'responsive_sticky_header_sub_menu_link_hover_color',
+				);
+
+				responsive_tabs_button_control( $wp_customize, 'responsive_sticky_header_menu_tabs', $tabs_label, 'responsive_sticky_header_menu', 1, '', 'responsive_sticky_header_menu_general_tab', 'responsive_sticky_header_menu_design_tab', $general_tab_ids, $design_tab_ids, null );
+
+				// Enable Sticky Header.
 				$wp_customize->add_setting(
 					'responsive_theme_options[sticky-header]',
 					array(
@@ -67,7 +100,7 @@ if ( ! class_exists( 'Responsive_Sticky_Header_Customizer' ) ) :
 						'res_sticky-header',
 						array(
 							'label'    => __( 'Enable Sticky Header?', 'responsive' ),
-							'section'  => 'responsive_header_sticky_menu_layout',
+							'section'  => 'responsive_sticky_header_menu',
 							'settings' => 'responsive_theme_options[sticky-header]',
 							'priority' => 10,
 						)
@@ -88,7 +121,7 @@ if ( ! class_exists( 'Responsive_Sticky_Header_Customizer' ) ) :
 						'responsive_shrink_sticky_header',
 						array(
 							'label'    => __( ' Shrink Logo On Scroll ?', 'responsive' ),
-							'section'  => 'responsive_header_sticky_menu_layout',
+							'section'  => 'responsive_sticky_header_menu',
 							'settings' => 'responsive_shrink_sticky_header',
 							'priority' => 20,
 						)
@@ -97,11 +130,11 @@ if ( ! class_exists( 'Responsive_Sticky_Header_Customizer' ) ) :
 
 				// Disable Sticky Header on Mobile.
 				$disable_sticky_header_mobile_menu_label = __( 'Disable Sticky Header on Mobile Menu', 'responsive' );
-				responsive_toggle_control( $wp_customize, 'disable_sticky_header_mobile_menu', $disable_sticky_header_mobile_menu_label, 'responsive_header_sticky_menu_layout', 25, 0, null );
+				responsive_toggle_control( $wp_customize, 'disable_sticky_header_mobile_menu', $disable_sticky_header_mobile_menu_label, 'responsive_sticky_header_menu', 25, 0, null );
 
 				// Different Logo For Transparent Header.
 				$sticky_header_logo_option_label = __( 'Different Logo For Sticky Header', 'responsive' );
-				responsive_toggle_control( $wp_customize, 'sticky_header_logo_option', $sticky_header_logo_option_label, 'responsive_header_sticky_menu_layout', 30, 0, null );
+				responsive_toggle_control( $wp_customize, 'sticky_header_logo_option', $sticky_header_logo_option_label, 'responsive_sticky_header_menu', 30, 0, null );
 
 				$wp_customize->add_setting(
 					'responsive_sticky_header_logo',
@@ -116,7 +149,7 @@ if ( ! class_exists( 'Responsive_Sticky_Header_Customizer' ) ) :
 						'responsive_sticky_header_logo',
 						array(
 							'label'           => esc_html__( 'Logo For Sticky Header', 'responsive' ),
-							'section'         => 'responsive_header_sticky_menu_layout',
+							'section'         => 'responsive_sticky_header_menu',
 							'flex-height'     => true,
 							'flex-width'      => true,
 							'height'          => 100, // pixels.
@@ -128,46 +161,46 @@ if ( ! class_exists( 'Responsive_Sticky_Header_Customizer' ) ) :
 				);
 
 				$sticky_header_color_separator_label = esc_html__( 'Sticky Header Colors', 'responsive' );
-				responsive_separator_control( $wp_customize, 'sticky_header_color_separator', $sticky_header_color_separator_label, 'responsive_header_sticky_menu_layout', 50, null );
+				responsive_separator_control( $wp_customize, 'sticky_header_color_separator', $sticky_header_color_separator_label, 'responsive_sticky_header_menu', 50, null );
 
 				$sticky_header_background_label = __( 'Background Color', 'responsive' );
-				responsive_color_control( $wp_customize, 'sticky_header_background', $sticky_header_background_label, 'responsive_header_sticky_menu_layout', 100, '' );
+				responsive_color_control( $wp_customize, 'sticky_header_background', $sticky_header_background_label, 'responsive_sticky_header_menu', 100, '' );
 
 				$sticky_header_site_title_color_label = __( 'Site Title Color', 'responsive' );
-				responsive_color_control( $wp_customize, 'sticky_header_site_title', $sticky_header_site_title_color_label, 'responsive_header_sticky_menu_layout', 110, '' );
+				responsive_color_control( $wp_customize, 'sticky_header_site_title', $sticky_header_site_title_color_label, 'responsive_sticky_header_menu', 110, '' );
 
 				$sticky_header_site_title_hover_color_label = __( 'Site Title Hover Color', 'responsive' );
-				responsive_color_control( $wp_customize, 'sticky_header_site_title_hover', $sticky_header_site_title_hover_color_label, 'responsive_header_sticky_menu_layout', 120, '' );
+				responsive_color_control( $wp_customize, 'sticky_header_site_title_hover', $sticky_header_site_title_hover_color_label, 'responsive_sticky_header_menu', 120, '' );
 
 				$sticky_header_text_color_label = __( 'Site Tagline Color', 'responsive' );
-				responsive_color_control( $wp_customize, 'sticky_header_text', $sticky_header_text_color_label, 'responsive_header_sticky_menu_layout', 120, '' );
+				responsive_color_control( $wp_customize, 'sticky_header_text', $sticky_header_text_color_label, 'responsive_sticky_header_menu', 120, '' );
 
 				$sticky_menu_background_color_label = __( 'Menu Background Color', 'responsive' );
-				responsive_color_control( $wp_customize, 'sticky_header_menu_background', $sticky_menu_background_color_label, 'responsive_header_sticky_menu_layout', 120, '', null );
+				responsive_color_control( $wp_customize, 'sticky_header_menu_background', $sticky_menu_background_color_label, 'responsive_sticky_header_menu', 120, '', null );
 
 				// Active Menu Color.
 				$sticky_menu_border_color_label = __( 'Active Menu Background Color', 'responsive' );
-				responsive_color_control( $wp_customize, 'sticky_header_active_menu_background', $sticky_menu_border_color_label, 'responsive_header_sticky_menu_layout', 120, '', null );
+				responsive_color_control( $wp_customize, 'sticky_header_active_menu_background', $sticky_menu_border_color_label, 'responsive_sticky_header_menu', 120, '', null );
 
 				// Link Color.
 				$sticky_menu_link_color_label = __( 'Menu Item Link Color', 'responsive' );
-				responsive_color_control( $wp_customize, 'sticky_header_menu_link', $sticky_menu_link_color_label, 'responsive_header_sticky_menu_layout', 120, '' );
+				responsive_color_control( $wp_customize, 'sticky_header_menu_link', $sticky_menu_link_color_label, 'responsive_sticky_header_menu', 120, '' );
 
 				// Link Hover Color.
 				$sticky_menu_link_hover_color_label = __( 'Menu Item Link Hover Color', 'responsive' );
-				responsive_color_control( $wp_customize, 'sticky_header_menu_link_hover', $sticky_menu_link_hover_color_label, 'responsive_header_sticky_menu_layout', 120, '' );
+				responsive_color_control( $wp_customize, 'sticky_header_menu_link_hover', $sticky_menu_link_hover_color_label, 'responsive_sticky_header_menu', 120, '' );
 
 				// Sub Menu Background Color.
 				$sticky_header_sub_menu_background_color_label = __( 'Sub Menu Background Color', 'responsive' );
-				responsive_color_control( $wp_customize, 'sticky_header_sub_menu_background', $sticky_header_sub_menu_background_color_label, 'responsive_header_sticky_menu_layout', 120, '' );
+				responsive_color_control( $wp_customize, 'sticky_header_sub_menu_background', $sticky_header_sub_menu_background_color_label, 'responsive_sticky_header_menu', 120, '' );
 
 				// Sub Menu Link Color.
 				$sticky_sub_menu_link_color_label = __( 'Sub Menu Item Link Color', 'responsive' );
-				responsive_color_control( $wp_customize, 'sticky_header_sub_menu_link', $sticky_sub_menu_link_color_label, 'responsive_header_sticky_menu_layout', 120, '' );
+				responsive_color_control( $wp_customize, 'sticky_header_sub_menu_link', $sticky_sub_menu_link_color_label, 'responsive_sticky_header_menu', 120, '' );
 
 				// Sub Menu Link Hover Color.
 				$sticky_sub_menu_link_hover_color_label = __( 'Sub Menu Item Link Hover Color', 'responsive' );
-				responsive_color_control( $wp_customize, 'sticky_header_sub_menu_link_hover', $sticky_sub_menu_link_hover_color_label, 'responsive_header_sticky_menu_layout', 120, '' );
+				responsive_color_control( $wp_customize, 'sticky_header_sub_menu_link_hover', $sticky_sub_menu_link_hover_color_label, 'responsive_sticky_header_menu', 120, '' );
 			}
 		}
 

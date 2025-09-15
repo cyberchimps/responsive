@@ -465,7 +465,7 @@ body.rtl .customize-control .responsive-switchers li {
 	padding-bottom: 16px;
 }
 #customize-control-responsive_single_blog_container_spacing {
-	margin-top: 24px;
+	margin-top: 0;
 }
 #customize-control-responsive_single_blog_enable_related_posts_separator .responsive-horizontal-separator-control-wrapper,
 #customize-control-responsive_related_posts_title_alignment_separator .responsive-horizontal-separator-control-wrapper,
@@ -473,10 +473,28 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_related_posts_count_separator .responsive-horizontal-separator-control-wrapper,
 #customize-control-responsive_related_posts_per_row_separator .responsive-horizontal-separator-control-wrapper,
 #customize-control-responsive_related_posts_taxonomy_separator .responsive-horizontal-separator-control-wrapper,
-#customize-control-responsive_related_post_structure_separator .responsive-horizontal-separator-control-wrapper {
+#customize-control-responsive_related_post_structure_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_related_post_meta_elements_separator .responsive-horizontal-separator-control-wrapper {
 	padding-top: 24px;
 	margin: 0;
 }
+#customize-control-responsive_rp_excerpt_length{
+	padding-bottom: 20px;
+}
+
+#customize-control-responsive_related_section_title_typography_separator, #customize-control-responsive_related_post_title_typography_separator, #customize-control-responsive_related_meta_typography_separator{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+#customize-control-responsive_rp_section_title_typography_group{
+	margin-top: 10px;
+}
+
+#accordion-section-responsive_rp_layout {
+	display: none !important;
+}
+
 #_customize-input-responsive_single_blog_related_posts_title {
 	padding: 12px;
 	font-family: 'Roboto', sans-serif;
@@ -485,10 +503,6 @@ body.rtl .customize-control .responsive-switchers li {
 	line-height: 16px;
 	text-align: left;
 	color: #50575E;
-}
-#customize-control-responsive_single_blog_padding_separator .responsive-horizontal-separator-control-wrapper {
-	margin: 0;
-	padding-top: 15px;
 }
 #customize-control-responsive_single_blog_content_width .customize-control-title {
 	margin-top: 12px;
@@ -1563,5 +1577,17 @@ body.rtl .customize-control .responsive-switchers li {
     display: none;
 }
 .responsive-dragging-dropzones .responsive-builder-add-item {
+	display: none;
+}
+#customize-control-responsive_transparent_header_logo .customize-control-title {
+	margin-top: 0;
+}
+#customize-control-responsive_transparent_bottom_border .customize-control-title {
+	margin-top: 0;
+}
+#customize-control-responsive_transparent_header_logo {
+	padding-bottom: 24px;
+}
+#accordion-section-responsive_docs_section .accordion-section-title::after {
 	display: none;
 }

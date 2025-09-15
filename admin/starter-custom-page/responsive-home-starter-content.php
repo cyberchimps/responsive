@@ -142,6 +142,7 @@ class Responsive_Home_Starter_Content {
 				'responsive_header_menu_toggle_color'                 => '#ffffff',
 				'responsive_header_social_item_style'                 => 'outline',
 				'responsive_header_social_item_color'                 => '#ffffff',
+				'responsive_header_social_item_hover_color'           => '#ffffff',
 				'responsive_header_social_item_spacing'               => 0,
 				'responsive_menu_item_hover_style'                    => 'underline',
 				'responsive_header_menu_background_color'             => '#2D2C52',
@@ -279,11 +280,6 @@ class Responsive_Home_Starter_Content {
 				'responsive_buttons_mobile_right_padding'              => 20,
 				'responsive_buttons_mobile_bottom_padding'             => 20,
 				'responsive_buttons_mobile_left_padding'               => 20,
-			
-				// Social Media Links
-				'responsive_theme_options[twitter_uid]'                => '#',
-				'responsive_theme_options[facebook_uid]'               => '#',
-				'responsive_theme_options[instagram_uid]'              => '#',
 			
 				// Header Builder Elements
 				'responsive_header_desktop_items'               	   => $header_hfb_elements,

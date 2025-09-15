@@ -52,7 +52,9 @@ $nonce = add_query_arg(
 $admin_logo        = apply_filters( 'responsive_admin_menu_icon', esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/responsive-theme-logo.svg' );
 $admin_footer_logo = apply_filters( 'responsive_admin_menu_footer_icon', esc_url( RESPONSIVE_THEME_URI . 'admin/images/cyberchimps-logo.png' ) );
 ?>
-
+<div class="responsive-theme-getting-started-page-notification text-center">
+	<p>📣 <?php echo esc_html_e( 'Introducing the Site Builder in Responsive Plus v3.3.0! Now you can easily create custom Headers, Footers, and 404 Pages. Display them based on specific page or time conditions. Update the Responsive theme to v6.2.2 and unlock the new Site Builder features.', 'responsive' ); ?> <a href="<?php echo esc_url( 'https://wordpress.org/plugins/responsive-add-ons/#developers' )?>" target="_blank"><?php echo esc_html_e( 'Check Changelog', 'responsive' ); ?></a></p>
+</div>
 <div class="responsive-theme-getting-started-page">
 	<div class="responsive-theme-getting-started-header bg-white">
 		<div class="responsive-theme-brand">

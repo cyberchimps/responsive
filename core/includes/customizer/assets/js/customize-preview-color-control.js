@@ -61,16 +61,6 @@
 		} );
 	} );
 
-	// Initial load
-	$(document).ready( function() {
-		api( 'responsive_site_background_color_type', function( value ) {
-			setBackground( value.get() );
-		});
-        api('responsive_box_background_color_type', function (value) {
-            setBoxBackground(value.get());
-        });
-	} );
-
     //Box Background Color
     function setBoxBackground(type) {
         if (type === 'gradient') {
@@ -365,6 +355,72 @@
         } );
     } );
 
+    api( 'responsive_rp_section_title_color', function ( value ){
+        value.bind( function ( newval ) {
+            const elems = document.querySelectorAll( '.responsive-related-single-posts-title' );
+			elems.forEach( el => {
+                el.style.color = newval;
+			});
+		});
+	});
+    api( 'responsive_rp_section_bg_color', ( value ) => {
+        value.bind( ( newval ) => {
+            $('.responsive-single-related-posts-container, .responsive-single-related-posts-container .responsive-related-single-posts-wrapper .responsive-related-single-post').css('background', newval);
+		});
+	});
+
+    api( 'responsive_rp_text_color', ( value ) => {
+        value.bind( ( newval ) => {
+            document.querySelectorAll('.responsive-single-related-posts-container, .responsive-single-related-posts-container p, .responsive-single-related-posts-container .entry-content')
+                .forEach(el => el.style.color = newval);
+        });
+    });
+
+    api( 'responsive_rp_text_hover_color', ( value ) => {
+        value.bind( ( newval ) => {
+            document.querySelectorAll('.responsive-single-related-posts-container, .responsive-single-related-posts-container p, .responsive-single-related-posts-container .entry-content')
+                .forEach(el => {
+                    el.addEventListener('mouseenter', () => el.style.color = newval);
+                    el.addEventListener('mouseleave', () => el.style.color = api( 'responsive_rp_text_color' )());
+                });
+        });
+    });
+
+    api( 'responsive_rp_link_color', ( value ) => {
+        value.bind( ( newval ) => {
+            document.querySelectorAll('.responsive-single-related-posts-container a')
+                .forEach(el => el.style.color = newval);
+        });
+    });
+
+    api( 'responsive_rp_link_hover_color', ( value ) => {
+        value.bind( ( newval ) => {
+            document.querySelectorAll('.responsive-single-related-posts-container a')
+                .forEach(el => {
+                    el.addEventListener('mouseenter', () => el.style.color = newval);
+                    el.addEventListener('mouseleave', () => el.style.color = api( 'responsive_rp_link_color' )());
+                });
+        });
+    });
+
+    api( 'responsive_rp_meta_color', ( value ) => {
+        value.bind( ( newval ) => {
+            document.querySelectorAll('.responsive-single-related-posts-container .post-meta span, .responsive-single-related-posts-container .post-meta span i, .responsive-single-related-posts-container .post-meta span a, .responsive-single-related-posts-container .post-meta span a time, .responsive-single-related-posts-container .entry-meta')
+                .forEach(el => el.style.color = newval);
+        });
+    });
+
+    api( 'responsive_rp_meta_hover_color', ( value ) => {
+        value.bind( ( newval ) => {
+            document.querySelectorAll('.responsive-single-related-posts-container .post-meta span, .responsive-single-related-posts-container .post-meta span i, .responsive-single-related-posts-container .post-meta span a, .responsive-single-related-posts-container .post-meta span a time, .responsive-single-related-posts-container .entry-meta')
+                .forEach(el => {
+                    el.addEventListener('mouseenter', () => el.style.color = newval);
+                    el.addEventListener('mouseleave', () => el.style.color = api( 'responsive_rp_meta_color' )());
+                });
+        });
+    });
+
+    
     //Body text Color
     api( 'responsive_body_text_color', function( value ) {
         value.bind( function( newval ) {
@@ -982,6 +1038,23 @@
             $('.wc-block-grid__product-price,.woocommerce ul.products li.product .price').css('color', newval );
         } );
     } );
+
+    // Product Background Color
+    api('responsive_shop_product_background_color', function (value) {
+        value.bind(function (newval) {
+            var styleTag = $('#responsive-live-preview');
+            if (!styleTag.length) {
+                styleTag = $('<style id="responsive-live-preview"></style>').appendTo('head');
+            }
+            styleTag.html(
+                'li.product {' +
+                'background-color: ' + newval + '!important;' +
+                '}'
+            );  
+        });
+    });
+
+
 
     //Buttons Color
     api( 'responsive_add_to_cart_button_color', function( value ) {

@@ -52,6 +52,7 @@ const TabsComponent = props => {
 
 		hideSidebarWidthControl( api('responsive_page_sidebar_position').get(), 'page' );
 		hideSidebarWidthControl( api('responsive_blog_sidebar_position').get(), 'blog' );
+		hideSidebarWidthControl( api('responsive_default_sidebar_position').get(), 'default');
 
 		api('responsive_page_sidebar_position', function( value ) {
 			value.bind( function( newval ) {
@@ -66,6 +67,13 @@ const TabsComponent = props => {
 					hideSidebarWidthControl(newval, 'blog');
 				}
 			});
+		});
+		api('responsive_default_sidebar_position', function( value ){
+			value.bind( function( newval ) {
+				if( newval ) {
+					hideSidebarWidthControl(newval, 'default');
+				}
+			})
 		});
 
 		if( api('responsive_footer_primary_row_top_border_size').get() > 0 && 'design' === tab ) {
@@ -241,34 +249,73 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_header_button_border_color').style.display = 'none';
 			document.getElementById('customize-control-responsive_border_header_button_radius').style.display = 'none';
 		}
+		// Transparent Header Settings
+		if( ! api( 'responsive_transparent_header' ).get() ) {
+			document.getElementById('customize-control-responsive_transparent_header_widget_color_separator').style.display = 'none';
+			document.getElementById('customize-control-responsive_transparent_header_widget_text_color').style.display = 'none';
+			document.getElementById('customize-control-responsive_transparent_header_widget_background_color').style.display = 'none';
+			document.getElementById('customize-control-responsive_transparent_header_widget_background_image').style.display = 'none';
+			document.getElementById('customize-control-responsive_transparent_header_widget_border_color').style.display = 'none';
+			document.getElementById('customize-control-responsive_transparent_header_widget_link_color').style.display = 'none';
+			document.getElementById('customize-control-responsive_transparent_header_widget_link_hover_color').style.display = 'none';
+		} else if ( api( 'responsive_transparent_header' ).get() && 'design' === tab ) {
+			document.getElementById('customize-control-responsive_transparent_header_widget_color_separator').style.display = 'block';
+			document.getElementById('customize-control-responsive_transparent_header_widget_text_color').style.display = 'block';
+			document.getElementById('customize-control-responsive_transparent_header_widget_background_color').style.display = 'block';
+			document.getElementById('customize-control-responsive_transparent_header_widget_background_image').style.display = 'block';
+			document.getElementById('customize-control-responsive_transparent_header_widget_border_color').style.display = 'block';
+			document.getElementById('customize-control-responsive_transparent_header_widget_link_color').style.display = 'block';
+			document.getElementById('customize-control-responsive_transparent_header_widget_link_hover_color').style.display = 'block';
+		}
+		if( ! api('responsive_transparent_header_logo_option').get() ) {
+			document.getElementById('customize-control-responsive_transparent_header_logo').style.display = 'none';
+		}
+		if( ! api('responsive_enable_transparent_header_bottom_border').get() ) {
+			document.getElementById('customize-control-responsive_transparent_bottom_border').style.display = 'none';
+		}
+		if( ! api('responsive_sticky_header_logo_option').get() ) {
+			document.getElementById('customize-control-responsive_sticky_header_logo').style.display = 'none';
+		}
+		if( ! api('responsive_rp_enable_excerpt').get() ) {
+			document.getElementById('customize-control-responsive_rp_excerpt_length').style.display = 'none';
+			document.getElementById('customize-control-responsive_rp_read_more').style.display = 'none';
+		}
+		if( ! api('responsive_transparent_header').get() ) {
+			document.getElementById('customize-control-responsive_transparent_header_logo_option').style.display = 'none';
+			document.getElementById('customize-control-responsive_enable_transparent_header_bottom_border').style.display = 'none';
+			document.getElementById('customize-control-responsive_disable_archive_transparent_header').style.display = 'none';
+			document.getElementById('customize-control-responsive_disable_blog_page_transparent_header').style.display = 'none';
+			document.getElementById('customize-control-responsive_disable_homepage_transparent_header').style.display = 'none';
+			document.getElementById('customize-control-responsive_disable_pages_transparent_header').style.display = 'none';
+			document.getElementById('customize-control-responsive_disable_posts_transparent_header').style.display = 'none';
+			document.getElementById('customize-control-responsive_disable_woo_products_transparent_header').style.display = 'none';
+			document.getElementById('customize-control-responsive_transparent_bottom_border').style.display = 'none';
+			document.getElementById('customize-control-responsive_transparent_header_logo').style.display = 'none';
+		}
 	}, [tab]);
 
-	const toggleSidebarPositionWidthControls = (value, control) => {
-		if( value && tab === 'general' ) {
-			document.getElementById(`customize-control-responsive_${control}_sidebar_position`).style.display = 'block';
-			if( api(`responsive_${control}_sidebar_position`).get() !== 'no' ) {
-				document.getElementById(`customize-control-responsive_${control}_sidebar_width`).style.display = 'block';
-			}
-		} else {
-			document.getElementById(`customize-control-responsive_${control}_sidebar_position`).style.display = 'none';
-			document.getElementById(`customize-control-responsive_${control}_sidebar_width`).style.display = 'none';
-		}
-	};
-
 	const hideSidebarWidthControl = (value, control) => {
-		const controlId = `customize-control-responsive_${control}_sidebar_width`;
-		const controlElement = document.getElementById(controlId);
-		const isBlog = control === 'blog';
-		const isVisible = value !== 'no' && tab === 'general';
+    const controlId = `customize-control-responsive_${control}_sidebar_width`;
+    const controlElement = document.getElementById(controlId);
 
-		if (!controlElement) return;
+    if (!controlElement) return;
 
-		controlElement.style.display = 'none';
+    controlElement.style.display = 'none';
 
-		if (isVisible) {
-			controlElement.style.display = 'block';
-		}
-	};
+    let isVisible = false;
+    if (control === 'default') {
+        // For default sidebar: only hide when 'no'
+        isVisible = value !== 'no' && tab === 'general';
+    } else {
+        // For page/blog: hide when 'no' or 'default'
+        isVisible = value !== 'no' && value !== 'default' && tab === 'general';
+    }
+
+    if (isVisible) {
+        controlElement.style.display = 'block';
+    }
+};
+
 
 	return <>
 		<div className='responsive-component-tabs nav-tab-wrapper wp-clearfix' data-name={name}>

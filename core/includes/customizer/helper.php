@@ -236,7 +236,7 @@ if ( ! function_exists( 'responsive_single_blog_related_post_structure' ) ) {
 	function responsive_single_blog_related_post_structure() {
 
 		/** Default sections */
-		$sections = array( 'title', 'featured-image', 'meta', 'excerpt' );
+		$sections = array( 'title', 'featured-image', 'meta' );
 
 		/** Get sections from Customizer */
 		$sections = get_theme_mod( 'responsive_single_blog_related_post_structure', $sections );
@@ -1636,8 +1636,23 @@ function responsive_not_active_site_style_flat() {
  * @return [type] [description]
  */
 function responsive_active_single_blog_sidebar_position() {
+    $position = get_theme_mod( 'responsive_single_blog_sidebar_position', 0 );
+    return ( 'no' !== $position && 'default' !== $position ) ? true : false;
+}
 
-	return ( 'no' !== get_theme_mod( 'responsive_single_blog_sidebar_position', 0 ) ) ? true : false;
+/**
+ * [responsive_active_blog_sidebar_toggle description]
+ * 
+ * @return [type] [description]
+ */
+function responsive_active_blog_sidebar_position() {
+    $position = get_theme_mod( 'responsive_blog_sidebar_position', 'no' );
+    return ( 'no' !== $position && 'default' !== $position ) ? true : false;
+}
+
+function responsive_active_default_sidebar_position() {
+	$position = get_theme_mod( 'responsive_default_sidebar_position', 'no'); 
+	return ( 'no' !== $position && 'default' !== $position ) ? true : false; 
 }
 
 /**
@@ -1646,8 +1661,12 @@ function responsive_active_single_blog_sidebar_position() {
  * @return [type] [description]
  */
 function responsive_not_active_page_sidebar() {
-
-	$page_sidebar_position = get_theme_mod( 'responsive_page_sidebar_position' );
+	$get_sidebar_position = function( $context, $default = 'no' ) {
+		$global = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
+		$value  = get_theme_mod( "responsive_{$context}_sidebar_position", $default );
+		return ( $value === 'default' ) ? $global : $value;
+	};
+	$page_sidebar_position = $get_sidebar_position( 'page' );
 
 	return ( 'no' === $page_sidebar_position ) ? false : true;
 }
@@ -1658,8 +1677,12 @@ function responsive_not_active_page_sidebar() {
  * @return [type] [description]
  */
 function responsive_not_active_blog_archive_sidebar() {
-
-	$blog_archive_sidebar_position = get_theme_mod( 'responsive_blog_sidebar_position', 'no' );
+	$get_sidebar_position = function( $context, $default = 'no' ) {
+		$global = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
+		$value  = get_theme_mod( "responsive_{$context}_sidebar_position", $default );
+		return ( $value === 'default' ) ? $global : $value;
+	};
+	$blog_archive_sidebar_position = $get_sidebar_position( 'blog' );
 
 	return ( 'no' === $blog_archive_sidebar_position ) ? false : true;
 }
@@ -1670,8 +1693,12 @@ function responsive_not_active_blog_archive_sidebar() {
  * @return [type] [description]
  */
 function responsive_not_active_single_post_sidebar() {
-
-	$single_post_sidebar_position = get_theme_mod( 'responsive_single_blog_sidebar_position' );
+	$get_sidebar_position = function( $context, $default = 'no' ) {
+		$global = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
+		$value  = get_theme_mod( "responsive_{$context}_sidebar_position", $default );
+		return ( $value === 'default' ) ? $global : $value;
+	};
+	$single_post_sidebar_position = $get_sidebar_position( 'single_blog_' );
 
 	return ( 'no' === $single_post_sidebar_position ) ? false : true;
 }
@@ -1702,7 +1729,7 @@ function responsive_breadcrumb_separator_unicode() {
  * [responsive_enable_transparent_header_bottom_border_check description].
  */
 function responsive_enable_transparent_header_bottom_border_check() {
-	return ( 1 === get_theme_mod( 'responsive_enable_transparent_header_bottom_border', 1 ) ) ? true : false;
+	return ( 1 === get_theme_mod( 'responsive_enable_transparent_header_bottom_border', 0 ) && responsive_is_transparent_header_enabled() ) ? true : false;
 }
 
 /**
@@ -3067,7 +3094,7 @@ function responsive_different_logo_sticky_header() {
  */
 function responsive_different_logo_transparent_header() {
 
-	return ( 1 === get_theme_mod( 'responsive_transparent_header_logo_option', 0 ) ) ? true : false;
+	return ( 1 === get_theme_mod( 'responsive_transparent_header_logo_option', 0 ) && responsive_is_transparent_header() ) ? true : false;
 }
 /**
  * [responsive_builder_row_layout_control].
@@ -3411,12 +3438,64 @@ if ( ! function_exists( 'responsive_active_blog_layout_grid' ) ) :
 endif;
 
 if( ! function_exists( 'responsive_site_background_image_present' ) ) :
-		/**
+	/**
 	 * Determines whether site background image is present or not.
-	 *
-	 * @return bool true if site background image is present, false otherwise.
-	 */
+	*
+	* @return bool true if site background image is present, false otherwise.
+	*/
 	function responsive_site_background_image_present() {
 		return get_theme_mod( 'responsive_site_background_image_toggle' ) && esc_url( get_theme_mod( 'responsive_site_background_image' ) ) ? true : false;
 	}
 endif;
+
+if ( ! function_exists( 'responsive_enable_related_posts_excerpt' ) ) :
+
+	/**
+	 * Determines whether Related Posts excerpt is enabled or not.
+	 *
+	 * @return bool true if the excerpt is enabled, false otherwise.
+	 */
+	function responsive_enable_related_posts_excerpt() {
+		return 1 === get_theme_mod( 'responsive_rp_enable_excerpt', 0 ) ? true : false;
+	}
+endif;
+
+/**
+ * [responsive_section_toggle_control description]
+ *
+ * @param  [type] $wp_customize [description].
+ * @param  [type] $element      [description].
+ * @param  [type] $label        [description].
+ * @param  [type] $section      [description].
+ * @param  [type] $priority     [description].
+ * @param  [type] $linktype  [description].
+ * @param  [type] $linkval  [description].
+ * @param  [type] $active_call  [description].
+ * @return void                 [description].
+ */
+function responsive_section_toggle_control( $wp_customize, $element, $label, $section, $priority, $linktype, $linkval, $active_call = null, $transport = 'refresh', $description = '' ) {
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_checkbox_validate',
+		)
+	);
+
+	$wp_customize->add_control(
+		new Responsive_Customizer_Section_Toggle(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'label'           => $label,
+				'description'     => $description,
+				'section'         => $section,
+				'settings'        => 'responsive_' . $element,
+				'priority'        => $priority,
+				'active_callback' => $active_call,
+				'link_type'       => $linktype,
+				'linked'          => $linkval,
+			)
+		)
+	);
+}
