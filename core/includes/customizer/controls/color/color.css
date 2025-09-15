@@ -724,3 +724,13 @@ body.wp-customizer .responsive-color-control-main-wrap .wp-picker-container .wp-
     color: #007CBA;
     height: auto;
 }
+
+.responsive-selected-palette-pickers .wp-picker-holder {
+    position: absolute;
+    transform: translateY(15px);
+    z-index: 9999;
+    left: 0;
+    width: 100%;
+    box-shadow: 0px 0px 20px 0px #00000040;
+    border-radius: 4px;
+}

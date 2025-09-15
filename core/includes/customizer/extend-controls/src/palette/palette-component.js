@@ -25,6 +25,7 @@ const PaletteComponent = props => {
 
     const [isPaletteVisible, setIsPaletteVisible] = useState(false);
     const [liveColors, setLiveColors] = useState(null);
+    const [openPickerId, setOpenPickerId] = useState(null);
     const togglePaletteVisibility = (e) => {
         e.stopPropagation();
         setIsPaletteVisible(!isPaletteVisible);
@@ -150,6 +151,8 @@ const PaletteComponent = props => {
             return '';
         });
 
+        const isOpen = openPickerId === pickerId;
+
         useEffect(() => {
             if (typeof wp !== 'undefined' && wp.customize && wp.customize(settingId)) {
                 const setting = wp.customize(settingId);
@@ -162,8 +165,35 @@ const PaletteComponent = props => {
         const handleChangeComplete = (newColor) => {
             const value = toColorString(newColor);
             setColor(value);
+
             if (typeof wp !== 'undefined' && wp.customize && wp.customize(settingId)) {
+                // Set the "main" setting
                 wp.customize(settingId).set(value);
+
+                // If this is the "all headings" color, propagate to individual headings
+                if (settingId === 'responsive_all_heading_text_color') {
+                    const headingIds = [
+                        'responsive_h1_text_color',
+                        'responsive_h2_text_color',
+                        'responsive_h3_text_color',
+                        'responsive_h4_text_color',
+                        'responsive_h5_text_color',
+                        'responsive_h6_text_color',
+                    ];
+                    headingIds.forEach(hId => {
+                        if (wp.customize(hId)) {
+                            wp.customize(hId).set(value);
+                        }
+                    });
+                }
+            }
+        };
+
+        const handlePickerToggle = () => {
+            if (isOpen) {
+                setOpenPickerId(null);
+            } else {
+                setOpenPickerId(pickerId);
             }
         };
 
@@ -176,16 +206,19 @@ const PaletteComponent = props => {
 
         return (
             <div id={pickerId} className="responsive-inline-color-picker lg-round">
-                <ResponsiveColorPickerControl
-                    color={color}
-                    onChangeComplete={handleChangeComplete}
-                    backgroundType={'color'}
-                    inputattr={inputattr}
-                    inputSettings={{}}
-                    is_gradient_available={false}
-                    colorType={'color'}
-                    gradient={''}
-                />
+                <div onClick={handlePickerToggle}>
+                    <ResponsiveColorPickerControl
+                        color={color}
+                        onChangeComplete={handleChangeComplete}
+                        backgroundType={'color'}
+                        inputattr={inputattr}
+                        inputSettings={{}}
+                        is_gradient_available={false}
+                        colorType={'color'}
+                        gradient={''}
+                        isOpen={isOpen}
+                    />
+                </div>
             </div>
         );
     };
@@ -243,10 +276,15 @@ const PaletteComponent = props => {
             <div className="label">{choices[selectedChoice].label}</div>
             <span
                 id="responsive-color-palette-btn"
-                className={`dashicons ${isPaletteVisible ? 'dashicons-arrow-up-alt2' : 'dashicons-arrow-down-alt2'}`}
+                className="responsive-palette-edit-icon"
                 onClick={togglePaletteVisibility}
                 ref={buttonRef}
-            ></span>
+            >
+                <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 2.70711L18.0052 5.71231L7.32322 16.3943L3.41646 17.2959L4.31802 13.3891L15 2.70711Z" stroke="currentColor"></path>
+                    <path d="M16.0282 8.24731L13.0583 5.27747" stroke="currentColor"></path>
+                </svg>
+            </span>
         </div>
     </div>;
 

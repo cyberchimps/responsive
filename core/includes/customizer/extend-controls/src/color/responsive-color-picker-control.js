@@ -69,6 +69,11 @@ class ResponsiveColorPickerControl extends Component {
             newState = { ...newState, gradient: nextProps.gradient };
         }
 
+        // Sync isVisible if isOpen prop changes
+        if (nextProps.isOpen !== undefined && nextProps.isOpen !== prevState.isVisible) {
+            newState = { ...newState, isVisible: nextProps.isOpen };
+        }
+
 		const nextColorValue = nextProps.color;
         let derivedColorString = prevState.color; // Keep current color by default
 
@@ -339,6 +344,7 @@ ResponsiveColorPickerControl.propTypes = {
 	onChange: PropTypes.func,
 	customizer: PropTypes.object,
 	colorType: PropTypes.string,
+	isOpen: PropTypes.bool,
 };
 
 export default ResponsiveColorPickerControl;
