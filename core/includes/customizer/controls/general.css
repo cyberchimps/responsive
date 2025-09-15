@@ -1522,6 +1522,7 @@ body.rtl .customize-control .responsive-switchers li {
 	margin-right: -12px;
 	margin-left: -12px;
 }
+
 #sub-accordion-section-responsive_colors .customize-control-responsive-palette  .customize-control-title {
 	font-weight: 900;
 	margin-bottom: 0;
@@ -1590,4 +1591,16 @@ body.rtl .customize-control .responsive-switchers li {
 }
 #accordion-section-responsive_docs_section .accordion-section-title::after {
 	display: none;
+}
+
+.responsive-palette-edit-icon {
+	transition: color 0.2s ease;
+}
+
+.responsive-palette-edit-icon:hover {
+	color: #0073aa;
+}
+
+.responsive-palette-edit-icon:hover svg path {
+	stroke: #0073aa;
 }
