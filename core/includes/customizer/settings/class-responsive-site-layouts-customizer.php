@@ -86,6 +86,10 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			$responsive_hide_tagline_label = __( 'Hide Tagline', 'responsive' );
 			responsive_toggle_control( $wp_customize, 'hide_tagline', $responsive_hide_tagline_label, 'responsive_header_site_logo_title', 15, 1, null );
 
+			// Enable inline site title and logo.
+			$inline_logo_title_label = __( 'Inline Logo & Site Title', 'responsive' );
+			responsive_toggle_control( $wp_customize, 'inline_logo_title', $inline_logo_title_label, 'responsive_header_site_logo_title', 16, 0, null );
+
 			// Add Custom Logo URL.
 			$wp_customize->add_setting(
 				'responsive_custom_logo_url',
@@ -103,7 +107,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 						'label'    => __( 'Site Title/Logo URL', 'responsive' ),
 						'section'  => 'responsive_header_site_logo_title',
 						'settings' => 'responsive_custom_logo_url',
-						'priority' => 16,
+						'priority' => 17,
 					)
 				)
 			);
