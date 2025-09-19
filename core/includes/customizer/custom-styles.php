@@ -2107,6 +2107,19 @@ function responsive_customizer_styles() {
 		color: {$header_text_color};
 	}
 
+	.site-branding-wrapper.site-branding-inline {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+	}
+	.site-branding-wrapper.site-branding-inline .site-title-tagline.site-title-inline {
+		display: flex;
+		flex-direction: column;
+	}
+	.site-branding-wrapper.site-branding-inline .site-title-tagline.site-title-inline .site-title {
+		margin: 0;
+	}
+
 	.site-header-row .main-navigation .main-navigation-wrapper {
 		background-color: {$header_menu_background_color};
 	}
