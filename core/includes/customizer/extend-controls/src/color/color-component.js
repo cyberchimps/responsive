@@ -16,17 +16,47 @@ const ColorComponent = props => {
 	});
 
 	useEffect(() => {
-		const settingId = props.control.id;  // e.g. "responsive_all_heading_text_color"
-		const setting = wp.customize(settingId);
-		if (!setting) return;
+		if (is_hover_required) {
+			// For hover controls, listen to both normal and hover settings
+			const normalSetting = wp.customize(props.control.settings['normal'].id);
+			const hoverSetting = wp.customize(props.control.settings['hover'].id);
+			
+			if (!normalSetting || !hoverSetting) return;
 
-		const listener = (newVal) => {
-			setState({ value: newVal });
-		};
+			const updateState = () => {
+				setState({
+					value: {
+						normal: normalSetting.get(),
+						hover: hoverSetting.get()
+					}
+				});
+			};
 
-		setting.bind(listener);
-		return () => setting.unbind(listener);
-	}, [props.control.id]);
+			// Initial state
+			updateState();
+
+			// Listen to changes
+			const normalUnbind = normalSetting.bind(updateState);
+			const hoverUnbind = hoverSetting.bind(updateState);
+
+			return () => {
+				normalUnbind();
+				hoverUnbind();
+			};
+		} else {
+			// For regular controls, listen to the main setting
+			const settingId = props.control.id;  // e.g. "responsive_all_heading_text_color"
+			const setting = wp.customize(settingId);
+			if (!setting) return;
+
+			const listener = (newVal) => {
+				setState({ value: newVal });
+			};
+
+			setting.bind(listener);
+			return () => setting.unbind(listener);
+		}
+	}, [props.control.id, is_hover_required]);
 
 	const updateValues = (value) => {
 		setState(prevState => ({
@@ -34,8 +64,12 @@ const ColorComponent = props => {
 			value: value
 		}));
 		if (is_hover_required) {
+			console.log('Setting normal color:', value.normal);
+			console.log('Setting hover color:', value.hover);
             props.control.settings['normal'].set(value.normal);
             props.control.settings['hover'].set(value.hover);
+			console.log('After set, normal:', props.control.settings['normal'].get());
+			console.log('After set, hover:', props.control.settings['hover'].get());
         } else if (is_gradient_available && props.control.settings?.default) {
 			props.control?.settings?.default?.set(value);
 			props.control?.settings?.color_type?.set('color');
@@ -82,29 +116,11 @@ const ColorComponent = props => {
 
 	const handleReset = () => {
 		// Get the default value from the control's default setting
+		console.log(props);
 		const defaultValue = props.control.params.default;
 		console.log("Default value " , defaultValue);
 		console.log("Prop object : " , props.control);
-		
-		// if (is_hover_required) {
-		// 	console.log("Inside is hover required");
-		// 	// For hover controls, reset both normal and hover values
-		// 	const normalDefault = props.control?.params.default || '';
-		// 	const hoverDefault = props.control?.params?.default || '';
-		// 	updateValues(default);
-		// } else if (is_gradient_available) {
-		// 	console.log("inside is gradient available");
-		// 	// For gradient controls, reset to default color
-		// 	props.control?.params?.default?.set(defaultValue);
-		// 	props.control?.params?.color_type?.set('color');
-		// 	setState(prevState => ({
-		// 		...prevState,
-		// 		value: defaultValue
-		// 	}));
-		// } else {
-			// For regular color controls
-			updateValues(defaultValue);
-		// }
+		updateValues(defaultValue);
 	};
 
 	let labelHtml = null;
