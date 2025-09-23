@@ -413,16 +413,24 @@ if ( ! function_exists( 'responsive_css' ) ) {
 /**
  * Custom retina logo
  */
-add_filter( 'get_custom_logo_image_attributes', function( $attr, $attachment_id, $size ) {
-    $retina_logo = get_theme_mod( 'responsive_retina_logo_image', '' );
+add_filter( 'wp_get_attachment_image_attributes', function( $attr, $attachment, $size ) {
+    // Only change the custom logo
+    if ( isset( $attr['class'] ) && strpos( $attr['class'], 'custom-logo' ) !== false ) {
+        $retina_logo = get_theme_mod( 'responsive_retina_logo_image', '' );
 
-    if ( get_theme_mod( 'responsive_retina_logo', 0 ) && $retina_logo ) {
-        $attr['srcset'] = esc_url( wp_get_attachment_url( $attachment_id ) ) . ' 1x, ' . esc_url( $retina_logo ) . ' 2x';
-        unset( $attr['sizes'] ); // optional
+        if ( get_theme_mod( 'responsive_retina_logo', 0 ) && $retina_logo ) {
+            $srcset_parts   = [];
+            $srcset_parts[] = esc_url( $attr['src'] ) . ' 1x';
+            $srcset_parts[] = esc_url( $retina_logo ) . ' 2x';
+
+            $attr['srcset'] = implode( ', ', $srcset_parts );
+            unset( $attr['sizes'] );
+            $attr['data-retina-enabled'] = 'true';
+        }
     }
 
     return $attr;
-}, 10, 3 );
+}, 20, 3 );
 
 
 /**

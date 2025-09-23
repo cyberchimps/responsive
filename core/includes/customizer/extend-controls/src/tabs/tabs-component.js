@@ -79,9 +79,7 @@ const TabsComponent = props => {
 
 		api('responsive_retina_logo', function( value ) {
 			value.bind( function( newval ) {
-				if( newval ) {
-					hideRetinaLogoUploadControl(newval);
-				}
+				hideRetinaLogoUploadControl(newval);
 			})
 		});
 
@@ -330,13 +328,13 @@ const TabsComponent = props => {
 		const controlElement = document.getElementById(controlId); 
 		if(!controlElement) return; 
 
+		// Hide by default
 		controlElement.style.display = 'none'; 
 
-		let isVisible = value!==0 && tab === 'general';
+		// Show only if toggle is enabled AND we're on the general tab
+		let isVisible = value !== 0 && value !== false && tab === 'general';
 
-
-		if(isVisible)
-		{
+		if(isVisible) {
 			controlElement.style.display = 'block';
 		}
 	};
