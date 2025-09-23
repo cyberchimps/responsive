@@ -1,4 +1,55 @@
 <?php
+// Preload local fonts if enabled
+add_action( 'wp_head', function() {
+    if ( 1 !== (int) get_theme_mod( 'responsive_load_google_fonts_locally', 0 ) ) {
+        return;
+    }
+    if ( 1 !== (int) get_theme_mod( 'responsive_preload_local_fonts', 0 ) ) {
+        return;
+    }
+    // Attempt to reconstruct current Google Fonts URL based on typography settings.
+    $fonts = array();
+    $body = get_theme_mod( 'body_typography' );
+    if ( is_array( $body ) && ! empty( $body['font-family'] ) ) {
+        $fonts[] = $body['font-family'];
+    }
+    for ( $i = 1; $i <= 6; $i++ ) {
+        $h = get_theme_mod( 'heading_h' . $i . '_typography' );
+        if ( is_array( $h ) && ! empty( $h['font-family'] ) ) {
+            $fonts[] = $h['font-family'];
+        }
+    }
+    $fonts = array_unique( array_filter( $fonts ) );
+    if ( empty( $fonts ) ) {
+        return;
+    }
+    $base = 'https://fonts.googleapis.com/css?family=';
+    $weights = apply_filters( 'responsive_google_font_enqueue_weights', array( '100','200','300','400','500','600','700','800','900' ), '' );
+    $italics = apply_filters( 'responsive_google_font_enqueue_italics', true );
+    $subsets = get_theme_mod( 'responsive_google_font_subsets', array( 'latin' ) );
+    $subset = '&amp;subset=' . ( is_array( $subsets ) ? implode( ',', $subsets ) : 'latin' );
+    $query_parts = array();
+    foreach ( $fonts as $font_name ) {
+        $font = str_replace( ' ', '+', trim( $font_name ) );
+        $q = $font . ':' . implode( ',', $weights );
+        if ( $italics ) {
+            $italic_weights = array();
+            foreach ( $weights as $w ) { $italic_weights[] = $w . 'i'; }
+            $q .= ',' . implode( ',', $italic_weights );
+        }
+        $query_parts[] = $q;
+    }
+    $google_css_url = $base . implode( '%7C', $query_parts ) . $subset;
+    if ( class_exists( 'Responsive_Local_Fonts' ) ) {
+        $local_css = Responsive_Local_Fonts::cache_and_get_url( $google_css_url );
+        if ( $local_css ) {
+            $files = Responsive_Local_Fonts::get_cached_font_files( $google_css_url );
+            foreach ( $files as $file_url ) {
+                echo '<link rel="preload" href="' . esc_url( $file_url ) . '" as="font" type="font/woff2" crossorigin />' . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            }
+        }
+    }
+}, 2 );
 /**
  * Outputs the customizer styles.
  *

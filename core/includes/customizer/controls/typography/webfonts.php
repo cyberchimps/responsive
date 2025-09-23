@@ -201,8 +201,17 @@ function responsive_enqueue_google_font( $font ) {
 		// Add subset to URL.
 		$url .= $subset;
 
-		// Enqueue style.
-        wp_enqueue_style('responsive-google-font-'. $handle , $url, false, false, 'all');//phpcs:ignore
+		// If local fonts are enabled, cache and use local CSS.
+		if ( 1 === (int) get_theme_mod( 'responsive_load_google_fonts_locally', 0 ) ) {
+			$local_css = Responsive_Local_Fonts::cache_and_get_url( 'https://fonts.googleapis.com/css?family=' . $font . '&amp;subset=' . $subsets );
+			if ( $local_css ) {
+				wp_enqueue_style( 'responsive-google-font-' . $handle, $local_css, false, null, 'all' );
+				return;
+			}
+		}
+
+		// Enqueue style from Google as fallback.
+		wp_enqueue_style( 'responsive-google-font-' . $handle, $url, false, false, 'all' );//phpcs:ignore
 }
 
 /**
@@ -295,10 +304,17 @@ function responsive_render_google_fonts_url( $fonts ) {
 	$subset = '&amp;subset=' . $subsets;
 	$url .= $subset;
 
-	// Check if already enqueued, then dequeue.
-	if ( !$isGoogleFont ) {
-		wp_dequeue_style( 'responsive-google-font-css' );
-	} else {
+	// If local fonts enabled, use local CSS; otherwise enqueue Google URL.
+	if ( $isGoogleFont ) {
+		if ( 1 === (int) get_theme_mod( 'responsive_load_google_fonts_locally', 0 ) ) {
+			$local_css = Responsive_Local_Fonts::cache_and_get_url( $url );
+			if ( $local_css ) {
+				wp_enqueue_style( 'responsive-google-font', $local_css, false, null, 'all' );//phpcs:ignore
+				return;
+			}
+		}
 		wp_enqueue_style( 'responsive-google-font', $url, false, false, 'all' );//phpcs:ignore
+	} else {
+		wp_dequeue_style( 'responsive-google-font-css' );
 	}
 }

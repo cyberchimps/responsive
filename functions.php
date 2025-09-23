@@ -45,6 +45,7 @@ require $responsive_template_directory . '/core/includes/compatibility/woocommer
 require $responsive_template_directory . '/core/includes/compatibility/sensei/class-responsive-sensei.php';
 require $responsive_template_directory . '/admin/admin-functions.php';
 require $responsive_template_directory . '/core/includes/classes/class-responsive-mobile-menu-markup.php';
+require $responsive_template_directory . '/core/includes/classes/class-responsive-local-fonts.php';
 if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
 	require $responsive_template_directory . '/core/includes/classes/class-responsive-blog-markup.php';
 }
@@ -75,6 +76,19 @@ Responsive\Extra\setup();
 if ( class_exists( 'WooCommerce' ) ) {
 	Responsive\WooCommerce\setup();
 }
+
+// Admin-post handler to flush local fonts cache.
+add_action( 'admin_post_responsive_flush_local_fonts', function() {
+    if ( ! current_user_can( 'manage_options' ) ) {
+        wp_die( esc_html__( 'Unauthorized request.', 'responsive' ) );
+    }
+    check_admin_referer( 'responsive_flush_local_fonts' );
+    if ( class_exists( 'Responsive_Local_Fonts' ) ) {
+        Responsive_Local_Fonts::flush_cache();
+    }
+    wp_safe_redirect( wp_get_referer() ? wp_get_referer() : admin_url( 'customize.php' ) );
+    exit;
+} );
 
 /**
  * Return value of the supplied responsive free theme option.
