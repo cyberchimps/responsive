@@ -60,13 +60,12 @@ element.style {
     top: 14%;
     left: 37%;
 }
-.components-button {
+.components-button:not(.components-toolbar-button, .components-dropdown-menu__toggle, .components-menu-item__button, .components-dropdown-menu__menu-item) {
     align-items: center;
     flex: 1 1 auto;
     justify-content: center;
     margin: 0 0;
     padding: 0;
-    border: 1px solid #ccc;
     transition: background-color 140ms linear;
     cursor: pointer;
 }
@@ -277,13 +276,12 @@ element.style {
     bottom: 6px;
     height: 32px;
 }
-.components-button{
+.components-button:not(.components-toolbar-button, .components-dropdown-menu__toggle, .components-menu-item__button, .components-dropdown-menu__menu-item){
     align-items: center;
     flex: 1 1 auto;
     justify-content: center;
     margin: 0 0;
     padding: 0;
-    border: 1px solid #7e8993;
     transition: background-color 140ms linear;
 }
 .components-color-picker__inputs-toggle-wrapper .components-button {
