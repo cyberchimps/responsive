@@ -48,7 +48,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			);
 
 			$responsive_retina_logo_label = __( 'Enable Retina Logo ?', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'retina_logo', $responsive_retina_logo_label, 'responsive_header_site_logo_title', 8, 0, null );
+			responsive_toggle_control( $wp_customize, 'retina_logo', $responsive_retina_logo_label, 'responsive_header_site_logo_title', 8, 0, 'responsive_has_custom_logo_callback','postMessage' );
 
 			$wp_customize->add_setting(
 				'responsive_retina_logo_image',

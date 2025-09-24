@@ -42,13 +42,9 @@ const TabsComponent = props => {
 				element.style.display = 'none';
 			}
 		});
-		const logoWidthElement = document.getElementById('customize-control-responsive_logo_width');
-		const isCustomLogoPresent = document.getElementsByClassName('attachment-thumb').length > 0;
-		if ( showElements === 'general' && logoWidthElement || !isCustomLogoPresent ) {
-			logoWidthElement.style.display = 'none';
-		} else if( showElements === 'design' && logoWidthElement && isCustomLogoPresent ) {
-			logoWidthElement.style.display = 'block';
-		}
+		const isCustomLogoPresent = document.querySelector('#customize-control-custom_logo img.attachment-thumb') !== null;
+		hideLogoWidthControl(isCustomLogoPresent);
+		hideRetinaLogoToggler(isCustomLogoPresent);
 
 		hideSidebarWidthControl( api('responsive_page_sidebar_position').get(), 'page' );
 		hideSidebarWidthControl( api('responsive_blog_sidebar_position').get(), 'blog' );
@@ -76,6 +72,20 @@ const TabsComponent = props => {
 				}
 			})
 		});
+
+		api('custom_logo', function(value) {
+		value.bind(function(newval) {
+			const hasLogo = !!newval; // WP gives attachment ID or false
+			hideLogoWidthControl(hasLogo);
+			hideRetinaLogoToggler(hasLogo);
+
+			if (!hasLogo) {
+				// Reset retina logo toggle & uploaded image
+				api('responsive_retina_logo').set(0);
+				api('responsive_retina_logo_image').set('');
+			}
+		});
+	});
 
 		api('responsive_retina_logo', function( value ) {
 			value.bind( function( newval ) {
@@ -338,6 +348,39 @@ const TabsComponent = props => {
 			controlElement.style.display = 'block';
 		}
 	};
+
+	const hideLogoWidthControl = (isCustomLogoPresent) => {
+		const controlId = 'customize-control-responsive_logo_width';
+			const controlElement = document.getElementById(controlId);
+			if (!controlElement) return;
+
+			// Hide by default
+			controlElement.style.display = 'none';
+
+			// Show only if custom logo exists and we're on the general tab
+			let isVisible = isCustomLogoPresent && tab === 'general';
+
+			if (isVisible) {
+				controlElement.style.display = 'block';
+			}
+	};
+
+	const hideRetinaLogoToggler = (isCustomLogoPresent) => {
+		const controlId = 'customize-control-responsive_retina_logo';
+		const controlElement = document.getElementById(controlId);
+		if (!controlElement) return;
+
+		// Hide by default
+		controlElement.style.display = 'none';
+
+		// Show only if custom logo exists and we're on the general tab
+		let isVisible = isCustomLogoPresent && tab === 'general';
+
+		if (isVisible) {
+			controlElement.style.display = 'block';
+		}
+	};
+
 
 
 	return <>
