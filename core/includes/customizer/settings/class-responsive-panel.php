@@ -160,6 +160,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				$tab_ids_prefix . 'responsive_hide_title',
 				$tab_ids_prefix . 'responsive_hide_tagline',
 				$tab_ids_prefix . 'responsive_custom_logo_url',
+				$tab_ids_prefix . 'responsive_retina_logo_image'
 			);
 			
 			if( ! get_theme_mod( 'custom_logo' ) ) {

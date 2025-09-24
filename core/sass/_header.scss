@@ -742,6 +742,33 @@ body.mega-menu-header-menu button.menu-toggle {
   display: inline-block;
 }
 
+/* Retina Logo Support */
+.custom-logo {
+  // Ensure retina logos display properly
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  
+  // Support for high-resolution displays including iPad Pro
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.3),
+         only screen and (min-resolution: 124.8dpi),
+         only screen and (min-resolution: 1.3dppx),
+         only screen and (-webkit-min-device-pixel-ratio: 1.5),
+         only screen and (min-resolution: 144dpi),
+         only screen and (min-resolution: 1.5dppx),
+         only screen and (-webkit-min-device-pixel-ratio: 2),
+         only screen and (min-resolution: 192dpi),
+         only screen and (min-resolution: 2dppx) {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  @media only screen and (min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1.3),
+         only screen and (min-device-width: 1024px) and (max-device-width: 1024px) and (min-resolution: 124.8dpi) {
+    transform: scale(1);
+    backface-visibility: hidden;
+  }
+}
+
 .main-navigation .menu {
     li.focus>.children, li.focus>.sub-menu, .menu-item-has-children.focus>ul.sub-menu {
     display: block;
