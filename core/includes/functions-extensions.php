@@ -385,8 +385,6 @@ add_action( 'after_setup_theme', 'responsive_add_image_size' );
  */
 function responsive_get_social_icons( $area ) {
 
-	$responsive_options = Responsive\Core\responsive_get_options();
-
 	$icons = array(
 		'twitter'       => __( 'Twitter', 'responsive' ),
 		'facebook'      => __( 'Facebook', 'responsive' ),

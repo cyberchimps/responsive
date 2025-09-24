@@ -7,14 +7,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 /* RST Promo notice starts */
-.postbox.responsive-sites-active,
-.postbox.responsive-header-footer-builder-update-notice {
+.postbox.responsive-sites-active{
 	display: flex;
 	flex-direction: row;
 	justify-content: left;
 	align-items: start;
 	padding: 0 20px;
-	margin: 40px 20px 24px 0px;
 	border-style: solid;
 	border-left-width: 3px;
     border-left-color: #007CBA;
