@@ -15,6 +15,7 @@ const PaletteComponent = props => {
     } = props.control.params;
 
     const [selectedChoice, setSelectedChoice] = useState(() => {
+        //console.log("current palette choice: ", props.control.setting.get());
         return props.control.setting.get() || 'playful-default';
     });
 
@@ -143,6 +144,7 @@ const PaletteComponent = props => {
 
     const InlineThemeModColorPicker = ({ settingId, labelText }) => {
         const pickerId = `responsive-inline-picker-${settingId}`;
+        const pickerRef = useRef(null);
         const [color, setColor] = useState(() => {
             if (typeof wp !== 'undefined' && wp.customize && wp.customize(settingId)) {
                 return wp.customize(settingId).get();
@@ -160,6 +162,27 @@ const PaletteComponent = props => {
                 return () => setting.unbind(handler);
             }
         }, [settingId]);
+
+        useEffect(() => {
+            const handleClickOutside = (event) => {
+                if (!isOpen) return;
+
+                const clickedInlinePicker = event.target.closest('.responsive-inline-color-picker');
+
+                if (clickedInlinePicker) {
+                    // if I clicked inside another picker (not this one) → close this
+                    if (clickedInlinePicker.id !== pickerId) {
+                        setOpenPickerId(clickedInlinePicker.id  );
+                    }
+                } else {
+                    // clicked completely outside → close
+                    setOpenPickerId(null);
+                }
+            };
+
+            window.addEventListener('mousedown', handleClickOutside);
+            return () => window.removeEventListener('mousedown', handleClickOutside);
+        }, [isOpen, pickerId]);
 
         const handleChangeComplete = (newColor) => {
             const value = toColorString(newColor);
@@ -189,10 +212,10 @@ const PaletteComponent = props => {
         };
 
         const handlePickerToggle = () => {
-            if (isOpen) {
-                setOpenPickerId(null);
-            } else {
+            if (!isOpen) {
                 setOpenPickerId(pickerId);
+            } else {
+                setOpenPickerId(null);
             }
         };
 
@@ -204,7 +227,7 @@ const PaletteComponent = props => {
         };
 
         return (
-            <div id={pickerId} className="responsive-inline-color-picker lg-round">
+            <div id={pickerId} className="responsive-inline-color-picker lg-round" ref={pickerRef}>
                 <div onClick={handlePickerToggle}>
                     <ResponsiveColorPickerControl
                         color={color}
