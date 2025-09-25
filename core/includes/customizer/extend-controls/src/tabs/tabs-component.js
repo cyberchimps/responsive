@@ -53,6 +53,7 @@ const TabsComponent = props => {
 		hideSidebarWidthControl( api('responsive_page_sidebar_position').get(), 'page' );
 		hideSidebarWidthControl( api('responsive_blog_sidebar_position').get(), 'blog' );
 		hideSidebarWidthControl( api('responsive_default_sidebar_position').get(), 'default');
+		hideRetinaLogoUploadControl( api( 'responsive_retina_logo').get());
 
 		api('responsive_page_sidebar_position', function( value ) {
 			value.bind( function( newval ) {
@@ -73,6 +74,12 @@ const TabsComponent = props => {
 				if( newval ) {
 					hideSidebarWidthControl(newval, 'default');
 				}
+			})
+		});
+
+		api('responsive_retina_logo', function( value ) {
+			value.bind( function( newval ) {
+				hideRetinaLogoUploadControl(newval);
 			})
 		});
 
@@ -315,6 +322,22 @@ const TabsComponent = props => {
         controlElement.style.display = 'block';
     }
 };
+
+	const hideRetinaLogoUploadControl = (value) => {
+		const controlId = `customize-control-responsive_retina_logo_image`;
+		const controlElement = document.getElementById(controlId); 
+		if(!controlElement) return; 
+
+		// Hide by default
+		controlElement.style.display = 'none'; 
+
+		// Show only if toggle is enabled AND we're on the general tab
+		let isVisible = value !== 0 && value !== false && tab === 'general';
+
+		if(isVisible) {
+			controlElement.style.display = 'block';
+		}
+	};
 
 
 	return <>

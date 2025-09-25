@@ -1441,3 +1441,40 @@ if( ! function_exists( 'responsive_theme_background_updater_6_2_4') ) {
 		}
 	}
 }
+
+if ( ! function_exists( 'responsive_theme_background_updater_retina_logo_6_2_5' ) ) {
+	/**
+	 * Handle backward compatibility for retina logo setup
+	 *
+	 * @since 6.2.5
+	 * @return void
+	 */
+	function responsive_theme_background_updater_retina_logo_6_2_5() {
+
+		$responsive_options = Responsive\Core\responsive_get_options();
+
+		if ( ! isset( $responsive_options['retina-logo-backward-done'] ) ) {
+
+			// If retina logo option is enabled but no separate retina image has been set
+			if ( get_theme_mod( 'responsive_retina_logo', 0 )
+				&& ! get_theme_mod( 'responsive_retina_logo_image', '' ) ) {
+
+				// Get the current custom logo ID
+				$custom_logo_id = get_theme_mod( 'custom_logo' );
+
+				if ( $custom_logo_id ) {
+					// Fallback: set the same main logo as retina logo
+					$logo_url = wp_get_attachment_url( $custom_logo_id );
+
+					if ( $logo_url ) {
+						set_theme_mod( 'responsive_retina_logo_image', $logo_url );
+					}
+				}
+			}
+
+			// Mark backward compatibility update as done
+			$responsive_options['retina-logo-backward-done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
