@@ -131,11 +131,10 @@ const PaletteComponent = props => {
             style.id = styleId;
             style.innerHTML = `
                 .responsive-inline-color-picker.lg-round .wp-color-result {
-                    width: 36px !important;
-                    height: 36px !important;
-                    min-width: 36px !important;
-                    border-radius: 36px !important;
                     padding: 0 !important;
+                    width: 26px !important;
+                    border-radius: 50% !important;
+                    min-height: 26px !important;
                 }
             `;
             document.head.appendChild(style);
