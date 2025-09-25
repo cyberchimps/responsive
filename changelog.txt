@@ -133,6 +133,7 @@ Changelog Legend:
 
 (04/09/2024) = Improvement - Version 5.1.1
 [*] = Improvement = Added alt attribute to social icons.
+[*] = Changed = Minor UI Changes
 
 (14/08/2024) = Improvement - Version 5.1.0
 [+] = New = Support for Secondary Menu.
