@@ -430,7 +430,6 @@
 
     //All Heading text Color
     api( 'responsive_all_heading_text_color', function( value ) {
-        console.log("all heading text color is getting changed");
         value.bind( function( newval ) {
             $('h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6').css('color', newval );
             
@@ -534,7 +533,7 @@
     //Link Color
     api( 'responsive_link_color', function( value ) {
         value.bind( function( newval ) {
-            $('a, .woocommerce a.remove:hover').not('nav a').not('a.add_to_cart_button').not('.site-title-tagline a').not('.widget-area .widget-wrapper a').css('color', newval );
+            $('a, .woocommerce a.remove:hover').not('nav a').not('a.add_to_cart_button').not('.site-title-tagline a').not('.widget-area .widget-wrapper a').not('a.product_type_grouped').not('.woocommerce-tabs .description_tab').not('.woocommerce-tabs .reviews_tab').css('color', newval );
         } );
     } );
 
@@ -577,7 +576,7 @@
     //Buttons color
     api( 'responsive_button_color', function( value ) {
         value.bind( function( newval ) {
-            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button ').css('background-color', newval );
+            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button ').not('a.add_to_cart_button').not('a.product_type_grouped').not('button.single_add_to_cart_button').not('.woocommerce-Reviews input').css('background-color', newval );
             if( responsiveSiteLocalOptions.isDisableElementorDefaultColors ) {
                 jQuery( 'style#responsive-elementor-button-color' ).remove();
                 jQuery( 'head' ).append(
@@ -1068,7 +1067,7 @@
     //Rating Color
     api( 'responsive_shop_product_rating_color', function( value ) {
         value.bind( function( newval ) {
-            $('.woocommerce .star-rating span').css('color', newval );
+            $('.woocommerce .star-rating span').not('.woocommerce-tabs .reviews_tab').css('color', newval );
         } );
     } );
 
@@ -1319,7 +1318,7 @@
     //Links Color
     api( 'responsive_sidebar_link_color', function( value ) {
         value.bind( function( newval ) {
-            $('.widget-area .widget-wrapper a ').css('color', newval );
+            $('.widget-area .widget-wrapper a ').not('a.add_to_cart_button').not('a.product_type_grouped').not('.woocommerce-tabs .reviews_tab').css('color', newval );
         } );
     } );
 

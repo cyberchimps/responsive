@@ -64,12 +64,8 @@ const ColorComponent = props => {
 			value: value
 		}));
 		if (is_hover_required) {
-			console.log('Setting normal color:', value.normal);
-			console.log('Setting hover color:', value.hover);
             props.control.settings['normal'].set(value.normal);
             props.control.settings['hover'].set(value.hover);
-			console.log('After set, normal:', props.control.settings['normal'].get());
-			console.log('After set, hover:', props.control.settings['hover'].get());
         } else if (is_gradient_available && props.control.settings?.default) {
 			props.control?.settings?.default?.set(value);
 			props.control?.settings?.color_type?.set('color');
@@ -116,10 +112,7 @@ const ColorComponent = props => {
 
 	const handleReset = () => {
 		// Get the default value from the control's default setting
-		console.log(props);
 		const defaultValue = props.control.params.default;
-		console.log("Default value " , defaultValue);
-		console.log("Prop object : " , props.control);
 		updateValues(defaultValue);
 	};
 
