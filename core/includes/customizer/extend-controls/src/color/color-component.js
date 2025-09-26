@@ -108,6 +108,27 @@ const ColorComponent = props => {
 		} else {
 			updateValues(colorValue);
 		}
+
+		// reciprocation logic for All Headings color
+		const settingId = props.control.id;
+		if (settingId === 'responsive_all_heading_text_color') {
+			// Update individual heading color settings when All Headings changes
+			const individualHeadingIds = [
+				'responsive_h1_text_color',
+				'responsive_h2_text_color',
+				'responsive_h3_text_color',
+				'responsive_h4_text_color',
+				'responsive_h5_text_color',
+				'responsive_h6_text_color'
+			];
+			
+			individualHeadingIds.forEach(function(headingId) {
+				const headingSetting = wp.customize(headingId);
+				if (headingSetting) {
+					headingSetting.set(colorValue);
+				}
+			});
+		}
 	};
 
 	const handleReset = () => {

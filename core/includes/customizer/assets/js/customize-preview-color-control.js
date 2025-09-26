@@ -433,26 +433,22 @@
         value.bind( function( newval ) {
             $('h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6').css('color', newval );
             
-            // Update individual heading color settings in real-time for Global Colors section
+            // Update individual heading color settings in real-time
             const individualHeadingIds = [
                 'responsive_h1_text_color',
                 'responsive_h2_text_color', 
                 'responsive_h3_text_color',
                 'responsive_h4_text_color',
                 'responsive_h5_text_color',
-                'responsive_h6_text_color',
-                'responsive_all_heading_text_color'
+                'responsive_h6_text_color'
             ];
             
-            individualHeadingIds.forEach(function(headingId, index) {
+            individualHeadingIds.forEach(function(headingId) {
                 if (api(headingId)) {
                     api(headingId).set(newval);
-
-                    // 2. ALSO update the preview directly (important for live sync)
-                let selector = 'h' + (index+1) + ', .h' + (index+1);
-                $(selector).css('color', newval);
                 }
             });
+            
         } );
     } );
 
@@ -505,21 +501,6 @@
         } );
     } );
 
-    // api('responsive_all_heading_text_color', function( value ) {
-    //     value.bind( function( newval ) {
-    //         $( 'h1, h2, h3, h4, h5, h6' ).css( 'color', newval );
-    //     } );
-    // } );
-
-    // Individual headings
-    ['h1','h2','h3','h4','h5','h6'].forEach( function( tag ) {
-        let settingId = 'responsive_' + tag + '_text_color';
-        api( settingId, function( value ) {
-            value.bind( function( newval ) {
-                $( tag ).css( 'color', newval );
-            } );
-        } );
-    });
 
 
 
