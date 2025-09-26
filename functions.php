@@ -1312,6 +1312,55 @@ function remove_unnecessary_wordpress_menus() {
 	unset( $submenu['themes.php'][20] );
 }
 
+/*
+	Global color palette
+	@since 6.2.5
+*/
+function responsive_register_theme_mods() {
+    $default_palette = [
+        'accent'          => '#0066CC',
+        'link_hover'      => '#007fff',
+        'text'            => '#364151',
+        'headings'        => '#fcba03',
+        'content_bg'      => '#ffffff',
+        'site_background' => '#f0f5fa',
+        'alt_background'  => '#eaeaea',
+    ];
+
+    foreach ( $default_palette as $key => $value ) {
+        $id = "responsive_global_color_palette_{$key}_color";
+        if ( get_theme_mod( $id ) === false ) {
+			error_log("Register theme mod is getting hit for {$id}");
+            set_theme_mod( $id, $value );
+        }
+    }
+}
+add_action( 'after_setup_theme', 'responsive_register_theme_mods' );
+
+function responsive_register_customizer_settings( $wp_customize ) {
+    $default_palette = [
+        'accent'          => '#0066CC',
+        'link_hover'      => '#007fff',
+        'text'            => '#364151',
+        'headings'        => '#fcba03',
+        'content_bg'      => '#ffffff',
+        'site_background' => '#f0f5fa',
+        'alt_background'  => '#eaeaea',
+    ];
+
+    foreach ( $default_palette as $key => $value ) {
+        $id = "responsive_global_color_palette_{$key}_color";
+
+        $wp_customize->add_setting( $id, [
+            'default'   => $value,
+            'type'      => 'theme_mod',
+            'transport' => 'postMessage', // so React preview updates live
+        ]);
+    }
+}
+add_action( 'customize_register', 'responsive_register_customizer_settings' );
+
+
 if ( ! function_exists( 'responsive_theme_background_updater_6_1_7' ) ) {
 
 	/**

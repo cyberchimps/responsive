@@ -23,12 +23,16 @@ function responsive_get_color_palettes_schemes_as_customizer_choices() {
 	}
 
 	$customizer_color_schemes = explode( '-', get_theme_mod( 'responsive_color_scheme_new' ) );
+	error_log("Customizer color schemes" . print_r($customizer_color_schemes, true));
 
 	$customizer_color_schemes_design  = $customizer_color_schemes[0];
+	error_log("Customizer color schemes design: " . $customizer_color_schemes_design);
 	$customizer_color_schemes_palette = $customizer_color_schemes[1];
+	error_log("Customizer color schemes palette: " . $customizer_color_schemes_palette);
 
 	$design_styles            = responsive_get_available_design_styles();
 	$responsive_color_schemes = $design_styles[ $customizer_color_schemes_design ]['color_schemes'][ $customizer_color_schemes_palette ];
+	error_log("Responsive color schemes: " . print_r($responsive_color_schemes, true));
 
 	set_theme_mod( 'background_color', ltrim( $responsive_color_schemes['alt_background'], '#' ) );
 	set_theme_mod( 'background_gradient_color', 'linear-gradient(135deg, #12c2e9 0%, #c471ed 50%, #f64f59 100%)' );

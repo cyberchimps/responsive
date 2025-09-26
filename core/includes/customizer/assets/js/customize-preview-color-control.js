@@ -430,6 +430,7 @@
 
     //All Heading text Color
     api( 'responsive_all_heading_text_color', function( value ) {
+        console.log("all heading text color is getting changed");
         value.bind( function( newval ) {
             $('h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6').css('color', newval );
             
@@ -440,7 +441,8 @@
                 'responsive_h3_text_color',
                 'responsive_h4_text_color',
                 'responsive_h5_text_color',
-                'responsive_h6_text_color'
+                'responsive_h6_text_color',
+                'responsive_all_heading_text_color'
             ];
             
             individualHeadingIds.forEach(function(headingId, index) {
@@ -504,11 +506,11 @@
         } );
     } );
 
-    api('responsive_all_heading_text_color', function( value ) {
-        value.bind( function( newval ) {
-            $( 'h1, h2, h3, h4, h5, h6' ).css( 'color', newval );
-        } );
-    } );
+    // api('responsive_all_heading_text_color', function( value ) {
+    //     value.bind( function( newval ) {
+    //         $( 'h1, h2, h3, h4, h5, h6' ).css( 'color', newval );
+    //     } );
+    // } );
 
     // Individual headings
     ['h1','h2','h3','h4','h5','h6'].forEach( function( tag ) {
@@ -532,7 +534,7 @@
     //Link Color
     api( 'responsive_link_color', function( value ) {
         value.bind( function( newval ) {
-            $('a, .woocommerce a.remove:hover').css('color', newval );
+            $('a, .woocommerce a.remove:hover').not('nav a').not('a.add_to_cart_button').not('.site-title-tagline a').not('.widget-area .widget-wrapper a').css('color', newval );
         } );
     } );
 
