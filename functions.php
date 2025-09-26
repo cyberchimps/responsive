@@ -1330,7 +1330,6 @@ function responsive_register_theme_mods() {
     foreach ( $default_palette as $key => $value ) {
         $id = "responsive_global_color_palette_{$key}_color";
         if ( get_theme_mod( $id ) === false ) {
-			error_log("Register theme mod is getting hit for {$id}");
             set_theme_mod( $id, $value );
         }
     }
