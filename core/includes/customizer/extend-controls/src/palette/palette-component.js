@@ -251,10 +251,12 @@ const PaletteComponent = props => {
         const handlePickerToggle = () => {
             if (!isOpen) {
                 setOpenPickerId(pickerId);
-            } else {
-                setOpenPickerId(null);
             }
         };
+
+        const selfClicked = () => {
+            setOpenPickerId(null); 
+        }
 
         function getDefaultColor(settingId) {
             if(settingId === "responsive_global_color_palette_text_color")
@@ -305,6 +307,7 @@ const PaletteComponent = props => {
                         colorType={'color'}
                         gradient={''}
                         isOpen={isOpen}
+                        selfClicked={selfClicked}
                     />
                 </div>
             </div>
