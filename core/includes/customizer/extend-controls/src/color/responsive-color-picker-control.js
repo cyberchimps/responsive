@@ -41,16 +41,16 @@ class ResponsiveColorPickerControl extends Component {
 	extractOpacity(colorStr) {
 		if (!colorStr) return 1;
 
-		if (typeof color === 'string') {
-			if (color === 'transparent') return 0;
+		if (typeof colorStr === 'string') {
+			if (colorStr === 'transparent') return 0;
 
-			const rgbaMatch = color.match(/rgba\(\s*\d+,\s*\d+,\s*\d+,\s*(\d*\.?\d+)\s*\)/);
+			const rgbaMatch = colorStr.match(/rgba\(\s*\d+,\s*\d+,\s*\d+,\s*(\d*\.?\d+)\s*\)/);
 			return rgbaMatch ? parseFloat(rgbaMatch[1]) : 1;
 		}
 
 		// If color is an object
-		if (typeof color === 'object' && color.rgb && typeof color.rgb.a !== 'undefined') {
-			return color.rgb.a;
+		if (typeof colorStr === 'object' && colorStr.rgb && typeof colorStr.rgb.a !== 'undefined') {
+			return colorStr.rgb.a;
 		}
 
 		return 1;

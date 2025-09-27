@@ -92,7 +92,15 @@ const PaletteComponent = props => {
             'responsive_header_text_color',
             'responsive_header_site_title_color',
             'responsive_header_menu_link_color',
-            'responsive_header_secondary_menu_link_color'
+            'responsive_header_secondary_menu_link_color',
+            'responsive_sidebar_headings_color',
+            'responsive_h1_text_color',
+            'responsive_h2_text_color',
+            'responsive_h3_text_color',
+            'responsive_h4_text_color',
+            'responsive_h5_text_color',
+            'responsive_h6_text_color',
+            'responsive_all_heading_text_color'
             ],
             'responsive_global_color_palette_accent_color': [
             'responsive_link_color',
@@ -107,14 +115,6 @@ const PaletteComponent = props => {
             'responsive_global_color_palette_text_color': [
             'responsive_body_text_color',
             'responsive_sidebar_text_color',
-            'responsive_sidebar_headings_color',
-            'responsive_h1_text_color',
-            'responsive_h2_text_color',
-            'responsive_h3_text_color',
-            'responsive_h4_text_color',
-            'responsive_h5_text_color',
-            'responsive_h6_text_color',
-            'responsive_all_heading_text_color'
             ],
             'responsive_global_color_palette_link_hover_color': [
             'responsive_link_hover_color'
