@@ -781,3 +781,7 @@ body.wp-customizer .responsive-color-control-main-wrap .wp-picker-container .wp-
     box-shadow: 0px 0px 20px 0px #00000040;
     border-radius: 4px;
 }
+
+.responsive-selected-palette-pickers .responsive-inline-color-picker {
+    padding-bottom : 0px;
+}
