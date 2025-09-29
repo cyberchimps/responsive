@@ -1641,9 +1641,15 @@ body.rtl .customize-control .responsive-switchers li {
 	width : 90%; 
 }
 
-.responsive-color-control-wrapper .responsive-color-reset-btn{
-	padding-top : 4px;
-}
 #customize-control-responsive_body_text_color .responsive-color-control-wrapper .responsive-color-reset-btn {
-	padding-top : 13px;
+	margin-top : 13px;
+}
+#customize-control-responsive_header_above_row_bg_color .responsive-color-reset-btn,#customize-control-responsive_header_above_row_bottom_border_color .responsive-color-reset-btn,
+#customize-control-responsive_header_primary_row_bg_color .responsive-color-reset-btn,#customize-control-responsive_header_primary_row_bottom_border_color .responsive-color-reset-btn,
+#customize-control-responsive_header_below_row_bottom_border_color .responsive-color-reset-btn,#customize-control-responsive_header_below_row_bg_color .responsive-color-reset-btn {
+	margin-top : 20px;
+}
+#customize-control-responsive_breadcrumb_color .responsive-color-reset-btn {
+	padding-top : 0px; 
+	margin-top : 13px;
 }
