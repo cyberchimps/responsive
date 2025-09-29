@@ -1631,3 +1631,19 @@ body.rtl .customize-control .responsive-switchers li {
 	outline: 1px solid #0073aa;
 	outline-offset: 2px;
 }
+
+.responsive-color-control-wrapper {
+	display : flex; 
+	align-items: center
+}
+
+.responsive-color-control-wrapper .responsive-color-control-main-wrap{
+	width : 90%; 
+}
+
+.responsive-color-control-wrapper .responsive-color-reset-btn{
+	padding-top : 4px;
+}
+#customize-control-responsive_body_text_color .responsive-color-control-wrapper .responsive-color-reset-btn {
+	padding-top : 13px;
+}

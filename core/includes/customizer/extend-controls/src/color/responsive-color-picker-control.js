@@ -41,16 +41,16 @@ class ResponsiveColorPickerControl extends Component {
 	extractOpacity(colorStr) {
 		if (!colorStr) return 1;
 
-		if (typeof color === 'string') {
-			if (color === 'transparent') return 0;
+		if (typeof colorStr === 'string') {
+			if (colorStr === 'transparent') return 0;
 
-			const rgbaMatch = color.match(/rgba\(\s*\d+,\s*\d+,\s*\d+,\s*(\d*\.?\d+)\s*\)/);
+			const rgbaMatch = colorStr.match(/rgba\(\s*\d+,\s*\d+,\s*\d+,\s*(\d*\.?\d+)\s*\)/);
 			return rgbaMatch ? parseFloat(rgbaMatch[1]) : 1;
 		}
 
 		// If color is an object
-		if (typeof color === 'object' && color.rgb && typeof color.rgb.a !== 'undefined') {
-			return color.rgb.a;
+		if (typeof colorStr === 'object' && colorStr.rgb && typeof colorStr.rgb.a !== 'undefined') {
+			return colorStr.rgb.a;
 		}
 
 		return 1;
@@ -105,7 +105,7 @@ class ResponsiveColorPickerControl extends Component {
 			const parentEl     = document.getElementById(currentElementID);
 			const pickerHolder = parentEl.querySelector('.wp-picker-holder');
 			const pickerHeight = pickerHolder.offsetHeight;
-			document.getElementById(currentElementID).style.paddingBottom =`${pickerHeight + 20}px`;
+			// document.getElementById(currentElementID).style.paddingBottom =`${pickerHeight + 20}px`;
 		}
 	}
 
@@ -175,16 +175,19 @@ class ResponsiveColorPickerControl extends Component {
 	    }
 		return (
 			<>
-				
 				<div className="wp-picker-container">
-					
 					<Button
-                        className={isVisible ? 'button wp-color-result wp-picker-open' : 'button wp-color-result '}
-                        onClick={() => { isVisible ? toggleClose() : toggleVisible(this.state.activeTab) }}
-                        aria-expanded='false'
-                        style={buttonBackgroundStyle}
-                    >
-                    </Button>
+						className={isVisible ? 'button wp-color-result wp-picker-open' : 'button wp-color-result '}
+						onClick={() => {
+							if (typeof this.props.selfClicked === 'function') {
+								this.props.selfClicked();
+							}
+							isVisible ? toggleClose() : toggleVisible(this.state.activeTab);
+						}}
+						aria-expanded='false'
+						style={buttonBackgroundStyle}
+					>
+					</Button>
 					<div className="wp-picker-holder">
 						{(isVisible && is_gradient_available) ?
 							(
@@ -345,6 +348,7 @@ ResponsiveColorPickerControl.propTypes = {
 	customizer: PropTypes.object,
 	colorType: PropTypes.string,
 	isOpen: PropTypes.bool,
+	selfClicked: PropTypes.func,
 };
 
 export default ResponsiveColorPickerControl;

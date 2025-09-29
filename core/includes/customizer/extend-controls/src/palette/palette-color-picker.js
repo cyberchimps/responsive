@@ -19,13 +19,13 @@ const PaletteColorPicker = props => {
 
     return (
         <div className="responsive-color-picker-btn-wrap" tabIndex="0" style={wrapStyle}>
-            <span className="component-color-indicator responsive-color-palette-indicate" style={{ ...indicatorStyle, background: props.colorsPicks.accent }} title="Accent Color (Link)"></span>
-            <span className="component-color-indicator responsive-color-palette-indicate" style={{ ...indicatorStyle, background: props.colorsPicks.accent }} title="Link Hover Color"></span>
-            <span className="component-color-indicator responsive-color-palette-indicate" style={{ ...indicatorStyle, background: props.colorsPicks.text }} title="Text Color"></span>
-            <span className="component-color-indicator responsive-color-palette-indicate" style={{ ...indicatorStyle, background: props.colorsPicks.text }} title="Headings Text Color"></span>
-            <span className="component-color-indicator responsive-color-palette-indicate" style={{ ...indicatorStyle, background: props.colorsPicks.background }} title="Content Background Color"></span>
-            <span className="component-color-indicator responsive-color-palette-indicate" style={{ ...indicatorStyle, background: props.colorsPicks.alt_background }} title="Site Background Color"></span>
-            <span className="component-color-indicator responsive-color-palette-indicate" style={{ ...indicatorStyle, background: props.colorsPicks.alt_background }} title="Alt Background Color"></span>
+            <span className="component-color-indicator responsive-color-palette-indicate" style={{ ...indicatorStyle, background: props.colorsPicks.accent }} title="Accent"></span>
+            <span className="component-color-indicator responsive-color-palette-indicate" style={{ ...indicatorStyle, background: props.colorsPicks.link_hover }} title="Link Hover"></span>
+            <span className="component-color-indicator responsive-color-palette-indicate" style={{ ...indicatorStyle, background: props.colorsPicks.text }} title="Text"></span>
+            <span className="component-color-indicator responsive-color-palette-indicate" style={{ ...indicatorStyle, background: props.colorsPicks.header_text }} title="Headings"></span>
+            <span className="component-color-indicator responsive-color-palette-indicate" style={{ ...indicatorStyle, background: props.colorsPicks.content_background }} title="Content Background"></span>
+            <span className="component-color-indicator responsive-color-palette-indicate" style={{ ...indicatorStyle, background: props.colorsPicks.site_background }} title="Site Background"></span>
+            <span className="component-color-indicator responsive-color-palette-indicate" style={{ ...indicatorStyle, background: props.colorsPicks.alt_background }} title="Alt Background"></span>
         </div>
     );
 };
