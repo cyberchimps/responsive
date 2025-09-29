@@ -60,11 +60,6 @@ function setup() {
 	require_once trailingslashit( get_template_directory() ) . '/core/includes/theme-updates/class-responsive-theme-background-updater.php';
 }
 
-/*
- * Globalize Theme options
- */
-$responsive_options = responsive_get_options();
-
 /** Function to load controls */
 function responsive_load_customize_controls() {
 
@@ -272,12 +267,6 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		$responsive_logo_width  = 300;
 		$responsive_logo_height = 100;
 
-		// If the retina setting is active, double the recommended width and height.
-		if ( get_theme_mod( 'responsive_retina_logo', 0 ) ) {
-			$responsive_logo_width  = floor( $responsive_logo_width * 2 );
-			$responsive_logo_height = floor( $responsive_logo_height * 2 );
-		}
-
 		/**
 		 * Add support for core custom logo.
 		 *
@@ -394,7 +383,6 @@ if ( ! function_exists( 'responsive_css' ) ) {
 	function responsive_css() {
 		$theme              = wp_get_theme();
 		$responsive         = wp_get_theme( 'responsive' );
-		$responsive_options = responsive_get_options();
 		$suffix             = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 		if ( is_rtl() ) {
 			$suffix = '-rtl' . $suffix;
@@ -415,6 +403,29 @@ if ( ! function_exists( 'responsive_css' ) ) {
 		}
 	}
 }
+
+/**
+ * Custom retina logo
+ */
+add_filter( 'wp_get_attachment_image_attributes', function( $attr, $attachment, $size ) {
+    // Only change the custom logo
+    if ( isset( $attr['class'] ) && strpos( $attr['class'], 'custom-logo' ) !== false ) {
+        $retina_logo = get_theme_mod( 'responsive_retina_logo_image', '' );
+
+        if ( get_theme_mod( 'responsive_retina_logo', 0 ) && $retina_logo ) {
+            $srcset_parts   = [];
+            $srcset_parts[] = esc_url( $attr['src'] ) . ' 1x';
+            $srcset_parts[] = esc_url( $retina_logo ) . ' 2x';
+
+            $attr['srcset'] = implode( ', ', $srcset_parts );
+            unset( $attr['sizes'] );
+            $attr['data-retina-enabled'] = 'true';
+        }
+    }
+
+    return $attr;
+}, 20, 3 );
+
 
 /**
  * A safe way of adding JavaScripts to a WordPress generated page.
@@ -682,7 +693,7 @@ function responsive_add_custom_body_classes( $classes ) {
 	$classes[] = 'site-content-header-alignment-' . get_theme_mod( 'responsive_content_header_alignment', get_responsive_customizer_defaults( 'breadcrumb_alignment' ) );
 
 	// Custom Homepage Class class.
-	$responsive_options = responsive_get_options();
+	global $responsive_options;
 	if ( is_front_page() && $responsive_options['front_page'] ) {
 		$classes[] = 'custom-home-page-active';
 	}

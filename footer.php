@@ -35,11 +35,6 @@ if ( ! function_exists( 'check_is_responsive_addons_greater' ) ) {
 	}
 }
 
-/*
- * Globalize Theme options
- */
-global $responsive_options;
-$responsive_options = Responsive\Core\responsive_get_options();
 global $responsive_blog_layout_columns;
 do_action( 'cyberchimps_footer' );
 $responsive_show_footer = true;

@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '6.2.4' );
+define( 'RESPONSIVE_THEME_VERSION', '6.2.5' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -302,8 +302,6 @@ function responsive_free_setup() {
 	);
 }
 add_action( 'after_setup_theme', 'responsive_free_setup' );
-
-$responsive_options = Responsive\Core\responsive_get_options();
 
 /**
  * Edit Customize Register
@@ -612,7 +610,6 @@ if ( ! function_exists( 'responsive_page_featured_image' ) ) :
 	 */
 	function responsive_page_featured_image() {
 		// check if the page has a Post Thumbnail assigned to it.
-		$responsive_options = Responsive\Core\responsive_get_options();
 		if ( has_post_thumbnail() ) {
 			?>
 						<div class="featured-image">
@@ -637,7 +634,6 @@ if ( ! function_exists( 'responsive_exclude_post_cat' ) ) :
 	 * @param  object $query Query.
 	 */
 	function responsive_exclude_post_cat( $query ) {
-		$responsive_options = Responsive\Core\responsive_get_options();
 		$cat                = get_theme_mod( 'exclude_post_cat' );
 
 		if ( $cat && ! is_admin() && $query->is_main_query() ) {
@@ -1330,6 +1326,54 @@ function remove_unnecessary_wordpress_menus() {
 	unset( $submenu['themes.php'][20] );
 }
 
+/*
+	Global color palette
+	@since 6.2.5
+*/
+function responsive_register_theme_mods() {
+    $default_palette = [
+        'accent'          => '#0066CC',
+        'link_hover'      => '#007fff',
+        'text'            => '#364151',
+        'headings'        => '#fcba03',
+        'content_bg'      => '#ffffff',
+        'site_background' => '#f0f5fa',
+        'alt_background'  => '#eaeaea',
+    ];
+
+    foreach ( $default_palette as $key => $value ) {
+        $id = "responsive_global_color_palette_{$key}_color";
+        if ( get_theme_mod( $id ) === false ) {
+            set_theme_mod( $id, $value );
+        }
+    }
+}
+add_action( 'after_setup_theme', 'responsive_register_theme_mods' );
+
+function responsive_register_customizer_settings( $wp_customize ) {
+    $default_palette = [
+        'accent'          => '#0066CC',
+        'link_hover'      => '#007fff',
+        'text'            => '#364151',
+        'headings'        => '#fcba03',
+        'content_bg'      => '#ffffff',
+        'site_background' => '#f0f5fa',
+        'alt_background'  => '#eaeaea',
+    ];
+
+    foreach ( $default_palette as $key => $value ) {
+        $id = "responsive_global_color_palette_{$key}_color";
+
+        $wp_customize->add_setting( $id, [
+            'default'   => $value,
+            'type'      => 'theme_mod',
+            'transport' => 'postMessage', // so React preview updates live
+        ]);
+    }
+}
+add_action( 'customize_register', 'responsive_register_customizer_settings' );
+
+
 if ( ! function_exists( 'responsive_theme_background_updater_6_1_7' ) ) {
 
 	/**
@@ -1455,6 +1499,43 @@ if( ! function_exists( 'responsive_theme_background_updater_6_2_4') ) {
 
 			// Mark update as done
 			$responsive_options['v6-2-4-backward-done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+
+if ( ! function_exists( 'responsive_theme_background_updater_retina_logo_6_2_5' ) ) {
+	/**
+	 * Handle backward compatibility for retina logo setup
+	 *
+	 * @since 6.2.5
+	 * @return void
+	 */
+	function responsive_theme_background_updater_retina_logo_6_2_5() {
+
+		$responsive_options = Responsive\Core\responsive_get_options();
+
+		if ( ! isset( $responsive_options['retina-logo-backward-done'] ) ) {
+
+			// If retina logo option is enabled but no separate retina image has been set
+			if ( get_theme_mod( 'responsive_retina_logo', 0 )
+				&& ! get_theme_mod( 'responsive_retina_logo_image', '' ) ) {
+
+				// Get the current custom logo ID
+				$custom_logo_id = get_theme_mod( 'custom_logo' );
+
+				if ( $custom_logo_id ) {
+					// Fallback: set the same main logo as retina logo
+					$logo_url = wp_get_attachment_url( $custom_logo_id );
+
+					if ( $logo_url ) {
+						set_theme_mod( 'responsive_retina_logo_image', $logo_url );
+					}
+				}
+			}
+
+			// Mark backward compatibility update as done
+			$responsive_options['retina-logo-backward-done'] = true;
 			update_option( 'responsive_theme_options', $responsive_options );
 		}
 	}

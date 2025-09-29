@@ -7,6 +7,7 @@
     border-bottom: 1px solid #D0D0D0;
     padding: 12px 20px;
     align-items: center;
+    gap : 10px;
 }
 .palette__wrapper .palette__choice.selected {
     background: #EFEFEF;
@@ -14,8 +15,8 @@
 .palette__wrapper.color_scheme {
     position: absolute;
     top: -22px;
-    left: 0;
-    transform: translateX(0px) translateY(118px) translateY(0px) scale(1) translateZ(0px);
+    left: 50%;
+    transform: translateX(-50%) translateY(110px) scale(1) translateZ(0px);
     overflow: auto;
     z-index: 9999;
     background-color: #FFF;
@@ -23,8 +24,13 @@
     border: 1px solid #D0D0D0;
     border-radius: 4px;
     height: 400px;
+    /* Hide scrollbar for Webkit browsers */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
 }
-
+.palette__wrapper.color_scheme::-webkit-scrollbar {
+    display: none;
+}
 .palette__wrapper .palette__choice .label {
     font-family: "Roboto", sans-serif;
     font-size: 14px;
@@ -167,6 +173,7 @@
     align-items: center;
     position: relative;
     padding-top: 24px;
+    width: 100%;
 }
 .responsive-selected-palette-details .label {
     font-family: "Roboto", sans-serif;
@@ -175,7 +182,24 @@
     line-height: 14px;
     text-align: left;
 }
+
+.responsive-selected-palette-details .responsive-selected-palette-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
 #responsive-color-palette-btn {
     cursor: pointer;
     margin-left: 4px;
+}
+
+.responsive-selected-palette-all-colors {
+    margin-top : 8px;
+}
+.responsive-selected-palette-all-colors .responsive-selected-palette-editor .responsive-selected-palette-pickers {
+    display : flex; 
+    gap : 10px;
+    justify-content: center;
 }

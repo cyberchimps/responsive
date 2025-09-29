@@ -1522,6 +1522,7 @@ body.rtl .customize-control .responsive-switchers li {
 	margin-right: -12px;
 	margin-left: -12px;
 }
+
 #sub-accordion-section-responsive_colors .customize-control-responsive-palette  .customize-control-title {
 	font-weight: 900;
 	margin-bottom: 0;
@@ -1590,4 +1591,59 @@ body.rtl .customize-control .responsive-switchers li {
 }
 #accordion-section-responsive_docs_section .accordion-section-title::after {
 	display: none;
+}
+
+.responsive-palette-edit-icon {
+	transition: color 0.2s ease;
+}
+
+.responsive-palette-edit-icon:hover {
+	color: #0073aa;
+}
+
+.responsive-palette-edit-icon:hover svg path {
+	stroke: #0073aa;
+}
+
+/* Reset button for color controls */
+.responsive-color-reset-btn {
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 4px;
+	margin-left: 8px;
+	border-radius: 3px;
+	transition: all 0.2s ease;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.responsive-color-reset-btn:hover {
+	background-color: #f0f0f1;
+}
+
+.responsive-color-reset-btn:hover svg path {
+	fill: #0073aa;
+}
+
+.responsive-color-reset-btn:focus {
+	outline: 1px solid #0073aa;
+	outline-offset: 2px;
+}
+
+.responsive-color-control-wrapper {
+	display : flex; 
+	align-items: center
+}
+
+.responsive-color-control-wrapper .responsive-color-control-main-wrap{
+	width : 90%; 
+}
+
+.responsive-color-control-wrapper .responsive-color-reset-btn{
+	padding-top : 4px;
+}
+#customize-control-responsive_body_text_color .responsive-color-control-wrapper .responsive-color-reset-btn {
+	padding-top : 13px;
 }

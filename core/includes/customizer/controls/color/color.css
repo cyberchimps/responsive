@@ -538,11 +538,58 @@ body.wp-customizer .responsive-color-control-main-wrap .wp-picker-container .wp-
 }
 .responsive-color-control-main-wrap .components-input-control__container .components-input-control__input {
     font-size: 14px;
-
 }
+
 .responsive-color-control-main-wrap .components-color-picker .components-input-base {
     padding-left: 0;
     padding-right: 0;
+}
+.responsive-selected-palette-pickers .components-color-picker,
+.responsive-selected-palette-pickers .components-color-picker .react-colorful {
+    width: 100%;
+}
+
+.responsive-selected-palette-pickers .components-color-picker .react-colorful__saturation {
+    margin-bottom: 24px;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.responsive-selected-palette-pickers .components-color-picker .react-colorful__hue,
+.responsive-selected-palette-pickers .components-color-picker .react-colorful__alpha {
+    width: 80%;
+}
+.responsive-selected-palette-pickers .components-h-stack .components-base-control.css-qy3gpb {
+    width: 100%;
+    height: max-content;
+    background-color: #FFF;
+}
+.responsive-selected-palette-pickers .components-select-control__input {
+    text-transform: uppercase;
+}
+.responsive-selected-palette-pickers .components-select-control {
+    width: 100%;
+    margin-left: 0;
+    border: 1px solid #A5A5A5;
+    border-radius: 4px;
+}
+.responsive-selected-palette-pickers .components-h-stack .components-button {
+    border: none;
+    justify-content: flex-end;
+    flex: none;
+}
+.responsive-selected-palette-pickers .components-input-control .components-input-control__container {
+    width: 100%;
+    border-radius: 4px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    gap: 4px;
+}
+.responsive-selected-palette-pickers .components-input-control .components-input-control__backdrop {
+    border: 1px solid #A5A5A5;
+}
+.responsive-selected-palette-pickers .components-input-control__container .components-input-control__input {
+    font-size: 14px;
 }
 .responsive-clear-btn-inside-picker.components-button {
     margin: 4px auto 24px 16px;
@@ -723,4 +770,18 @@ body.wp-customizer .responsive-color-control-main-wrap .wp-picker-container .wp-
 .responsive-color-picker-tab-content .components-circular-option-picker .components-circular-option-picker__custom-clear-wrappercomponents-circular-option-picker__custom-clear-wrapper .components-circular-option-picker__clear {
     color: #007CBA;
     height: auto;
+}
+
+.responsive-selected-palette-pickers .wp-picker-holder {
+    position: absolute;
+    transform: translateY(15px);
+    z-index: 9999;
+    left: 0;
+    width: 100%;
+    box-shadow: 0px 0px 20px 0px #00000040;
+    border-radius: 4px;
+}
+
+.responsive-selected-palette-pickers .responsive-inline-color-picker {
+    padding-bottom : 0px;
 }

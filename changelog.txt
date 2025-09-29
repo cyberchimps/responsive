@@ -8,6 +8,13 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(30/09/2025) Version 6.2.5
+[*] = Improvement = Revamped the global color palette settings in customizer
+[+] = New = Added retina logo upload option in Site Identity settings 
+[!] = Fix = Fixed the _load_textdomain_just_in_time PHP notice
+[!] = Fix = Fixed issue with Responsive Plus plugin notice not closing when MailPoet plugin is active
+
+
 (10/09/2025) Version 6.2.4
 [+] = New = Added ability to set up a Default Sidebar (position and width) in the Sidebar tab of Customizer
 [+] = New = Added Default Sidebar position option support across Blogs/Archives, Single Blogs, and Pages

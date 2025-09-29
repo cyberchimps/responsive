@@ -69,6 +69,7 @@ if ( ! class_exists( 'Responsive_Customizer_Palette_Control' ) ) :
 			$this->json['id']           = $this->id;
 			$this->json['value']        = $this->value();
 			$this->json['link']         = $this->get_link();
+			// The choices array stores the palette options and colors defined in helper.php
 			$this->json['choices']      = $this->choices;
 			$this->json['palette_type'] = isset( $this->palette_type ) ? $this->palette_type : 'default';
 		}
