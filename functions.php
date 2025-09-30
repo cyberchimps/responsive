@@ -1367,7 +1367,8 @@ function responsive_register_customizer_settings( $wp_customize ) {
         $wp_customize->add_setting( $id, [
             'default'   => $value,
             'type'      => 'theme_mod',
-            'transport' => 'postMessage', // so React preview updates live
+            'transport' => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
         ]);
     }
 }
