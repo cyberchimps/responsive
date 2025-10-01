@@ -279,15 +279,30 @@ function responsive_render_google_fonts_url( $fonts ) {
 
 	// Main URL.
 	$url = 'https://fonts.googleapis.com/css?family=';
+	$query_parts = array();
 	foreach ( $fonts as $font ) {
 		// Clean font name: remove quotes and fallback (after comma)
 		$clean_font = trim( preg_replace( "/['\"]/", '', explode(',', $font)[0] ) );
+		if(empty($clean_font)){
+			continue;
+		}
 		$google_fonts = responsive_get_google_fonts();
 		if ( isset($google_fonts) && array_key_exists( $clean_font, $google_fonts ) ) {
 			$isGoogleFont = true; // Change the value to true if any one font is a Google Font.
+			$fragment = responsive_enqueue_google_font_url( $clean_font );
+			if ( ! empty( $fragment ) ) {
+				$query_parts[] = $fragment;
+			}
 		}
-		$url .= responsive_enqueue_google_font( $clean_font ) . '%7C';
 	}
+
+	// If we have no valid Google font fragments, avoid producing a malformed URL.
+	if ( empty( $query_parts ) ) {
+		wp_dequeue_style( 'responsive-google-font-css' );
+		return;
+	}
+
+	$url .= implode( '%7C', $query_parts );
 
 	// Subset.
 	$get_subsets = get_theme_mod( 'responsive_google_font_subsets', array( 'latin' ) );
@@ -301,7 +316,8 @@ function responsive_render_google_fonts_url( $fonts ) {
 	} else {
 		$subsets = 'latin';
 	}
-	$subset = '&amp;subset=' . $subsets;
+	$subset = '&subset=' . $subsets;
+	$url = rtrim( $url, '%7C' );
 	$url .= $subset;
 
 	// If local fonts enabled, use local CSS; otherwise enqueue Google URL.

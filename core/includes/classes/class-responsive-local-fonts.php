@@ -36,6 +36,8 @@ if ( ! class_exists( 'Responsive_Local_Fonts' ) ) :
 			if ( empty( $google_css_url ) ) {
 				return false;
 			}
+			// Ensure the URL is in a request-safe format (avoid HTML entities like &amp;)
+			$google_css_url = html_entity_decode( $google_css_url, ENT_QUOTES );
 			list( $base_dir, $base_url ) = self::get_uploads();
 			$hash      = md5( $google_css_url );
 			$targetDir = trailingslashit( $base_dir . $hash );
@@ -53,6 +55,13 @@ if ( ! class_exists( 'Responsive_Local_Fonts' ) ) :
 			if ( is_wp_error( $response ) ) {
 				return false;
 			}
+
+			// If Google returns a 400, skip caching and bail out.
+			$status_code = (int) wp_remote_retrieve_response_code( $response );
+			if ( 400 === $status_code ) {
+				return false;
+			}
+
 			$css = wp_remote_retrieve_body( $response );
 			if ( empty( $css ) ) {
 				return false;
@@ -120,16 +129,33 @@ if ( ! class_exists( 'Responsive_Local_Fonts' ) ) :
 		}
 
 		protected static function rrmdir( $dir ) {
-			$items = glob( trailingslashit( $dir ) . '*', GLOB_NOSORT );
-			if ( is_array( $items ) ) {
-				foreach ( $items as $item ) {
-					if ( is_dir( $item ) ) {
-						self::rrmdir( $item );
-					} else {
-						@unlink( $item );
-					}
+			$dir = untrailingslashit( $dir );
+
+			if ( ! is_dir( $dir ) ) {
+				return;
+			}
+
+			$items = array_merge(
+				glob( $dir . '/*', GLOB_NOSORT ) ?: array(),
+				glob( $dir . '/.*', GLOB_NOSORT ) ?: array()
+			);
+
+			foreach ( $items as $item ) {
+				$basename = wp_basename( $item );
+
+				// Skip current and parent directory entries.
+				if ( '.' === $basename || '..' === $basename ) {
+					continue;
+				}
+
+				if ( is_dir( $item ) && ! is_link( $item ) ) {
+					self::rrmdir( $item );
+				} else {
+					@chmod( $item, 0644 );
+					@unlink( $item );
 				}
 			}
+
 			@rmdir( $dir );
 		}
 	}

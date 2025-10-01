@@ -1,6 +1,6 @@
 <?php
 /**
- * Footer Performance Options
+ * Performance Options
  *
  * @package Responsive WordPress theme
  */
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! class_exists( 'Responsive_Performance_Customizer' ) ) :
 	/**
-	 * Footer Performance Customizer Options
+	 * Performance Customizer Options
 	 */
 	class Responsive_Performance_Customizer {
 
@@ -32,7 +32,6 @@ if ( ! class_exists( 'Responsive_Performance_Customizer' ) ) :
 				'responsive_performance',
 				array(
 					'title'    => esc_html__( 'Performance', 'responsive' ),
-					// 'panel'    => 'responsive_footer',
 					'priority' => 40,
 				)
 			);
