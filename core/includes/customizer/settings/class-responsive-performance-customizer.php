@@ -68,22 +68,30 @@ if ( ! class_exists( 'Responsive_Performance_Customizer' ) ) :
 					'default'           => '',
 				)
 			);
+
+			// Replace redirect with custom React button control.
+			$wp_customize->add_setting(
+				'responsive_flush_local_fonts_button',
+				array(
+					'sanitize_callback' => 'sanitize_text_field',
+					'transport'         => 'postMessage',
+					'default'           => '',
+				)
+			);
 			$wp_customize->add_control(
-				new Responsive_Customizer_Heading_Control(
+				new Responsive_Customizer_Flush_Fonts_Control(
 					$wp_customize,
-					'responsive_flush_local_fonts_desc',
+					'responsive_flush_local_fonts_button',
 					array(
-						'label'       => esc_html__( 'Click the button to reset the local/fonts cache', 'responsive' ),
-						'section'     => 'responsive_performance',
-						'priority'    => 30,
+						'label'           => esc_html__( 'Flush Local Fonts Cache', 'responsive' ),
+						'description'     => esc_html__( 'Deletes cached local font files. They will be regenerated as needed.', 'responsive' ),
+						'section'         => 'responsive_performance',
+						'priority'        => 40,
 						'active_callback' => 'responsive_active_local_fonts_enabled',
+						'button_text'     => esc_html__( 'Flush Cache', 'responsive' ),
 					)
 				)
 			);
-
-			// Button control using redirect control to trigger flush action.
-			$flush_url = wp_nonce_url( admin_url( 'admin-post.php?action=responsive_flush_local_fonts' ), 'responsive_flush_local_fonts' );
-			responsive_redirect_control( $wp_customize, 'flush_local_fonts_cache', esc_html__( 'Flush Local Fonts Cache', 'responsive' ), 'responsive_performance', 40, 'link', $flush_url, 'responsive_active_local_fonts_enabled' );
 		}
 	}
 

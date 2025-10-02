@@ -41,6 +41,7 @@ require $responsive_template_directory . '/core/includes/customizer/controls/typ
 require $responsive_template_directory . '/core/includes/customizer/helper.php';
 require $responsive_template_directory . '/core/includes/customizer/customizer.php';
 require $responsive_template_directory . '/core/includes/customizer/custom-styles.php';
+require $responsive_template_directory . '/core/includes/classes/class-responsive-local-fonts.php';
 require $responsive_template_directory . '/core/includes/compatibility/woocommerce/class-responsive-woocommerce.php';
 require $responsive_template_directory . '/core/includes/compatibility/sensei/class-responsive-sensei.php';
 require $responsive_template_directory . '/admin/admin-functions.php';
@@ -79,7 +80,6 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 // Admin-post handler to flush local fonts cache.
 add_action( 'admin_post_responsive_flush_local_fonts', function() {
-	error_log("Inside the admin post handler to flush local fonts cache");
     if ( ! current_user_can( 'manage_options' ) ) {
         wp_die( esc_html__( 'Unauthorized request.', 'responsive' ) );
     }
@@ -1373,6 +1373,41 @@ function responsive_register_customizer_settings( $wp_customize ) {
         ]);
     }
 }
+
+/**
+ * AJAX: Flush local fonts cache
+ */
+function responsive_ajax_flush_local_fonts_cache() {
+    check_ajax_referer( 'responsive-flush-local-fonts', '_ajax_nonce' );
+
+    if ( ! current_user_can( 'customize' ) ) {
+        wp_send_json_error( array( 'message' => __( 'Insufficient permissions.', 'responsive' ) ) );
+    }
+
+    if ( class_exists( 'Responsive_Local_Fonts' ) ) {
+        Responsive_Local_Fonts::flush_cache();
+        wp_send_json_success( array( 'message' => __( 'Local fonts cache flushed.', 'responsive' ) ) );
+    }
+
+    wp_send_json_error( array( 'message' => __( 'Flush handler unavailable.', 'responsive' ) ) );
+}
+add_action( 'wp_ajax_responsive_flush_local_fonts_cache', 'responsive_ajax_flush_local_fonts_cache' );
+
+/**
+ * Admin-post fallback to allow non-AJAX triggers (optional)
+ */
+function responsive_admin_post_flush_local_fonts() {
+    if ( ! current_user_can( 'customize' ) ) {
+        wp_die( __( 'Insufficient permissions.', 'responsive' ) );
+    }
+    check_admin_referer( 'responsive_flush_local_fonts' );
+    if ( class_exists( 'Responsive_Local_Fonts' ) ) {
+        Responsive_Local_Fonts::flush_cache();
+    }
+    wp_safe_redirect( wp_get_referer() ? wp_get_referer() : admin_url( 'customize.php' ) );
+    exit;
+}
+add_action( 'admin_post_responsive_flush_local_fonts', 'responsive_admin_post_flush_local_fonts' );
 add_action( 'customize_register', 'responsive_register_customizer_settings' );
 
 

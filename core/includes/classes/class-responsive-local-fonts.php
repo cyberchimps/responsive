@@ -19,7 +19,6 @@ if ( ! class_exists( 'Responsive_Local_Fonts' ) ) :
 		 * @return array
 		 */
 		protected static function get_uploads() {
-			// error_log("Inside the get_uploads function");
 			$uploads = wp_get_upload_dir();
 			$base_dir = trailingslashit( $uploads['basedir'] );
 			$base_url = trailingslashit( $uploads['baseurl'] );
@@ -34,7 +33,6 @@ if ( ! class_exists( 'Responsive_Local_Fonts' ) ) :
 		 * @return string|false Local CSS file URL or false on failure.
 		 */
 		public static function cache_and_get_url( $google_css_url ) {
-			// error_log("Inside the cache_and_get_url function with google css url: " . $google_css_url);
 			if ( empty( $google_css_url ) ) {
 				return false;
 			}
@@ -43,14 +41,11 @@ if ( ! class_exists( 'Responsive_Local_Fonts' ) ) :
 			list( $base_dir, $base_url ) = self::get_uploads();
 			$hash      = md5( $google_css_url );
 			$targetDir = trailingslashit( $base_dir . 'responsive-local-fonts' );
-			// error_log("Target dir for caching: " . $targetDir);
 			$targetUrl = trailingslashit( $base_url . $hash );
-			// error_log("Target url for caching: " . $targetUrl);
 			$cssPath   = $targetDir . 'fonts.css';
 			$cssUrl    = $targetUrl . 'fonts.css';
 
 			if ( file_exists( $cssPath ) ) {
-				// error_log("Exiting the cache_and_get_url function with cached css url: " . $cssUrl);
 				return $cssUrl;
 			}
 
@@ -64,7 +59,6 @@ if ( ! class_exists( 'Responsive_Local_Fonts' ) ) :
 			// If Google returns a 400, skip caching and bail out.
 			$status_code = (int) wp_remote_retrieve_response_code( $response );
 			if ( 400 === $status_code ) {
-				// error_log("Exiting the cache_and_get_url function with 400 status code");
 				return false;
 			}
 
@@ -77,7 +71,6 @@ if ( ! class_exists( 'Responsive_Local_Fonts' ) ) :
 			$updated_css = $css;
 			$matches = array();
 			preg_match_all( '/url\((https?:\\/\\/[^\)]+)\)/i', $css, $matches );
-			// error_log("class-responsive-local-fonts.php Font URLs found: " . print_r($matches, true));
 			if ( ! empty( $matches[1] ) ) {
 				foreach ( array_unique( $matches[1] ) as $font_url ) {
 					$font_filename = wp_basename( parse_url( $font_url, PHP_URL_PATH ) );
@@ -97,7 +90,6 @@ if ( ! class_exists( 'Responsive_Local_Fonts' ) ) :
 			}
 
 			file_put_contents( $cssPath, $updated_css );
-			// error_log("Exiting the cache_and_get_url function with css url: " . $cssUrl);
 			return $cssUrl;
 		}
 
@@ -108,7 +100,6 @@ if ( ! class_exists( 'Responsive_Local_Fonts' ) ) :
 		 * @return array List of local font file URLs.
 		 */
 		public static function get_cached_font_files( $google_css_url ) {
-			// error_log("Inside the get_cached_font_files function with the google css url: " . $google_css_url);
 			list( $base_dir, $base_url ) = self::get_uploads();
 			$hash      = md5( $google_css_url );
 			$targetDir = trailingslashit( $base_dir . $hash );
@@ -123,7 +114,6 @@ if ( ! class_exists( 'Responsive_Local_Fonts' ) ) :
 					$urls[] = $targetUrl . wp_basename( $file );
 				}
 			}
-			// error_log("Exiting the get_cached_font_files function with the urls: " . print_r($urls, true));
 			return $urls;
 		}
 
@@ -131,16 +121,16 @@ if ( ! class_exists( 'Responsive_Local_Fonts' ) ) :
 		 * Flush all cached local fonts
 		 */
 		public static function flush_cache() {
-			// error_log("Inside the flush cache function");
+			// Limit deletion to the responsive-local-fonts directory only.
 			list( $base_dir ) = self::get_uploads();
-			if ( is_dir( $base_dir ) ) {
-				self::rrmdir( $base_dir );
-				wp_mkdir_p( $base_dir );
+			$fonts_dir = trailingslashit( $base_dir . 'responsive-local-fonts' );
+			if ( is_dir( $fonts_dir ) ) {
+				self::rrmdir( $fonts_dir );
+				wp_mkdir_p( $fonts_dir );
 			}
 		}
 
 		protected static function rrmdir( $dir ) {
-			// error_log("Inside the rmdir function with dir: " . $dir);
 			$dir = untrailingslashit( $dir );
 
 			if ( ! is_dir( $dir ) ) {
@@ -172,17 +162,14 @@ if ( ! class_exists( 'Responsive_Local_Fonts' ) ) :
 		}
 
 		public static function preload_all_fonts() {
-			// error_log("Inside the preload_all_fonts function");
 			list( $base_dir, $base_url ) = self::get_uploads();
 			$fonts_dir = trailingslashit( $base_dir . 'responsive-local-fonts' );
 			$fonts_url = trailingslashit( $base_url . 'responsive-local-fonts' );
 
 			$font_files = glob( $fonts_dir . '*.{ttf,woff,woff2,eot,otf}', GLOB_BRACE );
-			// error_log("Font files found for preloading: " . print_r($font_files, true));
 			if ( empty( $font_files ) ) return;
 
 			foreach ( $font_files as $file_path ) {
-				// error_log("Actually preloading font file: " . $file_path);
 				$file_url = str_replace( $fonts_dir, $fonts_url, $file_path );
 				$ext = pathinfo( $file_path, PATHINFO_EXTENSION );
 
