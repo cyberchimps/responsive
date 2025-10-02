@@ -141,7 +141,6 @@ function responsive_get_google_fonts()
  * @param  string $font Font name.
  */
 function responsive_enqueue_google_font( $font ) {
-		// error_log("Enqueuing Google Font: " . $font);
 		// Return if disabled.
 		if ( true === get_theme_mod( 'responsive_disable_google_font', false ) ) {
 			return;
@@ -203,7 +202,6 @@ function responsive_enqueue_google_font( $font ) {
 
 		// If local fonts are enabled, cache and use local CSS.
 		if ( 1 === (int) get_theme_mod( 'responsive_load_google_fonts_locally', 0 ) ) {
-			// error_log("Loading Google Font locally: " . $font_name);
 			$local_css = Responsive_Local_Fonts::cache_and_get_url( 'https://fonts.googleapis.com/css?family=' . $font . '&;subset=' . $subsets );
 			if ( $local_css ) {
 				wp_enqueue_style( 'responsive-google-font-' . $handle, $local_css, false, null, 'all' );
@@ -272,7 +270,6 @@ function responsive_enqueue_google_font_url($font)
  * Adds data to the $fonts array for a font to be rendered.
  */
 function responsive_render_google_fonts_url( $fonts ) {
-	// error_log("this is the font loader function in Webfonts - loads all the fonts	: " . print_r($fonts, true));
 	$isGoogleFont = false; // Flag to check if the font is a Google Font.
 	// Return if disabled.
 	if ( true === get_theme_mod( 'responsive_disable_google_font', false ) ) {
@@ -292,7 +289,6 @@ function responsive_render_google_fonts_url( $fonts ) {
 		if ( isset($google_fonts) && array_key_exists( $clean_font, $google_fonts ) ) {
 			$isGoogleFont = true; // Change the value to true if any one font is a Google Font.
 			$fragment = responsive_enqueue_google_font_url( $clean_font );
-			// error_log("Fragment " . $fragment . " for font: " . $clean_font);
 			if ( ! empty( $fragment ) ) {
 				$query_parts[] = $fragment;
 			}
