@@ -79,6 +79,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 // Admin-post handler to flush local fonts cache.
 add_action( 'admin_post_responsive_flush_local_fonts', function() {
+	error_log("Inside the admin post handler to flush local fonts cache");
     if ( ! current_user_can( 'manage_options' ) ) {
         wp_die( esc_html__( 'Unauthorized request.', 'responsive' ) );
     }
