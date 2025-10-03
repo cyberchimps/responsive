@@ -666,7 +666,7 @@
     } );
     api( 'responsive_footer_primary_vertical_alignment', function(value){
         value.bind( function(newval){
-            $( '.rspv-site-primary-footer-wrap .site-footer-section' ).css( 'align-items', newval )
+            $( '.rspv-site-primary-footer-wrap.rspv-hfb-footer-row-stack .site-footer-row, .rspv-site-primary-footer-wrap .site-footer-section' ).css( 'align-items', newval )
         });
     });
     // above footer
@@ -705,7 +705,7 @@
     } );
     api( 'responsive_footer_above_vertical_alignment', function(value){
         value.bind( function(newval){
-            $( '.rspv-site-above-footer-wrap .site-footer-section' ).css( 'align-items', newval )
+            $( '.rspv-site-above-footer-wrap.rspv-hfb-footer-row-stack .site-footer-row, .rspv-site-above-footer-wrap .site-footer-section' ).css( 'align-items', newval )
         });
     });
     // below footer
@@ -744,7 +744,7 @@
     } );
     api( 'responsive_footer_below_vertical_alignment', function(value){
         value.bind( function(newval){
-            $( '.rspv-site-below-footer-wrap .site-footer-section' ).css( 'align-items', newval )
+            $( '.rspv-site-below-footer-wrap.rspv-hfb-footer-row-stack .site-footer-row, .rspv-site-below-footer-wrap .site-footer-section' ).css( 'align-items', newval )
         });
     });
 

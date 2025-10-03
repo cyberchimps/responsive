@@ -65,7 +65,7 @@ if ( ! class_exists( 'Responsive_Footer_Widgets_Settings_Customizer' ) ) :
                     'center'     => esc_html__( 'icon_vertical_center', 'responsive' ),
                     'flex-end'   => esc_html__( 'icon_vertical_bottom', 'responsive' ),
                 );
-                responsive_select_button_with_switchers_control( $wp_customize, 'footer_widget'. $i .'_content_vertical_align', $content_vertical_alignment_label, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 40, $content_vertical_alignment_choices, 'flex-start', null );
+                responsive_select_button_with_switchers_control( $wp_customize, 'footer_widget'. $i .'_content_vertical_align', $content_vertical_alignment_label, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 40, $content_vertical_alignment_choices, 'flex-start', null, 'refresh', "Vertical alignment doesn’t apply if the footer row inner elements layout is Stack." );
 
             }
         }

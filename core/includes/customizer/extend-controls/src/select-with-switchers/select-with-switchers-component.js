@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import Icons from '../icons';
+import {__} from '@wordpress/i18n';
 
 const SelectWithSwitchersComponent = props => {
 
@@ -45,8 +46,9 @@ const SelectWithSwitchersComponent = props => {
 		</span>;
 	}
 
+	let noteTitle = __('Note: ', 'responsive');
 	if (description) {
-		descriptionHtml = <i className="res-control-tooltip dashicons dashicons-editor-help" title={description}></i>;
+		descriptionHtml = <p className="responsive-customize-control-note responsive-text-control-note"><span>{noteTitle}</span>{description}</p>;
 	}
 
 	const getOptionsHtml = (device) => {
