@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '6.2.5' );
+define( 'RESPONSIVE_THEME_VERSION', '6.2.6' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -1574,6 +1574,25 @@ if ( ! function_exists( 'responsive_theme_background_updater_retina_logo_6_2_5' 
 			// Mark backward compatibility update as done
 			$responsive_options['retina-logo-backward-done'] = true;
 			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+
+if( !function_exists( 'responsive_theme_background_updater_responsive_logo_6_2_6')) {
+	/** 
+	 * Handle backward compatibility for responsive logo setup
+	*/
+	if( !isset( $responsive_options['responsive-logo-backward-done'])) {
+
+		// if custom logo width is set but no separate width is mentioned for tablet and phone
+		// then use the same width everywhere
+		if( get_theme_mod('responsive_logo_width') ) {
+			if( !get_theme_mod('responsive_logo_width_tablet') ) {
+				set_theme_mod( 'responsive_logo_width_tablet', get_theme_mod('responsive_logo_width') );
+			}
+			if( !get_theme_mod('responsive_logo_width_mobile') ) {
+				set_theme_mod( 'responsive_logo_width_mobile', get_theme_mod('responsive_logo_width') );
+			}
 		}
 	}
 }
