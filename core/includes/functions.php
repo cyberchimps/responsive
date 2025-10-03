@@ -1184,6 +1184,8 @@ function defaults() {
 			'header_widget_link'                  => '#0066CC',
 			'header_widget_link_hover'            => '#10659C',
 
+			'inline_logo_title'                  => 0,
+
 			// hamburger menu padding
 			'hamburger_menu_padding'              => 15,
 			'secondary_menu_padding'              => 0,
