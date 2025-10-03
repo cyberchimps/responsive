@@ -170,6 +170,8 @@ function responsive_customizer_styles() {
 
 	$container_max_width = esc_html( get_theme_mod( 'responsive_container_width', 1140 ) );
 	$logo_custom_width   = esc_html( get_theme_mod( 'responsive_logo_width' ) );
+	$logo_custom_width_tablet = esc_html( get_theme_mod( 'responsive_logo_width_tablet' ) );
+	$logo_custom_width_mobile = esc_html( get_theme_mod( 'responsive_logo_width_mobile') );
 
 	$global_sidebar_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
 	$page_sidebar_setting = get_theme_mod( 'responsive_page_sidebar_position', 'no' );
@@ -538,6 +540,22 @@ function responsive_customizer_styles() {
 	if ( $logo_custom_width ) {
 		$custom_css .= ".site-header .custom-logo {
 			width: {$logo_custom_width}px;
+		}";
+	}
+
+	if( $logo_custom_width_tablet ) {
+		$custom_css .= "@media screen and ( max-width: 992px ) {
+			.site-header .custom-logo {
+				width: {$logo_custom_width_tablet}px;
+			}
+		}";
+	}
+
+	if( $logo_custom_width_mobile ) {
+		$custom_css .= "@media screen and ( max-width: 576px ) {
+			.site-header .custom-logo {
+				width: {$logo_custom_width_mobile}px;
+			}
 		}";
 	}
 
