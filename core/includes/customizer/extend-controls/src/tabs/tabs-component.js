@@ -43,13 +43,16 @@ const TabsComponent = props => {
 			}
 		});
 		const isCustomLogoPresent = document.querySelector('#customize-control-custom_logo img.attachment-thumb') !== null;
-		hideLogoWidthControl(isCustomLogoPresent);
-		hideRetinaLogoToggler(isCustomLogoPresent);
+		toggleLogoControl('customize-control-responsive_logo_width', isCustomLogoPresent);
+		toggleLogoControl('customize-control-responsive_retina_logo', isCustomLogoPresent);
+		toggleLogoControl('customize-control-responsive_mobile_logo_option', isCustomLogoPresent);
+
 
 		hideSidebarWidthControl( api('responsive_page_sidebar_position').get(), 'page' );
 		hideSidebarWidthControl( api('responsive_blog_sidebar_position').get(), 'blog' );
 		hideSidebarWidthControl( api('responsive_default_sidebar_position').get(), 'default');
 		hideRetinaLogoUploadControl( api( 'responsive_retina_logo').get());
+		hideMobileLogoUploadControl( api( 'responsive_mobile_logo_option').get());
 
 		api('responsive_page_sidebar_position', function( value ) {
 			value.bind( function( newval ) {
@@ -76,20 +79,25 @@ const TabsComponent = props => {
 		api('custom_logo', function(value) {
 		value.bind(function(newval) {
 			const hasLogo = !!newval; // WP gives attachment ID or false
-			hideLogoWidthControl(hasLogo);
-			hideRetinaLogoToggler(hasLogo);
-
-			if (!hasLogo) {
-				// Reset retina logo toggle & uploaded image
-				api('responsive_retina_logo').set(0);
-				api('responsive_retina_logo_image').set('');
-			}
+			toggleLogoControl('customize-control-responsive_logo_width', hasLogo);
+			toggleLogoControl('customize-control-responsive_retina_logo', hasLogo);
+			toggleLogoControl('customize-control-responsive_mobile_logo_option', hasLogo);
+			const mobileLogoEnabled = api('responsive_mobile_logo_option').get();
+			const retinaLogoEnabled = api('responsive_retina_logo').get();
+			hideMobileLogoUploadControl(hasLogo & mobileLogoEnabled);
+			hideRetinaLogoUploadControl(hasLogo & retinaLogoEnabled);
 		});
 	});
 
 		api('responsive_retina_logo', function( value ) {
 			value.bind( function( newval ) {
 				hideRetinaLogoUploadControl(newval);
+			})
+		});
+
+		api('responsive_mobile_logo_option', function( value ) {
+			value.bind( function( newval ) {
+				hideMobileLogoUploadControl(newval);
 			})
 		});
 
@@ -349,24 +357,23 @@ const TabsComponent = props => {
 		}
 	};
 
-	const hideLogoWidthControl = (isCustomLogoPresent) => {
-		const controlId = 'customize-control-responsive_logo_width';
-			const controlElement = document.getElementById(controlId);
-			if (!controlElement) return;
+	const hideMobileLogoUploadControl = (value) => {
+		const controlId = `customize-control-responsive_mobile_logo`;
+		const controlElement = document.getElementById(controlId); 
+		if(!controlElement) return; 
 
-			// Hide by default
-			controlElement.style.display = 'none';
+		// Hide by default
+		controlElement.style.display = 'none'; 
 
-			// Show only if custom logo exists and we're on the general tab
-			let isVisible = isCustomLogoPresent && tab === 'general';
+		// Show only if toggle is enabled AND we're on the general tab
+		let isVisible = value !== 0 && value !== false && tab === 'general';
 
-			if (isVisible) {
-				controlElement.style.display = 'block';
-			}
-	};
+		if(isVisible) {
+			controlElement.style.display = 'block';
+		}
+	}
 
-	const hideRetinaLogoToggler = (isCustomLogoPresent) => {
-		const controlId = 'customize-control-responsive_retina_logo';
+	const toggleLogoControl = (controlId, isCustomLogoPresent) => {
 		const controlElement = document.getElementById(controlId);
 		if (!controlElement) return;
 
@@ -380,8 +387,6 @@ const TabsComponent = props => {
 			controlElement.style.display = 'block';
 		}
 	};
-
-
 
 	return <>
 		<div className='responsive-component-tabs nav-tab-wrapper wp-clearfix' data-name={name}>

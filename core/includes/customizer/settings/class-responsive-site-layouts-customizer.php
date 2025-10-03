@@ -79,7 +79,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 
 			// Different Logo For Mobile Device.
 			$mobile_logo_option_label = __( 'Different Logo For Mobile Devices?', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'mobile_logo_option', $mobile_logo_option_label, 'responsive_header_site_logo_title', 10, 0, null );
+			responsive_toggle_control( $wp_customize, 'mobile_logo_option', $mobile_logo_option_label, 'responsive_header_site_logo_title', 10, 0, 'responsive_has_custom_logo_callback', 'postMessage' );
 
 			$wp_customize->add_setting(
 				'responsive_mobile_logo',
@@ -98,7 +98,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 						'flex-height'     => true,
 						'flex-width'      => true,
 						'priority'        => 11,
-						'active_callback' => null,
+						'active_callback' => ''
 					)
 				)
 			);
