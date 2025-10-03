@@ -13,9 +13,7 @@
 @import 'widgets/about-me';
 @import 'mixins-pro';
 @import 'header-pro';
-@import 'woocommerce-pro';
 @import 'blog';
-@import 'magnific';
 
 /**
  * Common Site styles
@@ -117,4 +115,20 @@ body {
 .page.sidebar-position-no:not(.woocommerce) .alignwide{
 	margin-left: auto;
 	margin-right: auto;
+}
+
+/**
+ * Fix footer to the bottom 
+ * -----------------------------------------------------------------------------
+ */
+#page {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	& .site-content {
+		flex-grow: 1;
+	}
+}
+.admin-bar #page {
+	min-height: calc(100vh - 32px);
 }

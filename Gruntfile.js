@@ -94,6 +94,11 @@ module.exports = function(grunt) {
 						'core/css/style.css': 'core/sass/style.scss'
 					},
 
+					/* Custom Front Page CSS file */
+					{
+						'core/css/custom-front-page.css': 'core/sass/custom-front-page.scss'
+					},
+
 					/* Sensei CSS file */
 					{
 						'core/css/sensei_content.css': 'core/sass/sensei_content.scss'
@@ -177,6 +182,8 @@ module.exports = function(grunt) {
 				files: {
 					'core/css/style.min.css': 'core/css/style.css',
 					'core/css/style-rtl.min.css': 'core/css/style-rtl.css',
+					'core/css/custom-front-page.min.css': 'core/css/custom-front-page.css',
+					'core/css/custom-front-page-rtl.min.css': 'core/css/custom-front-page-rtl.css',
 					'core/css/sensei_content.min.css': 'core/css/sensei_content.css',
 					'core/css/sensei_content-rtl.min.css': 'core/css/sensei_content-rtl.css',
 					'core/css/woocommerce.min.css':  'core/css/woocommerce.css',

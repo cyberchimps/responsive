@@ -229,6 +229,7 @@ function responsive_register_options() {
 		'class-responsive-header-html-customizer',
 		'class-responsive-footer-social-customizer',
 		'class-responsive-performance-customizer',
+		'class-responsive-footer-widgets-settings-customizer',
 	);
 
 	if ( is_responsive_version_greater() ) {
@@ -310,6 +311,7 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'contact-info/class-responsive-customizer-contact-info-control.php';
 	require_once $dir . 'color-with-devices/class-responsive-customizer-color-with-devices-control.php';
 	require_once $dir . 'section-toggle/class-responsive-customizer-section-toggle.php';
+	require_once $dir . 'select-with-switchers/class-responsive-customizer-selectbtn-switchers-control.php';
 
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-control-upsell.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-generic-notice-section.php';
@@ -346,6 +348,7 @@ function responsive_custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Input_With_Dropdown_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Contact_Info_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Color_With_Devices_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Selectbtn_Switchers_Control' );
 
 }
 

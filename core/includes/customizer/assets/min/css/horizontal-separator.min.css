@@ -52,3 +52,12 @@
 #customize-control-responsive_header_redirects_separator .responsive-horizontal-separator-control-wrapper {
     padding-top: 10px;
 }
+#customize-control-responsive_footer_widget1_align_separator,
+#customize-control-responsive_footer_widget2_align_separator,
+#customize-control-responsive_footer_widget3_align_separator,
+#customize-control-responsive_footer_widget4_align_separator,
+#customize-control-responsive_footer_widget5_align_separator,
+#customize-control-responsive_footer_widget6_align_separator {
+    padding-top: 24px;
+    padding-bottom: 2px;
+}

@@ -1,7 +1,5 @@
-(function ($) {
-  "use strict";
-
-  $(document).ready(function () {
+document.addEventListener("DOMContentLoaded", function() {
+    "use strict";
     let menuContainer = document.querySelector('.main-navigation-wrapper');
     // Initialize submenu edge detection
     initNavSubmenuDetection();
@@ -118,5 +116,4 @@
         }
       }
     }
-  });
-})(jQuery);
+});
