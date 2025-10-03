@@ -331,3 +331,31 @@ function responsive_sanitize_multi_select( $input ) {
 function responsive_sanitize_row_layout_select( $input ) {
 	return esc_html( $input );
 }
+
+/**
+ * Select sanitization callback
+ *
+ * @param string               $input   Selected value.
+ * @param WP_Customize_Setting $setting Setting instance.
+ * @since 6.2.6
+ */
+function responsive_sanitize_select_with_switchers( $input, $setting ) {
+	// Ensure input is a valid slug.
+	$input = sanitize_key( $input );
+
+	// Get the control ID (desktop/tablet/mobile share the same base control).
+	$base_control_id = str_replace( array( '_tablet', '_mobile' ), '', $setting->id );
+
+	// Get list of choices from the base control.
+	$control = $setting->manager->get_control( $base_control_id );
+
+	if ( $control && isset( $control->choices ) ) {
+		$choices = $control->choices;
+	} else {
+		$choices = array();
+	}
+
+	// If the input is a valid choice, return it; otherwise, return the default.
+	return array_key_exists( $input, $choices ) ? $input : $setting->default;
+}
+

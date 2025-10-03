@@ -98,9 +98,9 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 
 			if ( is_rtl() ) {
 				$content_header_alignment_choices = array(
-					'left'   => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
+					'left'   => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
 					'center' => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
-					'right'  => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
+					'right'  => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
 				);
 			}
 			responsive_select_button_control( $wp_customize, 'content_header_alignment', $content_header_alignment_label, 'responsive_breadcrumb', 30, $content_header_alignment_choices, Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_alignment' ), 'responsive_active_breadcrumb', 'postMessage' );
