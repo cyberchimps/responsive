@@ -39,7 +39,6 @@ if ( ! class_exists( 'Responsive_Local_Fonts' ) ) :
 			// Ensure the URL is in a request-safe format (avoid HTML entities like &amp;)
 			$google_css_url = html_entity_decode( $google_css_url, ENT_QUOTES );
 			list( $base_dir, $base_url ) = self::get_uploads();
-			$hash      = md5( $google_css_url );
 			$targetDir = trailingslashit( $base_dir . 'responsive-local-fonts' );
 			$targetUrl = trailingslashit( $base_url . 'responsive-local-fonts' );
 			$cssPath   = $targetDir . 'fonts.css';
