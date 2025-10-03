@@ -80,7 +80,7 @@ if( ! class_exists( 'Responsive_HFB_Footer_Above_Row' ) ) {
 				'stack'  => esc_html__( 'Stack', 'responsive' ),
 				'inline' => esc_html__( 'Inline', 'responsive' ),
 			);
-			responsive_select_button_control( $wp_customize, 'footer_above_inner_elements_layout', $inner_elements_layout_label, 'responsive_footer_above_row', 40, $inner_elements_layout_choices, 'inline', null, 'postMessage' );
+			responsive_select_button_control( $wp_customize, 'footer_above_inner_elements_layout', $inner_elements_layout_label, 'responsive_footer_above_row', 40, $inner_elements_layout_choices, 'inline', null, 'refresh' );
 
             // Inner Column Spacing (px).
 			$inner_column_spacing_label = __( 'Inner Column Spacing (px)', 'responsive' );

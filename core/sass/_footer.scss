@@ -24,7 +24,7 @@
 // }
 
 .footer-widgets {
-    display: block;
+    display: flex;
     // padding: $grid-gutter-width * 2  0;
     flex-grow: 1;
     .row {
@@ -93,7 +93,7 @@
     .footer-bar-layout-horizontal & {
         @media (min-width: map-get($screens, md) ) {
             width: auto;
-            margin: auto 0;
+            // margin: auto 0;
         }
     }
 
