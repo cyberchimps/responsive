@@ -65,6 +65,7 @@ function responsive_load_customize_controls() {
 
 	require_once trailingslashit( get_template_directory() ) . 'core/includes/customizer/class-responsive-customize-control-checkbox-multiple.php';
 	require_once trailingslashit( get_template_directory() ) . 'core/includes/customizer/controls/builder-layout/class-responsive-customizer-builder-header-blank-control.php';
+	require_once trailingslashit( get_template_directory() ) . 'core/includes/customizer/controls/flush-fonts/class-responsive-customizer-flush-fonts-control.php';
 }
 
 /**

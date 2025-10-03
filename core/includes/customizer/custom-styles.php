@@ -1,4 +1,26 @@
 <?php
+	add_action( 'wp_head', function() 
+	{
+
+		// Bail if local fonts or preload are not enabled
+		if ( 1 !== (int) get_theme_mod( 'responsive_load_google_fonts_locally', 0 ) ) {
+			return;
+		}
+		if ( 1 !== (int) get_theme_mod( 'responsive_preload_local_fonts', 0 ) ) {
+			return;
+		}
+
+		// Make sure the class exists
+		if ( ! class_exists( 'Responsive_Local_Fonts' ) ) {
+			return;
+		}
+
+		if ( class_exists('Responsive_Local_Fonts') ) {
+			Responsive_Local_Fonts::preload_all_fonts();
+		}
+
+	}, 20 );
+
 /**
  * Outputs the customizer styles.
  *
