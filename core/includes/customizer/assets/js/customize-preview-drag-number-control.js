@@ -41,7 +41,7 @@
             jQuery('head').append(
                 '<style id="responsive-logo-width-tablet">' +
                     '@media (max-width: 992px) {' +
-                        '.site-header .custom-logo { width: ' + widthValue + '; }' +
+                        '.site-header .custom-logo { width: ' + widthValue + ' !important; }' +
                     '}' +
                 '</style>'
             );
