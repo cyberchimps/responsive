@@ -680,11 +680,6 @@ function responsive_add_custom_body_classes( $classes ) {
 	// 	$classes[] = 'header-widget-position-' . get_theme_mod( 'responsive_header_widget_position', 'top' );
 	// }
 
-	// Header width.
-	if ( get_theme_mod( 'responsive_inline_logo_site_title', 0 ) ) {
-		$classes[] = 'inline-logo-site-title';
-	}
-
 	// Full idth menu class.
 	if ( get_theme_mod( 'responsive_header_menu_full_width', 0 ) ) {
 		$classes[] = 'site-header-full-width-main-navigation';
@@ -1190,7 +1185,7 @@ function defaults() {
 			'header_widget_link'                  => '#0066CC',
 			'header_widget_link_hover'            => '#10659C',
 
-			'inline_logo_title'                  => 0,
+			'inline_logo_site_title'                  => 0,
 
 			// hamburger menu padding
 			'hamburger_menu_padding'              => 15,

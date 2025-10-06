@@ -3680,6 +3680,7 @@ function responsive_customizer_styles() {
 		.site-header-row {
 			display: grid;
 			grid-template-columns: auto auto;
+			overflow-wrap: anywhere;
 		}
 		.site-header-section-right {
 			justify-content: flex-end;

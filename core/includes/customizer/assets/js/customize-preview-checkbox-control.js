@@ -23,23 +23,23 @@
         }
     )
 
-    // Inline Logo & Site Title
-    api(
-        "responsive_inline_logo_site_title",
-        function( $swipe ) {
+    // // Inline Logo & Site Title
+    // api(
+    //     "responsive_inline_logo_site_title",
+    //     function( $swipe ) {
 
-            $swipe.bind(
-                function( pair ) {
-                    if ( pair === true ) {
-                        jQuery( 'body' ).addClass( "inline-logo-site-title" );
-                    }
-                    else {
-                        jQuery( 'body' ).removeClass( "inline-logo-site-title" );
-                    }
-                }
-            );
-        }
-    )
+    //         $swipe.bind(
+    //             function( pair ) {
+    //                 if ( pair === true ) {
+    //                     jQuery( 'body' ).addClass( "inline-logo-site-title" );
+    //                 }
+    //                 else {
+    //                     jQuery( 'body' ).removeClass( "inline-logo-site-title" );
+    //                 }
+    //             }
+    //         );
+    //     }
+    // )
 
     // Full Width Footer
     // api(
