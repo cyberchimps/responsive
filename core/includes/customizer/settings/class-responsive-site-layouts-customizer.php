@@ -175,7 +175,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			);
 			// Site Title Visibility control 
 			$site_title_visibility_label = __( 'Site Title Visibility', 'responsive' );
-			responsive_multi_select_button_control($wp_customize, 'site_title_visibility', $site_title_visibility_label, 'responsive_header_site_logo_title', 14, $site_title_visibility_choices, array('desktop','tablet','mobile'), null, 'postMessage');
+			responsive_multi_select_button_control($wp_customize, 'site_title_visibility', $site_title_visibility_label, 'responsive_header_site_logo_title', 14, $site_title_visibility_choices, array('desktop','tablet','mobile'), null, 'refresh');
 
 			$site_tagline_visibility_choices = array(
 				'desktop'   => esc_html__( 'dashicons-desktop', 'responsive' ),
@@ -184,7 +184,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			);
 			// Site Tagline Visibility control
 			$site_tagline_visibility_label = __( 'Site Tagline Visibility', 'responsive' );
-			responsive_multi_select_button_control($wp_customize, 'site_tagline_visibility', $site_tagline_visibility_label, 'responsive_header_site_logo_title', 16, $site_tagline_visibility_choices, array('desktop','tablet','mobile'), null, 'postMessage');
+			responsive_multi_select_button_control($wp_customize, 'site_tagline_visibility', $site_tagline_visibility_label, 'responsive_header_site_logo_title', 16, $site_tagline_visibility_choices, array('desktop','tablet','mobile'), null, 'refresh');
 		}
 
 

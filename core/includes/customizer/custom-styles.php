@@ -2129,17 +2129,34 @@ function responsive_customizer_styles() {
 		color: {$header_text_color};
 	}
 
-	.site-branding-wrapper.site-branding-inline {
-		display: flex;
-		align-items: center;
-		gap: 12px;
+	/* Default hidden for all, visible only for selected breakpoints */
+	[data-title-visibility] .site-title,
+	[data-tagline-visibility] .site-description {
+		display: none;
 	}
-	.site-branding-wrapper.site-branding-inline .site-title-tagline.site-title-inline {
-		display: flex;
-		flex-direction: column;
+
+	/* Desktop */
+	@media (min-width: 993px) {
+		[data-title-visibility*='\\\"desktop\\\"'] .site-title,
+		[data-tagline-visibility*='\\\"desktop\\\"'] .site-description {
+			display: block;
+		}
 	}
-	.site-branding-wrapper.site-branding-inline .site-title-tagline.site-title-inline .site-title {
-		margin: 0;
+
+	/* Tablet */
+	@media (min-width: 577px) and (max-width: 992px) {
+		[data-title-visibility*='\\\"tablet\\\"'] .site-title,
+		[data-tagline-visibility*='\\\"tablet\\\"'] .site-description {
+			display: block;
+		}
+	}
+
+	/* Mobile */
+	@media (max-width: 576px) {
+		[data-title-visibility*='\\\"mobile\\\"'] .site-title,
+		[data-tagline-visibility*='\\\"mobile\\\"'] .site-description {
+			display: block;
+		}
 	}
 
 	.site-header-row .main-navigation .main-navigation-wrapper {
