@@ -192,10 +192,8 @@
 
     // WooCommerce Shop Sidebar Width
     api('responsive_shop_sidebar_width', function(value) {
-        console.log("Changing the shop sidebar width: ", value);
 
         value.bind(function(newval) {
-            console.log("New sidebar width: ", newval);
 
             function applySidebarWidth(x) {
                 if (x.matches) {
@@ -224,10 +222,8 @@
 
     // Single Product Sidebar Width
     api('responsive_single_product_sidebar_width', function(value) {
-        console.log("Changing the single product sidebar width");
 
         value.bind(function(newval) {
-            console.log("New single product sidebar width: ", newval);
 
             function applySidebarWidth(x) {
                 if (x.matches) {
