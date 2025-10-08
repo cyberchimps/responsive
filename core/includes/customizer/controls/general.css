@@ -1,4 +1,4 @@
-#customize-theme-controls .customize-pane-child.accordion-section-content:not(.customize-widgets__sidebar-section) {
+#customize-theme-controls .customize-pane-child.accordion-section-content {
 	padding: 12px 24px 12px 24px;
 }
 #customize-control-responsive_footer_bottom,
@@ -1669,4 +1669,8 @@ body.rtl .customize-control .responsive-switchers li {
 }
 #customize-control-responsive_load_google_fonts_locally {
 	margin-top : 24px;
+}
+.customize-widgets-header {
+    margin-left: -24px;
+    margin-right: -24px;
 }
