@@ -1386,7 +1386,7 @@ function responsive_ajax_flush_local_fonts_cache() {
 
     if ( class_exists( 'Responsive_Local_Fonts' ) ) {
         Responsive_Local_Fonts::flush_cache();
-        wp_send_json_success( array( 'message' => __( 'Local fonts cache flushed.', 'responsive' ) ) );
+        wp_send_json_success( array( 'message' => __( 'Local fonts cache flushed', 'responsive' ) ) );
     }
 
     wp_send_json_error( array( 'message' => __( 'Flush handler unavailable.', 'responsive' ) ) );
