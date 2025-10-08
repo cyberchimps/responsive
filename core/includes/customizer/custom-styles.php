@@ -5790,12 +5790,8 @@ function responsive_customizer_styles() {
 		$single_product_sidebar_position = esc_html( $single_product_setting === 'default' ? $global_sidebar : $single_product_setting );
 		$shop_sidebar_width = get_theme_mod( 'responsive_shop_sidebar_width', 30 );
 		$single_product_sidebar_width = get_theme_mod( 'responsive_single_product_sidebar_width', 30 );
-		error_log("Shop sidebar width ".$shop_sidebar_width);
-		error_log("Single product sidebar width ".$single_product_sidebar_width);
 		$shop_content_width = 100 - $shop_sidebar_width;
-		error_log("Shop content width ".$shop_content_width);
 		$single_product_content_width = 100 - $single_product_sidebar_width;
-		error_log("Single product content width ".$single_product_content_width);
 		if ( 'no' !== $shop_sidebar_position ) {
 			$woocommerce_custom_css .= "
 			@media (min-width:992px) {
