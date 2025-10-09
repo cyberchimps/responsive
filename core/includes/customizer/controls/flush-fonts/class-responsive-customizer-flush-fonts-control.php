@@ -43,7 +43,7 @@ if ( ! class_exists( 'Responsive_Customizer_Flush_Fonts_Control' ) ) :
                 'ajaxurl' => admin_url( 'admin-ajax.php' ),
                 'nonce'   => wp_create_nonce( 'responsive-flush-local-fonts' ),
                 'i18n'    => array(
-                    'success' => esc_html__( 'Local fonts cache flushed.', 'responsive' ),
+                    'success' => esc_html__( 'Local fonts cache flushed', 'responsive' ),
                     'error'   => esc_html__( 'Something went wrong. Please try again.', 'responsive' ),
                 ),
             ) );
