@@ -200,12 +200,10 @@ function responsive_enqueue_google_font( $font ) {
 		// Add subset to URL.
 		$url .= $subset;
 		
-		// Add display=swap for better performance.
-		$url .= '&display=swap';
 
 		// If local fonts are enabled, cache and use local CSS.
 		if ( 1 === (int) get_theme_mod( 'responsive_load_google_fonts_locally', 0 ) ) {
-			$local_css = Responsive_Local_Fonts::cache_and_get_url( 'https://fonts.googleapis.com/css?family=' . $font . '&subset=' . $subsets . '&display=swap' );
+			$local_css = Responsive_Local_Fonts::cache_and_get_url( 'https://fonts.googleapis.com/css?family=' . $font . '&subset=' . $subsets );
 			if ( $local_css ) {
 				wp_enqueue_style( 'responsive-google-font-' . $handle, $local_css, false, null, 'all' );
 				return;
@@ -427,7 +425,6 @@ function responsive_render_google_fonts_url( $fonts ) {
     $subset = '&subset=' . $subsets;
     $url = rtrim( $url, '%7C' );
     $url .= $subset;
-    $url .= '&display=swap';
 
     // If this is a Google Font, decide whether to load locally or from CDN
     if ( $isGoogleFont ) {
