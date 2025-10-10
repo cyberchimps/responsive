@@ -8,6 +8,13 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(10/10/2025) Version 6.2.6
+[+] = New = Added an enable/disable toggle option to make logo and site title inline
+[+] = New = Added options to load google fonts locally, preload the fonts if available, flushing existing font cache
+[+] = New = Added customization settings for theme widgets 
+[*] = Improvement = Optimized the code to make lesser requests and improve the overall speed of the website.
+
+
 (30/09/2025) Version 6.2.5
 [*] = Improvement = Revamped the global color palette settings in customizer
 [+] = New = Added retina logo upload option in Site Identity settings 
