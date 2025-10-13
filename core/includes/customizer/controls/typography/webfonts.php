@@ -231,7 +231,6 @@ function responsive_are_fonts_available_locally( $fonts ) {
         return false;
     }
 
-
     $upload_dir = wp_upload_dir();
     $local_fonts_dir = trailingslashit( $upload_dir['basedir'] ) . 'responsive-local-fonts/';
     $fonts_css_file  = $local_fonts_dir . 'fonts.css';
@@ -355,7 +354,6 @@ function responsive_enqueue_google_font_url($font)
 			$query_url .= implode(',', $italic_weights);
 		}
 	}
-
 	return $query_url;
 }
 
@@ -378,6 +376,40 @@ function responsive_render_google_fonts_url( $fonts ) {
     // Build Google Fonts URL
     $url = 'https://fonts.googleapis.com/css?family=';
     $query_parts = array();
+
+	/*
+	* If google fonts are enabled locally , we also need to check for preset fonts separately as they are not enqueued
+	*/
+	if(1 === (int) get_theme_mod( 'responsive_load_google_fonts_locally', 0 ))
+	{
+		$preset = get_theme_mod( 'responsive_font_presets', '' );
+		if ( $preset !== '' ) {
+			$choices = json_decode( get_theme_mod( 'font_presets_value'),true );
+			if ( isset( $choices[ $preset ] ) ) {
+				$headingFontFamily = $choices[ $preset ]['headingFont'];
+				$bodyFontFamily = $choices[ $preset ]['bodyFont'];
+				if ( substr( $headingFontFamily, 0, 1 ) !== "'" ) {
+					$headingFontFamily = "'" . $headingFontFamily;
+				}
+
+				// Add trailing quote if missing
+				if ( substr( $headingFontFamily, -1 ) !== "'" ) {
+					$headingFontFamily .= "'";
+				}
+				if ( substr( $bodyFontFamily, 0, 1 ) !== "'" ) {
+					$bodyFontFamily = "'" . $bodyFontFamily;
+				}
+
+				// Add trailing quote if missing
+				if ( substr( $bodyFontFamily, -1 ) !== "'" ) {
+					$bodyFontFamily .= "'";
+				}
+				$fonts[] = $headingFontFamily; 
+				$fonts[] = $bodyFontFamily;
+
+			}
+		}
+	}
     
     foreach ( $fonts as $font ) {
         // Clean font name: remove quotes and fallback (after comma)
