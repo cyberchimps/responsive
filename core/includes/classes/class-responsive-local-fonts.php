@@ -19,7 +19,7 @@ if ( ! class_exists( 'Responsive_Local_Fonts' ) ) :
 		 * @return array
 		 */
 		protected static function get_uploads() {
-			$uploads = wp_get_upload_dir();
+			$uploads = wp_upload_dir();
 			$base_dir = trailingslashit( $uploads['basedir'] );
 			$base_url = trailingslashit( $uploads['baseurl'] );
 			wp_mkdir_p( $base_dir );
