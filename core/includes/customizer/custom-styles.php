@@ -1631,6 +1631,7 @@ function responsive_customizer_styles() {
 			background-position: {$site_background_img_new_posi};
 		}";
 	}
+	
 
 	if ( $site_background_image_attach ) {
 		$custom_css .= "body.custom-background.responsive-site-contained, body.custom-background.responsive-site-full-width {
@@ -2124,54 +2125,6 @@ function responsive_customizer_styles() {
 		color: {$header_text_color};
 	}
 
-	.site-header-row .main-navigation .main-navigation-wrapper {
-		background-color: {$header_menu_background_color};
-	}
-
-	.header-full-width.site-header-layout-vertical .main-navigation.toggled,
-	.site-header-layout-vertical.site-header-full-width-main-navigation .main-navigation.toggled,
-	.responsive-site-full-width.site-header-layout-vertical .main-navigation.toggled,
-	.site-header-row .main-navigation.toggled,
-	.site-header-row .main-navigation.toggled .main-navigation-wrapper {
-		background-color: {$header_mobile_menu_background_color};
-	}
-	@media ( max-width: {$mobile_menu_breakpoint}px ) {
-		.site-mobile-header-layout-vertical .main-navigation {
-			background-color: {$header_menu_background_color};
-		}
-		.site-header-row .main-navigation.toggled {
-			background-color: {$header_mobile_menu_background_color};
-		}
-		.site-mobile-header-layout-vertical.site-header-site-branding-main-navigation:not(.site-header-full-width-main-navigation) .main-navigation {
-			border-top: 1px solid {$header_menu_border_color};
-		}
-		.site-mobile-header-layout-vertical.site-header-main-navigation-site-branding:not(.site-header-full-width-main-navigation) .main-navigation {
-			border-bottom: 1px solid {$header_menu_border_color};
-		}
-
-	}
-	@media ( min-width: {$mobile_menu_breakpoint}px ) {
-		.header-full-width.site-header-layout-vertical.site-header-site-branding-main-navigation .main-navigation,
-		.responsive-site-full-width.site-header-layout-vertical.site-header-site-branding-main-navigation .main-navigation,
-		.site-header-layout-vertical.site-header-site-branding-main-navigation:not(.site-header-full-width-main-navigation):not(.responsive-site-full-width):not(.header-full-width) .main-navigation > div {
-			border-top: 1px solid {$header_menu_border_color};
-		}
-
-		.header-full-width.site-header-layout-vertical.site-header-main-navigation-site-branding .main-navigation,
-		.responsive-site-full-width.site-header-layout-vertical.site-header-main-navigation-site-branding .main-navigation,
-		.site-header-layout-vertical.site-header-main-navigation-site-branding:not(.site-header-full-width-main-navigation):not(.responsive-site-full-width):not(.header-full-width) .main-navigation > div {
-			border-bottom: 1px solid {$header_menu_border_color};
-		}
-	}
-	.site-header-layout-vertical.site-header-full-width-main-navigation.site-header-site-branding-main-navigation .main-navigation {
-		border-top: 1px solid {$header_menu_border_color};
-	}
-	.site-header-layout-vertical.site-header-full-width-main-navigation.site-header-main-navigation-site-branding .main-navigation {
-		border-bottom: 1px solid {$header_menu_border_color};
-	}
-	.main-navigation .menu > li > a {
-		color: {$header_menu_link_color};
-	}
 	.responsive-llms-dash-wrap .llms-sd-item .llms-sd-link {
 		color: {$link_color};
 	}
@@ -2251,6 +2204,60 @@ function responsive_customizer_styles() {
 		background-color: {$header_menu_toggle_background_color};
 		color: {$header_menu_toggle_color};
 	}";
+
+	if(Responsive\Core\responsive_check_element_present_in_hfb('primary_navigation', 'header'))
+	{
+		$custom_css.="
+		.site-header-row .main-navigation .main-navigation-wrapper {
+		background-color: {$header_menu_background_color};
+		}
+
+		.header-full-width.site-header-layout-vertical .main-navigation.toggled,
+		.site-header-layout-vertical.site-header-full-width-main-navigation .main-navigation.toggled,
+		.responsive-site-full-width.site-header-layout-vertical .main-navigation.toggled,
+		.site-header-row .main-navigation.toggled,
+		.site-header-row .main-navigation.toggled .main-navigation-wrapper {
+			background-color: {$header_mobile_menu_background_color};
+		}
+		@media ( max-width: {$mobile_menu_breakpoint}px ) {
+			.site-mobile-header-layout-vertical .main-navigation {
+				background-color: {$header_menu_background_color};
+			}
+			.site-header-row .main-navigation.toggled {
+				background-color: {$header_mobile_menu_background_color};
+			}
+			.site-mobile-header-layout-vertical.site-header-site-branding-main-navigation:not(.site-header-full-width-main-navigation) .main-navigation {
+				border-top: 1px solid {$header_menu_border_color};
+			}
+			.site-mobile-header-layout-vertical.site-header-main-navigation-site-branding:not(.site-header-full-width-main-navigation) .main-navigation {
+				border-bottom: 1px solid {$header_menu_border_color};
+			}
+
+		}
+		@media ( min-width: {$mobile_menu_breakpoint}px ) {
+			.header-full-width.site-header-layout-vertical.site-header-site-branding-main-navigation .main-navigation,
+			.responsive-site-full-width.site-header-layout-vertical.site-header-site-branding-main-navigation .main-navigation,
+			.site-header-layout-vertical.site-header-site-branding-main-navigation:not(.site-header-full-width-main-navigation):not(.responsive-site-full-width):not(.header-full-width) .main-navigation > div {
+				border-top: 1px solid {$header_menu_border_color};
+			}
+
+			.header-full-width.site-header-layout-vertical.site-header-main-navigation-site-branding .main-navigation,
+			.responsive-site-full-width.site-header-layout-vertical.site-header-main-navigation-site-branding .main-navigation,
+			.site-header-layout-vertical.site-header-main-navigation-site-branding:not(.site-header-full-width-main-navigation):not(.responsive-site-full-width):not(.header-full-width) .main-navigation > div {
+				border-bottom: 1px solid {$header_menu_border_color};
+			}
+		}
+		.site-header-layout-vertical.site-header-full-width-main-navigation.site-header-site-branding-main-navigation .main-navigation {
+			border-top: 1px solid {$header_menu_border_color};
+		}
+		.site-header-layout-vertical.site-header-full-width-main-navigation.site-header-main-navigation-site-branding .main-navigation {
+			border-bottom: 1px solid {$header_menu_border_color};
+		}
+		.main-navigation .menu > li > a {
+			color: {$header_menu_link_color};
+		}
+		";
+	}
 
 	$sub_menu_border_right  = esc_html( get_theme_mod( 'responsive_sub_menu_border_right_padding', 0 ) );
 	$sub_menu_border_left   = esc_html( get_theme_mod( 'responsive_sub_menu_border_left_padding', 0 ) );
