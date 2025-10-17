@@ -5860,13 +5860,13 @@ function responsive_customizer_styles() {
 		$product_card_inside_container_mobile_margin_left   = esc_html( get_theme_mod( 'responsive_product_card_inside_container_mobile_left_padding', 0 ) );
 		$product_card_inside_container_mobile_margin_right  = esc_html( get_theme_mod( 'responsive_product_card_inside_container_mobile_right_padding', 0 ) );
 
-		$woocommerce_custom_css .= '.woocommerce-page.responsive-site-style-boxed ul.products li.product, .woocommerce.responsive-site-style-boxed ul.products li.product{
+		$woocommerce_custom_css .= '.woocommerce-page ul.products li.product, .woocommerce ul.products li.product{
 		padding: ' . responsive_spacing_css( $product_card_outside_container_padding_top, $product_card_outside_container_padding_right, $product_card_outside_container_padding_bottom, $product_card_outside_container_padding_left ) . ';
 		margin: ' . responsive_spacing_css( $product_card_inside_container_margin_top, $product_card_inside_container_padding_right, $product_card_inside_container_margin_bottom, $product_card_inside_container_margin_left ) . ';
 	}
 
 	@media screen and ( max-width: 992px ) {
-		.woocommerce-page.responsive-site-style-boxed ul.products li.product, .woocommerce.responsive-site-style-boxed ul.products li.product {
+		.woocommerce-page.responsive-site-style-boxed ul.products li.product, .woocommerce ul.products li.product {
 			padding: ' . responsive_spacing_css(
 			$product_card_outside_container_tablet_padding_top,
 			$product_card_outside_container_tablet_padding_right,
@@ -5883,7 +5883,7 @@ function responsive_customizer_styles() {
 		}
 	}
 	@media screen and ( max-width: 576px ) {
-		.woocommerce-page.responsive-site-style-boxed ul.products li.product, .woocommerce.responsive-site-style-boxed ul.products li.product {
+		.woocommerce-page.responsive-site-style-boxed ul.products li.product, .woocommerce ul.products li.product {
 			padding: ' . responsive_spacing_css(
 			$product_card_outside_container_mobile_padding_top,
 			$product_card_outside_container_mobile_padding_right,
