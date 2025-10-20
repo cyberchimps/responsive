@@ -1674,3 +1674,9 @@ body.rtl .customize-control .responsive-switchers li {
     margin-left: -24px;
     margin-right: -24px;
 }
+[id^="customize-control-responsive_footer_widget"].customize-control span.customize-control-title {
+	margin-top: 0;
+}
+[id^="customize-control-responsive_footer_widget"][id$="_content_align"] {
+	margin-top: 24px;
+}

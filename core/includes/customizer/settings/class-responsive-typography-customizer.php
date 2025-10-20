@@ -414,6 +414,23 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				),
 			);
 
+			for( $i=1;$i<=6;$i++ ) {
+				$responsive_theme_typography_settings['footer_widget'. $i .'_title'] = array(
+					'label'    => esc_html__( 'Title Font', 'responsive' ),
+					'target'   => $selectorArray['footer_widget'. $i .'_title'],
+					'section'  => 'responsive_footer_sidebar-widgets-footer-widget-' . $i,
+					'exclude'  => array( 'font-color' ),
+					'priority' => 80,
+				);
+				$responsive_theme_typography_settings['footer_widget'. $i .'_content'] = array(
+					'label'    => esc_html__( 'Content Font', 'responsive' ),
+					'target'   => $selectorArray['footer_widget'. $i .'_content'],
+					'section'  => 'responsive_footer_sidebar-widgets-footer-widget-' . $i,
+					'exclude'  => array( 'font-color' ),
+					'priority' => 90,
+				);
+			}
+
 			if ( $this->is_responsive_version_greater() ) {
 				$responsive_theme_typography_settings['page_title'] = array(
 					'label'    => esc_html__( 'Page Title', 'responsive' ),
@@ -483,6 +500,11 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 
 			if ( 'yes' === get_option( 'elementor_disable_typography_schemes' ) ) {
 				$responsive_typography_selectors['button'] = '.elementor-button-wrapper .elementor-button';
+			}
+
+			for( $i=1;$i<=6;$i++ ) {
+				$responsive_typography_selectors['footer_widget'. $i .'_title'] = ".footer-widget-area.footer-widget-{$i} h1,.footer-widget-area.footer-widget-{$i} h2,.footer-widget-area.footer-widget-{$i} h3,.footer-widget-area.footer-widget-{$i} h4,.footer-widget-area.footer-widget-{$i} h5,.footer-widget-area.footer-widget-{$i} h6";
+				$responsive_typography_selectors['footer_widget'. $i .'_content'] = ".footer-widget-area.footer-widget-{$i}.footer-widget-{$i}";
 			}
 
 			$selectorArray = apply_filters(

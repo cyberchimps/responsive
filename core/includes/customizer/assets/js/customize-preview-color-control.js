@@ -2770,4 +2770,57 @@
             });
         });
     });
+
+    // Footer Widgets Heading Color.
+    for( let i=1;i<=6;i++ ) {
+        api( 'responsive_footer_widget' + i + '_title_color', function(setting){
+            setting.bind(function(color){
+                jQuery('style#responsive-footer-widget' + i + '-title-color').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-widget' + i + '-title-color">'
+                    + '.footer-widget-area[data-section="responsive-footer-widget-' + i + '"] h1, .footer-widget-area[data-section="responsive-footer-widget-' + i + '"] h2, .footer-widget-area[data-section="responsive-footer-widget-' + i + '"] h3, .footer-widget-area[data-section="responsive-footer-widget-' + i + '"] h4, .footer-widget-area[data-section="responsive-footer-widget-' + i + '"] h5, .footer-widget-area[data-section="responsive-footer-widget-' + i + '"] h6 { color: ' + color + '!important; }'
+                    + '</style>'
+                );
+            });
+        });
+    }
+    // Footer Widgets Content Color.
+    for( let i=1;i<=6;i++ ) {
+        api( 'responsive_footer_widget' + i + '_content_color', function(setting){
+            setting.bind(function(color){
+                jQuery('style#responsive-footer-widget' + i + '-content-color').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-widget' + i + '-content-color">'
+                    + '.footer-widget-area[data-section="responsive-footer-widget-' + i + '"].footer-widget-'+i+' { color: ' + color + '!important; }'
+                    + '</style>'
+                );
+            });
+        })
+    };
+    // Footer Widgets Link Color.
+    for( let i=1;i<=6;i++ ) {
+        api( 'responsive_footer_widget' + i + '_link_color', function(setting){
+            setting.bind(function(color){
+                jQuery('style#responsive-footer-widget' + i + '-link-color').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-widget' + i + '-link-color">'
+                    + '.footer-widget-area[data-section="responsive-footer-widget-' + i + '"].footer-widget-'+i+' a { color: ' + color + '!important; }'
+                    + '</style>'
+                );
+            });
+        })
+    };
+    // Footer Widgets Link Hover Color.
+    for( let i=1;i<=6;i++ ) {
+        api( 'responsive_footer_widget' + i + '_link_hover_color', function(setting){
+            setting.bind(function(color){
+                jQuery('style#responsive-footer-widget' + i + '-link-hover-color').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-widget' + i + '-link-hover-color">'
+                    + '.footer-widget-area[data-section="responsive-footer-widget-' + i + '"].footer-widget-'+i+' a:hover { color: ' + color + '!important; }'
+                    + '</style>'
+                );
+            });
+        })
+    };
 } )( jQuery );

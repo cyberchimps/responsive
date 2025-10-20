@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '6.2.6' );
+define( 'RESPONSIVE_THEME_VERSION', '6.2.7' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -1573,6 +1573,38 @@ if ( ! function_exists( 'responsive_theme_background_updater_retina_logo_6_2_5' 
 
 			// Mark backward compatibility update as done
 			$responsive_options['retina-logo-backward-done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+
+if( ! function_exists( 'responsive_theme_background_updater_6_2_7') ) {
+	/**
+	 * Handle backward compatibility on version 6.2.7
+	 *
+	 * @since 6.2.7
+	 * @return void
+	 */
+	function responsive_theme_background_updater_6_2_7() {
+
+		$responsive_options = Responsive\Core\responsive_get_options();
+
+		if ( ! isset( $responsive_options['v6-2-7-backward-done'] ) ) {
+			for( $i = 1; $i <= 4; $i++ ) {
+				if ( ! get_theme_mod( 'responsive_footer_widget' . $i . '_title_color' ) ) {
+					set_theme_mod( 'responsive_footer_widget' . $i . '_title_color', get_theme_mod( 'responsive_footer_text_color', '#FFFFFF' ) );
+				}
+				if ( ! get_theme_mod( 'responsive_footer_widget' . $i . '_content_color' ) ) {
+					set_theme_mod( 'responsive_footer_widget' . $i . '_content_color', get_theme_mod( 'responsive_footer_text_color', '#FFFFFF' ) );
+				}
+				if ( ! get_theme_mod( 'responsive_footer_widget' . $i . '_link_color' ) ) {
+					set_theme_mod( 'responsive_footer_widget' . $i . '_link_color', get_theme_mod( 'responsive_footer_links_color', '#0066CC' ) );
+				}
+				if ( ! get_theme_mod( 'responsive_footer_widget' . $i . '_link_hover_color' ) ) {
+					set_theme_mod( 'responsive_footer_widget' . $i . '_link_hover_color', get_theme_mod( 'responsive_footer_links_hover_color', '#10659C' ) );
+				}
+			}
+			$responsive_options['v6-2-7-backward-done'] = true;
 			update_option( 'responsive_theme_options', $responsive_options );
 		}
 	}
