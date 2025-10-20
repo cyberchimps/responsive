@@ -1578,9 +1578,11 @@ if ( ! function_exists( 'responsive_theme_background_updater_retina_logo_6_2_5' 
 	}
 }
 
-if( !function_exists( 'responsive_theme_background_updater_responsive_logo_6_2_7')) {
+if( !function_exists( 'responsive_theme_background_updater_responsive_logo_6_2_7' ) ) {
 	/** 
 	 * Handle backward compatibility for responsive logo setup
+	 * @since 6.2.7
+	 * @return void
 	*/
 	function responsive_theme_background_updater_responsive_logo_6_2_7()
 	{
@@ -1589,12 +1591,13 @@ if( !function_exists( 'responsive_theme_background_updater_responsive_logo_6_2_7
 	
 			// if custom logo width is set but no separate width is mentioned for tablet and phone
 			// then use the same width everywhere
-			if( get_theme_mod('responsive_logo_width') ) {
+			$desktop_width = get_theme_mod( 'responsive_logo_width' );
+			if( $desktop_width ) {
 				if( !get_theme_mod('responsive_logo_width_tablet') ) {
-					set_theme_mod( 'responsive_logo_width_tablet', get_theme_mod('responsive_logo_width') );
+					set_theme_mod( 'responsive_logo_width_tablet', $desktop_width );
 				}
 				if( !get_theme_mod('responsive_logo_width_mobile') ) {
-					set_theme_mod( 'responsive_logo_width_mobile', get_theme_mod('responsive_logo_width') );
+					set_theme_mod( 'responsive_logo_width_mobile', $desktop_width );
 				}
 			}
 
