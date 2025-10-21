@@ -222,16 +222,14 @@
 
     // Single Product Sidebar Width
     api('responsive_single_product_sidebar_width', function(value) {
-
         value.bind(function(newval) {
-
             function applySidebarWidth(x) {
                 if (x.matches) {
                     // Desktop: apply new widths
-                        $('.single-product-has-site-header aside.widget-area#secondary')
+                        $('.single-product-has-site-header.woocommerce aside.widget-area#secondary')
                             .css('width', newval + '%');
 
-                        $('.single-product-has-site-header #primary.content-area')
+                        $('.single-product-has-site-header.woocommerce #primary.content-area')
                             .css('width', (100 - newval) + '%');
                 } else {
                     // Mobile/tablet: reset to full width

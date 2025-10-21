@@ -5812,11 +5812,11 @@ function responsive_customizer_styles() {
 		if ( 'no' !== $single_product_sidebar_position ) {
 			$woocommerce_custom_css .= "
 			@media (min-width:992px) {
-				.single-product.woocommerce .content-area {
-					max-width: {$single_product_content_width}%;
+				.single-product-has-site-header.woocommerce #primary.content-area {
+					width: {$single_product_content_width}%;
 				}
-				.single-product.woocommerce aside.widget-area {
-					min-width: {$single_product_sidebar_width}%;
+				.single-product-has-site-header.woocommerce aside.widget-area#secondary {
+					width: {$single_product_sidebar_width}%;
 				}
 			}";
 		}
