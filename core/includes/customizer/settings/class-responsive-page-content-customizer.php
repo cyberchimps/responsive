@@ -145,9 +145,9 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			);
 			if ( is_rtl() ) {
 				$featured_image_alignment_choices = array(
-					'left'   => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
+					'left'   => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
 					'center' => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
-					'right'  => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
+					'right'  => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
 				);
 			}
 			responsive_select_button_control( $wp_customize, 'page_featured_image_alignment', $featured_image_alignment_label, 'responsive_page', 50, $featured_image_alignment_choices, 'left', null );
@@ -163,9 +163,9 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			);
 			if ( is_rtl() ) {
 				$page_title_alignment_choices = array(
-					'left'   => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
+					'left'   => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
 					'center' => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
-					'right'  => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
+					'right'  => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
 				);
 			}
 			responsive_select_button_control( $wp_customize, 'page_title_alignment', $page_title_alignment_label, 'responsive_page', 70, $page_title_alignment_choices, 'left', null );
@@ -183,9 +183,9 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			if ( is_rtl() ) {
 				$page_content_alignment_choices = array(
 					'justify' => esc_html__( 'dashicons-editor-justify', 'responsive' ),
-					'left'    => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
+					'left'    => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
 					'center'  => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
-					'right'   => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
+					'right'   => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
 				);
 			}
 			responsive_select_button_control( $wp_customize, 'page_content_alignment', $page_content_alignment_label, 'responsive_page', 90, $page_content_alignment_choices, 'left', null );

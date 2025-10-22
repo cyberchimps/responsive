@@ -71,8 +71,6 @@ if( ! class_exists( 'Responsive_HFB_Header_Above_Row' ) ) {
             $header_above_row_bottom_border_size_label = __( 'Bottom Border Size (px)', 'responsive' );
             responsive_drag_number_control( $wp_customize, 'header_above_row_bottom_border_size', $header_above_row_bottom_border_size_label, 'responsive_header_above_row', 60, 0, null, 300, 0, 'postMessage', 1 );
 
-            responsive_horizontal_separator_control($wp_customize, 'header_above_row_spacing_separator', 1, 'responsive_header_above_row', 70, 1, );
-
             // Spacing.
 			$spacing_separator_label = __( 'Spacing', 'responsive' );
 			responsive_separator_control( $wp_customize, 'header_above_spacing_separator', $spacing_separator_label, 'responsive_header_above_row', 80 );
@@ -94,7 +92,6 @@ if( ! class_exists( 'Responsive_HFB_Header_Above_Row' ) ) {
 				$tab_ids_prefix . 'responsive_header_above_row_padding_padding',
 				$tab_ids_prefix . 'responsive_header_above_row_margin_padding',
 				$tab_ids_prefix . 'responsive_header_above_row_bottom_border_size_separator',
-				$tab_ids_prefix . 'responsive_header_above_row_spacing_separator',
 				$tab_ids_prefix . 'responsive_header_above_spacing_separator',
 			);
 

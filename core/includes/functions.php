@@ -60,16 +60,12 @@ function setup() {
 	require_once trailingslashit( get_template_directory() ) . '/core/includes/theme-updates/class-responsive-theme-background-updater.php';
 }
 
-/*
- * Globalize Theme options
- */
-$responsive_options = responsive_get_options();
-
 /** Function to load controls */
 function responsive_load_customize_controls() {
 
 	require_once trailingslashit( get_template_directory() ) . 'core/includes/customizer/class-responsive-customize-control-checkbox-multiple.php';
 	require_once trailingslashit( get_template_directory() ) . 'core/includes/customizer/controls/builder-layout/class-responsive-customizer-builder-header-blank-control.php';
+	require_once trailingslashit( get_template_directory() ) . 'core/includes/customizer/controls/flush-fonts/class-responsive-customizer-flush-fonts-control.php';
 }
 
 /**
@@ -272,12 +268,6 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		$responsive_logo_width  = 300;
 		$responsive_logo_height = 100;
 
-		// If the retina setting is active, double the recommended width and height.
-		if ( get_theme_mod( 'responsive_retina_logo', 0 ) ) {
-			$responsive_logo_width  = floor( $responsive_logo_width * 2 );
-			$responsive_logo_height = floor( $responsive_logo_height * 2 );
-		}
-
 		/**
 		 * Add support for core custom logo.
 		 *
@@ -394,11 +384,11 @@ if ( ! function_exists( 'responsive_css' ) ) {
 	function responsive_css() {
 		$theme              = wp_get_theme();
 		$responsive         = wp_get_theme( 'responsive' );
-		$responsive_options = responsive_get_options();
 		$suffix             = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 		if ( is_rtl() ) {
 			$suffix = '-rtl' . $suffix;
 		}
+		global $responsive_options;
 
 		// If plugin - 'Sensei' is active.
 		if ( class_exists( 'Sensei_Main' ) ) {
@@ -413,8 +403,36 @@ if ( ! function_exists( 'responsive_css' ) ) {
 		if ( class_exists( 'WooCommerce' ) ) {
 			wp_enqueue_style( 'responsive-woocommerce-style', get_template_directory_uri() . "/core/css/woocommerce{$suffix}.css", false, $responsive['Version'] );
 		}
+
+		// Enqueue custom front page styles if Custom Home page is enabled.
+		if ( 1 === $responsive_options['front_page'] ) {
+			wp_enqueue_style( 'responsive-custom-front-page-style', get_template_directory_uri() . "/core/css/custom-front-page{$suffix}.css", false, $responsive['Version'] );
+		}
 	}
 }
+
+/**
+ * Custom retina logo
+ */
+add_filter( 'wp_get_attachment_image_attributes', function( $attr, $attachment, $size ) {
+    // Only change the custom logo
+    if ( isset( $attr['class'] ) && strpos( $attr['class'], 'custom-logo' ) !== false ) {
+        $retina_logo = get_theme_mod( 'responsive_retina_logo_image', '' );
+
+        if ( get_theme_mod( 'responsive_retina_logo', 0 ) && $retina_logo ) {
+            $srcset_parts   = [];
+            $srcset_parts[] = esc_url( $attr['src'] ) . ' 1x';
+            $srcset_parts[] = esc_url( $retina_logo ) . ' 2x';
+
+            $attr['srcset'] = implode( ', ', $srcset_parts );
+            unset( $attr['sizes'] );
+            $attr['data-retina-enabled'] = 'true';
+        }
+    }
+
+    return $attr;
+}, 20, 3 );
+
 
 /**
  * A safe way of adding JavaScripts to a WordPress generated page.
@@ -464,8 +482,7 @@ if ( ! function_exists( 'responsive_js' ) ) {
 		$mobile_menu_breakpoint = array( 'mobileBreakpoint' => get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
 		wp_localize_script( 'navigation-scripts', 'responsive_breakpoint', $mobile_menu_breakpoint );
 		if ( responsive_check_element_present_in_hfb( 'primary_navigation', 'header' ) ) {
-			// jQuery is loading in frontend because of this. We will remove jquery in upcoming versions.
-			wp_enqueue_script( 'responsive_theme_nested_menus', $template_directory_uri . '/core/' . $directory . '/nested-menus' . $suffix . '.js', array('jquery'), RESPONSIVE_THEME_VERSION, true );
+			wp_enqueue_script( 'responsive_theme_nested_menus', $template_directory_uri . '/core/' . $directory . '/nested-menus' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, true );
 		}
 
 	}
@@ -663,11 +680,6 @@ function responsive_add_custom_body_classes( $classes ) {
 	// 	$classes[] = 'header-widget-position-' . get_theme_mod( 'responsive_header_widget_position', 'top' );
 	// }
 
-	// Header width.
-	if ( get_theme_mod( 'responsive_inline_logo_site_title', 0 ) ) {
-		$classes[] = 'inline-logo-site-title';
-	}
-
 	// Full idth menu class.
 	if ( get_theme_mod( 'responsive_header_menu_full_width', 0 ) ) {
 		$classes[] = 'site-header-full-width-main-navigation';
@@ -682,7 +694,7 @@ function responsive_add_custom_body_classes( $classes ) {
 	$classes[] = 'site-content-header-alignment-' . get_theme_mod( 'responsive_content_header_alignment', get_responsive_customizer_defaults( 'breadcrumb_alignment' ) );
 
 	// Custom Homepage Class class.
-	$responsive_options = responsive_get_options();
+	global $responsive_options;
 	if ( is_front_page() && $responsive_options['front_page'] ) {
 		$classes[] = 'custom-home-page-active';
 	}
@@ -1172,6 +1184,8 @@ function defaults() {
 			'header_widget_border'                => '#eaeaea',
 			'header_widget_link'                  => '#0066CC',
 			'header_widget_link_hover'            => '#10659C',
+
+			'inline_logo_site_title'                  => 0,
 
 			// hamburger menu padding
 			'hamburger_menu_padding'              => 15,
