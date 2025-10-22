@@ -29,9 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             $inline_logo_title = get_theme_mod( 'responsive_inline_logo_title', 0 );
             $has_logo          = has_custom_logo();
 			$title_visibility   = get_theme_mod( 'responsive_site_title_visibility', array( 'desktop', 'tablet', 'mobile' ) );
-			error_log("Title Visibility: " . print_r( $title_visibility, true ) );
 			$tagline_visibility = get_theme_mod( 'responsive_site_tagline_visibility', array( 'desktop', 'tablet', 'mobile' ) );
-			error_log("Tagline Visibility: " . print_r( $tagline_visibility, true ) );
 			$show_title   = ! empty( $title_visibility );
 			$show_tagline = ! empty( $tagline_visibility );
             ?>
