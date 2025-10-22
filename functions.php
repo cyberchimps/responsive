@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '6.2.6' );
+define( 'RESPONSIVE_THEME_VERSION', '6.2.7' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -1576,4 +1576,54 @@ if ( ! function_exists( 'responsive_theme_background_updater_retina_logo_6_2_5' 
 			update_option( 'responsive_theme_options', $responsive_options );
 		}
 	}
+}
+
+if( ! function_exists( 'responsive_theme_background_updater_content_boxed_flat_padding_margin_6_2_7' )) {
+	/**
+	 * Handle backward compatibility for existing users who are using flat or content boxes layouts 
+	 * We need to adjust the padding and margin for the product cards in woocommerce shop page
+	 * @since 6.2.7
+	 * @return void
+	 */
+	function responsive_theme_background_updater_content_boxed_flat_padding_margin_6_2_7(){
+		$responsive_options = Responsive\Core\responsive_get_options();
+		if( !isset( $responsive_options['content_boxed_flat_padding_margin_fix'])) {
+			$header_layout = get_theme_mod( 'responsive_style', 'contained' );
+			if($header_layout === 'flat' || $header_layout === 'content-boxed')
+			{
+				set_theme_mod('responsive_product_card_outside_container_top_padding',0);
+				set_theme_mod('responsive_product_card_outside_container_bottom_padding',0);
+				set_theme_mod('responsive_product_card_outside_container_left_padding',0);
+				set_theme_mod('responsive_product_card_outside_container_right_padding',0);
+				set_theme_mod('responsive_product_card_outside_container_tablet_top_padding',0);
+	
+				set_theme_mod('responsive_product_card_outside_container_tablet_top_padding',0);
+				set_theme_mod('responsive_product_card_outside_container_tablet_bottom_padding',0);
+				set_theme_mod('responsive_product_card_outside_container_tablet_left_padding',0);
+				set_theme_mod('responsive_product_card_outside_container_tablet_right_padding',0);
+	
+				set_theme_mod('responsive_product_card_outside_container_mobile_top_padding',0);
+				set_theme_mod('responsive_product_card_outside_container_mobile_bottom_padding',0);
+				set_theme_mod('responsive_product_card_outside_container_mobile_left_padding',0);
+				set_theme_mod('responsive_product_card_outside_container_mobile_right_padding',0);
+	
+				set_theme_mod('responsive_product_card_inside_container_top_padding',0);
+				set_theme_mod('responsive_product_card_inside_container_bottom_padding',30);
+				set_theme_mod('responsive_product_card_inside_container_left_padding',0);
+				set_theme_mod('responsive_product_card_inside_container_right_padding',30);
+	
+				set_theme_mod('responsive_product_card_inside_container_tablet_top_padding',0);
+				set_theme_mod('responsive_product_card_inside_container_tablet_bottom_padding',0);
+				set_theme_mod('responsive_product_card_inside_container_tablet_left_padding',0);
+				set_theme_mod('responsive_product_card_inside_container_tablet_right_padding',0);
+				
+				set_theme_mod('responsive_product_card_inside_container_mobile_top_padding',0);
+				set_theme_mod('responsive_product_card_inside_container_mobile_bottom_padding',0);
+				set_theme_mod('responsive_product_card_inside_container_mobile_left_padding',0);
+				set_theme_mod('responsive_product_card_inside_container_mobile_right_padding',0);
+			}
+			
+		}
+	}
+
 }
