@@ -49,6 +49,8 @@ const TabsComponent = props => {
 		hideSidebarWidthControl( api('responsive_page_sidebar_position').get(), 'page' );
 		hideSidebarWidthControl( api('responsive_blog_sidebar_position').get(), 'blog' );
 		hideSidebarWidthControl( api('responsive_default_sidebar_position').get(), 'default');
+		hideWoocommerceSidebarWidthControl( api('responsive_shop_sidebar_position').get(), 'shop');
+		hideWoocommerceSidebarWidthControl( api('responsive_single_product_sidebar_position').get(), 'single_product');
 		hideRetinaLogoUploadControl( api( 'responsive_retina_logo').get());
 
 		api('responsive_page_sidebar_position', function( value ) {
@@ -69,6 +71,20 @@ const TabsComponent = props => {
 			value.bind( function( newval ) {
 				if( newval ) {
 					hideSidebarWidthControl(newval, 'default');
+				}
+			})
+		});
+		api('responsive_shop_sidebar_position', function( value ){
+			value.bind( function( newval ) {
+				if( newval ) {
+					hideWoocommerceSidebarWidthControl(newval, 'shop');
+				}
+			})
+		});
+		api('responsive_single_product_sidebar_position', function( value ){
+			value.bind( function( newval ) {
+				if( newval ) {
+					hideWoocommerceSidebarWidthControl(newval, 'single_product');
 				}
 			})
 		});
@@ -332,6 +348,20 @@ const TabsComponent = props => {
         controlElement.style.display = 'block';
     }
 };
+
+	const hideWoocommerceSidebarWidthControl = (value,control) => {
+		const controlId = `customize-control-responsive_${control}_sidebar_width`;
+		const controlElement = document.getElementById(controlId);
+		if (!controlElement) return;
+		controlElement.style.display = 'none';
+
+		// For shop/single product sidebar: only hide when 'no'
+		let isVisible = value !== 'no' && tab === 'general';
+
+		if (isVisible) {
+			controlElement.style.display = 'block';
+		}
+	}
 
 	const hideRetinaLogoUploadControl = (value) => {
 		const controlId = `customize-control-responsive_retina_logo_image`;

@@ -72,7 +72,8 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				$general_tab_ids_prefix . 'shop_pagination_style',
 				$general_tab_ids_prefix . 'shop_pagination_quick_view',
 				$general_tab_ids_prefix . 'responsive_shop_sidebar_separator', 
-				$general_tab_ids_prefix . 'responsive_shop_sidebar_position'
+				$general_tab_ids_prefix . 'responsive_shop_sidebar_position',
+				$general_tab_ids_prefix . 'responsive_shop_sidebar_width'
 			);
 			
 			$enable_native_popup_flag = get_theme_mod('enable_native_cart_popup');
@@ -195,6 +196,10 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			responsive_imageradio_button_control( $wp_customize, 'shop_sidebar_position', $sidebar_label, 'responsive_woocommerce_shop', 38, $sidebar_choices, 'no', null, 'svg');
 			$container_spacing_label = esc_html__( 'Product Card Spacing', 'responsive' );
 			responsive_separator_control( $wp_customize, 'product_card_spacing', $container_spacing_label, 'responsive_woocommerce_shop', 30 );
+
+			$sidebar_width_label = esc_html__( 'Sidebar Width (%)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'shop_sidebar_width', $sidebar_width_label, 'responsive_woocommerce_shop' , 40, 30, null, 50, 15, 'postMessage' );
+
 
 			$outside_container_label = __( 'Padding (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'product_card_outside_container', 'responsive_woocommerce_shop', 33, 15, 15, '', $outside_container_label );
