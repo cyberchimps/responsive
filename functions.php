@@ -1578,6 +1578,57 @@ if ( ! function_exists( 'responsive_theme_background_updater_retina_logo_6_2_5' 
 	}
 }
 
+if ( ! function_exists( 'responsive_theme_background_updater_site_title_tagline_visibility_6_2_7' ) ) {
+	/**
+	 * Handle backward compatibility for site title and tagline visibility controls.
+	 *
+	 * Converts old single toggle settings into new multi-device visibility arrays.
+	 *
+	 * @since 6.2.7
+	 * @return void
+	 */
+	function responsive_theme_background_updater_site_title_tagline_visibility_6_2_7() {
+
+		$responsive_options = Responsive\Core\responsive_get_options();
+
+		if ( ! isset( $responsive_options['site-title-tagline-visibility-backward-done'] ) ) {
+
+			// Fetch existing (old) settings.
+			$hide_title   = get_theme_mod( 'responsive_hide_title', 0 );
+			$hide_tagline = get_theme_mod( 'responsive_hide_tagline', 1 );
+
+			// Fetch new settings (may already exist if user updated).
+			$title_visibility   = get_theme_mod( 'responsive_site_title_visibility', false );
+			$tagline_visibility = get_theme_mod( 'responsive_site_tagline_visibility', false );
+
+			// Backward compatibility: if new visibility settings don’t exist yet.
+			if ( false === $title_visibility ) {
+				if ( $hide_title ) {
+					// Title was hidden previously → no devices visible.
+					set_theme_mod( 'responsive_site_title_visibility', array() );
+				} else {
+					// Title was visible → visible on all devices.
+					set_theme_mod( 'responsive_site_title_visibility', array( 'desktop', 'tablet', 'mobile' ) );
+				}
+			}
+
+			if ( false === $tagline_visibility ) {
+				if ( $hide_tagline ) {
+					// Tagline was hidden previously → no devices visible.
+					set_theme_mod( 'responsive_site_tagline_visibility', array() );
+				} else {
+					// Tagline was visible → visible on all devices.
+					set_theme_mod( 'responsive_site_tagline_visibility', array( 'desktop', 'tablet', 'mobile' ) );
+				}
+			}
+
+			// Mark backward compatibility update as done.
+			$responsive_options['site-title-tagline-visibility-backward-done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+
 if( !function_exists( 'responsive_theme_background_updater_responsive_logo_6_2_7' ) ) {
 	/** 
 	 * Handle backward compatibility for responsive logo setup

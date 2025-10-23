@@ -373,6 +373,8 @@ const TabsComponent = props => {
 
 	const hideRetinaLogoUploadControl = (value) => {
 		const controlId = `customize-control-responsive_retina_logo_image`;
+		const isCustomLogoPresent = document.querySelector('#customize-control-custom_logo img.attachment-thumb') !== null;
+		
 		const controlElement = document.getElementById(controlId); 
 		if(!controlElement) return; 
 
@@ -380,7 +382,7 @@ const TabsComponent = props => {
 		controlElement.style.display = 'none'; 
 
 		// Show only if toggle is enabled AND we're on the general tab
-		let isVisible = value !== 0 && value !== false && tab === 'general';
+		let isVisible = value !== 0 && isCustomLogoPresent && value !== false && tab === 'general';
 
 		if(isVisible) {
 			controlElement.style.display = 'block';
@@ -389,6 +391,7 @@ const TabsComponent = props => {
 
 	const hideMobileLogoUploadControl = (value) => {
 		const controlId = `customize-control-responsive_mobile_logo`;
+		const isCustomLogoPresent = document.querySelector('#customize-control-custom_logo img.attachment-thumb') !== null;
 		const controlElement = document.getElementById(controlId); 
 		if(!controlElement) return; 
 
@@ -396,7 +399,7 @@ const TabsComponent = props => {
 		controlElement.style.display = 'none'; 
 
 		// Show only if toggle is enabled AND we're on the general tab
-		let isVisible = value !== 0 && value !== false && tab === 'general';
+		let isVisible = value !== 0 && isCustomLogoPresent && value !== false && tab === 'general';
 
 		if(isVisible) {
 			controlElement.style.display = 'block';
