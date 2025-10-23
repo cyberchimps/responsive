@@ -5914,7 +5914,6 @@ function responsive_customizer_styles() {
 
 		$single_product_setting        = get_theme_mod( 'responsive_single_product_sidebar_position', 'no' );
 		$single_product_sidebar_position = esc_html( $single_product_setting === 'default' ? $global_sidebar : $single_product_setting );
-		$shop_sidebar_width = get_theme_mod( 'responsive_shop_sidebar_width', 30 );
 		$single_product_sidebar_width = get_theme_mod( 'responsive_single_product_sidebar_width', 30 );
 		$shop_content_width = 100 - $shop_sidebar_width;
 		$single_product_content_width = 100 - $single_product_sidebar_width;
