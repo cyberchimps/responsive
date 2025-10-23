@@ -130,6 +130,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 			$wp_customize->get_control( 'custom_logo' )->section        = 'responsive_header_site_logo_title';
 			$wp_customize->get_control( 'blogname' )->section           = 'responsive_header_site_logo_title';
 			$wp_customize->get_control( 'blogdescription' )->section    = 'responsive_header_site_logo_title';
+			$wp_customize->get_control( 'blogdescription' )->priority    = 16;
 
 			$tabs_label      = esc_html__( 'Tabs', 'responsive' );
 			$tab_ids_prefix  = 'customize-control-';
@@ -157,11 +158,11 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				$tab_ids_prefix . 'responsive_logo_width',
 				$tab_ids_prefix . 'responsive_mobile_logo_option',
 				$tab_ids_prefix . 'responsive_mobile_logo',
-				$tab_ids_prefix . 'responsive_hide_title',
-				$tab_ids_prefix . 'responsive_hide_tagline',
 				$tab_ids_prefix . 'responsive_custom_logo_url',
 				$tab_ids_prefix . 'responsive_retina_logo_image',
 				$tab_ids_prefix . 'responsive_inline_logo_site_title',
+				$tab_ids_prefix . 'responsive_site_title_visibility',
+				$tab_ids_prefix . 'responsive_site_tagline_visibility',
 			);
 			
 			if( ! get_theme_mod( 'custom_logo' ) ) {
