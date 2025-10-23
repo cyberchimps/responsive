@@ -1581,15 +1581,16 @@ if ( ! function_exists( 'responsive_theme_background_updater_retina_logo_6_2_5' 
 if( ! function_exists( 'responsive_theme_background_updater_6_2_7') ) {
 	/**
 	 * Handle backward compatibility on version 6.2.7
+	 * 
 	 * @since 6.2.7
 	 * @return void
-	 * /
+	 */
 	function responsive_theme_background_updater_6_2_7() {
 
 		$responsive_options = Responsive\Core\responsive_get_options();
 
 		if ( ! isset( $responsive_options['v6-2-7-backward-done'] ) ) {
-			for( $i = 1; $i <= 4; $i++ ) {
+			for ( $i = 1; $i <= 4; $i++ ) {
 				if ( ! get_theme_mod( 'responsive_footer_widget' . $i . '_title_color' ) ) {
 					set_theme_mod( 'responsive_footer_widget' . $i . '_title_color', get_theme_mod( 'responsive_footer_text_color', '#FFFFFF' ) );
 				}
