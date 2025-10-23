@@ -19,7 +19,7 @@ if ( ! class_exists( 'Responsive_Local_Fonts' ) ) :
 		 * @return array
 		 */
 		protected static function get_uploads() {
-			$uploads = wp_get_upload_dir();
+			$uploads = wp_upload_dir();
 			$base_dir = trailingslashit( $uploads['basedir'] );
 			$base_url = trailingslashit( $uploads['baseurl'] );
 			wp_mkdir_p( $base_dir );
@@ -50,7 +50,10 @@ if ( ! class_exists( 'Responsive_Local_Fonts' ) ) :
 
 			wp_mkdir_p( $targetDir );
 
-			$response = wp_remote_get( $google_css_url, array( 'timeout' => 15 ) );
+			$response = wp_remote_get( $google_css_url, array( 
+				'timeout' => 15,
+				'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+			) );
 			if ( is_wp_error( $response ) ) {
 				return false;
 			}
@@ -76,7 +79,10 @@ if ( ! class_exists( 'Responsive_Local_Fonts' ) ) :
 					$local_path    = $targetDir . $font_filename;
 					$local_url     = $targetUrl . $font_filename;
 					if ( ! file_exists( $local_path ) ) {
-						$font_resp = wp_remote_get( $font_url, array( 'timeout' => 20 ) );
+						$font_resp = wp_remote_get( $font_url, array( 
+							'timeout' => 20,
+							'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+						) );
 						if ( ! is_wp_error( $font_resp ) ) {
 							$body = wp_remote_retrieve_body( $font_resp );
 							if ( ! empty( $body ) ) {

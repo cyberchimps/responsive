@@ -74,7 +74,7 @@ const FontPresetComponent = (props) => {
             ].map(({ font, weight }) => {
                 const fontUrl = font.replace(/ /g, "+").replace(/,/g, "%2C");
                 
-                return `https://fonts.googleapis.com/css?family=${fontUrl}:${weight}`;
+                return `https://fonts.googleapis.com/css?family=${fontUrl}:${weight}&display=swap`;
             });
 
             // Load each font by appending a <link> to the head

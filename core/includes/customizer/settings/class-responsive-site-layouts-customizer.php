@@ -111,7 +111,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 
 			// Enable inline site title and logo.
 			$inline_logo_title_label = __( 'Inline Logo & Site Title', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'inline_logo_title', $inline_logo_title_label, 'responsive_header_site_logo_title', 16, 0, null );
+			responsive_toggle_control( $wp_customize, 'inline_logo_site_title', $inline_logo_title_label, 'responsive_header_site_logo_title', 16, 0, null );
 
 			// Add Custom Logo URL.
 			$wp_customize->add_setting(

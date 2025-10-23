@@ -1,4 +1,4 @@
-#customize-theme-controls .customize-pane-child.accordion-section-content:not(.customize-widgets__sidebar-section) {
+#customize-theme-controls .customize-pane-child.accordion-section-content {
 	padding: 12px 24px 12px 24px;
 }
 #customize-control-responsive_footer_bottom,
@@ -703,18 +703,15 @@ body.rtl .customize-control .responsive-switchers li {
     visibility: visible;
     height: auto;
     width: auto;
-    padding: 0;																									
-    /* max-height: 60%; */
+    padding: 0;
     overflow: auto;
     transform: translateY(100%);
     transition: transform 0.1s ease;
     backface-visibility: hidden;
 }
-@media (max-width: 1660px) {
-    .preview-only.collapsed #customize-theme-controls #sub-accordion-section-responsive_header_builder,
-    .preview-only.collapsed #customize-theme-controls #sub-accordion-section-responsive_footer_builder {
-        left: 0;
-    }
+.preview-only.collapsed #customize-theme-controls #sub-accordion-section-responsive_header_builder,
+.preview-only.collapsed #customize-theme-controls #sub-accordion-section-responsive_footer_builder {
+	left: 0 !important;
 }
 #customize-theme-controls #sub-accordion-section-responsive_header_builder.responsive-builder-active,
 #customize-theme-controls #sub-accordion-section-responsive_footer_builder.responsive-footer-builder-active {
@@ -1672,4 +1669,8 @@ body.rtl .customize-control .responsive-switchers li {
 }
 #customize-control-responsive_load_google_fonts_locally {
 	margin-top : 24px;
+}
+.customize-widgets-header {
+    margin-left: -24px;
+    margin-right: -24px;
 }

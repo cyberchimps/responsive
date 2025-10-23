@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <div class="site-header-item site-header-focus-item" data-section="title_tagline">
     <div class="site-branding" <?php responsive_schema_markup( 'site-branding' ); ?> >
-        <div class="site-branding-wrapper<?php echo get_theme_mod( 'responsive_inline_logo_title', 0 ) ? ' site-branding-inline' : ''; ?>">
+        <div class="site-branding-wrapper<?php echo esc_attr( get_theme_mod( 'responsive_inline_logo_site_title', 0 ) ? ' site-branding-inline' : '' ); ?>">
 			<?php
 			the_custom_logo();
 			if (
@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			echo Responsive\Core\responsive_mobile_custom_logo(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			?>
             <?php
-            $inline_logo_title = get_theme_mod( 'responsive_inline_logo_title', 0 );
+            $inline_logo_title = get_theme_mod( 'responsive_inline_logo_site_title', 0 );
             $has_logo          = has_custom_logo();
             $show_title        = ! get_theme_mod( 'responsive_hide_title', 0 );
             $show_tagline      = ! get_theme_mod( 'responsive_hide_tagline', 1 );

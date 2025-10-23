@@ -222,6 +222,64 @@
         });
     });
 
+    // WooCommerce Shop Sidebar Width
+    api('responsive_shop_sidebar_width', function(value) {
+
+        value.bind(function(newval) {
+
+            function applySidebarWidth(x) {
+                if (x.matches) {
+                    // Desktop: apply new widths
+                        $('.shop-has-site-header aside.widget-area#secondary')
+                            .css('width', newval + '%');
+
+                        $('.shop-has-site-header #primary.content-area')
+                            .css('width', (100 - newval) + '%');
+                } else {
+                    // Mobile/tablet: reset to full width
+                    $('.shop-has-site-header aside.widget-area#secondary')
+                        .css('width', '100%');
+
+                    $('.shop-has-site-header #primary.content-area')
+                        .css('width', '100%');
+                }
+            }
+
+            var mediaQuery = window.matchMedia("(min-width:992px)");
+            applySidebarWidth(mediaQuery);
+            mediaQuery.addListener(applySidebarWidth);
+        });
+    });
+
+
+    // Single Product Sidebar Width
+    api('responsive_single_product_sidebar_width', function(value) {
+        value.bind(function(newval) {
+            function applySidebarWidth(x) {
+                if (x.matches) {
+                    // Desktop: apply new widths
+                        $('.single-product-has-site-header.woocommerce aside.widget-area#secondary')
+                            .css('width', newval + '%');
+
+                        $('.single-product-has-site-header.woocommerce #primary.content-area')
+                            .css('width', (100 - newval) + '%');
+                } else {
+                    // Mobile/tablet: reset to full width
+                    $('.single-product-has-site-header aside.widget-area#secondary')
+                        .css('width', '100%');
+
+                    $('.single-product-has-site-header #primary.content-area')
+                        .css('width', '100%');
+                }
+            }
+
+            var mediaQuery = window.matchMedia("(min-width:992px)");
+            applySidebarWidth(mediaQuery);
+            mediaQuery.addListener(applySidebarWidth);
+        });
+    });
+
+
     api( 'responsive_width', function( value ) {
       value.bind( function( newval ) {
         if(newval !== "contained")
