@@ -1578,6 +1578,35 @@ if ( ! function_exists( 'responsive_theme_background_updater_retina_logo_6_2_5' 
 	}
 }
 
+if( !function_exists( 'responsive_theme_background_updater_responsive_logo_6_2_7' ) ) {
+	/** 
+	 * Handle backward compatibility for responsive logo setup
+	 * @since 6.2.7
+	 * @return void
+	*/
+	function responsive_theme_background_updater_responsive_logo_6_2_7()
+	{
+		$responsive_options = Responsive\Core\responsive_get_options();
+		if( !isset( $responsive_options['responsive-logo-backward-done'])) {
+	
+			// if custom logo width is set but no separate width is mentioned for tablet and phone
+			// then use the same width everywhere
+			$desktop_width = get_theme_mod( 'responsive_logo_width' );
+			if( $desktop_width ) {
+				if( !get_theme_mod('responsive_logo_width_tablet') ) {
+					set_theme_mod( 'responsive_logo_width_tablet', $desktop_width );
+				}
+				if( !get_theme_mod('responsive_logo_width_mobile') ) {
+					set_theme_mod( 'responsive_logo_width_mobile', $desktop_width );
+				}
+			}
+
+			// Mark backward compatibility update as done
+			$responsive_options['responsive-logo-backward-done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
 if( ! function_exists( 'responsive_theme_background_updater_content_boxed_flat_padding_margin_6_2_7' )) {
 	/**
 	 * Handle backward compatibility for existing users who are using flat or content boxes layouts 
@@ -1592,18 +1621,18 @@ if( ! function_exists( 'responsive_theme_background_updater_content_boxed_flat_p
 			if($header_layout === 'flat' || $header_layout === 'content-boxed')
 			{
 				set_theme_mod('responsive_product_card_outside_container_top_padding',0);
-				set_theme_mod('responsive_product_card_outside_container_bottom_padding',0);
+				set_theme_mod('responsive_product_card_outside_container_bottom_padding',28);
 				set_theme_mod('responsive_product_card_outside_container_left_padding',0);
 				set_theme_mod('responsive_product_card_outside_container_right_padding',0);
 				set_theme_mod('responsive_product_card_outside_container_tablet_top_padding',0);
 	
 				set_theme_mod('responsive_product_card_outside_container_tablet_top_padding',0);
-				set_theme_mod('responsive_product_card_outside_container_tablet_bottom_padding',0);
+				set_theme_mod('responsive_product_card_outside_container_tablet_bottom_padding',28);
 				set_theme_mod('responsive_product_card_outside_container_tablet_left_padding',0);
 				set_theme_mod('responsive_product_card_outside_container_tablet_right_padding',0);
 	
 				set_theme_mod('responsive_product_card_outside_container_mobile_top_padding',0);
-				set_theme_mod('responsive_product_card_outside_container_mobile_bottom_padding',0);
+				set_theme_mod('responsive_product_card_outside_container_mobile_bottom_padding',28);
 				set_theme_mod('responsive_product_card_outside_container_mobile_left_padding',0);
 				set_theme_mod('responsive_product_card_outside_container_mobile_right_padding',0);
 	
@@ -1613,12 +1642,12 @@ if( ! function_exists( 'responsive_theme_background_updater_content_boxed_flat_p
 				set_theme_mod('responsive_product_card_inside_container_right_padding',30);
 	
 				set_theme_mod('responsive_product_card_inside_container_tablet_top_padding',0);
-				set_theme_mod('responsive_product_card_inside_container_tablet_bottom_padding',0);
+				set_theme_mod('responsive_product_card_inside_container_tablet_bottom_padding',47);
 				set_theme_mod('responsive_product_card_inside_container_tablet_left_padding',0);
 				set_theme_mod('responsive_product_card_inside_container_tablet_right_padding',0);
 				
 				set_theme_mod('responsive_product_card_inside_container_mobile_top_padding',0);
-				set_theme_mod('responsive_product_card_inside_container_mobile_bottom_padding',0);
+				set_theme_mod('responsive_product_card_inside_container_mobile_bottom_padding',47);
 				set_theme_mod('responsive_product_card_inside_container_mobile_left_padding',0);
 				set_theme_mod('responsive_product_card_inside_container_mobile_right_padding',0);
 			}

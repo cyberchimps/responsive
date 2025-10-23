@@ -32,6 +32,38 @@
         } );
     } );
 
+    api('responsive_logo_width_tablet', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-logo-width-tablet').remove();
+
+            var widthValue = (newval.length !== 0) ? (newval + 'px') : '100%';
+
+            jQuery('head').append(
+                '<style id="responsive-logo-width-tablet">' +
+                    '@media (max-width: 992px) {' +
+                        '.site-header .custom-logo { width: ' + widthValue + ' !important; }' +
+                    '}' +
+                '</style>'
+            );
+        });
+    });
+
+    api('responsive_logo_width_mobile', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-logo-width-mobile').remove();
+
+            var widthValue = (newval.length !== 0) ? (newval + 'px') : '100%';
+
+            jQuery('head').append(
+                '<style id="responsive-logo-width-mobile">' +
+                    '@media screen and (max-width: 576px) {' +
+                        '.site-header .custom-logo { width: ' + widthValue + ' !important; }' +
+                    '}' +
+                '</style>'
+            );
+        });
+    });
+
     // Page Sidebar width
     api('responsive_page_sidebar_width', function(value) {
         value.bind(function(newval) {

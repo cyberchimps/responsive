@@ -75,11 +75,11 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 
 			// Logo Width Controller.
 			$logo_width_label = __( 'Logo Width (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'logo_width', $logo_width_label, 'responsive_header_site_logo_title', 9, null, 'responsive_has_custom_logo_callback', 1200, 20, 'postMessage' );
+			responsive_drag_number_control_with_switchers( $wp_customize, 'logo_width', $logo_width_label, 'responsive_header_site_logo_title', 9, 0, null, 1200, 20, 'postMessage', 1 );
 
 			// Different Logo For Mobile Device.
 			$mobile_logo_option_label = __( 'Different Logo For Mobile Devices?', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'mobile_logo_option', $mobile_logo_option_label, 'responsive_header_site_logo_title', 10, 0, null );
+			responsive_toggle_control( $wp_customize, 'mobile_logo_option', $mobile_logo_option_label, 'responsive_header_site_logo_title', 10, 0, 'responsive_has_custom_logo_callback', 'postMessage' );
 
 			$wp_customize->add_setting(
 				'responsive_mobile_logo',
@@ -96,7 +96,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 						'label'           => esc_html__( 'Logo For Mobile Device', 'responsive' ),
 						'section'         => 'responsive_header_site_logo_title',
 						'flex-height'     => true,
-						'flex-width'      => true,
+						'flex-width'      => true,	
 						'priority'        => 11,
 						'active_callback' => null,
 					)
