@@ -44,8 +44,8 @@
 
         .alignwide,
         .alignfull {
-            :where(:not(.alignwide):not(.wp-block-cover__inner-container):not(.wp-block-separator):not(.wp-block-group__inner-container)),
-            :where(:not(.alignfull):not(.wp-block-cover__inner-container):not(.wp-block-separator):not(.wp-block-group__inner-container)) {
+            :where(:not(.alignwide):not(.wp-block-cover__inner-container):not(.wp-block-separator):not(.wp-block-group__inner-container):not(.wp-block-responsive-block-editor-addons-container)),
+            :where(:not(.alignfull):not(.wp-block-cover__inner-container):not(.wp-block-separator):not(.wp-block-group__inner-container):not(.wp-block-responsive-block-editor-addons-container)) {
                 max-width: 100%;
             }
         }

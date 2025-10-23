@@ -1,8 +1,18 @@
 import PropTypes from 'prop-types';
+import { useState } from '@wordpress/element';
 
 const FlushFontsComponent = props => {
+    const [buttonState, setButtonState] = useState({
+        text: props.control.params.button_text || 'Flush Cache',
+        disabled: false
+    });
 
     const onClick = async () => {
+        setButtonState({
+            text: 'Flushing...',
+            disabled: true
+        });
+
         try {
             const params = new URLSearchParams();
             params.append('action', 'responsive_flush_local_fonts_cache');
@@ -14,23 +24,23 @@ const FlushFontsComponent = props => {
                 body: params.toString()
             });
             const data = await res.json();
-            // Optional: Show WP Customizer notification
+            
             if (data && data.success) {
-                wp.customize.notifications.add('responsive_flush_fonts_success', new wp.customize.Notification('responsive_flush_fonts_success', {
-                    message: responsiveFlushFonts?.i18n?.success || 'Done',
-                    type: 'success'
-                }));
+                setButtonState({
+                    text: responsiveFlushFonts?.i18n?.success || 'Cache Flushed Successfully',
+                    disabled: true
+                });
             } else {
-                wp.customize.notifications.add('responsive_flush_fonts_error', new wp.customize.Notification('responsive_flush_fonts_error', {
-                    message: data?.data?.message || responsiveFlushFonts?.i18n?.error || 'Error',
-                    type: 'error'
-                }));
+                setButtonState({
+                    text: (data?.data?.message || responsiveFlushFonts?.i18n?.error || 'Error') + ' - Please refresh and try again',
+                    disabled: true
+                });
             }
         } catch (e) {
-            wp.customize.notifications.add('responsive_flush_fonts_error', new wp.customize.Notification('responsive_flush_fonts_error', {
-                message: responsiveFlushFonts?.i18n?.error || 'Error',
-                type: 'error'
-            }));
+            setButtonState({
+                text: (responsiveFlushFonts?.i18n?.error || 'Error') + ' - Please refresh and try again',
+                disabled: true
+            });
         }
     };
 
@@ -39,7 +49,7 @@ const FlushFontsComponent = props => {
     return <>
         {label ? <label htmlFor={id} className="customize-control-title">{label}</label> : null}
         {description ? <span className="customize-control-description">{description}</span> : null}
-        <button type="button" className="responsive-flush-button" onClick={onClick}>{button_text || 'Flush Cache'}</button>
+        <button type="button" className="responsive-flush-button" onClick={onClick} disabled={buttonState.disabled}>{buttonState.text}</button>
     </>;
 };
 

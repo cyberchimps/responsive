@@ -22,6 +22,14 @@ if ( ! class_exists( 'Responsive_Theme_Background_Updater' ) ) {
             ),
             '6.2.4' => array(
                 'responsive_theme_background_updater_6_2_4'
+            ),
+            '6.2.5' => array(
+                'responsive_theme_background_updater_retina_logo_6_2_5'
+            ),
+            '6.2.7' => array(
+                'responsive_theme_background_updater_content_boxed_flat_padding_margin_6_2_7',
+                'responsive_theme_background_updater_responsive_logo_6_2_7',
+                'responsive_theme_background_updater_site_title_tagline_visibility_6_2_7'
             )
 		);
 

@@ -14,7 +14,8 @@
 			var isResponsiveBuilderActive = $body.hasClass('responsive-header-builder-is-active');
 			var isFooterBuilderActive = $body.hasClass('responsive-footer-builder-is-active');
 			var previewerContainer = wp.customize.previewer.container;
-		
+			var customizerPanelWidth = $( '#customize-sidebar-outer-content' ).width();
+
 			if (isResponsiveBuilderActive || isFooterBuilderActive) {
 				setTimeout(function() {
 					if (isFooterBuilderActive && $footer.length && !$footer.hasClass('responsive-hfb-builder-hide')) {
@@ -27,6 +28,11 @@
 				}, 100);
 			} else {
 				previewerContainer.css('bottom', '');
+			}
+
+			if( customizerPanelWidth ) {
+				$( '#sub-accordion-section-responsive_header_builder' ).css( 'left', customizerPanelWidth + 'px' );
+				$( '#sub-accordion-section-responsive_footer_builder' ).css( 'left', customizerPanelWidth + 'px' );
 			}
 		};
 		

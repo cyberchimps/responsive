@@ -160,6 +160,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				$tab_ids_prefix . 'responsive_mobile_logo',
 				$tab_ids_prefix . 'responsive_custom_logo_url',
 				$tab_ids_prefix . 'responsive_retina_logo_image',
+				$tab_ids_prefix . 'responsive_inline_logo_site_title',
 				$tab_ids_prefix . 'responsive_site_title_visibility',
 				$tab_ids_prefix . 'responsive_site_tagline_visibility',
 			);
