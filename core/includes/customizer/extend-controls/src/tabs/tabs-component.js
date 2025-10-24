@@ -51,8 +51,13 @@ const TabsComponent = props => {
 		hideSidebarWidthControl( api('responsive_page_sidebar_position').get(), 'page' );
 		hideSidebarWidthControl( api('responsive_blog_sidebar_position').get(), 'blog' );
 		hideSidebarWidthControl( api('responsive_default_sidebar_position').get(), 'default');
-		hideWoocommerceSidebarWidthControl( api('responsive_shop_sidebar_position').get(), 'shop');
-		hideWoocommerceSidebarWidthControl( api('responsive_single_product_sidebar_position').get(), 'single_product');
+		if(api('responsive_shop_sidebar_position')){
+			hideWoocommerceSidebarWidthControl( api('responsive_shop_sidebar_position').get(), 'shop');
+		}
+		if(api('responsive_single_product_sidebar_position'))
+		{
+			hideWoocommerceSidebarWidthControl( api('responsive_single_product_sidebar_position').get(), 'single_product');
+		}
 		hideRetinaLogoUploadControl( api( 'responsive_retina_logo').get());
 		hideMobileLogoUploadControl( api( 'responsive_mobile_logo_option').get());
 

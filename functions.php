@@ -1733,6 +1733,9 @@ if( ! function_exists( 'responsive_theme_background_updater_content_boxed_flat_p
 				set_theme_mod('responsive_product_card_inside_container_mobile_left_padding',0);
 				set_theme_mod('responsive_product_card_inside_container_mobile_right_padding',0);
 			}
+
+			$responsive_options['content_boxed_flat_padding_margin_fix'] = true;
+            update_option( 'responsive_theme_options', $responsive_options );
 			
 		}
 	}
