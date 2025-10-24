@@ -2770,4 +2770,73 @@
             });
         });
     });
+
+    // Cache the <head> element
+    const $head = $( 'head' );
+    // Define the style properties we want to bind for each footer widget
+    const footerWidgetsStyleTypes = [
+        {
+            key: '_title_color',       // Setting suffix
+            idSuffix: '-title-color',  // <style> tag ID suffix
+            property: 'color',         // CSS property
+            // Function to generate the correct CSS selector
+            getSelector: ( i ) => [
+                `.footer-widget-area[data-section="responsive-footer-widget-${i}"] h1`,
+                `.footer-widget-area[data-section="responsive-footer-widget-${i}"] h2`,
+                `.footer-widget-area[data-section="responsive-footer-widget-${i}"] h3`,
+                `.footer-widget-area[data-section="responsive-footer-widget-${i}"] h4`,
+                `.footer-widget-area[data-section="responsive-footer-widget-${i}"] h5`,
+                `.footer-widget-area[data-section="responsive-footer-widget-${i}"] h6`
+            ].join( ', ' )
+        },
+        {
+            key: '_content_color',
+            idSuffix: '-content-color',
+            property: 'color',
+            getSelector: ( i ) => `.footer-widget-area[data-section="responsive-footer-widget-${i}"].footer-widget-${i}`
+        },
+        {
+            key: '_link_color',
+            idSuffix: '-link-color',
+            property: 'color',
+            getSelector: ( i ) => `.footer-widget-area[data-section="responsive-footer-widget-${i}"].footer-widget-${i} a`
+        },
+        {
+            key: '_link_hover_color',
+            idSuffix: '-link-hover-color',
+            property: 'color',
+            getSelector: ( i ) => `.footer-widget-area[data-section="responsive-footer-widget-${i}"].footer-widget-${i} a:hover`
+        }
+    ];
+
+    // --- Single Loop for all Footer Widgets ---
+    for ( let i = 1; i <= 6; i++ ) {
+
+        // Loop over each style type (title, content, etc.) for the current widget
+        footerWidgetsStyleTypes.forEach( function( type ) {
+
+            const settingId = 'responsive_footer_widget' + i + type.key;
+            const styleTagId = 'responsive-footer-widget' + i + type.idSuffix;
+
+            api( settingId, function( setting ) {
+                setting.bind( function( newColorValue ) {
+
+                    const $styleTag = $( 'style#' + styleTagId );
+                    const selector = type.getSelector( i );
+                    // Use template literals for cleaner CSS rule creation
+                    const cssRule = `${selector} { ${type.property}: ${newColorValue} !important; }`;
+
+                    // Instead of removing/appending, update the existing tag's content.
+                    if ( $styleTag.length ) {
+                        // If tag exists, just update its HTML
+                        $styleTag.html( cssRule );
+                    } else {
+                        // If tag doesn't exist, create and append it
+                        $head.append( `<style id="${styleTagId}">${cssRule}</style>` );
+                    }
+                });
+            });
+        });
+    }
+
 } )( jQuery );
