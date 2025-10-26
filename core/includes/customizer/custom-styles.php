@@ -6027,7 +6027,7 @@ function responsive_customizer_styles() {
 		$product_card_inside_container_tablet_margin_top    = esc_html( get_theme_mod( 'responsive_product_card_inside_container_tablet_top_padding', 10 ) );
 		$product_card_inside_container_tablet_margin_bottom = esc_html( get_theme_mod( 'responsive_product_card_inside_container_tablet_bottom_padding', 10 ) );
 		$product_card_inside_container_tablet_margin_left   = esc_html( get_theme_mod( 'responsive_product_card_inside_container_tablet_left_padding', 0 ) );
-		$product_card_inside_container_tablet_margin_right  = esc_html( get_theme_mod( 'responsive_product_card_inside_container_tablet_right_padding', 0 ) );
+		$product_card_inside_container_tablet_margin_right  = esc_html( get_theme_mod( 'responsive_product_card_inside_container_tablet_right_padding', 7 ) );
 
 		// //product card Margin mobile
 		$product_card_inside_container_mobile_margin_top    = esc_html( get_theme_mod( 'responsive_product_card_inside_container_mobile_top_padding', 10 ) );
