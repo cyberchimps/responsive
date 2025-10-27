@@ -17,7 +17,7 @@ const BuilderSingleBlockComponent = (props) => {
 				>
 					{ ( undefined !== choices[ props.item ] && undefined !== choices[ props.item ].name ? he.decode(choices[ props.item ].name) : '' ) }
 				</span>
-				{props.item.includes('widget') && 'colophon-widget' !== props.item && (
+				{props.item.includes('widget') && 'colophon-widget' !== props.item && 'header_widgets1' !== props.item && (
 					<Button
 						className="rhfb-setting-icon responsive-hfb-builder-item-icon"
 						aria-label={ __( 'Setting settings for', 'responsive' ) + ' ' + ( undefined !== choices[ props.item ] && undefined !== choices[ props.item ].name ? choices[ props.item ].name : '' ) }
@@ -28,7 +28,7 @@ const BuilderSingleBlockComponent = (props) => {
 						<span class="dashicon dashicons dashicons-admin-generic" data-tooltip="General"></span>
 					</Button>
 				)}
-				{props.item.includes('widget') && 'colophon-widget' !== props.item && (
+				{props.item.includes('widget') && 'colophon-widget' !== props.item && 'header_widgets1' !== props.item && (
 					<Button
 						className="rhfb-setting-icon responsive-hfb-builder-item-icon"
 						aria-label={ __( 'Setting settings for', 'responsive' ) + ' ' + ( undefined !== choices[ props.item ] && undefined !== choices[ props.item ].name ? choices[ props.item ].name : '' ) }
