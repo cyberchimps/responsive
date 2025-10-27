@@ -1699,7 +1699,7 @@ if( ! function_exists( 'responsive_theme_background_updater_content_boxed_flat_p
 	function responsive_theme_background_updater_content_boxed_flat_padding_margin_6_2_7(){
 		$responsive_options = Responsive\Core\responsive_get_options();
 		if( !isset( $responsive_options['content_boxed_flat_padding_margin_fix'])) {
-			$header_layout = get_theme_mod( 'responsive_style', 'contained' );
+			$header_layout = get_theme_mod( 'responsive_style', 'boxed' );
 			if($header_layout === 'flat' || $header_layout === 'content-boxed')
 			{
 				set_theme_mod('responsive_product_card_outside_container_top_padding',0);
@@ -1726,7 +1726,7 @@ if( ! function_exists( 'responsive_theme_background_updater_content_boxed_flat_p
 				set_theme_mod('responsive_product_card_inside_container_tablet_top_padding',0);
 				set_theme_mod('responsive_product_card_inside_container_tablet_bottom_padding',47);
 				set_theme_mod('responsive_product_card_inside_container_tablet_left_padding',0);
-				set_theme_mod('responsive_product_card_inside_container_tablet_right_padding',0);
+				set_theme_mod('responsive_product_card_inside_container_tablet_right_padding',7);
 				
 				set_theme_mod('responsive_product_card_inside_container_mobile_top_padding',0);
 				set_theme_mod('responsive_product_card_inside_container_mobile_bottom_padding',47);
