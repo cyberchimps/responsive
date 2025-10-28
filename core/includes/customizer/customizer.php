@@ -301,7 +301,6 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'backgroundimage/class-responsive-customizer-background-image-control.php';
 	require_once $dir . 'typography_group/class-responsive-customizer-responsive-group-typography-control.php';
 	require_once $dir . 'builder-layout/class-responsive-customizer-layout-builder-control.php';
-	require_once $dir . 'builder-layout/class-responsive-customizer-mobile-tablet-layout-builder-control.php';
 	require_once $dir . 'multi-select/class-responsive-customizer-multi-select-control.php';
 	require_once $dir . 'range-with-switchers/class-responsive-customizer-range-with-switchers-control.php';
 	require_once $dir . 'builder-row-layout/class-responsive-customizer-builder-row-layout-control.php';

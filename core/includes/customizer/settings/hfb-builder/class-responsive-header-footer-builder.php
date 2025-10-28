@@ -123,7 +123,8 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 			);
 
 			$wp_customize->add_control(
-				new Responsive_Customizer_Layout_Mobile_Tablet_Builder_Control(
+				new Responsive_Customizer_Layout_Builder_Control(
+					$wp_customize,
 					'responsive_header_mobile_tablet_items', 
 					array(
 						'section'  => 'responsive_header_builder',
