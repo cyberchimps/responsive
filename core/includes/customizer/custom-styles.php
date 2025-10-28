@@ -2426,17 +2426,17 @@ function responsive_customizer_styles() {
 
 	if(Responsive\Core\responsive_check_element_present_in_hfb('logo', 'header')) {
 		$custom_css .= ".site-branding-wrapper {
-			padding: ' . responsive_spacing_css( $header_padding_top, $header_padding_right, $header_padding_bottom, $header_padding_left ) . ';
+			padding: " . responsive_spacing_css( $header_padding_top, $header_padding_right, $header_padding_bottom, $header_padding_left ) . ";
 
 		}
 		@media screen and ( max-width: 992px ) {
 			.site-branding-wrapper {
-				padding: ' . responsive_spacing_css( $header_tablet_padding_top, $header_tablet_padding_right, $header_tablet_padding_bottom, $header_tablet_padding_left ) . ';
+				padding: " . responsive_spacing_css( $header_tablet_padding_top, $header_tablet_padding_right, $header_tablet_padding_bottom, $header_tablet_padding_left ) . ";
 			}
 		}
 		@media screen and ( max-width: 576px ) {
 			.site-branding-wrapper {
-				padding: ' . responsive_spacing_css( $header_mobile_padding_top, $header_mobile_padding_right, $header_mobile_padding_bottom, $header_mobile_padding_left ) . ';
+				padding: " . responsive_spacing_css( $header_mobile_padding_top, $header_mobile_padding_right, $header_mobile_padding_bottom, $header_mobile_padding_left ) . ";
 			}
 		}
 		.site-title a {
