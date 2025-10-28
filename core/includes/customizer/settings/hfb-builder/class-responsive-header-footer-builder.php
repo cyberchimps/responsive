@@ -53,6 +53,8 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 
 			$header_desktop_items   = Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_desktop_items' );
 			$header_desktop_choices = Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_builder_choices' );
+			$header_mobile_tablet_items = Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_mobile_tablet_items' );
+			$header_mobile_tablet_choices = Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_builder_mobile_tablet_choices' );
 
 			if ( class_exists( 'woocommerce' ) ) {
 				$header_desktop_choices['woo-cart'] = array(
@@ -66,6 +68,15 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 				'responsive_header_desktop_items',
 				array(
 					'default'           => $header_desktop_items,
+					'sanitize_callback' => 'responsive_sanitize_builder',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_setting(
+				'responsive_header_mobile_tablet_items',
+				array(
+					'default'           => $header_mobile_tablet_items,
 					'sanitize_callback' => 'responsive_sanitize_builder',
 					'transport'         => 'refresh',
 				)
@@ -107,6 +118,48 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 							),
 						),
 						'builder_choices' => $header_desktop_choices,
+					)
+				)
+			);
+
+			$wp_customize->add_control(
+				new Responsive_Customizer_Layout_Mobile_Tablet_Builder_Control(
+					'responsive_header_mobile_tablet_items', 
+					array(
+						'section'  => 'responsive_header_builder',
+						'settings' => 'responsive_header_mobile_tablet_items',
+						'priority' => 30,
+						'input_attrs' => array(
+							'group' => 'header_mobile_tablet_items', 
+							'rows'  => array( 'popup', 'above' , 'primary', 'below' ),
+							'zones' => array(
+								'popup' => array(
+									'popup_content' => esc_html__( 'Popup Content', 'responsive' ),
+								),
+								'above' => array(
+									'above_left'         => is_rtl() ? esc_html__( 'Above - Right', 'responsive' ) : esc_html__( 'Above - Left', 'responsive' ),
+									'above_left_center'  => is_rtl() ? esc_html__( 'Above - Right Center', 'responsive' ) : esc_html__( 'Above - Left Center', 'responsive' ),
+									'above_center'       => esc_html__( 'Above - Center', 'responsive' ),
+									'above_right_center' => is_rtl() ? esc_html__( 'Above - Left Center', 'responsive' ) : esc_html__( 'Above - Right Center', 'responsive' ),
+									'above_right'        => is_rtl() ? esc_html__( 'Above - Left', 'responsive' ) : esc_html__( 'Above - Right', 'responsive' ),
+								),
+								'primary' => array(
+									'primary_left'         => is_rtl() ? esc_html__( 'Primary - Right', 'responsive' ) : esc_html__( 'Primary - Left', 'responsive' ),
+									'primary_left_center'  => is_rtl() ? esc_html__( 'Primary - Right Center', 'responsive' ) : esc_html__( 'Primary - Left Center', 'responsive' ),
+									'primary_center'       => esc_html__( 'Primary - Center', 'responsive' ),
+									'primary_right_center' => is_rtl() ? esc_html__( 'Primary - Left Center', 'responsive' ) : esc_html__( 'Primary - Right Center', 'responsive' ),
+									'primary_right'        => is_rtl() ? esc_html__( 'Primary - Left', 'responsive' ) : esc_html__( 'Primary - Right', 'responsive' ),
+								),
+								'below' => array(
+									'below_left'         => is_rtl() ? esc_html__( 'Below -Right', 'responsive' ) : esc_html__( 'Below - Left', 'responsive' ),
+									'below_left_center'  => is_rtl() ? esc_html__( 'Below - Right Center', 'responsive' ) : esc_html__( 'Below - Left Center', 'responsive' ),
+									'below_center'       => esc_html__( 'Below - Center', 'responsive' ),
+									'below_right_center' => is_rtl() ? esc_html__( 'Below - Left Center', 'responsive' ) : esc_html__( 'Below - Right Center', 'responsive' ),
+									'below_right'        => is_rtl() ? esc_html__( 'Below - Left', 'responsive' ) : esc_html__( 'Below - Right', 'responsive' ),
+								),
+							),
+						),
+						'builder_choices' => $header_mobile_tablet_choices,
 					)
 				)
 			);

@@ -3,6 +3,7 @@ import { Button } from '@wordpress/components';
 import BuilderSingleRowComponent from './single-row-component';
 
 const BuilderRowComponent = (props) => {
+    console.log("Prop received in BuilderRowComponent: ", props);
     let besideItems = [];
     const mode = (props.controlParams.group.indexOf('header') !== -1 ? 'header' : 'footer');
     let footerClass=null;

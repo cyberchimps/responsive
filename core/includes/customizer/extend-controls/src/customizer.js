@@ -8,6 +8,9 @@
 	 */
 	wp.customize.bind( 'ready', function() {
 
+		// Track current device type.
+		let currentDevice = 'desktop';
+
 		var resizePreviewer = function() {
 			var $section = $('.control-section.responsive-builder-active');
 			var $footer = $('.control-section.responsive-footer-builder-active');
@@ -38,11 +41,13 @@
 		
 		// Bind events
 		$window.on('resize', resizePreviewer);
-		
-		wp.customize.previewedDevice.bind(function() {
+
+		wp.customize.previewedDevice.bind(function(device) {
+			currentDevice = device;
+			console.log("Current device changed to: ", currentDevice);
 			setTimeout(resizePreviewer, 100);
 		});
-		
+
 
 		/**
 		 * Init Header & Footer Builder
@@ -52,6 +57,8 @@
 			if ( section ) {
 				var $section = section.contentContainer,
 				section_layout =  wp.customize.section( 'responsive_header_builder_section' );
+				console.log("Section is found: ", section);
+				console.log("Section layout is: ", section_layout);
 				// If Header panel is expanded, add class to the body tag (for CSS styling).
 				panel.expanded.bind(function( isExpanded ) {
 					_.each(section.controls(), function( control ) {
@@ -64,10 +71,15 @@
 						// Fire event after control is initialized.
 						control.container.trigger( 'init' );
 					});
-
+					
 					if ( isExpanded ) {
+						console.log("expanded ...");
 						$body.addClass( 'responsive-header-builder-is-active' );
+						if(currentDevice === 'desktop') 
 						$section.addClass( 'responsive-builder-active' );
+						else if(currentDevice === 'tablet' || currentDevice === 'mobile') {
+							$section.addClass( 'responsive-mobile-tablet-builder-active' );
+						}
 						$section.css('display', 'none').height();
 						$section.css('display', 'block');
 					} else {

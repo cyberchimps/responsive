@@ -1304,6 +1304,32 @@ function defaults() {
 					'below_right'          => array(),
 				),
 			),
+			'responsive_header_mobile_tablet_items' => array(
+				'popup' => array(
+					'popup_content' => array( 'mobile_navigation' )
+				),
+				'above' => array(
+					'above_left' 		 => array(),
+					'above_left_center'    => array(),
+					'above_center'         => array(),
+					'above_right_center'   => array(),
+					'above_right'          => array(),
+				),
+				'primary' => array(
+					'primary_left'         => array( 'logo' ),
+					'primary_left_center'  => array(),
+					'primary_center'       =>  array(),
+					'primary_right_center' => array(),
+					'primary_right'        => array( 'toggle_button'  ),
+				),
+				'below' => array(
+					'below_left'           => array(),
+					'below_left_center'    => array(),
+					'below_center'         => array(),
+					'below_right_center'   => array(),
+					'below_right'          => array(),
+				),
+			),
 			'responsive_header_primary_row_bg_color'                  => '#FFFFFF',
 			'responsive_header_primary_row_bg_hover_color'            => '#FFFFFF',
 			'responsive_header_primary_row_bottom_border_color'       => '#0066CC',
@@ -1494,6 +1520,24 @@ function defaults() {
 																				'name'    => esc_html__( 'Search', 'responsive' ),
 																				'section' => 'responsive_header_search',
 																				'icon'    => 'search',
+																			),
+																		),
+																		// only defining these many choices for now
+		'responsive_header_builder_mobile_tablet_choices'               => array(
+																			'logo'                 => array(
+																				'name'    => esc_html__( 'Site Title & Logo', 'responsive' ),
+																				'section' => 'responsive_header_site_logo_title',
+																				'icon'    => 'search',
+																			),
+																			'mobile_navigation'   => array(
+																				'name'    => esc_html__( 'Mobile Menu', 'responsive' ),
+																				'section' => 'responsive_header_menu_layout',
+																				'icon'    => 'menu',
+																			),
+																			'toggle_button'        => array(
+																				'name'    => esc_html__( 'Menu Toggle Button', 'responsive' ),
+																				'section' => 'responsive_header_menu_layout',
+																				'icon'    => 'menu',
 																			),
 																		),
 		'rp_section_bg' => '#ffffff',
