@@ -1601,7 +1601,7 @@ if( ! function_exists( 'responsive_theme_background_updater_6_2_7') ) {
 					set_theme_mod( 'responsive_footer_widget' . $i . '_link_color', get_theme_mod( 'responsive_footer_links_color', '#eaeaea' ) );
 				}
 				if ( ! get_theme_mod( 'responsive_footer_widget' . $i . '_link_hover_color' ) ) {
-					set_theme_mod( 'responsive_footer_widget' . $i . '_link_hover_color', get_theme_mod( 'responsive_footer_links_hover_color', '#eaeaea' ) );
+					set_theme_mod( 'responsive_footer_widget' . $i . '_link_hover_color', get_theme_mod( 'responsive_footer_links_hover_color', '#FFFFFF' ) );
 				}
 			}
 			$responsive_options['v6-2-7-backward-done'] = true;
