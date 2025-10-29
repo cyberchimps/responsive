@@ -44,9 +44,33 @@
 
 		wp.customize.previewedDevice.bind(function(device) {
 			currentDevice = device;
-			console.log("Current device changed to: ", currentDevice);
+			toggleHeaderBuilderControls( currentDevice );
 			setTimeout(resizePreviewer, 100);
 		});
+
+		/**
+		 * Toggles visibility of desktop vs mobile/tablet builder controls.
+		 * @param {string} device - The current device (desktop, tablet, mobile).
+		 */
+		var toggleHeaderBuilderControls = function( device ) {
+			var desktopControl = wp.customize.control( 'responsive_header_desktop_items' );
+			var mobileTabletControl = wp.customize.control( 'responsive_header_mobile_tablet_items' );
+
+			// Check if the controls exist before proceeding.
+			if ( ! desktopControl || ! mobileTabletControl ) {
+				return;
+			}
+
+			if ( device === 'desktop' ) {
+				// Show Desktop control, Hide Mobile/Tablet control
+				desktopControl.container.show();
+				mobileTabletControl.container.hide();
+			} else {
+				// Show Mobile/Tablet control, Hide Desktop control (for 'tablet' or 'mobile')
+				desktopControl.container.hide();
+				mobileTabletControl.container.show();
+			}
+		};
 
 
 		/**
@@ -58,6 +82,7 @@
 				var $section = section.contentContainer,
 				section_layout =  wp.customize.section( 'responsive_header_builder_section' );
 				console.log("Section is found: ", section);
+				console.log("section's contentContainer is : ", $section);
 				console.log("Section layout is: ", section_layout);
 				// If Header panel is expanded, add class to the body tag (for CSS styling).
 				panel.expanded.bind(function( isExpanded ) {
@@ -73,13 +98,10 @@
 					});
 					
 					if ( isExpanded ) {
-						console.log("expanded ...");
+						console.log("Current device is : " , currentDevice);
 						$body.addClass( 'responsive-header-builder-is-active' );
-						if(currentDevice === 'desktop') 
+						toggleHeaderBuilderControls( currentDevice );
 						$section.addClass( 'responsive-builder-active' );
-						else if(currentDevice === 'tablet' || currentDevice === 'mobile') {
-							$section.addClass( 'responsive-mobile-tablet-builder-active' );
-						}
 						$section.css('display', 'none').height();
 						$section.css('display', 'block');
 					} else {
