@@ -783,3 +783,6 @@ body.wp-customizer .responsive-color-control-main-wrap .wp-picker-container .wp-
 .responsive-selected-palette-pickers .responsive-inline-color-picker {
     padding-bottom : 0px;
 }
+[id^="customize-control-responsive_footer_widget"][id$="_color"] .responsive-color-control-main-wrap {
+    padding: 0;
+}

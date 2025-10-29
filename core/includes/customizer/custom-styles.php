@@ -2425,18 +2425,18 @@ function responsive_customizer_styles() {
 	}
 
 	if(Responsive\Core\responsive_check_element_present_in_hfb('logo', 'header')) {
-		$custom_css .= '.site-branding-wrapper {
-			padding: ' . responsive_spacing_css( $header_padding_top, $header_padding_right, $header_padding_bottom, $header_padding_left ) . ';
+		$custom_css .= ".site-branding-wrapper {
+			padding: " . responsive_spacing_css( $header_padding_top, $header_padding_right, $header_padding_bottom, $header_padding_left ) . ";
 
 		}
 		@media screen and ( max-width: 992px ) {
 			.site-branding-wrapper {
-				padding: ' . responsive_spacing_css( $header_tablet_padding_top, $header_tablet_padding_right, $header_tablet_padding_bottom, $header_tablet_padding_left ) . ';
+				padding: " . responsive_spacing_css( $header_tablet_padding_top, $header_tablet_padding_right, $header_tablet_padding_bottom, $header_tablet_padding_left ) . ";
 			}
 		}
 		@media screen and ( max-width: 576px ) {
 			.site-branding-wrapper {
-				padding: ' . responsive_spacing_css( $header_mobile_padding_top, $header_mobile_padding_right, $header_mobile_padding_bottom, $header_mobile_padding_left ) . ';
+				padding: " . responsive_spacing_css( $header_mobile_padding_top, $header_mobile_padding_right, $header_mobile_padding_bottom, $header_mobile_padding_left ) . ";
 			}
 		}
 		.site-title a {
@@ -2456,7 +2456,7 @@ function responsive_customizer_styles() {
 		}
 		.site-branding-wrapper.site-branding-inline .site-title-tagline.site-title-inline .site-title {
 			margin: 0;
-		}';
+		}";
 	}
 	$custom_css .= '.res-transparent-header .site-content {
 		padding: ' . responsive_spacing_css( $site_content_padding_top, $site_content_padding_right, $site_content_padding_bottom, $site_content_padding_left ) . ';
@@ -4361,6 +4361,11 @@ function responsive_customizer_styles() {
 			return "padding: " . responsive_spacing_css($padding['top'], $padding['right'], $padding['bottom'], $padding['left']) . "";
 		}
 	}
+	if ( ! function_exists( 'responsive_build_responsive_margin_spacing_css' ) ) {
+		function responsive_build_responsive_margin_spacing_css( $margin ) {
+			return "margin: " . responsive_spacing_css($margin['top'], $margin['right'], $margin['bottom'], $margin['left']) . "";
+		}
+	}
 
 	// Fetch above footer row padding and margin values.
 	$above_footer_padding_values = get_responsive_spacing_values('responsive_footer_above_row_padding', 20, 0, 20, 0);
@@ -5679,16 +5684,24 @@ function responsive_customizer_styles() {
 
 	// Footer Builder Widget Elements alignments.
 	for ( $i = 1; $i <= 6; $i++ ) {
-
+		// Check if element is present in footer builder.
 		if ( Responsive\Core\responsive_check_element_present_in_hfb( "widget-{$i}", 'footer' ) ) {
 
+			// Content Alignment.
 			$widget_align_desktop = get_theme_mod( "responsive_footer_widget{$i}_content_align", 'left' );
 			$widget_align_tablet  = get_theme_mod( "responsive_footer_widget{$i}_content_align_tablet", 'left' );
 			$widget_align_mobile  = get_theme_mod( "responsive_footer_widget{$i}_content_align_mobile", 'left' );
-
+			// Content Vertical Alignment.
 			$widget_vertical_align_desktop = get_theme_mod( "responsive_footer_widget{$i}_content_vertical_align", 'flex-start' );
 			$widget_vertical_align_tablet  = get_theme_mod( "responsive_footer_widget{$i}_content_vertical_align_tablet", 'flex-start' );
 			$widget_vertical_align_mobile  = get_theme_mod( "responsive_footer_widget{$i}_content_vertical_align_mobile", 'flex-start' );
+			// Heading Color
+			$widget_heading_color = get_theme_mod( "responsive_footer_widget{$i}_title_color", get_theme_mod( 'responsive_footer_text_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_widget_title_color' ) ) );
+			// Content Color
+			$widget_content_color = get_theme_mod( "responsive_footer_widget{$i}_content_color", get_theme_mod( 'responsive_footer_text_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_widget_content_color' ) ) );
+			// Link Colors
+			$widget_link_color       = get_theme_mod( "responsive_footer_widget{$i}_link_color", get_theme_mod( 'responsive_footer_links_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_widget_link_color' ) ) );
+			$widget_link_hover_color = get_theme_mod( "responsive_footer_widget{$i}_link_hover_color", get_theme_mod( 'responsive_footer_links_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_widget_link_hover_color' ) ) );
 
 			$custom_css .= "
 			.footer-widget-area[data-section='responsive-footer-widget-{$i}'].footer-widget-{$i} {
@@ -5713,9 +5726,39 @@ function responsive_customizer_styles() {
 					.rspv-hfb-footer-row-inline .footer-widget-area[data-section='responsive-footer-widget-{$i}'].footer-widget-{$i} {
 						align-self: {$widget_vertical_align_mobile};
 					}
-			}";
+			}
+			.footer-widget-area[data-section='responsive-footer-widget-{$i}'] h1, .footer-widget-area[data-section='responsive-footer-widget-{$i}'] h2, .footer-widget-area[data-section='responsive-footer-widget-{$i}'] h3, .footer-widget-area[data-section='responsive-footer-widget-{$i}'] h4, .footer-widget-area[data-section='responsive-footer-widget-{$i}'] h5, .footer-widget-area[data-section='responsive-footer-widget-{$i}'] h6 {
+				color: {$widget_heading_color};
+			}
+			.footer-widget-area[data-section='responsive-footer-widget-{$i}'].footer-widget-{$i} {
+				color: {$widget_content_color};
+			}
+			.footer-widget-area[data-section='responsive-footer-widget-{$i}'].footer-widget-{$i} a {
+				color: {$widget_link_color};
+			}
+			.footer-widget-area[data-section='responsive-footer-widget-{$i}'].footer-widget-{$i} a:hover {
+				color: {$widget_link_hover_color};
+			}
+			";
+			// Widget Margin.
+			$widget_margin_values  = get_responsive_spacing_values("responsive_footer_widget{$i}_margin");
+		
+			$custom_css .= ".footer-widget-area[data-section='responsive-footer-widget-{$i}'] {";
+			$custom_css .= responsive_build_responsive_margin_spacing_css( $widget_margin_values['desktop'] );
+			$custom_css .= "}";
+		
+			$custom_css .= "@media screen and (max-width: 992px) {";
+			$custom_css .= ".footer-widget-area[data-section='responsive-footer-widget-{$i}'] {";
+			$custom_css .= responsive_build_responsive_margin_spacing_css( $widget_margin_values['tablet'] );
+			$custom_css .= "}}";
+		
+			$custom_css .= "@media screen and (max-width: 576px) {";
+			$custom_css .= ".footer-widget-area[data-section='responsive-footer-widget-{$i}'] {";
+			$custom_css .= responsive_build_responsive_margin_spacing_css( $widget_margin_values['mobile'] );
+			$custom_css .= "}}";
 		}
 	}
+
 
 	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', responsive_minimize_css( $custom_css ) ) );
 	wp_add_inline_style('responsive-style', responsive_minimize_css( $font_preset_css));
@@ -5914,7 +5957,6 @@ function responsive_customizer_styles() {
 
 		$single_product_setting        = get_theme_mod( 'responsive_single_product_sidebar_position', 'no' );
 		$single_product_sidebar_position = esc_html( $single_product_setting === 'default' ? $global_sidebar : $single_product_setting );
-		$shop_sidebar_width = get_theme_mod( 'responsive_shop_sidebar_width', 30 );
 		$single_product_sidebar_width = get_theme_mod( 'responsive_single_product_sidebar_width', 30 );
 		$shop_content_width = 100 - $shop_sidebar_width;
 		$single_product_content_width = 100 - $single_product_sidebar_width;
@@ -5985,7 +6027,7 @@ function responsive_customizer_styles() {
 		$product_card_inside_container_tablet_margin_top    = esc_html( get_theme_mod( 'responsive_product_card_inside_container_tablet_top_padding', 10 ) );
 		$product_card_inside_container_tablet_margin_bottom = esc_html( get_theme_mod( 'responsive_product_card_inside_container_tablet_bottom_padding', 10 ) );
 		$product_card_inside_container_tablet_margin_left   = esc_html( get_theme_mod( 'responsive_product_card_inside_container_tablet_left_padding', 0 ) );
-		$product_card_inside_container_tablet_margin_right  = esc_html( get_theme_mod( 'responsive_product_card_inside_container_tablet_right_padding', 0 ) );
+		$product_card_inside_container_tablet_margin_right  = esc_html( get_theme_mod( 'responsive_product_card_inside_container_tablet_right_padding', 7 ) );
 
 		// //product card Margin mobile
 		$product_card_inside_container_mobile_margin_top    = esc_html( get_theme_mod( 'responsive_product_card_inside_container_mobile_top_padding', 10 ) );
