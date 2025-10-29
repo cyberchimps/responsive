@@ -1598,10 +1598,10 @@ if( ! function_exists( 'responsive_theme_background_updater_6_2_7') ) {
 					set_theme_mod( 'responsive_footer_widget' . $i . '_content_color', get_theme_mod( 'responsive_footer_text_color', '#FFFFFF' ) );
 				}
 				if ( ! get_theme_mod( 'responsive_footer_widget' . $i . '_link_color' ) ) {
-					set_theme_mod( 'responsive_footer_widget' . $i . '_link_color', get_theme_mod( 'responsive_footer_links_color', '#0066CC' ) );
+					set_theme_mod( 'responsive_footer_widget' . $i . '_link_color', get_theme_mod( 'responsive_footer_links_color', '#eaeaea' ) );
 				}
 				if ( ! get_theme_mod( 'responsive_footer_widget' . $i . '_link_hover_color' ) ) {
-					set_theme_mod( 'responsive_footer_widget' . $i . '_link_hover_color', get_theme_mod( 'responsive_footer_links_hover_color', '#10659C' ) );
+					set_theme_mod( 'responsive_footer_widget' . $i . '_link_hover_color', get_theme_mod( 'responsive_footer_links_hover_color', '#eaeaea' ) );
 				}
 			}
 			$responsive_options['v6-2-7-backward-done'] = true;
