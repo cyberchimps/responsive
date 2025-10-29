@@ -8,6 +8,15 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(29/10/2025) Version 6.2.7
+[+] = New = Added Sidebar width control options for Shop and Single Product Page in Woocommerce
+[+] = New = Added more customization settings for theme footer widgets 
+[*] = Improvement = Added options to set custom logo width options for laptop, tablets, mobiles  
+[*] = Improvement = Revamped visiblity settings for site title and tagline across laptops, mobile, tablets in Site Identity > Site Title and Logo Settings
+[*] = Improvement = Loading CSS for header and footer elements only when they are used
+[!] = Fix = Fixed an issue with Different Logo for Mobile Devices option which was appearing even when no base logo was added 
+[!] = Fix = Fixed the issue of product card margin and padding not getting applied for flat and content boxed layouts
+
 (13/10/2025) Version 6.2.6
 [+] = New = Added an enable/disable toggle option to make logo and site title inline
 [+] = New = Added options to load google fonts locally, preload the fonts if available, flushing existing font cache
