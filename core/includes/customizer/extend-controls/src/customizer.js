@@ -81,9 +81,6 @@
 			if ( section ) {
 				var $section = section.contentContainer,
 				section_layout =  wp.customize.section( 'responsive_header_builder_section' );
-				console.log("Section is found: ", section);
-				console.log("section's contentContainer is : ", $section);
-				console.log("Section layout is: ", section_layout);
 				// If Header panel is expanded, add class to the body tag (for CSS styling).
 				panel.expanded.bind(function( isExpanded ) {
 					_.each(section.controls(), function( control ) {
@@ -98,7 +95,6 @@
 					});
 					
 					if ( isExpanded ) {
-						console.log("Current device is : " , currentDevice);
 						$body.addClass( 'responsive-header-builder-is-active' );
 						toggleHeaderBuilderControls( currentDevice );
 						$section.addClass( 'responsive-builder-active' );
