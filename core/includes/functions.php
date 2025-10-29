@@ -1504,7 +1504,7 @@ function defaults() {
 		'footer_widget_title_color'             => '#ffffff',
 		'footer_widget_content_color'           => '#ffffff',
 		'footer_widget_link_color'              => '#eaeaea',
-		'footer_widget_link_hover_color'        => '#eaeaea',
+		'footer_widget_link_hover_color'        => '#FFFFFF',
 		)
 	);
 	return $theme_options;
