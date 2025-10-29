@@ -2134,4 +2134,49 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
         });
     });
 
+    /**
+     * Generates the margin settings array for a specific widget number (1-6)
+     * @param {number} widgetNum - The widget number (1 to 6)
+     * @returns {string[]} An array of setting keys
+     */
+    const generateFooterWidgetsMarginSettings = (widgetNum) => {
+        const prefixes = [
+            'margin',
+            'margin_tablet',
+            'margin_mobile'
+        ];
+        const directions = [
+            'top_padding',
+            'right_padding',
+            'bottom_padding',
+            'left_padding'
+        ];
+        const settings = [];
+
+        prefixes.forEach(prefix => {
+            directions.forEach(direction => {
+                settings.push(
+                    `responsive_footer_widget${widgetNum}_${prefix}_${direction}`
+                );
+            });
+        });
+
+        return settings;
+    };
+
+    // Loop through widgets 1 to 6
+    for (let i = 1; i <= 6; i++) {
+        const footerWidgetsMargin = generateFooterWidgetsMarginSettings(i);
+        const selectorClass       = `.footer-widgets.footer-widget-${i}`;
+        const controlId           = `footer_widget${i}_margin`;
+
+        footerWidgetsMargin.forEach(setting => {
+            api(setting, function(value) {
+                value.bind(function(newval) {
+                    responsive_dynamic_margin(controlId, selectorClass);
+                });
+            });
+        });
+    }
+
 } )( jQuery );
