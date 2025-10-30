@@ -3671,5 +3671,281 @@
             );
         } );
     } )
+    // Footer Widgets Title & Content Typography - Start
+    for (let i = 1; i <= 6; i++) {
+        const titleSettingBase   = `footer_widget${i}_title_typography`;
+        const titleSelectorKey   = `footer_widget${i}_title`;
+        const contentSettingBase = `footer_widget${i}_content_typography`;
+        const contentSelectorKey = `footer_widget${i}_content`;
+
+        // === text-transform ===
+        api(`${titleSettingBase}[text-transform]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${titleSettingBase}-text-transform`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-text-transform">
+                        ${responsive.selectorArray[titleSelectorKey]} { text-transform:${val}; }
+                    </style>`
+                );
+            });
+        });
+
+        // === font-family ===
+        api(`${titleSettingBase}[font-family]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                if (val) {
+                    let fontName = val.split(",")[0].replace(/'/g, '').trim();
+                    const id = `customize-control-${titleSettingBase}-font-family`;
+                    const fontUrl = `${responsive.googleFontsUrl}/css?family=${fontName.replace(/ /g, "%20").replace(",", "%2C")}:${responsive.googleFontsWeight}`;
+                    
+                    if (fontName in responsive.googleFonts) {
+                        if (jQuery(`#${id}`).length) {
+                            jQuery(`#${id}`).attr("href", fontUrl);
+                        } else {
+                            jQuery('head').append(`<link id="${id}" rel="stylesheet" type="text/css" href="${fontUrl}">`);
+                        }
+                    }
+                }
+                jQuery(`style.customizer-typography-${titleSettingBase}-font-family`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-font-family">
+                        ${responsive.selectorArray[titleSelectorKey]} { font-family:${val}; }
+                    </style>`
+                );
+            });
+        });
+
+        // === font-weight ===
+        api(`${titleSettingBase}[font-weight]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${titleSettingBase}-font-weight`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-font-weight">
+                        ${responsive.selectorArray[titleSelectorKey]} { font-weight:${val}; }
+                    </style>`
+                );
+            });
+        });
+
+        // === font-size ===
+        api(`${titleSettingBase}[font-size]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${titleSettingBase}-font-size`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-font-size">
+                        ${responsive.selectorArray[titleSelectorKey]} { font-size:${val}; }
+                        @media (max-width: 768px) {
+                            ${responsive.selectorArray[titleSelectorKey]} { font-size:${api(`footer_widget${i}_title_tablet_typography[font-size]`).get()}; }
+                        }
+                        @media (max-width: 480px) {
+                            ${responsive.selectorArray[titleSelectorKey]} { font-size:${api(`footer_widget${i}_title_mobile_typography[font-size]`).get()}; }
+                        }
+                    </style>`
+                );
+            });
+        });
+
+        // === tablet font-size ===
+        api(`footer_widget${i}_title_tablet_typography[font-size]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${titleSettingBase}-tablet-font-size`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-tablet-font-size">
+                        @media (max-width: 768px) {
+                            ${responsive.selectorArray[titleSelectorKey]} { font-size:${val}; }
+                        }
+                        @media (max-width: 480px) {
+                            ${responsive.selectorArray[titleSelectorKey]} { font-size:${api(`footer_widget${i}_title_mobile_typography[font-size]`).get()}; }
+                        }
+                    </style>`
+                );
+            });
+        });
+
+        // === mobile font-size ===
+        api(`footer_widget${i}_title_mobile_typography[font-size]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${titleSettingBase}-mobile-font-size`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-mobile-font-size">
+                        @media (max-width: 480px) {
+                            ${responsive.selectorArray[titleSelectorKey]} { font-size:${val}; }
+                        }
+                    </style>`
+                );
+            });
+        });
+
+        // === line-height ===
+        api(`${titleSettingBase}[line-height]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${titleSettingBase}-line-height`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-line-height">
+                        ${responsive.selectorArray[titleSelectorKey]} { line-height:${val}; }
+                    </style>`
+                );
+            });
+        });
+
+        // === letter-spacing ===
+        api(`${titleSettingBase}[letter-spacing]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${titleSettingBase}-letter-spacing`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-letter-spacing">
+                        ${responsive.selectorArray[titleSelectorKey]} { letter-spacing:${val}px; }
+                    </style>`
+                );
+            });
+        });
+
+        // === font-style ===
+        api(`${titleSettingBase}[font-style]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${titleSettingBase}-font-style`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-font-style">
+                        ${responsive.selectorArray[titleSelectorKey]} { font-style:${val}; }
+                    </style>`
+                );
+            });
+        });
+
+        // === text-transform ===
+        api(`${contentSettingBase}[text-transform]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${contentSettingBase}-text-transform`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${contentSettingBase}-text-transform">
+                        ${responsive.selectorArray[contentSelectorKey]} { text-transform:${val}; }
+                    </style>`
+                );
+            });
+        });
+
+        // === font-family ===
+        api(`${contentSettingBase}[font-family]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                if (val) {
+                    let fontName = val.split(",")[0].replace(/'/g, '').trim();
+                    const id = `customize-control-${contentSettingBase}-font-family`;
+                    const fontUrl = `${responsive.googleFontsUrl}/css?family=${fontName.replace(/ /g, "%20").replace(",", "%2C")}:${responsive.googleFontsWeight}`;
+                    
+                    if (fontName in responsive.googleFonts) {
+                        if (jQuery(`#${id}`).length) {
+                            jQuery(`#${id}`).attr("href", fontUrl);
+                        } else {
+                            jQuery('head').append(`<link id="${id}" rel="stylesheet" type="text/css" href="${fontUrl}">`);
+                        }
+                    }
+                }
+                jQuery(`style.customizer-typography-${contentSettingBase}-font-family`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${contentSettingBase}-font-family">
+                        ${responsive.selectorArray[contentSelectorKey]} { font-family:${val}; }
+                    </style>`
+                );
+            });
+        });
+
+        // === font-weight ===
+        api(`${contentSettingBase}[font-weight]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${contentSettingBase}-font-weight`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${contentSettingBase}-font-weight">
+                        ${responsive.selectorArray[contentSelectorKey]} { font-weight:${val}; }
+                    </style>`
+                );
+            });
+        });
+
+        // === font-size ===
+        api(`${contentSettingBase}[font-size]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${contentSettingBase}-font-size`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${contentSettingBase}-font-size">
+                        ${responsive.selectorArray[contentSelectorKey]} { font-size:${val}; }
+                        @media (max-width: 768px) {
+                            ${responsive.selectorArray[contentSelectorKey]} { font-size:${api(`footer_widget${i}_content_tablet_typography[font-size]`).get()}; }
+                        }
+                        @media (max-width: 480px) {
+                            ${responsive.selectorArray[contentSelectorKey]} { font-size:${api(`footer_widget${i}_content_mobile_typography[font-size]`).get()}; }
+                        }
+                    </style>`
+                );
+            });
+        });
+
+        // === tablet font-size ===
+        api(`footer_widget${i}_content_tablet_typography[font-size]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${contentSettingBase}-tablet-font-size`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${contentSettingBase}-tablet-font-size">
+                        @media (max-width: 768px) {
+                            ${responsive.selectorArray[contentSelectorKey]} { font-size:${val}; }
+                        }
+                        @media (max-width: 480px) {
+                            ${responsive.selectorArray[contentSelectorKey]} { font-size:${api(`footer_widget${i}_content_mobile_typography[font-size]`).get()}; }
+                        }
+                    </style>`
+                );
+            });
+        });
+
+        // === mobile font-size ===
+        api(`footer_widget${i}_content_mobile_typography[font-size]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${contentSettingBase}-mobile-font-size`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${contentSettingBase}-mobile-font-size">
+                        @media (max-width: 480px) {
+                            ${responsive.selectorArray[contentSelectorKey]} { font-size:${val}; }
+                        }
+                    </style>`
+                );
+            });
+        });
+
+        // === line-height ===
+        api(`${contentSettingBase}[line-height]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${contentSettingBase}-line-height`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${contentSettingBase}-line-height">
+                        ${responsive.selectorArray[contentSelectorKey]} { line-height:${val}; }
+                    </style>`
+                );
+            });
+        });
+
+        // === letter-spacing ===
+        api(`${contentSettingBase}[letter-spacing]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${contentSettingBase}-letter-spacing`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${contentSettingBase}-letter-spacing">
+                        ${responsive.selectorArray[contentSelectorKey]} { letter-spacing:${val}px; }
+                    </style>`
+                );
+            });
+        });
+
+        // === font-style ===
+        api(`${contentSettingBase}[font-style]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${contentSettingBase}-font-style`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${contentSettingBase}-font-style">
+                        ${responsive.selectorArray[contentSelectorKey]} { font-style:${val}; }
+                    </style>`
+                );
+            });
+        });
+    } 
+    // Footer Widgets Title & Content Typography - End
 } )( jQuery );
 

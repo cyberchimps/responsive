@@ -75,11 +75,11 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 
 			// Logo Width Controller.
 			$logo_width_label = __( 'Logo Width (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'logo_width', $logo_width_label, 'responsive_header_site_logo_title', 9, null, 'responsive_has_custom_logo_callback', 1200, 20, 'postMessage' );
+			responsive_drag_number_control_with_switchers( $wp_customize, 'logo_width', $logo_width_label, 'responsive_header_site_logo_title', 9, 0, null, 1200, 20, 'postMessage', 1 );
 
 			// Different Logo For Mobile Device.
 			$mobile_logo_option_label = __( 'Different Logo For Mobile Devices?', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'mobile_logo_option', $mobile_logo_option_label, 'responsive_header_site_logo_title', 10, 0, null );
+			responsive_toggle_control( $wp_customize, 'mobile_logo_option', $mobile_logo_option_label, 'responsive_header_site_logo_title', 9, 0, 'responsive_has_custom_logo_callback', 'postMessage' );
 
 			$wp_customize->add_setting(
 				'responsive_mobile_logo',
@@ -97,21 +97,15 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 						'section'         => 'responsive_header_site_logo_title',
 						'flex-height'     => true,
 						'flex-width'      => true,
-						'priority'        => 11,
+						'priority'        => 9,
 						'active_callback' => null,
 					)
 				)
 			);
 
-			$responsive_hide_title_label = __( 'Hide Site Title', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'hide_title', $responsive_hide_title_label, 'responsive_header_site_logo_title', 14, 0, null );
-
-			$responsive_hide_tagline_label = __( 'Hide Tagline', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'hide_tagline', $responsive_hide_tagline_label, 'responsive_header_site_logo_title', 15, 1, null );
-
 			// Enable inline site title and logo.
 			$inline_logo_title_label = __( 'Inline Logo & Site Title', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'inline_logo_site_title', $inline_logo_title_label, 'responsive_header_site_logo_title', 16, 0, null );
+			responsive_toggle_control( $wp_customize, 'inline_logo_site_title', $inline_logo_title_label, 'responsive_header_site_logo_title', 15, 0, null );
 
 			// Add Custom Logo URL.
 			$wp_customize->add_setting(
@@ -173,6 +167,24 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			// Redirect to site title and logo.
 			$site_title_and_logo_redirect_label = __( 'Site Title and Logo Settings', 'responsive' );
 			responsive_redirect_control( $wp_customize, 'redirect_to_site_title_and_logo', $site_title_and_logo_redirect_label, 'title_tagline', 60, 'section', 'responsive_header_site_logo_title');
+
+			$site_title_visibility_choices = array(
+				'desktop'   => esc_html__( 'dashicons-desktop', 'responsive' ),
+				'tablet'    => esc_html__( 'dashicons-tablet', 'responsive' ),
+				'mobile'    => esc_html__( 'dashicons-smartphone', 'responsive' ),
+			);
+			// Site Title Visibility control 
+			$site_title_visibility_label = __( 'Site Title Visibility', 'responsive' );
+			responsive_multi_select_button_control($wp_customize, 'site_title_visibility', $site_title_visibility_label, 'responsive_header_site_logo_title', 14, $site_title_visibility_choices, array('desktop','tablet','mobile'), null, 'refresh');
+
+			$site_tagline_visibility_choices = array(
+				'desktop'   => esc_html__( 'dashicons-desktop', 'responsive' ),
+				'tablet'    => esc_html__( 'dashicons-tablet', 'responsive' ),
+				'mobile'    => esc_html__( 'dashicons-smartphone', 'responsive' ),
+			);
+			// Site Tagline Visibility control
+			$site_tagline_visibility_label = __( 'Site Tagline Visibility', 'responsive' );
+			responsive_multi_select_button_control($wp_customize, 'site_tagline_visibility', $site_tagline_visibility_label, 'responsive_header_site_logo_title', 16, $site_tagline_visibility_choices, array('desktop','tablet','mobile'), null, 'refresh');
 		}
 
 

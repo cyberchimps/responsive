@@ -67,6 +67,41 @@ if ( ! class_exists( 'Responsive_Footer_Widgets_Settings_Customizer' ) ) :
                 );
                 responsive_select_button_with_switchers_control( $wp_customize, 'footer_widget'. $i .'_content_vertical_align', $content_vertical_alignment_label, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 40, $content_vertical_alignment_choices, 'flex-start', null, 'refresh', "Vertical alignment doesn’t apply if the footer row inner elements layout is Stack." );
 
+                responsive_horizontal_separator_control($wp_customize, 'footer_widget'.$i.'_tc_separator', 1, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 45, 1 );
+
+                // Heading Color.
+                $heading_color_label = __( 'Heading Color', 'responsive' );
+                responsive_color_control( $wp_customize, 'footer_widget'. $i .'_title', $heading_color_label, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 50, Responsive\Core\get_responsive_customizer_defaults( 'footer_widget_title_color' ), null, '' );
+
+                responsive_horizontal_separator_control($wp_customize, 'footer_widget'.$i.'_cc_separator', 1, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 55, 1 );
+
+                // Content Color.
+                $content_color_label = __( 'Content Color', 'responsive' );
+                responsive_color_control( $wp_customize, 'footer_widget'. $i .'_content', $content_color_label, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 60, Responsive\Core\get_responsive_customizer_defaults( 'footer_widget_content_color' ), null, '' );
+
+                responsive_horizontal_separator_control($wp_customize, 'footer_widget'.$i.'_lc_separator', 1, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 65, 1 );
+
+                // Links Color.
+                $link_color_label = __( 'Link Color', 'responsive' );
+                responsive_color_control( $wp_customize, 'footer_widget'. $i .'_link', $link_color_label, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 70, Responsive\Core\get_responsive_customizer_defaults( 'footer_widget_link_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'footer_widget_link_hover_color' ), 'footer_widget'. $i .'_link_hover' );
+
+                responsive_horizontal_separator_control($wp_customize, 'footer_widget'.$i.'_tf_separator', 1, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 75, 1 );
+
+                // Title Font
+                $widget_title_typography = __( 'Title Font', 'responsive' );
+                responsive_typography_group_control( $wp_customize, 'footer_widget'. $i .'_title_typography_group', $widget_title_typography, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 80, 'footer_widget'. $i .'_title_typography' );
+
+                responsive_horizontal_separator_control($wp_customize, 'footer_widget'.$i.'_cf_separator', 1, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 85, 1 );
+
+                // Content Font
+                $widget_content_typography = __( 'Content Font', 'responsive' );
+                responsive_typography_group_control( $wp_customize, 'footer_widget'. $i .'_content_typography_group', $widget_content_typography, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 90, 'footer_widget'. $i .'_content_typography' );
+
+                responsive_horizontal_separator_control($wp_customize, 'footer_widget'.$i.'_margin_separator', 1, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 95, 1 );
+
+                // Margin.
+                $margin_label = esc_html__( 'Margin (px)', 'responsive' );
+                responsive_padding_control( $wp_customize, 'footer_widget'. $i .'_margin', 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 100, 0, 0, null, $margin_label );
             }
         }
     }
