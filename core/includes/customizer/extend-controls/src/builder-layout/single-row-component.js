@@ -19,6 +19,7 @@ const BuilderSingleRowComponent = props => {
 			})
 		)
 	};
+	console.log("BuilderSingleRowComponent - theItems: ", theItems);
 	const currentCenterList = (typeof props.centerItems != "undefined" && props.centerItems != null && props.centerItems.length != null && props.centerItems.length > 0 ? props.centerItems : []);
 	let theCenterItems = [];
 	{
@@ -32,6 +33,7 @@ const BuilderSingleRowComponent = props => {
 			})
 		)
 	};
+	console.log("current list in center in single row component: ", currentCenterList);
 	return (
 		<div className={`responsive-builder-area responsive-builder-area-${location}`} data-location={props.zone}>
 			{'header_desktop_items' === props.controlParams.group && 'right' === location && (

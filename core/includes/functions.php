@@ -1539,6 +1539,36 @@ function defaults() {
 																				'section' => 'responsive_header_menu_layout',
 																				'icon'    => 'menu',
 																			),
+																			'social'               => array(
+																				'name'    => esc_html__( 'Social', 'responsive' ),
+																				'section' => 'responsive_header_social',
+																				'icon'    => 'share',
+																			),
+																			'header_html'          => array(
+																				'name'    => esc_html__( 'HTML', 'responsive' ),
+																				'section' => 'responsive_header_html',
+																				'icon'    => 'html',
+																			),
+																			'header_button'        => array(
+																				'name'    => esc_html__( 'Button', 'responsive' ),
+																				'section' => 'responsive_header_button',
+																				'icon'    => 'button',
+																			),
+																			'header_widgets1'        => array(
+																				'name'    => esc_html__( 'Header Widgets', 'responsive' ),
+																				'section' => 'responsive_header_widget',
+																				'icon'    => 'wordpress',
+																			),
+																			'header_contact_info'  => array(
+																				'name'    => esc_html__( 'Contact Info', 'responsive' ),
+																				'section' => 'responsive_header_contact_info',
+																				'icon'    => 'id-alt',
+																			),
+																			'search'          => array(
+																				'name'    => esc_html__( 'Search', 'responsive' ),
+																				'section' => 'responsive_header_search',
+																				'icon'    => 'search',
+																			),
 																		),
 		'rp_section_bg' => '#ffffff',
 		'responsive_rp_link_color'               => '#0066CC',

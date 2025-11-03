@@ -1693,3 +1693,81 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_inline_logo_site_title{
 	margin-top : 25px;
 }
+
+/* For Mobile Builder */
+.responsive-control-field.responsive-builder-items.responsive-builder-items-with-popup{
+	display: flex;
+	gap: 30px;
+}
+.responsive-builder-areas.popup-vertical-group {
+	width: 229px;
+	max-height: 232px; 
+	border-radius: 5px;
+	padding-left : 0px;
+	box-shadow: 0px 0px 7.9px 0px #00000033;
+	overflow-y: auto;
+	padding-left : 0px;
+}
+.responsive-builder-areas.popup-vertical-group::-webkit-scrollbar {
+	display: none;
+}
+
+.popup-vertical-group button.components-button.responsive-row-actions {
+	position : absolute;
+	padding : 10px 20px 10px 20px; 
+	text-transform: uppercase;
+	width: 229px;
+	height: 41px;
+	font-family: Inter;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 100%;
+	letter-spacing: 1%;
+	vertical-align: middle;
+	/* background : #2271B1; 
+	color : #FFFFFF; */
+}
+/* .popup-vertical-group button.components-button.responsive-row-actions:hover{
+	background : #2271B1; 
+	color : #FFFFFF;
+} */
+.popup-vertical-group button.components-button.responsive-row-actions .dashicons-admin-generic{
+	font-size : 13px;
+}
+/* .responsive-builder-items-with-popup .responsive-builder-areas:hover .components-button.responsive-row-actions {
+    background: #2271B1;
+	color: #FFFFFF;
+} */
+.responsive-builder-areas.popup-vertical-group .responsive-builder-area{
+	flex: auto; 
+	flex-direction: column;
+}
+.popup-vertical-group .responsive-builder-group-vertical {
+	position : absolute; 
+	top : 41px;
+	width: 100%;
+	height: calc(100% - 41px);
+}
+.popup-vertical-group .responsive-builder-group-vertical .responsive-builder-area-popup{
+	height: 100%;
+}
+.responsive-builder-areas.popup-vertical-group .responsive-builder-area .responsive-hfb-builder-sortable-panel{
+	max-width : 229px; 
+	max-height : 207px;
+	padding : 14px 10px 23px 10px; 
+	display : flex; 
+	flex-direction: column;
+	gap : 10px;
+}	
+.responsive-builder-drop-popup .responsive-hfb-builder-item {
+	width: 209px;
+	padding: 10px;
+	height: 37px;
+	box-sizing: border-box;
+	border-radius: 4px;
+	display: flex;
+	justify-content: space-between;
+}
+.responsive-builder-drop-popup .responsive-hfb-builder-item-text {
+	width: 85px;
+}

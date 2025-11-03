@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import BuilderRowComponent from './row-component';
+import OffCanvasPanel from './off-canvas-panel.js';
 
 const BuilderComponent = props => {
     
@@ -21,6 +22,7 @@ const BuilderComponent = props => {
 	} : defaultParams;
 
 	const choices = props.control.params.builder_choices ? props.control.params.builder_choices : [];
+	console.log("Prop received in BuilderComponent: ", props);
 
 	const [state, setState] = useState({
 		value: value,
@@ -210,12 +212,34 @@ const BuilderComponent = props => {
 			document.removeEventListener('responsiveUpdateFooterColumns', handleFooterUpdate);
 		};
 	}, [props]);
-
+	console.log("In BuilderComponent - controlParams: ", value);
     return (
-        <div className='responsive-control-field responsive-builder-items'>
+        <div className={
+			'responsive-control-field responsive-builder-items' +
+			(controlParams.group && controlParams.group.includes('header_mobile_tablet_items') ? ' responsive-builder-items-with-popup' : '')
+		}>
+			{
+				// Showing the off canvas panel in case of mobile and tablets 
+				controlParams.group.includes('header_mobile_tablet_items') && 
+					<OffCanvasPanel
+						key='popup'
+						row='popup'
+						controlParams={controlParams}
+						choices={choices}
+						settings={value}
+						items={value['popup']}
+						focusPanel={(item)=>focusPanel(item)}
+						focusItem={(item) => focusItem(item)}
+                        removeItem={(remove, row, zone) => removeItem(remove, row, zone)}
+						hideDrop={() => onDragStop()}
+						onUpdate={(updateRow, updateZone, updateItems) => onDragEnd(updateRow, updateZone, updateItems)}
+						onAddItem={(updateRow, updateZone, updateItems) => onAddItem(updateRow, updateZone, updateItems)}
+						showDrop={() => onDragStart()}
+					/>
+			}
             <div className='responsive-builder-row-items'>
                 {
-                    controlParams.rows.map(( row ) => (
+                    controlParams.rows.filter(row => !row.includes('popup')).map(( row ) => (
                         <BuilderRowComponent
                             key={row}
                             row={row}

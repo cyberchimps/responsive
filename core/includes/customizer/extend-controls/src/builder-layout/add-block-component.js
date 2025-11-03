@@ -7,7 +7,13 @@ import Icons from '../icons';
 const BuilderAddBlockComponent = (props) => {
     const [isPopoverVisible, setIsPopoverVisible] = useState(false);
     const [anyItemAvailable, setAnyItemAvailable] = useState(true);
-
+    if(props.sender && props.sender === "mobile"){
+        console.log("Props in BuilderAddBlockComponent from mobile: ", props);
+    }
+    else 
+    {
+        console.log("Props in BuilderAddBlockComponent: ", props);
+    }
     useEffect(() => {
         let anyAvailable = false;
         Object.keys(props.choices).forEach((item) => {
@@ -42,9 +48,14 @@ const BuilderAddBlockComponent = (props) => {
         classForAdd += ' left-center-on-left';
     }
 
+    if('mobile_tablet_items' === props.controlParams.group && props.location === 'popup') {
+        classForAdd += ' popup-column'
+    }
+
     const addItem = (item) => {
         setIsPopoverVisible(false);
         const updatedItems = [...props.list, { id: item }];
+        console.log("Updated items after adding: ", updatedItems);
         props.setList(updatedItems);
     };
 
@@ -93,7 +104,7 @@ const BuilderAddBlockComponent = (props) => {
             {isPopoverVisible && anyItemAvailable && (
                 <Popover
                     position="top"
-                    inline={true}
+                    inline={props.location === 'popup' ? false : true}
                     className="responsive-hfb-popover-add-builder"
                     onClose={() => setIsPopoverVisible(false)}
                 >
