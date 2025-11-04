@@ -1771,3 +1771,17 @@ body.rtl .customize-control .responsive-switchers li {
 .responsive-builder-drop-popup .responsive-hfb-builder-item-text {
 	width: 85px;
 }
+
+/* For Off Canvas Customizer */
+#customize-theme-controls #sub-accordion-section-responsive_header_mobile_off_canvas {
+	height : 100%;
+}
+#customize-control-responsive_header_mobile_off_canvas_header_type, #customize-control-responsive_header_mobile_off_canvas_move_body, #customize-control-responsive_header_mobile_off_canvas_bg_color {
+	padding-top: 24px;
+}
+#customize-control-responsive_header_mobile_off_canvas_move_body .responsive-toggle-control-wrapper {
+	padding-bottom: 24px;
+}
+#customize-control-responsive_header_mobile_off_canvas_header_type_horizontal_separator, #customize-control-responsive_header_mobile_off_canvas_dropdown_target_horizontal_separator {
+	margin-top: 24px;
+}

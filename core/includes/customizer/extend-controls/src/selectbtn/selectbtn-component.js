@@ -5,6 +5,7 @@ import Icons from '../icons';
 const SelectButtonComponent = props => {
 
 	const [props_value, setPropsValue] = useState(props.control.setting.get());
+	console.log("Props in SelectButtonComponent: ", props);
 
 	const onOptionClick = (value) => {
         setPropsValue(value);
@@ -41,6 +42,18 @@ const SelectButtonComponent = props => {
 				onClick={() => onOptionClick(choiceValue)}
 				>
 				<span className={`responsive-selectbtn-dashicon dashicons ${icon}`} />
+				</button>
+			);
+		}
+		if (icon.toLowerCase().includes('icon text')) {
+			return (
+			<button
+					key={choiceValue}
+					type="button"
+					className={`customize-control-responsive-selectbtn__button selectbtn-text ${props_value === choiceValue ? 'active' : ''}`}
+					onClick={() => onOptionClick(choiceValue)}
+					>
+					<span className={`responsive-selectbtn-text ${icon}`}>Icon</span>
 				</button>
 			);
 		}

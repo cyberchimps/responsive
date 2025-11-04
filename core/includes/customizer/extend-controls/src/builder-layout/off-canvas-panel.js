@@ -15,7 +15,7 @@ const OffCanvasPanel = (props) => {
                 icon="admin-generic"
                 iconSize="13"
                 title="Off Canvas"
-                onClick={() => props.focusPanel(mode + '_popup_panel')}
+                onClick={() => props.focusPanel(mode + '_mobile_off_canvas')}
                 text="Off Canvas"
             />
             <div className="responsive-builder-group responsive-builder-group-vertical" data-setting="popup">

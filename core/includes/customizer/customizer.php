@@ -216,6 +216,7 @@ function responsive_register_options() {
 		'hfb-builder/header/class-responsive-hfb-header-above-row',
 		'hfb-builder/header/class-responsive-hfb-header-pimary-row',
 		'hfb-builder/header/class-responsive-hfb-header-below-row',
+		'hfb-builder/header/class-responsive-hfb-mobile-header-off-canvas',
 		'hfb-builder/footer/class-responsive-hfb-footer-above-row',
 		'hfb-builder/footer/class-responsive-hfb-footer-primary-row',
 		'hfb-builder/footer/class-responsive-hfb-footer-below-row',
