@@ -194,6 +194,7 @@ function responsive_register_options() {
 		// 'class-responsive-header-colors-customizer',
 		'class-responsive-header-transparent-customizer',
 		'class-responsive-header-menu-layouts-customizer',
+		'class-responsive-header-off-canvas-menu-layouts-customizer',
 		'class-responsive-header-secondary-menu-layouts-customizer',
 		'class-responsive-content-header-colors-customizer',
 		'class-responsive-content-header-layout-customizer',

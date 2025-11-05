@@ -412,6 +412,17 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'line-height' => '1.75',
 					),
 				),
+				'header_off_canvas_menu' => array(
+					'label'    => esc_html__( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['header_off_canvas_menu'],
+					'section'  => 'responsive_header_off_canvas_menu_layout',
+					'exclude'  => array( 'font-color' ),
+					'priority' => 110,
+					'defaults' => array(
+						'font-size'   => '16px',
+						'line-height' => '1.75',
+					),
+				)
 			);
 
 			for( $i=1;$i<=6;$i++ ) {
@@ -492,6 +503,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'footer_social'              => '.footer-layouts .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label',
 				'header_search_label'        => '.responsive-header-search-label',
 				'header_contact_info'        => '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list  .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-title, .site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text',
+				'header_off_canvas_menu'     => '.responsive-off-canvas-menu-container .responsive-off-canvas-menu-wrapper .responsive-off-canvas-menu-inner-wrapper .responsive-off-canvas-menu .responsive-off-canvas-menu-items .responsive-off-canvas-menu-item a',
 			);
 
 			if ( $this->is_responsive_version_greater() ) {

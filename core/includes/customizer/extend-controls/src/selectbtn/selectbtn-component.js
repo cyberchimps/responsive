@@ -5,7 +5,6 @@ import Icons from '../icons';
 const SelectButtonComponent = props => {
 
 	const [props_value, setPropsValue] = useState(props.control.setting.get());
-	console.log("Props in SelectButtonComponent: ", props);
 
 	const onOptionClick = (value) => {
         setPropsValue(value);

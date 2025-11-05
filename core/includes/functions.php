@@ -1306,7 +1306,7 @@ function defaults() {
 			),
 			'responsive_header_mobile_tablet_items' => array(
 				'popup' => array(
-					'popup_content' => array( 'mobile_navigation' )
+					'popup_content' => array( 'off_canvas_menu' )
 				),
 				'above' => array(
 					'above_left' 		 => array(),
@@ -1528,6 +1528,11 @@ function defaults() {
 																				'name'    => esc_html__( 'Site Title & Logo', 'responsive' ),
 																				'section' => 'responsive_header_site_logo_title',
 																				'icon'    => 'search',
+																			),
+																			'off_canvas_menu'	  => array(
+																				'name'	  => esc_html__( 'Off Canvas Menu', 'responsive' ),
+																				'section' => 'responsive_header_off_canvas_menu_layout',
+																				'icon'	  => 'menu',
 																			),
 																			'mobile_navigation'   => array(
 																				'name'    => esc_html__( 'Mobile Menu', 'responsive' ),
