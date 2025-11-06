@@ -1584,8 +1584,8 @@ function defaults() {
 		'responsive_rp_body_text_color'          => '#333333',
 		'footer_widget_title_color'             => '#ffffff',
 		'footer_widget_content_color'           => '#ffffff',
-		'footer_widget_link_color'              => '#0066CC',
-		'footer_widget_link_hover_color'        => '#10659C',
+		'footer_widget_link_color'              => '#eaeaea',
+		'footer_widget_link_hover_color'        => '#FFFFFF',
 		)
 	);
 	return $theme_options;
