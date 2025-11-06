@@ -195,6 +195,7 @@ function responsive_register_options() {
 		'class-responsive-header-transparent-customizer',
 		'class-responsive-header-menu-layouts-customizer',
 		'class-responsive-header-off-canvas-menu-layouts-customizer',
+		'class-responsive-header-toggle-button-customizer',
 		'class-responsive-header-secondary-menu-layouts-customizer',
 		'class-responsive-content-header-colors-customizer',
 		'class-responsive-content-header-layout-customizer',
@@ -298,6 +299,7 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'selectbtn/class-responsive-customizer-responsive-selectbtn-control.php';
 	require_once $dir . 'tabs/class-responsive-customizer-responsive-tabs-control.php';
 	require_once $dir . 'imageradiobtn/class-responsive-customizer-imageradio-button-control.php';
+	require_once $dir . 'iconradiobtn/class-responsive-customizer-icon-radio-button-control.php';
 	require_once $dir . 'toggle/class-responsive-customizer-responsive-toggle-control.php';
 	require_once $dir . 'horizontal-separator/class-responsive-customizer-responsive-horizontal-separator.php';
 	require_once $dir . 'backgroundimage/class-responsive-customizer-background-image-control.php';

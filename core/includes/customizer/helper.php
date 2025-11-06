@@ -2372,6 +2372,50 @@ function responsive_imageradio_button_control( $wp_customize, $element, $label, 
 }
 
 /**
+ * [responsive_icon_radio_button_control description].
+ * 
+ * @param [type] $wp_customize [description].
+ * @param [type] $element      [description].
+ * @param [type] $label        [description].
+ * @param [type] $section      [description].
+ * @param [type] $priority     [description].
+ * @param [type] $choices      [description]. 
+ * @param [type] $default      [default icon type - hamburger base value]. 
+ * @param [type] $active_call  [description]. 
+ * @param [type] $icon_ext    [icon extension - svg , png, jpg]
+ * @param [type] $transport    [description].
+ * 
+ * @return void
+ */
+function responsive_icon_radio_button_control( $wp_customize, $element, $label, $section, $priority, $choices, $default, $active_call, $icon_ext = 'svg', $transport = 'refresh', $description = '' ) {
+
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'default'           => $default,
+			'sanitize_callback' => 'responsive_sanitize_select',
+			'transport'         => $transport,
+		)
+	);
+	$wp_customize->add_control(
+		new Responsive_Customizer_Icon_Radio_Button_Control(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'label'           => $label,
+				'description'     => $description,
+				'section'         => $section,
+				'settings'        => 'responsive_' . $element,
+				'priority'        => $priority,
+				'active_callback' => $active_call,
+				'choices'         => apply_filters( 'responsive_' . $element . '_choices', $choices ),
+				'icon_ext'       => $icon_ext,
+			)
+		)
+	);	
+}
+
+/**
  * [responsive_select_control description].
  *
  * @param  [type] $wp_customize [description].

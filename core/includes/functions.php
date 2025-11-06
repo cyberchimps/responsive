@@ -238,6 +238,7 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 			array(
 				'header-menu' => __( 'Header Menu', 'responsive' ),
 				'secondary-menu' => __( 'Secondary Menu', 'responsive' ),
+				'off-canvas-menu' => __( 'Off Canvas Menu', 'responsive' ),
 				'footer-menu' => __( 'Footer Menu', 'responsive' ),
 			)
 		);
@@ -1349,6 +1350,7 @@ function defaults() {
 			'responsive_footer_below_row_bg_color'                    => '#FFFFFF',
 			'responsive_footer_below_row_border_color'                => '#0066CC',
 			'responsive_header_button_label'                          => 'Button',
+			'responsive_header_toggle_button_menu_label'			  => '',
 			'responsive_header_button_url'                            => '',
 			'responsive_header_button_open_in_new_tab'                => 0,
 			'responsive_header_button_set_nofollow'                   => 0,
@@ -1540,8 +1542,8 @@ function defaults() {
 																				'icon'    => 'menu',
 																			),
 																			'toggle_button'        => array(
-																				'name'    => esc_html__( 'Menu Toggle Button', 'responsive' ),
-																				'section' => 'responsive_header_menu_layout',
+																				'name'    => esc_html__( 'Toggle Button', 'responsive' ),
+																				'section' => 'responsive_header_toggle_button',
 																				'icon'    => 'menu',
 																			),
 																			'social'               => array(

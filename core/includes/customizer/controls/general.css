@@ -1788,3 +1788,8 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_header_off_canvas_menu_color_separator {
 	margin-top : -1px;
 }
+
+/* For Toggle Button */
+#customize-control-responsive_header_toggle_button_icon, #customize-control-responsive_header_toggle_button_style_separator{
+	padding-top: 24px;
+}

@@ -15,6 +15,7 @@ import { responsiveFlushFonts } from './flush-fonts/control';
 import { responsiveSelectButton } from './selectbtn/control';
 import { responsiveTabs } from './tabs/control';
 import { responsiveImageRadioButton } from './imageradiobtn/control';
+import {responsiveIconRadioButton} from './iconradiobtn/control';
 import { responsiveRadiusDimensions } from './radiusdimensions/control';
 import { responsiveBorderWidthDimensions } from './borderwidth/control';
 import { responsiveToggle } from './toggle/control';
@@ -53,6 +54,7 @@ wp.customize.controlConstructor['responsive-flush-fonts'] = responsiveFlushFonts
 wp.customize.controlConstructor['responsive-selectbtn'] = responsiveSelectButton;
 wp.customize.controlConstructor['responsive-tabs'] = responsiveTabs;
 wp.customize.controlConstructor['responsive-imageradiobtn'] = responsiveImageRadioButton;
+wp.customize.controlConstructor['responsive-icon-radio-btn'] = responsiveIconRadioButton;
 wp.customize.controlConstructor['responsive-radiusdimensions'] = responsiveRadiusDimensions;
 wp.customize.controlConstructor['responsive-border-width-dimensions'] = responsiveBorderWidthDimensions;
 wp.customize.controlConstructor['responsive-toggle'] = responsiveToggle;
