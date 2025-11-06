@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(06/10/2025) Version 6.2.8
+[!] = Fix = Patched an error that was blocking the Customizer from loading.
+
 (29/10/2025) Version 6.2.7
 [+] = New = Added Sidebar width control options for Shop and Single Product Page in Woocommerce
 [+] = New = Added more customization settings for theme footer widgets 
