@@ -1711,6 +1711,9 @@ body.rtl .customize-control .responsive-switchers li {
 .responsive-builder-areas.popup-vertical-group::-webkit-scrollbar {
 	display: none;
 }
+#customize-control-responsive_header_mobile_tablet_items .responsive-builder-row-items {
+	width : calc(100% - 229px);
+}
 
 .popup-vertical-group button.components-button.responsive-row-actions {
 	position : absolute;
