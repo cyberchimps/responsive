@@ -17,7 +17,7 @@ if( ! class_exists( 'Responsive_HFB_Mobile_Header_Off_Canvas' ) ) {
         /**
          * Constructor 
          * 
-         * @since 6.2.8
+         * @since 6.2.9
          */
         public function __construct() {
             
@@ -29,7 +29,7 @@ if( ! class_exists( 'Responsive_HFB_Mobile_Header_Off_Canvas' ) ) {
          * Customizer Options
          * 
          * @param object $wp_customize Wordpress customization option
-         * @since 6.2.8
+         * @since 6.2.9
          */
         public function customizer_options( $wp_customize ) {
 

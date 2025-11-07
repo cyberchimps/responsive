@@ -4,7 +4,7 @@
  * 
  * @package Responsive Wordpress Theme
  * @subpackage Controls
- * @since 6.2.8
+ * @since 6.2.9
  */
 
 // Exit if accessed directly.
@@ -18,7 +18,7 @@ if( ! class_exists( 'Responsive_Customizer_Icon_Radio_Button_Control' ) ) :
     *
     * @package Responsive Wordpress Theme
     * @subpackage Controls
-    * @since 6.2.8
+    * @since 6.2.9
     */
     class Responsive_Customizer_Icon_Radio_Button_Control extends WP_Customize_Control {
 

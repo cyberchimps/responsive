@@ -17,7 +17,7 @@ if( ! class_exists( 'Responsive_Header_Off_Canvas_Menu_Layouts_Customizer' ) ) {
         /**
          * Constructor 
          * 
-         * @since 6.2.8
+         * @since 6.2.9
          */
         public function __construct() {
             
@@ -29,7 +29,7 @@ if( ! class_exists( 'Responsive_Header_Off_Canvas_Menu_Layouts_Customizer' ) ) {
          * Customizer Options
          * 
          * @param object $wp_customize Wordpress customization option
-         * @since 6.2.8
+         * @since 6.2.9
          */
         public function customizer_options( $wp_customize ) {
 
