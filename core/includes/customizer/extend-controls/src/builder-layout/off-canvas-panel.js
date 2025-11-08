@@ -6,7 +6,7 @@ const OffCanvasPanel = (props) => {
     console.log("Props received in OffCanvasPanel : ", props); 
     let items = []; 
     const mode = (props.controlParams.group.indexOf('header') !== -1 ? 'header' : 'footer');
-    items = props.items['popup_content'];
+    items = (props.items && props.items['popup_content']) ? props.items['popup_content'] : [];
 
     return (
         <div className="responsive-builder-areas popup-vertical-group">

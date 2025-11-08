@@ -26,11 +26,12 @@ const OffCanvasColumnComponent = props => {
         <div className="responsive-builder-area responsive-builder-area-popup" data-location={(props.zone?.popup_content ?? '').toLowerCase().replace(/\s+/g, '_')}>
             {
                 <Fragment>
-                    <ReactSortable animation={100} onStart={() => props.showDrop()} onEnd={() => props.hideDrop()} group={props.controlParams.group} className={`responsive-builder-drop responsive-hfb-builder-sortable-panel responsive-builder-drop-popup`} list={theItems} setList={newState => props.onUpdate(props.row, props.zone, newState)} >
+                    <ReactSortable animation={100} onStart={() => props.showDrop()} onEnd={() => props.hideDrop()} group={props.controlParams.group} className={`responsive-builder-drop responsive-hfb-builder-sortable-panel responsive-builder-drop-popup`} list={theItems} setList={newState => props.onUpdate(props.row, zoneKey, newState)} >
                         {
                             currentList.length > 0 && (
                                 currentList.map((item, index) => {
-                                    return <BuilderSingleBlockComponent removeItem={(remove) => props.removeItem(remove, props.row, zoneKey)} focusItem={(focus) => props.focusItem(focus)} key={item} index={index} item={item} controlParams={props.controlParams} choices={props.choices} />;
+                                    return <BuilderSingleBlockComponent removeItem={(remove) => {
+                                        console.log("Removing from off canvas column component",remove, " ", props.row, " ", zoneKey); return props.removeItem(remove, props.row, zoneKey)}} focusItem={(focus) => props.focusItem(focus)} key={item} index={index} item={item} controlParams={props.controlParams} choices={props.choices} sender="mobile"/>;
                                 })
                             )
                         }

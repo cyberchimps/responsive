@@ -4,7 +4,6 @@ import { useState } from 'react';
 const IconRadioButtonComponent = props => {
 
     const [props_value, setPropsValue] = useState(props.control.setting.get());
-    console.log("Props received in iconradiobtn : ", props);
 
     const onOptionClick = (value) => {
         setPropsValue(value); 
