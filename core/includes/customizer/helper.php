@@ -1238,7 +1238,7 @@ function responsive_borderwidth_control( $wp_customize, $element, $section, $pri
  * @param  string  $desc     [description].
  * @return void               [description].
  */
-function responsive_color_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $desc = '', $is_hover_required = false, $hover_default = null, $hover_element = null, $is_gradient_available = false, $gradient_element = null, $gradient_default = null, $color_type = 'color' ) {
+function responsive_color_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $desc = '', $is_hover_required = false, $hover_default = null, $hover_element = null, $is_gradient_available = false, $gradient_element = null, $gradient_default = null, $color_type = 'color', $transport = 'postMessage' ) {
 	try {
 		// Menu Background Color.
 	$wp_customize->add_setting(
@@ -1247,7 +1247,7 @@ function responsive_color_control( $wp_customize, $element, $label, $section, $p
 			'default'           => $default,
 			'type'              => 'theme_mod',
 			'sanitize_callback' => 'responsive_sanitize_background',
-			'transport'         => 'postMessage',
+			'transport'         => $transport,
 		)
 	);
 	// Add Hover Setting

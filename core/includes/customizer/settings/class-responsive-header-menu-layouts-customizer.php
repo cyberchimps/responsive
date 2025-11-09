@@ -151,7 +151,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 
 			// Hamburger Menu Label.
 			$hamburger_menu_label = __( 'Mobile Menu Label', 'responsive' );
-			responsive_text_control( $wp_customize, 'hamburger_menu_label_text', $hamburger_menu_label, 'responsive_header_menu_layout', 80, '', 'responsive_disabled_mobile_menu', 'sanitize_text_field', 'text', 'postMessage' );
+			responsive_text_control( $wp_customize, 'hamburger_menu_label_text', $hamburger_menu_label, 'responsive_header_menu_layout', 80, '', 'responsive_disabled_mobile_menu', 'sanitize_text_field', 'text', 'refresh' );
 
 			// Hamburger Menu Label Font Size.
 			$hamburger_menu_label_font_size = __( 'Menu Label Font Size', 'responsive' );

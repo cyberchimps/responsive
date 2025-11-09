@@ -60,52 +60,119 @@ if( ! class_exists( 'Responsive_Header_Toggle_Button_Customizer' ) ) {
 				'outline' => esc_html__( 'Outline', 'responsive' ),
                 'minimal' => esc_html__( 'Minimal', 'responsive' ),
 			);
-			responsive_select_button_control( $wp_customize, 'header_toggle_button_style', __( 'Toggle Button Style', 'responsive' ), 'responsive_header_toggle_button', 15, $toggle_button_style_choices, 'fill', null );
 
+            $wp_customize->add_control(
+                new Responsive_Customizer_Select_Button_Control(
+                    $wp_customize,
+                    'responsive_header_toggle_button_style' ,
+                    array(
+                        'label'           => __( 'Toggle Button Style', 'responsive' ),
+                        'description'     => '',
+                        'section'         => 'responsive_header_toggle_button',
+                        'settings'        => 'responsive_mobile_menu_toggle_style',
+                        'priority'        => 15,
+                        'active_callback' => null,
+                        'choices'         => apply_filters( 'responsive_toggle_button_style' . '_choices', $toggle_button_style_choices ),
+                    )
+                )
+            );
             // Horizontal Separator - General Tab
             responsive_horizontal_separator_control( $wp_customize, 'header_toggle_button_style_separator', 1, 'responsive_header_toggle_button', 20, 1);
 
             // Menu Label - General Tab
-            $wp_customize->add_setting(
-				'responsive_header_toggle_button_menu_label',
-				array(
-					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_toggle_button_menu_label' ),
-					'sanitize_callback' => 'wp_check_invalid_utf8',
-					'type'              => 'theme_mod',
-					'transport'         => 'postMessage',
-				)
-			);
-
-			$wp_customize->add_control(
-				'responsive_header_toggle_button_menu_label',
-				array(
-					'label'    => __( 'Menu Label', 'responsive' ),
-					'section'  => 'responsive_header_toggle_button',
-					'settings' => 'responsive_header_toggle_button_menu_label',
-					'type'     => 'text',
-					'priority' => 25,
-				)
-			);
+            $wp_customize->add_control(
+                new WP_Customize_Control(
+                    $wp_customize, 
+                    'responsive_hamburger_menu_label_text_toggle_button',
+                    array(
+                        'active_callback' => null,
+                        'label'           => __( 'Mobile Menu Label', 'responsive' ),
+                        'priority'        => 25,
+                        'section'         => 'responsive_header_toggle_button',
+                        'settings'        => 'responsive_hamburger_menu_label_text', 
+                        'type'            => 'text', 
+                        'transport'       => 'refresh'
+                    )
+                )
+                    );
 
             // Design Tabs
             // Icon Color - Design Tab
             $header_toggle_button_icon_color_label = __( 'Icon Color', 'responsive' );
-            responsive_color_control( $wp_customize, 'header_toggle_button_icon', $header_toggle_button_icon_color_label, 'responsive_header_toggle_button', 10, '#FFFFFF', );
+            responsive_color_control( $wp_customize, 'header_toggle_button_icon', $header_toggle_button_icon_color_label, 'responsive_header_toggle_button', 10, '#FFFFFF', null, '', false, null, null, false, null, null, 'color', 'refresh' );
+            
+            // Border Color - Design Tab
+            $header_toggle_button_border_color_label = __( 'Border Color', 'responsive' );
+            $wp_customize->add_control(
+                new Responsive_Customizer_Color_Control(
+                    $wp_customize,
+                    'responsive_' . 'header_toggle_button_border' . '_color',
+                    array(
+                        'label'            => $header_toggle_button_border_color_label,
+                        'section'          => 'responsive_header_toggle_button',
+                        'is_hover_required'=> false,
+                        'settings'         => 'responsive_mobile_menu_toggle_border_color',
+                        'priority'         => 12,
+                        'active_callback'  => null,
+                        'description'      => '',
+                        'is_gradient_available'  => false,
+                        'gradient_element' => null,
+                        'gradient_default' => null,
+                    )
+                )
+            );
 
             // Background Color - Design Tab
             $header_toggle_button_background_color_label = __( 'Background Color', 'responsive' );
-            responsive_color_control( $wp_customize, 'header_toggle_button_background', $header_toggle_button_background_color_label, 'responsive_header_toggle_button', 15, '#2271B1', );
+            $wp_customize->add_control(
+                new Responsive_Customizer_Color_Control(
+                    $wp_customize,
+                    'responsive_' . 'header_toggle_button_background' . '_color',
+                    array(
+                        'label'            => $header_toggle_button_background_color_label,
+                        'section'          => 'responsive_header_toggle_button',
+                        'is_hover_required'=> false,
+                        'settings'         => 'responsive_header_menu_toggle_background_color',
+                        'priority'         => 15,
+                        'active_callback'  => null,
+                        'description'      => '',
+                        'is_gradient_available'  => false,
+                        'gradient_element' => null,
+                        'gradient_default' => null,
+                    )
+                )
+            );
 
             // Horizontal Separator - Design Tab
             responsive_horizontal_separator_control( $wp_customize, 'header_toggle_button_background_color_separator', 1, 'responsive_header_toggle_button', 20, 1);
             
+            // Icon Size - Design Tab
+            responsive_drag_number_control( $wp_customize, 'header_toggle_button_icon_size', __( 'Icon Size', 'responsive'), 'responsive_header_toggle_button', 22, 44, null, 100, 0, 'refresh');
+
             // Border Radius - Design Tab
             $header_toggle_button_border_radius_label = __( 'Border Radius (px)', 'responsive' );
             responsive_padding_control( $wp_customize, 'header_toggle_button_border_radius', 'responsive_header_toggle_button', 30, 0, 0, null, $header_toggle_button_border_radius_label );
             
             // Font Size - Design Tab
             $header_toggle_button_font_size_label = __( 'Font Size (px)', 'responsive' );
-            responsive_drag_number_control( $wp_customize, 'header_toggle_button_font_size', $header_toggle_button_font_size_label, 'responsive_header_toggle_button', 40, 14, null, 200, 1, 'postMessage' );
+            $wp_customize->add_control(
+                new Responsive_Customizer_Range_Control(
+                    $wp_customize, 
+                    'responsive_hamburger_menu_label_font_size_toggle_button',
+                    array(
+                        'label'     => $header_toggle_button_font_size_label,
+                        'section'   => 'responsive_header_toggle_button',
+                        'settings'  => 'responsive_hamburger_menu_label_font_size', 
+                        'priority'  => 40, 
+                        'active_callback' => null, 
+                        'input_attrs'     => array(
+                            'min' => 0, 
+                            'max' => 200, 
+                            'step' => 1
+                        )
+                    )
+                )
+                        );
 
             // Spacing Separator - Design
             $off_canvas_menu_spacing_separator_label = __( 'Spacing', 'responsive' );
@@ -124,18 +191,18 @@ if( ! class_exists( 'Responsive_Header_Toggle_Button_Customizer' ) ) {
                 $tab_ids_prefix . 'responsive_header_toggle_button_background_color',
                 $tab_ids_prefix . 'responsive_header_toggle_button_background_color_separator',
                 $tab_ids_prefix . 'responsive_header_toggle_button_border_radius_padding',
-                $tab_ids_prefix . 'responsive_header_toggle_button_font_size',
+                $tab_ids_prefix . 'responsive_hamburger_menu_label_font_size_toggle_button',
                 $tab_ids_prefix . 'responsive_header_toggle_button_spacing_separator',
                 $tab_ids_prefix . 'responsive_header_toggle_button_margin_padding',
-
+                $tab_ids_prefix . 'responsive_header_toggle_button_icon_size',
+                $tab_ids_prefix . 'responsive_header_toggle_button_border_color'
             ); 
+
             $general_tab_ids = array(
                 $tab_ids_prefix . 'responsive_header_toggle_button_style',
                 $tab_ids_prefix . 'responsive_header_toggle_button_style_separator',
-                $tab_ids_prefix . 'responsive_header_toggle_button_menu_label',
+                $tab_ids_prefix . 'responsive_hamburger_menu_label_text_toggle_button',
                 $tab_ids_prefix . 'responsive_header_toggle_button_icon'
-
-                 
             );
 
             responsive_tabs_button_control( $wp_customize, 'header_toggle_button_tabs', $tabs_label, 'responsive_header_toggle_button', 5, '', 'responsive_header_toggle_button_general_tab', 'responsive_header_toggle_button_design_tab', $general_tab_ids, $design_tab_ids, null);

@@ -2060,7 +2060,6 @@ function responsive_customizer_styles() {
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			margin: auto;
     		top: calc(16px * 1.75 * 0.575);
     		right: 15px;
     		height: calc(16px * 1.75 * 1.75);
@@ -2749,13 +2748,11 @@ function responsive_customizer_styles() {
 				.main-navigation.toggled .menu-toggle{
 					background-color:{$header_menu_toggle_background_color};
 					border: none;
-					border-radius: {$mobile_menu_border_radius}px;
 					margin: 0;
 				}
 				.main-navigation .menu-toggle{
 					background-color: {$header_menu_toggle_background_color} ;
 					border:none;
-					border-radius: {$mobile_menu_border_radius}px;
 				}
 
 			}";
@@ -2782,7 +2779,6 @@ function responsive_customizer_styles() {
 					border-style: solid;
 					border-width: 1px;
 					border-color:{$mobile_menu_toggle_border_color };
-					border-radius: {$mobile_menu_border_radius}px;
 					margin: 0;
 
 				}
@@ -2791,7 +2787,6 @@ function responsive_customizer_styles() {
 					border-style: solid;
 					border-width: 1px;
 					border-color:{$mobile_menu_toggle_border_color };
-					border-radius: {$mobile_menu_border_radius}px;
 				}
 				.main-navigation {
 					background-color: {$header_background_color};
@@ -2824,6 +2819,106 @@ function responsive_customizer_styles() {
 			}
 		}
 		";
+	}
+
+	// Mobile Menu CSS coming because of Toggle Button
+	if ( \Responsive\Core\responsive_check_element_in_mobile_tablet_items('toggle_button', 'header'))
+	{
+		// removing the stroke from the toggle button SVG 
+		$custom_css .= "
+			.menu-toggle svg rect:first-child{
+				stroke: none;
+			}
+		";
+
+		// Applying the Icon color and Icon Size
+		$header_mobile_tablet_menu_icon_color = get_theme_mod( 'responsive_header_toggle_button_icon_color', '#8F8F8F' );
+		$header_mobile_tablet_menu_icon_size  = get_theme_mod( 'responsive_header_toggle_button_icon_size', 22);
+
+		$custom_css .= "
+			.menu-toggle svg > *:not(:first-child) {
+				fill: {$header_mobile_tablet_menu_icon_color};
+			}
+		";
+		$custom_css .= "
+			.menu-toggle svg {
+				height : {$header_mobile_tablet_menu_icon_size}px;
+				width : {$header_mobile_tablet_menu_icon_size}px;
+			}
+		";
+
+		$header_mobile_tablet_toggle_style = get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill');
+		if( $header_mobile_tablet_toggle_style === 'fill')
+		{
+			// then only set the fill color of the first child of SVG logo as the bg color of toggle icon
+			$custom_css .= "
+				.menu-toggle svg rect:first-child{
+					fill : {$header_menu_toggle_background_color};
+				}
+				.menu-toggle svg circle:first-child{
+					fill : {$header_menu_toggle_background_color};
+				}
+			";
+		}
+
+		// Taking the Border Radius Value in case toggle style is not minimal
+		if( $header_mobile_tablet_toggle_style !== 'minimal' )
+		{
+			// Tablet Borders
+			$hmt_toggle_tablet_border_top    = get_theme_mod( 'responsive_header_toggle_button_border_radius_tablet_top_padding', 0);
+			$hmt_toggle_tablet_border_right  = get_theme_mod( 'responsive_header_toggle_button_border_radius_tablet_right_padding', 0);
+			$hmt_toggle_tablet_border_bottom = get_theme_mod( 'responsive_header_toggle_button_border_radius_tablet_bottom_padding', 0);
+			$hmt_toggle_tablet_border_left   = get_theme_mod( 'responsive_header_toggle_button_border_radius_tablet_left_padding', 0); 
+
+			// Mobile Borders
+			$hmt_toggle_mobile_border_top    = get_theme_mod( 'responsive_header_toggle_button_border_radius_mobile_top_padding', 0);
+			$hmt_toggle_mobile_border_right  = get_theme_mod( 'responsive_header_toggle_button_border_radius_mobile_right_padding', 0);
+			$hmt_toggle_mobile_border_bottom = get_theme_mod( 'responsive_header_toggle_button_border_radius_mobile_bottom_padding', 0);
+			$hmt_toggle_mobile_border_left   = get_theme_mod( 'responsive_header_toggle_button_border_radius_mobile_left_padding', 0); 
+			
+			$custom_css .= "
+				@media (max-width:{$mobile_menu_breakpoint}px) {
+					.main-navigation .menu-toggle{
+						border-radius : {$hmt_toggle_tablet_border_top}px {$hmt_toggle_tablet_border_right}px {$hmt_toggle_tablet_border_bottom}px {$hmt_toggle_tablet_border_left}px;
+					}
+				}
+			";
+			
+			$custom_css .= "
+				@media (max-width:544px) {
+					.main-navigation .menu-toggle{
+						border-radius : {$hmt_toggle_mobile_border_top}px {$hmt_toggle_mobile_border_right}px {$hmt_toggle_mobile_border_bottom}px {$hmt_toggle_mobile_border_left}px;
+					}
+				}
+			";
+		}
+
+		// Taking the Margin Values around the toggle button
+		$hmt_toggle_tablet_margin_top = get_theme_mod( 'responsive_header_toggle_button_margin_tablet_top_padding', 0);
+		$hmt_toggle_tablet_margin_right = get_theme_mod( 'responsive_header_toggle_button_margin_tablet_right_padding', 0);
+		$hmt_toggle_tablet_margin_bottom = get_theme_mod( 'responsive_header_toggle_button_margin_tablet_bottom_padding', 0);
+		$hmt_toggle_tablet_margin_left = get_theme_mod( 'responsive_header_toggle_button_margin_tablet_left_padding', 0);
+		$hmt_toggle_mobile_margin_top = get_theme_mod( 'responsive_header_toggle_button_margin_mobile_top_padding', 0);
+		$hmt_toggle_mobile_margin_right = get_theme_mod( 'responsive_header_toggle_button_margin_mobile_right_padding', 0);
+		$hmt_toggle_mobile_margin_bottom = get_theme_mod( 'responsive_header_toggle_button_margin_mobile_bottom_padding', 0);
+		$hmt_toggle_mobile_margin_left = get_theme_mod( 'responsive_header_toggle_button_margin_mobile_left_padding', 0);
+		
+		$custom_css .= "
+				@media (max-width:{$mobile_menu_breakpoint}px) {
+					.main-navigation .menu-toggle{
+						margin : {$hmt_toggle_tablet_margin_top}px {$hmt_toggle_tablet_margin_right}px {$hmt_toggle_tablet_margin_bottom}px {$hmt_toggle_tablet_margin_left}px;
+					}
+				}
+		";
+			
+		$custom_css .= "
+			@media (max-width:544px) {
+				.main-navigation .menu-toggle{
+					margin : {$hmt_toggle_mobile_margin_top}px {$hmt_toggle_mobile_margin_right}px {$hmt_toggle_mobile_margin_bottom}px {$hmt_toggle_mobile_margin_left}px;
+				}
+			}
+		";
+
 	}
 
 	// Sub-menu Container Top Offset.

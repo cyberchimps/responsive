@@ -796,6 +796,7 @@
     api( 'responsive_header_menu_toggle_background_color', function( value ) {
         value.bind( function( newval ) {
             $('.main-navigation .menu-toggle').css('background-color', newval );
+            $('.menu-toggle svg rect:first-child, .menu-toggle svg circle:first-child ').css('fill',newval);
         } );
     } );
 
@@ -2838,5 +2839,14 @@
             });
         });
     }
+    // For Mobile Toggle Button Icon Color
+    wp.customize('responsive_header_toggle_button_icon_color', function (val) {
+        val.bind(function (newval) {
 
+            // Target all children EXCEPT the first (rect/circle/path/etc.)
+            jQuery('.menu-toggle svg')
+                .children(':not(:first-child)')
+                .css('fill', newval);
+        });
+    });
 } )( jQuery );

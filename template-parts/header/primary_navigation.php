@@ -21,9 +21,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 			} else {
 				$hamburger_menu_label = '';
 			}
+			// Check if toggle button is present in mobile header builder
+			$show_hamburger_toggle = false;
+			$svg_markup = '';
+			if ( function_exists( '\Responsive\Core\responsive_check_element_in_mobile_tablet_items' ) )
+			{
+				$show_hamburger_toggle = \Responsive\Core\responsive_check_element_in_mobile_tablet_items('toggle_button', 'header');
+			}
+			if( $show_hamburger_toggle )
+			{
+				// Get the toggle icon 
+				$toggle_button_icon  = get_theme_mod(
+					'responsive_header_toggle_button_icon',
+					Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_toggle_button_icon' )
+				);
+				// Load inline SVG markup and remove stroke/outline
+				$svg_markup = Responsive\Core\responsive_get_svg_inline( esc_attr( $toggle_button_icon ) );
+			
+			
 			?>
-			<button class="menu-toggle" aria-controls="header-menu" aria-expanded="false"><i class="icon-bars"></i><span class="hamburger-menu-label"><?php printf( esc_html( $hamburger_menu_label ) ); ?></span><span class="screen-reader-text"><?php esc_html_e( 'Menu', 'responsive' ); ?></span></button>
-
+			
+			<button class="menu-toggle" aria-controls="header-menu" aria-expanded="false"><?php echo $svg_markup; ?><span class="hamburger-menu-label"><?php printf( esc_html( $hamburger_menu_label ) ); ?></span><span class="screen-reader-text"><?php esc_html_e( 'Menu', 'responsive' ); ?></span></button>
+			<?php } ?>
 			<?php
 			$disable_menu = get_theme_mod( 'responsive_disable_menu', 0 );
 

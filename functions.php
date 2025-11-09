@@ -478,17 +478,17 @@ function responsive_edit_customize_register( $wp_customize ) {
 			'selector' => '.responsive-date-box',
 		)
 	);
-	$wp_customize->selective_refresh->add_partial(
-		'responsive_hamburger_menu_label_text',
-		array(
-			'selector'            => '.hamburger-menu-label',
-			'container_inclusive' => false,
-			'render_callback'     => function() {
-				printf( esc_html( responsive_hamburger_menu_label() ) );
-			},
-			'fallback_refresh'    => true,
-		)
-	);
+	// $wp_customize->selective_refresh->add_partial(
+	// 	'responsive_hamburger_menu_label_text',
+	// 	array(
+	// 		'selector'            => '.hamburger-menu-label',
+	// 		'container_inclusive' => false,
+	// 		'render_callback'     => function() {
+	// 			printf( esc_html( responsive_hamburger_menu_label() ) );
+	// 		},
+	// 		'fallback_refresh'    => true,
+	// 	)
+	// );
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_hamburger_off_canvas_btn_label_text',
 		array(

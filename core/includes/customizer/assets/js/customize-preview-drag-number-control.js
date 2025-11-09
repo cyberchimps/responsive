@@ -928,4 +928,11 @@
         });
     });
 
+    // Mobile Header
+    api( 'responsive_header_toggle_button_icon_size', function(value) {
+        value.bind(function(newval) {
+            jQuery('.menu-toggle svg').css({'height' : newval+'px', 'width' : newval+'px'});
+        })
+    })
+
 } )( jQuery );

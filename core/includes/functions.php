@@ -2203,6 +2203,30 @@ function responsive_check_for_element($component, $haystack) {
 	return false;
 }
 /**
+ * Check if toggle_button is present in mobile_tablet_items.
+ *
+ * @return bool True if toggle_button is present in mobile_tablet_items, false otherwise.
+ */
+function responsive_check_element_in_mobile_tablet_items($component, $builder_type) {
+	$mobile_tablet_items = get_theme_mod( 'responsive_header_mobile_tablet_items', get_responsive_customizer_defaults( 'responsive_header_mobile_tablet_items' ) );
+	if ( empty( $mobile_tablet_items ) || ! is_array( $mobile_tablet_items ) ) {
+		return false;
+	}
+	return responsive_check_for_element( $component, $mobile_tablet_items );
+}
+/**
+ * Load raw SVG markup from a file.
+ */
+function responsive_get_svg_inline( $filename ) {
+	$path = get_template_directory() . '/core/includes/customizer/assets/images/' . $filename . '.svg';
+
+	if ( file_exists( $path ) ) {
+		return file_get_contents( $path ); // Returns raw SVG markup
+	}
+
+	return ''; // fallback if file not found
+}
+/**
  * Refresh the cart for ajax adds.
  *
  * @param object $fragments the cart object.
