@@ -2553,7 +2553,8 @@ function responsive_customizer_styles() {
 			.mobile-menu-style-sidebar .main-navigation.toggled {
 			    background-color: {$header_mobile_menu_background_color};
 				height: 100%;
-				left: 0;
+				right: 0;
+				left : auto;
 			    overflow-y: scroll;
 				padding: 15px;
 				position: fixed;
@@ -2918,6 +2919,45 @@ function responsive_customizer_styles() {
 				}
 			}
 		";
+
+
+		// Applying OFF Canvas Panel Styles
+		// Content Alignment
+		$off_canvas_panel_content_alignment = get_theme_mod( 'responsive_header_mobile_off_canvas_content_alignment', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_mobile_off_canvas_content_alignment' ) );
+		$item_aligner = 'flex-start'; 
+		if($off_canvas_panel_content_alignment === 'center') 
+		{
+			$item_aligner = 'center';
+		}
+		else if($off_canvas_panel_content_alignment === 'right')
+		{
+			$item_aligner = 'flex-end';
+		}
+		$custom_css .= "
+			.nav-menu li {
+				display : flex; 
+				justify-content: {$item_aligner};
+			}
+		";
+
+		// Move Body - Applying this style only if Header Type is Dropdown
+
+		$off_canvas_panel_move_body = get_theme_mod( 'responsive_header_mobile_off_canvas_move_body', 0);
+		if( $mobile_menu_style === 'dropdown' )
+		{
+			if($off_canvas_panel_move_body == 0)
+			{
+				error_log("inside the joke panel");
+				$custom_css .= "@media (max-width:{$mobile_menu_breakpoint}px) {
+					.main-navigation.toggled #header-menu {
+						position: absolute;
+						width: 100%;
+						background-color: {$header_mobile_menu_background_color};
+						left: 0;
+					}
+				}";
+			}
+		}
 
 	}
 

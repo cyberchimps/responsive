@@ -103,45 +103,11 @@ if( ! class_exists( 'Responsive_Header_Toggle_Button_Customizer' ) ) {
             
             // Border Color - Design Tab
             $header_toggle_button_border_color_label = __( 'Border Color', 'responsive' );
-            $wp_customize->add_control(
-                new Responsive_Customizer_Color_Control(
-                    $wp_customize,
-                    'responsive_' . 'header_toggle_button_border' . '_color',
-                    array(
-                        'label'            => $header_toggle_button_border_color_label,
-                        'section'          => 'responsive_header_toggle_button',
-                        'is_hover_required'=> false,
-                        'settings'         => 'responsive_mobile_menu_toggle_border_color',
-                        'priority'         => 12,
-                        'active_callback'  => null,
-                        'description'      => '',
-                        'is_gradient_available'  => false,
-                        'gradient_element' => null,
-                        'gradient_default' => null,
-                    )
-                )
-            );
+            responsive_color_control( $wp_customize, 'mobile_menu_toggle_border', $header_toggle_button_border_color_label, 'responsive_header_toggle_button', 12, Responsive\Core\get_responsive_customizer_defaults( 'mobile_menu_toggle_border_color' ), 'responsive_toggle_border_color' );
 
             // Background Color - Design Tab
             $header_toggle_button_background_color_label = __( 'Background Color', 'responsive' );
-            $wp_customize->add_control(
-                new Responsive_Customizer_Color_Control(
-                    $wp_customize,
-                    'responsive_' . 'header_toggle_button_background' . '_color',
-                    array(
-                        'label'            => $header_toggle_button_background_color_label,
-                        'section'          => 'responsive_header_toggle_button',
-                        'is_hover_required'=> false,
-                        'settings'         => 'responsive_header_menu_toggle_background_color',
-                        'priority'         => 15,
-                        'active_callback'  => null,
-                        'description'      => '',
-                        'is_gradient_available'  => false,
-                        'gradient_element' => null,
-                        'gradient_default' => null,
-                    )
-                )
-            );
+            responsive_color_control( $wp_customize, 'header_menu_toggle_background', $header_toggle_button_background_color_label, 'responsive_header_toggle_button', 15, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_toggle_background' ), 'responsive_disabled_mobile_menu' );
 
             // Horizontal Separator - Design Tab
             responsive_horizontal_separator_control( $wp_customize, 'header_toggle_button_background_color_separator', 1, 'responsive_header_toggle_button', 20, 1);
@@ -188,14 +154,14 @@ if( ! class_exists( 'Responsive_Header_Toggle_Button_Customizer' ) ) {
             $tab_ids_prefix = 'customize-control-';
             $design_tab_ids = array(
                 $tab_ids_prefix . 'responsive_header_toggle_button_icon_color',
-                $tab_ids_prefix . 'responsive_header_toggle_button_background_color',
+                $tab_ids_prefix . 'responsive_header_menu_toggle_background_color',
                 $tab_ids_prefix . 'responsive_header_toggle_button_background_color_separator',
                 $tab_ids_prefix . 'responsive_header_toggle_button_border_radius_padding',
                 $tab_ids_prefix . 'responsive_hamburger_menu_label_font_size_toggle_button',
                 $tab_ids_prefix . 'responsive_header_toggle_button_spacing_separator',
                 $tab_ids_prefix . 'responsive_header_toggle_button_margin_padding',
                 $tab_ids_prefix . 'responsive_header_toggle_button_icon_size',
-                $tab_ids_prefix . 'responsive_header_toggle_button_border_color'
+                $tab_ids_prefix . 'responsive_mobile_menu_toggle_border_color'
             ); 
 
             $general_tab_ids = array(

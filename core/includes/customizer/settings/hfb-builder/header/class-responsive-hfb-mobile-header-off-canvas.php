@@ -45,12 +45,12 @@ if( ! class_exists( 'Responsive_HFB_Mobile_Header_Off_Canvas' ) ) {
             // Header Type : Flyout, Full-Screen, Dropdown
             $header_off_canvas_header_type_label = __('Header Type', 'responsive' );
             $header_off_canvas_header_type_choices = array(
-                'flyout'        => esc_html__( 'Flyout', 'responsive' ),
-                'full-screen'   => esc_html__( 'Full-Screen', 'responsive' ),
                 'dropdown'      => esc_html__( 'Dropdown', 'responsive' ),
+                'fullscreen'   => esc_html__( 'Full-Screen', 'responsive' ),
+                'sidebar'        => esc_html__( 'Flyout', 'responsive' ),
             );
 
-            responsive_select_button_control( $wp_customize, 'header_mobile_off_canvas_header_type', $header_off_canvas_header_type_label, 'responsive_header_mobile_off_canvas', 10, $header_off_canvas_header_type_choices, 'flyout', null, 'postMessage' );
+            responsive_select_button_control( $wp_customize, 'mobile_menu_style', $header_off_canvas_header_type_label, 'responsive_header_mobile_off_canvas', 10, $header_off_canvas_header_type_choices, 'dropdown', null );
 
             // Horizontal Separator
             responsive_horizontal_separator_control( $wp_customize, 'header_mobile_off_canvas_header_type_horizontal_separator', 1, 'responsive_header_mobile_off_canvas', 11, 1, );
@@ -80,21 +80,23 @@ if( ! class_exists( 'Responsive_HFB_Mobile_Header_Off_Canvas' ) ) {
                 'center'    => esc_html__( 'Center', 'responsive' ),
                 'right'     => esc_html__( 'Right', 'responsive' ),
             );
-            responsive_select_button_control( $wp_customize, 'header_mobile_off_canvas_content_alignment', $header_off_canvas_content_alignment_label, 'responsive_header_mobile_off_canvas', 20, $header_off_canvas_content_alignment_choices, 'left', null, 'postMessage' );
+            responsive_select_button_control( $wp_customize, 'header_mobile_off_canvas_content_alignment', $header_off_canvas_content_alignment_label, 'responsive_header_mobile_off_canvas', 20, $header_off_canvas_content_alignment_choices, 'left', null, 'refresh' );
 
             // Background Color - Design Tab 
-            responsive_color_control( $wp_customize, 'header_mobile_off_canvas_bg', __( 'Background Color', 'responsive' ), 'responsive_header_mobile_off_canvas', 10, '#FFFFFF', null, );
+            $mobile_menu_background_color_label = __( 'Mobile Menu Background Color', 'responsive' );
+            responsive_color_control( $wp_customize, 'header_mobile_menu_background', $mobile_menu_background_color_label, 'responsive_header_mobile_off_canvas', 10, Responsive\Core\get_responsive_customizer_defaults( 'header_mobile_menu_background' ) );
+            
             // Inner Element Spacing - Design Tab
             responsive_drag_number_control( $wp_customize, 'header_mobile_off_canvas_inner_element_spacing', __( 'Inner Element Spacing', 'responsive' ), 'responsive_header_mobile_off_canvas', 15, 255, null, 500, 1, 'postMessage' );
 
             $tabs_label = esc_html__('Tabs', 'responsive' );
             $tab_ids_prefix = 'customize-control-';
             $design_tab_ids = array(
-                $tab_ids_prefix . 'responsive_header_mobile_off_canvas_bg_color',
+                $tab_ids_prefix . 'responsive_header_mobile_menu_background_color',
                 $tab_ids_prefix . 'responsive_header_mobile_off_canvas_inner_element_spacing',
             ); 
             $general_tab_ids = array(
-                $tab_ids_prefix . 'responsive_header_mobile_off_canvas_header_type',
+                $tab_ids_prefix . 'responsive_mobile_menu_style',
                 $tab_ids_prefix . 'responsive_header_mobile_off_canvas_dropdown_target',
                 $tab_ids_prefix . 'responsive_header_mobile_off_canvas_content_alignment',
                 $tab_ids_prefix . 'responsive_header_mobile_off_canvas_move_body',

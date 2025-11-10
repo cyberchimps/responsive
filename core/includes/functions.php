@@ -1392,6 +1392,7 @@ function defaults() {
 			'responsive_header_contact_info_font_hover_color'         => '#216BDB',
 			'responsive_header_contact_info_margin_y'                 => 0,
 			'responsive_header_contact_info_margin_x'                 => 0,
+			'responsive_header_mobile_off_canvas_content_alignment'   => 'left',
 			'responsive_footer_items'     					          => array(
 																			'above' => array(
 																				'above_1' => array(),

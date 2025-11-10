@@ -1741,3 +1741,35 @@ if( ! function_exists( 'responsive_theme_background_updater_content_boxed_flat_p
 	}
 
 }
+
+if( ! function_exists( 'responsive_theme_background_updater_menu_button_radius_deprecation_6_2_9' )) {
+	/**
+	 * Handle backward compatibility for existing users who are using flat or content boxes layouts 
+	 * We need to adjust the padding and margin for the product cards in woocommerce shop page
+	 * @since 6.2.7
+	 * @return void
+	 */
+	function responsive_theme_background_updater_menu_button_radius_deprecation_6_2_9(){
+		$responsive_options = Responsive\Core\responsive_get_options();
+		if( !isset( $responsive_options['menu_button_radius_deprecation'])) {
+			$menu_button_radius = get_theme_mod( 'responsive_menu_button_radius', 'false' );
+			if( $menu_button_radius!= false )
+			{
+				set_theme_mod( 'responsive_header_toggle_button_border_radius_tablet_left_padding', $menu_button_radius ); 
+				get_theme_mod( 'responsive_header_toggle_button_border_radius_tablet_right_padding', $menu_button_radius );
+				get_theme_mod( 'responsive_header_toggle_button_border_radius_tablet_bottom_padding', $menu_button_radius );
+				get_theme_mod( 'responsive_header_toggle_button_border_radius_tablet_left_padding', $menu_button_radius ); 
+				get_theme_mod( 'responsive_header_toggle_button_border_radius_mobile_top_padding', $menu_button_radius );
+				get_theme_mod( 'responsive_header_toggle_button_border_radius_mobile_right_padding', $menu_button_radius );
+				get_theme_mod( 'responsive_header_toggle_button_border_radius_mobile_bottom_padding', $menu_button_radius );
+				get_theme_mod( 'responsive_header_toggle_button_border_radius_mobile_left_padding', $menu_button_radius ); 
+			}
+
+			$responsive_options['menu_button_radius_deprecation'] = true;
+            update_option( 'responsive_theme_options', $responsive_options );
+			
+		}
+	}
+
+}
+
