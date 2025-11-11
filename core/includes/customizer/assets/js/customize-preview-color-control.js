@@ -639,7 +639,7 @@
                 jQuery( 'head' ).append(
                     '<style id="responsive-header-mobile-menu-background-color">'
                     + '@media screen and (max-width: ' + mobileBreakPoint + ') {'
-                    + '.site-header-row .main-navigation.toggled,.site-header-row .main-navigation.toggled .main-navigation-wrapper { background-color: ' + color + ' !important; }'
+                    + '.site-header-row .main-navigation.toggled,.site-header-row .main-navigation.toggled .main-navigation-wrapper, .main-navigation.toggled #header-menu { background-color: ' + color + ' !important; }'
                     + '} </style>'
                 );
             }

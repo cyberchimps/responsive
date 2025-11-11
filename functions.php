@@ -1744,9 +1744,9 @@ if( ! function_exists( 'responsive_theme_background_updater_content_boxed_flat_p
 
 if( ! function_exists( 'responsive_theme_background_updater_menu_button_radius_deprecation_6_2_9' )) {
 	/**
-	 * Handle backward compatibility for existing users who are using flat or content boxes layouts 
-	 * We need to adjust the padding and margin for the product cards in woocommerce shop page
-	 * @since 6.2.7
+	 * Handle backward compatibility for users who had set up border radius for toggle button through
+	 * the settings in Primary Menu as its deprecated and new control and settings are added.
+	 * @since 6.2.9
 	 * @return void
 	 */
 	function responsive_theme_background_updater_menu_button_radius_deprecation_6_2_9(){

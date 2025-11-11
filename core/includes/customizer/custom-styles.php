@@ -2947,9 +2947,9 @@ function responsive_customizer_styles() {
 		{
 			if($off_canvas_panel_move_body == 0)
 			{
-				error_log("inside the joke panel");
 				$custom_css .= "@media (max-width:{$mobile_menu_breakpoint}px) {
-					.main-navigation.toggled #header-menu {
+					.main-navigation.toggled #header-menu,
+					.main-navigation.toggled #header-menu-mobile {
 						position: absolute;
 						width: 100%;
 						background-color: {$header_mobile_menu_background_color};
@@ -2957,6 +2957,35 @@ function responsive_customizer_styles() {
 					}
 				}";
 			}
+		}
+
+		// Show/hide menus based on breakpoints when both header-menu and off-canvas-menu exist
+		// Only apply these styles when both menus are rendered (both have the respective classes)
+		// Desktop: Show header-menu-desktop, hide header-menu-mobile
+		// Mobile/Tablet: Hide header-menu-desktop, show header-menu-mobile
+		$has_off_canvas_menu = has_nav_menu( 'off-canvas-menu' );
+		$has_header_menu = has_nav_menu( 'header-menu' );
+		
+		if ( $has_off_canvas_menu && $has_header_menu ) {
+			$custom_css .= "@media (min-width:" . ($mobile_menu_breakpoint + 1) . "px) {
+				.main-navigation .header-menu-mobile {
+					display: none !important;
+				}
+				.main-navigation .header-menu-desktop {
+					display: block;
+				}
+			}
+			@media (max-width:{$mobile_menu_breakpoint}px) {
+				.main-navigation .header-menu-desktop {
+					display: none !important;
+				}
+				.main-navigation .header-menu-mobile {
+					display: block;
+				}
+				.main-navigation:not(.toggled) .header-menu-mobile {
+					display: none;
+				}
+			}";
 		}
 
 	}
@@ -3995,6 +4024,83 @@ function responsive_customizer_styles() {
 		}
 		.site-header-focus-item > .customize-partial-edit-shortcut button {
 			left: 0;
+		}
+
+		/* Mobile Header Row Styles - Items in same row displayed horizontally */
+		.site-mobile-header-row {
+			display: grid;
+			grid-template-columns: auto auto;
+			overflow-wrap: anywhere;
+			gap: 0;
+		}
+		.site-mobile-header-row.site-mobile-header-row-center-column {
+			grid-template-columns: 1fr auto 1fr;
+		}
+		.site-mobile-header-section {
+			display: flex;
+			max-height: inherit;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 8px;
+			min-width: 0;
+		}
+		.site-mobile-header-section-left {
+			justify-content: flex-start;
+		}
+		.site-mobile-header-section-right {
+			justify-content: flex-end;
+		}
+		.site-mobile-header-section-center {
+			justify-content: center;
+		}
+		.site-mobile-header-section-left-center,
+		.site-mobile-header-section-right-center {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 8px;
+		}
+		/* Ensure items within sections are displayed inline */
+		.site-mobile-header-section .site-header-item {
+			display: inline-flex;
+			align-items: center;
+			flex-shrink: 0;
+			max-height: inherit;
+			margin: 0;
+			min-width: 0;
+			flex: 0 0 auto;
+		}
+		/* Spacing between items in the same section */
+		.site-mobile-header-section > .site-header-item:not(:last-child) {
+			margin-right: 10px;
+		}
+		.site-mobile-header-section-left-center > .site-header-item:not(:last-child),
+		.site-mobile-header-section-right-center > .site-header-item:not(:last-child) {
+			margin-right: 10px;
+		}
+		/* Ensure row container doesn't break layout */
+		.site-mobile-header-row-container-inner {
+			width: 100%;
+		}
+		.site-mobile-header-row-container-inner .container {
+			width: 100%;
+		}
+		/* Prevent items from breaking to new line unless absolutely necessary */
+		@media screen and (max-width: 767px) {
+			.site-mobile-header-section {
+				flex-wrap: nowrap;
+				overflow-x: auto;
+				-webkit-overflow-scrolling: touch;
+				scrollbar-width: none;
+			}
+			.site-mobile-header-section::-webkit-scrollbar {
+				display: none;
+			}
+			/* Allow wrapping only if items are too wide */
+			.site-mobile-header-section.site-mobile-header-section-left,
+			.site-mobile-header-section.site-mobile-header-section-right {
+				flex-wrap: wrap;
+			}
 		}
 	";
 	$hfb_header_above_row_visibility = get_theme_mod( 'responsive_header_above_row_visibility', array( 'desktop', 'tablet', 'mobile' ) );
@@ -5894,6 +6000,216 @@ function responsive_customizer_styles() {
 		}
 	}
 
+	// Header visibility based on device type
+	// Show desktop header on screens wider than 992px, hide on mobile/tablet
+	// Show mobile/tablet header on screens 992px and below, hide on desktop
+	$custom_css .= "
+	.responsive-desktop-header-wrapper {
+		display: block;
+	}
+	.responsive-mobile-header-wrapper {
+		display: none;
+	}
+	@media screen and ( max-width: 992px ) {
+		.responsive-desktop-header-wrapper {
+			display: none;
+		}
+		.responsive-mobile-header-wrapper {
+			display: block;
+		}
+	}
+	";
+	
+	// Off-Canvas Panel Styles - Only visible on mobile/tablet
+	// Hide off-canvas panel on desktop by default
+	$custom_css .= "
+	.responsive-off-canvas-panel,
+	.responsive-off-canvas-overlay {
+		display: none;
+	}
+	";
+	
+	// Show and style off-canvas panel on mobile/tablet only when toggle button exists
+	if ( function_exists( '\Responsive\Core\responsive_check_element_in_mobile_tablet_items' ) && \Responsive\Core\responsive_check_element_in_mobile_tablet_items( 'toggle_button', 'header' ) ) {
+		// Get mobile menu settings (these should already be defined above in the file)
+		$off_canvas_mobile_menu_breakpoint = esc_html( get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
+		$off_canvas_mobile_menu_style = get_theme_mod( 'responsive_mobile_menu_style', 'dropdown' );
+		$off_canvas_header_mobile_menu_background_color = esc_html( get_theme_mod( 'responsive_header_mobile_menu_background', Responsive\Core\get_responsive_customizer_defaults( 'header_mobile_menu_background' ) ) );
+		
+		$custom_css .= "
+		@media screen and ( max-width: {$off_canvas_mobile_menu_breakpoint}px ) {
+			.responsive-off-canvas-panel {
+				display: block;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 999999;
+				background-color: {$off_canvas_header_mobile_menu_background_color};
+				overflow-y: auto;
+				opacity: 0;
+				visibility: hidden;
+				transition: opacity 0.3s ease, visibility 0.3s ease;
+				pointer-events: none;
+			}
+			.responsive-off-canvas-panel.active {
+				opacity: 1;
+				visibility: visible;
+				pointer-events: auto;
+			}
+			.responsive-off-canvas-panel-inner {
+				padding: 20px;
+				min-height: 100%;
+			}
+			.responsive-off-canvas-overlay {
+				display: block;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.5);
+				z-index: 999998;
+				opacity: 0;
+				visibility: hidden;
+				transition: opacity 0.3s ease, visibility 0.3s ease;
+				pointer-events: none;
+			}
+			.responsive-off-canvas-overlay.active {
+				opacity: 1;
+				visibility: visible;
+				pointer-events: auto;
+			}
+			.responsive-off-canvas-close {
+				position: absolute;
+				top: 15px;
+				right: 15px;
+				background: transparent;
+				border: none;
+				color: #333;
+				font-size: 24px;
+				cursor: pointer;
+				z-index: 1000000;
+				padding: 10px;
+				line-height: 1;
+			}
+			.responsive-off-canvas-close:hover {
+				opacity: 0.7;
+			}
+		}
+		";
+		
+		// Style based on menu type
+		if ( 'sidebar' === $off_canvas_mobile_menu_style ) {
+			$custom_css .= "
+			@media screen and ( max-width: {$off_canvas_mobile_menu_breakpoint}px ) {
+				.responsive-off-canvas-panel.responsive-off-canvas-panel-sidebar {
+					left: auto;
+					right: 0;
+					width: 300px;
+					transform: translateX(100%);
+					transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+				}
+				.responsive-off-canvas-panel.responsive-off-canvas-panel-sidebar.active {
+					transform: translateX(0);
+				}
+			}
+			";
+		} elseif ( 'fullscreen' === $off_canvas_mobile_menu_style ) {
+			$custom_css .= "
+			@media screen and ( max-width: {$off_canvas_mobile_menu_breakpoint}px ) {
+				.responsive-off-canvas-panel.responsive-off-canvas-panel-fullscreen {
+					width: 100%;
+					height: 100%;
+				}
+			}
+			";
+		} else {
+			// dropdown style - panel appears below header, positioned relative to header
+			$custom_css .= "
+			@media screen and ( max-width: {$off_canvas_mobile_menu_breakpoint}px ) {
+				#masthead-mobile {
+					position: relative;
+				}
+				.responsive-off-canvas-panel.responsive-off-canvas-panel-dropdown {
+					position: absolute;
+					top: 100%;
+					left: 0;
+					width: 100%;
+					max-height: calc(100vh - 100px);
+					height: auto;
+					z-index: 999997;
+					transform: translateY(-20px);
+					transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+				}
+				.responsive-off-canvas-panel.responsive-off-canvas-panel-dropdown.active {
+					transform: translateY(0);
+				}
+			}
+			";
+		}
+		
+		// Hide overlay for dropdown style (overlay should only show for sidebar and fullscreen)
+		if ( 'dropdown' === $off_canvas_mobile_menu_style ) {
+			$custom_css .= "
+			@media screen and ( max-width: {$off_canvas_mobile_menu_breakpoint}px ) {
+				#masthead-mobile .responsive-off-canvas-panel-dropdown ~ .responsive-off-canvas-overlay {
+					display: none !important;
+					visibility: hidden !important;
+					opacity: 0 !important;
+					pointer-events: none !important;
+				}
+			}
+			";
+		}
+		
+		// Hide off-canvas panel on desktop (screens wider than breakpoint)
+		$custom_css .= "
+		@media screen and ( min-width: " . ($off_canvas_mobile_menu_breakpoint + 1) . "px ) {
+			.responsive-off-canvas-panel,
+			.responsive-off-canvas-overlay {
+				display: none !important;
+			}
+		}
+		";
+	}
+	
+	// Show toggle button only on mobile/tablet, hide on desktop (regardless of whether off-canvas panel exists)
+	$toggle_button_breakpoint = esc_html( get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
+	$custom_css .= "
+	.site-header-item-toggle-button {
+		display: block;
+	}
+	.site-header-item-toggle-button .menu-toggle {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		border: none;
+		background: transparent;
+		padding: 0;
+	}
+	@media screen and ( min-width: " . ($toggle_button_breakpoint + 1) . "px ) {
+		.responsive-desktop-header-wrapper .site-header-item-toggle-button,
+		.responsive-desktop-header-wrapper .site-header-item-toggle-button .menu-toggle {
+			display: none !important;
+		}
+	}
+	@media screen and ( max-width: {$toggle_button_breakpoint}px ) {
+		.responsive-mobile-header-wrapper .site-header-item-toggle-button,
+		.responsive-mobile-header-wrapper .site-header-item-toggle-button .menu-toggle {
+			display: block !important;
+		}
+		.responsive-mobile-header-wrapper .site-header-item-toggle-button .menu-toggle {
+			display: inline-flex !important;
+		}
+		.responsive-desktop-header-wrapper .site-header-item-toggle-button,
+		.responsive-desktop-header-wrapper .site-header-item-toggle-button .menu-toggle {
+			display: none !important;
+		}
+	}
+	";
 
 	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', responsive_minimize_css( $custom_css ) ) );
 	wp_add_inline_style('responsive-style', responsive_minimize_css( $font_preset_css));
