@@ -636,6 +636,7 @@
             if( 0 == api('responsive_transparent_header').get()) {
                 let mobileBreakPoint = api('responsive_mobile_menu_breakpoint').get()+"px";
                 jQuery( 'style#responsive-header-mobile-menu-background-color' ).remove();
+                jQuery('.responsive-off-canvas-panel').css({'background-color': color});
                 jQuery( 'head' ).append(
                     '<style id="responsive-header-mobile-menu-background-color">'
                     + '@media screen and (max-width: ' + mobileBreakPoint + ') {'
@@ -795,7 +796,7 @@
     //Menu Toggle Background Color
     api( 'responsive_header_menu_toggle_background_color', function( value ) {
         value.bind( function( newval ) {
-            $('.main-navigation .menu-toggle').css('background-color', newval );
+            $('.site-header-item-toggle-button .menu-toggle').css('background-color', newval );
             $('.menu-toggle svg rect:first-child, .menu-toggle svg circle:first-child ').css('fill',newval);
         } );
     } );
@@ -809,8 +810,8 @@
 
     api( 'responsive_mobile_menu_toggle_border_color', function( value ) {
         value.bind( function( newval ) {
-         $('.main-navigation .menu-toggle').css({'border-color': newval});
-         $('.main-navigation.toggled .menu-toggle').css({'border-color': newval} );
+         $('.site-header-item-toggle-button .menu-toggle').css({'border-color': newval});
+         $('.site-header-item-toggle-button .menu-toggle').css({'border-color': newval} );
         } );
     } );
     //Sub Menu divider
@@ -2847,6 +2848,10 @@
             jQuery('.menu-toggle svg')
                 .children(':not(:first-child)')
                 .css('fill', newval);
+
+            // Apply same color to menu label
+            jQuery('.hamburger-menu-label')
+                .css('color', newval);
         });
     });
 } )( jQuery );

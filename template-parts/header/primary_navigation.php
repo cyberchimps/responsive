@@ -10,9 +10,38 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// Get mobile menu settings for class names
+$mobile_menu_style = get_theme_mod( 'responsive_mobile_menu_style', 'dropdown' );
+$off_canvas_panel_move_body = get_theme_mod( 'responsive_header_mobile_off_canvas_move_body', 0 );
+$off_canvas_panel_content_alignment = get_theme_mod( 'responsive_header_mobile_off_canvas_content_alignment', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_mobile_off_canvas_content_alignment' ) );
+
+// Build navigation classes
+$nav_classes = array( 'main-navigation' );
+
+// Header Type classes: dropdown, fullscreen, sidebar (flyout)
+if ( 'dropdown' === $mobile_menu_style ) {
+	$nav_classes[] = 'mobile-menu-style-dropdown';
+} elseif ( 'fullscreen' === $mobile_menu_style ) {
+	$nav_classes[] = 'mobile-menu-style-fullscreen';
+} elseif ( 'sidebar' === $mobile_menu_style ) {
+	$nav_classes[] = 'mobile-menu-style-sidebar';
+}
+
+// Move Body class
+if ( 1 === $off_canvas_panel_move_body ) {
+	$nav_classes[] = 'off-canvas-move-body-enabled';
+}
+
+// Content Alignment class
+if ( ! empty( $off_canvas_panel_content_alignment ) ) {
+	$nav_classes[] = 'off-canvas-content-alignment-' . esc_attr( $off_canvas_panel_content_alignment );
+}
+
+$nav_class_string = implode( ' ', $nav_classes );
+
 ?>
 <div class="site-header-item site-header-focus-item site-header-item-main-navigation">
-	<nav id="site-navigation" class="main-navigation" role="navigation"  <?php responsive_schema_markup( 'site-title' ); ?> aria-label="<?php esc_attr_e( 'Main Menu', 'responsive' ); ?>" >
+	<nav id="site-navigation" class="<?php echo esc_attr( $nav_class_string ); ?>" role="navigation"  <?php responsive_schema_markup( 'site-title' ); ?> aria-label="<?php esc_attr_e( 'Main Menu', 'responsive' ); ?>" >
 		<p class="screen-reader-text"><?php esc_html_e( 'Main Navigation', 'responsive' ); ?></p>
 		<div class="main-navigation-wrapper">
 			<?php
@@ -63,7 +92,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 	</nav>
 	<!-- Adding Overlay Div When Mobile menu is Sidebar menu -->
-	<?php if ( 'sidebar' === get_theme_mod( 'responsive_mobile_menu_style', 'dropdown' ) ) : ?>
+	<?php if ( 'sidebar' === $mobile_menu_style ) : ?>
 		<div id="sidebar-menu-overlay" class="sidebar-menu-overlay"></div>
 	<?php endif; ?>
 </div>

@@ -323,12 +323,12 @@
 		$('head').append(`
 			<style id="responsive-toggle-border-radius">
 				@media (max-width:${mobile_menu_breakpoint}px){
-					.main-navigation .menu-toggle {
+					.site-header-item-toggle-button .menu-toggle {
 						border-radius: ${tabletTop}px ${tabletRight}px ${tabletBottom}px ${tabletLeft}px;
 					}
 				}
                 @media (max-width:544px){
-                    .main-navigation .menu-toggle {
+                    .site-header-item-toggle-button .menu-toggle {
                         border-radius: ${mobileTop}px ${mobileRight}px ${mobileBottom}px ${mobileLeft}px;
                     }
 				}
@@ -381,12 +381,12 @@
 		$('head').append(`
 			<style id="responsive-toggle-margins">
 				@media (max-width:${mobile_menu_breakpoint}px) {
-					.main-navigation .menu-toggle {
+					.site-header-item-toggle-button .menu-toggle {
 						margin: ${tabTop}px ${tabRight}px ${tabBottom}px ${tabLeft}px;
 					}
 				}
 				@media (max-width:544px) {
-					.main-navigation .menu-toggle {
+					.site-header-item-toggle-button .menu-toggle {
 						margin: ${mobTop}px ${mobRight}px ${mobBottom}px ${mobLeft}px;
 					}
 				}

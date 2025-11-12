@@ -1537,11 +1537,6 @@ function defaults() {
 																				'section' => 'responsive_header_off_canvas_menu_layout',
 																				'icon'	  => 'menu',
 																			),
-																			'mobile_navigation'   => array(
-																				'name'    => esc_html__( 'Mobile Menu', 'responsive' ),
-																				'section' => 'responsive_header_menu_layout',
-																				'icon'    => 'menu',
-																			),
 																			'toggle_button'        => array(
 																				'name'    => esc_html__( 'Toggle Button', 'responsive' ),
 																				'section' => 'responsive_header_toggle_button',

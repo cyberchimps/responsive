@@ -99,15 +99,15 @@ if( ! class_exists( 'Responsive_Header_Toggle_Button_Customizer' ) ) {
             // Design Tabs
             // Icon Color - Design Tab
             $header_toggle_button_icon_color_label = __( 'Icon Color', 'responsive' );
-            responsive_color_control( $wp_customize, 'header_toggle_button_icon', $header_toggle_button_icon_color_label, 'responsive_header_toggle_button', 10, '#FFFFFF', null, '', false, null, null, false, null, null, 'color', 'refresh' );
+            responsive_color_control( $wp_customize, 'header_toggle_button_icon', $header_toggle_button_icon_color_label, 'responsive_header_toggle_button', 10, '#FFFFFF', null, '', false, null, null, false, null, null, 'color' );
             
             // Border Color - Design Tab
             $header_toggle_button_border_color_label = __( 'Border Color', 'responsive' );
-            responsive_color_control( $wp_customize, 'mobile_menu_toggle_border', $header_toggle_button_border_color_label, 'responsive_header_toggle_button', 12, Responsive\Core\get_responsive_customizer_defaults( 'mobile_menu_toggle_border_color' ), 'responsive_toggle_border_color' );
+            responsive_color_control( $wp_customize, 'mobile_menu_toggle_border', $header_toggle_button_border_color_label, 'responsive_header_toggle_button', 12, Responsive\Core\get_responsive_customizer_defaults( 'mobile_menu_toggle_border_color' ) );
 
             // Background Color - Design Tab
             $header_toggle_button_background_color_label = __( 'Background Color', 'responsive' );
-            responsive_color_control( $wp_customize, 'header_menu_toggle_background', $header_toggle_button_background_color_label, 'responsive_header_toggle_button', 15, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_toggle_background' ), 'responsive_disabled_mobile_menu' );
+            responsive_color_control( $wp_customize, 'header_menu_toggle_background', $header_toggle_button_background_color_label, 'responsive_header_toggle_button', 15, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_toggle_background' ) );
 
             // Horizontal Separator - Design Tab
             responsive_horizontal_separator_control( $wp_customize, 'header_toggle_button_background_color_separator', 1, 'responsive_header_toggle_button', 20, 1);
