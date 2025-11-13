@@ -36,6 +36,7 @@ import { responsiveInputWithDropdown } from './input-with-dropdown/control';
 import './flush-fonts/control';
 import { responsiveContactInfo } from './contact-info/control';
 import { responsiveColorWithDevices } from './color-with-devices/control';
+import { responsiveColorWithDevicesAndHover } from './color-with-devices-and-hover/control';
 import { responsiveSectionToggle } from './section-toggle/control';
 import { responsiveSelectWithSwitchers } from './select-with-switchers/control';
 
@@ -74,5 +75,6 @@ wp.customize.controlConstructor['responsive-available-drag-control']    = respon
 wp.customize.controlConstructor['responsive-input-with-dropdown']       = responsiveInputWithDropdown;
 wp.customize.controlConstructor['responsive-contact-info'] = responsiveContactInfo;
 wp.customize.controlConstructor['responsive-color-with-devices']        = responsiveColorWithDevices;
+wp.customize.controlConstructor['responsive-color-with-devices-and-hover'] = responsiveColorWithDevicesAndHover;
 wp.customize.controlConstructor['responsive-section-toggle']            = responsiveSectionToggle;
 wp.customize.controlConstructor['responsive-select-control']             = responsiveSelectWithSwitchers;

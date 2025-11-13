@@ -570,7 +570,7 @@
             jQuery('head').append(
                 '<style id="responsive-header-above-row-height-tablet">'
                 + '@media screen and (max-width: 992px) {'
-                + '.site-above-header-inner-wrap { min-height: ' + newval + 'px; }'
+                + '.site-above-mobile-header-inner-wrap { min-height: ' + newval + 'px; }'
                 + '} </style>'
             );
         });
@@ -582,7 +582,7 @@
             jQuery('head').append(
                 '<style id="responsive-header-above-row-height-mobile">'
                 + '@media screen and (max-width: 576px) {'
-                + '.site-above-header-inner-wrap { min-height: ' + newval + 'px !important; }'
+                + '.site-above-mobile-header-inner-wrap { min-height: ' + newval + 'px !important; }'
                 + '} </style>'
             );
         });
@@ -606,7 +606,7 @@
             jQuery('head').append(
                 '<style id="responsive-header-primary-row-height-tablet">'
                 + '@media screen and (max-width: 992px) {'
-                + '.site-primary-header-inner-wrap { min-height: ' + newval + 'px; }'
+                + '.site-primary-mobile-header-inner-wrap { min-height: ' + newval + 'px; }'
                 + '} </style>'
             );
         });
@@ -618,7 +618,7 @@
             jQuery('head').append(
                 '<style id="responsive-header-primary-row-height-mobile">'
                 + '@media screen and (max-width: 576px) {'
-                + '.site-primary-header-inner-wrap { min-height: ' + newval + 'px !important; }'
+                + '.site-primary-mobile-header-inner-wrap { min-height: ' + newval + 'px !important; }'
                 + '} </style>'
             );
         });
@@ -642,7 +642,7 @@
             jQuery('head').append(
                 '<style id="responsive-header-below-row-height-tablet">'
                 + '@media screen and (max-width: 992px) {'
-                + '.site-below-header-inner-wrap { min-height: ' + newval + 'px; }'
+                + '.site-below-mobile-header-inner-wrap { min-height: ' + newval + 'px; }'
                 + '} </style>'
             );
         });
@@ -654,30 +654,118 @@
             jQuery('head').append(
                 '<style id="responsive-header-below-row-height-mobile">'
                 + '@media screen and (max-width: 576px) {'
-                + '.site-below-header-inner-wrap { min-height: ' + newval + 'px !important; }'
+                + '.site-below-mobile-header-inner-wrap { min-height: ' + newval + 'px !important; }'
                 + '} </style>'
             );
         });
     });
     
     //Header Above Row Bottom Border Size
+    //Header Above Row Bottom Border Size - Desktop
     api('responsive_header_above_row_bottom_border_size', function(value) {
         value.bind(function(newval) {
-            $('.responsive-site-above-header-wrap').css('border-bottom', newval + 'px solid ' + api('responsive_header_above_row_bottom_border_color').get());
+            jQuery('style#responsive-header-above-row-bottom-border-size').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-above-row-bottom-border-size">'
+                + '.responsive-site-above-header-wrap { border-bottom-width: ' + newval + 'px }'
+                + '</style>'
+            );
         });
     });
 
-    //Header Primary Row Bottom Border Size
+    //Header Above Row Bottom Border Size - Tablet
+    api('responsive_header_above_row_bottom_border_size_tablet', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-header-above-row-bottom-border-size-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-above-row-bottom-border-size-tablet">'
+                + '@media screen and ( max-width: 992px ) { .responsive-site-above-mobile-header-wrap { border-bottom-width: ' + newval + 'px } }'
+                + '</style>'
+            );
+        });
+    });
+
+    //Header Above Row Bottom Border Size - Mobile
+    api('responsive_header_above_row_bottom_border_size_mobile', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-header-above-row-bottom-border-size-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-above-row-bottom-border-size-mobile">'
+                + '@media screen and ( max-width: 576px ) { .responsive-site-above-mobile-header-wrap { border-bottom-width: ' + newval + 'px } }'
+                + '</style>'
+            );
+        });
+    });
+
+    //Header Primary Row Bottom Border Size - Desktop
     api('responsive_header_primary_row_bottom_border_size', function(value) {
         value.bind(function(newval) {
-            $('.responsive-site-primary-header-wrap').css('border-bottom', newval + 'px solid ' + api('responsive_header_primary_row_bottom_border_color').get());
+            jQuery('style#responsive-header-primary-row-bottom-border-size').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-primary-row-bottom-border-size">'
+                + '.responsive-site-primary-header-wrap { border-bottom-width: ' + newval + 'px }'
+                + '</style>'
+            );
         });
     });
 
-    //Header Below Row Bottom Border Size
+    //Header Primary Row Bottom Border Size - Tablet
+    api('responsive_header_primary_row_bottom_border_size_tablet', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-header-primary-row-bottom-border-size-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-primary-row-bottom-border-size-tablet">'
+                + '@media screen and ( max-width: 992px ) { .responsive-site-primary-mobile-header-wrap { border-bottom-width: ' + newval + 'px } }'
+                + '</style>'
+            );
+        });
+    });
+
+    //Header Primary Row Bottom Border Size - Mobile
+    api('responsive_header_primary_row_bottom_border_size_mobile', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-header-primary-row-bottom-border-size-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-primary-row-bottom-border-size-mobile">'
+                + '@media screen and ( max-width: 576px ) { .responsive-site-primary-mobile-header-wrap { border-bottom-width: ' + newval + 'px } }'
+                + '</style>'
+            );
+        });
+    });
+
+    //Header Below Row Bottom Border Size - Desktop
     api('responsive_header_below_row_bottom_border_size', function(value) {
         value.bind(function(newval) {
-            $('.responsive-site-below-header-wrap').css('border-bottom', newval + 'px solid ' + api('responsive_header_below_row_bottom_border_color').get());
+            jQuery('style#responsive-header-below-row-bottom-border-size').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-below-row-bottom-border-size">'
+                + '.responsive-site-below-header-wrap { border-bottom-width: ' + newval + 'px }'
+                + '</style>'
+            );
+        });
+    });
+
+    //Header Below Row Bottom Border Size - Tablet
+    api('responsive_header_below_row_bottom_border_size_tablet', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-header-below-row-bottom-border-size-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-below-row-bottom-border-size-tablet">'
+                + '@media screen and ( max-width: 992px ) { .responsive-site-below-mobile-header-wrap { border-bottom-width: ' + newval + 'px } }'
+                + '</style>'
+            );
+        });
+    });
+
+    //Header Below Row Bottom Border Size - Mobile
+    api('responsive_header_below_row_bottom_border_size_mobile', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-header-below-row-bottom-border-size-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-below-row-bottom-border-size-mobile">'
+                + '@media screen and ( max-width: 576px ) { .responsive-site-below-mobile-header-wrap { border-bottom-width: ' + newval + 'px } }'
+                + '</style>'
+            );
         });
     });
     // primary footer

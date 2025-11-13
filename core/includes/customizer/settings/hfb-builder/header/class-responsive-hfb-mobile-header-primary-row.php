@@ -43,7 +43,7 @@ if( !class_exists( 'Responsive_HFB_Mobile_Header_Primary_Row' ) ) {
 
             // Height
             $mobile_header_primary_row_height_label = __( 'Height (px)', 'responsive' );
-            responsive_drag_number_control( $wp_customize, 'mobile_header_primary_row_height', $mobile_header_primary_row_height_label, 'responsive_mobile_header_primary_row', 10, 0, null, 300, 0, 'postMessage', 1 );
+            responsive_drag_number_control_with_switchers( $wp_customize, 'mobile_header_primary_row_height', $mobile_header_primary_row_height_label, 'responsive_mobile_header_primary_row', 10, 0, null, 300, 0, 'postMessage', 1, null, null, array( 'tablet', 'mobile' ) );
 
             responsive_horizontal_separator_control($wp_customize, 'mobile_header_primary_row_visibility_separator', 1, 'responsive_mobile_header_primary_row', 15, 1, );
 

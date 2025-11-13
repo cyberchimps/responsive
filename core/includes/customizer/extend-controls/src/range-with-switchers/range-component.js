@@ -14,6 +14,7 @@ const ResponsiveRangeWithSwitchersComponent = props => {
         desktop,
 		tablet,
 		mobile,
+		devices = ['desktop', 'tablet', 'mobile'], // Default to all devices for backward compatibility
 	} = props.control.params;
 
 	let labelHtml = null,
@@ -50,24 +51,33 @@ const ResponsiveRangeWithSwitchersComponent = props => {
 	};
 
     if (label) {
+		// Determine which device should be active by default (first device in the array)
+		const defaultActiveDevice = devices.length > 0 ? devices[0] : 'desktop';
+		
 		labelHtml = <span className="customize-control-title">
 			<span>{label}</span>
 			<ul  className="responsive-switchers">
-				<li className="desktop">
-					<button type="button" className="preview-desktop active" data-device="desktop">
-						<i className="dashicons dashicons-desktop"></i>
-					</button>
-				</li>
-				<li className="tablet">
-					<button type="button" className="preview-tablet" data-device="tablet">
-						<i className="dashicons dashicons-tablet"></i>
-					</button>
-				</li>
-				<li className="mobile">
-					<button type="button" className="preview-mobile" data-device="mobile">
-						<i className="dashicons dashicons-smartphone"></i>
-					</button>
-				</li>
+				{devices.includes('desktop') && (
+					<li className="desktop">
+						<button type="button" className={`preview-desktop ${defaultActiveDevice === 'desktop' ? 'active' : ''}`} data-device="desktop">
+							<i className="dashicons dashicons-desktop"></i>
+						</button>
+					</li>
+				)}
+				{devices.includes('tablet') && (
+					<li className="tablet">
+						<button type="button" className={`preview-tablet ${defaultActiveDevice === 'tablet' ? 'active' : ''}`} data-device="tablet">
+							<i className="dashicons dashicons-tablet"></i>
+						</button>
+					</li>
+				)}
+				{devices.includes('mobile') && (
+					<li className="mobile">
+						<button type="button" className={`preview-mobile ${defaultActiveDevice === 'mobile' ? 'active' : ''}`} data-device="mobile">
+							<i className="dashicons dashicons-smartphone"></i>
+						</button>
+					</li>
+				)}
 			</ul>
 		</span>;
 	}
@@ -116,15 +126,18 @@ const ResponsiveRangeWithSwitchersComponent = props => {
 		</div>;
     }
 
-    inputHtml = <>
-		{renderInputHtml('desktop', 'active')}
-		{renderInputHtml('tablet')}
-		{renderInputHtml('mobile')}
+    // Determine which device should be active by default (first device in the array)
+	const defaultActiveDevice = devices.length > 0 ? devices[0] : 'desktop';
+	
+	inputHtml = <>
+		{devices.includes('desktop') && renderInputHtml('desktop', defaultActiveDevice === 'desktop' ? 'active' : '')}
+		{devices.includes('tablet') && renderInputHtml('tablet', defaultActiveDevice === 'tablet' ? 'active' : '')}
+		{devices.includes('mobile') && renderInputHtml('mobile', defaultActiveDevice === 'mobile' ? 'active' : '')}
 	</>;
     resetHtml = <>
-        {renderResetHtml('desktop', 'active')}
-        {renderResetHtml('tablet')}
-        {renderResetHtml('mobile')}
+        {devices.includes('desktop') && renderResetHtml('desktop', defaultActiveDevice === 'desktop' ? 'active' : '')}
+        {devices.includes('tablet') && renderResetHtml('tablet', defaultActiveDevice === 'tablet' ? 'active' : '')}
+        {devices.includes('mobile') && renderResetHtml('mobile', defaultActiveDevice === 'mobile' ? 'active' : '')}
     </>
 
 	return <div>

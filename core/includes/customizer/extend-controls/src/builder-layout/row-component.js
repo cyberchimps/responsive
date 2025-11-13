@@ -6,10 +6,6 @@ const BuilderRowComponent = (props) => {
     console.log("Prop received in BuilderRowComponent: ", props);
     let besideItems = [];
     let mode = (props.controlParams.group.indexOf('header') !== -1 ? 'header' : 'footer');
-    // prepending 'mobile' to mode if its header and props.device is mobile
-    if (props.controlParams.group.indexOf('header') !== -1 && props.device === 'mobile') {
-        mode = 'mobile_' + mode;
-    }
     let footerClass=null;
     if ('footer_items' === props.controlParams.group) {
 		var columns = props.customizer('responsive_footer_' + props.row + '_columns').get();

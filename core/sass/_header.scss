@@ -1218,6 +1218,18 @@ body.mega-menu-header-menu button.menu-toggle {
         justify-content: normal;
     }
 }
+.site-mobile-header-row {
+    margin-right: $grid-gutter-width/ -2; 
+    margin-left: $grid-gutter-width/ -2;
+
+    & > .site-mobile-header-section {
+        flex-wrap: nowrap;
+    }
+    &.site-mobile-header-row-only-center-column {
+        display: flex;
+        justify-content: center;
+    }
+}
 .site-header-section:has(.main-navigation.toggled) {
     display: block;
 }

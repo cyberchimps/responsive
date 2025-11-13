@@ -1810,6 +1810,7 @@
     } );
 
     //Header Top Row Background Color
+    //Header Above Row Background Color - Desktop
     api( 'responsive_header_above_row_bg_color', function( value ) {
         value.bind( function( newval ) {
             jQuery('style#responsive-header-above-row-bg-color').remove();
@@ -1821,8 +1822,8 @@
         } );
     } );
 
-    //Header Top Row Hover Background Color
-    api( 'responsive_header_above_row_bg_hover_color', function( value ) {
+    //Header Above Row Hover Background Color - Desktop
+    api( 'responsive_header_above_row_bg_color_hover', function( value ) {
         value.bind( function( newval ) {
             jQuery('style#responsive-header-above-row-bg-hover-color').remove();
             jQuery('head').append(
@@ -1833,31 +1834,158 @@
         } );
     } );
 
-    //Header Top Row Bottom Border Color
-    api('responsive_header_above_row_bottom_border_color', function(value) {
-        value.bind(function(newColor) {
-            const currentBorderSize = api('responsive_header_above_row_bottom_border_size').get() || 0;
-            $('.responsive-site-above-header-wrap').css('border-bottom', currentBorderSize + 'px solid ' + newColor);
-        });
-    });    
-    
-    ////Header Top Row Bottom Border Hover Color
-    api( 'responsive_header_above_row_bottom_border_hover_color', function( value ) {
-        value.bind( function( newColor ) {
-            const currentBorderSize = api('responsive_header_above_row_bottom_border_size').get() || 0;
-            const normalColor = api('responsive_header_above_row_bottom_border_color').get();
-            $(".responsive-site-above-header-wrap").hover(
-                function() {
-                    $(this).css('border-bottom', currentBorderSize + 'px solid ' + newColor);
-                },
-                function() {
-                    $(this).css('border-bottom', currentBorderSize + 'px solid ' + normalColor);
-                }
+    //Header Above Row Background Color - Tablet
+    api( 'responsive_header_above_row_bg_color_tablet', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-header-above-row-bg-color-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-above-row-bg-color-tablet">'
+                + '@media screen and ( max-width: 992px ) { .responsive-site-above-mobile-header-wrap { background-color: ' + newval + ' } }'
+                + '</style>'
             );
         } );
     } );
 
-    //Header Primary Row Background Color
+    //Header Above Row Hover Background Color - Tablet
+    api( 'responsive_header_above_row_bg_color_tablet_hover', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-header-above-row-bg-hover-color-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-above-row-bg-hover-color-tablet">'
+                + '@media screen and ( max-width: 992px ) { .responsive-site-above-mobile-header-wrap:hover { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    //Header Above Row Background Color - Mobile
+    api( 'responsive_header_above_row_bg_color_mobile', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-header-above-row-bg-color-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-above-row-bg-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .responsive-site-above-mobile-header-wrap { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    //Header Above Row Hover Background Color - Mobile
+    api( 'responsive_header_above_row_bg_color_mobile_hover', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-header-above-row-bg-hover-color-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-above-row-bg-hover-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .responsive-site-above-mobile-header-wrap:hover { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    // Backward compatibility - old hover color setting
+    api( 'responsive_header_above_row_bg_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-header-above-row-bg-hover-color-old').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-above-row-bg-hover-color-old">'
+                + '.responsive-site-above-header-wrap:hover { background-color: ' + newval + ' }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    //Header Above Row Bottom Border Color - Desktop
+    api('responsive_header_above_row_bottom_border_color', function(value) {
+        value.bind(function(newColor) {
+            jQuery('style#responsive-header-above-row-bottom-border-color').remove();
+            const currentBorderSize = api('responsive_header_above_row_bottom_border_size').get() || 0;
+            jQuery('head').append(
+                '<style id="responsive-header-above-row-bottom-border-color">'
+                + '.responsive-site-above-header-wrap { border-bottom: ' + currentBorderSize + 'px solid ' + newColor + ' }'
+                + '</style>'
+            );
+        });
+    });    
+    
+    //Header Above Row Bottom Border Hover Color - Desktop
+    api( 'responsive_header_above_row_bottom_border_color_hover', function( value ) {
+        value.bind( function( newColor ) {
+            jQuery('style#responsive-header-above-row-bottom-border-hover-color').remove();
+            const currentBorderSize = api('responsive_header_above_row_bottom_border_size').get() || 0;
+            jQuery('head').append(
+                '<style id="responsive-header-above-row-bottom-border-hover-color">'
+                + '.responsive-site-above-header-wrap:hover { border-bottom: ' + currentBorderSize + 'px solid ' + newColor + ' }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    //Header Above Row Bottom Border Color - Tablet
+    api( 'responsive_header_above_row_bottom_border_color_tablet', function( value ) {
+        value.bind( function( newColor ) {
+            jQuery('style#responsive-header-above-row-bottom-border-color-tablet').remove();
+            const currentBorderSize = api('responsive_header_above_row_bottom_border_size_tablet') ? api('responsive_header_above_row_bottom_border_size_tablet').get() : (api('responsive_header_above_row_bottom_border_size').get() || 0);
+            jQuery('head').append(
+                '<style id="responsive-header-above-row-bottom-border-color-tablet">'
+                + '@media screen and ( max-width: 992px ) { .responsive-site-above-mobile-header-wrap { border-bottom: ' + currentBorderSize + 'px solid ' + newColor + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    //Header Above Row Bottom Border Hover Color - Tablet
+    api( 'responsive_header_above_row_bottom_border_color_tablet_hover', function( value ) {
+        value.bind( function( newColor ) {
+            jQuery('style#responsive-header-above-row-bottom-border-hover-color-tablet').remove();
+            const currentBorderSize = api('responsive_header_above_row_bottom_border_size_tablet') ? api('responsive_header_above_row_bottom_border_size_tablet').get() : (api('responsive_header_above_row_bottom_border_size').get() || 0);
+            jQuery('head').append(
+                '<style id="responsive-header-above-row-bottom-border-hover-color-tablet">'
+                + '@media screen and ( max-width: 992px ) { .responsive-site-above-mobile-header-wrap:hover { border-bottom: ' + currentBorderSize + 'px solid ' + newColor + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    //Header Above Row Bottom Border Color - Mobile
+    api( 'responsive_header_above_row_bottom_border_color_mobile', function( value ) {
+        value.bind( function( newColor ) {
+            jQuery('style#responsive-header-above-row-bottom-border-color-mobile').remove();
+            const currentBorderSize = api('responsive_header_above_row_bottom_border_size_mobile') ? api('responsive_header_above_row_bottom_border_size_mobile').get() : (api('responsive_header_above_row_bottom_border_size').get() || 0);
+            jQuery('head').append(
+                '<style id="responsive-header-above-row-bottom-border-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .responsive-site-above-mobile-header-wrap { border-bottom: ' + currentBorderSize + 'px solid ' + newColor + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    //Header Above Row Bottom Border Hover Color - Mobile
+    api( 'responsive_header_above_row_bottom_border_color_mobile_hover', function( value ) {
+        value.bind( function( newColor ) {
+            jQuery('style#responsive-header-above-row-bottom-border-hover-color-mobile').remove();
+            const currentBorderSize = api('responsive_header_above_row_bottom_border_size_mobile') ? api('responsive_header_above_row_bottom_border_size_mobile').get() : (api('responsive_header_above_row_bottom_border_size').get() || 0);
+            jQuery('head').append(
+                '<style id="responsive-header-above-row-bottom-border-hover-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .responsive-site-above-mobile-header-wrap:hover { border-bottom: ' + currentBorderSize + 'px solid ' + newColor + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    // Backward compatibility - old hover border color setting
+    api( 'responsive_header_above_row_bottom_border_hover_color', function( value ) {
+        value.bind( function( newColor ) {
+            jQuery('style#responsive-header-above-row-bottom-border-hover-color-old').remove();
+            const currentBorderSize = api('responsive_header_above_row_bottom_border_size').get() || 0;
+            jQuery('head').append(
+                '<style id="responsive-header-above-row-bottom-border-hover-color-old">'
+                + '.responsive-site-above-header-wrap:hover { border-bottom: ' + currentBorderSize + 'px solid ' + newColor + ' }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    //Header Primary Row Background Color - Desktop
     api( 'responsive_header_primary_row_bg_color', function( value ) {
         value.bind( function( newval ) {
             jQuery('style#responsive-header-primary-row-bg-color').remove();
@@ -1869,8 +1997,8 @@
         } );
     } );
 
-    //Header Primary Row Hover Background Color
-    api( 'responsive_header_primary_row_bg_hover_color', function( value ) {
+    //Header Primary Row Hover Background Color - Desktop
+    api( 'responsive_header_primary_row_bg_color_hover', function( value ) {
         value.bind( function( newval ) {
             jQuery('style#responsive-header-primary-row-bg-hover-color').remove();
             jQuery('head').append(
@@ -1881,31 +2009,159 @@
         } );
     } );
 
-    //Header Primary Row Bottom Border Color
+    //Header Primary Row Background Color - Tablet
+    api( 'responsive_header_primary_row_bg_color_tablet', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-header-primary-row-bg-color-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-primary-row-bg-color-tablet">'
+                + '@media screen and ( max-width: 992px ) { .responsive-site-primary-mobile-header-wrap { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    //Header Primary Row Hover Background Color - Tablet
+    api( 'responsive_header_primary_row_bg_color_tablet_hover', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-header-primary-row-bg-hover-color-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-primary-row-bg-hover-color-tablet">'
+                + '@media screen and ( max-width: 992px ) { .responsive-site-primary-mobile-header-wrap:hover { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    //Header Primary Row Background Color - Mobile
+    api( 'responsive_header_primary_row_bg_color_mobile', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-header-primary-row-bg-color-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-primary-row-bg-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .responsive-site-primary-mobile-header-wrap { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    //Header Primary Row Hover Background Color - Mobile
+    api( 'responsive_header_primary_row_bg_color_mobile_hover', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-header-primary-row-bg-hover-color-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-primary-row-bg-hover-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .responsive-site-primary-mobile-header-wrap:hover { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    // Backward compatibility - old hover color setting
+    api( 'responsive_header_primary_row_bg_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-header-primary-row-bg-hover-color-old').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-primary-row-bg-hover-color-old">'
+                + '.responsive-site-primary-header-wrap:hover { background-color: ' + newval + ' }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    //Header Primary Row Bottom Border Color - Desktop
     api('responsive_header_primary_row_bottom_border_color', function(value) {
         value.bind(function(newColor) {
+            jQuery('style#responsive-header-primary-row-bottom-border-color').remove();
             const currentBorderSize = api('responsive_header_primary_row_bottom_border_size').get() || 0;
-            $('.responsive-site-primary-header-wrap').css('border-bottom', currentBorderSize + 'px solid ' + newColor);
+            jQuery('head').append(
+                '<style id="responsive-header-primary-row-bottom-border-color">'
+                + '.responsive-site-primary-header-wrap { border-bottom: ' + currentBorderSize + 'px solid ' + newColor + ' }'
+                + '</style>'
+            );
         });
     });    
     
-    ////Header Primary Row Bottom Border Hover Color
+    //Header Primary Row Bottom Border Hover Color - Desktop
+    api( 'responsive_header_primary_row_bottom_border_color_hover', function( value ) {
+        value.bind( function( newColor ) {
+            jQuery('style#responsive-header-primary-row-bottom-border-hover-color').remove();
+            const currentBorderSize = api('responsive_header_primary_row_bottom_border_size').get() || 0;
+            jQuery('head').append(
+                '<style id="responsive-header-primary-row-bottom-border-hover-color">'
+                + '.responsive-site-primary-header-wrap:hover { border-bottom: ' + currentBorderSize + 'px solid ' + newColor + ' }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    //Header Primary Row Bottom Border Color - Tablet
+    api( 'responsive_header_primary_row_bottom_border_color_tablet', function( value ) {
+        value.bind( function( newColor ) {
+            jQuery('style#responsive-header-primary-row-bottom-border-color-tablet').remove();
+            const currentBorderSize = api('responsive_header_primary_row_bottom_border_size_tablet') ? api('responsive_header_primary_row_bottom_border_size_tablet').get() : (api('responsive_header_primary_row_bottom_border_size').get() || 0);
+            jQuery('head').append(
+                '<style id="responsive-header-primary-row-bottom-border-color-tablet">'
+                + '@media screen and ( max-width: 992px ) { .responsive-site-primary-mobile-header-wrap { border-bottom: ' + currentBorderSize + 'px solid ' + newColor + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    //Header Primary Row Bottom Border Hover Color - Tablet
+    api( 'responsive_header_primary_row_bottom_border_color_tablet_hover', function( value ) {
+        value.bind( function( newColor ) {
+            jQuery('style#responsive-header-primary-row-bottom-border-hover-color-tablet').remove();
+            const currentBorderSize = api('responsive_header_primary_row_bottom_border_size_tablet') ? api('responsive_header_primary_row_bottom_border_size_tablet').get() : (api('responsive_header_primary_row_bottom_border_size').get() || 0);
+            jQuery('head').append(
+                '<style id="responsive-header-primary-row-bottom-border-hover-color-tablet">'
+                + '@media screen and ( max-width: 992px ) { .responsive-site-primary-mobile-header-wrap:hover { border-bottom: ' + currentBorderSize + 'px solid ' + newColor + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    //Header Primary Row Bottom Border Color - Mobile
+    api( 'responsive_header_primary_row_bottom_border_color_mobile', function( value ) {
+        value.bind( function( newColor ) {
+            jQuery('style#responsive-header-primary-row-bottom-border-color-mobile').remove();
+            const currentBorderSize = api('responsive_header_primary_row_bottom_border_size_mobile') ? api('responsive_header_primary_row_bottom_border_size_mobile').get() : (api('responsive_header_primary_row_bottom_border_size').get() || 0);
+            jQuery('head').append(
+                '<style id="responsive-header-primary-row-bottom-border-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .responsive-site-primary-mobile-header-wrap { border-bottom: ' + currentBorderSize + 'px solid ' + newColor + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    //Header Primary Row Bottom Border Hover Color - Mobile
+    api( 'responsive_header_primary_row_bottom_border_color_mobile_hover', function( value ) {
+        value.bind( function( newColor ) {
+            jQuery('style#responsive-header-primary-row-bottom-border-hover-color-mobile').remove();
+            const currentBorderSize = api('responsive_header_primary_row_bottom_border_size_mobile') ? api('responsive_header_primary_row_bottom_border_size_mobile').get() : (api('responsive_header_primary_row_bottom_border_size').get() || 0);
+            jQuery('head').append(
+                '<style id="responsive-header-primary-row-bottom-border-hover-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .responsive-site-primary-mobile-header-wrap:hover { border-bottom: ' + currentBorderSize + 'px solid ' + newColor + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    // Backward compatibility - old hover color setting
     api( 'responsive_header_primary_row_bottom_border_hover_color', function( value ) {
         value.bind( function( newColor ) {
+            jQuery('style#responsive-header-primary-row-bottom-border-hover-color-old').remove();
             const currentBorderSize = api('responsive_header_primary_row_bottom_border_size').get() || 0;
-            const normalColor = api('responsive_header_primary_row_bottom_border_color').get();
-            $(".responsive-site-primary-header-wrap").hover(
-                function() {
-                    $(this).css('border-bottom', currentBorderSize + 'px solid ' + newColor);
-                },
-                function() {
-                    $(this).css('border-bottom', currentBorderSize + 'px solid ' + normalColor);
-                }
+            jQuery('head').append(
+                '<style id="responsive-header-primary-row-bottom-border-hover-color-old">'
+                + '.responsive-site-primary-header-wrap:hover { border-bottom: ' + currentBorderSize + 'px solid ' + newColor + ' }'
+                + '</style>'
             );
         } );
     } );
 
     //Header Below Row Background Color
+    //Header Below Row Background Color - Desktop
     api( 'responsive_header_below_row_bg_color', function( value ) {
         value.bind( function( newval ) {
             jQuery('style#responsive-header-below-row-bg-color').remove();
@@ -1917,8 +2173,8 @@
         } );
     } );
 
-    //Header Below Row Hover Background Color
-    api( 'responsive_header_below_row_bg_hover_color', function( value ) {
+    //Header Below Row Hover Background Color - Desktop
+    api( 'responsive_header_below_row_bg_color_hover', function( value ) {
         value.bind( function( newval ) {
             jQuery('style#responsive-header-below-row-bg-hover-color').remove();
             jQuery('head').append(
@@ -1929,26 +2185,153 @@
         } );
     } );
 
-    //Header Below Row Bottom Border Color
+    //Header Below Row Background Color - Tablet
+    api( 'responsive_header_below_row_bg_color_tablet', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-header-below-row-bg-color-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-below-row-bg-color-tablet">'
+                + '@media screen and ( max-width: 992px ) { .responsive-site-below-mobile-header-wrap { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    //Header Below Row Hover Background Color - Tablet
+    api( 'responsive_header_below_row_bg_color_tablet_hover', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-header-below-row-bg-hover-color-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-below-row-bg-hover-color-tablet">'
+                + '@media screen and ( max-width: 992px ) { .responsive-site-below-mobile-header-wrap:hover { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    //Header Below Row Background Color - Mobile
+    api( 'responsive_header_below_row_bg_color_mobile', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-header-below-row-bg-color-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-below-row-bg-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .responsive-site-below-mobile-header-wrap { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    //Header Below Row Hover Background Color - Mobile
+    api( 'responsive_header_below_row_bg_color_mobile_hover', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-header-below-row-bg-hover-color-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-below-row-bg-hover-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .responsive-site-below-mobile-header-wrap:hover { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    // Backward compatibility - old hover color setting
+    api( 'responsive_header_below_row_bg_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-header-below-row-bg-hover-color-old').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-below-row-bg-hover-color-old">'
+                + '.responsive-site-below-header-wrap:hover { background-color: ' + newval + ' }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    //Header Below Row Bottom Border Color - Desktop
     api('responsive_header_below_row_bottom_border_color', function(value) {
         value.bind(function(newColor) {
+            jQuery('style#responsive-header-below-row-bottom-border-color').remove();
             const currentBorderSize = api('responsive_header_below_row_bottom_border_size').get() || 0;
-            $('.responsive-site-below-header-wrap').css('border-bottom', currentBorderSize + 'px solid ' + newColor);
+            jQuery('head').append(
+                '<style id="responsive-header-below-row-bottom-border-color">'
+                + '.responsive-site-below-header-wrap { border-bottom: ' + currentBorderSize + 'px solid ' + newColor + ' }'
+                + '</style>'
+            );
         });
     });    
     
-    ////Header Below Row Bottom Border Hover Color
+    //Header Below Row Bottom Border Hover Color - Desktop
+    api( 'responsive_header_below_row_bottom_border_color_hover', function( value ) {
+        value.bind( function( newColor ) {
+            jQuery('style#responsive-header-below-row-bottom-border-hover-color').remove();
+            const currentBorderSize = api('responsive_header_below_row_bottom_border_size').get() || 0;
+            jQuery('head').append(
+                '<style id="responsive-header-below-row-bottom-border-hover-color">'
+                + '.responsive-site-below-header-wrap:hover { border-bottom: ' + currentBorderSize + 'px solid ' + newColor + ' }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    //Header Below Row Bottom Border Color - Tablet
+    api( 'responsive_header_below_row_bottom_border_color_tablet', function( value ) {
+        value.bind( function( newColor ) {
+            jQuery('style#responsive-header-below-row-bottom-border-color-tablet').remove();
+            const currentBorderSize = api('responsive_header_below_row_bottom_border_size_tablet') ? api('responsive_header_below_row_bottom_border_size_tablet').get() : (api('responsive_header_below_row_bottom_border_size').get() || 0);
+            jQuery('head').append(
+                '<style id="responsive-header-below-row-bottom-border-color-tablet">'
+                + '@media screen and ( max-width: 992px ) { .responsive-site-below-mobile-header-wrap { border-bottom: ' + currentBorderSize + 'px solid ' + newColor + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    //Header Below Row Bottom Border Hover Color - Tablet
+    api( 'responsive_header_below_row_bottom_border_color_tablet_hover', function( value ) {
+        value.bind( function( newColor ) {
+            jQuery('style#responsive-header-below-row-bottom-border-hover-color-tablet').remove();
+            const currentBorderSize = api('responsive_header_below_row_bottom_border_size_tablet') ? api('responsive_header_below_row_bottom_border_size_tablet').get() : (api('responsive_header_below_row_bottom_border_size').get() || 0);
+            jQuery('head').append(
+                '<style id="responsive-header-below-row-bottom-border-hover-color-tablet">'
+                + '@media screen and ( max-width: 992px ) { .responsive-site-below-mobile-header-wrap:hover { border-bottom: ' + currentBorderSize + 'px solid ' + newColor + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    //Header Below Row Bottom Border Color - Mobile
+    api( 'responsive_header_below_row_bottom_border_color_mobile', function( value ) {
+        value.bind( function( newColor ) {
+            jQuery('style#responsive-header-below-row-bottom-border-color-mobile').remove();
+            const currentBorderSize = api('responsive_header_below_row_bottom_border_size_mobile') ? api('responsive_header_below_row_bottom_border_size_mobile').get() : (api('responsive_header_below_row_bottom_border_size').get() || 0);
+            jQuery('head').append(
+                '<style id="responsive-header-below-row-bottom-border-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .responsive-site-below-mobile-header-wrap { border-bottom: ' + currentBorderSize + 'px solid ' + newColor + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    //Header Below Row Bottom Border Hover Color - Mobile
+    api( 'responsive_header_below_row_bottom_border_color_mobile_hover', function( value ) {
+        value.bind( function( newColor ) {
+            jQuery('style#responsive-header-below-row-bottom-border-hover-color-mobile').remove();
+            const currentBorderSize = api('responsive_header_below_row_bottom_border_size_mobile') ? api('responsive_header_below_row_bottom_border_size_mobile').get() : (api('responsive_header_below_row_bottom_border_size').get() || 0);
+            jQuery('head').append(
+                '<style id="responsive-header-below-row-bottom-border-hover-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .responsive-site-below-mobile-header-wrap:hover { border-bottom: ' + currentBorderSize + 'px solid ' + newColor + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    // Backward compatibility - old hover border color setting
     api( 'responsive_header_below_row_bottom_border_hover_color', function( value ) {
         value.bind( function( newColor ) {
+            jQuery('style#responsive-header-below-row-bottom-border-hover-color-old').remove();
             const currentBorderSize = api('responsive_header_below_row_bottom_border_size').get() || 0;
-            const normalColor = api('responsive_header_below_row_bottom_border_color').get();
-            $(".responsive-site-below-header-wrap").hover(
-                function() {
-                    $(this).css('border-bottom', currentBorderSize + 'px solid ' + newColor);
-                },
-                function() {
-                    $(this).css('border-bottom', currentBorderSize + 'px solid ' + normalColor);
-                }
+            jQuery('head').append(
+                '<style id="responsive-header-below-row-bottom-border-hover-color-old">'
+                + '.responsive-site-below-header-wrap:hover { border-bottom: ' + currentBorderSize + 'px solid ' + newColor + ' }'
+                + '</style>'
             );
         } );
     } );

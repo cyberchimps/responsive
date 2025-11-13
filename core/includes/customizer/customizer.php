@@ -218,9 +218,6 @@ function responsive_register_options() {
 		'hfb-builder/header/class-responsive-hfb-header-above-row',
 		'hfb-builder/header/class-responsive-hfb-header-pimary-row',
 		'hfb-builder/header/class-responsive-hfb-header-below-row',
-		'hfb-builder/header/class-responsive-hfb-mobile-header-above-row',
-		'hfb-builder/header/class-responsive-hfb-mobile-header-primary-row',
-		'hfb-builder/header/class-responsive-hfb-mobile-header-below-row',
 		'hfb-builder/header/class-responsive-hfb-mobile-header-off-canvas',
 		'hfb-builder/footer/class-responsive-hfb-footer-above-row',
 		'hfb-builder/footer/class-responsive-hfb-footer-primary-row',
@@ -229,8 +226,10 @@ function responsive_register_options() {
 		'class-responsive-footer-copyright-customizer',
 		'class-responsive-header-builder-section-customizer',
 		'class-responsive-header-button-customizer',
+		'class-responsive-mobile-header-button-customizer',
 		'class-responsive-header-social-customizer',
 		'class-responsive-header-contact-info-customizer',
+		'class-responsive-mobile-header-contact-info-customizer',
 		'class-responsive-header-search-customizer',
 		'class-responsive-header-html-customizer',
 		'class-responsive-footer-social-customizer',
@@ -317,6 +316,7 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'fontpresets/class-responsive-customizer-font-preset-control.php';
 	require_once $dir . 'contact-info/class-responsive-customizer-contact-info-control.php';
 	require_once $dir . 'color-with-devices/class-responsive-customizer-color-with-devices-control.php';
+	require_once $dir . 'color-with-devices-and-hover/class-responsive-customizer-color-with-devices-and-hover-control.php';
 	require_once $dir . 'section-toggle/class-responsive-customizer-section-toggle.php';
 	require_once $dir . 'select-with-switchers/class-responsive-customizer-selectbtn-switchers-control.php';
 
@@ -355,6 +355,7 @@ function responsive_custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Input_With_Dropdown_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Contact_Info_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Color_With_Devices_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Color_With_Devices_And_Hover_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Selectbtn_Switchers_Control' );
 
 }

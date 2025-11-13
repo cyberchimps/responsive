@@ -64,7 +64,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 				);
 				$header_mobile_tablet_choices['woo-cart'] = array(
 					'name'    => esc_html__( 'Cart', 'responsive' ),
-					'section' => 'responsive_header_woo_cart',
+					'section' => 'responsive_mobile_header_woo_cart',
 					'icon'    => 'cart',
 				);
 			}

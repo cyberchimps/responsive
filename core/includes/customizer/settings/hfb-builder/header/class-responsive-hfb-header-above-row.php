@@ -59,17 +59,39 @@ if( ! class_exists( 'Responsive_HFB_Header_Above_Row' ) ) {
             
             // Background Color.
 			$header_above_row_color_label = __( 'Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_above_row_bg', $header_above_row_color_label, 'responsive_header_above_row', 30, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_above_row_bg_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_above_row_bg_hover_color' ), 'header_above_row_bg_hover' );
+			responsive_color_control_with_device_switchers_and_hover(
+				$wp_customize,
+				'header_above_row_bg',
+				$header_above_row_color_label,
+				'responsive_header_above_row',
+				30,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_above_row_bg_color' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_above_row_bg_hover_color' ),
+				null,
+				'',
+				'postMessage'
+			);
             
             // Bottom Border Color.
 			$header_above_row_bottom_border_color_label = __( 'Bottom Border Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_above_row_bottom_border', $header_above_row_bottom_border_color_label, 'responsive_header_above_row', 40, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_above_row_bottom_border_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_above_row_bottom_border_hover_color' ), 'header_above_row_bottom_border_hover' );
+			responsive_color_control_with_device_switchers_and_hover(
+				$wp_customize,
+				'header_above_row_bottom_border',
+				$header_above_row_bottom_border_color_label,
+				'responsive_header_above_row',
+				40,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_above_row_bottom_border_color' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_above_row_bottom_border_hover_color' ),
+				null,
+				'',
+				'postMessage'
+			);
 
             responsive_horizontal_separator_control($wp_customize, 'header_above_row_bottom_border_size_separator', 1, 'responsive_header_above_row', 50, 1, );
 
             // Bottom Border Size.
             $header_above_row_bottom_border_size_label = __( 'Bottom Border Size (px)', 'responsive' );
-            responsive_drag_number_control( $wp_customize, 'header_above_row_bottom_border_size', $header_above_row_bottom_border_size_label, 'responsive_header_above_row', 60, 0, null, 300, 0, 'postMessage', 1 );
+            responsive_drag_number_control_with_switchers( $wp_customize, 'header_above_row_bottom_border_size', $header_above_row_bottom_border_size_label, 'responsive_header_above_row', 60, 0, null, 300, 0, 'postMessage', 1 );
 
             // Spacing.
 			$spacing_separator_label = __( 'Spacing', 'responsive' );

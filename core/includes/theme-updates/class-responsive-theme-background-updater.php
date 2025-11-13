@@ -33,7 +33,7 @@ if ( ! class_exists( 'Responsive_Theme_Background_Updater' ) ) {
                 'responsive_theme_background_updater_site_title_tagline_visibility_6_2_7'
             ),
             '6.2.9' => array(
-                'responsive_theme_background_updater_menu_button_radius_deprecation_6_2_9'
+                'responsive_theme_background_updater_mobile_header_builder_6_2_9'
             )
 		);
 

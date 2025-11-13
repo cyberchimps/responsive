@@ -1742,16 +1742,16 @@ if( ! function_exists( 'responsive_theme_background_updater_content_boxed_flat_p
 
 }
 
-if( ! function_exists( 'responsive_theme_background_updater_menu_button_radius_deprecation_6_2_9' )) {
+if( ! function_exists( 'responsive_theme_background_updater_mobile_header_builder_6_2_9' )) {
 	/**
 	 * Handle backward compatibility for users who had set up border radius for toggle button through
 	 * the settings in Primary Menu as its deprecated and new control and settings are added.
 	 * @since 6.2.9
 	 * @return void
 	 */
-	function responsive_theme_background_updater_menu_button_radius_deprecation_6_2_9(){
+	function responsive_theme_background_updater_mobile_header_builder_6_2_9(){
 		$responsive_options = Responsive\Core\responsive_get_options();
-		if( !isset( $responsive_options['menu_button_radius_deprecation'])) {
+		if( !isset( $responsive_options['mobile_header_builder_backward_done'])) {
 			$menu_button_radius = get_theme_mod( 'responsive_menu_button_radius', 'false' );
 			if( $menu_button_radius!= false )
 			{
@@ -1765,7 +1765,134 @@ if( ! function_exists( 'responsive_theme_background_updater_menu_button_radius_d
 				get_theme_mod( 'responsive_header_toggle_button_border_radius_mobile_left_padding', $menu_button_radius ); 
 			}
 
-			$responsive_options['menu_button_radius_deprecation'] = true;
+			// Migrate old header primary row background colors to new device-specific settings
+			// This ensures backward compatibility when upgrading to the new color control system
+			$old_bg_color = get_theme_mod( 'responsive_header_primary_row_bg_color' );
+			$old_bg_hover_color = get_theme_mod( 'responsive_header_primary_row_bg_hover_color' );
+			
+			// Check if old settings exist but new device-specific settings don't
+			if ( $old_bg_color && ! get_theme_mod( 'responsive_header_primary_row_bg_color_tablet' ) ) {
+				// Migrate normal colors to all devices
+				set_theme_mod( 'responsive_header_primary_row_bg_color_tablet', $old_bg_color );
+				set_theme_mod( 'responsive_header_primary_row_bg_color_mobile', $old_bg_color );
+			}
+			
+			if ( $old_bg_hover_color && ! get_theme_mod( 'responsive_header_primary_row_bg_color_hover' ) ) {
+				// Migrate hover colors to all devices
+				set_theme_mod( 'responsive_header_primary_row_bg_color_hover', $old_bg_hover_color );
+				set_theme_mod( 'responsive_header_primary_row_bg_color_tablet_hover', $old_bg_hover_color );
+				set_theme_mod( 'responsive_header_primary_row_bg_color_mobile_hover', $old_bg_hover_color );
+			}
+
+			// Migrate old header primary row bottom border colors to new device-specific settings
+			$old_border_color = get_theme_mod( 'responsive_header_primary_row_bottom_border_color' );
+			$old_border_hover_color = get_theme_mod( 'responsive_header_primary_row_bottom_border_hover_color' );
+			
+			// Check if old settings exist but new device-specific settings don't
+			if ( $old_border_color && ! get_theme_mod( 'responsive_header_primary_row_bottom_border_color_tablet' ) ) {
+				// Migrate normal border colors to all devices
+				set_theme_mod( 'responsive_header_primary_row_bottom_border_color_tablet', $old_border_color );
+				set_theme_mod( 'responsive_header_primary_row_bottom_border_color_mobile', $old_border_color );
+			}
+			
+			if ( $old_border_hover_color && ! get_theme_mod( 'responsive_header_primary_row_bottom_border_color_hover' ) ) {
+				// Migrate hover border colors to all devices
+				set_theme_mod( 'responsive_header_primary_row_bottom_border_color_hover', $old_border_hover_color );
+				set_theme_mod( 'responsive_header_primary_row_bottom_border_color_tablet_hover', $old_border_hover_color );
+				set_theme_mod( 'responsive_header_primary_row_bottom_border_color_mobile_hover', $old_border_hover_color );
+			}
+
+			// Migrate old header above row background colors to new device-specific settings
+			$old_above_bg_color = get_theme_mod( 'responsive_header_above_row_bg_color' );
+			$old_above_bg_hover_color = get_theme_mod( 'responsive_header_above_row_bg_hover_color' );
+			
+			if ( $old_above_bg_color && ! get_theme_mod( 'responsive_header_above_row_bg_color_tablet' ) ) {
+				// Migrate normal colors to all devices
+				set_theme_mod( 'responsive_header_above_row_bg_color_tablet', $old_above_bg_color );
+				set_theme_mod( 'responsive_header_above_row_bg_color_mobile', $old_above_bg_color );
+			}
+			
+			if ( $old_above_bg_hover_color && ! get_theme_mod( 'responsive_header_above_row_bg_color_hover' ) ) {
+				// Migrate hover colors to all devices
+				set_theme_mod( 'responsive_header_above_row_bg_color_hover', $old_above_bg_hover_color );
+				set_theme_mod( 'responsive_header_above_row_bg_color_tablet_hover', $old_above_bg_hover_color );
+				set_theme_mod( 'responsive_header_above_row_bg_color_mobile_hover', $old_above_bg_hover_color );
+			}
+
+			// Migrate old header above row bottom border colors to new device-specific settings
+			$old_above_border_color = get_theme_mod( 'responsive_header_above_row_bottom_border_color' );
+			$old_above_border_hover_color = get_theme_mod( 'responsive_header_above_row_bottom_border_hover_color' );
+			
+			if ( $old_above_border_color && ! get_theme_mod( 'responsive_header_above_row_bottom_border_color_tablet' ) ) {
+				// Migrate normal border colors to all devices
+				set_theme_mod( 'responsive_header_above_row_bottom_border_color_tablet', $old_above_border_color );
+				set_theme_mod( 'responsive_header_above_row_bottom_border_color_mobile', $old_above_border_color );
+			}
+			
+			if ( $old_above_border_hover_color && ! get_theme_mod( 'responsive_header_above_row_bottom_border_color_hover' ) ) {
+				// Migrate hover border colors to all devices
+				set_theme_mod( 'responsive_header_above_row_bottom_border_color_hover', $old_above_border_hover_color );
+				set_theme_mod( 'responsive_header_above_row_bottom_border_color_tablet_hover', $old_above_border_hover_color );
+				set_theme_mod( 'responsive_header_above_row_bottom_border_color_mobile_hover', $old_above_border_hover_color );
+			}
+
+			// Migrate old header below row background colors to new device-specific settings
+			$old_below_bg_color = get_theme_mod( 'responsive_header_below_row_bg_color' );
+			$old_below_bg_hover_color = get_theme_mod( 'responsive_header_below_row_bg_hover_color' );
+			
+			if ( $old_below_bg_color && ! get_theme_mod( 'responsive_header_below_row_bg_color_tablet' ) ) {
+				// Migrate normal colors to all devices
+				set_theme_mod( 'responsive_header_below_row_bg_color_tablet', $old_below_bg_color );
+				set_theme_mod( 'responsive_header_below_row_bg_color_mobile', $old_below_bg_color );
+			}
+			
+			if ( $old_below_bg_hover_color && ! get_theme_mod( 'responsive_header_below_row_bg_color_hover' ) ) {
+				// Migrate hover colors to all devices
+				set_theme_mod( 'responsive_header_below_row_bg_color_hover', $old_below_bg_hover_color );
+				set_theme_mod( 'responsive_header_below_row_bg_color_tablet_hover', $old_below_bg_hover_color );
+				set_theme_mod( 'responsive_header_below_row_bg_color_mobile_hover', $old_below_bg_hover_color );
+			}
+
+			// Migrate old header below row bottom border colors to new device-specific settings
+			$old_below_border_color = get_theme_mod( 'responsive_header_below_row_bottom_border_color' );
+			$old_below_border_hover_color = get_theme_mod( 'responsive_header_below_row_bottom_border_hover_color' );
+			
+			if ( $old_below_border_color && ! get_theme_mod( 'responsive_header_below_row_bottom_border_color_tablet' ) ) {
+				// Migrate normal border colors to all devices
+				set_theme_mod( 'responsive_header_below_row_bottom_border_color_tablet', $old_below_border_color );
+				set_theme_mod( 'responsive_header_below_row_bottom_border_color_mobile', $old_below_border_color );
+			}
+			
+			if ( $old_below_border_hover_color && ! get_theme_mod( 'responsive_header_below_row_bottom_border_color_hover' ) ) {
+				// Migrate hover border colors to all devices
+				set_theme_mod( 'responsive_header_below_row_bottom_border_color_hover', $old_below_border_hover_color );
+				set_theme_mod( 'responsive_header_below_row_bottom_border_color_tablet_hover', $old_below_border_hover_color );
+				set_theme_mod( 'responsive_header_below_row_bottom_border_color_mobile_hover', $old_below_border_hover_color );
+			}
+
+			// Migrate old header row bottom border sizes to new device-specific settings
+			// Header Above Row Border Size
+			$old_above_border_size = get_theme_mod( 'responsive_header_above_row_bottom_border_size' );
+			if ( $old_above_border_size !== false && ! get_theme_mod( 'responsive_header_above_row_bottom_border_size_tablet' ) ) {
+				set_theme_mod( 'responsive_header_above_row_bottom_border_size_tablet', $old_above_border_size );
+				set_theme_mod( 'responsive_header_above_row_bottom_border_size_mobile', $old_above_border_size );
+			}
+
+			// Header Primary Row Border Size
+			$old_primary_border_size = get_theme_mod( 'responsive_header_primary_row_bottom_border_size' );
+			if ( $old_primary_border_size !== false && ! get_theme_mod( 'responsive_header_primary_row_bottom_border_size_tablet' ) ) {
+				set_theme_mod( 'responsive_header_primary_row_bottom_border_size_tablet', $old_primary_border_size );
+				set_theme_mod( 'responsive_header_primary_row_bottom_border_size_mobile', $old_primary_border_size );
+			}
+
+			// Header Below Row Border Size
+			$old_below_border_size = get_theme_mod( 'responsive_header_below_row_bottom_border_size' );
+			if ( $old_below_border_size !== false && ! get_theme_mod( 'responsive_header_below_row_bottom_border_size_tablet' ) ) {
+				set_theme_mod( 'responsive_header_below_row_bottom_border_size_tablet', $old_below_border_size );
+				set_theme_mod( 'responsive_header_below_row_bottom_border_size_mobile', $old_below_border_size );
+			}
+
+			$responsive_options['mobile_header_builder_backward_done'] = true;
             update_option( 'responsive_theme_options', $responsive_options );
 			
 		}
