@@ -62,7 +62,7 @@ function render_header( $row = 'primary', $column = 'left', $header = 'desktop' 
 	$elements = get_theme_mod( 'responsive_header_' . $header . '_items', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_' . $header . '_items' ) );
 	if ( isset( $elements ) && isset( $elements[ $row ] ) && isset( $elements[ $row ][ $row . '_' . $column ] ) && is_array( $elements[ $row ][ $row . '_' . $column ] ) && ! empty( $elements[ $row ][ $row . '_' . $column ] ) ) {
 		foreach ( $elements[ $row ][ $row . '_' . $column ] as $key => $item ) {
-			$template = apply_filters( 'responsive_header_elements_template_path', 'template-parts/header/' . $item, $item, $row, $column );
+			$template = apply_filters( 'responsive_header_elements_template_path', 'template-parts/header/' . $item, $item, $row, $column, $header );
 			get_template_part( $template );
 		}
 	}

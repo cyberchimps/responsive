@@ -769,7 +769,22 @@
     });
     api( 'responsive_header_html_link_style', function(value){
         value.bind( function(newval){
-            $( '.site-header .responsive-header-html .responsive-header-html-inner a' ).css( 'text-decoration', newval )
+            var $inner = $( '.site-header .responsive-header-html .responsive-header-html-inner' );
+            if ( newval === 'underline' ) {
+                $inner.addClass( 'responsive-header-html-underline-link' );
+            } else {
+                $inner.removeClass( 'responsive-header-html-underline-link' );
+            }
+        });
+    });
+    api( 'responsive_mobile_header_html_link_style', function(value){
+        value.bind( function(newval){
+            var $inner = $( '.site-header-mobile .responsive-mobile-header-html .responsive-mobile-header-html-inner' );
+            if ( newval === 'underline' ) {
+                $inner.addClass( 'responsive-mobile-header-html-underline-link' );
+            } else {
+                $inner.removeClass( 'responsive-mobile-header-html-underline-link' );
+            }
         });
     });
     api('responsive_header_social_item_border_style', function(value) {
@@ -810,5 +825,19 @@
         });
     });
     
+    // Off-Canvas Menu Items Divider Toggle
+    api('responsive_header_off_canvas_menu_items_divider', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-off-canvas-menu-items-divider').remove();
+            if (newval) {
+                jQuery('head').append(
+                    '<style id="responsive-off-canvas-menu-items-divider">' +
+                    '.off-canvas-widget-area #off-canvas-menu li { border-bottom: 1px solid rgba(0, 0, 0, 0.1); }' +
+                    '.off-canvas-widget-area #off-canvas-menu li:last-child { border-bottom: none; }' +
+                    '</style>'
+                );
+            }
+        });
+    });
 
 } )( jQuery );

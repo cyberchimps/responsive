@@ -1043,6 +1043,13 @@ body.mega-menu-header-menu button.menu-toggle {
                 }
             }
         }
+        .responsive-mobile-header-html {
+            .responsive-mobile-header-html-inner {
+                &.responsive-mobile-header-html-underline-link a {
+                    text-decoration: underline;
+                }
+            }
+        }
     }
 }
 

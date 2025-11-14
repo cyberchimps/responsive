@@ -891,6 +891,14 @@
             }
         });
     });
+    api( 'responsive_mobile_header_button_border_width', function(value) {
+        value.bind(function(newval) {
+            let mobile_header_button_border_style = api('responsive_mobile_header_button_border_style').get();
+            if ( 'none' !== mobile_header_button_border_style ) {
+                $( '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button' ).css( 'border-width', newval + 'px' );
+            }
+        });
+    });
     api( 'responsive_header_social_item_spacing', function(value){
         value.bind(function(newval) {
            $( '.header-layouts.social-icon .social-icons' ).css( 'gap', newval + 'px' );

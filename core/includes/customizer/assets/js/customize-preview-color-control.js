@@ -2673,6 +2673,57 @@
         });
     });
 
+    // Mobile Header Button Color Controls
+    api( 'responsive_mobile_header_button_color', function(val){
+        val.bind(function(newval){
+            $( '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button' ).css( 'color', newval );
+        });
+    });
+    api( 'responsive_mobile_header_button_hover_color', function(val){
+        val.bind(function(newval){
+            $( '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover' ).css( 'color', newval );
+        });
+    });
+    api( 'responsive_mobile_header_button_bg_color', function(val){
+        val.bind(function(newval){
+            let mobile_header_button_style = api('responsive_mobile_header_button_style').get();
+            if ( 'filled' === mobile_header_button_style ) {
+                $( '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button' ).css( 'background-color', newval );
+            }
+        });
+    });
+    api( 'responsive_mobile_header_button_bg_hover_color', function(val){
+        val.bind(function(newval){
+            let mobile_header_button_style = api('responsive_mobile_header_button_style').get();
+            if ( 'filled' === mobile_header_button_style ) {
+                $( '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover' ).css( 'background-color', newval );
+            }
+        });
+    });
+    api( 'responsive_mobile_header_button_border_color', function(val){
+        val.bind(function(newval){
+            let mobile_header_button_border_style = api('responsive_mobile_header_button_border_style').get();
+            if ( 'none' !== mobile_header_button_border_style ) {
+                $( '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button' ).css( 'border-color', newval );
+            }
+        });
+    });
+    api( 'responsive_mobile_header_button_border_hover_color', function(val){
+        val.bind(function(newval){
+            let mobile_header_button_border_style = api('responsive_mobile_header_button_border_style').get();
+            if ( 'none' !== mobile_header_button_border_style ) {
+                $( '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover' ).css( 'border-color', newval );
+            }
+        });
+    });
+    api( 'responsive_mobile_header_button_shadow_color', function(val){
+        val.bind(function(newval){
+            $( '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button' ).css( 'box-shadow', function(i, value) {
+                return value.replace(/rgba?\([^)]+\)|#[0-9a-f]+/i, newval);
+            });
+        });
+    });
+
     api( 'responsive_header_social_item_style', function(val){
         val.bind(function(newval){
             if ( 'filled' === newval || '' == newval ) {
@@ -3156,6 +3207,24 @@
         });
     });
 
+    // Mobile Header HTML Element Link Color.
+    api( 'responsive_mobile_header_html_link_color', function(val){
+        val.bind(function(newval){
+            $( '.site-header-mobile .responsive-mobile-header-html .responsive-mobile-header-html-inner a' ).css( 'color', newval );
+        });
+    });
+    api('responsive_mobile_header_html_link_hover_color', function(val) {
+        val.bind(function(newval) {
+            $('.site-header-mobile .responsive-mobile-header-html .responsive-mobile-header-html-inner a').off('mouseenter mouseleave');
+
+            $('.site-header-mobile .responsive-mobile-header-html .responsive-mobile-header-html-inner a').on('mouseenter', function() {
+                $(this).css('color', newval);
+            }).on('mouseleave', function() {
+                $(this).css('color', api('responsive_mobile_header_html_link_color').get());
+            });
+        });
+    });
+
     // Cache the <head> element
     const $head = $( 'head' );
     // Define the style properties we want to bind for each footer widget
@@ -3237,4 +3306,58 @@
                 .css('color', newval);
         });
     });
+
+    // Off-Canvas Menu Link Default Color
+    api('responsive_header_off_canvas_menu_link_default_color', function(value) {
+        value.bind(function(newval) {
+            $('.off-canvas-widget-area #off-canvas-menu li a').css('color', newval);
+        });
+    });
+
+    // Off-Canvas Menu Link Hover Color
+    api('responsive_header_off_canvas_menu_link_hover_color', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-off-canvas-menu-link-hover-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-off-canvas-menu-link-hover-color">' +
+                '.off-canvas-widget-area #off-canvas-menu li a:hover { color: ' + newval + ' !important; }' +
+                '</style>'
+            );
+        });
+    });
+
+    // Off-Canvas Menu Link Active Color
+    api('responsive_header_off_canvas_menu_link_active_color', function(value) {
+        value.bind(function(newval) {
+            $('.off-canvas-widget-area #off-canvas-menu li.current-menu-item > a, .off-canvas-widget-area #off-canvas-menu li.current_page_item > a').css('color', newval);
+        });
+    });
+
+    // Off-Canvas Menu Background Default Color
+    api('responsive_header_off_canvas_menu_bg_default_color', function(value) {
+        value.bind(function(newval) {
+            $('.off-canvas-widget-area .off-canvas-navigation').css('background-color', newval);
+            $('.off-canvas-widget-area #off-canvas-menu li a').css('background-color', newval);
+        });
+    });
+
+    // Off-Canvas Menu Background Hover Color
+    api('responsive_header_off_canvas_menu_bg_hover_color', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-off-canvas-menu-bg-hover-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-off-canvas-menu-bg-hover-color">' +
+                '.off-canvas-widget-area #off-canvas-menu li a:hover { background-color: ' + newval + ' !important; }' +
+                '</style>'
+            );
+        });
+    });
+
+    // Off-Canvas Menu Background Active Color
+    api('responsive_header_off_canvas_menu_bg_active_color', function(value) {
+        value.bind(function(newval) {
+            $('.off-canvas-widget-area #off-canvas-menu li.current-menu-item > a, .off-canvas-widget-area #off-canvas-menu li.current_page_item > a').css('background-color', newval);
+        });
+    });
+
 } )( jQuery );
