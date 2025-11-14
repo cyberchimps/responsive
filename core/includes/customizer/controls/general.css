@@ -1336,7 +1336,13 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_header_button_url_text_separator,
 #customize-control-responsive_header_button_button_style_separator,
 #customize-control-responsive_header_button_border_separator,
-#customize-control-responsive_header_button_typography_separator {
+#customize-control-responsive_mobile_header_button_typography_separator,
+#customize-control-responsive_mobile_header_button_label_text_separator,
+#customize-control-responsive_mobile_header_button_url_text_separator,
+#customize-control-responsive_mobile_header_button_url_text_separator,
+#customize-control-responsive_mobile_header_button_button_style_separator,
+#customize-control-responsive_mobile_header_button_border_separator,
+#customize-control-responsive_mobile_header_button_typography_separator  {
 	margin-top: 12px;
 }
 
@@ -1344,7 +1350,12 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_header_button_open_new_tab_separator,
 #customize-control-responsive_header_button_set_nofollow_separator,
 #customize-control-responsive_header_button_set_sponsored_separator,
-#customize-control-responsive_header_button_border_separator {
+#customize-control-responsive_mobile_header_button_border_separator,
+#customize-control-responsive_mobile_header_button_url_text_separator,
+#customize-control-responsive_mobile_header_button_open_new_tab_separator,
+#customize-control-responsive_mobile_header_button_set_nofollow_separator,
+#customize-control-responsive_mobile_header_button_set_sponsored_separator,
+#customize-control-responsive_mobile_header_button_border_separator  {
 	margin-bottom: 12px;
 }
 #customize-control-responsive_header_button_visibility .customize-control-responsive-selectbtn .customize-control-responsive-selectbtn__button {
@@ -1355,6 +1366,16 @@ body.rtl .customize-control .responsive-switchers li {
 }
 #customize-control-responsive_header_button_label #_customize-input-responsive_header_button_label,
 #customize-control-responsive_header_button_url #_customize-input-responsive_header_button_url {
+	border: 1px solid #A5A5A5;
+}
+#customize-control-responsive_mobile_header_button_visibility .customize-control-responsive-selectbtn .customize-control-responsive-selectbtn__button {
+	padding: 8px 0;
+}
+#customize-control-responsive_mobile_header_button_border_style .customize-control-responsive-selectbtn .customize-control-responsive-selectbtn__button {
+	padding: 8px 5px;
+}
+#customize-control-responsive_mobile_header_button_label #_customize-input-responsive_header_button_label,
+#customize-control-responsive_mobile_header_button_url #_customize-input-responsive_header_button_url {
 	border: 1px solid #A5A5A5;
 }
 #customize-control-responsive_cart_label_separator,
