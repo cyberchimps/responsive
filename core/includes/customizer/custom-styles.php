@@ -2741,7 +2741,7 @@ function responsive_customizer_styles() {
 	}
 
 	// Hamburger Menu Label Color - Apply same color as toggle button icon.
-	$header_mobile_tablet_menu_icon_color = get_theme_mod( 'responsive_header_toggle_button_icon_color', '#8F8F8F' );
+	$header_mobile_tablet_menu_icon_color = get_theme_mod( 'responsive_header_toggle_button_icon_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_toggle_button_icon_color' ) );
 	if ( $header_mobile_tablet_menu_icon_color ) {
 		$custom_css .= ".hamburger-menu-label {
 			color: {$header_mobile_tablet_menu_icon_color};
@@ -2843,8 +2843,8 @@ function responsive_customizer_styles() {
 		";
 
 		// Applying the Icon color and Icon Size
-		$header_mobile_tablet_menu_icon_color = get_theme_mod( 'responsive_header_toggle_button_icon_color', '#8F8F8F' );
-		$header_mobile_tablet_menu_icon_size  = get_theme_mod( 'responsive_header_toggle_button_icon_size', 22);
+		$header_mobile_tablet_menu_icon_color = get_theme_mod( 'responsive_header_toggle_button_icon_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_toggle_button_icon_color' ) );
+		$header_mobile_tablet_menu_icon_size  = get_theme_mod( 'responsive_header_toggle_button_icon_size', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_toggle_button_icon_size' ) );
 
 		$custom_css .= "
 			.menu-toggle svg > *:not(:first-child) {

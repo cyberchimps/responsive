@@ -3294,8 +3294,18 @@
     }
     // For Mobile Toggle Button Icon Color
     wp.customize('responsive_header_toggle_button_icon_color', function (val) {
+        // Apply initial value on load
+        var initialValue = val.get();
+        if (initialValue) {
+            jQuery('.menu-toggle svg')
+                .children(':not(:first-child)')
+                .css('fill', initialValue);
+            jQuery('.hamburger-menu-label')
+                .css('color', initialValue);
+        }
+        
+        // Apply on value change
         val.bind(function (newval) {
-
             // Target all children EXCEPT the first (rect/circle/path/etc.)
             jQuery('.menu-toggle svg')
                 .children(':not(:first-child)')

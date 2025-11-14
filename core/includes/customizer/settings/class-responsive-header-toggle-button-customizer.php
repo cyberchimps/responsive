@@ -52,7 +52,7 @@ if( ! class_exists( 'Responsive_Header_Toggle_Button_Customizer' ) ) {
                 'hamburger_solid' => esc_html__( 'Hamburger Solid', 'responsive' ),
                 'kebab' => esc_html__( 'Kebab', 'responsive' )
             ); 
-            responsive_icon_radio_button_control( $wp_customize, 'header_toggle_button_icon', $toggle_button_icon_label, 'responsive_header_toggle_button', 10, $toggle_button_icon_choices, 'hamburger', null, 'svg' );
+            responsive_icon_radio_button_control( $wp_customize, 'header_toggle_button_icon', $toggle_button_icon_label, 'responsive_header_toggle_button', 10, $toggle_button_icon_choices, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_toggle_button_icon' ), null, 'svg' );
 
             // Toggle Button Style - General Tab
             $toggle_button_style_choices = array(
@@ -99,7 +99,7 @@ if( ! class_exists( 'Responsive_Header_Toggle_Button_Customizer' ) ) {
             // Design Tabs
             // Icon Color - Design Tab
             $header_toggle_button_icon_color_label = __( 'Icon Color', 'responsive' );
-            responsive_color_control( $wp_customize, 'header_toggle_button_icon', $header_toggle_button_icon_color_label, 'responsive_header_toggle_button', 10, '#FFFFFF', null, '', false, null, null, false, null, null, 'color' );
+            responsive_color_control( $wp_customize, 'header_toggle_button_icon', $header_toggle_button_icon_color_label, 'responsive_header_toggle_button', 10, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_toggle_button_icon_color' ), null, '', false, null, null, false, null, null, 'color' );
             
             // Border Color - Design Tab
             $header_toggle_button_border_color_label = __( 'Border Color', 'responsive' );
