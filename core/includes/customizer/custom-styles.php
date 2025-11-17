@@ -1900,8 +1900,7 @@ function responsive_customizer_styles() {
 		.main-navigation .sub-menu > li.focus > .children,
 		.main-navigation .sub-menu > li.focus > .sub-menu-edge-rtl,
 		.main-navigation .sub-menu > li:hover > .children,
-		.main-navigation .sub-menu > li:hover > .sub-menu-edge-rtl,
-		.sub-menu .sub-menu-edge-rtl:hover {
+		.main-navigation .sub-menu > li:hover > .sub-menu-edge-rtl {
 			left: 100% !important;
 			right: auto !important;
 			top: 0 !important;
