@@ -3900,6 +3900,116 @@
             );
 
         } );
+    } ), api( "mobile_header_social_item_typography[font-family]", function( $swipe ) {
+        $swipe.bind( function( pair ) {
+            if ( pair ) {
+                /** @type {string} */
+                var fontName = pair.split(",")[0];
+                fontName = fontName.replace(/'/g, '');
+                var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-mobile_header_social_item-font-family" );
+                var fontSize = fontName.replace( " ", "%20" );
+                fontSize = fontSize.replace( ",", "%2C" );
+                /** @type {string} */
+                fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+                if ( fontName in responsive.googleFonts ) {
+                    if ( $( "#" + idfirst ).length ) {
+                        $( "#" + idfirst ).attr( "href", fontSize );
+                    } else {
+                        $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+                    }
+                }
+            }
+            jQuery( 'style.customizer-typography-mobile_header_social_item-font-family' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-mobile_header_social_item-font-family">'
+                + responsive.selectorArray['mobile_header_social_item'] + '{ font-family:' + pair +';}'
+                + '</style>'
+            );
+
+        } );
+    } ), api( "mobile_header_social_item_typography[font-weight]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-mobile_header_social_item-font-weight' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-mobile_header_social_item-font-weight">'
+                + responsive.selectorArray['mobile_header_social_item'] + '{ font-weight:' + dataAndEvents +';}'
+                + '</style>'
+            );
+
+        } );
+    } ), api( "mobile_header_social_item_typography[font-style]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-mobile_header_social_item-font-style' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-mobile_header_social_item-font-style">'
+                + responsive.selectorArray['mobile_header_social_item'] + '{ font-style:' + dataAndEvents +';}'
+                + '</style>'
+            );
+
+        } );
+    } ), api( "mobile_header_social_item_typography[font-size]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-mobile_header_social_item-font-size' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-mobile_header_social_item-font-size">'
+                + responsive.selectorArray['mobile_header_social_item'] + '{ font-size:' + dataAndEvents +';}'
+		        + '@media (max-width: 768px){'+ responsive.selectorArray['mobile_header_social_item'] +'{ font-size:' + api( "mobile_header_social_item_tablet_typography[font-size]").get() +';}}'
+		        + '@media (max-width: 480px){'+ responsive.selectorArray['mobile_header_social_item'] +'{ font-size:' + api( "mobile_header_social_item_mobile_typography[font-size]").get() +';}}'
+                + '</style>'
+            );
+
+        } );
+    } ), api( "mobile_header_social_item_tablet_typography[font-size]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-mobile_header_social_item-tablet-font-size' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-mobile_header_social_item-tablet-font-size">'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['mobile_header_social_item'] +'{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['mobile_header_social_item'] +'{ font-size:' + api( "mobile_header_social_item_mobile_typography[font-size]").get() +';}}'
+                + '</style>'
+            );
+
+        } );
+    } ), api( "mobile_header_social_item_mobile_typography[font-size]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-mobile_header_social_item-mobile-font-size' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-mobile_header_social_item-mobile-font-size">'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['mobile_header_social_item'] + '{ font-size:' + dataAndEvents +';}}'
+                + '</style>'
+            );
+
+        } );
+    } ), api( "mobile_header_social_item_typography[line-height]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-mobile_header_social_item-line-height' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-mobile_header_social_item-line-height">'
+                + responsive.selectorArray['mobile_header_social_item'] + '{ line-height:' + dataAndEvents +';}'
+                + '</style>'
+            );
+
+        } );
+    } ), api( "mobile_header_social_item_typography[letter-spacing]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-mobile_header_social_item-letter-spacing' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-mobile_header_social_item-letter-spacing">'
+                + responsive.selectorArray['mobile_header_social_item'] + '{ letter-spacing:' + dataAndEvents +'px;}'
+                + '</style>'
+            );
+
+        } );
+    } ), api( "mobile_header_social_item_typography[text-transform]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-mobile_header_social_item-text-transform' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-mobile_header_social_item-text-transform">'
+                + responsive.selectorArray['mobile_header_social_item'] + '{ text-transform:' + dataAndEvents +';}'
+                + '</style>'
+            );
+
+        } );
     } )
     // Footer Widgets Title & Content Typography - Start
     for (let i = 1; i <= 6; i++) {

@@ -236,6 +236,16 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'font-size' => '13px',
 					),
 				),
+				'mobile_header_social_item' => array(	
+					'label'    => esc_html__( 'Mobile Header Social', 'responsive' ),
+					'target'   => $selectorArray['mobile_header_social_item'],
+					'section'  => 'responsive_mobile_header_social',
+					'priority' => 160,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size' => '13px',
+					),
+				),
 				'header_menu'                => array(
 					'label'           => esc_html__( 'Typography', 'responsive' ),
 					'target'          => $selectorArray['header_menu'],
@@ -496,6 +506,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'header_site_tagline'        => '.site-description',
 				'header_widgets'             => '.header-widgets',
 				'mobile_header_widgets'      => '.mobile-header-widgets',
+				'mobile_header_social_item' => '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label',
 				'header_menu'                => '.main-navigation a',
 				'header_secondary_menu'      => '.secondary-navigation a',
 				'sidebar'                    => '.site-content .widget-area:not(.home-widgets) .widget-wrapper',

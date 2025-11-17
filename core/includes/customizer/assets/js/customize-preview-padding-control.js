@@ -863,6 +863,29 @@
         });
     });
 
+    const mobileHeaderSocialMargin = [
+        'responsive_mobile_header_social_item_margin_top_padding',
+        'responsive_mobile_header_social_item_margin_right_padding',
+        'responsive_mobile_header_social_item_margin_bottom_padding',
+        'responsive_mobile_header_social_item_margin_left_padding',
+        'responsive_mobile_header_social_item_margin_tablet_top_padding',
+        'responsive_mobile_header_social_item_margin_tablet_right_padding',
+        'responsive_mobile_header_social_item_margin_tablet_bottom_padding',
+        'responsive_mobile_header_social_item_margin_tablet_left_padding',
+        'responsive_mobile_header_social_item_margin_mobile_top_padding',
+        'responsive_mobile_header_social_item_margin_mobile_right_padding',
+        'responsive_mobile_header_social_item_margin_mobile_bottom_padding',
+        'responsive_mobile_header_social_item_margin_mobile_left_padding',
+    ];
+
+    mobileHeaderSocialMargin.forEach(setting => {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_margin('mobile_header_social_item_margin', '.site-mobile-header-item .header-layouts.social-icon .social-icons');
+            });
+        });
+    });
+
     const footerSocialMargin = [
         'responsive_footer_social_item_margin_top_padding',
         'responsive_footer_social_item_margin_right_padding',

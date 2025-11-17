@@ -230,6 +230,7 @@ function responsive_register_options() {
 		'class-responsive-mobile-header-button-customizer',
 		'class-responsive-mobile-header-woo-cart-customizer',
 		'class-responsive-header-social-customizer',
+		'class-responsive-mobile-header-social-customizer',
 		'class-responsive-header-contact-info-customizer',
 		'class-responsive-mobile-header-contact-info-customizer',
 		'class-responsive-header-search-customizer',

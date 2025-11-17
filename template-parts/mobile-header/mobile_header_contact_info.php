@@ -10,7 +10,7 @@ if( ! defined('ABSPATH') ) {
 }
 require get_template_directory() . '/core/includes/responsive-icon-library.php';
 ?>
-<div class="site-header-item site-header-focus-item" data-section="responsive_customizer_mobile_header_contact_info">
+<div class="site-mobile-header-item site-header-focus-item" data-section="responsive_customizer_mobile_header_contact_info">
 	<?php
     $contact_infos      = get_theme_mod( 'responsive_mobile_header_contact_info' );
     if ( empty( $contact_infos ) ) {

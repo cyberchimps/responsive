@@ -2763,7 +2763,14 @@
     api( 'responsive_header_social_item_style', function(val){
         val.bind(function(newval){
             if ( 'filled' === newval || '' == newval ) {
-                $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'background-color', '#EDF2F7' );
+                $( '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'background-color', '#EDF2F7' );
+            }
+        });
+    });
+    api( 'responsive_mobile_header_social_item_style', function(val){
+        val.bind(function(newval){
+            if ( 'filled' === newval || '' == newval ) {
+                $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'background-color', '#EDF2F7' );
             }
         });
     });
@@ -2778,8 +2785,17 @@
         val.bind(function(newval){
             var header_social_item_use_brand_colors = api('responsive_header_social_item_use_brand_colors').get();
             if ( 'no' === header_social_item_use_brand_colors ) {
-                $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'color', newval );
-                $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'fill', newval );
+                $( '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'color', newval );
+                $( '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'fill', newval );
+            }
+        });
+    });
+    api( 'responsive_mobile_header_social_item_color', function(val){
+        val.bind(function(newval){
+            var header_social_item_use_brand_colors = api('responsive_mobile_header_social_item_use_brand_colors').get();
+            if ( 'no' === header_social_item_use_brand_colors ) {
+                $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'color', newval );
+                $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'fill', newval );
             }
         });
     });
@@ -2796,8 +2812,17 @@
         val.bind(function(newval){
             var header_social_item_use_brand_colors = api('responsive_header_social_item_use_brand_colors').get();
             if ( 'no' === header_social_item_use_brand_colors ) {
-                $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'color', newval );
-                $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'fill', newval );
+                $( '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'color', newval );
+                $( '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'fill', newval );
+            }
+        });
+    });
+    api( 'responsive_mobile_header_social_item_hover_color', function(val){
+        val.bind(function(newval){
+            var header_social_item_use_brand_colors = api('responsive_mobile_header_social_item_use_brand_colors').get();
+            if ( 'no' === header_social_item_use_brand_colors ) {
+                $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'color', newval );
+                $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'fill', newval );
             }
         });
     });
@@ -2814,7 +2839,15 @@
         val.bind(function(newval){
             var header_social_item_use_brand_colors = api('responsive_header_social_item_use_brand_colors').get();
             if ( 'no' === header_social_item_use_brand_colors ) {
-                $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'background-color', newval );
+                $( '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'background-color', newval );
+            }
+        });
+    });
+    api( 'responsive_mobile_header_social_item_background_color', function(val){
+        val.bind(function(newval){
+            var header_social_item_use_brand_colors = api('responsive_mobile_header_social_item_use_brand_colors').get();
+            if ( 'no' === header_social_item_use_brand_colors ) {
+                $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'background-color', newval );
             }
         });
     });
@@ -2830,7 +2863,15 @@
         val.bind(function(newval){
             var header_social_item_use_brand_colors = api('responsive_header_social_item_use_brand_colors').get();
             if ( 'no' === header_social_item_use_brand_colors ) {
-                $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'background-color', newval );
+                $( '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'background-color', newval );
+            }
+        });
+    });
+    api( 'responsive_mobile_header_social_item_background_hover_color', function(val){
+        val.bind(function(newval){
+            var header_social_item_use_brand_colors = api('responsive_mobile_header_social_item_use_brand_colors').get();
+            if ( 'no' === header_social_item_use_brand_colors ) {
+                $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'background-color', newval );
             }
         });
     });
@@ -2846,7 +2887,15 @@
         val.bind(function(newval){
             var header_social_item_use_brand_colors = api('responsive_header_social_item_use_brand_colors').get();
             if ( 'no' === header_social_item_use_brand_colors ) {
-                $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'border-color', newval );
+                $( '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'border-color', newval );
+            }
+        });
+    });
+    api( 'responsive_mobile_header_social_item_border_color', function(val){
+        val.bind(function(newval){
+            var header_social_item_use_brand_colors = api('responsive_mobile_header_social_item_use_brand_colors').get();
+            if ( 'no' === header_social_item_use_brand_colors ) {
+                $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'border-color', newval );
             }
         });
     });
@@ -2862,7 +2911,15 @@
         val.bind(function(newval){
             var header_social_item_use_brand_colors = api('responsive_header_social_item_use_brand_colors').get();
             if ( 'no' === header_social_item_use_brand_colors ) {
-                $( '.header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'border-color', newval );
+                $( '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'border-color', newval );
+            }
+        });
+    });
+    api( 'responsive_mobile_header_social_item_border_hover_color', function(val){
+        val.bind(function(newval){
+            var header_social_item_use_brand_colors = api('responsive_mobile_header_social_item_use_brand_colors').get();
+            if ( 'no' === header_social_item_use_brand_colors ) {
+                $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'border-color', newval );
             }
         });
     });

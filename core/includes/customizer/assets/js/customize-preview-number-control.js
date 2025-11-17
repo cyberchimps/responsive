@@ -114,6 +114,29 @@
         });
     });
 
+    const mobileHeaderSocialBorderRadius = [
+        'responsive_mobile_header_social_radius_top_left_radius',
+        'responsive_mobile_header_social_radius_bottom_left_radius',
+        'responsive_mobile_header_social_radius_bottom_right_radius',
+        'responsive_mobile_header_social_radius_top_right_radius',
+        'responsive_mobile_header_social_radius_tablet_top_left_radius',
+        'responsive_mobile_header_social_radius_tablet_top_right_radius',
+        'responsive_mobile_header_social_radius_tablet_bottom_right_radius',
+        'responsive_mobile_header_social_radius_tablet_bottom_left_radius',
+        'responsive_mobile_header_social_radius_mobile_top_left_radius',
+        'responsive_mobile_header_social_radius_mobile_top_right_radius',
+        'responsive_mobile_header_social_radius_mobile_bottom_right_radius',
+        'responsive_mobile_header_social_radius_mobile_bottom_left_radius',
+    ];
+
+    mobileHeaderSocialBorderRadius.forEach(setting => {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_radius( 'mobile_header_social', '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' );
+            });
+        });
+    });
+
     const footerSocialBorderRadius = [
         'responsive_footer_social_radius_top_left_radius',
         'responsive_footer_social_radius_bottom_left_radius',
