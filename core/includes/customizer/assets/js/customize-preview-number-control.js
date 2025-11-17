@@ -426,6 +426,20 @@
         'responsive_header_button_radius_mobile_bottom_right_radius',
         'responsive_header_button_radius_mobile_bottom_left_radius',
     ];
+    const mobileHeaderButtonBorderRadius = [
+        'responsive_mobile_header_button_radius_top_left_radius',
+        'responsive_mobile_header_button_radius_bottom_left_radius',
+        'responsive_mobile_header_button_radius_bottom_right_radius',
+        'responsive_mobile_header_button_radius_top_right_radius',
+        'responsive_mobile_header_button_radius_tablet_top_left_radius',
+        'responsive_mobile_header_button_radius_tablet_top_right_radius',
+        'responsive_mobile_header_button_radius_tablet_bottom_right_radius',
+        'responsive_mobile_header_button_radius_tablet_bottom_left_radius',
+        'responsive_mobile_header_button_radius_mobile_top_left_radius',
+        'responsive_mobile_header_button_radius_mobile_top_right_radius',
+        'responsive_mobile_header_button_radius_mobile_bottom_right_radius',
+        'responsive_mobile_header_button_radius_mobile_bottom_left_radius',
+    ]
 
     headerButtonBorderRadius.forEach(setting => {
         api(setting, function(value) {
@@ -434,6 +448,13 @@
             });
         });
     });
+    mobileHeaderButtonBorderRadius.forEach(setting => {
+        api(setting, function(value) {
+            value.bind(function(newvalue) {
+                responsive_dynamic_radius( 'mobile_header_button', '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button');
+            })
+        })
+    })
     // Apply Header Search element border radius - Start.
     const headerSearchBorderRadius = [
         'responsive_header_search_border_radius_top_left_radius',

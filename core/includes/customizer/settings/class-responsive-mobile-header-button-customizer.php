@@ -74,6 +74,7 @@ if ( ! class_exists( 'Responsive_Mobile_Header_Button_Customizer' ) ) :
 				$tab_ids_prefix . 'responsive_mobile_header_button_margin_separator',
 				$tab_ids_prefix . 'responsive_mobile_header_button_shadow',
 				$tab_ids_prefix . 'responsive_mobile_header_button_shadow_color',
+				$tab_ids_prefix . 'responsive_border_mobile_header_button_radius'
 			);
 
 			responsive_tabs_button_control( $wp_customize, 'responsive_mobile_header_button', $tabs_label, 'responsive_mobile_header_button', 10, '', 'responsive_social_general_tab', 'responsive_social_design_tab', $general_tab_ids, $design_tab_ids, null );
@@ -165,7 +166,7 @@ if ( ! class_exists( 'Responsive_Mobile_Header_Button_Customizer' ) ) :
 
 			responsive_horizontal_separator_control( $wp_customize, 'mobile_header_button_size_separator', 1, 'responsive_mobile_header_button', 46, 1 );
 
-			responsive_padding_control( $wp_customize, 'mobile_header_button', 'responsive_mobile_header_button', 50, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_padding_y' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_padding_x' ), 'responsive_show_header_button_padding', __( 'Padding', 'responsive' ) );
+			responsive_padding_control( $wp_customize, 'mobile_header_button', 'responsive_mobile_header_button', 50, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_padding_y' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_padding_x' ), 'responsive_show_mobile_header_button_padding', __( 'Padding', 'responsive' ) );
 
 			responsive_horizontal_separator_control( $wp_customize, 'mobile_header_button_size_separator', 1, 'responsive_mobile_header_button', 51, 1 );
 
@@ -188,9 +189,9 @@ if ( ! class_exists( 'Responsive_Mobile_Header_Button_Customizer' ) ) :
 
 			responsive_drag_number_control( $wp_customize, 'mobile_header_button_border_width', __( 'Border Width', 'responsive' ), 'responsive_mobile_header_button', 54, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_width' ), 'responsive_show_header_button_border_option', 100, 1, 'postMessage' );
 
-			responsive_color_control( $wp_customize, 'mobile_header_button_border', __( 'Border Color', 'responsive' ), 'responsive_mobile_header_button', 54, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_color' ), 'responsive_show_header_button_border_option', '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_color_hover' ), 'header_button_border_hover' );
+			responsive_color_control( $wp_customize, 'mobile_header_button_border', __( 'Border Color', 'responsive' ), 'responsive_mobile_header_button', 54, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_color' ), 'responsive_show_mobile_header_button_border_option', '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_color_hover' ), 'header_button_border_hover' );
 
-			responsive_radius_control( $wp_customize, 'mobile_header_button_radius', 'responsive_mobile_header_button', 55, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_radius_y' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_radius_x' ), 'responsive_show_header_button_border_option', __( 'Border Radius', 'responsive' ) );
+			responsive_radius_control( $wp_customize, 'mobile_header_button_radius', 'responsive_mobile_header_button', 55, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_radius_y' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_radius_x' ), 'responsive_show_mobile_header_button_border_option', __( 'Border Radius', 'responsive' ) );
 
 			responsive_horizontal_separator_control( $wp_customize, 'mobile_header_button_border_separator', 1, 'responsive_mobile_header_button', 55, 1 );
 

@@ -1378,6 +1378,11 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_mobile_header_button_url #_customize-input-responsive_header_button_url {
 	border: 1px solid #A5A5A5;
 }
+#customize-control-responsive_mobile_cart_label_separator,
+#customize-control-responsive_mobile_header_woo_cart_button_separator,
+#customize-control-responsive_mobile_header_cart_checkout_button_separator,
+#customize-control-responsive_mobile_cart_spacing_separator,
+#customize-control-responsive_mobile_header_cart_tray_separator,
 #customize-control-responsive_cart_label_separator,
 #customize-control-responsive_header_woo_cart_button_separator,
 #customize-control-responsive_header_cart_checkout_button_separator,
@@ -1387,6 +1392,10 @@ body.rtl .customize-control .responsive-switchers li {
 }
 #customize-control-responsive_cart_icon_separator,
 #customize-control-responsive_cart_icon_color_separator {
+	margin-top: 0;
+}
+#customize-control-responsive_mobile_cart_icon_separator,
+#customize-control-responsive_mobilecart_icon_color_separator {
 	margin-top: 0;
 }
 .responsive-input-with-dropdown-inputs-wrap {

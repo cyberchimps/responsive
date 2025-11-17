@@ -311,16 +311,22 @@ function responsive_search_icon( $menu, $args ) {
  */
 function responsive_mobile_header_template_path( $template, $item, $row, $column, $header = 'desktop' ) {
 	// Elements that have mobile-specific templates
-	$mobile_elements = array( 'header_html', 'header_button', 'header_contact_info' );
-	
+	$mobile_elements = array( 'header_html', 'header_button', 'header_contact_info', 'header_widgets1', 'woo-cart' );
+
 	// If this is a mobile/tablet header and the element has a mobile template
-	if ( 'mobile_tablet' === $header && in_array( $item, $mobile_elements ) ) {
-		$mobile_template = 'template-parts/mobile-header/mobile_' . $item;
+	if ( 'mobile_tablet' === $header && in_array( $item, $mobile_elements, true ) ) {
+		// Handle widgets mapping where desktop file is header_widgets1.php but mobile is mobile_header_widgets1.php
+		if ( 'header_widgets1' === $item ) {
+			$mobile_template = 'template-parts/mobile-header/mobile_header_widgets1';
+		} else {
+			$mobile_template = 'template-parts/mobile-header/mobile_' . $item;
+		}
+
 		// Check if mobile template exists
 		if ( locate_template( $mobile_template . '.php' ) ) {
 			return $mobile_template;
 		}
 	}
-	
+
 	return $template;
 }

@@ -180,6 +180,15 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_header_button_padding').style.display = 'none';
 			document.getElementById('customize-control-responsive_header_button_size_separator').style.display = 'none';
 		}
+
+		if( api('responsive_mobile_header_button_size').get() === 'custom' && 'design' === tab ) {
+			document.getElementById('customize-control-responsive_mobile_header_button_padding').style.display = 'block';
+			document.getElementById('customize-control-responsive_mobile_header_button_size_separator').style.display = 'block';
+		} else {
+			document.getElementById('customize-control-responsive_mobile_header_button_padding').style.display = 'none';
+			document.getElementById('customize-control-responsive_mobile_header_button_size_separator').style.display = 'none';
+		}
+
 		if( api('responsive_header_button_style').get() === 'filled' && 'design' === tab ) {
 			document.getElementById('customize-control-responsive_header_button_bg_color').style.display = 'block';
 			document.getElementById('customize-control-responsive_header_button_bg_color_separator').style.display = 'block';
@@ -187,6 +196,15 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_header_button_bg_color').style.display = 'none';
 			document.getElementById('customize-control-responsive_header_button_bg_color_separator').style.display = 'none';
 		}
+
+		if( api( 'responsive_mobile_header_button_style' ).get() === 'filled' && 'design' === tab ) {
+			document.getElementById('customize-control-responsive_mobile_header_button_bg_color').style.display = 'block';
+			document.getElementById('customize-control-responsive_mobile_header_button_bg_color_separator').style.display = 'block';
+		} else {
+			document.getElementById('customize-control-responsive_mobile_header_button_bg_color').style.display = 'none';
+			document.getElementById('customize-control-responsive_mobile_header_button_bg_color_separator').style.display = 'none';
+		}
+
 		if( api('responsive_header_contact_info_icon_shape').get() === 'none' && 'general' === tab ) {
 			document.getElementById('customize-control-responsive_header_contact_info_icon_style').style.display = 'none';
 			document.getElementById('customize-control-responsive_header_contact_info_icon_style_separator').style.display = 'none';
@@ -295,6 +313,12 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_header_button_border_color').style.display = 'none';
 			document.getElementById('customize-control-responsive_border_header_button_radius').style.display = 'none';
 		}
+		if( 'none' === api('responsive_mobile_header_button_border_style').get() ) {
+			document.getElementById('customize-control-responsive_mobile_header_button_border_width').style.display = 'none';
+			document.getElementById('customize-control-responsive_mobile_header_button_border_color').style.display = 'none';
+			document.getElementById('customize-control-responsive_border_mobile_header_button_radius').style.display = 'none';
+		}
+
 		// Transparent Header Settings
 		if( ! api( 'responsive_transparent_header' ).get() ) {
 			document.getElementById('customize-control-responsive_transparent_header_widget_color_separator').style.display = 'none';

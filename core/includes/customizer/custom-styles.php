@@ -876,6 +876,42 @@ function responsive_customizer_styles() {
 			}";
 		}
 
+		// Mobile Header Widgets (colors)
+		// Apply only under the mobile menu breakpoint to avoid affecting desktop header widgets.
+		$mobile_header_widget_text_color        = esc_html( get_theme_mod( 'responsive_mobile_header_widget_text_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_text' ) ) );
+		$mobile_header_widget_background_color  = esc_html( get_theme_mod( 'responsive_mobile_header_widget_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_background' ) ) );
+		$mobile_header_widget_border_color      = esc_html( get_theme_mod( 'responsive_mobile_header_widget_border_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_border' ) ) );
+		$mobile_header_widget_link_color        = esc_html( get_theme_mod( 'responsive_mobile_header_widget_link_color',  Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link' ) ) );
+		$mobile_header_widget_link_hover_color  = esc_html( get_theme_mod( 'responsive_mobile_header_widget_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link_hover' ) ) );
+
+		if ( $mobile_header_widget_text_color || $mobile_header_widget_background_color || $mobile_header_widget_border_color || $mobile_header_widget_link_color || $mobile_header_widget_link_hover_color ) {
+			$custom_css .= "@media (max-width:992px) {";
+				if ( $mobile_header_widget_text_color ) {
+					$custom_css .= ".mobile-header-widgets .mobile-header-widgets-wrapper,
+									.mobile-header-widgets .mobile-header-widgets-wrapper h1,
+									.mobile-header-widgets .mobile-header-widgets-wrapper h2,
+									.mobile-header-widgets .mobile-header-widgets-wrapper h3,
+									.mobile-header-widgets .mobile-header-widgets-wrapper h4,
+									.mobile-header-widgets .mobile-header-widgets-wrapper h5,
+									.mobile-header-widgets .mobile-header-widgets-wrapper h6,
+									.mobile-header-widgets .mobile-header-widgets-wrapper .widget-title h4 { color: {$mobile_header_widget_text_color}; }";
+				}
+				if ( $mobile_header_widget_background_color ) {
+					$custom_css .= ".mobile-header-widgets { background-color: {$mobile_header_widget_background_color}; }";
+				}
+				if ( $mobile_header_widget_border_color ) {
+					$custom_css .= ".mobile-header-widgets { border-color: {$mobile_header_widget_border_color}; }";
+				}
+				if ( $mobile_header_widget_link_color ) {
+					$custom_css .= ".mobile-header-widgets .mobile-header-widgets-wrapper a { color: {$mobile_header_widget_link_color}; }";
+				}
+				if ( $mobile_header_widget_link_hover_color ) {
+					$custom_css .= ".mobile-header-widgets .mobile-header-widgets-wrapper a:focus,
+.mobile-header-widgets .mobile-header-widgets-wrapper a:hover { color: {$mobile_header_widget_link_hover_color}; }";
+				}
+			$custom_css .= "}";
+		}
+
 		$footer_background_color = esc_html( get_theme_mod( 'responsive_footer_background_color', '#333333' ) );
 
 		if ( $footer_background_image ) {
@@ -5293,7 +5329,7 @@ function responsive_customizer_styles() {
 			}";
 		}
 
-		$mobile_header_button_border_style = get_theme_mod( 'responsive_mobile_header_button_border_style' , Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_style' ) );
+		$mobile_header_button_border_style = get_theme_mod( 'responsive_mobile_header_button_border_style' , Responsive\Core\get_responsive_customizer_defaults( 'responsive_mobile_header_button_border_style' ) );
 
 		if ( 'none' !== $mobile_header_button_border_style ) {
 			$mobile_header_button_border_width       = get_theme_mod( 'responsive_mobile_header_button_border_width', Responsive\Core\get_responsive_customizer_defaults('responsive_header_button_border_width') );
@@ -5594,6 +5630,24 @@ function responsive_customizer_styles() {
 		$custom_css .= "@media screen and (max-width: 576px) {";
 		$custom_css .= ".responsive-header-cart .res-addon-cart-wrap {";
 		$custom_css .= responsive_build_responsive_spacing_css($header_woo_cart_padding_values['mobile'], $header_woo_cart_margin_values['mobile']);
+		$custom_css .= "}}";
+	}
+
+	// Fetch mobile header woo cart padding and margin values.
+	$mobile_header_woo_cart_padding_values = get_responsive_spacing_values('responsive_mobile_header_woo_cart_padding', 10, 10, 10, 10);
+	$mobile_header_woo_cart_margin_values  = get_responsive_spacing_values('responsive_mobile_header_woo_cart_margin');
+	if(Responsive\Core\responsive_check_element_in_mobile_tablet_items('woo-cart', 'header'))
+	{
+		$custom_css .= ".site-mobile-header-item .responsive-header-cart .res-addon-cart-wrap {";
+		$custom_css .= responsive_build_responsive_spacing_css($mobile_header_woo_cart_padding_values['desktop'], $mobile_header_woo_cart_margin_values['desktop']);
+		$custom_css .= "}";
+		$custom_css .= "@media screen and (max-width: 992px) {";
+		$custom_css .= ".site-mobile-header-item .responsive-header-cart .res-addon-cart-wrap {";
+		$custom_css .= responsive_build_responsive_spacing_css($mobile_header_woo_cart_padding_values['tablet'], $mobile_header_woo_cart_margin_values['tablet']);
+		$custom_css .= "}}";
+		$custom_css .= "@media screen and (max-width: 576px) {";
+		$custom_css .= ".site-mobile-header-item .responsive-header-cart .res-addon-cart-wrap {";
+		$custom_css .= responsive_build_responsive_spacing_css($mobile_header_woo_cart_padding_values['mobile'], $mobile_header_woo_cart_margin_values['mobile']);
 		$custom_css .= "}}";
 	}
 
@@ -6523,6 +6577,18 @@ function responsive_customizer_styles() {
 	}
 	";
 
+	// Mobile Header Widgets Typography
+	$mobile_header_widgets_typography = get_theme_mod( 'mobile_header_widgets_typography' );
+	if ( $mobile_header_widgets_typography && is_array( $mobile_header_widgets_typography ) ) {
+		$custom_css .= ".mobile-header-widgets {";
+		foreach ( $mobile_header_widgets_typography as $prop => $val ) {
+			if ( $val ) {
+				$custom_css .= $prop . ': ' . $val . ';';
+			}
+		}
+		$custom_css .= "}";
+	}
+
 	// Off-Canvas Menu Styles (from Off Canvas Menu Customizer Section)
 	// Get off-canvas menu style settings
 	$off_canvas_menu_link_default = esc_html( get_theme_mod( 'responsive_header_off_canvas_menu_link_default_color', '#FFFFFF' ) );
@@ -6532,7 +6598,6 @@ function responsive_customizer_styles() {
 	$off_canvas_menu_bg_hover = esc_html( get_theme_mod( 'responsive_header_off_canvas_menu_bg_hover_color', '#FF3A3A' ) );
 	$off_canvas_menu_bg_active = esc_html( get_theme_mod( 'responsive_header_off_canvas_menu_bg_active_color', '#FFFFFF' ) );
 	$off_canvas_menu_items_divider = get_theme_mod( 'responsive_header_off_canvas_menu_items_divider', 0 );
-	error_log("Off Canvas Menu Items Divider: ".$off_canvas_menu_items_divider);
 	$off_canvas_menu_visibility = get_theme_mod( 'responsive_header_off_canvas_menu_visibility', array('desktop','tablet','mobile') );
 
 	// Get typography settings
@@ -7528,6 +7593,95 @@ function responsive_customizer_styles() {
 			.responsive-header-cart .widget_shopping_cart .mini_cart_item,
 			.rspv-header-cart-drawer .rspv-cart-drawer-content .widget_shopping_cart_content ul li {
 				border-bottom-color: {$header_cart_tray_separator_color};
+			}
+			";
+		}
+
+		// Mobile Header Woo Cart
+		$mobile_cart_count_color               			  = get_theme_mod( 'responsive_mobile_cart_count_color', '#000' );
+		$mobile_cart_count_hover_color         			  = get_theme_mod( 'responsive_mobile_cart_count_hover_color', '#000' );
+		$mobile_cart_color                      			  = get_theme_mod( 'responsive_mobile_cart_color', '#333333' );
+		$mobile_cart_hover_color                 			  = get_theme_mod( 'responsive_mobile_cart_hover_color', '#333333' );
+		$mobile_cart_icon_size                 			  = get_theme_mod( 'responsive_mobile_cart_icon_size', 24 );
+		$mobile_header_cart_button_color       			  = get_theme_mod( 'responsive_mobile_header_cart_button_color', '#10659C' );
+		$mobile_header_cart_button_hover_color 			  = get_theme_mod( 'responsive_mobile_header_cart_button_hover_color', '#0066CC' );
+		$mobile_header_cart_button_text_color                = get_theme_mod( 'responsive_mobile_header_cart_button_text_color', '#ffffff' );
+		$mobile_header_cart_button_text_hover_color          = get_theme_mod( 'responsive_mobile_header_cart_button_text_hover_color', '#ffffff' );
+		$mobile_header_cart_checkout_button_color            = get_theme_mod( 'responsive_mobile_header_cart_checkout_button_color', '#0066CC' );
+		$mobile_header_cart_checkout_button_hover_color      = get_theme_mod( 'responsive_mobile_header_cart_checkout_button_hover_color', '#10659C' );
+		$mobile_header_cart_checkout_button_text_color       = get_theme_mod( 'responsive_mobile_header_cart_checkout_button_text_color', '#ffffff' );
+		$mobile_header_cart_checkout_button_text_hover_color = get_theme_mod( 'responsive_mobile_header_cart_checkout_button_text_hover_color', '#ffffff' );
+		$mobile_header_cart_tray_bg_color                    = get_theme_mod( 'responsive_mobile_header_cart_tray_bg_color', '#ffffff' );
+		$mobile_header_cart_tray_bg_hover_color              = get_theme_mod( 'responsive_mobile_header_cart_tray_bg_hover_color', '#ffffff' );
+		$mobile_header_cart_tray_link_color                  = get_theme_mod( 'responsive_mobile_header_cart_tray_link_color', '#333333' );
+		$mobile_header_cart_tray_link_hover_color            = get_theme_mod( 'responsive_mobile_header_cart_tray_link_hover_color', '#333333' );
+		$mobile_header_cart_tray_separator_color             = get_theme_mod( 'responsive_mobile_header_cart_tray_separator_color', '#D1D5DB' );
+
+		if(Responsive\Core\responsive_check_element_in_mobile_tablet_items('woo-cart', 'header'))
+		{
+			error_log("Trying to print the mobile woo cart styles");
+			$woocommerce_custom_css .= "
+			.site-mobile-header-item .responsive-header-cart .res-cart-icon svg {
+				width: {$mobile_cart_icon_size}px;
+				height: {$mobile_cart_icon_size}px;
+			}
+			.site-mobile-header-item .responsive-header-cart .res-cart-icon {
+				color: {$mobile_cart_color};
+			}
+			.site-mobile-header-item .responsive-header-cart .res-cart-icon:hover {
+				color: {$mobile_cart_hover_color};
+			}
+			.site-mobile-header-item .responsive-header-cart-total {
+				color: {$mobile_cart_count_color};
+			}
+			.site-mobile-header-item .responsive-header-cart-total:hover {
+				color: {$mobile_cart_count_hover_color};
+			}
+			.site-mobile-header-item .responsive-header-cart .responsive-header-cart-data .widget_shopping_cart_content a.button.wc-forward:not(.checkout),
+			.site-mobile-header-item .rspv-header-cart-drawer .woocommerce-mini-cart__buttons.buttons .button:not(.checkout) {
+				background-color: {$mobile_header_cart_button_color};
+				border-color: {$mobile_header_cart_button_color};
+				color: {$mobile_header_cart_button_text_color};
+			}
+			.site-mobile-header-item .responsive-header-cart .responsive-header-cart-data .widget_shopping_cart_content a.button.wc-forward:not(.checkout):hover,
+			.site-mobile-header-item .rspv-header-cart-drawer .woocommerce-mini-cart__buttons.buttons .button:not(.checkout):hover {
+				background-color: {$mobile_header_cart_button_hover_color};
+				border-color: {$mobile_header_cart_button_hover_color};
+				color: {$mobile_header_cart_button_text_hover_color};
+			}
+			.site-mobile-header-item .responsive-header-cart .responsive-header-cart-data .widget_shopping_cart_content a.button.checkout.wc-forward,
+			.site-mobile-header-item .rspv-header-cart-drawer .woocommerce-mini-cart__buttons.buttons .button.checkout {
+				background-color: {$mobile_header_cart_checkout_button_color};
+				border-color: {$mobile_header_cart_checkout_button_color};
+				color: {$mobile_header_cart_checkout_button_text_color};
+			}
+			.site-mobile-header-item .responsive-header-cart .responsive-header-cart-data .widget_shopping_cart_content a.button.checkout.wc-forward:hover,
+			.site-mobile-header-item .rspv-header-cart-drawer .woocommerce-mini-cart__buttons.buttons .button.checkout:hover {
+				background-color: {$mobile_header_cart_checkout_button_hover_color};
+				border-color: {$mobile_header_cart_checkout_button_hover_color};
+				color: {$mobile_header_cart_checkout_button_text_hover_color};
+			}
+			.site-mobile-header-item .rspv-header-cart-drawer, .site-mobile-header-item .responsive-header-cart .woocommerce.widget_shopping_cart {
+				background-color: {$mobile_header_cart_tray_bg_color};
+			}
+			.site-mobile-header-item .rspv-header-cart-drawer:hover, .site-mobile-header-item .responsive-header-cart .woocommerce.widget_shopping_cart:hover {
+				background-color: {$mobile_header_cart_tray_bg_hover_color};
+			}
+			.site-mobile-header-item .rspv-header-cart-drawer .widget_shopping_cart_content a:not(.button), .site-mobile-header-item .responsive-header-cart .responsive-header-cart-data .widget_shopping_cart_content a:not(.button) {
+				color: {$mobile_header_cart_tray_link_color};
+			}
+			.site-mobile-header-item .rspv-header-cart-drawer .widget_shopping_cart_content a:not(.button):hover, .site-mobile-header-item .responsive-header-cart .responsive-header-cart-data .widget_shopping_cart_content a:not(.button):hover {
+				color: {$mobile_header_cart_tray_link_hover_color};
+			}
+			.site-mobile-header-item .responsive-header-cart .woocommerce.widget_shopping_cart .woocommerce-mini-cart__total,
+			.site-mobile-header-item .woocommerce-js .rspv-header-cart-drawer .rspv-cart-drawer-content .woocommerce-mini-cart__total,
+			.site-mobile-header-item .woocommerce-js .rspv-header-cart-drawer .rspv-cart-drawer-header {
+				border-top-color: {$mobile_header_cart_tray_separator_color};
+   				border-bottom-color: {$mobile_header_cart_tray_separator_color};
+			}
+			.site-mobile-header-item .responsive-header-cart .widget_shopping_cart .mini_cart_item,
+			.site-mobile-header-item .rspv-header-cart-drawer .rspv-cart-drawer-content .widget_shopping_cart_content ul li {
+				border-bottom-color: {$mobile_header_cart_tray_separator_color};
 			}
 			";
 		}

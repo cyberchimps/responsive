@@ -9,7 +9,7 @@ if( ! defined('ABSPATH') ) {
     exit; // Exit if accessed directly.
 }
 ?>
-<div class="site-header-item site-header-focus-item" data-section="responsive_customizer_mobile_header_button">
+<div class="site-mobile-header-item site-header-focus-item" data-section="responsive_customizer_mobile_header_button">
 	<div class="responsive-header-button-wrap">
 		<div class="responsive-header-button-inner-wrap">
 		<?php
@@ -20,8 +20,8 @@ if( ! defined('ABSPATH') ) {
 
 			// Determine target and rel attributes.
 			$new_tab = get_theme_mod(
-				'responsive_header_button_open_in_new_tab',
-				Responsive\Core\get_responsive_customizer_defaults('responsive_header_button_open_in_new_tab')
+				'responsive_mobile_header_button_open_in_new_tab',
+				Responsive\Core\get_responsive_customizer_defaults('responsive_mobile_header_button_open_in_new_tab')
 			);
 			$target = $new_tab ? 'target="_blank"' : 'target="_self"';
 			$rel = array();

@@ -1031,4 +1031,16 @@
         })
     })
 
+    // Mobile Header Cart Icon Size
+    api('responsive_mobile_cart_icon_size', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-mobile-cart-icon-size').remove();
+            jQuery('head').append(
+                '<style id="responsive-mobile-cart-icon-size">'
+                + '.site-mobile-header-item .responsive-header-cart .res-cart-icon svg { width: ' + newval + 'px !important; height: ' + newval + 'px !important; }'
+                + '</style>'
+            );
+        });
+    });
+
 } )( jQuery );
