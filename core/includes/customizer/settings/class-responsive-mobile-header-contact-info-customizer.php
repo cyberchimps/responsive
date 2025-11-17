@@ -32,7 +32,7 @@ if ( ! class_exists( 'Responsive_Mobile_Header_Contact_Info_Customizer' ) ) :
 			$wp_customize->add_section(
 				'responsive_mobile_header_contact_info',
 				array(
-					'title'    => __( 'Contact', 'responsive' ),
+					'title'    => __( 'Mobile Contact', 'responsive' ),
 					'panel'    => 'responsive_header',
 					'priority' => 10, 
 				)
@@ -62,7 +62,7 @@ if ( ! class_exists( 'Responsive_Mobile_Header_Contact_Info_Customizer' ) ) :
 				$tab_ids_prefix . 'responsive_mobile_header_contact_info_margin_padding',
 			);
 
-			responsive_tabs_button_control( $wp_customize, 'responsive_mobile_header_contact_info', $tabs_label, 'responsive_mobile_header_contact_info', 10, '', 'responsive_contact_info_general_tab', 'responsive_contact_info_design_tab', $general_tab_ids, $design_tab_ids, null );
+			responsive_tabs_button_control( $wp_customize, 'responsive_mobile_header_contact_info', $tabs_label, 'responsive_mobile_header_contact_info', 10, '', 'responsive_mobile_contact_info_general_tab', 'responsive_mobile_contact_info_design_tab', $general_tab_ids, $design_tab_ids, null );
 
             $wp_customize->add_setting(
 				'responsive_mobile_header_contact_info',
@@ -114,15 +114,15 @@ if ( ! class_exists( 'Responsive_Mobile_Header_Contact_Info_Customizer' ) ) :
 
 			responsive_drag_number_control( $wp_customize, 'mobile_header_contact_info_item_spacing', __( 'Item Spacing (px)', 'responsive' ), 'responsive_mobile_header_contact_info', 10, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_item_spacing' ), null, 100, 1, 'postMessage' );
 
-			responsive_color_control( $wp_customize, 'mobile_header_contact_info_icons', __( 'Icons Color', 'responsive' ), 'responsive_mobile_header_contact_info', 10, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_icons_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_icons_hover_color' ), 'header_contact_info_icons_hover' );
+			responsive_color_control( $wp_customize, 'mobile_header_contact_info_icons', __( 'Icons Color', 'responsive' ), 'responsive_mobile_header_contact_info', 10, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_icons_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_icons_hover_color' ), 'mobile_header_contact_info_icons_hover' );
 
 			responsive_horizontal_separator_control($wp_customize, 'mobile_header_contact_info_icons_color_separator', 1, 'responsive_mobile_header_contact_info', 10, 1, );
 
-			responsive_color_control( $wp_customize, 'mobile_header_contact_info_background', __( 'Background Color', 'responsive' ), 'responsive_mobile_header_contact_info', 10, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_background_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_background_hover_color' ), 'header_contact_info_background_hover' );
+			responsive_color_control( $wp_customize, 'mobile_header_contact_info_background', __( 'Background Color', 'responsive' ), 'responsive_mobile_header_contact_info', 10, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_background_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_background_hover_color' ), 'mobile_header_contact_info_background_hover' );
 
 			responsive_horizontal_separator_control($wp_customize, 'mobile_header_contact_info_icons_bg_color_separator', 1, 'responsive_mobile_header_contact_info', 10, 1, );
 			
-			responsive_color_control( $wp_customize, 'mobile_header_contact_info_font', __( 'Font Color', 'responsive' ), 'responsive_mobile_header_contact_info', 10, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_font_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_font_hover_color' ), 'header_contact_info_font_hover' );
+			responsive_color_control( $wp_customize, 'mobile_header_contact_info_font', __( 'Font Color', 'responsive' ), 'responsive_mobile_header_contact_info', 10, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_font_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_contact_info_font_hover_color' ), 'mobile_header_contact_info_font_hover' );
 
 			responsive_horizontal_separator_control($wp_customize, 'mobile_header_contact_info_font_color_separator', 1, 'responsive_mobile_header_contact_info', 10, 1, );
 
