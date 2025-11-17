@@ -171,8 +171,8 @@ function responsive_render_off_canvas_panel() {
 						if ( 'off_canvas_menu' === $item ) {
 							get_template_part( 'template-parts/mobile-header/off_canvas_navigation' );
 						} else {
-							// Use the same template path filter as header elements
-							$template = apply_filters( 'responsive_header_elements_template_path', 'template-parts/header/' . $item, $item, 'popup', 'popup_content' );
+							// Use the same template path filter as header elements, passing 'mobile_tablet' as header type
+							$template = apply_filters( 'responsive_header_elements_template_path', 'template-parts/header/' . $item, $item, 'popup', 'popup_content', 'mobile_tablet' );
 							get_template_part( $template );
 						}
 					}
