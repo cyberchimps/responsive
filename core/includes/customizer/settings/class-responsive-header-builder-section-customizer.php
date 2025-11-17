@@ -61,6 +61,7 @@ if ( ! class_exists( 'Responsive_Header_Builder_Section_Customizer' ) ) :
 				);
 			}
 
+			// Desktop available items control
 			$wp_customize->add_control(
 				new Responsive_Customizer_Builder_Available_Items_Drag_Control(
 					$wp_customize,
@@ -75,6 +76,42 @@ if ( ! class_exists( 'Responsive_Header_Builder_Section_Customizer' ) ) :
 							'rows'  => array( 'above', 'primary', 'below' ),
 						),
 						'builder_choices' => $header_builder_choices,
+					)
+				)
+			);
+
+			// Mobile/Tablet available items control
+			$wp_customize->add_setting(
+				'responsive_header_mobile_tablet_available_items',
+				array(
+					'sanitize_callback' => 'responsive_sanitize_builder',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$header_mobile_tablet_builder_choices = Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_builder_mobile_tablet_choices' );
+			if ( class_exists( 'woocommerce' ) ) {
+				$header_mobile_tablet_builder_choices['woo-cart'] = array(
+					'name'    => esc_html__( 'Cart', 'responsive' ),
+					'section' => 'responsive_mobile_header_woo_cart',
+					'icon'    => 'cart',
+				);
+			}
+
+			$wp_customize->add_control(
+				new Responsive_Customizer_Builder_Available_Items_Drag_Control(
+					$wp_customize,
+					'responsive_header_mobile_tablet_available_items',
+					array(
+						'label'           => esc_html__( 'Available Items', 'responsive' ),
+						'section'         => 'responsive_header_builder_section',
+						'settings'        => 'responsive_header_mobile_tablet_available_items',
+						'priority'        => 11,
+						'input_attrs'     => array(
+							'group' => 'header_mobile_tablet_items',
+							'rows'  => array( 'popup', 'above', 'primary', 'below' ),
+						),
+						'builder_choices' => $header_mobile_tablet_builder_choices,
 					)
 				)
 			);

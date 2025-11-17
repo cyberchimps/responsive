@@ -42,12 +42,6 @@
 		// Bind events
 		$window.on('resize', resizePreviewer);
 
-		wp.customize.previewedDevice.bind(function(device) {
-			currentDevice = device;
-			toggleHeaderBuilderControls( currentDevice );
-			setTimeout(resizePreviewer, 100);
-		});
-
 		/**
 		 * Toggles visibility of desktop vs mobile/tablet builder controls.
 		 * @param {string} device - The current device (desktop, tablet, mobile).
@@ -55,6 +49,8 @@
 		var toggleHeaderBuilderControls = function( device ) {
 			var desktopControl = wp.customize.control( 'responsive_header_desktop_items' );
 			var mobileTabletControl = wp.customize.control( 'responsive_header_mobile_tablet_items' );
+			var desktopAvailableItemsControl = wp.customize.control( 'responsive_header_available_items' );
+			var mobileTabletAvailableItemsControl = wp.customize.control( 'responsive_header_mobile_tablet_available_items' );
 
 			// Check if the controls exist before proceeding.
 			if ( ! desktopControl || ! mobileTabletControl ) {
@@ -65,13 +61,37 @@
 				// Show Desktop control, Hide Mobile/Tablet control
 				desktopControl.container.show();
 				mobileTabletControl.container.hide();
+				// Toggle available items controls
+				if ( desktopAvailableItemsControl ) {
+					desktopAvailableItemsControl.container.show();
+				}
+				if ( mobileTabletAvailableItemsControl ) {
+					mobileTabletAvailableItemsControl.container.hide();
+				}
 			} else {
 				// Show Mobile/Tablet control, Hide Desktop control (for 'tablet' or 'mobile')
 				desktopControl.container.hide();
 				mobileTabletControl.container.show();
+				// Toggle available items controls
+				if ( desktopAvailableItemsControl ) {
+					desktopAvailableItemsControl.container.hide();
+				}
+				if ( mobileTabletAvailableItemsControl ) {
+					mobileTabletAvailableItemsControl.container.show();
+				}
 			}
 		};
 
+		wp.customize.previewedDevice.bind(function(device) {
+			currentDevice = device;
+			toggleHeaderBuilderControls( currentDevice );
+			setTimeout(resizePreviewer, 100);
+		});
+
+		// Initialize on page load
+		setTimeout(function() {
+			toggleHeaderBuilderControls( currentDevice );
+		}, 100);
 
 		/**
 		 * Init Header & Footer Builder
