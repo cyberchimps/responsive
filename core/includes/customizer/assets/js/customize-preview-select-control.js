@@ -845,4 +845,17 @@
         });
     });
 
+    // Off-Canvas Dropdown Target
+    api('responsive_header_mobile_off_canvas_dropdown_target', function(value) {
+        value.bind(function(newval) {
+            var offCanvasPanel = document.getElementById('responsive-off-canvas-panel');
+            if (offCanvasPanel) {
+                offCanvasPanel.setAttribute('data-dropdown-target', newval);
+                // Trigger a custom event to reinitialize submenu toggles
+                var event = new CustomEvent('responsive-dropdown-target-changed', { detail: { target: newval } });
+                document.dispatchEvent(event);
+            }
+        });
+    });
+
 } )( jQuery );

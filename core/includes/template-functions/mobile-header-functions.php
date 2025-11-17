@@ -152,6 +152,7 @@ function responsive_render_off_canvas_panel() {
 	if ( $show_off_canvas ) {
 		$mobile_menu_style = get_theme_mod( 'responsive_mobile_menu_style', 'dropdown' );
 		$panel_class = 'responsive-off-canvas-panel responsive-off-canvas-panel-' . esc_attr( $mobile_menu_style );
+		$dropdown_target = get_theme_mod( 'responsive_header_mobile_off_canvas_dropdown_target', 'icon' );
 		
 		// Get popup content elements
 		$elements = get_theme_mod( 'responsive_header_mobile_tablet_items', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_mobile_tablet_items' ) );
@@ -161,7 +162,7 @@ function responsive_render_off_canvas_panel() {
 		}
 		
 		?>
-		<div id="responsive-off-canvas-panel" class="<?php echo esc_attr( $panel_class ); ?>" aria-hidden="true">
+		<div id="responsive-off-canvas-panel" class="<?php echo esc_attr( $panel_class ); ?>" aria-hidden="true" data-dropdown-target="<?php echo esc_attr( $dropdown_target ); ?>">
 			<div class="responsive-off-canvas-panel-inner">
 				<?php
 				// Render all elements from popup_content zone

@@ -61,6 +61,119 @@
 		initOffCanvasPanel();
 	}
 
+	// Handle off-canvas menu submenu toggles based on dropdown target setting
+	var offCanvasSubmenuHandlers = [];
+	function initOffCanvasSubmenuToggles() {
+		var offCanvasPanel = document.getElementById( 'responsive-off-canvas-panel' );
+		if ( ! offCanvasPanel ) {
+			return;
+		}
+
+		// Remove existing event listeners if any
+		for ( var h = 0; h < offCanvasSubmenuHandlers.length; h++ ) {
+			var handler = offCanvasSubmenuHandlers[h];
+			if ( handler.element && handler.fn ) {
+				handler.element.removeEventListener( 'click', handler.fn, false );
+			}
+		}
+		offCanvasSubmenuHandlers = [];
+
+		var dropdownTarget = offCanvasPanel.getAttribute( 'data-dropdown-target' ) || 'icon';
+		var mobile_menu_breakpoint = responsive_breakpoint.mobileBreakpoint;
+		var breakpoint = window.matchMedia('(max-width: ' + mobile_menu_breakpoint + 'px)');
+
+		// Function to toggle submenu
+		var toggleSubmenu = function( parentLi, e ) {
+			if ( e ) {
+				e.preventDefault();
+				e.stopPropagation();
+			}
+
+			responsiveToggleClass( parentLi, 'res-submenu-expanded' );
+			
+			if ( parentLi.classList.contains( 'menu-item-has-children' ) ) {
+				var subMenu = parentLi.querySelector( '.sub-menu' );
+				if ( subMenu ) {
+					if ( parentLi.classList.contains( 'res-submenu-expanded' ) ) {
+						subMenu.style.display = 'block';
+						if( breakpoint.matches ) {
+							parentLi.style.width = '100%';
+						}
+					} else {
+						subMenu.style.display = 'none';
+						if( breakpoint.matches ) {
+							parentLi.style.width = 'auto';
+						}
+					}
+				}
+			} else if ( parentLi.classList.contains( 'page_item_has_children' ) ) {
+				var children = parentLi.querySelector( '.children' );
+				if ( children ) {
+					if ( parentLi.classList.contains( 'res-submenu-expanded' ) ) {
+						children.style.display = 'block';
+						if( breakpoint.matches ) {
+							parentLi.style.width = '100%';
+						}
+					} else {
+						children.style.display = 'none';
+						if( breakpoint.matches ) {
+							parentLi.style.width = 'auto';
+						}
+					}
+				}
+			}
+		};
+
+		// Get menu items with children within off-canvas panel
+		var offCanvasMenu = offCanvasPanel.querySelector( '#off-canvas-menu' );
+		if ( ! offCanvasMenu ) {
+			return;
+		}
+
+		var menuItemsWithChildren = offCanvasMenu.querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
+
+		for ( var i = 0; i < menuItemsWithChildren.length; i++ ) {
+			var menuItem = menuItemsWithChildren[i];
+			var icon = menuItem.querySelector( '.res-iconify' );
+			var link = menuItem.querySelector( 'a' );
+
+			if ( dropdownTarget === 'link' && link ) {
+				// Link target: clicking the link toggles submenu
+				var linkHandler = function( e ) {
+					var parentLi = this.closest( '.menu-item-has-children, .page_item_has_children' );
+					if ( parentLi ) {
+						toggleSubmenu( parentLi, e );
+					}
+				};
+				link.addEventListener( 'click', linkHandler, false );
+				offCanvasSubmenuHandlers.push( { element: link, fn: linkHandler } );
+			} else if ( dropdownTarget === 'icon' && icon ) {
+				// Icon target: clicking the icon toggles submenu (default behavior)
+				var iconHandler = function( e ) {
+					var parentLi = this.closest( '.menu-item-has-children, .page_item_has_children' );
+					if ( parentLi ) {
+						toggleSubmenu( parentLi, e );
+					}
+				};
+				icon.addEventListener( 'click', iconHandler, false );
+				offCanvasSubmenuHandlers.push( { element: icon, fn: iconHandler } );
+			}
+		}
+	}
+
+	// Initialize off-canvas submenu toggles when DOM is ready
+	if ( document.readyState === 'loading' ) {
+		document.addEventListener( 'DOMContentLoaded', initOffCanvasSubmenuToggles );
+	} else {
+		initOffCanvasSubmenuToggles();
+	}
+
+	// Reinitialize submenu toggles when dropdown target setting changes in customizer
+	document.addEventListener( 'responsive-dropdown-target-changed', function( e ) {
+		// Remove existing event listeners by reinitializing
+		initOffCanvasSubmenuToggles();
+	});
+
 	// Handle desktop navigation toggle
 	container = document.getElementById( 'site-navigation' );
 	if ( ! container ) {

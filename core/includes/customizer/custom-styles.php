@@ -2988,24 +2988,6 @@ function responsive_customizer_styles() {
 			}
 		";
 
-		// Move Body - Applying this style only if Header Type is Dropdown
-
-		$off_canvas_panel_move_body = get_theme_mod( 'responsive_header_mobile_off_canvas_move_body', 0);
-		if( $mobile_menu_style === 'dropdown' )
-		{
-			if($off_canvas_panel_move_body == 0)
-			{
-				$custom_css .= "@media (max-width:{$mobile_menu_breakpoint}px) {
-					.site-header-item-toggle-button #header-menu,
-					.site-header-item-toggle-button #header-menu-mobile {
-						position: absolute;
-						width: 100%;
-						background-color: {$header_mobile_menu_background_color};
-						left: 0;
-					}
-				}";
-			}
-		}
 
 		// Show/hide menus based on breakpoints when both header-menu and off-canvas-menu exist
 		// Only apply these styles when both menus are rendered (both have the respective classes)
@@ -6636,6 +6618,7 @@ function responsive_customizer_styles() {
 		$off_canvas_mobile_menu_style = get_theme_mod( 'responsive_mobile_menu_style', 'dropdown' );
 		$off_canvas_header_mobile_menu_background_color = esc_html( get_theme_mod( 'responsive_header_mobile_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_mobile_menu_background' ) ) );
 		$off_canvas_header_mobile_content_alignment = esc_html( get_theme_mod( 'responsive_header_mobile_off_canvas_content_alignment', 'left' ) );
+		$off_canvas_inner_element_spacing = esc_html( get_theme_mod( 'responsive_header_mobile_off_canvas_inner_element_spacing', 0 ) );
 		$item_aligner = 'flex-start';
 		if( $off_canvas_header_mobile_content_alignment === 'center' )
 		{
@@ -6671,6 +6654,9 @@ function responsive_customizer_styles() {
 			.responsive-off-canvas-panel-inner {
 				padding: 20px;
 				min-height: 100%;
+				display: flex;
+				flex-direction: column;
+				gap: {$off_canvas_inner_element_spacing}px;
 			}
 			.responsive-off-canvas-panel nav ul {
 				list-style: none;
@@ -6743,27 +6729,60 @@ function responsive_customizer_styles() {
 			";
 		} else {
 			// dropdown style - panel appears below header, positioned relative to header
-			$custom_css .= "
-			@media screen and ( max-width: {$off_canvas_mobile_menu_breakpoint}px ) {
-				#masthead-mobile {
-					position: relative;
+			$off_canvas_panel_move_body = get_theme_mod( 'responsive_header_mobile_off_canvas_move_body', 0);
+			
+			if( $off_canvas_panel_move_body == 1 ) {
+				// Move body enabled: dropdown pushes body content down when active
+				$custom_css .= "
+				@media screen and ( max-width: {$off_canvas_mobile_menu_breakpoint}px ) {
+					#masthead-mobile {
+						position: relative;
+					}
+					.responsive-off-canvas-panel.responsive-off-canvas-panel-dropdown {
+						position: relative;
+						top: 0;
+						left: 0;
+						width: 100%;
+						max-height: 0;
+						height: 0;
+						overflow: hidden;
+						z-index: 999997;
+						transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+						opacity: 0;
+						visibility: hidden;
+					}
+					.responsive-off-canvas-panel.responsive-off-canvas-panel-dropdown.active {
+						max-height: calc(100vh - 100px);
+						height: auto;
+						opacity: 1;
+						visibility: visible;
+					}
 				}
-				.responsive-off-canvas-panel.responsive-off-canvas-panel-dropdown {
-					position: absolute;
-					top: 100%;
-					left: 0;
-					width: 100%;
-					max-height: calc(100vh - 100px);
-					height: auto;
-					z-index: 999997;
-					transform: translateY(-20px);
-					transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+				";
+			} else {
+				// Move body disabled: dropdown appears over body content (absolute positioning)
+				$custom_css .= "
+				@media screen and ( max-width: {$off_canvas_mobile_menu_breakpoint}px ) {
+					#masthead-mobile {
+						position: relative;
+					}
+					.responsive-off-canvas-panel.responsive-off-canvas-panel-dropdown {
+						position: absolute;
+						top: 100%;
+						left: 0;
+						width: 100%;
+						max-height: calc(100vh - 100px);
+						height: auto;
+						z-index: 999997;
+						transform: translateY(-20px);	
+						transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+					}
+					.responsive-off-canvas-panel.responsive-off-canvas-panel-dropdown.active {
+						transform: translateY(0);
+					}
 				}
-				.responsive-off-canvas-panel.responsive-off-canvas-panel-dropdown.active {
-					transform: translateY(0);
-				}
+				";
 			}
-			";
 		}
 		
 		// Hide overlay for dropdown style (overlay should only show for sidebar and fullscreen)

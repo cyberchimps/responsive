@@ -977,6 +977,13 @@
         });
     });
 
+    // Off Canvas Inner Element Spacing
+    api( 'responsive_header_mobile_off_canvas_inner_element_spacing', function(value) {
+        value.bind(function(newval) {
+            $( '.responsive-off-canvas-panel-inner' ).css( 'gap', newval + 'px' );
+        });
+    });
+
     // Header Search Icon Size.
     api('responsive_header_search_icon_size', function(value) {
         value.bind(function(newval) {
