@@ -3106,19 +3106,19 @@
                 jQuery( 'head' ).append(
                     '<style class="customizer-typography-header_off_canvas_menu_typography-font-size">'
                     + responsive.selectorArray['header_off_canvas_menu'] + '{ font-size:' + dataAndEvents +';}'
-                    + '@media (max-width: 768px){'+ responsive.selectorArray['header_off_canvas_menu'] +'{ font-size:' + api( "footer_tablet_typography[font-size]").get() +';}}'
-                    + '@media (max-width: 480px){'+ responsive.selectorArray['header_off_canvas_menu'] +'{ font-size:' + api( "footer_mobile_typography[font-size]").get() +';}}'
+                    + '@media (max-width: 768px){'+ responsive.selectorArray['header_off_canvas_menu'] +'{ font-size:' + api( "header_off_canvas_menu_tablet_typography[font-size]").get() +';}}'
+                    + '@media (max-width: 480px){'+ responsive.selectorArray['header_off_canvas_menu'] +'{ font-size:' + api( "header_off_canvas_menu_mobile_typography[font-size]").get() +';}}'
                     + '</style>'
                 );
             } );
         } ), 
         api( "header_off_canvas_menu_tablet_typography[font-size]", function( $swipe ) {
             $swipe.bind( function( dataAndEvents ) {
-                jQuery( 'style.customizer-typography-header_social_itemoff_canvas_menu-tablet-font-size' ).remove();
+                jQuery( 'style.customizer-typography-header_off_canvas_menu_typography-tablet-font-size' ).remove();
                 jQuery( 'head' ).append(
                     '<style class="customizer-typography-header_off_canvas_menu_typography-tablet-font-size">'
                     + '@media (max-width: 768px){'+ responsive.selectorArray['header_off_canvas_menu'] +'{ font-size:' + dataAndEvents +';}}'
-                    + '@media (max-width: 480px){'+ responsive.selectorArray['header_off_canvas_menu'] +'{ font-size:' + api( "footer_mobile_typography[font-size]").get() +';}}'
+                    + '@media (max-width: 480px){'+ responsive.selectorArray['header_off_canvas_menu'] +'{ font-size:' + api( "header_off_canvas_menu_mobile_typography[font-size]").get() +';}}'
                     + '</style>'
                 );
             } );

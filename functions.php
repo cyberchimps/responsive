@@ -1767,17 +1767,17 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_header_builde
 
 			// Migrate old header primary row background colors to new device-specific settings
 			// This ensures backward compatibility when upgrading to the new color control system
-			$old_bg_color = get_theme_mod( 'responsive_header_primary_row_bg_color' );
-			$old_bg_hover_color = get_theme_mod( 'responsive_header_primary_row_bg_hover_color' );
+			$old_bg_color = get_theme_mod( 'responsive_header_primary_row_bg_color', false );
+			$old_bg_hover_color = get_theme_mod( 'responsive_header_primary_row_bg_hover_color', false );
 			
-			// Check if old settings exist but new device-specific settings don't
-			if ( $old_bg_color && ! get_theme_mod( 'responsive_header_primary_row_bg_color_tablet' ) ) {
+			// Check if old settings exist (not false) but new device-specific settings don't exist (are false)
+			if ( false !== $old_bg_color && false === get_theme_mod( 'responsive_header_primary_row_bg_color_tablet', false ) ) {
 				// Migrate normal colors to all devices
 				set_theme_mod( 'responsive_header_primary_row_bg_color_tablet', $old_bg_color );
 				set_theme_mod( 'responsive_header_primary_row_bg_color_mobile', $old_bg_color );
 			}
 			
-			if ( $old_bg_hover_color && ! get_theme_mod( 'responsive_header_primary_row_bg_color_hover' ) ) {
+			if ( false !== $old_bg_hover_color && false === get_theme_mod( 'responsive_header_primary_row_bg_color_hover', false ) ) {
 				// Migrate hover colors to all devices
 				set_theme_mod( 'responsive_header_primary_row_bg_color_hover', $old_bg_hover_color );
 				set_theme_mod( 'responsive_header_primary_row_bg_color_tablet_hover', $old_bg_hover_color );
@@ -1785,17 +1785,17 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_header_builde
 			}
 
 			// Migrate old header primary row bottom border colors to new device-specific settings
-			$old_border_color = get_theme_mod( 'responsive_header_primary_row_bottom_border_color' );
-			$old_border_hover_color = get_theme_mod( 'responsive_header_primary_row_bottom_border_hover_color' );
+			$old_border_color = get_theme_mod( 'responsive_header_primary_row_bottom_border_color', false );
+			$old_border_hover_color = get_theme_mod( 'responsive_header_primary_row_bottom_border_hover_color', false );
 			
-			// Check if old settings exist but new device-specific settings don't
-			if ( $old_border_color && ! get_theme_mod( 'responsive_header_primary_row_bottom_border_color_tablet' ) ) {
+			// Check if old settings exist (not false) but new device-specific settings don't exist (are false)
+			if ( false !== $old_border_color && false === get_theme_mod( 'responsive_header_primary_row_bottom_border_color_tablet', false ) ) {
 				// Migrate normal border colors to all devices
 				set_theme_mod( 'responsive_header_primary_row_bottom_border_color_tablet', $old_border_color );
 				set_theme_mod( 'responsive_header_primary_row_bottom_border_color_mobile', $old_border_color );
 			}
 			
-			if ( $old_border_hover_color && ! get_theme_mod( 'responsive_header_primary_row_bottom_border_color_hover' ) ) {
+			if ( false !== $old_border_hover_color && false === get_theme_mod( 'responsive_header_primary_row_bottom_border_color_hover', false ) ) {
 				// Migrate hover border colors to all devices
 				set_theme_mod( 'responsive_header_primary_row_bottom_border_color_hover', $old_border_hover_color );
 				set_theme_mod( 'responsive_header_primary_row_bottom_border_color_tablet_hover', $old_border_hover_color );
@@ -1803,16 +1803,16 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_header_builde
 			}
 
 			// Migrate old header above row background colors to new device-specific settings
-			$old_above_bg_color = get_theme_mod( 'responsive_header_above_row_bg_color' );
-			$old_above_bg_hover_color = get_theme_mod( 'responsive_header_above_row_bg_hover_color' );
+			$old_above_bg_color = get_theme_mod( 'responsive_header_above_row_bg_color', false );
+			$old_above_bg_hover_color = get_theme_mod( 'responsive_header_above_row_bg_hover_color', false );
 			
-			if ( $old_above_bg_color && ! get_theme_mod( 'responsive_header_above_row_bg_color_tablet' ) ) {
+			if ( false !== $old_above_bg_color && false === get_theme_mod( 'responsive_header_above_row_bg_color_tablet', false ) ) {
 				// Migrate normal colors to all devices
 				set_theme_mod( 'responsive_header_above_row_bg_color_tablet', $old_above_bg_color );
 				set_theme_mod( 'responsive_header_above_row_bg_color_mobile', $old_above_bg_color );
 			}
 			
-			if ( $old_above_bg_hover_color && ! get_theme_mod( 'responsive_header_above_row_bg_color_hover' ) ) {
+			if ( false !== $old_above_bg_hover_color && false === get_theme_mod( 'responsive_header_above_row_bg_color_hover', false ) ) {
 				// Migrate hover colors to all devices
 				set_theme_mod( 'responsive_header_above_row_bg_color_hover', $old_above_bg_hover_color );
 				set_theme_mod( 'responsive_header_above_row_bg_color_tablet_hover', $old_above_bg_hover_color );
@@ -1820,16 +1820,16 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_header_builde
 			}
 
 			// Migrate old header above row bottom border colors to new device-specific settings
-			$old_above_border_color = get_theme_mod( 'responsive_header_above_row_bottom_border_color' );
-			$old_above_border_hover_color = get_theme_mod( 'responsive_header_above_row_bottom_border_hover_color' );
+			$old_above_border_color = get_theme_mod( 'responsive_header_above_row_bottom_border_color', false );
+			$old_above_border_hover_color = get_theme_mod( 'responsive_header_above_row_bottom_border_hover_color', false );
 			
-			if ( $old_above_border_color && ! get_theme_mod( 'responsive_header_above_row_bottom_border_color_tablet' ) ) {
+			if ( false !== $old_above_border_color && false === get_theme_mod( 'responsive_header_above_row_bottom_border_color_tablet', false ) ) {
 				// Migrate normal border colors to all devices
 				set_theme_mod( 'responsive_header_above_row_bottom_border_color_tablet', $old_above_border_color );
 				set_theme_mod( 'responsive_header_above_row_bottom_border_color_mobile', $old_above_border_color );
 			}
 			
-			if ( $old_above_border_hover_color && ! get_theme_mod( 'responsive_header_above_row_bottom_border_color_hover' ) ) {
+			if ( false !== $old_above_border_hover_color && false === get_theme_mod( 'responsive_header_above_row_bottom_border_color_hover', false ) ) {
 				// Migrate hover border colors to all devices
 				set_theme_mod( 'responsive_header_above_row_bottom_border_color_hover', $old_above_border_hover_color );
 				set_theme_mod( 'responsive_header_above_row_bottom_border_color_tablet_hover', $old_above_border_hover_color );
@@ -1837,16 +1837,16 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_header_builde
 			}
 
 			// Migrate old header below row background colors to new device-specific settings
-			$old_below_bg_color = get_theme_mod( 'responsive_header_below_row_bg_color' );
-			$old_below_bg_hover_color = get_theme_mod( 'responsive_header_below_row_bg_hover_color' );
+			$old_below_bg_color = get_theme_mod( 'responsive_header_below_row_bg_color', false );
+			$old_below_bg_hover_color = get_theme_mod( 'responsive_header_below_row_bg_hover_color', false );
 			
-			if ( $old_below_bg_color && ! get_theme_mod( 'responsive_header_below_row_bg_color_tablet' ) ) {
+			if ( false !== $old_below_bg_color && false === get_theme_mod( 'responsive_header_below_row_bg_color_tablet', false ) ) {
 				// Migrate normal colors to all devices
 				set_theme_mod( 'responsive_header_below_row_bg_color_tablet', $old_below_bg_color );
 				set_theme_mod( 'responsive_header_below_row_bg_color_mobile', $old_below_bg_color );
 			}
 			
-			if ( $old_below_bg_hover_color && ! get_theme_mod( 'responsive_header_below_row_bg_color_hover' ) ) {
+			if ( false !== $old_below_bg_hover_color && false === get_theme_mod( 'responsive_header_below_row_bg_color_hover', false ) ) {
 				// Migrate hover colors to all devices
 				set_theme_mod( 'responsive_header_below_row_bg_color_hover', $old_below_bg_hover_color );
 				set_theme_mod( 'responsive_header_below_row_bg_color_tablet_hover', $old_below_bg_hover_color );
@@ -1854,16 +1854,16 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_header_builde
 			}
 
 			// Migrate old header below row bottom border colors to new device-specific settings
-			$old_below_border_color = get_theme_mod( 'responsive_header_below_row_bottom_border_color' );
-			$old_below_border_hover_color = get_theme_mod( 'responsive_header_below_row_bottom_border_hover_color' );
+			$old_below_border_color = get_theme_mod( 'responsive_header_below_row_bottom_border_color', false );
+			$old_below_border_hover_color = get_theme_mod( 'responsive_header_below_row_bottom_border_hover_color', false );
 			
-			if ( $old_below_border_color && ! get_theme_mod( 'responsive_header_below_row_bottom_border_color_tablet' ) ) {
+			if ( false !== $old_below_border_color && false === get_theme_mod( 'responsive_header_below_row_bottom_border_color_tablet', false ) ) {
 				// Migrate normal border colors to all devices
 				set_theme_mod( 'responsive_header_below_row_bottom_border_color_tablet', $old_below_border_color );
 				set_theme_mod( 'responsive_header_below_row_bottom_border_color_mobile', $old_below_border_color );
 			}
 			
-			if ( $old_below_border_hover_color && ! get_theme_mod( 'responsive_header_below_row_bottom_border_color_hover' ) ) {
+			if ( false !== $old_below_border_hover_color && false === get_theme_mod( 'responsive_header_below_row_bottom_border_color_hover', false ) ) {
 				// Migrate hover border colors to all devices
 				set_theme_mod( 'responsive_header_below_row_bottom_border_color_hover', $old_below_border_hover_color );
 				set_theme_mod( 'responsive_header_below_row_bottom_border_color_tablet_hover', $old_below_border_hover_color );
@@ -1898,5 +1898,276 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_header_builde
 		}
 	}
 
+}
+
+if( ! function_exists( 'responsive_theme_background_updater_mobile_tablet_items_6_2_9' )) {
+	/**
+	 * Handle backward compatibility for mobile/tablet header items migration.
+	 * 
+	 * Migrates old header elements from responsive_header_elements and responsive_header_desktop_items
+	 * to the new responsive_header_mobile_tablet_items structure, preserving element positions
+	 * across zones and regions.
+	 * 
+	 * @since 6.2.9
+	 * @return void
+	 */
+	function responsive_theme_background_updater_mobile_tablet_items_6_2_9(){
+		$responsive_options = Responsive\Core\responsive_get_options();
+		
+		if( !isset( $responsive_options['mobile_tablet_items_backward_done'])) {
+			
+			// Get default mobile/tablet items structure
+			$mobile_tablet_items = get_theme_mod( 
+				'responsive_header_mobile_tablet_items', 
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_mobile_tablet_items' ) 
+			);
+			
+			// Check if mobile_tablet_items has been manually configured (not default)
+			$is_default = true;
+			$default_items = Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_mobile_tablet_items' );
+			
+			// Compare current structure with defaults to see if user has customized it
+			if ( is_array( $mobile_tablet_items ) && is_array( $default_items ) ) {
+				// Check if primary row has more than just logo and toggle_button
+				if ( !empty( $mobile_tablet_items['primary']['primary_left'] ) && 
+					 count( $mobile_tablet_items['primary']['primary_left'] ) > 1 ) {
+					$is_default = false;
+				}
+				if ( !empty( $mobile_tablet_items['primary']['primary_right'] ) && 
+					 count( $mobile_tablet_items['primary']['primary_right'] ) > 1 ) {
+					$is_default = false;
+				}
+				// Check if any other zones have items
+				foreach ( array( 'above', 'below' ) as $row ) {
+					foreach ( $mobile_tablet_items[ $row ] as $zone => $items ) {
+						if ( !empty( $items ) ) {
+							$is_default = false;
+							break 2;
+						}
+					}
+				}
+			}
+			
+			// Only migrate if using default structure
+			if ( $is_default ) {
+				
+				// Get old header elements (simple array like ['site-branding', 'main-navigation'])
+				$old_header_elements = get_theme_mod( 'responsive_header_elements', array() );
+				
+				// Get desktop items to understand element positions
+				$desktop_items = get_theme_mod( 
+					'responsive_header_desktop_items', 
+					Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_desktop_items' ) 
+				);
+				
+				// Element mapping: old name => new name
+				$element_mapping = array(
+					'site-branding' => 'logo',
+					'main-navigation' => 'primary_navigation',
+				);
+				
+				// Map old elements to new element names
+				$mapped_elements = array();
+				if ( is_array( $old_header_elements ) ) {
+					foreach ( $old_header_elements as $old_element ) {
+						if ( isset( $element_mapping[ $old_element ] ) ) {
+							$mapped_elements[] = $element_mapping[ $old_element ];
+						}
+					}
+				}
+				
+				// If we have desktop items, use them to determine positions
+				if ( is_array( $desktop_items ) && !empty( $desktop_items ) ) {
+					
+					// Migrate elements from desktop items to mobile/tablet items
+					// Check each row (above, primary, below)
+					foreach ( array( 'above', 'primary', 'below' ) as $row ) {
+						if ( isset( $desktop_items[ $row ] ) && is_array( $desktop_items[ $row ] ) ) {
+							// Check each zone in the row
+							foreach ( $desktop_items[ $row ] as $zone => $elements ) {
+								if ( is_array( $elements ) && !empty( $elements ) ) {
+									// Map each element to mobile/tablet equivalent
+									foreach ( $elements as $element ) {
+										$mobile_element = null;
+										$target_zone = $zone;
+										
+										// Map elements for mobile/tablet
+										switch ( $element ) {
+											case 'logo':
+												// Logo stays in primary_left for mobile/tablet
+												if ( $row === 'primary' ) {
+													$mobile_element = 'logo';
+													$target_zone = 'primary_left';
+												}
+												break;
+												
+											case 'primary_navigation':
+												// Primary navigation becomes off_canvas_menu in popup and toggle_button in primary_right
+												if ( $row === 'primary' ) {
+													// Add off_canvas_menu to popup if not already present
+													if ( !in_array( 'off_canvas_menu', $mobile_tablet_items['popup']['popup_content'], true ) ) {
+														$mobile_tablet_items['popup']['popup_content'][] = 'off_canvas_menu';
+													}
+													// Add toggle_button to primary_right if not already present
+													if ( !in_array( 'toggle_button', $mobile_tablet_items['primary']['primary_right'], true ) ) {
+														$mobile_tablet_items['primary']['primary_right'][] = 'toggle_button';
+													}
+												}
+												break;
+												
+											case 'secondary_navigation':
+												// Secondary navigation can stay in same position or move to above row
+												$mobile_element = 'secondary_navigation';
+												break;
+												
+											case 'social':
+												// Social icons stay in same position
+												$mobile_element = 'social';
+												break;
+												
+											case 'header_html':
+												// HTML stays in same position
+												$mobile_element = 'header_html';
+												break;
+												
+											case 'header_button':
+												// Button stays in same position
+												$mobile_element = 'header_button';
+												break;
+												
+											case 'header_widgets1':
+												// Widgets stay in same position
+												$mobile_element = 'header_widgets1';
+												break;
+												
+											case 'header_contact_info':
+												// Contact info stays in same position
+												$mobile_element = 'header_contact_info';
+												break;
+												
+											case 'search':
+												// Search stays in same position
+												$mobile_element = 'search';
+												break;
+												
+											case 'woo-cart':
+												// WooCommerce cart stays in same position
+												if ( class_exists( 'WooCommerce' ) ) {
+													$mobile_element = 'woo-cart';
+												}
+												break;
+										}
+										
+										// Add element to mobile/tablet items if mapped
+										if ( $mobile_element && isset( $mobile_tablet_items[ $row ][ $target_zone ] ) ) {
+											if ( !in_array( $mobile_element, $mobile_tablet_items[ $row ][ $target_zone ], true ) ) {
+												$mobile_tablet_items[ $row ][ $target_zone ][] = $mobile_element;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					
+				} else {
+					// Fallback: Use old header_elements array if desktop_items is not available
+					if ( is_array( $old_header_elements ) && !empty( $old_header_elements ) ) {
+						
+						// Default positions for common elements
+						if ( in_array( 'site-branding', $old_header_elements, true ) ) {
+							// Logo in primary_left
+							if ( !in_array( 'logo', $mobile_tablet_items['primary']['primary_left'], true ) ) {
+								$mobile_tablet_items['primary']['primary_left'][] = 'logo';
+							}
+						}
+						
+						if ( in_array( 'main-navigation', $old_header_elements, true ) ) {
+							// Off canvas menu in popup
+							if ( !in_array( 'off_canvas_menu', $mobile_tablet_items['popup']['popup_content'], true ) ) {
+								$mobile_tablet_items['popup']['popup_content'][] = 'off_canvas_menu';
+							}
+							// Toggle button in primary_right
+							if ( !in_array( 'toggle_button', $mobile_tablet_items['primary']['primary_right'], true ) ) {
+								$mobile_tablet_items['primary']['primary_right'][] = 'toggle_button';
+							}
+						}
+					}
+				}
+				
+				// Ensure we always have at least logo and toggle_button if nothing was migrated
+				if ( empty( $mobile_tablet_items['primary']['primary_left'] ) ) {
+					$mobile_tablet_items['primary']['primary_left'] = array( 'logo' );
+				}
+				if ( empty( $mobile_tablet_items['primary']['primary_right'] ) ) {
+					$mobile_tablet_items['primary']['primary_right'] = array( 'toggle_button' );
+				}
+				if ( empty( $mobile_tablet_items['popup']['popup_content'] ) ) {
+					$mobile_tablet_items['popup']['popup_content'] = array( 'off_canvas_menu' );
+				}
+				
+				// Save the migrated mobile/tablet items
+				set_theme_mod( 'responsive_header_mobile_tablet_items', $mobile_tablet_items );
+			}
+			
+			// Mark backward compatibility update as done
+			$responsive_options['mobile_tablet_items_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+
+if( ! function_exists( 'responsive_theme_background_updater_mobile_header_html_6_2_9' )) {
+	/**
+	 * Handle backward compatibility for mobile header HTML settings migration.
+	 * 
+	 * Migrates old header_html theme mod values to the new mobile_header_html theme mods
+	 * since earlier the same styles were getting applied for both mobile and desktop.
+	 * 
+	 * @since 6.2.9
+	 * @return void
+	 */
+	function responsive_theme_background_updater_mobile_header_html_6_2_9(){
+		$responsive_options = Responsive\Core\responsive_get_options();
+		
+		if( !isset( $responsive_options['mobile_header_html_backward_done'])) {
+			
+			// Mapping of old header_html theme mods to new mobile_header_html theme mods
+			$theme_mod_mapping = array(
+				'responsive_header_html_content' => 'responsive_mobile_header_html_content',
+				'responsive_header_html_auto_add_paragraph' => 'responsive_mobile_header_html_auto_add_paragraph',
+				'responsive_header_html_link_style' => 'responsive_mobile_header_html_link_style',
+				'responsive_header_html_link_color' => 'responsive_mobile_header_html_link_color',
+				'responsive_header_html_link_hover_color' => 'responsive_mobile_header_html_link_hover_color',
+				'responsive_header_html_margin_top_padding' => 'responsive_mobile_header_html_margin_top_padding',
+				'responsive_header_html_margin_right_padding' => 'responsive_mobile_header_html_margin_right_padding',
+				'responsive_header_html_margin_bottom_padding' => 'responsive_mobile_header_html_margin_bottom_padding',
+				'responsive_header_html_margin_left_padding' => 'responsive_mobile_header_html_margin_left_padding',
+				'responsive_header_html_margin_tablet_top_padding' => 'responsive_mobile_header_html_margin_tablet_top_padding',
+				'responsive_header_html_margin_tablet_right_padding' => 'responsive_mobile_header_html_margin_tablet_right_padding',
+				'responsive_header_html_margin_tablet_bottom_padding' => 'responsive_mobile_header_html_margin_tablet_bottom_padding',
+				'responsive_header_html_margin_tablet_left_padding' => 'responsive_mobile_header_html_margin_tablet_left_padding',
+				'responsive_header_html_margin_mobile_top_padding' => 'responsive_mobile_header_html_margin_mobile_top_padding',
+				'responsive_header_html_margin_mobile_right_padding' => 'responsive_mobile_header_html_margin_mobile_right_padding',
+				'responsive_header_html_margin_mobile_bottom_padding' => 'responsive_mobile_header_html_margin_mobile_bottom_padding',
+				'responsive_header_html_margin_mobile_left_padding' => 'responsive_mobile_header_html_margin_mobile_left_padding',
+			);
+			
+			// Migrate each theme mod if the old value exists and new value doesn't exist
+			foreach ( $theme_mod_mapping as $old_mod => $new_mod ) {
+				$old_value = get_theme_mod( $old_mod, false );
+				$new_value = get_theme_mod( $new_mod, false );
+				
+				// Only migrate if old value exists and new value doesn't exist
+				if ( false !== $old_value && false === $new_value ) {
+					set_theme_mod( $new_mod, $old_value );
+				}
+			}
+			
+			// Mark backward compatibility update as done
+			$responsive_options['mobile_header_html_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
 }
 
