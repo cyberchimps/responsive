@@ -18,17 +18,34 @@ jQuery( function ( $ ) {
 	} )
 	
 	$( document ).on( 'click', '.responsive-sites-active .notice-dismiss', function () {
-		var control_id = $( this ).closest('div').attr( 'class' ).replace( 'responsive-sites-active', '' );
+		var $notice = $( this ).closest( '.responsive-sites-active' );
+		var action = $( this ).data( 'action' );
+		var control_id = $notice.attr( 'class' ).replace( 'responsive-sites-active', '' );
+		
+		// Determine the action based on notice class or data attribute
+		var ajaxAction = 'responsive_delete_transient_action'; // default
+		
+		if ( action ) {
+			// Use data-action if specified
+			ajaxAction = action;
+		} else if ( $notice.hasClass( 'responsive-mobile-header-update-notice' ) ) {
+			// Mobile header notice
+			ajaxAction = 'responsive_delete_mobile_header_admin_notice_action';
+		} else if ( $notice.hasClass( 'responsive-header-footer-builder-update-notice' ) ) {
+			// Header footer builder notice
+			ajaxAction = 'responsive_delete_header_footer_builder_admin_notice_action';
+		}
+		
 		$.ajax( {
 			url: dismissNotices.ajaxurl,
 			type: 'POST',
 			data: {
-				action: 'responsive_delete_transient_action',
-        control: control_id,
-        nonce: dismissNotices._notice_nonce
+				action: ajaxAction,
+				control: control_id,
+				nonce: dismissNotices._notice_nonce
 			},
 			success: function () {
-				$( '.responsive-sites-active' ).fadeOut( 300, function () {
+				$notice.fadeOut( 300, function () {
 					$( this ).remove();
 				} );
 			}
