@@ -215,6 +215,8 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 
 			$footer_items 			= Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_items' );
 			$footer_builder_choices = Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_builder_choices' );
+			$footer_mobile_items    = Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_mobile_items' );
+			$footer_mobile_choices  = Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_builder_mobile_choices' );
 
 			$wp_customize->add_setting(
 				'responsive_footer_items',
@@ -224,6 +226,15 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 					'transport'         => 'refresh',
 				)
 			);
+
+			$wp_customize->add_setting(
+				'responsive_footer_mobile_items',
+				array(
+					'default'			=> $footer_mobile_items,
+					'sanitize_callback'	=> 'responsive_sanitize_builder',
+					'transport' 		=> 'refresh'
+				)
+				);
 
 			$wp_customize->add_control(
 				new Responsive_Customizer_Layout_Builder_Control(
@@ -264,6 +275,49 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 							),
 						),
 						'builder_choices' => $footer_builder_choices,
+					)
+				)
+			);
+
+			$wp_customize->add_control(
+				new Responsive_Customizer_Layout_Builder_Control(
+					$wp_customize, 
+					'responsive_footer_mobile_items',
+					array(
+						'section' => 'responsive_footer_builder',
+						'settings'=> 'responsive_footer_mobile_items',
+						'priority'=> 30,
+						'input_attrs' => array(
+							'group'	=> 'footer_mobile_items',
+							'rows'  => array( 'above', 'primary', 'below' ),
+							'zones' => array(
+								'above' => array(
+									'above_1' => esc_html__( 'Above - 1', 'responsive' ),
+									'above_2' => esc_html__( 'Above - 2', 'responsive' ),
+									'above_3' => esc_html__( 'Above - 3', 'responsive' ),
+									'above_4' => esc_html__( 'Above - 4', 'responsive' ),
+									'above_5' => esc_html__( 'Above - 5', 'responsive' ),
+									'above_6' => esc_html__( 'Above - 6', 'responsive' ),
+								),
+								'primary' => array(
+									'primary_1' => esc_html__( 'Primary - 1', 'responsive' ),
+									'primary_2' => esc_html__( 'Primary - 2', 'responsive' ),
+									'primary_3' => esc_html__( 'Primary - 3', 'responsive' ),
+									'primary_4' => esc_html__( 'Primary - 4', 'responsive' ),
+									'primary_5' => esc_html__( 'Primary - 5', 'responsive' ),
+									'primary_6' => esc_html__( 'Primary - 6', 'responsive' ),
+								),
+								'below' => array(
+									'below_1' => esc_html__( 'Below - 1', 'responsive' ),
+									'below_2' => esc_html__( 'Below - 2', 'responsive' ),
+									'below_3' => esc_html__( 'Below - 3', 'responsive' ),
+									'below_4' => esc_html__( 'Below - 4', 'responsive' ),
+									'below_5' => esc_html__( 'Below - 5', 'responsive' ),
+									'below_6' => esc_html__( 'Below - 6', 'responsive' ),
+								),
+							)
+						),
+						'builder_choices' => $footer_mobile_choices
 					)
 				)
 			);
