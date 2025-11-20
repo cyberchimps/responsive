@@ -19,9 +19,6 @@ const OffCanvasColumnComponent = props => {
         )
     }
     const zoneKey = Object.keys(props.zone)[0];
-    console.log("OffCanvasColumnComponent - theItems: ", theItems);
-    console.log("Props in OffCanvasColumnComponent: ", props);
-    console.log("Current list in off-canvas column component: ", currentList);
     return (
         <div className="responsive-builder-area responsive-builder-area-popup" data-location={(props.zone?.popup_content ?? '').toLowerCase().replace(/\s+/g, '_')}>
             {
@@ -31,7 +28,7 @@ const OffCanvasColumnComponent = props => {
                             currentList.length > 0 && (
                                 currentList.map((item, index) => {
                                     return <BuilderSingleBlockComponent removeItem={(remove) => {
-                                        console.log("Removing from off canvas column component",remove, " ", props.row, " ", zoneKey); return props.removeItem(remove, props.row, zoneKey)}} focusItem={(focus) => props.focusItem(focus)} key={item} index={index} item={item} controlParams={props.controlParams} choices={props.choices} sender="mobile"/>;
+                                        return props.removeItem(remove, props.row, zoneKey)}} focusItem={(focus) => props.focusItem(focus)} key={item} index={index} item={item} controlParams={props.controlParams} choices={props.choices} sender="mobile"/>;
                                 })
                             )
                         }

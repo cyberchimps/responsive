@@ -6,7 +6,6 @@ import OffCanvasPanel from './off-canvas-panel.js';
 const BuilderComponent = props => {
     
     let value = props.control.setting.get();
-	console.log("Value in builder component ", value);
 	let baseDefault = {};
 	const defaultValue = props.control.params.default ? {
 		...baseDefault,
@@ -42,13 +41,11 @@ const BuilderComponent = props => {
 	} : defaultParams;
 
 	const choices = props.control.params.builder_choices ? props.control.params.builder_choices : [];
-	console.log("Prop received in BuilderComponent: ", props);
 
 	const [state, setState] = useState({
 		value: value,
 	});
 	let isUpdatingFooter = false;
-	// console.log( 'value: ', value );
 
 	const onDragStart = (e) => {
 		var dropzones = document.querySelectorAll('.responsive-builder-area');
@@ -72,13 +69,11 @@ const BuilderComponent = props => {
 		});
 	}
 	const removeItem = (item, row, zone) => {
-		console.log("Request to remove the following item : ", item, " ", row, " ", zone);
 		// Ensure zone is a string, not an object
 		if (typeof zone !== 'string') {
 			zone = Object.keys(zone)[0] || zone;
 		}
 		let updateState = state.value;
-		console.log("state param ", state) ; 
 		let update = updateState[row];
 		let updateItems = [];
 		{
@@ -90,7 +85,6 @@ const BuilderComponent = props => {
 				})
 			)
 		};
-		console.log("Update items : ", updateItems);
 		if ('header_desktop_items' === controlParams.group && row + '_center' === zone && updateItems.length === 0) {
 			if (update[row + '_left_center'].length > 0) {
 				update[row + '_left_center'].map((move) => {
@@ -151,7 +145,6 @@ const BuilderComponent = props => {
 		}
 	}
 	const onAddItem = (row, zone, items) => {
-		console.log("New item added : ", row, " ", zone, " ", items);
 		onDragEnd(row, zone, items);
 		const event = new CustomEvent('responsiveUpdateHFBuilderAvailable', {
 			detail: controlParams.group,
@@ -245,7 +238,6 @@ const BuilderComponent = props => {
 			document.removeEventListener('responsiveUpdateFooterColumns', handleFooterUpdate);
 		};
 	}, [props]);
-	console.log("In BuilderComponent - controlParams: ", value);
     return (
         <div className={
 			'responsive-control-field responsive-builder-items' +

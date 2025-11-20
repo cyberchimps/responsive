@@ -19,8 +19,6 @@ const BuilderSingleRowComponent = props => {
 			})
 		)
 	};
-	console.log("Props received in Single Row Component : ", props);
-	console.log("BuilderSingleRowComponent - theItems: ", theItems);
 	const currentCenterList = (typeof props.centerItems != "undefined" && props.centerItems != null && props.centerItems.length != null && props.centerItems.length > 0 ? props.centerItems : []);
 	let theCenterItems = [];
 	{
@@ -34,7 +32,6 @@ const BuilderSingleRowComponent = props => {
 			})
 		)
 	};
-	console.log("current list in center in single row component: ", currentCenterList);
 	return (
 		<div className={`responsive-builder-area responsive-builder-area-${location}`} data-location={props.zone}>
 			{'header_desktop_items' === props.controlParams.group && 'right' === location && (
@@ -52,7 +49,7 @@ const BuilderSingleRowComponent = props => {
 			<ReactSortable animation={100} onStart={() => props.showDrop()} onEnd={() => props.hideDrop()} group={props.controlParams.group} className={`responsive-builder-drop responsive-hfb-builder-sortable-panel responsive-builder-drop-${location}`} list={theItems} setList={newState => props.onUpdate(props.row, props.zone, newState)} >
 				{currentList.length > 0 && (
 					currentList.map((item, index) => {
-						return <BuilderSingleBlockComponent removeItem={(remove) => {console.log("removing items from single row component : ", remove, " ", props.row, " ", props.zone); return props.removeItem(remove, props.row, props.zone)}} focusItem={(focus) => props.focusItem(focus)} key={item} index={index} item={item} controlParams={props.controlParams} choices={props.choices} />;
+						return <BuilderSingleBlockComponent removeItem={(remove) => { return props.removeItem(remove, props.row, props.zone)}} focusItem={(focus) => props.focusItem(focus)} key={item} index={index} item={item} controlParams={props.controlParams} choices={props.choices} />;
 					})
 				)}
 			</ReactSortable>

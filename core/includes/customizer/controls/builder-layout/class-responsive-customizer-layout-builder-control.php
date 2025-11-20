@@ -52,10 +52,6 @@ if ( ! class_exists( 'Responsive_Customizer_Layout_Builder_Control' ) ) :
 		 */
 		public function to_json() {
 			parent::to_json();
-			error_log("HFB default attr : " . print_r($this->default, true));
-			error_log("HFB input_attrs attr : " . print_r($this->input_attrs, true));
-			error_log("HFB builder_choices attr : " . print_r($this->builder_choices, true));
-			error_log("HFB type attr : " . print_r($this->type, true));
 			$this->json['default']         = $this->default;
 			$this->json['input_attrs']     = $this->input_attrs;
 			$this->json['builder_choices'] = $this->builder_choices;
