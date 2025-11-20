@@ -2539,6 +2539,24 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_header_widget
 				set_theme_mod( 'mobile_header_widgets_mobile_typography', $header_widgets_mobile_typography );
 			}
 			
+			// Migrate widgets from old 'header-widgets' sidebar to new 'mobile-header-widgets' sidebar
+			$sidebars_widgets = wp_get_sidebars_widgets();
+			
+			// Check if old header-widgets sidebar has widgets
+			$header_widgets = isset( $sidebars_widgets['header-widgets'] ) ? $sidebars_widgets['header-widgets'] : array();
+			
+			// Check if new mobile-header-widgets sidebar is empty
+			$mobile_header_widgets = isset( $sidebars_widgets['mobile-header-widgets'] ) ? $sidebars_widgets['mobile-header-widgets'] : array();
+			
+			// Only migrate if old sidebar has widgets and new sidebar is empty
+			if ( ! empty( $header_widgets ) && empty( $mobile_header_widgets ) ) {
+				// Copy widgets from header-widgets to mobile-header-widgets
+				$sidebars_widgets['mobile-header-widgets'] = $header_widgets;
+				
+				// Update the sidebars_widgets option
+				wp_set_sidebars_widgets( $sidebars_widgets );
+			}
+			
 			// Mark backward compatibility update as done
 			$responsive_options['mobile_header_widgets_backward_done'] = true;
 			update_option( 'responsive_theme_options', $responsive_options );
