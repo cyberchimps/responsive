@@ -388,6 +388,17 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'line-height' => '1.75',
 					),
 				),
+				'mobile_header_button' => array(
+					'label'    => esc_html__( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['mobile_header_button'],
+					'section'  => 'responsive_mobile_header_button',
+					'exclude'  => array( 'font-color' ),
+					'priority' => 60,
+					'defaults' => array(
+						'font-size'   => '13px',
+						'line-height' => '1.75',
+					),
+				),
 				'header_social_item' => array(
 					'label'    => esc_html__( 'Typography', 'responsive' ),
 					'target'   => $selectorArray['header_social'],
@@ -532,6 +543,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'page'                       => '.page .post-title, #main-blog h1',
 				'footer_copyright'           => '.footer-layouts.copyright',
 				'header_button'              => '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button',
+				'mobile_header_button'       => '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button',
 				'header_social'              => '.header-layouts .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label',
 				'footer_social'              => '.footer-layouts .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label',
 				'header_search_label'        => '.responsive-header-search-label',

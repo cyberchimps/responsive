@@ -195,7 +195,7 @@ if ( ! class_exists( 'Responsive_Mobile_Header_Button_Customizer' ) ) :
 
 			responsive_horizontal_separator_control( $wp_customize, 'mobile_header_button_border_separator', 1, 'responsive_mobile_header_button', 55, 1 );
 
-			responsive_typography_group_control( $wp_customize, 'mobile_header_button_typography_group', __( 'Font', 'responsive' ), 'responsive_mobile_header_button', 60, 'header_button_typography' );
+			responsive_typography_group_control( $wp_customize, 'mobile_header_button_typography_group', __( 'Font', 'responsive' ), 'responsive_mobile_header_button', 60, 'mobile_header_button_typography' );
 
 			responsive_horizontal_separator_control( $wp_customize, 'mobile_header_button_typography_separator', 1, 'responsive_mobile_header_button', 60, 1 );
 

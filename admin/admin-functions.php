@@ -154,7 +154,7 @@ function responsive_mobile_header_update_done_notice() {
 		return;
 	}
 	?>
-	<div class="postbox responsive-mobile-header-update-notice" id="responsive-sites-active">
+	<div class="postbox responsive-mobile-header-update-notice responsive-sites-active" id="responsive-sites-active">
 		<div class="responsive-admin-notices-main-wrapper">
 			<div class="mobile-header-update-notice-wrapper">
 				<div class="mobile-header-update-notice-content">
