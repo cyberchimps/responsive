@@ -48,7 +48,7 @@ if( ! class_exists( 'Responsive_HFB_Footer_Below_Row' ) ) {
 				'fullwidth' => esc_html__( 'Full Width', 'responsive' ),
 				'contained'  => esc_html__( 'Contained', 'responsive' ),
 			);
-			responsive_select_button_control( $wp_customize, 'footer_below_width', $footer_below_row_width_label, 'responsive_footer_below_row', 10, $footer_below_row_width_choices, 'contained', null, 'postMessage' );
+			responsive_select_button_with_switchers_control( $wp_customize, 'footer_below_width', $footer_below_row_width_label, 'responsive_footer_below_row', 10, $footer_below_row_width_choices, 'contained', null, 'postMessage' );
 
             // Design.
 			$design_separator_label = __( 'Design', 'responsive' );
