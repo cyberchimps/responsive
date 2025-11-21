@@ -35,8 +35,7 @@ const SelectButtonWithSwitchersComponent = props => {
 				</li>
 				<li className="tablet">
 					<button type="button" className="preview-tablet" data-device="tablet">
-						<i className="dashicons dashicons-tablet"></Search and Replace for Block Editor
-                        i>
+						<i className="dashicons dashicons-tablet"></i>
 					</button>
 				</li>
 				<li className="mobile">
