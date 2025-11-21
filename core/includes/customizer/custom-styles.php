@@ -4663,6 +4663,9 @@ function responsive_customizer_styles() {
 	    }
 	}';
 	// Footer Builder
+	$above_footer_width                 = get_theme_mod( 'responsive_footer_above_width', 'contained' );
+	$above_footer_width_tablet          = get_theme_mod( 'responsive_footer_above_width_tablet', 'contained' );
+	$above_footer_width_mobile          = get_theme_mod( 'responsive_footer_above_width_mobile', 'contained' );
 	$above_footer_inner_column_spacing = get_theme_mod( 'responsive_footer_above_inner_column_spacing', 30 );
 	$above_footer_inner_column_tablet_spacing = get_theme_mod( 'responsive_footer_above_inner_column_spacing_tablet', 30 );
 	$above_footer_inner_column_mobile_spacing = get_theme_mod( 'responsive_footer_above_inner_column_spacing_mobile', 30 );
@@ -4671,6 +4674,53 @@ function responsive_customizer_styles() {
 	$above_footer_bg_color   		   = get_theme_mod( 'responsive_footer_above_row_bg_color', '#333' );
 	$above_footer_top_border_size      = get_theme_mod( 'responsive_footer_above_row_top_border_size', 0 );
 	$above_footer_top_border_color     = get_theme_mod( 'responsive_footer_above_row_border_color', '#FFF' );
+	// Above Footer Width - Desktop
+	if ( 'fullwidth' === $above_footer_width ) {
+		$custom_css .= "
+		[data-section=\"responsive-above-footer-builder\"] .container {
+			max-width: none;
+		}";
+	} else {
+		$custom_css .= "
+		[data-section=\"responsive-above-footer-builder\"] .container {
+			max-width: 1140px;
+		}";
+	}
+
+	// Above Footer Width - Tablet
+	if ( 'fullwidth' === $above_footer_width_tablet ) {
+		$custom_css .= "
+		@media screen and ( max-width: 992px ) {
+			[data-section=\"responsive-above-footer-builder\"] .container {
+				max-width: none;
+			}
+		}";
+	} else {
+		$custom_css .= "
+		@media screen and ( max-width: 992px ) {
+			[data-section=\"responsive-above-footer-builder\"] .container {
+				max-width: 1140px;
+			}
+		}";
+	}
+
+	// Above Footer Width - Mobile
+	if ( 'fullwidth' === $above_footer_width_mobile ) {
+		$custom_css .= "
+		@media screen and ( max-width: 576px ) {
+			[data-section=\"responsive-above-footer-builder\"] .container {
+				max-width: none;
+			}
+		}";
+	} else {
+		$custom_css .= "
+		@media screen and ( max-width: 576px ) {
+			[data-section=\"responsive-above-footer-builder\"] .container {
+				max-width: 1140px;
+			}
+		}";
+	}
+
 	$custom_css .= "
 		.rspv-site-above-footer-inner-wrap {
 			gap: {$above_footer_inner_column_spacing}px;

@@ -33,6 +33,7 @@ if ( ! class_exists( 'Responsive_Customizer_Selectbtn_With_Switchers_Control' ) 
 		 */
 		public function enqueue() {
 			wp_enqueue_style( 'responsive-selectbtn', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/selectbtn.min.css', null );
+			wp_enqueue_style( 'responsive-selectbtn-with-switchers', RESPONSIVE_THEME_URI . 'core/includes/customizer/controls/selectbtn-with-switchers/selectbtn-with-switchers.css', array( 'responsive-selectbtn' ), RESPONSIVE_THEME_VERSION );
 		}
 
 		/**

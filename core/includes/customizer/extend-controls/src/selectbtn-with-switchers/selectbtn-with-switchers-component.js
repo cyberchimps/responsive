@@ -125,8 +125,10 @@ const SelectButtonWithSwitchersComponent = props => {
 
 	return <>
 		<div className="responsive-selectbtn-control-wrapper">
-			{htmlLabel}
-			{descriptionHtml}
+			<div className="responsive-selectbtn-control-header">
+				{htmlLabel}
+				{descriptionHtml}
+			</div>
 			<div className="responsive-selectbtn-control-with-switchers">
 				{renderHTML('desktop', 'active')}
 				{renderHTML('tablet')}

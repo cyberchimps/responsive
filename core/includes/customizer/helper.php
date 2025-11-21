@@ -2532,7 +2532,7 @@ function responsive_select_button_with_switchers_control( $wp_customize, $elemen
 		'responsive_' . $element,
 		array(
 			'default'           => $default,
-			'sanitize_callback' => 'responsive_sanitize_select',
+			'sanitize_callback' => 'responsive_sanitize_select_with_switchers',
 			'transport'         => $transport,
 		)
 	);
@@ -2541,7 +2541,7 @@ function responsive_select_button_with_switchers_control( $wp_customize, $elemen
 		array(
 			'transport'         => $transport,
 			'default'           => isset( $tablet_default ) ? $tablet_default : $default,
-			'sanitize_callback' => 'responsive_sanitize_select',
+			'sanitize_callback' => 'responsive_sanitize_select_with_switchers',
 		)
 	);
 
@@ -2550,7 +2550,7 @@ function responsive_select_button_with_switchers_control( $wp_customize, $elemen
 		array(
 			'transport'         => $transport,
 			'default'           => isset( $mobile_default ) ? $mobile_default : $default,
-			'sanitize_callback' => 'responsive_sanitize_select',
+			'sanitize_callback' => 'responsive_sanitize_select_with_switchers',
 		)
 	);
 	$wp_customize->add_control(
