@@ -4672,6 +4672,8 @@ function responsive_customizer_styles() {
 	$above_footer_height 			   = get_theme_mod( 'responsive_footer_above_height', 30 );
 	$above_footer_vertical_alignment   = get_theme_mod( 'responsive_footer_above_vertical_alignment', 'flex-start' );
 	$above_footer_bg_color   		   = get_theme_mod( 'responsive_footer_above_row_bg_color', '#333' );
+	$above_footer_bg_color_tablet      = get_theme_mod( 'responsive_footer_above_row_bg_color_tablet', '#333' );
+	$above_footer_bg_color_mobile	   = get_theme_mod( 'responsive_footer_above_row_bg_color_mobile', '#333' );
 	$above_footer_top_border_size      = get_theme_mod( 'responsive_footer_above_row_top_border_size', 0 );
 	$above_footer_top_border_color     = get_theme_mod( 'responsive_footer_above_row_border_color', '#FFF' );
 	// Above Footer Width - Desktop
@@ -4742,7 +4744,23 @@ function responsive_customizer_styles() {
 		.rspv-site-above-footer-wrap{
 			background-color: {$above_footer_bg_color};
 		}
+		
 	";
+
+	$custom_css .= "
+		@media screen and ( max-width: 992px ) {
+			.rspv-site-above-footer-wrap {
+				background-color: {$above_footer_bg_color_tablet};
+			}
+		}";
+
+	$custom_css .= "
+		@media screen and ( max-width: 576px ) {
+			.rspv-site-above-footer-wrap {
+				background-color: {$above_footer_bg_color_mobile};
+			}
+		}";
+
 	if( 0 < $above_footer_top_border_size ) {
 		$custom_css.= ".rspv-site-above-footer-wrap {
            border-top: {$above_footer_top_border_size}px solid {$above_footer_top_border_color};

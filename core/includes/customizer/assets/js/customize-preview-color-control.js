@@ -2589,6 +2589,28 @@
             $( '.rspv-site-above-footer-wrap' ).css( 'background-color', newval );
         });
     });
+    //Footer Above Row Background Color - Tablet
+    api( 'responsive_footer_above_row_bg_color_tablet', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-footer-above-row-bg-color-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-above-row-bg-color-tablet">'
+                + '@media screen and ( max-width: 992px ) { .rspv-site-above-footer-wrap { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+    //Footer Above Row Background Color - Mobile
+    api( 'responsive_footer_above_row_bg_color_mobile', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-footer-above-row-bg-color-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-above-row-bg-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .rspv-site-above-footer-wrap { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
     api( 'responsive_footer_above_row_border_color', function(val){
         val.bind(function(newval){
             $( '.rspv-site-above-footer-wrap' ).css( 'border-top', api('responsive_footer_above_row_top_border_size').get() + 'px solid '+ newval );
