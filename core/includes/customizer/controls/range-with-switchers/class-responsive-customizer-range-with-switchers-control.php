@@ -18,13 +18,22 @@ if ( ! class_exists( 'Responsive_Customizer_Range_With_Switcher_Control' ) ) :
 	 */
 	class Responsive_Customizer_Range_With_Switcher_Control extends WP_Customize_Control {
 
-		/**
-		 * The control type.
-		 *
-		 * @access public
-		 * @var string
-		 */
-		public $type = 'responsive-range-with-switchers';
+	/**
+	 * The control type.
+	 *
+	 * @access public
+	 * @var string
+	 */
+	public $type = 'responsive-range-with-switchers';
+
+	/**
+	 * Active devices for the control.
+	 * Defaults to all three devices if not specified.
+	 *
+	 * @access public
+	 * @var array
+	 */
+	public $devices = array( 'desktop', 'tablet', 'mobile' );
 
 		/**
 		 * Enqueue control related scripts/styles.
@@ -56,28 +65,31 @@ if ( ! class_exists( 'Responsive_Customizer_Range_With_Switcher_Control' ) ) :
 		 *
 		 * @see WP_Customize_Control::to_json()
 		 */
-		public function to_json() {
-			parent::to_json();
+	public function to_json() {
+		parent::to_json();
 
-			$this->json['value']   = $this->value();
-			$this->json['choices'] = $this->choices;
-			$this->json['link']    = $this->get_link();
-			$this->json['id']      = $this->id;
+		$this->json['value']   = $this->value();
+		$this->json['choices'] = $this->choices;
+		$this->json['link']    = $this->get_link();
+		$this->json['id']      = $this->id;
 
-			$this->json['inputAttrs'] = '';
-			foreach ( $this->input_attrs as $attr => $value ) {
-				$this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
-			}
+		// Pass active devices configuration to JavaScript
+		$this->json['devices'] = $this->devices;
 
-			foreach ( $this->settings as $setting_key => $setting ) {
-				$this->json[ $setting_key ] = array(
-					'id'      => $setting->id,
-					'default' => $setting->default,
-					'link'    => $this->get_link( $setting_key ),
-					'value'   => $this->value( $setting_key ),
-				);
-			}
+		$this->json['inputAttrs'] = '';
+		foreach ( $this->input_attrs as $attr => $value ) {
+			$this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
 		}
+
+		foreach ( $this->settings as $setting_key => $setting ) {
+			$this->json[ $setting_key ] = array(
+				'id'      => $setting->id,
+				'default' => $setting->default,
+				'link'    => $this->get_link( $setting_key ),
+				'value'   => $this->value( $setting_key ),
+			);
+		}
+	}
 
 		/**
 		 * Render the control's content.

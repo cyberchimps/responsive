@@ -114,6 +114,29 @@
         });
     });
 
+    const mobileHeaderSocialBorderRadius = [
+        'responsive_mobile_header_social_radius_top_left_radius',
+        'responsive_mobile_header_social_radius_bottom_left_radius',
+        'responsive_mobile_header_social_radius_bottom_right_radius',
+        'responsive_mobile_header_social_radius_top_right_radius',
+        'responsive_mobile_header_social_radius_tablet_top_left_radius',
+        'responsive_mobile_header_social_radius_tablet_top_right_radius',
+        'responsive_mobile_header_social_radius_tablet_bottom_right_radius',
+        'responsive_mobile_header_social_radius_tablet_bottom_left_radius',
+        'responsive_mobile_header_social_radius_mobile_top_left_radius',
+        'responsive_mobile_header_social_radius_mobile_top_right_radius',
+        'responsive_mobile_header_social_radius_mobile_bottom_right_radius',
+        'responsive_mobile_header_social_radius_mobile_bottom_left_radius',
+    ];
+
+    mobileHeaderSocialBorderRadius.forEach(setting => {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_radius( 'mobile_header_social', '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' );
+            });
+        });
+    });
+
     const footerSocialBorderRadius = [
         'responsive_footer_social_radius_top_left_radius',
         'responsive_footer_social_radius_bottom_left_radius',
@@ -297,6 +320,121 @@
         } );
     } );
 
+    function applyToggleBorderRadius() {
+
+		// remove previously inserted preview style
+		$('style#responsive-toggle-border-radius').remove();
+
+		let mobile_menu_breakpoint = api('responsive_mobile_menu_breakpoint').get();
+
+		if ( api('responsive_disable_mobile_menu').get() == 0 ) {
+			mobile_menu_breakpoint = 0;
+		}
+
+		// Tablet values
+		let tabletTop    = api('responsive_header_toggle_button_border_radius_tablet_top_padding').get();
+		let tabletRight  = api('responsive_header_toggle_button_border_radius_tablet_right_padding').get();
+		let tabletBottom = api('responsive_header_toggle_button_border_radius_tablet_bottom_padding').get();
+		let tabletLeft   = api('responsive_header_toggle_button_border_radius_tablet_left_padding').get();
+
+		// Mobile values
+		let mobileTop    = api('responsive_header_toggle_button_border_radius_mobile_top_padding').get();
+		let mobileRight  = api('responsive_header_toggle_button_border_radius_mobile_right_padding').get();
+		let mobileBottom = api('responsive_header_toggle_button_border_radius_mobile_bottom_padding').get();
+		let mobileLeft   = api('responsive_header_toggle_button_border_radius_mobile_left_padding').get();
+
+		$('head').append(`
+			<style id="responsive-toggle-border-radius">
+				@media (max-width:${mobile_menu_breakpoint}px){
+					.site-header-item-toggle-button .menu-toggle {
+						border-radius: ${tabletTop}px ${tabletRight}px ${tabletBottom}px ${tabletLeft}px;
+					}
+				}
+                @media (max-width:544px){
+                    .site-header-item-toggle-button .menu-toggle {
+                        border-radius: ${mobileTop}px ${mobileRight}px ${mobileBottom}px ${mobileLeft}px;
+                    }
+				}
+			</style>
+		`);
+	}
+
+    
+    const headerToggleButtonBorderRadius = [
+        'responsive_header_toggle_button_border_radius_tablet_top_padding', 
+        'responsive_header_toggle_button_border_radius_tablet_right_padding', 
+        'responsive_header_toggle_button_border_radius_tablet_bottom_padding',
+        'responsive_header_toggle_button_border_radius_tablet_left_padding', 
+        'responsive_header_toggle_button_border_radius_mobile_top_padding', 
+        'responsive_header_toggle_button_border_radius_mobile_right_padding', 
+        'responsive_header_toggle_button_border_radius_mobile_bottom_padding',
+        'responsive_header_toggle_button_border_radius_mobile_left_padding', 
+    ]
+    
+    headerToggleButtonBorderRadius.forEach(function (control) {
+        api(control, function (value) {
+            value.bind(function () {
+                applyToggleBorderRadius();
+            });
+        });
+    });
+
+    function applyToggleMargins() {
+
+		// remove previously inserted preview style
+		$('style#responsive-toggle-margins').remove();
+
+		let mobile_menu_breakpoint = api('responsive_mobile_menu_breakpoint').get();
+		if ( api('responsive_disable_mobile_menu').get() == 0 ) {
+			mobile_menu_breakpoint = 0;
+		}
+
+		// Tablet margin values
+		let tabTop    = api('responsive_header_toggle_button_margin_tablet_top_padding').get();
+		let tabRight  = api('responsive_header_toggle_button_margin_tablet_right_padding').get();
+		let tabBottom = api('responsive_header_toggle_button_margin_tablet_bottom_padding').get();
+		let tabLeft   = api('responsive_header_toggle_button_margin_tablet_left_padding').get();
+
+		// Mobile margin values
+		let mobTop    = api('responsive_header_toggle_button_margin_mobile_top_padding').get();
+		let mobRight  = api('responsive_header_toggle_button_margin_mobile_right_padding').get();
+		let mobBottom = api('responsive_header_toggle_button_margin_mobile_bottom_padding').get();
+		let mobLeft   = api('responsive_header_toggle_button_margin_mobile_left_padding').get();
+
+		$('head').append(`
+			<style id="responsive-toggle-margins">
+				@media (max-width:${mobile_menu_breakpoint}px) {
+					.site-header-item-toggle-button .menu-toggle {
+						margin: ${tabTop}px ${tabRight}px ${tabBottom}px ${tabLeft}px;
+					}
+				}
+				@media (max-width:544px) {
+					.site-header-item-toggle-button .menu-toggle {
+						margin: ${mobTop}px ${mobRight}px ${mobBottom}px ${mobLeft}px;
+					}
+				}
+			</style>
+		`);
+	}
+
+	// Watch all margin-related controls
+	[
+		'responsive_header_toggle_button_margin_tablet_top_padding',
+		'responsive_header_toggle_button_margin_tablet_right_padding',
+		'responsive_header_toggle_button_margin_tablet_bottom_padding',
+		'responsive_header_toggle_button_margin_tablet_left_padding',
+		'responsive_header_toggle_button_margin_mobile_top_padding',
+		'responsive_header_toggle_button_margin_mobile_right_padding',
+		'responsive_header_toggle_button_margin_mobile_bottom_padding',
+		'responsive_header_toggle_button_margin_mobile_left_padding',
+		'responsive_mobile_menu_breakpoint'
+	].forEach(function (setting) {
+		api(setting, function (value) {
+			value.bind(function () {
+				applyToggleMargins();
+			});
+		});
+	});
     const headerButtonBorderRadius = [
         'responsive_header_button_radius_top_left_radius',
         'responsive_header_button_radius_bottom_left_radius',
@@ -311,6 +449,20 @@
         'responsive_header_button_radius_mobile_bottom_right_radius',
         'responsive_header_button_radius_mobile_bottom_left_radius',
     ];
+    const mobileHeaderButtonBorderRadius = [
+        'responsive_mobile_header_button_radius_top_left_radius',
+        'responsive_mobile_header_button_radius_bottom_left_radius',
+        'responsive_mobile_header_button_radius_bottom_right_radius',
+        'responsive_mobile_header_button_radius_top_right_radius',
+        'responsive_mobile_header_button_radius_tablet_top_left_radius',
+        'responsive_mobile_header_button_radius_tablet_top_right_radius',
+        'responsive_mobile_header_button_radius_tablet_bottom_right_radius',
+        'responsive_mobile_header_button_radius_tablet_bottom_left_radius',
+        'responsive_mobile_header_button_radius_mobile_top_left_radius',
+        'responsive_mobile_header_button_radius_mobile_top_right_radius',
+        'responsive_mobile_header_button_radius_mobile_bottom_right_radius',
+        'responsive_mobile_header_button_radius_mobile_bottom_left_radius',
+    ]
 
     headerButtonBorderRadius.forEach(setting => {
         api(setting, function(value) {
@@ -319,6 +471,13 @@
             });
         });
     });
+    mobileHeaderButtonBorderRadius.forEach(setting => {
+        api(setting, function(value) {
+            value.bind(function(newvalue) {
+                responsive_dynamic_radius( 'mobile_header_button', '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button');
+            })
+        })
+    })
     // Apply Header Search element border radius - Start.
     const headerSearchBorderRadius = [
         'responsive_header_search_border_radius_top_left_radius',

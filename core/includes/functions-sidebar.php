@@ -109,6 +109,19 @@ function responsive_widgets_init() {
 
 	register_sidebar(
 		array(
+			'name'          => __( 'Mobile Header Widgets', 'responsive' ),
+			/* translators: Widgets area description. */
+			'description'   => __( 'Mobile-only area - Displays in the mobile header widgets section', 'responsive' ),
+			'id'            => 'mobile-header-widgets',
+			'before_title'  => '<div class="widget-title"><h4>',
+			'after_title'   => '</h4></div>',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+		)
+	);
+
+	register_sidebar(
+		array(
 			'name'          => __( 'Footer Widgets 1', 'responsive' ),
 			'description'   => __( 'Area 12 - sidebar-footer.php', 'responsive' ),
 			'id'            => 'footer-widget-1',

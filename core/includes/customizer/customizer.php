@@ -194,6 +194,8 @@ function responsive_register_options() {
 		// 'class-responsive-header-colors-customizer',
 		'class-responsive-header-transparent-customizer',
 		'class-responsive-header-menu-layouts-customizer',
+		'class-responsive-header-off-canvas-menu-layouts-customizer',
+		'class-responsive-header-toggle-button-customizer',
 		'class-responsive-header-secondary-menu-layouts-customizer',
 		'class-responsive-content-header-colors-customizer',
 		'class-responsive-content-header-layout-customizer',
@@ -211,11 +213,13 @@ function responsive_register_options() {
 		'class-responsive-buttons-customizer',
 		'class-responsive-form-fields-customizer',
 		'class-responsive-header-widgets-customizer',
+		'class-responsive-mobile-header-widgets-customizer',
 		'class-responsive-sidebar-layout-customizer',
 		'hfb-builder/class-responsive-header-footer-builder',
 		'hfb-builder/header/class-responsive-hfb-header-above-row',
 		'hfb-builder/header/class-responsive-hfb-header-pimary-row',
 		'hfb-builder/header/class-responsive-hfb-header-below-row',
+		'hfb-builder/header/class-responsive-hfb-mobile-header-off-canvas',
 		'hfb-builder/footer/class-responsive-hfb-footer-above-row',
 		'hfb-builder/footer/class-responsive-hfb-footer-primary-row',
 		'hfb-builder/footer/class-responsive-hfb-footer-below-row',
@@ -223,10 +227,15 @@ function responsive_register_options() {
 		'class-responsive-footer-copyright-customizer',
 		'class-responsive-header-builder-section-customizer',
 		'class-responsive-header-button-customizer',
+		'class-responsive-mobile-header-button-customizer',
+		'class-responsive-mobile-header-woo-cart-customizer',
 		'class-responsive-header-social-customizer',
+		'class-responsive-mobile-header-social-customizer',
 		'class-responsive-header-contact-info-customizer',
+		'class-responsive-mobile-header-contact-info-customizer',
 		'class-responsive-header-search-customizer',
 		'class-responsive-header-html-customizer',
+		'class-responsive-mobile-header-html-customizer',
 		'class-responsive-footer-social-customizer',
 		'class-responsive-performance-customizer',
 		'class-responsive-footer-widgets-settings-customizer',
@@ -296,6 +305,7 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'selectbtn/class-responsive-customizer-responsive-selectbtn-control.php';
 	require_once $dir . 'tabs/class-responsive-customizer-responsive-tabs-control.php';
 	require_once $dir . 'imageradiobtn/class-responsive-customizer-imageradio-button-control.php';
+	require_once $dir . 'iconradiobtn/class-responsive-customizer-icon-radio-button-control.php';
 	require_once $dir . 'toggle/class-responsive-customizer-responsive-toggle-control.php';
 	require_once $dir . 'horizontal-separator/class-responsive-customizer-responsive-horizontal-separator.php';
 	require_once $dir . 'backgroundimage/class-responsive-customizer-background-image-control.php';
@@ -310,6 +320,7 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'fontpresets/class-responsive-customizer-font-preset-control.php';
 	require_once $dir . 'contact-info/class-responsive-customizer-contact-info-control.php';
 	require_once $dir . 'color-with-devices/class-responsive-customizer-color-with-devices-control.php';
+	require_once $dir . 'color-with-devices-and-hover/class-responsive-customizer-color-with-devices-and-hover-control.php';
 	require_once $dir . 'section-toggle/class-responsive-customizer-section-toggle.php';
 	require_once $dir . 'select-with-switchers/class-responsive-customizer-selectbtn-switchers-control.php';
 
@@ -348,6 +359,7 @@ function responsive_custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Input_With_Dropdown_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Contact_Info_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Color_With_Devices_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Color_With_Devices_And_Hover_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Selectbtn_Switchers_Control' );
 
 }

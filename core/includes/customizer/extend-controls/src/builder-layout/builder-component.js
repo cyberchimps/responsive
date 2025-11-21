@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import BuilderRowComponent from './row-component';
+import OffCanvasPanel from './off-canvas-panel.js';
 
 const BuilderComponent = props => {
     
@@ -14,6 +15,25 @@ const BuilderComponent = props => {
 		...defaultValue,
 		...value
 	} : defaultValue;
+	
+	// Clean up any "[object Object]" keys that might have been created due to passing objects as keys
+	let needsCleanup = false;
+	Object.keys(value).forEach((row) => {
+		if (value[row] && typeof value[row] === 'object') {
+			Object.keys(value[row]).forEach((zone) => {
+				if (zone === '[object Object]') {
+					delete value[row][zone];
+					needsCleanup = true;
+				}
+			});
+		}
+	});
+	
+	// Persist the cleanup if any "[object Object]" keys were found
+	if (needsCleanup) {
+		props.control.setting.set(value);
+	}
+	
 	let defaultParams = {};
 	const controlParams = props.control.params.input_attrs ? {
 		...defaultParams,
@@ -49,6 +69,10 @@ const BuilderComponent = props => {
 		});
 	}
 	const removeItem = (item, row, zone) => {
+		// Ensure zone is a string, not an object
+		if (typeof zone !== 'string') {
+			zone = Object.keys(zone)[0] || zone;
+		}
 		let updateState = state.value;
 		let update = updateState[row];
 		let updateItems = [];
@@ -85,6 +109,10 @@ const BuilderComponent = props => {
 		document.dispatchEvent(event);
 	}
 	const onDragEnd = (row, zone, items) => {
+		// Ensure zone is a string, not an object
+		if (typeof zone !== 'string') {
+			zone = Object.keys(zone)[0] || zone;
+		}
 		let updateState = state.value;
 		let update = updateState[row];
 		let updateItems = [];
@@ -210,12 +238,33 @@ const BuilderComponent = props => {
 			document.removeEventListener('responsiveUpdateFooterColumns', handleFooterUpdate);
 		};
 	}, [props]);
-
     return (
-        <div className='responsive-control-field responsive-builder-items'>
+        <div className={
+			'responsive-control-field responsive-builder-items' +
+			(controlParams.group && controlParams.group.includes('header_mobile_tablet_items') ? ' responsive-builder-items-with-popup' : '')
+		}>
+			{
+				// Showing the off canvas panel in case of mobile and tablets 
+				controlParams.group.includes('header_mobile_tablet_items') && 
+					<OffCanvasPanel
+						key='popup'
+						row='popup'
+						controlParams={controlParams}
+						choices={choices}
+						settings={value}
+						items={value['popup']}
+						focusPanel={(item)=>focusPanel(item)}
+						focusItem={(item) => focusItem(item)}
+                        removeItem={(remove, row, zone) => removeItem(remove, row, zone)}
+						hideDrop={() => onDragStop()}
+						onUpdate={(updateRow, updateZone, updateItems) => onDragEnd(updateRow, updateZone, updateItems)}
+						onAddItem={(updateRow, updateZone, updateItems) => onAddItem(updateRow, updateZone, updateItems)}
+						showDrop={() => onDragStart()}
+					/>
+			}
             <div className='responsive-builder-row-items'>
                 {
-                    controlParams.rows.map(( row ) => (
+                    controlParams.rows.filter(row => !row.includes('popup')).map(( row ) => (
                         <BuilderRowComponent
                             key={row}
                             row={row}
@@ -231,6 +280,7 @@ const BuilderComponent = props => {
                             onUpdate={(updateRow, updateZone, updateItems) => onDragEnd(updateRow, updateZone, updateItems)}
 						    onAddItem={(updateRow, updateZone, updateItems) => onAddItem(updateRow, updateZone, updateItems)}
                             showDrop={() => onDragStart()}
+							device={controlParams.group.includes('header_mobile_tablet_items') ? 'mobile' : 'desktop'}
                         />
                     ))
                 }

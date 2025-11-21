@@ -151,7 +151,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 
 			// Hamburger Menu Label.
 			$hamburger_menu_label = __( 'Mobile Menu Label', 'responsive' );
-			responsive_text_control( $wp_customize, 'hamburger_menu_label_text', $hamburger_menu_label, 'responsive_header_menu_layout', 80, '', 'responsive_disabled_mobile_menu', 'sanitize_text_field', 'text', 'postMessage' );
+			responsive_text_control( $wp_customize, 'hamburger_menu_label_text', $hamburger_menu_label, 'responsive_header_menu_layout', 80, '', 'responsive_disabled_mobile_menu', 'sanitize_text_field', 'text', 'refresh' );
 
 			// Hamburger Menu Label Font Size.
 			$hamburger_menu_label_font_size = __( 'Menu Label Font Size', 'responsive' );
@@ -161,15 +161,6 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			$hamburger_menu_padding_label = esc_html__( 'Hamburger Menu padding (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'hamburger_menu', 'responsive_header_menu_layout', 88, Responsive\Core\get_responsive_customizer_defaults( 'hamburger_menu_padding' ), Responsive\Core\get_responsive_customizer_defaults( 'hamburger_menu_padding' ), 'responsive_disabled_mobile_menu', $hamburger_menu_padding_label, 'refresh' );
 
-			// Mobile Menu Style.
-			$mobile_menu_style_label   = __( 'Mobile Menu Style', 'responsive' );
-			$mobile_menu_style_choices = array(
-				'dropdown'   => esc_html__( 'Dropdown', 'responsive' ),
-				'fullscreen' => esc_html__( 'FullScreen', 'responsive' ),
-				'sidebar'    => esc_html__( 'Sidebar', 'responsive' ),
-			);
-			responsive_select_control( $wp_customize, 'mobile_menu_style', $mobile_menu_style_label, 'responsive_header_menu_layout', 90, $mobile_menu_style_choices, 'dropdown', 'responsive_disabled_mobile_menu' );
-
 			// Mobile Menu Toggle style.
 			$mobile_menu_toggle_style         = __( 'Mobile Menu Toggle Style', 'responsive' );
 			$mobile_menu_toggle_style_choices = array(
@@ -178,10 +169,6 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				'minimal' => esc_html__( 'Minimal', 'responsive' ),
 			);
 			responsive_select_control( $wp_customize, 'mobile_menu_toggle_style', $mobile_menu_toggle_style, 'responsive_header_menu_layout', 95, $mobile_menu_toggle_style_choices, 'fill', 'responsive_disabled_mobile_menu' );
-
-			// Mobile Menu Toggle Buttons Radius.
-			$button_radius_label = __( 'Mobile Menu Button Radius (px)', 'responsive' );
-			responsive_number_control( $wp_customize, 'menu_button_radius', $button_radius_label, 'responsive_header_menu_layout', 105, Responsive\Core\get_responsive_customizer_defaults( 'menu_button_radius' ), 'responsive_toggle_border_radius' );
 
 			/**
 			 * Title Heading.
@@ -222,10 +209,6 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			// Link Hover Color.
 			$menu_link_hover_color_label = __( 'Menu Item Link Hover Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'header_menu_link_hover', $menu_link_hover_color_label, 'responsive_header_menu_layout', 150, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link_hover' ), 'responsive_disabled_main_menu' );
-
-			// Mobile Menu Background Color.
-			$mobile_menu_background_color_label = __( 'Mobile Menu Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_mobile_menu_background', $mobile_menu_background_color_label, 'responsive_header_menu_layout', 155, Responsive\Core\get_responsive_customizer_defaults( 'header_mobile_menu_background' ), 'responsive_disabled_mobile_menu' );
 
 			// Mobile Menu Border Color.
 			$menu_menu_toggle_border_color = __( 'Mobile Menu Border Color', 'responsive' );
