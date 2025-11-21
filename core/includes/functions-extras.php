@@ -40,6 +40,8 @@ function setup() {
 		add_filter( 'wp_title', $n( 'responsive_title' ), 10, 2 );
 	}
 
+	add_filter( 'responsive_header_elements_template_path', $n( 'responsive_mobile_header_template_path' ), 10, 5 );
+
 }
 
 /**
@@ -254,6 +256,12 @@ $GLOBALS['nav_menu_widget_classname'] = new responsive_widget_menu_class();
  */
 function responsive_wp_page_menu( $page_markup ) {
 	preg_match( '/^<div class=\"([a-z0-9-_]+)\">/i', $page_markup, $matches );
+	
+	// Check if we have a match before accessing the array
+	if ( empty( $matches ) || ! isset( $matches[1] ) ) {
+		return $page_markup;
+	}
+	
 	$divclass   = $matches[1];
 	$replace    = array( '<div class="' . $divclass . '">', '</div>' );
 	$new_markup = str_replace( $replace, '', $page_markup );
@@ -289,4 +297,36 @@ function responsive_search_icon( $menu, $args ) {
 		}
 	}
 	return $menu;
+}
+
+/**
+ * Route mobile header elements to mobile-specific templates
+ *
+ * @param string $template The template path.
+ * @param string $item The item name.
+ * @param string $row The row name.
+ * @param string $column The column name.
+ * @param string $header The header type (desktop/mobile_tablet).
+ * @return string Modified template path.
+ */
+function responsive_mobile_header_template_path( $template, $item, $row, $column, $header = 'desktop' ) {
+	// Elements that have mobile-specific templates
+	$mobile_elements = array( 'header_html', 'header_button', 'header_contact_info', 'header_widgets1', 'social', 'header_contact_info' );
+
+	// If this is a mobile/tablet header and the element has a mobile template
+	if ( 'mobile_tablet' === $header && in_array( $item, $mobile_elements, true ) ) {
+		// Handle widgets mapping where desktop file is header_widgets1.php but mobile is mobile_header_widgets1.php
+		if ( 'header_widgets1' === $item ) {
+			$mobile_template = 'template-parts/mobile-header/mobile_header_widgets1';
+		} else {
+			$mobile_template = 'template-parts/mobile-header/mobile_' . $item;
+		}
+
+		// Check if mobile template exists
+		if ( locate_template( $mobile_template . '.php' ) ) {
+			return $mobile_template;
+		}
+	}
+
+	return $template;
 }

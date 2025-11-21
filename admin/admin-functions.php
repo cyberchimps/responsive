@@ -140,3 +140,55 @@ if ( class_exists( 'responsive_addons_pro' ) ) {
 		add_action( 'admin_notices', 'responsive_upgrade_pro_react', 20 );
 	}
 }
+
+/**
+ * Display Mobile Header update admin notice.
+ *
+ * @since 6.2.9
+ */
+function responsive_mobile_header_update_done_notice() {
+	if ( isset( $_GET['page'] ) && 'responsive' === $_GET['page'] ) {
+		return;
+	}
+	if ( get_option( 'responsive-mobile-header-admin-notice-display' ) ) {
+		return;
+	}
+	?>
+	<div class="postbox responsive-mobile-header-update-notice responsive-sites-active" id="responsive-sites-active">
+		<div class="responsive-admin-notices-main-wrapper">
+			<div class="mobile-header-update-notice-wrapper">
+				<div class="mobile-header-update-notice-content">
+                    <h2><?php esc_html_e( 'Important Theme Update Notice:', 'responsive' );?></h2>
+                    <p><?php esc_html_e( 'We\'ve updated the mobile header feature in this version! If you\'re using a child theme, you may need to update your header.php file to ensure compatibility.', 'responsive' );?></p>
+                    <ul class="responsive-steps-to-follow">
+						<li><?php esc_html_e( 'If you have a child theme, check your child theme\'s header.php file.', 'responsive' );?></li>
+						<li><?php esc_html_e( 'Compare your child theme\'s header.php with the parent theme\'s header.php to identify any changes needed.', 'responsive' );?></li>
+						<li><?php esc_html_e( 'Update your child theme\'s header.php to include the new mobile header functionality.', 'responsive' );?></li>
+					</ul>
+					<p class="responsive-notice-help"><?php esc_html_e( 'Need help? Check our ', 'responsive' ); ?>
+					<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/responsive-theme/' ) ?>" target="_blank"><?php esc_html_e( 'documentation', 'responsive' ) ?></a><?php esc_html_e( ' or ask for ', 'responsive' ) ?><a href="<?php echo esc_url( 'https://cyberchimps.com/open-a-ticket/' ) ?>" target="_blank"><?php esc_html_e( 'support.', 'responsive' ); ?></a>
+					</p>
+                </div>
+            </div>
+		</div>
+		<button type="button" class="notice-dismiss"></button>
+	</div>
+	<?php
+}
+
+add_action( 'admin_notices', 'responsive_mobile_header_update_done_notice', 10 );
+add_action( 'wp_ajax_responsive_delete_mobile_header_admin_notice_action', 'responsive_delete_mobile_header_admin_notice_action' );
+
+/**
+ * Remove Mobile Header update admin notice.
+ *
+ * @since 6.2.9
+ */
+function responsive_delete_mobile_header_admin_notice_action() {
+	$nonce = ( isset( $_POST['nonce'] ) ) ? sanitize_key( $_POST['nonce'] ) : '';
+
+	if ( false === wp_verify_nonce( $nonce, 'responsive-plugin-notices-handler' ) ) {
+		return;
+	}
+	update_option( 'responsive-mobile-header-admin-notice-display', true, false );
+}

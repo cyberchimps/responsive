@@ -1,0 +1,31 @@
+.customize-control .customize-control-responsive-iconradiobtn{
+  /* display:flex;
+  flex-wrap:wrap;
+  width:100%;
+  gap:10px */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.customize-control-responsive-iconradiobtn__button{
+    padding:0px;
+    width: 37px;
+    height: 37px;
+    border:1px solid #d2d2d2;
+    border-radius:4px;
+    background-color:#fff;
+    position: relative;
+    cursor: pointer;
+}
+.customize-control-responsive-iconradiobtn__button.active{
+  color:#fff;
+  background-color:#1e73be;
+}
+button.customize-control-responsive-iconradiobtn__button.iconradiobtn-text.iconbutton:hover .tooltiptext {
+    visibility: visible;
+}
+.customize-control-responsive-iconradiobtn-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

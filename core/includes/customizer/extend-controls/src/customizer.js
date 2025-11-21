@@ -8,6 +8,9 @@
 	 */
 	wp.customize.bind( 'ready', function() {
 
+		// Track current device type.
+		let currentDevice = 'desktop';
+
 		var resizePreviewer = function() {
 			var $section = $('.control-section.responsive-builder-active');
 			var $footer = $('.control-section.responsive-footer-builder-active');
@@ -38,11 +41,57 @@
 		
 		// Bind events
 		$window.on('resize', resizePreviewer);
-		
-		wp.customize.previewedDevice.bind(function() {
+
+		/**
+		 * Toggles visibility of desktop vs mobile/tablet builder controls.
+		 * @param {string} device - The current device (desktop, tablet, mobile).
+		 */
+		var toggleHeaderBuilderControls = function( device ) {
+			var desktopControl = wp.customize.control( 'responsive_header_desktop_items' );
+			var mobileTabletControl = wp.customize.control( 'responsive_header_mobile_tablet_items' );
+			var desktopAvailableItemsControl = wp.customize.control( 'responsive_header_available_items' );
+			var mobileTabletAvailableItemsControl = wp.customize.control( 'responsive_header_mobile_tablet_available_items' );
+
+			// Check if the controls exist before proceeding.
+			if ( ! desktopControl || ! mobileTabletControl ) {
+				return;
+			}
+
+			if ( device === 'desktop' ) {
+				// Show Desktop control, Hide Mobile/Tablet control
+				desktopControl.container.show();
+				mobileTabletControl.container.hide();
+				// Toggle available items controls
+				if ( desktopAvailableItemsControl ) {
+					desktopAvailableItemsControl.container.show();
+				}
+				if ( mobileTabletAvailableItemsControl ) {
+					mobileTabletAvailableItemsControl.container.hide();
+				}
+			} else {
+				// Show Mobile/Tablet control, Hide Desktop control (for 'tablet' or 'mobile')
+				desktopControl.container.hide();
+				mobileTabletControl.container.show();
+				// Toggle available items controls
+				if ( desktopAvailableItemsControl ) {
+					desktopAvailableItemsControl.container.hide();
+				}
+				if ( mobileTabletAvailableItemsControl ) {
+					mobileTabletAvailableItemsControl.container.show();
+				}
+			}
+		};
+
+		wp.customize.previewedDevice.bind(function(device) {
+			currentDevice = device;
+			toggleHeaderBuilderControls( currentDevice );
 			setTimeout(resizePreviewer, 100);
 		});
-		
+
+		// Initialize on page load
+		setTimeout(function() {
+			toggleHeaderBuilderControls( currentDevice );
+		}, 100);
 
 		/**
 		 * Init Header & Footer Builder
@@ -64,9 +113,10 @@
 						// Fire event after control is initialized.
 						control.container.trigger( 'init' );
 					});
-
+					
 					if ( isExpanded ) {
 						$body.addClass( 'responsive-header-builder-is-active' );
+						toggleHeaderBuilderControls( currentDevice );
 						$section.addClass( 'responsive-builder-active' );
 						$section.css('display', 'none').height();
 						$section.css('display', 'block');

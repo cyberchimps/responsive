@@ -4,7 +4,7 @@ import BuilderSingleRowComponent from './single-row-component';
 
 const BuilderRowComponent = (props) => {
     let besideItems = [];
-    const mode = (props.controlParams.group.indexOf('header') !== -1 ? 'header' : 'footer');
+    let mode = (props.controlParams.group.indexOf('header') !== -1 ? 'header' : 'footer');
     let footerClass=null;
     if ('footer_items' === props.controlParams.group) {
 		var columns = props.customizer('responsive_footer_' + props.row + '_columns').get();

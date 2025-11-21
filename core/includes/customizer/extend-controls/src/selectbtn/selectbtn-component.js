@@ -44,6 +44,18 @@ const SelectButtonComponent = props => {
 				</button>
 			);
 		}
+		if (icon.toLowerCase().includes('icon text')) {
+			return (
+			<button
+					key={choiceValue}
+					type="button"
+					className={`customize-control-responsive-selectbtn__button selectbtn-text ${props_value === choiceValue ? 'active' : ''}`}
+					onClick={() => onOptionClick(choiceValue)}
+					>
+					<span className={`responsive-selectbtn-text ${icon}`}>Icon</span>
+				</button>
+			);
+		}
 		if (icon.toLowerCase().includes('icon')) {
 			return Icons[icon]? (
 				<button

@@ -11,6 +11,7 @@ if( ! defined( 'ABSPATH' ) ) {
 }
 
 require get_template_directory() . '/core/includes/template-functions/header-functions.php';
+require get_template_directory() . '/core/includes/template-functions/mobile-header-functions.php';
 require get_template_directory() . '/core/includes/builder/class-responsive-builder-footer.php';
 
 /**
@@ -39,8 +40,36 @@ add_action( 'responsive_header_social', 'responsive_get_social_icons' );
  */
 add_action( 'responsive_render_header_column', 'header_column', 10, 2 );
 
+/**
+ * Responsive Mobile Header
+ * 
+ * @see Responsive\mobile_header_markup()
+ */
+add_action( 'responsive_mobile_header', 'mobile_header_markup' );
+
+/**
+ * Responsive Mobile Header Rows
+ * 
+ * @see above_mobile_header();
+ * @see primary_mobile_header();
+ * @see below_mobile_header();
+ */
+add_action( 'responsive_above_mobile_header', 'above_mobile_header' );
+add_action( 'responsive_primary_mobile_header', 'primary_mobile_header' );
+add_action( 'responsive_below_mobile_header', 'below_mobile_header' );
+
+/**
+ * Responsive Mobile Header Columns
+ * 
+ * @see mobile_header_column()
+ */
+add_action( 'responsive_render_mobile_header_column', 'mobile_header_column', 10, 2 );
+
 // Load Cart Flyout Markup on Footer.
 add_action( 'responsive_footer_before', 'responsive_header_woo_cart_slide_in' );
+
+// Load Off-Canvas Panel if toggle button is present in mobile/tablet header.
+// This is rendered inside the mobile header wrapper, not after header.
 
 add_action( 'resposive_entry_content_404_page', 'resposive_entry_content_404_page_template', 10 );
 

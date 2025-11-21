@@ -226,6 +226,26 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'font-size' => '13px',
 					),
 				),
+				'mobile_header_widgets'      => array(
+					'label'    => esc_html__( 'Mobile Header Widgets', 'responsive' ),
+					'target'   => $selectorArray['mobile_header_widgets'],
+					'section'  => 'responsive_mobile_header_widget',
+					'priority' => 160,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size' => '13px',
+					),
+				),
+				'mobile_header_social_item' => array(	
+					'label'    => esc_html__( 'Mobile Header Social', 'responsive' ),
+					'target'   => $selectorArray['mobile_header_social_item'],
+					'section'  => 'responsive_mobile_header_social',
+					'priority' => 160,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size' => '13px',
+					),
+				),
 				'header_menu'                => array(
 					'label'           => esc_html__( 'Typography', 'responsive' ),
 					'target'          => $selectorArray['header_menu'],
@@ -368,6 +388,17 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'line-height' => '1.75',
 					),
 				),
+				'mobile_header_button' => array(
+					'label'    => esc_html__( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['mobile_header_button'],
+					'section'  => 'responsive_mobile_header_button',
+					'exclude'  => array( 'font-color' ),
+					'priority' => 60,
+					'defaults' => array(
+						'font-size'   => '13px',
+						'line-height' => '1.75',
+					),
+				),
 				'header_social_item' => array(
 					'label'    => esc_html__( 'Typography', 'responsive' ),
 					'target'   => $selectorArray['header_social'],
@@ -412,6 +443,28 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'line-height' => '1.75',
 					),
 				),
+				'mobile_header_contact_info' => array(
+					'label'    => esc_html__( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['mobile_header_contact_info'],
+					'section'  => 'responsive_mobile_header_contact_info',
+					'exclude'  => array( 'font-color' ),
+					'priority' => 160,
+					'defaults' => array(
+						'font-size'   => '16px',
+						'line-height' => '1.75',
+					),
+				),
+				'header_off_canvas_menu' => array(
+					'label'    => esc_html__( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['header_off_canvas_menu'],
+					'section'  => 'responsive_header_off_canvas_menu_layout',
+					'exclude'  => array( 'font-color' ),
+					'priority' => 110,
+					'defaults' => array(
+						'font-size'   => '16px',
+						'line-height' => '1.75',
+					),
+				)
 			);
 
 			for( $i=1;$i<=6;$i++ ) {
@@ -474,6 +527,8 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'header_site_title2'         => '.site-title a',
 				'header_site_tagline'        => '.site-description',
 				'header_widgets'             => '.header-widgets',
+				'mobile_header_widgets'      => '.mobile-header-widgets',
+				'mobile_header_social_item' => '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label',
 				'header_menu'                => '.main-navigation a',
 				'header_secondary_menu'      => '.secondary-navigation a',
 				'sidebar'                    => '.site-content .widget-area:not(.home-widgets) .widget-wrapper',
@@ -488,10 +543,13 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'page'                       => '.page .post-title, #main-blog h1',
 				'footer_copyright'           => '.footer-layouts.copyright',
 				'header_button'              => '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button',
+				'mobile_header_button'       => '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button',
 				'header_social'              => '.header-layouts .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label',
 				'footer_social'              => '.footer-layouts .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label',
 				'header_search_label'        => '.responsive-header-search-label',
 				'header_contact_info'        => '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list  .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-title, .site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text',
+				'mobile_header_contact_info' => '.site-mobile-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list  .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-title, .site-mobile-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text',
+				'header_off_canvas_menu'     => '.responsive-off-canvas-menu-container .responsive-off-canvas-menu-wrapper .responsive-off-canvas-menu-inner-wrapper .responsive-off-canvas-menu .responsive-off-canvas-menu-items .responsive-off-canvas-menu-item a',
 			);
 
 			if ( $this->is_responsive_version_greater() ) {

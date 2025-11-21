@@ -72,6 +72,10 @@ class Responsive_Home_Starter_Content {
 		if ( ! Responsive\Core\responsive_check_element_present_in_hfb( 'social', 'header' ) ) {
 			array_push( $header_hfb_elements['primary']['primary_right'], 'social' );
 		}
+		$mobile_header_hfb_elements = get_theme_mod( 'responsive_header_mobile_tablet_items', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_mobile_tablet_items' ) );
+		if( ! Responsive\Core\responsive_check_element_in_mobile_tablet_items( 'social', 'header' ) ) {
+			array_push( $mobile_header_hfb_elements['primary']['primary_right'], 'social' );
+		}
         update_option( 'responsive_insert_custom_home', true );
 		$nav_items_header = array(
 			'home'     => array(
@@ -130,10 +134,27 @@ class Responsive_Home_Starter_Content {
 				'responsive_container_width'                          => 1200,
 			
 				// Header Settings
+				'responsive_site_title_visibility'                    => array(),
+				'responsive_site_tagline_visibility'                  => array(),
 				'responsive_header_background_color'                  => '#2d2c52',
 				'responsive_header_mobile_menu_background_color'      => '#2d2c52',
 				'responsive_header_primary_row_bg_color'              => '#2d2c52',
-				'responsive_header_primary_row_bg_hover_color'        => '#2d2c52',
+				'responsive_header_primary_row_bg_color_hover'        => '#2d2c52',
+				'responsive_header_primary_row_bg_color_tablet'       => '#2d2c52',
+				'responsive_header_primary_row_bg_color_tablet_hover' => '#2d2c52',
+				'responsive_header_primary_row_bg_color_mobile'       => '#2d2c52',
+				'responsive_header_primary_row_bg_color_mobile_hover' => '#2d2c52',
+				'responsive_header_off_canvas_menu_bg_default_color'  => '#2d2c52',
+				'responsive_header_off_canvas_menu_bg_hover_color'    => '#2d2c52',
+				'responsive_header_off_canvas_menu_bg_active_color'   => '#2d2c52',
+				'responsive_header_off_canvas_menu_spacing_tablet_top_padding' => 10,
+				'responsive_header_off_canvas_menu_spacing_tablet_right_padding' => 10,
+				'responsive_header_off_canvas_menu_spacing_tablet_left_padding' => 10,
+				'responsive_header_off_canvas_menu_spacing_tablet_bottom_padding' => 10,
+				'responsive_header_off_canvas_menu_spacing_mobile_top_padding' => 10,
+				'responsive_header_off_canvas_menu_spacing_mobile_right_padding' => 10,
+				'responsive_header_off_canvas_menu_spacing_mobile_left_padding' => 10,
+				'responsive_header_off_canvas_menu_spacing_mobile_bottom_padding' => 10,
 				'responsive_header_active_menu_link_color'            => '#ffffff',
 				'responsive_header_active_menu_background_color'      => '#2d2c52',
 				'responsive_header_hover_menu_background_color'       => '#2d2c52',
@@ -141,9 +162,14 @@ class Responsive_Home_Starter_Content {
 				'responsive_header_menu_link_hover_color'             => '#ffffff',
 				'responsive_header_menu_toggle_color'                 => '#ffffff',
 				'responsive_header_social_item_style'                 => 'outline',
+				'responsive_mobile_header_social_item_style'          => 'outline',
 				'responsive_header_social_item_color'                 => '#ffffff',
 				'responsive_header_social_item_hover_color'           => '#ffffff',
+				'responsive_mobile_header_social_item_color'          => '#ffffff',
+				'responsive_mobile_header_social_item_hover_color'    => '#ffffff',
 				'responsive_header_social_item_spacing'               => 0,
+				'responsive_mobile_header_social_item_spacing'        => 0,
+				'responsive_header_toggle_button_icon_size'           => 25,
 				'responsive_menu_item_hover_style'                    => 'underline',
 				'responsive_header_menu_background_color'             => '#2D2C52',
 				'responsive_header_menu_toggle_background_color'      => '#2D2C52',
@@ -283,6 +309,7 @@ class Responsive_Home_Starter_Content {
 			
 				// Header Builder Elements
 				'responsive_header_desktop_items'               	   => $header_hfb_elements,
+				'responsive_header_mobile_tablet_items'				   => $mobile_header_hfb_elements
 			),
 			'options'     => array(
 				'show_on_front' => 'page',
