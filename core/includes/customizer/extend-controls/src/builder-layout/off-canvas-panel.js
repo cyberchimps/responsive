@@ -3,7 +3,6 @@ import { Button } from '@wordpress/components';
 import OffCanvasColumnComponent from './off-canvas-column-component';
 
 const OffCanvasPanel = (props) => {
-    console.log("Props received in OffCanvasPanel : ", props); 
     let items = []; 
     const mode = (props.controlParams.group.indexOf('header') !== -1 ? 'header' : 'footer');
     items = (props.items && props.items['popup_content']) ? props.items['popup_content'] : [];
