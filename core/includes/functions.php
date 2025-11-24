@@ -1362,7 +1362,7 @@ function defaults() {
 			'responsive_header_toggle_button_icon'                    => 'hamburger_solid',
 			'responsive_mobile_header_button_label'                   => 'Button',
 			'responsive_header_toggle_button_icon_color'              => '#000000',
-			'responsive_header_toggle_button_icon_size'               => 30,
+			'responsive_header_toggle_button_icon_size'               => 25,
 			'responsive_header_button_url'                            => '',
 			'responsive_header_button_open_in_new_tab'                => 0,
 			'responsive_header_button_set_nofollow'                   => 0,

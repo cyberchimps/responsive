@@ -6108,12 +6108,14 @@ function responsive_customizer_styles() {
 			.full-screen .site-mobile-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper input[type=search],
 			.full-screen .site-mobile-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper input::placeholder,
 			.full-screen .site-mobile-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper,
+			.full-screen .site-mobile-header-item .full-screen-search-wrapper .search-close,
 			.full-screen .site-mobile-header-item .full-screen-search-wrapper #search-close {
 				color: {$header_search_text_color};
 			}
 			.full-screen .site-mobile-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper input[type=search]:hover,
 			.full-screen .site-mobile-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper input:hover::placeholder,
 			.full-screen .site-mobile-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper:hover,
+			.full-screen .site-mobile-header-item .full-screen-search-wrapper .search-close:hover,
 			.full-screen .site-mobile-header-item .full-screen-search-wrapper #search-close:hover {
 				color: {$header_search_text_hover_color};
 			}
@@ -7072,10 +7074,10 @@ function responsive_customizer_styles() {
 	@media screen and ( max-width: {$toggle_button_breakpoint}px ) {
 		.responsive-mobile-header-wrapper .site-header-item-toggle-button,
 		.responsive-mobile-header-wrapper .site-header-item-toggle-button .menu-toggle {
-			display: block !important;
+			display: block;
 		}
 		.responsive-mobile-header-wrapper .site-header-item-toggle-button .menu-toggle {
-			display: inline-flex !important;
+			display: inline-flex;
 		}
 		.responsive-desktop-header-wrapper .site-header-item-toggle-button,
 		.responsive-desktop-header-wrapper .site-header-item-toggle-button .menu-toggle {

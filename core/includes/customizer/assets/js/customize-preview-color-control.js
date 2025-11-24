@@ -3502,7 +3502,7 @@
             jQuery('style#responsive-header-search-text-color').remove();
             jQuery('head').append(
                 '<style id="responsive-header-search-text-color">'
-                + '.full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper input[type=search], .full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper input::placeholder,.full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper,.full-screen .site-header-item .full-screen-search-wrapper #search-close { color: ' + color + '!important; }'
+                + '.full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper input[type=search], .full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper input::placeholder,.full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper,.full-screen .site-header-item .full-screen-search-wrapper .search-close,.full-screen .site-header-item .full-screen-search-wrapper #search-close { color: ' + color + '!important; }'
                 + '</style>'
             );
         });
@@ -3513,7 +3513,7 @@
             jQuery('style#responsive-header-search-text-hover-color').remove();
             jQuery('head').append(
                 '<style id="responsive-header-search-text-hover-color">'
-                + '.full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper input[type=search]:hover,.full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper input:hover::placeholder,.full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper:hover,.full-screen .site-header-item .full-screen-search-wrapper #search-close:hover { color: ' + color + '!important; }'
+                + '.full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper input[type=search]:hover,.full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper input:hover::placeholder,.full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper:hover,.full-screen .site-header-item .full-screen-search-wrapper .search-close:hover,.full-screen .site-header-item .full-screen-search-wrapper #search-close:hover { color: ' + color + '!important; }'
                 + '</style>'
             );
         });
