@@ -13,7 +13,53 @@
 	function initOffCanvasPanel() {
 		var offCanvasPanel = document.getElementById( 'responsive-off-canvas-panel' );
 		var mobileHeader = document.getElementById( 'masthead-mobile' );
-		
+
+		var container = document.getElementsByClassName('site-header-item-toggle-button')[0];
+
+		if (!container) {
+			return;
+		}
+
+		var button = container.getElementsByClassName('menu-toggle')[0];
+
+		if (!button) {
+			return;
+		}
+
+		var menu = document.getElementById('off-canvas-menu'); // The ul tag
+		var offCanvasPanelInner = document.getElementsByClassName('responsive-off-canvas-panel-inner')[0];
+		var ulHasChildren = false;
+
+		if (!menu) {
+			// Checking for default menu : 
+			menu = offCanvasPanelInner.getElementsByClassName( 'menu' )[0]; 
+			if( menu )
+			{
+				ulHasChildren = menu.children.length > 0;
+			}
+		} else {
+			ulHasChildren = menu.children.length > 0;
+		}
+
+		// Checking if there are any other elements in off canvas panel 
+		var otherElementsInOffCanvas = false;
+
+		if (offCanvasPanelInner) {
+			var widgetsInOffCanvas = offCanvasPanelInner.getElementsByClassName('site-header-focus-item');
+
+			if (!widgetsInOffCanvas) {
+			} else {
+				otherElementsInOffCanvas = widgetsInOffCanvas.length > 0;
+			}
+		}
+
+		// Final decision logging
+		if (!ulHasChildren && !otherElementsInOffCanvas) {
+			button.style.display = 'none';
+		} else {
+			button.style.display = '';
+		}
+
 		if ( offCanvasPanel && mobileHeader ) {
 			// Find toggle button in mobile header
 			var mobileToggleButton = mobileHeader.querySelector( '.menu-toggle' );

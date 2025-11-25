@@ -14,30 +14,35 @@
 
 			$swipe.bind(
 				function( pair ) {
-					if ( pair === true ) {
-						jQuery( window ).scroll(
-							function()  {
-								if (jQuery( this ).scrollTop() > 0) {
-									if ( pair === true ) {
-										jQuery( '#masthead' ).addClass( "sticky-header" );
-										var floatingBarCheck = document.getElementById( 'floating-bar' );
-										var heightOfHeaderTaken = jQuery( '#masthead' ).outerHeight();
-										if ( floatingBarCheck && jQuery(window).width() > 768) {
-											jQuery( '.responsive-floating-bar' ).css({ top: heightOfHeaderTaken+'px', bottom: 'auto' });
-										} else if ( jQuery( '#masthead' ).hasClass( 'sticky-header' ) && jQuery(window).width() <= 768 ) {
-											jQuery( '.responsive-floating-bar' ).css({ bottom: 0, top: 'auto' });
-										}
-									}
-								} else {
-									jQuery( '#masthead' ).removeClass( "sticky-header" );
+					// Function to handle sticky header on scroll
+					function handleStickyHeader() {
+						if (jQuery( window ).scrollTop() > 0) {
+							if ( pair === true ) {
+								jQuery( '#masthead' ).addClass( "sticky-header" );
+								jQuery( '#masthead-mobile' ).addClass( "sticky-header" );
+								var floatingBarCheck = document.getElementById( 'floating-bar' );
+								var heightOfHeaderTaken = jQuery( '#masthead' ).outerHeight() || jQuery( '#masthead-mobile' ).outerHeight();
+								if ( floatingBarCheck && jQuery(window).width() > 768) {
+									jQuery( '.responsive-floating-bar' ).css({ top: heightOfHeaderTaken+'px', bottom: 'auto' });
+								} else if ( ( jQuery( '#masthead' ).hasClass( 'sticky-header' ) || jQuery( '#masthead-mobile' ).hasClass( 'sticky-header' ) ) && jQuery(window).width() <= 768 ) {
+									jQuery( '.responsive-floating-bar' ).css({ bottom: 0, top: 'auto' });
 								}
-
 							}
-						);
+						} else {
+							jQuery( '#masthead' ).removeClass( "sticky-header" );
+							jQuery( '#masthead-mobile' ).removeClass( "sticky-header" );
+						}
+					}
+
+					if ( pair === true ) {
+						jQuery( window ).scroll( handleStickyHeader );
+						// Initialize on page load if already scrolled
+						handleStickyHeader();
 					} else {
 						jQuery( window ).scroll(
 							function()  {
 								jQuery( '#masthead' ).removeClass( "sticky-header" );
+								jQuery( '#masthead-mobile' ).removeClass( "sticky-header" );
 								var floatingBarCheck = document.getElementById( 'floating-bar' );
 								if ( floatingBarCheck && jQuery(window).width() > 768 ) {
 									jQuery( '.responsive-floating-bar' ).css({ top: 0, bottom: 'auto' });
@@ -59,13 +64,96 @@
 				function( pair ) {
 					if ( pair === true ) {
 						jQuery( '#masthead' ).addClass( "shrink" );
+						jQuery( '#masthead-mobile' ).addClass( "shrink" );
 					} else {
 						jQuery( '#masthead' ).removeClass( "shrink" );
+						jQuery( '#masthead-mobile' ).removeClass( "shrink" );
 					}
 				}
-			)
+			);
+			// Initialize on page load
+			if ( $swipe.get() === true ) {
+				jQuery( '#masthead' ).addClass( "shrink" );
+				jQuery( '#masthead-mobile' ).addClass( "shrink" );
+			}
 		}
 	);
+
+	api(
+		"responsive_sticky_header_logo_option",
+		function( $swipe ) {
+
+			$swipe.bind(
+				function( pair ) {
+					if ( pair === true ) {
+						jQuery( '#masthead' ).addClass( "sticky-logo" );
+						jQuery( '#masthead-mobile' ).addClass( "sticky-logo" );
+					} else {
+						jQuery( '#masthead' ).removeClass( "sticky-logo" );
+						jQuery( '#masthead-mobile' ).removeClass( "sticky-logo" );
+					}
+				}
+			);
+			// Initialize on page load
+			if ( $swipe.get() === true ) {
+				jQuery( '#masthead' ).addClass( "sticky-logo" );
+				jQuery( '#masthead-mobile' ).addClass( "sticky-logo" );
+			}
+		}
+	);
+
+	// Function to update disable sticky header mobile menu CSS
+	function updateDisableStickyHeaderMobileMenu() {
+		var disable_sticky_mobile = api( 'responsive_disable_sticky_header_mobile_menu' ).get();
+		var mobile_menu_breakpoint = api( 'responsive_mobile_menu_breakpoint' ).get();
+		var disable_mobile_menu = api( 'responsive_disable_mobile_menu' ).get();
+		
+		if ( 0 === disable_mobile_menu ) {
+			mobile_menu_breakpoint = 0;
+		}
+
+		jQuery( 'style#responsive-disable-sticky-header-mobile-menu' ).remove();
+		
+		if ( disable_sticky_mobile === true || disable_sticky_mobile === 1 ) {
+			var css = '@media (max-width: ' + mobile_menu_breakpoint + 'px) {';
+			css += '#masthead.sticky-header, .res-transparent-header #masthead.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead.sticky-header,';
+			css += '#masthead-mobile.sticky-header, .res-transparent-header #masthead-mobile.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead-mobile.sticky-header {';
+			css += 'position: relative !important;';
+			css += 'scroll-behavior: smooth;';
+			css += '}';
+			css += '#wrapper.site-content {';
+			css += 'margin-top: 0px !important;';
+			css += '}';
+			css += '}';
+			jQuery( 'head' ).append( '<style id="responsive-disable-sticky-header-mobile-menu">' + css + '</style>' );
+		}
+	}
+
+	api(
+		"responsive_disable_sticky_header_mobile_menu",
+		function( $swipe ) {
+			$swipe.bind( function( pair ) {
+				updateDisableStickyHeaderMobileMenu();
+			});
+		}
+	);
+
+	// Update when mobile menu breakpoint changes
+	api( 'responsive_mobile_menu_breakpoint', function( value ) {
+		value.bind( function() {
+			updateDisableStickyHeaderMobileMenu();
+		});
+	});
+
+	// Update when disable mobile menu changes
+	api( 'responsive_disable_mobile_menu', function( value ) {
+		value.bind( function() {
+			updateDisableStickyHeaderMobileMenu();
+		});
+	});
+
+	// Initialize on page load
+	updateDisableStickyHeaderMobileMenu();
 
 	api(
 		"responsive_disable_author_meta",

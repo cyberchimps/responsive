@@ -1222,22 +1222,50 @@ if ( ! function_exists( 'responsive_pro_fixed_menu_onscroll' ) ) {
 			if ( get_theme_mod( 'responsive_shrink_sticky_header' ) ) {
 				?>
 				<script type="text/javascript">
-					document.getElementById("masthead").classList.add( 'shrink' );
+					var masthead = document.getElementById("masthead");
+					var mastheadMobile = document.getElementById("masthead-mobile");
+					if (masthead) {
+						masthead.classList.add( 'shrink' );
+					}
+					if (mastheadMobile) {
+						mastheadMobile.classList.add( 'shrink' );
+					}
 				</script>
 				<?php } else { ?>
 				<script type="text/javascript">
-					document.getElementById("masthead").classList.remove( 'shrink' );
+					var masthead = document.getElementById("masthead");
+					var mastheadMobile = document.getElementById("masthead-mobile");
+					if (masthead) {
+						masthead.classList.remove( 'shrink' );
+					}
+					if (mastheadMobile) {
+						mastheadMobile.classList.remove( 'shrink' );
+					}
 				</script>
 				<?php
 				}
 				if ( get_theme_mod( 'responsive_sticky_header_logo_option' ) ) {
 					?>
 				<script type="text/javascript">
-					document.getElementById("masthead").classList.add( 'sticky-logo' );
+					var masthead = document.getElementById("masthead");
+					var mastheadMobile = document.getElementById("masthead-mobile");
+					if (masthead) {
+						masthead.classList.add( 'sticky-logo' );
+					}
+					if (mastheadMobile) {
+						mastheadMobile.classList.add( 'sticky-logo' );
+					}
 				</script>
 				<?php } else { ?>
 				<script type="text/javascript">
-					document.getElementById("masthead").classList.remove( 'sticky-logo' );
+					var masthead = document.getElementById("masthead");
+					var mastheadMobile = document.getElementById("masthead-mobile");
+					if (masthead) {
+						masthead.classList.remove( 'sticky-logo' );
+					}
+					if (mastheadMobile) {
+						mastheadMobile.classList.remove( 'sticky-logo' );
+					}
 				</script>
 			<?php } ?>
 
@@ -1245,9 +1273,18 @@ if ( ! function_exists( 'responsive_pro_fixed_menu_onscroll' ) ) {
 			window.addEventListener("scroll", responsiveStickyHeader);
 
 			function responsiveStickyHeader() {
-				var height = document.getElementById("masthead").offsetHeight;
+				var masthead = document.getElementById("masthead");
+				var mastheadMobile = document.getElementById("masthead-mobile");
+				var height = masthead ? masthead.offsetHeight : (mastheadMobile ? mastheadMobile.offsetHeight : 0);
+				
 				if (document.documentElement.scrollTop > 0 ) {
-					document.getElementById("masthead").classList.add( 'sticky-header' );
+					if (masthead) {
+						masthead.classList.add( 'sticky-header' );
+					}
+					if (mastheadMobile) {
+						mastheadMobile.classList.add( 'sticky-header' );
+					}
+					
 					if (document.getElementById("wrapper") ) {
 						document.getElementById("wrapper").style.marginTop = height+'px';
 					}
@@ -1256,19 +1293,31 @@ if ( ! function_exists( 'responsive_pro_fixed_menu_onscroll' ) ) {
 					}
 
 					let container = document.getElementById( 'site-navigation' );
-					let button = container.getElementsByTagName( 'button' )[0];
-					let menu = container.getElementsByTagName( 'ul' )[0];
-					let icon = button.getElementsByTagName( 'i' )[0];
-					container.classList.remove( 'toggled' );
-					menu.setAttribute( 'aria-expanded', 'false' );
-					button.setAttribute( 'aria-expanded', 'false' );
-					icon.setAttribute( 'class', 'icon-bars' );
+					if (container) {
+						let button = container.getElementsByTagName( 'button' )[0];
+						let menu = container.getElementsByTagName( 'ul' )[0];
+						if (button && menu) {
+							let icon = button.getElementsByTagName( 'i' )[0];
+							container.classList.remove( 'toggled' );
+							menu.setAttribute( 'aria-expanded', 'false' );
+							button.setAttribute( 'aria-expanded', 'false' );
+							if (icon) {
+								icon.setAttribute( 'class', 'icon-bars' );
+							}
+						}
+					}
 					if(document.getElementById("sidebar-menu-overlay")) {
 						document.getElementById("sidebar-menu-overlay").style.display = "none";
 					}
 
 				} else {
-					document.getElementById("masthead").classList.remove( 'sticky-header' );
+					if (masthead) {
+						masthead.classList.remove( 'sticky-header' );
+					}
+					if (mastheadMobile) {
+						mastheadMobile.classList.remove( 'sticky-header' );
+					}
+					
 					if (document.getElementById("wrapper") ) {
 						document.getElementById("wrapper").style.marginTop = '0px';
 					}
@@ -1960,6 +2009,9 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_tablet_items_
 					Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_desktop_items' ) 
 				);
 				
+				// Track if primary navigation exists in desktop items
+				$has_primary_navigation = false;
+				
 				// Element mapping: old name => new name
 				$element_mapping = array(
 					'site-branding' => 'logo',
@@ -1974,6 +2026,28 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_tablet_items_
 							$mapped_elements[] = $element_mapping[ $old_element ];
 						}
 					}
+				}
+				
+				// Check if primary navigation exists in desktop items
+				if ( is_array( $desktop_items ) && !empty( $desktop_items ) ) {
+					foreach ( array( 'above', 'primary', 'below' ) as $row ) {
+						if ( isset( $desktop_items[ $row ] ) && is_array( $desktop_items[ $row ] ) ) {
+							foreach ( $desktop_items[ $row ] as $zone => $elements ) {
+								if ( is_array( $elements ) && in_array( 'primary_navigation', $elements, true ) ) {
+									$has_primary_navigation = true;
+									break 2;
+								}
+							}
+							if ( $has_primary_navigation ) {
+								break;
+							}
+						}
+					}
+				}
+				
+				// Also check in old_header_elements for 'main-navigation'
+				if ( !$has_primary_navigation && is_array( $old_header_elements ) && in_array( 'main-navigation', $old_header_elements, true ) ) {
+					$has_primary_navigation = true;
 				}
 				
 				// If we have desktop items, use them to determine positions
@@ -2003,7 +2077,8 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_tablet_items_
 												
 											case 'primary_navigation':
 												// Primary navigation becomes off_canvas_menu in popup and toggle_button in primary_right
-												if ( $row === 'primary' ) {
+												// Only add if primary navigation exists in desktop items
+												if ( $row === 'primary' && $has_primary_navigation ) {
 													// Add off_canvas_menu to popup if not already present
 													if ( !in_array( 'off_canvas_menu', $mobile_tablet_items['popup']['popup_content'], true ) ) {
 														$mobile_tablet_items['popup']['popup_content'][] = 'off_canvas_menu';
@@ -2082,7 +2157,8 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_tablet_items_
 							}
 						}
 						
-						if ( in_array( 'main-navigation', $old_header_elements, true ) ) {
+						// Only add toggle_button if primary navigation exists
+						if ( $has_primary_navigation ) {
 							// Off canvas menu in popup
 							if ( !in_array( 'off_canvas_menu', $mobile_tablet_items['popup']['popup_content'], true ) ) {
 								$mobile_tablet_items['popup']['popup_content'][] = 'off_canvas_menu';
@@ -2095,15 +2171,32 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_tablet_items_
 					}
 				}
 				
-				// Ensure we always have at least logo and toggle_button if nothing was migrated
+				// Ensure we always have at least logo if nothing was migrated
 				if ( empty( $mobile_tablet_items['primary']['primary_left'] ) ) {
 					$mobile_tablet_items['primary']['primary_left'] = array( 'logo' );
 				}
-				if ( empty( $mobile_tablet_items['primary']['primary_right'] ) ) {
-					$mobile_tablet_items['primary']['primary_right'] = array( 'toggle_button' );
-				}
-				if ( empty( $mobile_tablet_items['popup']['popup_content'] ) ) {
-					$mobile_tablet_items['popup']['popup_content'] = array( 'off_canvas_menu' );
+				
+				// Only add toggle_button and off_canvas_menu if primary navigation exists
+				if ( $has_primary_navigation ) {
+					if ( empty( $mobile_tablet_items['primary']['primary_right'] ) ) {
+						$mobile_tablet_items['primary']['primary_right'] = array( 'toggle_button' );
+					}
+					if ( empty( $mobile_tablet_items['popup']['popup_content'] ) ) {
+						$mobile_tablet_items['popup']['popup_content'] = array( 'off_canvas_menu' );
+					}
+				} else {
+					// Remove toggle_button if primary navigation doesn't exist
+					if ( isset( $mobile_tablet_items['primary']['primary_right'] ) && is_array( $mobile_tablet_items['primary']['primary_right'] ) ) {
+						$mobile_tablet_items['primary']['primary_right'] = array_values( array_filter( $mobile_tablet_items['primary']['primary_right'], function( $item ) {
+							return $item !== 'toggle_button';
+						} ) );
+					}
+					// Remove off_canvas_menu if primary navigation doesn't exist
+					if ( isset( $mobile_tablet_items['popup']['popup_content'] ) && is_array( $mobile_tablet_items['popup']['popup_content'] ) ) {
+						$mobile_tablet_items['popup']['popup_content'] = array_values( array_filter( $mobile_tablet_items['popup']['popup_content'], function( $item ) {
+							return $item !== 'off_canvas_menu';
+						} ) );
+					}
 				}
 				
 				// Save the migrated mobile/tablet items
