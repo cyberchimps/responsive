@@ -82,15 +82,50 @@
 			}
 		};
 
+		/**
+		 * Toggles visibility of desktop vs mobile/tablet footer builder controls.
+		 * @param {string} device - The current device (desktop, tablet, mobile).
+		 */
+		var toggleFooterBuilderControls = function( device ) {
+			var desktopControl = wp.customize.control( 'responsive_footer_items' );
+			var mobileTabletControl = wp.customize.control( 'responsive_footer_mobile_items' );
+			var desktopAvailableItemsControl = wp.customize.control( 'responsive_footer_available_items' );
+
+			// Check if the controls exist before proceeding.
+			if ( ! desktopControl || ! mobileTabletControl ) {
+				return;
+			}
+
+			if ( device === 'desktop' ) {
+				// Show Desktop control, Hide Mobile/Tablet control
+				desktopControl.container.show();
+				mobileTabletControl.container.hide();
+				// Toggle available items controls
+				if ( desktopAvailableItemsControl ) {
+					desktopAvailableItemsControl.container.show();
+				}
+			} else {
+				// Show Mobile/Tablet control, Hide Desktop control (for 'tablet' or 'mobile')
+				desktopControl.container.hide();
+				mobileTabletControl.container.show();
+				// Toggle available items controls
+				if ( desktopAvailableItemsControl ) {
+					desktopAvailableItemsControl.container.hide();
+				}
+			}
+		};
+
 		wp.customize.previewedDevice.bind(function(device) {
 			currentDevice = device;
 			toggleHeaderBuilderControls( currentDevice );
+			toggleFooterBuilderControls( currentDevice );
 			setTimeout(resizePreviewer, 100);
 		});
 
 		// Initialize on page load
 		setTimeout(function() {
 			toggleHeaderBuilderControls( currentDevice );
+			toggleFooterBuilderControls( currentDevice );
 		}, 100);
 
 		/**
@@ -167,6 +202,7 @@
 
 					if ( isExpanded ) {
 						$body.addClass( 'responsive-footer-builder-is-active' );
+						toggleFooterBuilderControls( currentDevice );
 						$section.addClass( 'responsive-footer-builder-active' );
 						$section.css('display', 'none').height();
 						$section.css('display', 'block');
