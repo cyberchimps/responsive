@@ -4675,6 +4675,8 @@ function responsive_customizer_styles() {
 	$above_footer_bg_color_tablet      = get_theme_mod( 'responsive_footer_above_row_bg_color_tablet', '#333' );
 	$above_footer_bg_color_mobile	   = get_theme_mod( 'responsive_footer_above_row_bg_color_mobile', '#333' );
 	$above_footer_top_border_size      = get_theme_mod( 'responsive_footer_above_row_top_border_size', 0 );
+	$above_footer_top_border_size_tablet = get_theme_mod( 'responsive_footer_above_row_top_border_size_tablet', $above_footer_top_border_size );
+	$above_footer_top_border_size_mobile = get_theme_mod( 'responsive_footer_above_row_top_border_size_mobile', $above_footer_top_border_size );
 	$above_footer_top_border_color     = get_theme_mod( 'responsive_footer_above_row_border_color', '#FFF' );
 	// Above Footer Width - Desktop
 	if ( 'fullwidth' === $above_footer_width ) {
@@ -4762,10 +4764,30 @@ function responsive_customizer_styles() {
 		}";
 
 	if( 0 < $above_footer_top_border_size ) {
-		$custom_css.= ".rspv-site-above-footer-wrap {
-           border-top: {$above_footer_top_border_size}px solid {$above_footer_top_border_color};
-        }";
+		$custom_css.= "
+		@media screen and ( min-width: 993px ) {
+			.rspv-site-above-footer-wrap {
+				border-top: {$above_footer_top_border_size}px solid {$above_footer_top_border_color};
+			}
+		}";
 	}
+	if( 0 < $above_footer_top_border_size_tablet ) {
+		$custom_css.= "
+		@media screen and ( min-width: 577px ) and ( max-width: 992px ) {
+			.rspv-site-above-footer-wrap {
+				border-top: {$above_footer_top_border_size_tablet}px solid {$above_footer_top_border_color};
+			}
+		}";
+	}
+	if( 0 < $above_footer_top_border_size_mobile ) {
+		$custom_css.= "
+		@media screen and ( max-width: 576px ) {
+			.rspv-site-above-footer-wrap {
+				border-top: {$above_footer_top_border_size_mobile}px solid {$above_footer_top_border_color};
+			}
+		}";
+	}
+	
 	// Primary Footer
 	$primary_footer_width                 = get_theme_mod( 'responsive_footer_primary_width', 'contained' );
 	$primary_footer_width_tablet          = get_theme_mod( 'responsive_footer_primary_width_tablet', 'contained' );
@@ -4779,6 +4801,8 @@ function responsive_customizer_styles() {
 	$primary_footer_bg_color_tablet      = get_theme_mod( 'responsive_footer_primary_row_bg_color_tablet', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_primary_row_bg_color' ) );
 	$primary_footer_bg_color_mobile      = get_theme_mod( 'responsive_footer_primary_row_bg_color_mobile', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_primary_row_bg_color' ) );
 	$primary_footer_top_border_size      = get_theme_mod( 'responsive_footer_primary_row_top_border_size', 1 );
+	$primary_footer_top_border_size_tablet = get_theme_mod( 'responsive_footer_primary_row_top_border_size_tablet', $primary_footer_top_border_size );
+	$primary_footer_top_border_size_mobile = get_theme_mod( 'responsive_footer_primary_row_top_border_size_mobile', $primary_footer_top_border_size );
 	$primary_footer_top_border_color     = get_theme_mod( 'responsive_footer_primary_row_border_color', '#aaaaaa' );
 	
 	// Primary Footer Width - Desktop
@@ -4866,9 +4890,28 @@ function responsive_customizer_styles() {
 		}";
 
 	if( 0 < $primary_footer_top_border_size ) {
-		$custom_css.= ".rspv-site-primary-footer-wrap {
-           border-top: {$primary_footer_top_border_size}px solid {$primary_footer_top_border_color};
-        }";
+		$custom_css.= "
+		@media screen and ( min-width: 993px ) {
+			.rspv-site-primary-footer-wrap {
+				border-top: {$primary_footer_top_border_size}px solid {$primary_footer_top_border_color};
+			}
+		}";
+	}
+	if( 0 < $primary_footer_top_border_size_tablet ) {
+		$custom_css.= "
+		@media screen and ( min-width: 577px ) and ( max-width: 992px ) {
+			.rspv-site-primary-footer-wrap {
+				border-top: {$primary_footer_top_border_size_tablet}px solid {$primary_footer_top_border_color};
+			}
+		}";
+	}
+	if( 0 < $primary_footer_top_border_size_mobile ) {
+		$custom_css.= "
+		@media screen and ( max-width: 576px ) {
+			.rspv-site-primary-footer-wrap {
+				border-top: {$primary_footer_top_border_size_mobile}px solid {$primary_footer_top_border_color};
+			}
+		}";
 	}
 	// Below Footer
 	$below_footer_width                 = get_theme_mod( 'responsive_footer_below_width', 'contained' );
@@ -4883,6 +4926,8 @@ function responsive_customizer_styles() {
 	$below_footer_bg_color_tablet      = get_theme_mod( 'responsive_footer_below_row_bg_color_tablet', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_below_row_bg_color' ) );
 	$below_footer_bg_color_mobile      = get_theme_mod( 'responsive_footer_below_row_bg_color_mobile', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_below_row_bg_color' ) );
 	$below_footer_top_border_size      = get_theme_mod( 'responsive_footer_below_row_top_border_size', 1 );
+	$below_footer_top_border_size_tablet = get_theme_mod( 'responsive_footer_below_row_top_border_size_tablet', $below_footer_top_border_size );
+	$below_footer_top_border_size_mobile = get_theme_mod( 'responsive_footer_below_row_top_border_size_mobile', $below_footer_top_border_size );
 	$below_footer_top_border_color     = get_theme_mod( 'responsive_footer_below_row_border_color', '#0066CC' );
 	
 	// Below Footer Width - Desktop
@@ -4967,9 +5012,28 @@ function responsive_customizer_styles() {
 			}
 		}";	
 	if( 0 < $below_footer_top_border_size ) {
-		$custom_css.= ".rspv-site-below-footer-wrap {
-           border-top: {$below_footer_top_border_size}px solid {$below_footer_top_border_color};
-        }";
+		$custom_css.= "
+		@media screen and ( min-width: 993px ) {
+			.rspv-site-below-footer-wrap {
+				border-top: {$below_footer_top_border_size}px solid {$below_footer_top_border_color};
+			}
+		}";
+	}
+	if( 0 < $below_footer_top_border_size_tablet ) {
+		$custom_css.= "
+		@media screen and ( min-width: 577px ) and ( max-width: 992px ) {
+			.rspv-site-below-footer-wrap {
+				border-top: {$below_footer_top_border_size_tablet}px solid {$below_footer_top_border_color};
+			}
+		}";
+	}
+	if( 0 < $below_footer_top_border_size_mobile ) {
+		$custom_css.= "
+		@media screen and ( max-width: 576px ) {
+			.rspv-site-below-footer-wrap {
+				border-top: {$below_footer_top_border_size_mobile}px solid {$below_footer_top_border_color};
+			}
+		}";
 	}
 	if( ! function_exists( 'get_responsive_spacing_values' ) ) {
 		// Function to get padding and margin values dynamically for different breakpoints

@@ -112,7 +112,7 @@ if( ! class_exists( 'Responsive_HFB_Footer_Above_Row' ) ) {
             
             // Top Border Size.
             $footer_above_row_top_border_size_label = __( 'Top Border Size (px)', 'responsive' );
-            responsive_drag_number_control( $wp_customize, 'footer_above_row_top_border_size', $footer_above_row_top_border_size_label, 'responsive_footer_above_row', 100, 0, null, 300, 0, 'postMessage', 1 );
+            responsive_drag_number_control_with_switchers( $wp_customize, 'footer_above_row_top_border_size', $footer_above_row_top_border_size_label, 'responsive_footer_above_row', 100, 0, null, 300, 0, 'postMessage', 1 );
 
             // Border Color.
 			$footer_above_row_border_color_label = __( 'Border Color', 'responsive' );
