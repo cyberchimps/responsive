@@ -6564,7 +6564,8 @@ function responsive_customizer_styles() {
 		$responsive_disable_sticky_header_mobile_menu = get_theme_mod( 'responsive_disable_sticky_header_mobile_menu', 0 );
 		if ( '1' == $responsive_disable_sticky_header_mobile_menu ) {
 			$custom_css .= "@media (max-width:{$mobile_menu_breakpoint}px) {
-				#masthead.sticky-header, .res-transparent-header #masthead.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead.sticky-header {
+				#masthead.sticky-header, .res-transparent-header #masthead.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead.sticky-header,
+				#masthead-mobile.sticky-header, .res-transparent-header #masthead-mobile.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead-mobile.sticky-header {
 					position: relative;
 					scroll-behavior: smooth;
 				}
@@ -6590,19 +6591,37 @@ function responsive_customizer_styles() {
 			#masthead.sticky-header, .res-transparent-header #masthead.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead.sticky-header {
 				background-color: {$sticky_header_background_color};
 			}
+			#masthead-mobile.sticky-header, .res-transparent-header #masthead-mobile.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead-mobile.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead-mobile.sticky-header {
+				background-color: {$sticky_header_background_color};
+			}
 			#masthead.sticky-header .site-title a, .res-transparent-header #masthead.sticky-header .site-title a {
+				color: {$sticky_header_site_title_color};
+			}
+			#masthead-mobile.sticky-header .site-title a, .res-transparent-header #masthead-mobile.sticky-header .site-title a {
 				color: {$sticky_header_site_title_color};
 			}
 			#masthead.sticky-header .site-title a:hover, .res-transparent-header #masthead.sticky-header .site-title a:hover {
 				color: {$sticky_header_site_title_hover_color};
 			}
+			#masthead-mobile.sticky-header .site-title a:hover, .res-transparent-header #masthead-mobile.sticky-header .site-title a:hover {
+				color: {$sticky_header_site_title_hover_color};
+			}
 			#masthead.sticky-header .site-description, .res-transparent-header #masthead.sticky-header .site-description {
+				color: {$sticky_header_text_color};
+			}
+			#masthead-mobile.sticky-header .site-description, .res-transparent-header #masthead-mobile.sticky-header .site-description {
 				color: {$sticky_header_text_color};
 			}
 			#masthead.sticky-header .site-header-row .main-navigation .main-navigation-wrapper, #masthead.sticky-header .site-header-row .main-navigation.toggled {
 				background-color: {$sticky_header_menu_background_color};
 			}
+			#masthead-mobile.sticky-header .site-mobile-header-row .main-navigation .main-navigation-wrapper, #masthead-mobile.sticky-header .site-mobile-header-row .main-navigation.toggled {
+				background-color: {$sticky_header_menu_background_color};
+			}
 			#masthead.sticky-header .main-navigation .menu > li > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu > li > a {
+				color: {$sticky_header_menu_link_color};
+			}
+			#masthead-mobile.sticky-header .main-navigation .menu > li > a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu > li > a {
 				color: {$sticky_header_menu_link_color};
 			}
 
@@ -6614,9 +6633,22 @@ function responsive_customizer_styles() {
 				color: {$sticky_header_menu_link_hover_color};
 				background-color: {$sticky_header_active_menu_background_color};
 			}
+			#masthead-mobile.sticky-header .main-navigation .menu .current_page_item > a,
+			#masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a,
+			#masthead-mobile.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current_page_item > a,
+			.res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a,
+			.res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu li > a:hover {
+				color: {$sticky_header_menu_link_hover_color};
+				background-color: {$sticky_header_active_menu_background_color};
+			}
 			#masthead.sticky-header .main-navigation .children,
 			#masthead.sticky-header .main-navigation .sub-menu, .res-transparent-header #masthead.sticky-header .main-navigation .children,
 			.res-transparent-header #masthead.sticky-header .main-navigation .sub-menu {
+				background-color: {$sticky_header_sub_menu_background_color};
+			}
+			#masthead-mobile.sticky-header .main-navigation .children,
+			#masthead-mobile.sticky-header .main-navigation .sub-menu, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .children,
+			.res-transparent-header #masthead-mobile.sticky-header .main-navigation .sub-menu {
 				background-color: {$sticky_header_sub_menu_background_color};
 			}
 			#masthead.sticky-header .main-navigation .children li a,
@@ -6624,9 +6656,19 @@ function responsive_customizer_styles() {
 			.res-transparent-header #masthead.sticky-header .main-navigation .sub-menu li a {
 				color: {$sticky_header_sub_menu_link_color};
 			}
+			#masthead-mobile.sticky-header .main-navigation .children li a,
+			#masthead-mobile.sticky-header .main-navigation .sub-menu li a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .children li a,
+			.res-transparent-header #masthead-mobile.sticky-header .main-navigation .sub-menu li a {
+				color: {$sticky_header_sub_menu_link_color};
+			}
 			#masthead.sticky-header .main-navigation .children li a:hover,
 			#masthead.sticky-header .main-navigation .sub-menu li a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .children li a:hover,
 			.res-transparent-header #masthead.sticky-header .main-navigation .sub-menu li a:hover {
+				color: {$sticky_header_sub_menu_link_hover_color};
+			}
+			#masthead-mobile.sticky-header .main-navigation .children li a:hover,
+			#masthead-mobile.sticky-header .main-navigation .sub-menu li a:hover, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .children li a:hover,
+			.res-transparent-header #masthead-mobile.sticky-header .main-navigation .sub-menu li a:hover {
 				color: {$sticky_header_sub_menu_link_hover_color};
 			}
 			";

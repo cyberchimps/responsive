@@ -1222,22 +1222,50 @@ if ( ! function_exists( 'responsive_pro_fixed_menu_onscroll' ) ) {
 			if ( get_theme_mod( 'responsive_shrink_sticky_header' ) ) {
 				?>
 				<script type="text/javascript">
-					document.getElementById("masthead").classList.add( 'shrink' );
+					var masthead = document.getElementById("masthead");
+					var mastheadMobile = document.getElementById("masthead-mobile");
+					if (masthead) {
+						masthead.classList.add( 'shrink' );
+					}
+					if (mastheadMobile) {
+						mastheadMobile.classList.add( 'shrink' );
+					}
 				</script>
 				<?php } else { ?>
 				<script type="text/javascript">
-					document.getElementById("masthead").classList.remove( 'shrink' );
+					var masthead = document.getElementById("masthead");
+					var mastheadMobile = document.getElementById("masthead-mobile");
+					if (masthead) {
+						masthead.classList.remove( 'shrink' );
+					}
+					if (mastheadMobile) {
+						mastheadMobile.classList.remove( 'shrink' );
+					}
 				</script>
 				<?php
 				}
 				if ( get_theme_mod( 'responsive_sticky_header_logo_option' ) ) {
 					?>
 				<script type="text/javascript">
-					document.getElementById("masthead").classList.add( 'sticky-logo' );
+					var masthead = document.getElementById("masthead");
+					var mastheadMobile = document.getElementById("masthead-mobile");
+					if (masthead) {
+						masthead.classList.add( 'sticky-logo' );
+					}
+					if (mastheadMobile) {
+						mastheadMobile.classList.add( 'sticky-logo' );
+					}
 				</script>
 				<?php } else { ?>
 				<script type="text/javascript">
-					document.getElementById("masthead").classList.remove( 'sticky-logo' );
+					var masthead = document.getElementById("masthead");
+					var mastheadMobile = document.getElementById("masthead-mobile");
+					if (masthead) {
+						masthead.classList.remove( 'sticky-logo' );
+					}
+					if (mastheadMobile) {
+						mastheadMobile.classList.remove( 'sticky-logo' );
+					}
 				</script>
 			<?php } ?>
 
@@ -1245,9 +1273,18 @@ if ( ! function_exists( 'responsive_pro_fixed_menu_onscroll' ) ) {
 			window.addEventListener("scroll", responsiveStickyHeader);
 
 			function responsiveStickyHeader() {
-				var height = document.getElementById("masthead").offsetHeight;
+				var masthead = document.getElementById("masthead");
+				var mastheadMobile = document.getElementById("masthead-mobile");
+				var height = masthead ? masthead.offsetHeight : (mastheadMobile ? mastheadMobile.offsetHeight : 0);
+				
 				if (document.documentElement.scrollTop > 0 ) {
-					document.getElementById("masthead").classList.add( 'sticky-header' );
+					if (masthead) {
+						masthead.classList.add( 'sticky-header' );
+					}
+					if (mastheadMobile) {
+						mastheadMobile.classList.add( 'sticky-header' );
+					}
+					
 					if (document.getElementById("wrapper") ) {
 						document.getElementById("wrapper").style.marginTop = height+'px';
 					}
@@ -1256,19 +1293,31 @@ if ( ! function_exists( 'responsive_pro_fixed_menu_onscroll' ) ) {
 					}
 
 					let container = document.getElementById( 'site-navigation' );
-					let button = container.getElementsByTagName( 'button' )[0];
-					let menu = container.getElementsByTagName( 'ul' )[0];
-					let icon = button.getElementsByTagName( 'i' )[0];
-					container.classList.remove( 'toggled' );
-					menu.setAttribute( 'aria-expanded', 'false' );
-					button.setAttribute( 'aria-expanded', 'false' );
-					icon.setAttribute( 'class', 'icon-bars' );
+					if (container) {
+						let button = container.getElementsByTagName( 'button' )[0];
+						let menu = container.getElementsByTagName( 'ul' )[0];
+						if (button && menu) {
+							let icon = button.getElementsByTagName( 'i' )[0];
+							container.classList.remove( 'toggled' );
+							menu.setAttribute( 'aria-expanded', 'false' );
+							button.setAttribute( 'aria-expanded', 'false' );
+							if (icon) {
+								icon.setAttribute( 'class', 'icon-bars' );
+							}
+						}
+					}
 					if(document.getElementById("sidebar-menu-overlay")) {
 						document.getElementById("sidebar-menu-overlay").style.display = "none";
 					}
 
 				} else {
-					document.getElementById("masthead").classList.remove( 'sticky-header' );
+					if (masthead) {
+						masthead.classList.remove( 'sticky-header' );
+					}
+					if (mastheadMobile) {
+						mastheadMobile.classList.remove( 'sticky-header' );
+					}
+					
 					if (document.getElementById("wrapper") ) {
 						document.getElementById("wrapper").style.marginTop = '0px';
 					}
