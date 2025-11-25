@@ -2466,7 +2466,8 @@
             jQuery('style#responsive-sticky-header-bg-color').remove();
             jQuery('head').append(
                 '<style id="responsive-sticky-header-bg-color">'
-                + '#masthead.sticky-header, .res-transparent-header #masthead.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead.sticky-header { background-color: ' + newval + '; }'
+                + '#masthead.sticky-header, .res-transparent-header #masthead.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead.sticky-header,'
+                + '#masthead-mobile.sticky-header, .res-transparent-header #masthead-mobile.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead-mobile.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead-mobile.sticky-header { background-color: ' + newval + '; }'
                 + '</style>'
             );
         } );
@@ -2476,7 +2477,8 @@
             jQuery('style#responsive-sticky-header-site-title-color').remove();
             jQuery('head').append(
                 '<style id="responsive-sticky-header-site-title-color">'
-                + '#masthead.sticky-header .site-title a, .res-transparent-header #masthead.sticky-header .site-title a { color: ' + newval + ' !important; }'
+                + '#masthead.sticky-header .site-title a, .res-transparent-header #masthead.sticky-header .site-title a, '
+                + '#masthead-mobile.sticky-header .site-title a, .res-transparent-header #masthead-mobile.sticky-header .site-title a { color: ' + newval + ' !important; }'
                 + '</style>'
             );
         } );
@@ -2486,7 +2488,8 @@
             jQuery('style#responsive-sticky-header-site-title-hover-color').remove();
             jQuery('head').append(
                 '<style id="responsive-sticky-header-site-title-hover-color">'
-                + '#masthead.sticky-header .site-title a:hover, .res-transparent-header #masthead.sticky-header .site-title a:hover { color: ' + newval + ' !important; }'
+                + '#masthead.sticky-header .site-title a:hover, .res-transparent-header #masthead.sticky-header .site-title a:hover, '
+                + '#masthead-mobile.sticky-header .site-title a:hover, .res-transparent-header #masthead-mobile.sticky-header .site-title a:hover { color: ' + newval + ' !important; }'
                 + '</style>'
             );
         } );
@@ -2497,7 +2500,8 @@
             jQuery('style#responsive-sticky-header-text-color').remove();
             jQuery('head').append(
                 '<style id="responsive-sticky-header-text-color">'
-                + '#masthead.sticky-header .site-description, .res-transparent-header #masthead.sticky-header .site-description { color: ' + newval + '; }'
+                + '#masthead.sticky-header .site-description, .res-transparent-header #masthead.sticky-header .site-description, '
+                + '#masthead-mobile.sticky-header .site-description, .res-transparent-header #masthead-mobile.sticky-header .site-description { color: ' + newval + '; }'
                 + '</style>'
             );
         } );
@@ -2507,7 +2511,8 @@
             jQuery('style#responsive-sticky-header-menu-background-color').remove();
             jQuery('head').append(
                 '<style id="responsive-sticky-header-menu-background-color">'
-                + '#masthead.sticky-header .site-header-row .main-navigation .main-navigation-wrapper, #masthead.sticky-header .site-header-row .main-navigation.toggled { background-color: ' + newval + ' !important; }'
+                + '#masthead.sticky-header .site-header-row .main-navigation .main-navigation-wrapper, #masthead.sticky-header .site-header-row .main-navigation.toggled, '
+                + '#masthead-mobile.sticky-header .site-mobile-header-row .main-navigation .main-navigation-wrapper, #masthead-mobile.sticky-header .site-mobile-header-row .main-navigation.toggled { background-color: ' + newval + ' !important; }'
                 + '</style>'
             );
         } );
@@ -2517,7 +2522,8 @@
             jQuery('style#responsive-sticky-header-active-menu-background-color').remove();
             jQuery('head').append(
                 '<style id="responsive-sticky-header-active-menu-background-color">'
-                + '#masthead.sticky-header .main-navigation .menu .current_page_item > a, #masthead.sticky-header .main-navigation .menu .current-menu-item > a, #masthead.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current_page_item > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current-menu-item > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu li > a:hover { background-color: ' + newval + '; }'
+                + '#masthead.sticky-header .main-navigation .menu .current_page_item > a, #masthead.sticky-header .main-navigation .menu .current-menu-item > a, #masthead.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current_page_item > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current-menu-item > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu li > a:hover, '
+                + '#masthead-mobile.sticky-header .main-navigation .menu .current_page_item > a, #masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a, #masthead-mobile.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current_page_item > a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu li > a:hover { background-color: ' + newval + '; }'
                 + '</style>'
             );
         } );
@@ -2527,7 +2533,8 @@
             jQuery('style#responsive-sticky-header-menu-link-color').remove();
             jQuery('head').append(
                 '<style id="responsive-sticky-header-menu-link-color">'
-                + '#masthead.sticky-header .main-navigation .menu > li > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu > li > a { color: ' + newval + ' !important; }'
+                + '#masthead.sticky-header .main-navigation .menu > li > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu > li > a, '
+                + '#masthead-mobile.sticky-header .main-navigation .menu > li > a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu > li > a { color: ' + newval + ' !important; }'
                 + '</style>'
             );
         } );
@@ -2537,7 +2544,8 @@
             jQuery('style#responsive-sticky-header-menu-link-hover-color').remove();
             jQuery('head').append(
                 '<style id="responsive-sticky-header-menu-link-hover-color">'
-                + '#masthead.sticky-header .main-navigation .menu .current_page_item > a, #masthead.sticky-header .main-navigation .menu .current-menu-item > a, #masthead.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current_page_item > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current-menu-item > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu li > a:hover { color: ' + newval + '!important; }'
+                + '#masthead.sticky-header .main-navigation .menu .current_page_item > a, #masthead.sticky-header .main-navigation .menu .current-menu-item > a, #masthead.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current_page_item > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current-menu-item > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu li > a:hover, '
+                + '#masthead-mobile.sticky-header .main-navigation .menu .current_page_item > a, #masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a, #masthead-mobile.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current_page_item > a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu li > a:hover { color: ' + newval + '!important; }'
                 + '</style>'
             );
         } );
@@ -2547,7 +2555,8 @@
             jQuery('style#responsive-sticky-header-sub-menu-bg-color').remove();
             jQuery('head').append(
                 '<style id="responsive-sticky-header-sub-menu-bg-color">'
-                + '#masthead.sticky-header .main-navigation .children, #masthead.sticky-header .main-navigation .sub-menu, .res-transparent-header #masthead.sticky-header .main-navigation .children,	.res-transparent-header #masthead.sticky-header .main-navigation .sub-menu { background-color: ' + newval + '; }'
+                + '#masthead.sticky-header .main-navigation .children, #masthead.sticky-header .main-navigation .sub-menu, .res-transparent-header #masthead.sticky-header .main-navigation .children,	.res-transparent-header #masthead.sticky-header .main-navigation .sub-menu, '
+                + '#masthead-mobile.sticky-header .main-navigation .children, #masthead-mobile.sticky-header .main-navigation .sub-menu, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .children,	.res-transparent-header #masthead-mobile.sticky-header .main-navigation .sub-menu { background-color: ' + newval + '; }'
                 + '</style>'
             );
         } );
@@ -2557,7 +2566,8 @@
             jQuery('style#responsive-sticky-header-sub-menu-link-color').remove();
             jQuery('head').append(
                 '<style id="responsive-sticky-header-sub-menu-link-color">'
-                + '#masthead.sticky-header .main-navigation .children li a,	#masthead.sticky-header .main-navigation .sub-menu li a, .res-transparent-header #masthead.sticky-header .main-navigation .children li a, .res-transparent-header #masthead.sticky-header .main-navigation .sub-menu li a { color: ' + newval + ' !important; }'
+                + '#masthead.sticky-header .main-navigation .children li a,	#masthead.sticky-header .main-navigation .sub-menu li a, .res-transparent-header #masthead.sticky-header .main-navigation .children li a, .res-transparent-header #masthead.sticky-header .main-navigation .sub-menu li a, '
+                + '#masthead-mobile.sticky-header .main-navigation .children li a,	#masthead-mobile.sticky-header .main-navigation .sub-menu li a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .children li a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .sub-menu li a { color: ' + newval + ' !important; }'
                 + '</style>'
             );
         } );
@@ -2567,7 +2577,8 @@
             jQuery('style#responsive-sticky-header-sub-menu-link-hover-color').remove();
             jQuery('head').append(
                 '<style id="responsive-sticky-header-sub-menu-link-hover-color">'
-                + '#masthead.sticky-header .main-navigation .children li a:hover, #masthead.sticky-header .main-navigation .sub-menu li a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .children li a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .sub-menu li a:hover { color: ' + newval + ' !important; }'
+                + '#masthead.sticky-header .main-navigation .children li a:hover, #masthead.sticky-header .main-navigation .sub-menu li a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .children li a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .sub-menu li a:hover, '
+                + '#masthead-mobile.sticky-header .main-navigation .children li a:hover, #masthead-mobile.sticky-header .main-navigation .sub-menu li a:hover, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .children li a:hover, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .sub-menu li a:hover { color: ' + newval + ' !important; }'
                 + '</style>'
             );
         } );
@@ -3581,7 +3592,7 @@
             jQuery('style#responsive-header-search-text-color').remove();
             jQuery('head').append(
                 '<style id="responsive-header-search-text-color">'
-                + '.full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper input[type=search], .full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper input::placeholder,.full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper,.full-screen .site-header-item .full-screen-search-wrapper #search-close { color: ' + color + '!important; }'
+                + '.full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper input[type=search], .full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper input::placeholder,.full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper,.full-screen .site-header-item .full-screen-search-wrapper .search-close,.full-screen .site-header-item .full-screen-search-wrapper #search-close { color: ' + color + '!important; }'
                 + '</style>'
             );
         });
@@ -3592,7 +3603,7 @@
             jQuery('style#responsive-header-search-text-hover-color').remove();
             jQuery('head').append(
                 '<style id="responsive-header-search-text-hover-color">'
-                + '.full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper input[type=search]:hover,.full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper input:hover::placeholder,.full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper:hover,.full-screen .site-header-item .full-screen-search-wrapper #search-close:hover { color: ' + color + '!important; }'
+                + '.full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper input[type=search]:hover,.full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper input:hover::placeholder,.full-screen .site-header-item .full-screen-search-wrapper .full-screen-search-container #searchform .res-search-wrapper:hover,.full-screen .site-header-item .full-screen-search-wrapper .search-close:hover,.full-screen .site-header-item .full-screen-search-wrapper #search-close:hover { color: ' + color + '!important; }'
                 + '</style>'
             );
         });

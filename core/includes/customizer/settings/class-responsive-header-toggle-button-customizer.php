@@ -113,7 +113,7 @@ if( ! class_exists( 'Responsive_Header_Toggle_Button_Customizer' ) ) {
             responsive_horizontal_separator_control( $wp_customize, 'header_toggle_button_background_color_separator', 1, 'responsive_header_toggle_button', 20, 1);
             
             // Icon Size - Design Tab
-            responsive_drag_number_control( $wp_customize, 'header_toggle_button_icon_size', __( 'Icon Size', 'responsive'), 'responsive_header_toggle_button', 22, 44, null, 100, 0, 'refresh');
+            responsive_drag_number_control( $wp_customize, 'header_toggle_button_icon_size', __( 'Icon Size', 'responsive'), 'responsive_header_toggle_button', 22, 25, null, 100, 0, 'refresh');
 
             // Border Radius - Design Tab
             $header_toggle_button_border_radius_label = __( 'Border Radius (px)', 'responsive' );
