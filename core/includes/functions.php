@@ -2225,8 +2225,15 @@ function responsive_check_for_element($component, $haystack) {
  * @return bool True if toggle_button is present in mobile_tablet_items, false otherwise.
  */
 function responsive_check_element_in_mobile_tablet_items($component, $builder_type) {
-	$mobile_tablet_items = get_theme_mod( 'responsive_header_mobile_tablet_items', get_responsive_customizer_defaults( 'responsive_header_mobile_tablet_items' ) );
-	if ( empty( $mobile_tablet_items ) || ! is_array( $mobile_tablet_items ) ) {
+	if($builder_type === 'header' )
+	{
+		$mobile_tablet_items = get_theme_mod( 'responsive_header_mobile_tablet_items', get_responsive_customizer_defaults( 'responsive_header_mobile_tablet_items' ) );
+	}
+	else if($builder_type === 'footer' )
+	{
+		$mobile_tablet_items = get_theme_mod( 'responsive_footer_mobile_items', get_responsive_customizer_defaults( 'responsive_footer_mobile_items' ) );
+	}
+	if ( empty( $mobile_tablet_items ) || ! is_array( $mobile_tablet_items ) || empty( $component ) ) {
 		return false;
 	}
 	return responsive_check_for_element( $component, $mobile_tablet_items );

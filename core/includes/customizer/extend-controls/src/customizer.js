@@ -90,6 +90,7 @@
 			var desktopControl = wp.customize.control( 'responsive_footer_items' );
 			var mobileTabletControl = wp.customize.control( 'responsive_footer_mobile_items' );
 			var desktopAvailableItemsControl = wp.customize.control( 'responsive_footer_available_items' );
+			var mobileTabletAvailableItemsControl = wp.customize.control( 'responsive_footer_mobile_available_items' );
 
 			// Check if the controls exist before proceeding.
 			if ( ! desktopControl || ! mobileTabletControl ) {
@@ -104,6 +105,9 @@
 				if ( desktopAvailableItemsControl ) {
 					desktopAvailableItemsControl.container.show();
 				}
+				if ( mobileTabletAvailableItemsControl ) {
+					mobileTabletAvailableItemsControl.container.hide();
+				}
 			} else {
 				// Show Mobile/Tablet control, Hide Desktop control (for 'tablet' or 'mobile')
 				desktopControl.container.hide();
@@ -111,6 +115,9 @@
 				// Toggle available items controls
 				if ( desktopAvailableItemsControl ) {
 					desktopAvailableItemsControl.container.hide();
+				}
+				if ( mobileTabletAvailableItemsControl ) {
+					mobileTabletAvailableItemsControl.container.show();
 				}
 			}
 		};

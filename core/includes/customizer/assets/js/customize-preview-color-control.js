@@ -2716,6 +2716,7 @@
             );
         });
     });
+    // Footer Copyright Text Color - Desktop
     api( 'responsive_footer_copyright_text_color', function(val){
         val.bind(function(newval){
             jQuery('style#responsive-footer-copyright-text-color').remove();
@@ -2726,7 +2727,8 @@
             );
         });
     });
-    api( 'responsive_footer_copyright_text_hover_color', function(val){
+    // Footer Copyright Text Hover Color - Desktop
+    api( 'responsive_footer_copyright_text_color_hover', function(val){
         val.bind(function(newval){
             jQuery('style#responsive-footer-copyright-text-hover-color').remove();
             jQuery('head').append(
@@ -2736,6 +2738,51 @@
             );
         });
     });
+    // Footer Copyright Text Color - Tablet
+    api( 'responsive_footer_copyright_text_color_tablet', function(val){
+        val.bind(function(newval){
+            jQuery('style#responsive-footer-copyright-text-color-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-copyright-text-color-tablet">'
+                + '@media screen and ( max-width: 992px ) { .footer-layouts.copyright { color: ' + newval + '} }'
+                + '</style>'
+            );
+        });
+    });
+    // Footer Copyright Text Hover Color - Tablet
+    api( 'responsive_footer_copyright_text_color_tablet_hover', function(val){
+        val.bind(function(newval){
+            jQuery('style#responsive-footer-copyright-text-hover-color-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-copyright-text-hover-color-tablet">'
+                + '@media screen and ( max-width: 992px ) { .footer-layouts.copyright:hover { color: ' + newval + '} }'
+                + '</style>'
+            );
+        });
+    });
+    // Footer Copyright Text Color - Mobile
+    api( 'responsive_footer_copyright_text_color_mobile', function(val){
+        val.bind(function(newval){
+            jQuery('style#responsive-footer-copyright-text-color-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-copyright-text-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .footer-layouts.copyright { color: ' + newval + '} }'
+                + '</style>'
+            );
+        });
+    });
+    // Footer Copyright Text Hover Color - Mobile
+    api( 'responsive_footer_copyright_text_color_mobile_hover', function(val){
+        val.bind(function(newval){
+            jQuery('style#responsive-footer-copyright-text-hover-color-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-copyright-text-hover-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .footer-layouts.copyright:hover { color: ' + newval + '} }'
+                + '</style>'
+            );
+        });
+    });
+    // Footer Copyright Links Color - Desktop
     api( 'responsive_footer_copyright_links_color', function(val){
         val.bind(function(newval){
             jQuery('style#responsive-footer-copyright-links-color').remove();
@@ -2746,12 +2793,57 @@
             );
         });
     });
-    api( 'responsive_footer_copyright_links_hover_color', function(val){
+    // Footer Copyright Links Hover Color - Desktop
+    api( 'responsive_footer_copyright_links_color_hover', function(val){
         val.bind(function(newval){
             jQuery('style#responsive-footer-copyright-links-hover-color').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-links-hover-color">'
                 + '.footer-layouts.copyright a:hover { color: ' + newval + '!important; }'
+                + '</style>'
+            );
+        });
+    });
+    // Footer Copyright Links Color - Tablet
+    api( 'responsive_footer_copyright_links_color_tablet', function(val){
+        val.bind(function(newval){
+            jQuery('style#responsive-footer-copyright-links-color-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-copyright-links-color-tablet">'
+                + '@media screen and ( max-width: 992px ) { .footer-layouts.copyright a { color: ' + newval + '!important; } }'
+                + '</style>'
+            );
+        });
+    });
+    // Footer Copyright Links Hover Color - Tablet
+    api( 'responsive_footer_copyright_links_color_tablet_hover', function(val){
+        val.bind(function(newval){
+            jQuery('style#responsive-footer-copyright-links-hover-color-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-copyright-links-hover-color-tablet">'
+                + '@media screen and ( max-width: 992px ) { .footer-layouts.copyright a:hover { color: ' + newval + '!important; } }'
+                + '</style>'
+            );
+        });
+    });
+    // Footer Copyright Links Color - Mobile
+    api( 'responsive_footer_copyright_links_color_mobile', function(val){
+        val.bind(function(newval){
+            jQuery('style#responsive-footer-copyright-links-color-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-copyright-links-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .footer-layouts.copyright a { color: ' + newval + '!important; } }'
+                + '</style>'
+            );
+        });
+    });
+    // Footer Copyright Links Hover Color - Mobile
+    api( 'responsive_footer_copyright_links_color_mobile_hover', function(val){
+        val.bind(function(newval){
+            jQuery('style#responsive-footer-copyright-links-hover-color-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-copyright-links-hover-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .footer-layouts.copyright a:hover { color: ' + newval + '!important; } }'
                 + '</style>'
             );
         });

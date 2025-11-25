@@ -3887,7 +3887,11 @@ function responsive_customizer_styles() {
 	if(Responsive\Core\responsive_check_element_present_in_hfb('footer_copyright', 'footer')) {
 		$custom_css .= ".footer-layouts.copyright {
 			display: {$copyright_desktop_visibility};
-		}
+		}";
+	}
+
+	if(Responsive\Core\responsive_check_element_in_mobile_tablet_items('footer_copyright', 'footer')) {
+		$custom_css .= "
 		@media screen and ( max-width: 992px ) {
 			.footer-layouts.copyright {
 					display: {$copyright_tablet_visibility};
@@ -5132,10 +5136,30 @@ function responsive_customizer_styles() {
 	$custom_css .= "}}";
 
 	$copyright_alignment         = get_theme_mod( 'responsive_footer_copyright_alignment', 'left' );
+	
+	// Desktop colors
 	$copyright_text_color        = get_theme_mod( 'responsive_footer_copyright_text_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_copyright_text' ) );
-	$copyright_text_hover_color  = get_theme_mod( 'responsive_footer_copyright_text_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_copyright_text_hover' )  );
+	$copyright_text_hover_color  = get_theme_mod( 'responsive_footer_copyright_text_color_hover', Responsive\Core\get_responsive_customizer_defaults( 'footer_copyright_text_hover' )  );
+	
+	// Tablet colors
+	$copyright_text_color_tablet = get_theme_mod( 'responsive_footer_copyright_text_color_tablet', $copyright_text_color );
+	$copyright_text_hover_color_tablet = get_theme_mod( 'responsive_footer_copyright_text_color_tablet_hover', $copyright_text_hover_color );
+	
+	// Mobile colors
+	$copyright_text_color_mobile = get_theme_mod( 'responsive_footer_copyright_text_color_mobile', $copyright_text_color );
+	$copyright_text_hover_color_mobile = get_theme_mod( 'responsive_footer_copyright_text_color_mobile_hover', $copyright_text_hover_color );
+	
+	// Desktop link colors
 	$copyright_links_color       = get_theme_mod( 'responsive_footer_copyright_links_color', '#0066CC' );
-	$copyright_links_hover_color = get_theme_mod( 'responsive_footer_copyright_links_hover_color', '#0066CC' );
+	$copyright_links_hover_color = get_theme_mod( 'responsive_footer_copyright_links_color_hover', '#0066CC' );
+	
+	// Tablet link colors
+	$copyright_links_color_tablet = get_theme_mod( 'responsive_footer_copyright_links_color_tablet', $copyright_links_color );
+	$copyright_links_hover_color_tablet = get_theme_mod( 'responsive_footer_copyright_links_color_tablet_hover', $copyright_links_hover_color );
+	
+	// Mobile link colors
+	$copyright_links_color_mobile = get_theme_mod( 'responsive_footer_copyright_links_color_mobile', $copyright_links_color );
+	$copyright_links_hover_color_mobile = get_theme_mod( 'responsive_footer_copyright_links_color_mobile_hover', $copyright_links_hover_color );
 	
 	if(Responsive\Core\responsive_check_element_present_in_hfb('footer_copyright', 'footer')) 
 	{
@@ -5154,12 +5178,55 @@ function responsive_customizer_styles() {
 				color: {$copyright_links_hover_color};
 			}
 		";
-		// copyright padding
+		// copyright padding - desktop
 		$copyright_padding_values = get_responsive_spacing_values('responsive_footer_copyright', 30, 30, 30, 30);
 
 		$custom_css .= ".footer-layouts.copyright {";
 		$custom_css .= responsive_build_responsive_padding_spacing_css($copyright_padding_values['desktop']);
 		$custom_css .= "}";
+	}
+	
+	if(Responsive\Core\responsive_check_element_in_mobile_tablet_items('footer_copyright', 'footer')) 
+	{
+		// Tablet styles
+		$custom_css .= "
+			@media screen and ( max-width: 992px ) {
+				.footer-layouts.copyright {
+					text-align: {$copyright_alignment};
+					color: {$copyright_text_color_tablet};
+				}
+				.footer-layouts.copyright:hover {
+					color: {$copyright_text_hover_color_tablet};
+				}
+				.footer-layouts.copyright a {
+					color: {$copyright_links_color_tablet};
+				}
+				.footer-layouts.copyright a:hover {
+					color: {$copyright_links_hover_color_tablet};
+				}
+			}
+		";
+		
+		// Mobile styles
+		$custom_css .= "
+			@media screen and ( max-width: 576px ) {
+				.footer-layouts.copyright {
+					text-align: {$copyright_alignment};
+					color: {$copyright_text_color_mobile};
+				}
+				.footer-layouts.copyright:hover {
+					color: {$copyright_text_hover_color_mobile};
+				}
+				.footer-layouts.copyright a {
+					color: {$copyright_links_color_mobile};
+				}
+				.footer-layouts.copyright a:hover {
+					color: {$copyright_links_hover_color_mobile};
+				}
+			}
+		";
+		// copyright padding - tablet and mobile
+		$copyright_padding_values = get_responsive_spacing_values('responsive_footer_copyright', 30, 30, 30, 30);
 
 		$custom_css .= "@media screen and (max-width: 992px) {";
 		$custom_css .= ".footer-layouts.copyright {";

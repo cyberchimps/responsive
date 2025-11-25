@@ -100,12 +100,26 @@ if ( ! class_exists( 'Responsive_Builder_Footer' ) ) {
          * @param string $column the name of the column.
          */
         public function render_footer( $row = 'bottom', $column = '1' ) {
+            // Render desktop items
             $elements = get_theme_mod( 'responsive_footer_items', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_items' ) );
             if ( isset( $elements ) && isset( $elements[ $row ] ) && isset( $elements[ $row ][ $row . '_' . $column ] ) && is_array( $elements[ $row ][ $row . '_' . $column ] ) && ! empty( $elements[ $row ][ $row . '_' . $column ] ) ) {
+                echo '<div class="footer-desktop-items">';
                 foreach ( $elements[ $row ][ $row . '_' . $column ] as $key => $item ) {
                     $template = apply_filters( 'responsive_footer_elements_template_path', 'template-parts/footer/' . $item, $item, $row, $column );
                     get_template_part( $template );
                 }
+                echo '</div>';
+            }
+
+            // Render mobile/tablet items
+            $mobile_elements = get_theme_mod( 'responsive_footer_mobile_items', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_mobile_items' ) );
+            if ( isset( $mobile_elements ) && isset( $mobile_elements[ $row ] ) && isset( $mobile_elements[ $row ][ $row . '_' . $column ] ) && is_array( $mobile_elements[ $row ][ $row . '_' . $column ] ) && ! empty( $mobile_elements[ $row ][ $row . '_' . $column ] ) ) {
+                echo '<div class="footer-mobile-items">';
+                foreach ( $mobile_elements[ $row ][ $row . '_' . $column ] as $key => $item ) {
+                    $template = apply_filters( 'responsive_footer_elements_template_path', 'template-parts/footer/' . $item, $item, $row, $column );
+                    get_template_part( $template );
+                }
+                echo '</div>';
             }
         }
 
@@ -118,8 +132,15 @@ if ( ! class_exists( 'Responsive_Builder_Footer' ) ) {
         public function display_footer_row( $row = 'bottom' ) {
             $display = false;
             foreach ( array( '1', '2', '3', '4', '5', '6' ) as $column ) {
+                // Check desktop items
                 $elements = get_theme_mod( 'responsive_footer_items', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_items' ) );
                 if ( isset( $elements ) && isset( $elements[ $row ] ) && isset( $elements[ $row ][ $row . '_' . $column ] ) && is_array( $elements[ $row ][ $row . '_' . $column ] ) && ! empty( $elements[ $row ][ $row . '_' . $column ] ) ) {
+                    $display = true;
+                    break;
+                }
+                // Check mobile items
+                $mobile_elements = get_theme_mod( 'responsive_footer_mobile_items', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_mobile_items' ) );
+                if ( isset( $mobile_elements ) && isset( $mobile_elements[ $row ] ) && isset( $mobile_elements[ $row ][ $row . '_' . $column ] ) && is_array( $mobile_elements[ $row ][ $row . '_' . $column ] ) && ! empty( $mobile_elements[ $row ][ $row . '_' . $column ] ) ) {
                     $display = true;
                     break;
                 }
@@ -134,10 +155,16 @@ if ( ! class_exists( 'Responsive_Builder_Footer' ) ) {
          * @param string $column the name of the column.
          */
         public function footer_column_item_count( $row = 'bottom', $column = '1' ) {
-            $count    = 0;
+            $count = 0;
+            // Count desktop items
             $elements = get_theme_mod( 'responsive_footer_items', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_items' ) );
             if ( isset( $elements ) && isset( $elements[ $row ] ) && isset( $elements[ $row ][ $row . '_' . $column ] ) && is_array( $elements[ $row ][ $row . '_' . $column ] ) && ! empty( $elements[ $row ][ $row . '_' . $column ] ) ) {
-                $count = count( $elements[ $row ][ $row . '_' . $column ] );
+                $count += count( $elements[ $row ][ $row . '_' . $column ] );
+            }
+            // Count mobile items
+            $mobile_elements = get_theme_mod( 'responsive_footer_mobile_items', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_mobile_items' ) );
+            if ( isset( $mobile_elements ) && isset( $mobile_elements[ $row ] ) && isset( $mobile_elements[ $row ][ $row . '_' . $column ] ) && is_array( $mobile_elements[ $row ][ $row . '_' . $column ] ) && ! empty( $mobile_elements[ $row ][ $row . '_' . $column ] ) ) {
+                $count += count( $mobile_elements[ $row ][ $row . '_' . $column ] );
             }
             return $count;
         }
