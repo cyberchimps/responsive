@@ -2572,11 +2572,36 @@
             );
         } );
     } );
-    // primary footer
+    // primary footer - desktop
     api( 'responsive_footer_primary_row_bg_color', function(val){
         val.bind(function(newval){
-            $( '.rspv-site-primary-footer-wrap' ).css( 'background-color', newval );
+            jQuery('style#responsive-footer-primary-row-bg-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-primary-row-bg-color">'
+                + '@media screen and ( min-width: 993px ) { .rspv-site-primary-footer-wrap { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
         });
+    });
+    api( 'responsive_footer_primary_row_bg_color_tablet', function( val){
+        val.bind( function(newval){
+            jQuery('style#responsive-footer-primary-row-bg-color-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-primary-row-bg-color-tablet">'
+                + '@media screen and ( max-width: 992px ) { .rspv-site-primary-footer-wrap { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
+        })
+    })
+    api( 'responsive_footer_primary_row_bg_color_mobile', function( val){
+        val.bind( function(newval){
+            jQuery('style#responsive-footer-primary-row-bg-color-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-primary-row-bg-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .rspv-site-primary-footer-wrap { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
+        })
     });
     api( 'responsive_footer_primary_row_border_color', function(val){
         val.bind(function(newval){
@@ -2586,7 +2611,12 @@
     // above footer
     api( 'responsive_footer_above_row_bg_color', function(val){
         val.bind(function(newval){
-            $( '.rspv-site-above-footer-wrap' ).css( 'background-color', newval );
+            jQuery('style#responsive-footer-above-row-bg-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-above-row-bg-color">'
+                + '@media screen and ( min-width: 993px ) { .rspv-site-above-footer-wrap { background-color: ' + newval + ' } }'
+                + '</style>'
+            )
         });
     });
     //Footer Above Row Background Color - Tablet
@@ -2619,9 +2649,36 @@
     // below footer
     api( 'responsive_footer_below_row_bg_color', function(val){
         val.bind(function(newval){
-            $( '.rspv-site-below-footer-wrap' ).css( 'background-color', newval );
+            jQuery('style#responsive-footer-below-row-bg-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-below-row-bg-color">'
+                + '@media screen and ( min-width: 993px ) { .rspv-site-below-footer-wrap { background-color: ' + newval + ' } }'
+                + '</style>'
+            )
         });
     });
+    //Footer Below Row Background Color - Tablet
+    api( 'responsive_footer_below_row_bg_color_tablet', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-footer-below-row-bg-color-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-below-row-bg-color-tablet">'
+                + '@media screen and ( max-width: 992px ) { .rspv-site-below-footer-wrap { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+    //Footer Below Row Background Color - Mobile
+    api( 'responsive_footer_below_row_bg_color_mobile', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-footer-below-row-bg-color-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-below-row-bg-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .rspv-site-below-footer-wrap { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
     api( 'responsive_footer_below_row_border_color', function(val){
         val.bind(function(newval){
             $( '.rspv-site-below-footer-wrap' ).css( 'border-top', api('responsive_footer_below_row_top_border_size').get() + 'px solid '+ newval );
