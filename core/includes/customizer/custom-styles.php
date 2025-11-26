@@ -5242,7 +5242,11 @@ function responsive_customizer_styles() {
 	// footer menu padding
 	$footer_menu_padding_values = get_responsive_spacing_values('responsive_footer_menu', 15, 15, 15, 15);
 	$footer_menu_bg_color       = get_theme_mod( 'responsive_footer_menu_background_color', '#333' );
-	$footer_menu_bg_hover_color = get_theme_mod( 'responsive_footer_menu_background_hover_color', '#333' );
+	$footer_menu_bg_hover_color = get_theme_mod( 'responsive_footer_menu_background_color_hover', get_theme_mod( 'responsive_footer_menu_background_hover_color', '#333') );
+	$footer_menu_bg_color_tablet = get_theme_mod( 'responsive_footer_menu_background_color_tablet', $footer_menu_bg_color );
+	$footer_menu_bg_hover_color_tablet = get_theme_mod( 'responsive_footer_menu_background_color_tablet_hover', $footer_menu_bg_hover_color );
+	$footer_menu_bg_color_mobile = get_theme_mod( 'responsive_footer_menu_background_color_mobile', $footer_menu_bg_color );
+	$footer_menu_bg_hover_color_mobile = get_theme_mod( 'responsive_footer_menu_background_color_mobile_hover', $footer_menu_bg_hover_color );
 
 	if(Responsive\Core\responsive_check_element_present_in_hfb('footer_navigation', 'footer'))
 	{
@@ -5265,6 +5269,39 @@ function responsive_customizer_styles() {
 			}
 			.footer-navigation:hover {
 				background-color: {$footer_menu_bg_hover_color};
+			}
+		";
+	}
+
+	if( Responsive\Core\responsive_check_element_in_mobile_tablet_items('footer_navigation', 'footer') )
+	{
+		$custom_css .= "@media screen and (max-width: 992px) {";
+		$custom_css .= ".footer-navigation {";
+		$custom_css .= responsive_build_responsive_padding_spacing_css($footer_menu_padding_values['tablet']);
+		$custom_css .= "}}";
+
+		$custom_css .= "@media screen and (max-width: 576px) {";
+		$custom_css .= ".footer-navigation {";
+		$custom_css .= responsive_build_responsive_padding_spacing_css($footer_menu_padding_values['mobile']);
+		$custom_css .= "}}";
+
+		$custom_css .= "
+			@media screen and ( max-width: 992px ) {
+				.footer-navigation {
+					background-color: {$footer_menu_bg_color_tablet};
+				}
+				.footer-navigation:hover {
+					background-color: {$footer_menu_bg_hover_color_tablet};
+				}
+			}
+
+			@media screen and ( max-width: 576px ) {
+				.footer-navigation {
+					background-color: {$footer_menu_bg_color_mobile};
+				}
+				.footer-navigation:hover {
+					background-color: {$footer_menu_bg_hover_color_mobile};
+				}
 			}
 		";
 	}

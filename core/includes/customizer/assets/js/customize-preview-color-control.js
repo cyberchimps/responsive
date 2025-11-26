@@ -2701,20 +2701,60 @@
             jQuery('style#responsive-footer-menu-background-color').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-menu-background-color">'
-                + '.footer-navigation { background-color: ' + newval + ' }'
+                + '@media screen and (min-width: 993px) { .footer-navigation { background-color: ' + newval + ' } }'
                 + '</style>'
             );
         });
     });
-    api( 'responsive_footer_menu_background_hover_color', function(val){
+    api( 'responsive_footer_menu_background_color_hover', function(val){
         val.bind(function(newval){
-            jQuery('style#responsive-footer-menu-background-hover-color').remove();
+            jQuery('style#responsive-footer-menu-background-color-hover').remove();
             jQuery('head').append(
-                '<style id="responsive-footer-menu-background-hover-color">'
-                + '.footer-navigation:hover { background-color: ' + newval + '}'
+                '<style id="responsive-footer-menu-background-color-hover">'
+                + '@media screen and (min-width: 993px) { .footer-navigation:hover { background-color: ' + newval + ' } }'
                 + '</style>'
             );
         });
+    });
+    api( 'responsive_footer_menu_background_color_tablet', function( val){
+        val.bind( function(newval){
+            jQuery('style#responsive-footer-menu-background-color-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-menu-background-color-tablet">'
+                + '@media screen and (min-width: 577px) and (max-width: 992px) { .footer-navigation { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
+        })
+    });
+    api( 'responsive_footer_menu_background_color_tablet_hover', function( val){
+        val.bind( function(newval){
+            jQuery('style#responsive-footer-menu-background-color-tablet-hover').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-menu-background-color-tablet-hover">'
+                + '@media screen and (min-width: 577px) and (max-width: 992px) { .footer-navigation:hover { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
+        })
+    });
+    api( 'responsive_footer_menu_background_color_mobile', function( val){
+        val.bind( function(newval){
+            jQuery('style#responsive-footer-menu-background-color-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-menu-background-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .footer-navigation { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
+        })
+    });
+    api( 'responsive_footer_menu_background_color_mobile_hover', function( val){
+        val.bind( function(newval){
+            jQuery('style#responsive-footer-menu-background-color-mobile-hover').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-menu-background-color-mobile-hover">'
+                + '@media screen and ( max-width: 576px ) { .footer-navigation:hover { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
+        })
     });
     // Footer Copyright Text Color - Desktop
     api( 'responsive_footer_copyright_text_color', function(val){

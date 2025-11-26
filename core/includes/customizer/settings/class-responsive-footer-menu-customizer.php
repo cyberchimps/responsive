@@ -93,7 +93,7 @@ if ( ! class_exists( 'Responsive_Footer_Menu_Customizer' ) ) :
 
 			// Background Color.
 			$footer_background_label = __( 'Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'footer_menu_background', $footer_background_label, 'responsive_footer_menu', 60, Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_background' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_background_hover' ), 'footer_menu_background_hover' );
+			responsive_color_control_with_device_switchers_and_hover( $wp_customize, 'footer_menu_background', $footer_background_label, 'responsive_footer_menu', 60, Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_background' ), Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_background_hover' ), null, '', 'postMessage' );
 
             responsive_horizontal_separator_control($wp_customize, 'footer_menu_separator_2', 1, 'responsive_footer_menu', 65, 1, );
 
