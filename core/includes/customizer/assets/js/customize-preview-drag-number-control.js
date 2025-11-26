@@ -1014,9 +1014,42 @@
     });
     api( 'responsive_footer_social_item_icon_size', function(value){
         value.bind(function(newval) {
-           $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'font-size', newval + 'px' );
-           $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-wrapper svg' ).css( 'width', newval + 'px' );
-           $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-wrapper svg' ).css( 'height', newval + 'px' );
+            // remove previous stylesheet if any and append one scoped to min-width: 993px
+            jQuery('style#responsive-footer-social-item-icon-size').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-social-item-icon-size">'
+                + '@media screen and (min-width: 993px) {'
+                + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { font-size: ' + newval + 'px; }'
+                + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-wrapper svg { width: ' + newval + 'px; height: ' + newval + 'px; }'
+                + '}'
+                + '</style>'
+            );
+        });
+    });
+    api( 'responsive_footer_social_item_icon_size_tablet', function(value){
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-social-item-icon-size-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-social-item-icon-size-tablet">'
+                + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { font-size: ' + newval + 'px; }'
+                + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-wrapper svg { width: ' + newval + 'px; height: ' + newval + 'px; }'
+                + '}'
+                + '</style>'
+            );
+        });
+    });
+    api( 'responsive_footer_social_item_icon_size_mobile', function(value){
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-social-item-icon-size-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-social-item-icon-size-mobile">'
+                + '@media screen and (max-width: 576px) {'
+                + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { font-size: ' + newval + 'px !important; }'
+                + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-wrapper svg { width: ' + newval + 'px !important; height: ' + newval + 'px !important; }'
+                + '}'
+                + '</style>'
+            );
         });
     });
     api( 'responsive_header_social_item_border_width', function(value) {

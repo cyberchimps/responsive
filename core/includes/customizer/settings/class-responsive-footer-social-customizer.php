@@ -152,7 +152,7 @@ if ( ! class_exists( 'Responsive_Footer_Social_Icons_Customizer' ) ) :
 
 			responsive_horizontal_separator_control($wp_customize, 'footer_social_item_icon_spacing', 2, 'responsive_footer_social', 88, 1, );
 
-			responsive_drag_number_control( $wp_customize, 'footer_social_item_icon_size', __( 'Icon Size (px)', 'responsive' ), 'responsive_footer_social', 89, 21, null, 200, 0, 'postMessage' );
+			responsive_drag_number_control_with_switchers( $wp_customize, 'footer_social_item_icon_size', __( 'Icon Size (px)', 'responsive' ), 'responsive_footer_social', 89, 21, null, 200, 0, 'postMessage' );
 
 			responsive_typography_group_control( $wp_customize, 'footer_social_item_typography_group', esc_html__( 'Label Font', 'responsive' ), 'responsive_footer_social', 90, 'footer_social_item_typography' );
 
