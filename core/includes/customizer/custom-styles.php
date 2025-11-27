@@ -5875,8 +5875,7 @@ function responsive_customizer_styles() {
 		$custom_css .= "}}";
 	}
 
-	if ( Responsive\Core\responsive_check_element_present_in_hfb( 'search', 'header' ) ) {
-
+	if ( Responsive\Core\responsive_check_element_present_in_hfb( 'search', 'header' )  || Responsive\Core\responsive_check_element_in_mobile_tablet_items( 'search', 'header' ) ) {
 		//Header Search Element CSS - Start
 		$header_search_label_visibility = get_theme_mod( 'responsive_header_search_label_visibility', array( 'desktop', 'tablet', 'mobile' ) );
 		$custom_css .= ".responsive-header-search-icon-wrap .responsive-header-search-label { display: " . ( in_array( 'desktop', $header_search_label_visibility ) ? "block" : "none" ) . "; }";
