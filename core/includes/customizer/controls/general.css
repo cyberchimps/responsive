@@ -1813,10 +1813,10 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-theme-controls #sub-accordion-section-responsive_header_mobile_off_canvas, #sub-accordion-section-responsive_header_off_canvas_menu_layout {
 	height : 100%;
 }
-#customize-control-responsive_header_mobile_off_canvas_header_type, #customize-control-responsive_header_mobile_off_canvas_move_body, #customize-control-responsive_header_mobile_off_canvas_bg_color, #customize-control-responsive_redirect_to_off_canvas_menu_set_location, #customize-control-responsive_header_off_canvas_menu_items_divider, #customize-control-responsive_header_off_canvas_menu_visibility, #customize-control-responsive_header_off_canvas_menu_typography_group {
+#customize-control-responsive_header_mobile_off_canvas_header_type, #customize-control-responsive_header_mobile_off_canvas_move_body, #customize-control-responsive_header_mobile_off_canvas_bg_color, #customize-control-responsive_redirect_to_off_canvas_menu_set_location, #customize-control-responsive_header_off_canvas_menu_items_divider, #customize-control-responsive_header_off_canvas_menu_visibility, #customize-control-responsive_header_off_canvas_menu_typography_group, #customize-control-responsive_mobile_header_html_content_separator, #customize-control-responsive_mobile_header_html_link_style_separator {
 	padding-top: 24px;
 }
-#customize-control-responsive_header_mobile_off_canvas_move_body .responsive-toggle-control-wrapper, #customize-control-responsive_header_off_canvas_menu_items_divider .responsive-toggle-control-wrapper {
+#customize-control-responsive_header_mobile_off_canvas_move_body .responsive-toggle-control-wrapper, #customize-control-responsive_header_off_canvas_menu_items_divider .responsive-toggle-control-wrapper, #customize-control-responsive_mobile_header_html_content_separator {
 	padding-bottom: 24px;
 }
 #customize-control-responsive_header_mobile_off_canvas_header_type_horizontal_separator, #customize-control-responsive_header_mobile_off_canvas_dropdown_target_horizontal_separator {
@@ -1831,7 +1831,7 @@ body.rtl .customize-control .responsive-switchers li {
 	padding-top: 24px;
 }
 
-#customize-theme-controls ul#sub-accordion-section-responsive_header_toggle_button {
+#customize-theme-controls ul#sub-accordion-section-responsive_header_toggle_button, #customize-theme-controls ul#sub-accordion-section-responsive_mobile_header_widget, #customize-theme-controls ul#sub-accordion-section-responsive_mobile_header_social, #customize-theme-controls ul#sub-accordion-section-responsive_header_off_canvas_menu_layout, #customize-theme-controls ul#sub-accordion-section-responsive_mobile_header_html{
 	height: 100%;
 }
 

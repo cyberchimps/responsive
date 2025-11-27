@@ -2794,22 +2794,17 @@ function responsive_customizer_styles() {
 					border: none;
 					margin: 0;
 				}
-				.site-header-item-toggle-button .menu-toggle{
-					background-color: {$header_menu_toggle_background_color} ;
-					border:none;
-				}
-
 			}";
 
 	} elseif ( 'minimal' === $mobile_menu_toggle_style ) {
 		$custom_css .= "@media (max-width:{$mobile_menu_breakpoint}px) {
 				.site-header-item-toggle-button .menu-toggle{
-					background-color: {$header_background_color};
+					background-color: inherit;
 					border: none;
 					margin: 0;
 				}
 				.site-header-item-toggle-button .menu-toggle svg rect:first-child{
-					fill: {$header_background_color};
+					fill: inherit;
 				}	
 				.main-navigation .menu-toggle{
 					background-color: {$header_background_color}  ;
@@ -2823,19 +2818,16 @@ function responsive_customizer_styles() {
 	} elseif ( 'outline' === $mobile_menu_toggle_style ) {
 		$custom_css .= "@media (max-width:{$mobile_menu_breakpoint}px) {
 				.site-header-item-toggle-button .menu-toggle{
-					background-color: {$header_background_color};
+					background-color: inherit;
 					border-style: solid;
 					border-width: 1px;
 					border-color:{$mobile_menu_toggle_border_color };
 					margin: 0;
 
 				}
-				.site-header-item-toggle-button .menu-toggle{
-					background-color: {$header_background_color}  ;
-					border-style: solid;
-					border-width: 1px;
-					border-color:{$mobile_menu_toggle_border_color };
-				}
+				.site-header-item-toggle-button .menu-toggle svg rect:first-child{
+					fill: inherit;
+				}	
 			}";
 	}
 

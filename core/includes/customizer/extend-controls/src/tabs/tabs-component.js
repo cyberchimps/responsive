@@ -152,6 +152,7 @@ const TabsComponent = props => {
 		} else {
 			document.getElementById('customize-control-responsive_footer_below_inner_column_spacing').style.display = 'none';
 		}
+		
 		if( api('responsive_cart_style') ) {
             if( api('responsive_cart_style').get() !== 'outline' && 'design' === tab ) {
 				let cartBorderWidth = document.getElementById('customize-control-responsive_cart_border_width');
@@ -203,6 +204,164 @@ const TabsComponent = props => {
 		} else {
 			document.getElementById('customize-control-responsive_mobile_header_button_bg_color').style.display = 'none';
 			document.getElementById('customize-control-responsive_mobile_header_button_bg_color_separator').style.display = 'none';
+		}
+
+		// Toggle Button Style - Hide controls based on style
+		if( api('responsive_mobile_menu_toggle_style') ) {
+			const allToggleButtonElementIds = [
+				'customize-control-responsive_mobile_menu_toggle_border_color',
+				'customize-control-responsive_header_menu_toggle_background_color',
+				'customize-control-responsive_header_toggle_button_background_color_separator',
+				'customize-control-responsive_header_toggle_button_border_radius_padding'
+			];
+			const backgroundColorElementIds = [
+				'customize-control-responsive_header_menu_toggle_background_color',
+				'customize-control-responsive_header_toggle_button_background_color_separator'
+			];
+			const minimalStyleElementIds = [
+				'customize-control-responsive_mobile_menu_toggle_border_color',
+				'customize-control-responsive_header_menu_toggle_background_color',
+				'customize-control-responsive_header_toggle_button_background_color_separator',
+				'customize-control-responsive_header_toggle_button_border_radius_padding'
+			];
+
+			if( 'general' === tab ) {
+				// Always hide on general tab
+				allToggleButtonElementIds.forEach(id => {
+					let el = document.getElementById(id);
+					if (el) {
+						el.style.display = 'none';
+					}
+				});
+			} else if( 'design' === tab ) {
+				const currentStyle = api('responsive_mobile_menu_toggle_style').get();
+				
+				if( 'minimal' === currentStyle ) {
+					// Hide all controls for minimal style
+					minimalStyleElementIds.forEach(id => {
+						let el = document.getElementById(id);
+						if (el) {
+							el.style.display = 'none';
+						}
+					});
+				} else if( 'outline' === currentStyle ) {
+					// Hide background color for outline style, show others
+					backgroundColorElementIds.forEach(id => {
+						let el = document.getElementById(id);
+						if (el) {
+							el.style.display = 'none';
+						}
+					});
+					// Show border color and border radius
+					const borderColorEl = document.getElementById('customize-control-responsive_mobile_menu_toggle_border_color');
+					if (borderColorEl) {
+						borderColorEl.style.display = 'block';
+					}
+					const borderRadiusEl = document.getElementById('customize-control-responsive_header_toggle_button_border_radius_padding');
+					if (borderRadiusEl) {
+						borderRadiusEl.style.display = 'block';
+					}
+				} else {
+					// Hide border color for fill style, show others
+					const borderColorEl = document.getElementById('customize-control-responsive_mobile_menu_toggle_border_color');
+					if (borderColorEl) {
+						borderColorEl.style.display = 'none';
+					}
+					// Show background color, background separator, and border radius
+					const backgroundColorEl = document.getElementById('customize-control-responsive_header_menu_toggle_background_color');
+					if (backgroundColorEl) {
+						backgroundColorEl.style.display = 'block';
+					}
+					const backgroundSeparatorEl = document.getElementById('customize-control-responsive_header_toggle_button_background_color_separator');
+					if (backgroundSeparatorEl) {
+						backgroundSeparatorEl.style.display = 'block';
+					}
+					const borderRadiusEl = document.getElementById('customize-control-responsive_header_toggle_button_border_radius_padding');
+					if (borderRadiusEl) {
+						borderRadiusEl.style.display = 'block';
+					}
+				}
+			}
+		}
+
+		// Listen for changes to responsive_mobile_menu_toggle_style
+		if( api('responsive_mobile_menu_toggle_style') ) {
+			api('responsive_mobile_menu_toggle_style', function( value ) {
+				value.bind( function( newval ) {
+					const allToggleButtonElementIds = [
+						'customize-control-responsive_mobile_menu_toggle_border_color',
+						'customize-control-responsive_header_menu_toggle_background_color',
+						'customize-control-responsive_header_toggle_button_background_color_separator',
+						'customize-control-responsive_header_toggle_button_border_radius_padding'
+					];
+					const backgroundColorElementIds = [
+						'customize-control-responsive_header_menu_toggle_background_color',
+						'customize-control-responsive_header_toggle_button_background_color_separator'
+					];
+					const minimalStyleElementIds = [
+						'customize-control-responsive_mobile_menu_toggle_border_color',
+						'customize-control-responsive_header_menu_toggle_background_color',
+						'customize-control-responsive_header_toggle_button_background_color_separator',
+						'customize-control-responsive_header_toggle_button_border_radius_padding'
+					];
+			
+					if( 'general' === tab ) {
+						// Always hide on general tab
+						allToggleButtonElementIds.forEach(id => {
+							let el = document.getElementById(id);
+							if (el) {
+								el.style.display = 'none';
+							}
+						});
+					} else if( 'design' === tab ) {
+						if( 'minimal' === newval ) {
+							// Hide all controls for minimal style
+							minimalStyleElementIds.forEach(id => {
+								let el = document.getElementById(id);
+								if (el) {
+									el.style.display = 'none';
+								}
+							});
+						} else if( 'outline' === newval ) {
+							// Hide background color for outline style, show others
+							backgroundColorElementIds.forEach(id => {
+								let el = document.getElementById(id);
+								if (el) {
+									el.style.display = 'none';
+								}
+							});
+							// Show border color and border radius
+							const borderColorEl = document.getElementById('customize-control-responsive_mobile_menu_toggle_border_color');
+							if (borderColorEl) {
+								borderColorEl.style.display = 'block';
+							}
+							const borderRadiusEl = document.getElementById('customize-control-responsive_header_toggle_button_border_radius_padding');
+							if (borderRadiusEl) {
+								borderRadiusEl.style.display = 'block';
+							}
+						} else {
+							// Hide border color for fill style, show others
+							const borderColorEl = document.getElementById('customize-control-responsive_mobile_menu_toggle_border_color');
+							if (borderColorEl) {
+								borderColorEl.style.display = 'none';
+							}
+							// Show background color, background separator, and border radius
+							const backgroundColorEl = document.getElementById('customize-control-responsive_header_menu_toggle_background_color');
+							if (backgroundColorEl) {
+								backgroundColorEl.style.display = 'block';
+							}
+							const backgroundSeparatorEl = document.getElementById('customize-control-responsive_header_toggle_button_background_color_separator');
+							if (backgroundSeparatorEl) {
+								backgroundSeparatorEl.style.display = 'block';
+							}
+							const borderRadiusEl = document.getElementById('customize-control-responsive_header_toggle_button_border_radius_padding');
+							if (borderRadiusEl) {
+								borderRadiusEl.style.display = 'block';
+							}
+						}
+					}
+				} );
+			} );
 		}
 
 		if( api('responsive_header_contact_info_icon_shape').get() === 'none' && 'general' === tab ) {
