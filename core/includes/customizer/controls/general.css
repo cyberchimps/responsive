@@ -760,6 +760,9 @@ body.rtl .customize-control .responsive-switchers li {
 	border: 1px dashed #8F8F8F;
 	border-right: none;
 }
+.responsive-builder-items-with-popup .popup-vertical-group button.components-button.responsive-row-actions {
+	border-bottom-left-radius: 0px;
+}
 .responsive-builder-areas button.components-button.responsive-row-actions .dashicon {
     width: 20px;
     height: 20px;
@@ -1731,7 +1734,7 @@ body.rtl .customize-control .responsive-switchers li {
 }
 .responsive-builder-areas.popup-vertical-group {
 	width: 229px;
-	max-height: 232px; 
+	max-height: 240px; 
 	border-radius: 5px;
 	padding-left : 0px;
 	box-shadow: 0px 0px 7.9px 0px #00000033;
@@ -1800,6 +1803,7 @@ body.rtl .customize-control .responsive-switchers li {
 	border-radius: 4px;
 	display: flex;
 	justify-content: space-between;
+	gap: 65px;
 }
 .responsive-builder-drop-popup .responsive-hfb-builder-item-text {
 	width: 85px;
@@ -1825,4 +1829,12 @@ body.rtl .customize-control .responsive-switchers li {
 /* For Toggle Button */
 #customize-control-responsive_header_toggle_button_icon, #customize-control-responsive_header_toggle_button_style_separator{
 	padding-top: 24px;
+}
+
+#customize-theme-controls ul#sub-accordion-section-responsive_header_toggle_button {
+	height: 100%;
+}
+
+ul#off-canvas-menu li {
+    width: 100%;
 }
