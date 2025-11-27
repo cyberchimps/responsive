@@ -83,7 +83,7 @@ if( ! class_exists( 'Responsive_Header_Off_Canvas_Menu_Layouts_Customizer' ) ) {
 
             // Link Active - Design Tab
             $off_canvas_menu_link_active_label = __( 'Link Active', 'responsive' );
-            responsive_color_control( $wp_customize, 'header_off_canvas_menu_link_active', $off_canvas_menu_link_active_label, 'responsive_header_off_canvas_menu_layout', 25, '#FFFFFF', );
+            responsive_color_control( $wp_customize, 'header_off_canvas_menu_link_active', $off_canvas_menu_link_active_label, 'responsive_header_off_canvas_menu_layout', 25, '#000000', );
 
             // Background Default - Design Tab
             $off_canvas_menu_bg_default_label = __( 'Background Default', 'responsive' );
