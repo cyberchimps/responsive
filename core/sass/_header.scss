@@ -1407,6 +1407,19 @@ body.mega-menu-header-menu button.menu-toggle {
         }
     }
 }
+.site-mobile-header-section {
+    .responsive-header-search {
+        #searchform {
+            left: 0;
+        }
+    }
+    .search-type-responsive-slide {
+        .res-search-wrapper {
+            flex-direction: row-reverse;
+            gap: 10px;
+        }
+    }
+}
 
 .live-search-results {
     display: flex;

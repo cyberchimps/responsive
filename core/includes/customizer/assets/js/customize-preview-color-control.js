@@ -785,28 +785,28 @@
     //Sub Menu Background Color
     api( 'responsive_header_sub_menu_background_color', function( value ) {
         value.bind( function( newval ) {
-            $('.main-navigation .children,.main-navigation .sub-menu').css('background-color', newval );
+            $('.main-navigation .children,.main-navigation .sub-menu,.responsive-off-canvas-panel .sub-menu,.responsive-off-canvas-panel .children,#off-canvas-menu .sub-menu,#off-canvas-menu .children,.off-canvas-widget-area #off-canvas-menu .sub-menu,.off-canvas-widget-area #off-canvas-menu .children,#off-canvas-site-navigation .menu .sub-menu,#off-canvas-site-navigation .menu .children, #off-canvas-site-navigation .menu .children a').css('background-color', newval );
         } );
     } );
 
     //Sub Menu Active Background Color
     api( 'responsive_header_active_sub_menu_background_color', function( value ) {
         value.bind( function( newval ) {
-            $('.main-navigation .menu .sub-menu .current_page_item > a,.main-navigation .menu .sub-menu .current-menu-item > a,.main-navigation .menu .children li.current_page_item a').css('background-color', newval );
+            $('.main-navigation .menu .sub-menu .current_page_item > a,.main-navigation .menu .sub-menu .current-menu-item > a,.main-navigation .menu .children li.current_page_item a,.responsive-off-canvas-panel .sub-menu .current_page_item > a,.responsive-off-canvas-panel .sub-menu .current-menu-item > a,.responsive-off-canvas-panel .children li.current_page_item a,#off-canvas-menu .sub-menu .current_page_item > a,#off-canvas-menu .sub-menu .current-menu-item > a,#off-canvas-menu .children li.current_page_item a,.off-canvas-widget-area #off-canvas-menu .sub-menu .current_page_item > a,.off-canvas-widget-area #off-canvas-menu .sub-menu .current-menu-item > a,.off-canvas-widget-area #off-canvas-menu .children li.current_page_item a,#off-canvas-site-navigation .menu .sub-menu .current_page_item > a,#off-canvas-site-navigation .menu .sub-menu .current-menu-item > a,#off-canvas-site-navigation .menu .children li.current_page_item a').css('background-color', newval );
         } );
     } );
 
     //Sub Menu Hover Background Color
     api( 'responsive_header_hover_sub_menu_background_color', function( value ) {
         value.bind( function( newval ) {
-            $('.main-navigation .children li a:hover,.main-navigation .sub-menu li a:hover, .main-navigation .menu .sub-menu .current_page_item > a:hover,.main-navigation .menu .sub-menu .current-menu-item > a:hover').css('background-color', newval );
+            $('.main-navigation .children li a:hover,.main-navigation .sub-menu li a:hover, .main-navigation .menu .sub-menu .current_page_item > a:hover,.main-navigation .menu .sub-menu .current-menu-item > a:hover,.responsive-off-canvas-panel .sub-menu li a:hover,.responsive-off-canvas-panel .children li a:hover,.responsive-off-canvas-panel .sub-menu .current_page_item > a:hover,.responsive-off-canvas-panel .sub-menu .current-menu-item > a:hover,#off-canvas-menu .sub-menu li a:hover,#off-canvas-menu .children li a:hover,#off-canvas-menu .sub-menu .current_page_item > a:hover,#off-canvas-menu .sub-menu .current-menu-item > a:hover,.off-canvas-widget-area #off-canvas-menu .sub-menu li a:hover,.off-canvas-widget-area #off-canvas-menu .children li a:hover,.off-canvas-widget-area #off-canvas-menu .sub-menu .current_page_item > a:hover,.off-canvas-widget-area #off-canvas-menu .sub-menu .current-menu-item > a:hover,#off-canvas-site-navigation .menu .sub-menu li a:hover,#off-canvas-site-navigation .menu .children li a:hover,#off-canvas-site-navigation .menu .sub-menu .current_page_item > a:hover,#off-canvas-site-navigation .menu .sub-menu .current-menu-item > a:hover').css('background-color', newval );
         } );
     } );
 
     //Sub Menu Item Link Color
     api( 'responsive_header_sub_menu_link_color', function( value ) {
         value.bind( function( newval ) {
-            $('.main-navigation .children li a,.main-navigation .sub-menu li a').css('color', newval );
+            $('.main-navigation .children li a,.main-navigation .sub-menu li a,.responsive-off-canvas-panel .sub-menu li a,.responsive-off-canvas-panel .children li a,#off-canvas-menu .sub-menu li a,#off-canvas-menu .children li a,.off-canvas-widget-area #off-canvas-menu .sub-menu li a,.off-canvas-widget-area #off-canvas-menu .children li a,#off-canvas-site-navigation .menu .sub-menu li a,#off-canvas-site-navigation .menu .children li a').css('color', newval );
         } );
     } );
 
@@ -819,13 +819,13 @@
 	//Active Sub Menu Item Link Color
     api( 'responsive_header_sub_menu_active_link_color', function( value ) {
         value.bind( function( newval ) {
-            $('.main-navigation .menu .sub-menu .current_page_item > a,.main-navigation .menu .sub-menu .current-menu-item > a,.main-navigation .menu .children li.current_page_item a').css('color', newval );
+            $('.main-navigation .menu .sub-menu .current_page_item > a,.main-navigation .menu .sub-menu .current-menu-item > a,.main-navigation .menu .children li.current_page_item a,.responsive-off-canvas-panel .sub-menu .current_page_item > a,.responsive-off-canvas-panel .sub-menu .current-menu-item > a,.responsive-off-canvas-panel .children li.current_page_item a,#off-canvas-menu .sub-menu .current_page_item > a,#off-canvas-menu .sub-menu .current-menu-item > a,#off-canvas-menu .children li.current_page_item a,.off-canvas-widget-area #off-canvas-menu .sub-menu .current_page_item > a,.off-canvas-widget-area #off-canvas-menu .sub-menu .current-menu-item > a,.off-canvas-widget-area #off-canvas-menu .children li.current_page_item a,#off-canvas-site-navigation .menu .sub-menu .current_page_item > a,#off-canvas-site-navigation .menu .sub-menu .current-menu-item > a,#off-canvas-site-navigation .menu .children li.current_page_item a').css('color', newval );
         } );
     } );
-//Active Sub Menu Item Link Color
+    //Active Sub Menu Item Link Color
     api( 'responsive_transparent_header_sub_menu_active_link_color', function( value ) {
         value.bind( function( newval ) {
-            $('.res-transparent-header .main-navigation .menu .sub-menu .current_page_item > a,.res-transparent-header .main-navigation .menu .sub-menu .current-menu-item > a,.res-transparent-header .main-navigation .menu .children li.current_page_item a').css('color', newval );
+            $('.res-transparent-header .main-navigation .menu .sub-menu .current_page_item > a,.res-transparent-header .main-navigation .menu .sub-menu .current-menu-item > a,.res-transparent-header .main-navigation .menu .children li.current_page_item a,.res-transparent-header .responsive-off-canvas-panel .sub-menu .current_page_item > a,.res-transparent-header .responsive-off-canvas-panel .sub-menu .current-menu-item > a,.res-transparent-header .responsive-off-canvas-panel .children li.current_page_item a,.res-transparent-header #off-canvas-menu .sub-menu .current_page_item > a,.res-transparent-header #off-canvas-menu .sub-menu .current-menu-item > a,.res-transparent-header #off-canvas-menu .children li.current_page_item a,.res-transparent-header .off-canvas-widget-area #off-canvas-menu .sub-menu .current_page_item > a,.res-transparent-header .off-canvas-widget-area #off-canvas-menu .sub-menu .current-menu-item > a,.res-transparent-header .off-canvas-widget-area #off-canvas-menu .children li.current_page_item a,.res-transparent-header #off-canvas-site-navigation .menu .sub-menu .current_page_item > a,.res-transparent-header #off-canvas-site-navigation .menu .sub-menu .current-menu-item > a,.res-transparent-header #off-canvas-site-navigation .menu .children li.current_page_item a').css('color', newval );
         } );
     } );
 
@@ -853,7 +853,7 @@
     //Sub Menu divider
     api( 'responsive_sub_menu_divider_color', function( value ) {
         value.bind( function( newval ) {
-         $('.main-navigation .children li, .main-navigation .sub-menu li').css('border-color', newval );
+         $('.main-navigation .children li, .main-navigation .sub-menu li,.responsive-off-canvas-panel .sub-menu li,.responsive-off-canvas-panel .children li,#off-canvas-menu .sub-menu li,#off-canvas-menu .children li,.off-canvas-widget-area #off-canvas-menu .sub-menu li,.off-canvas-widget-area #off-canvas-menu .children li,#off-canvas-site-navigation .menu .sub-menu li,#off-canvas-site-navigation .menu .children li').css('border-color', newval );
         } );
     } );
     //Transparent Header Main Menu Colors Section
@@ -962,28 +962,28 @@
     //Sub Menu Background Color
     api( 'responsive_transparent_header_sub_menu_background_color', function( value ) {
         value.bind( function( newval ) {
-            $('.res-transparent-header .main-navigation .children,.res-transparent-header .main-navigation .sub-menu').css('background-color', newval );
+            $('.res-transparent-header .main-navigation .children,.res-transparent-header .main-navigation .sub-menu,.res-transparent-header .responsive-off-canvas-panel .sub-menu,.res-transparent-header .responsive-off-canvas-panel .children,.res-transparent-header #off-canvas-menu .sub-menu,.res-transparent-header #off-canvas-menu .children,.res-transparent-header .off-canvas-widget-area #off-canvas-menu .sub-menu,.res-transparent-header .off-canvas-widget-area #off-canvas-menu .children,.res-transparent-header #off-canvas-site-navigation .menu .sub-menu,.res-transparent-header #off-canvas-site-navigation .menu .children').css('background-color', newval );
         } );
     } );
 
     //Sub Menu Active Background Color
     api( 'responsive_transparent_header_active_sub_menu_background_color', function( value ) {
         value.bind( function( newval ) {
-            $('.res-transparent-header .main-navigation .children li.current_page_item a,.res-transparent-header .main-navigation .sub-menu .current-menu-item > a, .res-transparent-header .main-navigation .sub-menu .current_page_item > a').css('background-color', newval );
+            $('.res-transparent-header .main-navigation .children li.current_page_item a,.res-transparent-header .main-navigation .sub-menu .current-menu-item > a, .res-transparent-header .main-navigation .sub-menu .current_page_item > a,.res-transparent-header .responsive-off-canvas-panel .sub-menu .current_page_item > a,.res-transparent-header .responsive-off-canvas-panel .sub-menu .current-menu-item > a,.res-transparent-header .responsive-off-canvas-panel .children li.current_page_item a,.res-transparent-header #off-canvas-menu .sub-menu .current_page_item > a,.res-transparent-header #off-canvas-menu .sub-menu .current-menu-item > a,.res-transparent-header #off-canvas-menu .children li.current_page_item a,.res-transparent-header .off-canvas-widget-area #off-canvas-menu .sub-menu .current_page_item > a,.res-transparent-header .off-canvas-widget-area #off-canvas-menu .sub-menu .current-menu-item > a,.res-transparent-header .off-canvas-widget-area #off-canvas-menu .children li.current_page_item a,.res-transparent-header #off-canvas-site-navigation .menu .sub-menu .current_page_item > a,.res-transparent-header #off-canvas-site-navigation .menu .sub-menu .current-menu-item > a,.res-transparent-header #off-canvas-site-navigation .menu .children li.current_page_item a').css('background-color', newval );
         } );
     } );
 
     //Sub Menu Hover Background Color
     api( 'responsive_transparent_header_hover_sub_menu_background_color', function( value ) {
         value.bind( function( newval ) {
-            $('.res-transparent-header .main-navigation .children li a:hover,.res-transparent-header .main-navigation .sub-menu li a:hover,.res-transparent-header .main-navigation .menu .sub-menu .current-menu-item > a:hover,.res-transparent-header .main-navigation .menu .sub-menu .current_page_item > a:hover').css('background-color', newval );
+            $('.res-transparent-header .main-navigation .children li a:hover,.res-transparent-header .main-navigation .sub-menu li a:hover,.res-transparent-header .main-navigation .menu .sub-menu .current-menu-item > a:hover,.res-transparent-header .main-navigation .menu .sub-menu .current_page_item > a:hover,.res-transparent-header .responsive-off-canvas-panel .sub-menu li a:hover,.res-transparent-header .responsive-off-canvas-panel .children li a:hover,.res-transparent-header .responsive-off-canvas-panel .sub-menu .current_page_item > a:hover,.res-transparent-header .responsive-off-canvas-panel .sub-menu .current-menu-item > a:hover,.res-transparent-header #off-canvas-menu .sub-menu li a:hover,.res-transparent-header #off-canvas-menu .children li a:hover,.res-transparent-header #off-canvas-menu .sub-menu .current_page_item > a:hover,.res-transparent-header #off-canvas-menu .sub-menu .current-menu-item > a:hover,.res-transparent-header .off-canvas-widget-area #off-canvas-menu .sub-menu li a:hover,.res-transparent-header .off-canvas-widget-area #off-canvas-menu .children li a:hover,.res-transparent-header .off-canvas-widget-area #off-canvas-menu .sub-menu .current_page_item > a:hover,.res-transparent-header .off-canvas-widget-area #off-canvas-menu .sub-menu .current-menu-item > a:hover,.res-transparent-header #off-canvas-site-navigation .menu .sub-menu li a:hover,.res-transparent-header #off-canvas-site-navigation .menu .children li a:hover,.res-transparent-header #off-canvas-site-navigation .menu .sub-menu .current_page_item > a:hover,.res-transparent-header #off-canvas-site-navigation .menu .sub-menu .current-menu-item > a:hover').css('background-color', newval );
         } );
     } );
 
     //Sub Menu Item Link Color
     api( 'responsive_transparent_header_sub_menu_link_color', function( value ) {
         value.bind( function( newval ) {
-            $('.res-transparent-header .main-navigation .children li a,.res-transparent-header .main-navigation .sub-menu li a').css('color', newval );
+            $('.res-transparent-header .main-navigation .children li a,.res-transparent-header .main-navigation .sub-menu li a,.res-transparent-header .responsive-off-canvas-panel .sub-menu li a,.res-transparent-header .responsive-off-canvas-panel .children li a,.res-transparent-header #off-canvas-menu .sub-menu li a,.res-transparent-header #off-canvas-menu .children li a,.res-transparent-header .off-canvas-widget-area #off-canvas-menu .sub-menu li a,.res-transparent-header .off-canvas-widget-area #off-canvas-menu .children li a,.res-transparent-header #off-canvas-site-navigation .menu .sub-menu li a,.res-transparent-header #off-canvas-site-navigation .menu .children li a').css('color', newval );
         } );
     } );
 
@@ -1026,7 +1026,7 @@
     //Active Menu Background Color
     api( 'responsive_sub_menu_border_color', function( value ) {
         value.bind( function( newval ) {
-            $('.main-navigation .children, .main-navigation .sub-menu').css('border-color', newval );
+            $('.main-navigation .children, .main-navigation .sub-menu,.responsive-off-canvas-panel .sub-menu,.responsive-off-canvas-panel .children,#off-canvas-menu .sub-menu,#off-canvas-menu .children,.off-canvas-widget-area #off-canvas-menu .sub-menu,.off-canvas-widget-area #off-canvas-menu .children,#off-canvas-site-navigation .menu .sub-menu,#off-canvas-site-navigation .menu .children').css('border-color', newval );
         } );
     } );
 
@@ -1621,7 +1621,7 @@
     );
 
     //Sub Menu Links Hover Color
-    $(".main-navigation .children li a,.main-navigation .sub-menu li a").hover(
+    $(".main-navigation .children li a,.main-navigation .sub-menu li a,.responsive-off-canvas-panel .sub-menu li a,.responsive-off-canvas-panel .children li a,#off-canvas-menu .sub-menu li a,#off-canvas-menu .children li a,.off-canvas-widget-area #off-canvas-menu .sub-menu li a,.off-canvas-widget-area #off-canvas-menu .children li a,#off-canvas-site-navigation .menu .sub-menu li a,#off-canvas-site-navigation .menu .children li a").hover(
         function() {
             $(this).css("color", api('responsive_header_sub_menu_link_hover_color').get());
         },
@@ -1641,7 +1641,7 @@
     );
 
     //Active Sub Menu Links Hover Color
-    $(".main-navigation .menu .sub-menu .current_page_item > a,.main-navigation .menu .sub-menu .current-menu-item > a,.main-navigation .menu .children li.current_page_item a").hover(
+    $(".main-navigation .menu .sub-menu .current_page_item > a,.main-navigation .menu .sub-menu .current-menu-item > a,.main-navigation .menu .children li.current_page_item a,.responsive-off-canvas-panel .sub-menu .current_page_item > a,.responsive-off-canvas-panel .sub-menu .current-menu-item > a,.responsive-off-canvas-panel .children li.current_page_item a,#off-canvas-menu .sub-menu .current_page_item > a,#off-canvas-menu .sub-menu .current-menu-item > a,#off-canvas-menu .children li.current_page_item a,.off-canvas-widget-area #off-canvas-menu .sub-menu .current_page_item > a,.off-canvas-widget-area #off-canvas-menu .sub-menu .current-menu-item > a,.off-canvas-widget-area #off-canvas-menu .children li.current_page_item a,#off-canvas-site-navigation .menu .sub-menu .current_page_item > a,#off-canvas-site-navigation .menu .sub-menu .current-menu-item > a,#off-canvas-site-navigation .menu .children li.current_page_item a").hover(
         function() {
             $(this).css("color", api('responsive_header_sub_menu_link_hover_color').get());
         },
@@ -1660,7 +1660,7 @@
         }
     );
 //Active Sub Menu Links Hover Color
-    $(".res-transparent-header .main-navigation .menu .sub-menu .current_page_item > a,.res-transparent-header .main-navigation .menu .sub-menu .current-menu-item > a,.res-transparent-header .main-navigation .menu .children li.current_page_item a,.res-transparent-header .main-navigation .menu .sub-menu li:hover > .res-iconify svg").hover(
+    $(".res-transparent-header .main-navigation .menu .sub-menu .current_page_item > a,.res-transparent-header .main-navigation .menu .sub-menu .current-menu-item > a,.res-transparent-header .main-navigation .menu .children li.current_page_item a,.res-transparent-header .main-navigation .menu .sub-menu li:hover > .res-iconify svg,.res-transparent-header .responsive-off-canvas-panel .sub-menu .current_page_item > a,.res-transparent-header .responsive-off-canvas-panel .sub-menu .current-menu-item > a,.res-transparent-header .responsive-off-canvas-panel .children li.current_page_item a,.res-transparent-header #off-canvas-menu .sub-menu .current_page_item > a,.res-transparent-header #off-canvas-menu .sub-menu .current-menu-item > a,.res-transparent-header #off-canvas-menu .children li.current_page_item a,.res-transparent-header .off-canvas-widget-area #off-canvas-menu .sub-menu .current_page_item > a,.res-transparent-header .off-canvas-widget-area #off-canvas-menu .sub-menu .current-menu-item > a,.res-transparent-header .off-canvas-widget-area #off-canvas-menu .children li.current_page_item a,.res-transparent-header #off-canvas-site-navigation .menu .sub-menu .current_page_item > a,.res-transparent-header #off-canvas-site-navigation .menu .sub-menu .current-menu-item > a,.res-transparent-header #off-canvas-site-navigation .menu .children li.current_page_item a").hover(
         function() {
             $(this).css("color", api('responsive_transparent_header_sub_menu_link_hover_color').get());
         },
@@ -1679,7 +1679,7 @@
         }
     );
 //Active Sub Menu Links Hover Color
-    $(".res-transparent-header .main-navigation .menu .sub-menu .current_page_item > a,.res-transparent-header .main-navigation .menu .sub-menu .current-menu-item > a,.res-transparent-header .main-navigation .menu .children li.current_page_item a").hover(
+    $(".res-transparent-header .main-navigation .menu .sub-menu .current_page_item > a,.res-transparent-header .main-navigation .menu .sub-menu .current-menu-item > a,.res-transparent-header .main-navigation .menu .children li.current_page_item a,.res-transparent-header .responsive-off-canvas-panel .sub-menu .current_page_item > a,.res-transparent-header .responsive-off-canvas-panel .sub-menu .current-menu-item > a,.res-transparent-header .responsive-off-canvas-panel .children li.current_page_item a,.res-transparent-header #off-canvas-menu .sub-menu .current_page_item > a,.res-transparent-header #off-canvas-menu .sub-menu .current-menu-item > a,.res-transparent-header #off-canvas-menu .children li.current_page_item a,.res-transparent-header .off-canvas-widget-area #off-canvas-menu .sub-menu .current_page_item > a,.res-transparent-header .off-canvas-widget-area #off-canvas-menu .sub-menu .current-menu-item > a,.res-transparent-header .off-canvas-widget-area #off-canvas-menu .children li.current_page_item a,.res-transparent-header #off-canvas-site-navigation .menu .sub-menu .current_page_item > a,.res-transparent-header #off-canvas-site-navigation .menu .sub-menu .current-menu-item > a,.res-transparent-header #off-canvas-site-navigation .menu .children li.current_page_item a").hover(
         function() {
             $(this).css("color", api('responsive_transparent_header_sub_menu_link_hover_color').get());
         },
@@ -1769,6 +1769,14 @@
             $(this).css("fill", api('responsive_off_canvas_close_button_color').get());
         }
     );
+
+    // Mobile Off Canvas close icon color.
+    api( 'responsive_header_mobile_off_canvas_close_icon_color', function( value ) {
+        value.bind( function( newval ) {
+            $('#responsive-off-canvas-panel .responsive-off-canvas-close').css('color', newval );
+            $('#responsive-off-canvas-panel .responsive-off-canvas-close svg').css('fill', newval );
+        } );
+    } );
     
     api( 'responsive_off_canvas_filter_button_color', function( value ) {
         value.bind( function( newval ) {
