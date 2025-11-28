@@ -1071,10 +1071,14 @@ function responsive_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
 	$is_header_menu = ( 'header-menu' === $theme_location );
 	$is_off_canvas_menu = ( 'off-canvas-menu' === $theme_location || 'off-canvas-menu' === $menu_id );
 	
+	// Priority: if menu_id is 'off-canvas-menu', treat it as off-canvas menu (even if theme_location is header-menu)
+	// This handles the case when header-menu is used as fallback in off-canvas panel
+	$is_off_canvas_context = ( 'off-canvas-menu' === $menu_id );
+	
 	if ( $is_header_menu || $is_off_canvas_menu ) {
 		if ( in_array( 'menu-item-has-children', $item->classes, true ) ) {
-			if ( $is_header_menu ) {
-				// Header menu: add both inner and outer icons
+			if ( $is_header_menu && ! $is_off_canvas_context ) {
+				// Header menu (not in off-canvas context): add both inner and outer icons
 				$args->after      = '<span class="res-iconify res-iconify-outer">
 					<svg width="15" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
 					</span>';
@@ -1082,7 +1086,7 @@ function responsive_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
 					<svg width="15" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
 					</span>';
 			} else {
-				// Off-canvas menu: only add inner icon (inside the link)
+				// Off-canvas menu (or header-menu used as fallback in off-canvas): only add inner icon (inside the link)
 				$args->after      = '';
 				$args->link_after = '<span class="res-iconify res-iconify-inner">
 					<svg width="15" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
