@@ -1063,14 +1063,31 @@ add_filter( 'nav_menu_link_attributes', 'responsive_nav_menu_link_attributes', 1
  * @return $args.
  */
 function responsive_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
-	if ( 'header-menu' === $args->theme_location ) {
+	// Get theme_location and menu_id from args object
+	$theme_location = isset( $args->theme_location ) ? $args->theme_location : '';
+	$menu_id = isset( $args->menu_id ) ? $args->menu_id : '';
+	
+	// Check if this is header-menu, off-canvas-menu theme location, or off-canvas-menu ID
+	$is_header_menu = ( 'header-menu' === $theme_location );
+	$is_off_canvas_menu = ( 'off-canvas-menu' === $theme_location || 'off-canvas-menu' === $menu_id );
+	
+	if ( $is_header_menu || $is_off_canvas_menu ) {
 		if ( in_array( 'menu-item-has-children', $item->classes, true ) ) {
-			$args->after      = '<span class="res-iconify res-iconify-outer">
-				<svg width="15" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
-				</span>';
-			$args->link_after = '<span class="res-iconify res-iconify-inner">
-				<svg width="15" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
-				</span>';
+			if ( $is_header_menu ) {
+				// Header menu: add both inner and outer icons
+				$args->after      = '<span class="res-iconify res-iconify-outer">
+					<svg width="15" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
+					</span>';
+				$args->link_after = '<span class="res-iconify res-iconify-inner">
+					<svg width="15" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
+					</span>';
+			} else {
+				// Off-canvas menu: only add inner icon (inside the link)
+				$args->after      = '';
+				$args->link_after = '<span class="res-iconify res-iconify-inner">
+					<svg width="15" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
+					</span>';
+			}
 		} else {
 			$args->after      = '';
 			$args->link_after = '';

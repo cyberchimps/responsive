@@ -1896,7 +1896,8 @@ function responsive_customizer_styles() {
 	$mobile_menu_style = get_theme_mod( 'responsive_mobile_menu_style', 'dropdown' );
 	// Mobile Menu Breakpoint.
 	$disable_mobile_menu    = get_theme_mod( 'responsive_disable_mobile_menu', 1 );
-	$mobile_menu_breakpoint = esc_html( get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
+	// Use 992px breakpoint to match mobile header visibility (mobile header is shown up to 992px)
+	$mobile_menu_breakpoint = 992;
 
 	$hamburger_menu_default_padding = Responsive\Core\get_responsive_customizer_defaults( 'hamburger_menu_padding' );
 
@@ -2794,22 +2795,17 @@ function responsive_customizer_styles() {
 					border: none;
 					margin: 0;
 				}
-				.site-header-item-toggle-button .menu-toggle{
-					background-color: {$header_menu_toggle_background_color} ;
-					border:none;
-				}
-
 			}";
 
 	} elseif ( 'minimal' === $mobile_menu_toggle_style ) {
 		$custom_css .= "@media (max-width:{$mobile_menu_breakpoint}px) {
 				.site-header-item-toggle-button .menu-toggle{
-					background-color: {$header_background_color};
+					background-color: inherit;
 					border: none;
 					margin: 0;
 				}
 				.site-header-item-toggle-button .menu-toggle svg rect:first-child{
-					fill: {$header_background_color};
+					fill: inherit;
 				}	
 				.main-navigation .menu-toggle{
 					background-color: {$header_background_color}  ;
@@ -2823,19 +2819,16 @@ function responsive_customizer_styles() {
 	} elseif ( 'outline' === $mobile_menu_toggle_style ) {
 		$custom_css .= "@media (max-width:{$mobile_menu_breakpoint}px) {
 				.site-header-item-toggle-button .menu-toggle{
-					background-color: {$header_background_color};
+					background-color: inherit;
 					border-style: solid;
 					border-width: 1px;
 					border-color:{$mobile_menu_toggle_border_color };
 					margin: 0;
 
 				}
-				.site-header-item-toggle-button .menu-toggle{
-					background-color: {$header_background_color}  ;
-					border-style: solid;
-					border-width: 1px;
-					border-color:{$mobile_menu_toggle_border_color };
-				}
+				.site-header-item-toggle-button .menu-toggle svg rect:first-child{
+					fill: inherit;
+				}	
 			}";
 	}
 
@@ -2874,8 +2867,21 @@ function responsive_customizer_styles() {
 			.menu-toggle svg rect:first-child{
 				stroke: none;
 			}
-		";
 
+			ul#off-canvas-menu li {
+				width: 80%;
+			}
+
+			@media screen and (max-width: 992px) {
+				li.menu-item{
+					width: 80%;
+				}
+			}
+
+			#off-canvas-site-navigation .menu li {
+				width: 80%;
+			}
+		";
 		// Applying the Icon color and Icon Size
 		$header_mobile_tablet_menu_icon_color = get_theme_mod( 'responsive_header_toggle_button_icon_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_toggle_button_icon_color' ) );
 		$header_mobile_tablet_menu_icon_size  = get_theme_mod( 'responsive_header_toggle_button_icon_size', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_toggle_button_icon_size' ) );
@@ -4115,12 +4121,20 @@ function responsive_customizer_styles() {
 		}
 		.res-transparent-header {
 			#masthead,
+			#masthead-mobile,
+			#main-header-mobile,
 			.responsive-site-above-header-wrap,
 			.responsive-site-primary-header-wrap,
 			.responsive-site-below-header-wrap,
+			.responsive-site-above-mobile-header-wrap,
+			.responsive-site-primary-mobile-header-wrap,
+			.responsive-site-below-mobile-header-wrap,
 			.responsive-site-below-header-wrap:hover,
 			.responsive-site-primary-header-wrap:hover,
-			.responsive-site-above-header-wrap:hover {
+			.responsive-site-above-header-wrap:hover,
+			.responsive-site-below-mobile-header-wrap:hover,
+			.responsive-site-primary-mobile-header-wrap:hover,
+			.responsive-site-above-mobile-header-wrap:hover {
 				background: transparent;
 			}
 		}
@@ -5861,8 +5875,7 @@ function responsive_customizer_styles() {
 		$custom_css .= "}}";
 	}
 
-	if ( Responsive\Core\responsive_check_element_present_in_hfb( 'search', 'header' ) ) {
-
+	if ( Responsive\Core\responsive_check_element_present_in_hfb( 'search', 'header' )  || Responsive\Core\responsive_check_element_in_mobile_tablet_items( 'search', 'header' ) ) {
 		//Header Search Element CSS - Start
 		$header_search_label_visibility = get_theme_mod( 'responsive_header_search_label_visibility', array( 'desktop', 'tablet', 'mobile' ) );
 		$custom_css .= ".responsive-header-search-icon-wrap .responsive-header-search-label { display: " . ( in_array( 'desktop', $header_search_label_visibility ) ? "block" : "none" ) . "; }";
@@ -6554,7 +6567,8 @@ function responsive_customizer_styles() {
 
 		// Mobile Menu Breakpoint.
 		$disable_mobile_menu    = get_theme_mod( 'responsive_disable_mobile_menu', 1 );
-		$mobile_menu_breakpoint = esc_html( get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
+		// Use 992px breakpoint to match mobile header visibility (mobile header is shown up to 992px)
+		$mobile_menu_breakpoint = 992;
 
 		if ( 0 === $disable_mobile_menu ) {
 			$mobile_menu_breakpoint = 0;
@@ -6897,7 +6911,8 @@ function responsive_customizer_styles() {
 	// Show and style off-canvas panel on mobile/tablet only when toggle button exists
 	if ( function_exists( '\Responsive\Core\responsive_check_element_in_mobile_tablet_items' ) && \Responsive\Core\responsive_check_element_in_mobile_tablet_items( 'toggle_button', 'header' ) ) {
 		// Get mobile menu settings (these should already be defined above in the file)
-		$off_canvas_mobile_menu_breakpoint = esc_html( get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
+		// Use 992px breakpoint to match mobile header visibility (mobile header is shown up to 992px)
+		$off_canvas_mobile_menu_breakpoint = 992;
 		$off_canvas_mobile_menu_style = get_theme_mod( 'responsive_mobile_menu_style', 'dropdown' );
 		$off_canvas_header_mobile_menu_background_color = esc_html( get_theme_mod( 'responsive_header_mobile_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_mobile_menu_background' ) ) );
 		$off_canvas_header_mobile_content_alignment = esc_html( get_theme_mod( 'responsive_header_mobile_off_canvas_content_alignment', 'left' ) );
@@ -6981,6 +6996,40 @@ function responsive_customizer_styles() {
 			}
 			.responsive-off-canvas-close:hover {
 				opacity: 0.7;
+				background: inherit;
+			}
+			.responsive-off-canvas-panel .sub-menu,
+			.responsive-off-canvas-panel .children {
+				display: none;
+				position: static;
+				left: auto;
+				width: 100%;
+			}
+			.responsive-off-canvas-panel .res-submenu-expanded > .sub-menu,
+			.responsive-off-canvas-panel .res-submenu-expanded > .children {
+				display: block !important;
+			}
+			.responsive-off-canvas-panel .menu-item-has-children > .sub-menu,
+			.responsive-off-canvas-panel .page_item_has_children > .children {
+				margin-left: 20px;
+			}
+			.responsive-off-canvas-panel .res-iconify,
+			#off-canvas-menu .res-iconify {
+				display: inline-block !important;
+				position: relative;
+				vertical-align: middle;
+				margin-left: 8px;
+				cursor: pointer;
+				transform: translateY(-5px);
+			}
+			.responsive-off-canvas-panel .res-iconify svg,
+			#off-canvas-menu .res-iconify svg {
+				stroke: #000000;
+				fill: #000000;
+			}
+			.responsive-off-canvas-panel .menu-item-has-children > a,
+			#off-canvas-menu .menu-item-has-children > a {
+				position: relative;
 			}
 		}
 		";
@@ -7094,7 +7143,8 @@ function responsive_customizer_styles() {
 	}
 	
 	// Show toggle button only on mobile/tablet, hide on desktop (regardless of whether off-canvas panel exists)
-	$toggle_button_breakpoint = esc_html( get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
+	// Use 992px breakpoint to match mobile header visibility (mobile header is shown up to 992px)
+	$toggle_button_breakpoint = 992;
 	$custom_css .= "
 	.site-header-item-toggle-button {
 		display: block;
@@ -7104,7 +7154,7 @@ function responsive_customizer_styles() {
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
-		padding: 15px;
+		padding: 13px;
 	}
 	@media screen and ( min-width: " . ($toggle_button_breakpoint + 1) . "px ) {
 		.responsive-desktop-header-wrapper .site-header-item-toggle-button,
@@ -7181,11 +7231,11 @@ function responsive_customizer_styles() {
 
 	// Off-Canvas Menu Styles (from Off Canvas Menu Customizer Section)
 	// Get off-canvas menu style settings
-	$off_canvas_menu_link_default = esc_html( get_theme_mod( 'responsive_header_off_canvas_menu_link_default_color', '#FFFFFF' ) );
+	$off_canvas_menu_link_default = esc_html( get_theme_mod( 'responsive_header_off_canvas_menu_link_default_color', '#000000' ) );
 	$off_canvas_menu_link_hover = esc_html( get_theme_mod( 'responsive_header_off_canvas_menu_link_hover_color', '#2271B1' ) );
-	$off_canvas_menu_link_active = esc_html( get_theme_mod( 'responsive_header_off_canvas_menu_link_active_color', '#FFFFFF' ) );
+	$off_canvas_menu_link_active = esc_html( get_theme_mod( 'responsive_header_off_canvas_menu_link_active_color', '#000000' ) );
 	$off_canvas_menu_bg_default = esc_html( get_theme_mod( 'responsive_header_off_canvas_menu_bg_default_color', '#FFFFFF' ) );
-	$off_canvas_menu_bg_hover = esc_html( get_theme_mod( 'responsive_header_off_canvas_menu_bg_hover_color', '#FF3A3A' ) );
+	$off_canvas_menu_bg_hover = esc_html( get_theme_mod( 'responsive_header_off_canvas_menu_bg_hover_color', '#FFFFFF' ) );
 	$off_canvas_menu_bg_active = esc_html( get_theme_mod( 'responsive_header_off_canvas_menu_bg_active_color', '#FFFFFF' ) );
 	$off_canvas_menu_items_divider = get_theme_mod( 'responsive_header_off_canvas_menu_items_divider', 0 );
 	$off_canvas_menu_visibility = get_theme_mod( 'responsive_header_off_canvas_menu_visibility', array('desktop','tablet','mobile') );
@@ -7231,22 +7281,23 @@ function responsive_customizer_styles() {
 	.off-canvas-widget-area .off-canvas-navigation {
 		background-color: {$off_canvas_menu_bg_default};
 	}
-	.off-canvas-widget-area #off-canvas-menu li {
+	.off-canvas-widget-area #off-canvas-menu li, #off-canvas-site-navigation .menu li {
 		margin: {$off_canvas_menu_margin_top}px {$off_canvas_menu_margin_right}px {$off_canvas_menu_margin_bottom}px {$off_canvas_menu_margin_left}px;
 	}
-	.off-canvas-widget-area #off-canvas-menu li a {
+	.off-canvas-widget-area #off-canvas-menu li a, #off-canvas-site-navigation .menu li a {
 		color: {$off_canvas_menu_link_default};
 		background-color: {$off_canvas_menu_bg_default};
 		padding: {$off_canvas_menu_spacing_top}px {$off_canvas_menu_spacing_right}px {$off_canvas_menu_spacing_bottom}px {$off_canvas_menu_spacing_left}px;
 		display: block;
 		transition: all 0.3s ease;
 	}
-	.off-canvas-widget-area #off-canvas-menu li a:hover {
+	.off-canvas-widget-area #off-canvas-menu li a:hover, #off-canvas-site-navigation .menu li a:hover {
 		color: {$off_canvas_menu_link_hover};
 		background-color: {$off_canvas_menu_bg_hover};
 	}
 	.off-canvas-widget-area #off-canvas-menu li.current-menu-item > a,
-	.off-canvas-widget-area #off-canvas-menu li.current_page_item > a {
+	.off-canvas-widget-area #off-canvas-menu li.current_page_item > a,
+	#off-canvas-site-navigation .menu li.current_page_item > a {
 		color: {$off_canvas_menu_link_active};
 		background-color: {$off_canvas_menu_bg_active};
 	}
@@ -7254,7 +7305,7 @@ function responsive_customizer_styles() {
 
 	// Apply typography styles if set
 	if ( $off_canvas_menu_typography && is_array( $off_canvas_menu_typography ) ) {
-		$custom_css .= ".off-canvas-widget-area #off-canvas-menu li a {";
+		$custom_css .= ".off-canvas-widget-area #off-canvas-menu li a, #off-canvas-site-navigation .menu li a {";
 		foreach ( $off_canvas_menu_typography as $key => $value ) {
 			if ( $value ) {
 				$custom_css .= $key . ': ' . $value . ';';
@@ -7272,16 +7323,89 @@ function responsive_customizer_styles() {
 		.off-canvas-widget-area #off-canvas-menu li:last-child {
 			border-bottom: none;
 		}
+
+		@media screen and (max-width: 992px) {
+			li.menu-item {
+				border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+				}
+			}
+			li.menu-item:last-child {
+				border-bottom: none;
+			}
+
+			#off-canvas-site-navigation .menu li{
+				border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+			}
+
+			#off-canvas-site-navigation .menu li:last-child {
+				border-bottom: none;
+			}
 		";
+
+
+		// Off-Canvas Menu Item Hover Style based on responsive_menu_item_hover_style
+		$off_canvas_menu_item_hover_style_selected = get_theme_mod( 'responsive_menu_item_hover_style', 'none' );
+		$off_canvas_menu_hover_color = $off_canvas_menu_link_hover;
+		// Use active color if hover color is not set, otherwise use hover color
+		if ( '' === $off_canvas_menu_link_hover || ! $off_canvas_menu_link_hover ) {
+			$off_canvas_menu_hover_color = $off_canvas_menu_link_active ? $off_canvas_menu_link_active : $off_canvas_menu_link_default;
+		}
+
+		$off_canvas_menu_css_selector = ".off-canvas-widget-area #off-canvas-menu li, #off-canvas-site-navigation .menu li";
+
+		if ( 'underline' === $off_canvas_menu_item_hover_style_selected ) {
+			$custom_css .= "$off_canvas_menu_css_selector::after {
+				display: block;
+				content: '';
+				border-bottom: solid 3px {$off_canvas_menu_hover_color};
+				transform: scaleX(0);
+				transition: transform 250ms ease-in-out;
+			}
+			$off_canvas_menu_css_selector.current-menu-item::after,
+			$off_canvas_menu_css_selector.current_page_item::after {
+				border-bottom: solid 3px {$off_canvas_menu_hover_color};
+				transform: scaleX(1);
+			}
+			$off_canvas_menu_css_selector:hover::after {
+				transform: scaleX(1);
+			}
+			$off_canvas_menu_css_selector::after {
+				transform-origin: 0% 50%;
+			}";
+		} elseif ( 'overline' === $off_canvas_menu_item_hover_style_selected ) {
+			$custom_css .= "$off_canvas_menu_css_selector::before {
+				display: block;
+				content: '';
+				border-bottom: solid 3px {$off_canvas_menu_hover_color};
+				transform: scaleX(0);
+				transition: transform 250ms ease-in-out;
+			}
+			$off_canvas_menu_css_selector.current-menu-item::before,
+			$off_canvas_menu_css_selector.current_page_item::before {
+				border-bottom: solid 3px {$off_canvas_menu_hover_color};
+				transform: scaleX(1);
+			}
+			$off_canvas_menu_css_selector:hover::before {
+				transform: scaleX(1);
+			}
+			$off_canvas_menu_css_selector::before {
+				transform-origin: 0% 50%;
+			}";
+		} elseif ( 'zoom' === $off_canvas_menu_item_hover_style_selected ) {
+			$custom_css .= "$off_canvas_menu_css_selector > a:hover {
+				transition: all 0.3s ease-in-out;
+				transform: scale(1.05);
+			}";
+		}
 	}
 
 	// Tablet responsive styles
 	$custom_css .= "
 	@media (max-width: {$mobile_menu_breakpoint}px) {
-		.off-canvas-widget-area #off-canvas-menu li {
+		.off-canvas-widget-area #off-canvas-menu li, #off-canvas-site-navigation .menu li {
 			margin: {$off_canvas_menu_margin_tablet_top}px {$off_canvas_menu_margin_tablet_right}px {$off_canvas_menu_margin_tablet_bottom}px {$off_canvas_menu_margin_tablet_left}px;
 		}
-		.off-canvas-widget-area #off-canvas-menu li a {
+		.off-canvas-widget-area #off-canvas-menu li a, #off-canvas-site-navigation .menu li a {
 			padding: {$off_canvas_menu_spacing_tablet_top}px {$off_canvas_menu_spacing_tablet_right}px {$off_canvas_menu_spacing_tablet_bottom}px {$off_canvas_menu_spacing_tablet_left}px;
 		}
 	}
@@ -7290,10 +7414,10 @@ function responsive_customizer_styles() {
 	// Mobile responsive styles
 	$custom_css .= "
 	@media (max-width: 544px) {
-		.off-canvas-widget-area #off-canvas-menu li {
+		.off-canvas-widget-area #off-canvas-menu li, #off-canvas-site-navigation .menu li {
 			margin: {$off_canvas_menu_margin_mobile_top}px {$off_canvas_menu_margin_mobile_right}px {$off_canvas_menu_margin_mobile_bottom}px {$off_canvas_menu_margin_mobile_left}px;
 		}
-		.off-canvas-widget-area #off-canvas-menu li a {
+		.off-canvas-widget-area #off-canvas-menu li a, #off-canvas-site-navigation .menu li a {
 			padding: {$off_canvas_menu_spacing_mobile_top}px {$off_canvas_menu_spacing_mobile_right}px {$off_canvas_menu_spacing_mobile_bottom}px {$off_canvas_menu_spacing_mobile_left}px;
 		}
 	}
