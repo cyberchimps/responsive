@@ -6996,6 +6996,40 @@ function responsive_customizer_styles() {
 			}
 			.responsive-off-canvas-close:hover {
 				opacity: 0.7;
+				background: inherit;
+			}
+			.responsive-off-canvas-panel .sub-menu,
+			.responsive-off-canvas-panel .children {
+				display: none;
+				position: static;
+				left: auto;
+				width: 100%;
+			}
+			.responsive-off-canvas-panel .res-submenu-expanded > .sub-menu,
+			.responsive-off-canvas-panel .res-submenu-expanded > .children {
+				display: block !important;
+			}
+			.responsive-off-canvas-panel .menu-item-has-children > .sub-menu,
+			.responsive-off-canvas-panel .page_item_has_children > .children {
+				margin-left: 20px;
+			}
+			.responsive-off-canvas-panel .res-iconify,
+			#off-canvas-menu .res-iconify {
+				display: inline-block !important;
+				position: relative;
+				vertical-align: middle;
+				margin-left: 8px;
+				cursor: pointer;
+				transform: translateY(-5px);
+			}
+			.responsive-off-canvas-panel .res-iconify svg,
+			#off-canvas-menu .res-iconify svg {
+				stroke: #000000;
+				fill: #000000;
+			}
+			.responsive-off-canvas-panel .menu-item-has-children > a,
+			#off-canvas-menu .menu-item-has-children > a {
+				position: relative;
 			}
 		}
 		";
