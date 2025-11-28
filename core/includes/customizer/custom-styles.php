@@ -7120,7 +7120,7 @@ function responsive_customizer_styles() {
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
-		padding: 15px;
+		padding: 13px;
 	}
 	@media screen and ( min-width: " . ($toggle_button_breakpoint + 1) . "px ) {
 		.responsive-desktop-header-wrapper .site-header-item-toggle-button,

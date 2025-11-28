@@ -1838,3 +1838,8 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-theme-controls ul#sub-accordion-section-responsive_header_toggle_button, #customize-theme-controls ul#sub-accordion-section-responsive_mobile_header_widget, #customize-theme-controls ul#sub-accordion-section-responsive_mobile_header_social, #customize-theme-controls ul#sub-accordion-section-responsive_header_off_canvas_menu_layout, #customize-theme-controls ul#sub-accordion-section-responsive_mobile_header_html{
 	height: 100%;
 }
+
+.responsive-builder-items-with-popup button.components-button.responsive-row-actions.has-text.has-icon {
+	border-style: none;
+	color: #434343;
+}

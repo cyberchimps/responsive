@@ -171,6 +171,7 @@ class Responsive_Home_Starter_Content {
 				'responsive_header_social_item_hover_color'           => '#ffffff',
 				'responsive_mobile_header_social_item_color'          => '#ffffff',
 				'responsive_mobile_header_social_item_hover_color'    => '#ffffff',
+				'responsive_header_off_canvas_menu_link_active_color' => '#FFFFFF',
 				'responsive_header_social_item_spacing'               => 0,
 				'responsive_mobile_header_social_item_spacing'        => 0,
 				'responsive_header_toggle_button_icon_size'           => 25,

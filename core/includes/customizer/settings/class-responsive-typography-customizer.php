@@ -549,7 +549,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'header_search_label'        => '.responsive-header-search-label',
 				'header_contact_info'        => '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list  .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-title, .site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text',
 				'mobile_header_contact_info' => '.site-mobile-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list  .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-title, .site-mobile-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text',
-				'header_off_canvas_menu'     => '.off-canvas-widget-area #off-canvas-menu li a, #off-canvas-site-navigation .menu li a',
+				'header_off_canvas_menu'     => '.responsive-off-canvas-menu-container .responsive-off-canvas-menu-wrapper .responsive-off-canvas-menu-inner-wrapper .responsive-off-canvas-menu .responsive-off-canvas-menu-items .responsive-off-canvas-menu-item a, .off-canvas-widget-area #off-canvas-menu li a, #off-canvas-site-navigation .menu li a',
 			);
 
 			if ( $this->is_responsive_version_greater() ) {
@@ -1193,7 +1193,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						if ( 'css' === $return ) {
 							$tablet_css .= $attribute . ':' . $tablet_val . $px . ';';
 						} elseif ( 'preview_styles' === $return ) {
-							$preview_styles[ 'customizer-typography-' . $element . '-tablet-' . $attribute ] = '@media (max-width: 768px){' . $target . '{' . $attribute . ':' . $tablet_val . $px . ';}}';
+							$preview_styles[ 'customizer-typography-' . $element . '-tablet-' . $attribute ] = '@media (max-width: 992px){' . $target . '{' . $attribute . ':' . $tablet_val . $px . ';}}';
 						}
 					}
 
@@ -1218,7 +1218,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						if ( 'css' === $return ) {
 							$mobile_css .= $attribute . ':' . $mobile_val . $px . ';';
 						} elseif ( 'preview_styles' === $return ) {
-							$preview_styles[ 'customizer-typography-' . $element . '-mobile-' . $attribute ] = '@media (max-width: 480px){' . $target . '{' . $attribute . ':' . $mobile_val . $px . ';}}';
+							$preview_styles[ 'customizer-typography-' . $element . '-mobile-' . $attribute ] = '@media (max-width: 576px){' . $target . '{' . $attribute . ':' . $mobile_val . $px . ';}}';
 						}
 					}
 				}
@@ -1226,7 +1226,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				// Front-end inline CSS.
 				if ( $add_css && 'css' === $return ) {
 					if ( '#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav.mobile-dropdown-inner .menu > li > a' === $target ) {
-						$css .= '@media (max-width: 480px){' . $target . '{' . $add_css . '}}';
+						$css .= '@media (max-width: 576px){' . $target . '{' . $add_css . '}}';
 					} else {
 						$css .= $target . '{' . $add_css . '}';
 					}
@@ -1234,12 +1234,12 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 
 				// Front-end inline tablet CSS.
 				if ( $tablet_css && 'css' === $return ) {
-					$css .= '@media (max-width: 768px){' . $target . '{' . $tablet_css . '}}';
+					$css .= '@media (max-width: 992px){' . $target . '{' . $tablet_css . '}}';
 				}
 
 				// Front-end inline mobile CSS.
 				if ( $mobile_css && 'css' === $return ) {
-					$css .= '@media (max-width: 480px){' . $target . '{' . $mobile_css . '}}';
+					$css .= '@media (max-width: 576px){' . $target . '{' . $mobile_css . '}}';
 				}
 			}
 			// Return CSS.
