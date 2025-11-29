@@ -24,12 +24,34 @@
 		} else {
 			api( 'responsive_site_background_color', function( value ) {
 				var color = value.get();
+                if( color && color.includes('palette') ) {
+                    color = 'var(--responsive-global-' + color + ')';
+                }
 				$('body').addClass( 'custom-background' ).css({
-					'background': '',
+					'background': 'none',
 					'background-color': color
 				});
 			});
 		}
+	}
+
+    function processThemeSettingForCSS ( setting ) {
+		// Ensure the setting exists
+        const settingObj = api(setting);
+        if (!settingObj) {
+            console.warn('Invalid setting:', setting);
+            return null;
+        }
+
+        // Get actual value
+        let value = settingObj.get();
+        if (!value) return null;
+	
+		// Detect palette var format
+        if (typeof value === 'string' && value.startsWith('palette')) {
+            return `var(--responsive-global-${value})`;
+        }
+        return value;
 	}
 
 	// On color type change
@@ -110,7 +132,7 @@
                     'background-color': ''
                 });
     
-                if ( ! api('responsive_sidebar_background_image').get() && api('responsive_sidebar_background_color').get() === '#ffffff') {
+                if ( ! api('responsive_sidebar_background_image').get() && api('responsive_sidebar_background_color').get() === 'palette4') {
                     $('.responsive-site-style-boxed aside#secondary.main-sidebar .widget-wrapper').css({
                         'background': gradient,
                         'background-color': '',
@@ -124,6 +146,9 @@
         } else {
             api('responsive_box_background_color', function (value) {
                 var color = value.get();
+                if( color && color.includes('palette') ) {
+                    color = 'var(--responsive-global-' + color + ')';
+                }
                 $(
                     '.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,' +
                     '.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,' +
@@ -167,7 +192,7 @@
                     'background': 'none',
                     'background-color': color
                 });
-                if ( ! api('responsive_sidebar_background_image').get() && api('responsive_sidebar_background_color').get() === '#ffffff' ) {
+                if ( ! api('responsive_sidebar_background_image').get() && api('responsive_sidebar_background_color').get() === 'palette4' ) {
                     $('.responsive-site-style-boxed aside#secondary.main-sidebar .widget-wrapper').css({
                         'background': '',
                         'background-color': color,
@@ -387,6 +412,9 @@
     //Alternate Background Color
     api( 'responsive_alt_background_color', function( value ) {
         value.bind( function( newval ) {
+            if ( newval && newval.includes('palette') ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
             $('address, blockquote, pre, code, kbd, tt, var').css('background-color', newval );
         } );
     } );
@@ -1125,6 +1153,9 @@
     //Buttons Text
     api( 'responsive_add_to_cart_button_text_color', function( value ) {
         value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('.woocommerce span.onsale,.wc-block-grid__product-onsale,.woocommerce #respond input#submit,.wp-block-button__link.add_to_cart_button,.woocommerce div.product .woocommerce-tabs ul.tabs li a,.woocommerce div.product .woocommerce-tabs ul.tabs li,.woocommerce button.button.alt,.woocommerce button.button,.woocommerce a.button').css('color', newval );
         } );
     } );
@@ -1143,6 +1174,9 @@
     //Button Text Color
     api( 'responsive_cart_buttons_text_color', function( value ) {
         value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('.page.woocommerce-cart .woocommerce button.button:disabled,.page.woocommerce-cart .woocommerce button.button:disabled[disabled],.page.woocommerce-cart .woocommerce button.button').css('color', newval );
             $('.page.woocommerce-cart .wp-block-woocommerce-cart button.wc-block-components-totals-coupon__button').css('color', newval );
         } );
@@ -1163,6 +1197,9 @@
     //Checkout Button Text Color
     api( 'responsive_cart_checkout_button_text_color', function( value ) {
         value.bind( function( newval ) {
+            if ( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button,.page.woocommerce-checkout .woocommerce button.button.alt,.page.woocommerce-checkout .woocommerce button.button').css('color', newval );
             $('.page.woocommerce-cart .wp-block-woocommerce-cart a.wc-block-cart__submit-button, .page.woocommerce-checkout .wp-block-woocommerce-checkout button.wc-block-components-checkout-place-order-button').css('color', newval );
         } );
@@ -1185,10 +1222,12 @@
         value.bind( function( newval ) {
             $(".page.woocommerce-cart .wp-block-woocommerce-cart button.wc-block-components-totals-coupon__button").hover(
                 function() {
-                    $(this).css("color", api('responsive_cart_buttons_hover_text_color').get());
+                    const cartButtonTextHoverColor = processThemeSettingForCSS('responsive_cart_buttons_hover_text_color');
+                    $(this).css("color", cartButtonTextHoverColor);
                 },
                 function() {
-                    $(this).css("color", api('responsive_cart_buttons_text_color').get());
+                    const cartButtonTextColor = processThemeSettingForCSS('responsive_cart_buttons_text_color');
+                    $(this).css("color", cartButtonTextColor);
                 }
             );
         } );
@@ -1209,10 +1248,12 @@
         value.bind( function( newval ) {
             $(".page.woocommerce-cart .wp-block-woocommerce-cart a.wc-block-cart__submit-button, .page.woocommerce-checkout .wp-block-woocommerce-checkout button.wc-block-components-checkout-place-order-button").hover(
                 function() {
-                    $(this).css("color", api('responsive_cart_checkout_button_hover_text_color').get());
+                    const checkoutButtonTextHoverColor = processThemeSettingForCSS('responsive_cart_checkout_button_hover_text_color');
+                    $(this).css("color", checkoutButtonTextHoverColor);
                 },
                 function() {
-                    $(this).css("color", api('responsive_cart_checkout_button_text_color').get());
+                    const checkoutButtonTextColor = processThemeSettingForCSS('responsive_cart_checkout_button_text_color');
+                    $(this).css("color", checkoutButtonTextColor);
                 }
             );
         } );
@@ -1323,6 +1364,9 @@
     //Background Color
     api( 'responsive_sidebar_background_color', function( value ) {
         value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('.responsive-site-style-boxed aside#secondary .widget-wrapper ').css('background-color', newval );
         } );
     } );
@@ -1702,33 +1746,39 @@
     //Add to cart Button Text Hover Color
     $(".woocommerce span.onsale,.wc-block-grid__product-onsale,.woocommerce #respond input#submit,.wp-block-button__link.add_to_cart_button,.woocommerce div.product .woocommerce-tabs ul.tabs li a,.woocommerce div.product .woocommerce-tabs ul.tabs li,.woocommerce button.button.alt,.woocommerce button.button,.woocommerce a.button").hover(
         function() {
-            $(this).css("color", api('responsive_add_to_cart_button_hover_text_color').get());
+            const addToCartButtonTextHoverColor = processThemeSettingForCSS('responsive_add_to_cart_button_hover_text_color');
+            $(this).css("color", addToCartButtonTextHoverColor);
         },
-
+        
         function() {
-            $(this).css("color", api('responsive_add_to_cart_button_text_color').get());
+            const addToCartButtonTextColor = processThemeSettingForCSS('responsive_add_to_cart_button_text_color');
+            $(this).css("color", addToCartButtonTextColor);
         }
     );
 
     //Cart Button Text Hover Color
     $(".page.woocommerce-cart .woocommerce button.button:disabled,.page.woocommerce-cart .woocommerce button.button:disabled[disabled],.page.woocommerce-cart .woocommerce button.button").hover(
         function() {
-            $(this).css("color", api('responsive_cart_buttons_hover_text_color').get());
+            const cartButtonTextHoverColor = processThemeSettingForCSS('responsive_cart_buttons_hover_text_color');
+            $(this).css("color", cartButtonTextHoverColor);
         },
 
         function() {
-            $(this).css("color", api('responsive_cart_buttons_text_color').get());
+            const cartButtonTextColor = processThemeSettingForCSS('responsive_cart_buttons_text_color');
+            $(this).css("color", cartButtonTextColor);
         }
     );
 
     //Checkout Button Hover text Color
     $(".page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button,.page.woocommerce-checkout .woocommerce button.button.alt,.page.woocommerce-checkout .woocommerce button.button").hover(
         function() {
-            $(this).css("color", api('responsive_cart_checkout_button_hover_text_color').get());
+            const checkoutButtonTextHoverColor = processThemeSettingForCSS('responsive_cart_checkout_button_hover_text_color');
+            $(this).css("color", checkoutButtonTextHoverColor);
         },
 
         function() {
-            $(this).css("color", api('responsive_cart_checkout_button_text_color').get());
+            const checkoutButtonTextColor = processThemeSettingForCSS('responsive_cart_checkout_button_text_color');
+            $(this).css("color", checkoutButtonTextColor);
         }
     );
 

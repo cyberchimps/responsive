@@ -276,90 +276,133 @@
 		} );
 	} );
 
-	wp.customize.bind('ready', function() {
-		wp.customize('responsive_color_scheme', function(value) {
-			value.bind(function(newval) {
+	// value.bind(function(newval) {
+
+	// 	// Extract design style and color palette.
+	// 	let customizerColorSchemes = newval.split('-');
+	// 	let designStyle = customizerColorSchemes[0];
+	// 	let colorPalette = customizerColorSchemes[1];
+
+	// 	// Get available design styles.
+	// 	let designStyles = localize.paletteDesignStyles;
+
+	// 	if (designStyles[designStyle] && designStyles[designStyle].color_schemes[colorPalette]) {
+	// 		let responsiveColorSchemes = designStyles[designStyle].color_schemes[colorPalette];
+
+	// 		// List of theme mods to update dynamically.
+	// 		let themeMods = {
+	// 			'responsive_alt_background_color': responsiveColorSchemes.alt_background,
+	// 			'responsive_box_background_color': responsiveColorSchemes.background,
+	// 			'responsive_link_color': responsiveColorSchemes.accent,
+	// 			'responsive_button_color': responsiveColorSchemes.accent,
+	// 			'responsive_button_hover_color': responsiveColorSchemes.accent,
+	// 			'responsive_sidebar_headings_color': responsiveColorSchemes.text,
+	// 			'responsive_sidebar_background_color': responsiveColorSchemes.background,
+	// 			'responsive_body_text_color': responsiveColorSchemes.text,
+	// 			'responsive_meta_text_color': responsiveColorSchemes.accent,
+	// 			'responsive_sidebar_text_color': responsiveColorSchemes.text,
+	// 			'responsive_h1_text_color': responsiveColorSchemes.text,
+	// 			'responsive_h2_text_color': responsiveColorSchemes.text,
+	// 			'responsive_h3_text_color': responsiveColorSchemes.text,
+	// 			'responsive_h4_text_color': responsiveColorSchemes.text,
+	// 			'responsive_h5_text_color': responsiveColorSchemes.text,
+	// 			'responsive_h6_text_color': responsiveColorSchemes.text,
+	// 			'responsive_sidebar_link_color': responsiveColorSchemes.accent,
+	// 			'responsive_shop_product_rating_color': responsiveColorSchemes.accent,
+	// 			'responsive_add_to_cart_button_text_color': responsiveColorSchemes.background,
+	// 			'responsive_add_to_cart_button_hover_text_color': responsiveColorSchemes.background,
+	// 			'responsive_cart_buttons_text_color': responsiveColorSchemes.background,
+	// 			'responsive_cart_buttons_hover_color': responsiveColorSchemes.accent,
+	// 			'responsive_cart_buttons_hover_text_color': responsiveColorSchemes.background,
+	// 			'responsive_cart_checkout_button_color': responsiveColorSchemes.accent,
+	// 			'responsive_cart_checkout_button_text_color': responsiveColorSchemes.background,
+	// 			'responsive_cart_checkout_button_hover_text_color': responsiveColorSchemes.background
+	// 		};
+
+	// 		// Loop through theme mods and set values only if they exist.
+	// 		Object.keys(themeMods).forEach(function(mod) {
+	// 			if (wp.customize(mod)) {
+	// 				wp.customize(mod).set(themeMods[mod]);
+	// 			}
+	// 		});
+
+	// 		// Handle header/footer separately with fallbacks.
+	// 		let headerBackground = responsiveColorSchemes.header_background || '#ffffff';
+	// 		let footerBackground = responsiveColorSchemes.footer_background || '#333333';
+	// 		let headerText = responsiveColorSchemes.header_text || '#333333';
+	// 		let footerText = responsiveColorSchemes.footer_text || '#ffffff';
+
+	// 		let additionalMods = {
+	// 			'responsive_header_text_color': headerText,
+	// 			'responsive_footer_text_color': footerText,
+	// 			'responsive_footer_background_color': footerBackground,
+	// 			'responsive_header_site_title_color': headerText,
+	// 			'responsive_header_site_title_hover_color': headerText,
+	// 			'responsive_header_menu_background_color': headerBackground,
+	// 			'responsive_header_mobile_menu_background_color': headerBackground,
+	// 			'responsive_header_menu_link_color': headerText,
+	// 			'responsive_header_secondary_menu_background_color': headerBackground,
+	// 			'responsive_header_secondary_menu_link_color': headerText
+	// 		};
+
+	// 		// Apply additional mods safely.
+	// 		Object.keys(additionalMods).forEach(function(mod) {
+	// 			if (wp.customize(mod)) {
+	// 				wp.customize(mod).set(additionalMods[mod]);
+	// 			}
+	// 		});
+
+	// 	} else {
+	// 		console.error('Invalid color scheme or design style.');
+	// 	}
+	// });
 	
-				// Extract design style and color palette.
-				let customizerColorSchemes = newval.split('-');
-				let designStyle = customizerColorSchemes[0];
-				let colorPalette = customizerColorSchemes[1];
-	
-				// Get available design styles.
-				let designStyles = localize.paletteDesignStyles;
-	
-				if (designStyles[designStyle] && designStyles[designStyle].color_schemes[colorPalette]) {
-					let responsiveColorSchemes = designStyles[designStyle].color_schemes[colorPalette];
-	
-					// List of theme mods to update dynamically.
-					let themeMods = {
-						'responsive_alt_background_color': responsiveColorSchemes.alt_background,
-						'responsive_box_background_color': responsiveColorSchemes.background,
-						'responsive_link_color': responsiveColorSchemes.accent,
-						'responsive_button_color': responsiveColorSchemes.accent,
-						'responsive_button_hover_color': responsiveColorSchemes.accent,
-						'responsive_sidebar_headings_color': responsiveColorSchemes.text,
-						'responsive_sidebar_background_color': responsiveColorSchemes.background,
-						'responsive_body_text_color': responsiveColorSchemes.text,
-						'responsive_meta_text_color': responsiveColorSchemes.accent,
-						'responsive_sidebar_text_color': responsiveColorSchemes.text,
-						'responsive_h1_text_color': responsiveColorSchemes.text,
-						'responsive_h2_text_color': responsiveColorSchemes.text,
-						'responsive_h3_text_color': responsiveColorSchemes.text,
-						'responsive_h4_text_color': responsiveColorSchemes.text,
-						'responsive_h5_text_color': responsiveColorSchemes.text,
-						'responsive_h6_text_color': responsiveColorSchemes.text,
-						'responsive_sidebar_link_color': responsiveColorSchemes.accent,
-						'responsive_shop_product_rating_color': responsiveColorSchemes.accent,
-						'responsive_add_to_cart_button_text_color': responsiveColorSchemes.background,
-						'responsive_add_to_cart_button_hover_text_color': responsiveColorSchemes.background,
-						'responsive_cart_buttons_text_color': responsiveColorSchemes.background,
-						'responsive_cart_buttons_hover_color': responsiveColorSchemes.accent,
-						'responsive_cart_buttons_hover_text_color': responsiveColorSchemes.background,
-						'responsive_cart_checkout_button_color': responsiveColorSchemes.accent,
-						'responsive_cart_checkout_button_text_color': responsiveColorSchemes.background,
-						'responsive_cart_checkout_button_hover_text_color': responsiveColorSchemes.background
-					};
-	
-					// Loop through theme mods and set values only if they exist.
-					Object.keys(themeMods).forEach(function(mod) {
-						if (wp.customize(mod)) {
-							wp.customize(mod).set(themeMods[mod]);
-						}
-					});
-	
-					// Handle header/footer separately with fallbacks.
-					let headerBackground = responsiveColorSchemes.header_background || '#ffffff';
-					let footerBackground = responsiveColorSchemes.footer_background || '#333333';
-					let headerText = responsiveColorSchemes.header_text || '#333333';
-					let footerText = responsiveColorSchemes.footer_text || '#ffffff';
-	
-					let additionalMods = {
-						'responsive_header_text_color': headerText,
-						'responsive_footer_text_color': footerText,
-						'responsive_footer_background_color': footerBackground,
-						'responsive_header_site_title_color': headerText,
-						'responsive_header_site_title_hover_color': headerText,
-						'responsive_header_menu_background_color': headerBackground,
-						'responsive_header_mobile_menu_background_color': headerBackground,
-						'responsive_header_menu_link_color': headerText,
-						'responsive_header_secondary_menu_background_color': headerBackground,
-						'responsive_header_secondary_menu_link_color': headerText
-					};
-	
-					// Apply additional mods safely.
-					Object.keys(additionalMods).forEach(function(mod) {
-						if (wp.customize(mod)) {
-							wp.customize(mod).set(additionalMods[mod]);
-						}
-					});
-	
-				} else {
-					console.error('Invalid color scheme or design style.');
-				}
-			});
+	wp.customize.bind('ready', function () {
+		wp.customize('responsive_global_color_palette', function (value) {
+			function applyPalette(newval) {
+				if (!newval || !newval.palette) return;
+
+				const prefix = '--responsive-global-palette';
+				const palette = newval.palette;
+
+				let index = 0;
+				let cssVars = {};
+
+				Object.keys(palette).forEach(function (key) {
+					if (key === 'label') return;
+					cssVars[`${prefix}${index}`] = palette[key];
+					index++;
+				});
+
+				const root = document.documentElement;
+				Object.entries(cssVars).forEach(([varName, color]) => {
+					root.style.setProperty(varName, color);
+				});
+
+				applyToPreview(cssVars);
+			}
+
+			// Run once on initial load
+			applyPalette(value.get());
+
+			// Run whenever setting value changes
+			value.bind(applyPalette);
 		});
 	});
+
+	function applyToPreview(cssVars) {
+
+		const iframe = document.querySelector('#customize-preview iframe');
+
+		if (iframe && iframe.contentWindow && iframe.contentWindow.document) {
+			const previewRoot = iframe.contentWindow.document.documentElement;
+
+			Object.entries(cssVars).forEach(([varName, color]) => {
+				previewRoot.style.setProperty(varName, color);
+			});
+			return;
+		}
+	}
 
 	wp.customize('responsive_header_search_label', function(setting) {
 		setting.bind(function(label) {

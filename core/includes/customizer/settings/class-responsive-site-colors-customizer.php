@@ -109,7 +109,7 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 				$site_background_color_label,
 				'responsive_colors',
 				90,
-				Responsive\Core\get_responsive_customizer_defaults( 'background_color' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_site_background_color' ),
 				null,
 				'',
 				false,
@@ -129,7 +129,7 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 				$box_background_color_label,
 				'responsive_colors',
 				95,
-				Responsive\Core\get_responsive_customizer_defaults( 'box_background' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_background_color' ),
 				'responsive_not_active_site_style_flat',
 				'',
 				false,
@@ -143,7 +143,7 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 
 			// Alt Background Color for pre prequotes blockquotes etc.
 			$alt_background_color_label = __( 'Alternate Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'alt_background', $alt_background_color_label, 'responsive_colors', 100, Responsive\Core\get_responsive_customizer_defaults( 'alt_background' ), null );
+			responsive_color_control( $wp_customize, 'alt_background', $alt_background_color_label, 'responsive_colors', 100, Responsive\Core\get_responsive_customizer_defaults( 'responsive_alt_background_color' ), null );
 
 			// Backgrounds.
 			$site_background_label = esc_html__( 'Background Image', 'responsive' );

@@ -53,6 +53,7 @@ if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
 require $responsive_template_directory . '/core/gutenberg/gutenberg-support.php';
 require $responsive_template_directory . '/core/includes/compatibility/lifterlms/class-responsive-lifterlms.php';
 require $responsive_template_directory . '/core/includes/modules/related-posts/class-responsive-related-posts.php';
+require $responsive_template_directory . '/core/includes/modules/color-palette/class-responsive-global-color-palette.php';
 // Deprecated functions.
 require $responsive_template_directory . '/core/includes/functions-deprecated.php';
 // Custom page walker.
@@ -1327,53 +1328,6 @@ function remove_unnecessary_wordpress_menus() {
 	unset( $submenu['themes.php'][20] );
 }
 
-/*
-	Global color palette
-	@since 6.2.5
-*/
-function responsive_register_theme_mods() {
-    $default_palette = [
-        'accent'          => '#0066CC',
-        'link_hover'      => '#007fff',
-        'text'            => '#364151',
-        'headings'        => '#fcba03',
-        'content_bg'      => '#ffffff',
-        'site_background' => '#f0f5fa',
-        'alt_background'  => '#eaeaea',
-    ];
-
-    foreach ( $default_palette as $key => $value ) {
-        $id = "responsive_global_color_palette_{$key}_color";
-        if ( get_theme_mod( $id ) === false ) {
-            set_theme_mod( $id, $value );
-        }
-    }
-}
-add_action( 'after_setup_theme', 'responsive_register_theme_mods' );
-
-function responsive_register_customizer_settings( $wp_customize ) {
-    $default_palette = [
-        'accent'          => '#0066CC',
-        'link_hover'      => '#007fff',
-        'text'            => '#364151',
-        'headings'        => '#fcba03',
-        'content_bg'      => '#ffffff',
-        'site_background' => '#f0f5fa',
-        'alt_background'  => '#eaeaea',
-    ];
-
-    foreach ( $default_palette as $key => $value ) {
-        $id = "responsive_global_color_palette_{$key}_color";
-
-        $wp_customize->add_setting( $id, [
-            'default'   => $value,
-            'type'      => 'theme_mod',
-            'transport' => 'postMessage',
-			'sanitize_callback' => 'sanitize_hex_color',
-        ]);
-    }
-}
-
 /**
  * AJAX: Flush local fonts cache
  */
@@ -1408,8 +1362,6 @@ function responsive_admin_post_flush_local_fonts() {
     exit;
 }
 add_action( 'admin_post_responsive_flush_local_fonts', 'responsive_admin_post_flush_local_fonts' );
-add_action( 'customize_register', 'responsive_register_customizer_settings' );
-
 
 if ( ! function_exists( 'responsive_theme_background_updater_6_1_7' ) ) {
 

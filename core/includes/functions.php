@@ -1084,7 +1084,7 @@ function defaults() {
 			'box_padding'                         => 30,
 			'logo_padding'                        => 28,
 			// Colors.
-			'background_color'                    => '#F0F5FA',
+			'responsive_site_background_color'    => 'palette5',
 			'background_gradient_color'           => 'linear-gradient(135deg, #12c2e9 0%, #c471ed 50%, #f64f59 100%)',
 			'scroll_to_top_icon'                  => '#ffffff',
 			'scroll_to_top_icon_hover'            => '#ffffff',
@@ -1151,8 +1151,7 @@ function defaults() {
 			'mobile_header_html_margin_y'         => 0,
 			'mobile_menu_toggle_border_color'     => '#333333',
 			'menu_button_radius'                  => 0,
-			'box_background'                      => '#ffffff',
-			'alt_background'                      => '#eaeaea',
+			'responsive_alt_background_color'     => 'palette6',
 			'body_text'                           => '#333333',
 			'h1_text'                             => '#333333',
 			'h2_text'                             => '#333333',
@@ -1203,7 +1202,10 @@ function defaults() {
 			'footer_social_item_bg_color'         => '#FFFFFF00',
 			'footer_social_item_bg_hover_color'   => '#FFFFFF00',
 			'responsive_h4_text_color'            => '#333333',
-			'responsive_box_background_color'     => '#ffffff',
+			'responsive_box_background_color'     => 'palette4',
+			'responsive_sidebar_background_color' => 'palette4',
+			'responsive_add_to_cart_button_text_color' => 'palette4',
+			'responsive_add_to_cart_button_hover_text_color' => 'palette4',
 			'responsive_body_text_color'          => '#333333',
 			'responsive_link_color'               => '#0066CC',
 			'responsive_link_hover_color'         => '#10659C',
@@ -1524,6 +1526,10 @@ function defaults() {
 		'footer_widget_content_color'           => '#ffffff',
 		'footer_widget_link_color'              => '#eaeaea',
 		'footer_widget_link_hover_color'        => '#FFFFFF',
+		'default_global_palette'                => array (
+				'style' => 'playful-default',
+				'palette' => responsive_get_selected_palette_color_scheme(),
+			),
 		)
 	);
 	return $theme_options;
@@ -2548,3 +2554,68 @@ add_action( 'customize_register', function( $wp_customize ) {
         $section->priority = 7;
     }
 }, 20 );
+
+if( ! function_exists( 'responsive_get_option' ) ) {
+
+	/**
+	 * Retrieve a theme option value with multiple fallbacks.
+	 *
+	 * This function returns the stored theme modification value for a given key.
+	 * If the value is not set, it first falls back to the default values defined
+	 * in `get_responsive_customizer_defaults()`. If still empty, it falls back to
+	 * the manually supplied `$default` parameter.
+	 *
+	 * @param string $key      Theme option key.
+	 * @param mixed  $default  Optional. Fallback value if no stored or default value is found. Default ''.
+	 *
+	 * @return mixed The resolved option value.
+	 */
+	function responsive_get_option( $key, $default = '' ) {
+
+		$value       = get_theme_mod( $key, null );
+		$key_default = get_responsive_customizer_defaults( $key );
+
+		// If theme_mod not set or empty, use default from defaults array
+		if ( $value === null || $value === '' ) {
+			$value = $key_default;
+		}
+
+		// Still empty, use fallback parameter
+		if ( $value === null || $value === '' ) {
+			$value = $default;
+		}
+
+		return $value;
+	}
+}
+
+if( ! function_exists( 'responsive_prepare_css_value' ) ) {
+	/**
+	 * Format a theme option value for CSS output.
+	 *
+	 * This function retrieves a theme option and converts it into a valid CSS value.
+	 * If the value is a strict palette reference (e.g., "palette1", "palette2"),
+	 * it returns a CSS variable reference like `var(--responsive-global-palette1)`.
+	 * Any other value is returned as is.
+	 *
+	 * @param string $key      Theme option key.
+	 * @param mixed  $default  Optional. Default fallback value. Default ''.
+	 *
+	 * @return string The processed CSS value or empty string if no valid value.
+	 */
+	function responsive_prepare_css_value( $key, $default = '' ) {
+		$value = responsive_get_option( $key, $default );
+
+		if ( $value === '' || $value === null ) {
+			return '';
+		}
+
+		$value = trim( $value );
+
+		if ( is_string( $value ) && preg_match( '/^palette\d+$/', $value ) ) {
+			return 'var(--responsive-global-' . $value . ')';
+		}
+
+		return $value;
+	}
+}

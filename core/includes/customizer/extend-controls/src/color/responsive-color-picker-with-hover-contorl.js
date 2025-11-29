@@ -59,7 +59,7 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 		if( ! this.state.isNormalVisible ) {
 			document.getElementById(currentElementID).style.paddingBottom ='480px';
 		} else {
-			document.getElementById(currentElementID).style.paddingBottom ='0';
+			document.getElementById(currentElementID).style.paddingBottom ='';
 		}
 	}
 
@@ -72,7 +72,7 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 		if( ! this.state.isHoverVisible ) {
 			document.getElementById(currentElementID).style.paddingBottom ='480px';
 		} else {
-			document.getElementById(currentElementID).style.paddingBottom ='0';
+			document.getElementById(currentElementID).style.paddingBottom ='';
 		}
 	}
 
@@ -100,13 +100,31 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 		let defaultValue = this.state.inputattr.default;
 		const { inputattr } = this.state;
 
+		const getColorPreviewValue = (value, wantRawValue = false) => {
+			let color = null;
+			// console.log( 'before color: ', value );
+			if( value && value.includes('palette') ) {
+				color = 'var(--responsive-global-' + value + ')';
+				if (wantRawValue) {
+					const raw = getComputedStyle(document.documentElement)
+						.getPropertyValue('--responsive-global-' + value)
+						.trim();
+					return raw;
+				}
+			} else {
+				color = value;
+			}
+			// console.log( 'after color: ', color );
+			return color;
+		}
+
 		return (
 			<>
 				<div className="wp-picker-container">
 
                     <div className="tooltip-container">
 						<Button className={isNormalVisible ? 'button wp-color-result normal-state wp-picker-open' : 'button wp-color-result normal-state'} onClick={() => { this.toggleNormalVisible() }}
-							aria-expanded='false' style={{ backgroundColor: this.props.color }}
+							aria-expanded='false' style={{ backgroundColor: getColorPreviewValue( this.props.color ) }}
 						>
 						</Button>
                         <span className="tooltip-text">{__('Normal', 'responsive')}</span>
@@ -116,12 +134,12 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 							<>
 								{refresh ? (
 									<ColorPicker
-										color={this.props.color}
+										color={getColorPreviewValue(this.props.color, true)}
 										onChangeComplete={(color) => this.onChangeComplete(color, 'normal')}
 									/>
 								) : (
 									<ColorPicker
-										color={this.props.color}
+										color={getColorPreviewValue(this.props.color, true)}
 										onChangeComplete={(color) => this.onChangeComplete(color, 'normal')}
 									/>
 								)}
@@ -135,7 +153,7 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 
                     <div className="tooltip-container">
                         <Button className={isHoverVisible ? 'button wp-color-result hover-state wp-picker-open' : 'button wp-color-result hover-state'} onClick={() => { this.toggleHoverVisible() }}
-                            aria-expanded='false' style={{ backgroundColor: this.props.hover_color }}
+                            aria-expanded='false' style={{ backgroundColor: getColorPreviewValue(this.props.hover_color) }}
                         >
                         </Button>
                         <span className="tooltip-text">{__('Hover', 'responsive')}</span>
@@ -145,12 +163,12 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 							<>
 								{refresh ? (
 									<ColorPicker
-										color={this.props.hover_color}
+										color={getColorPreviewValue(this.props.hover_color, true)}
 										onChangeComplete={(color) => this.onChangeComplete(color, 'hover')}
 									/>
 								) : (
 									<ColorPicker
-										color={this.props.hover_color}
+										color={getColorPreviewValue(this.props.hover_color, true)}
 										onChangeComplete={(color) => this.onChangeComplete(color, 'hover')}
 									/>
 								)}
@@ -185,7 +203,7 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 			this.setState({ refresh: true });
 		}
 		this.props.onChangeComplete(color, type);
-		wp.customize.previewer.refresh();
+		// wp.customize.previewer.refresh();
 	}
 
 	onChangeComplete(color, type) {

@@ -358,4 +358,3 @@ function responsive_sanitize_select_with_switchers( $input, $setting ) {
 	// If the input is a valid choice, return it; otherwise, return the default.
 	return array_key_exists( $input, $choices ) ? $input : $setting->default;
 }
-

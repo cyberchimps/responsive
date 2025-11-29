@@ -14,50 +14,61 @@ const PaletteComponent = props => {
         link, 
     } = props.control.params;
 
-    const didMountRef = useRef(false); 
+    const didMountRef = useRef(false);
+    const didMountInlineThemeModColorPicker = useRef(false);
 
     const [selectedChoice, setSelectedChoice] = useState(() => {
-        return props.control.setting.get() || 'playful-default';
+        return props.control.setting.get();
     });
 
-    useEffect(() => {
-    const setting = props.control.setting;
-    const handler = (newVal) => setSelectedChoice(newVal || 'playful-default');
-    setting.bind(handler);
-    return () => setting.unbind(handler);
-    }, [props.control.setting]);
+    console.log( 'PaletteComponent render - selectedChoice:', selectedChoice );
+    // console.log( 'choices: ', choices );
 
-    useEffect(() => {
-        if(!didMountRef.current)
-        {
-            didMountRef.current = true; 
-            return; 
-        }
-        if (!choices || !selectedChoice) return;
-        if (typeof wp === 'undefined' || !wp.customize) return;
+    // useEffect(() => {
+    // const setting = props.control.setting;
+    // const handler = (newVal) => setSelectedChoice(newVal || 'playful-default');
+    // setting.bind(handler);
+    // return () => setting.unbind(handler);
+    // }, [props.control.setting]);
 
-        const palette = choices[selectedChoice];
-        if (!palette) return;
+    // useEffect(() => {
+    //     if(!didMountRef.current)
+    //     {
+    //         didMountRef.current = true; 
+    //         return; 
+    //     }
+    //     if (!choices || !selectedChoice) return;
+    //     if (typeof wp === 'undefined' || !wp.customize) return;
 
-        // Map palette keys → Customizer setting IDs
-        const mapping = {
-            accent: 'responsive_global_color_palette_accent_color',
-            link_hover: 'responsive_global_color_palette_link_hover_color',
-            text: 'responsive_global_color_palette_text_color',
-            header_text: 'responsive_global_color_palette_headings_color',
-            content_background: 'responsive_global_color_palette_content_bg_color',
-            site_background: 'responsive_global_color_palette_site_background_color',
-            alt_background: 'responsive_global_color_palette_alt_background_color'
-        };
-        Object.entries(mapping).forEach(([paletteKey, settingId]) => {
-            if (palette[paletteKey] && wp.customize(settingId)) {
-                wp.customize(settingId).set(palette[paletteKey]);
-            }
-        });
-    }, [selectedChoice, choices]);
+    //     const palette = choices[selectedChoice];
+    //     if (!palette) return;
+
+    //     // Map palette keys → Customizer setting IDs
+    //     const mapping = {
+    //         accent: 'responsive_global_color_palette_accent_color',
+    //         link_hover: 'responsive_global_color_palette_link_hover_color',
+    //         text: 'responsive_global_color_palette_text_color',
+    //         header_text: 'responsive_global_color_palette_headings_color',
+    //         content_background: 'responsive_global_color_palette_content_bg_color',
+    //         site_background: 'responsive_global_color_palette_site_background_color',
+    //         alt_background: 'responsive_global_color_palette_alt_background_color'
+    //     };
+    //     Object.entries(mapping).forEach(([paletteKey, settingId]) => {
+    //         if (palette[paletteKey] && wp.customize(settingId)) {
+    //             wp.customize(settingId).set(palette[paletteKey]);
+    //         }
+    //     });
+    // }, [selectedChoice, choices]);
 
     const handlePaletteChange = (choice) => {
-        props.control.setting.set(choice);
+        // console.log( 'handlePaletteChange - choice:', choice );
+        const newSettingVal = {
+            ...selectedChoice,
+            style: choice,
+            palette: choices[choice]
+        }
+
+        props.control.setting.set(newSettingVal);
         
         const palette = choices[choice];
         const mapping = {
@@ -71,11 +82,11 @@ const PaletteComponent = props => {
         };
         Object.entries(mapping).forEach(([paletteKey, settingId]) => {
             if (palette[paletteKey] && wp.customize(settingId)) {
-                // wp.customize(settingId).set(palette[paletteKey]);
-                 propagateGlobalColor(settingId, palette[paletteKey], wp);
+                wp.customize(settingId).set(palette[paletteKey]);
+                //  propagateGlobalColor(settingId, palette[paletteKey], wp);
             }
         });
-        setSelectedChoice(choice);
+        setSelectedChoice(newSettingVal);
     };
 
     const [isPaletteVisible, setIsPaletteVisible] = useState(false);
@@ -135,13 +146,13 @@ const PaletteComponent = props => {
             ]
         };
 
-        if (propagationMap[settingId]) {
-            propagationMap[settingId].forEach(rId => {
-            if (wp.customize(rId)) {
-                wp.customize(rId).set(value);
-            }
-            });
-        }
+        // if (propagationMap[settingId]) {
+        //     propagationMap[settingId].forEach(rId => {
+        //     if (wp.customize(rId)) {
+        //         wp.customize(rId).set(value);
+        //     }
+        //     });
+        // }
     };
     const togglePaletteVisibility = (e) => {
         e.stopPropagation();
@@ -172,10 +183,12 @@ const PaletteComponent = props => {
     const toColorString = (color) => {
         if (!color) return '';
         if (typeof color === 'string') return color;
-        if (color.rgb && color.rgb.a !== undefined) {
-            return color.rgb.a !== 1 ? `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})` : color.hex;
-        }
-        return color.hex || '';
+        if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
+			color = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
+		} else {
+			color = color.hex;
+		}
+        return color || '';
     };
 
     // Inject one-time CSS to make inline pickers large and circular
@@ -196,7 +209,7 @@ const PaletteComponent = props => {
         }
     }, []);
 
-    const InlineThemeModColorPicker = ({ settingId, labelText }) => {
+    const InlineThemeModColorPicker = ({ settingId, labelText, settingKey, selectedChoice }) => {
         const pickerId = `responsive-inline-picker-${settingId}`;
         const pickerRef = useRef(null);
         const [color, setColor] = useState(() => {
@@ -244,14 +257,32 @@ const PaletteComponent = props => {
         const handleChangeComplete = (newColor) => {
             const value = toColorString(newColor);
             setColor(value);
-
-            propagateGlobalColor(settingId, value, wp);
+            const newSettingVal = {
+                ...selectedChoice,
+                palette: {
+                    ...selectedChoice.palette,
+                    [settingKey]: value
+                }
+            };
+            props.control.setting.set(newSettingVal);
+            // setSelectedChoice( newSettingVal );
+            // propagateGlobalColor(settingId, value, wp);
+            wp.customize(settingId).set(value);
         };
 
         const handlePickerToggle = () => {
+            // console.log( 'handlePickerToggle' );
             if (!isOpen) {
                 setOpenPickerId(pickerId);
             }
+            const updated = wp.customize(settingId).get();
+            setSelectedChoice(prev => ({
+                ...prev,
+                palette: {
+                    ...prev.palette,
+                    [settingKey]: updated
+                }
+            }));
         };
 
         const selfClicked = () => {
@@ -344,7 +375,7 @@ const PaletteComponent = props => {
     }
 
     let optionsHtml = Object.keys(choices).map(choice => {
-        let html = <label key={choice} htmlFor={`${id}-${choice}`} className={`palette__choice ${choice === selectedChoice ? 'selected' : '' }`}>
+        let html = <label key={choice} htmlFor={`${id}-${choice}`} className={`palette__choice ${choice === selectedChoice?.style ? 'selected' : '' }`}>
             <div className="label">{choices[choice].label}</div>
             <div className="responsive-palette-picker-control-wrapper">
                 <span className="screen-reader-text">{choices[choice].label} design style</span>
@@ -365,7 +396,6 @@ const PaletteComponent = props => {
     <div className="responsive-selected-palette-details">
         <div className="responsive-selected-palette-header">
             {/* not showing the color palette name */}
-            {/* <div className="label">{choices[selectedChoice].label}</div> */} 
             <div className="label">Your color palette</div>
             <span
                 id="responsive-color-palette-btn"
@@ -384,13 +414,13 @@ const PaletteComponent = props => {
     let selectedPaletteColorsRow = <div className="responsive-selected-palette-all-colors">
         <div className="responsive-selected-palette-editor">
             <div className="responsive-selected-palette-pickers">
-                <InlineThemeModColorPicker settingId={'responsive_global_color_palette_accent_color'} labelText={'Accent'} />
-                <InlineThemeModColorPicker settingId={'responsive_global_color_palette_link_hover_color'} labelText={'Link Hover'} />
-                <InlineThemeModColorPicker settingId={'responsive_global_color_palette_text_color'} labelText={'Text'} />
-                <InlineThemeModColorPicker settingId={'responsive_global_color_palette_headings_color'} labelText={'Headings'} />
-                <InlineThemeModColorPicker settingId={'responsive_global_color_palette_content_bg_color'} labelText={'Background'} />
-                <InlineThemeModColorPicker settingId={'responsive_global_color_palette_site_background_color'} labelText={'Site Background'} />
-                <InlineThemeModColorPicker settingId={'responsive_global_color_palette_alt_background_color'} labelText={'Alt Background'} />
+                <InlineThemeModColorPicker key={0} settingId={'responsive_global_color_palette_accent_color'} labelText={'Accent'} settingKey={'accent'} selectedChoice={selectedChoice} />
+                <InlineThemeModColorPicker key={1} settingId={'responsive_global_color_palette_link_hover_color'} labelText={'Link Hover'} settingKey={'link_hover'} selectedChoice={selectedChoice} />
+                <InlineThemeModColorPicker key={2} settingId={'responsive_global_color_palette_text_color'} labelText={'Text'} settingKey={'text'} selectedChoice={selectedChoice} />
+                <InlineThemeModColorPicker key={3} settingId={'responsive_global_color_palette_headings_color'} labelText={'Headings'} settingKey={'header_text'} selectedChoice={selectedChoice} />
+                <InlineThemeModColorPicker key={4} settingId={'responsive_global_color_palette_content_bg_color'} labelText={'Background'} settingKey={'content_background'} selectedChoice={selectedChoice} />
+                <InlineThemeModColorPicker key={5} settingId={'responsive_global_color_palette_site_background_color'} labelText={'Site Background'} settingKey={'site_background'} selectedChoice={selectedChoice} />
+                <InlineThemeModColorPicker key={6} settingId={'responsive_global_color_palette_alt_background_color'} labelText={'Alt Background'} settingKey={'alt_background'} selectedChoice={selectedChoice} />
             </div>
         </div>
     </div>

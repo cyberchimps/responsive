@@ -680,7 +680,7 @@ body.wp-customizer .responsive-color-control-main-wrap .wp-picker-container .wp-
 #customize-control-responsive_header_cart_tray_bg_color .responsive-color-control-main-wrap .wp-picker-holder {
     top: 60px;
 }
-#sub-accordion-section-responsive_woocommerce_cart #customize-control-responsive_cart_buttons_text_color .responsive-color-control-main-wrap {
+#sub-accordion-section-responsive_woocommerce_cart #customize-control-responsive_cart_buttons_text_color {
     padding-bottom: 24px;
 }
 .responsive-color-control-main-wrap .responsive-color-picker-zero-opac {
@@ -785,4 +785,7 @@ body.wp-customizer .responsive-color-control-main-wrap .wp-picker-container .wp-
 }
 [id^="customize-control-responsive_footer_widget"][id$="_color"] .responsive-color-control-main-wrap {
     padding: 0;
+}
+#customize-control-responsive_cart_checkout_button_text_color {
+	padding-bottom: 12px;
 }

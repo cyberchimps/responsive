@@ -1792,6 +1792,31 @@ function responsive_get_default_color_scheme() {
 
 }
 
+function responsive_get_selected_palette_color_scheme ( $selected_design_style = 'playful-default' ) {
+
+	if ( empty( $selected_design_style ) ) {
+		return array();
+	}
+
+	$customizer_color_schemes 		  = explode( '-', $selected_design_style );
+	$customizer_color_schemes_design  = $customizer_color_schemes[0];
+	$customizer_color_schemes_palette = $customizer_color_schemes[1];
+
+	if ( empty( $customizer_color_schemes_design ) || empty( $customizer_color_schemes_palette ) ) {
+		return array();
+	}
+
+	$design_styles = responsive_get_available_design_styles();
+	if ( array_key_exists( $customizer_color_schemes_design, $design_styles ) ) {
+		$color_schemes = $design_styles[ $customizer_color_schemes_design ]['color_schemes'];
+		if ( array_key_exists( $customizer_color_schemes_palette, $color_schemes ) ) {
+			return $color_schemes[ $customizer_color_schemes_palette ];
+		}
+	}
+
+	return array();
+}
+
 /**
  * Returns the avaliable design styles.
  *
@@ -1810,7 +1835,7 @@ function responsive_get_available_design_styles() {
 						'link_hover'		=> '#007fff',
 						'text'              => '#364151',
 						'header_text'       => '#fcba03',
-						'background'        => '#ffffff',
+						// 'background'        => '#ffffff',
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#eaeaea',
@@ -1822,7 +1847,7 @@ function responsive_get_available_design_styles() {
 						'link_hover'		=> '#313789',
 						'text'              => '#ecb43d',
 						'header_text'       => '#0F172A',
-						'background'        => '#ffffff',
+						// 'background'        => '#ffffff',
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#f7fbff',
@@ -1833,7 +1858,7 @@ function responsive_get_available_design_styles() {
 						'link_hover'		=> '#d74143',
 						'text'              => '#40896e',
 						'header_text'       => '#0F172A',
-						'background'        => '#ffffff',
+						// 'background'        => '#ffffff',
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#fff7f7',
@@ -1844,7 +1869,7 @@ function responsive_get_available_design_styles() {
 						'link_hover'		=> '#2c6651',
 						'text'              => '#6b0369',
 						'header_text'       => '#0F172A',
-						'background'        => '#ffffff',
+						// 'background'        => '#ffffff',
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#f2f9f7',
@@ -1855,7 +1880,7 @@ function responsive_get_available_design_styles() {
 						'link_hover'		=> '#0c5067',
 						'text'              => '#d691c1',
 						'header_text'       => '#0F172A',
-						'background'        => '#ffffff',
+						// 'background'        => '#ffffff',
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#f7feff',
@@ -1873,7 +1898,7 @@ function responsive_get_available_design_styles() {
 						'link_hover'	 => '#e5822e',
 						'text'           => '#122538',
 						'header_text'	 => '#0F172A',
-						'background'     => '#ffffff',
+						// 'background'     => '#ffffff',
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background' => '#f8f8f8',
@@ -1884,7 +1909,7 @@ function responsive_get_available_design_styles() {
 						'link_hover'  	 => '#21787b',
 						'text'           => '#212121',
 						'header_text'    => '#0F172A',
-						'background'     => '#ffffff',
+						// 'background'     => '#ffffff',
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background' => '#f3f1f0',
@@ -1895,7 +1920,7 @@ function responsive_get_available_design_styles() {
 						'link_hover'	 => '#b52b13',
 						'text'           => '#242611',
 						'header_text'    => '#0F172A',
-						'background'     => '#ffffff',
+						// 'background'     => '#ffffff',
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background' => '#f9f2ef',
@@ -1906,7 +1931,7 @@ function responsive_get_available_design_styles() {
 						'link_hover'     => '#846939',
 						'text'           => '#05212d',
 						'header_text'    => '#0F172A',
-						'background'     => '#ffffff',
+						// 'background'     => '#ffffff',
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background' => '#f9f4ef',
@@ -1924,7 +1949,7 @@ function responsive_get_available_design_styles() {
 						'link_hover' 	 => '#808080',
 						'text'           => '#455a64',
 						'header_text'    => '#0F172A',
-						'background'     => '#ffffff',
+						// 'background'     => '#ffffff',
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background' => '#eceff1',
@@ -1935,7 +1960,7 @@ function responsive_get_available_design_styles() {
 						'link_hover'	 => '#951246',
 						'text'           => '#ec407a',
 						'header_text'    => '#0F172A',
-						'background'     => '#ffffff',
+						// 'background'     => '#ffffff',
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background' => '#fce4ec',
@@ -1946,7 +1971,7 @@ function responsive_get_available_design_styles() {
 						'link_hover' 	 => '#3d50c5',
 						'text'           => '#5c6bc0',
 						'header_text'    => '#0F172A',
-						'background'     => '#ffffff',
+						// 'background'     => '#ffffff',
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background' => '#e8eaf6',
@@ -1957,7 +1982,7 @@ function responsive_get_available_design_styles() {
 						'link_hover'	 => '#00463e',
 						'text'           => '#26a69a',
 						'header_text'    => '#0F172A',
-						'background'     => '#ffffff',
+						// 'background'     => '#ffffff',
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background' => '#e0f2f1',
@@ -1975,7 +2000,7 @@ function responsive_get_available_design_styles() {
 						'link_hover' 		=> '#808080',
 						'text'              => '#4d0859',
 						'header_text'       => '#0F172A',
-						'background'        => '#ffffff',
+						// 'background'        => '#ffffff',
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#ded9e2',
@@ -1987,7 +2012,7 @@ function responsive_get_available_design_styles() {
 						'link_hover'		=> '#808080',
 						'text'              => '#003c68',
 						'header_text'       => '#0F172A',
-						'background'        => '#ffffff',
+						// 'background'        => '#ffffff',
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#c0c9d0',
@@ -1998,7 +2023,7 @@ function responsive_get_available_design_styles() {
 						'link_hover'     	=> '#808080',
 						'text'              => '#02493b',
 						'header_text'       => '#0F172A',
-						'background'        => '#ffffff',
+						// 'background'        => '#ffffff',
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#b4c6af',
@@ -2009,7 +2034,7 @@ function responsive_get_available_design_styles() {
 						'link_hover' 		=> '#808080',
 						'text'              => '#cc224f',
 						'header_text'       => '#0F172A',
-						'background'        => '#ffffff',
+						// 'background'        => '#ffffff',
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#e5dede',
@@ -2027,7 +2052,7 @@ function responsive_get_available_design_styles() {
 						'link_hover'	    => '#87dfcb',
 						'text'              => '#01332e',
 						'header_text'       => '#0F172A',
-						'background'        => '#eeeeee',
+						// 'background'        => '#eeeeee',
 						'content_background' => '#eeeeee',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#c9c9c9',
@@ -2038,7 +2063,7 @@ function responsive_get_available_design_styles() {
 						'link_hover'		=> '#87dfcb',
 						'text'              => '#01133d',
 						'header_text' 	 => '#0F172A',
-						'background'        => '#eeeeee',
+						// 'background'        => '#eeeeee',
 						'content_background' => '#eeeeee',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#c9c9c9',
@@ -2049,7 +2074,7 @@ function responsive_get_available_design_styles() {
 						'link_hover'		=> '#ddbf9d',
 						'text'              => '#3f2404',
 						'header_text'       => '#0F172A',
-						'background'        => '#eeeeee',
+						// 'background'        => '#eeeeee',
 						'content_background' => '#eeeeee',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#c9c9c9',
@@ -2060,7 +2085,7 @@ function responsive_get_available_design_styles() {
 						'link_hover'	    => '#d4d1ea',
 						'text'              => '#2b226b',
 						'header_text'       => '#0F172A',
-						'background'        => '#eeeeee',
+						// 'background'        => '#eeeeee',
 						'content_background' => '#eeeeee',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#c9c9c9',

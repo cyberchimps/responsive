@@ -36,7 +36,7 @@ if ( ! class_exists( 'Responsive_Sidebar_Colors_Customizer' ) ) :
 
 			// Background Color.
 			$sidebar_background_color_label = __( 'Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'sidebar_background', $sidebar_background_color_label, 'responsive_sidebar', 10, Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_background_color' ) );
+			responsive_color_control( $wp_customize, 'sidebar_background', $sidebar_background_color_label, 'responsive_sidebar', 10, Responsive\Core\get_responsive_customizer_defaults( 'responsive_sidebar_background_color' ) );
 
 			responsive_horizontal_separator_control($wp_customize, 'sidebar_background_separator', 1, 'responsive_sidebar', 12, 1, );
 

@@ -75,7 +75,7 @@ class ColorPickerControlWithDevices extends Component {
 					this.setState( { isVisible: false } );
 				}
 				const currentElementID = this.state.inputattr.content.match(/id="([^"]*)"/)[1];
-				document.getElementById(currentElementID).style.paddingBottom ='0';
+				document.getElementById(currentElementID).style.paddingBottom ='';
 			}
 		};
 		let finalpaletteColors = [];
