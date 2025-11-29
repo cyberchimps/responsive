@@ -460,7 +460,7 @@
 }
 
 // Header Widget Styles
-.header-widgets {
+.header-widgets,.mobile-header-widgets {
     border-bottom: 1px solid map-get($colors, light-gray);
     background-color: map-get($colors, #fff);
     font-size: map-get($font-sizes, small);
@@ -469,7 +469,7 @@
         background-color: transparent;
     }
 
-    .header-widgets-wrapper {
+    .header-widgets-wrapper,.mobile-header-widgets-wrapper {
         @extend .row;
         justify-content: space-between;
         .header-widget-alignment-left & {
@@ -503,7 +503,7 @@
         float: left;
         border: 0;
 
-        .header-widgets-wrapper {
+        .header-widgets-wrapper, .mobile-header-widgets-wrapper {
             flex-direction: row;
         }
 
@@ -587,7 +587,8 @@ body.mega-menu-header-menu button.menu-toggle {
     }
 }
 
-.res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead{
+.res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead,
+.res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead-mobile {
     position: absolute;
     right: 0;
     left: 0;
@@ -705,7 +706,7 @@ body.mega-menu-header-menu button.menu-toggle {
 	}
 }
 
-.site-header {
+.site-header,.site-header-mobile {
 	.custom-logo-link.sticky-custom-logo {
 		display: none;
 	}
@@ -1290,11 +1291,18 @@ body.mega-menu-header-menu button.menu-toggle {
 }
 .res-transparent-header {
     & #masthead,
+    & #masthead-mobile,
     & .responsive-site-above-header-wrap,
     & .responsive-site-primary-header-wrap,
     & .responsive-site-below-header-wrap,
     & .responsive-site-below-header-wrap:hover,
     & .responsive-site-primary-header-wrap:hover,
+    & .responsive-site-above-mobile-header-wrap,
+    & .responsive-site-primary-mobile-header-wrap,
+    & .responsive-site-below-mobile-header-wrap,
+    & .responsive-site-above-mobile-header-wrap:hover,
+    & .responsive-site-primary-mobile-header-wrap:hover,
+    & .responsive-site-below-mobile-header-wrap:hover,
     & .responsive-site-above-header-wrap:hover {
         background: transparent;
     }
@@ -1459,5 +1467,52 @@ body.mega-menu-header-menu button.menu-toggle {
         color: #0066CC;
         font-size: 0.9em;
         padding: 10px 20px;
+    }
+}
+
+// Mobile header toggle button: Show cross icon when dropdown is open
+#masthead-mobile {
+    .site-header-item-toggle-button {
+        .menu-toggle {
+            position: relative;
+            
+            // When dropdown menu is open, hide the menu icon SVG and show cross icon
+            &[aria-expanded="true"] {
+                svg {
+                    opacity: 0;
+                    visibility: hidden;
+                    width: 0;
+                    height: 0;
+                    margin: 0;
+                }
+                
+                // Show cross icon using pseudo-element positioned where SVG was
+                &::before {
+                    content: "\f00d";
+                    font-family: $icon-font;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    opacity: 1;
+                    visibility: visible;
+                    font-size: inherit;
+                    line-height: 1;
+                    width: var(--menu-icon-size);
+                    height: var(--menu-icon-size);
+                }
+            }
+            
+            // When menu is closed, ensure cross icon is hidden and SVG is visible
+            &[aria-expanded="false"] {
+                &::before {
+                    display: none;
+                }
+                
+                svg {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
     }
 }

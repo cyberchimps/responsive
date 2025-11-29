@@ -39,7 +39,8 @@ if ( ! class_exists( 'Responsive_Theme_Background_Updater' ) ) {
                 'responsive_theme_background_updater_mobile_header_contact_info_6_2_9',
                 'responsive_theme_background_updater_mobile_header_social_6_2_9',
                 'responsive_theme_background_updater_mobile_header_button_6_2_9',
-                'responsive_theme_background_updater_mobile_header_widgets_6_2_9'
+                'responsive_theme_background_updater_mobile_header_widgets_6_2_9',
+                'responsive_theme_background_updater_off_canvas_menu_6_2_9'
             )
 		);
 

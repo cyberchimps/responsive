@@ -2678,3 +2678,50 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_header_widget
 	}
 }
 
+if( ! function_exists( 'responsive_theme_background_updater_off_canvas_menu_6_2_9') ) {
+	/**
+	 * Handle backward compatibility for off-canvas menu background settings migration.
+	 * 
+	 * @since 6.2.9
+	 * @return void
+	 */
+	function responsive_theme_background_updater_off_canvas_menu_6_2_9(){
+		$responsive_options = Responsive\Core\responsive_get_options();
+
+		if( !isset( $responsive_options['off_canvas_menu_background_backward_done'])) {
+			
+			// Mapping of old off_canvas_menu background theme mods to new ones
+			$theme_mod_mapping = array(
+				'responsive_header_mobile_menu_background_color'=>'responsive_header_mobile_menu_background_color',
+				'responsive_header_menu_link_color' => 'responsive_header_off_canvas_menu_link_default_color',
+				'responsive_header_active_menu_link_color' => 'responsive_header_off_canvas_menu_link_active_color',
+				'responsive_header_menu_link_hover_color' => 'responsive_header_off_canvas_menu_link_hover_color',
+				'responsive_header_hover_menu_background_color' => 'responsive_header_off_canvas_menu_bg_hover_color',
+				'responsive_header_mobile_menu_background_color'=>'responsive_header_off_canvas_menu_bg_default_color',
+				'responsive_header_active_menu_background_color' => 'responsive_header_off_canvas_menu_bg_active_color',
+			);
+
+			$check_trans_header = get_theme_mod( 'responsive_transparent_header', 0 ); 
+			if( $check_trans_header === 1) 
+			{
+				$theme_mod_mapping['responsive_transparent_header_mobile_menu_background_color'] = 'responsive_header_mobile_menu_background_color';
+			}
+			
+			// Migrate each theme mod if the old value exists and new value doesn't exist
+			foreach ( $theme_mod_mapping as $old_mod => $new_mod ) {
+				$old_value = get_theme_mod( $old_mod, false );
+				$new_value = get_theme_mod( $new_mod, false );
+				
+				// Only migrate if old value exists and new value doesn't exist
+				if ( false !== $old_value && false === $new_value ) {
+					set_theme_mod( $new_mod, $old_value );
+				}
+			}
+			
+			// Mark backward compatibility update as done
+			$responsive_options['off_canvas_menu_background_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+	

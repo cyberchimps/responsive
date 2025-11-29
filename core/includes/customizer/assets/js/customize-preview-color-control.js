@@ -885,7 +885,7 @@
                 jQuery( 'head' ).append(
                     '<style id="responsive-transparent-header-mobile-menu-background-color">'
                     + '@media screen and (max-width: ' + mobileBreakPoint + ') {'
-                    + '.res-transparent-header .site-header-row .main-navigation.toggled,.res-transparent-header .site-header-row .main-navigation.toggled .main-navigation-wrapper { background-color: ' + color + ' !important; }'
+                    + '.res-transparent-header .site-header-row .main-navigation.toggled,.res-transparent-header .site-header-row .main-navigation.toggled .main-navigation-wrapper, .off-canvas-widget-area #off-canvas-menu li a, #off-canvas-site-navigation .menu li a, .off-canvas-widget-area .off-canvas-navigation { background-color: ' + color + ' !important; }'
                     + '} </style>'
                 );
             }
@@ -926,14 +926,14 @@
     //Active Menu Background Color
     api( 'responsive_transparent_header_active_menu_background_color', function( value ) {
         value.bind( function( newval ) {
-            $('.res-transparent-header .main-navigation .menu .current_page_item > a,.res-transparent-header .main-navigation .menu .current-menu-item > a').css('background-color', newval );
+            $('.res-transparent-header .main-navigation .menu .current_page_item > a,.res-transparent-header .main-navigation .menu .current-menu-item > a').css('background-color,.off-canvas-widget-area #off-canvas-menu li.current-menu-item > a,.off-canvas-widget-area #off-canvas-menu li.current_page_item > a,#off-canvas-site-navigation .menu li.current_page_item > a', newval );
         } );
     } );
 
     //Active Menu Background Color
     api( 'responsive_transparent_header_hover_menu_background_color', function( value ) {
         value.bind( function( newval ) {
-            $('.res-transparent-header .main-navigation .menu .current_page_item > a:hover,.res-transparent-header .main-navigation .menu .current-menu-item > a:hover,.res-transparent-header .main-navigation .menu li > a:hover,.res-transparent-header .main-navigation .menu .page_item a:hover').css('background-color', newval );
+            $('.res-transparent-header .main-navigation .menu .current_page_item > a:hover,.res-transparent-header .main-navigation .menu .current-menu-item > a:hover,.res-transparent-header .main-navigation .menu li > a:hover,.res-transparent-header .main-navigation .menu .page_item a:hover,.off-canvas-widget-area #off-canvas-menu li a:hover, #off-canvas-site-navigation .menu li a:hover').css('background-color', newval );
         } );
     } );
 
@@ -1769,14 +1769,6 @@
             $(this).css("fill", api('responsive_off_canvas_close_button_color').get());
         }
     );
-
-    // Mobile Off Canvas close icon color.
-    api( 'responsive_header_mobile_off_canvas_close_icon_color', function( value ) {
-        value.bind( function( newval ) {
-            $('#responsive-off-canvas-panel .responsive-off-canvas-close').css('color', newval );
-            $('#responsive-off-canvas-panel .responsive-off-canvas-close svg').css('fill', newval );
-        } );
-    } );
     
     api( 'responsive_off_canvas_filter_button_color', function( value ) {
         value.bind( function( newval ) {
@@ -3695,7 +3687,7 @@
                 .css('fill', newval);
 
             // Apply same color to menu label
-            jQuery('.hamburger-menu-label')
+            jQuery(".hamburger-menu-label,.site-header-item .menu-toggle[aria-expanded='true'],#masthead-mobile .responsive-off-canvas-close")
                 .css('color', newval);
         });
     });
