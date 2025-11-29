@@ -53,8 +53,8 @@ if ( ! class_exists( 'Responsive_Site_Color_Palettes_Scheme_Customizer' ) ) :
 
 			$default_colors = array(
 				'responsive_global_color_palette_accent_color'          => '#0066CC',
-				'responsive_global_color_palette_link_hover_color'      => '#007fff',
-				'responsive_global_color_palette_text_color'            => '#364151',
+				'responsive_global_color_palette_link_hover_color'      => '#10659C',
+				'responsive_global_color_palette_text_color'            => '#333333',
 				'responsive_global_color_palette_headings_color'        => '#fcba03',
 				'responsive_global_color_palette_content_bg_color'      => '#ffffff',
 				'responsive_global_color_palette_site_background_color' => '#f0f5fa',

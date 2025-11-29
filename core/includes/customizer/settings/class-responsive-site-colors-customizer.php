@@ -58,12 +58,12 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 			// Body Text Color.
 			$body_text_color_label = __( 'Body Text Color', 'responsive' );
 
-			responsive_color_control( $wp_customize, 'body_text', $body_text_color_label, 'responsive_colors', 30, Responsive\Core\get_responsive_customizer_defaults( 'body_text' ) );
+			responsive_color_control( $wp_customize, 'body_text', $body_text_color_label, 'responsive_colors', 30, Responsive\Core\get_responsive_customizer_defaults( 'responsive_body_text_color' ) );
 
 			// Link Color.
 			$link_color_label = __( 'Links', 'responsive' );
 
-			responsive_color_control( $wp_customize, 'link', $link_color_label, 'responsive_colors', 35, Responsive\Core\get_responsive_customizer_defaults( 'link' ),null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'link_hover' ), 'link_hover' );
+			responsive_color_control( $wp_customize, 'link', $link_color_label, 'responsive_colors', 35, Responsive\Core\get_responsive_customizer_defaults( 'link' ),null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_link_hover_color' ), 'link_hover' );
 
 			// Meta Color.
 			$meta_text_color_label = __( 'Meta Color', 'responsive' );

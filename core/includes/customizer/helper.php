@@ -1832,8 +1832,8 @@ function responsive_get_available_design_styles() {
 					'default' => array(
 						'label'             => _x( 'Default', 'color palette name', 'responsive' ),
 						'accent'            => '#0066CC',
-						'link_hover'		=> '#007fff',
-						'text'              => '#364151',
+						'link_hover'		=> '#10659C',
+						'text'              => '#333333',
 						'header_text'       => '#fcba03',
 						// 'background'        => '#ffffff',
 						'content_background' => '#ffffff',

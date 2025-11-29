@@ -488,6 +488,9 @@
     //Body text Color
     api( 'responsive_body_text_color', function( value ) {
         value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('body, .wc-block-grid__product-title').css('color', newval );
         } );
     } );
@@ -614,6 +617,9 @@
     //Link Hover Color
     api( 'responsive_link_hover_color', function( value ) {
         value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('a:hover').css('color', newval );
         } );
     } );
@@ -1374,6 +1380,9 @@
     //Text Color
     api( 'responsive_sidebar_text_color', function( value ) {
         value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('.widget-area').css('color', newval );
         } );
     } );
@@ -1432,7 +1441,8 @@
     //Links Hover Color
     $("a").hover(
         function() {
-            $(this).css("color", api('responsive_link_hover_color').get());
+            const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
+            $(this).css("color", linkHoverColor);
         },
 
         function() {
