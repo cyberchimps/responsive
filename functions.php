@@ -2692,7 +2692,7 @@ if( ! function_exists( 'responsive_theme_background_updater_off_canvas_menu_6_2_
 			
 			// Mapping of old off_canvas_menu background theme mods to new ones
 			$theme_mod_mapping = array(
-				'responsive_header_mobile_menu_background_color'=>'header_mobile_menu_background',
+				'responsive_header_mobile_menu_background_color'=>'responsive_header_mobile_menu_background_color',
 				'responsive_header_menu_link_color' => 'responsive_header_off_canvas_menu_link_default_color',
 				'responsive_header_active_menu_link_color' => 'responsive_header_off_canvas_menu_link_active_color',
 				'responsive_header_menu_link_hover_color' => 'responsive_header_off_canvas_menu_link_hover_color',
@@ -2700,6 +2700,12 @@ if( ! function_exists( 'responsive_theme_background_updater_off_canvas_menu_6_2_
 				'responsive_header_mobile_menu_background_color'=>'responsive_header_off_canvas_menu_bg_default_color',
 				'responsive_header_active_menu_background_color' => 'responsive_header_off_canvas_menu_bg_active_color',
 			);
+
+			$check_trans_header = get_theme_mod( 'responsive_transparent_header', 0 ); 
+			if( $check_trans_header === 1) 
+			{
+				$theme_mod_mapping['responsive_transparent_header_mobile_menu_background_color'] = 'responsive_header_mobile_menu_background_color';
+			}
 			
 			// Migrate each theme mod if the old value exists and new value doesn't exist
 			foreach ( $theme_mod_mapping as $old_mod => $new_mod ) {
