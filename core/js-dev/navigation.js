@@ -154,7 +154,7 @@
 					} else {
 						subMenu.style.display = 'none';
 						if( breakpoint.matches ) {
-							parentLi.style.width = 'auto';
+							parentLi.style.width = '100%';
 						}
 					}
 				}
@@ -169,7 +169,7 @@
 					} else {
 						children.style.display = 'none';
 						if( breakpoint.matches ) {
-							parentLi.style.width = 'auto';
+							parentLi.style.width = '100%';
 						}
 					}
 				}

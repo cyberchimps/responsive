@@ -54,7 +54,7 @@ if( ! class_exists( 'Responsive_Header_Off_Canvas_Menu_Layouts_Customizer' ) ) {
 
             // Items Divider - A horizontal line appearing after each menu item in the off canvas - General Tab
             $off_canvas_menu_items_divider_label = __( 'Items Divider', 'responsive' );
-            responsive_toggle_control( $wp_customize, 'header_off_canvas_menu_items_divider', $off_canvas_menu_items_divider_label, 'responsive_header_off_canvas_menu_layout', 20, 0, null, 'refresh' );
+            responsive_toggle_control( $wp_customize, 'header_off_canvas_menu_items_divider', $off_canvas_menu_items_divider_label, 'responsive_header_off_canvas_menu_layout', 20, 1, null, 'refresh' );
 
             // Horizontal Separator - General Tab
             responsive_horizontal_separator_control( $wp_customize, 'header_off_canvas_menu_items_divider_separator', 1, 'responsive_header_off_canvas_menu_layout', 25, 1);
@@ -75,11 +75,11 @@ if( ! class_exists( 'Responsive_Header_Off_Canvas_Menu_Layouts_Customizer' ) ) {
 
             // Link Default Color - Design Tab
             $off_canvas_menu_link_default_color_label = __( 'Link Default Color', 'responsive' );
-            responsive_color_control( $wp_customize, 'header_off_canvas_menu_link_default', $off_canvas_menu_link_default_color_label, 'responsive_header_off_canvas_menu_layout', 15, '#000000', );
+            responsive_color_control( $wp_customize, 'header_off_canvas_menu_link_default', $off_canvas_menu_link_default_color_label, 'responsive_header_off_canvas_menu_layout', 15, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link' ) );
 
             // Link Hover - Design Tab
             $off_canvas_menu_link_hover_label = __( 'Link Hover', 'responsive' );
-            responsive_color_control( $wp_customize, 'header_off_canvas_menu_link_hover', $off_canvas_menu_link_hover_label, 'responsive_header_off_canvas_menu_layout', 20, '#2271B1', );
+            responsive_color_control( $wp_customize, 'header_off_canvas_menu_link_hover', $off_canvas_menu_link_hover_label, 'responsive_header_off_canvas_menu_layout', 20, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link_hover' ) );
 
             // Link Active - Design Tab
             $off_canvas_menu_link_active_label = __( 'Link Active', 'responsive' );
@@ -87,15 +87,15 @@ if( ! class_exists( 'Responsive_Header_Off_Canvas_Menu_Layouts_Customizer' ) ) {
 
             // Background Default - Design Tab
             $off_canvas_menu_bg_default_label = __( 'Background Default', 'responsive' );
-            responsive_color_control( $wp_customize, 'header_off_canvas_menu_bg_default', $off_canvas_menu_bg_default_label, 'responsive_header_off_canvas_menu_layout', 30, '#FFFFFF', );
+            responsive_color_control( $wp_customize, 'header_off_canvas_menu_bg_default', $off_canvas_menu_bg_default_label, 'responsive_header_off_canvas_menu_layout', 30, Responsive\Core\get_responsive_customizer_defaults( 'header_mobile_menu_background' ) );
 
             // Background Hover - Design Tab
             $off_canvas_menu_bg_hover_label = __( 'Background Hover', 'responsive' );
-            responsive_color_control( $wp_customize, 'header_off_canvas_menu_bg_hover', $off_canvas_menu_bg_hover_label, 'responsive_header_off_canvas_menu_layout', 35, '#FFFFFF', );
+            responsive_color_control( $wp_customize, 'header_off_canvas_menu_bg_hover', $off_canvas_menu_bg_hover_label, 'responsive_header_off_canvas_menu_layout', 35, Responsive\Core\get_responsive_customizer_defaults( 'header_active_menu_background' ) );
 
             // Background Active - Design Tab
             $off_canvas_bg_active_label = __( 'Background Active', 'responsive' );
-            responsive_color_control( $wp_customize, 'header_off_canvas_menu_bg_active', $off_canvas_bg_active_label, 'responsive_header_off_canvas_menu_layout', 40, '#FFFFFF', );
+            responsive_color_control( $wp_customize, 'header_off_canvas_menu_bg_active', $off_canvas_bg_active_label, 'responsive_header_off_canvas_menu_layout', 40, Responsive\Core\get_responsive_customizer_defaults( 'header_active_menu_background' ) );
 
             // Font Separator - Design
             $off_canvas_menu_font_separator_label = __( 'Font', 'responsive' );
@@ -111,7 +111,7 @@ if( ! class_exists( 'Responsive_Header_Off_Canvas_Menu_Layouts_Customizer' ) ) {
 
             // Menu Spacing (Padding) - Design Tab
             $off_canvas_menu_spacing_label = __( 'Menu Spacing (px)', 'responsive' );
-            responsive_padding_control( $wp_customize, 'header_off_canvas_menu_spacing', 'responsive_header_off_canvas_menu_layout', 65, 0, 0, null, $off_canvas_menu_spacing_label );
+            responsive_padding_control( $wp_customize, 'header_off_canvas_menu_spacing', 'responsive_header_off_canvas_menu_layout', 65, 10, 18, null, $off_canvas_menu_spacing_label );
 
             // Margin Label - Design Tab
             $off_canvas_menu_margin_label = __( 'Margin (px)', 'responsive' );
