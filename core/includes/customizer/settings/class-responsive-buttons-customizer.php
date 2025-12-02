@@ -93,7 +93,7 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 			// Button Color.
 			$button_color_label = __( 'Color', 'responsive' );
 
-			responsive_color_control( $wp_customize, 'button', $button_color_label, 'responsive_button', 130, Responsive\Core\get_responsive_customizer_defaults( 'button' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'button_hover' ), 'button_hover' );
+			responsive_color_control( $wp_customize, 'button', $button_color_label, 'responsive_button', 130, Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'button_hover' ), 'button_hover' );
 
 			// Button Hover Color.
 			// $button_hover_color_label = __( 'Hover Color', 'responsive' );

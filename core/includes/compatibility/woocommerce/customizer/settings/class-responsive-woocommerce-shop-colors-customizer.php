@@ -38,7 +38,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Colors_Customizer' ) ) :
 
 			// Rating Color.
 			$product_rating_color_label = __( 'Rating Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'shop_product_rating', $product_rating_color_label, 'responsive_woocommerce_shop', 10, '#0066CC' );
+			responsive_color_control( $wp_customize, 'shop_product_rating', $product_rating_color_label, 'responsive_woocommerce_shop', 10, get_responsive_customizer_defaults( 'responsive_shop_product_rating_color' ) );
 
 			// Price Color.
 			$shop_product_price_label = __( 'Price Color', 'responsive' );
