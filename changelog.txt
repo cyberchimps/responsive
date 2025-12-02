@@ -13,6 +13,9 @@ Changelog Legend:
 [+] = New = Introduced new Mobile specific Contact Info, Social, Header Button, Header Widgets, Header HTML elements
 [+] = New = Introduced the Off Canvas Panel and Off Canvas Menu location along with Toggle Button element for Mobile screens
 
+(01/12/2025) Version 6.2.8.1
+[!] = Fix = Accessibility issues reported by reviewer for ‘Accessibility Ready’ tag.
+
 (06/11/2025) Version 6.2.8
 [!] = Fix = Patched an error that was blocking the Customizer from loading.
 
