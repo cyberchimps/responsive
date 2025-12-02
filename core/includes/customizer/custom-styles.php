@@ -4331,7 +4331,13 @@ function responsive_customizer_styles() {
 			.responsive-site-below-header-wrap,
 			.responsive-site-below-header-wrap:hover,
 			.responsive-site-primary-header-wrap:hover,
-			.responsive-site-above-header-wrap:hover {
+			.responsive-site-above-header-wrap:hover, 
+			.responsive-site-above-mobile-header-wrap,
+			.responsive-site-primary-mobile-header-wrap,
+			.responsive-site-below-mobile-header-wrap,
+			.responsive-site-below-mobile-header-wrap:hover,
+			.responsive-site-primary-mobile-header-wrap:hover,
+			.responsive-site-above-mobile-header-wrap:hover {
 				background: transparent;
 			}
 		}
