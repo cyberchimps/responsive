@@ -2336,7 +2336,7 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
     offCanvasMenuMarginSettings.forEach(function(setting) {
         api(setting, function(value) {
             value.bind(function(newval) {
-                responsive_dynamic_margin('header_off_canvas_menu_margin', '.off-canvas-widget-area #off-canvas-menu li, #off-canvas-site-navigation .menu li');
+                responsive_dynamic_margin('header_off_canvas_menu_margin', '.off-canvas-widget-area #off-canvas-menu, #off-canvas-site-navigation .menu');
             });
         });
     });

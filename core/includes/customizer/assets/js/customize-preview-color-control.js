@@ -676,7 +676,7 @@
                 jQuery( 'head' ).append(
                     '<style id="responsive-header-mobile-menu-background-color">'
                     + '@media screen and (max-width: ' + mobileBreakPoint + ') {'
-                    + '.site-header-row .main-navigation.toggled,.site-header-row .main-navigation.toggled .main-navigation-wrapper, .main-navigation.toggled #header-menu { background-color: ' + color + ' !important; }'
+                    + '.site-header-row .main-navigation.toggled,.site-header-row .main-navigation.toggled .main-navigation-wrapper, .main-navigation.toggled #header-menu, .responsive-off-canvas-panel-fullscreen.active .off-canvas-navigation, .responsive-off-canvas-panel-sidebar.active .off-canvas-navigation { background-color: ' + color + ' !important; }'
                     + '} </style>'
                 );
             }
@@ -785,7 +785,7 @@
     //Sub Menu Background Color
     api( 'responsive_header_sub_menu_background_color', function( value ) {
         value.bind( function( newval ) {
-            $('.main-navigation .children,.main-navigation .sub-menu,.responsive-off-canvas-panel .sub-menu,.responsive-off-canvas-panel .children,#off-canvas-menu .sub-menu,#off-canvas-menu .children,.off-canvas-widget-area #off-canvas-menu .sub-menu,.off-canvas-widget-area #off-canvas-menu .children,#off-canvas-site-navigation .menu .sub-menu,#off-canvas-site-navigation .menu .children, #off-canvas-site-navigation .menu .children a').css('background-color', newval );
+            $('.main-navigation .children,.main-navigation .sub-menu,.responsive-off-canvas-panel .sub-menu,.responsive-off-canvas-panel .sub-menu li, .responsive-off-canvas-panel .sub-menu li a, .responsive-off-canvas-panel .children,#off-canvas-menu .sub-menu, #off-canvas-menu .sub-menu li, #off-canvas-menu .sub-menu li a, #off-canvas-menu .children,.off-canvas-widget-area #off-canvas-menu .sub-menu,#off-canvas-menu .sub-menu li, #off-canvas-menu .sub-menu li a,.off-canvas-widget-area #off-canvas-menu .children,#off-canvas-site-navigation .menu .sub-menu, #off-canvas-site-navigation .menu .sub-menu li, #off-canvas-site-navigation .menu .sub-menu li a, #off-canvas-site-navigation .menu .children, #off-canvas-site-navigation .menu .children a').css('background-color', newval );
         } );
     } );
 
@@ -832,7 +832,7 @@
     //Menu Toggle Background Color
     api( 'responsive_header_menu_toggle_background_color', function( value ) {
         value.bind( function( newval ) {
-            $('.site-header-item-toggle-button .menu-toggle').css('background-color', newval );
+            $('.site-header-item-toggle-button .menu-toggle, #responsive-off-canvas-panel .responsive-off-canvas-panel-close').css('background-color', newval );
             $('.menu-toggle svg rect:first-child, .menu-toggle svg circle:first-child ').css('fill',newval);
         } );
     } );
@@ -846,8 +846,8 @@
 
     api( 'responsive_mobile_menu_toggle_border_color', function( value ) {
         value.bind( function( newval ) {
-         $('.site-header-item-toggle-button .menu-toggle').css({'border-color': newval});
-         $('.site-header-item-toggle-button .menu-toggle').css({'border-color': newval} );
+         $('.site-header-item-toggle-button .menu-toggle, #responsive-off-canvas-panel .responsive-off-canvas-panel-close').css({'border-color': newval});
+         $('.site-header-item-toggle-button .menu-toggle, #responsive-off-canvas-panel .responsive-off-canvas-panel-close').css({'border-color': newval} );
         } );
     } );
     //Sub Menu divider
@@ -996,7 +996,7 @@
     //Menu Toggle Background Color
     api( 'responsive_transparent_header_menu_toggle_background_color', function( value ) {
         value.bind( function( newval ) {
-            $('.res-transparent-header .main-navigation .menu-toggle').css('background-color', newval );
+            $('.res-transparent-header .main-navigation .menu-toggle, .res-transparent-header #masthead-mobile .menu-toggle').css('background-color', newval );
         } );
     } );
 
@@ -3687,7 +3687,7 @@
                 .css('fill', newval);
 
             // Apply same color to menu label
-            jQuery(".hamburger-menu-label,.site-header-item .menu-toggle[aria-expanded='true'],#masthead-mobile .responsive-off-canvas-close")
+            jQuery(".hamburger-menu-label,.site-header-item .menu-toggle[aria-expanded='true'],#masthead-mobile .responsive-off-canvas-panel-close")
                 .css('color', newval);
         });
     });
@@ -3721,7 +3721,7 @@
     // Off-Canvas Menu Background Default Color
     api('responsive_header_off_canvas_menu_bg_default_color', function(value) {
         value.bind(function(newval) {
-            $('.off-canvas-widget-area .off-canvas-navigation,.off-canvas-widget-area #off-canvas-menu li a,#off-canvas-site-navigation .menu li a').css('background-color', newval);
+            $('.off-canvas-widget-area #off-canvas-menu li, #off-canvas-site-navigation .menu li, .off-canvas-widget-area #off-canvas-menu li a,#off-canvas-site-navigation .menu li a').css('background-color', newval);
         });
     });
 
