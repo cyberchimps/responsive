@@ -254,7 +254,7 @@
 }
 
 .last-item-spread-away {
-    .main-navigation .menu {
+    .main-navigation .menu, .off-canvas-navigation .menu {
         & > li.res-custom-text-menu,
         & > li.res-button-menu,
         & > li.res-cart-link,

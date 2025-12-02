@@ -457,7 +457,7 @@
 		}
 		
 		var offCanvasOverlay = document.querySelector( '.responsive-off-canvas-overlay' );
-		var offCanvasClose = document.querySelector( '.responsive-off-canvas-close' );
+		var offCanvasClose = document.querySelector( '.responsive-off-canvas-panel-close' );
 		var mobileHeader = document.getElementById( 'masthead-mobile' );
 		var mobileToggleButton = mobileHeader ? mobileHeader.querySelector( '.menu-toggle' ) : null;
 		

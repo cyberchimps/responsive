@@ -18,15 +18,6 @@ $off_canvas_panel_content_alignment = get_theme_mod( 'responsive_header_mobile_o
 // Build navigation classes
 $nav_classes = array( 'main-navigation' );
 
-// Header Type classes: dropdown, fullscreen, sidebar (flyout)
-if ( 'dropdown' === $mobile_menu_style ) {
-	$nav_classes[] = 'mobile-menu-style-dropdown';
-} elseif ( 'fullscreen' === $mobile_menu_style ) {
-	$nav_classes[] = 'mobile-menu-style-fullscreen';
-} elseif ( 'sidebar' === $mobile_menu_style ) {
-	$nav_classes[] = 'mobile-menu-style-sidebar';
-}
-
 // Move Body class
 if ( 1 === $off_canvas_panel_move_body ) {
 	$nav_classes[] = 'off-canvas-move-body-enabled';

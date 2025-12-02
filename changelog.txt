@@ -8,7 +8,7 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(29/11/2025) Version 6.2.9
+(02/12/2025) Version 6.2.9
 [+] = New = Introduced the Mobile Header Builder
 [+] = New = Introduced new Mobile specific Contact Info, Social, Header Button, Header Widgets, Header HTML elements
 [+] = New = Introduced the Off Canvas Panel and Off Canvas Menu location along with Toggle Button element for Mobile screens
