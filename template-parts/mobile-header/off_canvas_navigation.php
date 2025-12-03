@@ -17,7 +17,7 @@
                     'container' => false, 
                     'menu_id'   => 'off-canvas-menu',
                     'theme_location' => 'off-canvas-menu',
-                    'depth'     => '1'
+                    'depth'     => 0
                 )
             );
         } elseif ( has_nav_menu( 'header-menu' ) ) {
@@ -27,7 +27,7 @@
                     'container' => false, 
                     'menu_id'   => 'off-canvas-menu',
                     'theme_location' => 'header-menu',
-                    'depth'     => '1'
+                    'depth'     => 0
                 )
             );
         } else {

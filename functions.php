@@ -1063,14 +1063,35 @@ add_filter( 'nav_menu_link_attributes', 'responsive_nav_menu_link_attributes', 1
  * @return $args.
  */
 function responsive_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
-	if ( 'header-menu' === $args->theme_location ) {
+	// Get theme_location and menu_id from args object
+	$theme_location = isset( $args->theme_location ) ? $args->theme_location : '';
+	$menu_id = isset( $args->menu_id ) ? $args->menu_id : '';
+	
+	// Check if this is header-menu, off-canvas-menu theme location, or off-canvas-menu ID
+	$is_header_menu = ( 'header-menu' === $theme_location );
+	$is_off_canvas_menu = ( 'off-canvas-menu' === $theme_location || 'off-canvas-menu' === $menu_id );
+	
+	// Priority: if menu_id is 'off-canvas-menu', treat it as off-canvas menu (even if theme_location is header-menu)
+	// This handles the case when header-menu is used as fallback in off-canvas panel
+	$is_off_canvas_context = ( 'off-canvas-menu' === $menu_id );
+	
+	if ( $is_header_menu || $is_off_canvas_menu ) {
 		if ( in_array( 'menu-item-has-children', $item->classes, true ) ) {
-			$args->after      = '<span class="res-iconify res-iconify-outer">
-				<svg width="15" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
-				</span>';
-			$args->link_after = '<span class="res-iconify res-iconify-inner">
-				<svg width="15" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
-				</span>';
+			if ( $is_header_menu && ! $is_off_canvas_context ) {
+				// Header menu (not in off-canvas context): add both inner and outer icons
+				$args->after      = '<span class="res-iconify res-iconify-outer">
+					<svg width="15" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
+					</span>';
+				$args->link_after = '<span class="res-iconify res-iconify-inner">
+					<svg width="15" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
+					</span>';
+			} else {
+				// Off-canvas menu (or header-menu used as fallback in off-canvas): only add inner icon (inside the link)
+				$args->after      = '';
+				$args->link_after = '<span class="res-iconify res-iconify-inner">
+					<svg width="15" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
+					</span>';
+			}
 		} else {
 			$args->after      = '';
 			$args->link_after = '';
@@ -2657,3 +2678,86 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_header_widget
 	}
 }
 
+if( ! function_exists( 'responsive_theme_background_updater_off_canvas_menu_6_2_9') ) {
+	/**
+	 * Handle backward compatibility for off-canvas menu background settings migration.
+	 * 
+	 * @since 6.2.9
+	 * @return void
+	 */
+	function responsive_theme_background_updater_off_canvas_menu_6_2_9(){
+		$responsive_options = Responsive\Core\responsive_get_options();
+
+		if( !isset( $responsive_options['off_canvas_menu_background_backward_done'])) {
+			
+			// Mapping of old off_canvas_menu background theme mods to new ones
+			$theme_mod_mapping = array(
+				'responsive_header_menu_toggle_color' => 'responsive_header_toggle_button_icon_color',
+				'responsive_header_menu_link_color' => 'responsive_header_off_canvas_menu_link_default_color',
+				'responsive_header_active_menu_link_color' => 'responsive_header_off_canvas_menu_link_active_color',
+				'responsive_header_menu_link_hover_color' => 'responsive_header_off_canvas_menu_link_hover_color',
+				'responsive_header_hover_menu_background_color' => 'responsive_header_off_canvas_menu_bg_hover_color',
+				'responsive_header_mobile_menu_background_color'=>'responsive_header_off_canvas_menu_bg_default_color',
+				'responsive_header_active_menu_background_color' => 'responsive_header_off_canvas_menu_bg_active_color',
+			);
+
+			$check_trans_header = get_theme_mod( 'responsive_transparent_header', 0 ); 
+			if( $check_trans_header === 1) 
+			{
+				$theme_mod_mapping['responsive_transparent_header_mobile_menu_background_color'] = 'responsive_header_mobile_menu_background_color';
+			}
+			
+			// Migrate each theme mod if the old value exists and new value doesn't exist
+			foreach ( $theme_mod_mapping as $old_mod => $new_mod ) {
+				$old_value = get_theme_mod( $old_mod, false );
+				$new_value = get_theme_mod( $new_mod, false );
+				
+				// Only migrate if old value exists and new value doesn't exist
+				if ( false !== $old_value && false === $new_value ) {
+					set_theme_mod( $new_mod, $old_value );
+				}
+			}
+			
+			// Mark backward compatibility update as done
+			$responsive_options['off_canvas_menu_background_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+
+if( ! function_exists( 'responsive_theme_background_updater_off_canvas_fonts_toggle_button_color_new_6_2_9') ) {
+	/**
+	 * Handle backward compatibility for off-canvas menu background settings migration.
+	 * 
+	 * @since 6.2.9
+	 * @return void
+	 */
+	function responsive_theme_background_updater_off_canvas_fonts_toggle_button_color_new_6_2_9(){
+		$responsive_options = Responsive\Core\responsive_get_options();
+
+		if( !isset( $responsive_options['off_canvas_menu_font_toggle_button_color_backward_done'])) {
+			
+			// Mapping of old off_canvas_menu background theme mods to new ones
+			$theme_mod_mapping = array(
+				'responsive_header_menu_toggle_color' => 'responsive_header_toggle_button_icon_color',
+				'header_menu_typography' => 'header_off_canvas_menu_typography',
+
+			);
+			
+			// Migrate each theme mod if the old value exists and new value doesn't exist
+			foreach ( $theme_mod_mapping as $old_mod => $new_mod ) {
+				$old_value = get_theme_mod( $old_mod, false );
+				$new_value = get_theme_mod( $new_mod, false );
+				
+				// Only migrate if old value exists and new value doesn't exist
+				if ( false !== $old_value && false === $new_value ) {
+					set_theme_mod( $new_mod, $old_value );
+				}
+			}
+			
+			// Mark backward compatibility update as done
+			$responsive_options['off_canvas_menu_font_toggle_button_color_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}

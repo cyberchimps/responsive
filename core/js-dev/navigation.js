@@ -94,6 +94,12 @@
 					}
 					this.setAttribute( 'aria-expanded', 'true' );
 					document.body.classList.add( 'off-canvas-open' );
+					// Reinitialize submenu toggles when panel opens
+					setTimeout( function() {
+						if ( typeof initOffCanvasSubmenuToggles === 'function' ) {
+							initOffCanvasSubmenuToggles();
+						}
+					}, 100 );
 				}
 				});
 			}
@@ -148,7 +154,7 @@
 					} else {
 						subMenu.style.display = 'none';
 						if( breakpoint.matches ) {
-							parentLi.style.width = 'auto';
+							parentLi.style.width = '100%';
 						}
 					}
 				}
@@ -163,7 +169,7 @@
 					} else {
 						children.style.display = 'none';
 						if( breakpoint.matches ) {
-							parentLi.style.width = 'auto';
+							parentLi.style.width = '100%';
 						}
 					}
 				}
@@ -193,16 +199,28 @@
 				};
 				link.addEventListener( 'click', linkHandler, false );
 				offCanvasSubmenuHandlers.push( { element: link, fn: linkHandler } );
-			} else if ( dropdownTarget === 'icon' && icon ) {
-				// Icon target: clicking the icon toggles submenu (default behavior)
-				var iconHandler = function( e ) {
-					var parentLi = this.closest( '.menu-item-has-children, .page_item_has_children' );
-					if ( parentLi ) {
-						toggleSubmenu( parentLi, e );
-					}
-				};
-				icon.addEventListener( 'click', iconHandler, false );
-				offCanvasSubmenuHandlers.push( { element: icon, fn: iconHandler } );
+			} else if ( dropdownTarget === 'icon' ) {
+				if ( icon ) {
+					// Icon target: clicking the icon toggles submenu (default behavior)
+					var iconHandler = function( e ) {
+						var parentLi = this.closest( '.menu-item-has-children, .page_item_has_children' );
+						if ( parentLi ) {
+							toggleSubmenu( parentLi, e );
+						}
+					};
+					icon.addEventListener( 'click', iconHandler, false );
+					offCanvasSubmenuHandlers.push( { element: icon, fn: iconHandler } );
+				} else if ( link ) {
+					// Fallback: if icon not found but dropdown target is icon, use link
+					var linkHandler = function( e ) {
+						var parentLi = this.closest( '.menu-item-has-children, .page_item_has_children' );
+						if ( parentLi ) {
+							toggleSubmenu( parentLi, e );
+						}
+					};
+					link.addEventListener( 'click', linkHandler, false );
+					offCanvasSubmenuHandlers.push( { element: link, fn: linkHandler } );
+				}
 			}
 		}
 	}
@@ -439,7 +457,7 @@
 		}
 		
 		var offCanvasOverlay = document.querySelector( '.responsive-off-canvas-overlay' );
-		var offCanvasClose = document.querySelector( '.responsive-off-canvas-close' );
+		var offCanvasClose = document.querySelector( '.responsive-off-canvas-panel-close' );
 		var mobileHeader = document.getElementById( 'masthead-mobile' );
 		var mobileToggleButton = mobileHeader ? mobileHeader.querySelector( '.menu-toggle' ) : null;
 		
