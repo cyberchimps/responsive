@@ -351,7 +351,7 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 							<?php
 							printf(
 								/* translators: 1: class, 2: date */
-								'<i class="icon-calendar" aria-hidden="true"></i><span>' . esc_html_e('Posted on ', 'responsive') . '</span><span class="%1$s" itemprop="datePublished">%2$s</span>',
+								'<i class="icon-calendar" aria-hidden="true"></i><span>' . esc_html__('Posted on ', 'responsive') . '</span><span class="%1$s" itemprop="datePublished">%2$s</span>',
 								'meta-prep meta-prep-author posted',
 								sprintf(
 									'<a href="%1$s" aria-label="%2$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s" itemprop="dateModified">%4$s</time></a>',
