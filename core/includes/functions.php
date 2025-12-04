@@ -891,7 +891,7 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 		<span class="entry-author" <?php responsive_schema_markup( 'entry-author' ); ?>>
 			<?php
 				printf(
-					'<i class="icon-calendar" aria-hidden="true"></i><span class="%1$s">' . esc_html_e( 'Posted on', 'responsive' ) . '</span>%2$s<span class="%3$s"> ' . esc_html_e( 'By', 'responsive' ) . ' </span>%4$s',
+					'<i class="icon-calendar" aria-hidden="true"></i><span class="%1$s">' . esc_html__( 'Posted on', 'responsive' ) . '</span>%2$s<span class="%3$s"> ' . esc_html__( 'By', 'responsive' ) . ' </span>%4$s',
 					'meta-prep meta-prep-author posted',
 					sprintf(
 						'<a href="%1$s" aria-label="%2$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s">%4$s</time></a>',
