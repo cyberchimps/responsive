@@ -2599,7 +2599,7 @@
             jQuery('style#responsive-footer-primary-row-bg-color-tablet').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-primary-row-bg-color-tablet">'
-                + '@media screen and ( max-width: 992px ) { .rspv-site-primary-footer-wrap { background-color: ' + newval + ' } }'
+                + '@media screen and ( min-width: 577px and max-width: 992px ) { .rspv-site-primary-footer-wrap { background-color: ' + newval + ' } }'
                 + '</style>'
             );
         })
@@ -2636,7 +2636,7 @@
             jQuery('style#responsive-footer-above-row-bg-color-tablet').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-above-row-bg-color-tablet">'
-                + '@media screen and ( max-width: 992px ) { .rspv-site-above-footer-wrap { background-color: ' + newval + ' } }'
+                + '@media screen and ( min-width: 577px and max-width: 992px ) { .rspv-site-above-footer-wrap { background-color: ' + newval + ' } }'
                 + '</style>'
             );
         } );
@@ -2674,7 +2674,7 @@
             jQuery('style#responsive-footer-below-row-bg-color-tablet').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-below-row-bg-color-tablet">'
-                + '@media screen and ( max-width: 992px ) { .rspv-site-below-footer-wrap { background-color: ' + newval + ' } }'
+                + '@media screen and ( min-width: 577px andmax-width: 992px ) { .rspv-site-below-footer-wrap { background-color: ' + newval + ' } }'
                 + '</style>'
             );
         } );
@@ -2762,7 +2762,7 @@
             jQuery('style#responsive-footer-copyright-text-color').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-text-color">'
-                + '.footer-layouts.copyright { color: ' + newval + '}'
+                + '@media screen and ( min-width: 993px ) { .footer-layouts.copyright { color: ' + newval + '} }'
                 + '</style>'
             );
         });
@@ -2773,7 +2773,7 @@
             jQuery('style#responsive-footer-copyright-text-hover-color').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-text-hover-color">'
-                + '.footer-layouts.copyright:hover { color: ' + newval + '}'
+                + '@media screen and ( min-width: 992px ) { .footer-layouts.copyright:hover { color: ' + newval + '} }'
                 + '</style>'
             );
         });
@@ -2784,7 +2784,7 @@
             jQuery('style#responsive-footer-copyright-text-color-tablet').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-text-color-tablet">'
-                + '@media screen and ( max-width: 992px ) { .footer-layouts.copyright { color: ' + newval + '} }'
+                + '@media screen and ( min-width: 577px and max-width: 992px ) { .footer-layouts.copyright { color: ' + newval + '} }'
                 + '</style>'
             );
         });
@@ -2795,7 +2795,7 @@
             jQuery('style#responsive-footer-copyright-text-hover-color-tablet').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-text-hover-color-tablet">'
-                + '@media screen and ( max-width: 992px ) { .footer-layouts.copyright:hover { color: ' + newval + '} }'
+                + '@media screen and ( min-width: 576px and max-width: 992px ) { .footer-layouts.copyright:hover { color: ' + newval + '} }'
                 + '</style>'
             );
         });
@@ -2828,7 +2828,7 @@
             jQuery('style#responsive-footer-copyright-links-color').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-links-color">'
-                + '.footer-layouts.copyright a { color: ' + newval + '!important; }'
+                + '@media screen and ( min-width: 993px ) { .footer-layouts.copyright a { color: ' + newval + '!important; } }'
                 + '</style>'
             );
         });
@@ -2839,7 +2839,7 @@
             jQuery('style#responsive-footer-copyright-links-hover-color').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-links-hover-color">'
-                + '.footer-layouts.copyright a:hover { color: ' + newval + '!important; }'
+                + '@media screen and ( min-width: 993px ) { .footer-layouts.copyright a:hover { color: ' + newval + '!important; } }'
                 + '</style>'
             );
         });
@@ -2850,7 +2850,7 @@
             jQuery('style#responsive-footer-copyright-links-color-tablet').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-links-color-tablet">'
-                + '@media screen and ( max-width: 992px ) { .footer-layouts.copyright a { color: ' + newval + '!important; } }'
+                + '@media screen and ( min-width: 577px and max-width: 992px ) { .footer-layouts.copyright a { color: ' + newval + '!important; } }'
                 + '</style>'
             );
         });
@@ -2861,7 +2861,7 @@
             jQuery('style#responsive-footer-copyright-links-hover-color-tablet').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-links-hover-color-tablet">'
-                + '@media screen and ( max-width: 992px ) { .footer-layouts.copyright a:hover { color: ' + newval + '!important; } }'
+                + '@media screen and ( min-width: 577px and max-width: 992px ) { .footer-layouts.copyright a:hover { color: ' + newval + '!important; } }'
                 + '</style>'
             );
         });

@@ -863,21 +863,18 @@
     }
 
     api('responsive_footer_below_width', function(value) {
-        console.log("Trigger for footer below width");
         value.bind(function() {
             update_footer_below_width();
         });
     });
 
     api('responsive_footer_below_width_tablet', function(value) {
-        console.log("Trigger for footer below width tablet");
         value.bind(function() {
             update_footer_below_width();
         });
     });
 
     api('responsive_footer_below_width_mobile', function(value) {
-        console.log("Trigger for footer below width mobile");
         value.bind(function() {
             update_footer_below_width();
         });
