@@ -2589,7 +2589,7 @@
             jQuery('style#responsive-footer-primary-row-bg-color').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-primary-row-bg-color">'
-                + '@media screen and ( min-width: 993px ) { .rspv-site-primary-footer-wrap { background-color: ' + newval + ' } }'
+                + '@media screen and ( min-width: 993px ) { .rspv-site-primary-footer-wrap { background-color: ' + newval + '; } }'
                 + '</style>'
             );
         });
@@ -2599,7 +2599,7 @@
             jQuery('style#responsive-footer-primary-row-bg-color-tablet').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-primary-row-bg-color-tablet">'
-                + '@media screen and ( min-width: 577px and max-width: 992px ) { .rspv-site-primary-footer-wrap { background-color: ' + newval + ' } }'
+                + '@media screen and ( min-width: 577px and max-width: 992px ) { .rspv-site-primary-footer-wrap { background-color: ' + newval + '; } }'
                 + '</style>'
             );
         })
@@ -2609,7 +2609,7 @@
             jQuery('style#responsive-footer-primary-row-bg-color-mobile').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-primary-row-bg-color-mobile">'
-                + '@media screen and ( max-width: 576px ) { .rspv-site-primary-footer-wrap { background-color: ' + newval + ' } }'
+                + '@media screen and ( max-width: 576px ) { .rspv-site-primary-footer-wrap { background-color: ' + newval + '; } }'
                 + '</style>'
             );
         })
@@ -2625,7 +2625,7 @@
             jQuery('style#responsive-footer-above-row-bg-color').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-above-row-bg-color">'
-                + '@media screen and ( min-width: 993px ) { .rspv-site-above-footer-wrap { background-color: ' + newval + ' } }'
+                + '@media screen and ( min-width: 993px ) { .rspv-site-above-footer-wrap { background-color: ' + newval + '; } }'
                 + '</style>'
             )
         });
@@ -2663,7 +2663,7 @@
             jQuery('style#responsive-footer-below-row-bg-color').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-below-row-bg-color">'
-                + '@media screen and ( min-width: 993px ) { .rspv-site-below-footer-wrap { background-color: ' + newval + ' } }'
+                + '@media screen and (min-width: 993px) { .rspv-site-below-footer-wrap { background-color: ' + newval + ' } }'
                 + '</style>'
             )
         });
@@ -2674,7 +2674,7 @@
             jQuery('style#responsive-footer-below-row-bg-color-tablet').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-below-row-bg-color-tablet">'
-                + '@media screen and ( min-width: 577px andmax-width: 992px ) { .rspv-site-below-footer-wrap { background-color: ' + newval + ' } }'
+                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .rspv-site-below-footer-wrap { background-color: ' + newval + ' } }'
                 + '</style>'
             );
         } );
@@ -2701,7 +2701,7 @@
             jQuery('style#responsive-footer-menu-background-color').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-menu-background-color">'
-                + '@media screen and (min-width: 993px) { .footer-navigation { background-color: ' + newval + ' } }'
+                + '@media screen and (min-width: 993px) { .footer-navigation { background-color: ' + newval + '; } }'
                 + '</style>'
             );
         });
@@ -2731,7 +2731,7 @@
             jQuery('style#responsive-footer-menu-background-color-tablet-hover').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-menu-background-color-tablet-hover">'
-                + '@media screen and (min-width: 577px) and (max-width: 992px) { .footer-navigation:hover { background-color: ' + newval + ' } }'
+                + '@media screen and (min-width: 577px) and (max-width: 992px) { .footer-navigation:hover { background-color: ' + newval + '; } }'
                 + '</style>'
             );
         })
@@ -2741,7 +2741,7 @@
             jQuery('style#responsive-footer-menu-background-color-mobile').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-menu-background-color-mobile">'
-                + '@media screen and ( max-width: 576px ) { .footer-navigation { background-color: ' + newval + ' } }'
+                + '@media screen and ( max-width: 576px ) { .footer-navigation { background-color: ' + newval + '; } }'
                 + '</style>'
             );
         })
@@ -2751,7 +2751,7 @@
             jQuery('style#responsive-footer-menu-background-color-mobile-hover').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-menu-background-color-mobile-hover">'
-                + '@media screen and ( max-width: 576px ) { .footer-navigation:hover { background-color: ' + newval + ' } }'
+                + '@media screen and ( max-width: 576px ) { .footer-navigation:hover { background-color: ' + newval + '; } }'
                 + '</style>'
             );
         })
@@ -2762,7 +2762,7 @@
             jQuery('style#responsive-footer-copyright-text-color').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-text-color">'
-                + '@media screen and ( min-width: 993px ) { .footer-layouts.copyright { color: ' + newval + '} }'
+                + '@media screen and ( min-width: 993px ) { .footer-layouts.copyright { color: ' + newval + '; } }'
                 + '</style>'
             );
         });
@@ -2773,7 +2773,7 @@
             jQuery('style#responsive-footer-copyright-text-hover-color').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-text-hover-color">'
-                + '@media screen and ( min-width: 992px ) { .footer-layouts.copyright:hover { color: ' + newval + '} }'
+                + '@media screen and ( min-width: 992px ) { .footer-layouts.copyright:hover { color: ' + newval + '; } }'
                 + '</style>'
             );
         });
@@ -2784,7 +2784,7 @@
             jQuery('style#responsive-footer-copyright-text-color-tablet').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-text-color-tablet">'
-                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .footer-layouts.copyright { color: ' + newval + '} }'
+                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .footer-layouts.copyright { color: ' + newval + '; } }'
                 + '</style>'
             );
         });
@@ -2795,7 +2795,7 @@
             jQuery('style#responsive-footer-copyright-text-hover-color-tablet').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-text-hover-color-tablet">'
-                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .footer-layouts.copyright:hover { color: ' + newval + '} }'
+                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .footer-layouts.copyright:hover { color: ' + newval + '; } }'
                 + '</style>'
             );
         });
@@ -2806,7 +2806,7 @@
             jQuery('style#responsive-footer-copyright-text-color-mobile').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-text-color-mobile">'
-                + '@media screen and ( max-width: 576px ) { .footer-layouts.copyright { color: ' + newval + '} }'
+                + '@media screen and ( max-width: 576px ) { .footer-layouts.copyright { color: ' + newval + '; } }'
                 + '</style>'
             );
         });
@@ -2817,7 +2817,7 @@
             jQuery('style#responsive-footer-copyright-text-hover-color-mobile').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-text-hover-color-mobile">'
-                + '@media screen and ( max-width: 576px ) { .footer-layouts.copyright:hover { color: ' + newval + '} }'
+                + '@media screen and ( max-width: 576px ) { .footer-layouts.copyright:hover { color: ' + newval + '; } }'
                 + '</style>'
             );
         });
@@ -2850,7 +2850,7 @@
             jQuery('style#responsive-footer-copyright-links-color-tablet').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-links-color-tablet">'
-                + '@media screen and ( min-width: 577px and max-width: 992px ) { .footer-layouts.copyright a { color: ' + newval + '!important; } }'
+                + '@media screen and ( min-width: 577px) and ( max-width: 992px ) { .footer-layouts.copyright a { color: ' + newval + '!important; } }'
                 + '</style>'
             );
         });
@@ -2861,7 +2861,7 @@
             jQuery('style#responsive-footer-copyright-links-hover-color-tablet').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-links-hover-color-tablet">'
-                + '@media screen and ( min-width: 577px and max-width: 992px ) { .footer-layouts.copyright a:hover { color: ' + newval + '!important; } }'
+                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .footer-layouts.copyright a:hover { color: ' + newval + '!important; } }'
                 + '</style>'
             );
         });

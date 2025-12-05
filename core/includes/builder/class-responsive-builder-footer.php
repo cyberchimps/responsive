@@ -124,28 +124,49 @@ if ( ! class_exists( 'Responsive_Builder_Footer' ) ) {
         }
 
         /**
+         * Checks to see if the row has any mobile items.
+         *
+         * @param string $row the name of the row.
+         * @return bool
+         */
+        public function has_mobile_items( $row = 'bottom' ) {
+            $mobile_elements = get_theme_mod( 'responsive_footer_mobile_items', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_mobile_items' ) );
+            foreach ( array( '1', '2', '3', '4', '5', '6' ) as $column ) {
+                if ( isset( $mobile_elements ) && isset( $mobile_elements[ $row ] ) && isset( $mobile_elements[ $row ][ $row . '_' . $column ] ) && is_array( $mobile_elements[ $row ][ $row . '_' . $column ] ) && ! empty( $mobile_elements[ $row ][ $row . '_' . $column ] ) ) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /**
+         * Checks to see if the row has any desktop items.
+         *
+         * @param string $row the name of the row.
+         * @return bool
+         */
+        public function has_desktop_items( $row = 'bottom' ) {
+            $elements = get_theme_mod( 'responsive_footer_items', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_items' ) );
+            foreach ( array( '1', '2', '3', '4', '5', '6' ) as $column ) {
+                if ( isset( $elements ) && isset( $elements[ $row ] ) && isset( $elements[ $row ][ $row . '_' . $column ] ) && is_array( $elements[ $row ][ $row . '_' . $column ] ) && ! empty( $elements[ $row ][ $row . '_' . $column ] ) ) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /**
          * Checks to see if the row has any content.
          *
          * @param string $row the name of the row.
          * @return bool
          */
         public function display_footer_row( $row = 'bottom' ) {
-            $display = false;
-            foreach ( array( '1', '2', '3', '4', '5', '6' ) as $column ) {
-                // Check desktop items
-                $elements = get_theme_mod( 'responsive_footer_items', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_items' ) );
-                if ( isset( $elements ) && isset( $elements[ $row ] ) && isset( $elements[ $row ][ $row . '_' . $column ] ) && is_array( $elements[ $row ][ $row . '_' . $column ] ) && ! empty( $elements[ $row ][ $row . '_' . $column ] ) ) {
-                    $display = true;
-                    break;
-                }
-                // Check mobile items
-                $mobile_elements = get_theme_mod( 'responsive_footer_mobile_items', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_mobile_items' ) );
-                if ( isset( $mobile_elements ) && isset( $mobile_elements[ $row ] ) && isset( $mobile_elements[ $row ][ $row . '_' . $column ] ) && is_array( $mobile_elements[ $row ][ $row . '_' . $column ] ) && ! empty( $mobile_elements[ $row ][ $row . '_' . $column ] ) ) {
-                    $display = true;
-                    break;
-                }
-            }
-            return $display;
+            // On mobile devices, only show rows that have mobile items
+            // On desktop, show rows that have desktop items
+            // We'll use CSS to handle the mobile/desktop distinction
+            // For now, check if row has either desktop or mobile items
+            return $this->has_desktop_items( $row ) || $this->has_mobile_items( $row );
         }
 
         /**

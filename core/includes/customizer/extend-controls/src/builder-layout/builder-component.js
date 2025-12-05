@@ -280,7 +280,7 @@ const BuilderComponent = props => {
                             onUpdate={(updateRow, updateZone, updateItems) => onDragEnd(updateRow, updateZone, updateItems)}
 						    onAddItem={(updateRow, updateZone, updateItems) => onAddItem(updateRow, updateZone, updateItems)}
                             showDrop={() => onDragStart()}
-							device={controlParams.group.includes('header_mobile_tablet_items') ? 'mobile' : 'desktop'}
+							device={(controlParams.group.includes('header_mobile_tablet_items') || controlParams.group.includes('footer_mobile_items')) ? 'mobile' : 'desktop'}
                         />
                     ))
                 }

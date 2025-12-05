@@ -261,6 +261,10 @@
             grid-template-columns: repeat( 6, 1fr );
         }
     }
+    // Hide footer rows that don't have mobile items on tablet devices
+    .rspv-hfb-footer-no-mobile-items {
+        display: none;
+    }
 }
 @media ( max-width:map-get($screens, sm) ) {
     .site-footer-wrap .rspv-site-footer-focus-item .site-footer-row.rspv-hfb-footer-row-mobile-layout-row {
@@ -323,6 +327,10 @@
         &.rspv-hfb-footer-row-mobile-layout-equal {
             grid-template-columns: repeat( 6, 1fr );
         }
+    }
+    // Hide footer rows that don't have mobile items on mobile devices
+    .rspv-hfb-footer-no-mobile-items {
+        display: none;
     }
 }
 
