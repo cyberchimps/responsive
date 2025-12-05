@@ -2784,7 +2784,7 @@
             jQuery('style#responsive-footer-copyright-text-color-tablet').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-text-color-tablet">'
-                + '@media screen and ( min-width: 577px and max-width: 992px ) { .footer-layouts.copyright { color: ' + newval + '} }'
+                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .footer-layouts.copyright { color: ' + newval + '} }'
                 + '</style>'
             );
         });
@@ -2795,7 +2795,7 @@
             jQuery('style#responsive-footer-copyright-text-hover-color-tablet').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-text-hover-color-tablet">'
-                + '@media screen and ( min-width: 576px and max-width: 992px ) { .footer-layouts.copyright:hover { color: ' + newval + '} }'
+                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .footer-layouts.copyright:hover { color: ' + newval + '} }'
                 + '</style>'
             );
         });
