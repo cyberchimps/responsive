@@ -4881,6 +4881,8 @@ function responsive_customizer_styles() {
 	$above_footer_inner_column_tablet_spacing = get_theme_mod( 'responsive_footer_above_inner_column_spacing_tablet', 30 );
 	$above_footer_inner_column_mobile_spacing = get_theme_mod( 'responsive_footer_above_inner_column_spacing_mobile', 30 );
 	$above_footer_height 			   = get_theme_mod( 'responsive_footer_above_height', 30 );
+	$above_footer_height_tablet          = get_theme_mod( 'responsive_footer_above_height_tablet', $above_footer_height );
+	$above_footer_height_mobile          = get_theme_mod( 'responsive_footer_above_height_mobile', $above_footer_height );
 	$above_footer_vertical_alignment   = get_theme_mod( 'responsive_footer_above_vertical_alignment', 'flex-start' );
 	$above_footer_bg_color   		   = get_theme_mod( 'responsive_footer_above_row_bg_color', '#333' );
 	$above_footer_bg_color_tablet      = get_theme_mod( 'responsive_footer_above_row_bg_color_tablet', '#333' );
@@ -4940,6 +4942,16 @@ function responsive_customizer_styles() {
 		.rspv-site-above-footer-inner-wrap {
 			gap: {$above_footer_inner_column_spacing}px;
 			min-height: {$above_footer_height}px;
+		}
+		@media screen and ( max-width: 992px ) {
+			.rspv-site-above-footer-inner-wrap {
+				min-height: {$above_footer_height_tablet}px;
+			}
+		}
+		@media screen and ( max-width: 576px ) {
+			.rspv-site-above-footer-inner-wrap {
+				min-height: {$above_footer_height_mobile}px;
+			}
 		}
 		@media screen and ( max-width: 992px ) {
 			.rspv-site-above-footer-inner-wrap {
@@ -5007,6 +5019,8 @@ function responsive_customizer_styles() {
 	$primary_footer_inner_column_tablet_spacing = get_theme_mod( 'responsive_footer_primary_inner_column_spacing_tablet', 30 );
 	$primary_footer_inner_column_mobile_spacing = get_theme_mod( 'responsive_footer_primary_inner_column_spacing_mobile', 30 );
 	$primary_footer_height 			     = get_theme_mod( 'responsive_footer_primary_height', 30 );
+	$primary_footer_height_tablet 	     = get_theme_mod( 'responsive_footer_primary_height_tablet', $primary_footer_height );
+	$primary_footer_height_mobile 	     = get_theme_mod( 'responsive_footer_primary_height_mobile', $primary_footer_height );
 	$primary_footer_vertical_alignment   = get_theme_mod( 'responsive_footer_primary_vertical_alignment', 'center' );
 	$primary_footer_bg_color   		     = get_theme_mod( 'responsive_footer_primary_row_bg_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_primary_row_bg_color' ) );
 	$primary_footer_bg_color_tablet      = get_theme_mod( 'responsive_footer_primary_row_bg_color_tablet', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_primary_row_bg_color' ) );
@@ -5071,11 +5085,13 @@ function responsive_customizer_styles() {
 		@media screen and ( max-width: 992px ) {
 			.rspv-site-primary-footer-inner-wrap {
 				gap: {$primary_footer_inner_column_tablet_spacing}px;
+				min-height: {$primary_footer_height_tablet}px;
 			}
 		}
 		@media screen and ( max-width: 576px ) {
 			.rspv-site-primary-footer-inner-wrap {
 				gap: {$primary_footer_inner_column_mobile_spacing}px;
+				min-height: {$primary_footer_height_mobile}px;
 			}
 		}
 		.rspv-site-primary-footer-wrap.rspv-hfb-footer-row-stack .site-footer-row, .rspv-site-primary-footer-wrap .site-footer-section {
@@ -5132,6 +5148,8 @@ function responsive_customizer_styles() {
 	$below_footer_inner_column_tablet_spacing = get_theme_mod( 'responsive_footer_below_inner_column_spacing_tablet', 30 );
 	$below_footer_inner_column_mobile_spacing = get_theme_mod( 'responsive_footer_below_inner_column_spacing_mobile', 30 );
 	$below_footer_height 			   = get_theme_mod( 'responsive_footer_below_height', 30 );
+	$below_footer_height_tablet          = get_theme_mod( 'responsive_footer_below_height_tablet', $below_footer_height );
+	$below_footer_height_mobile          = get_theme_mod( 'responsive_footer_below_height_mobile', $below_footer_height );
 	$below_footer_vertical_alignment   = get_theme_mod( 'responsive_footer_below_vertical_alignment', 'flex-start' );
 	$below_footer_bg_color   		   = get_theme_mod( 'responsive_footer_below_row_bg_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_below_row_bg_color' ) );
 	$below_footer_bg_color_tablet      = get_theme_mod( 'responsive_footer_below_row_bg_color_tablet', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_below_row_bg_color' ) );
@@ -5196,11 +5214,13 @@ function responsive_customizer_styles() {
 		@media screen and ( max-width: 992px ) {
 			.rspv-site-below-footer-inner-wrap {
 				gap: {$below_footer_inner_column_tablet_spacing}px;
+				min-height: {$below_footer_height_tablet}px;
 			}
 		}
 		@media screen and ( max-width: 576px ) {
 			.rspv-site-below-footer-inner-wrap {
 				gap: {$below_footer_inner_column_mobile_spacing}px;
+				min-height: {$below_footer_height_mobile}px;
 			}
 		}
 		.rspv-site-below-footer-wrap.rspv-hfb-footer-row-stack .site-footer-row, .rspv-site-below-footer-wrap .site-footer-section {

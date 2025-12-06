@@ -769,9 +769,37 @@
         });
     });
     // primary footer
-    api( 'responsive_footer_primary_height', function(value) {
+    api('responsive_footer_primary_height', function(value) {
         value.bind(function(newval) {
-            $( '.rspv-site-primary-footer-inner-wrap' ).css( 'min-height', newval + 'px' );
+            jQuery('style#responsive-footer-primary-height-desktop').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-primary-height-desktop">'
+                + '@media screen and (min-width: 993px) {'
+                + '.rspv-site-primary-footer-inner-wrap { min-height: ' + newval + 'px; }'
+                + '} </style>'
+            );
+        });
+    });
+    api('responsive_footer_primary_height_tablet', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-primary-height-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-primary-height-tablet">'
+                + '@media screen and (min-width:577px) and (max-width: 992px) {'
+                + '.rspv-site-primary-footer-inner-wrap { min-height: ' + newval + 'px; }'
+                + '} </style>'
+            );
+        });
+    });
+    api('responsive_footer_primary_height_mobile', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-primary-height-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-primary-height-mobile">'
+                + '@media screen and (max-width: 576px) {'
+                + '.rspv-site-primary-footer-inner-wrap { min-height: ' + newval + 'px; }'
+                + '} </style>'
+            );
         });
     });
     api( 'responsive_footer_primary_inner_column_spacing', function(value) {
@@ -835,10 +863,40 @@
             );
         });
     });
-    // above footer
-    api( 'responsive_footer_above_height', function(value) {
+    // Above footer
+    api('responsive_footer_above_height', function(value) {
         value.bind(function(newval) {
-            $( '.rspv-site-above-footer-inner-wrap' ).css( 'min-height', newval + 'px' );
+            jQuery('style#responsive-footer-above-height-desktop').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-above-height-desktop">'
+                + '@media screen and (min-width: 993px) {'
+                + '.rspv-site-above-footer-inner-wrap { min-height: ' + newval + 'px; }'
+                + '} </style>'
+            );
+        });
+    });
+
+    api('responsive_footer_above_height_tablet', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-above-height-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-above-height-tablet">'
+                + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                + '.rspv-site-above-footer-inner-wrap { min-height: ' + newval + 'px; }'
+                + '} </style>'
+            );
+        });
+    });
+
+    api('responsive_footer_above_height_mobile', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-above-height-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-above-height-mobile">'
+                + '@media screen and (max-width: 576px) {'
+                + '.rspv-site-above-footer-inner-wrap { min-height: ' + newval + 'px; }'
+                + '} </style>'
+            );
         });
     });
     api( 'responsive_footer_above_inner_column_spacing', function(value) {
@@ -901,10 +959,40 @@
             );
         });
     });
-    // below footer
-    api( 'responsive_footer_below_height', function(value) {
+    // Below footer
+    api('responsive_footer_below_height', function(value) {
         value.bind(function(newval) {
-            $( '.rspv-site-below-footer-inner-wrap' ).css( 'min-height', newval + 'px' );
+            jQuery('style#responsive-footer-below-height-desktop').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-below-height-desktop">'
+                + '@media screen and (min-width: 993px) {'
+                + '.rspv-site-below-footer-inner-wrap { min-height: ' + newval + 'px; }'
+                + '} </style>'
+            );
+        });
+    });
+
+    api('responsive_footer_below_height_tablet', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-below-height-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-below-height-tablet">'
+                + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                + '.rspv-site-below-footer-inner-wrap { min-height: ' + newval + 'px; }'
+                + '} </style>'
+            );
+        });
+    });
+
+    api('responsive_footer_below_height_mobile', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-below-height-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-below-height-mobile">'
+                + '@media screen and (max-width: 576px) {'
+                + '.rspv-site-below-footer-inner-wrap { min-height: ' + newval + 'px; }'
+                + '} </style>'
+            );
         });
     });
     api( 'responsive_footer_below_inner_column_spacing', function(value) {
