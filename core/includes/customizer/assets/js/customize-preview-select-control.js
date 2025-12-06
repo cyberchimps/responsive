@@ -711,11 +711,48 @@
             }
         });
     } );
-    api( 'responsive_footer_primary_vertical_alignment', function(value){
-        value.bind( function(newval){
-            $( '.rspv-site-primary-footer-wrap.rspv-hfb-footer-row-stack .site-footer-row, .rspv-site-primary-footer-wrap .site-footer-section' ).css( 'align-items', newval )
+    // Primary footer vertical alignment — desktop (min-width: 993px)
+    api('responsive_footer_primary_vertical_alignment', function(value){
+        value.bind(function(newval){
+            jQuery('style#responsive-footer-primary-vertical-alignment-desktop').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-primary-vertical-alignment-desktop">'
+                + '@media screen and (min-width: 993px) {'
+                + '.rspv-site-primary-footer-wrap.rspv-hfb-footer-row-stack .site-footer-row,'
+                + '.rspv-site-primary-footer-wrap .site-footer-section { align-items: ' + newval + '; }'
+                + '} </style>'
+            );
         });
     });
+
+    // Primary footer vertical alignment — tablet (577px to 992px)
+    api('responsive_footer_primary_vertical_alignment_tablet', function(value){
+        value.bind(function(newval){
+            jQuery('style#responsive-footer-primary-vertical-alignment-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-primary-vertical-alignment-tablet">'
+                + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                + '.rspv-site-primary-footer-wrap.rspv-hfb-footer-row-stack .site-footer-row,'
+                + '.rspv-site-primary-footer-wrap .site-footer-section { align-items: ' + newval + '; }'
+                + '} </style>'
+            );
+        });
+    });
+
+    // Primary footer vertical alignment — mobile (max-width: 576px)
+    api('responsive_footer_primary_vertical_alignment_mobile', function(value){
+        value.bind(function(newval){
+            jQuery('style#responsive-footer-primary-vertical-alignment-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-primary-vertical-alignment-mobile">'
+                + '@media screen and (max-width: 576px) {'
+                + '.rspv-site-primary-footer-wrap.rspv-hfb-footer-row-stack .site-footer-row,'
+                + '.rspv-site-primary-footer-wrap .site-footer-section { align-items: ' + newval + '; }'
+                + '} </style>'
+            );
+        });
+    });
+
     // above footer - responsive width
     function update_footer_above_width() {
         const targetElement = document.querySelector('[data-section="responsive-above-footer-builder"]');
@@ -796,9 +833,44 @@
             }
         });
     } );
-    api( 'responsive_footer_above_vertical_alignment', function(value){
-        value.bind( function(newval){
-            $( '.rspv-site-above-footer-wrap.rspv-hfb-footer-row-stack .site-footer-row, .rspv-site-above-footer-wrap .site-footer-section' ).css( 'align-items', newval )
+   api('responsive_footer_above_vertical_alignment', function(value){
+        value.bind(function(newval){
+            jQuery('style#responsive-footer-above-vertical-alignment-desktop').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-above-vertical-alignment-desktop">'
+                + '@media screen and (min-width: 993px) {'
+                + '.rspv-site-above-footer-wrap.rspv-hfb-footer-row-stack .site-footer-row,'
+                + '.rspv-site-above-footer-wrap .site-footer-section { align-items: ' + newval + ' !important; }'
+                + '} </style>'
+            );
+        });
+    });
+
+    // Above footer vertical alignment — tablet (577px to 992px)
+    api('responsive_footer_above_vertical_alignment_tablet', function(value){
+        value.bind(function(newval){
+            jQuery('style#responsive-footer-above-vertical-alignment-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-above-vertical-alignment-tablet">'
+                + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                + '.rspv-site-above-footer-wrap.rspv-hfb-footer-row-stack .site-footer-row,'
+                + '.rspv-site-above-footer-wrap .site-footer-section { align-items: ' + newval + ' !important; }'
+                + '} </style>'
+            );
+        });
+    });
+
+    // Above footer vertical alignment — mobile (max-width: 576px)
+    api('responsive_footer_above_vertical_alignment_mobile', function(value){
+        value.bind(function(newval){
+            jQuery('style#responsive-footer-above-vertical-alignment-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-above-vertical-alignment-mobile">'
+                + '@media screen and (max-width: 576px) {'
+                + '.rspv-site-above-footer-wrap.rspv-hfb-footer-row-stack .site-footer-row,'
+                + '.rspv-site-above-footer-wrap .site-footer-section { align-items: ' + newval + ' !important; }'
+                + '} </style>'
+            );
         });
     });
     // below footer - responsive width
@@ -899,9 +971,44 @@
             }
         });
     } );
-    api( 'responsive_footer_below_vertical_alignment', function(value){
-        value.bind( function(newval){
-            $( '.rspv-site-below-footer-wrap.rspv-hfb-footer-row-stack .site-footer-row, .rspv-site-below-footer-wrap .site-footer-section' ).css( 'align-items', newval )
+    api('responsive_footer_below_vertical_alignment', function(value){
+        value.bind(function(newval){
+            jQuery('style#responsive-footer-below-vertical-alignment-desktop').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-below-vertical-alignment-desktop">'
+                + '@media screen and (min-width: 993px) {'
+                + '.rspv-site-below-footer-wrap.rspv-hfb-footer-row-stack .site-footer-row,'
+                + '.rspv-site-below-footer-wrap .site-footer-section { align-items: ' + newval + ' !important; }'
+                + '} </style>'
+            );
+        });
+    });
+
+    // Below footer vertical alignment — tablet (577px to 992px)
+    api('responsive_footer_below_vertical_alignment_tablet', function(value){
+        value.bind(function(newval){
+            jQuery('style#responsive-footer-below-vertical-alignment-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-below-vertical-alignment-tablet">'
+                + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                + '.rspv-site-below-footer-wrap.rspv-hfb-footer-row-stack .site-footer-row,'
+                + '.rspv-site-below-footer-wrap .site-footer-section { align-items: ' + newval + ' !important; }'
+                + '} </style>'
+            );
+        });
+    });
+
+    // Below footer vertical alignment — mobile (max-width: 576px)
+    api('responsive_footer_below_vertical_alignment_mobile', function(value){
+        value.bind(function(newval){
+            jQuery('style#responsive-footer-below-vertical-alignment-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-below-vertical-alignment-mobile">'
+                + '@media screen and (max-width: 576px) {'
+                + '.rspv-site-below-footer-wrap.rspv-hfb-footer-row-stack .site-footer-row,'
+                + '.rspv-site-below-footer-wrap .site-footer-section { align-items: ' + newval + ' !important; }'
+                + '} </style>'
+            );
         });
     });
 

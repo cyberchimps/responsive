@@ -99,7 +99,7 @@ if( ! class_exists( 'Responsive_HFB_Footer_Above_Row' ) ) {
 				'center'     => esc_html__( 'Middle', 'responsive' ),
 				'flex-end'   => esc_html__( 'Bottom', 'responsive' ),
 			);
-			responsive_select_button_control( $wp_customize, 'footer_above_vertical_alignment', $vertical_alignment_label, 'responsive_footer_above_row', 70, $vertical_alignment_choices, 'flex-start', null, 'postMessage' );
+			responsive_select_button_with_switchers_control( $wp_customize, 'footer_above_vertical_alignment', $vertical_alignment_label, 'responsive_footer_above_row', 70, $vertical_alignment_choices, 'flex-start', null, 'refresh' );
 
             
             // Background Color.
