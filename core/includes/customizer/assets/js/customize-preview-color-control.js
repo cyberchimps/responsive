@@ -3021,12 +3021,48 @@
             }
         });
     });
+    // Footer Social Item Color - Desktop
     api( 'responsive_footer_social_item_color', function(val){
         val.bind(function(newval){
             var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
             if ( 'no' === footer_social_item_use_brand_colors ) {
-                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'color', newval );
-                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'fill', newval );
+                jQuery('style#responsive-footer-social-item-color-desktop').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-color-desktop">'
+                    + '@media screen and (min-width: 993px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { color: ' + newval + '; fill: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+        });
+    });
+    // Footer Social Item Color - Tablet
+    api( 'responsive_footer_social_item_color_tablet', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-color-tablet').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-color-tablet">'
+                    + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { color: ' + newval + '; fill: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+        });
+    });
+    // Footer Social Item Color - Mobile
+    api( 'responsive_footer_social_item_color_mobile', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-color-mobile').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-color-mobile">'
+                    + '@media screen and (max-width: 556px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { color: ' + newval + '; fill: ' + newval + '; }'
+                    + '} </style>'
+                );
             }
         });
     });
@@ -3048,12 +3084,48 @@
             }
         });
     });
-    api( 'responsive_footer_social_item_hover_color', function(val){
+    // Footer Social Item Hover Color - Desktop
+    api( 'responsive_footer_social_item_color_hover', function(val){
         val.bind(function(newval){
             var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
             if ( 'no' === footer_social_item_use_brand_colors ) {
-                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'color', newval );
-                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'fill', newval );
+                jQuery('style#responsive-footer-social-item-hover-color-desktop').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-hover-color-desktop">'
+                    + '@media screen and (min-width: 993px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { color: ' + newval + '; fill: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+        });
+    });
+    // Footer Social Item Hover Color - Tablet
+    api( 'responsive_footer_social_item_color_tablet_hover', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-hover-color-tablet').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-hover-color-tablet">'
+                    + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { color: ' + newval + '; fill: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+        });
+    });
+    // Footer Social Item Hover Color - Mobile
+    api( 'responsive_footer_social_item_color_mobile_hover', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-hover-color-mobile').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-hover-color-mobile">'
+                    + '@media screen and (max-width: 556px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { color: ' + newval + '; fill: ' + newval + '; }'
+                    + '} </style>'
+                );
             }
         });
     });
@@ -3073,11 +3145,48 @@
             }
         });
     });
+    // Footer Social Item Background Color - Desktop
     api( 'responsive_footer_social_item_background_color', function(val){
         val.bind(function(newval){
             var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
             if ( 'no' === footer_social_item_use_brand_colors ) {
-                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'background-color', newval );
+                jQuery('style#responsive-footer-social-item-background-color-desktop').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-background-color-desktop">'
+                    + '@media screen and (min-width: 993px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { background-color: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+        });
+    });
+    // Footer Social Item Background Color - Tablet
+    api( 'responsive_footer_social_item_background_color_tablet', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-background-color-tablet').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-background-color-tablet">'
+                    + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { background-color: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+        });
+    });
+    // Footer Social Item Background Color - Mobile
+    api( 'responsive_footer_social_item_background_color_mobile', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-background-color-mobile').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-background-color-mobile">'
+                    + '@media screen and (max-width: 556px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { background-color: ' + newval + '; }'
+                    + '} </style>'
+                );
             }
         });
     });
@@ -3097,11 +3206,48 @@
             }
         });
     });
-    api( 'responsive_footer_social_item_background_hover_color', function(val){
+    // Footer Social Item Background Hover Color - Desktop
+    api( 'responsive_footer_social_item_background_color_hover', function(val){
         val.bind(function(newval){
             var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
             if ( 'no' === footer_social_item_use_brand_colors ) {
-                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'background-color', newval );
+                jQuery('style#responsive-footer-social-item-background-hover-color-desktop').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-background-hover-color-desktop">'
+                    + '@media screen and (min-width: 993px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+        });
+    });
+    // Footer Social Item Background Hover Color - Tablet
+    api( 'responsive_footer_social_item_background_color_tablet_hover', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-background-hover-color-tablet').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-background-hover-color-tablet">'
+                    + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+        });
+    });
+    // Footer Social Item Background Hover Color - Mobile
+    api( 'responsive_footer_social_item_background_color_mobile_hover', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-background-hover-color-mobile').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-background-hover-color-mobile">'
+                    + '@media screen and (max-width: 556px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' + newval + '; }'
+                    + '} </style>'
+                );
             }
         });
     });

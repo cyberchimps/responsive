@@ -6360,50 +6360,123 @@ function responsive_customizer_styles() {
 		}
 	}
 
-	// Mobile Footer Social 
-	if( Responsive\Core\responsive_check_element_in_mobile_tablet_items( 'social', 'footer ') ) {
-		$footer_social_item_icon_size_tablet = get_theme_mod( 'responsive_footer_social_item_icon_size_tablet', get_theme_mod( 'responsive_footer_social_item_icon_size', 21 ));
-		$footer_social_item_icon_size_mobile = get_theme_mod( 'responsive_footer_social_item_icon_size_mobile', get_theme_mod( 'responsive_footer_social_item_icon_size', 21 ));
-
-		$custom_css .= '@media screen and ( max-width: 992px ) {
-			.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { font-size: ' . $footer_social_item_icon_size_tablet . 'px }
-			.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-wrapper svg { width: ' . $footer_social_item_icon_size_tablet . 'px; height: ' . $footer_social_item_icon_size_tablet . 'px }
-		}';
-
-		$custom_css .= '@media screen and ( max-width: 576px ) {
-			.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { font-size: ' . $footer_social_item_icon_size_mobile . 'px }
-			.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-wrapper svg { width: ' . $footer_social_item_icon_size_mobile . 'px; height: ' . $footer_social_item_icon_size_mobile . 'px }
-		}';
-
-	}
 	// Footer Social.
-	if ( Responsive\Core\responsive_check_element_present_in_hfb( 'social', 'footer' ) ) {
-		$footer_social_item_spacing = get_theme_mod( 'responsive_footer_social_item_spacing', 0 );
+	if ( Responsive\Core\responsive_check_element_present_in_hfb( 'social', 'footer' ) || Responsive\Core\responsive_check_element_in_mobile_tablet_items( 'social', 'footer' ) ) {
+		$footer_social_item_spacing 	   = get_theme_mod( 'responsive_footer_social_item_spacing', 0 );
+		$footer_social_item_spacing_tablet = get_theme_mod( 'responsive_footer_social_item_spacing_tablet', $footer_social_item_spacing );
+		$footer_social_item_spacing_mobile = get_theme_mod( 'responsive_footer_social_item_spacing_mobile', $footer_social_item_spacing );
 		if ( $footer_social_item_spacing > 0 ) {
 			$custom_css .= ".footer-layouts.social-icon .social-icons { gap: " . $footer_social_item_spacing . "px }";
 		}
+		if ( $footer_social_item_spacing_tablet > 0 ) {
+			$custom_css .= "@media screen and ( max-width: 992px ) {
+				.footer-layouts.social-icon .social-icons { gap: " . $footer_social_item_spacing_tablet . "px }
+			}";
+		}
+		if ( $footer_social_item_spacing_mobile > 0 ) {
+			$custom_css .= "@media screen and ( max-width: 576px ) {
+				.footer-layouts.social-icon .social-icons { gap: " . $footer_social_item_spacing_mobile . "px }
+			}";
+		}
+		
 		$footer_social_item_style = get_theme_mod( 'responsive_footer_social_item_style', 'filled' );
 		if ( 'filled' === $footer_social_item_style ) {
 			$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { background-color: #EDF2F7}';
 		}
 		$footer_use_brand_colors = get_theme_mod( 'responsive_footer_social_item_use_brand_colors', 'no' );
 		if ( 'no' === $footer_use_brand_colors ) {
+			// Desktop color
 			$footer_social_item_color = get_theme_mod( 'responsive_footer_social_item_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_color' ) );
 			if ( $footer_social_item_color ) {
+				$custom_css .= '@media screen and (min-width: 993px) {';
 				$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { color: ' . $footer_social_item_color . '; fill: ' . $footer_social_item_color . '}';
+				$custom_css .= '}';
 			}
-			$footer_social_item_color_hover = get_theme_mod( 'responsive_footer_social_item_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_hover_color' ) );
+			// Tablet color
+			$footer_social_item_color_tablet = get_theme_mod( 'responsive_footer_social_item_color_tablet', $footer_social_item_color );
+			if ( $footer_social_item_color_tablet ) {
+				$custom_css .= '@media screen and (min-width: 577px) and (max-width: 992px) {';
+				$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { color: ' . $footer_social_item_color_tablet . '; fill: ' . $footer_social_item_color_tablet . '}';
+				$custom_css .= '}';
+			}
+			// Mobile color
+			$footer_social_item_color_mobile = get_theme_mod( 'responsive_footer_social_item_color_mobile', $footer_social_item_color );
+			if ( $footer_social_item_color_mobile ) {
+				$custom_css .= '@media screen and (max-width: 556px) {';
+				$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { color: ' . $footer_social_item_color_mobile . '; fill: ' . $footer_social_item_color_mobile . '}';
+				$custom_css .= '}';
+			}
+			// Desktop hover color
+			$footer_social_item_color_hover = get_theme_mod( 'responsive_footer_social_item_color_hover', Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_hover_color' ) );
+			// Backward compatibility: check old setting name
+			if ( ! $footer_social_item_color_hover ) {
+				$footer_social_item_color_hover = get_theme_mod( 'responsive_footer_social_item_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_hover_color' ) );
+			}
 			if ( $footer_social_item_color_hover ) {
+				$custom_css .= '@media screen and (min-width: 993px) {';
 				$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { color: ' . $footer_social_item_color_hover . '; fill: ' . $footer_social_item_color_hover . '}';
+				$custom_css .= '}';
+			}
+			// Tablet hover color
+			$footer_social_item_color_tablet_hover = get_theme_mod( 'responsive_footer_social_item_color_tablet_hover', $footer_social_item_color_hover );
+			if ( $footer_social_item_color_tablet_hover ) {
+				$custom_css .= '@media screen and (min-width: 577px) and (max-width: 992px) {';
+				$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { color: ' . $footer_social_item_color_tablet_hover . '; fill: ' . $footer_social_item_color_tablet_hover . '}';
+				$custom_css .= '}';
+			}
+			// Mobile hover color
+			$footer_social_item_color_mobile_hover = get_theme_mod( 'responsive_footer_social_item_color_mobile_hover', $footer_social_item_color_hover );
+			if ( $footer_social_item_color_mobile_hover ) {
+				$custom_css .= '@media screen and (max-width: 556px) {';
+				$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { color: ' . $footer_social_item_color_mobile_hover . '; fill: ' . $footer_social_item_color_mobile_hover . '}';
+				$custom_css .= '}';
 			}
 			if ( 'filled' === $footer_social_item_style ) {
+				// Desktop background color
 				$footer_social_item_bg_color = get_theme_mod( 'responsive_footer_social_item_background_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_bg_color' ) );
 				if ( $footer_social_item_bg_color ) {
+					$custom_css .= '@media screen and (min-width: 993px) {';
 					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { background-color: ' . $footer_social_item_bg_color . '; }';
+					$custom_css .= '}';
 				}
-				$footer_social_item_bg_color_hover = get_theme_mod( 'responsive_footer_social_item_background_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_bg_hover_color' ) );
+				// Tablet background color
+				$footer_social_item_bg_color_tablet = get_theme_mod( 'responsive_footer_social_item_background_color_tablet', $footer_social_item_bg_color );
+				if ( $footer_social_item_bg_color_tablet ) {
+					$custom_css .= '@media screen and (min-width: 577px) and (max-width: 992px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { background-color: ' . $footer_social_item_bg_color_tablet . '; }';
+					$custom_css .= '}';
+				}
+				// Mobile background color
+				$footer_social_item_bg_color_mobile = get_theme_mod( 'responsive_footer_social_item_background_color_mobile', $footer_social_item_bg_color );
+				if ( $footer_social_item_bg_color_mobile ) {
+					$custom_css .= '@media screen and (max-width: 556px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { background-color: ' . $footer_social_item_bg_color_mobile . '; }';
+					$custom_css .= '}';
+				}
+				// Desktop background hover color
+				$footer_social_item_bg_color_hover = get_theme_mod( 'responsive_footer_social_item_background_color_hover', Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_bg_hover_color' ) );
+				// Backward compatibility: check old setting name
+				if ( ! $footer_social_item_bg_color_hover ) {
+					$footer_social_item_bg_color_hover = get_theme_mod( 'responsive_footer_social_item_background_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_bg_hover_color' ) );
+				}
 				if ( $footer_social_item_bg_color_hover ) {
+					$custom_css .= '@media screen and (min-width: 993px) {';
 					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' . $footer_social_item_bg_color_hover . '; }';
+					$custom_css .= '}';
+				}
+				// Tablet background hover color
+				$footer_social_item_bg_color_tablet_hover = get_theme_mod( 'responsive_footer_social_item_background_color_tablet_hover', $footer_social_item_bg_color_hover );
+				if ( $footer_social_item_bg_color_tablet_hover ) {
+					$custom_css .= '@media screen and (min-width: 577px) and (max-width: 992px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' . $footer_social_item_bg_color_tablet_hover . '; }';
+					$custom_css .= '}';
+				}
+				// Mobile background hover color
+				$footer_social_item_bg_color_mobile_hover = get_theme_mod( 'responsive_footer_social_item_background_color_mobile_hover', $footer_social_item_bg_color_hover );
+				if ( $footer_social_item_bg_color_mobile_hover ) {
+					$custom_css .= '@media screen and (max-width: 556px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' . $footer_social_item_bg_color_mobile_hover . '; }';
+					$custom_css .= '}';
 				}
 			}
 			$footer_social_item_border_style = get_theme_mod( 'responsive_footer_social_item_border_style' );
@@ -6447,6 +6520,19 @@ function responsive_customizer_styles() {
 				$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { border-color: ' . $footer_social_item_border_hover_color . '; }';
 
 			}
+
+			$footer_social_item_icon_size_tablet = get_theme_mod( 'responsive_footer_social_item_icon_size_tablet', get_theme_mod( 'responsive_footer_social_item_icon_size', 21 ));
+			$footer_social_item_icon_size_mobile = get_theme_mod( 'responsive_footer_social_item_icon_size_mobile', get_theme_mod( 'responsive_footer_social_item_icon_size', 21 ));
+
+			$custom_css .= '@media screen and ( max-width: 992px ) {
+				.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { font-size: ' . $footer_social_item_icon_size_tablet . 'px }
+				.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-wrapper svg { width: ' . $footer_social_item_icon_size_tablet . 'px; height: ' . $footer_social_item_icon_size_tablet . 'px }
+			}';
+
+			$custom_css .= '@media screen and ( max-width: 576px ) {
+				.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { font-size: ' . $footer_social_item_icon_size_mobile . 'px }
+				.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-wrapper svg { width: ' . $footer_social_item_icon_size_mobile . 'px; height: ' . $footer_social_item_icon_size_mobile . 'px }
+			}';
 		}
 
 		$footer_social_item_icon_size = get_theme_mod( 'responsive_footer_social_item_icon_size', 21 );

@@ -1081,9 +1081,55 @@
            $( '.site-mobile-header-item .header-layouts.social-icon .social-icons' ).css( 'gap', newval + 'px' );
         });
     });
-    api( 'responsive_footer_social_item_spacing', function(value){
-        value.bind(function(newval) {
-           $( '.footer-layouts.social-icon .social-icons' ).css( 'gap', newval + 'px' );
+    api('responsive_footer_social_item_spacing', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-footer-social-spacing-desktop';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 993px) {
+                        .footer-layouts.social-icon .social-icons { gap: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+
+    // Footer Social Icon Spacing — Tablet (577px–992px)
+    api('responsive_footer_social_item_spacing_tablet', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-footer-social-spacing-tablet';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 577px) and (max-width: 992px) {
+                        .footer-layouts.social-icon .social-icons { gap: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+
+    // Footer Social Icon Spacing — Mobile (max-width: 576px)
+    api('responsive_footer_social_item_spacing_mobile', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-footer-social-spacing-mobile';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (max-width: 576px) {
+                        .footer-layouts.social-icon .social-icons { gap: ${newval}px; }
+                    }
+                </style>`
+            );
         });
     });
     api( 'responsive_header_social_item_icon_size', function(value){

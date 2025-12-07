@@ -199,6 +199,10 @@
         grid-template-columns: 1fr 1fr 1fr 2fr;
     }
 }
+// Hide footer rows that don't have desktop items on desktop viewports
+.rspv-hfb-footer-no-desktop-items {
+    display: none;
+}
 @media ( max-width:map-get($screens, lg) ) and ( min-width:map-get($screens,sm) ) {
     .site-footer-wrap .rspv-site-footer-focus-item .site-footer-row.rspv-hfb-footer-row-tablet-layout-row {
         grid-template-columns: 1fr;
@@ -260,6 +264,10 @@
         &.rspv-hfb-footer-row-tablet-layout-equal {
             grid-template-columns: repeat( 6, 1fr );
         }
+    }
+    // On tablet, show rows even if they don't have desktop items (override desktop rule)
+    .rspv-hfb-footer-no-desktop-items {
+        display: block;
     }
     // Hide footer rows that don't have mobile items on tablet devices
     .rspv-hfb-footer-no-mobile-items {
@@ -327,6 +335,10 @@
         &.rspv-hfb-footer-row-mobile-layout-equal {
             grid-template-columns: repeat( 6, 1fr );
         }
+    }
+    // On mobile, show rows even if they don't have desktop items (override desktop rule)
+    .rspv-hfb-footer-no-desktop-items {
+        display: block;
     }
     // Hide footer rows that don't have mobile items on mobile devices
     .rspv-hfb-footer-no-mobile-items {

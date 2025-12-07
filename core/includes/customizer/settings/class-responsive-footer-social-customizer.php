@@ -112,7 +112,7 @@ if ( ! class_exists( 'Responsive_Footer_Social_Icons_Customizer' ) ) :
 				)
 			);
 
-			responsive_drag_number_control( $wp_customize, 'footer_social_item_spacing', __( 'Item Spacing (px)', 'responsive' ), 'responsive_footer_social', 55, 5, null, 50, 0, 'postMessage' );
+			responsive_drag_number_control_with_switchers( $wp_customize, 'footer_social_item_spacing', __( 'Item Spacing (px)', 'responsive' ), 'responsive_footer_social', 55, 5, null, 50, 0, 'postMessage' );
 			
 			$social_item_style_choices = array(
 				'filled'  => esc_html__( 'Filled', 'responsive' ),
@@ -128,9 +128,9 @@ if ( ! class_exists( 'Responsive_Footer_Social_Icons_Customizer' ) ) :
 			);
 			responsive_select_button_control( $wp_customize, 'footer_social_item_use_brand_colors', __( 'Use Brand Colors', 'responsive' ), 'responsive_footer_social', 60, $social_item_use_brands_colors_choices, 'no', null );
 
-			responsive_color_control( $wp_customize, 'footer_social_item', __( 'Colors', 'responsive' ), 'responsive_footer_social', 65, Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_hover_color' ), 'footer_social_item_hover' );
+			responsive_color_control_with_device_switchers_and_hover( $wp_customize, 'footer_social_item', __( 'Colors', 'responsive' ), 'responsive_footer_social', 65, Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_color' ), Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_hover_color' ), null, '', 'postMessage' );
 			
-			responsive_color_control( $wp_customize, 'footer_social_item_background', __( 'Background Colors', 'responsive' ), 'responsive_footer_social', 66, Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_bg_color' ), 'responsive_show_social_background_colors', '', true, Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_bg_hover_color' ), 'footer_social_item_background_hover' );
+			responsive_color_control_with_device_switchers_and_hover( $wp_customize, 'footer_social_item_background', __( 'Background Colors', 'responsive' ), 'responsive_footer_social', 66, Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_bg_color' ), Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_bg_hover_color' ), 'responsive_show_social_background_colors', '', 'postMessage' );
 
 			responsive_separator_control( $wp_customize, 'footer_social_item_border_spacing', esc_html__( 'Border', 'responsive' ), 'responsive_footer_social', 70 );
 
