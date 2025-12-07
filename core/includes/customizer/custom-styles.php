@@ -5401,6 +5401,8 @@ function responsive_customizer_styles() {
 	$custom_css .= "}}";
 
 	$copyright_alignment         = get_theme_mod( 'responsive_footer_copyright_alignment', 'left' );
+	$copyright_alignment_tablet  = get_theme_mod( 'responsive_footer_copyright_alignment_tablet', $copyright_alignment );
+	$copyright_alignment_mobile  = get_theme_mod( 'responsive_footer_copyright_alignment_mobile', $copyright_alignment );
 	
 	// Desktop colors
 	$copyright_text_color        = get_theme_mod( 'responsive_footer_copyright_text_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_copyright_text' ) );
@@ -5457,7 +5459,7 @@ function responsive_customizer_styles() {
 		$custom_css .= "
 			@media screen and ( max-width: 992px ) {
 				.footer-layouts.copyright {
-					text-align: {$copyright_alignment};
+					text-align: {$copyright_alignment_tablet};
 					color: {$copyright_text_color_tablet};
 				}
 				.footer-layouts.copyright:hover {
@@ -5476,7 +5478,7 @@ function responsive_customizer_styles() {
 		$custom_css .= "
 			@media screen and ( max-width: 576px ) {
 				.footer-layouts.copyright {
-					text-align: {$copyright_alignment};
+					text-align: {$copyright_alignment_mobile};
 					color: {$copyright_text_color_mobile};
 				}
 				.footer-layouts.copyright:hover {

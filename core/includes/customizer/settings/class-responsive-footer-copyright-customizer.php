@@ -120,7 +120,7 @@ if ( ! class_exists( 'Responsive_Footer_Copyright_Customizer' ) ) :
 					'right'  => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
 				);
 			}
-			responsive_select_button_control( $wp_customize, 'footer_copyright_alignment', $copyright_alignment_label, 'responsive_footer_copyright', 50, $copyright_alignment_choices, 'left', null );
+			responsive_select_button_with_switchers_control( $wp_customize, 'footer_copyright_alignment', $copyright_alignment_label, 'responsive_footer_copyright', 50, $copyright_alignment_choices, 'left', null );
 
 			/*
 			------------------------------------------------------------------
