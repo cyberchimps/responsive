@@ -6481,12 +6481,29 @@ function responsive_customizer_styles() {
 			}
 			$footer_social_item_border_style = get_theme_mod( 'responsive_footer_social_item_border_style' );
 			if ( 'none' !== $footer_social_item_border_style ) {
-				$footer_social_item_border_width = get_theme_mod( 'responsive_footer_social_item_border_width' );
 				if ( $footer_social_item_border_style ) {
 					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { border-style: ' . $footer_social_item_border_style . '; }';
 				}
+				// Desktop border width
+				$footer_social_item_border_width = get_theme_mod( 'responsive_footer_social_item_border_width', 0 );
 				if ( $footer_social_item_border_width > 0 ) {
+					$custom_css .= '@media screen and (min-width: 993px) {';
 					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { border-width: ' . $footer_social_item_border_width . 'px; }';
+					$custom_css .= '}';
+				}
+				// Tablet border width
+				$footer_social_item_border_width_tablet = get_theme_mod( 'responsive_footer_social_item_border_width_tablet', $footer_social_item_border_width );
+				if ( $footer_social_item_border_width_tablet > 0 ) {
+					$custom_css .= '@media screen and (min-width: 577px) and (max-width: 992px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { border-width: ' . $footer_social_item_border_width_tablet . 'px; }';
+					$custom_css .= '}';
+				}
+				// Mobile border width
+				$footer_social_item_border_width_mobile = get_theme_mod( 'responsive_footer_social_item_border_width_mobile', $footer_social_item_border_width );
+				if ( $footer_social_item_border_width_mobile > 0 ) {
+					$custom_css .= '@media screen and (max-width: 556px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { border-width: ' . $footer_social_item_border_width_mobile . 'px; }';
+					$custom_css .= '}';
 				}
 				$footer_social_border_radius_top_left    = get_theme_mod( 'responsive_footer_social_radius_top_left_radius' );
 				$footer_social_border_radius_top_right  = get_theme_mod( 'responsive_footer_social_radius_top_right_radius' );
@@ -6513,11 +6530,52 @@ function responsive_customizer_styles() {
 					.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { border-radius: ' . responsive_spacing_css( $footer_social_border_radius_mobile_top_left, $footer_social_border_radius_mobile_top_right, $footer_social_border_radius_mobile_bottom_right, $footer_social_border_radius_mobile_bottom_left ) . '; }
 				}';
 
+				// Desktop border color
 				$footer_social_item_border_color = get_theme_mod( 'responsive_footer_social_item_border_color' );
-				$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { border-color: ' . $footer_social_item_border_color . '; }';
-
-				$footer_social_item_border_hover_color = get_theme_mod( 'responsive_footer_social_item_border_hover_color' );
-				$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { border-color: ' . $footer_social_item_border_hover_color . '; }';
+				if ( $footer_social_item_border_color ) {
+					$custom_css .= '@media screen and (min-width: 993px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { border-color: ' . $footer_social_item_border_color . '; }';
+					$custom_css .= '}';
+				}
+				// Tablet border color
+				$footer_social_item_border_color_tablet = get_theme_mod( 'responsive_footer_social_item_border_color_tablet', $footer_social_item_border_color );
+				if ( $footer_social_item_border_color_tablet ) {
+					$custom_css .= '@media screen and (min-width: 577px) and (max-width: 992px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { border-color: ' . $footer_social_item_border_color_tablet . '; }';
+					$custom_css .= '}';
+				}
+				// Mobile border color
+				$footer_social_item_border_color_mobile = get_theme_mod( 'responsive_footer_social_item_border_color_mobile', $footer_social_item_border_color );
+				if ( $footer_social_item_border_color_mobile ) {
+					$custom_css .= '@media screen and (max-width: 556px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { border-color: ' . $footer_social_item_border_color_mobile . '; }';
+					$custom_css .= '}';
+				}
+				// Desktop border hover color
+				$footer_social_item_border_hover_color = get_theme_mod( 'responsive_footer_social_item_border_color_hover' );
+				// Backward compatibility: check old setting name
+				if ( ! $footer_social_item_border_hover_color ) {
+					$footer_social_item_border_hover_color = get_theme_mod( 'responsive_footer_social_item_border_hover_color' );
+				}
+				if ( $footer_social_item_border_hover_color ) {
+					$custom_css .= '@media screen and (min-width: 993px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { border-color: ' . $footer_social_item_border_hover_color . '; }';
+					$custom_css .= '}';
+				}
+				// Tablet border hover color
+				$footer_social_item_border_hover_color_tablet = get_theme_mod( 'responsive_footer_social_item_border_color_tablet_hover', $footer_social_item_border_hover_color );
+				if ( $footer_social_item_border_hover_color_tablet ) {
+					$custom_css .= '@media screen and (min-width: 577px) and (max-width: 992px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { border-color: ' . $footer_social_item_border_hover_color_tablet . '; }';
+					$custom_css .= '}';
+				}
+				// Mobile border hover color
+				$footer_social_item_border_hover_color_mobile = get_theme_mod( 'responsive_footer_social_item_border_color_mobile_hover', $footer_social_item_border_hover_color );
+				if ( $footer_social_item_border_hover_color_mobile ) {
+					$custom_css .= '@media screen and (max-width: 556px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { border-color: ' . $footer_social_item_border_hover_color_mobile . '; }';
+					$custom_css .= '}';
+				}
 
 			}
 

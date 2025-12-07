@@ -1196,9 +1196,43 @@
             $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'border-width', newval + 'px' );
         });
     });
+    // Footer Social Item Border Width - Desktop
     api( 'responsive_footer_social_item_border_width', function(value) {
         value.bind(function(newval) {
-            $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'border-width', newval + 'px' );
+            jQuery('style#responsive-footer-social-item-border-width-desktop').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-social-item-border-width-desktop">'
+                + '@media screen and (min-width: 993px) {'
+                + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { border-width: ' + newval + 'px; }'
+                + '}'
+                + '</style>'
+            );
+        });
+    });
+    // Footer Social Item Border Width - Tablet
+    api( 'responsive_footer_social_item_border_width_tablet', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-social-item-border-width-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-social-item-border-width-tablet">'
+                + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { border-width: ' + newval + 'px; }'
+                + '}'
+                + '</style>'
+            );
+        });
+    });
+    // Footer Social Item Border Width - Mobile
+    api( 'responsive_footer_social_item_border_width_mobile', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-social-item-border-width-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-social-item-border-width-mobile">'
+                + '@media screen and (max-width: 556px) {'
+                + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { border-width: ' + newval + 'px; }'
+                + '}'
+                + '</style>'
+            );
         });
     });
     api( 'responsive_header_contact_info_icon_size', function(value) {
