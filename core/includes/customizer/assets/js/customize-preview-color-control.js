@@ -3855,27 +3855,44 @@
         // Loop over each style type (title, content, etc.) for the current widget
         footerWidgetsStyleTypes.forEach( function( type ) {
 
-            const settingId = 'responsive_footer_widget' + i + type.key;
-            const styleTagId = 'responsive-footer-widget' + i + type.idSuffix;
+            const breakpoints = {
+                desktop: {
+                    query: '@media (min-width: 993px)',
+                    suffix: ''
+                },
+                tablet: {
+                    query: '@media (min-width: 577px) and (max-width: 992px)',
+                    suffix: '-tablet'
+                },
+                mobile: {
+                    query: '@media (max-width: 576px)',
+                    suffix: '-mobile'
+                }
+            };
 
-            api( settingId, function( setting ) {
-                setting.bind( function( newColorValue ) {
+            Object.entries(breakpoints).forEach(([device, bp]) => {
 
-                    const $styleTag = $( 'style#' + styleTagId );
-                    const selector = type.getSelector( i );
-                    // Use template literals for cleaner CSS rule creation
-                    const cssRule = `${selector} { ${type.property}: ${newColorValue} !important; }`;
+                const settingId = device === 'desktop' ? `responsive_footer_widget${i}${type.key}` : `responsive_footer_widget${i}${type.key}_${device}`;
+                const styleTagId = `responsive-footer-widget${i}${type.idSuffix}${bp.suffix}`;
 
-                    // Instead of removing/appending, update the existing tag's content.
-                    if ( $styleTag.length ) {
-                        // If tag exists, just update its HTML
-                        $styleTag.html( cssRule );
-                    } else {
-                        // If tag doesn't exist, create and append it
-                        $head.append( `<style id="${styleTagId}">${cssRule}</style>` );
-                    }
+                api(settingId, function(setting) {
+                    setting.bind(function(newValue) {
+                        
+                        const selector = type.getSelector(i);
+                        const cssRule = `${bp.query} { ${selector} { ${type.property}: ${newValue} !important; } }`;
+
+                        let $styleTag = jQuery(`style#${styleTagId}`);
+
+                        if ($styleTag.length) {
+                            $styleTag.html(cssRule);
+                        } else {
+                            $head.append(`<style id="${styleTagId}">${cssRule}</style>`);
+                        }
+                    });
                 });
+
             });
+            
         });
     }
     // For Mobile Toggle Button Icon Color

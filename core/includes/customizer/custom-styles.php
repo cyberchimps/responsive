@@ -7453,11 +7453,24 @@ function responsive_customizer_styles() {
 			$widget_vertical_align_mobile  = get_theme_mod( "responsive_footer_widget{$i}_content_vertical_align_mobile", 'flex-start' );
 			// Heading Color
 			$widget_heading_color = get_theme_mod( "responsive_footer_widget{$i}_title_color", get_theme_mod( 'responsive_footer_text_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_widget_title_color' ) ) );
+			$widget_heading_color_tablet = get_theme_mod( "responsive_footer_widget{$i}_title_color_tablet", $widget_heading_color );
+			error_log("widget_heading_color_tablet: " . $widget_heading_color_tablet);
+			$widget_heading_color_mobile = get_theme_mod( "responsive_footer_widget{$i}_title_color_mobile", $widget_heading_color_tablet );
+			error_log("widget_heading_color_mobile: " . $widget_heading_color_mobile);
 			// Content Color
 			$widget_content_color = get_theme_mod( "responsive_footer_widget{$i}_content_color", get_theme_mod( 'responsive_footer_text_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_widget_content_color' ) ) );
+			$widget_content_color_tablet = get_theme_mod( "responsive_footer_widget{$i}_content_color_tablet", $widget_content_color );
+			error_log("widget_content_color_tablet: " . $widget_content_color_tablet);
+			$widget_content_color_mobile = get_theme_mod( "responsive_footer_widget{$i}_content_color_mobile", $widget_content_color_tablet );
+			error_log("widget_content_color_mobile: " . $widget_content_color_mobile);
 			// Link Colors
 			$widget_link_color       = get_theme_mod( "responsive_footer_widget{$i}_link_color", get_theme_mod( 'responsive_footer_links_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_widget_link_color' ) ) );
+			$widget_link_color_tablet = get_theme_mod( "responsive_footer_widget{$i}_link_color_tablet", $widget_link_color );
+			$widget_link_color_mobile = get_theme_mod( "responsive_footer_widget{$i}_link_color_mobile", $widget_link_color );
 			$widget_link_hover_color = get_theme_mod( "responsive_footer_widget{$i}_link_hover_color", get_theme_mod( 'responsive_footer_links_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_widget_link_hover_color' ) ) );
+			$widget_link_hover_color_tablet = get_theme_mod( "responsive_footer_widget{$i}_link_hover_color_tablet", $widget_link_hover_color );
+			$widget_link_hover_color_mobile = get_theme_mod( "responsive_footer_widget{$i}_link_hover_color_mobile", $widget_link_hover_color );
+
 
 			$custom_css .= "
 			.footer-widget-area[data-section='responsive-footer-widget-{$i}'].footer-widget-{$i} {
@@ -7486,14 +7499,54 @@ function responsive_customizer_styles() {
 			.footer-widget-area[data-section='responsive-footer-widget-{$i}'] h1, .footer-widget-area[data-section='responsive-footer-widget-{$i}'] h2, .footer-widget-area[data-section='responsive-footer-widget-{$i}'] h3, .footer-widget-area[data-section='responsive-footer-widget-{$i}'] h4, .footer-widget-area[data-section='responsive-footer-widget-{$i}'] h5, .footer-widget-area[data-section='responsive-footer-widget-{$i}'] h6 {
 				color: {$widget_heading_color};
 			}
+			@media screen and (max-width: 992px) {
+				.footer-widget-area[data-section='responsive-footer-widget-{$i}'] h1, .footer-widget-area[data-section='responsive-footer-widget-{$i}'] h2, .footer-widget-area[data-section='responsive-footer-widget-{$i}'] h3, .footer-widget-area[data-section='responsive-footer-widget-{$i}'] h4, .footer-widget-area[data-section='responsive-footer-widget-{$i}'] h5, .footer-widget-area[data-section='responsive-footer-widget-{$i}'] h6 {
+					color: {$widget_heading_color_tablet};
+				}
+			}
+			@media screen and (max-width: 576px) {
+				.footer-widget-area[data-section='responsive-footer-widget-{$i}'] h1, .footer-widget-area[data-section='responsive-footer-widget-{$i}'] h2, .footer-widget-area[data-section='responsive-footer-widget-{$i}'] h3, .footer-widget-area[data-section='responsive-footer-widget-{$i}'] h4, .footer-widget-area[data-section='responsive-footer-widget-{$i}'] h5, .footer-widget-area[data-section='responsive-footer-widget-{$i}'] h6 {
+					color: {$widget_heading_color_mobile};
+				}
+			}
 			.footer-widget-area[data-section='responsive-footer-widget-{$i}'].footer-widget-{$i} {
 				color: {$widget_content_color};
+			}
+			@media screen and (max-width: 992px) {
+				.footer-widget-area[data-section='responsive-footer-widget-{$i}'].footer-widget-{$i} {
+					color: {$widget_content_color_tablet};
+				}
+			}
+			@media screen and (max-width: 576px) {
+				.footer-widget-area[data-section='responsive-footer-widget-{$i}'].footer-widget-{$i} {
+					color: {$widget_content_color_mobile};
+				}
 			}
 			.footer-widget-area[data-section='responsive-footer-widget-{$i}'].footer-widget-{$i} a {
 				color: {$widget_link_color};
 			}
+			@media screen and (max-width: 992px) {
+				.footer-widget-area[data-section='responsive-footer-widget-{$i}'].footer-widget-{$i} a {
+					color: {$widget_link_color_tablet};
+				}
+			}
+			@media screen and (max-width: 576px) {
+				.footer-widget-area[data-section='responsive-footer-widget-{$i}'].footer-widget-{$i} a {
+					color: {$widget_link_color_mobile};
+				}
+			}
 			.footer-widget-area[data-section='responsive-footer-widget-{$i}'].footer-widget-{$i} a:hover {
 				color: {$widget_link_hover_color};
+			}
+			@media screen and (max-width: 992px) {
+				.footer-widget-area[data-section='responsive-footer-widget-{$i}'].footer-widget-{$i} a:hover {
+					color: {$widget_link_hover_color_tablet};
+				}
+			}
+			@media screen and (max-width: 576px) {
+				.footer-widget-area[data-section='responsive-footer-widget-{$i}'].footer-widget-{$i} a:hover {
+					color: {$widget_link_hover_color_mobile};
+				}
 			}
 			";
 			// Widget Margin.
