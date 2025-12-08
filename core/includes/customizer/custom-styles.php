@@ -4102,12 +4102,24 @@ function responsive_customizer_styles() {
 		$stt_devices                     = get_theme_mod( 'responsive_scroll_to_top_on_devices' );
 		$stt_position                    = get_theme_mod( 'responsive_scroll_to_top_icon_position', 'right' );
 		$stt_icon_size                   = get_theme_mod( 'responsive_scroll_to_top_icon_size' );
+		$stt_icon_size_tablet            = get_theme_mod( 'responsive_scroll_to_top_icon_size_tablet', $stt_icon_size );
+		$stt_icon_size_mobile            = get_theme_mod( 'responsive_scroll_to_top_icon_size_mobile', $stt_icon_size );
 		$stt_icon_radius                 = get_theme_mod( 'responsive_scroll_to_top_icon_radius', 50 );
+		$stt_icon_radius_tablet          = get_theme_mod( 'responsive_scroll_to_top_icon_radius_tablet', $stt_icon_radius );
+		$stt_icon_radius_mobile          = get_theme_mod( 'responsive_scroll_to_top_icon_radius_mobile', $stt_icon_radius );
 		$stt_icon_color                  = get_theme_mod( 'responsive_scroll_to_top_icon_color' );
-		$stt_icon_hover_color            = get_theme_mod( 'responsive_scroll_to_top_icon_hover_color' );
+		$stt_icon_color_tablet           = get_theme_mod( 'responsive_scroll_to_top_icon_color_tablet', $stt_icon_color );
+		$stt_icon_color_mobile           = get_theme_mod( 'responsive_scroll_to_top_icon_color_mobile', $stt_icon_color );
+		$stt_icon_hover_color            = get_theme_mod( 'responsive_scroll_to_top_icon_color_hover' );
+		$stt_icon_hover_color_tablet     = get_theme_mod( 'responsive_scroll_to_top_icon_color_tablet_hover', $stt_icon_hover_color );
+		$stt_icon_hover_color_mobile     = get_theme_mod( 'responsive_scroll_to_top_icon_color_mobile_hover', $stt_icon_hover_color );
 		$stt_icon_background_color       = get_theme_mod( 'responsive_scroll_to_top_icon_background_color' );
-		$stt_icon_background_hover_color = get_theme_mod( 'responsive_scroll_to_top_icon_background_hover_color' );
-	
+		$stt_icon_backgrond_color_tablet = get_theme_mod( 'responsive_scroll_to_top_icon_background_color_tablet', $stt_icon_background_color );
+		$stt_icon_background_color_mobile = get_theme_mod( 'responsive_scroll_to_top_icon_background_color_mobile', $stt_icon_background_color );
+		$stt_icon_background_hover_color = get_theme_mod( 'responsive_scroll_to_top_icon_background_color_hover' );
+		$stt_icon_background_hover_color_tablet = get_theme_mod( 'responsive_scroll_to_top_icon_background_color_tablet_hover', $stt_icon_background_hover_color );
+		$stt_icon_background_hover_color_mobile = get_theme_mod( 'responsive_scroll_to_top_icon_background_color_mobile_hover', $stt_icon_background_hover_color );
+
 		$custom_css .= '@media (min-width: 769px) {
 		#scroll {
 		content: "769"; } }
@@ -4145,6 +4157,22 @@ function responsive_customizer_styles() {
 				width: {$stt_icon_size}px;
 			}";
 		}
+		if ( ! empty( $stt_icon_size_tablet ) ) {
+			$custom_css .= "@media screen and ( max-width: 992px ) {
+				#scroll {
+					height: {$stt_icon_size_tablet}px;
+					width: {$stt_icon_size_tablet}px;
+				}
+			}";
+		}
+		if ( ! empty( $stt_icon_size_mobile ) ) {
+			$custom_css .= "@media screen and ( max-width: 576px ) {
+				#scroll {
+					height: {$stt_icon_size_mobile}px;
+					width: {$stt_icon_size_mobile}px;
+				}
+			}";
+		}
 		if ( ! empty( $stt_position ) && 'left' === $stt_position ) {
 			$custom_css .= ".responsive-scroll-wrap {
 				margin-right: auto;
@@ -4165,14 +4193,56 @@ function responsive_customizer_styles() {
 				border-radius: {$stt_icon_radius}%;
 			}";
 		}
+		if ( isset( $stt_icon_radius_tablet ) ) {
+			$custom_css .= "@media screen and ( max-width: 992px ) {
+				#scroll {
+					border-radius: {$stt_icon_radius_tablet}%;
+				}
+			}";
+		}
+		if ( isset( $stt_icon_radius_mobile ) ) {
+			$custom_css .= "@media screen and ( max-width: 576px ) {
+				#scroll {
+					border-radius: {$stt_icon_radius_mobile}%;
+				}
+			}";
+		}
 		if ( ! empty( $stt_icon_background_color ) ) {
 			$custom_css .= "#scroll {
 				background-color: {$stt_icon_background_color};
 			}";
 		}
-		if ( ! empty( $stt_icon_background_hover_color ) ) {
+		if( ! empty( $stt_icon_backgrond_color_tablet ) ) {
+			$custom_css .= "@media screen and ( max-width: 992px ) {
+				#scroll {
+					background-color: {$stt_icon_backgrond_color_tablet};
+				}
+			}";
+		}
+		if( ! empty( $stt_icon_background_color_mobile ) ) {
+			$custom_css .= "@media screen and ( max-width: 576px ) {
+				#scroll {
+					background-color: {$stt_icon_background_color_mobile};
+				}
+			}";
+		}
+		if ( ! empty( $stt_icon_background_color_hover ) ) {
 			$custom_css .= "#scroll:hover {
-				background-color: {$stt_icon_background_hover_color};
+				background-color: {$stt_icon_background_color_hover};
+			}";
+		}
+		if( ! empty( $stt_icon_background_color_tablet_hover ) ) {
+			$custom_css .= "@media screen and ( max-width: 992px ) {
+				#scroll:hover {
+					background-color: {$stt_icon_background_color_tablet_hover};
+				}
+			}";
+		}
+		if( ! empty( $stt_icon_background_color_mobile_hover ) ) {
+			$custom_css .= "@media screen and ( max-width: 576px ) {
+				#scroll:hover {
+					background-color: {$stt_icon_background_color_mobile_hover};
+				}
 			}";
 		}
 		if ( ! empty( $stt_icon_color ) ) {
@@ -4180,9 +4250,37 @@ function responsive_customizer_styles() {
 				border-bottom-color : {$stt_icon_color};
 			}";
 		}
+		if( ! empty( $stt_icon_color_tablet ) ) {
+			$custom_css .= "@media screen and ( max-width: 992px ) {
+				#scroll span {
+					border-bottom-color : {$stt_icon_color_tablet};
+				}
+			}";
+		}
+		if( ! empty( $stt_icon_color_mobile ) ) {
+			$custom_css .= "@media screen and ( max-width: 576px ) {
+				#scroll span {
+					border-bottom-color : {$stt_icon_color_mobile};
+				}
+			}";
+		}
 		if ( ! empty( $stt_icon_hover_color ) ) {
 			$custom_css .= "#scroll:hover span {
 				border-bottom-color : {$stt_icon_hover_color};
+			}";
+		}
+		if( ! empty( $stt_icon_hover_color_tablet ) ) {
+			$custom_css .= "@media screen and ( max-width: 992px ) {
+				#scroll:hover span {
+					border-bottom-color : {$stt_icon_hover_color_tablet};
+				}
+			}";
+		}
+		if( ! empty( $stt_icon_hover_color_mobile ) ) {
+			$custom_css .= "@media screen and ( max-width: 576px ) {
+				#scroll:hover span {
+					border-bottom-color : {$stt_icon_hover_color_mobile};
+				}
 			}";
 		}
 	}

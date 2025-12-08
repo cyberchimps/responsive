@@ -501,7 +501,7 @@ function responsive_enqueue_comment_reply() {
  * Function enqueues scroll-to-top JS file
  */
 function responsive_enqueue_scrolltotop() {
-	if ( responsive_check_element_present_in_hfb( 'scroll_to_top', 'footer' ) ) {
+	if ( responsive_check_element_present_in_hfb( 'scroll_to_top', 'footer' ) || responsive_check_element_in_mobile_tablet_items( 'scroll_to_top', 'footer' ) ) {
         // Enqueue scroll-to-top JS file.
 		wp_enqueue_script( 'responsive_theme_scroll-to-top', get_template_directory_uri() . '/core/includes/customizer/assets/js/scroll-to-top.js', array(), RESPONSIVE_THEME_VERSION, true );
 	}

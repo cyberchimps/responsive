@@ -1352,36 +1352,217 @@
 
     //Scroll To Top
     //Icon Color
-    api( 'responsive_scroll_to_top_icon_color', function( value ) {
-        value.bind( function( newval ) {
+    // Scroll To Top Icon Color — Desktop (min-width: 993px)
+    api('responsive_scroll_to_top_icon_color', function(value){
+        value.bind(function(newval){
 
-            $('#scroll span').css('border-bottom-color', newval );        } );
-    } );
+            const styleId = 'responsive-scroll-top-color-desktop';
+            jQuery(`style#${styleId}`).remove();
 
-    //Icon Hover Color
-    $("#scroll").hover(
-        function() {
-            $(this).find('span').css("border-bottom-color", api('responsive_scroll_to_top_icon_hover_color').get());
-        },
-        function() {
-            $(this).find('span').css("border-bottom-color", api('responsive_scroll_to_top_icon_color').get());
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 993px) {
+                        #scroll span { border-bottom-color: ${newval}; }
+                    }
+                </style>`
+            );
         });
+    });
+
+
+    // Tablet
+    api('responsive_scroll_to_top_icon_color_tablet', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-color-tablet';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 577px) and (max-width: 992px) {
+                        #scroll span { border-bottom-color: ${newval}; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+
+    // Mobile
+    api('responsive_scroll_to_top_icon_color_mobile', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-color-mobile';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (max-width: 576px) {
+                        #scroll span { border-bottom-color: ${newval}; }
+                    }
+                </style>`
+            );
+        });
+    });
+    
+    //Icon Hover Color
+    // Hover Color — Desktop
+    api('responsive_scroll_to_top_icon_color_hover', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-color-hover-desktop';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 993px) {
+                        #scroll:hover span { border-bottom-color: ${newval}; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+    // Hover Color — Tablet
+    api('responsive_scroll_to_top_icon_color_tablet_hover', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-color-tablet-hover';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 577px) and (max-width: 992px) {
+                        #scroll:hover span { border-bottom-color: ${newval}; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+    // Hover Color — Mobile
+    api('responsive_scroll_to_top_icon_color_mobile_hover', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-color-mobile-hover';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (max-width: 576px) {
+                        #scroll:hover span { border-bottom-color: ${newval}; }
+                    }
+                </style>`
+            );
+        });
+    });
 
     //Icon Background Color
-    api( 'responsive_scroll_to_top_icon_background_color', function( value ) {
-        value.bind( function( newval ) {
-            $('#scroll').css('background-color', newval );
-        } );
-    } );
+        api('responsive_scroll_to_top_icon_background_color', function(value){
+        value.bind(function(newval){
 
-    //Icon Background Hover Color
-    $("#scroll").hover(
-        function() {
-            $(this).css("background-color", api('responsive_scroll_to_top_icon_background_hover_color').get());
-        },
-        function() {
-            $(this).css("background-color", api('responsive_scroll_to_top_icon_background_color').get());
+            const styleId = 'responsive-scroll-top-bg-desktop';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(`
+                <style id="${styleId}">
+                    @media (min-width: 993px) {
+                        #scroll { background-color: ${newval}; }
+                    }
+                </style>
+            `);
         });
+    });
+
+
+    // Tablet (577px–992px)
+    api('responsive_scroll_to_top_icon_background_color_tablet', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-bg-tablet';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(`
+                <style id="${styleId}">
+                    @media (min-width: 577px) and (max-width: 992px) {
+                        #scroll { background-color: ${newval}; }
+                    }
+                </style>
+            `);
+        });
+    });
+
+
+    // Mobile (max-width: 576px)
+    api('responsive_scroll_to_top_icon_background_color_mobile', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-bg-mobile';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(`
+                <style id="${styleId}">
+                    @media (max-width: 576px) {
+                        #scroll { background-color: ${newval}; }
+                    }
+                </style>
+            `);
+        });
+    });
+
+    // Icon Background Hover Color
+    // Desktop hover (min-width: 993px)
+    api('responsive_scroll_to_top_icon_background_color_hover', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-bg-hover-desktop';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(`
+                <style id="${styleId}">
+                    @media (min-width: 993px) {
+                        #scroll:hover { background-color: ${newval}; }
+                    }
+                </style>
+            `);
+        });
+    });
+
+
+    // Tablet hover (577px–992px)
+    api('responsive_scroll_to_top_icon_background_color_tablet_hover', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-bg-hover-tablet';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(`
+                <style id="${styleId}">
+                    @media (min-width: 577px) and (max-width: 992px) {
+                        #scroll:hover { background-color: ${newval}; }
+                    }
+                </style>
+            `);
+        });
+    });
+
+    // Mobile hover (max-width: 576px)
+    api('responsive_scroll_to_top_icon_background_color_mobile_hover', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-bg-hover-mobile';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(`
+                <style id="${styleId}">
+                    @media (max-width: 576px) {
+                        #scroll:hover { background-color: ${newval}; }
+                    }
+                </style>
+            `);
+        });
+    });
+
 
     //Hover Colors
 
@@ -2636,7 +2817,7 @@
             jQuery('style#responsive-footer-above-row-bg-color-tablet').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-above-row-bg-color-tablet">'
-                + '@media screen and ( min-width: 577px and max-width: 992px ) { .rspv-site-above-footer-wrap { background-color: ' + newval + ' } }'
+                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .rspv-site-above-footer-wrap { background-color: ' + newval + '; } }'
                 + '</style>'
             );
         } );

@@ -471,19 +471,108 @@
 
     //Scroll To Top
     //Icon Size
-    api( 'responsive_scroll_to_top_icon_size', function( value ) {
-        value.bind( function( newval ) {
-            $('#scroll').css('height', newval+'px' );
-            $('#scroll').css('width', newval+'px' );
-        } );
-    } );
+    api('responsive_scroll_to_top_icon_size', function(value){
+        value.bind(function(newval){
 
-    //Border Radius
-    api( 'responsive_scroll_to_top_icon_radius', function( value ) {
-        value.bind( function( newval ) {
-            $('#scroll').css('border-radius', newval+'%' );
-        } );
-    } );
+            const styleId = 'responsive-scroll-top-size-desktop';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 993px) {
+                        #scroll { width: ${newval}px; height: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+
+    // Scroll To Top Icon Size — Tablet (577px–992px)
+    api('responsive_scroll_to_top_icon_size_tablet', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-size-tablet';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 577px) and (max-width: 992px) {
+                        #scroll { width: ${newval}px; height: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+    api('responsive_scroll_to_top_icon_size_mobile', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-size-mobile';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (max-width: 576px) {
+                        #scroll { width: ${newval}px; height: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+    // Scroll To Top Icon Border Radius — Desktop (min-width: 993px)
+    api('responsive_scroll_to_top_icon_radius', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-radius-desktop';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 993px) {
+                        #scroll { border-radius: ${newval}%; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+
+    // Scroll To Top Icon Border Radius — Tablet (577px–992px)
+    api('responsive_scroll_to_top_icon_radius_tablet', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-radius-tablet';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 577px) and (max-width: 992px) {
+                        #scroll { border-radius: ${newval}%; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+
+    // Scroll To Top Icon Border Radius — Mobile (max-width: 576px)
+    api('responsive_scroll_to_top_icon_radius_mobile', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-radius-mobile';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (max-width: 576px) {
+                        #scroll { border-radius: ${newval}%; }
+                    }
+                </style>`
+            );
+        });
+    });
 
     api( 'responsive_paragraph_margin_bottom', function( value ) {
         value.bind( function( newval ) {

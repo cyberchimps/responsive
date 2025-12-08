@@ -2894,6 +2894,15 @@ if( !function_exists( 'responsive_theme_background_updater_mobile_footer_6_3_0' 
 				'responsive_footer_above_height_mobile' 			 => 'responsive_footer_above_height_mobile',
 				'responsive_footer_primary_height_mobile' 			 => 'responsive_footer_primary_height_mobile',
 				'responsive_footer_below_height_mobile' 			 => 'responsive_footer_below_height_mobile',
+				'responsive_scroll_to_top_icon_radius'               => 'responsive_scroll_to_top_icon_radius_tablet',
+				'responsive_scroll_to_top_icon_radius'               => 'responsive_scroll_to_top_icon_radius_mobile',
+				'responsive_scroll_to_top_icon_size'                 => 'responsive_scroll_to_top_icon_size_tablet',
+				'responsive_scroll_to_top_icon_size'                 => 'responsive_scroll_to_top_icon_size_mobile',
+				'responsive_scroll_to_top_icon_hover_color' 		 => 'responsive_scroll_to_top_icon_color_tablet_hover',
+				'responsive_scroll_to_top_icon_hover_color' 		 => 'responsive_scroll_to_top_icon_color_mobile_hover',
+				'responsive_scroll_to_top_icon_background_hover_color' => 'responsive_scroll_to_top_icon_background_color_hover',
+				'responsive_scroll_to_top_icon_background_hover_color' => 'responsive_scroll_to_top_icon_background_color_mobile_hover',
+				'responsive_scroll_to_top_icon_background_hover_color' => 'responsive_scroll_to_top_icon_background_color_tablet_hover',
 			);
 			
 			// Migrate each theme mod if the old value exists and new value doesn't exist
