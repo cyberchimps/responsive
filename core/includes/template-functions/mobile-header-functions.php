@@ -181,7 +181,7 @@ function responsive_render_off_canvas_panel() {
 				?>
 			</div>
 			<?php if ( 'fullscreen' === $mobile_menu_style || 'sidebar' === $mobile_menu_style ) : ?>
-				<button class="responsive-off-canvas-panel-close" aria-label="<?php esc_attr_e( 'Close Menu', 'responsive' ); ?>">
+				<button type="button" class="responsive-off-canvas-panel-close" aria-label="<?php esc_attr_e( 'Close Menu', 'responsive' ); ?>">
 					<i class="icon-times"></i>
 				</button>
 			<?php endif; ?>

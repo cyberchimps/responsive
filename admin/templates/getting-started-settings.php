@@ -254,7 +254,7 @@ $is_rst_active = class_exists( 'Responsive_Add_Ons' ) ? true : false;
 						<p class="responsive-theme-setting-note"><strong><?php esc_html_e( 'Note', 'responsive' ); ?></strong> : <?php esc_html_e( 'Enable this option to hide White Label settings. Re-activate the Responsive Pro to enable this settings tab again.', 'responsive' ); ?></p>
 					</div>
 					<div class="responsive-theme-single-setting-section">
-						<button id="resp-theme-wl-settings-submit" class="button button-primary responsive-theme-setting-primary-btn" data-nonce="<?php echo esc_attr( wp_create_nonce( 'white_label_settings' ) ); ?>"><?php esc_html_e( 'Save Changes', 'responsive' ); ?></button>
+						<button type="button" id="resp-theme-wl-settings-submit" class="button button-primary responsive-theme-setting-primary-btn" data-nonce="<?php echo esc_attr( wp_create_nonce( 'white_label_settings' ) ); ?>"><?php esc_html_e( 'Save Changes', 'responsive' ); ?></button>
 					</div>
 				</div>
 					<?php

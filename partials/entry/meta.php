@@ -35,9 +35,7 @@ do_action( 'responsive_before_blog_entry_meta' );
 						'<span class="%3$s">' . esc_html_e( 'By ', 'responsive' ) . '</span>%4$s',
 						'meta-prep meta-prep-author posted',
 						sprintf(
-							'<a href="%1$s" aria-label="%2$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s">%4$s</time></a>',
-							esc_url( get_permalink() ),
-							esc_attr( get_the_title() ),
+							'<time class="timestamp updated" datetime="%1$s">%2$s</time>',
 							esc_html( get_the_date( 'c' ) ),
 							esc_html( get_the_date() )
 						),
@@ -69,9 +67,7 @@ do_action( 'responsive_before_blog_entry_meta' );
 							'<i class="icon-calendar" aria-hidden="true"></i><span>' . esc_html_e( 'Posted on ', 'responsive' ) . '</span><span class="%1$s" itemprop="datePublished">%2$s</span>',
 							'meta-prep meta-prep-author posted',
 							sprintf(
-								'<a href="%1$s" aria-label="%2$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s" itemprop="dateModified">%4$s</time></a>',
-								esc_url( get_permalink() ),
-								esc_attr( get_the_title() ),
+								'<time class="timestamp updated" datetime="%1$s" itemprop="dateModified">%2$s</time>',
 								esc_html( get_the_date( 'c' ) ),
 								esc_html( get_the_date() )
 							)
@@ -90,9 +86,7 @@ do_action( 'responsive_before_blog_entry_meta' );
 							'<i class="icon-calendar" aria-hidden="true"></i><span>' . esc_html_e( 'Last updated on ', 'responsive' ) . '</span><span class="%1$s" itemprop="datePublished">%2$s</span>',
 							'meta-prep meta-prep-author posted',
 							sprintf(
-								'<a href="%1$s" aria-label="%2$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s" itemprop="dateModified">%4$s</time></a>',
-								esc_url( get_permalink() ),
-								esc_attr( get_the_title() ),
+								'<time class="timestamp updated" datetime="%1$s" itemprop="dateModified">%2$s</time>',
 								esc_html( get_the_modified_date( 'c' ) ),
 								esc_html( get_the_modified_date() )
 							)

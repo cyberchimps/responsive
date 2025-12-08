@@ -31,7 +31,7 @@ if ( function_exists( '\Responsive\Core\responsive_get_svg_inline' ) ) {
 
 ?>
 <div class="site-header-item site-header-focus-item site-header-item-toggle-button" data-section="responsive_customizer_header_toggle_button">
-	<button class="menu-toggle" aria-controls="responsive-off-canvas-panel" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle Menu', 'responsive' ); ?>">
+	<button type="button" class="menu-toggle" aria-controls="responsive-off-canvas-panel" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle Menu', 'responsive' ); ?>">
 		<?php echo $svg_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		<?php if ( ! empty( $hamburger_menu_label ) ) : ?>
 			<span class="hamburger-menu-label"><?php echo esc_html( $hamburger_menu_label ); ?></span>

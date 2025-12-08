@@ -138,6 +138,12 @@ if ( ! class_exists( 'Responsive_Footer_Copyright_Customizer' ) ) :
 			$footer_background_label = __( 'Links Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'footer_copyright_links', $footer_background_label, 'responsive_footer_copyright', 70, Responsive\Core\get_responsive_customizer_defaults( 'footer_copyright_links' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'footer_copyright_links_hover' ), 'footer_copyright_links_hover' );
             
+			responsive_horizontal_separator_control($wp_customize, 'footer_copyright_links_separator', 1, 'responsive_footer_copyright', 74, 1, );
+
+			// Underline Content Links
+			responsive_toggle_control( $wp_customize, 'footer_copyright_links_style', esc_html__( 'Underline Links', 'responsive' ), 'responsive_footer_copyright', 78, true, '', 'refresh',
+			);
+
             // Typography
 			$footer_copyright_typography_label = __( 'Copyright Font', 'responsive' );
 			responsive_typography_group_control( $wp_customize, 'footer_copyright_typography_group', $footer_copyright_typography_label, 'responsive_footer_layout', 80, 'footer_copyright_typography' );

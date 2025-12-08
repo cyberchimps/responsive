@@ -167,7 +167,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'defaults' => array(
 						'font-size'      => '12px',
 						'line-height'    => '1.75',
-						'text-transform' => 'uppercase',
 					),
 				),
 				'button'                     => array(

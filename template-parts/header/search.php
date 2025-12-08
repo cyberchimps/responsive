@@ -35,7 +35,7 @@ $unique_id = uniqid( 'search-' );
     if ( 'search-box' === $search_style ) {
         ?>
             <div class="search-type-box responsive-header-inline-search">
-                <form method="get" id="searchform" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+                <form role="search" method="get" id="searchform" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
                     <label class="screen-reader-text" for="s"><?php esc_html_e( 'Search for:', 'responsive' ); ?></label>
                     <div class="res-search-wrapper responsive-header-search-icon-wrap">
                         <input type="search" class="search-field" name="s" id="s" placeholder="<?php esc_attr_e( 'Search &hellip;', 'responsive' ); ?>" autocomplete="off" />
@@ -52,7 +52,7 @@ $unique_id = uniqid( 'search-' );
     } else if( 'search' === $search_style ) {
     ?>
         <div class="search-type-responsive-slide">
-            <form method="get" id="searchform" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+            <form role="search" method="get" id="searchform" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
                 <label class="screen-reader-text" for="s"><?php esc_html_e( 'Search for:', 'responsive' ); ?></label>
                 <div class="res-search-wrapper responsive-header-search-icon-wrap">
                     <input type="search" class="search-field" name="s" id="s" placeholder="<?php esc_attr_e( 'Search &hellip;', 'responsive' ); ?>" autocomplete="off" />
@@ -79,7 +79,7 @@ $unique_id = uniqid( 'search-' );
             <span id="search-close-<?php echo esc_attr( $unique_id ); ?>" class="search-close" data-search-close="<?php echo esc_attr( $unique_id ); ?>"></span>
             <div class="full-screen-search-container">
                 <div class="container">
-                <form method="get" id="searchform" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+                <form role="search" method="get" id="searchform" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
                     <label class="screen-reader-text" for="s"><?php esc_html_e( 'Search for:', 'responsive' ); ?></label>
                     <div class="res-search-wrapper">
                         <input type="search" class="field" name="s" id="s" placeholder="<?php esc_attr_e( 'Search here &hellip;', 'responsive' ); ?>" autocomplete="off" />

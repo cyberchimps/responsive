@@ -39,11 +39,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 			>
 				<?php if ( $show_title ) : ?>
 					<?php if ( is_front_page() && is_home() ) : ?>
-						<h1 class="site-title" <?php responsive_schema_markup( 'site-title' ); ?>>
+						<span class="site-title" <?php responsive_schema_markup( 'site-title' ); ?>>
 							<a href="<?php echo esc_url( get_theme_mod( 'responsive_custom_logo_url', home_url( '/' ) ) ); ?>" rel="home">
 								<?php bloginfo( 'name' ); ?>
 							</a>
-						</h1>
+						</span>
 					<?php else : ?>
 						<span class="site-title">
 							<a href="<?php echo esc_url( get_theme_mod( 'responsive_custom_logo_url', home_url( '/' ) ) ); ?>" rel="home">
