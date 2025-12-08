@@ -144,10 +144,33 @@
 }
 
 .rspv-hfb-footer-row-inline {
-    & .site-footer-section {
+    
+    .footer-desktop-items,
+    .footer-mobile-items {
         display: flex;
     }
+
+    // Desktop (≥ 993px)
+    @media (min-width: 993px) {
+        .footer-desktop-items {
+            display: flex !important;
+        }
+        .footer-mobile-items {
+            display: none;
+        }
+    }
+
+    // Mobile (< 993px)
+    @media (max-width: 992px) {
+        .footer-desktop-items {
+            display: none;
+        }
+        .footer-mobile-items {
+            display: flex !important;
+        }
+    }
 }
+
 .site-footer-section {
     max-height: inherit;
 }
@@ -471,7 +494,7 @@
 }
 
 // Show/hide desktop vs mobile footer items based on screen size
-.footer-desktop-items {
+#footer .footer-desktop-items {
     display: block;
     width: 100%;
     
@@ -481,12 +504,12 @@
     }
 }
 
-.footer-mobile-items {
+#footer .footer-mobile-items {
     display: none;
     
     // Show on mobile and tablet (below lg breakpoint)
     @media ( max-width: map-get( $screens, lg ) - 1px ) {
-        display: block;
+        display: block !important;
         width: 100%;
     }
 }
