@@ -37,7 +37,7 @@ if ( post_password_required() ) {
 
 <?php if ( have_comments() ) : ?>
 	<div class="comments-area">
-		<h3 id="comments">
+		<h2 id="comments">
 			<?php
 			$responsive_comment_count = get_comments_number();
 			if ( '1' === $responsive_comment_count ) {
@@ -55,7 +55,7 @@ if ( post_password_required() ) {
 				);
 			}
 			?>
-		</h3>
+		</h2>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
 			<div class="navigation">

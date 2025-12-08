@@ -211,3 +211,7 @@
 #customize-control-responsive_rp_excerpt_length .customize-control-title{
 	margin: 0;
 }
+#customize-control-responsive_footer_copyright_links_style .responsive-toggle-control-wrapper {
+    padding-top: 24px;
+    padding-bottom: 24px;
+}

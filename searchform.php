@@ -19,11 +19,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 $search_screen = get_theme_mod( 'search_style', 'search' );
 ?>
-<form method="get" id="searchform" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+<form role="search" method="get" id="searchform" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 	<label class="screen-reader-text" for="s"><?php esc_html_e( 'Search for:', 'responsive' ); ?></label>
 	<div class="res-search-wrapper">
 	<input type="search" class="field" name="s" id="s" placeholder="<?php esc_attr_e( 'Search here &hellip;', 'responsive' ); ?>" />
-	<button type="submit" class="search-submit" value="Search">	<span class="res-search-icon icon-search"></span></button>
+	<button type="submit" class="search-submit" value="Search" aria-label="<?php esc_attr_e( 'Search', 'responsive' ); ?>">	<span class="res-search-icon icon-search"></span></button>
 </div>
 </form>
 <?php

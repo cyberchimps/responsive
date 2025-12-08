@@ -819,9 +819,7 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 					'<i class="icon-calendar" aria-hidden="true"></i><span class="%1$s">' . esc_html_e( 'Posted on', 'responsive' ) . '</span>%2$s<span class="%3$s"> ' . esc_html_e( 'By', 'responsive' ) . ' </span>%4$s',
 					'meta-prep meta-prep-author posted',
 					sprintf(
-						'<a href="%1$s" aria-label="%2$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s">%4$s</time></a>',
-						esc_url( get_permalink() ),
-						esc_attr( get_the_title() ),
+						'<time class="timestamp updated" datetime="%1$s">%2$s</time>',
 						esc_html( get_the_date( 'c' ) ),
 						esc_html( get_the_date() )
 					),
@@ -1103,7 +1101,7 @@ function defaults() {
 			'header_border'                       => '#eaeaea',
 			'header_site_title'                   => '#333333',
 			'header_site_title_hover'             => '#10659C',
-			'header_text'                         => '#999999',
+			'header_text'                         => '#333333',
 			'header_widget_text'                  => '#333333',
 			'header_widget_background'            => '#ffffff',
 			'header_widget_border'                => '#eaeaea',
@@ -1160,7 +1158,7 @@ function defaults() {
 			'h4_text'                             => '#333333', 
 			'h5_text'                             => '#333333', 
 			'h6_text'                             => '#333333', 
-			'meta_text'                           => '#999999',
+			'meta_text'                           => '#0066CC',
 			'link'                                => '#0066CC',
 			'link_hover'                          => '#10659C',
 			'button'                              => '#0066CC',

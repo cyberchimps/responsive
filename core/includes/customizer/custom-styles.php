@@ -187,7 +187,7 @@ function responsive_customizer_styles() {
 	// Paragraph Margin Bottom.
 	$paragraph_margin_bottom = esc_html( get_theme_mod( 'responsive_paragraph_margin_bottom', '' ) );
 
-	$underline_content_links = esc_html( get_theme_mod( 'responsive_underline_content_links', false ) );
+	$underline_content_links = esc_html( get_theme_mod( 'responsive_underline_content_links', 1 ) );
 	// Site custom styles.
 
 	$container_max_width = esc_html( get_theme_mod( 'responsive_container_width', 1140 ) );
@@ -476,7 +476,7 @@ function responsive_customizer_styles() {
 
 	if ( $underline_content_links === '1' || $underline_content_links === true ) {
 		$custom_css .= '
-			.entry-content a:not(li > a),
+			.entry-content a,
 			.comment-content a:not(.comment-edit-link):not(li > a),
 			.woocommerce div.product .woocommerce-product-details__short-description a:not(li > a) {
 				text-decoration: underline;
@@ -5081,6 +5081,9 @@ function responsive_customizer_styles() {
 	
 	if(Responsive\Core\responsive_check_element_present_in_hfb('footer_copyright', 'footer')) 
 	{
+		$copyright_links_val   = get_theme_mod( 'responsive_footer_copyright_links_style', 1 );
+		$copyright_links_style = ( '1' == $copyright_links_val || true === $copyright_links_val ) ? 'underline' : 'none';
+
 		$custom_css .= "
 			.footer-layouts.copyright {
 				text-align: {$copyright_alignment};
@@ -5091,6 +5094,7 @@ function responsive_customizer_styles() {
 			}
 			.footer-layouts.copyright a {
 				color: {$copyright_links_color};
+				text-decoration: {$copyright_links_style};
 			}
 			.footer-layouts.copyright a:hover {
 				color: {$copyright_links_hover_color};
