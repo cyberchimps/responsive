@@ -473,6 +473,7 @@
 // Show/hide desktop vs mobile footer items based on screen size
 .footer-desktop-items {
     display: block;
+    width: 100%;
     
     // Hide on mobile and tablet (below lg breakpoint)
     @media ( max-width: map-get( $screens, lg ) - 1px ) {
@@ -486,5 +487,6 @@
     // Show on mobile and tablet (below lg breakpoint)
     @media ( max-width: map-get( $screens, lg ) - 1px ) {
         display: block;
+        width: 100%;
     }
 }

@@ -2761,3 +2761,155 @@ if( ! function_exists( 'responsive_theme_background_updater_off_canvas_fonts_tog
 		}
 	}
 }
+
+if( !function_exists( 'responsive_theme_background_updater_mobile_footer_6_3_0' ) ) {
+	/**
+	 * Handle backward compatibility for mobile footer settings migration.
+	 * 
+	 * Migrates desktop footer elements to mobile footer items, preserving element positions
+	 * across rows and columns.
+	 * 
+	 * @since 6.3.0
+	 * @return void
+	 */
+	function responsive_theme_background_updater_mobile_footer_6_3_0(){
+		$responsive_options = Responsive\Core\responsive_get_options();
+
+		if( !isset( $responsive_options['mobile_footer_6_3_0_backward_done'])) {
+			
+			// Get default mobile items structure
+			$mobile_items = get_theme_mod( 
+				'responsive_footer_mobile_items', 
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_mobile_items' ) 
+			);
+			
+			// Check if mobile_items has been manually configured (not default)
+			$is_default = true;
+			$default_items = Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_mobile_items' );
+			
+			// Compare current structure with defaults to see if user has customized it
+			if ( is_array( $mobile_items ) && is_array( $default_items ) ) {
+				// Check each row (above, primary, below)
+				foreach ( array( 'above', 'primary', 'below' ) as $row ) {
+					if ( isset( $mobile_items[ $row ] ) && is_array( $mobile_items[ $row ] ) ) {
+						// Check each column in the row
+						foreach ( $mobile_items[ $row ] as $column => $items ) {
+							if ( is_array( $items ) && !empty( $items ) ) {
+								// Check if this differs from default (default only has footer_copyright in below_1)
+								if ( $row !== 'below' || $column !== 'below_1' || 
+									 !in_array( 'footer_copyright', $items, true ) || 
+									 count( $items ) > 1 ) {
+									$is_default = false;
+									break 2;
+								}
+							}
+						}
+					}
+				}
+			}
+			
+			// Only migrate if using default structure
+			if ( $is_default ) {
+				
+				// Get desktop items to understand element positions
+				$desktop_items = get_theme_mod( 
+					'responsive_footer_items', 
+					Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_items' ) 
+				);
+				
+				// If we have desktop items, copy them to mobile items
+				if ( is_array( $desktop_items ) && !empty( $desktop_items ) ) {
+					
+					// Start with a clean mobile items structure (no default elements)
+					$mobile_items = array(
+						'above' => array(
+							'above_1' => array(),
+							'above_2' => array(),
+							'above_3' => array(),
+							'above_4' => array(),
+							'above_5' => array(),
+							'above_6' => array(),
+						),
+						'primary' => array(
+							'primary_1' => array(),
+							'primary_2' => array(),
+							'primary_3' => array(),
+							'primary_4' => array(),
+							'primary_5' => array(),
+							'primary_6' => array(),
+						),
+						'below' => array(
+							'below_1' => array(),
+							'below_2' => array(),
+							'below_3' => array(),
+							'below_4' => array(),
+							'below_5' => array(),
+							'below_6' => array(),
+						),
+					);
+					
+					// Migrate elements from desktop items to mobile items
+					// Check each row (above, primary, below)
+					foreach ( array( 'above', 'primary', 'below' ) as $row ) {
+						if ( isset( $desktop_items[ $row ] ) && is_array( $desktop_items[ $row ] ) ) {
+							// Check if this row has any elements at all in desktop
+							$row_has_elements = false;
+							foreach ( $desktop_items[ $row ] as $column => $elements ) {
+								if ( is_array( $elements ) && !empty( $elements ) ) {
+									$row_has_elements = true;
+									break;
+								}
+							}
+							
+							// If row has no elements in desktop, keep all columns empty (already initialized above)
+							// If row has elements, copy them column by column
+							if ( $row_has_elements ) {
+								foreach ( $desktop_items[ $row ] as $column => $elements ) {
+									if ( is_array( $elements ) && isset( $mobile_items[ $row ][ $column ] ) ) {
+										// Copy only the elements that exist in desktop
+										$mobile_items[ $row ][ $column ] = $elements;
+									}
+								}
+							}
+							// If row has no elements, columns remain empty (no action needed)
+						}
+					}
+					
+					// Save the migrated mobile items
+					set_theme_mod( 'responsive_footer_mobile_items', $mobile_items );
+				}
+			}
+
+			// Mapping of old off_canvas_menu background theme mods to new ones
+			$theme_mod_mapping = array(
+				'responsive_footer_above_row_bg_color'				 => 'responsive_footer_above_row_bg_color_tablet',
+				'responsive_footer_primary_row_bg_color' 			 => 'responsive_footer_primary_row_bg_color_tablet',
+				'responsive_footer_below_row_bg_color'  			 => 'responsive_footer_below_row_bg_color_tablet',
+				'responsive_footer_above_row_bg_color_mobile'   	 => 'responsive_footer_above_row_bg_color_mobile',
+				'responsive_footer_primary_row_bg_color_mobile' 	 => 'responsive_footer_primary_row_bg_color_mobile',
+				'responsive_footer_below_row_bg_color_mobile' 	 	 => 'responsive_footer_below_row_bg_color_mobile',
+				'responsive_footer_above_height' 					 => 'responsive_footer_above_height_tablet',
+				'responsive_footer_primary_height' 					 => 'responsive_footer_primary_height_tablet',
+				'responsive_footer_below_height' 					 => 'responsive_footer_below_height_tablet',
+				'responsive_footer_above_height_mobile' 			 => 'responsive_footer_above_height_mobile',
+				'responsive_footer_primary_height_mobile' 			 => 'responsive_footer_primary_height_mobile',
+				'responsive_footer_below_height_mobile' 			 => 'responsive_footer_below_height_mobile',
+			);
+			
+			// Migrate each theme mod if the old value exists and new value doesn't exist
+			foreach ( $theme_mod_mapping as $old_mod => $new_mod ) {
+				$old_value = get_theme_mod( $old_mod, false );
+				$new_value = get_theme_mod( $new_mod, false );
+				
+				// Only migrate if old value exists and new value doesn't exist
+				if ( false !== $old_value && false === $new_value ) {
+					set_theme_mod( $new_mod, $old_value );
+				}
+			}
+			
+			// Mark backward compatibility update as done
+			$responsive_options['mobile_footer_6_3_0_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}

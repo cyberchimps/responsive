@@ -4098,7 +4098,7 @@ function responsive_customizer_styles() {
 	}
 
 	// Scroll To Top.
-	if ( Responsive\Core\responsive_check_element_present_in_hfb( 'scroll_to_top', 'footer' ) ) {
+	if ( Responsive\Core\responsive_check_element_present_in_hfb( 'scroll_to_top', 'footer' ) || Responsive\Core\responsive_check_element_in_mobile_tablet_items( 'scroll_to_top', 'footer' ) ) {
 		$stt_devices                     = get_theme_mod( 'responsive_scroll_to_top_on_devices' );
 		$stt_position                    = get_theme_mod( 'responsive_scroll_to_top_icon_position', 'right' );
 		$stt_icon_size                   = get_theme_mod( 'responsive_scroll_to_top_icon_size' );
@@ -4875,8 +4875,8 @@ function responsive_customizer_styles() {
 	}';
 	// Footer Builder
 	$above_footer_width                 = get_theme_mod( 'responsive_footer_above_width', 'contained' );
-	$above_footer_width_tablet          = get_theme_mod( 'responsive_footer_above_width_tablet', 'contained' );
-	$above_footer_width_mobile          = get_theme_mod( 'responsive_footer_above_width_mobile', 'contained' );
+	$above_footer_width_tablet          = get_theme_mod( 'responsive_footer_above_width_tablet', $above_footer_width );
+	$above_footer_width_mobile          = get_theme_mod( 'responsive_footer_above_width_mobile', $above_footer_width );
 	$above_footer_inner_column_spacing = get_theme_mod( 'responsive_footer_above_inner_column_spacing', 30 );
 	$above_footer_inner_column_tablet_spacing = get_theme_mod( 'responsive_footer_above_inner_column_spacing_tablet', 30 );
 	$above_footer_inner_column_mobile_spacing = get_theme_mod( 'responsive_footer_above_inner_column_spacing_mobile', 30 );
@@ -4887,8 +4887,8 @@ function responsive_customizer_styles() {
 	$above_footer_vertical_alignment_tablet   = get_theme_mod( 'responsive_footer_above_vertical_alignment_tablet', $above_footer_vertical_alignment );
 	$above_footer_vertical_alignment_mobile   = get_theme_mod( 'responsive_footer_above_vertical_alignment_mobile', $above_footer_vertical_alignment );
 	$above_footer_bg_color   		   = get_theme_mod( 'responsive_footer_above_row_bg_color', '#333' );
-	$above_footer_bg_color_tablet      = get_theme_mod( 'responsive_footer_above_row_bg_color_tablet', '#333' );
-	$above_footer_bg_color_mobile	   = get_theme_mod( 'responsive_footer_above_row_bg_color_mobile', '#333' );
+	$above_footer_bg_color_tablet      = get_theme_mod( 'responsive_footer_above_row_bg_color_tablet', $above_footer_bg_color );
+	$above_footer_bg_color_mobile	   = get_theme_mod( 'responsive_footer_above_row_bg_color_mobile', $above_footer_bg_color );
 	$above_footer_top_border_size      = get_theme_mod( 'responsive_footer_above_row_top_border_size', 0 );
 	$above_footer_top_border_size_tablet = get_theme_mod( 'responsive_footer_above_row_top_border_size_tablet', $above_footer_top_border_size );
 	$above_footer_top_border_size_mobile = get_theme_mod( 'responsive_footer_above_row_top_border_size_mobile', $above_footer_top_border_size );
@@ -5025,8 +5025,8 @@ function responsive_customizer_styles() {
 	
 	// Primary Footer
 	$primary_footer_width                       = get_theme_mod( 'responsive_footer_primary_width', 'contained' );
-	$primary_footer_width_tablet                = get_theme_mod( 'responsive_footer_primary_width_tablet', 'contained' );
-	$primary_footer_width_mobile                = get_theme_mod( 'responsive_footer_primary_width_mobile', 'contained' );
+	$primary_footer_width_tablet                = get_theme_mod( 'responsive_footer_primary_width_tablet', $primary_footer_width );
+	$primary_footer_width_mobile                = get_theme_mod( 'responsive_footer_primary_width_mobile', $primary_footer_width );
 	$primary_footer_inner_column_spacing 	    = get_theme_mod( 'responsive_footer_primary_inner_column_spacing', 30 );
 	$primary_footer_inner_column_tablet_spacing = get_theme_mod( 'responsive_footer_primary_inner_column_spacing_tablet', 30 );
 	$primary_footer_inner_column_mobile_spacing = get_theme_mod( 'responsive_footer_primary_inner_column_spacing_mobile', 30 );
@@ -5039,8 +5039,8 @@ function responsive_customizer_styles() {
 	$primary_footer_vertical_alignment_mobile   = get_theme_mod( 'responsive_footer_primary_vertical_alignment_mobile', $primary_footer_vertical_alignment );
 	error_log( 'primary_footer_vertical_alignment_mobile: ' . $primary_footer_vertical_alignment_mobile );
 	$primary_footer_bg_color   		     	    = get_theme_mod( 'responsive_footer_primary_row_bg_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_primary_row_bg_color' ) );
-	$primary_footer_bg_color_tablet             = get_theme_mod( 'responsive_footer_primary_row_bg_color_tablet', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_primary_row_bg_color' ) );
-	$primary_footer_bg_color_mobile             = get_theme_mod( 'responsive_footer_primary_row_bg_color_mobile', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_primary_row_bg_color' ) );
+	$primary_footer_bg_color_tablet             = get_theme_mod( 'responsive_footer_primary_row_bg_color_tablet', $primary_footer_bg_color );
+	$primary_footer_bg_color_mobile             = get_theme_mod( 'responsive_footer_primary_row_bg_color_mobile', $primary_footer_bg_color );
 	$primary_footer_top_border_size             = get_theme_mod( 'responsive_footer_primary_row_top_border_size', 1 );
 	$primary_footer_top_border_size_tablet      = get_theme_mod( 'responsive_footer_primary_row_top_border_size_tablet', $primary_footer_top_border_size );
 	$primary_footer_top_border_size_mobile      = get_theme_mod( 'responsive_footer_primary_row_top_border_size_mobile', $primary_footer_top_border_size );
@@ -5168,8 +5168,8 @@ function responsive_customizer_styles() {
 	}
 	// Below Footer
 	$below_footer_width                 = get_theme_mod( 'responsive_footer_below_width', 'contained' );
-	$below_footer_width_tablet          = get_theme_mod( 'responsive_footer_below_width_tablet', 'contained' );
-	$below_footer_width_mobile          = get_theme_mod( 'responsive_footer_below_width_mobile', 'contained' );
+	$below_footer_width_tablet          = get_theme_mod( 'responsive_footer_below_width_tablet', $below_footer_width );
+	$below_footer_width_mobile          = get_theme_mod( 'responsive_footer_below_width_mobile', $below_footer_width );
 	$below_footer_inner_column_spacing = get_theme_mod( 'responsive_footer_below_inner_column_spacing', 30 );
 	$below_footer_inner_column_tablet_spacing = get_theme_mod( 'responsive_footer_below_inner_column_spacing_tablet', 30 );
 	$below_footer_inner_column_mobile_spacing = get_theme_mod( 'responsive_footer_below_inner_column_spacing_mobile', 30 );
@@ -5180,8 +5180,8 @@ function responsive_customizer_styles() {
 	$below_footer_vertical_alignment_tablet   = get_theme_mod( 'responsive_footer_below_vertical_alignment_tablet', $below_footer_vertical_alignment );
 	$below_footer_vertical_alignment_mobile   = get_theme_mod( 'responsive_footer_below_vertical_alignment_mobile', $below_footer_vertical_alignment );
 	$below_footer_bg_color   		   = get_theme_mod( 'responsive_footer_below_row_bg_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_below_row_bg_color' ) );
-	$below_footer_bg_color_tablet      = get_theme_mod( 'responsive_footer_below_row_bg_color_tablet', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_below_row_bg_color' ) );
-	$below_footer_bg_color_mobile      = get_theme_mod( 'responsive_footer_below_row_bg_color_mobile', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_below_row_bg_color' ) );
+	$below_footer_bg_color_tablet      = get_theme_mod( 'responsive_footer_below_row_bg_color_tablet', $below_footer_bg_color );
+	$below_footer_bg_color_mobile      = get_theme_mod( 'responsive_footer_below_row_bg_color_mobile', $below_footer_bg_color );
 	$below_footer_top_border_size      = get_theme_mod( 'responsive_footer_below_row_top_border_size', 1 );
 	$below_footer_top_border_size_tablet = get_theme_mod( 'responsive_footer_below_row_top_border_size_tablet', $below_footer_top_border_size );
 	$below_footer_top_border_size_mobile = get_theme_mod( 'responsive_footer_below_row_top_border_size_mobile', $below_footer_top_border_size );
@@ -7585,7 +7585,7 @@ function responsive_customizer_styles() {
 	// Footer Builder Widget Elements alignments.
 	for ( $i = 1; $i <= 6; $i++ ) {
 		// Check if element is present in footer builder.
-		if ( Responsive\Core\responsive_check_element_present_in_hfb( "widget-{$i}", 'footer' ) ) {
+		if ( Responsive\Core\responsive_check_element_present_in_hfb( "widget-{$i}", 'footer' ) || Responsive\Core\responsive_check_element_in_mobile_tablet_items( "widget-{$i}", 'footer' ) ) {
 
 			// Content Alignment.
 			$widget_align_desktop = get_theme_mod( "responsive_footer_widget{$i}_content_align", 'left' );
@@ -7617,6 +7617,9 @@ function responsive_customizer_styles() {
 
 
 			$custom_css .= "
+			.footer-mobile-items, .footer-desktop-items {
+				width: 100%;
+			}
 			.footer-widget-area[data-section='responsive-footer-widget-{$i}'].footer-widget-{$i} {
 				text-align: {$widget_align_desktop};
 			}
@@ -7630,15 +7633,14 @@ function responsive_customizer_styles() {
 				.rspv-hfb-footer-row-inline .footer-widget-area[data-section='responsive-footer-widget-{$i}'].footer-widget-{$i} {
 					align-self: {$widget_vertical_align_tablet};
 				}
+			}
+			@media screen and (max-width: 576px) {
+				.footer-widget-area[data-section='responsive-footer-widget-{$i}'].footer-widget-{$i} {
+					text-align: {$widget_align_mobile};
 				}
-				@media screen and (max-width: 576px) {
-					.footer-widget-area[data-section='responsive-footer-widget-{$i}'].footer-widget-{$i} {
-						text-align: {$widget_align_mobile};
-						align-self: {$widget_vertical_align_mobile};
-					}
-					.rspv-hfb-footer-row-inline .footer-widget-area[data-section='responsive-footer-widget-{$i}'].footer-widget-{$i} {
-						align-self: {$widget_vertical_align_mobile};
-					}
+				.rspv-hfb-footer-row-inline .footer-widget-area[data-section='responsive-footer-widget-{$i}'].footer-widget-{$i} {
+					align-self: {$widget_vertical_align_mobile};
+				}
 			}
 			.footer-widget-area[data-section='responsive-footer-widget-{$i}'] h1, .footer-widget-area[data-section='responsive-footer-widget-{$i}'] h2, .footer-widget-area[data-section='responsive-footer-widget-{$i}'] h3, .footer-widget-area[data-section='responsive-footer-widget-{$i}'] h4, .footer-widget-area[data-section='responsive-footer-widget-{$i}'] h5, .footer-widget-area[data-section='responsive-footer-widget-{$i}'] h6 {
 				color: {$widget_heading_color};
