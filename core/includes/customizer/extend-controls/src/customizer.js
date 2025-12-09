@@ -59,7 +59,6 @@
 
 			if ( device === 'desktop' ) {
 				// Show Desktop control, Hide Mobile/Tablet control
-				desktopControl.container.show();
 				mobileTabletControl.container.hide();
 				// Toggle available items controls
 				if ( desktopAvailableItemsControl ) {
@@ -129,11 +128,38 @@
 			setTimeout(resizePreviewer, 100);
 		});
 
-		// Initialize on page load
-		setTimeout(function() {
-			toggleHeaderBuilderControls( currentDevice );
-			toggleFooterBuilderControls( currentDevice );
-		}, 100);
+	// Initialize on page load
+	setTimeout(function() {
+		currentDevice = wp.customize.previewedDevice.get();
+		toggleHeaderBuilderControls( currentDevice );
+		toggleFooterBuilderControls( currentDevice );
+	}, 100);
+
+	// Initialize when footer layout section is expanded
+	wp.customize.section( 'responsive_footer_layout', function( section ) {
+		section.expanded.bind( function( isExpanded ) {
+			if ( isExpanded ) {
+				// Using a longer timeout to ensure controls are fully rendered
+				setTimeout(function() {
+					currentDevice = wp.customize.previewedDevice.get();
+					toggleFooterBuilderControls( currentDevice );
+				}, 200);
+			}
+		});
+	});
+
+	// Initialize when footer builder section is expanded (in case it's opened first)
+	wp.customize.section( 'responsive_footer_builder', function( section ) {
+		section.expanded.bind( function( isExpanded ) {
+			if ( isExpanded ) {
+				// Use a longer timeout to ensure controls are fully rendered
+				setTimeout(function() {
+					currentDevice = wp.customize.previewedDevice.get();
+					toggleFooterBuilderControls( currentDevice );
+				}, 200);
+			}
+		});
+	});
 
 		/**
 		 * Init Header & Footer Builder
@@ -209,10 +235,13 @@
 
 					if ( isExpanded ) {
 						$body.addClass( 'responsive-footer-builder-is-active' );
-						toggleFooterBuilderControls( currentDevice );
 						$section.addClass( 'responsive-footer-builder-active' );
 						$section.css('display', 'none').height();
 						$section.css('display', 'block');
+						// Use a timeout to ensure controls are fully rendered before toggling
+						setTimeout(function() {
+							toggleFooterBuilderControls( currentDevice );
+						}, 200);
 					} else {
 						$body.removeClass( 'responsive-footer-builder-is-active' );
 						$section.removeClass( 'responsive-footer-builder-active' );
@@ -511,3 +540,5 @@
 
 	
 } )( jQuery, wp );
+
+export const Base = true;
