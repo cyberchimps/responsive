@@ -116,7 +116,7 @@ if( ! class_exists( 'Responsive_HFB_Footer_Primary_Row' ) ) {
 
             // Border Color.
 			$footer_primary_row_border_color_label = __( 'Border Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'footer_primary_row_border', $footer_primary_row_border_color_label, 'responsive_footer_primary_row', 110, Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_primary_row_border_color' ), null, '' );
+			responsive_color_control_with_device_switchers( $wp_customize, 'footer_primary_row_border', $footer_primary_row_border_color_label, 'responsive_footer_primary_row', 110, Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_primary_row_border_color' ), null, '' );
 
             // Spacing.
 			$spacing_separator_label = __( 'Row Spacing', 'responsive' );
