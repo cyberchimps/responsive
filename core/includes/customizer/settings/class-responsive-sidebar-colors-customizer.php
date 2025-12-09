@@ -42,7 +42,7 @@ if ( ! class_exists( 'Responsive_Sidebar_Colors_Customizer' ) ) :
 
 			// Heading Color.
 			$sidebar_heading_color_label = __( 'Headings Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'sidebar_headings', $sidebar_heading_color_label, 'responsive_sidebar', 20, Responsive\Core\get_responsive_customizer_defaults( 'responsive_h4_text_color' ) );
+			responsive_color_control( $wp_customize, 'sidebar_headings', $sidebar_heading_color_label, 'responsive_sidebar', 20, Responsive\Core\get_responsive_customizer_defaults( 'responsive_sidebar_headings_color' ) );
 
 			responsive_horizontal_separator_control($wp_customize, 'sidebar_headings_separator', 1, 'responsive_sidebar', 22, 1, );
 

@@ -1834,7 +1834,7 @@ function responsive_get_available_design_styles() {
 						'accent'            => '#0066CC',
 						'link_hover'		=> '#10659C',
 						'text'              => '#333333',
-						'header_text'       => '#fcba03',
+						'header_text'       => '#333333',
 						// 'background'        => '#ffffff',
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',

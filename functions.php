@@ -2516,3 +2516,52 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_header_widget
 	}
 }
 
+if ( ! function_exists( 'responsive_theme_background_updater_global_palette_revamp' ) ) {
+
+	/**
+     * Migrates old Responsive theme global color palette settings 
+     * to the new global palette structure (revamp v2).
+     *
+     * This function runs once as a backward-compatibility updater.
+     * It checks whether the new palette format (`global_palette_revamp_v2`)
+     * has been applied. If not, it retrieves values from legacy
+     * `responsive_color_scheme` and old individual palette theme_mods,
+     * converts them into the new palette array format, and saves them
+     * into the `responsive_global_color_palette` theme_mod.
+     *
+     * After migration, it marks the revamp as completed inside
+     * `responsive_theme_options` to avoid running again.
+     *
+     * @since 6.3.1
+     *
+     * @return void
+     */
+	function responsive_theme_background_updater_global_palette_revamp() {
+		$responsive_options = Responsive\Core\responsive_get_options();
+
+		if ( empty( $responsive_options['global_palette_revamp_v2'] ) ) {
+			$old_palette_scheme = get_theme_mod( 'responsive_color_scheme' );
+			if ( $old_palette_scheme ) {
+				$new_palette = array (
+					'style' => $old_palette_scheme,
+					'palette' => array (
+						'label'              => '',
+						'accent'             => get_theme_mod( 'responsive_global_color_palette_accent_color', '#0066CC' ),
+						'link_hover'		 => get_theme_mod( 'responsive_global_color_palette_link_hover_color', '#10659C' ),
+						'text'               => get_theme_mod( 'responsive_global_color_palette_text_color', '#333333' ),
+						'header_text'        => get_theme_mod( 'responsive_global_color_palette_headings_color', '#333333' ),
+						'content_background' => get_theme_mod( 'responsive_global_color_palette_content_bg_color', '#ffffff' ),
+						'site_background'    => get_theme_mod( 'responsive_global_color_palette_site_background_color', '#f0f5fa' ),
+						'alt_background'     => get_theme_mod( 'responsive_global_color_palette_alt_background_color', '#eaeaea' ),
+					)
+				);
+				set_theme_mod( 'responsive_global_color_palette', $new_palette );
+			}
+
+			// Mark backward compatibility update as done
+			$responsive_options['global_palette_revamp_v2'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+

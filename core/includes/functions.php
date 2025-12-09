@@ -1104,6 +1104,10 @@ function defaults() {
 			'header_site_title'                   => '#333333',
 			'header_site_title_hover'             => '#10659C',
 			'header_text'                         => '#999999',
+			'responsive_header_site_title_color'       => 'palette3',
+			'responsive_header_site_title_hover_color' => 'palette3',
+			'responsive_sidebar_headings_color'   => 'palette3',
+			'responsive_header_text_color'        => 'palette2',
 			'header_widget_text'                  => '#333333',
 			'header_widget_background'            => '#ffffff',
 			'header_widget_border'                => '#eaeaea',
@@ -1122,6 +1126,7 @@ function defaults() {
 			'header_active_menu_background'       => '#ffffff',
 			'header_menu_link'                    => '#333333',
 			'header_menu_link_hover'              => '#10659C',
+			'responsive_header_menu_link_color'   => 'palette3',
 			'header_sub_menu_background'          => '#ffffff',
 			'header_sub_menu_link'                => '#333333',
 			'header_sub_menu_link_hover'          => '#10659C',
@@ -1132,6 +1137,7 @@ function defaults() {
 			'header_secondary_menu_border'        => '#eaeaea',
 			'header_active_secondary_menu_background'       => '#ffffff',
 			'header_secondary_menu_link'                    => '#333333',
+			'responsive_header_secondary_menu_link_color'   => 'palette3',
 			'header_secondary_menu_link_hover'            	=> '#10659C',
 			'header_sub_secondary_menu_background'          => '#ffffff',
 			'header_sub_secondary_menu_link'                => '#333333',
@@ -1153,12 +1159,18 @@ function defaults() {
 			'menu_button_radius'                  => 0,
 			'responsive_alt_background_color'     => 'palette6',
 			'body_text'                           => '#333333',
-			'h1_text'                             => '#333333',
+			'responsive_h1_text_color'            => 'headings-color',
+			'responsive_h2_text_color'            => 'headings-color',
+			'responsive_h3_text_color'            => 'headings-color',
+			'responsive_h4_text_color'            => 'headings-color',
+			'responsive_h5_text_color'            => 'headings-color',
+			'responsive_h6_text_color'            => 'headings-color',
 			'h2_text'                             => '#333333',
 			'h3_text'                             => '#333333',
 			'h4_text'                             => '#333333', 
 			'h5_text'                             => '#333333', 
-			'h6_text'                             => '#333333', 
+			'h6_text'                             => '#333333',
+			'responsive_all_heading_text_color'   => 'palette3',
 			'responsive_meta_text_color'          => 'palette0',
 			'link'                                => '#0066CC',
 			'link_hover'                          => '#10659C',
@@ -1201,7 +1213,6 @@ function defaults() {
 			'footer_social_margin_y'              => 0,
 			'footer_social_item_bg_color'         => '#FFFFFF00',
 			'footer_social_item_bg_hover_color'   => '#FFFFFF00',
-			'responsive_h4_text_color'            => '#333333',
 			'responsive_box_background_color'     => 'palette4',
 			'responsive_sidebar_background_color' => 'palette4',
 			'responsive_add_to_cart_button_text_color' => 'palette4',
@@ -2293,7 +2304,7 @@ if( ! function_exists( 'responsive_old_woo_cart_comaptibility_with_header_builde
 				}
 			}
 			//make cart icon color backward compatible.
-			$menu_items_color = get_theme_mod( 'responsive_header_menu_link_color' );
+			$menu_items_color = responsive_prepare_css_value( 'responsive_header_menu_link_color' );
 			if( $menu_items_color ) {
 				set_theme_mod( 'responsive_cart_color', $menu_items_color );
 				set_theme_mod( 'responsive_cart_hover_color', $menu_items_color );
@@ -2345,7 +2356,7 @@ if ( ! function_exists( 'responsive_old_header_search_compatibility_with_hfb_hea
 			array_push( $header_hfb_elements['primary']['primary_right'], 'search' );
 			set_theme_mod( 'responsive_header_desktop_items', $header_hfb_elements );
 			//make search border color backward compatible.
-			$menu_items_color       = get_theme_mod( 'responsive_header_menu_link_color' );
+			$menu_items_color       = responsive_prepare_css_value( 'responsive_header_menu_link_color' );
 			$menu_items_hover_color = get_theme_mod( 'responsive_header_menu_link_hover_color' );
 			if( $menu_items_color ) {
 				set_theme_mod( 'responsive_header_search_color', $menu_items_color );
@@ -2617,7 +2628,7 @@ if( ! function_exists( 'responsive_prepare_css_value' ) ) {
 
 		$value = trim( $value );
 
-		if ( is_string( $value ) && preg_match( '/^palette\d+$/', $value ) ) {
+		if ( is_string( $value ) && ( preg_match( '/^palette\d+$/', $value ) || false !== strpos( $value, 'headings-color' ) ) ) {
 			return 'var(--responsive-global-' . $value . ')';
 		}
 

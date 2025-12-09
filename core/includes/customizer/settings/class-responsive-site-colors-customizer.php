@@ -5,6 +5,8 @@
  * @package Responsive WordPress theme
  */
 
+use function Responsive\Core\get_responsive_customizer_defaults;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -73,31 +75,31 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 
 			// All Headings Color.
 			$all_heading_color_label = __( 'All Headings (H1 - H6)', 'responsive' );
-			responsive_color_control( $wp_customize, 'all_heading_text', $all_heading_color_label, 'responsive_colors', 50, '#333333' );
+			responsive_color_control( $wp_customize, 'all_heading_text', $all_heading_color_label, 'responsive_colors', 50, get_responsive_customizer_defaults( 'responsive_all_heading_text_color' ) );
 
 			// Heading 1 (H1) Color.
 			$h1_text_color_label = __( 'Heading 1 (H1)', 'responsive' );
-			responsive_color_control( $wp_customize, 'h1_text', $h1_text_color_label, 'responsive_colors', 55, get_theme_mod( 'responsive_all_heading_text_color', Responsive\Core\get_responsive_customizer_defaults( 'h1_text' ) ) );
+			responsive_color_control( $wp_customize, 'h1_text', $h1_text_color_label, 'responsive_colors', 55, Responsive\Core\get_responsive_customizer_defaults( 'responsive_h1_text_color' ) );
 			
 			// Heading 2 (H2) Color.
 			$h2_text_color_label = __( 'Heading 2 (H2)', 'responsive' );
-			responsive_color_control( $wp_customize, 'h2_text', $h2_text_color_label, 'responsive_colors', 60, get_theme_mod( 'responsive_all_heading_text_color', Responsive\Core\get_responsive_customizer_defaults( 'h2_text' ) ) );
+			responsive_color_control( $wp_customize, 'h2_text', $h2_text_color_label, 'responsive_colors', 60, Responsive\Core\get_responsive_customizer_defaults( 'responsive_h2_text_color' ) );
 			
 			// Heading 3 (H3) Color.
 			$h3_text_color_label = __( 'Heading 3 (H3)', 'responsive' );
-			responsive_color_control( $wp_customize, 'h3_text', $h3_text_color_label, 'responsive_colors', 65, get_theme_mod( 'responsive_all_heading_text_color', Responsive\Core\get_responsive_customizer_defaults( 'h3_text' ) ) );
+			responsive_color_control( $wp_customize, 'h3_text', $h3_text_color_label, 'responsive_colors', 65, Responsive\Core\get_responsive_customizer_defaults( 'responsive_h3_text_color' ) );
 
 			// Heading 4 (H4) Color.
 			$h4_text_color_label = __( 'Heading 4 (H4)', 'responsive' );
-			responsive_color_control( $wp_customize, 'h4_text', $h4_text_color_label, 'responsive_colors', 70, get_theme_mod( 'responsive_all_heading_text_color', Responsive\Core\get_responsive_customizer_defaults( 'h4_text' ) ) );
+			responsive_color_control( $wp_customize, 'h4_text', $h4_text_color_label, 'responsive_colors', 70, Responsive\Core\get_responsive_customizer_defaults( 'responsive_h4_text_color' ) );
 
 			// Heading 5 (H5) Color.
 			$h5_text_color_label = __( 'Heading 5 (H5)', 'responsive' );
-			responsive_color_control( $wp_customize, 'h5_text', $h5_text_color_label, 'responsive_colors', 75, get_theme_mod( 'responsive_all_heading_text_color', Responsive\Core\get_responsive_customizer_defaults( 'h5_text' ) ) );
+			responsive_color_control( $wp_customize, 'h5_text', $h5_text_color_label, 'responsive_colors', 75, Responsive\Core\get_responsive_customizer_defaults( 'responsive_h5_text_color' ) );
 
 			// Heading 6 (H6) Color.
 			$h6_text_color_label = __( 'Heading 6 (H6)', 'responsive' );
-			responsive_color_control( $wp_customize, 'h6_text', $h6_text_color_label, 'responsive_colors', 80, get_theme_mod( 'responsive_all_heading_text_color', Responsive\Core\get_responsive_customizer_defaults( 'h6_text' ) ) );
+			responsive_color_control( $wp_customize, 'h6_text', $h6_text_color_label, 'responsive_colors', 80, Responsive\Core\get_responsive_customizer_defaults( 'responsive_h6_text_color' ) );
 
 			responsive_horizontal_separator_control( $wp_customize, 'h6_text_separator', 1, 'responsive_colors',85, 1 );
 

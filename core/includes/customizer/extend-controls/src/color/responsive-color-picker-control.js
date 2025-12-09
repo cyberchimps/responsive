@@ -125,7 +125,7 @@ class ResponsiveColorPickerControl extends Component {
 		const getColorPreviewValue = (value, wantRawValue = false) => {
 			let color = null;
 			// console.log( 'before color: ', value );
-			if( value && value.includes('palette') ) {
+			if( value && ( value.startsWith('palette') || value.includes('headings-color') ) ) {
 				color = 'var(--responsive-global-' + value + ')';
 				if (wantRawValue) {
 					const raw = getComputedStyle(document.documentElement)

@@ -115,7 +115,7 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 			
 			// Link Color.
 			$secondary_menu_link_color_label = __( 'Link Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_secondary_menu_link', $secondary_menu_link_color_label, 'responsive_header_secondary_menu_layout', 130, Responsive\Core\get_responsive_customizer_defaults( 'header_secondary_menu_link' ), 'responsive_disabled_secondary_menu' );
+			responsive_color_control( $wp_customize, 'header_secondary_menu_link', $secondary_menu_link_color_label, 'responsive_header_secondary_menu_layout', 130, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_secondary_menu_link_color' ), 'responsive_disabled_secondary_menu' );
 			
 			// Menu Item Hover Style.
 			$submenu_animation_style_label   = __( 'Submenu Animation', 'responsive' );

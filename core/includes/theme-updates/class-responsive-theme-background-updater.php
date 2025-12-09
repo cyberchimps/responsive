@@ -40,6 +40,9 @@ if ( ! class_exists( 'Responsive_Theme_Background_Updater' ) ) {
                 'responsive_theme_background_updater_mobile_header_social_6_2_9',
                 'responsive_theme_background_updater_mobile_header_button_6_2_9',
                 'responsive_theme_background_updater_mobile_header_widgets_6_2_9'
+            ),
+            '6.3.0' => array (
+                'responsive_theme_background_updater_global_palette_revamp',
             )
 		);
 
