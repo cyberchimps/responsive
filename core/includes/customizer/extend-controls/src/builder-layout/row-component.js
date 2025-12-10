@@ -28,7 +28,6 @@ const BuilderRowComponent = (props) => {
                 layoutSetting += '_mobile';
             }
             const layout = props.customizer(layoutSetting).get();
-            console.log('Updating footer layout for', device, 'to', layout);
             setFooterLayout(layout);
         };
         

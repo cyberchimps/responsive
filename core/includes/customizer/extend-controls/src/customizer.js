@@ -59,6 +59,7 @@
 
 			if ( device === 'desktop' ) {
 				// Show Desktop control, Hide Mobile/Tablet control
+				desktopControl.container.show();
 				mobileTabletControl.container.hide();
 				// Toggle available items controls
 				if ( desktopAvailableItemsControl ) {
@@ -263,7 +264,46 @@
 					$section.toggleClass( 'responsive-hfb-builder-hide' );
 					resizePreviewer();
 				});
+
+
+				// This is for showing the footer builder when the footer widgets are edited via Widgets>Footer Widget
+				wp.customize.section.each(function(sec) {
+					
+					if (sec.id.startsWith('sidebar-widgets-footer-widget-')) {
+
+						sec.expanded.bind(function(isExpanded) {
+
+							if (isExpanded) {
+
+								$body.addClass('responsive-footer-builder-is-active');
+								$section.addClass('responsive-footer-builder-active');
+
+								_.each(sec.controls(), function(control) {
+									if ('resolved' !== control.deferred.embedded.state()) {
+										control.renderContent();
+										control.deferred.embedded.resolve();
+										control.container.trigger('init');
+									}
+								});
+
+								setTimeout(function() {
+									toggleFooterBuilderControls(currentDevice);
+								}, 200);
+
+								resizePreviewer();
+							}
+							else 
+							{
+								$body.removeClass( 'responsive-footer-builder-is-active' );
+								$section.removeClass( 'responsive-footer-builder-active' );
+							}
+						});
+					}
+				});
 			}
+
+			
+			
 
 		};
 		wp.customize.panel( 'responsive_footer', initFooterBuilderPanel );
