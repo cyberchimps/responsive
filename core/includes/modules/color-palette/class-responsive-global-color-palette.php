@@ -41,10 +41,10 @@ class Responsive_Global_Color_Palette {
 		return '--responsive-global-palette';
 	}
 
-	public function responsive_generate_global_palette_styles( $output_css ) {
+	public static function responsive_generate_global_palette_styles( $output_css ) {
 
 		$global_palette   = get_theme_mod( 'responsive_global_color_palette', get_responsive_customizer_defaults( 'default_global_palette' ) );
-		$variable_prefix  = $this->get_css_variable_prefix();
+		$variable_prefix  = self::get_css_variable_prefix();
 		$palette_css_vars = array();
 
 		/**

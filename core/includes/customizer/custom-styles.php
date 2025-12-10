@@ -1219,7 +1219,8 @@ function responsive_customizer_styles() {
 	.wp-block-file__button,
 	body div.wpforms-container-full .wpforms-form input[type=submit],
 	body div.wpforms-container-full .wpforms-form button[type=submit],
-	body div.wpforms-container-full .wpforms-form .wpforms-page-button, .main-navigation .menu .res-button-menu .res-custom-button {
+	body div.wpforms-container-full .wpforms-form .wpforms-page-button, .main-navigation .menu .res-button-menu .res-custom-button,
+	form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button {
 		background-color:' . $button_color . ';
 		border-style: solid;
 		border-color: ' . $button_border_color . ';

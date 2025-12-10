@@ -21,7 +21,6 @@ const PaletteComponent = props => {
         return props.control.setting.get();
     });
 
-    console.log( 'PaletteComponent render - selectedChoice:', selectedChoice );
     // console.log( 'choices: ', choices );
 
     // useEffect(() => {
@@ -243,10 +242,26 @@ const PaletteComponent = props => {
                     // if I clicked inside another picker (not this one) → close this
                     if (clickedInlinePicker.id !== pickerId) {
                         setOpenPickerId(clickedInlinePicker.id  );
+                        const updated = wp.customize(settingId).get();
+                        setSelectedChoice(prev => ({
+                            ...prev,
+                            palette: {
+                                ...prev.palette,
+                                [settingKey]: updated
+                            }
+                        }));
                     }
                 } else {
                     // clicked completely outside → close
                     setOpenPickerId(null);
+                    const updated = wp.customize(settingId).get();
+                    setSelectedChoice(prev => ({
+                        ...prev,
+                        palette: {
+                            ...prev.palette,
+                            [settingKey]: updated
+                        }
+                    }));
                 }
             };
 
@@ -265,24 +280,13 @@ const PaletteComponent = props => {
                 }
             };
             props.control.setting.set(newSettingVal);
-            // setSelectedChoice( newSettingVal );
-            // propagateGlobalColor(settingId, value, wp);
             wp.customize(settingId).set(value);
         };
 
         const handlePickerToggle = () => {
-            // console.log( 'handlePickerToggle' );
             if (!isOpen) {
                 setOpenPickerId(pickerId);
             }
-            const updated = wp.customize(settingId).get();
-            setSelectedChoice(prev => ({
-                ...prev,
-                palette: {
-                    ...prev.palette,
-                    [settingKey]: updated
-                }
-            }));
         };
 
         const selfClicked = () => {
