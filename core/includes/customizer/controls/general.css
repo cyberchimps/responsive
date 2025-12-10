@@ -757,6 +757,9 @@ body.rtl .customize-control .responsive-switchers li {
 	border: 1px dashed #8F8F8F;
 	border-right: none;
 }
+.responsive-builder-items-with-popup .popup-vertical-group button.components-button.responsive-row-actions {
+	border-bottom-left-radius: 0px;
+}
 .responsive-builder-areas button.components-button.responsive-row-actions .dashicon {
     width: 20px;
     height: 20px;
@@ -1728,7 +1731,7 @@ body.rtl .customize-control .responsive-switchers li {
 }
 .responsive-builder-areas.popup-vertical-group {
 	width: 229px;
-	max-height: 232px; 
+	max-height: 240px; 
 	border-radius: 5px;
 	padding-left : 0px;
 	box-shadow: 0px 0px 7.9px 0px #00000033;
@@ -1797,6 +1800,7 @@ body.rtl .customize-control .responsive-switchers li {
 	border-radius: 4px;
 	display: flex;
 	justify-content: space-between;
+	gap: 65px;
 }
 .responsive-builder-drop-popup .responsive-hfb-builder-item-text {
 	width: 85px;
@@ -1806,10 +1810,10 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-theme-controls #sub-accordion-section-responsive_header_mobile_off_canvas, #sub-accordion-section-responsive_header_off_canvas_menu_layout {
 	height : 100%;
 }
-#customize-control-responsive_header_mobile_off_canvas_header_type, #customize-control-responsive_header_mobile_off_canvas_move_body, #customize-control-responsive_header_mobile_off_canvas_bg_color, #customize-control-responsive_redirect_to_off_canvas_menu_set_location, #customize-control-responsive_header_off_canvas_menu_items_divider, #customize-control-responsive_header_off_canvas_menu_visibility, #customize-control-responsive_header_off_canvas_menu_typography_group {
+#customize-control-responsive_header_mobile_off_canvas_header_type, #customize-control-responsive_header_mobile_off_canvas_move_body, #customize-control-responsive_header_mobile_off_canvas_bg_color, #customize-control-responsive_redirect_to_off_canvas_menu_set_location, #customize-control-responsive_header_off_canvas_menu_items_divider, #customize-control-responsive_header_off_canvas_menu_visibility, #customize-control-responsive_header_off_canvas_menu_typography_group, #customize-control-responsive_mobile_header_html_content_separator, #customize-control-responsive_mobile_header_html_link_style_separator {
 	padding-top: 24px;
 }
-#customize-control-responsive_header_mobile_off_canvas_move_body .responsive-toggle-control-wrapper, #customize-control-responsive_header_off_canvas_menu_items_divider .responsive-toggle-control-wrapper {
+#customize-control-responsive_header_mobile_off_canvas_move_body .responsive-toggle-control-wrapper, #customize-control-responsive_header_off_canvas_menu_items_divider .responsive-toggle-control-wrapper, #customize-control-responsive_mobile_header_html_content_separator {
 	padding-bottom: 24px;
 }
 #customize-control-responsive_header_mobile_off_canvas_header_type_horizontal_separator, #customize-control-responsive_header_mobile_off_canvas_dropdown_target_horizontal_separator {
@@ -1820,6 +1824,19 @@ body.rtl .customize-control .responsive-switchers li {
 }
 
 /* For Toggle Button */
-#customize-control-responsive_header_toggle_button_icon, #customize-control-responsive_header_toggle_button_style_separator{
+#customize-control-responsive_header_toggle_button_icon, #customize-control-responsive_header_toggle_button_style_separator,#customize-control-responsive_mobile_header_contact_info_icon_shape_separator, #customize-control-responsive_mobile_header_contact_info_icon_style_separator, #customize-control-responsive_mobile_header_contact_info_icon_size_separator, #customize-control-responsive_mobile_header_contact_info_separator{
 	padding-top: 24px;
+}
+#customize-control-responsive_mobile_header_contact_info_icons_color, #customize-control-responsive_mobile_header_contact_info_background_color, #customize-control-responsive_mobile_header_contact_info_font_color, #customize-control-responsive_mobile_header_contact_info_typography_group {
+	padding-top: 24px;
+	padding-bottom: 24px;
+}
+
+#customize-theme-controls ul#sub-accordion-section-responsive_header_toggle_button, #customize-theme-controls ul#sub-accordion-section-responsive_mobile_header_widget, #customize-theme-controls ul#sub-accordion-section-responsive_mobile_header_social, #customize-theme-controls ul#sub-accordion-section-responsive_header_off_canvas_menu_layout, #customize-theme-controls ul#sub-accordion-section-responsive_mobile_header_html{
+	height: 100%;
+}
+
+.responsive-builder-items-with-popup button.components-button.responsive-row-actions.has-text.has-icon {
+	border-style: none;
+	color: #434343;
 }

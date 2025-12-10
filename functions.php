@@ -1064,14 +1064,35 @@ add_filter( 'nav_menu_link_attributes', 'responsive_nav_menu_link_attributes', 1
  * @return $args.
  */
 function responsive_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
-	if ( 'header-menu' === $args->theme_location ) {
+	// Get theme_location and menu_id from args object
+	$theme_location = isset( $args->theme_location ) ? $args->theme_location : '';
+	$menu_id = isset( $args->menu_id ) ? $args->menu_id : '';
+	
+	// Check if this is header-menu, off-canvas-menu theme location, or off-canvas-menu ID
+	$is_header_menu = ( 'header-menu' === $theme_location );
+	$is_off_canvas_menu = ( 'off-canvas-menu' === $theme_location || 'off-canvas-menu' === $menu_id );
+	
+	// Priority: if menu_id is 'off-canvas-menu', treat it as off-canvas menu (even if theme_location is header-menu)
+	// This handles the case when header-menu is used as fallback in off-canvas panel
+	$is_off_canvas_context = ( 'off-canvas-menu' === $menu_id );
+	
+	if ( $is_header_menu || $is_off_canvas_menu ) {
 		if ( in_array( 'menu-item-has-children', $item->classes, true ) ) {
-			$args->after      = '<span class="res-iconify res-iconify-outer">
-				<svg width="15" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
-				</span>';
-			$args->link_after = '<span class="res-iconify res-iconify-inner">
-				<svg width="15" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
-				</span>';
+			if ( $is_header_menu && ! $is_off_canvas_context ) {
+				// Header menu (not in off-canvas context): add both inner and outer icons
+				$args->after      = '<span class="res-iconify res-iconify-outer">
+					<svg width="15" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
+					</span>';
+				$args->link_after = '<span class="res-iconify res-iconify-inner">
+					<svg width="15" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
+					</span>';
+			} else {
+				// Off-canvas menu (or header-menu used as fallback in off-canvas): only add inner icon (inside the link)
+				$args->after      = '';
+				$args->link_after = '<span class="res-iconify res-iconify-inner">
+					<svg width="15" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
+					</span>';
+			}
 		} else {
 			$args->after      = '';
 			$args->link_after = '';
@@ -1223,22 +1244,50 @@ if ( ! function_exists( 'responsive_pro_fixed_menu_onscroll' ) ) {
 			if ( get_theme_mod( 'responsive_shrink_sticky_header' ) ) {
 				?>
 				<script type="text/javascript">
-					document.getElementById("masthead").classList.add( 'shrink' );
+					var masthead = document.getElementById("masthead");
+					var mastheadMobile = document.getElementById("masthead-mobile");
+					if (masthead) {
+						masthead.classList.add( 'shrink' );
+					}
+					if (mastheadMobile) {
+						mastheadMobile.classList.add( 'shrink' );
+					}
 				</script>
 				<?php } else { ?>
 				<script type="text/javascript">
-					document.getElementById("masthead").classList.remove( 'shrink' );
+					var masthead = document.getElementById("masthead");
+					var mastheadMobile = document.getElementById("masthead-mobile");
+					if (masthead) {
+						masthead.classList.remove( 'shrink' );
+					}
+					if (mastheadMobile) {
+						mastheadMobile.classList.remove( 'shrink' );
+					}
 				</script>
 				<?php
 				}
 				if ( get_theme_mod( 'responsive_sticky_header_logo_option' ) ) {
 					?>
 				<script type="text/javascript">
-					document.getElementById("masthead").classList.add( 'sticky-logo' );
+					var masthead = document.getElementById("masthead");
+					var mastheadMobile = document.getElementById("masthead-mobile");
+					if (masthead) {
+						masthead.classList.add( 'sticky-logo' );
+					}
+					if (mastheadMobile) {
+						mastheadMobile.classList.add( 'sticky-logo' );
+					}
 				</script>
 				<?php } else { ?>
 				<script type="text/javascript">
-					document.getElementById("masthead").classList.remove( 'sticky-logo' );
+					var masthead = document.getElementById("masthead");
+					var mastheadMobile = document.getElementById("masthead-mobile");
+					if (masthead) {
+						masthead.classList.remove( 'sticky-logo' );
+					}
+					if (mastheadMobile) {
+						mastheadMobile.classList.remove( 'sticky-logo' );
+					}
 				</script>
 			<?php } ?>
 
@@ -1246,9 +1295,18 @@ if ( ! function_exists( 'responsive_pro_fixed_menu_onscroll' ) ) {
 			window.addEventListener("scroll", responsiveStickyHeader);
 
 			function responsiveStickyHeader() {
-				var height = document.getElementById("masthead").offsetHeight;
+				var masthead = document.getElementById("masthead");
+				var mastheadMobile = document.getElementById("masthead-mobile");
+				var height = masthead ? masthead.offsetHeight : (mastheadMobile ? mastheadMobile.offsetHeight : 0);
+				
 				if (document.documentElement.scrollTop > 0 ) {
-					document.getElementById("masthead").classList.add( 'sticky-header' );
+					if (masthead) {
+						masthead.classList.add( 'sticky-header' );
+					}
+					if (mastheadMobile) {
+						mastheadMobile.classList.add( 'sticky-header' );
+					}
+					
 					if (document.getElementById("wrapper") ) {
 						document.getElementById("wrapper").style.marginTop = height+'px';
 					}
@@ -1257,19 +1315,31 @@ if ( ! function_exists( 'responsive_pro_fixed_menu_onscroll' ) ) {
 					}
 
 					let container = document.getElementById( 'site-navigation' );
-					let button = container.getElementsByTagName( 'button' )[0];
-					let menu = container.getElementsByTagName( 'ul' )[0];
-					let icon = button.getElementsByTagName( 'i' )[0];
-					container.classList.remove( 'toggled' );
-					menu.setAttribute( 'aria-expanded', 'false' );
-					button.setAttribute( 'aria-expanded', 'false' );
-					icon.setAttribute( 'class', 'icon-bars' );
+					if (container) {
+						let button = container.getElementsByTagName( 'button' )[0];
+						let menu = container.getElementsByTagName( 'ul' )[0];
+						if (button && menu) {
+							let icon = button.getElementsByTagName( 'i' )[0];
+							container.classList.remove( 'toggled' );
+							menu.setAttribute( 'aria-expanded', 'false' );
+							button.setAttribute( 'aria-expanded', 'false' );
+							if (icon) {
+								icon.setAttribute( 'class', 'icon-bars' );
+							}
+						}
+					}
 					if(document.getElementById("sidebar-menu-overlay")) {
 						document.getElementById("sidebar-menu-overlay").style.display = "none";
 					}
 
 				} else {
-					document.getElementById("masthead").classList.remove( 'sticky-header' );
+					if (masthead) {
+						masthead.classList.remove( 'sticky-header' );
+					}
+					if (mastheadMobile) {
+						mastheadMobile.classList.remove( 'sticky-header' );
+					}
+					
 					if (document.getElementById("wrapper") ) {
 						document.getElementById("wrapper").style.marginTop = '0px';
 					}
@@ -1912,6 +1982,9 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_tablet_items_
 					Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_desktop_items' ) 
 				);
 				
+				// Track if primary navigation exists in desktop items
+				$has_primary_navigation = false;
+				
 				// Element mapping: old name => new name
 				$element_mapping = array(
 					'site-branding' => 'logo',
@@ -1926,6 +1999,28 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_tablet_items_
 							$mapped_elements[] = $element_mapping[ $old_element ];
 						}
 					}
+				}
+				
+				// Check if primary navigation exists in desktop items
+				if ( is_array( $desktop_items ) && !empty( $desktop_items ) ) {
+					foreach ( array( 'above', 'primary', 'below' ) as $row ) {
+						if ( isset( $desktop_items[ $row ] ) && is_array( $desktop_items[ $row ] ) ) {
+							foreach ( $desktop_items[ $row ] as $zone => $elements ) {
+								if ( is_array( $elements ) && in_array( 'primary_navigation', $elements, true ) ) {
+									$has_primary_navigation = true;
+									break 2;
+								}
+							}
+							if ( $has_primary_navigation ) {
+								break;
+							}
+						}
+					}
+				}
+				
+				// Also check in old_header_elements for 'main-navigation'
+				if ( !$has_primary_navigation && is_array( $old_header_elements ) && in_array( 'main-navigation', $old_header_elements, true ) ) {
+					$has_primary_navigation = true;
 				}
 				
 				// If we have desktop items, use them to determine positions
@@ -1955,7 +2050,8 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_tablet_items_
 												
 											case 'primary_navigation':
 												// Primary navigation becomes off_canvas_menu in popup and toggle_button in primary_right
-												if ( $row === 'primary' ) {
+												// Only add if primary navigation exists in desktop items
+												if ( $row === 'primary' && $has_primary_navigation ) {
 													// Add off_canvas_menu to popup if not already present
 													if ( !in_array( 'off_canvas_menu', $mobile_tablet_items['popup']['popup_content'], true ) ) {
 														$mobile_tablet_items['popup']['popup_content'][] = 'off_canvas_menu';
@@ -2034,7 +2130,8 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_tablet_items_
 							}
 						}
 						
-						if ( in_array( 'main-navigation', $old_header_elements, true ) ) {
+						// Only add toggle_button if primary navigation exists
+						if ( $has_primary_navigation ) {
 							// Off canvas menu in popup
 							if ( !in_array( 'off_canvas_menu', $mobile_tablet_items['popup']['popup_content'], true ) ) {
 								$mobile_tablet_items['popup']['popup_content'][] = 'off_canvas_menu';
@@ -2047,15 +2144,32 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_tablet_items_
 					}
 				}
 				
-				// Ensure we always have at least logo and toggle_button if nothing was migrated
+				// Ensure we always have at least logo if nothing was migrated
 				if ( empty( $mobile_tablet_items['primary']['primary_left'] ) ) {
 					$mobile_tablet_items['primary']['primary_left'] = array( 'logo' );
 				}
-				if ( empty( $mobile_tablet_items['primary']['primary_right'] ) ) {
-					$mobile_tablet_items['primary']['primary_right'] = array( 'toggle_button' );
-				}
-				if ( empty( $mobile_tablet_items['popup']['popup_content'] ) ) {
-					$mobile_tablet_items['popup']['popup_content'] = array( 'off_canvas_menu' );
+				
+				// Only add toggle_button and off_canvas_menu if primary navigation exists
+				if ( $has_primary_navigation ) {
+					if ( empty( $mobile_tablet_items['primary']['primary_right'] ) ) {
+						$mobile_tablet_items['primary']['primary_right'] = array( 'toggle_button' );
+					}
+					if ( empty( $mobile_tablet_items['popup']['popup_content'] ) ) {
+						$mobile_tablet_items['popup']['popup_content'] = array( 'off_canvas_menu' );
+					}
+				} else {
+					// Remove toggle_button if primary navigation doesn't exist
+					if ( isset( $mobile_tablet_items['primary']['primary_right'] ) && is_array( $mobile_tablet_items['primary']['primary_right'] ) ) {
+						$mobile_tablet_items['primary']['primary_right'] = array_values( array_filter( $mobile_tablet_items['primary']['primary_right'], function( $item ) {
+							return $item !== 'toggle_button';
+						} ) );
+					}
+					// Remove off_canvas_menu if primary navigation doesn't exist
+					if ( isset( $mobile_tablet_items['popup']['popup_content'] ) && is_array( $mobile_tablet_items['popup']['popup_content'] ) ) {
+						$mobile_tablet_items['popup']['popup_content'] = array_values( array_filter( $mobile_tablet_items['popup']['popup_content'], function( $item ) {
+							return $item !== 'off_canvas_menu';
+						} ) );
+					}
 				}
 				
 				// Save the migrated mobile/tablet items
@@ -2564,4 +2678,86 @@ if ( ! function_exists( 'responsive_theme_background_updater_global_palette_reva
 		}
 	}
 }
+if( ! function_exists( 'responsive_theme_background_updater_off_canvas_menu_6_2_9') ) {
+	/**
+	 * Handle backward compatibility for off-canvas menu background settings migration.
+	 * 
+	 * @since 6.2.9
+	 * @return void
+	 */
+	function responsive_theme_background_updater_off_canvas_menu_6_2_9(){
+		$responsive_options = Responsive\Core\responsive_get_options();
 
+		if( !isset( $responsive_options['off_canvas_menu_background_backward_done'])) {
+			
+			// Mapping of old off_canvas_menu background theme mods to new ones
+			$theme_mod_mapping = array(
+				'responsive_header_menu_toggle_color' => 'responsive_header_toggle_button_icon_color',
+				'responsive_header_menu_link_color' => 'responsive_header_off_canvas_menu_link_default_color',
+				'responsive_header_active_menu_link_color' => 'responsive_header_off_canvas_menu_link_active_color',
+				'responsive_header_menu_link_hover_color' => 'responsive_header_off_canvas_menu_link_hover_color',
+				'responsive_header_hover_menu_background_color' => 'responsive_header_off_canvas_menu_bg_hover_color',
+				'responsive_header_mobile_menu_background_color'=>'responsive_header_off_canvas_menu_bg_default_color',
+				'responsive_header_active_menu_background_color' => 'responsive_header_off_canvas_menu_bg_active_color',
+			);
+
+			$check_trans_header = get_theme_mod( 'responsive_transparent_header', 0 ); 
+			if( $check_trans_header === 1) 
+			{
+				$theme_mod_mapping['responsive_transparent_header_mobile_menu_background_color'] = 'responsive_header_mobile_menu_background_color';
+			}
+			
+			// Migrate each theme mod if the old value exists and new value doesn't exist
+			foreach ( $theme_mod_mapping as $old_mod => $new_mod ) {
+				$old_value = get_theme_mod( $old_mod, false );
+				$new_value = get_theme_mod( $new_mod, false );
+				
+				// Only migrate if old value exists and new value doesn't exist
+				if ( false !== $old_value && false === $new_value ) {
+					set_theme_mod( $new_mod, $old_value );
+				}
+			}
+			
+			// Mark backward compatibility update as done
+			$responsive_options['off_canvas_menu_background_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+
+if( ! function_exists( 'responsive_theme_background_updater_off_canvas_fonts_toggle_button_color_new_6_2_9') ) {
+	/**
+	 * Handle backward compatibility for off-canvas menu background settings migration.
+	 * 
+	 * @since 6.2.9
+	 * @return void
+	 */
+	function responsive_theme_background_updater_off_canvas_fonts_toggle_button_color_new_6_2_9(){
+		$responsive_options = Responsive\Core\responsive_get_options();
+
+		if( !isset( $responsive_options['off_canvas_menu_font_toggle_button_color_backward_done'])) {
+			
+			// Mapping of old off_canvas_menu background theme mods to new ones
+			$theme_mod_mapping = array(
+				'responsive_header_menu_toggle_color' => 'responsive_header_toggle_button_icon_color',
+				'header_menu_typography' => 'header_off_canvas_menu_typography',
+
+			);
+			
+			// Migrate each theme mod if the old value exists and new value doesn't exist
+			foreach ( $theme_mod_mapping as $old_mod => $new_mod ) {
+				$old_value = get_theme_mod( $old_mod, false );
+				$new_value = get_theme_mod( $new_mod, false );
+				
+				// Only migrate if old value exists and new value doesn't exist
+				if ( false !== $old_value && false === $new_value ) {
+					set_theme_mod( $new_mod, $old_value );
+				}
+			}
+			
+			// Mark backward compatibility update as done
+			$responsive_options['off_canvas_menu_font_toggle_button_color_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
