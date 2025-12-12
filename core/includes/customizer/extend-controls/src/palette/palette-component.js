@@ -14,53 +14,11 @@ const PaletteComponent = props => {
         link, 
     } = props.control.params;
 
-    const didMountRef = useRef(false);
-    const didMountInlineThemeModColorPicker = useRef(false);
-
     const [selectedChoice, setSelectedChoice] = useState(() => {
         return props.control.setting.get();
     });
 
-    // console.log( 'choices: ', choices );
-
-    // useEffect(() => {
-    // const setting = props.control.setting;
-    // const handler = (newVal) => setSelectedChoice(newVal || 'playful-default');
-    // setting.bind(handler);
-    // return () => setting.unbind(handler);
-    // }, [props.control.setting]);
-
-    // useEffect(() => {
-    //     if(!didMountRef.current)
-    //     {
-    //         didMountRef.current = true; 
-    //         return; 
-    //     }
-    //     if (!choices || !selectedChoice) return;
-    //     if (typeof wp === 'undefined' || !wp.customize) return;
-
-    //     const palette = choices[selectedChoice];
-    //     if (!palette) return;
-
-    //     // Map palette keys → Customizer setting IDs
-    //     const mapping = {
-    //         accent: 'responsive_global_color_palette_accent_color',
-    //         link_hover: 'responsive_global_color_palette_link_hover_color',
-    //         text: 'responsive_global_color_palette_text_color',
-    //         header_text: 'responsive_global_color_palette_headings_color',
-    //         content_background: 'responsive_global_color_palette_content_bg_color',
-    //         site_background: 'responsive_global_color_palette_site_background_color',
-    //         alt_background: 'responsive_global_color_palette_alt_background_color'
-    //     };
-    //     Object.entries(mapping).forEach(([paletteKey, settingId]) => {
-    //         if (palette[paletteKey] && wp.customize(settingId)) {
-    //             wp.customize(settingId).set(palette[paletteKey]);
-    //         }
-    //     });
-    // }, [selectedChoice, choices]);
-
     const handlePaletteChange = (choice) => {
-        // console.log( 'handlePaletteChange - choice:', choice );
         const newSettingVal = {
             ...selectedChoice,
             style: choice,
@@ -82,7 +40,6 @@ const PaletteComponent = props => {
         Object.entries(mapping).forEach(([paletteKey, settingId]) => {
             if (palette[paletteKey] && wp.customize(settingId)) {
                 wp.customize(settingId).set(palette[paletteKey]);
-                //  propagateGlobalColor(settingId, palette[paletteKey], wp);
             }
         });
         setSelectedChoice(newSettingVal);
@@ -90,69 +47,69 @@ const PaletteComponent = props => {
 
     const [isPaletteVisible, setIsPaletteVisible] = useState(false);
     const [openPickerId, setOpenPickerId] = useState(null);
-    const propagateGlobalColor = (settingId, value, wp) => {
-        if (!wp?.customize || !wp.customize(settingId)) return;
-        wp.customize(settingId).set(value);
+    // const propagateGlobalColor = (settingId, value, wp) => {
+    //     if (!wp?.customize || !wp.customize(settingId)) return;
+    //     wp.customize(settingId).set(value);
 
-        /*
-            Defining scope of individual global color settings
-        */
-        const propagationMap = {
-            'responsive_global_color_palette_headings_color': [
-            'responsive_header_text_color',
-            'responsive_header_site_title_color',
-            'responsive_header_menu_link_color',
-            'responsive_header_secondary_menu_link_color',
-            'responsive_sidebar_headings_color',
-            'responsive_h1_text_color',
-            'responsive_h2_text_color',
-            'responsive_h3_text_color',
-            'responsive_h4_text_color',
-            'responsive_h5_text_color',
-            'responsive_h6_text_color',
-            'responsive_all_heading_text_color'
-            ],
-            'responsive_global_color_palette_accent_color': [
-            'responsive_link_color',
-            'responsive_button_color',
-            'responsive_button_hover_color',
-            'responsive_meta_text_color',
-            'responsive_sidebar_link_color',
-            'responsive_shop_product_rating_color',
-            'responsive_cart_buttons_hover_color',
-            'responsive_cart_checkout_button_color'
-            ],
-            'responsive_global_color_palette_text_color': [
-            'responsive_body_text_color',
-            'responsive_sidebar_text_color',
-            ],
-            'responsive_global_color_palette_link_hover_color': [
-            'responsive_link_hover_color'
-            ],
-            'responsive_global_color_palette_content_bg_color': [
-            'responsive_box_background_color',
-            'responsive_sidebar_background_color',
-            'responsive_add_to_cart_button_text_color',
-            'responsive_cart_buttons_text_color',
-            'responsive_cart_checkout_button_text_color'
-            ],
-            'responsive_global_color_palette_alt_background_color': [
-            'background_color',
-            'responsive_alt_background_color'
-            ],
-            'responsive_global_color_palette_site_background_color': [
-            'responsive_site_background_color'
-            ]
-        };
+    //     /*
+    //         Defining scope of individual global color settings
+    //     */
+    //     const propagationMap = {
+    //         'responsive_global_color_palette_headings_color': [
+    //         'responsive_header_text_color',
+    //         'responsive_header_site_title_color',
+    //         'responsive_header_menu_link_color',
+    //         'responsive_header_secondary_menu_link_color',
+    //         'responsive_sidebar_headings_color',
+    //         'responsive_h1_text_color',
+    //         'responsive_h2_text_color',
+    //         'responsive_h3_text_color',
+    //         'responsive_h4_text_color',
+    //         'responsive_h5_text_color',
+    //         'responsive_h6_text_color',
+    //         'responsive_all_heading_text_color'
+    //         ],
+    //         'responsive_global_color_palette_accent_color': [
+    //         'responsive_link_color',
+    //         'responsive_button_color',
+    //         'responsive_button_hover_color',
+    //         'responsive_meta_text_color',
+    //         'responsive_sidebar_link_color',
+    //         'responsive_shop_product_rating_color',
+    //         'responsive_cart_buttons_hover_color',
+    //         'responsive_cart_checkout_button_color'
+    //         ],
+    //         'responsive_global_color_palette_text_color': [
+    //         'responsive_body_text_color',
+    //         'responsive_sidebar_text_color',
+    //         ],
+    //         'responsive_global_color_palette_link_hover_color': [
+    //         'responsive_link_hover_color'
+    //         ],
+    //         'responsive_global_color_palette_content_bg_color': [
+    //         'responsive_box_background_color',
+    //         'responsive_sidebar_background_color',
+    //         'responsive_add_to_cart_button_text_color',
+    //         'responsive_cart_buttons_text_color',
+    //         'responsive_cart_checkout_button_text_color'
+    //         ],
+    //         'responsive_global_color_palette_alt_background_color': [
+    //         'background_color',
+    //         'responsive_alt_background_color'
+    //         ],
+    //         'responsive_global_color_palette_site_background_color': [
+    //         'responsive_site_background_color'
+    //         ]
+    //     };
 
-        // if (propagationMap[settingId]) {
-        //     propagationMap[settingId].forEach(rId => {
-        //     if (wp.customize(rId)) {
-        //         wp.customize(rId).set(value);
-        //     }
-        //     });
-        // }
-    };
+    //     // if (propagationMap[settingId]) {
+    //     //     propagationMap[settingId].forEach(rId => {
+    //     //     if (wp.customize(rId)) {
+    //     //         wp.customize(rId).set(value);
+    //     //     }
+    //     //     });
+    //     // }
+    // };
     const togglePaletteVisibility = (e) => {
         e.stopPropagation();
         setIsPaletteVisible(!isPaletteVisible);

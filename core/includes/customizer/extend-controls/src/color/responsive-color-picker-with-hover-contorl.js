@@ -102,7 +102,6 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 
 		const getColorPreviewValue = (value, wantRawValue = false) => {
 			let color = null;
-			// console.log( 'before color: ', value );
 			if( value && value.includes('palette') ) {
 				color = 'var(--responsive-global-' + value + ')';
 				if (wantRawValue) {
@@ -114,7 +113,6 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 			} else {
 				color = value;
 			}
-			// console.log( 'after color: ', color );
 			return color;
 		}
 

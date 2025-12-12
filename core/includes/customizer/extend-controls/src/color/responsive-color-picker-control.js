@@ -124,7 +124,6 @@ class ResponsiveColorPickerControl extends Component {
 
 		const getColorPreviewValue = (value, wantRawValue = false) => {
 			let color = null;
-			// console.log( 'before color: ', value );
 			if( value && ( value.startsWith('palette') || value.includes('headings-color') ) ) {
 				color = 'var(--responsive-global-' + value + ')';
 				if (wantRawValue) {
@@ -136,7 +135,6 @@ class ResponsiveColorPickerControl extends Component {
 			} else {
 				color = value;
 			}
-			// console.log( 'after color: ', color );
 			return color;
 		}
 
