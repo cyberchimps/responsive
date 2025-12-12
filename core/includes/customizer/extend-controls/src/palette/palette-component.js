@@ -388,7 +388,7 @@ const PaletteComponent = props => {
                 <InlineThemeModColorPicker settingId={'responsive_global_color_palette_link_hover_color'} labelText={'Link Hover'} />
                 <InlineThemeModColorPicker settingId={'responsive_global_color_palette_text_color'} labelText={'Text'} />
                 <InlineThemeModColorPicker settingId={'responsive_global_color_palette_headings_color'} labelText={'Headings'} />
-                <InlineThemeModColorPicker settingId={'responsive_global_color_palette_content_bg_color'} labelText={'Background'} />
+                <InlineThemeModColorPicker settingId={'responsive_global_color_palette_content_bg_color'} labelText={'Content Background'} />
                 <InlineThemeModColorPicker settingId={'responsive_global_color_palette_site_background_color'} labelText={'Site Background'} />
                 <InlineThemeModColorPicker settingId={'responsive_global_color_palette_alt_background_color'} labelText={'Alt Background'} />
             </div>
