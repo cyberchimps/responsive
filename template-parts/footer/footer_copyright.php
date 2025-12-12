@@ -49,16 +49,7 @@ $footer_text = get_option('footer-copyright');
                 )
                 ?>
             </span>
-            <a href= "
-            <?php
-            echo apply_filters(
-                'responsive_theme_footer_link',
-                esc_url( 'https://cyberchimps.com/')
-            );
-            ?>
-                "
-                target="_blank"
-                >
+            <a href= "<?php echo apply_filters( 'responsive_theme_footer_link', esc_url( 'https://cyberchimps.com/') ); ?>" target="_blank" >
                 <?php
                 echo apply_filters(
                     'responsive_theme_footer_theme_text',

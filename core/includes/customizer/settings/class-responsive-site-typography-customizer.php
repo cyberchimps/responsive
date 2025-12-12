@@ -118,7 +118,7 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 				esc_html__( 'Underline Content Links', 'responsive' ),
 				'responsive_typography',
 				32, 
-				false, 
+				true, 
 				'',
 				'refresh',
 			);

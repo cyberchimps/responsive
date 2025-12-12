@@ -931,7 +931,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 				    <div class="responsive-theme-feature-cards-content">
 						<p class="responsive-theme-home-settings-text fw-bolder"><?php esc_html_e( 'Upgrade to PRO', 'responsive' ); ?></p>
 			            <p class="responsive-theme-home-desc-text "><?php esc_html_e('Upgrade to Cyberchimps Pro plan to unlock access to 150+ Premium Starter Templates and priority support.', 'responsive');?></p>
-						<button class="btn-upgrade" onclick="window.open('<?php echo esc_url('https://cyberchimps.com/pricing/?utm_source=wpdash&utm_medium=rtheme&utm_campaign=theme-home-tab&utm_content=upgrade'); ?>', '_blank')"><?php esc_html_e('Upgrade', 'responsive'); ?></button>
+						<button type="button" class="btn-upgrade" onclick="window.open('<?php echo esc_url('https://cyberchimps.com/pricing/?utm_source=wpdash&utm_medium=rtheme&utm_campaign=theme-home-tab&utm_content=upgrade'); ?>', '_blank')"><?php esc_html_e('Upgrade', 'responsive'); ?></button>
 					</div>
 				</div>
 			</div>

@@ -2761,3 +2761,31 @@ if( ! function_exists( 'responsive_theme_background_updater_off_canvas_fonts_tog
 		}
 	}
 }
+
+if ( ! function_exists( 'responsive_theme_background_updater_accessibility_ready' ) ) {
+
+	/**
+	 * Runs the accessibility-ready backward compatibility update.
+	 *
+	 * Once completed, the update marks itself as done by setting
+	 * `accessibility-ready-backward-done` to true inside the theme options.
+	 *
+	 * @return void
+	 */
+	function responsive_theme_background_updater_accessibility_ready() {
+		$responsive_options = Responsive\Core\responsive_get_options();
+
+		// Run only if not set OR false/empty
+		if ( empty( $responsive_options['accessibility-ready-backward-done'] ) ) {
+			$old_underline_content_links = get_theme_mod( 'responsive_underline_content_links' );
+			set_theme_mod( 'responsive_underline_content_links', $old_underline_content_links == '1' || $old_underline_content_links === true );
+
+			$old_meta_text_color = get_theme_mod( 'responsive_meta_text_color', '#999999' );
+			set_theme_mod( 'responsive_meta_text_color', $old_meta_text_color );
+		}
+
+		// Making backward compatibility update as done.
+		$responsive_options['accessibility-ready-backward-done'] = true;
+		update_option( 'responsive_theme_options', $responsive_options );
+	}
+}
