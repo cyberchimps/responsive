@@ -1352,36 +1352,217 @@
 
     //Scroll To Top
     //Icon Color
-    api( 'responsive_scroll_to_top_icon_color', function( value ) {
-        value.bind( function( newval ) {
+    // Scroll To Top Icon Color — Desktop (min-width: 993px)
+    api('responsive_scroll_to_top_icon_color', function(value){
+        value.bind(function(newval){
 
-            $('#scroll span').css('border-bottom-color', newval );        } );
-    } );
+            const styleId = 'responsive-scroll-top-color-desktop';
+            jQuery(`style#${styleId}`).remove();
 
-    //Icon Hover Color
-    $("#scroll").hover(
-        function() {
-            $(this).find('span').css("border-bottom-color", api('responsive_scroll_to_top_icon_hover_color').get());
-        },
-        function() {
-            $(this).find('span').css("border-bottom-color", api('responsive_scroll_to_top_icon_color').get());
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 993px) {
+                        #scroll span { border-bottom-color: ${newval}; }
+                    }
+                </style>`
+            );
         });
+    });
+
+
+    // Tablet
+    api('responsive_scroll_to_top_icon_color_tablet', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-color-tablet';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 577px) and (max-width: 992px) {
+                        #scroll span { border-bottom-color: ${newval}; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+
+    // Mobile
+    api('responsive_scroll_to_top_icon_color_mobile', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-color-mobile';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (max-width: 576px) {
+                        #scroll span { border-bottom-color: ${newval}; }
+                    }
+                </style>`
+            );
+        });
+    });
+    
+    //Icon Hover Color
+    // Hover Color — Desktop
+    api('responsive_scroll_to_top_icon_color_hover', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-color-hover-desktop';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 993px) {
+                        #scroll:hover span { border-bottom-color: ${newval}; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+    // Hover Color — Tablet
+    api('responsive_scroll_to_top_icon_color_tablet_hover', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-color-tablet-hover';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 577px) and (max-width: 992px) {
+                        #scroll:hover span { border-bottom-color: ${newval}; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+    // Hover Color — Mobile
+    api('responsive_scroll_to_top_icon_color_mobile_hover', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-color-mobile-hover';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (max-width: 576px) {
+                        #scroll:hover span { border-bottom-color: ${newval}; }
+                    }
+                </style>`
+            );
+        });
+    });
 
     //Icon Background Color
-    api( 'responsive_scroll_to_top_icon_background_color', function( value ) {
-        value.bind( function( newval ) {
-            $('#scroll').css('background-color', newval );
-        } );
-    } );
+        api('responsive_scroll_to_top_icon_background_color', function(value){
+        value.bind(function(newval){
 
-    //Icon Background Hover Color
-    $("#scroll").hover(
-        function() {
-            $(this).css("background-color", api('responsive_scroll_to_top_icon_background_hover_color').get());
-        },
-        function() {
-            $(this).css("background-color", api('responsive_scroll_to_top_icon_background_color').get());
+            const styleId = 'responsive-scroll-top-bg-desktop';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(`
+                <style id="${styleId}">
+                    @media (min-width: 993px) {
+                        #scroll { background-color: ${newval}; }
+                    }
+                </style>
+            `);
         });
+    });
+
+
+    // Tablet (577px–992px)
+    api('responsive_scroll_to_top_icon_background_color_tablet', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-bg-tablet';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(`
+                <style id="${styleId}">
+                    @media (min-width: 577px) and (max-width: 992px) {
+                        #scroll { background-color: ${newval}; }
+                    }
+                </style>
+            `);
+        });
+    });
+
+
+    // Mobile (max-width: 576px)
+    api('responsive_scroll_to_top_icon_background_color_mobile', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-bg-mobile';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(`
+                <style id="${styleId}">
+                    @media (max-width: 576px) {
+                        #scroll { background-color: ${newval}; }
+                    }
+                </style>
+            `);
+        });
+    });
+
+    // Icon Background Hover Color
+    // Desktop hover (min-width: 993px)
+    api('responsive_scroll_to_top_icon_background_color_hover', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-bg-hover-desktop';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(`
+                <style id="${styleId}">
+                    @media (min-width: 993px) {
+                        #scroll:hover { background-color: ${newval}; }
+                    }
+                </style>
+            `);
+        });
+    });
+
+
+    // Tablet hover (577px–992px)
+    api('responsive_scroll_to_top_icon_background_color_tablet_hover', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-bg-hover-tablet';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(`
+                <style id="${styleId}">
+                    @media (min-width: 577px) and (max-width: 992px) {
+                        #scroll:hover { background-color: ${newval}; }
+                    }
+                </style>
+            `);
+        });
+    });
+
+    // Mobile hover (max-width: 576px)
+    api('responsive_scroll_to_top_icon_background_color_mobile_hover', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-bg-hover-mobile';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(`
+                <style id="${styleId}">
+                    @media (max-width: 576px) {
+                        #scroll:hover { background-color: ${newval}; }
+                    }
+                </style>
+            `);
+        });
+    });
+
 
     //Hover Colors
 
@@ -2583,37 +2764,245 @@
             );
         } );
     } );
-    // primary footer
+    // primary footer - desktop
     api( 'responsive_footer_primary_row_bg_color', function(val){
         val.bind(function(newval){
-            $( '.rspv-site-primary-footer-wrap' ).css( 'background-color', newval );
+            jQuery('style#responsive-footer-primary-row-bg-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-primary-row-bg-color">'
+                + '@media screen and ( min-width: 993px ) { .rspv-site-primary-footer-wrap { background-color: ' + newval + '; } }'
+                + '</style>'
+            );
         });
     });
-    api( 'responsive_footer_primary_row_border_color', function(val){
-        val.bind(function(newval){
-            $( '.rspv-site-primary-footer-wrap' ).css( 'border-top', api('responsive_footer_primary_row_top_border_size').get() + 'px solid '+ newval );
+    api( 'responsive_footer_primary_row_bg_color_tablet', function( val){
+        val.bind( function(newval){
+            jQuery('style#responsive-footer-primary-row-bg-color-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-primary-row-bg-color-tablet">'
+                + '@media screen and ( min-width: 577px and max-width: 992px ) { .rspv-site-primary-footer-wrap { background-color: ' + newval + '; } }'
+                + '</style>'
+            );
+        })
+    })
+    api( 'responsive_footer_primary_row_bg_color_mobile', function( val){
+        val.bind( function(newval){
+            jQuery('style#responsive-footer-primary-row-bg-color-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-primary-row-bg-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .rspv-site-primary-footer-wrap { background-color: ' + newval + '; } }'
+                + '</style>'
+            );
+        })
+    });
+    api('responsive_footer_primary_row_border_color', function(val) {
+        val.bind(function(newval) {
+
+            const borderSize = api('responsive_footer_primary_row_top_border_size').get();
+
+            jQuery('style#responsive-footer-primary-row-border-color').remove();
+
+            jQuery('head').append(
+                '<style id="responsive-footer-primary-row-border-color">' +
+                '@media screen and (min-width: 993px) {' +
+                ' .rspv-site-primary-footer-wrap { border-top: ' + borderSize + 'px solid ' + newval + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+    api('responsive_footer_primary_row_border_color_tablet', function(val) {
+        val.bind(function(newval) {
+
+            const borderSize = api('responsive_footer_primary_row_top_border_size_tablet').get();
+
+            jQuery('style#responsive-footer-primary-row-border-color-tablet').remove();
+
+            jQuery('head').append(
+                '<style id="responsive-footer-primary-row-border-color-tablet">' +
+                '@media screen and (min-width: 577px) and (max-width: 992px) {' +
+                ' .rspv-site-primary-footer-wrap { border-top: ' + borderSize + 'px solid ' + newval + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+    api('responsive_footer_primary_row_border_color_mobile', function(val) {
+        val.bind(function(newval) {
+
+            const borderSize = api('responsive_footer_primary_row_top_border_size_mobile').get();
+
+            jQuery('style#responsive-footer-primary-row-border-color-mobile').remove();
+
+            jQuery('head').append(
+                '<style id="responsive-footer-primary-row-border-color-mobile">' +
+                '@media screen and (max-width: 576px) {' +
+                ' .rspv-site-primary-footer-wrap { border-top: ' + borderSize + 'px solid ' + newval + '; }' +
+                '}' +
+                '</style>'
+            );
         });
     });
     // above footer
     api( 'responsive_footer_above_row_bg_color', function(val){
         val.bind(function(newval){
-            $( '.rspv-site-above-footer-wrap' ).css( 'background-color', newval );
+            jQuery('style#responsive-footer-above-row-bg-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-above-row-bg-color">'
+                + '@media screen and ( min-width: 993px ) { .rspv-site-above-footer-wrap { background-color: ' + newval + '; } }'
+                + '</style>'
+            )
         });
     });
-    api( 'responsive_footer_above_row_border_color', function(val){
-        val.bind(function(newval){
-            $( '.rspv-site-above-footer-wrap' ).css( 'border-top', api('responsive_footer_above_row_top_border_size').get() + 'px solid '+ newval );
+    //Footer Above Row Background Color - Tablet
+    api( 'responsive_footer_above_row_bg_color_tablet', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-footer-above-row-bg-color-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-above-row-bg-color-tablet">'
+                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .rspv-site-above-footer-wrap { background-color: ' + newval + '; } }'
+                + '</style>'
+            );
+        } );
+    } );
+    //Footer Above Row Background Color - Mobile
+    api( 'responsive_footer_above_row_bg_color_mobile', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-footer-above-row-bg-color-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-above-row-bg-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .rspv-site-above-footer-wrap { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+    api('responsive_footer_above_row_border_color', function(val) {
+        val.bind(function(newval) {
+
+            const borderSize = api('responsive_footer_above_row_top_border_size').get();
+
+            jQuery('style#responsive-footer-above-row-border-color').remove();
+
+            jQuery('head').append(
+                '<style id="responsive-footer-above-row-border-color">' +
+                '@media screen and (min-width: 993px) {' +
+                ' .rspv-site-above-footer-wrap { border-top: ' + borderSize + 'px solid ' + newval + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+    api('responsive_footer_above_row_border_color_tablet', function(val) {
+        val.bind(function(newval) {
+
+            const borderSize = api('responsive_footer_above_row_top_border_size_tablet').get();
+
+            jQuery('style#responsive-footer-above-row-border-color-tablet').remove();
+
+            jQuery('head').append(
+                '<style id="responsive-footer-above-row-border-color-tablet">' +
+                '@media screen and (min-width: 577px) and (max-width: 992px) {' +
+                ' .rspv-site-above-footer-wrap { border-top: ' + borderSize + 'px solid ' + newval + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+    api('responsive_footer_above_row_border_color_mobile', function(val) {
+        val.bind(function(newval) {
+
+            const borderSize = api('responsive_footer_above_row_top_border_size_mobile').get();
+
+            jQuery('style#responsive-footer-above-row-border-color-mobile').remove();
+
+            jQuery('head').append(
+                '<style id="responsive-footer-above-row-border-color-mobile">' +
+                '@media screen and (max-width: 576px) {' +
+                ' .rspv-site-above-footer-wrap { border-top: ' + borderSize + 'px solid ' + newval + '; }' +
+                '}' +
+                '</style>'
+            );
         });
     });
     // below footer
     api( 'responsive_footer_below_row_bg_color', function(val){
         val.bind(function(newval){
-            $( '.rspv-site-below-footer-wrap' ).css( 'background-color', newval );
+            jQuery('style#responsive-footer-below-row-bg-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-below-row-bg-color">'
+                + '@media screen and (min-width: 993px) { .rspv-site-below-footer-wrap { background-color: ' + newval + ' } }'
+                + '</style>'
+            )
         });
     });
-    api( 'responsive_footer_below_row_border_color', function(val){
-        val.bind(function(newval){
-            $( '.rspv-site-below-footer-wrap' ).css( 'border-top', api('responsive_footer_below_row_top_border_size').get() + 'px solid '+ newval );
+    //Footer Below Row Background Color - Tablet
+    api( 'responsive_footer_below_row_bg_color_tablet', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-footer-below-row-bg-color-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-below-row-bg-color-tablet">'
+                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .rspv-site-below-footer-wrap { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+    //Footer Below Row Background Color - Mobile
+    api( 'responsive_footer_below_row_bg_color_mobile', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-footer-below-row-bg-color-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-below-row-bg-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .rspv-site-below-footer-wrap { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
+        } );
+    } );
+    api('responsive_footer_below_row_border_color', function(val) {
+        val.bind(function(newval) {
+
+            const borderSize = api('responsive_footer_below_row_top_border_size').get();
+
+            jQuery('style#responsive-footer-below-row-border-color').remove();
+
+            jQuery('head').append(
+                '<style id="responsive-footer-below-row-border-color">' +
+                '@media screen and (min-width: 993px) {' +
+                ' .rspv-site-below-footer-wrap { border-top: ' + borderSize + 'px solid ' + newval + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+    api('responsive_footer_below_row_border_color_tablet', function(val) {
+        val.bind(function(newval) {
+
+            const borderSize = api('responsive_footer_below_row_top_border_size_tablet').get();
+
+            jQuery('style#responsive-footer-below-row-border-color-tablet').remove();
+
+            jQuery('head').append(
+                '<style id="responsive-footer-below-row-border-color-tablet">' +
+                '@media screen and (min-width: 577px) and (max-width: 992px) {' +
+                ' .rspv-site-below-footer-wrap { border-top: ' + borderSize + 'px solid ' + newval + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+    api('responsive_footer_below_row_border_color_mobile', function(val) {
+        val.bind(function(newval) {
+
+            const borderSize = api('responsive_footer_below_row_top_border_size_mobile').get();
+
+            jQuery('style#responsive-footer-below-row-border-color-mobile').remove();
+
+            jQuery('head').append(
+                '<style id="responsive-footer-below-row-border-color-mobile">' +
+                '@media screen and (max-width: 576px) {' +
+                ' .rspv-site-below-footer-wrap { border-top: ' + borderSize + 'px solid ' + newval + '; }' +
+                '}' +
+                '</style>'
+            );
         });
     });
 
@@ -2622,57 +3011,189 @@
             jQuery('style#responsive-footer-menu-background-color').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-menu-background-color">'
-                + '.footer-navigation { background-color: ' + newval + ' }'
+                + '@media screen and (min-width: 993px) { .footer-navigation { background-color: ' + newval + '; } }'
                 + '</style>'
             );
         });
     });
-    api( 'responsive_footer_menu_background_hover_color', function(val){
+    api( 'responsive_footer_menu_background_color_hover', function(val){
         val.bind(function(newval){
-            jQuery('style#responsive-footer-menu-background-hover-color').remove();
+            jQuery('style#responsive-footer-menu-background-color-hover').remove();
             jQuery('head').append(
-                '<style id="responsive-footer-menu-background-hover-color">'
-                + '.footer-navigation:hover { background-color: ' + newval + '}'
+                '<style id="responsive-footer-menu-background-color-hover">'
+                + '@media screen and (min-width: 993px) { .footer-navigation:hover { background-color: ' + newval + ' } }'
                 + '</style>'
             );
         });
     });
+    api( 'responsive_footer_menu_background_color_tablet', function( val){
+        val.bind( function(newval){
+            jQuery('style#responsive-footer-menu-background-color-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-menu-background-color-tablet">'
+                + '@media screen and (min-width: 577px) and (max-width: 992px) { .footer-navigation { background-color: ' + newval + ' } }'
+                + '</style>'
+            );
+        })
+    });
+    api( 'responsive_footer_menu_background_color_tablet_hover', function( val){
+        val.bind( function(newval){
+            jQuery('style#responsive-footer-menu-background-color-tablet-hover').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-menu-background-color-tablet-hover">'
+                + '@media screen and (min-width: 577px) and (max-width: 992px) { .footer-navigation:hover { background-color: ' + newval + '; } }'
+                + '</style>'
+            );
+        })
+    });
+    api( 'responsive_footer_menu_background_color_mobile', function( val){
+        val.bind( function(newval){
+            jQuery('style#responsive-footer-menu-background-color-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-menu-background-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .footer-navigation { background-color: ' + newval + '; } }'
+                + '</style>'
+            );
+        })
+    });
+    api( 'responsive_footer_menu_background_color_mobile_hover', function( val){
+        val.bind( function(newval){
+            jQuery('style#responsive-footer-menu-background-color-mobile-hover').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-menu-background-color-mobile-hover">'
+                + '@media screen and ( max-width: 576px ) { .footer-navigation:hover { background-color: ' + newval + '; } }'
+                + '</style>'
+            );
+        })
+    });
+    // Footer Copyright Text Color - Desktop
     api( 'responsive_footer_copyright_text_color', function(val){
         val.bind(function(newval){
             jQuery('style#responsive-footer-copyright-text-color').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-text-color">'
-                + '.footer-layouts.copyright { color: ' + newval + '}'
+                + '@media screen and ( min-width: 993px ) { .footer-layouts.copyright { color: ' + newval + '; } }'
                 + '</style>'
             );
         });
     });
-    api( 'responsive_footer_copyright_text_hover_color', function(val){
+    // Footer Copyright Text Hover Color - Desktop
+    api( 'responsive_footer_copyright_text_color_hover', function(val){
         val.bind(function(newval){
             jQuery('style#responsive-footer-copyright-text-hover-color').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-text-hover-color">'
-                + '.footer-layouts.copyright:hover { color: ' + newval + '}'
+                + '@media screen and ( min-width: 992px ) { .footer-layouts.copyright:hover { color: ' + newval + '; } }'
                 + '</style>'
             );
         });
     });
+    // Footer Copyright Text Color - Tablet
+    api( 'responsive_footer_copyright_text_color_tablet', function(val){
+        val.bind(function(newval){
+            jQuery('style#responsive-footer-copyright-text-color-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-copyright-text-color-tablet">'
+                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .footer-layouts.copyright { color: ' + newval + '; } }'
+                + '</style>'
+            );
+        });
+    });
+    // Footer Copyright Text Hover Color - Tablet
+    api( 'responsive_footer_copyright_text_color_tablet_hover', function(val){
+        val.bind(function(newval){
+            jQuery('style#responsive-footer-copyright-text-hover-color-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-copyright-text-hover-color-tablet">'
+                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .footer-layouts.copyright:hover { color: ' + newval + '; } }'
+                + '</style>'
+            );
+        });
+    });
+    // Footer Copyright Text Color - Mobile
+    api( 'responsive_footer_copyright_text_color_mobile', function(val){
+        val.bind(function(newval){
+            jQuery('style#responsive-footer-copyright-text-color-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-copyright-text-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .footer-layouts.copyright { color: ' + newval + '; } }'
+                + '</style>'
+            );
+        });
+    });
+    // Footer Copyright Text Hover Color - Mobile
+    api( 'responsive_footer_copyright_text_color_mobile_hover', function(val){
+        val.bind(function(newval){
+            jQuery('style#responsive-footer-copyright-text-hover-color-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-copyright-text-hover-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .footer-layouts.copyright:hover { color: ' + newval + '; } }'
+                + '</style>'
+            );
+        });
+    });
+    // Footer Copyright Links Color - Desktop
     api( 'responsive_footer_copyright_links_color', function(val){
         val.bind(function(newval){
             jQuery('style#responsive-footer-copyright-links-color').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-links-color">'
-                + '.footer-layouts.copyright a { color: ' + newval + '!important; }'
+                + '@media screen and ( min-width: 993px ) { .footer-layouts.copyright a { color: ' + newval + '!important; } }'
                 + '</style>'
             );
         });
     });
-    api( 'responsive_footer_copyright_links_hover_color', function(val){
+    // Footer Copyright Links Hover Color - Desktop
+    api( 'responsive_footer_copyright_links_color_hover', function(val){
         val.bind(function(newval){
             jQuery('style#responsive-footer-copyright-links-hover-color').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-links-hover-color">'
-                + '.footer-layouts.copyright a:hover { color: ' + newval + '!important; }'
+                + '@media screen and ( min-width: 993px ) { .footer-layouts.copyright a:hover { color: ' + newval + '!important; } }'
+                + '</style>'
+            );
+        });
+    });
+    // Footer Copyright Links Color - Tablet
+    api( 'responsive_footer_copyright_links_color_tablet', function(val){
+        val.bind(function(newval){
+            jQuery('style#responsive-footer-copyright-links-color-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-copyright-links-color-tablet">'
+                + '@media screen and ( min-width: 577px) and ( max-width: 992px ) { .footer-layouts.copyright a { color: ' + newval + '!important; } }'
+                + '</style>'
+            );
+        });
+    });
+    // Footer Copyright Links Hover Color - Tablet
+    api( 'responsive_footer_copyright_links_color_tablet_hover', function(val){
+        val.bind(function(newval){
+            jQuery('style#responsive-footer-copyright-links-hover-color-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-copyright-links-hover-color-tablet">'
+                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .footer-layouts.copyright a:hover { color: ' + newval + '!important; } }'
+                + '</style>'
+            );
+        });
+    });
+    // Footer Copyright Links Color - Mobile
+    api( 'responsive_footer_copyright_links_color_mobile', function(val){
+        val.bind(function(newval){
+            jQuery('style#responsive-footer-copyright-links-color-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-copyright-links-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .footer-layouts.copyright a { color: ' + newval + '!important; } }'
+                + '</style>'
+            );
+        });
+    });
+    // Footer Copyright Links Hover Color - Mobile
+    api( 'responsive_footer_copyright_links_color_mobile_hover', function(val){
+        val.bind(function(newval){
+            jQuery('style#responsive-footer-copyright-links-hover-color-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-copyright-links-hover-color-mobile">'
+                + '@media screen and ( max-width: 576px ) { .footer-layouts.copyright a:hover { color: ' + newval + '!important; } }'
                 + '</style>'
             );
         });
@@ -2810,12 +3331,48 @@
             }
         });
     });
+    // Footer Social Item Color - Desktop
     api( 'responsive_footer_social_item_color', function(val){
         val.bind(function(newval){
             var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
             if ( 'no' === footer_social_item_use_brand_colors ) {
-                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'color', newval );
-                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'fill', newval );
+                jQuery('style#responsive-footer-social-item-color-desktop').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-color-desktop">'
+                    + '@media screen and (min-width: 993px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { color: ' + newval + '; fill: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+        });
+    });
+    // Footer Social Item Color - Tablet
+    api( 'responsive_footer_social_item_color_tablet', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-color-tablet').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-color-tablet">'
+                    + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { color: ' + newval + '; fill: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+        });
+    });
+    // Footer Social Item Color - Mobile
+    api( 'responsive_footer_social_item_color_mobile', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-color-mobile').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-color-mobile">'
+                    + '@media screen and (max-width: 556px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { color: ' + newval + '; fill: ' + newval + '; }'
+                    + '} </style>'
+                );
             }
         });
     });
@@ -2837,12 +3394,48 @@
             }
         });
     });
-    api( 'responsive_footer_social_item_hover_color', function(val){
+    // Footer Social Item Hover Color - Desktop
+    api( 'responsive_footer_social_item_color_hover', function(val){
         val.bind(function(newval){
             var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
             if ( 'no' === footer_social_item_use_brand_colors ) {
-                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'color', newval );
-                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'fill', newval );
+                jQuery('style#responsive-footer-social-item-hover-color-desktop').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-hover-color-desktop">'
+                    + '@media screen and (min-width: 993px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { color: ' + newval + '; fill: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+        });
+    });
+    // Footer Social Item Hover Color - Tablet
+    api( 'responsive_footer_social_item_color_tablet_hover', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-hover-color-tablet').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-hover-color-tablet">'
+                    + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { color: ' + newval + '; fill: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+        });
+    });
+    // Footer Social Item Hover Color - Mobile
+    api( 'responsive_footer_social_item_color_mobile_hover', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-hover-color-mobile').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-hover-color-mobile">'
+                    + '@media screen and (max-width: 556px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { color: ' + newval + '; fill: ' + newval + '; }'
+                    + '} </style>'
+                );
             }
         });
     });
@@ -2862,11 +3455,48 @@
             }
         });
     });
+    // Footer Social Item Background Color - Desktop
     api( 'responsive_footer_social_item_background_color', function(val){
         val.bind(function(newval){
             var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
             if ( 'no' === footer_social_item_use_brand_colors ) {
-                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'background-color', newval );
+                jQuery('style#responsive-footer-social-item-background-color-desktop').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-background-color-desktop">'
+                    + '@media screen and (min-width: 993px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { background-color: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+        });
+    });
+    // Footer Social Item Background Color - Tablet
+    api( 'responsive_footer_social_item_background_color_tablet', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-background-color-tablet').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-background-color-tablet">'
+                    + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { background-color: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+        });
+    });
+    // Footer Social Item Background Color - Mobile
+    api( 'responsive_footer_social_item_background_color_mobile', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-background-color-mobile').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-background-color-mobile">'
+                    + '@media screen and (max-width: 556px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { background-color: ' + newval + '; }'
+                    + '} </style>'
+                );
             }
         });
     });
@@ -2886,11 +3516,48 @@
             }
         });
     });
-    api( 'responsive_footer_social_item_background_hover_color', function(val){
+    // Footer Social Item Background Hover Color - Desktop
+    api( 'responsive_footer_social_item_background_color_hover', function(val){
         val.bind(function(newval){
             var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
             if ( 'no' === footer_social_item_use_brand_colors ) {
-                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'background-color', newval );
+                jQuery('style#responsive-footer-social-item-background-hover-color-desktop').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-background-hover-color-desktop">'
+                    + '@media screen and (min-width: 993px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+        });
+    });
+    // Footer Social Item Background Hover Color - Tablet
+    api( 'responsive_footer_social_item_background_color_tablet_hover', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-background-hover-color-tablet').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-background-hover-color-tablet">'
+                    + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+        });
+    });
+    // Footer Social Item Background Hover Color - Mobile
+    api( 'responsive_footer_social_item_background_color_mobile_hover', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-background-hover-color-mobile').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-background-hover-color-mobile">'
+                    + '@media screen and (max-width: 556px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' + newval + '; }'
+                    + '} </style>'
+                );
             }
         });
     });
@@ -2910,11 +3577,48 @@
             }
         });
     });
+    // Footer Social Item Border Color - Desktop
     api( 'responsive_footer_social_item_border_color', function(val){
         val.bind(function(newval){
             var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
             if ( 'no' === footer_social_item_use_brand_colors ) {
-                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'border-color', newval );
+                jQuery('style#responsive-footer-social-item-border-color-desktop').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-border-color-desktop">'
+                    + '@media screen and (min-width: 993px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { border-color: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+        });
+    });
+    // Footer Social Item Border Color - Tablet
+    api( 'responsive_footer_social_item_border_color_tablet', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-border-color-tablet').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-border-color-tablet">'
+                    + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { border-color: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+        });
+    });
+    // Footer Social Item Border Color - Mobile
+    api( 'responsive_footer_social_item_border_color_mobile', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-border-color-mobile').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-border-color-mobile">'
+                    + '@media screen and (max-width: 556px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { border-color: ' + newval + '; }'
+                    + '} </style>'
+                );
             }
         });
     });
@@ -2934,11 +3638,48 @@
             }
         });
     });
-    api( 'responsive_footer_social_item_border_hover_color', function(val){
+    // Footer Social Item Border Hover Color - Desktop
+    api( 'responsive_footer_social_item_border_color_hover', function(val){
         val.bind(function(newval){
             var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
             if ( 'no' === footer_social_item_use_brand_colors ) {
-                $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'border-color', newval );
+                jQuery('style#responsive-footer-social-item-border-hover-color-desktop').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-border-hover-color-desktop">'
+                    + '@media screen and (min-width: 993px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { border-color: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+        });
+    });
+    // Footer Social Item Border Hover Color - Tablet
+    api( 'responsive_footer_social_item_border_color_tablet_hover', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-border-hover-color-tablet').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-border-hover-color-tablet">'
+                    + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { border-color: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+        });
+    });
+    // Footer Social Item Border Hover Color - Mobile
+    api( 'responsive_footer_social_item_border_color_mobile_hover', function(val){
+        val.bind(function(newval){
+            var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
+            if ( 'no' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-border-hover-color-mobile').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-border-hover-color-mobile">'
+                    + '@media screen and (max-width: 556px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { border-color: ' + newval + '; }'
+                    + '} </style>'
+                );
             }
         });
     });
@@ -3644,27 +4385,44 @@
         // Loop over each style type (title, content, etc.) for the current widget
         footerWidgetsStyleTypes.forEach( function( type ) {
 
-            const settingId = 'responsive_footer_widget' + i + type.key;
-            const styleTagId = 'responsive-footer-widget' + i + type.idSuffix;
+            const breakpoints = {
+                desktop: {
+                    query: '@media (min-width: 993px)',
+                    suffix: ''
+                },
+                tablet: {
+                    query: '@media (min-width: 577px) and (max-width: 992px)',
+                    suffix: '-tablet'
+                },
+                mobile: {
+                    query: '@media (max-width: 576px)',
+                    suffix: '-mobile'
+                }
+            };
 
-            api( settingId, function( setting ) {
-                setting.bind( function( newColorValue ) {
+            Object.entries(breakpoints).forEach(([device, bp]) => {
 
-                    const $styleTag = $( 'style#' + styleTagId );
-                    const selector = type.getSelector( i );
-                    // Use template literals for cleaner CSS rule creation
-                    const cssRule = `${selector} { ${type.property}: ${newColorValue} !important; }`;
+                const settingId = device === 'desktop' ? `responsive_footer_widget${i}${type.key}` : `responsive_footer_widget${i}${type.key}_${device}`;
+                const styleTagId = `responsive-footer-widget${i}${type.idSuffix}${bp.suffix}`;
 
-                    // Instead of removing/appending, update the existing tag's content.
-                    if ( $styleTag.length ) {
-                        // If tag exists, just update its HTML
-                        $styleTag.html( cssRule );
-                    } else {
-                        // If tag doesn't exist, create and append it
-                        $head.append( `<style id="${styleTagId}">${cssRule}</style>` );
-                    }
+                api(settingId, function(setting) {
+                    setting.bind(function(newValue) {
+                        
+                        const selector = type.getSelector(i);
+                        const cssRule = `${bp.query} { ${selector} { ${type.property}: ${newValue} !important; } }`;
+
+                        let $styleTag = jQuery(`style#${styleTagId}`);
+
+                        if ($styleTag.length) {
+                            $styleTag.html(cssRule);
+                        } else {
+                            $head.append(`<style id="${styleTagId}">${cssRule}</style>`);
+                        }
+                    });
                 });
+
             });
+            
         });
     }
     // For Mobile Toggle Button Icon Color

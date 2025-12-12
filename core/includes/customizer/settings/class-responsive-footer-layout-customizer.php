@@ -75,10 +75,11 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_footer_copyright_typography_group',
 			);
 
-			$general_tab_ids_prefix = 'customize-control-';
-			$general_tab_ids        = array(
-				$general_tab_ids_prefix . 'responsive_footer_available_items',
-				// $general_tab_ids_prefix . 'responsive_footer_full_width',
+		$general_tab_ids_prefix = 'customize-control-';
+		$general_tab_ids        = array(
+			$general_tab_ids_prefix . 'responsive_footer_available_items',
+			$general_tab_ids_prefix . 'responsive_footer_mobile_available_items',
+			// $general_tab_ids_prefix . 'responsive_footer_full_width',
 				// $general_tab_ids_prefix . 'responsive_footer_elements_positioning',
 				// $general_tab_ids_prefix . 'responsive_footer_widgets_separator',
 				// $general_tab_ids_prefix . 'responsive_footer_widgets_columns',
@@ -107,25 +108,54 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 
 			$footer_builder_choices = Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_builder_choices' );
 
-			$wp_customize->add_control(
-				new Responsive_Customizer_Builder_Available_Items_Drag_Control(
-					$wp_customize,
-					'responsive_footer_available_items',
-					array(
-						'label'           => esc_html__( 'Available Items', 'responsive' ),
-						'section'         => 'responsive_footer_layout',
-						'settings'        => 'responsive_footer_available_items',
-						'priority'        => 10,
-						'input_attrs'     => array(
-							'group' => 'footer_items',
-							'rows'  => array( 'above', 'primary', 'below' ),
-						),
-						'builder_choices' => $footer_builder_choices,
-					)
+		$wp_customize->add_control(
+			new Responsive_Customizer_Builder_Available_Items_Drag_Control(
+				$wp_customize,
+				'responsive_footer_available_items',
+				array(
+					'label'           => esc_html__( 'Available Items', 'responsive' ),
+					'section'         => 'responsive_footer_layout',
+					'settings'        => 'responsive_footer_available_items',
+					'priority'        => 10,
+					'input_attrs'     => array(
+						'group' => 'footer_items',
+						'rows'  => array( 'above', 'primary', 'below' ),
+					),
+					'builder_choices' => $footer_builder_choices,
 				)
-			);
+			)
+		);
 
-			// Full Width Footer.
+		// Mobile/Tablet available items control
+		$wp_customize->add_setting(
+			'responsive_footer_mobile_available_items',
+			array(
+				'sanitize_callback' => 'responsive_sanitize_builder',
+				'transport'         => 'refresh',
+			)
+		);
+
+		$footer_mobile_builder_choices = Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_builder_mobile_choices' );
+
+		$wp_customize->add_control(
+			new Responsive_Customizer_Builder_Available_Items_Drag_Control(
+				$wp_customize,
+				'responsive_footer_mobile_available_items',
+				array(
+					'label'           => esc_html__( 'Available Items', 'responsive' ),
+					'section'         => 'responsive_footer_layout',
+					'settings'        => 'responsive_footer_mobile_available_items',
+					'priority'        => 11,
+					'input_attrs'     => array(
+						'group' => 'footer_mobile_items',
+						'rows'  => array( 'above', 'primary', 'below' ),
+					),
+					'builder_choices' => $footer_mobile_builder_choices,
+				)
+			)
+		);
+
+		// Full Width Footer.
 			// $footer_full_width_label = __( 'Full Width Footer', 'responsive' );
 			// responsive_toggle_control( $wp_customize, 'footer_full_width', $footer_full_width_label, 'responsive_footer_layout', 10, 0, 'responsive_active_site_layout_contained', 'postMessage' );
 
