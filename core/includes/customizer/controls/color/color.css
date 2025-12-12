@@ -786,3 +786,22 @@ body.wp-customizer .responsive-color-control-main-wrap .wp-picker-container .wp-
 [id^="customize-control-responsive_footer_widget"][id$="_color"] .responsive-color-control-main-wrap {
     padding: 0;
 }
+.react-colorful__alpha.react-colorful__last-control::before {
+    content: "Opacity"; 
+    position: absolute;
+    top: -23px;
+    left: 0;
+    pointer-events: none;
+}
+.react-colorful__pointer.react-colorful__alpha-pointer {
+    border: 1px solid black;
+}
+.react-colorful__alpha-gradient {
+    border: 1px solid #00000042;
+}
+.react-colorful__alpha.react-colorful__last-control {
+    margin-top: 25px;
+}
+.css-1gek0tg .react-colorful__pointer.react-colorful__alpha-pointer {
+    border: 1px solid black;
+}
