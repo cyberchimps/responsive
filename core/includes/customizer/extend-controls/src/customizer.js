@@ -82,16 +82,85 @@
 			}
 		};
 
+		/**
+		 * Toggles visibility of desktop vs mobile/tablet footer builder controls.
+		 * @param {string} device - The current device (desktop, tablet, mobile).
+		 */
+		var toggleFooterBuilderControls = function( device ) {
+			var desktopControl = wp.customize.control( 'responsive_footer_items' );
+			var mobileTabletControl = wp.customize.control( 'responsive_footer_mobile_items' );
+			var desktopAvailableItemsControl = wp.customize.control( 'responsive_footer_available_items' );
+			var mobileTabletAvailableItemsControl = wp.customize.control( 'responsive_footer_mobile_available_items' );
+
+			// Check if the controls exist before proceeding.
+			if ( ! desktopControl || ! mobileTabletControl ) {
+				return;
+			}
+
+			if ( device === 'desktop' ) {
+				// Show Desktop control, Hide Mobile/Tablet control
+				desktopControl.container.show();
+				mobileTabletControl.container.hide();
+				// Toggle available items controls
+				if ( desktopAvailableItemsControl ) {
+					desktopAvailableItemsControl.container.show();
+				}
+				if ( mobileTabletAvailableItemsControl ) {
+					mobileTabletAvailableItemsControl.container.hide();
+				}
+			} else {
+				// Show Mobile/Tablet control, Hide Desktop control (for 'tablet' or 'mobile')
+				desktopControl.container.hide();
+				mobileTabletControl.container.show();
+				// Toggle available items controls
+				if ( desktopAvailableItemsControl ) {
+					desktopAvailableItemsControl.container.hide();
+				}
+				if ( mobileTabletAvailableItemsControl ) {
+					mobileTabletAvailableItemsControl.container.show();
+				}
+			}
+		};
+
 		wp.customize.previewedDevice.bind(function(device) {
 			currentDevice = device;
 			toggleHeaderBuilderControls( currentDevice );
+			toggleFooterBuilderControls( currentDevice );
 			setTimeout(resizePreviewer, 100);
 		});
 
-		// Initialize on page load
-		setTimeout(function() {
-			toggleHeaderBuilderControls( currentDevice );
-		}, 100);
+	// Initialize on page load
+	setTimeout(function() {
+		currentDevice = wp.customize.previewedDevice.get();
+		toggleHeaderBuilderControls( currentDevice );
+		toggleFooterBuilderControls( currentDevice );
+	}, 100);
+
+	// Initialize when footer layout section is expanded
+	wp.customize.section( 'responsive_footer_layout', function( section ) {
+		section.expanded.bind( function( isExpanded ) {
+			if ( isExpanded ) {
+				// Using a longer timeout to ensure controls are fully rendered
+				setTimeout(function() {
+					currentDevice = wp.customize.previewedDevice.get();
+					toggleFooterBuilderControls( currentDevice );
+				}, 200);
+			}
+		});
+	});
+
+	// Initialize when footer builder section is expanded (in case it's opened first)
+	wp.customize.section( 'responsive_footer_builder', function( section ) {
+		section.expanded.bind( function( isExpanded ) {
+			if ( isExpanded ) {
+				// Use a longer timeout to ensure controls are fully rendered
+				setTimeout(function() {
+					currentDevice = wp.customize.previewedDevice.get();
+					toggleFooterBuilderControls( currentDevice );
+				}, 200);
+			}
+		});
+	});
 
 		/**
 		 * Init Header & Footer Builder
@@ -170,6 +239,10 @@
 						$section.addClass( 'responsive-footer-builder-active' );
 						$section.css('display', 'none').height();
 						$section.css('display', 'block');
+						// Use a timeout to ensure controls are fully rendered before toggling
+						setTimeout(function() {
+							toggleFooterBuilderControls( currentDevice );
+						}, 200);
 					} else {
 						$body.removeClass( 'responsive-footer-builder-is-active' );
 						$section.removeClass( 'responsive-footer-builder-active' );
@@ -191,7 +264,46 @@
 					$section.toggleClass( 'responsive-hfb-builder-hide' );
 					resizePreviewer();
 				});
+
+
+				// This is for showing the footer builder when the footer widgets are edited via Widgets>Footer Widget
+				wp.customize.section.each(function(sec) {
+					
+					if (sec.id.startsWith('sidebar-widgets-footer-widget-')) {
+
+						sec.expanded.bind(function(isExpanded) {
+
+							if (isExpanded) {
+
+								$body.addClass('responsive-footer-builder-is-active');
+								$section.addClass('responsive-footer-builder-active');
+
+								_.each(sec.controls(), function(control) {
+									if ('resolved' !== control.deferred.embedded.state()) {
+										control.renderContent();
+										control.deferred.embedded.resolve();
+										control.container.trigger('init');
+									}
+								});
+
+								setTimeout(function() {
+									toggleFooterBuilderControls(currentDevice);
+								}, 200);
+
+								resizePreviewer();
+							}
+							else 
+							{
+								$body.removeClass( 'responsive-footer-builder-is-active' );
+								$section.removeClass( 'responsive-footer-builder-active' );
+							}
+						});
+					}
+				});
 			}
+
+			
+			
 
 		};
 		wp.customize.panel( 'responsive_footer', initFooterBuilderPanel );
@@ -462,3 +574,5 @@
 
 	
 } )( jQuery, wp );
+
+export const Base = true;

@@ -1230,7 +1230,9 @@ body.rtl .customize-control .responsive-switchers li {
 .responsive-footer-builder-is-active .in-sub-panel:not(.section-open) #sub-accordion-panel-responsive_footer .accordion-section.control-section {
 	display: none !important;
 }
-.responsive-footer-builder-is-active .in-sub-panel:not( .section-open ) ul#sub-accordion-section-responsive_footer_layout {
+/* Here the styling is applied via a sibling because we want to prevent the footer_layout customizer to appear when the user goes from footer customizer > edit general settings of footer widget in Widgets>Footer because
+in both cases the footer builder is active */
+.responsive-footer-builder-is-active .in-sub-panel:not( .section-open ) #sub-accordion-panel-responsive_footer.current-panel ~ ul#sub-accordion-section-responsive_footer_layout {
     transform: none;
     height: auto;
     visibility: visible;

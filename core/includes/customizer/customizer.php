@@ -323,6 +323,7 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'color-with-devices-and-hover/class-responsive-customizer-color-with-devices-and-hover-control.php';
 	require_once $dir . 'section-toggle/class-responsive-customizer-section-toggle.php';
 	require_once $dir . 'select-with-switchers/class-responsive-customizer-selectbtn-switchers-control.php';
+	require_once $dir . 'selectbtn-with-switchers/class-responsive-customizer-selectbtn-with-switchers-control.php';
 
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-control-upsell.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-generic-notice-section.php';
@@ -361,6 +362,7 @@ function responsive_custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Color_With_Devices_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Color_With_Devices_And_Hover_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Selectbtn_Switchers_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Selectbtn_With_Switchers_Control' );
 
 }
 

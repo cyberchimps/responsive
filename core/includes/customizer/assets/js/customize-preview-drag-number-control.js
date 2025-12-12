@@ -471,19 +471,108 @@
 
     //Scroll To Top
     //Icon Size
-    api( 'responsive_scroll_to_top_icon_size', function( value ) {
-        value.bind( function( newval ) {
-            $('#scroll').css('height', newval+'px' );
-            $('#scroll').css('width', newval+'px' );
-        } );
-    } );
+    api('responsive_scroll_to_top_icon_size', function(value){
+        value.bind(function(newval){
 
-    //Border Radius
-    api( 'responsive_scroll_to_top_icon_radius', function( value ) {
-        value.bind( function( newval ) {
-            $('#scroll').css('border-radius', newval+'%' );
-        } );
-    } );
+            const styleId = 'responsive-scroll-top-size-desktop';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 993px) {
+                        #scroll { width: ${newval}px; height: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+
+    // Scroll To Top Icon Size — Tablet (577px–992px)
+    api('responsive_scroll_to_top_icon_size_tablet', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-size-tablet';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 577px) and (max-width: 992px) {
+                        #scroll { width: ${newval}px; height: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+    api('responsive_scroll_to_top_icon_size_mobile', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-size-mobile';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (max-width: 576px) {
+                        #scroll { width: ${newval}px; height: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+    // Scroll To Top Icon Border Radius — Desktop (min-width: 993px)
+    api('responsive_scroll_to_top_icon_radius', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-radius-desktop';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 993px) {
+                        #scroll { border-radius: ${newval}%; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+
+    // Scroll To Top Icon Border Radius — Tablet (577px–992px)
+    api('responsive_scroll_to_top_icon_radius_tablet', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-radius-tablet';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 577px) and (max-width: 992px) {
+                        #scroll { border-radius: ${newval}%; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+
+    // Scroll To Top Icon Border Radius — Mobile (max-width: 576px)
+    api('responsive_scroll_to_top_icon_radius_mobile', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-scroll-top-radius-mobile';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (max-width: 576px) {
+                        #scroll { border-radius: ${newval}%; }
+                    }
+                </style>`
+            );
+        });
+    });
 
     api( 'responsive_paragraph_margin_bottom', function( value ) {
         value.bind( function( newval ) {
@@ -769,9 +858,37 @@
         });
     });
     // primary footer
-    api( 'responsive_footer_primary_height', function(value) {
+    api('responsive_footer_primary_height', function(value) {
         value.bind(function(newval) {
-            $( '.rspv-site-primary-footer-inner-wrap' ).css( 'min-height', newval + 'px' );
+            jQuery('style#responsive-footer-primary-height-desktop').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-primary-height-desktop">'
+                + '@media screen and (min-width: 993px) {'
+                + '.rspv-site-primary-footer-inner-wrap { min-height: ' + newval + 'px; }'
+                + '} </style>'
+            );
+        });
+    });
+    api('responsive_footer_primary_height_tablet', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-primary-height-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-primary-height-tablet">'
+                + '@media screen and (min-width:577px) and (max-width: 992px) {'
+                + '.rspv-site-primary-footer-inner-wrap { min-height: ' + newval + 'px; }'
+                + '} </style>'
+            );
+        });
+    });
+    api('responsive_footer_primary_height_mobile', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-primary-height-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-primary-height-mobile">'
+                + '@media screen and (max-width: 576px) {'
+                + '.rspv-site-primary-footer-inner-wrap { min-height: ' + newval + 'px; }'
+                + '} </style>'
+            );
         });
     });
     api( 'responsive_footer_primary_inner_column_spacing', function(value) {
@@ -804,13 +921,71 @@
     });
     api( 'responsive_footer_primary_row_top_border_size', function(value){
         value.bind(function(newval) {
-           $( '.rspv-site-primary-footer-wrap' ).css( 'border-top', newval + 'px solid '+ api('responsive_footer_primary_row_border_color').get() );
+            jQuery('style#responsive-footer-primary-row-top-border-size').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-primary-row-top-border-size">'
+                + '@media screen and (min-width: 993px) {'
+                + '.rspv-site-primary-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_primary_row_border_color').get() + '; }'
+                + '} </style>'
+            );
         });
     });
-    // above footer
-    api( 'responsive_footer_above_height', function(value) {
+    api( 'responsive_footer_primary_row_top_border_size_tablet', function(value){
         value.bind(function(newval) {
-            $( '.rspv-site-above-footer-inner-wrap' ).css( 'min-height', newval + 'px' );
+            jQuery('style#responsive-footer-primary-row-top-border-size-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-primary-row-top-border-size-tablet">'
+                + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                + '.rspv-site-primary-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_primary_row_border_color_tablet').get() + '; }'
+                + '} </style>'
+            );
+        });
+    });
+    api( 'responsive_footer_primary_row_top_border_size_mobile', function(value){
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-primary-row-top-border-size-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-primary-row-top-border-size-mobile">'
+                + '@media screen and (max-width: 576px) {'
+                + '.rspv-site-primary-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_primary_row_border_color_mobile').get() + '; }'
+                + '} </style>'
+            );
+        });
+    });
+    // Above footer
+    api('responsive_footer_above_height', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-above-height-desktop').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-above-height-desktop">'
+                + '@media screen and (min-width: 993px) {'
+                + '.rspv-site-above-footer-inner-wrap { min-height: ' + newval + 'px; }'
+                + '} </style>'
+            );
+        });
+    });
+
+    api('responsive_footer_above_height_tablet', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-above-height-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-above-height-tablet">'
+                + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                + '.rspv-site-above-footer-inner-wrap { min-height: ' + newval + 'px; }'
+                + '} </style>'
+            );
+        });
+    });
+
+    api('responsive_footer_above_height_mobile', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-above-height-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-above-height-mobile">'
+                + '@media screen and (max-width: 576px) {'
+                + '.rspv-site-above-footer-inner-wrap { min-height: ' + newval + 'px; }'
+                + '} </style>'
+            );
         });
     });
     api( 'responsive_footer_above_inner_column_spacing', function(value) {
@@ -842,13 +1017,71 @@
     });
     api( 'responsive_footer_above_row_top_border_size', function(value){
         value.bind(function(newval) {
-           $( '.rspv-site-above-footer-wrap' ).css( 'border-top', newval + 'px solid '+ api('responsive_footer_above_row_border_color').get() );
+            jQuery('style#responsive-footer-above-row-top-border-size').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-above-row-top-border-size">'
+                + '@media screen and (min-width: 993px) {'
+                + '.rspv-site-above-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_above_row_border_color').get() + '; }'
+                + '} </style>'
+            );
         });
     });
-    // below footer
-    api( 'responsive_footer_below_height', function(value) {
+    api( 'responsive_footer_above_row_top_border_size_tablet', function(value){
         value.bind(function(newval) {
-            $( '.rspv-site-below-footer-inner-wrap' ).css( 'min-height', newval + 'px' );
+            jQuery('style#responsive-footer-above-row-top-border-size-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-above-row-top-border-size-tablet">'
+                + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                + '.rspv-site-above-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_above_row_border_color_tablet').get() + '; }'
+                + '} </style>'
+            );
+        });
+    });
+    api( 'responsive_footer_above_row_top_border_size_mobile', function(value){
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-above-row-top-border-size-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-above-row-top-border-size-mobile">'
+                + '@media screen and (max-width: 576px) {'
+                + '.rspv-site-above-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_above_row_border_color_mobile').get() + '; }'
+                + '} </style>'
+            );
+        });
+    });
+    // Below footer
+    api('responsive_footer_below_height', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-below-height-desktop').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-below-height-desktop">'
+                + '@media screen and (min-width: 993px) {'
+                + '.rspv-site-below-footer-inner-wrap { min-height: ' + newval + 'px; }'
+                + '} </style>'
+            );
+        });
+    });
+
+    api('responsive_footer_below_height_tablet', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-below-height-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-below-height-tablet">'
+                + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                + '.rspv-site-below-footer-inner-wrap { min-height: ' + newval + 'px; }'
+                + '} </style>'
+            );
+        });
+    });
+
+    api('responsive_footer_below_height_mobile', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-below-height-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-below-height-mobile">'
+                + '@media screen and (max-width: 576px) {'
+                + '.rspv-site-below-footer-inner-wrap { min-height: ' + newval + 'px; }'
+                + '} </style>'
+            );
         });
     });
     api( 'responsive_footer_below_inner_column_spacing', function(value) {
@@ -880,7 +1113,35 @@
     });
     api( 'responsive_footer_below_row_top_border_size', function(value){
         value.bind(function(newval) {
-           $( '.rspv-site-below-footer-wrap' ).css( 'border-top', newval + 'px solid '+ api('responsive_footer_below_row_border_color').get() );
+            jQuery('style#responsive-footer-below-row-top-border-size').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-below-row-top-border-size">'
+                + '@media screen and (min-width: 993px) {'
+                + '.rspv-site-below-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_below_row_border_color').get() + '; }'
+                + '} </style>'
+            );
+        });
+    });
+    api( 'responsive_footer_below_row_top_border_size_tablet', function(value){
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-below-row-top-border-size-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-below-row-top-border-size-tablet">'
+                + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                + '.rspv-site-below-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_below_row_border_color_tablet').get() + '; }'
+                + '} </style>'
+            );
+        });
+    });
+    api( 'responsive_footer_below_row_top_border_size_mobile', function(value){
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-below-row-top-border-size-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-below-row-top-border-size-mobile">'
+                + '@media screen and (max-width: 576px) {'
+                + '.rspv-site-below-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_below_row_border_color_mobile').get() + '; }'
+                + '} </style>'
+            );
         });
     });
     api( 'responsive_header_button_border_width', function(value) {
@@ -909,9 +1170,55 @@
            $( '.site-mobile-header-item .header-layouts.social-icon .social-icons' ).css( 'gap', newval + 'px' );
         });
     });
-    api( 'responsive_footer_social_item_spacing', function(value){
-        value.bind(function(newval) {
-           $( '.footer-layouts.social-icon .social-icons' ).css( 'gap', newval + 'px' );
+    api('responsive_footer_social_item_spacing', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-footer-social-spacing-desktop';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 993px) {
+                        .footer-layouts.social-icon .social-icons { gap: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+
+    // Footer Social Icon Spacing — Tablet (577px–992px)
+    api('responsive_footer_social_item_spacing_tablet', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-footer-social-spacing-tablet';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 577px) and (max-width: 992px) {
+                        .footer-layouts.social-icon .social-icons { gap: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+
+    // Footer Social Icon Spacing — Mobile (max-width: 576px)
+    api('responsive_footer_social_item_spacing_mobile', function(value){
+        value.bind(function(newval){
+
+            const styleId = 'responsive-footer-social-spacing-mobile';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (max-width: 576px) {
+                        .footer-layouts.social-icon .social-icons { gap: ${newval}px; }
+                    }
+                </style>`
+            );
         });
     });
     api( 'responsive_header_social_item_icon_size', function(value){
@@ -930,9 +1237,42 @@
     });
     api( 'responsive_footer_social_item_icon_size', function(value){
         value.bind(function(newval) {
-           $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'font-size', newval + 'px' );
-           $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-wrapper svg' ).css( 'width', newval + 'px' );
-           $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-wrapper svg' ).css( 'height', newval + 'px' );
+            // remove previous stylesheet if any and append one scoped to min-width: 993px
+            jQuery('style#responsive-footer-social-item-icon-size').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-social-item-icon-size">'
+                + '@media screen and (min-width: 993px) {'
+                + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { font-size: ' + newval + 'px; }'
+                + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-wrapper svg { width: ' + newval + 'px; height: ' + newval + 'px; }'
+                + '}'
+                + '</style>'
+            );
+        });
+    });
+    api( 'responsive_footer_social_item_icon_size_tablet', function(value){
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-social-item-icon-size-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-social-item-icon-size-tablet">'
+                + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { font-size: ' + newval + 'px; }'
+                + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-wrapper svg { width: ' + newval + 'px; height: ' + newval + 'px; }'
+                + '}'
+                + '</style>'
+            );
+        });
+    });
+    api( 'responsive_footer_social_item_icon_size_mobile', function(value){
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-social-item-icon-size-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-social-item-icon-size-mobile">'
+                + '@media screen and (max-width: 576px) {'
+                + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { font-size: ' + newval + 'px !important; }'
+                + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-wrapper svg { width: ' + newval + 'px !important; height: ' + newval + 'px !important; }'
+                + '}'
+                + '</style>'
+            );
         });
     });
     api( 'responsive_header_social_item_border_width', function(value) {
@@ -945,9 +1285,43 @@
             $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'border-width', newval + 'px' );
         });
     });
+    // Footer Social Item Border Width - Desktop
     api( 'responsive_footer_social_item_border_width', function(value) {
         value.bind(function(newval) {
-            $( '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'border-width', newval + 'px' );
+            jQuery('style#responsive-footer-social-item-border-width-desktop').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-social-item-border-width-desktop">'
+                + '@media screen and (min-width: 993px) {'
+                + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { border-width: ' + newval + 'px; }'
+                + '}'
+                + '</style>'
+            );
+        });
+    });
+    // Footer Social Item Border Width - Tablet
+    api( 'responsive_footer_social_item_border_width_tablet', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-social-item-border-width-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-social-item-border-width-tablet">'
+                + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { border-width: ' + newval + 'px; }'
+                + '}'
+                + '</style>'
+            );
+        });
+    });
+    // Footer Social Item Border Width - Mobile
+    api( 'responsive_footer_social_item_border_width_mobile', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-footer-social-item-border-width-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-social-item-border-width-mobile">'
+                + '@media screen and (max-width: 556px) {'
+                + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { border-width: ' + newval + 'px; }'
+                + '}'
+                + '</style>'
+            );
         });
     });
     api( 'responsive_header_contact_info_icon_size', function(value) {

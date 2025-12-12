@@ -186,10 +186,17 @@ class Responsive_Home_Starter_Content {
 			
 				// Footer Settings
 				'responsive_footer_copyright_text_color'              => '#747474',
+				'responsive_footer_copyright_text_color_tablet'       => '#747474',
+				'responsive_footer_copyright_text_color_mobile'       => '#747474',
 				'responsive_footer_copyright_text_hover_color'        => '#747474',
+				'responsive_footer_copyright_text_color_hover' 		  => '#747474',
+				'responsive_footer_copyright_text_color_tablet_hover' => '#747474',
+				'responsive_footer_copyright_text_color_mobile_hover' => '#747474',
 				'responsive_footer_copyright_links_color'             => '#3a1d74',
 				'responsive_footer_copyright_links_hover_color'       => '#3a1d74',
 				'responsive_footer_primary_row_bg_color'              => '#ffffff',
+				'responsive_footer_primary_row_bg_color_tablet'       => '#ffffff',
+				'responsive_footer_primary_row_bg_color_mobile'       => '#ffffff',
 				'responsive_footer_primary_columns'                   => 1,
 				'responsive_footer_primary_layout'                    => 'full',
 				'responsive_footer_bar_layout'                        => 'vertical',

@@ -120,7 +120,7 @@ if ( ! class_exists( 'Responsive_Footer_Copyright_Customizer' ) ) :
 					'right'  => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
 				);
 			}
-			responsive_select_button_control( $wp_customize, 'footer_copyright_alignment', $copyright_alignment_label, 'responsive_footer_copyright', 50, $copyright_alignment_choices, 'left', null );
+			responsive_select_button_with_switchers_control( $wp_customize, 'footer_copyright_alignment', $copyright_alignment_label, 'responsive_footer_copyright', 50, $copyright_alignment_choices, 'left', null );
 
 			/*
 			------------------------------------------------------------------
@@ -130,13 +130,35 @@ if ( ! class_exists( 'Responsive_Footer_Copyright_Customizer' ) ) :
 
 			// Text Color.
 			$footer_background_label = __( 'Text Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'footer_copyright_text', $footer_background_label, 'responsive_footer_copyright', 60, Responsive\Core\get_responsive_customizer_defaults( 'footer_copyright_text' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'footer_copyright_text_hover' ), 'footer_copyright_text_hover' );
+			responsive_color_control_with_device_switchers_and_hover(
+				$wp_customize,
+				'footer_copyright_text',
+				$footer_background_label,
+				'responsive_footer_copyright',
+				60,
+				Responsive\Core\get_responsive_customizer_defaults( 'footer_copyright_text' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'footer_copyright_text_hover' ),
+				null,
+				'',
+				'postMessage'
+			);
 
             responsive_horizontal_separator_control($wp_customize, 'footer_copyright_separator_2', 1, 'responsive_footer_copyright', 65, 1, );
 
 			// Links Color.
 			$footer_background_label = __( 'Links Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'footer_copyright_links', $footer_background_label, 'responsive_footer_copyright', 70, Responsive\Core\get_responsive_customizer_defaults( 'footer_copyright_links' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'footer_copyright_links_hover' ), 'footer_copyright_links_hover' );
+			responsive_color_control_with_device_switchers_and_hover(
+				$wp_customize,
+				'footer_copyright_links',
+				$footer_background_label,
+				'responsive_footer_copyright',
+				70,
+				Responsive\Core\get_responsive_customizer_defaults( 'footer_copyright_links' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'footer_copyright_links_hover' ),
+				null,
+				'',
+				'postMessage'
+			);
             
             // Typography
 			$footer_copyright_typography_label = __( 'Copyright Font', 'responsive' );
