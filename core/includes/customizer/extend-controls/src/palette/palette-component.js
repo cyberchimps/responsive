@@ -14,32 +14,20 @@ const PaletteComponent = props => {
         link, 
     } = props.control.params;
 
-    const didMountRef = useRef(false); 
-
     const [selectedChoice, setSelectedChoice] = useState(() => {
-        return props.control.setting.get() || 'playful-default';
+        return props.control.setting.get();
     });
 
-    useEffect(() => {
-    const setting = props.control.setting;
-    const handler = (newVal) => setSelectedChoice(newVal || 'playful-default');
-    setting.bind(handler);
-    return () => setting.unbind(handler);
-    }, [props.control.setting]);
-
-    useEffect(() => {
-        if(!didMountRef.current)
-        {
-            didMountRef.current = true; 
-            return; 
+    const handlePaletteChange = (choice) => {
+        const newSettingVal = {
+            ...selectedChoice,
+            style: choice,
+            palette: choices[choice]
         }
-        if (!choices || !selectedChoice) return;
-        if (typeof wp === 'undefined' || !wp.customize) return;
 
-        const palette = choices[selectedChoice];
-        if (!palette) return;
-
-        // Map palette keys → Customizer setting IDs
+        props.control.setting.set(newSettingVal);
+        
+        const palette = choices[choice];
         const mapping = {
             accent: 'responsive_global_color_palette_accent_color',
             link_hover: 'responsive_global_color_palette_link_hover_color',
@@ -54,95 +42,74 @@ const PaletteComponent = props => {
                 wp.customize(settingId).set(palette[paletteKey]);
             }
         });
-    }, [selectedChoice, choices]);
-
-    const handlePaletteChange = (choice) => {
-        props.control.setting.set(choice);
-        
-        const palette = choices[choice];
-        const mapping = {
-            accent: 'responsive_global_color_palette_accent_color',
-            link_hover: 'responsive_global_color_palette_link_hover_color',
-            text: 'responsive_global_color_palette_text_color',
-            header_text: 'responsive_global_color_palette_headings_color',
-            content_background: 'responsive_global_color_palette_content_bg_color',
-            site_background: 'responsive_global_color_palette_site_background_color',
-            alt_background: 'responsive_global_color_palette_alt_background_color'
-        };
-        Object.entries(mapping).forEach(([paletteKey, settingId]) => {
-            if (palette[paletteKey] && wp.customize(settingId)) {
-                // wp.customize(settingId).set(palette[paletteKey]);
-                 propagateGlobalColor(settingId, palette[paletteKey], wp);
-            }
-        });
-        setSelectedChoice(choice);
+        setSelectedChoice(newSettingVal);
     };
 
     const [isPaletteVisible, setIsPaletteVisible] = useState(false);
     const [openPickerId, setOpenPickerId] = useState(null);
-    const propagateGlobalColor = (settingId, value, wp) => {
-        if (!wp?.customize || !wp.customize(settingId)) return;
-        wp.customize(settingId).set(value);
+    // const propagateGlobalColor = (settingId, value, wp) => {
+    //     if (!wp?.customize || !wp.customize(settingId)) return;
+    //     wp.customize(settingId).set(value);
 
-        /*
-            Defining scope of individual global color settings
-        */
-        const propagationMap = {
-            'responsive_global_color_palette_headings_color': [
-            'responsive_header_text_color',
-            'responsive_header_site_title_color',
-            'responsive_header_menu_link_color',
-            'responsive_header_secondary_menu_link_color',
-            'responsive_sidebar_headings_color',
-            'responsive_h1_text_color',
-            'responsive_h2_text_color',
-            'responsive_h3_text_color',
-            'responsive_h4_text_color',
-            'responsive_h5_text_color',
-            'responsive_h6_text_color',
-            'responsive_all_heading_text_color'
-            ],
-            'responsive_global_color_palette_accent_color': [
-            'responsive_link_color',
-            'responsive_button_color',
-            'responsive_button_hover_color',
-            'responsive_meta_text_color',
-            'responsive_sidebar_link_color',
-            'responsive_shop_product_rating_color',
-            'responsive_cart_buttons_hover_color',
-            'responsive_cart_checkout_button_color'
-            ],
-            'responsive_global_color_palette_text_color': [
-            'responsive_body_text_color',
-            'responsive_sidebar_text_color',
-            ],
-            'responsive_global_color_palette_link_hover_color': [
-            'responsive_link_hover_color'
-            ],
-            'responsive_global_color_palette_content_bg_color': [
-            'responsive_box_background_color',
-            'responsive_sidebar_background_color',
-            'responsive_add_to_cart_button_text_color',
-            'responsive_cart_buttons_text_color',
-            'responsive_cart_checkout_button_text_color'
-            ],
-            'responsive_global_color_palette_alt_background_color': [
-            'background_color',
-            'responsive_alt_background_color'
-            ],
-            'responsive_global_color_palette_site_background_color': [
-            'responsive_site_background_color'
-            ]
-        };
+    //     /*
+    //         Defining scope of individual global color settings
+    //     */
+    //     const propagationMap = {
+    //         'responsive_global_color_palette_headings_color': [
+    //         'responsive_header_text_color',
+    //         'responsive_header_site_title_color',
+    //         'responsive_header_menu_link_color',
+    //         'responsive_header_secondary_menu_link_color',
+    //         'responsive_sidebar_headings_color',
+    //         'responsive_h1_text_color',
+    //         'responsive_h2_text_color',
+    //         'responsive_h3_text_color',
+    //         'responsive_h4_text_color',
+    //         'responsive_h5_text_color',
+    //         'responsive_h6_text_color',
+    //         'responsive_all_heading_text_color'
+    //         ],
+    //         'responsive_global_color_palette_accent_color': [
+    //         'responsive_link_color',
+    //         'responsive_button_color',
+    //         'responsive_button_hover_color',
+    //         'responsive_meta_text_color',
+    //         'responsive_sidebar_link_color',
+    //         'responsive_shop_product_rating_color',
+    //         'responsive_cart_buttons_hover_color',
+    //         'responsive_cart_checkout_button_color'
+    //         ],
+    //         'responsive_global_color_palette_text_color': [
+    //         'responsive_body_text_color',
+    //         'responsive_sidebar_text_color',
+    //         ],
+    //         'responsive_global_color_palette_link_hover_color': [
+    //         'responsive_link_hover_color'
+    //         ],
+    //         'responsive_global_color_palette_content_bg_color': [
+    //         'responsive_box_background_color',
+    //         'responsive_sidebar_background_color',
+    //         'responsive_add_to_cart_button_text_color',
+    //         'responsive_cart_buttons_text_color',
+    //         'responsive_cart_checkout_button_text_color'
+    //         ],
+    //         'responsive_global_color_palette_alt_background_color': [
+    //         'background_color',
+    //         'responsive_alt_background_color'
+    //         ],
+    //         'responsive_global_color_palette_site_background_color': [
+    //         'responsive_site_background_color'
+    //         ]
+    //     };
 
-        if (propagationMap[settingId]) {
-            propagationMap[settingId].forEach(rId => {
-            if (wp.customize(rId)) {
-                wp.customize(rId).set(value);
-            }
-            });
-        }
-    };
+    //     // if (propagationMap[settingId]) {
+    //     //     propagationMap[settingId].forEach(rId => {
+    //     //     if (wp.customize(rId)) {
+    //     //         wp.customize(rId).set(value);
+    //     //     }
+    //     //     });
+    //     // }
+    // };
     const togglePaletteVisibility = (e) => {
         e.stopPropagation();
         setIsPaletteVisible(!isPaletteVisible);
@@ -172,10 +139,12 @@ const PaletteComponent = props => {
     const toColorString = (color) => {
         if (!color) return '';
         if (typeof color === 'string') return color;
-        if (color.rgb && color.rgb.a !== undefined) {
-            return color.rgb.a !== 1 ? `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})` : color.hex;
-        }
-        return color.hex || '';
+        if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
+			color = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
+		} else {
+			color = color.hex;
+		}
+        return color || '';
     };
 
     // Inject one-time CSS to make inline pickers large and circular
@@ -196,7 +165,7 @@ const PaletteComponent = props => {
         }
     }, []);
 
-    const InlineThemeModColorPicker = ({ settingId, labelText }) => {
+    const InlineThemeModColorPicker = ({ settingId, labelText, settingKey, selectedChoice }) => {
         const pickerId = `responsive-inline-picker-${settingId}`;
         const pickerRef = useRef(null);
         const [color, setColor] = useState(() => {
@@ -230,10 +199,26 @@ const PaletteComponent = props => {
                     // if I clicked inside another picker (not this one) → close this
                     if (clickedInlinePicker.id !== pickerId) {
                         setOpenPickerId(clickedInlinePicker.id  );
+                        const updated = wp.customize(settingId).get();
+                        setSelectedChoice(prev => ({
+                            ...prev,
+                            palette: {
+                                ...prev.palette,
+                                [settingKey]: updated
+                            }
+                        }));
                     }
                 } else {
                     // clicked completely outside → close
                     setOpenPickerId(null);
+                    const updated = wp.customize(settingId).get();
+                    setSelectedChoice(prev => ({
+                        ...prev,
+                        palette: {
+                            ...prev.palette,
+                            [settingKey]: updated
+                        }
+                    }));
                 }
             };
 
@@ -244,8 +229,15 @@ const PaletteComponent = props => {
         const handleChangeComplete = (newColor) => {
             const value = toColorString(newColor);
             setColor(value);
-
-            propagateGlobalColor(settingId, value, wp);
+            const newSettingVal = {
+                ...selectedChoice,
+                palette: {
+                    ...selectedChoice.palette,
+                    [settingKey]: value
+                }
+            };
+            props.control.setting.set(newSettingVal);
+            wp.customize(settingId).set(value);
         };
 
         const handlePickerToggle = () => {
@@ -344,7 +336,7 @@ const PaletteComponent = props => {
     }
 
     let optionsHtml = Object.keys(choices).map(choice => {
-        let html = <label key={choice} htmlFor={`${id}-${choice}`} className={`palette__choice ${choice === selectedChoice ? 'selected' : '' }`}>
+        let html = <label key={choice} htmlFor={`${id}-${choice}`} className={`palette__choice ${choice === selectedChoice?.style ? 'selected' : '' }`}>
             <div className="label">{choices[choice].label}</div>
             <div className="responsive-palette-picker-control-wrapper">
                 <span className="screen-reader-text">{choices[choice].label} design style</span>
@@ -365,7 +357,6 @@ const PaletteComponent = props => {
     <div className="responsive-selected-palette-details">
         <div className="responsive-selected-palette-header">
             {/* not showing the color palette name */}
-            {/* <div className="label">{choices[selectedChoice].label}</div> */} 
             <div className="label">Your color palette</div>
             <span
                 id="responsive-color-palette-btn"
@@ -384,13 +375,13 @@ const PaletteComponent = props => {
     let selectedPaletteColorsRow = <div className="responsive-selected-palette-all-colors">
         <div className="responsive-selected-palette-editor">
             <div className="responsive-selected-palette-pickers">
-                <InlineThemeModColorPicker settingId={'responsive_global_color_palette_accent_color'} labelText={'Accent'} />
-                <InlineThemeModColorPicker settingId={'responsive_global_color_palette_link_hover_color'} labelText={'Link Hover'} />
-                <InlineThemeModColorPicker settingId={'responsive_global_color_palette_text_color'} labelText={'Text'} />
-                <InlineThemeModColorPicker settingId={'responsive_global_color_palette_headings_color'} labelText={'Headings'} />
-                <InlineThemeModColorPicker settingId={'responsive_global_color_palette_content_bg_color'} labelText={'Content Background'} />
-                <InlineThemeModColorPicker settingId={'responsive_global_color_palette_site_background_color'} labelText={'Site Background'} />
-                <InlineThemeModColorPicker settingId={'responsive_global_color_palette_alt_background_color'} labelText={'Alt Background'} />
+                <InlineThemeModColorPicker key={0} settingId={'responsive_global_color_palette_accent_color'} labelText={'Accent'} settingKey={'accent'} selectedChoice={selectedChoice} />
+                <InlineThemeModColorPicker key={1} settingId={'responsive_global_color_palette_link_hover_color'} labelText={'Link Hover'} settingKey={'link_hover'} selectedChoice={selectedChoice} />
+                <InlineThemeModColorPicker key={2} settingId={'responsive_global_color_palette_text_color'} labelText={'Text'} settingKey={'text'} selectedChoice={selectedChoice} />
+                <InlineThemeModColorPicker key={3} settingId={'responsive_global_color_palette_headings_color'} labelText={'Headings'} settingKey={'header_text'} selectedChoice={selectedChoice} />
+                <InlineThemeModColorPicker key={4} settingId={'responsive_global_color_palette_content_bg_color'} labelText={'Background'} settingKey={'content_background'} selectedChoice={selectedChoice} />
+                <InlineThemeModColorPicker key={5} settingId={'responsive_global_color_palette_site_background_color'} labelText={'Site Background'} settingKey={'site_background'} selectedChoice={selectedChoice} />
+                <InlineThemeModColorPicker key={6} settingId={'responsive_global_color_palette_alt_background_color'} labelText={'Alt Background'} settingKey={'alt_background'} selectedChoice={selectedChoice} />
             </div>
         </div>
     </div>

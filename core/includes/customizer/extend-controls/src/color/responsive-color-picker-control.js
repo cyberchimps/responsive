@@ -122,10 +122,26 @@ class ResponsiveColorPickerControl extends Component {
 			color
 		} = this.state;
 
+		const getColorPreviewValue = (value, wantRawValue = false) => {
+			let color = null;
+			if( value && ( value.startsWith('palette') || value.includes('headings-color') ) ) {
+				color = 'var(--responsive-global-' + value + ')';
+				if (wantRawValue) {
+					const raw = getComputedStyle(document.documentElement)
+						.getPropertyValue('--responsive-global-' + value)
+						.trim();
+					return raw;
+				}
+			} else {
+				color = value;
+			}
+			return color;
+		}
+
 		// Determine the background style based on activeTab
         const buttonBackgroundStyle = activeTab === 'gradient' && is_gradient_available
             ? { background: gradient } // Apply gradient string
-            : { backgroundColor: color }; // Apply solid color from state.color
+            : { backgroundColor: getColorPreviewValue(color) }; // Apply solid color from state.color
 
 		const toggleVisible = (desiredTab = this.state.activeTab) => {
 			if ( refresh === true ) {
@@ -218,7 +234,7 @@ class ResponsiveColorPickerControl extends Component {
 											<div className="responsive-color-picker-tab-content">
 												{tab.name === 'color' && (
 													<ColorPicker
-														color={color}
+														color={getColorPreviewValue(color, true)}
 														onChangeComplete={(currentColor) => {
 															this.setState({ color: currentColor })
 															this.onChangeComplete(currentColor, 'color')
@@ -262,7 +278,7 @@ class ResponsiveColorPickerControl extends Component {
 							) : (isVisible && !is_gradient_available) ? (
 								<>
 									<ColorPicker
-										color={this.props.color}
+										color={getColorPreviewValue(this.props.color, true)}
 										onChangeComplete={(color) => this.onChangeComplete(color, 'color')}
 									/>
 
@@ -297,7 +313,7 @@ class ResponsiveColorPickerControl extends Component {
 			this.setState({ opacityZero: true });
 		}
 		this.props.onChangeComplete( color, type );
-		wp.customize.previewer.refresh();
+		// wp.customize.previewer.refresh();
 	}
 
 	onChangeComplete( color, type='color' ) {

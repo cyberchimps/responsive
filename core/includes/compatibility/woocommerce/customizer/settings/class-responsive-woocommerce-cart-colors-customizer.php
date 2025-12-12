@@ -45,7 +45,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Cart_Colors_Customizer' ) ) :
 
 			// Button Text.
 			$cart_buttons_text_label = __( 'Button Text', 'responsive' );
-			responsive_color_control( $wp_customize, 'cart_buttons_text', $cart_buttons_text_label, 'responsive_woocommerce_cart', 30, '#ffffff', null, '', true, '#ffffff', 'cart_buttons_hover_text' );
+			responsive_color_control( $wp_customize, 'cart_buttons_text', $cart_buttons_text_label, 'responsive_woocommerce_cart', 30, 'palette4', null, '', true, 'palette4', 'cart_buttons_hover_text' );
 
 			// Checkout Buttons.
 			$cart_button_separator = esc_html__( 'Checkout Button', 'responsive' );
@@ -53,13 +53,13 @@ if ( ! class_exists( 'Responsive_Woocommerce_Cart_Colors_Customizer' ) ) :
 
 			// Button.
 			$cart_checkout_button_label = __( 'Button', 'responsive' );
-			responsive_color_control( $wp_customize, 'cart_checkout_button', $cart_checkout_button_label, 'responsive_woocommerce_cart', 70, '#0066CC', null, '', true, '#10659C', 'cart_checkout_button_hover' );
+			responsive_color_control( $wp_customize, 'cart_checkout_button', $cart_checkout_button_label, 'responsive_woocommerce_cart', 70, 'palette0', null, '', true, '#10659C', 'cart_checkout_button_hover' );
 
 			responsive_horizontal_separator_control($wp_customize, 'checkout_buttons_separator', 1, 'responsive_woocommerce_cart', 75, 1, );
 
 			// Button Text.
 			$cart_checkout_button_text_label = __( 'Button Text', 'responsive' );
-			responsive_color_control( $wp_customize, 'cart_checkout_button_text', $cart_checkout_button_text_label, 'responsive_woocommerce_cart', 80, '#ffffff', null, '', true, '#ffffff', 'cart_checkout_button_hover_text' );
+			responsive_color_control( $wp_customize, 'cart_checkout_button_text', $cart_checkout_button_text_label, 'responsive_woocommerce_cart', 80, 'palette4', null, '', true, 'palette4', 'cart_checkout_button_hover_text' );
 
 		}
 	}
