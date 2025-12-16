@@ -24,12 +24,34 @@
 		} else {
 			api( 'responsive_site_background_color', function( value ) {
 				var color = value.get();
+                if( color && color.includes('palette') ) {
+                    color = 'var(--responsive-global-' + color + ')';
+                }
 				$('body').addClass( 'custom-background' ).css({
-					'background': '',
+					'background': 'none',
 					'background-color': color
 				});
 			});
 		}
+	}
+
+    function processThemeSettingForCSS ( setting ) {
+		// Ensure the setting exists
+        const settingObj = api(setting);
+        if (!settingObj) {
+            console.warn('Invalid setting:', setting);
+            return null;
+        }
+
+        // Get actual value
+        let value = settingObj.get();
+        if (!value) return null;
+	
+		// Detect palette var format
+        if (typeof value === 'string' && value.startsWith('palette')) {
+            return `var(--responsive-global-${value})`;
+        }
+        return value;
 	}
 
 	// On color type change
@@ -110,7 +132,7 @@
                     'background-color': ''
                 });
     
-                if ( ! api('responsive_sidebar_background_image').get() && api('responsive_sidebar_background_color').get() === '#ffffff') {
+                if ( ! api('responsive_sidebar_background_image').get() && api('responsive_sidebar_background_color').get() === 'palette4') {
                     $('.responsive-site-style-boxed aside#secondary.main-sidebar .widget-wrapper').css({
                         'background': gradient,
                         'background-color': '',
@@ -124,6 +146,9 @@
         } else {
             api('responsive_box_background_color', function (value) {
                 var color = value.get();
+                if( color && color.includes('palette') ) {
+                    color = 'var(--responsive-global-' + color + ')';
+                }
                 $(
                     '.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,' +
                     '.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,' +
@@ -167,7 +192,7 @@
                     'background': 'none',
                     'background-color': color
                 });
-                if ( ! api('responsive_sidebar_background_image').get() && api('responsive_sidebar_background_color').get() === '#ffffff' ) {
+                if ( ! api('responsive_sidebar_background_image').get() && api('responsive_sidebar_background_color').get() === 'palette4' ) {
                     $('.responsive-site-style-boxed aside#secondary.main-sidebar .widget-wrapper').css({
                         'background': '',
                         'background-color': color,
@@ -225,6 +250,9 @@
     //Update site title color...
     api( 'responsive_header_site_title_color', function( value ) {
         value.bind( function( newval ) {
+            if ( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('.site-title a').css('color', newval );
         } );
     } );
@@ -232,6 +260,9 @@
     //Update site title hover color...
     api( 'responsive_header_site_title_hover_color', function( value ) {
         value.bind( function( newval ) {
+            if ( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('.site-title a:hover').css('color', newval );
         } );
     } );
@@ -239,6 +270,9 @@
     //Update site tagline color...
     api( 'responsive_header_text_color', function( value ) {
         value.bind( function( newval ) {
+            if ( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('.site-description').css('color', newval );
         } );
     } );
@@ -387,6 +421,9 @@
     //Alternate Background Color
     api( 'responsive_alt_background_color', function( value ) {
         value.bind( function( newval ) {
+            if ( newval && newval.includes('palette') ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
             $('address, blockquote, pre, code, kbd, tt, var').css('background-color', newval );
         } );
     } );
@@ -460,6 +497,9 @@
     //Body text Color
     api( 'responsive_body_text_color', function( value ) {
         value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('body, .wc-block-grid__product-title').css('color', newval );
         } );
     } );
@@ -467,23 +507,15 @@
     //All Heading text Color
     api( 'responsive_all_heading_text_color', function( value ) {
         value.bind( function( newval ) {
-            $('h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6').not('.woocommerce-products-header .woocommerce-products-header__title.page-title').css('color', newval );
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            document.documentElement.style.setProperty(
+                '--responsive-global-headings-color',
+                newval
+            );
 
-            // Update individual heading color settings in real-time
-            const individualHeadingIds = [
-                'responsive_h1_text_color',
-                'responsive_h2_text_color', 
-                'responsive_h3_text_color',
-                'responsive_h4_text_color',
-                'responsive_h5_text_color',
-                'responsive_h6_text_color'
-            ];
-            
-            individualHeadingIds.forEach(function(headingId) {
-                if (api(headingId)) {
-                    api(headingId).set(newval);
-                }
-            });
+            $('h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6').not('.woocommerce-products-header .woocommerce-products-header__title.page-title').css('color', newval );
             
         } );
     } );
@@ -543,6 +575,9 @@
     //Meta text Color
     api( 'responsive_meta_text_color', function( value ) {
         value.bind( function( newval ) {
+            if ( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('.post-meta *, .hentry .post-meta a').css('color', newval );
         } );
     } );
@@ -550,6 +585,9 @@
     //Link Color
     api( 'responsive_link_color', function( value ) {
         value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('a, .woocommerce a.remove:hover').not('nav a').not('a.add_to_cart_button').not('.site-title-tagline a').not('.widget-area .widget-wrapper a').not('a.product_type_grouped').not('.woocommerce-tabs .description_tab').not('.woocommerce-tabs .reviews_tab').css('color', newval );
         } );
     } );
@@ -557,6 +595,9 @@
     //Date Box Background Color
     api( 'responsive_link_color', function( value ) {
         value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('.responsive-date-box').css('background-color', newval );
         } );
     } );
@@ -586,6 +627,9 @@
     //Link Hover Color
     api( 'responsive_link_hover_color', function( value ) {
         value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('a:hover').css('color', newval );
         } );
     } );
@@ -593,6 +637,9 @@
     //Buttons color
     api( 'responsive_button_color', function( value ) {
         value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button ').not('a.add_to_cart_button').not('a.product_type_grouped').not('button.single_add_to_cart_button').not('.woocommerce-Reviews input').css('background-color', newval );
             if( responsiveSiteLocalOptions.isDisableElementorDefaultColors ) {
                 jQuery( 'style#responsive-elementor-button-color' ).remove();
@@ -741,6 +788,9 @@
     //Menu Item Link Color
     api( 'responsive_header_menu_link_color', function( value ) {
         value.bind( function( newval ) {
+            if ( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('.main-navigation .menu > li > a').css('color', newval );
             if ( api('responsive_header_menu_link_hover_color').get() === '' && api('responsive_header_active_menu_link_color').get() === '' ) {
                 jQuery( 'style#responsive-header-menu-link-color-change' ).remove();
@@ -756,6 +806,9 @@
 
     api( 'responsive_header_menu_link_color', function( value ) {
         value.bind( function( newval ) {
+            if ( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('.main-navigation .res-iconify svg').css('stroke', newval );
         } );
     } );
@@ -1086,6 +1139,9 @@
     //Rating Color
     api( 'responsive_shop_product_rating_color', function( value ) {
         value.bind( function( newval ) {
+            if ( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('.woocommerce .star-rating span').not('.woocommerce-tabs .reviews_tab').css('color', newval );
         } );
     } );
@@ -1125,6 +1181,9 @@
     //Buttons Text
     api( 'responsive_add_to_cart_button_text_color', function( value ) {
         value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('.woocommerce span.onsale,.wc-block-grid__product-onsale,.woocommerce #respond input#submit,.wp-block-button__link.add_to_cart_button,.woocommerce div.product .woocommerce-tabs ul.tabs li a,.woocommerce div.product .woocommerce-tabs ul.tabs li,.woocommerce button.button.alt,.woocommerce button.button,.woocommerce a.button').css('color', newval );
         } );
     } );
@@ -1143,6 +1202,9 @@
     //Button Text Color
     api( 'responsive_cart_buttons_text_color', function( value ) {
         value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('.page.woocommerce-cart .woocommerce button.button:disabled,.page.woocommerce-cart .woocommerce button.button:disabled[disabled],.page.woocommerce-cart .woocommerce button.button').css('color', newval );
             $('.page.woocommerce-cart .wp-block-woocommerce-cart button.wc-block-components-totals-coupon__button').css('color', newval );
         } );
@@ -1151,6 +1213,9 @@
     //Checkout Button Color
     api( 'responsive_cart_checkout_button_color', function( value ) {
         value.bind( function( color ) {
+            if( color && color.startsWith('palette') ) {
+                color = `var(--responsive-global-${color})`;
+            }
             jQuery('style#responsive-cart-checkout-button-color').remove();
             jQuery('head').append(
                 '<style id="responsive-cart-checkout-button-color">'
@@ -1163,6 +1228,9 @@
     //Checkout Button Text Color
     api( 'responsive_cart_checkout_button_text_color', function( value ) {
         value.bind( function( newval ) {
+            if ( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button,.page.woocommerce-checkout .woocommerce button.button.alt,.page.woocommerce-checkout .woocommerce button.button').css('color', newval );
             $('.page.woocommerce-cart .wp-block-woocommerce-cart a.wc-block-cart__submit-button, .page.woocommerce-checkout .wp-block-woocommerce-checkout button.wc-block-components-checkout-place-order-button').css('color', newval );
         } );
@@ -1172,7 +1240,8 @@
         value.bind( function( newval ) {
             $(".page.woocommerce-cart .wp-block-woocommerce-cart button.wc-block-components-totals-coupon__button").hover(
                 function() {
-                    $(this).css("background-color", api('responsive_cart_buttons_hover_color').get());
+                    const cartButtonsBGHoverColor = processThemeSettingForCSS('responsive_cart_buttons_hover_color');
+                    $(this).css("background-color", cartButtonsBGHoverColor);
                 },
                 function() {
                     $(this).css("background-color", api('responsive_cart_buttons_color').get());
@@ -1185,10 +1254,12 @@
         value.bind( function( newval ) {
             $(".page.woocommerce-cart .wp-block-woocommerce-cart button.wc-block-components-totals-coupon__button").hover(
                 function() {
-                    $(this).css("color", api('responsive_cart_buttons_hover_text_color').get());
+                    const cartButtonTextHoverColor = processThemeSettingForCSS('responsive_cart_buttons_hover_text_color');
+                    $(this).css("color", cartButtonTextHoverColor);
                 },
                 function() {
-                    $(this).css("color", api('responsive_cart_buttons_text_color').get());
+                    const cartButtonTextColor = processThemeSettingForCSS('responsive_cart_buttons_text_color');
+                    $(this).css("color", cartButtonTextColor);
                 }
             );
         } );
@@ -1209,10 +1280,12 @@
         value.bind( function( newval ) {
             $(".page.woocommerce-cart .wp-block-woocommerce-cart a.wc-block-cart__submit-button, .page.woocommerce-checkout .wp-block-woocommerce-checkout button.wc-block-components-checkout-place-order-button").hover(
                 function() {
-                    $(this).css("color", api('responsive_cart_checkout_button_hover_text_color').get());
+                    const checkoutButtonTextHoverColor = processThemeSettingForCSS('responsive_cart_checkout_button_hover_text_color');
+                    $(this).css("color", checkoutButtonTextHoverColor);
                 },
                 function() {
-                    $(this).css("color", api('responsive_cart_checkout_button_text_color').get());
+                    const checkoutButtonTextColor = processThemeSettingForCSS('responsive_cart_checkout_button_text_color');
+                    $(this).css("color", checkoutButtonTextColor);
                 }
             );
         } );
@@ -1316,6 +1389,9 @@
     api( 'responsive_sidebar_headings_color', function( value ) {
         value.bind( function( newval ) {
             let sidebarHeadings = $('.widget-area').find('h1, h2, h3, h4, h5, h6');
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             sidebarHeadings.css('color', newval);
         } );
     } );
@@ -1323,6 +1399,9 @@
     //Background Color
     api( 'responsive_sidebar_background_color', function( value ) {
         value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('.responsive-site-style-boxed aside#secondary .widget-wrapper ').css('background-color', newval );
         } );
     } );
@@ -1330,6 +1409,9 @@
     //Text Color
     api( 'responsive_sidebar_text_color', function( value ) {
         value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('.widget-area').css('color', newval );
         } );
     } );
@@ -1337,6 +1419,9 @@
     //Links Color
     api( 'responsive_sidebar_link_color', function( value ) {
         value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('.widget-area .widget-wrapper a ').not('a.add_to_cart_button').not('a.product_type_grouped').not('.woocommerce-tabs .reviews_tab').css('color', newval );
         } );
     } );
@@ -1347,7 +1432,8 @@
             $(this).css("color", api('responsive_sidebar_link_hover_color').get());
         },
         function() {
-            $(this).css("color", api('responsive_sidebar_link_color').get());
+            const sidebarLinkColor = processThemeSettingForCSS('responsive_sidebar_link_color');
+            $(this).css("color", sidebarLinkColor);
         });
 
     //Scroll To Top
@@ -1569,11 +1655,13 @@
     //Links Hover Color
     $("a").hover(
         function() {
-            $(this).css("color", api('responsive_link_hover_color').get());
+            const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
+            $(this).css("color", linkHoverColor);
         },
-
+        
         function() {
-            $(this).css("color", api('responsive_link_color').get());
+            const linkColor = processThemeSettingForCSS('responsive_link_color');
+            $(this).css("color", linkColor);
         }
     );
     //Buttons Hover Color
@@ -1585,7 +1673,8 @@
         },
 
         function() {
-            $(this).css("background-color", api('responsive_button_color').get());
+            const buttonBGColor = processThemeSettingForCSS('responsive_button_color');
+            $(this).css("background-color", buttonBGColor);
             $(this).css("color", api('responsive_button_text_color').get());
             $(this).css("border-color", api('responsive_button_border_color').get());
         }
@@ -1656,11 +1745,13 @@
     // //site title hover color
     $(".site-title a").hover(
         function() {
-            $(this).css("color", api('responsive_header_site_title_hover_color').get());
+            const siteTitleHoverColor = processThemeSettingForCSS('responsive_header_site_title_hover_color');
+            $(this).css("color", siteTitleHoverColor);
         },
 
         function() {
-            $(this).css("color", api('responsive_header_site_title_color').get());
+            const siteTitleColor = processThemeSettingForCSS('responsive_header_site_title_color');
+            $(this).css("color", siteTitleColor);
         }
     );
     //site title hover color
@@ -1698,11 +1789,12 @@
                     + '</style>'
                 );
             } else {
+                const menuLinkColor = processThemeSettingForCSS('responsive_header_menu_link_color');
                 jQuery( 'style#responsive-header-menu-link-color-change' ).remove();
                 jQuery( 'head' ).append(
                     '<style id="responsive-header-menu-link-color-change">'
-                    + '.menu-item-hover-style-underline .menu.nav-menu > li::after, .menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::after, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::after { border-bottom: 3px solid '+api('responsive_header_menu_link_color').get()+' }'
-                    + '.menu-item-hover-style-overline .menu.nav-menu > li::before, .menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::before, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::before { border-bottom: 3px solid '+api('responsive_header_menu_link_color').get()+' }'
+                    + '.menu-item-hover-style-underline .menu.nav-menu > li::after, .menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::after, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::after { border-bottom: 3px solid '+menuLinkColor+' }'
+                    + '.menu-item-hover-style-overline .menu.nav-menu > li::before, .menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::before, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::before { border-bottom: 3px solid '+menuLinkColor+' }'
                     + '</style>'
                 );
                 if (api('responsive_header_active_menu_link_color').get() !== '') {
@@ -1717,8 +1809,8 @@
                     jQuery( 'style#responsive-header-active-menu-link-color-change' ).remove();
                     jQuery( 'head' ).append(
                         '<style id="responsive-header-active-menu-link-color-change">'
-                        + '.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::after, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::after { border-bottom: 3px solid '+api('responsive_header_menu_link_color').get()+' }'
-                        + '.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::before, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::before { border-bottom: 3px solid '+api('responsive_header_menu_link_color').get()+' }'
+                        + '.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::after, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::after { border-bottom: 3px solid '+menuLinkColor+' }'
+                        + '.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::before, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::before { border-bottom: 3px solid '+menuLinkColor+' }'
                         + '</style>'
                     );
                 }
@@ -1726,7 +1818,8 @@
         },
 
         function() {
-            $(this).css("color", api('responsive_header_menu_link_color').get());
+            const menuLinkColor = processThemeSettingForCSS('responsive_header_menu_link_color');
+            $(this).css("color", menuLinkColor);
         }
     );
     $(".main-navigation .menu li .res-iconify svg, .main-navigation .menu > li > a:not(.sub-menu) > .res-iconify svg").hover(
@@ -1735,7 +1828,8 @@
         },
 
         function() {
-            $(this).css("stroke", api('responsive_header_menu_link_color').get());
+            const menuLinkColor = processThemeSettingForCSS('responsive_header_menu_link_color');
+            $(this).css("stroke", menuLinkColor);
         }
     );
     //Menu item link hover color
@@ -1883,33 +1977,39 @@
     //Add to cart Button Text Hover Color
     $(".woocommerce span.onsale,.wc-block-grid__product-onsale,.woocommerce #respond input#submit,.wp-block-button__link.add_to_cart_button,.woocommerce div.product .woocommerce-tabs ul.tabs li a,.woocommerce div.product .woocommerce-tabs ul.tabs li,.woocommerce button.button.alt,.woocommerce button.button,.woocommerce a.button").hover(
         function() {
-            $(this).css("color", api('responsive_add_to_cart_button_hover_text_color').get());
+            const addToCartButtonTextHoverColor = processThemeSettingForCSS('responsive_add_to_cart_button_hover_text_color');
+            $(this).css("color", addToCartButtonTextHoverColor);
         },
-
+        
         function() {
-            $(this).css("color", api('responsive_add_to_cart_button_text_color').get());
+            const addToCartButtonTextColor = processThemeSettingForCSS('responsive_add_to_cart_button_text_color');
+            $(this).css("color", addToCartButtonTextColor);
         }
     );
 
     //Cart Button Text Hover Color
     $(".page.woocommerce-cart .woocommerce button.button:disabled,.page.woocommerce-cart .woocommerce button.button:disabled[disabled],.page.woocommerce-cart .woocommerce button.button").hover(
         function() {
-            $(this).css("color", api('responsive_cart_buttons_hover_text_color').get());
+            const cartButtonTextHoverColor = processThemeSettingForCSS('responsive_cart_buttons_hover_text_color');
+            $(this).css("color", cartButtonTextHoverColor);
         },
 
         function() {
-            $(this).css("color", api('responsive_cart_buttons_text_color').get());
+            const cartButtonTextColor = processThemeSettingForCSS('responsive_cart_buttons_text_color');
+            $(this).css("color", cartButtonTextColor);
         }
     );
 
     //Checkout Button Hover text Color
     $(".page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button,.page.woocommerce-checkout .woocommerce button.button.alt,.page.woocommerce-checkout .woocommerce button.button").hover(
         function() {
-            $(this).css("color", api('responsive_cart_checkout_button_hover_text_color').get());
+            const checkoutButtonTextHoverColor = processThemeSettingForCSS('responsive_cart_checkout_button_hover_text_color');
+            $(this).css("color", checkoutButtonTextHoverColor);
         },
 
         function() {
-            $(this).css("color", api('responsive_cart_checkout_button_text_color').get());
+            const checkoutButtonTextColor = processThemeSettingForCSS('responsive_cart_checkout_button_text_color');
+            $(this).css("color", checkoutButtonTextColor);
         }
     );
 
@@ -1927,7 +2027,8 @@
     //Cart Button Hover Color
     $(".page.woocommerce-cart .woocommerce button.button:disabled,.page.woocommerce-cart .woocommerce button.button:disabled[disabled],.page.woocommerce-cart .woocommerce button.button").hover(
         function() {
-            $(this).css("background-color", api('responsive_cart_buttons_hover_color').get());
+            const cartButtonsBGHoverColor = processThemeSettingForCSS('responsive_cart_buttons_hover_color');
+            $(this).css("background-color", cartButtonsBGHoverColor);
         },
 
         function() {
@@ -2560,15 +2661,18 @@
     } );
     api( 'responsive_header_secondary_menu_link_color', function( value ) {
         value.bind( function( newval ) {
+            if ( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             // $('.secondary-navigation .menu li a').attr('style', 'color: ' + newval + ' !important;');
             $('.secondary-navigation .menu li a').css('color', newval );
             $('.secondary-navigation .res-iconify svg').css('stroke', newval );
             $(".secondary-navigation-wrapper > ul > li a").hover(
                 function() {
-                    $('.secondary-navigation .menu li a').css("color", api('responsive_header_secondary_menu_link_color').get());
+                    $('.secondary-navigation .menu li a').css("color", newval);
                 },
                 function() {
-                    $('.secondary-navigation .menu li a').css("color", api('responsive_header_secondary_menu_link_color').get());
+                    $('.secondary-navigation .menu li a').css("color", newval);
                 }
             );
         } );
@@ -2577,7 +2681,7 @@
     $(".secondary-navigation-wrapper > ul > li").hover(
         function() {
             let selectedHoverStyle = api('responsive_secondary_menu_item_hover_style').get();
-            let hoverColor = api('responsive_header_secondary_menu_link_color').get();
+            let hoverColor = processThemeSettingForCSS('responsive_header_secondary_menu_link_color'); 
             
             $(this).css("color", hoverColor);
             if (selectedHoverStyle === 'underline') {
@@ -2635,10 +2739,12 @@
         },
         $(".secondary-navigation-wrapper > ul > li a").hover(
             function() {
-                $('.secondary-navigation .menu li a').css("color", api('responsive_header_secondary_menu_link_color').get());
+                const secondaryMenuLinkColor = processThemeSettingForCSS('responsive_header_secondary_menu_link_color');
+                $('.secondary-navigation .menu li a').css("color", secondaryMenuLinkColor);
             },
             function() {
-                $('.secondary-navigation .menu li a').css("color", api('responsive_header_secondary_menu_link_color').get());
+                const secondaryMenuLinkColor = processThemeSettingForCSS('responsive_header_secondary_menu_link_color');
+                $('.secondary-navigation .menu li a').css("color", secondaryMenuLinkColor);
             }
         ),
     );

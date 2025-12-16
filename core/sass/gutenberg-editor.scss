@@ -32,4 +32,10 @@
     }
 }
 
+/**
+ * For widget screen.
+ */
+html .edit-widgets-main-block-list :where(.wp-block) {
+    margin-bottom: 28px;
+}
 /*# sourceMappingURL=gutenberg-editor.css.map */

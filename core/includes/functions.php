@@ -1084,7 +1084,7 @@ function defaults() {
 			'box_padding'                         => 30,
 			'logo_padding'                        => 28,
 			// Colors.
-			'background_color'                    => '#F0F5FA',
+			'responsive_site_background_color'    => 'palette5',
 			'background_gradient_color'           => 'linear-gradient(135deg, #12c2e9 0%, #c471ed 50%, #f64f59 100%)',
 			'scroll_to_top_icon'                  => '#ffffff',
 			'scroll_to_top_icon_hover'            => '#ffffff',
@@ -1104,6 +1104,10 @@ function defaults() {
 			'header_site_title'                   => '#333333',
 			'header_site_title_hover'             => '#10659C',
 			'header_text'                         => '#999999',
+			'responsive_header_site_title_color'       => 'palette3',
+			'responsive_header_site_title_hover_color' => 'palette3',
+			'responsive_sidebar_headings_color'   => 'palette3',
+			'responsive_header_text_color'        => 'palette2',
 			'header_widget_text'                  => '#333333',
 			'header_widget_background'            => '#ffffff',
 			'header_widget_border'                => '#eaeaea',
@@ -1122,6 +1126,7 @@ function defaults() {
 			'header_active_menu_background'       => '#ffffff',
 			'header_menu_link'                    => '#333333',
 			'header_menu_link_hover'              => '#10659C',
+			'responsive_header_menu_link_color'   => 'palette3',
 			'header_sub_menu_background'          => '#ffffff',
 			'header_sub_menu_link'                => '#333333',
 			'header_sub_menu_link_hover'          => '#10659C',
@@ -1132,6 +1137,7 @@ function defaults() {
 			'header_secondary_menu_border'        => '#eaeaea',
 			'header_active_secondary_menu_background'       => '#ffffff',
 			'header_secondary_menu_link'                    => '#333333',
+			'responsive_header_secondary_menu_link_color'   => 'palette3',
 			'header_secondary_menu_link_hover'            	=> '#10659C',
 			'header_sub_secondary_menu_background'          => '#ffffff',
 			'header_sub_secondary_menu_link'                => '#333333',
@@ -1151,16 +1157,21 @@ function defaults() {
 			'mobile_header_html_margin_y'         => 0,
 			'mobile_menu_toggle_border_color'     => '#333333',
 			'menu_button_radius'                  => 0,
-			'box_background'                      => '#ffffff',
-			'alt_background'                      => '#eaeaea',
+			'responsive_alt_background_color'     => 'palette6',
 			'body_text'                           => '#333333',
-			'h1_text'                             => '#333333',
+			'responsive_h1_text_color'            => 'headings-color',
+			'responsive_h2_text_color'            => 'headings-color',
+			'responsive_h3_text_color'            => 'headings-color',
+			'responsive_h4_text_color'            => 'headings-color',
+			'responsive_h5_text_color'            => 'headings-color',
+			'responsive_h6_text_color'            => 'headings-color',
 			'h2_text'                             => '#333333',
 			'h3_text'                             => '#333333',
 			'h4_text'                             => '#333333', 
 			'h5_text'                             => '#333333', 
-			'h6_text'                             => '#333333', 
-			'meta_text'                           => '#999999',
+			'h6_text'                             => '#333333',
+			'responsive_all_heading_text_color'   => 'palette3',
+			'responsive_meta_text_color'          => 'palette0',
 			'link'                                => '#0066CC',
 			'link_hover'                          => '#10659C',
 			'button'                              => '#0066CC',
@@ -1202,11 +1213,18 @@ function defaults() {
 			'footer_social_margin_y'              => 0,
 			'footer_social_item_bg_color'         => '#FFFFFF00',
 			'footer_social_item_bg_hover_color'   => '#FFFFFF00',
-			'responsive_h4_text_color'            => '#333333',
-			'responsive_box_background_color'     => '#ffffff',
-			'responsive_body_text_color'          => '#333333',
-			'responsive_link_color'               => '#0066CC',
-			'responsive_link_hover_color'         => '#10659C',
+			'responsive_box_background_color'     => 'palette4',
+			'responsive_sidebar_background_color' => 'palette4',
+			'responsive_add_to_cart_button_text_color' => 'palette4',
+			'responsive_add_to_cart_button_hover_text_color' => 'palette4',
+			'responsive_body_text_color'          => 'palette2',
+			'responsive_sidebar_text_color'       => 'palette2',
+			'responsive_link_color'               => 'palette0',
+			'responsive_button_color'             => 'palette0',
+			'responsive_sidebar_link_color'       => 'palette0',
+			'responsive_shop_product_rating_color' => 'palette0',
+			'responsive_cart_checkout_button_color' => 'palette0',
+			'responsive_link_hover_color'         => 'palette1',
 			'responsive_header_search_color'      => '#333333',
 			'responsive_header_search_hover_color'=> '#333333',
 			'responsive_header_search_background_color'       => '#ffffff',
@@ -1603,6 +1621,10 @@ function defaults() {
 		'footer_widget_content_color'           => '#ffffff',
 		'footer_widget_link_color'              => '#eaeaea',
 		'footer_widget_link_hover_color'        => '#FFFFFF',
+		'default_global_palette'                => array (
+				'style' => 'playful-default',
+				'palette' => responsive_get_selected_palette_color_scheme(),
+			),
 		)
 	);
 	return $theme_options;
@@ -2368,7 +2390,7 @@ if( ! function_exists( 'responsive_old_woo_cart_comaptibility_with_header_builde
 				}
 			}
 			//make cart icon color backward compatible.
-			$menu_items_color = get_theme_mod( 'responsive_header_menu_link_color' );
+			$menu_items_color = responsive_prepare_css_value( 'responsive_header_menu_link_color' );
 			if( $menu_items_color ) {
 				set_theme_mod( 'responsive_cart_color', $menu_items_color );
 				set_theme_mod( 'responsive_cart_hover_color', $menu_items_color );
@@ -2420,7 +2442,7 @@ if ( ! function_exists( 'responsive_old_header_search_compatibility_with_hfb_hea
 			array_push( $header_hfb_elements['primary']['primary_right'], 'search' );
 			set_theme_mod( 'responsive_header_desktop_items', $header_hfb_elements );
 			//make search border color backward compatible.
-			$menu_items_color       = get_theme_mod( 'responsive_header_menu_link_color' );
+			$menu_items_color       = responsive_prepare_css_value( 'responsive_header_menu_link_color' );
 			$menu_items_hover_color = get_theme_mod( 'responsive_header_menu_link_hover_color' );
 			if( $menu_items_color ) {
 				set_theme_mod( 'responsive_header_search_color', $menu_items_color );
@@ -2634,3 +2656,68 @@ add_action( 'customize_register', function( $wp_customize ) {
         $section->priority = 7;
     }
 }, 20 );
+
+if( ! function_exists( 'responsive_get_option' ) ) {
+
+	/**
+	 * Retrieve a theme option value with multiple fallbacks.
+	 *
+	 * This function returns the stored theme modification value for a given key.
+	 * If the value is not set, it first falls back to the default values defined
+	 * in `get_responsive_customizer_defaults()`. If still empty, it falls back to
+	 * the manually supplied `$default` parameter.
+	 *
+	 * @param string $key      Theme option key.
+	 * @param mixed  $default  Optional. Fallback value if no stored or default value is found. Default ''.
+	 *
+	 * @return mixed The resolved option value.
+	 */
+	function responsive_get_option( $key, $default = '' ) {
+
+		$value       = get_theme_mod( $key, null );
+		$key_default = get_responsive_customizer_defaults( $key );
+
+		// If theme_mod not set or empty, use default from defaults array
+		if ( $value === null || $value === '' ) {
+			$value = $key_default;
+		}
+
+		// Still empty, use fallback parameter
+		if ( $value === null || $value === '' ) {
+			$value = $default;
+		}
+
+		return $value;
+	}
+}
+
+if( ! function_exists( 'responsive_prepare_css_value' ) ) {
+	/**
+	 * Format a theme option value for CSS output.
+	 *
+	 * This function retrieves a theme option and converts it into a valid CSS value.
+	 * If the value is a strict palette reference (e.g., "palette1", "palette2"),
+	 * it returns a CSS variable reference like `var(--responsive-global-palette1)`.
+	 * Any other value is returned as is.
+	 *
+	 * @param string $key      Theme option key.
+	 * @param mixed  $default  Optional. Default fallback value. Default ''.
+	 *
+	 * @return string The processed CSS value or empty string if no valid value.
+	 */
+	function responsive_prepare_css_value( $key, $default = '' ) {
+		$value = responsive_get_option( $key, $default );
+
+		if ( $value === '' || $value === null ) {
+			return '';
+		}
+
+		$value = trim( $value );
+
+		if ( is_string( $value ) && ( preg_match( '/^palette\d+$/', $value ) || false !== strpos( $value, 'headings-color' ) ) ) {
+			return 'var(--responsive-global-' . $value . ')';
+		}
+
+		return $value;
+	}
+}

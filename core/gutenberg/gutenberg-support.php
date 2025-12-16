@@ -5,6 +5,10 @@
  * @package Responsive WordPress theme
  */
 
+use Reponsive\Core\GlobalPalette\Responsive_Global_Color_Palette;
+
+use function Responsive\Core\responsive_prepare_css_value;
+
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -84,6 +88,20 @@ function responsive_gutenberg_colors( $responsive_gutenberg_color_options ) {
 			$css         .= ':root .has-' . $color['slug'] . '-background-color { background-color: ' . esc_attr( $custom_color ) . '; }';
 		}
 	}
+	$css .= ':root .has-responsive-global-palette-0-color { color: var(--responsive-global-palette0); }';
+	$css .= ':root .has-responsive-global-palette-0-background-color { background-color: var(--responsive-global-palette0); }';
+	$css .= ':root .has-responsive-global-palette-1-color { color: var(--responsive-global-palette1); }';
+	$css .= ':root .has-responsive-global-palette-1-background-color { background-color: var(--responsive-global-palette1); }';
+	$css .= ':root .has-responsive-global-palette-2-color { color: var(--responsive-global-palette2); }';
+	$css .= ':root .has-responsive-global-palette-2-background-color { background-color: var(--responsive-global-palette2); }';
+	$css .= ':root .has-responsive-global-palette-3-color { color: var(--responsive-global-palette3); }';
+	$css .= ':root .has-responsive-global-palette-3-background-color { background-color: var(--responsive-global-palette3); }';
+	$css .= ':root .has-responsive-global-palette-4-color { color: var(--responsive-global-palette4); }';
+	$css .= ':root .has-responsive-global-palette-4-background-color { background-color: var(--responsive-global-palette4); }';
+	$css .= ':root .has-responsive-global-palette-5-color { color: var(--responsive-global-palette5); }';
+	$css .= ':root .has-responsive-global-palette-5-background-color { background-color: var(--responsive-global-palette5); }';
+	$css .= ':root .has-responsive-global-palette-6-color { color: var(--responsive-global-palette6); }';
+	$css .= ':root .has-responsive-global-palette-6-background-color { background-color: var(--responsive-global-palette6); }';
 	return wp_strip_all_tags( $css );
 }
 
@@ -93,12 +111,12 @@ function responsive_gutenberg_colors( $responsive_gutenberg_color_options ) {
  * @return string.
  */
 function responsive_gutenberg_customizer_css() {
-	$body_text_color = esc_html( get_theme_mod( 'responsive_body_text_color', '#333333' ) );
+	$body_text_color = esc_html( responsive_prepare_css_value( 'responsive_body_text_color' ) );
 
-	$link_color       = esc_html( get_theme_mod( 'responsive_link_color', '#0066CC' ) );
-	$link_hover_color = esc_html( get_theme_mod( 'responsive_link_hover_color', '#10659C' ) );
+	$link_color       = esc_html( responsive_prepare_css_value( 'responsive_link_color' ) );
+	$link_hover_color = esc_html( responsive_prepare_css_value( 'responsive_link_hover_color' ) );
 
-	$button_color              = esc_html( get_theme_mod( 'responsive_button_color', '#0066CC' ) );
+	$button_color              = esc_html( responsive_prepare_css_value( 'responsive_button_color' ) );
 	$button_hover_color        = esc_html( get_theme_mod( 'responsive_button_hover_color', '#10659C' ) );
 	$button_text_color         = esc_html( get_theme_mod( 'responsive_button_text_color', '#FFFFFF' ) );
 	$button_hover_text_color   = esc_html( get_theme_mod( 'responsive_button_hover_text_color', '#FFFFFF' ) );
@@ -218,7 +236,7 @@ function responsive_gutenberg_customizer_css() {
 	$input_tablet_typography           = get_theme_mod( 'input_tablet_typography' );
 	$input_mobile_typography           = get_theme_mod( 'input_mobile_typography' );
 
-	$alt_background_color              = esc_html( get_theme_mod( 'responsive_alt_background_color', Responsive\Core\get_responsive_customizer_defaults( 'alt_background' ) ) );
+	$alt_background_color              = esc_html( responsive_prepare_css_value( 'responsive_alt_background_color' ) );
 
 	$body_typography                   = get_theme_mod( 'body_typography' );
 	$body_tablet_typography            = get_theme_mod( 'body_tablet_typography' );
@@ -290,14 +308,14 @@ function responsive_gutenberg_customizer_css() {
 		$checkout_custom_content_width     = ( $checkout_content_width / 100 ) * $responsive_container_width;
 	
 		$cart_buttons_color            	   = esc_html( get_theme_mod( 'responsive_cart_buttons_color', '#10659C' ) );
-		$cart_buttons_text_color       	   = esc_html( get_theme_mod( 'responsive_cart_buttons_text_color', '#ffffff' ) );
+		$cart_buttons_text_color       	   = esc_html( responsive_prepare_css_value( 'responsive_cart_buttons_text_color', 'palette4' ) );
 		$cart_buttons_hover_color      	   = esc_html( get_theme_mod( 'responsive_cart_buttons_hover_color', '#0066CC' ) );
-		$cart_buttons_hover_text_color 	   = esc_html( get_theme_mod( 'responsive_cart_buttons_hover_text_color', '#ffffff' ) );
+		$cart_buttons_hover_text_color 	   = esc_html( responsive_prepare_css_value( 'responsive_cart_buttons_hover_text_color', 'palette4' ) );
 	
-		$cart_checkout_button_color             = esc_html( get_theme_mod( 'responsive_cart_checkout_button_color', '#0066CC' ) );
+		$cart_checkout_button_color             = esc_html( responsive_prepare_css_value( 'responsive_cart_checkout_button_color' ) );
 		$cart_checkout_button_hover_color       = esc_html( get_theme_mod( 'responsive_cart_checkout_button_hover_color', '#10659C' ) );
-		$cart_checkout_button_text_color        = esc_html( get_theme_mod( 'responsive_cart_checkout_button_text_color', '#ffffff' ) );
-		$cart_checkout_button_hover_text_color  = esc_html( get_theme_mod( 'responsive_cart_checkout_button_hover_text_color', '#ffffff' ) );
+		$cart_checkout_button_text_color        = esc_html( responsive_prepare_css_value( 'responsive_cart_checkout_button_text_color', 'palette4' ) );
+		$cart_checkout_button_hover_text_color  = esc_html( responsive_prepare_css_value( 'responsive_cart_checkout_button_hover_text_color', 'palette4' ) );
 	}
 
 	$custom_css = '';
@@ -346,6 +364,8 @@ function responsive_gutenberg_customizer_css() {
 	$block_editor_h6_selector           = '.editor-styles-wrapper h6';
 	$block_editor_all_headings_selector = '.editor-styles-wrapper h1,.editor-styles-wrapper h2,.editor-styles-wrapper h3,.editor-styles-wrapper h4,.editor-styles-wrapper h5,.editor-styles-wrapper h6,.editor-styles-wrapper .h1,.editor-styles-wrapper .h2,.editor-styles-wrapper .h3,.editor-styles-wrapper .h4,.editor-styles-wrapper .h5,.editor-styles-wrapper .h6';
 	$page_title_editor_selector         = '.editor-styles-wrapper.post-type-page .edit-post-visual-editor__post-title-wrapper h1.editor-post-title__input';
+
+	$custom_css .= Responsive_Global_Color_Palette::responsive_generate_global_palette_styles( $custom_css );
 
 	for ( $i = 1; $i < 7; $i++ ) {
 		$custom_css .= '
@@ -400,7 +420,7 @@ function responsive_gutenberg_customizer_css() {
 	.edit-post-visual-editor .editor-styles-wrapper .editor-block-list__layout a,
 	.wp-block-freeform.block-library-rich-text__tinymce a,
 	.editor-writing-flow a,
-	.editor-styles-wrapper .wp-block a,
+	.editor-styles-wrapper a,
 	.editor-styles-wrapper .wp-block a * {
 		color:{$link_color};
 		text-decoration: none;
@@ -757,7 +777,7 @@ function responsive_gutenberg_customizer_css() {
 	
 		$custom_css .= "
 		$heading_selector {
-			color: " . esc_html( get_theme_mod( "responsive_h{$i}_text_color", get_theme_mod( 'responsive_all_heading_text_color', Responsive\Core\get_responsive_customizer_defaults( "h{$i}_text" ) ) ) ) . ";
+			color: " . esc_html( responsive_prepare_css_value( "responsive_h{$i}_text_color" ) ) . ";
 		}
 		";
 	

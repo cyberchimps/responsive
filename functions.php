@@ -53,6 +53,7 @@ if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
 require $responsive_template_directory . '/core/gutenberg/gutenberg-support.php';
 require $responsive_template_directory . '/core/includes/compatibility/lifterlms/class-responsive-lifterlms.php';
 require $responsive_template_directory . '/core/includes/modules/related-posts/class-responsive-related-posts.php';
+require $responsive_template_directory . '/core/includes/modules/color-palette/class-responsive-global-color-palette.php';
 // Deprecated functions.
 require $responsive_template_directory . '/core/includes/functions-deprecated.php';
 // Custom page walker.
@@ -1397,53 +1398,6 @@ function remove_unnecessary_wordpress_menus() {
 	unset( $submenu['themes.php'][20] );
 }
 
-/*
-	Global color palette
-	@since 6.2.5
-*/
-function responsive_register_theme_mods() {
-    $default_palette = [
-        'accent'          => '#0066CC',
-        'link_hover'      => '#007fff',
-        'text'            => '#364151',
-        'headings'        => '#fcba03',
-        'content_bg'      => '#ffffff',
-        'site_background' => '#f0f5fa',
-        'alt_background'  => '#eaeaea',
-    ];
-
-    foreach ( $default_palette as $key => $value ) {
-        $id = "responsive_global_color_palette_{$key}_color";
-        if ( get_theme_mod( $id ) === false ) {
-            set_theme_mod( $id, $value );
-        }
-    }
-}
-add_action( 'after_setup_theme', 'responsive_register_theme_mods' );
-
-function responsive_register_customizer_settings( $wp_customize ) {
-    $default_palette = [
-        'accent'          => '#0066CC',
-        'link_hover'      => '#007fff',
-        'text'            => '#364151',
-        'headings'        => '#fcba03',
-        'content_bg'      => '#ffffff',
-        'site_background' => '#f0f5fa',
-        'alt_background'  => '#eaeaea',
-    ];
-
-    foreach ( $default_palette as $key => $value ) {
-        $id = "responsive_global_color_palette_{$key}_color";
-
-        $wp_customize->add_setting( $id, [
-            'default'   => $value,
-            'type'      => 'theme_mod',
-            'transport' => 'postMessage',
-			'sanitize_callback' => 'sanitize_hex_color',
-        ]);
-    }
-}
-
 /**
  * AJAX: Flush local fonts cache
  */
@@ -1478,8 +1432,6 @@ function responsive_admin_post_flush_local_fonts() {
     exit;
 }
 add_action( 'admin_post_responsive_flush_local_fonts', 'responsive_admin_post_flush_local_fonts' );
-add_action( 'customize_register', 'responsive_register_customizer_settings' );
-
 
 if ( ! function_exists( 'responsive_theme_background_updater_6_1_7' ) ) {
 
@@ -2678,6 +2630,54 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_header_widget
 	}
 }
 
+if ( ! function_exists( 'responsive_theme_background_updater_global_palette_revamp' ) ) {
+
+	/**
+     * Migrates old Responsive theme global color palette settings 
+     * to the new global palette structure (revamp v2).
+     *
+     * This function runs once as a backward-compatibility updater.
+     * It checks whether the new palette format (`global_palette_revamp_v2`)
+     * has been applied. If not, it retrieves values from legacy
+     * `responsive_color_scheme` and old individual palette theme_mods,
+     * converts them into the new palette array format, and saves them
+     * into the `responsive_global_color_palette` theme_mod.
+     *
+     * After migration, it marks the revamp as completed inside
+     * `responsive_theme_options` to avoid running again.
+     *
+     * @since 6.3.1
+     *
+     * @return void
+     */
+	function responsive_theme_background_updater_global_palette_revamp() {
+		$responsive_options = Responsive\Core\responsive_get_options();
+
+		if ( empty( $responsive_options['global_palette_revamp_v2'] ) ) {
+			$old_palette_scheme = get_theme_mod( 'responsive_color_scheme' );
+			if ( $old_palette_scheme ) {
+				$new_palette = array (
+					'style' => $old_palette_scheme,
+					'palette' => array (
+						'label'              => '',
+						'accent'             => get_theme_mod( 'responsive_global_color_palette_accent_color', '#0066CC' ),
+						'link_hover'		 => get_theme_mod( 'responsive_global_color_palette_link_hover_color', '#10659C' ),
+						'text'               => get_theme_mod( 'responsive_global_color_palette_text_color', '#333333' ),
+						'header_text'        => get_theme_mod( 'responsive_global_color_palette_headings_color', '#333333' ),
+						'content_background' => get_theme_mod( 'responsive_global_color_palette_content_bg_color', '#ffffff' ),
+						'site_background'    => get_theme_mod( 'responsive_global_color_palette_site_background_color', '#f0f5fa' ),
+						'alt_background'     => get_theme_mod( 'responsive_global_color_palette_alt_background_color', '#eaeaea' ),
+					)
+				);
+				set_theme_mod( 'responsive_global_color_palette', $new_palette );
+			}
+
+			// Mark backward compatibility update as done
+			$responsive_options['global_palette_revamp_v2'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
 if( ! function_exists( 'responsive_theme_background_updater_off_canvas_menu_6_2_9') ) {
 	/**
 	 * Handle backward compatibility for off-canvas menu background settings migration.

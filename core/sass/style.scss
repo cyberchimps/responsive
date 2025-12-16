@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 body {
-    background-color: map-get( $colors, light-blue );
+    background-color: var(--responsive-global-palette5);
 }
 
 .responsive-site-full-width {
