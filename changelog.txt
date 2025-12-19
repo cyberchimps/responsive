@@ -10,7 +10,7 @@ Changelog Legend:
 
 (22/12/2025) Version 6.3.0
 [+] = New = Introduced the Mobile Footer Builder - footer elements can now be configured separately for mobile/tablets and desktop.
-[*] = Improvement = Restructured the global color palette for improved accessibility and compatibility with Elementor.
+[*] = Improvement = Restructured the global color palette.
 [!] = Fix = Fixed an error which was causing the Footer Builder to disappear while editing Footer Widgets.
 [!] = Fix = Fixed an error which was causing theme's layout padding values to override Responsive Block Addons' (RBA) padding values.
 [!] = Fix = Added a label for Opacity control in all color control fields.
