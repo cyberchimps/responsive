@@ -2886,7 +2886,7 @@
             jQuery('style#responsive-footer-primary-row-bg-color-tablet').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-primary-row-bg-color-tablet">'
-                + '@media screen and ( min-width: 577px and max-width: 992px ) { .rspv-site-primary-footer-wrap { background-color: ' + newval + '; } }'
+                + '@media screen and ( min-width: 577px )  and ( max-width: 992px ) { .rspv-site-primary-footer-wrap { background-color: ' + newval + '; } }'
                 + '</style>'
             );
         })

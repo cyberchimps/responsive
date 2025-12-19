@@ -2934,6 +2934,15 @@
             );
 
         } );
+    } ), api( "footer_typography[text-transform]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-footer_typography-text-transform' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-footer_typography-text-transform">'
+                +  responsive.selectorArray['footer'] + '{ text-transform:' + dataAndEvents +';}'
+                + '</style>'
+            );
+        } );
     } ), api( "footer_copyright_typography[text-transform]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_copyright_typography-text-transform' ).remove();

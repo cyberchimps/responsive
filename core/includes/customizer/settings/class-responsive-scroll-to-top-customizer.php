@@ -112,7 +112,7 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 					'right'  => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
 				);
 			}
-			responsive_select_button_control( $wp_customize, 'scroll_to_top_icon_position', $stt_position_label, 'responsive_scrolltotop_section', 20, $stt_position_choices, 'right', null, 'postMessage' );
+			responsive_select_button_control( $wp_customize, 'scroll_to_top_icon_position', $stt_position_label, 'responsive_scrolltotop_section', 20, $stt_position_choices, 'right', null, 'refresh' );
 
 			responsive_horizontal_separator_control($wp_customize, 'scrolltotop_separator_2', 1, 'responsive_scrolltotop_section', 25, 1, );
 

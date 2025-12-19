@@ -379,7 +379,7 @@ const PaletteComponent = props => {
                 <InlineThemeModColorPicker key={1} settingId={'responsive_global_color_palette_link_hover_color'} labelText={'Link Hover'} settingKey={'link_hover'} selectedChoice={selectedChoice} />
                 <InlineThemeModColorPicker key={2} settingId={'responsive_global_color_palette_text_color'} labelText={'Text'} settingKey={'text'} selectedChoice={selectedChoice} />
                 <InlineThemeModColorPicker key={3} settingId={'responsive_global_color_palette_headings_color'} labelText={'Headings'} settingKey={'header_text'} selectedChoice={selectedChoice} />
-                <InlineThemeModColorPicker key={4} settingId={'responsive_global_color_palette_content_bg_color'} labelText={'Background'} settingKey={'content_background'} selectedChoice={selectedChoice} />
+                <InlineThemeModColorPicker key={4} settingId={'responsive_global_color_palette_content_bg_color'} labelText={'Content Background'} settingKey={'content_background'} selectedChoice={selectedChoice} />
                 <InlineThemeModColorPicker key={5} settingId={'responsive_global_color_palette_site_background_color'} labelText={'Site Background'} settingKey={'site_background'} selectedChoice={selectedChoice} />
                 <InlineThemeModColorPicker key={6} settingId={'responsive_global_color_palette_alt_background_color'} labelText={'Alt Background'} settingKey={'alt_background'} selectedChoice={selectedChoice} />
             </div>
