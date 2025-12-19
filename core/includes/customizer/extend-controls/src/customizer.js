@@ -97,27 +97,51 @@
 				return;
 			}
 
+			// Check if the general tab is active
+			var generalTab = $( '#responsive_footer_general_tab' );
+			var isGeneralTabActive = generalTab.length > 0 && generalTab.hasClass( 'nav-tab-active' );
+
 			if ( device === 'desktop' ) {
 				// Show Desktop control, Hide Mobile/Tablet control
 				desktopControl.container.show();
 				mobileTabletControl.container.hide();
-				// Toggle available items controls
-				if ( desktopAvailableItemsControl ) {
-					desktopAvailableItemsControl.container.show();
-				}
-				if ( mobileTabletAvailableItemsControl ) {
-					mobileTabletAvailableItemsControl.container.hide();
+				// Toggle available items controls only if general tab is active
+				if ( isGeneralTabActive ) {
+					if ( desktopAvailableItemsControl ) {
+						desktopAvailableItemsControl.container.show();
+					}
+					if ( mobileTabletAvailableItemsControl ) {
+						mobileTabletAvailableItemsControl.container.hide();
+					}
+				} else {
+					// If design tab is active, hide both available items controls
+					if ( desktopAvailableItemsControl ) {
+						desktopAvailableItemsControl.container.hide();
+					}
+					if ( mobileTabletAvailableItemsControl ) {
+						mobileTabletAvailableItemsControl.container.hide();
+					}
 				}
 			} else {
 				// Show Mobile/Tablet control, Hide Desktop control (for 'tablet' or 'mobile')
 				desktopControl.container.hide();
 				mobileTabletControl.container.show();
-				// Toggle available items controls
-				if ( desktopAvailableItemsControl ) {
-					desktopAvailableItemsControl.container.hide();
-				}
-				if ( mobileTabletAvailableItemsControl ) {
-					mobileTabletAvailableItemsControl.container.show();
+				// Toggle available items controls only if general tab is active
+				if ( isGeneralTabActive ) {
+					if ( desktopAvailableItemsControl ) {
+						desktopAvailableItemsControl.container.hide();
+					}
+					if ( mobileTabletAvailableItemsControl ) {
+						mobileTabletAvailableItemsControl.container.show();
+					}
+				} else {
+					// If design tab is active, hide both available items controls
+					if ( desktopAvailableItemsControl ) {
+						desktopAvailableItemsControl.container.hide();
+					}
+					if ( mobileTabletAvailableItemsControl ) {
+						mobileTabletAvailableItemsControl.container.hide();
+					}
 				}
 			}
 		};
@@ -160,6 +184,15 @@
 				}, 200);
 			}
 		});
+	});
+
+	// Listen for footer tab clicks to ensure correct device-specific controls are shown
+	$( document ).on( 'click', '#responsive_footer_general_tab, #responsive_footer_design_tab', function() {
+		// Use a small delay to allow the tab component to update the DOM first
+		setTimeout(function() {
+			currentDevice = wp.customize.previewedDevice.get();
+			toggleFooterBuilderControls( currentDevice );
+		}, 50);
 	});
 
 		/**

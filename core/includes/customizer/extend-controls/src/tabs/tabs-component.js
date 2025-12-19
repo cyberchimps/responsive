@@ -478,6 +478,20 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_border_mobile_header_button_radius').style.display = 'none';
 		}
 
+		// Footer Social Border Controls
+		if( api('responsive_footer_social_item_border_style') ) {
+			toggleFooterSocialBorderControls( api('responsive_footer_social_item_border_style').get() );
+		}
+
+		// Listen for changes to responsive_footer_social_item_border_style
+		if( api('responsive_footer_social_item_border_style') ) {
+			api('responsive_footer_social_item_border_style', function( value ) {
+				value.bind( function( newval ) {
+					toggleFooterSocialBorderControls( newval );
+				} );
+			} );
+		}
+
 		// Transparent Header Settings
 		if( ! api( 'responsive_transparent_header' ).get() ) {
 			document.getElementById('customize-control-responsive_transparent_header_widget_color_separator').style.display = 'none';
@@ -650,6 +664,25 @@ const TabsComponent = props => {
 		if (isVisible) {
 			controlElement.style.display = 'block';
 		}
+	};
+
+	const toggleFooterSocialBorderControls = (borderStyle) => {
+		const controlIds = [
+			'customize-control-responsive_footer_social_item_border_width',
+			'customize-control-responsive_border_footer_social_radius',
+			'customize-control-responsive_footer_social_border_radius_padding',
+			'customize-control-responsive_footer_social_item_border_color',
+			'customize-control-responsive_footer_social_item_icon_spacing',
+		];
+
+		const shouldShow = 'none' !== borderStyle && 'design' === tab;
+
+		controlIds.forEach(controlId => {
+			const controlElement = document.getElementById(controlId);
+			if (controlElement) {
+				controlElement.style.display = shouldShow ? 'block' : 'none';
+			}
+		});
 	};
 
 	return <>

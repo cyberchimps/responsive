@@ -243,6 +243,7 @@ const BuilderComponent = props => {
 			'responsive-control-field responsive-builder-items' +
 			(controlParams.group && controlParams.group.includes('header_mobile_tablet_items') ? ' responsive-builder-items-with-popup' : '')
 		}>
+			{ controlParams.group && controlParams.group?.includes('footer_') && <div className='responsive-builder-type-label'>{ (controlParams.group.includes('mobile_') ? ' Mobile' : 'Desktop') + (controlParams.group.includes('header_') ? ' Header Builder' : ' Footer Builder') }</div> }
 			{
 				// Showing the off canvas panel in case of mobile and tablets 
 				controlParams.group.includes('header_mobile_tablet_items') && 

@@ -1842,3 +1842,15 @@ in both cases the footer builder is active */
 	border-style: none;
 	color: #434343;
 }
+
+.responsive-builder-type-label {
+    position: absolute;
+    top: 0;
+    padding: 9px 15px;
+    width: auto;
+    background-color: #EAEAEA;
+    font-size: 14px;
+    font-family: 'Inter';
+	border-radius: 4px;
+	font-weight: 600;
+}
