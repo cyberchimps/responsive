@@ -5000,9 +5000,7 @@ function responsive_customizer_styles() {
 	$primary_footer_height_mobile 	            = get_theme_mod( 'responsive_footer_primary_height_mobile', $primary_footer_height );
 	$primary_footer_vertical_alignment          = get_theme_mod( 'responsive_footer_primary_vertical_alignment', 'center' );
 	$primary_footer_vertical_alignment_tablet   = get_theme_mod( 'responsive_footer_primary_vertical_alignment_tablet', $primary_footer_vertical_alignment );
-	error_log( 'primary_footer_vertical_alignment_tablet: ' . $primary_footer_vertical_alignment_tablet );
 	$primary_footer_vertical_alignment_mobile   = get_theme_mod( 'responsive_footer_primary_vertical_alignment_mobile', $primary_footer_vertical_alignment );
-	error_log( 'primary_footer_vertical_alignment_mobile: ' . $primary_footer_vertical_alignment_mobile );
 	$primary_footer_bg_color   		     	    = get_theme_mod( 'responsive_footer_primary_row_bg_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_primary_row_bg_color' ) );
 	$primary_footer_bg_color_tablet             = get_theme_mod( 'responsive_footer_primary_row_bg_color_tablet', $primary_footer_bg_color );
 	$primary_footer_bg_color_mobile             = get_theme_mod( 'responsive_footer_primary_row_bg_color_mobile', $primary_footer_bg_color );
