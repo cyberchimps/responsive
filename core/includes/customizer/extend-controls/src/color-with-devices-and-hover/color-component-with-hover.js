@@ -71,6 +71,7 @@ const ColorComponentWithDevicesAndHover = props => {
 						backgroundType={'color'}
 						inputattr={props.control.params}
 						defaultValue = {props.control.params[`${device}`].default}
+						swatchTitle="Normal"
 					/>
 				</div>
 				<div className="responsive-color-hover">
@@ -81,6 +82,7 @@ const ColorComponentWithDevicesAndHover = props => {
 						backgroundType={'color'}
 						inputattr={props.control.params}
 						defaultValue = {props.control.params[`${device}_hover`].default}
+						swatchTitle="Hover"
 					/>
 				</div>
 			</div>
