@@ -2646,7 +2646,7 @@ if ( ! function_exists( 'responsive_theme_background_updater_global_palette_reva
      * After migration, it marks the revamp as completed inside
      * `responsive_theme_options` to avoid running again.
      *
-     * @since 6.3.1
+     * @since 6.3.0
      *
      * @return void
      */
@@ -2942,9 +2942,23 @@ if( !function_exists( 'responsive_theme_background_updater_mobile_footer_6_3_0' 
 				$old_value = get_theme_mod( $old_mod, false );
 				$new_value = get_theme_mod( $new_mod, false );
 				
-				// Only migrate if old value exists and new value doesn't exist
-				if ( false !== $old_value && false === $new_value ) {
+				// Only migrate if old value exists
+				if ( false !== $old_value ) {
 					set_theme_mod( $new_mod, $old_value );
+				}
+			}
+			
+			// Manually set tablet footer row background colors from desktop colors
+			$footer_rows = array( 'above', 'primary', 'below' );
+			foreach ( $footer_rows as $row ) {
+				$desktop_color_mod = "responsive_footer_{$row}_row_bg_color";
+				$tablet_color_mod  = "responsive_footer_{$row}_row_bg_color_tablet";
+				
+				$desktop_color = get_theme_mod( $desktop_color_mod, false );
+				
+				// If desktop color exists, set tablet color from desktop color
+				if ( false !== $desktop_color ) {
+					set_theme_mod( $tablet_color_mod, $desktop_color );
 				}
 			}
 			
