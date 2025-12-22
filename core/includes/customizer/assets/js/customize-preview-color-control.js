@@ -317,9 +317,8 @@
     //Update header widget background color...
     api( 'responsive_header_widget_background_color', function( value ) {
         value.bind( function( newval ) {
-            if( 'with_logo' != api('responsive_header_widget_position').get() ) {
                 $('.header-widgets').css('background-color', newval );
-            }
+            
         } );
     } );
 
@@ -391,9 +390,7 @@
     //Update header widget background color...
     api( 'responsive_transparent_header_widget_background_color', function( value ) {
         value.bind( function( newval ) {
-            if( 'with_logo' != api('responsive_header_widget_position').get() ) {
                 $('.res-transparent-header .header-widgets').css('background-color', newval );
-            }
         } );
     } );
 

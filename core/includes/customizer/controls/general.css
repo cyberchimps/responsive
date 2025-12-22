@@ -1061,11 +1061,11 @@ body.rtl .customize-control .responsive-switchers li {
 .responsive-builder-areas:hover .components-button.responsive-row-actions {
     background: #FFF;
 }
-.responsive-header-builder-is-active .preview-desktop #customize-preview, .responsive-header-builder-is-active .preview-tablet #customize-preview, .responsive-header-builder-is-active .preview-mobile #customize-preview {
+.responsive-header-builder-is-active .preview-desktop #customize-preview, .responsive-header-builder-is-active .preview-tablet #customize-preview {
 	height: auto;
 }
 /* Footer Builder */
-.responsive-footer-builder-is-active .preview-desktop #customize-preview, .responsive-footer-builder-is-active .preview-tablet #customize-preview, .responsive-footer-builder-is-active .preview-mobile #customize-preview {
+.responsive-footer-builder-is-active .preview-desktop #customize-preview, .responsive-footer-builder-is-active .preview-tablet #customize-preview {
 	height: auto;
 }
 .responsive-hfb-mode-footer .responsive-builder-area {

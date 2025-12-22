@@ -8,7 +8,7 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(22/12/2025) Version 6.3.0
+(23/12/2025) Version 6.3.0
 [+] = New = Introduced the Mobile Footer Builder - footer elements can now be configured separately for mobile/tablets and desktop.
 [*] = Improvement = Restructured the global color palette.
 [!] = Fix = Fixed an error which was causing the Footer Builder to disappear while editing Footer Widgets.
