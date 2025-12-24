@@ -7591,7 +7591,7 @@ function responsive_customizer_styles() {
 	.responsive-mobile-header-wrapper {
 		display: none;
 	}
-	@media screen and ( max-width: ${mobile_menu_breakpoint}px ) {
+	@media screen and ( max-width: {$mobile_menu_breakpoint}px ) {
 		.responsive-desktop-header-wrapper {
 			display: none;
 		}

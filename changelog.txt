@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(24/12/2025) Version 6.3.1
+[!] = Fix = Fixed CSS for Gutenberg Page and Post editor.
+[!] = Fix = Fixed a bug that was throwing an error while logging in.
+[!] = Fix = Changed the range of the content width slider in Customizer > Global Settings > Layout > Container Width.
+
 (23/12/2025) Version 6.3.0
 [+] = New = Introduced the Mobile Footer Builder - footer elements can now be configured separately for mobile/tablets and desktop.
 [*] = Improvement = Restructured the global color palette.

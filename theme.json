@@ -2,6 +2,10 @@
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 2,
 	"settings": {
+		"layout": {
+		"contentSize": "840px",
+		"wideSize": "1200px"
+		},
 		"color": {
 			"custom": true,
 			"link": true,
@@ -43,5 +47,15 @@
 				}
             ]
         }
+    },
+	"styles": {
+    "spacing": {
+      "padding": {
+        "top": "8px",
+        "right": "8px",
+        "bottom": "8px",
+        "left": "8px"
+      }
     }
+  }
 }
