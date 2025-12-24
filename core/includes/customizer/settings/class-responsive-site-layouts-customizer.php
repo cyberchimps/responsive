@@ -141,8 +141,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 
 			// Container Width.
 			$container_width_label = __( 'Container Width (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'container_width', $container_width_label, 'responsive_layout', 20, 1140, 'responsive_active_site_layout_contained', 4096, 1, 'postMessage' );
-
+			responsive_drag_number_control( $wp_customize, 'container_width', $container_width_label, 'responsive_layout', 20, 1140, 'responsive_active_site_layout_contained', 1500, 768, 'postMessage' );
 			// Header Allignment.
 			$responsive_style_label  = __( 'Style', 'responsive' );
 			$responsive_style_choice = array(

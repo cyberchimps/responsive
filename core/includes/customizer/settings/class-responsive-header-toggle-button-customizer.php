@@ -46,7 +46,7 @@ if( ! class_exists( 'Responsive_Header_Toggle_Button_Customizer' ) ) {
             );
 
             // Toggle Button Icon - General Tab 
-            $toggle_button_icon_label = __( 'Icons', 'reponsive' );
+            $toggle_button_icon_label = __( 'Icons', 'responsive' );
             $toggle_button_icon_choices = array(
                 'hamburger' => esc_html__( 'Hamburger', 'responsive' ),
                 'hamburger_solid' => esc_html__( 'Hamburger Solid', 'responsive' ),
