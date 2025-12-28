@@ -447,7 +447,6 @@
 
 				const prefix = '--responsive-global-palette';
 				const palette = newval.palette;
-				console.log("Palette : ", palette);
 
 				// Define the correct order of palette keys to ensure proper mapping to CSS variables
 				const paletteKeyOrder = ['accent', 'link_hover', 'text', 'header_text', 'content_background', 'site_background', 'alt_background'];
@@ -464,7 +463,6 @@
 
 				const root = document.documentElement;
 				Object.entries(cssVars).forEach(([varName, color]) => {
-					console.log("Trying to apply the ", varName, " with color ", color);
 					root.style.setProperty(varName, color);
 				});
 
@@ -503,7 +501,6 @@
 		};
 
 		Object.entries(globalPaletteMapping).forEach(function([settingId, index]) {
-			console.log("I have significance");
 			wp.customize(settingId, function(value) {
 				value.bind(function(newval) {
 					const cssVar = `--responsive-global-palette${index}`;
