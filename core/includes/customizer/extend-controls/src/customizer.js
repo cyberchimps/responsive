@@ -448,13 +448,16 @@
 				const prefix = '--responsive-global-palette';
 				const palette = newval.palette;
 
-				let index = 0;
+				// Define the correct order of palette keys to ensure proper mapping to CSS variables
+				const paletteKeyOrder = ['accent', 'link_hover', 'text', 'header_text', 'content_background', 'site_background', 'alt_background'];
+				
 				let cssVars = {};
 
-				Object.keys(palette).forEach(function (key) {
-					if (key === 'label') return;
-					cssVars[`${prefix}${index}`] = palette[key];
-					index++;
+				// Map palette keys to CSS variables in the correct order
+				paletteKeyOrder.forEach(function (key, index) {
+					if (palette[key] !== undefined) {
+						cssVars[`${prefix}${index}`] = palette[key];
+					}
 				});
 				cssVars['--responsive-global-headings-color'] = processThemeSettingForCSS('responsive_all_heading_text_color');
 
@@ -470,7 +473,7 @@
 			applyPalette(value.get());
 
 			// Run whenever setting value changes
-			value.bind(applyPalette);
+			// value.bind(applyPalette);
 		});
 
 		wp.customize( 'responsive_all_heading_text_color', function( value ) {
@@ -482,6 +485,33 @@
 					'--responsive-global-headings-color',
 					newval
 				);
+			});
+		});
+
+		// Individual listeners for global color palette settings to update correct CSS variables
+		// Mapping: setting ID -> CSS variable index
+		const globalPaletteMapping = {
+			'responsive_global_color_palette_accent_color': 0,
+			'responsive_global_color_palette_link_hover_color': 1,
+			'responsive_global_color_palette_text_color': 2,
+			'responsive_global_color_palette_headings_color': 3,
+			'responsive_global_color_palette_content_bg_color': 4,
+			'responsive_global_color_palette_site_background_color': 5,
+			'responsive_global_color_palette_alt_background_color': 6
+		};
+
+		Object.entries(globalPaletteMapping).forEach(function([settingId, index]) {
+			wp.customize(settingId, function(value) {
+				value.bind(function(newval) {
+					const cssVar = `--responsive-global-palette${index}`;
+					document.documentElement.style.setProperty(cssVar, newval);
+					
+					// Also update preview iframe
+					const iframe = document.querySelector('#customize-preview iframe');
+					if (iframe && iframe.contentWindow && iframe.contentWindow.document) {
+						iframe.contentWindow.document.documentElement.style.setProperty(cssVar, newval);
+					}
+				});
 			});
 		});
 	});

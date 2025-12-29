@@ -59,17 +59,13 @@ class Responsive_Global_Color_Palette {
 
 		if ( isset( $global_palette['palette'] ) ) {
 
-			$index = 0;
+			// Define the correct order of palette keys to ensure proper mapping to CSS variables
+			$palette_key_order = array( 'accent', 'link_hover', 'text', 'header_text', 'content_background', 'site_background', 'alt_background' );
 
-			foreach ( $global_palette['palette'] as $key => $color ) {
-
-				// Skip "label" only
-				if ( $key === 'label' ) {
-					continue;
+			foreach ( $palette_key_order as $index => $key ) {
+				if ( isset( $global_palette['palette'][ $key ] ) ) {
+					$palette_css_vars[ $variable_prefix . $index ] = $global_palette['palette'][ $key ];
 				}
-
-				$palette_css_vars[ $variable_prefix . $index ] = $color;
-				$index++;
 			}
 		}
 
