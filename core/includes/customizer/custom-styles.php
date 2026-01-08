@@ -1534,19 +1534,19 @@ function responsive_customizer_styles() {
 	';
 
 	if ( defined( 'ELEMENTOR_VERSION' ) ) {
-		$custom_css .= '.elementor-button-wrapper .elementor-button{ padding: ' . responsive_spacing_css( $buttons_padding_top, $buttons_padding_right, $buttons_padding_bottom, $buttons_padding_left ) . '; }';
+		$custom_css .= '.elementor-button-wrapper .elementor-button, .elementor-widget-button .elementor-button{ padding: ' . responsive_spacing_css( $buttons_padding_top, $buttons_padding_right, $buttons_padding_bottom, $buttons_padding_left ) . '; }';
 		$custom_css .= '@media screen and ( max-width: 992px ) {
-			.elementor-button-wrapper .elementor-button {
+			.elementor-button-wrapper .elementor-button, .elementor-widget-button .elementor-button {
 				padding: ' . responsive_spacing_css( $buttons_tablet_padding_top, $buttons_tablet_padding_right, $buttons_tablet_padding_bottom, $buttons_tablet_padding_left ) . '
 			}
 		}';
 		$custom_css .= '@media screen and ( max-width: 576px ) {
-			.elementor-button-wrapper .elementor-button {
+			.elementor-button-wrapper .elementor-button, .elementor-widget-button .elementor-button {
 				padding: ' . responsive_spacing_css( $buttons_mobile_padding_top, $buttons_mobile_padding_right, $buttons_mobile_padding_bottom, $buttons_mobile_padding_left ) . '
 			}
 		}';
 
-		$custom_css .= '.elementor-button-wrapper .elementor-button {
+		$custom_css .= '.elementor-button-wrapper .elementor-button, .elementor-widget-button .elementor-button {
 			border-style: solid;
 			border-top-left-radius: ' . $button_top_left_radius . 'px;
 			border-top-right-radius: ' . $button_top_right_radius . 'px;
@@ -1560,7 +1560,7 @@ function responsive_customizer_styles() {
 		}';
 
 		$custom_css .= '@media screen and ( max-width: 992px ) {
-			.elementor-button-wrapper .elementor-button {
+			.elementor-button-wrapper .elementor-button, .elementor-widget-button .elementor-button {
 				border-top-left-radius: ' . $button_tablet_top_left_radius . 'px;
 				border-top-right-radius: ' . $button_tablet_top_right_radius . 'px;
 				border-bottom-left-radius: ' . $button_tablet_bottom_left_radius . 'px;
@@ -1573,7 +1573,7 @@ function responsive_customizer_styles() {
 		}';
 
 		$custom_css .= '@media screen and ( max-width: 576px ) {
-			.elementor-button-wrapper .elementor-button {
+			.elementor-button-wrapper .elementor-button, .elementor-widget-button .elementor-button {
 				border-top-left-radius: ' . $button_mobile_top_left_radius . 'px;
 				border-top-right-radius: ' . $button_mobile_top_right_radius . 'px;
 				border-bottom-left-radius: ' . $button_mobile_bottom_left_radius . 'px;
@@ -4240,18 +4240,18 @@ function responsive_customizer_styles() {
 
 	if( $disable_elementor_default_color_setting ) {
 		$custom_css .= "
-			.elementor-button-wrapper .elementor-button {
+			.elementor-button-wrapper .elementor-button, .elementor-widget-button .elementor-button {
 				background-color: {$button_color};
 				color: {$button_text_color};
 				fill: {$button_text_color};
 				border-color: {$button_border_color}
 			}
-			.elementor-button-wrapper .elementor-button:hover {
+			.elementor-button-wrapper .elementor-button:hover, .elementor-widget-button .elementor-button:hover {
 				background-color: {$button_hover_color};
 				color: {$button_hover_text_color};
 				border-color: {$button_hover_border_color}
 			}
-			.elementor-button-wrapper .elementor-button:hover svg {
+			.elementor-button-wrapper .elementor-button:hover svg, .elementor-widget-button .elementor-button:hover svg {
 				fill: {$button_hover_text_color};
 			}
 		";
