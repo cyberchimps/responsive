@@ -2839,6 +2839,7 @@ function responsive_customizer_styles() {
 	if ( $hamburger_menu_label_font_value ) {
 		$custom_css .= ".hamburger-menu-label {
 			font-size: {$hamburger_menu_label_font_value}px;
+			text-transform: none;
 		}";
 	}
 
