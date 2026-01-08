@@ -337,6 +337,18 @@
 		let tabletBottom = api('responsive_header_toggle_button_border_radius_tablet_bottom_padding').get();
 		let tabletLeft   = api('responsive_header_toggle_button_border_radius_tablet_left_padding').get();
 
+        // Tablet Border Width - Toggle button
+        let toggle_tablet_border_width_top = api( 'responsive_mobile_menu_toggle_border_width_tablet_top_border').get();
+        let toggle_tablet_border_width_right = api( 'responsive_mobile_menu_toggle_border_width_tablet_right_border').get();
+        let toggle_tablet_border_width_bottom = api( 'responsive_mobile_menu_toggle_border_width_tablet_bottom_border').get();
+        let toggle_tablet_border_width_left = api( 'responsive_mobile_menu_toggle_border_width_tablet_left_border').get();
+
+        // Mobile Border Width - Toggle button
+        let toggle_mobile_border_width_top = api( 'responsive_mobile_menu_toggle_border_width_mobile_top_border').get();
+        let toggle_mobile_border_width_right = api( 'responsive_mobile_menu_toggle_border_width_mobile_right_border').get();
+        let toggle_mobile_border_width_bottom = api( 'responsive_mobile_menu_toggle_border_width_mobile_bottom_border').get();
+        let toggle_mobile_border_width_left = api( 'responsive_mobile_menu_toggle_border_width_mobile_left_border').get();
+
 		// Mobile values
 		let mobileTop    = api('responsive_header_toggle_button_border_radius_mobile_top_padding').get();
 		let mobileRight  = api('responsive_header_toggle_button_border_radius_mobile_right_padding').get();
@@ -348,11 +360,13 @@
 				@media (min-width:577px) and (max-width:${mobile_menu_breakpoint}px){
 					.site-header-item-toggle-button .menu-toggle {
 						border-radius: ${tabletTop}px ${tabletRight}px ${tabletBottom}px ${tabletLeft}px;
+                        border-width: ${toggle_tablet_border_width_top}px ${toggle_tablet_border_width_right}px ${toggle_tablet_border_width_bottom}px ${toggle_tablet_border_width_left}px;
 					}
 				}
                 @media (max-width:576px){
                     .site-header-item-toggle-button .menu-toggle {
                         border-radius: ${mobileTop}px ${mobileRight}px ${mobileBottom}px ${mobileLeft}px;
+                        border-width: ${toggle_mobile_border_width_top}px ${toggle_mobile_border_width_right}px ${toggle_mobile_border_width_bottom}px ${toggle_mobile_border_width_left}px;
                     }
 				}
 			</style>
@@ -370,8 +384,27 @@
         'responsive_header_toggle_button_border_radius_mobile_bottom_padding',
         'responsive_header_toggle_button_border_radius_mobile_left_padding', 
     ]
+
+    const headerToggleBottonBorderWidth = [
+        'responsive_mobile_menu_toggle_border_width_tablet_top_border',
+        'responsive_mobile_menu_toggle_border_width_tablet_right_border',
+        'responsive_mobile_menu_toggle_border_width_tablet_bottom_border',
+        'responsive_mobile_menu_toggle_border_width_tablet_left_border',
+         'responsive_mobile_menu_toggle_border_width_mobile_top_border',
+        'responsive_mobile_menu_toggle_border_width_mobile_right_border',
+        'responsive_mobile_menu_toggle_border_width_mobile_bottom_border',
+        'responsive_mobile_menu_toggle_border_width_mobile_left_border',
+    ]
     
     headerToggleButtonBorderRadius.forEach(function (control) {
+        api(control, function (value) {
+            value.bind(function () {
+                applyToggleBorderRadius();
+            });
+        });
+    });
+
+    headerToggleBottonBorderWidth.forEach(function (control) {
         api(control, function (value) {
             value.bind(function () {
                 applyToggleBorderRadius();
