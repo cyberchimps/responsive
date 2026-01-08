@@ -497,7 +497,8 @@
 			'responsive_global_color_palette_headings_color': 3,
 			'responsive_global_color_palette_content_bg_color': 4,
 			'responsive_global_color_palette_site_background_color': 5,
-			'responsive_global_color_palette_alt_background_color': 6
+			'responsive_global_color_palette_alt_background_color': 6,
+			'responsive_global_color_palette_subtle_background_color': 7
 		};
 
 		Object.entries(globalPaletteMapping).forEach(function([settingId, index]) {

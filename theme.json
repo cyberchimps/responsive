@@ -44,6 +44,11 @@
 					"name": "Alt Background",
 					"slug": "responsive-global-palette6",
 					"color": "var(--responsive-global-palette6)"
+				},
+				{
+					"name": "Subtle Background",
+					"slug": "responsive-global-palette7",
+					"color": "var(--responsive-global-palette7)"
 				}
             ]
         }

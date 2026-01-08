@@ -1839,6 +1839,7 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#eaeaea',
+						'subtle_background' => '#10659C'
 
 					),
 					'one'     => array(
@@ -1851,6 +1852,7 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#f7fbff',
+						'subtle_background' => '#313789'
 					),
 					'two'     => array(
 						'label'             => _x( 'Coral', 'color palette name', 'responsive' ),
@@ -1862,6 +1864,7 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#fff7f7',
+						'subtle_background' => '#d74143'
 					),
 					'three'   => array(
 						'label'             => _x( 'Organic', 'color palette name', 'responsive' ),
@@ -1873,6 +1876,7 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#f2f9f7',
+						'subtle_background' => '#2c6651'
 					),
 					'four'    => array(
 						'label'             => _x( 'Berry', 'color palette name', 'responsive' ),
@@ -1884,6 +1888,7 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#f7feff',
+						'subtle_background' => '#0c5067'
 					),
 				),
 			),
@@ -1902,6 +1907,7 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background' => '#f8f8f8',
+						'subtle_background' => '#e5822e'
 					),
 					'two'   => array(
 						'label'          => _x( 'Emerald', 'color palette name', 'responsive' ),
@@ -1913,6 +1919,7 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background' => '#f3f1f0',
+						'subtle_background' => '#21787b'
 					),
 					'three' => array(
 						'label'          => _x( 'Brick', 'color palette name', 'responsive' ),
@@ -1924,6 +1931,7 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background' => '#f9f2ef',
+						'subtle_background' => '#b52b13'
 					),
 					'four'  => array(
 						'label'          => _x( 'Bronze', 'color palette name', 'responsive' ),
@@ -1935,6 +1943,7 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background' => '#f9f4ef',
+						'subtle_background' => '#846939'
 					),
 				),
 			),
@@ -1953,6 +1962,7 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background' => '#eceff1',
+						'subtle_background' => '#808080'
 					),
 					'two'   => array(
 						'label'          => _x( 'Blush', 'color palette name', 'responsive' ),
@@ -1964,6 +1974,7 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background' => '#fce4ec',
+						'subtle_background' => '#951246'
 					),
 					'three' => array(
 						'label'          => _x( 'Indiresponsive', 'color palette name', 'responsive' ),
@@ -1975,6 +1986,7 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background' => '#e8eaf6',
+						'subtle_background' => '#3d50c5'
 					),
 					'four'  => array(
 						'label'          => _x( 'Pacific', 'color palette name', 'responsive' ),
@@ -1986,6 +1998,7 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background' => '#e0f2f1',
+						'subtle_background' => '#00463e'
 					),
 				),
 			),
@@ -2004,6 +2017,7 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#ded9e2',
+						'subtle_background' => '#808080'
 					),
 
 					'two'   => array(
@@ -2016,6 +2030,7 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#c0c9d0',
+						'subtle_background' => '#808080'
 					),
 					'three' => array(
 						'label'             => _x( 'Avocado', 'color palette name', 'responsive' ),
@@ -2027,6 +2042,7 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#b4c6af',
+						'subtle_background' => '#808080'
 					),
 					'four'  => array(
 						'label'             => _x( 'Champagne', 'color palette name', 'responsive' ),
@@ -2038,6 +2054,7 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#e5dede',
+						'subtle_background' => '#808080'
 					),
 				),
 			),
@@ -2056,6 +2073,7 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#eeeeee',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#c9c9c9',
+						'subtle_background' => '#87dfcb'
 					),
 					'two'   => array(
 						'label'             => _x( 'Spruce', 'color palette name', 'responsive' ),
@@ -2067,6 +2085,7 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#eeeeee',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#c9c9c9',
+						'subtle_background' => '#87dfcb'
 					),
 					'three' => array(
 						'label'             => _x( 'Mocha', 'color palette name', 'responsive' ),
@@ -2078,6 +2097,7 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#eeeeee',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#c9c9c9',
+						'subtle_background' => '#ddbf9d'
 					),
 					'four'  => array(
 						'label'             => _x( 'Lavender', 'color palette name', 'responsive' ),
@@ -2089,6 +2109,7 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#eeeeee',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#c9c9c9',
+						'subtle_background' => '#d4d1ea'
 					),
 				),
 			),

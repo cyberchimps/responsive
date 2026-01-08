@@ -26,7 +26,8 @@ const PaletteComponent = props => {
         header_text: 'responsive_global_color_palette_headings_color',
         content_background: 'responsive_global_color_palette_content_bg_color',
         site_background: 'responsive_global_color_palette_site_background_color',
-        alt_background: 'responsive_global_color_palette_alt_background_color'
+        alt_background: 'responsive_global_color_palette_alt_background_color',
+        subtle_background: 'responsive_global_color_palette_subtle_background_color'
     };
 
     // Helper function to build palette object from current individual settings
@@ -290,6 +291,9 @@ const PaletteComponent = props => {
             else if(settingId === "responsive_global_color_palette_alt_background_color"){
                 return "#eaeaea";
             }
+            else if(settingId === "responsive_global_color_palette_subtle_background_color"){
+                return "#007fff";
+            }
             return "#ffffff";
 
         }
@@ -396,6 +400,7 @@ const PaletteComponent = props => {
                 <InlineThemeModColorPicker key={4} settingId={'responsive_global_color_palette_content_bg_color'} labelText={'Content Background'} settingKey={'content_background'} selectedChoice={selectedChoice} />
                 <InlineThemeModColorPicker key={5} settingId={'responsive_global_color_palette_site_background_color'} labelText={'Site Background'} settingKey={'site_background'} selectedChoice={selectedChoice} />
                 <InlineThemeModColorPicker key={6} settingId={'responsive_global_color_palette_alt_background_color'} labelText={'Alt Background'} settingKey={'alt_background'} selectedChoice={selectedChoice} />
+                <InlineThemeModColorPicker key={7} settingId={'responsive_global_color_palette_subtle_background_color'} labelText={'Subtle Background'} settingKey={'subtle_background'} selectedChoice={selectedChoice} />
             </div>
         </div>
     </div>

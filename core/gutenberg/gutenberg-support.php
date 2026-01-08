@@ -102,6 +102,8 @@ function responsive_gutenberg_colors( $responsive_gutenberg_color_options ) {
 	$css .= ':root .has-responsive-global-palette-5-background-color { background-color: var(--responsive-global-palette5); }';
 	$css .= ':root .has-responsive-global-palette-6-color { color: var(--responsive-global-palette6); }';
 	$css .= ':root .has-responsive-global-palette-6-background-color { background-color: var(--responsive-global-palette6); }';
+	$css .= ':root .has-responsive-global-palette-7-color { color: var(--responsive-global-palette7); }';
+	$css .= ':root .has-responsive-global-palette-7-background-color { background-color: var(--responsive-global-palette7); }';
 	return wp_strip_all_tags( $css );
 }
 
