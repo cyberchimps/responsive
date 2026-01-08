@@ -7963,7 +7963,9 @@ function responsive_customizer_styles() {
 	// Get off-canvas menu style settings
 	$off_canvas_menu_items_divider = get_theme_mod( 'responsive_header_off_canvas_menu_items_divider', 1 );
 	$off_canvas_menu_visibility = get_theme_mod( 'responsive_header_off_canvas_menu_visibility', array('desktop','tablet','mobile') );
-
+	// Get Item divider size and color settings
+	$off_canvas_menu_items_divider_size = get_theme_mod( 'responsive_header_off_canvas_menu_item_divider_size');
+	$off_canvas_menu_items_divider_color = esc_html( get_theme_mod( 'responsive_header_off_canvas_menu_item_divider_color_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_off_canvas_menu_item_divider_color_color' ) ) );//get_theme_mod( 'responsive_header_off_canvas_menu_item_divider_color_color');
 	// Get typography settings
 	$off_canvas_menu_typography = get_theme_mod( 'header_off_canvas_menu_typography' );
 	$header_menu_typography = get_theme_mod( 'header_menu_typography' );
@@ -8050,7 +8052,7 @@ function responsive_customizer_styles() {
 	if ( $off_canvas_menu_items_divider ) {
 		$custom_css .= "
 		.off-canvas-widget-area #off-canvas-menu > li {
-			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+			border-bottom: {$off_canvas_menu_items_divider_size}px solid {$off_canvas_menu_items_divider_color};
 		}
 		.off-canvas-widget-area #off-canvas-menu li:last-child {
 			border-bottom: none;
@@ -8058,14 +8060,14 @@ function responsive_customizer_styles() {
 
 		@media screen and (max-width: 992px) {
 			.off-canvas-widget-area .menu > li.menu-item {
-				border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+				border-bottom:  {$off_canvas_menu_items_divider_size}px solid {$off_canvas_menu_items_divider_color};
 			}	
 			li.menu-item:last-child {
 				border-bottom: none;
 			}
 
 			#off-canvas-site-navigation .menu > li{
-				border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+				border-bottom: {$off_canvas_menu_items_divider_size}px solid {$off_canvas_menu_items_divider_color};
 			}
 
 			#off-canvas-site-navigation .menu li:last-child {

@@ -412,6 +412,58 @@
         });
     });
 
+    // Apply Item divider size and color
+      const headerCanvasItemDividerSettings = [
+        'responsive_header_off_canvas_menu_item_divider_size',
+        'responsive_header_off_canvas_menu_item_divider_color_color',
+        'responsive_header_off_canvas_menu_item_divider_size',
+        'responsive_header_off_canvas_menu_item_divider_color_color',
+    ]
+    
+    headerCanvasItemDividerSettings.forEach(function (control) {
+        api(control, function (value) {
+            value.bind(function () {
+                applyCanvasItemDividerSettings();
+            });
+        });
+    });
+
+    function applyCanvasItemDividerSettings(){
+
+		// remove previously inserted preview style
+		$('style#responsive-item-divider-settings').remove();
+
+		let mobile_menu_breakpoint = api('responsive_mobile_menu_breakpoint').get();
+		if ( api('responsive_disable_mobile_menu').get() == 0 ) {
+			mobile_menu_breakpoint = 0;
+		}
+
+        // Desktop  values
+        let deskTop   
+		// Tablet  values
+		let tabDividerSize    = api('responsive_header_off_canvas_menu_item_divider_size').get();
+		let tabDividerColor    = api('responsive_header_off_canvas_menu_item_divider_color_color').get();
+
+		// Mobile  values
+		let mobDividerSize    = api('responsive_header_off_canvas_menu_item_divider_size').get();
+		let mobDividerColor    = api('responsive_header_off_canvas_menu_item_divider_color_color').get();
+
+		$('head').append(`
+			<style id="responsive-item-divider-settings">
+				@media (min-width:577px) and (max-width:${mobile_menu_breakpoint}px) {
+                    #off-canvas-site-navigation .menu > li{
+                        border-bottom: ${tabDividerSize}px solid ${tabDividerColor};
+                    }
+				}
+				@media (max-width:576px) {
+					 #off-canvas-site-navigation .menu > li{
+                        border-bottom: ${mobDividerSize}px solid ${mobDividerColor};
+                    }
+				}
+			</style>
+		`);
+    }
+
     function applyToggleMargins() {
 
 		// remove previously inserted preview style
