@@ -2420,6 +2420,12 @@ function responsive_customizer_styles() {
 		}
 		.site-branding-wrapper.site-branding-inline .site-title-tagline.site-title-inline .site-title {
 			margin: 0;
+		}
+		@media screen and (max-width: 800px) {
+			.site-mobile-header-section .custom-logo-link .customize-partial-edit-shortcut button{
+				left: -10px;
+				top: -7px;
+			}
 		}";
 	}
 	$custom_css .= '.res-transparent-header .site-content {
