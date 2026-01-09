@@ -649,6 +649,88 @@
         } );
     } );
 
+    //Buttons hover color
+    api( 'responsive_button_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            // Inline style won't work for :hover, so we inject a style tag
+            var styleId = 'responsive-button-hover-color-preview';
+            jQuery('style#' + styleId).remove();
+            
+            var selectors = '.page.front-page .button:hover, .blog.front-page .button:hover, .read-more-button .hentry .read-more .more-link:hover, input[type=button]:hover, input[type=submit]:hover, button:hover, .button:hover, .wp-block-button__link:hover, div.wpforms-container-full .wpforms-form input[type=submit]:hover, body div.wpforms-container-full .wpforms-form button[type=submit]:hover, div.wpforms-container-full .wpforms-form .wpforms-page-button:hover';
+            
+            var css = selectors + ' { background-color: ' + newval + ' !important; }';
+            
+            jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+        } );
+    } );
+
+    // Header Button Hover Color
+    api( 'responsive_header_button_bg_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            var styleId = 'responsive-header-button-hover-color-preview';
+            jQuery('style#' + styleId).remove();
+            
+            var selectors = '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover';
+            var css = selectors + ' { background-color: ' + newval + ' !important; }';
+            
+            jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+        } );
+    } );
+
+    // Mobile Header Button Hover Color
+    api( 'responsive_mobile_header_button_bg_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            var styleId = 'responsive-mobile-header-button-hover-color-preview';
+            jQuery('style#' + styleId).remove();
+            
+            var selectors = '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover';
+            var css = selectors + ' { background-color: ' + newval + ' !important; }';
+            
+            jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+        } );
+    } );
+
+    // Add To Cart Button Hover Color
+    api( 'responsive_add_to_cart_button_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            var styleId = 'responsive-add-to-cart-button-hover-color-preview';
+            jQuery('style#' + styleId).remove();
+            
+            var selectors = '.woocommerce #respond input#submit:hover, .wp-block-button__link.add_to_cart_button:hover, .woocommerce div.product .woocommerce-tabs ul.tabs li.active a, .woocommerce div.product .woocommerce-tabs ul.tabs li.active, .woocommerce button.button:focus, .woocommerce button.button.alt:focus, .woocommerce button.button:hover, .woocommerce button.button.alt:hover, .woocommerce button.button:hover, .woocommerce button.button:focus, .woocommerce a.button:focus, .woocommerce a.button:hover, .woocommerce a.button.alt:focus, .woocommerce a.button.alt:hover, .woocommerce .widget_price_filter .price_slider_wrapper .ui-widget-content';
+            var css = selectors + ' { background-color: ' + newval + ' !important; }';
+            
+            jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+        } );
+    } );
+
+    // Cart & Checkout Button Hover Color
+    api( 'responsive_cart_checkout_button_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            var styleId = 'responsive-cart-checkout-button-hover-color-preview';
+            jQuery('style#' + styleId).remove();
+            
+            var selectors = '.page.woocommerce-cart .woocommerce a.button.alt:hover, .page.woocommerce-cart .woocommerce a.button:hover, .page.woocommerce-cart .wp-block-woocommerce-cart a.wc-block-cart__submit-button:hover, .page.woocommerce-checkout .woocommerce button.button.alt:hover, .page.woocommerce-checkout .woocommerce button.button:hover, .page.woocommerce-checkout .wp-block-woocommerce-checkout button.wc-block-components-checkout-place-order-button:hover';
+            var css = selectors + ' { background-color: ' + newval + ' !important; }';
+            
+            jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+        } );
+    } );
+
     //Buttons text Color
     api( 'responsive_button_text_color', function( value ) {
         value.bind( function( newval ) {

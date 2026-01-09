@@ -58,7 +58,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Colors_Customizer' ) ) :
 
 			// Button Hover.
 			$add_to_cart_button_hover_label = __( 'Button Hover', 'responsive' );
-			responsive_color_control( $wp_customize, 'add_to_cart_button_hover', $add_to_cart_button_hover_label, 'responsive_woocommerce_shop', 60, '#10659C' );
+			responsive_color_control( $wp_customize, 'add_to_cart_button_hover', $add_to_cart_button_hover_label, 'responsive_woocommerce_shop', 60, Responsive\Core\get_responsive_customizer_defaults( 'responsive_add_to_cart_button_hover_color' ) );
 
 			// Button Hover Text.
 			$add_to_cart_button_hover_text_label = __( 'Button Hover Text', 'responsive' );
