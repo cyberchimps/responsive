@@ -1989,6 +1989,7 @@ function responsive_get_available_design_styles() {
 						'subtle_background' => '#3d50c5'
 					),
 					'four'  => array(
+					'three'  => array(
 						'label'          => _x( 'Pacific', 'color palette name', 'responsive' ),
 						'accent'         => '#00796b',
 						'link_hover'	 => '#00463e',
@@ -2088,6 +2089,7 @@ function responsive_get_available_design_styles() {
 						'subtle_background' => '#87dfcb'
 					),
 					'three' => array(
+					'two' => array(
 						'label'             => _x( 'Mocha', 'color palette name', 'responsive' ),
 						'accent'            => '#5b3f20',
 						'link_hover'		=> '#ddbf9d',
@@ -2099,7 +2101,7 @@ function responsive_get_available_design_styles() {
 						'alt_background'    => '#c9c9c9',
 						'subtle_background' => '#ddbf9d'
 					),
-					'four'  => array(
+					'three'  => array(
 						'label'             => _x( 'Lavender', 'color palette name', 'responsive' ),
 						'accent'            => '#443a82',
 						'link_hover'	    => '#d4d1ea',
