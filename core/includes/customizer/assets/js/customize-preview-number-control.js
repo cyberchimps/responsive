@@ -337,6 +337,18 @@
 		let tabletBottom = api('responsive_header_toggle_button_border_radius_tablet_bottom_padding').get();
 		let tabletLeft   = api('responsive_header_toggle_button_border_radius_tablet_left_padding').get();
 
+        // Tablet Border Width - Toggle button
+        let toggle_tablet_border_width_top = api( 'responsive_mobile_menu_toggle_border_width_tablet_top_border').get();
+        let toggle_tablet_border_width_right = api( 'responsive_mobile_menu_toggle_border_width_tablet_right_border').get();
+        let toggle_tablet_border_width_bottom = api( 'responsive_mobile_menu_toggle_border_width_tablet_bottom_border').get();
+        let toggle_tablet_border_width_left = api( 'responsive_mobile_menu_toggle_border_width_tablet_left_border').get();
+
+        // Mobile Border Width - Toggle button
+        let toggle_mobile_border_width_top = api( 'responsive_mobile_menu_toggle_border_width_mobile_top_border').get();
+        let toggle_mobile_border_width_right = api( 'responsive_mobile_menu_toggle_border_width_mobile_right_border').get();
+        let toggle_mobile_border_width_bottom = api( 'responsive_mobile_menu_toggle_border_width_mobile_bottom_border').get();
+        let toggle_mobile_border_width_left = api( 'responsive_mobile_menu_toggle_border_width_mobile_left_border').get();
+
 		// Mobile values
 		let mobileTop    = api('responsive_header_toggle_button_border_radius_mobile_top_padding').get();
 		let mobileRight  = api('responsive_header_toggle_button_border_radius_mobile_right_padding').get();
@@ -348,11 +360,13 @@
 				@media (min-width:577px) and (max-width:${mobile_menu_breakpoint}px){
 					.site-header-item-toggle-button .menu-toggle {
 						border-radius: ${tabletTop}px ${tabletRight}px ${tabletBottom}px ${tabletLeft}px;
+                        border-width: ${toggle_tablet_border_width_top}px ${toggle_tablet_border_width_right}px ${toggle_tablet_border_width_bottom}px ${toggle_tablet_border_width_left}px;
 					}
 				}
                 @media (max-width:576px){
                     .site-header-item-toggle-button .menu-toggle {
                         border-radius: ${mobileTop}px ${mobileRight}px ${mobileBottom}px ${mobileLeft}px;
+                        border-width: ${toggle_mobile_border_width_top}px ${toggle_mobile_border_width_right}px ${toggle_mobile_border_width_bottom}px ${toggle_mobile_border_width_left}px;
                     }
 				}
 			</style>
@@ -370,6 +384,17 @@
         'responsive_header_toggle_button_border_radius_mobile_bottom_padding',
         'responsive_header_toggle_button_border_radius_mobile_left_padding', 
     ]
+
+    const headerToggleBottonBorderWidth = [
+        'responsive_mobile_menu_toggle_border_width_tablet_top_border',
+        'responsive_mobile_menu_toggle_border_width_tablet_right_border',
+        'responsive_mobile_menu_toggle_border_width_tablet_bottom_border',
+        'responsive_mobile_menu_toggle_border_width_tablet_left_border',
+         'responsive_mobile_menu_toggle_border_width_mobile_top_border',
+        'responsive_mobile_menu_toggle_border_width_mobile_right_border',
+        'responsive_mobile_menu_toggle_border_width_mobile_bottom_border',
+        'responsive_mobile_menu_toggle_border_width_mobile_left_border',
+    ]
     
     headerToggleButtonBorderRadius.forEach(function (control) {
         api(control, function (value) {
@@ -378,6 +403,66 @@
             });
         });
     });
+
+    headerToggleBottonBorderWidth.forEach(function (control) {
+        api(control, function (value) {
+            value.bind(function () {
+                applyToggleBorderRadius();
+            });
+        });
+    });
+
+    // Apply Item divider size and color
+      const headerCanvasItemDividerSettings = [
+        'responsive_header_off_canvas_menu_item_divider_size',
+        'responsive_header_off_canvas_menu_item_divider_color_color',
+        'responsive_header_off_canvas_menu_item_divider_size',
+        'responsive_header_off_canvas_menu_item_divider_color_color',
+    ]
+    
+    headerCanvasItemDividerSettings.forEach(function (control) {
+        api(control, function (value) {
+            value.bind(function () {
+                applyCanvasItemDividerSettings();
+            });
+        });
+    });
+
+    function applyCanvasItemDividerSettings(){
+
+		// remove previously inserted preview style
+		$('style#responsive-item-divider-settings').remove();
+
+		let mobile_menu_breakpoint = api('responsive_mobile_menu_breakpoint').get();
+		if ( api('responsive_disable_mobile_menu').get() == 0 ) {
+			mobile_menu_breakpoint = 0;
+		}
+
+        // Desktop  values
+        let deskTop   
+		// Tablet  values
+		let tabDividerSize    = api('responsive_header_off_canvas_menu_item_divider_size').get();
+		let tabDividerColor    = api('responsive_header_off_canvas_menu_item_divider_color_color').get();
+
+		// Mobile  values
+		let mobDividerSize    = api('responsive_header_off_canvas_menu_item_divider_size').get();
+		let mobDividerColor    = api('responsive_header_off_canvas_menu_item_divider_color_color').get();
+
+		$('head').append(`
+			<style id="responsive-item-divider-settings">
+				@media (min-width:577px) and (max-width:${mobile_menu_breakpoint}px) {
+                    #off-canvas-site-navigation .menu > li{
+                        border-bottom: ${tabDividerSize}px solid ${tabDividerColor};
+                    }
+				}
+				@media (max-width:576px) {
+					 #off-canvas-site-navigation .menu > li{
+                        border-bottom: ${mobDividerSize}px solid ${mobDividerColor};
+                    }
+				}
+			</style>
+		`);
+    }
 
     function applyToggleMargins() {
 

@@ -118,6 +118,18 @@ if( ! class_exists( 'Responsive_Header_Off_Canvas_Menu_Layouts_Customizer' ) ) {
             responsive_padding_control( $wp_customize, 'header_off_canvas_menu_margin', 'responsive_header_off_canvas_menu_layout', 70, 0, 0, null, $off_canvas_menu_margin_label );
 
 
+            // Item Divider Separator - Design
+            $off_canvas_menu_item_divider_separator_label = __( 'Item Divider', 'responsive' );
+            responsive_separator_control( $wp_customize, 'header_off_canvas_menu_item_divider_separator', $off_canvas_menu_item_divider_separator_label, 'responsive_header_off_canvas_menu_layout', 75);
+
+            // Item Divider Size - Design Tab
+            $off_canvas_menu_item_divider_size_label = __( 'Size', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_off_canvas_menu_item_divider_size', $off_canvas_menu_item_divider_size_label, 'responsive_header_off_canvas_menu_layout', 80, 1, null, 5 );
+
+            // Item Divider Color - Design Tab
+            $off_canvas_menu_item_divider_color_label = __( 'Color', 'responsive' );
+            responsive_color_control( $wp_customize, 'header_off_canvas_menu_item_divider_color', $off_canvas_menu_item_divider_color_label, 'responsive_header_off_canvas_menu_layout', 85, Responsive\Core\get_responsive_customizer_defaults( 'header_off_canvas_menu_item_divider_color' ) );
+
 
             $tabs_label = esc_html__('Tabs', 'responsive' );
             $tab_ids_prefix = 'customize-control-';
@@ -134,7 +146,9 @@ if( ! class_exists( 'Responsive_Header_Off_Canvas_Menu_Layouts_Customizer' ) ) {
                 $tab_ids_prefix . 'responsive_header_off_canvas_menu_spacing_separator',
                 $tab_ids_prefix . 'responsive_header_off_canvas_menu_spacing_padding',
                 $tab_ids_prefix . 'responsive_header_off_canvas_menu_margin_padding',
-
+                $tab_ids_prefix . 'responsive_header_off_canvas_menu_item_divider_separator',
+                $tab_ids_prefix . 'responsive_header_off_canvas_menu_item_divider_size',
+                $tab_ids_prefix . 'responsive_header_off_canvas_menu_item_divider_color_color',
             ); 
             $general_tab_ids = array(
                 $tab_ids_prefix . 'responsive_redirect_to_off_canvas_menu_set_location',

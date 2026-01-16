@@ -101,6 +101,10 @@ if( ! class_exists( 'Responsive_Header_Toggle_Button_Customizer' ) ) {
             $header_toggle_button_icon_color_label = __( 'Icon Color', 'responsive' );
             responsive_color_control( $wp_customize, 'header_toggle_button_icon', $header_toggle_button_icon_color_label, 'responsive_header_toggle_button', 10, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_toggle_button_icon_color' ), null, '', false, null, null, false, null, null, 'color' );
             
+            // Border Width - Design Tab
+            $mobile_header_toggle_button_border_width_label = __( 'Border Width (px)', 'responsive' );
+			responsive_borderwidth_control( $wp_customize, 'mobile_menu_toggle_border_width', 'responsive_header_toggle_button', 11, 0, 0, null, $mobile_header_toggle_button_border_width_label,'postMessage' );
+
             // Border Color - Design Tab
             $header_toggle_button_border_color_label = __( 'Border Color', 'responsive' );
             responsive_color_control( $wp_customize, 'mobile_menu_toggle_border', $header_toggle_button_border_color_label, 'responsive_header_toggle_button', 12, Responsive\Core\get_responsive_customizer_defaults( 'mobile_menu_toggle_border_color' ) );
@@ -161,7 +165,8 @@ if( ! class_exists( 'Responsive_Header_Toggle_Button_Customizer' ) ) {
                 $tab_ids_prefix . 'responsive_header_toggle_button_spacing_separator',
                 $tab_ids_prefix . 'responsive_header_toggle_button_margin_padding',
                 $tab_ids_prefix . 'responsive_header_toggle_button_icon_size',
-                $tab_ids_prefix . 'responsive_mobile_menu_toggle_border_color'
+                $tab_ids_prefix . 'responsive_mobile_menu_toggle_border_color',
+                $tab_ids_prefix . 'responsive_mobile_menu_toggle_border_width_border',
             ); 
 
             $general_tab_ids = array(
