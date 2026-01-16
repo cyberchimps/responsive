@@ -26,6 +26,7 @@ const PaletteColorPicker = props => {
             <span className="component-color-indicator responsive-color-palette-indicate" style={{ ...indicatorStyle, background: props.colorsPicks.content_background }} title="Content Background"></span>
             <span className="component-color-indicator responsive-color-palette-indicate" style={{ ...indicatorStyle, background: props.colorsPicks.site_background }} title="Site Background"></span>
             <span className="component-color-indicator responsive-color-palette-indicate" style={{ ...indicatorStyle, background: props.colorsPicks.alt_background }} title="Alt Background"></span>
+            <span className="component-color-indicator responsive-color-palette-indicate" style={{ ...indicatorStyle, background: props.colorsPicks.subtle_background }} title="Subtle Background"></span>
         </div>
     );
 };
