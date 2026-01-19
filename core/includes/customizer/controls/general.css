@@ -1652,7 +1652,7 @@ in both cases the footer builder is active */
 }
 
 /* Reset button for color controls */
-.responsive-color-reset-btn {
+.responsive-color-reset-btn, .responsive-slider-reset-btn {
 	background: none;
 	border: none;
 	cursor: pointer;
@@ -1665,15 +1665,15 @@ in both cases the footer builder is active */
 	justify-content: center;
 }
 
-.responsive-color-reset-btn:hover {
+.responsive-color-reset-btn:hover, .responsive-slider-reset-btn:hover {
 	background-color: #f0f0f1;
 }
 
-.responsive-color-reset-btn:hover svg path {
+.responsive-color-reset-btn:hover svg path, .responsive-slider-reset-btn:hover svg path {
 	fill: #0073aa;
 }
 
-.responsive-color-reset-btn:focus {
+.responsive-color-reset-btn:focus, .responsive-slider-reset-btn:focus {
 	outline: 1px solid #0073aa;
 	outline-offset: 2px;
 }
