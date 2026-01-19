@@ -2422,7 +2422,8 @@ function responsive_customizer_styles() {
 			margin: 0;
 		}
 		@media screen and (max-width: 800px) {
-			.site-mobile-header-section .custom-logo-link .customize-partial-edit-shortcut button{
+			.site-mobile-header-section .custom-logo-link .customize-partial-edit-shortcut button,
+			.site-mobile-header-section .site-description .customize-partial-edit-shortcut-button{
 				left: -10px;
 				top: -7px;
 			}
