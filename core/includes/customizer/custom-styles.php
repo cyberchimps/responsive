@@ -8415,17 +8415,17 @@ function responsive_customizer_styles() {
 		// 	}
 		// ";
 		
-		$woocommerce_custom_css .= '<style id="responsive-live-preview">';
+
 		$woocommerce_custom_css .= sprintf(
 		'li.product {
 			background-color: %s !important;
     	}',
 			$product_bg_color
 		);
-		$woocommerce_custom_css .= '</style>';
 
 
-		$woocommerce_custom_css .= '<style id="responsive-product-radius">';
+
+
 
 		$woocommerce_custom_css .= sprintf(
 			'.woocommerce-breadcrumb.is-single-product {
@@ -8498,7 +8498,7 @@ function responsive_customizer_styles() {
 			$mobile_breakpoint
 		);
 
-		$woocommerce_custom_css .= '</style>';
+
 
 
 		$single_product_setting        = get_theme_mod( 'responsive_single_product_sidebar_position', 'no' );
