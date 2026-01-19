@@ -1,9 +1,26 @@
 import PropTypes from 'prop-types';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {__} from '@wordpress/i18n';
 
 const TextComponent = props => {
 	const [props_value, setPropsValue] = useState(props.control.settings);
+	const [activeDevice, setActiveDevice] = useState('desktop');
+
+	useEffect(() => {
+		if (window.wp && window.wp.customize && window.wp.customize.previewedDevice) {
+			const currentDevice = window.wp.customize.previewedDevice.get();
+			setActiveDevice(currentDevice);
+			
+			const handleDeviceChange = () => {
+				const device = window.wp.customize.previewedDevice.get();
+				setActiveDevice(device);
+			};
+			window.wp.customize.previewedDevice.bind(handleDeviceChange);
+			return () => {
+				window.wp.customize.previewedDevice.unbind(handleDeviceChange);
+			};
+		}
+	}, []);
 
 	const onInputChange = (device, value) => {
 		let inputValue = Number(value);
@@ -134,17 +151,17 @@ const TextComponent = props => {
 			<span>{label}</span>
 			<ul  className="responsive-switchers">
 				<li className="desktop">
-					<button type="button" className="preview-desktop active" data-device="desktop">
+					<button type="button" className={`preview-desktop ${activeDevice === 'desktop' ? 'active' : ''}`} data-device="desktop" onClick={() => window.wp.customize.previewedDevice.set('desktop')}>
 						<i className="dashicons dashicons-desktop"></i>
 					</button>
 				</li>
 				<li className="tablet">
-					<button type="button" className="preview-tablet" data-device="tablet">
+					<button type="button" className={`preview-tablet ${activeDevice === 'tablet' ? 'active' : ''}`} data-device="tablet" onClick={() => window.wp.customize.previewedDevice.set('tablet')}>
 						<i className="dashicons dashicons-tablet"></i>
 					</button>
 				</li>
 				<li className="mobile">
-					<button type="button" className="preview-mobile" data-device="mobile">
+					<button type="button" className={`preview-mobile ${activeDevice === 'mobile' ? 'active' : ''}`} data-device="mobile" onClick={() => window.wp.customize.previewedDevice.set('mobile')}>
 						<i className="dashicons dashicons-smartphone"></i>
 					</button>
 				</li>
@@ -157,14 +174,14 @@ const TextComponent = props => {
 	}
 
 	inputHtml = <>
-		{renderInputHtml('desktop', 'active')}
-		{renderInputHtml('tablet')}
-		{renderInputHtml('mobile')}
+		{renderInputHtml('desktop', activeDevice === 'desktop' ? 'active' : '')}
+		{renderInputHtml('tablet', activeDevice === 'tablet' ? 'active' : '')}
+		{renderInputHtml('mobile', activeDevice === 'mobile' ? 'active' : '')}
 	</>;
 	fontUnits = <>
-		{renderFontUnits('desktop', 'active')}
-		{renderFontUnits('tablet')}
-		{renderFontUnits('mobile')}
+		{renderFontUnits('desktop', activeDevice === 'desktop' ? 'active' : '')}
+		{renderFontUnits('tablet', activeDevice === 'tablet' ? 'active' : '')}
+		{renderFontUnits('mobile', activeDevice === 'mobile' ? 'active' : '')}
 	</>
 	return <>
 		<div class="responsive-typo-font-size-label-units-wrap">
