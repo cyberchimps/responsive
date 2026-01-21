@@ -1167,6 +1167,7 @@ function defaults() {
 			'mobile_header_html_margin_x'         => 0,
 			'mobile_header_html_margin_y'         => 0,
 			'mobile_menu_toggle_border_color'     => '#0066cc',
+			'mobile_menu_toggle_border_width'	  => 1,
 			'menu_button_radius'                  => 0,
 			'responsive_alt_background_color'     => 'palette6',
 			'body_text'                           => '#333333',
