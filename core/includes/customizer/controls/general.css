@@ -1856,6 +1856,6 @@ in both cases the footer builder is active */
 }
 /* The following style is added to fix spacing issue in customizer when Starter Templates plugin is installed */
 /* any change below might cause the issue to appear again - WP-11315 */
-.customize-control-responsive-color-with-devices-and-hover label, .customize-control-alpha-color label {
+.customize-control-responsive-color-with-devices-and-hover label, .customize-control-alpha-color label, .customize-control-responsive-palette label {
 	box-sizing: initial;
 }
