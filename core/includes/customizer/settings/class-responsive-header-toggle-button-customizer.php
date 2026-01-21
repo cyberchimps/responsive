@@ -103,7 +103,7 @@ if( ! class_exists( 'Responsive_Header_Toggle_Button_Customizer' ) ) {
             
             // Border Width - Design Tab
             $mobile_header_toggle_button_border_width_label = __( 'Border Width (px)', 'responsive' );
-			responsive_borderwidth_control( $wp_customize, 'mobile_menu_toggle_border_width', 'responsive_header_toggle_button', 11, 0, 0, null, $mobile_header_toggle_button_border_width_label,'postMessage' );
+			responsive_borderwidth_control( $wp_customize, 'mobile_menu_toggle_border_width', 'responsive_header_toggle_button', 11, Responsive\Core\get_responsive_customizer_defaults( 'mobile_menu_toggle_border_width' ) ,  Responsive\Core\get_responsive_customizer_defaults( 'mobile_menu_toggle_border_width' ), null, $mobile_header_toggle_button_border_width_label,'postMessage' );
 
             // Border Color - Design Tab
             $header_toggle_button_border_color_label = __( 'Border Color', 'responsive' );
