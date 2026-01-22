@@ -9,7 +9,7 @@ Changelog Legend:
 [!] = Bugs
 
 (22/01/2025) Version 6.3.2
-[!] = Fix = Resolved multiple mobile header issues.
+[!] = Fix = Resolved mobile header issues.
 [!] = Fix = Addressed PHP deprecated notice related to usage of ${var} syntax in the Responsive theme.
 [!] = Fix = Fixed Customizer layout conflicts with Starter Templates plugin.
 [!] = Fix = Resolved styling issues where LifterLMS styles were affecting LMS and EduKids starter templates.
