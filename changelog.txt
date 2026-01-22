@@ -8,6 +8,14 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(22/01/2025) Version 6.3.2
+[!] = Fix = Resolved multiple mobile header issues.
+[!] = Fix = Addressed PHP deprecated notice related to usage of ${var} syntax in the Responsive theme.
+[!] = Fix = Fixed Customizer layout conflicts with Starter Templates plugin.
+[!] = Fix = Resolved styling issues where LifterLMS styles were affecting LMS and EduKids starter templates.
+[*] = Improvement = Cleaned up and refined the global color palette by removing unused color options.
+[+] = New = Added support for an additional color in the global color palette for handling button hover related styles.
+
 (24/12/2025) Version 6.3.1
 [!] = Fix = Fixed CSS for Gutenberg Page and Post editor.
 [!] = Fix = Fixed a bug that was throwing an error while logging in.
