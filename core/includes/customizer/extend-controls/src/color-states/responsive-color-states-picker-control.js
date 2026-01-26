@@ -40,13 +40,13 @@ class ResponsiveColorStatesPickerControl extends Component {
 
 		
         return (
-            <div className="responsive-state-btn-wrapper">
+            <div className="responsive-state-btn-wrapper tooltip-container">
                 <Button
                     className={`button wp-color-result ${isActive ? 'wp-picker-open' : ''}`}
                     style={{ backgroundColor: this.getColorValue(state) }}
                     onClick={() => this.togglePicker(state)}  
                 />
-                <span className="tooltip-text">{label}</span>
+                <span className="tooltip-text">{state}</span>
             </div>
         );
     };

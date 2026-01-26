@@ -648,6 +648,7 @@ body.wp-customizer .responsive-color-control-main-wrap .wp-picker-container .wp-
     font-weight: 400;
     line-height: 12px;
     text-align: center;
+    text-transform: capitalize;
 }
 
 .tooltip-container:hover .tooltip-text {
