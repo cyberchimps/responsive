@@ -37,8 +37,8 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 			$wp_customize->add_panel(
 				'responsive_site',
 				array(
-					'title'       => __( 'Global Settings', 'responsive' ),
-					'description' => __( 'Global Settings', 'responsive' ),
+					'title'       => __( 'Global', 'responsive' ),
+					'description' => __( 'Global', 'responsive' ),
 					'priority'    => 7,
 				)
 			);
