@@ -43,7 +43,29 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 				)
 			);
 			
-		
+			$wp_customize->add_setting(
+				'responsive_theme_options[breadcrumb]',
+				array(
+					'sanitize_callback' => 'Responsive\Customizer\\responsive_sanitize_checkbox',
+					'type'              => 'option',
+					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'res_breadcrumb' ),
+				)
+			);
+			$wp_customize->add_control(
+				new Responsive_Customizer_Toggle_Control(
+					$wp_customize,
+					'res_breadcrumb',
+					array(
+						'label'    => __( 'Enable Breadcrumbs', 'responsive' ),
+						'section'  => 'responsive_breadcrumb',
+						'settings' => 'responsive_theme_options[breadcrumb]',
+						'priority' => 10,
+					)
+				)
+			);
+
+			responsive_horizontal_separator_control( $wp_customize, 'breadcrumb_enable_separator', 2, 'responsive_breadcrumb',15, 1, 'responsive_active_breadcrumb' );
+
 			// Breadcrumb Position.
 			$breadcrumb_position_label   = esc_html__( 'Breadcrumb Position', 'responsive' );
 			$breadcrumb_position_choices = array(
@@ -146,4 +168,4 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 
 endif;
 
-return new Responsive_Content_Header_Layout_Customizer(); 
+return new Responsive_Content_Header_Layout_Customizer();
