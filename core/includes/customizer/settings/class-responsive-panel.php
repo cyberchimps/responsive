@@ -121,6 +121,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 					'title'    => __( 'Sidebar', 'responsive' ),
 					// 'description' => __( 'Sidebar Options', 'responsive' ),
 					'priority' => 10,
+					'panel'    => 'responsive_general',
 				)
 			);
 
