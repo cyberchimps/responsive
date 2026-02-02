@@ -71,6 +71,10 @@ if ( ! function_exists( 'typography_unit_conversion' ) ) {
 function responsive_customizer_styles() {
 	$custom_css = '';
 
+	if ( is_customize_preview() ) {
+		$custom_css .= 'html { scroll-behavior: auto !important; }';
+	}
+
 	// Box Padding.
 		$box_padding_right  = esc_html( get_theme_mod( 'responsive_box_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
 		$box_padding_left   = esc_html( get_theme_mod( 'responsive_box_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
