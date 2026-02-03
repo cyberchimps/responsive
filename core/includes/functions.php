@@ -644,9 +644,9 @@ function responsive_add_custom_body_classes( $classes ) {
 
 			if ( ! $sidebar_position ) {
 				$global_sidebar_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
-				$page_sidebar_setting    = get_theme_mod( 'responsive_page_sidebar_position', 'no' );
+				$page_sidebar_setting    = get_theme_mod( 'responsive_page_sidebar_position', 'global' );
 
-				$sidebar_position = ( $page_sidebar_setting === 'default' ) ? $global_sidebar_position : $page_sidebar_setting;
+				$sidebar_position = ( $page_sidebar_setting === 'global' || $page_sidebar_setting === 'default' ) ? $global_sidebar_position : $page_sidebar_setting;
 			}
 
 			// Page sidebar Position.
@@ -674,10 +674,10 @@ function responsive_add_custom_body_classes( $classes ) {
 
 			// Single Blog sidebar Position.
 			$global_sidebar_position   = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
-			$single_blog_sidebar_value = get_theme_mod( 'responsive_single_blog_sidebar_position', 'no' );
+			$single_blog_sidebar_value = get_theme_mod( 'responsive_single_blog_sidebar_position', 'global' );
 
 			$classes[] = 'sidebar-position-' . (
-				$single_blog_sidebar_value === 'default' ? $global_sidebar_position : $single_blog_sidebar_value
+				( $single_blog_sidebar_value === 'global' || $single_blog_sidebar_value === 'default' ) ? $global_sidebar_position : $single_blog_sidebar_value
 			);
 			// Single Blog Featured Image Aligmnmnet.
 			$classes[] = 'featured-image-alignment-' . get_theme_mod( 'responsive_single_blog_featured_image_alignment', 'left' );
@@ -718,7 +718,7 @@ function responsive_add_custom_body_classes( $classes ) {
 			$get_sidebar_position = function( $context, $default = 'no' ) {
 				$global = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
 				$value  = get_theme_mod( "responsive_{$context}_sidebar_position", $default );
-				return ( $value === 'default' ) ? $global : $value;
+				return ( $value === 'global' || $value === 'default' ) ? $global : $value;
 			};
 			// Entry Blog sidebar Position.
 			$blog_sidebar_position = $get_sidebar_position( 'blog', get_responsive_customizer_defaults( 'blog_sidebar_position' ) );
@@ -1204,7 +1204,7 @@ function defaults() {
 			'header_secondary_menu_full_width'    => 1,
 			'blog_content_width'                  => 66,
 			'res_breadcrumb'                      => 1,
-			'blog_sidebar_position'               => 'no',
+			'blog_sidebar_position'               => 'global',
 			'header_social_show_label'            => 0,
 			'header_social_item_color'            => '#2D3748',
 			'header_social_item_hover_color'      => '#2D3748',

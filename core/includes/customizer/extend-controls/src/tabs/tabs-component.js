@@ -50,7 +50,7 @@ const TabsComponent = props => {
 
 		hideSidebarWidthControl( api('responsive_page_sidebar_position').get(), 'page' );
 		hideSidebarWidthControl( api('responsive_blog_sidebar_position').get(), 'blog' );
-		hideSidebarWidthControl( api('responsive_default_sidebar_position').get(), 'default');
+		hideSidebarWidthControl( api('responsive_default_sidebar_position').get(), 'global');
 		if(api('responsive_shop_sidebar_position')){
 			hideWoocommerceSidebarWidthControl( api('responsive_shop_sidebar_position').get(), 'shop');
 		}
@@ -78,7 +78,7 @@ const TabsComponent = props => {
 		api('responsive_default_sidebar_position', function( value ){
 			value.bind( function( newval ) {
 				if( newval ) {
-					hideSidebarWidthControl(newval, 'default');
+					hideSidebarWidthControl(newval, 'global');
 				}
 			})
 		});
@@ -616,12 +616,12 @@ const TabsComponent = props => {
     controlElement.style.display = 'none';
 
     let isVisible = false;
-    if (control === 'default') {
-        // For default sidebar: only hide when 'no'
+    if (control === 'global') {
+        // For global sidebar: only hide when 'no'
         isVisible = value !== 'no' && tab === 'general';
     } else {
-        // For page/blog: hide when 'no' or 'default'
-        isVisible = value !== 'no' && value !== 'default' && tab === 'general';
+        // For page/blog: hide when 'no' or 'global'
+        isVisible = value !== 'no' && value !== 'global' && tab === 'general';
     }
 
     if (isVisible) {

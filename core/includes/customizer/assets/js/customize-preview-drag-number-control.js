@@ -68,7 +68,7 @@
     api('responsive_page_sidebar_width', function(value) {
         value.bind(function(newval) {
             api('responsive_page_sidebar_position', function(posSetting) {
-                if (posSetting.get() === 'default') {
+                if (posSetting.get() === 'global') {
                     return;
                 }
 
@@ -95,7 +95,7 @@
     api('responsive_blog_sidebar_width', function(value) {
     value.bind(function(newval) {
         api('responsive_blog_sidebar_position', function(posSetting) {
-            if (posSetting.get() === 'default') {
+            if (posSetting.get() === 'global') {
                 return;
             }
 
@@ -122,7 +122,7 @@
     api('responsive_single_blog_sidebar_width', function(value) {
     value.bind(function(newval) {
         api('responsive_single_blog_sidebar_position', function(posSetting) {
-            if (posSetting.get() === 'default') {
+            if (posSetting.get() === 'global') {
                 return; 
             }
 
@@ -159,7 +159,7 @@
             ['page', 'blog', 'single_blog'].forEach(function(type) {
                 var posSettingId = 'responsive_' + type + '_sidebar_position';
                 api(posSettingId, function(posSetting) {
-                    if (posSetting.get() === 'default') {
+                    if (posSetting.get() === 'global') {
                         applySidebarWidth(sidebarContexts[type], globalSidebarWidth);
                     }
                 });
@@ -202,7 +202,7 @@
         Object.keys(sidebarContexts).forEach(function(type) {
             var posSettingId = 'responsive_' + type + '_sidebar_position';
             api(posSettingId, function(posSetting) {
-                var width = (posSetting.get() === 'default') ? globalSidebarWidth : parseInt(api('responsive_' + type + '_sidebar_width').get()) || globalSidebarWidth;
+                var width = (posSetting.get() === 'global') ? globalSidebarWidth : parseInt(api('responsive_' + type + '_sidebar_width').get()) || globalSidebarWidth;
                 applySidebarWidth(sidebarContexts[type], width);
             });
         });
@@ -215,7 +215,7 @@
         var posSettingId = 'responsive_' + type + '_sidebar_position';
         api(posSettingId, function(posSetting) {
             posSetting.bind(function(newval) {
-                if (newval === 'default') {
+                if (newval === 'global') {
                     applySidebarWidth(sidebarContexts[type], globalSidebarWidth);
                 }
             });

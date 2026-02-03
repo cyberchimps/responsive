@@ -118,9 +118,9 @@ function responsive_customizer_styles() {
 	$logo_custom_width_mobile = esc_html( get_theme_mod( 'responsive_logo_width_mobile') );
 
 	$global_sidebar_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
-	$page_sidebar_setting = get_theme_mod( 'responsive_page_sidebar_position', 'no' );
-	$responsive_page_sidebar_position = esc_html( ($page_sidebar_setting === 'default') ? $global_sidebar_position : $page_sidebar_setting);
-	if($page_sidebar_setting === 'default')
+	$page_sidebar_setting = get_theme_mod( 'responsive_page_sidebar_position', 'global' );
+	$responsive_page_sidebar_position = esc_html( ($page_sidebar_setting === 'global' || $page_sidebar_setting === 'default') ? $global_sidebar_position : $page_sidebar_setting);
+	if($page_sidebar_setting === 'global' || $page_sidebar_setting === 'default')
 	{
 		$responsive_page_sidebar_width = esc_html(get_theme_mod('responsive_default_sidebar_width', 30)); 
 		$page_primary_content_area_width  = 100 - $responsive_page_sidebar_width;
@@ -136,10 +136,10 @@ function responsive_customizer_styles() {
 		$page_primary_content_area_width = 100;
 	}
 
-	$blog_sidebar_setting    = get_theme_mod( 'responsive_blog_sidebar_position', 'no' );
+	$blog_sidebar_setting    = get_theme_mod( 'responsive_blog_sidebar_position', 'global' );
 
 	$responsive_blog_archive_sidebar_position = esc_html(
-		( $blog_sidebar_setting === 'default' ) ? $global_sidebar_position : $blog_sidebar_setting
+		( $blog_sidebar_setting === 'global' || $blog_sidebar_setting === 'default' ) ? $global_sidebar_position : $blog_sidebar_setting
 	);
 
 	if($blog_sidebar_setting === 'left' || $blog_sidebar_setting === 'right')
@@ -147,7 +147,7 @@ function responsive_customizer_styles() {
 		$responsive_blog_archive_sidebar_width    = esc_html( get_theme_mod( 'responsive_blog_sidebar_width', 30 ) );
 		$blog_archive_primary_content_area_width  = 100 - $responsive_blog_archive_sidebar_width;
 	}
-	else if($blog_sidebar_setting === 'default')
+	else if($blog_sidebar_setting === 'global' || $blog_sidebar_setting === 'default')
 	{
 		$responsive_blog_archive_sidebar_width = esc_html( get_theme_mod( 'responsive_default_sidebar_width', 30) ); 
 		$blog_archive_primary_content_area_width  = 100 - $responsive_blog_archive_sidebar_width;
@@ -159,13 +159,13 @@ function responsive_customizer_styles() {
 
 	}
 
-	$single_blog_sidebar_setting = get_theme_mod('responsive_single_blog_sidebar_position', 'no');
+	$single_blog_sidebar_setting = get_theme_mod('responsive_single_blog_sidebar_position', 'global');
 
 	$responsive_single_blog_sidebar_position = esc_html(
-		( $single_blog_sidebar_setting === 'default' ) ? $global_sidebar_position : $single_blog_sidebar_setting 
+		( $single_blog_sidebar_setting === 'global' || $single_blog_sidebar_setting === 'default' ) ? $global_sidebar_position : $single_blog_sidebar_setting 
 	);
 
-	if($single_blog_sidebar_setting === 'default')
+	if($single_blog_sidebar_setting === 'global' || $single_blog_sidebar_setting === 'default')
 	{
 		$responsive_single_blog_sidebar_width = esc_html(get_theme_mod('responsive_default_sidebar_width', 30));
 		$single_blog_primary_content_area_width  = 100 - $responsive_single_blog_sidebar_width;
@@ -8368,7 +8368,9 @@ function responsive_customizer_styles() {
 		$add_to_cart_button_text_color       = esc_html( responsive_prepare_css_value( 'responsive_add_to_cart_button_text_color' ) );
 		$add_to_cart_button_hover_color      = esc_html( responsive_prepare_css_value( 'responsive_add_to_cart_button_hover_color' ) );
 		$add_to_cart_button_hover_text_color = esc_html( responsive_prepare_css_value( 'responsive_add_to_cart_button_hover_text_color' ) );
-		$shop_sidebar_position               = esc_html( get_theme_mod( 'responsive_shop_sidebar_position', 'no' ) );
+		$global_sidebar = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
+		$shop_sidebar_setting = get_theme_mod( 'responsive_shop_sidebar_position', 'global' );
+		$shop_sidebar_position = esc_html( ( $shop_sidebar_setting === 'global' || $shop_sidebar_setting === 'default' ) ? $global_sidebar : $shop_sidebar_setting );
 		$single_product_sidebar_position     = esc_html( get_theme_mod( 'responsive_single_product_sidebar_position', 'no' ) );
 		$product_bg_color 					 = esc_html( get_theme_mod( 'responsive_shop_product_background_color', '#ffffff'));
 		$tl 								 = intval  ( get_theme_mod( 'responsive_shop_product_top_left_radius', 8 ) );
@@ -8388,11 +8390,12 @@ function responsive_customizer_styles() {
 
 		$mobile_breakpoint 					 = 544; 
 
-		if( $shop_sidebar_position === 'default')
+		$shop_sidebar_setting_for_width = get_theme_mod( 'responsive_shop_sidebar_position', 'global' );
+		if( $shop_sidebar_setting_for_width === 'global' || $shop_sidebar_setting_for_width === 'default')
 		{
 			$shop_sidebar_width = esc_html( get_theme_mod('responsive_default_sidebar_width',30)); 
 		}
-		else if( $shop_sidebar_position !== 'no')
+		else if( $shop_sidebar_setting_for_width !== 'no')
 		{
 			$shop_sidebar_width = esc_html( get_theme_mod('responsive_shop_sidebar_width', 30));
 		}
@@ -8501,8 +8504,8 @@ function responsive_customizer_styles() {
 
 
 
-		$single_product_setting        = get_theme_mod( 'responsive_single_product_sidebar_position', 'no' );
-		$single_product_sidebar_position = esc_html( $single_product_setting === 'default' ? $global_sidebar : $single_product_setting );
+		$single_product_setting        = get_theme_mod( 'responsive_single_product_sidebar_position', 'global' );
+		$single_product_sidebar_position = esc_html( ( $single_product_setting === 'global' || $single_product_setting === 'default' ) ? $global_sidebar : $single_product_setting );
 		$single_product_sidebar_width = get_theme_mod( 'responsive_single_product_sidebar_width', 30 );
 		$shop_content_width = 100 - $shop_sidebar_width;
 		$single_product_content_width = 100 - $single_product_sidebar_width;
