@@ -1859,3 +1859,7 @@ in both cases the footer builder is active */
 .customize-control-responsive-color-with-devices-and-hover label, .customize-control-alpha-color label, .customize-control-responsive-palette label {
 	box-sizing: initial;
 }
+
+#customize-control-responsive_header_menu_color_separator{ 
+	margin-top:0; 
+}
