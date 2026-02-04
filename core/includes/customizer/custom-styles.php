@@ -8506,7 +8506,20 @@ function responsive_customizer_styles() {
 
 		$single_product_setting        = get_theme_mod( 'responsive_single_product_sidebar_position', 'global' );
 		$single_product_sidebar_position = esc_html( ( $single_product_setting === 'global' || $single_product_setting === 'default' ) ? $global_sidebar : $single_product_setting );
-		$single_product_sidebar_width = get_theme_mod( 'responsive_single_product_sidebar_width', 30 );
+		
+		if( $single_product_setting === 'global' || $single_product_setting === 'default' )
+		{
+			$single_product_sidebar_width = esc_html( get_theme_mod('responsive_default_sidebar_width', 30) );
+		}
+		else if( $single_product_setting !== 'no' )
+		{
+			$single_product_sidebar_width = esc_html( get_theme_mod('responsive_single_product_sidebar_width', 30) );
+		}
+		else 
+		{
+			$single_product_sidebar_width = 0;
+		}
+		
 		$shop_content_width = 100 - $shop_sidebar_width;
 		$single_product_content_width = 100 - $single_product_sidebar_width;
 		if ( 'no' !== $shop_sidebar_position ) {

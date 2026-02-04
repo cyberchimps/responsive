@@ -156,7 +156,7 @@
         setting.bind(function(newval) {
             globalSidebarWidth = parseInt(newval) || 30;
 
-            ['page', 'blog', 'single_blog'].forEach(function(type) {
+            ['page', 'blog', 'single_blog', 'shop', 'single_product'].forEach(function(type) {
                 var posSettingId = 'responsive_' + type + '_sidebar_position';
                 api(posSettingId, function(posSetting) {
                     if (posSetting.get() === 'global') {
@@ -194,6 +194,14 @@
         single_blog: {
             sidebar: '.single:not(.single-product) aside.widget-area#secondary',
             content: '.single:not(.single-product) #primary.content-area'
+        },
+        shop: {
+            sidebar: '.shop-has-site-header aside.widget-area#secondary',
+            content: '.shop-has-site-header #primary.content-area'
+        },
+        single_product: {
+            sidebar: '.single-product-has-site-header.woocommerce aside.widget-area#secondary',
+            content: '.single-product-has-site-header.woocommerce #primary.content-area'
         }
     };
 

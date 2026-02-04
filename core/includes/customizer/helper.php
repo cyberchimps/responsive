@@ -1645,7 +1645,7 @@ function responsive_not_active_site_style_flat() {
  * @return [type] [description]
  */
 function responsive_active_single_blog_sidebar_position() {
-    $position = get_theme_mod( 'responsive_single_blog_sidebar_position', 0 );
+    $position = get_theme_mod( 'responsive_single_blog_sidebar_position', 'global' );
     return ( 'no' !== $position && 'global' !== $position ) ? true : false;
 }
 
@@ -1710,6 +1710,36 @@ function responsive_not_active_single_post_sidebar() {
 	$single_post_sidebar_position = $get_sidebar_position( 'single_blog', 'global' );
 
 	return ( 'no' === $single_post_sidebar_position ) ? false : true;
+}
+
+/**
+ * [responsive_active_page_sidebar_position description]
+ *
+ * @return [type] [description]
+ */
+function responsive_active_page_sidebar_position() {
+	$position = get_theme_mod( 'responsive_page_sidebar_position', 'global' );
+	return ( 'no' !== $position && 'global' !== $position ) ? true : false;
+}
+
+/**
+ * [responsive_active_shop_sidebar_position description]
+ *
+ * @return [type] [description]
+ */
+function responsive_active_shop_sidebar_position() {
+	$position = get_theme_mod( 'responsive_shop_sidebar_position', 'global' );
+	return ( 'no' !== $position && 'global' !== $position ) ? true : false;
+}
+
+/**
+ * [responsive_active_single_product_sidebar_position description]
+ *
+ * @return [type] [description]
+ */
+function responsive_active_single_product_sidebar_position() {
+	$position = get_theme_mod( 'responsive_single_product_sidebar_position', 'global' );
+	return ( 'no' !== $position && 'global' !== $position ) ? true : false;
 }
 
 /**

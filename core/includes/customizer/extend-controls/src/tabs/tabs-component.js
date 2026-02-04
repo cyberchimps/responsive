@@ -635,8 +635,8 @@ const TabsComponent = props => {
 		if (!controlElement) return;
 		controlElement.style.display = 'none';
 
-		// For shop/single product sidebar: only hide when 'no'
-		let isVisible = value !== 'no' && tab === 'general';
+		// For shop/single product sidebar: hide when 'no' or 'global'
+		let isVisible = value !== 'no' && value !== 'global' && tab === 'general';
 
 		if (isVisible) {
 			controlElement.style.display = 'block';
