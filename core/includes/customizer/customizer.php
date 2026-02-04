@@ -289,6 +289,7 @@ function responsive_custom_controls( $wp_customize ) {
 	// Load customize control classes.
 	require_once $dir . 'palette/class-responsive-customizer-palette-control.php';
 	require_once $dir . 'color/class-responsive-customizer-color-control.php';
+	require_once $dir . 'color-states/class-responsive-customizer-color-control-states.php';
 	require_once $dir . 'range/class-responsive-customizer-range-control.php';
 	require_once $dir . 'slider/class-responsive-customizer-slider-control.php';
 	require_once $dir . 'sortable/class-responsive-customizer-sortable-control.php';
@@ -333,6 +334,7 @@ function responsive_custom_controls( $wp_customize ) {
 	// Register JS control types.
 	$wp_customize->register_control_type( 'Responsive_Customizer_Palette_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Color_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Color_Control_States' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Range_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Slider_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Sortable_Control' );
