@@ -1355,6 +1355,135 @@ function responsive_color_control( $wp_customize, $element, $label, $section, $p
 	}
 }
 
+/* Control for all 3 states Normal, Active, Hover */
+function responsive_color_control_with_states(
+    $wp_customize,
+    $element,
+    $label,
+    $section,
+    $priority,
+    $default,
+
+    // Hover
+    $hover_default = null,
+    $hover_element = null,
+
+    // Active
+    $active_default = null,
+    $active_element = null,
+
+    // Common
+    $active_call = null,
+    $desc = '',
+
+    // Gradient
+    $is_gradient_available = false,
+    $gradient_element = null,
+    $gradient_default = null,
+
+    $color_type = 'color',
+    $transport = 'postMessage'
+) {
+
+    try {
+
+        /* Normal state */
+        $wp_customize->add_setting(
+            'responsive_' . $element . '_color',
+            array(
+                'default'           => $default,
+                'type'              => 'theme_mod',
+                'sanitize_callback' => 'responsive_sanitize_background',
+                'transport'         => $transport,
+            )
+        );
+
+        $settings = array(
+            'normal' => 'responsive_' . $element . '_color',
+        );
+
+        /* Hover state */
+        if ( $hover_element && null !== $hover_default ) {
+            $wp_customize->add_setting(
+                'responsive_' . $hover_element . '_color',
+                array(
+                    'default'           => $hover_default,
+                    'type'              => 'theme_mod',
+                    'sanitize_callback' => 'responsive_sanitize_background',
+                    'transport'         => 'postMessage',
+                )
+            );
+
+            $settings['hover'] = 'responsive_' . $hover_element . '_color';
+        }
+
+        /* Active State */
+        if ( $active_element && null !== $active_default ) {
+            $wp_customize->add_setting(
+                'responsive_' . $active_element . '_color',
+                array(
+                    'default'           => $active_default,
+                    'type'              => 'theme_mod',
+                    'sanitize_callback' => 'responsive_sanitize_background',
+                    'transport'         => 'postMessage',
+                )
+            );
+
+            $settings['active'] = 'responsive_' . $active_element . '_color';
+        }
+
+        /* Gradient Support */
+        if ( $is_gradient_available && $gradient_element ) {
+
+            $wp_customize->add_setting(
+                'responsive_' . $gradient_element . '_color',
+                array(
+                    'default'           => $gradient_default,
+                    'type'              => 'theme_mod',
+                    'sanitize_callback' => 'responsive_sanitize_background',
+                    'transport'         => 'postMessage',
+                )
+            );
+
+            $wp_customize->add_setting(
+                'responsive_' . $element . '_color_type',
+                array(
+                    'default'           => $color_type,
+                    'type'              => 'theme_mod',
+                    'sanitize_callback' => 'sanitize_text_field',
+                    'transport'         => 'postMessage',
+                )
+            );
+
+            $settings['gradient']   = 'responsive_' . $gradient_element . '_color';
+            $settings['color_type'] = 'responsive_' . $element . '_color_type';
+        }
+
+        $wp_customize->add_control(
+            new Responsive_Customizer_Color_Control_States(
+                $wp_customize,
+                'responsive_' . $element . '_color_states',
+                array(
+                    'label'                 => $label,
+                    'section'               => $section,
+                    'settings'              => $settings,
+                    'priority'              => $priority,
+                    'active_callback'       => $active_call,
+                    'description'           => $desc,
+                    'is_hover_required'     => isset( $settings['hover'] ),
+                    'is_active_required'    => isset( $settings['active'] ),
+                    'is_gradient_available' => $is_gradient_available,
+                    'gradient_element'      => $gradient_element,
+                    'gradient_default'      => $gradient_default,
+                )
+            )
+        );
+
+    } catch ( \Throwable $th ) {
+        error_log( 'Responsive color control error: ' . $th->getMessage() );
+    }
+}
+
 /**
  * [responsive_drag_number_control description]
  *
@@ -1645,8 +1774,8 @@ function responsive_not_active_site_style_flat() {
  * @return [type] [description]
  */
 function responsive_active_single_blog_sidebar_position() {
-    $position = get_theme_mod( 'responsive_single_blog_sidebar_position', 0 );
-    return ( 'no' !== $position && 'default' !== $position ) ? true : false;
+    $position = get_theme_mod( 'responsive_single_blog_sidebar_position', 'global' );
+    return ( 'no' !== $position && 'global' !== $position ) ? true : false;
 }
 
 /**
@@ -1655,13 +1784,13 @@ function responsive_active_single_blog_sidebar_position() {
  * @return [type] [description]
  */
 function responsive_active_blog_sidebar_position() {
-    $position = get_theme_mod( 'responsive_blog_sidebar_position', 'no' );
-    return ( 'no' !== $position && 'default' !== $position ) ? true : false;
+    $position = get_theme_mod( 'responsive_blog_sidebar_position', 'global' );
+    return ( 'no' !== $position && 'global' !== $position ) ? true : false;
 }
 
 function responsive_active_default_sidebar_position() {
 	$position = get_theme_mod( 'responsive_default_sidebar_position', 'no'); 
-	return ( 'no' !== $position && 'default' !== $position ) ? true : false; 
+		return ( 'no' !== $position && 'global' !== $position ) ? true : false;
 }
 
 /**
@@ -1673,9 +1802,9 @@ function responsive_not_active_page_sidebar() {
 	$get_sidebar_position = function( $context, $default = 'no' ) {
 		$global = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
 		$value  = get_theme_mod( "responsive_{$context}_sidebar_position", $default );
-		return ( $value === 'default' ) ? $global : $value;
+		return ( $value === 'global' || $value === 'default' ) ? $global : $value;
 	};
-	$page_sidebar_position = $get_sidebar_position( 'page' );
+	$page_sidebar_position = $get_sidebar_position( 'page', 'global' );
 
 	return ( 'no' === $page_sidebar_position ) ? false : true;
 }
@@ -1689,9 +1818,9 @@ function responsive_not_active_blog_archive_sidebar() {
 	$get_sidebar_position = function( $context, $default = 'no' ) {
 		$global = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
 		$value  = get_theme_mod( "responsive_{$context}_sidebar_position", $default );
-		return ( $value === 'default' ) ? $global : $value;
+		return ( $value === 'global' || $value === 'default' ) ? $global : $value;
 	};
-	$blog_archive_sidebar_position = $get_sidebar_position( 'blog' );
+	$blog_archive_sidebar_position = $get_sidebar_position( 'blog', 'global' );
 
 	return ( 'no' === $blog_archive_sidebar_position ) ? false : true;
 }
@@ -1705,11 +1834,41 @@ function responsive_not_active_single_post_sidebar() {
 	$get_sidebar_position = function( $context, $default = 'no' ) {
 		$global = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
 		$value  = get_theme_mod( "responsive_{$context}_sidebar_position", $default );
-		return ( $value === 'default' ) ? $global : $value;
+		return ( $value === 'global' || $value === 'default' ) ? $global : $value;
 	};
-	$single_post_sidebar_position = $get_sidebar_position( 'single_blog_' );
+	$single_post_sidebar_position = $get_sidebar_position( 'single_blog', 'global' );
 
 	return ( 'no' === $single_post_sidebar_position ) ? false : true;
+}
+
+/**
+ * [responsive_active_page_sidebar_position description]
+ *
+ * @return [type] [description]
+ */
+function responsive_active_page_sidebar_position() {
+	$position = get_theme_mod( 'responsive_page_sidebar_position', 'global' );
+	return ( 'no' !== $position && 'global' !== $position ) ? true : false;
+}
+
+/**
+ * [responsive_active_shop_sidebar_position description]
+ *
+ * @return [type] [description]
+ */
+function responsive_active_shop_sidebar_position() {
+	$position = get_theme_mod( 'responsive_shop_sidebar_position', 'global' );
+	return ( 'no' !== $position && 'global' !== $position ) ? true : false;
+}
+
+/**
+ * [responsive_active_single_product_sidebar_position description]
+ *
+ * @return [type] [description]
+ */
+function responsive_active_single_product_sidebar_position() {
+	$position = get_theme_mod( 'responsive_single_product_sidebar_position', 'global' );
+	return ( 'no' !== $position && 'global' !== $position ) ? true : false;
 }
 
 /**

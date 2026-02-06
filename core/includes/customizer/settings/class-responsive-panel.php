@@ -37,8 +37,8 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 			$wp_customize->add_panel(
 				'responsive_site',
 				array(
-					'title'       => __( 'Global Settings', 'responsive' ),
-					'description' => __( 'Global Settings', 'responsive' ),
+					'title'       => __( 'Global', 'responsive' ),
+					'description' => __( 'Global', 'responsive' ),
 					'priority'    => 7,
 				)
 			);
@@ -57,6 +57,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'    => __( 'Breadcrumb', 'responsive' ),
 					'priority' => 9,
+					'panel'    => 'responsive_general',
 				)
 			);
 
@@ -105,6 +106,14 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 					'priority'    => 10,
 				)
 			);
+			$wp_customize->add_panel(
+				'responsive_general',
+				array(
+					'title'       => __( 'General', 'responsive' ),
+					'description' => __( 'General Options', 'responsive' ),
+					'priority'    => 11,
+				)
+			);
 
 			$wp_customize->add_section(
 				'responsive_sidebar',
@@ -112,6 +121,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 					'title'    => __( 'Sidebar', 'responsive' ),
 					// 'description' => __( 'Sidebar Options', 'responsive' ),
 					'priority' => 10,
+					'panel'    => 'responsive_general',
 				)
 			);
 
@@ -120,11 +130,11 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'       => __( 'Footer', 'responsive' ),
 					'description' => __( 'Footer Options', 'responsive' ),
-					'priority'    => 11,
+					'priority'    => 12,
 				)
 			);
 
-			$wp_customize->get_section( 'title_tagline' )->priority     = 12;
+			$wp_customize->get_section( 'title_tagline' )->priority     = 13;
 			$wp_customize->get_section( 'static_front_page' )->priority = 109;
 			$wp_customize->get_section( 'custom_css' )->priority        = 300;
 			$wp_customize->get_control( 'custom_logo' )->section        = 'responsive_header_site_logo_title';

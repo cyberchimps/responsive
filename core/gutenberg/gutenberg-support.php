@@ -255,8 +255,10 @@ function responsive_gutenberg_customizer_css() {
 
 	$responsive_container_width        = get_theme_mod( 'responsive_container_width', 1140 );
 	$responsive_page_content_width     = get_theme_mod( 'responsive_page_content_width', Responsive\Core\get_responsive_customizer_defaults( 'page_content_width' ) );
-	$responsive_page_sidebar_position  = esc_html( get_theme_mod( 'responsive_page_sidebar_position' ) );
-	if($responsive_page_sidebar_position === 'default')
+	$global_sidebar_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
+	$page_sidebar_setting = get_theme_mod( 'responsive_page_sidebar_position' );
+	$responsive_page_sidebar_position  = esc_html( ( $page_sidebar_setting === 'global' || $page_sidebar_setting === 'default' ) ? $global_sidebar_position : ( $page_sidebar_setting ?: 'no' ) );
+	if($page_sidebar_setting === 'global' || $page_sidebar_setting === 'default')
 	{
 		$responsive_page_sidebar_width = esc_html(get_theme_mod('responsive_default_sidebar_width', 30)); 
 	}
@@ -277,8 +279,9 @@ function responsive_gutenberg_customizer_css() {
 	$page_title_mobile_typography      = get_theme_mod( 'page_title_mobile_typography' );
 
 	$single_post_content_width         = esc_html( get_theme_mod( 'responsive_single_blog_content_width', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_content_width' ) ) );
-	$single_post_sidebar_position      = esc_html( get_theme_mod( 'responsive_single_blog_sidebar_position' ) );
-	if($single_post_sidebar_position === 'default')
+	$single_post_sidebar_setting = get_theme_mod( 'responsive_single_blog_sidebar_position' );
+	$single_post_sidebar_position      = esc_html( ( $single_post_sidebar_setting === 'global' || $single_post_sidebar_setting === 'default' ) ? $global_sidebar_position : ( $single_post_sidebar_setting ?: 'no' ) );
+	if($single_post_sidebar_setting === 'global' || $single_post_sidebar_setting === 'default')
 	{
 		$single_post_sidebar_width = esc_html(get_theme_mod('responsive_default_sidebar_width', 30)); 
 	}
