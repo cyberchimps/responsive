@@ -557,7 +557,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 			}
 
 			if ( 'yes' === get_option( 'elementor_disable_typography_schemes' ) ) {
-				$responsive_typography_selectors['button'] = '.elementor-button-wrapper .elementor-button';
+				$responsive_typography_selectors['button'] = '.elementor-button-wrapper .elementor-button, .elementor-widget-button .elementor-button';
 			}
 
 			for( $i=1;$i<=6;$i++ ) {

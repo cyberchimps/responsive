@@ -18,6 +18,29 @@ const PaletteComponent = props => {
         return props.control.setting.get();
     });
 
+    // Mapping between palette keys and individual setting IDs
+    const paletteToSettingMapping = {
+        accent: 'responsive_global_color_palette_accent_color',
+        link_hover: 'responsive_global_color_palette_link_hover_color',
+        text: 'responsive_global_color_palette_text_color',
+        header_text: 'responsive_global_color_palette_headings_color',
+        content_background: 'responsive_global_color_palette_content_bg_color',
+        site_background: 'responsive_global_color_palette_site_background_color',
+        alt_background: 'responsive_global_color_palette_alt_background_color',
+        subtle_background: 'responsive_global_color_palette_subtle_background_color'
+    };
+
+    // Helper function to build palette object from current individual settings
+    const buildPaletteFromSettings = () => {
+        const palette = {};
+        Object.entries(paletteToSettingMapping).forEach(([paletteKey, settingId]) => {
+            if (wp.customize(settingId)) {
+                palette[paletteKey] = wp.customize(settingId).get();
+            }
+        });
+        return palette;
+    };
+
     const handlePaletteChange = (choice) => {
         const newSettingVal = {
             ...selectedChoice,
@@ -28,16 +51,7 @@ const PaletteComponent = props => {
         props.control.setting.set(newSettingVal);
         
         const palette = choices[choice];
-        const mapping = {
-            accent: 'responsive_global_color_palette_accent_color',
-            link_hover: 'responsive_global_color_palette_link_hover_color',
-            text: 'responsive_global_color_palette_text_color',
-            header_text: 'responsive_global_color_palette_headings_color',
-            content_background: 'responsive_global_color_palette_content_bg_color',
-            site_background: 'responsive_global_color_palette_site_background_color',
-            alt_background: 'responsive_global_color_palette_alt_background_color'
-        };
-        Object.entries(mapping).forEach(([paletteKey, settingId]) => {
+        Object.entries(paletteToSettingMapping).forEach(([paletteKey, settingId]) => {
             if (palette[paletteKey] && wp.customize(settingId)) {
                 wp.customize(settingId).set(palette[paletteKey]);
             }
@@ -199,25 +213,21 @@ const PaletteComponent = props => {
                     // if I clicked inside another picker (not this one) → close this
                     if (clickedInlinePicker.id !== pickerId) {
                         setOpenPickerId(clickedInlinePicker.id  );
-                        const updated = wp.customize(settingId).get();
+                        // Read all current settings to update state with complete palette
+                        const updatedPalette = buildPaletteFromSettings();
                         setSelectedChoice(prev => ({
                             ...prev,
-                            palette: {
-                                ...prev.palette,
-                                [settingKey]: updated
-                            }
+                            palette: updatedPalette
                         }));
                     }
                 } else {
                     // clicked completely outside → close
                     setOpenPickerId(null);
-                    const updated = wp.customize(settingId).get();
+                    // Read all current settings to update state with complete palette
+                    const updatedPalette = buildPaletteFromSettings();
                     setSelectedChoice(prev => ({
                         ...prev,
-                        palette: {
-                            ...prev.palette,
-                            [settingKey]: updated
-                        }
+                        palette: updatedPalette
                     }));
                 }
             };
@@ -229,15 +239,20 @@ const PaletteComponent = props => {
         const handleChangeComplete = (newColor) => {
             const value = toColorString(newColor);
             setColor(value);
+            
+            // First update the individual setting
+            wp.customize(settingId).set(value);
+            
+            // Then read all current individual settings to build a complete palette
+            // This ensures we preserve all previous color changes
+            const updatedPalette = buildPaletteFromSettings();
+            
+            // Update the main palette setting with the complete palette
             const newSettingVal = {
                 ...selectedChoice,
-                palette: {
-                    ...selectedChoice.palette,
-                    [settingKey]: value
-                }
+                palette: updatedPalette
             };
             props.control.setting.set(newSettingVal);
-            wp.customize(settingId).set(value);
         };
 
         const handlePickerToggle = () => {
@@ -275,6 +290,9 @@ const PaletteComponent = props => {
             }
             else if(settingId === "responsive_global_color_palette_alt_background_color"){
                 return "#eaeaea";
+            }
+            else if(settingId === "responsive_global_color_palette_subtle_background_color"){
+                return "#007fff";
             }
             return "#ffffff";
 
@@ -382,6 +400,7 @@ const PaletteComponent = props => {
                 <InlineThemeModColorPicker key={4} settingId={'responsive_global_color_palette_content_bg_color'} labelText={'Content Background'} settingKey={'content_background'} selectedChoice={selectedChoice} />
                 <InlineThemeModColorPicker key={5} settingId={'responsive_global_color_palette_site_background_color'} labelText={'Site Background'} settingKey={'site_background'} selectedChoice={selectedChoice} />
                 <InlineThemeModColorPicker key={6} settingId={'responsive_global_color_palette_alt_background_color'} labelText={'Alt Background'} settingKey={'alt_background'} selectedChoice={selectedChoice} />
+                <InlineThemeModColorPicker key={7} settingId={'responsive_global_color_palette_subtle_background_color'} labelText={'Subtle Background'} settingKey={'subtle_background'} selectedChoice={selectedChoice} />
             </div>
         </div>
     </div>

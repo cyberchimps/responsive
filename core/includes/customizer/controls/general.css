@@ -1652,7 +1652,7 @@ in both cases the footer builder is active */
 }
 
 /* Reset button for color controls */
-.responsive-color-reset-btn {
+.responsive-color-reset-btn, .responsive-slider-reset-btn {
 	background: none;
 	border: none;
 	cursor: pointer;
@@ -1665,15 +1665,15 @@ in both cases the footer builder is active */
 	justify-content: center;
 }
 
-.responsive-color-reset-btn:hover {
+.responsive-color-reset-btn:hover, .responsive-slider-reset-btn:hover {
 	background-color: #f0f0f1;
 }
 
-.responsive-color-reset-btn:hover svg path {
+.responsive-color-reset-btn:hover svg path, .responsive-slider-reset-btn:hover svg path {
 	fill: #0073aa;
 }
 
-.responsive-color-reset-btn:focus {
+.responsive-color-reset-btn:focus, .responsive-slider-reset-btn:focus {
 	outline: 1px solid #0073aa;
 	outline-offset: 2px;
 }
@@ -1853,4 +1853,13 @@ in both cases the footer builder is active */
     font-family: 'Inter';
 	border-radius: 4px;
 	font-weight: 600;
+}
+/* The following style is added to fix spacing issue in customizer when Starter Templates plugin is installed */
+/* any change below might cause the issue to appear again - WP-11315 */
+.customize-control-responsive-color-with-devices-and-hover label, .customize-control-alpha-color label, .customize-control-responsive-palette label {
+	box-sizing: initial;
+}
+
+#customize-control-responsive_header_menu_color_separator{ 
+	margin-top:0; 
 }

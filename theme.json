@@ -2,6 +2,10 @@
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 2,
 	"settings": {
+		"layout": {
+		"contentSize": "840px",
+		"wideSize": "1200px"
+		},
 		"color": {
 			"custom": true,
 			"link": true,
@@ -40,6 +44,11 @@
 					"name": "Alt Background",
 					"slug": "responsive-global-palette6",
 					"color": "var(--responsive-global-palette6)"
+				},
+				{
+					"name": "Subtle Background",
+					"slug": "responsive-global-palette7",
+					"color": "var(--responsive-global-palette7)"
 				}
             ]
         }

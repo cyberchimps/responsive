@@ -59,6 +59,7 @@ if ( ! class_exists( 'Responsive_Site_Color_Palettes_Scheme_Customizer' ) ) :
 				'responsive_global_color_palette_content_bg_color'      => '#ffffff',
 				'responsive_global_color_palette_site_background_color' => '#f0f5fa',
 				'responsive_global_color_palette_alt_background_color'  => '#eaeaea',
+				'responsive_global_color_palette_subtle_background_color'  => '#10659C'
 			);
 
 			foreach ( $default_colors as $setting_id => $default ) {

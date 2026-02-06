@@ -50,7 +50,7 @@ const TabsComponent = props => {
 
 		hideSidebarWidthControl( api('responsive_page_sidebar_position').get(), 'page' );
 		hideSidebarWidthControl( api('responsive_blog_sidebar_position').get(), 'blog' );
-		hideSidebarWidthControl( api('responsive_default_sidebar_position').get(), 'default');
+		hideSidebarWidthControl( api('responsive_default_sidebar_position').get(), 'global');
 		if(api('responsive_shop_sidebar_position')){
 			hideWoocommerceSidebarWidthControl( api('responsive_shop_sidebar_position').get(), 'shop');
 		}
@@ -78,7 +78,7 @@ const TabsComponent = props => {
 		api('responsive_default_sidebar_position', function( value ){
 			value.bind( function( newval ) {
 				if( newval ) {
-					hideSidebarWidthControl(newval, 'default');
+					hideSidebarWidthControl(newval, 'global');
 				}
 			})
 		});
@@ -212,7 +212,8 @@ const TabsComponent = props => {
 				'customize-control-responsive_mobile_menu_toggle_border_color',
 				'customize-control-responsive_header_menu_toggle_background_color',
 				'customize-control-responsive_header_toggle_button_background_color_separator',
-				'customize-control-responsive_header_toggle_button_border_radius_padding'
+				'customize-control-responsive_header_toggle_button_border_radius_padding',
+				'customize-control-responsive_mobile_menu_toggle_border_width_border'
 			];
 			const backgroundColorElementIds = [
 				'customize-control-responsive_header_menu_toggle_background_color',
@@ -222,7 +223,8 @@ const TabsComponent = props => {
 				'customize-control-responsive_mobile_menu_toggle_border_color',
 				'customize-control-responsive_header_menu_toggle_background_color',
 				'customize-control-responsive_header_toggle_button_background_color_separator',
-				'customize-control-responsive_header_toggle_button_border_radius_padding'
+				'customize-control-responsive_header_toggle_button_border_radius_padding',
+				'customize-control-responsive_mobile_menu_toggle_border_width_border'
 			];
 
 			if( 'general' === tab ) {
@@ -244,6 +246,10 @@ const TabsComponent = props => {
 							el.style.display = 'none';
 						}
 					});
+					const toggleBorderWidthEl = document.getElementById('customize-control-responsive_mobile_menu_toggle_border_width_border');
+							if (toggleBorderWidthEl) {
+								toggleBorderWidthEl.style.display = 'none';
+							}
 				} else if( 'outline' === currentStyle ) {
 					// Hide background color for outline style, show others
 					backgroundColorElementIds.forEach(id => {
@@ -280,6 +286,11 @@ const TabsComponent = props => {
 					if (borderRadiusEl) {
 						borderRadiusEl.style.display = 'block';
 					}
+					const toggleBorderWidthEl = document.getElementById('customize-control-responsive_mobile_menu_toggle_border_width_border');
+							if (toggleBorderWidthEl) {
+								toggleBorderWidthEl.style.display = 'none';
+							}
+
 				}
 			}
 		}
@@ -292,7 +303,8 @@ const TabsComponent = props => {
 						'customize-control-responsive_mobile_menu_toggle_border_color',
 						'customize-control-responsive_header_menu_toggle_background_color',
 						'customize-control-responsive_header_toggle_button_background_color_separator',
-						'customize-control-responsive_header_toggle_button_border_radius_padding'
+						'customize-control-responsive_header_toggle_button_border_radius_padding',
+						'customize-control-responsive_mobile_menu_toggle_border_width_border'	
 					];
 					const backgroundColorElementIds = [
 						'customize-control-responsive_header_menu_toggle_background_color',
@@ -302,7 +314,8 @@ const TabsComponent = props => {
 						'customize-control-responsive_mobile_menu_toggle_border_color',
 						'customize-control-responsive_header_menu_toggle_background_color',
 						'customize-control-responsive_header_toggle_button_background_color_separator',
-						'customize-control-responsive_header_toggle_button_border_radius_padding'
+						'customize-control-responsive_header_toggle_button_border_radius_padding',
+						'customize-control-responsive_mobile_menu_toggle_border_width_border'
 					];
 			
 					if( 'general' === tab ) {
@@ -322,6 +335,10 @@ const TabsComponent = props => {
 									el.style.display = 'none';
 								}
 							});
+							const toggleBorderWidthEl = document.getElementById('customize-control-responsive_mobile_menu_toggle_border_width_border');
+							if (toggleBorderWidthEl) {
+								toggleBorderWidthEl.style.display = 'none';
+							}
 						} else if( 'outline' === newval ) {
 							// Hide background color for outline style, show others
 							backgroundColorElementIds.forEach(id => {
@@ -339,11 +356,20 @@ const TabsComponent = props => {
 							if (borderRadiusEl) {
 								borderRadiusEl.style.display = 'block';
 							}
+							const toggleBorderWidthEl = document.getElementById('customize-control-responsive_mobile_menu_toggle_border_width_border');
+							if (toggleBorderWidthEl) {
+								toggleBorderWidthEl.style.display = 'block';
+							}
+							
 						} else {
 							// Hide border color for fill style, show others
 							const borderColorEl = document.getElementById('customize-control-responsive_mobile_menu_toggle_border_color');
 							if (borderColorEl) {
 								borderColorEl.style.display = 'none';
+							}
+							const toggleBorderWidthEl = document.getElementById('customize-control-responsive_mobile_menu_toggle_border_width_border');
+							if (toggleBorderWidthEl) {
+								toggleBorderWidthEl.style.display = 'none';
 							}
 							// Show background color, background separator, and border radius
 							const backgroundColorEl = document.getElementById('customize-control-responsive_header_menu_toggle_background_color');
@@ -358,6 +384,7 @@ const TabsComponent = props => {
 							if (borderRadiusEl) {
 								borderRadiusEl.style.display = 'block';
 							}
+							
 						}
 					}
 				} );
@@ -589,12 +616,12 @@ const TabsComponent = props => {
     controlElement.style.display = 'none';
 
     let isVisible = false;
-    if (control === 'default') {
-        // For default sidebar: only hide when 'no'
+    if (control === 'global') {
+        // For global sidebar: only hide when 'no'
         isVisible = value !== 'no' && tab === 'general';
     } else {
-        // For page/blog: hide when 'no' or 'default'
-        isVisible = value !== 'no' && value !== 'default' && tab === 'general';
+        // For page/blog: hide when 'no' or 'global'
+        isVisible = value !== 'no' && value !== 'global' && tab === 'general';
     }
 
     if (isVisible) {
@@ -608,8 +635,8 @@ const TabsComponent = props => {
 		if (!controlElement) return;
 		controlElement.style.display = 'none';
 
-		// For shop/single product sidebar: only hide when 'no'
-		let isVisible = value !== 'no' && tab === 'general';
+		// For shop/single product sidebar: hide when 'no' or 'global'
+		let isVisible = value !== 'no' && value !== 'global' && tab === 'general';
 
 		if (isVisible) {
 			controlElement.style.display = 'block';

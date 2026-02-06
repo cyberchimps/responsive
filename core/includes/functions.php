@@ -119,6 +119,12 @@ function responsive_get_option_defaults() {
 		'blog_posts_index_layout_default' => 'default',
 		'site_layout_option'              => 'boxed',
 		'button_style'                    => 'default',
+		'responsive_button_hover_color'                   => 'palette7',
+		'responsive_cart_buttons_hover_color'             => 'palette7',
+		'responsive_cart_checkout_button_hover_color'     => 'palette7',
+		'responsive_add_to_cart_button_hover_color'       => 'palette7',
+		'responsive_header_button_bg_hover_color'            => 'palette7',
+		'responsive_mobile_header_button_bg_hover_color'     => 'palette7',
 		'home-widgets'                    => false,
 		'site_footer_option'              => 'footer-3-col',
 		'res_hide_site_title'             => false,
@@ -638,9 +644,9 @@ function responsive_add_custom_body_classes( $classes ) {
 
 			if ( ! $sidebar_position ) {
 				$global_sidebar_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
-				$page_sidebar_setting    = get_theme_mod( 'responsive_page_sidebar_position', 'no' );
+				$page_sidebar_setting    = get_theme_mod( 'responsive_page_sidebar_position', 'global' );
 
-				$sidebar_position = ( $page_sidebar_setting === 'default' ) ? $global_sidebar_position : $page_sidebar_setting;
+				$sidebar_position = ( $page_sidebar_setting === 'global' || $page_sidebar_setting === 'default' ) ? $global_sidebar_position : $page_sidebar_setting;
 			}
 
 			// Page sidebar Position.
@@ -668,10 +674,10 @@ function responsive_add_custom_body_classes( $classes ) {
 
 			// Single Blog sidebar Position.
 			$global_sidebar_position   = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
-			$single_blog_sidebar_value = get_theme_mod( 'responsive_single_blog_sidebar_position', 'no' );
+			$single_blog_sidebar_value = get_theme_mod( 'responsive_single_blog_sidebar_position', 'global' );
 
 			$classes[] = 'sidebar-position-' . (
-				$single_blog_sidebar_value === 'default' ? $global_sidebar_position : $single_blog_sidebar_value
+				( $single_blog_sidebar_value === 'global' || $single_blog_sidebar_value === 'default' ) ? $global_sidebar_position : $single_blog_sidebar_value
 			);
 			// Single Blog Featured Image Aligmnmnet.
 			$classes[] = 'featured-image-alignment-' . get_theme_mod( 'responsive_single_blog_featured_image_alignment', 'left' );
@@ -712,7 +718,7 @@ function responsive_add_custom_body_classes( $classes ) {
 			$get_sidebar_position = function( $context, $default = 'no' ) {
 				$global = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
 				$value  = get_theme_mod( "responsive_{$context}_sidebar_position", $default );
-				return ( $value === 'default' ) ? $global : $value;
+				return ( $value === 'global' || $value === 'default' ) ? $global : $value;
 			};
 			// Entry Blog sidebar Position.
 			$blog_sidebar_position = $get_sidebar_position( 'blog', get_responsive_customizer_defaults( 'blog_sidebar_position' ) );
@@ -1091,6 +1097,11 @@ function defaults() {
 			'scroll_to_top_icon_background'       => '#a8a6a6',
 			'scroll_to_top_icon_background_hover' => '#d1cfcf',
 			'add_to_cart_button'                  => '#0066CC',
+			'responsive_add_to_cart_button_hover_color' => 'palette7',
+			'responsive_cart_buttons_hover_color' => 'palette7',
+			'responsive_cart_checkout_button_hover_color' => 'palette7',
+			'responsive_header_button_bg_hover_color' => 'palette7',
+			'responsive_mobile_header_button_bg_hover_color' => 'palette7',
 			'shop_product_price'                  => '#333333',
 			'content_header_heading'              => '#333333',
 			'content_header_description'          => '#999999',
@@ -1155,7 +1166,8 @@ function defaults() {
 			'mobile_header_html_link_color_hover' => '#0066CC',
 			'mobile_header_html_margin_x'         => 0,
 			'mobile_header_html_margin_y'         => 0,
-			'mobile_menu_toggle_border_color'     => '#333333',
+			'mobile_menu_toggle_border_color'     => '#0066cc',
+			'mobile_menu_toggle_border_width'	  => 1,
 			'menu_button_radius'                  => 0,
 			'responsive_alt_background_color'     => 'palette6',
 			'body_text'                           => '#333333',
@@ -1175,7 +1187,7 @@ function defaults() {
 			'link'                                => '#0066CC',
 			'link_hover'                          => '#10659C',
 			'button'                              => '#0066CC',
-			'button_hover'                        => '#10659C',
+			'button_hover'                        => 'palette7',
 			'button_text'                         => '#ffffff',
 			'button_hover_text'                   => '#ffffff',
 			'button_border'                       => '#10659C',
@@ -1192,7 +1204,7 @@ function defaults() {
 			'header_secondary_menu_full_width'    => 1,
 			'blog_content_width'                  => 66,
 			'res_breadcrumb'                      => 1,
-			'blog_sidebar_position'               => 'no',
+			'blog_sidebar_position'               => 'global',
 			'header_social_show_label'            => 0,
 			'header_social_item_color'            => '#2D3748',
 			'header_social_item_hover_color'      => '#2D3748',
@@ -1221,6 +1233,7 @@ function defaults() {
 			'responsive_sidebar_text_color'       => 'palette2',
 			'responsive_link_color'               => 'palette0',
 			'responsive_button_color'             => 'palette0',
+			'responsive_button_hover_color'       => 'palette7',
 			'responsive_sidebar_link_color'       => 'palette0',
 			'responsive_shop_product_rating_color' => 'palette0',
 			'responsive_cart_checkout_button_color' => 'palette0',
@@ -1318,7 +1331,8 @@ function defaults() {
 			'responsive_header_button_color'                          => '#000000',
 			'responsive_header_button_hover_color'                    => '#2B6CB0',
 			'responsive_header_button_bg_color'                       => '#2B6CB0',
-			'responsive_header_button_bg_hover_color'                 => '#215387',
+			'responsive_header_button_bg_hover_color'                 => 'palette7',
+			'responsive_mobile_header_button_bg_hover_color'          => 'palette7',
 			'responsive_header_button_border_color'                   => '#000000',
 			'responsive_header_button_border_color_hover'             => '#000000',
 			'responsive_header_button_shadow_color'                   => '#FFFFFF',
