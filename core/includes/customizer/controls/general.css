@@ -1809,7 +1809,7 @@ in both cases the footer builder is active */
 }
 
 /* For Off Canvas and Off Canvas Menu Customizer */
-#customize-theme-controls #sub-accordion-section-responsive_header_mobile_off_canvas, #sub-accordion-section-responsive_header_off_canvas_menu_layout {
+#customize-theme-controls #sub-accordion-section-responsive_header_mobile_off_canvas, #sub-accordion-section-responsive_header_off_canvas_menu_layout,#customize-theme-controls #sub-accordion-section-responsive_footer_menu {
 	height : 100%;
 }
 #customize-control-responsive_header_mobile_off_canvas_header_type, #customize-control-responsive_header_mobile_off_canvas_move_body, #customize-control-responsive_header_mobile_off_canvas_bg_color, #customize-control-responsive_redirect_to_off_canvas_menu_set_location, #customize-control-responsive_header_off_canvas_menu_items_divider, #customize-control-responsive_header_off_canvas_menu_visibility, #customize-control-responsive_header_off_canvas_menu_typography_group, #customize-control-responsive_mobile_header_html_content_separator, #customize-control-responsive_mobile_header_html_link_style_separator {

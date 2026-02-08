@@ -1635,6 +1635,9 @@ function defaults() {
 		'footer_widget_content_color'           => '#ffffff',
 		'footer_widget_link_color'              => '#eaeaea',
 		'footer_widget_link_hover_color'        => '#FFFFFF',
+		'footer_menu_link'						=> '#0066CC',
+		'footer_menu_link_active'				=> '#0066CC',
+		'footer_menu_link_hover' 				=> '#10659C',
 		'default_global_palette'                => array (
 				'style' => 'playful-default',
 				'palette' => responsive_get_selected_palette_color_scheme(),
