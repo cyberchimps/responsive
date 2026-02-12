@@ -8391,17 +8391,17 @@ function responsive_customizer_styles() {
 		$mobile_breakpoint 					 = 544; 
 
 		$shop_sidebar_setting_for_width = get_theme_mod( 'responsive_shop_sidebar_position', 'global' );
-		if( $shop_sidebar_setting_for_width === 'global' || $shop_sidebar_setting_for_width === 'default')
+		if( $shop_sidebar_position === 'no' )
+		{
+			$shop_sidebar_width = 0;
+		}
+		else if( $shop_sidebar_setting_for_width === 'global' || $shop_sidebar_setting_for_width === 'default')
 		{
 			$shop_sidebar_width = esc_html( get_theme_mod('responsive_default_sidebar_width',30)); 
 		}
-		else if( $shop_sidebar_setting_for_width !== 'no')
-		{
-			$shop_sidebar_width = esc_html( get_theme_mod('responsive_shop_sidebar_width', 30));
-		}
 		else 
 		{
-			$shop_sidebar_width = 0;
+			$shop_sidebar_width = esc_html( get_theme_mod('responsive_shop_sidebar_width', 30));
 		}
 
 		// $woocommerce_custom_css .= "
