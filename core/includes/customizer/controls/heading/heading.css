@@ -2,6 +2,10 @@
     margin-top: 24px;
 }
 
+li#customize-control-responsive_sub_menu_separator{
+    margin-top: 0;
+}
+
 #customize-control-responsive_sidebar_separator {
     margin-top: 0px;
 }
