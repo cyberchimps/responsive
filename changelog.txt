@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(12/02/2026) Version 6.3.3
+[+] = New = Introduced a new "General" section in the Theme Customizer by consolidating existing settings into a single, better-organized panel.
+[*] = Improvement = Reorganized and restructured Customizer settings, including the Button panel, Primary Menu sections (General & Design) and refined Header -> Primary Menu color controls for a cleaner and more intuitive user experience.
+[*] = Improvement = Updated default sidebar settings on fresh installations for improved initial theme setup.
+
 (22/01/2025) Version 6.3.2
 [!] = Fix = Resolved mobile header issues.
 [!] = Fix = Addressed PHP deprecated notice related to usage of ${var} syntax in the Responsive theme.
