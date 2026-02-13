@@ -192,6 +192,27 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			$header_menu_color_separator_label = __( 'Main & Mobile Menu Colors', 'responsive' );
 			responsive_separator_control( $wp_customize, 'header_menu_color_separator', $header_menu_color_separator_label, 'responsive_header_menu_layout', 115 );
 
+			$menu_link_color_label = __( 'Menu Item Link', 'responsive' );
+
+			responsive_color_control_with_states(
+				$wp_customize,
+				'header_menu_link',
+				$menu_link_color_label,
+				'responsive_header_menu_layout',
+				120,
+
+				// Normal
+				Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link' ),
+
+				// Hover
+				Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link_hover' ),
+				'header_menu_link_hover',
+
+				// Active
+				Responsive\Core\get_responsive_customizer_defaults( 'header_active_menu_link' ),
+				'header_active_menu_link'
+			);
+
 			// Background Color.
 			$menu_background_color_label = __( 'Background', 'responsive' );
 			responsive_color_control_with_states(
@@ -199,7 +220,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				'header_menu_background',
 				$menu_background_color_label,
 				'responsive_header_menu_layout',
-				120,
+				140,
 
 				// Normal
 				Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ),
@@ -213,26 +234,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				'header_active_menu_background'
 			);
 			
-			$menu_link_color_label = __( 'Menu Item Link', 'responsive' );
-
-			responsive_color_control_with_states(
-				$wp_customize,
-				'header_menu_link',
-				$menu_link_color_label,
-				'responsive_header_menu_layout',
-				140,
-
-				// Normal
-				Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link' ),
-
-				// Hover
-				Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link_hover' ),
-				'header_menu_link_hover',
-
-				// Active
-				Responsive\Core\get_responsive_customizer_defaults( 'header_active_menu_link' ),
-				'header_active_menu_link'
-			);
+			
 
 			// Mobile Menu Border Color.
 			$menu_menu_toggle_border_color = __( 'Mobile Menu Border Color', 'responsive' );
@@ -270,6 +272,27 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			$sub_menu_divider_color_label = __( 'Divider Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'sub_menu_divider', $sub_menu_divider_color_label, 'responsive_header_menu_layout', 200, '#eaeaea' );
 
+			// Sub Menu Link Color.
+			$sub_menu_link_color_label = __( 'Sub Menu Item Link', 'responsive' );
+			responsive_color_control_with_states(
+				$wp_customize,
+				'header_sub_menu_link',
+				$sub_menu_link_color_label,
+				'responsive_header_menu_layout',
+				205,
+
+				// Normal
+				Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_link' ),
+
+				// Hover
+				Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_link_hover' ),
+				'header_sub_menu_link_hover',
+
+				// Active
+				Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_active_link' ),
+				'header_sub_menu_active_link'
+			);
+
 			// Sub Menu Background Color.
 			$responsive_header_sub_menu_background_color_label = __( 'Sub Menu Background', 'responsive' );
 
@@ -278,7 +301,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				'header_sub_menu_background',
 				$responsive_header_sub_menu_background_color_label,
 				'responsive_header_menu_layout',
-				205,
+				220,
 
 				// Normal
 				Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_background' ),
@@ -293,26 +316,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			);
 
 
-			// Sub Menu Link Color.
-			$sub_menu_link_color_label = __( 'Sub Menu Item Link', 'responsive' );
-			responsive_color_control_with_states(
-				$wp_customize,
-				'header_sub_menu_link',
-				$sub_menu_link_color_label,
-				'responsive_header_menu_layout',
-				220,
-
-				// Normal
-				Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_link' ),
-
-				// Hover
-				Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_link_hover' ),
-				'header_sub_menu_link_hover',
-
-				// Active
-				Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_active_link' ),
-				'header_sub_menu_active_link'
-			);
+			
 
 		}
 

@@ -10,6 +10,7 @@ class ResponsiveColorStatesPickerControl extends Component {
         this.state = {
             activeState: 'normal', // normal | hover | active
             isVisible: false,
+            opacityZero: false,
         };
     }
 
@@ -24,6 +25,8 @@ class ResponsiveColorStatesPickerControl extends Component {
 
     onColorChange = (color) => {
         const { activeState } = this.state;
+        const opacity = this.extractOpacity(color);
+        this.setState({ opacityZero: opacity === 0 });
         this.props.onChange(color, activeState);
     };
 
@@ -50,6 +53,25 @@ class ResponsiveColorStatesPickerControl extends Component {
             </div>
         );
     };
+    extractOpacity = (color) => {
+        if (!color) return 1;
+
+        if (typeof color === 'string') {
+            if (color === 'transparent') return 0;
+
+            const rgbaMatch = color.match(
+                /rgba\(\s*\d+,\s*\d+,\s*\d+,\s*(\d*\.?\d+)\s*\)/
+            );
+            return rgbaMatch ? parseFloat(rgbaMatch[1]) : 1;
+        }
+
+        if (typeof color === 'object' && color.rgb && color.rgb.a !== undefined) {
+            return color.rgb.a;
+        }
+
+        return 1;
+    };
+
 
     render() {
         const { activeState, isVisible } = this.state;
@@ -71,6 +93,12 @@ class ResponsiveColorStatesPickerControl extends Component {
                             color={this.getColorValue(activeState)}
                             onChangeComplete={this.onColorChange}
                         />
+                        {this.state.opacityZero && (
+                            <div className="responsive-color-picker-zero-opac">
+                                <strong>{__('Note: ', 'responsive')}</strong>
+                                {__('Opacity is set to zero. Increase it to make the color visible.', 'responsive')}
+                            </div>
+                        )}
                     </div>
                 )}
             </div>
