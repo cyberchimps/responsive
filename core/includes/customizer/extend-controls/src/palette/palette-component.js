@@ -61,69 +61,7 @@ const PaletteComponent = props => {
 
     const [isPaletteVisible, setIsPaletteVisible] = useState(false);
     const [openPickerId, setOpenPickerId] = useState(null);
-    // const propagateGlobalColor = (settingId, value, wp) => {
-    //     if (!wp?.customize || !wp.customize(settingId)) return;
-    //     wp.customize(settingId).set(value);
-
-    //     /*
-    //         Defining scope of individual global color settings
-    //     */
-    //     const propagationMap = {
-    //         'responsive_global_color_palette_headings_color': [
-    //         'responsive_header_text_color',
-    //         'responsive_header_site_title_color',
-    //         'responsive_header_menu_link_color',
-    //         'responsive_header_secondary_menu_link_color',
-    //         'responsive_sidebar_headings_color',
-    //         'responsive_h1_text_color',
-    //         'responsive_h2_text_color',
-    //         'responsive_h3_text_color',
-    //         'responsive_h4_text_color',
-    //         'responsive_h5_text_color',
-    //         'responsive_h6_text_color',
-    //         'responsive_all_heading_text_color'
-    //         ],
-    //         'responsive_global_color_palette_accent_color': [
-    //         'responsive_link_color',
-    //         'responsive_button_color',
-    //         'responsive_button_hover_color',
-    //         'responsive_meta_text_color',
-    //         'responsive_sidebar_link_color',
-    //         'responsive_shop_product_rating_color',
-    //         'responsive_cart_buttons_hover_color',
-    //         'responsive_cart_checkout_button_color'
-    //         ],
-    //         'responsive_global_color_palette_text_color': [
-    //         'responsive_body_text_color',
-    //         'responsive_sidebar_text_color',
-    //         ],
-    //         'responsive_global_color_palette_link_hover_color': [
-    //         'responsive_link_hover_color'
-    //         ],
-    //         'responsive_global_color_palette_content_bg_color': [
-    //         'responsive_box_background_color',
-    //         'responsive_sidebar_background_color',
-    //         'responsive_add_to_cart_button_text_color',
-    //         'responsive_cart_buttons_text_color',
-    //         'responsive_cart_checkout_button_text_color'
-    //         ],
-    //         'responsive_global_color_palette_alt_background_color': [
-    //         'background_color',
-    //         'responsive_alt_background_color'
-    //         ],
-    //         'responsive_global_color_palette_site_background_color': [
-    //         'responsive_site_background_color'
-    //         ]
-    //     };
-
-    //     // if (propagationMap[settingId]) {
-    //     //     propagationMap[settingId].forEach(rId => {
-    //     //     if (wp.customize(rId)) {
-    //     //         wp.customize(rId).set(value);
-    //     //     }
-    //     //     });
-    //     // }
-    // };
+    
     const togglePaletteVisibility = (e) => {
         e.stopPropagation();
         setIsPaletteVisible(!isPaletteVisible);

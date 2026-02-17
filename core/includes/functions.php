@@ -1137,11 +1137,14 @@ function defaults() {
 			'header_menu_border'                  => '#eaeaea',
 			'header_active_menu_background'       => '#ffffff',
 			'header_menu_link'                    => '#333333',
-			'header_menu_link_hover'              => '#10659C',
+			'header_menu_link_hover'              => 'pallete1',
+			'responsive_header_menu_link_hover_color' => 'palette1',
 			'responsive_header_menu_link_color'   => 'palette3',
 			'header_sub_menu_background'          => '#ffffff',
 			'header_sub_menu_link'                => '#333333',
 			'header_sub_menu_link_hover'          => '#10659C',
+			'responsive_header_sub_menu_link_color' => 'palette3',
+			'responsive_header_sub_menu_link_hover_color' => 'palette1',
 			'header_menu_toggle_background'       => '#ffffff',
 			'header_menu_toggle'                  => '#333333',
 			'hamburger_secondary_menu_padding'    => 15,
@@ -1172,6 +1175,7 @@ function defaults() {
 			'menu_button_radius'                  => 0,
 			'responsive_alt_background_color'     => 'palette6',
 			'responsive_button_text_color'		  => 'palette6',
+			'responsive_button_hover_text_color'  => 'palette1',
 			'body_text'                           => '#333333',
 			'responsive_h1_text_color'            => 'headings-color',
 			'responsive_h2_text_color'            => 'headings-color',
@@ -1237,6 +1241,7 @@ function defaults() {
 			'responsive_button_color'             => 'palette0',
 			'responsive_button_hover_color'       => 'palette7',
 			'responsive_sidebar_link_color'       => 'palette0',
+			'responsive_sidebar_link_hover_color' => 'palette1',
 			'responsive_shop_product_rating_color' => 'palette0',
 			'responsive_cart_checkout_button_color' => 'palette0',
 			'responsive_link_hover_color'         => 'palette1',
@@ -2459,7 +2464,7 @@ if ( ! function_exists( 'responsive_old_header_search_compatibility_with_hfb_hea
 			set_theme_mod( 'responsive_header_desktop_items', $header_hfb_elements );
 			//make search border color backward compatible.
 			$menu_items_color       = responsive_prepare_css_value( 'responsive_header_menu_link_color' );
-			$menu_items_hover_color = get_theme_mod( 'responsive_header_menu_link_hover_color' );
+			$menu_items_hover_color = responsive_prepare_css_value( 'responsive_header_menu_link_hover_color' );
 			if( $menu_items_color ) {
 				set_theme_mod( 'responsive_header_search_color', $menu_items_color );
 				set_theme_mod( 'responsive_header_search_hover_color', $menu_items_color );

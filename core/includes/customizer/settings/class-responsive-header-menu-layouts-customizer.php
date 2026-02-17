@@ -202,10 +202,10 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				120,
 
 				// Normal
-				Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_menu_link_color' ),
 
 				// Hover
-				Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link_hover' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_menu_link_hover_color' ),
 				'header_menu_link_hover',
 
 				// Active
@@ -282,10 +282,10 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				205,
 
 				// Normal
-				Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_link' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_sub_menu_link_color' ),
 
 				// Hover
-				Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_link_hover' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_sub_menu_link_hover_color' ),
 				'header_sub_menu_link_hover',
 
 				// Active
