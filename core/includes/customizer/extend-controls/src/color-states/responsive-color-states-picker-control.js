@@ -37,6 +37,18 @@ class ResponsiveColorStatesPickerControl extends Component {
         }));
     };
 
+    onDefaultClick = () => {
+        const { activeState } = this.state;
+        const { defaultValues } = this.props;
+        let defaultColor = '';
+
+        if (defaultValues && typeof defaultValues === 'object') {
+            defaultColor = defaultValues[activeState] || '';
+        }
+
+        this.onColorChange(defaultColor);
+    };
+
     renderStateButton = (state, label) => {
         const { activeState, isVisible } = this.state;
         const isActive = activeState === state && isVisible;
@@ -99,6 +111,13 @@ class ResponsiveColorStatesPickerControl extends Component {
                                 {__('Opacity is set to zero. Increase it to make the color visible.', 'responsive')}
                             </div>
                         )}
+                        <Button
+                            type="button"
+                            onClick={this.onDefaultClick}
+                            className="responsive-clear-btn-inside-picker components-button is-secondary is-small"
+                        >
+                            {__('Default', 'responsive')}
+                        </Button>
                     </div>
                 )}
             </div>
@@ -112,6 +131,14 @@ ResponsiveColorStatesPickerControl.propTypes = {
         hover: PropTypes.string,
         active: PropTypes.string,
     }),
+    defaultValues: PropTypes.oneOfType([
+        PropTypes.shape({
+            normal: PropTypes.string,
+            hover: PropTypes.string,
+            active: PropTypes.string,
+        }),
+        PropTypes.string,
+    ]),
     onChange: PropTypes.func.isRequired,
 };
 
