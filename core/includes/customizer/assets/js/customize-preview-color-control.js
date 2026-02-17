@@ -1508,15 +1508,18 @@
         } );
     } );
 
-    //Links Hover Color
-    $(".widget-area .widget-wrapper a").hover(
+    $('.widget-area .widget-wrapper a').not('a.add_to_cart_button').not('a.product_type_grouped').not('.woocommerce-tabs .reviews_tab').hover(
         function() {
-            $(this).css("color", api('responsive_sidebar_link_hover_color').get());
+            const linkHoverColor = processThemeSettingForCSS('responsive_sidebar_link_hover_color');
+            console.log("I am triggered !!", linkHoverColor);
+            $(this).css("color", linkHoverColor);
         },
+        
         function() {
-            const sidebarLinkColor = processThemeSettingForCSS('responsive_sidebar_link_color');
-            $(this).css("color", sidebarLinkColor);
-        });
+            const linkColor = processThemeSettingForCSS('responsive_sidebar_link_color');
+            $(this).css("color", linkColor);
+        }
+    );
 
     //Scroll To Top
     //Icon Color
@@ -1735,7 +1738,7 @@
     //Hover Colors
 
     //Links Hover Color
-    $("a").hover(
+    $("a").not('.widget-area .widget-wrapper a').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
             $(this).css("color", linkHoverColor);
@@ -1987,11 +1990,11 @@
     //Sub Menu Links Hover Color
     $(".main-navigation .children li a,.main-navigation .sub-menu li a,.responsive-off-canvas-panel .sub-menu li a,.responsive-off-canvas-panel .children li a,#off-canvas-menu .sub-menu li a,#off-canvas-menu .children li a,.off-canvas-widget-area #off-canvas-menu .sub-menu li a,.off-canvas-widget-area #off-canvas-menu .children li a,#off-canvas-site-navigation .menu .sub-menu li a,#off-canvas-site-navigation .menu .children li a").hover(
         function() {
-            $(this).css("color", processThemeSettingForCSS('responsive_sidebar_link_hover_color'));
+            $(this).css("color", processThemeSettingForCSS('responsive_header_sub_menu_link_hover_color'));
         },
 
         function() {
-            $(this).css("color", processThemeSettingForCSS('responsive_sidebar_link_color'));
+            $(this).css("color", processThemeSettingForCSS('responsive_header_sub_menu_link_hover_color'));
         }
     );
     $(".main-navigation .menu .sub-menu li > .res-iconify svg, .main-navigation .menu .sub-menu li > a > .res-iconify svg").hover(
@@ -2046,7 +2049,7 @@
     );
     $(".res-transparent-header .main-navigation .menu .sub-menu li > .res-iconify svg").hover(
         function() {
-            $(this).css("stroke", api('responsive_transparent_header_sub_menu_link_hover_color').get());
+            $(this).css("stroke", processThemeSettingForCSS('responsive_transparent_header_sub_menu_link_hover_color'));
         },
 
         function() {
@@ -2056,11 +2059,31 @@
 //Active Sub Menu Links Hover Color
     $(".res-transparent-header .main-navigation .menu .sub-menu .current_page_item > a,.res-transparent-header .main-navigation .menu .sub-menu .current-menu-item > a,.res-transparent-header .main-navigation .menu .children li.current_page_item a,.res-transparent-header .responsive-off-canvas-panel .sub-menu .current_page_item > a,.res-transparent-header .responsive-off-canvas-panel .sub-menu .current-menu-item > a,.res-transparent-header .responsive-off-canvas-panel .children li.current_page_item a,.res-transparent-header #off-canvas-menu .sub-menu .current_page_item > a,.res-transparent-header #off-canvas-menu .sub-menu .current-menu-item > a,.res-transparent-header #off-canvas-menu .children li.current_page_item a,.res-transparent-header .off-canvas-widget-area #off-canvas-menu .sub-menu .current_page_item > a,.res-transparent-header .off-canvas-widget-area #off-canvas-menu .sub-menu .current-menu-item > a,.res-transparent-header .off-canvas-widget-area #off-canvas-menu .children li.current_page_item a,.res-transparent-header #off-canvas-site-navigation .menu .sub-menu .current_page_item > a,.res-transparent-header #off-canvas-site-navigation .menu .sub-menu .current-menu-item > a,.res-transparent-header #off-canvas-site-navigation .menu .children li.current_page_item a").hover(
         function() {
-            $(this).css("color", api('responsive_transparent_header_sub_menu_link_hover_color').get());
+            const linkHoverAttributes = processThemeSettingForCSS('responsive_transparent_header_sub_menu_link_hover_color');
+            if( linkHoverAttributes ) {
+                $(this).css("color", linkHoverAttributes);
+            }
         },
 
         function() {
             $(this).css("color", api('responsive_transparent_header_sub_menu_active_link_color').get());
+        }
+    );
+
+    // Sub Menu Item Link Hover Color
+    $(".res-transparent-header .main-navigation .menu .sub-menu li a, .res-transparent-header .main-navigation .menu .children li a").hover(
+        function() {
+            const linkHoverAttributes = processThemeSettingForCSS('responsive_transparent_header_sub_menu_link_hover_color');
+            if( linkHoverAttributes ) {
+                $(this).css("color", linkHoverAttributes);
+            }
+        },
+
+        function() {
+             const linkAttributes = processThemeSettingForCSS('responsive_transparent_header_sub_menu_link_color');
+            if( linkAttributes ) {
+                $(this).css("color", linkAttributes);
+            }
         }
     );
     //Footer Links Hover Color
