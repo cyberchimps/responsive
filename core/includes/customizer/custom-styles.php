@@ -5433,7 +5433,7 @@ function responsive_customizer_styles() {
 
 	$footer_menu_link_color_mobile = get_theme_mod( 'responsive_footer_menu_link_color_mobile', get_theme_mod( 'responsive_footer_links_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_link' )) );
 	$footer_menu_link_hover_color_mobile = get_theme_mod( 'responsive_footer_menu_link_color_mobile_hover', get_theme_mod( 'responsive_footer_links_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_link_hover' )) );
-	$footer_menu_link_active_color_mobile = get_theme_mod( 'responsive_footer_menu_link_color_mobile_active', Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_link_active' ) );
+	$footer_menu_link_active_color_mobile = get_theme_mod( 'responsive_footer_menu_link_color_mobile_active', $footer_menu_link_active_color );
 
 	if(Responsive\Core\responsive_check_element_present_in_hfb('footer_navigation', 'footer'))
 	{

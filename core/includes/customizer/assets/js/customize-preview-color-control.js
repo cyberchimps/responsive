@@ -1178,12 +1178,21 @@
         } );
     } );
 
-    //Links Color
-    api( 'responsive_footer_links_color', function( value ) {
-        value.bind( function( newval ) {
-            $('.site-footer a').css('color', newval );
-        } );
-    } );
+    api('responsive_footer_links_color', function(value) {
+        value.bind(function(newval) {
+
+            // Remove old style if exists
+            $('#responsive-footer-links-color-style').remove();
+
+            // Add new style tag
+            $('head').append(
+                '<style id="responsive-footer-links-color-style">' +
+                '.site-footer a { color: ' + newval + '; }' +
+                '</style>'
+            );
+
+        });
+    });
 
     //Border Color
     // api( 'responsive_footer_border_color', function( value ) {
