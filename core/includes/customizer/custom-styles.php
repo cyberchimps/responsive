@@ -8438,17 +8438,17 @@ function responsive_customizer_styles() {
 		$mobile_breakpoint 					 = 544; 
 
 		$shop_sidebar_setting_for_width = get_theme_mod( 'responsive_shop_sidebar_position', 'global' );
-		if( $shop_sidebar_setting_for_width === 'global' || $shop_sidebar_setting_for_width === 'default')
+		if( $shop_sidebar_position === 'no' )
+		{
+			$shop_sidebar_width = 0;
+		}
+		else if( $shop_sidebar_setting_for_width === 'global' || $shop_sidebar_setting_for_width === 'default')
 		{
 			$shop_sidebar_width = esc_html( get_theme_mod('responsive_default_sidebar_width',30)); 
 		}
-		else if( $shop_sidebar_setting_for_width !== 'no')
-		{
-			$shop_sidebar_width = esc_html( get_theme_mod('responsive_shop_sidebar_width', 30));
-		}
 		else 
 		{
-			$shop_sidebar_width = 0;
+			$shop_sidebar_width = esc_html( get_theme_mod('responsive_shop_sidebar_width', 30));
 		}
 
 		// $woocommerce_custom_css .= "
@@ -8467,8 +8467,10 @@ function responsive_customizer_styles() {
 		
 
 		$woocommerce_custom_css .= sprintf(
-		'li.product {
-			background-color: %s !important;
+		'.responsive-site-style-boxed ul.products li.product,
+		.responsive-site-style-content-boxed ul.products li.product,
+		.responsive-site-style-flat ul.products li.product {
+			background-color: %s;
     	}',
 			$product_bg_color
 		);
@@ -8493,15 +8495,15 @@ function responsive_customizer_styles() {
 		$woocommerce_custom_css .= sprintf(
 			'.woocommerce ul.products li.product,
 			.woocommerce-page ul.products li.product {
-				border-radius: %1$dpx %2$dpx %3$dpx %4$dpx !important;
+				border-radius: %1$dpx %2$dpx %3$dpx %4$dpx;
 				position: relative;
 			}
 			.woocommerce ul.products li.product a.woocommerce-LoopProduct-link img,
 			.woocommerce-page ul.products li.product a.woocommerce-LoopProduct-link img {
 				-webkit-clip-path: inset(0 round %1$dpx %2$dpx 0 0) !important;
 						clip-path: inset(0 round %1$dpx %2$dpx 0 0) !important;
-				border-top-left-radius: %1$dpx !important;
-				border-top-right-radius: %2$dpx !important;
+				border-top-left-radius: %1$dpx;
+				border-top-right-radius: %2$dpx;
 			}',
 			$tl, $tr, $br, $bl
 		);
