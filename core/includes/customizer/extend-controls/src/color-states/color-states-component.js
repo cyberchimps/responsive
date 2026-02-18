@@ -135,6 +135,7 @@ const ColorStatesComponent = props => {
 						hover: state.value?.hover || '',
 						active: state.value?.active || '',
 					}}
+					defaultValues={props.control.params.default}
 					onChange={(color, stateName) => {
 						handleChangeComplete(color, stateName);
 					}}

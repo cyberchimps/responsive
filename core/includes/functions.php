@@ -1114,9 +1114,10 @@ function defaults() {
 			'header_border'                       => '#eaeaea',
 			'header_site_title'                   => '#333333',
 			'header_site_title_hover'             => '#10659C',
-			'header_text'                         => '#999999',
+			'header_text'						  => 'palette2',
+
 			'responsive_header_site_title_color'       => 'palette3',
-			'responsive_header_site_title_hover_color' => 'palette3',
+			'responsive_header_site_title_hover_color' => 'palette1',
 			'responsive_sidebar_headings_color'   => 'palette3',
 			'responsive_header_text_color'        => 'palette2',
 			'header_widget_text'                  => '#333333',
@@ -1136,11 +1137,14 @@ function defaults() {
 			'header_menu_border'                  => '#eaeaea',
 			'header_active_menu_background'       => '#ffffff',
 			'header_menu_link'                    => '#333333',
-			'header_menu_link_hover'              => '#10659C',
+			'header_menu_link_hover'              => 'pallete1',
+			'responsive_header_menu_link_hover_color' => 'palette1',
 			'responsive_header_menu_link_color'   => 'palette3',
 			'header_sub_menu_background'          => '#ffffff',
 			'header_sub_menu_link'                => '#333333',
 			'header_sub_menu_link_hover'          => '#10659C',
+			'responsive_header_sub_menu_link_color' => 'palette3',
+			'responsive_header_sub_menu_link_hover_color' => 'palette1',
 			'header_menu_toggle_background'       => '#ffffff',
 			'header_menu_toggle'                  => '#333333',
 			'hamburger_secondary_menu_padding'    => 15,
@@ -1170,6 +1174,8 @@ function defaults() {
 			'mobile_menu_toggle_border_width'	  => 1,
 			'menu_button_radius'                  => 0,
 			'responsive_alt_background_color'     => 'palette6',
+			'responsive_button_text_color'		  => 'palette6',
+			'responsive_button_hover_text_color'  => 'palette1',
 			'body_text'                           => '#333333',
 			'responsive_h1_text_color'            => 'headings-color',
 			'responsive_h2_text_color'            => 'headings-color',
@@ -1228,13 +1234,14 @@ function defaults() {
 			'responsive_box_background_color'     => 'palette4',
 			'responsive_sidebar_background_color' => 'palette4',
 			'responsive_add_to_cart_button_text_color' => 'palette4',
-			'responsive_add_to_cart_button_hover_text_color' => 'palette4',
+			'responsive_add_to_cart_button_hover_text_color' => 'palette1',
 			'responsive_body_text_color'          => 'palette2',
 			'responsive_sidebar_text_color'       => 'palette2',
 			'responsive_link_color'               => 'palette0',
 			'responsive_button_color'             => 'palette0',
 			'responsive_button_hover_color'       => 'palette7',
 			'responsive_sidebar_link_color'       => 'palette0',
+			'responsive_sidebar_link_hover_color' => 'palette1',
 			'responsive_shop_product_rating_color' => 'palette0',
 			'responsive_cart_checkout_button_color' => 'palette0',
 			'responsive_link_hover_color'         => 'palette1',
@@ -1328,9 +1335,12 @@ function defaults() {
 			'responsive_mobile_header_button_size'					  => 'md', 
 			'responsive_header_button_padding_y'                      => 0,
 			'responsive_header_button_padding_x'                      => 0,
-			'responsive_header_button_color'                          => '#000000',
-			'responsive_header_button_hover_color'                    => '#2B6CB0',
-			'responsive_header_button_bg_color'                       => '#2B6CB0',
+			'responsive_header_button_color'                          => 'palette6',
+			'responsive_mobile_header_button_color'                   => 'palette6',
+			'responsive_header_button_hover_color'                    => 'palette1',
+			'responsive_mobile_header_button_hover_color'			  => 'palette1',
+			'responsive_header_button_bg_color'                       => 'palette0',
+			'responsive_mobile_header_button_bg_color'				  => 'palette0',
 			'responsive_header_button_bg_hover_color'                 => 'palette7',
 			'responsive_mobile_header_button_bg_hover_color'          => 'palette7',
 			'responsive_header_button_border_color'                   => '#000000',
@@ -2460,7 +2470,7 @@ if ( ! function_exists( 'responsive_old_header_search_compatibility_with_hfb_hea
 			set_theme_mod( 'responsive_header_desktop_items', $header_hfb_elements );
 			//make search border color backward compatible.
 			$menu_items_color       = responsive_prepare_css_value( 'responsive_header_menu_link_color' );
-			$menu_items_hover_color = get_theme_mod( 'responsive_header_menu_link_hover_color' );
+			$menu_items_hover_color = responsive_prepare_css_value( 'responsive_header_menu_link_hover_color' );
 			if( $menu_items_color ) {
 				set_theme_mod( 'responsive_header_search_color', $menu_items_color );
 				set_theme_mod( 'responsive_header_search_hover_color', $menu_items_color );

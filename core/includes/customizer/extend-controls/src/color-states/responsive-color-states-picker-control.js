@@ -10,6 +10,7 @@ class ResponsiveColorStatesPickerControl extends Component {
         this.state = {
             activeState: 'normal', // normal | hover | active
             isVisible: false,
+            opacityZero: false,
         };
     }
 
@@ -22,8 +23,26 @@ class ResponsiveColorStatesPickerControl extends Component {
             : normal;
     };
 
+	resolveColorValue = (value, returnRaw = false) => {
+		let color = null;
+		if (value && (value.startsWith('palette') || value.includes('headings-color'))) {
+			color = 'var(--responsive-global-' + value + ')';
+			if (returnRaw) {
+				const raw = getComputedStyle(document.documentElement)
+					.getPropertyValue('--responsive-global-' + value)
+					.trim();
+				return raw;
+			}
+		} else {
+			color = value;
+		}
+		return color;
+	};
+
     onColorChange = (color) => {
         const { activeState } = this.state;
+        const opacity = this.extractOpacity(color);
+        this.setState({ opacityZero: opacity === 0 });
         this.props.onChange(color, activeState);
     };
 
@@ -34,22 +53,52 @@ class ResponsiveColorStatesPickerControl extends Component {
         }));
     };
 
+    onDefaultClick = () => {
+        const { activeState } = this.state;
+        const { defaultValues } = this.props;
+        let defaultColor = '';
+
+        if (defaultValues && typeof defaultValues === 'object') {
+            defaultColor = defaultValues[activeState] || '';
+        }
+
+        this.onColorChange(defaultColor);
+    };
+
     renderStateButton = (state, label) => {
         const { activeState, isVisible } = this.state;
         const isActive = activeState === state && isVisible;
 
-		
         return (
             <div className="responsive-state-btn-wrapper tooltip-container">
                 <Button
                     className={`button wp-color-result ${isActive ? 'wp-picker-open' : ''}`}
-                    style={{ backgroundColor: this.getColorValue(state) }}
+                    style={{ backgroundColor: this.resolveColorValue(this.getColorValue(state)) }}
                     onClick={() => this.togglePicker(state)}  
                 />
                 <span className="tooltip-text">{state}</span>
             </div>
         );
     };
+    extractOpacity = (color) => {
+        if (!color) return 1;
+
+        if (typeof color === 'string') {
+            if (color === 'transparent') return 0;
+
+            const rgbaMatch = color.match(
+                /rgba\(\s*\d+,\s*\d+,\s*\d+,\s*(\d*\.?\d+)\s*\)/
+            );
+            return rgbaMatch ? parseFloat(rgbaMatch[1]) : 1;
+        }
+
+        if (typeof color === 'object' && color.rgb && color.rgb.a !== undefined) {
+            return color.rgb.a;
+        }
+
+        return 1;
+    };
+
 
     render() {
         const { activeState, isVisible } = this.state;
@@ -68,9 +117,22 @@ class ResponsiveColorStatesPickerControl extends Component {
                 {isVisible && (
                     <div className="wp-picker-holder">
                         <ColorPicker
-                            color={this.getColorValue(activeState)}
+                            color={this.resolveColorValue(this.getColorValue(activeState), true)}
                             onChangeComplete={this.onColorChange}
                         />
+                        {this.state.opacityZero && (
+                            <div className="responsive-color-picker-zero-opac">
+                                <strong>{__('Note: ', 'responsive')}</strong>
+                                {__('Opacity is set to zero. Increase it to make the color visible.', 'responsive')}
+                            </div>
+                        )}
+                        <Button
+                            type="button"
+                            onClick={this.onDefaultClick}
+                            className="responsive-clear-btn-inside-picker components-button is-secondary is-small"
+                        >
+                            {__('Default', 'responsive')}
+                        </Button>
                     </div>
                 )}
             </div>
@@ -84,6 +146,14 @@ ResponsiveColorStatesPickerControl.propTypes = {
         hover: PropTypes.string,
         active: PropTypes.string,
     }),
+    defaultValues: PropTypes.oneOfType([
+        PropTypes.shape({
+            normal: PropTypes.string,
+            hover: PropTypes.string,
+            active: PropTypes.string,
+        }),
+        PropTypes.string,
+    ]),
     onChange: PropTypes.func.isRequired,
 };
 

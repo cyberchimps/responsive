@@ -17,7 +17,7 @@
 		<div class="col-md-8 offset-md-2 col-12">
 			<div class="responsive-theme-rst-content">
 				<div class="responsive-theme-text-content text-center">
-					<img class="responsive-theme-responsive-logo" src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/rea.svg'; ?>" class="rounded mx-auto d-block" alt="">
+					<img class="responsive-theme-responsive-logo" src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/rae.svg'; ?>" class="rounded mx-auto d-block" alt="">
 					<div class="responsive-theme-brand-text mt-4">
 						<p class="responsive-theme-rst-brand-name"><?php esc_html( 'Responsive Addons for Elementor' ); ?></p>
 						<p class="responsive-theme-rst-brand-desc"><?php esc_html_e( 'Responsive Addons for Elementor plugin offers a collection of 80+ Elementor widgets to level up your designing process with Elementor. Click the button below to get started.', 'responsive' ); ?></p>

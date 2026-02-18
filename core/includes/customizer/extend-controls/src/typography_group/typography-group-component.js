@@ -29,7 +29,6 @@ const TypographyGroupControlComponent = (props) => {
 	useEffect(() => {
 		if (window.wp && window.wp.customize && window.wp.customize.previewedDevice) {
 			const currentDevice = window.wp.customize.previewedDevice.get();
-            console.log("Current Device : " , currentDevice);
             setActiveDevice(currentDevice);
 			
 			const handleDeviceChange = () => {

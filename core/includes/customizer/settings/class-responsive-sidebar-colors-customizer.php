@@ -54,7 +54,7 @@ if ( ! class_exists( 'Responsive_Sidebar_Colors_Customizer' ) ) :
 
 			// Link Color.
 			$sidebar_link_color_label = __( 'Links Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'sidebar_link', $sidebar_link_color_label, 'responsive_sidebar', 40, Responsive\Core\get_responsive_customizer_defaults( 'responsive_sidebar_link_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'link_hover' ), 'sidebar_link_hover' );
+			responsive_color_control( $wp_customize, 'sidebar_link', $sidebar_link_color_label, 'responsive_sidebar', 40, Responsive\Core\get_responsive_customizer_defaults( 'responsive_sidebar_link_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults('responsive_sidebar_link_hover_color'), 'sidebar_link_hover' );
 
 			responsive_horizontal_separator_control($wp_customize, 'sidebar_link_separator', 1, 'responsive_sidebar', 42, 1, );
 

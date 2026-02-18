@@ -315,12 +315,12 @@ function responsive_gutenberg_customizer_css() {
 		$cart_buttons_color            	   = esc_html( get_theme_mod( 'responsive_cart_buttons_color', '#10659C' ) );
 		$cart_buttons_text_color       	   = esc_html( responsive_prepare_css_value( 'responsive_cart_buttons_text_color', 'palette4' ) );
 		$cart_buttons_hover_color      	   = esc_html( get_theme_mod( 'responsive_cart_buttons_hover_color', '#0066CC' ) );
-		$cart_buttons_hover_text_color 	   = esc_html( responsive_prepare_css_value( 'responsive_cart_buttons_hover_text_color', 'palette4' ) );
+		$cart_buttons_hover_text_color 	   = esc_html( responsive_prepare_css_value( 'responsive_cart_buttons_hover_text_color', 'palette1' ) );
 	
 		$cart_checkout_button_color             = esc_html( responsive_prepare_css_value( 'responsive_cart_checkout_button_color' ) );
 		$cart_checkout_button_hover_color       = esc_html( responsive_prepare_css_value( 'responsive_cart_checkout_button_hover_color', 'palette7' ) );
 		$cart_checkout_button_text_color        = esc_html( responsive_prepare_css_value( 'responsive_cart_checkout_button_text_color', 'palette4' ) );
-		$cart_checkout_button_hover_text_color  = esc_html( responsive_prepare_css_value( 'responsive_cart_checkout_button_hover_text_color', 'palette4' ) );
+		$cart_checkout_button_hover_text_color  = esc_html( responsive_prepare_css_value( 'responsive_cart_checkout_button_hover_text_color', 'palette1' ) );
 	}
 
 	$custom_css = '';
