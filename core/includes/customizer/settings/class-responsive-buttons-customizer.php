@@ -56,7 +56,7 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 
 			// Button Text Color.
 			$button_text_color_label = __( 'Text Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'button_text', $button_text_color_label, 'responsive_button', 20, Responsive\Core\get_responsive_customizer_defaults( 'button_text' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'button_hover_text' ), 'button_hover_text' );
+			responsive_color_control( $wp_customize, 'button_text', $button_text_color_label, 'responsive_button', 20, Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_text_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_text_color' ), 'button_hover_text' );
 
 			// Button Color.
 			$button_color_label = __( 'Background Color', 'responsive' );
