@@ -1741,7 +1741,6 @@ function responsive_customizer_styles() {
 		$header_menu_border_color            = esc_html( get_theme_mod( 'responsive_header_menu_border_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_border' ) ) );
 		$header_menu_link_color              = esc_html( responsive_prepare_css_value( 'responsive_header_menu_link_color' ) );
 		$header_menu_link_hover_color        = esc_html( responsive_prepare_css_value( 'responsive_header_menu_link_hover_color' ) );
-		error_log("Header menu link hover color : " . print_r($header_menu_link_hover_color, true));
 		$header_active_menu_background_color = esc_html( get_theme_mod( 'responsive_header_active_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_active_menu_background' ) ) );
 		$header_hover_menu_background_color  = esc_html( get_theme_mod( 'responsive_header_hover_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_active_menu_background' ) ) );
 		$menu_active_link_color              = esc_html( get_theme_mod( 'responsive_header_active_menu_link_color', '' ) );
@@ -1783,7 +1782,6 @@ function responsive_customizer_styles() {
 	$sidebar_text_color       = esc_html( responsive_prepare_css_value( 'responsive_sidebar_text_color' ) );
 	$sidebar_link_color       = esc_html( responsive_prepare_css_value( 'responsive_sidebar_link_color' ) );
 	$sidebar_link_hover_color = esc_html( responsive_prepare_css_value('responsive_sidebar_link_hover_color') );
-	error_log("sidebar link hover color " . print_r($sidebar_link_hover_color,true));
 
 	$custom_css .= "
     .widget-area h1, .widget-area h2, .widget-area h3, .widget-area h4, .widget-area h5, .widget-area h6 {

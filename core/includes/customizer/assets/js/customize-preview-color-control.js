@@ -1511,7 +1511,6 @@
     $('.widget-area .widget-wrapper a').not('a.add_to_cart_button').not('a.product_type_grouped').not('.woocommerce-tabs .reviews_tab').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_sidebar_link_hover_color');
-            console.log("I am triggered !!", linkHoverColor);
             $(this).css("color", linkHoverColor);
         },
         
