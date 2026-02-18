@@ -3474,7 +3474,7 @@
             jQuery('style#' + styleId).remove();
             
             var selectors = '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover';
-            var css = selectors + ' { border-color: ' + newval + ' !important; }';
+            var css = selectors + ' { border-color: ' + newval + '; }';
             
             jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
         });
@@ -3498,7 +3498,7 @@
             jQuery('style#' + styleId).remove();
             
             var selectors = '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover';
-            var css = selectors + ' { color: ' + newval + ' !important; }';
+            var css = selectors + ' { color: ' + newval + ' ; }';
             
             jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
         });
@@ -3529,7 +3529,7 @@
             jQuery('style#' + styleId).remove();
             
             var selectors = '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover';
-            var css = selectors + ' { border-color: ' + newval + ' !important; }';
+            var css = selectors + ' { border-color: ' + newval + '; }';
             
             jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
         });
