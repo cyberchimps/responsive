@@ -1108,7 +1108,7 @@ function defaults() {
 			'breadcrumb'                          => '#1e73be',
 			'footer_background'                   => '#333333',
 			'footer_text'                         => '#ffffff',
-			'footer_links'                        => '#eaeaea',
+			'footer_links'                        => '#0066CC',
 			'footer_links_hover'                  => '#ffffff',
 			'header_background'                   => '#ffffff',
 			'header_border'                       => '#eaeaea',

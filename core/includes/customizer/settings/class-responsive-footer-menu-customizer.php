@@ -108,10 +108,10 @@ if ( ! class_exists( 'Responsive_Footer_Menu_Customizer' ) ) :
 				70,
 
 				// Normal
-				Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_link' ),
+				get_theme_mod( 'responsive_footer_links_color',Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_link' ) ),
 
 				// Hover
-				Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_link_hover' ),
+				get_theme_mod( 'responsive_footer_links_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_link_hover' )),
 
 				// Active
 				Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_link_active' )
