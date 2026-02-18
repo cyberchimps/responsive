@@ -1746,7 +1746,7 @@
     //Hover Colors
 
     //Links Hover Color
-    $("a").not('.widget-area .widget-wrapper a').hover(
+    $("a").not('.widget-area .widget-wrapper a').not('.footer-navigation #footer-menu ul li a').not('.footer-navigation #footer-menu ul li a:hover').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
             $(this).css("color", linkHoverColor);
@@ -3295,6 +3295,7 @@
     });
     api( 'responsive_footer_menu_background_color_mobile_hover', function( val){
         val.bind( function(newval){
+            console.log("footer menu background color ....");
             jQuery('style#responsive-footer-menu-background-color-mobile-hover').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-menu-background-color-mobile-hover">'
@@ -3307,6 +3308,10 @@
     // Footer Menu Link Color - Desktop
     api( 'responsive_footer_menu_link_color', function( val ){
         val.bind( function( newval ){
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            console.log("Footer menu link trigerred : ", newval);
             jQuery( 'style#responsive-footer-menu-link-color' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-color">'
@@ -3319,6 +3324,9 @@
     // Footer Menu Link Hover Color - Desktop
     api( 'responsive_footer_menu_link_color_hover', function( val ){
         val.bind( function( newval ){
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             jQuery( 'style#responsive-footer-menu-link-hover-color' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-hover-color">'
@@ -3331,6 +3339,9 @@
     // Footer Menu Link Active Color - Desktop
     api( 'responsive_footer_menu_link_color_active', function( val ){
         val.bind( function( newval ){
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             jQuery( 'style#responsive-footer-menu-link-active-color' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-active-color">'
@@ -3343,6 +3354,9 @@
     // Footer Menu Link Color - Tablet
     api( 'responsive_footer_menu_link_color_tablet', function( val ){
         val.bind( function( newval ){
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             jQuery( 'style#responsive-footer-menu-link-color-tablet' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-color-tablet">'
@@ -3355,6 +3369,9 @@
     // Footer Menu Link Hover Color - Tablet
     api( 'responsive_footer_menu_link_color_tablet_hover', function( val ){
         val.bind( function( newval ){
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             jQuery( 'style#responsive-footer-menu-link-hover-color-tablet' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-hover-color-tablet">'
@@ -3367,6 +3384,9 @@
     // Footer Menu Link Active Color - Tablet
     api( 'responsive_footer_menu_link_color_tablet_active', function( val ){
         val.bind( function( newval ){
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             jQuery( 'style#responsive-footer-menu-link-active-color-tablet' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-active-color-tablet">'
@@ -3379,6 +3399,9 @@
     // Footer Menu Link Color - Mobile
     api( 'responsive_footer_menu_link_color_mobile', function( val ){
         val.bind( function( newval ){
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             jQuery( 'style#responsive-footer-menu-link-color-mobile' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-color-mobile">'
@@ -3391,6 +3414,9 @@
     // Footer Menu Link Hover Color - Mobile
     api( 'responsive_footer_menu_link_color_mobile_hover', function( val ){
         val.bind( function( newval ){
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             jQuery( 'style#responsive-footer-menu-link-hover-color-mobile' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-hover-color-mobile">'
@@ -3403,6 +3429,9 @@
     // Footer Menu Link Active Color - Mobile
     api( 'responsive_footer_menu_link_color_mobile_active', function( val ){
         val.bind( function( newval ){
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             jQuery( 'style#responsive-footer-menu-link-active-color-mobile' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-active-color-mobile">'
