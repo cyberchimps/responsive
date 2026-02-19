@@ -2985,6 +2985,11 @@ if( !function_exists( 'responsive_theme_background_updater_footer_links_restyle'
 				set_theme_mod( 'responsive_footer_links_color', '#EAEAEA' );
 			}
 
+			$old_footer_link_hover_value = get_theme_mod( 'responsive_footer_links_hover_color', false );
+			if( false === $old_footer_link_hover_value ) {
+				set_theme_mod( 'responsive_footer_links_hover_color', '#FFFFFF' );
+			}
+
 			$old_footer_menu_link_active_color = get_theme_mod( 'responsive_footer_menu_link_color_active', false );
 			$old_footer_menu_tabet_link_active_color = get_theme_mod( 'responsive_footer_menu_link_color_tablet_active', false );
 			$old_footer_menu_mobile_link_active_color = get_theme_mod( 'responsive_footer_menu_link_color_mobile_active', false );
