@@ -1747,7 +1747,7 @@
     //Hover Colors
 
     //Links Hover Color
-    $("a").not('.widget-area .widget-wrapper a').not('.footer-navigation #footer-menu ul li a').hover(
+    $("a").not('.widget-area .widget-wrapper a').not('.footer-navigation #footer-menu ul li a').not('.responsive-header-button').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
             $(this).css("color", linkHoverColor);
@@ -3311,7 +3311,6 @@
             if( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
-            console.log("Footer menu link trigerred : ", newval);
             jQuery( 'style#responsive-footer-menu-link-color' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-color">'
