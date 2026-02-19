@@ -1181,6 +1181,7 @@
         } );
     } );
 
+    //Links Color
     api('responsive_footer_links_color', function(value) {
         value.bind(function(newval) {
 
@@ -1746,7 +1747,7 @@
     //Hover Colors
 
     //Links Hover Color
-    $("a").not('.widget-area .widget-wrapper a').not('.footer-navigation #footer-menu ul li a').not('.footer-navigation #footer-menu ul li a:hover').hover(
+    $("a").not('.widget-area .widget-wrapper a').not('.footer-navigation #footer-menu ul li a').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
             $(this).css("color", linkHoverColor);
@@ -3295,7 +3296,6 @@
     });
     api( 'responsive_footer_menu_background_color_mobile_hover', function( val){
         val.bind( function(newval){
-            console.log("footer menu background color ....");
             jQuery('style#responsive-footer-menu-background-color-mobile-hover').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-menu-background-color-mobile-hover">'
