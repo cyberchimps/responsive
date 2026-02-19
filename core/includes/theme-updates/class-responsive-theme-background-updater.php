@@ -47,6 +47,9 @@ if ( ! class_exists( 'Responsive_Theme_Background_Updater' ) ) {
                 'responsive_theme_background_updater_global_palette_revamp',
                 'responsive_theme_background_updater_mobile_footer_6_3_0',
             ),
+            '6.3.4' => array (
+                'responsive_theme_background_updater_footer_links_restyle'
+            )
 		);
 
         /**

@@ -50,6 +50,8 @@ if ( ! class_exists( 'Responsive_Footer_Menu_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_footer_menu_background_color',
 				$design_tab_ids_prefix . 'responsive_footer_menu_padding',
 				$design_tab_ids_prefix . 'responsive_footer_menu_separator_2',
+				$design_tab_ids_prefix . 'responsive_footer_menu_link_color',
+				$design_tab_ids_prefix . 'responsive_footer_menu_link_separator_2',
 			);
 
 			$general_tab_ids_prefix = 'customize-control-';
@@ -95,7 +97,25 @@ if ( ! class_exists( 'Responsive_Footer_Menu_Customizer' ) ) :
 			$footer_background_label = __( 'Background Color', 'responsive' );
 			responsive_color_control_with_device_switchers_and_hover( $wp_customize, 'footer_menu_background', $footer_background_label, 'responsive_footer_menu', 60, Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_background' ), Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_background_hover' ), null, '', 'postMessage' );
 
-            responsive_horizontal_separator_control($wp_customize, 'footer_menu_separator_2', 1, 'responsive_footer_menu', 65, 1, );
+            // responsive_horizontal_separator_control($wp_customize, 'footer_menu_separator_2', 1, 'responsive_footer_menu', 65, 1, );
+			
+			$footer_menu_link_color_label = __( 'Link Color', 'responsive' );
+			responsive_color_control_with_states_and_devices(
+				$wp_customize,
+				'footer_menu_link',
+				$footer_menu_link_color_label,
+				'responsive_footer_menu',
+				70,
+
+				// Normal
+				get_theme_mod( 'responsive_footer_links_color',Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_link' ) ),
+
+				// Hover
+				get_theme_mod( 'responsive_footer_links_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_link_hover' )),
+
+				// Active
+				Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_link_active' )
+			);
 
             // Padding.
 			$footer_menu_padding_label = __( 'Padding (px)', 'responsive' );

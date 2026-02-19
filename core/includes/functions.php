@@ -1108,7 +1108,7 @@ function defaults() {
 			'breadcrumb'                          => '#1e73be',
 			'footer_background'                   => '#333333',
 			'footer_text'                         => '#ffffff',
-			'footer_links'                        => '#eaeaea',
+			'footer_links'                        => '#0066CC',
 			'footer_links_hover'                  => '#ffffff',
 			'header_background'                   => '#ffffff',
 			'header_border'                       => '#eaeaea',
@@ -1645,6 +1645,9 @@ function defaults() {
 		'footer_widget_content_color'           => '#ffffff',
 		'footer_widget_link_color'              => '#eaeaea',
 		'footer_widget_link_hover_color'        => '#FFFFFF',
+		'footer_menu_link'						=> '#0066CC',
+		'footer_menu_link_active'				=> '#0066CC',
+		'footer_menu_link_hover' 				=> '#10659C',
 		'default_global_palette'                => array (
 				'style' => 'playful-default',
 				'palette' => responsive_get_selected_palette_color_scheme(),

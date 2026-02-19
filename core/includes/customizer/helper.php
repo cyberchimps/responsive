@@ -3830,6 +3830,136 @@ function responsive_color_control_with_device_switchers_and_hover( $wp_customize
 		)
 	);
 
+
+}
+
+/**
+ * Color control with devices and states (normal, hover, active)
+ *
+ * @param  [type]  $wp_customize  [description].
+ * @param  [type]  $element       [description].
+ * @param  [type]  $label         [description].
+ * @param  [type]  $section       [description].
+ * @param  [type]  $priority      [description].
+ * @param  [type]  $default       [description].
+ * @param  string  $default_hover [description].
+ * @param  string  $default_active [description].
+ * @param  [type]  $active_call   [description].
+ * @param  string  $desc          [description].
+ * @param  string  $transport     [description].
+ * @return void [description].
+ */
+function responsive_color_control_with_states_and_devices( $wp_customize, $element, $label, $section, $priority, $default, $default_hover = '', $default_active = '', $active_call = null, $desc='', $transport = 'postMessage' ) {
+
+	// Normal color settings for each device
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_color',
+		array(
+			'transport'         => $transport,
+			'default'           => $default,
+			'sanitize_callback' => 'responsive_sanitize_background',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_color_tablet',
+		array(
+			'transport'         => $transport,
+			'default'           => $default,
+			'sanitize_callback' => 'responsive_sanitize_background',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_color_mobile',
+		array(
+			'transport'         => $transport,
+			'default'           => $default,
+			'sanitize_callback' => 'responsive_sanitize_background',
+		)
+	);
+
+	// Hover color settings for each device
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_color_hover',
+		array(
+			'transport'         => $transport,
+			'default'           => $default_hover,
+			'sanitize_callback' => 'responsive_sanitize_background',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_color_tablet_hover',
+		array(
+			'transport'         => $transport,
+			'default'           => $default_hover,
+			'sanitize_callback' => 'responsive_sanitize_background',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_color_mobile_hover',
+		array(
+			'transport'         => $transport,
+			'default'           => $default_hover,
+			'sanitize_callback' => 'responsive_sanitize_background',
+		)
+	);
+	
+	// Active color settings for each device
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_color_active',
+		array(
+			'transport'         => $transport,
+			'default'           => $default_active,
+			'sanitize_callback' => 'responsive_sanitize_background',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_color_tablet_active',
+		array(
+			'transport'         => $transport,
+			'default'           => $default_active,
+			'sanitize_callback' => 'responsive_sanitize_background',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_color_mobile_active',
+		array(
+			'transport'         => $transport,
+			'default'           => $default_active,
+			'sanitize_callback' => 'responsive_sanitize_background',
+		)
+	);
+
+	$wp_customize->add_control(
+		new Responsive_Customizer_Color_With_States_And_Devices_Control(
+			$wp_customize,
+			'responsive_' . $element . '_color',
+			array(
+				'label'           => $label,
+				'section'         => $section,
+				'settings'        => array(
+					'desktop'       => 'responsive_' . $element . '_color',
+					'tablet'        => 'responsive_' . $element . '_color_tablet',
+					'mobile'        => 'responsive_' . $element . '_color_mobile',
+					'desktop_hover' => 'responsive_' . $element . '_color_hover',
+					'tablet_hover'  => 'responsive_' . $element . '_color_tablet_hover',
+					'mobile_hover'  => 'responsive_' . $element . '_color_mobile_hover',
+					'desktop_active' => 'responsive_' . $element . '_color_active',
+					'tablet_active'  => 'responsive_' . $element . '_color_tablet_active',
+					'mobile_active'  => 'responsive_' . $element . '_color_mobile_active',
+				),
+				'priority'        => $priority,
+				'active_callback' => $active_call,
+				'description'     => $desc,
+			)
+		)
+	);
+
 }
 
 	

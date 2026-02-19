@@ -5438,6 +5438,19 @@ function responsive_customizer_styles() {
 	$footer_menu_bg_color_mobile = get_theme_mod( 'responsive_footer_menu_background_color_mobile', $footer_menu_bg_color );
 	$footer_menu_bg_hover_color_mobile = get_theme_mod( 'responsive_footer_menu_background_color_mobile_hover', $footer_menu_bg_hover_color );
 
+	// Footer Menu Link Colors
+	$footer_menu_link_color = get_theme_mod( 'responsive_footer_menu_link_color', get_theme_mod( 'responsive_footer_links_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_link' )) );
+	$footer_menu_link_hover_color = get_theme_mod( 'responsive_footer_menu_link_color_hover', get_theme_mod( 'responsive_footer_links_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_link_hover' )) );
+	$footer_menu_link_active_color = get_theme_mod( 'responsive_footer_menu_link_color_active', Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_link_active' ) );
+
+	$footer_menu_link_color_tablet = get_theme_mod( 'responsive_footer_menu_link_color_tablet', get_theme_mod( 'responsive_footer_links_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_link' )) );
+	$footer_menu_link_hover_color_tablet = get_theme_mod( 'responsive_footer_menu_link_color_tablet_hover', get_theme_mod( 'responsive_footer_links_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_link_hover' )) );
+	$footer_menu_link_active_color_tablet = get_theme_mod( 'responsive_footer_menu_link_color_tablet_active', $footer_menu_link_active_color );
+
+	$footer_menu_link_color_mobile = get_theme_mod( 'responsive_footer_menu_link_color_mobile', get_theme_mod( 'responsive_footer_links_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_link' )) );
+	$footer_menu_link_hover_color_mobile = get_theme_mod( 'responsive_footer_menu_link_color_mobile_hover', get_theme_mod( 'responsive_footer_links_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_link_hover' )) );
+	$footer_menu_link_active_color_mobile = get_theme_mod( 'responsive_footer_menu_link_color_mobile_active', $footer_menu_link_active_color );
+
 	if(Responsive\Core\responsive_check_element_present_in_hfb('footer_navigation', 'footer'))
 	{
 		$custom_css .= ".footer-navigation {";
@@ -5459,6 +5472,16 @@ function responsive_customizer_styles() {
 			}
 			.footer-navigation:hover {
 				background-color: {$footer_menu_bg_hover_color};
+			}
+			.footer-navigation #footer-menu a {
+				color: {$footer_menu_link_color};
+			}
+			.footer-navigation #footer-menu a:hover {
+				color: {$footer_menu_link_hover_color};
+			}
+			.footer-navigation #footer-menu .current-menu-item > a,
+			.footer-navigation #footer-menu .current_page_item > a {
+				color: {$footer_menu_link_active_color};
 			}
 		";
 	}
@@ -5483,6 +5506,16 @@ function responsive_customizer_styles() {
 				.footer-navigation:hover {
 					background-color: {$footer_menu_bg_hover_color_tablet};
 				}
+				.footer-navigation #footer-menu a {
+					color: {$footer_menu_link_color_tablet};
+				}
+				.footer-navigation #footer-menu a:hover {
+					color: {$footer_menu_link_hover_color_tablet};
+				}
+				.footer-navigation #footer-menu .current-menu-item > a,
+				.footer-navigation #footer-menu .current_page_item > a {
+					color: {$footer_menu_link_active_color_tablet};
+				}
 			}
 
 			@media screen and ( max-width: 576px ) {
@@ -5491,6 +5524,16 @@ function responsive_customizer_styles() {
 				}
 				.footer-navigation:hover {
 					background-color: {$footer_menu_bg_hover_color_mobile};
+				}
+				.footer-navigation #footer-menu a {
+					color: {$footer_menu_link_color_mobile};
+				}
+				.footer-navigation #footer-menu a:hover {
+					color: {$footer_menu_link_hover_color_mobile};
+				}
+				.footer-navigation #footer-menu .current-menu-item > a,
+				.footer-navigation #footer-menu .current_page_item > a {
+					color: {$footer_menu_link_active_color_mobile};
 				}
 			}
 		";

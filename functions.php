@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '6.3.3' );
+define( 'RESPONSIVE_THEME_VERSION', '6.3.4' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -2964,6 +2964,47 @@ if( !function_exists( 'responsive_theme_background_updater_mobile_footer_6_3_0' 
 			
 			// Mark backward compatibility update as done
 			$responsive_options['mobile_footer_6_3_0_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+
+if( !function_exists( 'responsive_theme_background_updater_footer_links_restyle')) { 
+	/**
+	 * Handle backward compatiblity for footer links, the default color of which was changed from #eaeaea to #0066CC
+	 * @since 6.3.4
+	 * @return void
+	 */
+	function responsive_theme_background_updater_footer_links_restyle() {
+		$responsive_options = get_option( 'responsive_theme_options' );
+		if ( ! isset( $responsive_options['footer_links_restyle_6_3_4_backward_done'] ) || ! $responsive_options['footer_links_restyle_6_3_4_backward_done'] ) {
+			
+			// if footer_link color is not set : theme_mod : responsive_footer_links_color
+			$old_footer_link_value = get_theme_mod( 'responsive_footer_links_color', false );
+			if( false === $old_footer_link_value ) {
+				set_theme_mod( 'responsive_footer_links_color', '#EAEAEA' );
+			}
+
+			$old_footer_link_hover_value = get_theme_mod( 'responsive_footer_links_hover_color', false );
+			if( false === $old_footer_link_hover_value ) {
+				set_theme_mod( 'responsive_footer_links_hover_color', '#FFFFFF' );
+			}
+
+			$old_footer_menu_link_active_color = get_theme_mod( 'responsive_footer_menu_link_color_active', false );
+			$old_footer_menu_tabet_link_active_color = get_theme_mod( 'responsive_footer_menu_link_color_tablet_active', false );
+			$old_footer_menu_mobile_link_active_color = get_theme_mod( 'responsive_footer_menu_link_color_mobile_active', false );
+			if( false === $old_footer_menu_link_active_color ) {
+				set_theme_mod( 'responsive_footer_menu_link_color_active', get_theme_mod( 'responsive_footer_links_color', '#EAEAEA') );
+			}
+			if( false === $old_footer_menu_tabet_link_active_color ) {
+				set_theme_mod( 'responsive_footer_menu_link_color_tablet_active', get_theme_mod( 'responsive_footer_links_color', '#EAEAEA') );
+			}
+			if( false === $old_footer_menu_mobile_link_active_color ) {
+				set_theme_mod( 'responsive_footer_menu_link_color_mobile_active', get_theme_mod( 'responsive_footer_links_color', '#EAEAEA') );
+			}
+
+			// Mark backward compatibility update as done
+			$responsive_options['footer_links_restyle_6_3_4_backward_done'] = true;
 			update_option( 'responsive_theme_options', $responsive_options );
 		}
 	}

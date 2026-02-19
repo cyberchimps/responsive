@@ -1,0 +1,37 @@
+/**
+ * Color with Devices and States Control Styles
+ */
+
+ .customize-control-responsive-color-with-states-and-devices .responsive-color-states-wrapper {
+	display: flex;
+	gap: 15px;
+	margin-top: 10px;
+}
+
+.customize-control-responsive-color-with-states-and-devices .responsive-color-normal,
+.customize-control-responsive-color-with-states-and-devices .responsive-color-hover,
+.customize-control-responsive-color-with-states-and-devices .responsive-color-active {
+	flex: 1;
+}
+
+.customize-control-responsive-color-with-states-and-devices .responsive-color-label {
+	display: block;
+	font-size: 11px;
+	font-weight: 500;
+	margin-bottom: 5px;
+	color: #555;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.customize-control-responsive-color-with-states-and-devices .wp-picker-container {
+	margin-bottom: 0;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 782px) {
+	.customize-control-responsive-color-with-states-and-devices .responsive-color-states-wrapper {
+		flex-direction: column;
+		gap: 10px;
+	}
+}
