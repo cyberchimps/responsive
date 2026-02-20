@@ -1747,7 +1747,7 @@
     //Hover Colors
 
     //Links Hover Color
-    $("a").not('.widget-area .widget-wrapper a').not('.footer-navigation #footer-menu ul li a').not('.responsive-header-button').hover(
+    $("a").not('.widget-area .widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
             $(this).css("color", linkHoverColor);
@@ -3314,7 +3314,7 @@
             jQuery( 'style#responsive-footer-menu-link-color' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-color">'
-                + '.footer-navigation #footer-menu ul li a { color: ' + newval + '; }'
+                + '.footer-navigation #footer-menu li a { color: ' + newval + '; }'
                 + '</style>'
             );
         });
@@ -3329,7 +3329,7 @@
             jQuery( 'style#responsive-footer-menu-link-hover-color' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-hover-color">'
-                + '.footer-navigation #footer-menu ul li a:hover { color: ' + newval + '; }'
+                + '.footer-navigation #footer-menu li a:hover { color: ' + newval + '; }'
                 + '</style>'
             );
         });
@@ -3344,7 +3344,7 @@
             jQuery( 'style#responsive-footer-menu-link-active-color' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-active-color">'
-                + '.footer-navigation #footer-menu ul li.current-menu-item > a, .footer-navigation #footer-menu ul li.current_page_item > a { color: ' + newval + '; }'
+                + '.footer-navigation #footer-menu li.current-menu-item > a, .footer-navigation #footer-menu li.current_page_item > a { color: ' + newval + '; }'
                 + '</style>'
             );
         });
@@ -3359,7 +3359,7 @@
             jQuery( 'style#responsive-footer-menu-link-color-tablet' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-color-tablet">'
-                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .footer-navigation #footer-menu ul li a { color: ' + newval + '; } }'
+                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .footer-navigation #footer-menu li a { color: ' + newval + '; } }'
                 + '</style>'
             );
         });
@@ -3374,7 +3374,7 @@
             jQuery( 'style#responsive-footer-menu-link-hover-color-tablet' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-hover-color-tablet">'
-                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .footer-navigation #footer-menu ul li a:hover { color: ' + newval + '; } }'
+                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .footer-navigation #footer-menu li a:hover { color: ' + newval + '; } }'
                 + '</style>'
             );
         });
@@ -3389,7 +3389,7 @@
             jQuery( 'style#responsive-footer-menu-link-active-color-tablet' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-active-color-tablet">'
-                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .footer-navigation #footer-menu ul li.current-menu-item > a, .footer-navigation ul li.current_page_item > a { color: ' + newval + '; } }'
+                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .footer-navigation #footer-menu li.current-menu-item > a, .footer-navigation ul li.current_page_item > a { color: ' + newval + '; } }'
                 + '</style>'
             );
         });
@@ -3404,7 +3404,7 @@
             jQuery( 'style#responsive-footer-menu-link-color-mobile' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-color-mobile">'
-                + '@media screen and ( max-width: 576px ) { .footer-navigation #footer-menu ul li a { color: ' + newval + '; } }'
+                + '@media screen and ( max-width: 576px ) { .footer-navigation #footer-menu li a { color: ' + newval + '; } }'
                 + '</style>'
             );
         });
@@ -3419,7 +3419,7 @@
             jQuery( 'style#responsive-footer-menu-link-hover-color-mobile' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-hover-color-mobile">'
-                + '@media screen and ( max-width: 576px ) { .footer-navigation #footer-menu ul li a:hover { color: ' + newval + '; } }'
+                + '@media screen and ( max-width: 576px ) { .footer-navigation #footer-menu li a:hover { color: ' + newval + '; } }'
                 + '</style>'
             );
         });
@@ -3434,7 +3434,7 @@
             jQuery( 'style#responsive-footer-menu-link-active-color-mobile' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-active-color-mobile">'
-                + '@media screen and ( max-width: 576px ) { .footer-navigation #footer-menu ul li.current-menu-item > a, .footer-navigation ul li.current_page_item > a { color: ' + newval + '; } }'
+                + '@media screen and ( max-width: 576px ) { .footer-navigation #footer-menu li.current-menu-item > a, .footer-navigation ul li.current_page_item > a { color: ' + newval + '; } }'
                 + '</style>'
             );
         });
