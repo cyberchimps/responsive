@@ -2120,7 +2120,7 @@
     );
 
     //Cart Button Text Hover Color
-    $(".page.woocommerce-cart .woocommerce button.button:disabled,.page.woocommerce-cart .woocommerce button.button:disabled[disabled],.page.woocommerce-cart .woocommerce button.button").hover(
+    $(".page.woocommerce-cart .woocommerce button.button:disabled,.page.woocommerce-cart .woocommerce button.button:disabled[disabled],.page.woocommerce-cart .woocommerce button.button, .page.woocommerce-cart .wp-block-woocommerce-cart button.wc-block-components-totals-coupon__button").hover(
         function() {
             const cartButtonTextHoverColor = processThemeSettingForCSS('responsive_cart_buttons_hover_text_color');
             $(this).css("color", cartButtonTextHoverColor);
@@ -2133,7 +2133,7 @@
     );
 
     //Checkout Button Hover text Color
-    $(".page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button,.page.woocommerce-checkout .woocommerce button.button.alt,.page.woocommerce-checkout .woocommerce button.button").hover(
+    $(".page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button,.page.woocommerce-checkout .woocommerce button.button.alt,.page.woocommerce-checkout .woocommerce button.button, .page.woocommerce-cart .wp-block-woocommerce-cart a.wc-block-cart__submit-button, .page.woocommerce-checkout .wp-block-woocommerce-checkout button.wc-block-components-checkout-place-order-button").hover(
         function() {
             const checkoutButtonTextHoverColor = processThemeSettingForCSS('responsive_cart_checkout_button_hover_text_color');
             $(this).css("color", checkoutButtonTextHoverColor);
