@@ -8,6 +8,12 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(24/02/2026) Version 6.3.4
+[+] = New = Added controls to configure footer menu link colors.
+[*] = Improvement = Revamped the global color palette to connect more controls with global color settings.
+[!] = Fix = Fixed an issue where border radius controls in the RAE plugin were not updating correctly.
+[!] = Fix = Fixed a scroll issue occurring while customizing Elementor templates.
+
 (12/02/2026) Version 6.3.3
 [+] = New = Introduced a new "General" section in the Theme Customizer by consolidating existing settings into a single, better-organized panel.
 [*] = Improvement = Reorganized and restructured Customizer settings, including the Button panel, Primary Menu sections (General & Design) and refined Header -> Primary Menu color controls for a cleaner and more intuitive user experience.

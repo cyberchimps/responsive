@@ -637,35 +637,57 @@
             if( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
-            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button ').not('a.add_to_cart_button').not('a.product_type_grouped').not('button.single_add_to_cart_button').not('.woocommerce-Reviews input').css('background-color', newval );
-            if( responsiveSiteLocalOptions.isDisableElementorDefaultColors ) {
-                jQuery( 'style#responsive-elementor-button-color' ).remove();
-                jQuery( 'head' ).append(
-                    '<style id="responsive-elementor-button-color">'
-                    + '.elementor-button-wrapper .elementor-button { background-color:' + newval +'}'
-                    + '</style>'
-                );
-            }
-        } );
-    } );
-
-    //Buttons hover color
-    api( 'responsive_button_hover_color', function( value ) {
-        value.bind( function( newval ) {
-            if( newval && newval.startsWith('palette') ) {
-                newval = `var(--responsive-global-${newval})`;
-            }
-            // Inline style won't work for :hover, so we inject a style tag
-            var styleId = 'responsive-button-hover-color-preview';
+            var styleId = 'responsive-button-color-preview';
             jQuery('style#' + styleId).remove();
-            
-            var selectors = '.page.front-page .button:hover, .blog.front-page .button:hover, .read-more-button .hentry .read-more .more-link:hover, input[type=button]:hover, input[type=submit]:hover, button:hover, .button:hover, .wp-block-button__link:hover, div.wpforms-container-full .wpforms-form input[type=submit]:hover, body div.wpforms-container-full .wpforms-form button[type=submit]:hover, div.wpforms-container-full .wpforms-form .wpforms-page-button:hover';
-            
+
+            var selectors =
+                '.page.front-page .button,' +
+                '.blog.front-page .button,' +
+                '.read-more-button .hentry .read-more .more-link,' +
+                'input[type=button],' +
+                'input[type=submit],' +
+                'button:not(.responsive-header-button),' +
+                '.button:not(.responsive-header-button),' +
+                '.wp-block-button__link,' +
+                'div.wpforms-container-full .wpforms-form input[type=submit],' +
+                'body div.wpforms-container-full .wpforms-form button[type=submit],' +
+                'div.wpforms-container-full .wpforms-form .wpforms-page-button';
+
             var css = selectors + ' { background-color: ' + newval + ' !important; }';
-            
+
             jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
         } );
     } );
+
+    // Buttons hover color
+    api( 'responsive_button_hover_color', function( value ) {
+        value.bind( function( newval ) {
+
+            if ( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+
+            var styleId = 'responsive-button-hover-color-preview';
+            jQuery('style#' + styleId).remove();
+
+            var selectors =
+                '.page.front-page .button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button),' +
+                '.blog.front-page .button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button),' +
+                '.read-more-button .hentry .read-more .more-link:hover,' +
+                'input[type=button]:hover,' +
+                'input[type=submit]:hover,' +
+                'button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button),' +
+                '.button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button),' +
+                '.wp-block-button__link:hover,' +
+                'div.wpforms-container-full .wpforms-form input[type=submit]:hover,' +
+                'body div.wpforms-container-full .wpforms-form button[type=submit]:hover,' +
+                'div.wpforms-container-full .wpforms-form .wpforms-page-button:hover';
+
+            var css = selectors + ' { background-color: ' + newval + ' !important; }';
+
+            jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+        });
+    });
 
     // Header Button Hover Color
     api( 'responsive_header_button_bg_hover_color', function( value ) {
@@ -737,7 +759,7 @@
             if( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
-            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').css('color', newval );
+            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').not('.footer-widget-area a').css('color', newval );
         } );
     } );
 
@@ -1747,7 +1769,7 @@
     //Hover Colors
 
     //Links Hover Color
-    $("a").not('.widget-area .widget-wrapper a').not('.footer-navigation #footer-menu ul li a').not('.responsive-header-button').hover(
+    $("a").not('.widget-area .widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
             $(this).css("color", linkHoverColor);
@@ -2120,7 +2142,7 @@
     );
 
     //Cart Button Text Hover Color
-    $(".page.woocommerce-cart .woocommerce button.button:disabled,.page.woocommerce-cart .woocommerce button.button:disabled[disabled],.page.woocommerce-cart .woocommerce button.button").hover(
+    $(".page.woocommerce-cart .woocommerce button.button:disabled,.page.woocommerce-cart .woocommerce button.button:disabled[disabled],.page.woocommerce-cart .woocommerce button.button, .page.woocommerce-cart .wp-block-woocommerce-cart button.wc-block-components-totals-coupon__button").hover(
         function() {
             const cartButtonTextHoverColor = processThemeSettingForCSS('responsive_cart_buttons_hover_text_color');
             $(this).css("color", cartButtonTextHoverColor);
@@ -2133,7 +2155,7 @@
     );
 
     //Checkout Button Hover text Color
-    $(".page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button,.page.woocommerce-checkout .woocommerce button.button.alt,.page.woocommerce-checkout .woocommerce button.button").hover(
+    $(".page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button,.page.woocommerce-checkout .woocommerce button.button.alt,.page.woocommerce-checkout .woocommerce button.button, .page.woocommerce-cart .wp-block-woocommerce-cart a.wc-block-cart__submit-button, .page.woocommerce-checkout .wp-block-woocommerce-checkout button.wc-block-components-checkout-place-order-button").hover(
         function() {
             const checkoutButtonTextHoverColor = processThemeSettingForCSS('responsive_cart_checkout_button_hover_text_color');
             $(this).css("color", checkoutButtonTextHoverColor);
@@ -3314,7 +3336,7 @@
             jQuery( 'style#responsive-footer-menu-link-color' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-color">'
-                + '.footer-navigation #footer-menu ul li a { color: ' + newval + '; }'
+                + '.footer-navigation #footer-menu li a { color: ' + newval + '; }'
                 + '</style>'
             );
         });
@@ -3329,7 +3351,7 @@
             jQuery( 'style#responsive-footer-menu-link-hover-color' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-hover-color">'
-                + '.footer-navigation #footer-menu ul li a:hover { color: ' + newval + '; }'
+                + '.footer-navigation #footer-menu li a:hover { color: ' + newval + '; }'
                 + '</style>'
             );
         });
@@ -3344,7 +3366,7 @@
             jQuery( 'style#responsive-footer-menu-link-active-color' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-active-color">'
-                + '.footer-navigation #footer-menu ul li.current-menu-item > a, .footer-navigation #footer-menu ul li.current_page_item > a { color: ' + newval + '; }'
+                + '.footer-navigation #footer-menu li.current-menu-item > a, .footer-navigation #footer-menu li.current_page_item > a { color: ' + newval + '; }'
                 + '</style>'
             );
         });
@@ -3359,7 +3381,7 @@
             jQuery( 'style#responsive-footer-menu-link-color-tablet' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-color-tablet">'
-                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .footer-navigation #footer-menu ul li a { color: ' + newval + '; } }'
+                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .footer-navigation #footer-menu li a { color: ' + newval + '; } }'
                 + '</style>'
             );
         });
@@ -3374,7 +3396,7 @@
             jQuery( 'style#responsive-footer-menu-link-hover-color-tablet' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-hover-color-tablet">'
-                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .footer-navigation #footer-menu ul li a:hover { color: ' + newval + '; } }'
+                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .footer-navigation #footer-menu li a:hover { color: ' + newval + '; } }'
                 + '</style>'
             );
         });
@@ -3389,7 +3411,7 @@
             jQuery( 'style#responsive-footer-menu-link-active-color-tablet' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-active-color-tablet">'
-                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .footer-navigation #footer-menu ul li.current-menu-item > a, .footer-navigation ul li.current_page_item > a { color: ' + newval + '; } }'
+                + '@media screen and ( min-width: 577px ) and ( max-width: 992px ) { .footer-navigation #footer-menu li.current-menu-item > a, .footer-navigation ul li.current_page_item > a { color: ' + newval + '; } }'
                 + '</style>'
             );
         });
@@ -3404,7 +3426,7 @@
             jQuery( 'style#responsive-footer-menu-link-color-mobile' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-color-mobile">'
-                + '@media screen and ( max-width: 576px ) { .footer-navigation #footer-menu ul li a { color: ' + newval + '; } }'
+                + '@media screen and ( max-width: 576px ) { .footer-navigation #footer-menu li a { color: ' + newval + '; } }'
                 + '</style>'
             );
         });
@@ -3419,7 +3441,7 @@
             jQuery( 'style#responsive-footer-menu-link-hover-color-mobile' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-hover-color-mobile">'
-                + '@media screen and ( max-width: 576px ) { .footer-navigation #footer-menu ul li a:hover { color: ' + newval + '; } }'
+                + '@media screen and ( max-width: 576px ) { .footer-navigation #footer-menu li a:hover { color: ' + newval + '; } }'
                 + '</style>'
             );
         });
@@ -3434,7 +3456,7 @@
             jQuery( 'style#responsive-footer-menu-link-active-color-mobile' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-footer-menu-link-active-color-mobile">'
-                + '@media screen and ( max-width: 576px ) { .footer-navigation #footer-menu ul li.current-menu-item > a, .footer-navigation ul li.current_page_item > a { color: ' + newval + '; } }'
+                + '@media screen and ( max-width: 576px ) { .footer-navigation #footer-menu li.current-menu-item > a, .footer-navigation ul li.current_page_item > a { color: ' + newval + '; } }'
                 + '</style>'
             );
         });
