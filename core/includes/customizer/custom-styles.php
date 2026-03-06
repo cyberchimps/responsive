@@ -4298,6 +4298,12 @@ function responsive_customizer_styles() {
 				fill: {$button_text_color};
 				border-color: {$button_border_color}
 			}
+			.elementor-button-wrapper .elementor-button:visited, .elementor-widget-button .elementor-button:visited {
+				color: {$button_text_color};
+			}
+			.elementor-button-wrapper .elementor-button:focus, .elementor-widget-button .elementor-button:focus {
+				color: {$button_text_color};
+			}
 			.elementor-button-wrapper .elementor-button:hover, .elementor-widget-button .elementor-button:hover {
 				background-color: {$button_hover_color};
 				color: {$button_hover_text_color};
