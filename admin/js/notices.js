@@ -28,9 +28,6 @@ jQuery( function ( $ ) {
 		if ( action ) {
 			// Use data-action if specified
 			ajaxAction = action;
-		} else if ( $notice.hasClass( 'responsive-mobile-header-update-notice' ) ) {
-			// Mobile header notice
-			ajaxAction = 'responsive_delete_mobile_header_admin_notice_action';
 		} else if ( $notice.hasClass( 'responsive-header-footer-builder-update-notice' ) ) {
 			// Header footer builder notice
 			ajaxAction = 'responsive_delete_header_footer_builder_admin_notice_action';
