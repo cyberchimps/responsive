@@ -323,20 +323,20 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 	}
 
 	if ( ! get_option( 'rpo_megamenu_enable' ) ) {
-		add_option( 'rpo_megamenu_enable', 'on' );
+		update_option( 'rpo_megamenu_enable', 'on' );
 	}
 
 	if ( ! get_option( 'rpro_typography_enable' ) ) {
-		add_option( 'rpro_typography_enable', 'on' );
+		update_option( 'rpro_typography_enable', 'on' );
 	}
 
 	if ( ! is_responsive_version_greater() ) {
 		if ( ! get_option( 'rpro_colors_backgrounds_enable' ) ) {
-			add_option( 'rpro_colors_backgrounds_enable', 'on' );
+			update_option( 'rpro_colors_backgrounds_enable', 'on' );
 		}
 
 		if ( ! get_option( 'rpro_woocommerce_enable' ) ) {
-			add_option( 'rpro_woocommerce_enable', 'on' );
+			update_option( 'rpro_woocommerce_enable', 'on' );
 		}
 	}
 
