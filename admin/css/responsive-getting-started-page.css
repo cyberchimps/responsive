@@ -232,7 +232,7 @@ body.toplevel_page_responsive #wpbody-content {
 }
 .responsive-theme-logo{
     height: 62px;
-    width: 228px;
+    width: 210px;
 }
 /* Home Tab Starts */
 
@@ -1193,4 +1193,9 @@ input:checked + .resp-megamenu-slider:before {
 
 .responsive-theme-help-setting-border-left .responsive-theme-theme-settings-section{
 	margin-bottom: 10px;
+}
+
+.responsive-theme-feature-cards-content img{
+    width: 50px;
+    height: 50px;
 }

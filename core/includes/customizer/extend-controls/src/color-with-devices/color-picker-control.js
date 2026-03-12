@@ -75,7 +75,7 @@ class ColorPickerControlWithDevices extends Component {
 					this.setState( { isVisible: false } );
 				}
 				const currentElementID = this.state.inputattr.content.match(/id="([^"]*)"/)[1];
-				document.getElementById(currentElementID).style.paddingBottom ='0';
+				document.getElementById(currentElementID).style.paddingBottom ='';
 			}
 		};
 		let finalpaletteColors = [];
@@ -106,11 +106,20 @@ class ColorPickerControlWithDevices extends Component {
 			<>
 				
 				<div className="wp-picker-container">
-					
-					<Button className={ isVisible ? 'button wp-color-result wp-picker-open' : 'button wp-color-result ' } onClick={ () => { isVisible ? toggleClose() : toggleVisible() } }
-						aria-expanded='false' style={{backgroundColor:this.props.color}}
-					>
-					</Button>
+					{this.props.swatchTitle ? (
+						<div className="tooltip-container">
+							<Button className={ isVisible ? 'button wp-color-result wp-picker-open' : 'button wp-color-result ' } onClick={ () => { isVisible ? toggleClose() : toggleVisible() } }
+								aria-expanded='false' style={{backgroundColor:this.props.color}}
+							>
+							</Button>
+							<span className="tooltip-text">{this.props.swatchTitle}</span>
+						</div>
+					) : (
+						<Button className={ isVisible ? 'button wp-color-result wp-picker-open' : 'button wp-color-result ' } onClick={ () => { isVisible ? toggleClose() : toggleVisible() } }
+							aria-expanded='false' style={{backgroundColor:this.props.color}}
+						>
+						</Button>
+					)}
 					<div className="wp-picker-holder">
 						{ isVisible && (
 							<>	
@@ -207,7 +216,8 @@ ColorPickerControlWithDevices.propTypes = {
 	onChangeComplete: PropTypes.func,
 	onPaletteChangeComplete: PropTypes.func,
 	onChange: PropTypes.func,
-	customizer: PropTypes.object
+	customizer: PropTypes.object,
+	swatchTitle: PropTypes.string
 };
 
 export default ColorPickerControlWithDevices;

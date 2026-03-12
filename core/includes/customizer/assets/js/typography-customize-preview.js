@@ -2934,6 +2934,15 @@
             );
 
         } );
+    } ), api( "footer_typography[text-transform]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-footer_typography-text-transform' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-footer_typography-text-transform">'
+                +  responsive.selectorArray['footer'] + '{ text-transform:' + dataAndEvents +';}'
+                + '</style>'
+            );
+        } );
     } ), api( "footer_copyright_typography[text-transform]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_copyright_typography-text-transform' ).remove();
@@ -2996,24 +3005,24 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-footer_copyright_typography-font-size">'
                 + responsive.selectorArray['footer_copyright'] + '{ font-size:' + dataAndEvents +';}'
-		        + '@media (max-width: 768px){'+ responsive.selectorArray['footer_copyright'] +'{ font-size:' + api( "footer_tablet_typography[font-size]").get() +';}}'
-		        + '@media (max-width: 480px){'+ responsive.selectorArray['footer_copyright'] +'{ font-size:' + api( "footer_mobile_typography[font-size]").get() +';}}'
+		        + '@media (max-width: 768px){'+ responsive.selectorArray['footer_copyright'] +'{ font-size:' + api( "footer_copyright_tablet_typography[font-size]").get() +';}}'
+		        + '@media (max-width: 480px){'+ responsive.selectorArray['footer_copyright'] +'{ font-size:' + api( "footer_copyright_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
         } );
-    } ), api( "footer_tablet_typography[font-size]", function( $swipe ) {
+    } ), api( "footer_copyright_tablet_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_copyright_typography-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-footer_copyright_typography-tablet-font-size">'
                 + '@media (max-width: 768px){'+ responsive.selectorArray['footer_copyright'] +'{ font-size:' + dataAndEvents +';}}'
-                + '@media (max-width: 480px){'+ responsive.selectorArray['footer_copyright'] +'{ font-size:' + api( "footer_mobile_typography[font-size]").get() +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['footer_copyright'] +'{ font-size:' + api( "footer_copyright_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
         } );
-    } ), api( "footer_mobile_typography[font-size]", function( $swipe ) {
+    } ), api( "footer_copyright_mobile_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_copyright_typography-mobile-font-size' ).remove();
             jQuery( 'head' ).append(

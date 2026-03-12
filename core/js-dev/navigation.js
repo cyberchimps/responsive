@@ -13,7 +13,53 @@
 	function initOffCanvasPanel() {
 		var offCanvasPanel = document.getElementById( 'responsive-off-canvas-panel' );
 		var mobileHeader = document.getElementById( 'masthead-mobile' );
-		
+
+		var container = document.getElementsByClassName('site-header-item-toggle-button')[0];
+
+		if (!container) {
+			return;
+		}
+
+		var button = container.getElementsByClassName('menu-toggle')[0];
+
+		if (!button) {
+			return;
+		}
+
+		var menu = document.getElementById('off-canvas-menu'); // The ul tag
+		var offCanvasPanelInner = document.getElementsByClassName('responsive-off-canvas-panel-inner')[0];
+		var ulHasChildren = false;
+
+		if (!menu) {
+			// Checking for default menu : 
+			menu = offCanvasPanelInner.getElementsByClassName( 'menu' )[0]; 
+			if( menu )
+			{
+				ulHasChildren = menu.children.length > 0;
+			}
+		} else {
+			ulHasChildren = menu.children.length > 0;
+		}
+
+		// Checking if there are any other elements in off canvas panel 
+		var otherElementsInOffCanvas = false;
+
+		if (offCanvasPanelInner) {
+			var widgetsInOffCanvas = offCanvasPanelInner.getElementsByClassName('site-header-focus-item');
+
+			if (!widgetsInOffCanvas) {
+			} else {
+				otherElementsInOffCanvas = widgetsInOffCanvas.length > 0;
+			}
+		}
+
+		// Final decision logging
+		if (!ulHasChildren && !otherElementsInOffCanvas) {
+			button.style.display = 'none';
+		} else {
+			button.style.display = '';
+		}
+
 		if ( offCanvasPanel && mobileHeader ) {
 			// Find toggle button in mobile header
 			var mobileToggleButton = mobileHeader.querySelector( '.menu-toggle' );
@@ -48,6 +94,12 @@
 					}
 					this.setAttribute( 'aria-expanded', 'true' );
 					document.body.classList.add( 'off-canvas-open' );
+					// Reinitialize submenu toggles when panel opens
+					setTimeout( function() {
+						if ( typeof initOffCanvasSubmenuToggles === 'function' ) {
+							initOffCanvasSubmenuToggles();
+						}
+					}, 100 );
 				}
 				});
 			}
@@ -102,7 +154,7 @@
 					} else {
 						subMenu.style.display = 'none';
 						if( breakpoint.matches ) {
-							parentLi.style.width = 'auto';
+							parentLi.style.width = '100%';
 						}
 					}
 				}
@@ -117,7 +169,7 @@
 					} else {
 						children.style.display = 'none';
 						if( breakpoint.matches ) {
-							parentLi.style.width = 'auto';
+							parentLi.style.width = '100%';
 						}
 					}
 				}
@@ -147,16 +199,28 @@
 				};
 				link.addEventListener( 'click', linkHandler, false );
 				offCanvasSubmenuHandlers.push( { element: link, fn: linkHandler } );
-			} else if ( dropdownTarget === 'icon' && icon ) {
-				// Icon target: clicking the icon toggles submenu (default behavior)
-				var iconHandler = function( e ) {
-					var parentLi = this.closest( '.menu-item-has-children, .page_item_has_children' );
-					if ( parentLi ) {
-						toggleSubmenu( parentLi, e );
-					}
-				};
-				icon.addEventListener( 'click', iconHandler, false );
-				offCanvasSubmenuHandlers.push( { element: icon, fn: iconHandler } );
+			} else if ( dropdownTarget === 'icon' ) {
+				if ( icon ) {
+					// Icon target: clicking the icon toggles submenu (default behavior)
+					var iconHandler = function( e ) {
+						var parentLi = this.closest( '.menu-item-has-children, .page_item_has_children' );
+						if ( parentLi ) {
+							toggleSubmenu( parentLi, e );
+						}
+					};
+					icon.addEventListener( 'click', iconHandler, false );
+					offCanvasSubmenuHandlers.push( { element: icon, fn: iconHandler } );
+				} else if ( link ) {
+					// Fallback: if icon not found but dropdown target is icon, use link
+					var linkHandler = function( e ) {
+						var parentLi = this.closest( '.menu-item-has-children, .page_item_has_children' );
+						if ( parentLi ) {
+							toggleSubmenu( parentLi, e );
+						}
+					};
+					link.addEventListener( 'click', linkHandler, false );
+					offCanvasSubmenuHandlers.push( { element: link, fn: linkHandler } );
+				}
 			}
 		}
 	}
@@ -393,7 +457,7 @@
 		}
 		
 		var offCanvasOverlay = document.querySelector( '.responsive-off-canvas-overlay' );
-		var offCanvasClose = document.querySelector( '.responsive-off-canvas-close' );
+		var offCanvasClose = document.querySelector( '.responsive-off-canvas-panel-close' );
 		var mobileHeader = document.getElementById( 'masthead-mobile' );
 		var mobileToggleButton = mobileHeader ? mobileHeader.querySelector( '.menu-toggle' ) : null;
 		

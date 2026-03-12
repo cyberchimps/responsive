@@ -8,6 +8,48 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(12/03/2026) Version 6.3.5
+[!] = Fix = Minor Bug Fixes and Improvements.
+
+(24/02/2026) Version 6.3.4
+[+] = New = Added controls to configure footer menu link colors.
+[*] = Improvement = Revamped the global color palette to connect more controls with global color settings.
+[!] = Fix = Fixed an issue where border radius controls in the RAE plugin were not updating correctly.
+[!] = Fix = Fixed a scroll issue occurring while customizing Elementor templates.
+
+(12/02/2026) Version 6.3.3
+[+] = New = Introduced a new "General" section in the Theme Customizer by consolidating existing settings into a single, better-organized panel.
+[*] = Improvement = Reorganized and restructured Customizer settings, including the Button panel, Primary Menu sections (General & Design) and refined Header -> Primary Menu color controls for a cleaner and more intuitive user experience.
+[*] = Improvement = Updated default sidebar settings on fresh installations for improved initial theme setup.
+
+(22/01/2025) Version 6.3.2
+[!] = Fix = Resolved mobile header issues.
+[!] = Fix = Addressed PHP deprecated notice related to usage of ${var} syntax in the Responsive theme.
+[!] = Fix = Fixed Customizer layout conflicts with Starter Templates plugin.
+[!] = Fix = Resolved styling issues where LifterLMS styles were affecting LMS and EduKids starter templates.
+[*] = Improvement = Cleaned up and refined the global color palette by removing unused color options.
+[+] = New = Added support for an additional color in the global color palette for handling button hover related styles.
+
+(24/12/2025) Version 6.3.1
+[!] = Fix = Fixed CSS for Gutenberg Page and Post editor.
+[!] = Fix = Fixed a bug that was throwing an error while logging in.
+[!] = Fix = Changed the range of the content width slider in Customizer > Global Settings > Layout > Container Width.
+
+(23/12/2025) Version 6.3.0
+[+] = New = Introduced the Mobile Footer Builder - footer elements can now be configured separately for mobile/tablets and desktop.
+[*] = Improvement = Restructured the global color palette.
+[!] = Fix = Fixed an error which was causing the Footer Builder to disappear while editing Footer Widgets.
+[!] = Fix = Fixed an error which was causing theme's layout padding values to override Responsive Block Addons' (RBA) padding values.
+[!] = Fix = Added a label for Opacity control in all color control fields.
+
+(02/12/2025) Version 6.2.9
+[+] = New = Introduced the Mobile Header Builder
+[+] = New = Introduced new Mobile specific Contact Info, Social, Header Button, Header Widgets, Header HTML elements
+[+] = New = Introduced the Off Canvas Panel and Off Canvas Menu location along with Toggle Button element for Mobile screens
+
+(01/12/2025) Version 6.2.8.1
+[!] = Fix = Accessibility issues reported by reviewer for ‘Accessibility Ready’ tag.
+
 (06/11/2025) Version 6.2.8
 [!] = Fix = Patched an error that was blocking the Customizer from loading.
 

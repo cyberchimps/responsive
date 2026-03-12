@@ -243,6 +243,7 @@ const BuilderComponent = props => {
 			'responsive-control-field responsive-builder-items' +
 			(controlParams.group && controlParams.group.includes('header_mobile_tablet_items') ? ' responsive-builder-items-with-popup' : '')
 		}>
+			{ controlParams.group && controlParams.group?.includes('footer_') && <div className='responsive-builder-type-label'>{ (controlParams.group.includes('mobile_') ? ' Mobile' : 'Desktop') + (controlParams.group.includes('header_') ? ' Header Builder' : ' Footer Builder') }</div> }
 			{
 				// Showing the off canvas panel in case of mobile and tablets 
 				controlParams.group.includes('header_mobile_tablet_items') && 
@@ -280,7 +281,7 @@ const BuilderComponent = props => {
                             onUpdate={(updateRow, updateZone, updateItems) => onDragEnd(updateRow, updateZone, updateItems)}
 						    onAddItem={(updateRow, updateZone, updateItems) => onAddItem(updateRow, updateZone, updateItems)}
                             showDrop={() => onDragStart()}
-							device={controlParams.group.includes('header_mobile_tablet_items') ? 'mobile' : 'desktop'}
+							device={(controlParams.group.includes('header_mobile_tablet_items') || controlParams.group.includes('footer_mobile_items')) ? 'mobile' : 'desktop'}
                         />
                     ))
                 }

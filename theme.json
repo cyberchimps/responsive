@@ -1,0 +1,56 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 2,
+	"settings": {
+		"layout": {
+		"contentSize": "840px",
+		"wideSize": "1200px"
+		},
+		"color": {
+			"custom": true,
+			"link": true,
+			"palette": [
+				{
+					"name": "Accent",
+					"slug": "responsive-global-palette0",
+					"color": "var(--responsive-global-palette0)"
+				},
+				{
+					"name": "Link Hover",
+					"slug": "responsive-global-palette1",
+					"color": "var(--responsive-global-palette1)"
+				},
+				{
+					"name": "Text",
+					"slug": "responsive-global-palette2",
+					"color": "var(--responsive-global-palette2)"
+				},
+				{
+					"name": "Headings",
+					"slug": "responsive-global-palette3",
+					"color": "var(--responsive-global-palette3)"
+				},
+				{
+					"name": "Background",
+					"slug": "responsive-global-palette4",
+					"color": "var(--responsive-global-palette4)"
+				},
+				{
+					"name": "Site Background",
+					"slug": "responsive-global-palette5",
+					"color": "var(--responsive-global-palette5)"
+				},
+				{
+					"name": "Alt Background",
+					"slug": "responsive-global-palette6",
+					"color": "var(--responsive-global-palette6)"
+				},
+				{
+					"name": "Subtle Background",
+					"slug": "responsive-global-palette7",
+					"color": "var(--responsive-global-palette7)"
+				}
+            ]
+        }
+    }
+}

@@ -6,6 +6,8 @@
  * @package     Responsive WordPress theme
  */
 
+use function Responsive\Core\responsive_prepare_css_value;
+
 if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
@@ -65,12 +67,12 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 					if (is_array($exclude_ids) && !in_array($post_id, $exclude_ids)) {
 ?>
 						<?php
-						$text_color       = get_theme_mod( 'responsive_rp_text_color', get_theme_mod( 'responsive_body_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_body_text_color' ) ) );
-						$text_hover_color = get_theme_mod( 'responsive_rp_text_hover_color', get_theme_mod( 'responsive_body_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_body_text_color' ) ) );
-						$link_color       = get_theme_mod( 'responsive_rp_link_color', get_theme_mod( 'responsive_link_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_link_color' ) ) );
-						$link_hover_color = get_theme_mod( 'responsive_rp_link_hover_color', get_theme_mod( 'responsive_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_link_hover_color' ) ) );
-						$meta_color       = get_theme_mod( 'responsive_rp_meta_color', get_theme_mod( 'responsive_meta_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_meta_text' ) ) );
-						$meta_hover_color = get_theme_mod( 'responsive_rp_meta_hover_color', get_theme_mod( 'responsive_meta_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_meta_text' ) ) );
+						$text_color       = get_theme_mod( 'responsive_rp_text_color', responsive_prepare_css_value( 'responsive_body_text_color' ) );
+						$text_hover_color = get_theme_mod( 'responsive_rp_text_hover_color', responsive_prepare_css_value( 'responsive_body_text_color' ) );
+						$link_color       = get_theme_mod( 'responsive_rp_link_color', responsive_prepare_css_value( 'responsive_link_color' ) );
+						$link_hover_color = get_theme_mod( 'responsive_rp_link_hover_color', responsive_prepare_css_value( 'responsive_link_hover_color' ) );
+						$meta_color       = get_theme_mod( 'responsive_rp_meta_color', responsive_prepare_css_value( 'responsive_meta_text_color' ) );
+						$meta_hover_color = get_theme_mod( 'responsive_rp_meta_hover_color', responsive_prepare_css_value( 'responsive_meta_text_color' ) );
 
 						echo '<style>
 						.responsive-single-related-posts-container,

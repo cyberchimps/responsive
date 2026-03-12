@@ -50,7 +50,7 @@ const TabsComponent = props => {
 
 		hideSidebarWidthControl( api('responsive_page_sidebar_position').get(), 'page' );
 		hideSidebarWidthControl( api('responsive_blog_sidebar_position').get(), 'blog' );
-		hideSidebarWidthControl( api('responsive_default_sidebar_position').get(), 'default');
+		hideSidebarWidthControl( api('responsive_default_sidebar_position').get(), 'global');
 		if(api('responsive_shop_sidebar_position')){
 			hideWoocommerceSidebarWidthControl( api('responsive_shop_sidebar_position').get(), 'shop');
 		}
@@ -78,7 +78,7 @@ const TabsComponent = props => {
 		api('responsive_default_sidebar_position', function( value ){
 			value.bind( function( newval ) {
 				if( newval ) {
-					hideSidebarWidthControl(newval, 'default');
+					hideSidebarWidthControl(newval, 'global');
 				}
 			})
 		});
@@ -152,6 +152,7 @@ const TabsComponent = props => {
 		} else {
 			document.getElementById('customize-control-responsive_footer_below_inner_column_spacing').style.display = 'none';
 		}
+		
 		if( api('responsive_cart_style') ) {
             if( api('responsive_cart_style').get() !== 'outline' && 'design' === tab ) {
 				let cartBorderWidth = document.getElementById('customize-control-responsive_cart_border_width');
@@ -203,6 +204,191 @@ const TabsComponent = props => {
 		} else {
 			document.getElementById('customize-control-responsive_mobile_header_button_bg_color').style.display = 'none';
 			document.getElementById('customize-control-responsive_mobile_header_button_bg_color_separator').style.display = 'none';
+		}
+
+		// Toggle Button Style - Hide controls based on style
+		if( api('responsive_mobile_menu_toggle_style') ) {
+			const allToggleButtonElementIds = [
+				'customize-control-responsive_mobile_menu_toggle_border_color',
+				'customize-control-responsive_header_menu_toggle_background_color',
+				'customize-control-responsive_header_toggle_button_background_color_separator',
+				'customize-control-responsive_header_toggle_button_border_radius_padding',
+				'customize-control-responsive_mobile_menu_toggle_border_width_border'
+			];
+			const backgroundColorElementIds = [
+				'customize-control-responsive_header_menu_toggle_background_color',
+				'customize-control-responsive_header_toggle_button_background_color_separator'
+			];
+			const minimalStyleElementIds = [
+				'customize-control-responsive_mobile_menu_toggle_border_color',
+				'customize-control-responsive_header_menu_toggle_background_color',
+				'customize-control-responsive_header_toggle_button_background_color_separator',
+				'customize-control-responsive_header_toggle_button_border_radius_padding',
+				'customize-control-responsive_mobile_menu_toggle_border_width_border'
+			];
+
+			if( 'general' === tab ) {
+				// Always hide on general tab
+				allToggleButtonElementIds.forEach(id => {
+					let el = document.getElementById(id);
+					if (el) {
+						el.style.display = 'none';
+					}
+				});
+			} else if( 'design' === tab ) {
+				const currentStyle = api('responsive_mobile_menu_toggle_style').get();
+				
+				if( 'minimal' === currentStyle ) {
+					// Hide all controls for minimal style
+					minimalStyleElementIds.forEach(id => {
+						let el = document.getElementById(id);
+						if (el) {
+							el.style.display = 'none';
+						}
+					});
+					const toggleBorderWidthEl = document.getElementById('customize-control-responsive_mobile_menu_toggle_border_width_border');
+							if (toggleBorderWidthEl) {
+								toggleBorderWidthEl.style.display = 'none';
+							}
+				} else if( 'outline' === currentStyle ) {
+					// Hide background color for outline style, show others
+					backgroundColorElementIds.forEach(id => {
+						let el = document.getElementById(id);
+						if (el) {
+							el.style.display = 'none';
+						}
+					});
+					// Show border color and border radius
+					const borderColorEl = document.getElementById('customize-control-responsive_mobile_menu_toggle_border_color');
+					if (borderColorEl) {
+						borderColorEl.style.display = 'block';
+					}
+					const borderRadiusEl = document.getElementById('customize-control-responsive_header_toggle_button_border_radius_padding');
+					if (borderRadiusEl) {
+						borderRadiusEl.style.display = 'block';
+					}
+				} else {
+					// Hide border color for fill style, show others
+					const borderColorEl = document.getElementById('customize-control-responsive_mobile_menu_toggle_border_color');
+					if (borderColorEl) {
+						borderColorEl.style.display = 'none';
+					}
+					// Show background color, background separator, and border radius
+					const backgroundColorEl = document.getElementById('customize-control-responsive_header_menu_toggle_background_color');
+					if (backgroundColorEl) {
+						backgroundColorEl.style.display = 'block';
+					}
+					const backgroundSeparatorEl = document.getElementById('customize-control-responsive_header_toggle_button_background_color_separator');
+					if (backgroundSeparatorEl) {
+						backgroundSeparatorEl.style.display = 'block';
+					}
+					const borderRadiusEl = document.getElementById('customize-control-responsive_header_toggle_button_border_radius_padding');
+					if (borderRadiusEl) {
+						borderRadiusEl.style.display = 'block';
+					}
+					const toggleBorderWidthEl = document.getElementById('customize-control-responsive_mobile_menu_toggle_border_width_border');
+							if (toggleBorderWidthEl) {
+								toggleBorderWidthEl.style.display = 'none';
+							}
+
+				}
+			}
+		}
+
+		// Listen for changes to responsive_mobile_menu_toggle_style
+		if( api('responsive_mobile_menu_toggle_style') ) {
+			api('responsive_mobile_menu_toggle_style', function( value ) {
+				value.bind( function( newval ) {
+					const allToggleButtonElementIds = [
+						'customize-control-responsive_mobile_menu_toggle_border_color',
+						'customize-control-responsive_header_menu_toggle_background_color',
+						'customize-control-responsive_header_toggle_button_background_color_separator',
+						'customize-control-responsive_header_toggle_button_border_radius_padding',
+						'customize-control-responsive_mobile_menu_toggle_border_width_border'	
+					];
+					const backgroundColorElementIds = [
+						'customize-control-responsive_header_menu_toggle_background_color',
+						'customize-control-responsive_header_toggle_button_background_color_separator'
+					];
+					const minimalStyleElementIds = [
+						'customize-control-responsive_mobile_menu_toggle_border_color',
+						'customize-control-responsive_header_menu_toggle_background_color',
+						'customize-control-responsive_header_toggle_button_background_color_separator',
+						'customize-control-responsive_header_toggle_button_border_radius_padding',
+						'customize-control-responsive_mobile_menu_toggle_border_width_border'
+					];
+			
+					if( 'general' === tab ) {
+						// Always hide on general tab
+						allToggleButtonElementIds.forEach(id => {
+							let el = document.getElementById(id);
+							if (el) {
+								el.style.display = 'none';
+							}
+						});
+					} else if( 'design' === tab ) {
+						if( 'minimal' === newval ) {
+							// Hide all controls for minimal style
+							minimalStyleElementIds.forEach(id => {
+								let el = document.getElementById(id);
+								if (el) {
+									el.style.display = 'none';
+								}
+							});
+							const toggleBorderWidthEl = document.getElementById('customize-control-responsive_mobile_menu_toggle_border_width_border');
+							if (toggleBorderWidthEl) {
+								toggleBorderWidthEl.style.display = 'none';
+							}
+						} else if( 'outline' === newval ) {
+							// Hide background color for outline style, show others
+							backgroundColorElementIds.forEach(id => {
+								let el = document.getElementById(id);
+								if (el) {
+									el.style.display = 'none';
+								}
+							});
+							// Show border color and border radius
+							const borderColorEl = document.getElementById('customize-control-responsive_mobile_menu_toggle_border_color');
+							if (borderColorEl) {
+								borderColorEl.style.display = 'block';
+							}
+							const borderRadiusEl = document.getElementById('customize-control-responsive_header_toggle_button_border_radius_padding');
+							if (borderRadiusEl) {
+								borderRadiusEl.style.display = 'block';
+							}
+							const toggleBorderWidthEl = document.getElementById('customize-control-responsive_mobile_menu_toggle_border_width_border');
+							if (toggleBorderWidthEl) {
+								toggleBorderWidthEl.style.display = 'block';
+							}
+							
+						} else {
+							// Hide border color for fill style, show others
+							const borderColorEl = document.getElementById('customize-control-responsive_mobile_menu_toggle_border_color');
+							if (borderColorEl) {
+								borderColorEl.style.display = 'none';
+							}
+							const toggleBorderWidthEl = document.getElementById('customize-control-responsive_mobile_menu_toggle_border_width_border');
+							if (toggleBorderWidthEl) {
+								toggleBorderWidthEl.style.display = 'none';
+							}
+							// Show background color, background separator, and border radius
+							const backgroundColorEl = document.getElementById('customize-control-responsive_header_menu_toggle_background_color');
+							if (backgroundColorEl) {
+								backgroundColorEl.style.display = 'block';
+							}
+							const backgroundSeparatorEl = document.getElementById('customize-control-responsive_header_toggle_button_background_color_separator');
+							if (backgroundSeparatorEl) {
+								backgroundSeparatorEl.style.display = 'block';
+							}
+							const borderRadiusEl = document.getElementById('customize-control-responsive_header_toggle_button_border_radius_padding');
+							if (borderRadiusEl) {
+								borderRadiusEl.style.display = 'block';
+							}
+							
+						}
+					}
+				} );
+			} );
 		}
 
 		if( api('responsive_header_contact_info_icon_shape').get() === 'none' && 'general' === tab ) {
@@ -319,6 +505,20 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_border_mobile_header_button_radius').style.display = 'none';
 		}
 
+		// Footer Social Border Controls
+		if( api('responsive_footer_social_item_border_style') ) {
+			toggleFooterSocialBorderControls( api('responsive_footer_social_item_border_style').get() );
+		}
+
+		// Listen for changes to responsive_footer_social_item_border_style
+		if( api('responsive_footer_social_item_border_style') ) {
+			api('responsive_footer_social_item_border_style', function( value ) {
+				value.bind( function( newval ) {
+					toggleFooterSocialBorderControls( newval );
+				} );
+			} );
+		}
+
 		// Transparent Header Settings
 		if( ! api( 'responsive_transparent_header' ).get() ) {
 			document.getElementById('customize-control-responsive_transparent_header_widget_color_separator').style.display = 'none';
@@ -416,12 +616,12 @@ const TabsComponent = props => {
     controlElement.style.display = 'none';
 
     let isVisible = false;
-    if (control === 'default') {
-        // For default sidebar: only hide when 'no'
+    if (control === 'global') {
+        // For global sidebar: only hide when 'no'
         isVisible = value !== 'no' && tab === 'general';
     } else {
-        // For page/blog: hide when 'no' or 'default'
-        isVisible = value !== 'no' && value !== 'default' && tab === 'general';
+        // For page/blog: hide when 'no' or 'global'
+        isVisible = value !== 'no' && value !== 'global' && tab === 'general';
     }
 
     if (isVisible) {
@@ -435,8 +635,8 @@ const TabsComponent = props => {
 		if (!controlElement) return;
 		controlElement.style.display = 'none';
 
-		// For shop/single product sidebar: only hide when 'no'
-		let isVisible = value !== 'no' && tab === 'general';
+		// For shop/single product sidebar: hide when 'no' or 'global'
+		let isVisible = value !== 'no' && value !== 'global' && tab === 'general';
 
 		if (isVisible) {
 			controlElement.style.display = 'block';
@@ -491,6 +691,25 @@ const TabsComponent = props => {
 		if (isVisible) {
 			controlElement.style.display = 'block';
 		}
+	};
+
+	const toggleFooterSocialBorderControls = (borderStyle) => {
+		const controlIds = [
+			'customize-control-responsive_footer_social_item_border_width',
+			'customize-control-responsive_border_footer_social_radius',
+			'customize-control-responsive_footer_social_border_radius_padding',
+			'customize-control-responsive_footer_social_item_border_color',
+			'customize-control-responsive_footer_social_item_icon_spacing',
+		];
+
+		const shouldShow = 'none' !== borderStyle && 'design' === tab;
+
+		controlIds.forEach(controlId => {
+			const controlElement = document.getElementById(controlId);
+			if (controlElement) {
+				controlElement.style.display = shouldShow ? 'block' : 'none';
+			}
+		});
 	};
 
 	return <>

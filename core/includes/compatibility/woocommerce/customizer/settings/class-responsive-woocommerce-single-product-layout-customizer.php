@@ -104,6 +104,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 			// Sidebar Position.
 			$sidebar_label   = esc_html__( 'Sidebar Position', 'responsive' );
 			$sidebar_choices = array(
+				'global' => esc_html__( 'Global', 'responsive' ),
 				'left'  => esc_html__( 'Left', 'responsive' ),
 				'right' => esc_html__( 'Right', 'responsive' ),
 				'no'    => esc_html__( 'No Sidebar', 'responsive' ),
@@ -111,17 +112,18 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 
 			if ( is_rtl() ) {
 				$sidebar_choices = array(
+					'global' => esc_html__( 'Global', 'responsive' ),
 					'left'  => esc_html__( 'Left', 'responsive' ),
 					'right' => esc_html__( 'Right', 'responsive' ),
 					'no'    => esc_html__( 'No Sidebar', 'responsive' ),
 				);
 			}
 
-			responsive_imageradio_button_control( $wp_customize, 'single_product_sidebar_position', $sidebar_label, 'responsive_woocommerce_single_product_layout', 66, $sidebar_choices, 'no', null, 'svg' );
+			responsive_imageradio_button_control( $wp_customize, 'single_product_sidebar_position', $sidebar_label, 'responsive_woocommerce_single_product_layout', 66, $sidebar_choices, 'global', null, 'svg' );
 
 			// Sidebar Width
 			$single_product_sidebar_width_label = esc_html__( 'Sidebar Width (%)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'single_product_sidebar_width', $single_product_sidebar_width_label, 'responsive_woocommerce_single_product_layout', 67, 30, null, 50, 15, 'postMessage' );
+			responsive_drag_number_control( $wp_customize, 'single_product_sidebar_width', $single_product_sidebar_width_label, 'responsive_woocommerce_single_product_layout', 67, 30, 'responsive_active_single_product_sidebar_position', 50, 15, 'postMessage' );
 			
 			// Product Elements.
 			$single_product_elements_label = esc_html__( 'Product Elements', 'responsive' );

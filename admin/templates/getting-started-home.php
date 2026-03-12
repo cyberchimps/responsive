@@ -174,7 +174,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 			),
 		),
 		array(
-			'tag'   => 'rea',
+			'tag'   => 'rae',
 			'title' => __( '50+ Elementor Widgets', 'responsive' ),
 			'desc'  => __( 'Get Free Access to the Responsive Elementor Addons Plugin worth $47/year.', 'responsive' ),
 			'links' => array(
@@ -190,7 +190,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 			),
 		),
 		array(
-			'tag'   => 'rea',
+			'tag'   => 'rae',
 			'title' => __( 'Elementor Theme Builder', 'responsive' ),
 			'desc'  => __( 'REA Theme Builder lets you design & customize every aspect of your website.', 'responsive' ),
 			'links' => array(
@@ -280,7 +280,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 			'title'  => 'Responsive Addons for Elementor',
 			'desc'   => __( 'A free Elementor Addons plugin with more than 80+ premium quality Elementor widgets.', 'responsive' ),
 			'button' => Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-addons-for-elementor', 'rae', 'rael_getting_started', 'Install & Activate' ),
-			'logo'   => 'rea',
+			'logo'   => 'rae',
 		),
 		array(
 			'tag'    => __( 'free', 'responsive' ),
@@ -323,20 +323,20 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 	}
 
 	if ( ! get_option( 'rpo_megamenu_enable' ) ) {
-		add_option( 'rpo_megamenu_enable', 'on' );
+		update_option( 'rpo_megamenu_enable', 'on' );
 	}
 
 	if ( ! get_option( 'rpro_typography_enable' ) ) {
-		add_option( 'rpro_typography_enable', 'on' );
+		update_option( 'rpro_typography_enable', 'on' );
 	}
 
 	if ( ! is_responsive_version_greater() ) {
 		if ( ! get_option( 'rpro_colors_backgrounds_enable' ) ) {
-			add_option( 'rpro_colors_backgrounds_enable', 'on' );
+			update_option( 'rpro_colors_backgrounds_enable', 'on' );
 		}
 
 		if ( ! get_option( 'rpro_woocommerce_enable' ) ) {
-			add_option( 'rpro_woocommerce_enable', 'on' );
+			update_option( 'rpro_woocommerce_enable', 'on' );
 		}
 	}
 

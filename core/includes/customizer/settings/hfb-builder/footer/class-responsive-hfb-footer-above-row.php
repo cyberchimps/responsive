@@ -48,7 +48,7 @@ if( ! class_exists( 'Responsive_HFB_Footer_Above_Row' ) ) {
 				'fullwidth' => esc_html__( 'Full Width', 'responsive' ),
 				'contained'  => esc_html__( 'Contained', 'responsive' ),
 			);
-			responsive_select_button_control( $wp_customize, 'footer_above_width', $footer_above_row_width_label, 'responsive_footer_above_row', 10, $footer_above_row_width_choices, 'contained', null, 'postMessage' );
+			responsive_select_button_control( $wp_customize, 'footer_above_width', $footer_above_row_width_label, 'responsive_footer_above_row', 10, $footer_above_row_width_choices, 'contained', null, 'postMessage', '' );
 
             // Design.
 			$design_separator_label = __( 'Design', 'responsive' );
@@ -88,7 +88,7 @@ if( ! class_exists( 'Responsive_HFB_Footer_Above_Row' ) ) {
 
             // Height.
 			$row_height_label = __( 'Footer Height (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'footer_above_height', $row_height_label, 'responsive_footer_above_row', 60, 30, null, 600, 0, 'postMessage', 1 );
+			responsive_drag_number_control_with_switchers( $wp_customize, 'footer_above_height', $row_height_label, 'responsive_footer_above_row', 60, 30, null, 600, 0, 'postMessage', 1 );
 
             responsive_horizontal_separator_control($wp_customize, 'footer_above_separator_3', 1, 'responsive_footer_above_row', 65, 1, );
 
@@ -99,12 +99,12 @@ if( ! class_exists( 'Responsive_HFB_Footer_Above_Row' ) ) {
 				'center'     => esc_html__( 'Middle', 'responsive' ),
 				'flex-end'   => esc_html__( 'Bottom', 'responsive' ),
 			);
-			responsive_select_button_control( $wp_customize, 'footer_above_vertical_alignment', $vertical_alignment_label, 'responsive_footer_above_row', 70, $vertical_alignment_choices, 'flex-start', null, 'postMessage' );
+			responsive_select_button_with_switchers_control( $wp_customize, 'footer_above_vertical_alignment', $vertical_alignment_label, 'responsive_footer_above_row', 70, $vertical_alignment_choices, 'flex-start', null, 'refresh' );
 
             
             // Background Color.
 			$footer_above_row_color_label = __( 'Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'footer_above_row_bg', $footer_above_row_color_label, 'responsive_footer_above_row', 80, Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_above_row_bg_color' ), null, '' );
+			responsive_color_control_with_device_switchers( $wp_customize, 'footer_above_row_bg', $footer_above_row_color_label, 'responsive_footer_above_row', 80, Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_above_row_bg_color' ), null, '' );
 
             // Border.
 			$border_head_label = __( 'Border', 'responsive' );
@@ -112,11 +112,11 @@ if( ! class_exists( 'Responsive_HFB_Footer_Above_Row' ) ) {
             
             // Top Border Size.
             $footer_above_row_top_border_size_label = __( 'Top Border Size (px)', 'responsive' );
-            responsive_drag_number_control( $wp_customize, 'footer_above_row_top_border_size', $footer_above_row_top_border_size_label, 'responsive_footer_above_row', 100, 0, null, 300, 0, 'postMessage', 1 );
+            responsive_drag_number_control_with_switchers( $wp_customize, 'footer_above_row_top_border_size', $footer_above_row_top_border_size_label, 'responsive_footer_above_row', 100, 0, null, 300, 0, 'postMessage', 1 );
 
             // Border Color.
 			$footer_above_row_border_color_label = __( 'Border Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'footer_above_row_border', $footer_above_row_border_color_label, 'responsive_footer_above_row', 110, Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_above_row_border_color' ), null, '' );
+			responsive_color_control_with_device_switchers( $wp_customize, 'footer_above_row_border', $footer_above_row_border_color_label, 'responsive_footer_above_row', 110, Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_above_row_border_color' ), null, '' );
 
             // Spacing.
 			$spacing_separator_label = __( 'Row Spacing', 'responsive' );

@@ -23,6 +23,25 @@ const TypographyGroupControlComponent = (props) => {
     const typoGroupWrapperRef = useRef(null);
     const hasWrappedRef = useRef(false);
 
+    // active device state
+    const [activeDevice, setActiveDevice] = React.useState('desktop');
+
+	useEffect(() => {
+		if (window.wp && window.wp.customize && window.wp.customize.previewedDevice) {
+			const currentDevice = window.wp.customize.previewedDevice.get();
+            setActiveDevice(currentDevice);
+			
+			const handleDeviceChange = () => {
+				const device = window.wp.customize.previewedDevice.get();
+                setActiveDevice(device);
+			};
+			window.wp.customize.previewedDevice.bind(handleDeviceChange);
+			return () => {
+				window.wp.customize.previewedDevice.unbind(handleDeviceChange);
+			};
+		}
+	}, []);
+
     // Function to create or update the <ul> and wrap <li> elements
     const wrapLiElements = () => {
     
@@ -42,8 +61,10 @@ const TypographyGroupControlComponent = (props) => {
         let ul = document.querySelector(`.responsive-typography-settings-group-${connected_control}`);
         if (!ul) {
             ul = document.createElement('ul');
-            ul.className = `responsive-typography-settings-group responsive-typography-settings-group-${connected_control}`;
+            ul.className = `responsive-typography-settings-group responsive-typography-settings-group-${connected_control} control-device-${activeDevice}`;
             typoGroupWrapperRef.current = ul;
+        } else {
+            ul.className = `responsive-typography-settings-group responsive-typography-settings-group-${connected_control} control-device-${activeDevice}`;
         }
     
         // Append <li> elements to the <ul>
@@ -89,7 +110,7 @@ const TypographyGroupControlComponent = (props) => {
             clearTimeout(timeoutId);
             observer.disconnect();
         };
-    }, [connected_control]);
+    }, [connected_control, activeDevice]);
 
     // Event listener for clicks outside the typoGroupSelectRef and typoGroupWrapperRef
     const handleClickOutsideTypoGroupSelect = (event) => {

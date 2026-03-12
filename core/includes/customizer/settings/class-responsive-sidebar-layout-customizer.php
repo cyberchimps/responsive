@@ -64,7 +64,7 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
             $tabs_label            = esc_html__( 'Tabs', 'responsive' );
             responsive_tabs_button_control( $wp_customize, 'sidebar_tabs', $tabs_label, 'responsive_sidebar', 1, '', 'responsive_sidebar_general_tab', 'responsive_sidebar_design_tab', $general_tab_ids, $design_tab_ids, null );
 
-			$shop_sidebar_heading = esc_html__( 'Default Sidebar', 'responsive' );
+			$shop_sidebar_heading = esc_html__( 'Global Sidebar', 'responsive' );
 			responsive_separator_control( $wp_customize, 'sidebar_separator', $shop_sidebar_heading, 'responsive_sidebar', 5);
 
             $default_sidebar_label   = esc_html__( 'Sidebar Position', 'responsive' );
@@ -102,23 +102,23 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
             // Page Sidebar.
             $sidebar_label   = esc_html__('Sidebar Position', 'responsive');
             $sidebar_choices = array(
-                'default' => esc_html__( 'Default', 'responsive'),
+                'global' => esc_html__( 'Global', 'responsive'),
                 'no'    => esc_html__('No Sidebar', 'responsive'),
                 'left'  => esc_html__('Left', 'responsive'),
                 'right' => esc_html__('Right', 'responsive'),
             );
             if (is_rtl()) {
                 $sidebar_choices = array(
-                    'default' => esc_html__( 'Default', 'responsive' ),
+                    'global' => esc_html__( 'Global', 'responsive' ),
                     'no'    => esc_html__('No Sidebar', 'responsive'),
                     'right'  => esc_html__('Left', 'responsive'),
                     'left' => esc_html__('Right', 'responsive'),
                 );
             }
-            responsive_imageradio_button_control($wp_customize, 'page_sidebar_position', $sidebar_label, 'responsive_page', 20, $sidebar_choices, 'no', null, 'svg');
+            responsive_imageradio_button_control($wp_customize, 'page_sidebar_position', $sidebar_label, 'responsive_page', 20, $sidebar_choices, 'global', null, 'svg');
 
             $page_sidebar_width_label = esc_html__('Sidebar Width (%)', 'responsive');
-            responsive_drag_number_control($wp_customize, 'page_sidebar_width', $page_sidebar_width_label, 'responsive_page', 25, 30, null, 50, 20, 'postMessage');
+            responsive_drag_number_control($wp_customize, 'page_sidebar_width', $page_sidebar_width_label, 'responsive_page', 25, 30, 'responsive_active_page_sidebar_position', 50, 20, 'postMessage');
 
             $blog_sidebar_heading_label = esc_html__( 'Blog/Archive Sidebar', 'responsive' );
 			responsive_separator_control( $wp_customize, 'blog_sidebar_separator', $blog_sidebar_heading_label, 'responsive_blog_layout', 25 );
@@ -126,23 +126,23 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
             // Blog/Archive Sidebar.
             $sidebar_label   = esc_html__('Sidebar Position', 'responsive');
             $sidebar_choices = array(
-                'default' => esc_html__( 'Default', 'responsive' ), 
+                'global' => esc_html__( 'Global', 'responsive' ), 
                 'no'    => esc_html__('No Sidebar', 'responsive'),
                 'left'  => esc_html__('Left', 'responsive'),
                 'right' => esc_html__('Right', 'responsive'),
             );
             if (is_rtl()) {
                 $sidebar_choices = array(
-                    'default' => esc_html__( 'Default', 'responsive' ),
+                    'global' => esc_html__( 'Global', 'responsive' ),
                     'no'    => esc_html__('No Sidebar', 'responsive'),
                     'right'  => esc_html__('Left', 'responsive'),
                     'left' => esc_html__('Right', 'responsive'),
                 );
             }
-            responsive_imageradio_button_control($wp_customize, 'blog_sidebar_position', $sidebar_label, 'responsive_blog_layout', 30, $sidebar_choices, Responsive\Core\get_responsive_customizer_defaults('blog_sidebar_position'), null, 'svg');
+            responsive_imageradio_button_control($wp_customize, 'blog_sidebar_position', $sidebar_label, 'responsive_blog_layout', 30, $sidebar_choices, 'global', null, 'svg');
 
             $page_sidebar_width_label = esc_html__('Sidebar Width (%)', 'responsive');
-            responsive_drag_number_control($wp_customize, 'blog_sidebar_width', $page_sidebar_width_label, 'responsive_blog_layout', 35, 30, null, 50, 20, 'postMessage');
+            responsive_drag_number_control($wp_customize, 'blog_sidebar_width', $page_sidebar_width_label, 'responsive_blog_layout', 35, 30, 'responsive_active_blog_sidebar_position', 50, 20, 'postMessage');
 
             $single_blog_featured_image_label = esc_html__( 'Sidebar', 'responsive' );
 			responsive_separator_control( $wp_customize, 'single_blog_sidebar_separator', $single_blog_featured_image_label, 'responsive_single_blog_layout', 38 );
@@ -150,20 +150,20 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
             // Single Post Sidebar.
             $sidebar_label   = esc_html__('Sidebar Position', 'responsive');
             $sidebar_choices = array(
-                'default' => esc_html__( 'Default', 'responsive' ),
+                'global' => esc_html__( 'Global', 'responsive' ),
                 'no'    => esc_html__('No Sidebar', 'responsive'),
                 'left'  => esc_html__('Left', 'responsive'),
                 'right' => esc_html__('Right', 'responsive'),
             );
             if (is_rtl()) {
                 $sidebar_choices = array(
-                    'default' => esc_html__( 'Default', 'responsive'),
+                    'global' => esc_html__( 'Global', 'responsive'),
                     'no'    => esc_html__('No Sidebar', 'responsive'),
                     'right'  => esc_html__('Left', 'responsive'),
                     'left' => esc_html__('Right', 'responsive'),
                 );
             }
-            responsive_imageradio_button_control($wp_customize, 'single_blog_sidebar_position', $sidebar_label, 'responsive_single_blog_layout', 40, $sidebar_choices, 'no', null, 'svg');
+            responsive_imageradio_button_control($wp_customize, 'single_blog_sidebar_position', $sidebar_label, 'responsive_single_blog_layout', 40, $sidebar_choices, 'global', null, 'svg');
 
             $page_sidebar_width_label = esc_html__('Sidebar Width (%)', 'responsive');
             responsive_drag_number_control($wp_customize, 'single_blog_sidebar_width', $page_sidebar_width_label, 'responsive_single_blog_layout', 45, 30, 'responsive_active_single_blog_sidebar_position', 50, 20, 'postMessage');

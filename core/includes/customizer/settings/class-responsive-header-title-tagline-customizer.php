@@ -54,10 +54,10 @@ if ( ! class_exists( 'Responsive_Header_Title_Tagline_Customizer' ) ) :
 			responsive_separator_control( $wp_customize, 'header_title_colors_separator', $site_title_color_separator_label, 'responsive_header_site_logo_title', 10 );
 
 			$header_site_title_color_label = __( 'Site Title Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_site_title', $header_site_title_color_label, 'responsive_header_site_logo_title', 10, Responsive\Core\get_responsive_customizer_defaults( 'header_site_title' ) );
+			responsive_color_control( $wp_customize, 'header_site_title', $header_site_title_color_label, 'responsive_header_site_logo_title', 10, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_site_title_color' ) );
 
 			$header_site_title_hover_color_label = __( 'Site Title Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_site_title_hover', $header_site_title_hover_color_label, 'responsive_header_site_logo_title', 10, Responsive\Core\get_responsive_customizer_defaults( 'header_site_title_hover' ) );
+			responsive_color_control( $wp_customize, 'header_site_title_hover', $header_site_title_hover_color_label, 'responsive_header_site_logo_title', 10, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_site_title_hover_color' ) );
 
 			responsive_horizontal_separator_control($wp_customize, 'header_site_title_typo_separator', 2, 'responsive_header_site_logo_title', 13, 1, );
 
@@ -74,7 +74,7 @@ if ( ! class_exists( 'Responsive_Header_Title_Tagline_Customizer' ) ) :
 			responsive_separator_control( $wp_customize, 'header_tagline_colors_separator', $site_tagline_color_separator_label, 'responsive_header_site_logo_title', 10 );
 
 			$header_text_color_label = __( 'Site Tagline Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_text', $header_text_color_label, 'responsive_header_site_logo_title', 10, Responsive\Core\get_responsive_customizer_defaults( 'header_text' ) );
+			responsive_color_control( $wp_customize, 'header_text', $header_text_color_label, 'responsive_header_site_logo_title', 10, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_text_color' ) );
 
 			responsive_horizontal_separator_control($wp_customize, 'header_site_tagline_typo_separator', 1, 'responsive_header_site_logo_title', 14, 1, );
 

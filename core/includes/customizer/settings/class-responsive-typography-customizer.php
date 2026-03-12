@@ -521,7 +521,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'heading_h5'                 => 'h5',
 				'heading_h6'                 => 'h6',
 				'meta'                       => '.hentry .post-data,.post-meta *',
-				'button'                     => '.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, .entry-content div.wpforms-container-full .wpforms-form input[type=submit], body .entry-content div.wpforms-container-full .wpforms-form button[type=submit], .entry-content div.wpforms-container-full .wpforms-form .wpforms-page-button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,.entry-content div.wpforms-container-full .wpforms-form input[type=submit],.entry-content div.wpforms-container-full .wpforms-form button[type=submit],.entry-content div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link,body div.wpforms-container-full .wpforms-form button[type=submit], button,div.wpforms-container-full .wpforms-form .wpforms-submit-container,.elementor-widget-rael-button .rael-button .rael-text, .wp-block-file__button',
+				'button'                     => '.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, .entry-content div.wpforms-container-full .wpforms-form input[type=submit], body .entry-content div.wpforms-container-full .wpforms-form button[type=submit], .entry-content div.wpforms-container-full .wpforms-form .wpforms-page-button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,.entry-content div.wpforms-container-full .wpforms-form input[type=submit],.entry-content div.wpforms-container-full .wpforms-form button[type=submit],.entry-content div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link,body div.wpforms-container-full .wpforms-form button[type=submit], button,div.wpforms-container-full .wpforms-form .wpforms-submit-container,.elementor-widget-rael-button .rael-button .rael-text, .wp-block-file__button, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button',
 				'input'                      => 'select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],.entry-content div.wpforms-container-full .wpforms-form input[type=date],.entry-content div.wpforms-container-full .wpforms-form input[type=datetime],.entry-content div.wpforms-container-full .wpforms-form input[type=datetime-local],.entry-content div.wpforms-container-full .wpforms-form input[type=email],.entry-content div.wpforms-container-full .wpforms-form input[type=month],.entry-content div.wpforms-container-full .wpforms-form input[type=number],.entry-content div.wpforms-container-full .wpforms-form input[type=password],.entry-content div.wpforms-container-full .wpforms-form input[type=range],.entry-content div.wpforms-container-full .wpforms-form input[type=search],.entry-content div.wpforms-container-full .wpforms-form input[type=tel],.entry-content div.wpforms-container-full .wpforms-form input[type=text],.entry-content div.wpforms-container-full .wpforms-form input[type=time],.entry-content div.wpforms-container-full .wpforms-form input[type=url],.entry-content div.wpforms-container-full .wpforms-form input[type=week],.entry-content div.wpforms-container-full .wpforms-form select,.entry-content div.wpforms-container-full .wpforms-form textarea,body div.wpforms-container-full .wpforms-form input[type=text],body div.wpforms-container-full .wpforms-form input[type=email],body div.wpforms-container-full .wpforms-form textarea',
 				'header_site_title'          => '.site-title',
 				'header_site_title2'         => '.site-title a',
@@ -549,7 +549,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'header_search_label'        => '.responsive-header-search-label',
 				'header_contact_info'        => '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list  .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-title, .site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text',
 				'mobile_header_contact_info' => '.site-mobile-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list  .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-title, .site-mobile-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text',
-				'header_off_canvas_menu'     => '.responsive-off-canvas-menu-container .responsive-off-canvas-menu-wrapper .responsive-off-canvas-menu-inner-wrapper .responsive-off-canvas-menu .responsive-off-canvas-menu-items .responsive-off-canvas-menu-item a',
+				'header_off_canvas_menu'     => '.responsive-off-canvas-menu-container .responsive-off-canvas-menu-wrapper .responsive-off-canvas-menu-inner-wrapper .responsive-off-canvas-menu .responsive-off-canvas-menu-items .responsive-off-canvas-menu-item a, .off-canvas-widget-area #off-canvas-menu li a, #off-canvas-site-navigation .menu li a',
 			);
 
 			if ( $this->is_responsive_version_greater() ) {
@@ -557,7 +557,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 			}
 
 			if ( 'yes' === get_option( 'elementor_disable_typography_schemes' ) ) {
-				$responsive_typography_selectors['button'] = '.elementor-button-wrapper .elementor-button';
+				$responsive_typography_selectors['button'] = '.elementor-button-wrapper .elementor-button, .elementor-widget-button .elementor-button';
 			}
 
 			for( $i=1;$i<=6;$i++ ) {
@@ -791,7 +791,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								'type'              => 'theme_mod',
 								'sanitize_callback' => 'responsive_sanitize_select',
 								'transport'         => $transport,
-								'default'           => '',
+								'default'           => 'meta' === $element ? 'uppercase' : '',
 							)
 						);
 
@@ -1193,7 +1193,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						if ( 'css' === $return ) {
 							$tablet_css .= $attribute . ':' . $tablet_val . $px . ';';
 						} elseif ( 'preview_styles' === $return ) {
-							$preview_styles[ 'customizer-typography-' . $element . '-tablet-' . $attribute ] = '@media (max-width: 768px){' . $target . '{' . $attribute . ':' . $tablet_val . $px . ';}}';
+							$preview_styles[ 'customizer-typography-' . $element . '-tablet-' . $attribute ] = '@media (max-width: 992px){' . $target . '{' . $attribute . ':' . $tablet_val . $px . ';}}';
 						}
 					}
 
@@ -1218,7 +1218,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						if ( 'css' === $return ) {
 							$mobile_css .= $attribute . ':' . $mobile_val . $px . ';';
 						} elseif ( 'preview_styles' === $return ) {
-							$preview_styles[ 'customizer-typography-' . $element . '-mobile-' . $attribute ] = '@media (max-width: 480px){' . $target . '{' . $attribute . ':' . $mobile_val . $px . ';}}';
+							$preview_styles[ 'customizer-typography-' . $element . '-mobile-' . $attribute ] = '@media (max-width: 576px){' . $target . '{' . $attribute . ':' . $mobile_val . $px . ';}}';
 						}
 					}
 				}
@@ -1226,7 +1226,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				// Front-end inline CSS.
 				if ( $add_css && 'css' === $return ) {
 					if ( '#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav.mobile-dropdown-inner .menu > li > a' === $target ) {
-						$css .= '@media (max-width: 480px){' . $target . '{' . $add_css . '}}';
+						$css .= '@media (max-width: 576px){' . $target . '{' . $add_css . '}}';
 					} else {
 						$css .= $target . '{' . $add_css . '}';
 					}
@@ -1234,12 +1234,12 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 
 				// Front-end inline tablet CSS.
 				if ( $tablet_css && 'css' === $return ) {
-					$css .= '@media (max-width: 768px){' . $target . '{' . $tablet_css . '}}';
+					$css .= '@media (max-width: 992px){' . $target . '{' . $tablet_css . '}}';
 				}
 
 				// Front-end inline mobile CSS.
 				if ( $mobile_css && 'css' === $return ) {
-					$css .= '@media (max-width: 480px){' . $target . '{' . $mobile_css . '}}';
+					$css .= '@media (max-width: 576px){' . $target . '{' . $mobile_css . '}}';
 				}
 			}
 			// Return CSS.

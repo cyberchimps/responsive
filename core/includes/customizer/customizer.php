@@ -289,6 +289,7 @@ function responsive_custom_controls( $wp_customize ) {
 	// Load customize control classes.
 	require_once $dir . 'palette/class-responsive-customizer-palette-control.php';
 	require_once $dir . 'color/class-responsive-customizer-color-control.php';
+	require_once $dir . 'color-states/class-responsive-customizer-color-control-states.php';
 	require_once $dir . 'range/class-responsive-customizer-range-control.php';
 	require_once $dir . 'slider/class-responsive-customizer-slider-control.php';
 	require_once $dir . 'sortable/class-responsive-customizer-sortable-control.php';
@@ -321,8 +322,10 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'contact-info/class-responsive-customizer-contact-info-control.php';
 	require_once $dir . 'color-with-devices/class-responsive-customizer-color-with-devices-control.php';
 	require_once $dir . 'color-with-devices-and-hover/class-responsive-customizer-color-with-devices-and-hover-control.php';
+	require_once $dir . 'color-with-states-and-devices/class-responsive-customizer-color-with-states-and-devices-control.php';
 	require_once $dir . 'section-toggle/class-responsive-customizer-section-toggle.php';
 	require_once $dir . 'select-with-switchers/class-responsive-customizer-selectbtn-switchers-control.php';
+	require_once $dir . 'selectbtn-with-switchers/class-responsive-customizer-selectbtn-with-switchers-control.php';
 
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-control-upsell.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-generic-notice-section.php';
@@ -332,6 +335,7 @@ function responsive_custom_controls( $wp_customize ) {
 	// Register JS control types.
 	$wp_customize->register_control_type( 'Responsive_Customizer_Palette_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Color_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Color_Control_States' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Range_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Slider_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Sortable_Control' );
@@ -360,7 +364,9 @@ function responsive_custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Contact_Info_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Color_With_Devices_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Color_With_Devices_And_Hover_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Color_With_States_And_Devices_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Selectbtn_Switchers_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Selectbtn_With_Switchers_Control' );
 
 }
 

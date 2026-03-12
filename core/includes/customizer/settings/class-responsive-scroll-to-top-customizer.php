@@ -112,74 +112,25 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 					'right'  => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
 				);
 			}
-			responsive_select_button_control( $wp_customize, 'scroll_to_top_icon_position', $stt_position_label, 'responsive_scrolltotop_section', 20, $stt_position_choices, 'right', null, 'postMessage' );
+			responsive_select_button_control( $wp_customize, 'scroll_to_top_icon_position', $stt_position_label, 'responsive_scrolltotop_section', 20, $stt_position_choices, 'right', null, 'refresh' );
 
 			responsive_horizontal_separator_control($wp_customize, 'scrolltotop_separator_2', 1, 'responsive_scrolltotop_section', 25, 1, );
 
-			$wp_customize->add_setting(
-				'responsive_scroll_to_top_icon_size',
-				array(
-					'transport'         => 'postMessage',
-					'default'           => 50,
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
-
-			$wp_customize->add_control(
-				new Responsive_Customizer_Range_Control(
-					$wp_customize,
-					'responsive_scroll_to_top_icon_size',
-					array(
-						'label'       => __( 'Icon Size (px)', 'responsive' ),
-						'section'     => 'responsive_scrolltotop_section',
-						'settings'    => 'responsive_scroll_to_top_icon_size',
-						'priority'    => 30,
-						'input_attrs' => array(
-							'min'  => 50,
-							'max'  => 100,
-							'step' => 1,
-						),
-					)
-				)
-			);
-			// Radius.
-			$wp_customize->add_setting(
-				'responsive_scroll_to_top_icon_radius',
-				array(
-					'type'              => 'theme_mod',
-					'sanitize_callback' => 'responsive_sanitize_number',
-					'transport'         => 'postMessage',
-					'default'           => 50,
-				)
-			);
-
-			$wp_customize->add_control(
-				new Responsive_Customizer_Range_Control(
-					$wp_customize,
-					'responsive_scroll_to_top_icon_radius',
-					array(
-						'label'       => esc_html__( 'Border Radius (%)', 'responsive' ),
-						'section'     => 'responsive_scrolltotop_section',
-						'settings'    => 'responsive_scroll_to_top_icon_radius',
-						'priority'    => 60,
-						'input_attrs' => array(
-							'min'  => 0,
-							'max'  => 50,
-							'step' => 1,
-						),
-					)
-				)
-			);
+			// Scroll to Top Icon Size.
+			responsive_drag_number_control_with_switchers( $wp_customize, 'scroll_to_top_icon_size', __('Icon Size (px)', 'responsive'), 'responsive_scrolltotop_section', 30, 50, null, 100, 50, 'postMessage', 1 );
+			
+			// Scroll to Top Icon Border Radius
+			responsive_drag_number_control_with_switchers( $wp_customize, 'scroll_to_top_icon_radius',esc_html__( 'Border Radius (%)', 'responsive' ), 'responsive_scrolltotop_section', 60, 50, null, 50, 0, 'postMessage', 1 );
 
 			// Icon Color.
 			$footer_background_label = __( 'Icons Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'scroll_to_top_icon', $footer_background_label, 'responsive_scrolltotop_section', 40, Responsive\Core\get_responsive_customizer_defaults( 'scroll_to_top_icon' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'scroll_to_top_icon_hover' ), 'scroll_to_top_icon_hover' );
+			responsive_color_control_with_device_switchers_and_hover( $wp_customize, 'scroll_to_top_icon', $footer_background_label, 'responsive_scrolltotop_section', 40, Responsive\Core\get_responsive_customizer_defaults( 'scroll_to_top_icon' ), Responsive\Core\get_responsive_customizer_defaults( 'scroll_to_top_icon_hover' ), null );
 
 			responsive_horizontal_separator_control($wp_customize, 'scrolltotop_separator_3', 1, 'responsive_scrolltotop_section', 45, 1, );
 
 			// Icon Background Color.
 			$footer_background_label = __( 'Icons Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'scroll_to_top_icon_background', $footer_background_label, 'responsive_scrolltotop_section', 50, Responsive\Core\get_responsive_customizer_defaults( 'scroll_to_top_icon_background' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'scroll_to_top_icon_background_hover' ), 'scroll_to_top_icon_background_hover' );
+			responsive_color_control_with_device_switchers_and_hover( $wp_customize, 'scroll_to_top_icon_background', $footer_background_label, 'responsive_scrolltotop_section', 50, Responsive\Core\get_responsive_customizer_defaults( 'scroll_to_top_icon_background' ), Responsive\Core\get_responsive_customizer_defaults( 'scroll_to_top_icon_background_hover' ), null );
 
 			responsive_horizontal_separator_control($wp_customize, 'scrolltotop_separator_4', 1, 'responsive_scrolltotop_section', 55, 1, );
 		}
