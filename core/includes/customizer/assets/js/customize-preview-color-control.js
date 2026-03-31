@@ -4919,4 +4919,11 @@
         });
     });
 
+    // Comments Border Color.
+    api('responsive_comments_border_color_color', function(value) {
+        value.bind(function(newval) {
+            $('body .site .comments-area').css('border-color', newval);
+        });
+    });
+
 } )( jQuery );

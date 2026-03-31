@@ -491,7 +491,8 @@ body.rtl .customize-control .responsive-switchers li {
 	margin-top: 10px;
 }
 
-#accordion-section-responsive_rp_layout {
+#accordion-section-responsive_rp_layout,
+#accordion-section-responsive_comments_layout {
 	display: none !important;
 }
 
