@@ -456,19 +456,37 @@
         });
     });
 
-    api( 'responsive_rp_link_color', ( value ) => {
-        value.bind( ( newval ) => {
-            document.querySelectorAll('.responsive-single-related-posts-container a')
-                .forEach(el => el.style.color = newval);
+    api('responsive_rp_link_color', (value) => {
+        value.bind((newval) => {
+            document
+                .querySelectorAll('.responsive-single-related-posts-container a')
+                .forEach(el => {
+                    if (
+                        !el.closest('.post-meta') &&
+                        !el.closest('.entry-meta')
+                    ) {
+                        el.style.color = newval;
+                    }
+                });
         });
     });
 
-    api( 'responsive_rp_link_hover_color', ( value ) => {
-        value.bind( ( newval ) => {
+    api('responsive_rp_link_hover_color', (value) => {
+        value.bind((newval) => {
             document.querySelectorAll('.responsive-single-related-posts-container a')
                 .forEach(el => {
-                    el.addEventListener('mouseenter', () => el.style.color = newval);
-                    el.addEventListener('mouseleave', () => el.style.color = api( 'responsive_rp_link_color' )());
+                    if (
+                        !el.closest('.post-meta') &&
+                        !el.closest('.entry-meta')
+                    ) {
+                        el.addEventListener('mouseenter', () => {
+                            el.style.color = newval;
+                        });
+
+                        el.addEventListener('mouseleave', () => {
+                            el.style.color = api('responsive_rp_link_color')();
+                        });
+                    }
                 });
         });
     });
@@ -585,7 +603,7 @@
             if( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
-            $('a, .woocommerce a.remove:hover').not('nav a').not('a.add_to_cart_button').not('.site-title-tagline a').not('.widget-area .widget-wrapper a').not('a.product_type_grouped').not('.woocommerce-tabs .description_tab').not('.woocommerce-tabs .reviews_tab').css('color', newval );
+            $('a, .woocommerce a.remove:hover').not('nav a').not('a.add_to_cart_button').not('.site-title-tagline a').not('.widget-area .widget-wrapper a').not('a.product_type_grouped').not('.woocommerce-tabs .description_tab').not('.woocommerce-tabs .reviews_tab').not('.post-meta a').not('.post-meta a:hover').css('color', newval );
         } );
     } );
 
@@ -1769,7 +1787,7 @@
     //Hover Colors
 
     //Links Hover Color
-    $("a").not('.widget-area .widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').hover(
+    $("a").not('.widget-area .widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.post-meta a').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
             $(this).css("color", linkHoverColor);
