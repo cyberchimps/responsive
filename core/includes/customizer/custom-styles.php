@@ -4068,7 +4068,6 @@ function responsive_customizer_styles() {
 
 	// Scroll To Top.
 	if ( Responsive\Core\responsive_check_element_present_in_hfb( 'scroll_to_top', 'footer' ) || Responsive\Core\responsive_check_element_in_mobile_tablet_items( 'scroll_to_top', 'footer' ) ) {
-		$stt_devices                     = get_theme_mod( 'responsive_scroll_to_top_on_devices' );
 		$stt_position                    = get_theme_mod( 'responsive_scroll_to_top_icon_position', 'right' );
 		$stt_icon_size                   = get_theme_mod( 'responsive_scroll_to_top_icon_size' );
 		$stt_icon_size_tablet            = get_theme_mod( 'responsive_scroll_to_top_icon_size_tablet', $stt_icon_size );
