@@ -50,7 +50,7 @@ const TabsComponent = props => {
 
 		hideSidebarWidthControl( api('responsive_page_sidebar_position').get(), 'page' );
 		hideSidebarWidthControl( api('responsive_blog_sidebar_position').get(), 'blog' );
-		hideSidebarWidthControl( api('responsive_default_sidebar_position').get(), 'global');
+		hideSidebarWidthControl( api('responsive_default_sidebar_position').get(), 'default' );
 		if(api('responsive_shop_sidebar_position')){
 			hideWoocommerceSidebarWidthControl( api('responsive_shop_sidebar_position').get(), 'shop');
 		}
