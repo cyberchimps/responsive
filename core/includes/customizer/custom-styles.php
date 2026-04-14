@@ -3308,7 +3308,7 @@ function responsive_customizer_styles() {
 					opacity: 1;
 				}
 				}
-			}";
+			";
 		}
 
 		$header_secondary_menu_background_color        = esc_html( get_theme_mod( 'responsive_header_secondary_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_secondary_menu_background' ) ) );
