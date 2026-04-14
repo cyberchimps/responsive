@@ -5929,7 +5929,7 @@ function responsive_customizer_styles() {
 		$header_button_shadow_blur = get_theme_mod( 'responsive_header_button_shadow_blur', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_shadow_blur' ) );
 		$header_button_shadow_spread = get_theme_mod( 'responsive_header_button_shadow_spread', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_shadow_spread' ) );
 		$header_button_shadow_inset = get_theme_mod( 'responsive_header_button_shadow_inset', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_shadow_inset' ) );
-		$header_button_shadow_color = get_theme_mod( 'responsive_header_button_shadow_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_shadow_inset' ) );
+		$header_button_shadow_color = get_theme_mod( 'responsive_header_button_shadow_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_shadow_color' ) );
 
 		$header_button_shadow_inset_style = $header_button_shadow_inset ? 'inset' : '';
 
@@ -5942,7 +5942,7 @@ function responsive_customizer_styles() {
 	if ( Responsive\Core\responsive_check_element_in_mobile_tablet_items( 'header_button', 'header' ) ) {
 		$mobile_header_button_style = get_theme_mod( 'responsive_mobile_header_button_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_style' ) );
 		$mobile_header_button_color = responsive_prepare_css_value( 'responsive_mobile_header_button_color' );
-		$mobile_header_button_bg_color = esc_html( responsive_prepare_css_value( 'responsive_header_button_bg_color' ) );
+		$mobile_header_button_bg_color = esc_html( responsive_prepare_css_value( 'responsive_mobile_header_button_bg_color' ) );
 		$mobile_header_button_bg_hover_color = responsive_prepare_css_value( 'responsive_mobile_header_button_bg_hover_color' );
 		$mobile_header_button_hover_color = responsive_prepare_css_value( 'responsive_mobile_header_button_hover_color' );
 

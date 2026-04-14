@@ -170,11 +170,11 @@ if ( ! class_exists( 'Responsive_Mobile_Header_Button_Customizer' ) ) :
 
 			responsive_horizontal_separator_control( $wp_customize, 'mobile_header_button_size_separator', 1, 'responsive_mobile_header_button', 51, 1 );
 
-			responsive_color_control( $wp_customize, 'mobile_header_button', __( 'Color', 'responsive' ), 'responsive_mobile_header_button', 52, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_color' ), 'header_button_hover' );
+			responsive_color_control( $wp_customize, 'mobile_header_button', __( 'Color', 'responsive' ), 'responsive_mobile_header_button', 52, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_color' ), 'mobile_header_button_hover' );
 
 			responsive_horizontal_separator_control( $wp_customize, 'mobile_header_button_color_separator', 1, 'responsive_mobile_header_button', 52, 1 );
 
-			responsive_color_control( $wp_customize, 'mobile_header_button_bg', __( 'Background Color', 'responsive' ), 'responsive_mobile_header_button', 53, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_bg_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_mobile_header_button_bg_hover_color' ), 'header_button_bg_hover' );
+			responsive_color_control( $wp_customize, 'mobile_header_button_bg', __( 'Background Color', 'responsive' ), 'responsive_mobile_header_button', 53, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_bg_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_mobile_header_button_bg_hover_color' ), 'mobile_header_button_bg_hover' );
 
 			responsive_horizontal_separator_control( $wp_customize, 'mobile_header_button_bg_color_separator', 1, 'responsive_mobile_header_button', 53, 1 );
 
@@ -189,7 +189,7 @@ if ( ! class_exists( 'Responsive_Mobile_Header_Button_Customizer' ) ) :
 
 			responsive_drag_number_control( $wp_customize, 'mobile_header_button_border_width', __( 'Border Width', 'responsive' ), 'responsive_mobile_header_button', 54, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_width' ), 'responsive_show_header_button_border_option', 100, 1, 'postMessage' );
 
-			responsive_color_control( $wp_customize, 'mobile_header_button_border', __( 'Border Color', 'responsive' ), 'responsive_mobile_header_button', 54, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_color' ), 'responsive_show_mobile_header_button_border_option', '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_color_hover' ), 'header_button_border_hover' );
+			responsive_color_control( $wp_customize, 'mobile_header_button_border', __( 'Border Color', 'responsive' ), 'responsive_mobile_header_button', 54, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_color' ), 'responsive_show_mobile_header_button_border_option', '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_color_hover' ), 'mobile_header_button_border_hover' );
 
 			responsive_radius_control( $wp_customize, 'mobile_header_button_radius', 'responsive_mobile_header_button', 55, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_radius_y' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_radius_x' ), 'responsive_show_mobile_header_button_border_option', __( 'Border Radius', 'responsive' ) );
 
