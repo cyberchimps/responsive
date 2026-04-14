@@ -426,6 +426,9 @@ function responsive_tooltip_script() {
 	$output .= '
 	        	wp.customize.bind(\'ready\', function() {
 	            	wp.customize.control.each(function(ctrl, i) {
+	                	if ( ctrl && ctrl.id === "responsive_container_width" ) {
+	                		return;
+	                	}
 	                	var desc = ctrl.container.find(".customize-control-description");
 	                	if( desc.length) {
 	                    	var title 		= ctrl.container.find(".customize-control-title");
