@@ -233,6 +233,38 @@
 		}
 	);
 
+	// Blog / Archive: Main Content Width only when resolved layout has no sidebar (matches responsive_not_active_blog_archive_sidebar() in PHP).
+	function responsiveBlogArchiveResolvedSidebar() {
+		var blog = api( 'responsive_blog_sidebar_position' ).get();
+		var globalPos = api( 'responsive_default_sidebar_position' ).get();
+		if ( 'global' === blog || 'default' === blog ) {
+			return globalPos;
+		}
+		return blog;
+	}
+	function toggleBlogArchiveMainContentWidthBySidebar() {
+		var show = ( 'no' === responsiveBlogArchiveResolvedSidebar() );
+		[ 'responsive_blog_content_width', 'responsive_blog_entry_display_masonry_separator' ].forEach( function( controlId ) {
+			var ctrl = api.control( controlId );
+			if ( ctrl ) {
+				ctrl.toggle( show );
+			}
+		} );
+	}
+	api.bind( 'ready', function() {
+		toggleBlogArchiveMainContentWidthBySidebar();
+	} );
+	api( 'responsive_blog_sidebar_position', function( setting ) {
+		setting.bind( function() {
+			toggleBlogArchiveMainContentWidthBySidebar();
+		} );
+	} );
+	api( 'responsive_default_sidebar_position', function( setting ) {
+		setting.bind( function() {
+			toggleBlogArchiveMainContentWidthBySidebar();
+		} );
+	} );
+
 	api(
 		"responsive_blog_entry_content_type",
 		function( $swipe ) {

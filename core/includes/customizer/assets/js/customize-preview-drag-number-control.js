@@ -329,7 +329,10 @@
     //Main Content Width
     api( 'responsive_blog_content_width', function( value ) {
         value.bind( function( newval ) {
-            if( api('responsive_blog_sidebar_position').get() === 'no' ) {
+            var blogPos = api( 'responsive_blog_sidebar_position' ).get();
+            var globalPos = api( 'responsive_default_sidebar_position' ).get();
+            var resolved = ( 'global' === blogPos || 'default' === blogPos ) ? globalPos : blogPos;
+            if ( 'no' === resolved ) {
                 function isDesktop(x) {
                     if (x.matches) { // If media query matches
                         // document.body.style.backgroundColor = "yellow";
