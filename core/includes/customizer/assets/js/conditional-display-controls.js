@@ -265,6 +265,58 @@
 		} );
 	} );
 
+	// WooCommerce: Main Content Width only when resolved layout has no sidebar.
+	function responsiveWooResolvedSidebar( contextSettingId ) {
+		var pos = api( contextSettingId ) ? api( contextSettingId ).get() : 'global';
+		var globalPos = api( 'responsive_default_sidebar_position' ) ? api( 'responsive_default_sidebar_position' ).get() : 'no';
+		if ( 'global' === pos || 'default' === pos ) {
+			return globalPos;
+		}
+		return pos;
+	}
+	function toggleWooMainContentWidthBySidebar( contextSettingId, controlIds ) {
+		var show = ( 'no' === responsiveWooResolvedSidebar( contextSettingId ) );
+		( controlIds || [] ).forEach( function( controlId ) {
+			var ctrl = api.control( controlId );
+			if ( ctrl ) {
+				ctrl.toggle( show );
+			}
+		} );
+	}
+	function toggleWooShopMainContentWidthBySidebar() {
+		toggleWooMainContentWidthBySidebar( 'responsive_shop_sidebar_position', [
+			'responsive_shop_layout_elements_separator',
+			'responsive_shop_content_width',
+		] );
+	}
+	function toggleWooSingleProductMainContentWidthBySidebar() {
+		toggleWooMainContentWidthBySidebar( 'responsive_single_product_sidebar_position', [
+			'responsive_single_product_layout_elements_separator',
+			'responsive_single_product_content_width',
+		] );
+	}
+
+	api.bind( 'ready', function() {
+		toggleWooShopMainContentWidthBySidebar();
+		toggleWooSingleProductMainContentWidthBySidebar();
+	} );
+	api( 'responsive_shop_sidebar_position', function( setting ) {
+		setting.bind( function() {
+			toggleWooShopMainContentWidthBySidebar();
+		} );
+	} );
+	api( 'responsive_single_product_sidebar_position', function( setting ) {
+		setting.bind( function() {
+			toggleWooSingleProductMainContentWidthBySidebar();
+		} );
+	} );
+	api( 'responsive_default_sidebar_position', function( setting ) {
+		setting.bind( function() {
+			toggleWooShopMainContentWidthBySidebar();
+			toggleWooSingleProductMainContentWidthBySidebar();
+		} );
+	} );
+
 	api(
 		"responsive_blog_entry_content_type",
 		function( $swipe ) {
