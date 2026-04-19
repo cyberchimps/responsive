@@ -49,13 +49,21 @@ const ResponsiveSliderComponent = props => {
 		props.control.setting.set( value );
 	};
 
-	return <label>
-		<label className='responsive-range-control-label'>
-			<span className="customize-control-title">{label}</span>
-			<div className="responsive-reset-slider" onClick={() => {
-				updateValues(props.control.params.default);
-			}}>
-				<button className="responsive-slider-reset-btn">
+	const inputId = `responsive-range-${props.control.id}`;
+
+	return <div>
+		<div className='responsive-range-control-label'>
+			<label className="customize-control-title" htmlFor={inputId}>{label}</label>
+			<div className="responsive-reset-slider">
+				<button
+					type="button"
+					className="responsive-slider-reset-btn"
+					onClick={(event) => {
+						event.preventDefault();
+						event.stopPropagation();
+						updateValues(props.control.params.default);
+					}}
+				>
 					<svg width="12" height="12" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path
 							fillRule="evenodd"
@@ -66,18 +74,18 @@ const ResponsiveSliderComponent = props => {
 					</svg>
 				</button>
 			</div>
-		</label>
+		</div>
 		{descriptionHtml}
 
 		<div className="desktop control-wrap active">
-			<input {...inp_array} type="range" value={props_value} data-reset_value={props.control.params.default}
-				   onChange={() => updateValues(event.target.value)} style={{
+			<input {...inp_array} id={inputId} type="range" value={props_value} data-reset_value={props.control.params.default}
+				   onChange={(event) => updateValues(event.target.value)} style={{
 					background: `linear-gradient(to right, #007CBA ${((props_value-inp_array.min)/(inp_array.max-inp_array.min))*100}%, #D9D9D9 ${((props_value-inp_array.min)/(inp_array.max-inp_array.min))*100}%)`
 				  }}/>
 				<input {...inp_array} type="number" data-name={name} className="responsive-range-input"
-					   value={props_value} onChange={() => updateValues(event.target.value)}/>
+					   value={props_value} onChange={(event) => updateValues(event.target.value)}/>
 		</div>
-	</label>;
+	</div>;
 
 };
 

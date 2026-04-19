@@ -117,12 +117,16 @@ const ResponsiveRangeWithSwitchersComponent = props => {
 	};
 
     const renderResetHtml = (device, active = '') => {
-		return <div className={`responsive-reset-slider ${device} control-wrap ${active}`}
-            onClick={(event) => {
-                event.stopPropagation();
-                updateValues(device, props.control.params[`${device}`].default);
-            }}>
-				<button className="responsive-slider-reset-btn">
+		return <div className={`responsive-reset-slider ${device} control-wrap ${active}`}>
+				<button
+					type="button"
+					className="responsive-slider-reset-btn"
+					onClick={(event) => {
+						event.preventDefault();
+						event.stopPropagation();
+						updateValues(device, props.control.params[`${device}`].default);
+					}}
+				>
 					<svg width="12" height="12" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path
 							fillRule="evenodd"
