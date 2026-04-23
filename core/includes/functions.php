@@ -452,8 +452,8 @@ if ( ! function_exists( 'responsive_js' ) ) {
 
 		wp_enqueue_script( 'navigation-scripts', $template_directory_uri . '/core/' . $directory . '/navigation' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, true );
 		
-		// enqueue searchform script only when search element is present in builder.
-		if ( responsive_check_element_present_in_hfb( 'search', 'header' ) ) {
+		// Enqueue searchform script when search element is present in header builder (desktop OR mobile/tablet).
+		if ( responsive_check_element_present_in_hfb( 'search', 'header' ) || responsive_check_element_in_mobile_tablet_items( 'search', 'header' ) ) {
 			wp_enqueue_script( 'searchform-script', $template_directory_uri . '/core/' . $directory . '/searchform' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, true );
 			// Get the toggle value
 			$live_search_enabled = get_theme_mod( 'responsive_header_search_enable_live_search', false );
