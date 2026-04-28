@@ -128,9 +128,9 @@ if ( ! class_exists( 'Responsive_Mobile_Header_Social_Icons_Customizer' ) ) :
 			);
 			responsive_select_button_control( $wp_customize, 'mobile_header_social_item_use_brand_colors', __( 'Use Brand Colors', 'responsive' ), 'responsive_mobile_header_social', 60, $social_item_use_brands_colors_choices, 'no', null );
 
-			responsive_color_control( $wp_customize, 'mobile_header_social_item', __( 'Colors', 'responsive' ), 'responsive_mobile_header_social', 65, Responsive\Core\get_responsive_customizer_defaults( 'header_social_item_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'header_social_item_hover_color' ), 'mobile_header_social_item_hover' );
+			responsive_color_control( $wp_customize, 'mobile_header_social_item', __( 'Colors', 'responsive' ), 'responsive_mobile_header_social', 65, Responsive\Core\get_responsive_customizer_defaults( 'header_social_item_color' ), 'responsive_show_mobile_header_social_custom_colors', '', true, Responsive\Core\get_responsive_customizer_defaults( 'header_social_item_hover_color' ), 'mobile_header_social_item_hover' );
 			
-			responsive_color_control( $wp_customize, 'mobile_header_social_item_background', __( 'Background Colors', 'responsive' ), 'responsive_mobile_header_social', 66, Responsive\Core\get_responsive_customizer_defaults( 'header_social_item_bg_color' ), 'responsive_show_social_background_colors', '', true, Responsive\Core\get_responsive_customizer_defaults( 'header_social_item_bg_hover_color' ), 'mobile_header_social_item_background_hover' );
+			responsive_color_control( $wp_customize, 'mobile_header_social_item_background', __( 'Background Colors', 'responsive' ), 'responsive_mobile_header_social', 66, Responsive\Core\get_responsive_customizer_defaults( 'header_social_item_bg_color' ), 'responsive_show_mobile_header_social_background_colors_control', '', true, Responsive\Core\get_responsive_customizer_defaults( 'header_social_item_bg_hover_color' ), 'mobile_header_social_item_background_hover' );
 
 			responsive_separator_control( $wp_customize, 'mobile_header_social_item_border_spacing', esc_html__( 'Border', 'responsive' ), 'responsive_mobile_header_social', 70 );
 

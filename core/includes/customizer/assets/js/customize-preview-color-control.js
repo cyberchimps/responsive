@@ -3720,6 +3720,8 @@
         val.bind(function(newval){
             if ( 'filled' === newval || '' == newval ) {
                 $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'background-color', '#EDF2F7' );
+            } else {
+                $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'background-color', '' );
             }
         });
     });
@@ -3867,8 +3869,11 @@
     api( 'responsive_mobile_header_social_item_background_color', function(val){
         val.bind(function(newval){
             var header_social_item_use_brand_colors = api('responsive_mobile_header_social_item_use_brand_colors').get();
-            if ( 'no' === header_social_item_use_brand_colors ) {
+            var mobile_header_social_item_style = api('responsive_mobile_header_social_item_style').get();
+            if ( 'no' === header_social_item_use_brand_colors && ( 'filled' === mobile_header_social_item_style || '' == mobile_header_social_item_style ) ) {
                 $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'background-color', newval );
+            } else if ( 'outline' === mobile_header_social_item_style ) {
+                $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'background-color', '' );
             }
         });
     });
@@ -3928,7 +3933,8 @@
     api( 'responsive_mobile_header_social_item_background_hover_color', function(val){
         val.bind(function(newval){
             var header_social_item_use_brand_colors = api('responsive_mobile_header_social_item_use_brand_colors').get();
-            if ( 'no' === header_social_item_use_brand_colors ) {
+            var mobile_header_social_item_style = api('responsive_mobile_header_social_item_style').get();
+            if ( 'no' === header_social_item_use_brand_colors && ( 'filled' === mobile_header_social_item_style || '' == mobile_header_social_item_style ) ) {
                 $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'background-color', newval );
             }
         });
