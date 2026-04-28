@@ -8591,7 +8591,8 @@ function responsive_customizer_styles() {
 			$single_product_sidebar_width = 0;
 		}
 		
-		$shop_content_width = 100 - $shop_sidebar_width;
+		$shop_content_width_setting = $shop_content_width;
+		$shop_content_width         = ( 'no' !== $shop_sidebar_position ) ? ( 100 - $shop_sidebar_width ) : $shop_content_width_setting;
 		$single_product_content_width = 100 - $single_product_sidebar_width;
 		if ( 'no' !== $shop_sidebar_position ) {
 			$woocommerce_custom_css .= "
@@ -8714,12 +8715,19 @@ function responsive_customizer_styles() {
 			.archive.woocommerce:not(.post-type-archive-course) .content-area {
 				width: {$shop_content_width}%;
 			}
+		}";
+
+		if ( 'no' !== $shop_sidebar_position ) {
+			$woocommerce_custom_css .= "
+		@media (min-width:992px) {
 			.search.woocommerce aside.widget-area,
 			.archive.woocommerce aside.widget-area, .page.woocommerce-cart.woocommerce-page aside.widget-area, .page.woocommerce-checkout.woocommerce-page aside.widget-area {
 				width: calc(100% - {$shop_content_width}%);
 			}
+		}";
 		}
 
+		$woocommerce_custom_css .= "
 		.woocommerce span.onsale,
 		.wc-block-grid__product-onsale {
 			color: {$add_to_cart_button_text_color};
