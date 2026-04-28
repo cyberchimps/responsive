@@ -6186,7 +6186,7 @@ function responsive_customizer_styles() {
 	}
 
 	// Mobile Header Social
-	if( Responsive\Core\responsive_check_element_in_mobile_tablet_items( 'social', 'header ') ) {
+	if( Responsive\Core\responsive_check_element_in_mobile_tablet_items( 'social', 'header' ) ) {
 		$mobile_header_social_item_spacing = get_theme_mod( 
 			'responsive_mobile_header_social_item_spacing', 0 );
 		if( $mobile_header_social_item_spacing > 0 ) {
