@@ -4787,10 +4787,9 @@
     // Define the style properties we want to bind for each footer widget
     const footerWidgetsStyleTypes = [
         {
-            key: '_title_color',       // Setting suffix
-            idSuffix: '-title-color',  // <style> tag ID suffix
-            property: 'color',         // CSS property
-            // Function to generate the correct CSS selector
+            key: '_title_color',
+            idSuffix: '-title-color',
+            property: 'color',
             getSelector: ( i ) => [
                 `.footer-widget-area[data-section="responsive-footer-widget-${i}"] h1`,
                 `.footer-widget-area[data-section="responsive-footer-widget-${i}"] h2`,
@@ -4813,9 +4812,10 @@
             getSelector: ( i ) => `.footer-widget-area[data-section="responsive-footer-widget-${i}"].footer-widget-${i} a`
         },
         {
-            key: '_link_hover_color',
+            key: '_link_color',           // Same base key as link color
             idSuffix: '-link-hover-color',
             property: 'color',
+            hoverSuffix: '_hover',        // Appended after the device suffix
             getSelector: ( i ) => `.footer-widget-area[data-section="responsive-footer-widget-${i}"].footer-widget-${i} a:hover`
         }
     ];
@@ -4842,8 +4842,11 @@
             };
 
             Object.entries(breakpoints).forEach(([device, bp]) => {
-
-                const settingId = device === 'desktop' ? `responsive_footer_widget${i}${type.key}` : `responsive_footer_widget${i}${type.key}_${device}`;
+                
+                const hoverSuffix = type.hoverSuffix || '';
+                const settingId = device === 'desktop'
+                    ? `responsive_footer_widget${i}${type.key}${hoverSuffix}`
+                    : `responsive_footer_widget${i}${type.key}_${device}${hoverSuffix}`;
                 const styleTagId = `responsive-footer-widget${i}${type.idSuffix}${bp.suffix}`;
 
                 api(settingId, function(setting) {

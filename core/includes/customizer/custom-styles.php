@@ -7578,9 +7578,9 @@ function responsive_customizer_styles() {
 			$widget_link_color       = get_theme_mod( "responsive_footer_widget{$i}_link_color", get_theme_mod( 'responsive_footer_links_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_widget_link_color' ) ) );
 			$widget_link_color_tablet = get_theme_mod( "responsive_footer_widget{$i}_link_color_tablet", $widget_link_color );
 			$widget_link_color_mobile = get_theme_mod( "responsive_footer_widget{$i}_link_color_mobile", $widget_link_color );
-			$widget_link_hover_color = get_theme_mod( "responsive_footer_widget{$i}_link_hover_color", get_theme_mod( 'responsive_footer_links_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_widget_link_hover_color' ) ) );
-			$widget_link_hover_color_tablet = get_theme_mod( "responsive_footer_widget{$i}_link_hover_color_tablet", $widget_link_hover_color );
-			$widget_link_hover_color_mobile = get_theme_mod( "responsive_footer_widget{$i}_link_hover_color_mobile", $widget_link_hover_color );
+			$widget_link_hover_color = get_theme_mod( "responsive_footer_widget{$i}_link_color_hover", get_theme_mod( 'responsive_footer_links_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_widget_link_hover_color' ) ) );
+			$widget_link_hover_color_tablet = get_theme_mod( "responsive_footer_widget{$i}_link_color_tablet_hover", $widget_link_hover_color );
+			$widget_link_hover_color_mobile = get_theme_mod( "responsive_footer_widget{$i}_link_color_mobile_hover", $widget_link_hover_color );
 
 
 			$custom_css .= "
