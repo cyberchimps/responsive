@@ -711,7 +711,7 @@
             if( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
-            var styleId = 'responsive-mobile-header-button-hover-color-preview';
+            var styleId = 'responsive-mobile-header-button-bg-hover-color-preview';
             jQuery('style#' + styleId).remove();
             
             var selectors = '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover';
@@ -3661,7 +3661,7 @@
             if ( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
-            var styleId = 'responsive-mobile-header-button-hover-color-preview';
+            var styleId = 'responsive-mobile-header-button-text-hover-color-preview';
             jQuery('style#' + styleId).remove();
             
             var selectors = '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover';
