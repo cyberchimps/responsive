@@ -3817,8 +3817,12 @@
         val.bind(function(newval){
             var header_social_item_use_brand_colors = api('responsive_header_social_item_use_brand_colors').get();
             if ( 'no' === header_social_item_use_brand_colors ) {
-                $( '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'color', newval );
-                $( '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'fill', newval );
+                jQuery('style#responsive-header-social-item-hover-color').remove();
+                jQuery('head').append(
+                    '<style id="responsive-header-social-item-hover-color">'
+                    + '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { color: ' + newval + '; fill: ' + newval + '; }'
+                    + '</style>'
+                );
             }
         });
     });
@@ -3826,8 +3830,12 @@
         val.bind(function(newval){
             var header_social_item_use_brand_colors = api('responsive_mobile_header_social_item_use_brand_colors').get();
             if ( 'no' === header_social_item_use_brand_colors ) {
-                $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'color', newval );
-                $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'fill', newval );
+                jQuery('style#responsive-mobile-header-social-item-hover-color').remove();
+                jQuery('head').append(
+                    '<style id="responsive-mobile-header-social-item-hover-color">'
+                    + '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { color: ' + newval + '; fill: ' + newval + '; }'
+                    + '</style>'
+                );
             }
         });
     });
@@ -3944,7 +3952,12 @@
         val.bind(function(newval){
             var header_social_item_use_brand_colors = api('responsive_header_social_item_use_brand_colors').get();
             if ( 'no' === header_social_item_use_brand_colors ) {
-                $( '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'background-color', newval );
+                jQuery('style#responsive-header-social-item-background-hover-color').remove();
+                jQuery('head').append(
+                    '<style id="responsive-header-social-item-background-hover-color">'
+                    + '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' + newval + ' !important; }'
+                    + '</style>'
+                );
             }
         });
     });
@@ -3953,7 +3966,12 @@
             var header_social_item_use_brand_colors = api('responsive_mobile_header_social_item_use_brand_colors').get();
             var mobile_header_social_item_style = api('responsive_mobile_header_social_item_style').get();
             if ( 'no' === header_social_item_use_brand_colors && ( 'filled' === mobile_header_social_item_style || '' == mobile_header_social_item_style ) ) {
-                $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'background-color', newval );
+                jQuery('style#responsive-mobile-header-social-item-background-hover-color').remove();
+                jQuery('head').append(
+                    '<style id="responsive-mobile-header-social-item-background-hover-color">'
+                    + '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' + newval + ' !important; }'
+                    + '</style>'
+                );
             }
         });
     });
