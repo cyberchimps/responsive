@@ -204,6 +204,7 @@ select {
 
 .customize-control .responsive-switchers {
 	margin-left: 5px;
+	margin-bottom: 0px;
 	width: auto
 }
 

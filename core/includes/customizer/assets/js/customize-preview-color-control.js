@@ -456,19 +456,37 @@
         });
     });
 
-    api( 'responsive_rp_link_color', ( value ) => {
-        value.bind( ( newval ) => {
-            document.querySelectorAll('.responsive-single-related-posts-container a')
-                .forEach(el => el.style.color = newval);
+    api('responsive_rp_link_color', (value) => {
+        value.bind((newval) => {
+            document
+                .querySelectorAll('.responsive-single-related-posts-container a')
+                .forEach(el => {
+                    if (
+                        !el.closest('.post-meta') &&
+                        !el.closest('.entry-meta')
+                    ) {
+                        el.style.color = newval;
+                    }
+                });
         });
     });
 
-    api( 'responsive_rp_link_hover_color', ( value ) => {
-        value.bind( ( newval ) => {
+    api('responsive_rp_link_hover_color', (value) => {
+        value.bind((newval) => {
             document.querySelectorAll('.responsive-single-related-posts-container a')
                 .forEach(el => {
-                    el.addEventListener('mouseenter', () => el.style.color = newval);
-                    el.addEventListener('mouseleave', () => el.style.color = api( 'responsive_rp_link_color' )());
+                    if (
+                        !el.closest('.post-meta') &&
+                        !el.closest('.entry-meta')
+                    ) {
+                        el.addEventListener('mouseenter', () => {
+                            el.style.color = newval;
+                        });
+
+                        el.addEventListener('mouseleave', () => {
+                            el.style.color = api('responsive_rp_link_color')();
+                        });
+                    }
                 });
         });
     });
@@ -585,7 +603,7 @@
             if( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
-            $('a, .woocommerce a.remove:hover').not('nav a').not('a.add_to_cart_button').not('.site-title-tagline a').not('.widget-area .widget-wrapper a').not('a.product_type_grouped').not('.woocommerce-tabs .description_tab').not('.woocommerce-tabs .reviews_tab').css('color', newval );
+            $('a, .woocommerce a.remove:hover').not('nav a').not('a.add_to_cart_button').not('.site-title-tagline a').not('.widget-area .widget-wrapper a').not('a.product_type_grouped').not('.woocommerce-tabs .description_tab').not('.woocommerce-tabs .reviews_tab').not('.post-meta a').not('.post-meta a:hover').css('color', newval );
         } );
     } );
 
@@ -1769,7 +1787,7 @@
     //Hover Colors
 
     //Links Hover Color
-    $("a").not('.widget-area .widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').hover(
+    $("a").not('.widget-area .widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.post-meta a').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
             $(this).css("color", linkHoverColor);
@@ -3720,6 +3738,8 @@
         val.bind(function(newval){
             if ( 'filled' === newval || '' == newval ) {
                 $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'background-color', '#EDF2F7' );
+            } else {
+                $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'background-color', '' );
             }
         });
     });
@@ -3867,8 +3887,11 @@
     api( 'responsive_mobile_header_social_item_background_color', function(val){
         val.bind(function(newval){
             var header_social_item_use_brand_colors = api('responsive_mobile_header_social_item_use_brand_colors').get();
-            if ( 'no' === header_social_item_use_brand_colors ) {
+            var mobile_header_social_item_style = api('responsive_mobile_header_social_item_style').get();
+            if ( 'no' === header_social_item_use_brand_colors && ( 'filled' === mobile_header_social_item_style || '' == mobile_header_social_item_style ) ) {
                 $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'background-color', newval );
+            } else if ( 'outline' === mobile_header_social_item_style ) {
+                $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css( 'background-color', '' );
             }
         });
     });
@@ -3928,7 +3951,8 @@
     api( 'responsive_mobile_header_social_item_background_hover_color', function(val){
         val.bind(function(newval){
             var header_social_item_use_brand_colors = api('responsive_mobile_header_social_item_use_brand_colors').get();
-            if ( 'no' === header_social_item_use_brand_colors ) {
+            var mobile_header_social_item_style = api('responsive_mobile_header_social_item_style').get();
+            if ( 'no' === header_social_item_use_brand_colors && ( 'filled' === mobile_header_social_item_style || '' == mobile_header_social_item_style ) ) {
                 $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'background-color', newval );
             }
         });
@@ -4763,10 +4787,9 @@
     // Define the style properties we want to bind for each footer widget
     const footerWidgetsStyleTypes = [
         {
-            key: '_title_color',       // Setting suffix
-            idSuffix: '-title-color',  // <style> tag ID suffix
-            property: 'color',         // CSS property
-            // Function to generate the correct CSS selector
+            key: '_title_color',
+            idSuffix: '-title-color',
+            property: 'color',
             getSelector: ( i ) => [
                 `.footer-widget-area[data-section="responsive-footer-widget-${i}"] h1`,
                 `.footer-widget-area[data-section="responsive-footer-widget-${i}"] h2`,
@@ -4789,9 +4812,10 @@
             getSelector: ( i ) => `.footer-widget-area[data-section="responsive-footer-widget-${i}"].footer-widget-${i} a`
         },
         {
-            key: '_link_hover_color',
+            key: '_link_color',           // Same base key as link color
             idSuffix: '-link-hover-color',
             property: 'color',
+            hoverSuffix: '_hover',        // Appended after the device suffix
             getSelector: ( i ) => `.footer-widget-area[data-section="responsive-footer-widget-${i}"].footer-widget-${i} a:hover`
         }
     ];
@@ -4818,8 +4842,11 @@
             };
 
             Object.entries(breakpoints).forEach(([device, bp]) => {
-
-                const settingId = device === 'desktop' ? `responsive_footer_widget${i}${type.key}` : `responsive_footer_widget${i}${type.key}_${device}`;
+                
+                const hoverSuffix = type.hoverSuffix || '';
+                const settingId = device === 'desktop'
+                    ? `responsive_footer_widget${i}${type.key}${hoverSuffix}`
+                    : `responsive_footer_widget${i}${type.key}_${device}${hoverSuffix}`;
                 const styleTagId = `responsive-footer-widget${i}${type.idSuffix}${bp.suffix}`;
 
                 api(settingId, function(setting) {

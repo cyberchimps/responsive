@@ -92,7 +92,7 @@ if ( ! class_exists( 'Responsive_Customizer_Typography_Control' ) ) :
 			if ( ! class_exists( 'Tribe__Events__Main' ) ) {
 				wp_enqueue_script( 'responsive-select2', RESPONSIVE_THEME_URI . 'core/includes/customizer/controls/select2.min.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
 				wp_enqueue_style( 'select2', RESPONSIVE_THEME_URI . 'core/includes/customizer/controls/select2.min.css', RESPONSIVE_THEME_VERSION, true );
-				wp_enqueue_script( 'responsive-typography-js', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/typography.min.js', array( 'jquery', 'select2' ), RESPONSIVE_THEME_VERSION, true );
+				wp_enqueue_script( 'responsive-typography-js', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/typography.min.js', array( 'jquery', 'responsive-select2' ), RESPONSIVE_THEME_VERSION, true );
 			}
 			wp_enqueue_style( 'responsive-typography', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/typography.min.css', RESPONSIVE_THEME_VERSION, true );
 

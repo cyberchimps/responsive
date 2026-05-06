@@ -3629,6 +3629,65 @@ if ( ! function_exists( 'responsive_show_social_background_colors' ) ) {
 	}
 }
 
+if ( ! function_exists( 'responsive_show_mobile_social_background_colors' ) ) {
+	/**
+	 * Determines whether mobile header social icons should display with a filled background color.
+	 *
+	 * @return bool True if the mobile header social icons should have a filled background.
+	 */
+	function responsive_show_mobile_social_background_colors() {
+		$social_item_style = get_theme_mod( 'responsive_mobile_header_social_item_style', 'filled' );
+		if ( 'filled' === $social_item_style ) {
+			return true;
+		}
+		return false;
+	}
+}
+
+if ( ! function_exists( 'responsive_show_header_social_custom_colors' ) ) {
+	/**
+	 * Show header social custom color controls only when brand colors are disabled.
+	 *
+	 * @return bool True when "Use Brand Colors" is set to "No".
+	 */
+	function responsive_show_header_social_custom_colors() {
+		return 'no' === get_theme_mod( 'responsive_header_social_item_use_brand_colors', 'no' );
+	}
+}
+
+if ( ! function_exists( 'responsive_show_mobile_header_social_custom_colors' ) ) {
+	/**
+	 * Show mobile header social custom color controls only when brand colors are disabled.
+	 *
+	 * @return bool True when "Use Brand Colors" is set to "No".
+	 */
+	function responsive_show_mobile_header_social_custom_colors() {
+		return 'no' === get_theme_mod( 'responsive_mobile_header_social_item_use_brand_colors', 'no' );
+	}
+}
+
+if ( ! function_exists( 'responsive_show_header_social_background_colors_control' ) ) {
+	/**
+	 * Show header social background controls only when style is filled and brand colors are disabled.
+	 *
+	 * @return bool True when "Social Style" is "Filled" and "Use Brand Colors" is "No".
+	 */
+	function responsive_show_header_social_background_colors_control() {
+		return responsive_show_social_background_colors() && responsive_show_header_social_custom_colors();
+	}
+}
+
+if ( ! function_exists( 'responsive_show_mobile_header_social_background_colors_control' ) ) {
+	/**
+	 * Show mobile header social background controls only when style is filled and brand colors are disabled.
+	 *
+	 * @return bool True when "Social Style" is "Filled" and "Use Brand Colors" is "No".
+	 */
+	function responsive_show_mobile_header_social_background_colors_control() {
+		return responsive_show_mobile_social_background_colors() && responsive_show_mobile_header_social_custom_colors();
+	}
+}
+
 function responsive_font_presets_control( $wp_customize, $element, $label, $section, $priority, $default = '', $transport = 'postMessage', $description = '' ) {
 
 	$choices = array(
