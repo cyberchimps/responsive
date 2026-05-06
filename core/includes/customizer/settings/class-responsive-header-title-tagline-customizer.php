@@ -53,11 +53,19 @@ if ( ! class_exists( 'Responsive_Header_Title_Tagline_Customizer' ) ) :
 			$site_title_color_separator_label = esc_html__( 'Site Title Colors', 'responsive' );
 			responsive_separator_control( $wp_customize, 'header_title_colors_separator', $site_title_color_separator_label, 'responsive_header_site_logo_title', 10 );
 
-			$header_site_title_color_label = __( 'Site Title Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_site_title', $header_site_title_color_label, 'responsive_header_site_logo_title', 10, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_site_title_color' ) );
-
-			$header_site_title_hover_color_label = __( 'Site Title Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_site_title_hover', $header_site_title_hover_color_label, 'responsive_header_site_logo_title', 10, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_site_title_hover_color' ) );
+			responsive_color_control(
+				$wp_customize,
+				'header_site_title',
+				__( 'Site Title Color', 'responsive' ),
+				'responsive_header_site_logo_title',
+				10,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_site_title_color' ),
+				null,
+				'',
+				true,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_site_title_hover_color' ),
+				'header_site_title_hover'
+			);
 
 			responsive_horizontal_separator_control($wp_customize, 'header_site_title_typo_separator', 2, 'responsive_header_site_logo_title', 13, 1, );
 
