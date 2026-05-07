@@ -603,7 +603,7 @@
             if( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
-            $('a, .woocommerce a.remove:hover').not('nav a').not('a.add_to_cart_button').not('.site-title-tagline a').not('.widget-area .widget-wrapper a').not('a.product_type_grouped').not('.woocommerce-tabs .description_tab').not('.woocommerce-tabs .reviews_tab').not('.post-meta a').not('.post-meta a:hover').css('color', newval );
+            $('a, .woocommerce a.remove:hover').not('nav a').not('a.add_to_cart_button').not('.site-title-tagline a').not('.widget-area .widget-wrapper a').not('a.product_type_grouped').not('.woocommerce-tabs .description_tab').not('.woocommerce-tabs .reviews_tab').not('.post-meta a').not('.post-meta a:hover').not('.responsive-single-related-posts-container a').not('.responsive-single-related-posts-container a:hover').css('color', newval );
         } );
     } );
 
@@ -1222,16 +1222,14 @@
     } );
 
     //Links Color
-    api('responsive_footer_links_color', function(value) {
+        api('responsive_footer_links_color', function(value) {
         value.bind(function(newval) {
 
-            // Remove old style if exists
             $('#responsive-footer-links-color-style').remove();
 
-            // Add new style tag
             $('head').append(
                 '<style id="responsive-footer-links-color-style">' +
-                '.site-footer a { color: ' + newval + '; }' +
+                '.site-footer a:not(.footer-widget-area .footer-widget-wrapper a) { color: ' + newval + '; }' +
                 '</style>'
             );
 
@@ -1787,7 +1785,7 @@
     //Hover Colors
 
     //Links Hover Color
-    $("a").not('.widget-area .widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.post-meta a').hover(
+    $("a").not('.widget-area .widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.post-meta a').not('.responsive-single-related-posts-container a').not('.responsive-single-related-posts-container a:hover').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
             $(this).css("color", linkHoverColor);
@@ -4869,8 +4867,13 @@
 
                 api(settingId, function(setting) {
                     setting.bind(function(newValue) {
-                        
                         const selector = type.getSelector(i);
+                        
+                        // Handle palette colors
+                        if (newValue && newValue.startsWith('palette')) {
+                            newValue = `var(--responsive-global-${newValue})`;
+                        }
+
                         const cssRule = `${bp.query} { ${selector} { ${type.property}: ${newValue} !important; } }`;
 
                         let $styleTag = jQuery(`style#${styleTagId}`);
