@@ -1785,7 +1785,7 @@
     //Hover Colors
 
     //Links Hover Color
-    $("a").not('.widget-area .widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.post-meta a').not('.responsive-single-related-posts-container a').not('.responsive-single-related-posts-container a:hover').hover(
+    $("a").not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.post-meta a').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
             $(this).css("color", linkHoverColor);
@@ -2134,7 +2134,7 @@
         }
     );
     //Footer Links Hover Color
-    $(".site-footer a").not('.footer-navigation a').hover(
+    $(".site-footer a").not('.footer-navigation a').not('.footer-widget-area .footer-widget-wrapper a').hover(
         function() {
             $(this).css("color", processThemeSettingForCSS('responsive_footer_links_hover_color'));
         },
