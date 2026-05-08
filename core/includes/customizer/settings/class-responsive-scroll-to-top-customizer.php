@@ -62,9 +62,9 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 			$design_tab_ids_prefix = 'customize-control-';
 			$design_tab_ids        = array(
 				$design_tab_ids_prefix . 'responsive_scroll_to_top_icon_color',
-				$design_tab_ids_prefix . 'responsive_scroll_to_top_icon_hover_color',
+				$design_tab_ids_prefix . 'responsive_scroll_to_top_icon_color_hover',
 				$design_tab_ids_prefix . 'responsive_scroll_to_top_icon_background_color',
-				$design_tab_ids_prefix . 'responsive_scroll_to_top_icon_background_hover_color',
+				$design_tab_ids_prefix . 'responsive_scroll_to_top_icon_background_color_hover',
 				$design_tab_ids_prefix . 'responsive_scroll_to_top_icon_radius',
 				$design_tab_ids_prefix . 'responsive_scrolltotop_separator_3',
 				$design_tab_ids_prefix . 'responsive_scrolltotop_separator_4',

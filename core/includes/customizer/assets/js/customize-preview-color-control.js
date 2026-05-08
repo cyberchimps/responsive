@@ -603,7 +603,7 @@
             if( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
-            $('a, .woocommerce a.remove:hover').not('nav a').not('a.add_to_cart_button').not('.site-title-tagline a').not('.widget-area .widget-wrapper a').not('a.product_type_grouped').not('.woocommerce-tabs .description_tab').not('.woocommerce-tabs .reviews_tab').not('.post-meta a').not('.post-meta a:hover').css('color', newval );
+            $('a, .woocommerce a.remove:hover').not('nav a').not('a.add_to_cart_button').not('.site-title-tagline a').not('.widget-area .widget-wrapper a').not('a.product_type_grouped').not('.woocommerce-tabs .description_tab').not('.woocommerce-tabs .reviews_tab').not('.post-meta a').not('.post-meta a:hover').not('.responsive-single-related-posts-container a').not('.responsive-single-related-posts-container a:hover').css('color', newval );
         } );
     } );
 
@@ -1222,16 +1222,14 @@
     } );
 
     //Links Color
-    api('responsive_footer_links_color', function(value) {
+        api('responsive_footer_links_color', function(value) {
         value.bind(function(newval) {
 
-            // Remove old style if exists
             $('#responsive-footer-links-color-style').remove();
 
-            // Add new style tag
             $('head').append(
                 '<style id="responsive-footer-links-color-style">' +
-                '.site-footer a { color: ' + newval + '; }' +
+                '.site-footer a:not(.footer-widget-area .footer-widget-wrapper a) { color: ' + newval + '; }' +
                 '</style>'
             );
 
@@ -1787,7 +1785,7 @@
     //Hover Colors
 
     //Links Hover Color
-    $("a").not('.widget-area .widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.post-meta a').hover(
+    $("a").not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.post-meta a').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
             $(this).css("color", linkHoverColor);
@@ -2136,7 +2134,7 @@
         }
     );
     //Footer Links Hover Color
-    $(".site-footer a").not('.footer-navigation a').hover(
+    $(".site-footer a").not('.footer-navigation a').not('.footer-widget-area .footer-widget-wrapper a').hover(
         function() {
             $(this).css("color", processThemeSettingForCSS('responsive_footer_links_hover_color'));
         },
@@ -3817,8 +3815,12 @@
         val.bind(function(newval){
             var header_social_item_use_brand_colors = api('responsive_header_social_item_use_brand_colors').get();
             if ( 'no' === header_social_item_use_brand_colors ) {
-                $( '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'color', newval );
-                $( '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'fill', newval );
+                jQuery('style#responsive-header-social-item-hover-color').remove();
+                jQuery('head').append(
+                    '<style id="responsive-header-social-item-hover-color">'
+                    + '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { color: ' + newval + '; fill: ' + newval + '; }'
+                    + '</style>'
+                );
             }
         });
     });
@@ -3826,8 +3828,12 @@
         val.bind(function(newval){
             var header_social_item_use_brand_colors = api('responsive_mobile_header_social_item_use_brand_colors').get();
             if ( 'no' === header_social_item_use_brand_colors ) {
-                $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'color', newval );
-                $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'fill', newval );
+                jQuery('style#responsive-mobile-header-social-item-hover-color').remove();
+                jQuery('head').append(
+                    '<style id="responsive-mobile-header-social-item-hover-color">'
+                    + '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { color: ' + newval + '; fill: ' + newval + '; }'
+                    + '</style>'
+                );
             }
         });
     });
@@ -3944,7 +3950,12 @@
         val.bind(function(newval){
             var header_social_item_use_brand_colors = api('responsive_header_social_item_use_brand_colors').get();
             if ( 'no' === header_social_item_use_brand_colors ) {
-                $( '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'background-color', newval );
+                jQuery('style#responsive-header-social-item-background-hover-color').remove();
+                jQuery('head').append(
+                    '<style id="responsive-header-social-item-background-hover-color">'
+                    + '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' + newval + ' !important; }'
+                    + '</style>'
+                );
             }
         });
     });
@@ -3953,7 +3964,12 @@
             var header_social_item_use_brand_colors = api('responsive_mobile_header_social_item_use_brand_colors').get();
             var mobile_header_social_item_style = api('responsive_mobile_header_social_item_style').get();
             if ( 'no' === header_social_item_use_brand_colors && ( 'filled' === mobile_header_social_item_style || '' == mobile_header_social_item_style ) ) {
-                $( '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover' ).css( 'background-color', newval );
+                jQuery('style#responsive-mobile-header-social-item-background-hover-color').remove();
+                jQuery('head').append(
+                    '<style id="responsive-mobile-header-social-item-background-hover-color">'
+                    + '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' + newval + ' !important; }'
+                    + '</style>'
+                );
             }
         });
     });
@@ -4851,8 +4867,13 @@
 
                 api(settingId, function(setting) {
                     setting.bind(function(newValue) {
-                        
                         const selector = type.getSelector(i);
+                        
+                        // Handle palette colors
+                        if (newValue && newValue.startsWith('palette')) {
+                            newValue = `var(--responsive-global-${newValue})`;
+                        }
+
                         const cssRule = `${bp.query} { ${selector} { ${type.property}: ${newValue} !important; } }`;
 
                         let $styleTag = jQuery(`style#${styleTagId}`);
