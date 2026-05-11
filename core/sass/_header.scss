@@ -1406,6 +1406,7 @@ body.mega-menu-header-menu button.menu-toggle {
     .responsive-header-search {
         #searchform {
             left: 0;
+            right: auto;
         }
     }
     .search-type-responsive-slide {
@@ -1415,10 +1416,11 @@ body.mega-menu-header-menu button.menu-toggle {
         }
     }
 }
-.site-mobile-header-section {
+.site-mobile-header-section-left {
     .responsive-header-search {
         #searchform {
             left: 0;
+            right: auto;
         }
     }
     .search-type-responsive-slide {

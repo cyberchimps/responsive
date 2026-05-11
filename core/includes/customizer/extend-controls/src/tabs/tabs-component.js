@@ -534,6 +534,85 @@ const TabsComponent = props => {
 			} );
 		}
 
+		// Header Social Border Controls
+		if( api('responsive_header_social_item_border_style') ) {
+			toggleHeaderSocialBorderControls( api('responsive_header_social_item_border_style').get() );
+		}
+
+		// Listen for changes to responsive_header_social_item_border_style
+		if( api('responsive_header_social_item_border_style') ) {
+			api('responsive_header_social_item_border_style', function( value ) {
+				value.bind( function( newval ) {
+					toggleHeaderSocialBorderControls( newval );
+				} );
+			} );
+		}
+
+		// Mobile Header Social Border Controls
+		if( api('responsive_mobile_header_social_item_border_style') ) {
+			toggleMobileHeaderSocialBorderControls( api('responsive_mobile_header_social_item_border_style').get() );
+		}
+
+		// Listen for changes to responsive_mobile_header_social_item_border_style
+		if( api('responsive_mobile_header_social_item_border_style') ) {
+			api('responsive_mobile_header_social_item_border_style', function( value ) {
+				value.bind( function( newval ) {
+					toggleMobileHeaderSocialBorderControls( newval );
+				} );
+			} );
+		}
+
+		// Header Social Color Controls
+		if( api('responsive_header_social_item_style') ) {
+			toggleHeaderSocialColorControls();
+			api('responsive_header_social_item_style', function( value ) {
+				value.bind( function( newval ) {
+					toggleHeaderSocialColorControls();
+				} );
+			} );
+		}
+		if( api('responsive_header_social_item_use_brand_colors') ) {
+			api('responsive_header_social_item_use_brand_colors', function( value ) {
+				value.bind( function( newval ) {
+					toggleHeaderSocialColorControls();
+				} );
+			} );
+		}
+
+		// Mobile Header Social Color Controls
+		if( api('responsive_mobile_header_social_item_style') ) {
+			toggleMobileHeaderSocialColorControls();
+			api('responsive_mobile_header_social_item_style', function( value ) {
+				value.bind( function( newval ) {
+					toggleMobileHeaderSocialColorControls();
+				} );
+			} );
+		}
+		if( api('responsive_mobile_header_social_item_use_brand_colors') ) {
+			api('responsive_mobile_header_social_item_use_brand_colors', function( value ) {
+				value.bind( function( newval ) {
+					toggleMobileHeaderSocialColorControls();
+				} );
+			} );
+		}
+
+		// Footer Social Color Controls
+		if( api('responsive_footer_social_item_style') ) {
+			toggleFooterSocialColorControls();
+			api('responsive_footer_social_item_style', function( value ) {
+				value.bind( function( newval ) {
+					toggleFooterSocialColorControls();
+				} );
+			} );
+		}
+		if( api('responsive_footer_social_item_use_brand_colors') ) {
+			api('responsive_footer_social_item_use_brand_colors', function( value ) {
+				value.bind( function( newval ) {
+					toggleFooterSocialColorControls();
+				} );
+			} );
+		}
+
 		// Transparent Header Settings
 		if( ! api( 'responsive_transparent_header' ).get() ) {
 			document.getElementById('customize-control-responsive_transparent_header_widget_color_separator').style.display = 'none';
@@ -753,6 +832,89 @@ const TabsComponent = props => {
 				controlElement.style.display = shouldShow ? 'block' : 'none';
 			}
 		});
+	};
+
+	const toggleHeaderSocialBorderControls = (borderStyle) => {
+		const controlIds = [
+			'customize-control-responsive_header_social_item_border_width',
+			'customize-control-responsive_border_header_social_radius',
+			'customize-control-responsive_header_social_border_radius_padding',
+			'customize-control-responsive_header_social_item_border_color',
+			'customize-control-responsive_header_social_item_icon_spacing',
+		];
+
+		const shouldShow = 'none' !== borderStyle && 'design' === tab;
+
+		controlIds.forEach(controlId => {
+			const controlElement = document.getElementById(controlId);
+			if (controlElement) {
+				controlElement.style.display = shouldShow ? 'block' : 'none';
+			}
+		});
+	};
+
+	const toggleMobileHeaderSocialBorderControls = (borderStyle) => {
+		const controlIds = [
+			'customize-control-responsive_mobile_header_social_item_border_width',
+			'customize-control-responsive_border_mobile_header_social_radius',
+			'customize-control-responsive_mobile_header_social_border_radius_padding',
+			'customize-control-responsive_mobile_header_social_item_border_color',
+			'customize-control-responsive_mobile_header_social_item_icon_spacing',
+		];
+
+		const shouldShow = 'none' !== borderStyle && 'design' === tab;
+
+		controlIds.forEach(controlId => {
+			const controlElement = document.getElementById(controlId);
+			if (controlElement) {
+				controlElement.style.display = shouldShow ? 'block' : 'none';
+			}
+		});
+	};
+
+	const toggleHeaderSocialColorControls = () => {
+		const style = api('responsive_header_social_item_style') ? api('responsive_header_social_item_style').get() : 'filled';
+		const brandColors = api('responsive_header_social_item_use_brand_colors') ? api('responsive_header_social_item_use_brand_colors').get() : 'no';
+
+		const bgColorElement = document.getElementById('customize-control-responsive_header_social_item_background_color');
+		if (bgColorElement) {
+			bgColorElement.style.display = (style === 'filled' && brandColors !== 'yes' && tab === 'design') ? 'block' : 'none';
+		}
+
+		const colorElement = document.getElementById('customize-control-responsive_header_social_item_color');
+		if (colorElement) {
+			colorElement.style.display = (brandColors !== 'yes' && tab === 'design') ? 'block' : 'none';
+		}
+	};
+
+	const toggleMobileHeaderSocialColorControls = () => {
+		const style = api('responsive_mobile_header_social_item_style') ? api('responsive_mobile_header_social_item_style').get() : 'filled';
+		const brandColors = api('responsive_mobile_header_social_item_use_brand_colors') ? api('responsive_mobile_header_social_item_use_brand_colors').get() : 'no';
+
+		const bgColorElement = document.getElementById('customize-control-responsive_mobile_header_social_item_background_color');
+		if (bgColorElement) {
+			bgColorElement.style.display = (style === 'filled' && brandColors !== 'yes' && tab === 'design') ? 'block' : 'none';
+		}
+
+		const colorElement = document.getElementById('customize-control-responsive_mobile_header_social_item_color');
+		if (colorElement) {
+			colorElement.style.display = (brandColors !== 'yes' && tab === 'design') ? 'block' : 'none';
+		}
+	};
+
+	const toggleFooterSocialColorControls = () => {
+		const style = api('responsive_footer_social_item_style') ? api('responsive_footer_social_item_style').get() : 'filled';
+		const brandColors = api('responsive_footer_social_item_use_brand_colors') ? api('responsive_footer_social_item_use_brand_colors').get() : 'no';
+
+		const bgColorElement = document.getElementById('customize-control-responsive_footer_social_item_background_color');
+		if (bgColorElement) {
+			bgColorElement.style.display = (style === 'filled' && brandColors !== 'yes' && tab === 'design') ? 'block' : 'none';
+		}
+
+		const colorElement = document.getElementById('customize-control-responsive_footer_social_item_color');
+		if (colorElement) {
+			colorElement.style.display = (brandColors !== 'yes' && tab === 'design') ? 'block' : 'none';
+		}
 	};
 
 	return <>

@@ -179,6 +179,9 @@
         if ($(context.sidebar).length > 0) {
             $(context.sidebar).css('width', width + '%');
             $(context.content).css('width', (100 - width) + '%');
+        } else {
+            $(context.sidebar).css('width', '');
+            $(context.content).css('width', '');
         }
     }
 
