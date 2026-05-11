@@ -766,7 +766,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								$wp_customize,
 								$element . '_typography[font-style]',
 								array(
-									'label'           => esc_html__( 'Font Style', 'responsive' ),
+									'label'           => '',
 									'section'         => $section,
 									'settings'        => $element . '_typography[font-style]',
 									'priority'        => $priority,
@@ -800,7 +800,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								$wp_customize,
 								$element . '_typography[text-transform]',
 								array(
-									'label'           => esc_html__( 'Text Transform', 'responsive' ),
+									'label'           => '',
 									'section'         => $section,
 									'settings'        => $element . '_typography[text-transform]',
 									'priority'        => $priority,
@@ -905,7 +905,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								$wp_customize,
 								$element . '_typography[font-size]',
 								array(
-									'label'           => esc_html__( 'Size', 'responsive' ),
+									'label'           => esc_html__( 'Font Size', 'responsive' ),
 									'description'     => esc_html__( 'You can add: px-em-%', 'responsive' ),
 									'section'         => $section,
 									'settings'        => array(

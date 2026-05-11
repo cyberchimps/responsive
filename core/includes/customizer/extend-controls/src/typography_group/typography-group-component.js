@@ -8,12 +8,12 @@ const TypographyGroupControlComponent = (props) => {
     // Suffixes for related controls
     const suffixes = [
         'font-family',
-        'font-size',
         'font-weight',
-        'text-transform',
-        'font-style',
+        'font-size',
         'line-height',
         'letter-spacing',
+        'text-transform',
+        'font-style',
         'color',
         'font-color'
     ];
@@ -48,14 +48,14 @@ const TypographyGroupControlComponent = (props) => {
         // IDs of the <li> elements to be wrapped
         const liIds = [
             `customize-control-${connected_control}-font-family`,
-            `customize-control-${connected_control}-font-size`,
             `customize-control-${connected_control}-font-weight`,
-            `customize-control-${connected_control}-text-transform`,
-            `customize-control-${connected_control}-font-style`,
+            `customize-control-${connected_control}-font-size`,
             `customize-control-${connected_control}-line-height`,
             `customize-control-${connected_control}-letter-spacing`,
             `customize-control-${connected_control}-color`,
-            `customize-control-${connected_control}-font-color`
+            `customize-control-${connected_control}-font-color`,
+            `customize-control-${connected_control}-text-transform`,
+            `customize-control-${connected_control}-font-style`
         ];
     
         let ul = document.querySelector(`.responsive-typography-settings-group-${connected_control}`);
@@ -67,13 +67,31 @@ const TypographyGroupControlComponent = (props) => {
             ul.className = `responsive-typography-settings-group responsive-typography-settings-group-${connected_control} control-device-${activeDevice}`;
         }
     
+        let inlineWrapper = ul.querySelector('.responsive-typography-inline-container');
+        if (!inlineWrapper) {
+            inlineWrapper = document.createElement('li');
+            inlineWrapper.className = 'responsive-typography-inline-container';
+        }
+
         // Append <li> elements to the <ul>
         liIds.forEach(id => {
             const li = document.getElementById(id);
-            if (li && !ul.contains(li)) {
-                ul.appendChild(li);
+            if (li) {
+                if (id.endsWith('text-transform') || id.endsWith('font-style')) {
+                    if (!inlineWrapper.contains(li)) {
+                        inlineWrapper.appendChild(li);
+                    }
+                } else {
+                    if (!ul.contains(li)) {
+                        ul.appendChild(li);
+                    }
+                }
             }
         });
+
+        if (inlineWrapper.hasChildNodes() && !ul.contains(inlineWrapper)) {
+            ul.appendChild(inlineWrapper);
+        }
     
         // Find the reference element
         const referenceElement = document.getElementById(`customize-control-responsive_${connected_control}_group`);
@@ -127,6 +145,14 @@ const TypographyGroupControlComponent = (props) => {
                     element.style.display = 'none';
                 }
             });
+
+            // Hide inline container
+            if (typoGroupWrapperRef.current) {
+                const inlineWrapper = typoGroupWrapperRef.current.querySelector('.responsive-typography-inline-container');
+                if (inlineWrapper) {
+                    inlineWrapper.style.display = 'none';
+                }
+            }
         }
     };
 
@@ -147,6 +173,15 @@ const TypographyGroupControlComponent = (props) => {
                 element.style.display = window.getComputedStyle(element).display === 'none' ? 'list-item' : 'none';
             }
         });
+
+        // Toggle inline container based on children visibility
+        if (typoGroupWrapperRef.current) {
+            const inlineWrapper = typoGroupWrapperRef.current.querySelector('.responsive-typography-inline-container');
+            if (inlineWrapper) {
+                const hasVisibleChildren = Array.from(inlineWrapper.children).some(child => window.getComputedStyle(child).display !== 'none');
+                inlineWrapper.style.display = hasVisibleChildren ? 'flex' : 'none';
+            }
+        }
     };
 
     return (
