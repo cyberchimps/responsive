@@ -41,8 +41,8 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'responsive_single_blog_layout',
 				array(
 					'title'    => esc_html__( 'Single Post', 'responsive' ),
-					'panel'    => 'responsive_blog',
-					'priority' => 20,
+					'panel'    => 'responsive_post_types',
+					'priority' => 30,
 				)
 			);
 
@@ -50,8 +50,8 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'responsive_rp_layout',
 				array(
 					'title'    => esc_html__( 'Related Posts', 'responsive' ),
-					'panel'    => 'responsive_blog',
-					'priority' => 22,
+					'panel'    => 'responsive_post_types',
+					'priority' => 40,
 					
 				)
 			);
