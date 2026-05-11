@@ -58,6 +58,13 @@ const TabsComponent = props => {
 		{
 			hideWoocommerceSidebarWidthControl( api('responsive_single_product_sidebar_position').get(), 'single_product');
 		}
+		if(api('responsive_shop_sidebar_position')){
+			hideWoocommerceMainContentWidthControl( api('responsive_shop_sidebar_position').get(), 'shop');
+		}
+		if(api('responsive_single_product_sidebar_position'))
+		{
+			hideWoocommerceMainContentWidthControl( api('responsive_single_product_sidebar_position').get(), 'single_product');
+		}
 		hideRetinaLogoUploadControl( api( 'responsive_retina_logo').get());
 		hideMobileLogoUploadControl( api( 'responsive_mobile_logo_option').get());
 
@@ -79,6 +86,12 @@ const TabsComponent = props => {
 			value.bind( function( newval ) {
 				if( newval ) {
 					hideSidebarWidthControl(newval, 'global');
+					if(api('responsive_shop_sidebar_position')){
+						hideWoocommerceMainContentWidthControl(api('responsive_shop_sidebar_position').get(), 'shop');
+					}
+					if(api('responsive_single_product_sidebar_position')){
+						hideWoocommerceMainContentWidthControl(api('responsive_single_product_sidebar_position').get(), 'single_product');
+					}
 				}
 			})
 		});
@@ -86,6 +99,7 @@ const TabsComponent = props => {
 			value.bind( function( newval ) {
 				if( newval ) {
 					hideWoocommerceSidebarWidthControl(newval, 'shop');
+					hideWoocommerceMainContentWidthControl(newval, 'shop');
 				}
 			})
 		});
@@ -93,6 +107,7 @@ const TabsComponent = props => {
 			value.bind( function( newval ) {
 				if( newval ) {
 					hideWoocommerceSidebarWidthControl(newval, 'single_product');
+					hideWoocommerceMainContentWidthControl(newval, 'single_product');
 				}
 			})
 		});
@@ -640,6 +655,34 @@ const TabsComponent = props => {
 
 		if (isVisible) {
 			controlElement.style.display = 'block';
+		}
+	}
+
+	const hideWoocommerceMainContentWidthControl = (value, control) => {
+		const controlId = `customize-control-responsive_${control}_content_width`;
+		const controlElement = document.getElementById(controlId);
+		const separatorId = `customize-control-responsive_${control}_layout_elements_separator`;
+		const separatorElement = document.getElementById(separatorId);
+		if (!controlElement) return;
+
+		let resolvedValue = value;
+		if (value === 'global' || value === 'default') {
+			resolvedValue = api('responsive_default_sidebar_position') ? api('responsive_default_sidebar_position').get() : 'no';
+		}
+
+		// For shop/single product sidebar: hide when 'left' or 'right'
+		let isVisible = resolvedValue === 'no' && tab === 'general';
+
+		if (isVisible) {
+			controlElement.style.display = 'block';
+			if (separatorElement) {
+				separatorElement.style.display = 'block';
+			}
+		} else {
+			controlElement.style.display = 'none';
+			if (separatorElement) {
+				separatorElement.style.display = 'none';
+			}
 		}
 	}
 
