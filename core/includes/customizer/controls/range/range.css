@@ -24,6 +24,12 @@
     order: 3;
     padding-top: 5px;
 }
+#customize-control-responsive_container_width .customize-control-description {
+	font-size: 12px;
+	line-height: 18px;
+	color: #a4a4a4;
+	font-style: italic;
+}
 #customize-control-responsive_paragraph_margin_bottom .customize-control-title {
     margin: 0;
 }
