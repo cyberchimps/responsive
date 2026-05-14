@@ -439,6 +439,87 @@ function responsive_tooltip_script() {
 	                    	li_wrapper.append(" <i class=\'res-control-tooltip dashicons dashicons-editor-help\'title=\'" + tooltip +"\'></i>");
 	                	}
 	            	});
+
+                    // Ensure Section/Panel Help Toggle is present
+                    var injectHelpToggle = function(item, titleSelector) {
+                        if ( item.params.description && item.params.description.indexOf(\'responsive-section-description\') !== -1 ) {
+                            item.container.find(titleSelector).each(function() {
+                                if ( ! jQuery(this).find(\'.customize-help-toggle\').length ) {
+                                    jQuery(this).append(\'<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"></button>\');
+                                }
+                            });
+                            // If it\'s a panel, or if description is missing from DOM, inject it
+                            if ( ! item.container.find(\'.description\').length ) {
+                                item.container.find(\'.accordion-section-title\').after(\'<div class="description">\' + item.params.description + \'</div>\');
+                            }
+                        }
+                    };
+
+                    wp.customize.section.each(function(section) { injectHelpToggle(section, \'.customize-section-title\'); });
+                    wp.customize.panel.each(function(panel) { injectHelpToggle(panel, \'.customize-panel-title\'); });
+
+                    // Handle dynamically added sections/panels
+                    wp.customize.section.bind(\'add\', function(section) { injectHelpToggle(section, \'.customize-section-title\'); });
+                    wp.customize.panel.bind(\'add\', function(panel) { injectHelpToggle(panel, \'.customize-panel-title\'); });
+
+                    // Handle Section Help Tooltips
+					jQuery(document).on(\'click\', \'.customize-help-toggle\', function() {
+					var header = jQuery(this).closest(\'.customize-section-title, .accordion-section-title\');
+					var description = header.next(\'.description, .customize-panel-description\');
+
+					if ( ! description.length ) { description = header.siblings(\'.description\'); }
+
+					var inner = description.find(\'.responsive-section-description\');
+					if ( inner.length ) {
+						var isOpening = ! inner.is(\':visible\');
+
+						inner.slideToggle(200);
+
+						// Check which panel the button belongs to
+						var isHeaderPanel = jQuery(this).closest(\'#sub-accordion-panel-responsive_header\').length;
+						var isFooterPanel = jQuery(this).closest(\'#sub-accordion-panel-responsive_footer\').length;
+
+						if ( isHeaderPanel || isFooterPanel ) {
+							let styleId = isHeaderPanel ? \'responsive-header-drag-margin-style\' : \'responsive-footer-drag-margin-style\';
+							let existingStyle = jQuery(\'#\' + styleId);
+
+							if ( isOpening ) {
+								let selector = isHeaderPanel
+									? \'#sub-accordion-section-responsive_header_builder_section\'
+									: \'#sub-accordion-section-responsive_footer_layout\';
+
+								let css = selector + \' { margin-top: 107px !important; }\';
+
+								if ( existingStyle.length ) {
+									existingStyle.text(css);
+								} else {
+									jQuery(\'<style id="\' + styleId + \'">\' + css + \'</style>\').appendTo(\'head\');
+								}
+							} else {
+								existingStyle.remove();
+							}
+						}
+
+						if( isFooterPanel ) {
+							let styleId = \'responsive-footer-builder-top-style\';
+							let existingStyle = jQuery(\'#\' + styleId);
+
+							if( isOpening ) {
+								let selector = \'.responsive-footer-builder-is-active .in-sub-panel:not( .section-open ) #sub-accordion-panel-responsive_footer.current-panel~ul#sub-accordion-section-responsive_footer_layout\';
+
+								let css = selector + \' { top: 51px; } \';
+
+								if( existingStyle.length ) {
+									existingStyle.text(css);
+								} else {
+									jQuery(\'<style id="\' + styleId + \'">\' + css + \'</style>\').appendTo(\'head\');
+								}
+							} else {
+								existingStyle.remove();
+							}
+						}
+					}
+				});
 	        	});';
 
 	$output .= '</script>';

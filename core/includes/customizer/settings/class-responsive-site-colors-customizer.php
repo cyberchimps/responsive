@@ -43,9 +43,10 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 			$wp_customize->add_section(
 				'responsive_colors',
 				array(
-					'title'    => esc_html__( 'Colors & Backgrounds', 'responsive' ),
-					'panel'    => 'responsive_site',
-					'priority' => 20,
+					'title'       => esc_html__( 'Colors & Backgrounds', 'responsive' ),
+					'description' => '<div class="responsive-section-description"><p><b>' . __( 'Helpful Information', 'responsive' ) . '</b></p><p><a href="https://cyberchimps.com/docs/responsive-theme/responsive-theme-walkthrough/global-settings-colors-and-backgrounds/" target="_blank">' . __( 'Colors & Backgrounds Overview »', 'responsive' ) . '</a></p></div>',
+					'panel'       => 'responsive_site',
+					'priority'    => 20,
 				)
 			);
 
