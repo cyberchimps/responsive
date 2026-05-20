@@ -452,8 +452,8 @@ if ( ! function_exists( 'responsive_js' ) ) {
 
 		wp_enqueue_script( 'navigation-scripts', $template_directory_uri . '/core/' . $directory . '/navigation' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, true );
 		
-		// enqueue searchform script only when search element is present in builder.
-		if ( responsive_check_element_present_in_hfb( 'search', 'header' ) ) {
+		// Enqueue searchform script when search element is present in header builder (desktop OR mobile/tablet).
+		if ( responsive_check_element_present_in_hfb( 'search', 'header' ) || responsive_check_element_in_mobile_tablet_items( 'search', 'header' ) ) {
 			wp_enqueue_script( 'searchform-script', $template_directory_uri . '/core/' . $directory . '/searchform' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, true );
 			// Get the toggle value
 			$live_search_enabled = get_theme_mod( 'responsive_header_search_enable_live_search', false );
@@ -1652,7 +1652,15 @@ function defaults() {
 				'style' => 'playful-default',
 				'palette' => responsive_get_selected_palette_color_scheme(),
 			),
-		)
+		'responsive_single_blog_comments'       => true,
+		'responsive_comments_position'          => 'below',
+		'responsive_comments_border_width'      => 0,
+		'responsive_comments_border_color'      => '',
+		'responsive_comments_border_radius'     => 8,
+		'responsive_comments_padding'           => 30,
+		'responsive_comments_margin_y'          => 28,
+		'responsive_comments_margin_x'          => 0,
+		),
 	);
 	return $theme_options;
 }

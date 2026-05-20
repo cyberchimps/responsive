@@ -2341,4 +2341,52 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
         });
     });
 
+    // Comments Padding Settings.
+    const commentsPaddingSettings = [
+        'responsive_comments_padding_top_padding',
+        'responsive_comments_padding_left_padding',
+        'responsive_comments_padding_bottom_padding',
+        'responsive_comments_padding_right_padding',
+        'responsive_comments_padding_tablet_top_padding',
+        'responsive_comments_padding_tablet_right_padding',
+        'responsive_comments_padding_tablet_bottom_padding',
+        'responsive_comments_padding_tablet_left_padding',
+        'responsive_comments_padding_mobile_top_padding',
+        'responsive_comments_padding_mobile_right_padding',
+        'responsive_comments_padding_mobile_bottom_padding',
+        'responsive_comments_padding_mobile_left_padding'
+    ];
+
+    commentsPaddingSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_padding('comments_padding', 'body .site .comments-area');
+            });
+        });
+    });
+
+    // Comments Margin Settings.
+    const commentsMarginSettings = [
+        'responsive_comments_margin_top_padding',
+        'responsive_comments_margin_left_padding',
+        'responsive_comments_margin_bottom_padding',
+        'responsive_comments_margin_right_padding',
+        'responsive_comments_margin_tablet_top_padding',
+        'responsive_comments_margin_tablet_right_padding',
+        'responsive_comments_margin_tablet_bottom_padding',
+        'responsive_comments_margin_tablet_left_padding',
+        'responsive_comments_margin_mobile_top_padding',
+        'responsive_comments_margin_mobile_right_padding',
+        'responsive_comments_margin_mobile_bottom_padding',
+        'responsive_comments_margin_mobile_left_padding'
+    ];
+
+    commentsMarginSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_margin('comments_margin', 'body .site .comments-area');
+            });
+        });
+    });
+
 } )( jQuery );

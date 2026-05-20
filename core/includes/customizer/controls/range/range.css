@@ -8,6 +8,28 @@
    position: relative;
    top: 0;
 }
+
+/* Container Width: show description (note) after slider UI */
+#customize-control-responsive_container_width > label {
+    display: flex;
+    flex-direction: column;
+}
+#customize-control-responsive_container_width > label > .responsive-range-control-label {
+    order: 1;
+}
+#customize-control-responsive_container_width > label > .control-wrap {
+    order: 2;
+}
+#customize-control-responsive_container_width > label > .customize-control-description {
+    order: 3;
+    padding-top: 5px;
+}
+#customize-control-responsive_container_width .customize-control-description {
+	font-size: 12px;
+	line-height: 18px;
+	color: #a4a4a4;
+	font-style: italic;
+}
 #customize-control-responsive_paragraph_margin_bottom .customize-control-title {
     margin: 0;
 }

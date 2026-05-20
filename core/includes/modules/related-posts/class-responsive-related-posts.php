@@ -69,8 +69,8 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 						<?php
 						$text_color       = get_theme_mod( 'responsive_rp_text_color', responsive_prepare_css_value( 'responsive_body_text_color' ) );
 						$text_hover_color = get_theme_mod( 'responsive_rp_text_hover_color', responsive_prepare_css_value( 'responsive_body_text_color' ) );
-						$link_color       = get_theme_mod( 'responsive_rp_link_color', responsive_prepare_css_value( 'responsive_link_color' ) );
-						$link_hover_color = get_theme_mod( 'responsive_rp_link_hover_color', responsive_prepare_css_value( 'responsive_link_hover_color' ) );
+						$link_color       = get_theme_mod( 'responsive_rp_link_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_link_color' ) );
+						$link_hover_color = get_theme_mod( 'responsive_rp_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_link_hover_color' ) );
 						$meta_color       = get_theme_mod( 'responsive_rp_meta_color', responsive_prepare_css_value( 'responsive_meta_text_color' ) );
 						$meta_hover_color = get_theme_mod( 'responsive_rp_meta_hover_color', responsive_prepare_css_value( 'responsive_meta_text_color' ) );
 

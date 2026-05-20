@@ -1,7 +1,7 @@
 jQuery( document ).ready( function($) {
 
 	// Responsive switchers
-	$( '.customize-control .responsive-switchers button' ).on( 'click', function( event ) {
+	$( document ).on( 'click', '.customize-control .responsive-switchers button', function( event ) {
 
 		// Set up variables
 		var $this 		= $( this ),
