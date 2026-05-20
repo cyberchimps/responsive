@@ -4082,10 +4082,11 @@ endif;
  * @param  [type] $active_call  [description].
  * @return void                 [description].
  */
-function responsive_section_toggle_control( $wp_customize, $element, $label, $section, $priority, $linktype, $linkval, $active_call = null, $transport = 'refresh', $description = '' ) {
+function responsive_section_toggle_control( $wp_customize, $element, $label, $section, $priority, $linktype, $linkval, $default = false, $active_call = null, $transport = 'refresh', $description = '' ) {
 	$wp_customize->add_setting(
 		'responsive_' . $element,
 		array(
+			'default'           => $default,
 			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_checkbox_validate',
 		)

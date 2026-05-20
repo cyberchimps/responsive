@@ -1652,7 +1652,15 @@ function defaults() {
 				'style' => 'playful-default',
 				'palette' => responsive_get_selected_palette_color_scheme(),
 			),
-		)
+		'responsive_single_blog_comments'       => true,
+		'responsive_comments_position'          => 'below',
+		'responsive_comments_border_width'      => 0,
+		'responsive_comments_border_color'      => '',
+		'responsive_comments_border_radius'     => 8,
+		'responsive_comments_padding'           => 30,
+		'responsive_comments_margin_y'          => 28,
+		'responsive_comments_margin_x'          => 0,
+		),
 	);
 	return $theme_options;
 }
