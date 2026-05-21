@@ -21,7 +21,6 @@ export const responsiveColorWithStatesAndDevices = wp.customize.responsiveContro
             if (!colorWrap.is(e.target) && colorWrap.has(e.target).length === 0) {
                 container.find('button.wp-color-result.wp-picker-open').click();
             }
-            console.log('control.container===', control.container);
         });
 
         control.container.on(
@@ -34,10 +33,10 @@ export const responsiveColorWithStatesAndDevices = wp.customize.responsiveContro
 
                 const $this = jQuery(this);
                 const $control = $this.closest('.customize-control');
-
                 const device = $this.data('device');
+                const $body = jQuery('.wp-full-overlay');
+                const $footer_devices = jQuery('.wp-full-overlay-footer .devices');
 
-                // only inside this control
                 const $switchers = $control.find('.responsive-switchers');
                 const $wraps = $control.find('.control-wrap');
 
@@ -49,11 +48,26 @@ export const responsiveColorWithStatesAndDevices = wp.customize.responsiveContro
                 $wraps.removeClass('active');
                 $wraps.filter('.' + device).addClass('active');
 
-                // toggle open state ONLY on this control
+                // Updating body class to resize preview screen
+                $body
+                    .removeClass('preview-desktop preview-tablet preview-mobile')
+                    .addClass('preview-' + device);
+
+                // Updating footer device buttons to stay in sync
+                $footer_devices.find('button')
+                    .removeClass('active')
+                    .attr('aria-pressed', false);
+
+                $footer_devices.find('button.preview-' + device)
+                    .addClass('active')
+                    .attr('aria-pressed', true);
+
                 if ($this.hasClass('preview-desktop')) {
                     $control.toggleClass('responsive-switchers-open');
                 }
 
+                // Also trigger window resize event for any dependent scripts
+                jQuery(window).trigger('resize');
             }
         );
     }
