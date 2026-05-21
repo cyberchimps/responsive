@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $is_comments_enabled = get_theme_mod( 'responsive_single_blog_comments', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_comments' ) );
 
 // Exit early if password protected, comments disabled, or no comments and discussion is off.
-if ( post_password_required() || ! $is_comments_enabled ) {
+if ( post_password_required() || ! $is_comments_enabled || ( ! have_comments() && ! comments_open() && ! pings_open() ) ) {
 	return;
 }
 ?>
@@ -55,7 +55,7 @@ if ( post_password_required() || ! $is_comments_enabled ) {
 		) );
 	}
 
-	$comments_form_position = get_theme_mod( 'responsive_comments_form_postion', Responsive\Core\get_responsive_customizer_defaults( 'responsive_comments_position' ) );
+	$comments_form_position = get_theme_mod( 'responsive_comments_form_position', Responsive\Core\get_responsive_customizer_defaults( 'responsive_comments_position' ) );
 
 	if ( 'above' === $comments_form_position ) {
 		responsive_render_comment_form();
