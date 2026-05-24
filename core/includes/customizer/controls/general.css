@@ -1864,3 +1864,42 @@ in both cases the footer builder is active */
 #customize-control-responsive_header_menu_color_separator{ 
 	margin-top:0; 
 }
+.responsive-typography-inline-container {
+	width: 100%;
+	gap: 78px;
+    background-color: #f9f9f9;
+}
+.responsive-typography-settings-group .responsive-typography-inline-container li[id$="text-transform"] {
+	width: 150px;
+	background: none;
+	padding-top: 0;
+	padding-bottom: 0;
+	box-shadow: none;
+	margin-top: 0;
+}
+.responsive-typography-settings-group .responsive-typography-inline-container li[id$="text-transform"] button.selectbtn-text {
+	width: 32px;
+	height: 32px;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	padding: 0px;
+}
+.responsive-typography-settings-group 
+.responsive-typography-inline-container 
+li[id$="text-transform"] 
+button.selectbtn-text:first-child {
+	width: 54px;
+}
+.responsive-typography-settings-group .responsive-typography-inline-container .responsive-selectbtn-control-wrapper .customize-control-responsive-selectbtn {
+	flex-wrap: nowrap;
+}
+.responsive-typography-settings-group .responsive-typography-inline-container li[id$="font-style"] {
+	width: 64px;
+	background: none;
+	padding-top: 0;
+	padding-bottom: 0;
+	box-shadow: none;
+}
