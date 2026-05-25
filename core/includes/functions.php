@@ -865,7 +865,7 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
  * Add Upgrade to pro button
  */
 function responsive_add_pro_button() {
-	$upgrade_link = esc_url_raw( 'https://cyberchimps.com/pricing/?utm_source=wpdash&utm_medium=rtheme&utm_campaign=cstmzer&utm_content=upgrade-to-pro' );
+	$upgrade_link = esc_url_raw( 'https://cyberchimps.com/responsive-go-pro/?utm_source=wpdash&utm_medium=rtheme&utm_campaign=cstmzer&utm_content=upgrade-to-pro' );
 	?>
 <script type="text/javascript">
 		jQuery( document ).ready( function( $ ) {
@@ -880,7 +880,7 @@ function responsive_add_pro_button() {
 	if (sectionTitle.length) {
 		sectionTitle.click(function(event) {
 			event.preventDefault(); // Prevent the default behavior
-			window.open('https://cyberchimps.com/pricing/?utm_source=wpdash&utm_medium=rtheme&utm_campaign=cstmzer&utm_content=view-pro-features', '_blank'); // Open in a new tab
+			window.open('https://cyberchimps.com/responsive-go-pro/?utm_source=wpdash&utm_medium=rtheme&utm_campaign=cstmzer&utm_content=upgrade-to-pro', '_blank');
 		});
 	}
 });
