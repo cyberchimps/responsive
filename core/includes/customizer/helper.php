@@ -2611,7 +2611,7 @@ function responsive_select_control( $wp_customize, $element, $label, $section, $
  *
  * @return void               [description].
  */
-function responsive_select_button_control( $wp_customize, $element, $label, $section, $priority, $choices, $default, $active_call, $transport = 'refresh', $description = '' ) {
+function responsive_select_button_control( $wp_customize, $element, $label, $section, $priority, $choices, $default, $active_call, $transport = 'refresh', $description = '', $note = '' ) {
 
 	$wp_customize->add_setting(
 		'responsive_' . $element,
@@ -2628,6 +2628,7 @@ function responsive_select_button_control( $wp_customize, $element, $label, $sec
 			array(
 				'label'           => $label,
 				'description'     => $description,
+				'note'            => $note,
 				'section'         => $section,
 				'settings'        => 'responsive_' . $element,
 				'priority'        => $priority,

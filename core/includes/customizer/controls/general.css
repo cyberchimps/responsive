@@ -1869,3 +1869,6 @@ in both cases the footer builder is active */
 #customize-control-responsive_header_menu_color_separator{ 
 	margin-top:0; 
 }
+.wp-core-ui #accordion-section-responsive_upsell_section .accordion-section-title {
+	cursor: pointer;
+}

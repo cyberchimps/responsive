@@ -550,6 +550,10 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 			);
 			responsive_select_button_control( $wp_customize, 'comments_form_position', 'Form Position', 'responsive_comments_layout', 4, $comments_form_position_choices, Responsive\Core\get_responsive_customizer_defaults( 'responsive_comments_position' ), null );
 
+			if ( $wp_customize->get_control( 'responsive_comments_form_position' ) ) {
+				$wp_customize->get_control( 'responsive_comments_form_position' )->note = __( 'You need at least one published comment on a post to see the effect in the live preview.', 'responsive' );
+			}
+
 			$default_comments_border_width = Responsive\Core\get_responsive_customizer_defaults( 'responsive_comments_border_width' );
 
 			responsive_borderwidth_control( $wp_customize, 'comments_border_width', 'responsive_comments_layout', 5, $default_comments_border_width, $default_comments_border_width, null, __( 'Border Width (px)', 'responsive' ) );

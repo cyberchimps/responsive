@@ -16,11 +16,13 @@ const SelectButtonComponent = props => {
 		name,
 		choices,
 		description,
+		note,
 		id
 	} = props.control.params;
 
 	let htmlLabel = null;
 	let descriptionHtml = null;
+	let noteHtml = null;
 	let hasDashicons = false;
 
 	if (label) {
@@ -29,6 +31,10 @@ const SelectButtonComponent = props => {
 
 	if (description) {
 		descriptionHtml = <i className="res-control-tooltip dashicons dashicons-editor-help" title={description}></i>;
+	}
+
+	if (note) {
+		noteHtml = <p className="responsive-selectbtn-control-note"><span>Note:</span> {note}</p>;
 	}
 
 	let optionsHtml = Object.entries(choices).map(([choiceValue, icon]) => {
@@ -97,6 +103,7 @@ const SelectButtonComponent = props => {
 			<div className={`customize-control-responsive-selectbtn ${id.includes('font-style') ? 'responsive-font-style-selectbtn-control' : '' }`} data-name={name} data-value={props_value} value={props_value}>
 				{optionsHtml}
 			</div>
+			{noteHtml}
 		</div>
 	</>;
 
