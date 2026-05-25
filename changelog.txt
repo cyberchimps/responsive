@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(26/05/2026) Version 6.3.7
+[+] = New = Added a new toggle option in the Responsive Theme to easily enable or disable comments on single post pages directly from the customization settings.
+[*] = Improvement = Improved the Responsive Theme editor experience by making the Viewport Selector auto-expand for quicker and more seamless device switching during customization.
+[!] = Fix = Fixed an issue with the hover color of scroll to top.
+
 (18/05/2026) Version 6.3.6
 [!] = Fix = Fixed an issue where the social icon color and size could not be changed in the Mobile Header Builder.
 [!] = Fix = Fixed an issue where the search widget in the Mobile Header Builder was not working when Full Screen mode was selected.
