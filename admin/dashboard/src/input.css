@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+/* Import everything EXCEPT Preflight */
+@import "tailwindcss/theme";
+@import "tailwindcss/utilities";
+
+@theme {
+  /* This maps the "Inter" font to the "font-sans" utility */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Target your specific files */
+@source "./**/*.{js,jsx,ts,tsx}";
+
+#wpcontent {
+  @apply pl-0;
+}
+
+#wpbody-content {
+  @apply pb-0 bg-slate-50;
+}
+
+#responsive-getting-started-page-app {
+  @apply font-sans;
+}
+
+.resp-active-tab {
+  @apply border-b-2 border-b-[#2563EB];
+}
+
+.resp-active-tab p {
+  @apply text-[#111827];
+}
+
+.resp-setting-tab-active {
+  @apply bg-slate-100;
+}
+
+.resp-setting-tab-active svg path {
+  @apply stroke-blue-500;
+}
+
+.resp-setting-tab-active > p {
+  @apply text-blue-500;
+}

@@ -1,0 +1,24 @@
+{
+  "name": "responsive-admin-dashboard",
+  "version": "1.0.0",
+  "description": "Admin dashboard for the Responsive theme",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "wp-scripts start --progress",
+    "build": "wp-scripts build",
+    "build:css": "tailwindcss -i src/input.css -o ../css/responsive-admin-dashboard.css --watch",
+    "build:css:prod": "tailwindcss -i src/input.css -o ../css/responsive-admin-dashboard.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@wordpress/scripts": "^32.2.0"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.3.0",
+    "react-router-dom": "^7.15.1",
+    "tailwindcss": "^4.3.0"
+  }
+}
