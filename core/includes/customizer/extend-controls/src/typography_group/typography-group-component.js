@@ -89,7 +89,7 @@ const TypographyGroupControlComponent = (props) => {
             }
         });
 
-        if (inlineWrapper.hasChildNodes() && !ul.contains(inlineWrapper)) {
+        if (inlineWrapper.hasChildNodes() && ul.lastChild !== inlineWrapper) {
             ul.appendChild(inlineWrapper);
         }
     
