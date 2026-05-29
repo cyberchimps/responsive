@@ -42,6 +42,7 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 				'responsive_button',
 				array(
 					'title'    => __( 'Buttons', 'responsive' ),
+					'description' => '<div class="responsive-section-description"><p><b>' . __( 'Helpful Information', 'responsive' ) . '</b></p><p><a href="https://cyberchimps.com/docs/responsive-theme/responsive-theme-walkthrough/global-settings-button/" target="_blank">' . __( 'Buttons Overview »', 'responsive' ) . '</a></p></div>',
 					'panel'    => 'responsive_site',
 					'priority' => 10,
 				)

@@ -50,6 +50,7 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 				'responsive_typography',
 				array(
 					'title'    => __( 'Typography', 'responsive' ),
+					'description' => '<div class="responsive-section-description"><p><b>' . __( 'Helpful Information', 'responsive' ) . '</b></p><p><a href="https://cyberchimps.com/docs/responsive-theme/responsive-theme-walkthrough/global-typography-settings-in-responsive-theme/" target="_blank">' . __( 'Typography Overview »', 'responsive' ) . '</a></p></div>',
 					'panel'    => 'responsive_site',
 					'priority' => 30,
 				)

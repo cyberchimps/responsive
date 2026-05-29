@@ -41,6 +41,7 @@ if ( ! class_exists( 'Responsive_Header_Title_Tagline_Customizer' ) ) :
 				'responsive_header_site_logo_title',
 				array(
 					'title'    => esc_html__( 'Logo', 'responsive' ),
+					'description' => '<div class="responsive-section-description"><p><b>' . __( 'Helpful Information', 'responsive' ) . '</b></p><p><a href="https://cyberchimps.com/docs/responsive-theme/header-builder/site-title-and-logo/" target="_blank">' . __( 'Site Identity Overview »', 'responsive' ) . '</a></p></div>',
 					'panel'    => 'responsive_header',
 					'priority' => 10,
 

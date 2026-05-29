@@ -1539,6 +1539,9 @@ in both cases the footer builder is active */
 	padding-top: 22px;
 	padding-bottom: 22px;
 }
+div.customize-section-description{
+	margin-bottom: 0;
+}
 
 .customize-control.highlighted {
 	position: relative;
@@ -1865,6 +1868,87 @@ in both cases the footer builder is active */
 
 #customize-control-responsive_header_menu_color_separator{ 
 	margin-top:0; 
+}
+
+.responsive-section-description {
+    display: none;
+    background: #fff;
+    padding: 20px;
+	border-bottom: 1px solid #D0D0D0;
+}
+#sub-accordion-panel-responsive_header .responsive-section-description, #sub-accordion-panel-responsive_footer .responsive-section-description {
+	padding: 10px 20px 10px 20px; 
+	border-bottom: none;
+}
+#sub-accordion-section-responsive_blog_layout .responsive-section-description, #sub-accordion-section-responsive_form_fields .responsive-section-description, #sub-accordion-section-responsive_page .responsive-section-description, #sub-accordion-section-responsive_header_site_logo_title .responsive-section-description {
+	border-bottom: none;
+}
+
+.description.open .responsive-section-description {
+    display: block;
+}
+
+.responsive-section-description p {
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.responsive-section-description p:last-child {
+    margin-bottom: 0;
+}
+
+.responsive-section-description b {
+    font-weight: 600;
+    color: #333;
+}
+
+.responsive-section-description a {
+    color: #0073aa;
+    text-decoration: none;
+}
+
+.responsive-section-description a:hover {
+    text-decoration: underline;
+}
+
+.customize-help-toggle {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    width: 20px !important;
+    height: 20px !important;
+    line-height: 20px !important;
+    cursor: pointer !important;
+    color: #5f6368 !important;
+    position: absolute !important;
+    right: 15px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    display: inline-block !important;
+}
+
+.customize-help-toggle:before {
+    font-size: 20px !important;
+}
+
+.customize-help-toggle:hover {
+    color: #1a73e8 !important;
+}
+
+.customize-help-toggle:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    background: none !important;
+}
+
+.customize-section-title,
+.customize-panel-title {
+    position: relative !important;
+}
+
+div.customize-section-description {
+	margin-top: 0px;
 }
 .wp-core-ui #accordion-section-responsive_upsell_section .accordion-section-title {
 	cursor: pointer;

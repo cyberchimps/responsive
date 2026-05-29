@@ -42,6 +42,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				'responsive_header_menu_layout',
 				array(
 					'title'    => __( 'Main Menu', 'responsive' ),
+					'description' => '<div class="responsive-section-description"><p><b>' . __( 'Helpful Information', 'responsive' ) . '</b></p><p><a href="https://cyberchimps.com/docs/responsive-theme/header-builder/primary-menu/" target="_blank">' . __( 'Primary Menu Overview »', 'responsive' ) . '</a></p></div>',
 					'panel'    => 'responsive_header',
 					'priority' => 25,
 				)

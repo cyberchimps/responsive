@@ -42,6 +42,7 @@ if ( ! class_exists( 'Responsive_Form_Fields_Customizer' ) ) :
 				'responsive_form_fields',
 				array(
 					'title'    => __( 'Form Fields', 'responsive' ),
+					'description' => '<div class="responsive-section-description"><p><b>' . __( 'Helpful Information', 'responsive' ) . '</b></p><p><a href="https://cyberchimps.com/docs/responsive-theme/responsive-theme-walkthrough/global-settings-form-fields/" target="_blank">' . __( 'Form Fields Overview »', 'responsive' ) . '</a></p></div>',
 					'panel'    => 'responsive_site',
 					'priority' => 10,
 				)
