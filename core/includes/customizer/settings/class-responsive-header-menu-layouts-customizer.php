@@ -51,6 +51,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			$tabs_label     = esc_html__( 'Tabs', 'responsive' );
 			$tab_ids_prefix = 'customize-control-';
 			$primary_menu_design_tab_ids = array(
+				$tab_ids_prefix . 'responsive_menu_item_hover_style',
 				$tab_ids_prefix . 'responsive_header_menu_background_color_states',
 				$tab_ids_prefix . 'responsive_header_menu_color_separator',
 				$tab_ids_prefix . 'responsive_header_menu_link_color_states',
@@ -70,8 +71,6 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			$primary_menu_general_tab_ids = array(
 				$tab_ids_prefix . 'responsive_main_menu_separator',
 				$tab_ids_prefix . 'responsive_disable_menu',
-				$tab_ids_prefix . 'responsive_menu_item_hover_style',
-				$tab_ids_prefix . 'responsive_menu_last_item',
 				$tab_ids_prefix . 'responsive_mobile_menu_separator',
 				$tab_ids_prefix . 'responsive_disable_mobile_menu',
 				$tab_ids_prefix . 'responsive_stacked_mobile_menu',
@@ -121,7 +120,8 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				'button'    => __( 'CTA Button', 'responsive' ),
 				'text-html' => __( 'Text / HTML', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'menu_last_item', $menu_last_item, 'responsive_header_menu_layout', 30, $menu_last_item_choices, 'none', 'responsive_disabled_main_menu' );
+			// Deprecated: only show this control for sites already using it (value !== 'none').
+			responsive_select_control( $wp_customize, 'menu_last_item', $menu_last_item, 'responsive_header_menu_layout', 30, $menu_last_item_choices, 'none', 'responsive_last_item_in_menu_active' );
 
 
 			// Last Item In Menu CTA Text.

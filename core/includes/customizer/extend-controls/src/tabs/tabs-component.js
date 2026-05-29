@@ -512,12 +512,10 @@ const TabsComponent = props => {
 		if( 'none' === api('responsive_header_button_border_style').get() ) {
 			document.getElementById('customize-control-responsive_header_button_border_width').style.display = 'none';
 			document.getElementById('customize-control-responsive_header_button_border_color').style.display = 'none';
-			document.getElementById('customize-control-responsive_border_header_button_radius').style.display = 'none';
 		}
 		if( 'none' === api('responsive_mobile_header_button_border_style').get() ) {
 			document.getElementById('customize-control-responsive_mobile_header_button_border_width').style.display = 'none';
 			document.getElementById('customize-control-responsive_mobile_header_button_border_color').style.display = 'none';
-			document.getElementById('customize-control-responsive_border_mobile_header_button_radius').style.display = 'none';
 		}
 
 		// Footer Social Border Controls

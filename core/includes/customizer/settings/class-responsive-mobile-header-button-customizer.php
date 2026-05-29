@@ -147,7 +147,7 @@ if ( ! class_exists( 'Responsive_Mobile_Header_Button_Customizer' ) ) :
 			);
 			responsive_select_button_control( $wp_customize, 'mobile_header_button_style', __( 'Button Style', 'responsive' ), 'responsive_mobile_header_button', 45, $responsive_header_button_style, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_style' ), null );
 
-			responsive_horizontal_separator_control( $wp_customize, 'mobile_header_button_button_style_separator', 1, 'responsive_mobile_header_button', 46, 1 );
+			responsive_horizontal_separator_control( $wp_customize, 'mobile_header_button_button_style_separator', 1, 'responsive_mobile_header_button', 55, 1 );
 
 			$responsive_header_button_visibility = array(
 				'everyone'   => esc_html__( 'Everyone', 'responsive' ),
@@ -162,13 +162,13 @@ if ( ! class_exists( 'Responsive_Mobile_Header_Button_Customizer' ) ) :
 				'lg'     => esc_html__( 'LG', 'responsive' ),
 				'custom' => esc_html__( 'Custom', 'responsive' ),
 			);
-			responsive_select_button_control( $wp_customize, 'mobile_header_button_size', __( 'Button Size', 'responsive' ), 'responsive_mobile_header_button', 45, $responsive_header_button_size, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_size' ), null );
+			responsive_select_button_control( $wp_customize, 'mobile_header_button_size', __( 'Button Size', 'responsive' ), 'responsive_mobile_header_button', 54, $responsive_header_button_size, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_size' ), null );
 
-			responsive_horizontal_separator_control( $wp_customize, 'mobile_header_button_size_separator', 1, 'responsive_mobile_header_button', 46, 1 );
+			responsive_horizontal_separator_control( $wp_customize, 'mobile_header_button_size_separator', 1, 'responsive_mobile_header_button', 57, 1 );
 
-			responsive_padding_control( $wp_customize, 'mobile_header_button', 'responsive_mobile_header_button', 50, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_padding_y' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_padding_x' ), 'responsive_show_mobile_header_button_padding', __( 'Padding', 'responsive' ) );
+			responsive_padding_control( $wp_customize, 'mobile_header_button', 'responsive_mobile_header_button', 56, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_padding_y' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_padding_x' ), 'responsive_show_mobile_header_button_padding', __( 'Padding', 'responsive' ) );
 
-			responsive_horizontal_separator_control( $wp_customize, 'mobile_header_button_size_separator', 1, 'responsive_mobile_header_button', 51, 1 );
+			responsive_horizontal_separator_control( $wp_customize, 'mobile_header_button_size_separator', 1, 'responsive_mobile_header_button', 57, 1 );
 
 			responsive_color_control( $wp_customize, 'mobile_header_button', __( 'Color', 'responsive' ), 'responsive_mobile_header_button', 52, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_color' ), 'mobile_header_button_hover' );
 
@@ -185,25 +185,27 @@ if ( ! class_exists( 'Responsive_Mobile_Header_Button_Customizer' ) ) :
 				'dotted' => esc_html__( 'Dotted', 'responsive' ),
 				'double' => esc_html__( 'Double', 'responsive' ),
 			);
-			responsive_select_button_control( $wp_customize, 'mobile_header_button_border_style', __( 'Border Style', 'responsive' ), 'responsive_mobile_header_button', 54, $responsive_header_button_border_style, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_style' ), null );
+			responsive_select_button_control( $wp_customize, 'mobile_header_button_border_style', __( 'Border Style', 'responsive' ), 'responsive_mobile_header_button', 58, $responsive_header_button_border_style, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_style' ), null );
 
-			responsive_drag_number_control( $wp_customize, 'mobile_header_button_border_width', __( 'Border Width', 'responsive' ), 'responsive_mobile_header_button', 54, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_width' ), 'responsive_show_header_button_border_option', 100, 1, 'postMessage' );
+			responsive_drag_number_control( $wp_customize, 'mobile_header_button_border_width', __( 'Border Width', 'responsive' ), 'responsive_mobile_header_button', 58, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_width' ), 'responsive_show_header_button_border_option', 100, 1, 'postMessage' );
 
-			responsive_color_control( $wp_customize, 'mobile_header_button_border', __( 'Border Color', 'responsive' ), 'responsive_mobile_header_button', 54, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_color' ), 'responsive_show_mobile_header_button_border_option', '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_color_hover' ), 'mobile_header_button_border_hover' );
+			responsive_color_control( $wp_customize, 'mobile_header_button_border', __( 'Border Color', 'responsive' ), 'responsive_mobile_header_button', 58, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_color' ), 'responsive_show_mobile_header_button_border_option', '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_color_hover' ), 'mobile_header_button_border_hover' );
 
-			responsive_radius_control( $wp_customize, 'mobile_header_button_radius', 'responsive_mobile_header_button', 55, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_radius_y' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_radius_x' ), 'responsive_show_mobile_header_button_border_option', __( 'Border Radius', 'responsive' ) );
+			responsive_horizontal_separator_control( $wp_customize, 'mobile_header_button_border_separator', 1, 'responsive_mobile_header_button', 58.5, 1 );
 
-			responsive_horizontal_separator_control( $wp_customize, 'mobile_header_button_border_separator', 1, 'responsive_mobile_header_button', 55, 1 );
+			responsive_radius_control( $wp_customize, 'mobile_header_button_radius', 'responsive_mobile_header_button', 59, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_radius_y' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_radius_x' ), null, __( 'Border Radius', 'responsive' ) );
 
-			responsive_typography_group_control( $wp_customize, 'mobile_header_button_typography_group', __( 'Font', 'responsive' ), 'responsive_mobile_header_button', 60, 'mobile_header_button_typography' );
+			responsive_horizontal_separator_control( $wp_customize, 'mobile_header_button_radius_separator', 1, 'responsive_mobile_header_button', 60, 1 );
 
-			responsive_horizontal_separator_control( $wp_customize, 'mobile_header_button_typography_separator', 1, 'responsive_mobile_header_button', 60, 1 );
+			responsive_typography_group_control( $wp_customize, 'mobile_header_button_typography_group', __( 'Font', 'responsive' ), 'responsive_mobile_header_button', 62, 'mobile_header_button_typography' );
 
-			responsive_padding_control( $wp_customize, 'mobile_header_button_margin', 'responsive_mobile_header_button', 62, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_margin_y' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_margin_x' ), '', __( 'Margin', 'responsive' ) );
+			responsive_horizontal_separator_control( $wp_customize, 'mobile_header_button_typography_separator', 1, 'responsive_mobile_header_button', 63, 1 );
 
-			responsive_horizontal_separator_control( $wp_customize, 'mobile_header_button_margin_separator', 1, 'responsive_mobile_header_button', 63, 1 );
+			responsive_padding_control( $wp_customize, 'mobile_header_button_margin', 'responsive_mobile_header_button', 64, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_margin_y' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_margin_x' ), '', __( 'Margin', 'responsive' ) );
 
-			responsive_shadow_control( $wp_customize, 'mobile_header_button_shadow', 'Button Shadow', 'responsive_mobile_header_button', 65, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_shadow_x' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_shadow_y' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_shadow_blur' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_shadow_spread' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_shadow_inset' ), null );
+			responsive_horizontal_separator_control( $wp_customize, 'mobile_header_button_margin_separator', 1, 'responsive_mobile_header_button', 65, 1 );
+
+			responsive_shadow_control( $wp_customize, 'mobile_header_button_shadow', 'Button Shadow', 'responsive_mobile_header_button', 66, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_shadow_x' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_shadow_y' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_shadow_blur' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_shadow_spread' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_shadow_inset' ), null );
 
 			responsive_color_control( $wp_customize, 'mobile_header_button_shadow', __( 'Button Shadow Color', 'responsive' ), 'responsive_mobile_header_button', 70, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_shadow_color' ), null, '', false );
 
