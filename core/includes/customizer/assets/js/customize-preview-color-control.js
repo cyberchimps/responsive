@@ -663,72 +663,74 @@
         'body div.wpforms-container-full .wpforms-form button[type=submit],' +
         'div.wpforms-container-full .wpforms-form .wpforms-page-button';
 
-    function syncButtonBackgroundPreview() {
+    var buttonHoverBGPreviewStyleId = 'responsive-button-hover-color-preview';
+    var buttonHoverBGPreviewSelectors =
+        '.page.front-page .button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button),' +
+        '.blog.front-page .button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button),' +
+        '.read-more-button .hentry .read-more .more-link:hover,' +
+        'input[type=button]:hover,' +
+        'input[type=submit]:hover,' +
+        'button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button),' +
+        '.button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button),' +
+        '.wp-block-button__link:hover,' +
+        'div.wpforms-container-full .wpforms-form input[type=submit]:hover,' +
+        'body div.wpforms-container-full .wpforms-form button[type=submit]:hover,' +
+        'div.wpforms-container-full .wpforms-form .wpforms-page-button:hover';
+
+    function isOutlineButtonPreset() {
         var preset = api( 'responsive_button_presets' ).get();
-        var newval = api( 'responsive_button_color' ).get();
-        var bgValue = newval;
+        return preset && 0 === preset.indexOf( 'outline' );
+    }
 
-        if( bgValue && bgValue.startsWith('palette') ) {
-            bgValue = `var(--responsive-global-${bgValue})`;
+    function resolveButtonBackgroundColor( settingId ) {
+        if ( isOutlineButtonPreset() ) {
+            return 'transparent';
         }
+        return processThemeSettingForCSS( settingId ) || '';
+    }
 
-        if ( preset && preset.indexOf( 'outline' ) === 0 ) {
-            bgValue = 'transparent';
-        }
+    function injectButtonBackgroundPreview( styleId, selectors, settingId ) {
+        var bgValue = resolveButtonBackgroundColor( settingId );
 
-        jQuery( 'style#' + buttonBGPreviewStyleId ).remove();
+        jQuery( 'style#' + styleId ).remove();
 
         if ( ! bgValue ) {
             return;
         }
 
-        var css = buttonBGPreviewSelectors + ' { background-color: ' + bgValue + ' !important; }';
-        jQuery( 'head' ).append( '<style id="' + buttonBGPreviewStyleId + '">' + css + '</style>' );
+        jQuery( 'head' ).append(
+            '<style id="' + styleId + '">' + selectors + ' { background-color: ' + bgValue + ' !important; }</style>'
+        );
+    }
+
+    function syncButtonBackgroundPreview() {
+        injectButtonBackgroundPreview( buttonBGPreviewStyleId, buttonBGPreviewSelectors, 'responsive_button_color' );
+    }
+
+    function syncButtonHoverBackgroundPreview() {
+        injectButtonBackgroundPreview( buttonHoverBGPreviewStyleId, buttonHoverBGPreviewSelectors, 'responsive_button_hover_color' );
+    }
+
+    function syncGlobalButtonBackgroundPreviews() {
+        syncButtonBackgroundPreview();
+        syncButtonHoverBackgroundPreview();
     }
 
     //Buttons color
     api( 'responsive_button_color', function( value ) {
-        value.bind( function() {
-            syncButtonBackgroundPreview();
-        } );
+        value.bind( syncButtonBackgroundPreview );
         syncButtonBackgroundPreview();
     } );
 
     api( 'responsive_button_presets', function( value ) {
-        value.bind( function() {
-            syncButtonBackgroundPreview();
-        } );
-        syncButtonBackgroundPreview();
+        value.bind( syncGlobalButtonBackgroundPreviews );
+        syncGlobalButtonBackgroundPreviews();
     } );
 
     // Buttons hover color
     api( 'responsive_button_hover_color', function( value ) {
-        value.bind( function( newval ) {
-
-            if ( newval && newval.startsWith('palette') ) {
-                newval = `var(--responsive-global-${newval})`;
-            }
-
-            var styleId = 'responsive-button-hover-color-preview';
-            jQuery('style#' + styleId).remove();
-
-            var selectors =
-                '.page.front-page .button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button),' +
-                '.blog.front-page .button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button),' +
-                '.read-more-button .hentry .read-more .more-link:hover,' +
-                'input[type=button]:hover,' +
-                'input[type=submit]:hover,' +
-                'button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button),' +
-                '.button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button),' +
-                '.wp-block-button__link:hover,' +
-                'div.wpforms-container-full .wpforms-form input[type=submit]:hover,' +
-                'body div.wpforms-container-full .wpforms-form button[type=submit]:hover,' +
-                'div.wpforms-container-full .wpforms-form .wpforms-page-button:hover';
-
-            var css = selectors + ' { background-color: ' + newval + ' !important; }';
-
-            jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
-        });
+        value.bind( syncButtonHoverBackgroundPreview );
+        syncButtonHoverBackgroundPreview();
     });
 
     // Header Button Hover Color
@@ -1823,23 +1825,15 @@
     //Buttons Hover Color
     $(".page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button:not(.menu-toggle):not(.responsive-header-button), .button:not(.responsive-header-button), .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, .elementor-widget-rael-button .rael-button").hover(
         function() {
-            const buttonHoverColor = processThemeSettingForCSS('responsive_button_hover_color');
-            const buttonHoverTextColor = processThemeSettingForCSS('responsive_button_hover_text_color');
-            const buttonHoverBorderColor = processThemeSettingForCSS('responsive_button_hover_border_color');
-            
-            $(this).css("background-color", buttonHoverColor);
-            $(this).css("color", buttonHoverTextColor);
-            $(this).css("border-color", buttonHoverBorderColor);
+            $(this).css("background-color", resolveButtonBackgroundColor('responsive_button_hover_color'));
+            $(this).css("color", processThemeSettingForCSS('responsive_button_hover_text_color'));
+            $(this).css("border-color", processThemeSettingForCSS('responsive_button_hover_border_color'));
         },
 
         function() {
-            const buttonBGColor = processThemeSettingForCSS('responsive_button_color');
-            const buttonTextColor = processThemeSettingForCSS('responsive_button_text_color');
-            const buttonBorderColor = processThemeSettingForCSS('responsive_button_border_color');
-
-            $(this).css("background-color", buttonBGColor);
-            $(this).css("color", buttonTextColor);
-            $(this).css("border-color", buttonBorderColor);
+            $(this).css("background-color", resolveButtonBackgroundColor('responsive_button_color'));
+            $(this).css("color", processThemeSettingForCSS('responsive_button_text_color'));
+            $(this).css("border-color", processThemeSettingForCSS('responsive_button_border_color'));
         }
     );
     api( 'responsive_button_hover_color', function( value ) {

@@ -1236,9 +1236,13 @@ function responsive_customizer_styles() {
 		padding: ' . responsive_spacing_css( $buttons_padding_top, $buttons_padding_right, $buttons_padding_bottom, $buttons_padding_left ) . ';
 	}';
 
-	$button_preset = get_theme_mod( 'responsive_button_presets', '' );
-	if ( $button_preset && strpos( $button_preset, 'outline' ) === 0 ) {
-		$custom_css .= '
+	$button_preset              = get_theme_mod( 'responsive_button_presets', '' );
+	$button_hover_background    = $button_hover_color;
+	$is_outline_button_preset = ( $button_preset && 0 === strpos( $button_preset, 'outline' ) );
+
+	if ( $is_outline_button_preset ) {
+		$button_hover_background = 'transparent';
+		$custom_css           .= '
 	input[type=button],
 	input[type=submit],
 	button,
@@ -1338,7 +1342,7 @@ function responsive_customizer_styles() {
 	.wp-block-button__link.has-background:hover,
 	.wp-block-button__link.has-background:focus, .main-navigation .menu .res-button-menu .res-custom-button:hover, #off-canvas-site-navigation .menu .res-button-menu .res-custom-button:hover {
 		color:' . $button_hover_text_color . ' !important;
-		background-color:' . $button_hover_color . ' !important;
+		background-color:' . $button_hover_background . ' !important;
 	}
 
 	' . $sensei_button_hover . '
@@ -1367,7 +1371,7 @@ function responsive_customizer_styles() {
 	body div.wpforms-container-full .wpforms-form .wpforms-page-button:focus, .main-navigation .menu .res-button-menu .res-custom-button:hover, #off-canvas-site-navigation .menu .res-button-menu .res-custom-button:hover {
 	    color:' . $button_hover_text_color . ';
 		border-color: ' . $button_hover_border_color . ';	
-		background-color:' . $button_hover_color . ';
+		background-color:' . $button_hover_background . ';
 	}
 
 	select,
@@ -4316,7 +4320,7 @@ function responsive_customizer_styles() {
 				color: {$button_text_color};
 			}
 			.elementor-button-wrapper .elementor-button:hover, .elementor-widget-button .elementor-button:hover {
-				background-color: {$button_hover_color};
+				background-color: {$button_hover_background};
 				color: {$button_hover_text_color};
 				border-color: {$button_hover_border_color}
 			}
