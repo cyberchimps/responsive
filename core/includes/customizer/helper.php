@@ -3731,6 +3731,42 @@ function responsive_font_presets_control( $wp_customize, $element, $label, $sect
 	);
 }
 
+function responsive_button_presets_control( $wp_customize, $element, $label, $section, $priority, $default = '', $transport = 'postMessage', $description = '' ) {
+
+	$choices = array(
+		'filled_square'   => array( 'label' => __( 'Filled Square', 'responsive' ),   'radius' => 0,  'border_width' => 0, 'filled' => true ),
+		'filled_rounded'  => array( 'label' => __( 'Filled Rounded', 'responsive' ),  'radius' => 6,  'border_width' => 0, 'filled' => true ),
+		'filled_pill'     => array( 'label' => __( 'Filled Pill', 'responsive' ),      'radius' => 50, 'border_width' => 0, 'filled' => true ),
+		'outline_square'  => array( 'label' => __( 'Outline Square', 'responsive' ),  'radius' => 0,  'border_width' => 2, 'filled' => false ),
+		'outline_rounded' => array( 'label' => __( 'Outline Rounded', 'responsive' ), 'radius' => 6,  'border_width' => 2, 'filled' => false ),
+		'outline_pill'    => array( 'label' => __( 'Outline Pill', 'responsive' ),     'radius' => 50, 'border_width' => 2, 'filled' => false ),
+	);
+
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'default'           => $default,
+			'sanitize_callback' => 'sanitize_text_field',
+			'transport'         => $transport,
+		)
+	);
+
+	$wp_customize->add_control(
+		new Responsive_Customizer_Button_Presets_Control(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'label'       => $label,
+				'description' => $description,
+				'section'     => $section,
+				'settings'    => 'responsive_' . $element,
+				'priority'    => $priority,
+				'choices'     => $choices,
+			)
+		)
+	);
+}
+
 /**
  * [responsive_color_control_with_device_switchers description]
  *

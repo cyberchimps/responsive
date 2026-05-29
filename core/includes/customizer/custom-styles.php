@@ -1234,8 +1234,20 @@ function responsive_customizer_styles() {
 		border-radius:' . responsive_spacing_css( $button_top_left_radius, $button_top_right_radius, $button_bottom_right_radius, $button_bottom_left_radius ) . ';
 	    color: ' . $button_text_color . ';
 		padding: ' . responsive_spacing_css( $buttons_padding_top, $buttons_padding_right, $buttons_padding_bottom, $buttons_padding_left ) . ';
+	}';
+
+	$button_preset = get_theme_mod( 'responsive_button_presets', '' );
+	if ( $button_preset && strpos( $button_preset, 'outline' ) === 0 ) {
+		$custom_css .= '
+	input[type=button],
+	input[type=submit],
+	button,
+	.button,
+	.wp-block-button__link,
+	.wp-block-file__button { background-color: transparent; }';
 	}
 
+	$custom_css .= '
 	.wp-block-search__button{
 		padding: ' . responsive_spacing_css( $buttons_padding_top, $buttons_padding_right, $buttons_padding_bottom, $buttons_padding_left ) . ';
 		border-color: ' . $button_border_color . ';

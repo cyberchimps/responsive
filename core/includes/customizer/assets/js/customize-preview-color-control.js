@@ -649,32 +649,56 @@
         } );
     } );
 
+    var buttonBGPreviewStyleId = 'responsive-button-color-preview';
+    var buttonBGPreviewSelectors =
+        '.page.front-page .button,' +
+        '.blog.front-page .button,' +
+        '.read-more-button .hentry .read-more .more-link,' +
+        'input[type=button],' +
+        'input[type=submit],' +
+        'button:not(.responsive-header-button),' +
+        '.button:not(.responsive-header-button),' +
+        '.wp-block-button__link,' +
+        'div.wpforms-container-full .wpforms-form input[type=submit],' +
+        'body div.wpforms-container-full .wpforms-form button[type=submit],' +
+        'div.wpforms-container-full .wpforms-form .wpforms-page-button';
+
+    function syncButtonBackgroundPreview() {
+        var preset = api( 'responsive_button_presets' ).get();
+        var newval = api( 'responsive_button_color' ).get();
+        var bgValue = newval;
+
+        if( bgValue && bgValue.startsWith('palette') ) {
+            bgValue = `var(--responsive-global-${bgValue})`;
+        }
+
+        if ( preset && preset.indexOf( 'outline' ) === 0 ) {
+            bgValue = 'transparent';
+        }
+
+        jQuery( 'style#' + buttonBGPreviewStyleId ).remove();
+
+        if ( ! bgValue ) {
+            return;
+        }
+
+        var css = buttonBGPreviewSelectors + ' { background-color: ' + bgValue + ' !important; }';
+        jQuery( 'head' ).append( '<style id="' + buttonBGPreviewStyleId + '">' + css + '</style>' );
+    }
+
     //Buttons color
     api( 'responsive_button_color', function( value ) {
-        value.bind( function( newval ) {
-            if( newval && newval.startsWith('palette') ) {
-                newval = `var(--responsive-global-${newval})`;
-            }
-            var styleId = 'responsive-button-color-preview';
-            jQuery('style#' + styleId).remove();
-
-            var selectors =
-                '.page.front-page .button,' +
-                '.blog.front-page .button,' +
-                '.read-more-button .hentry .read-more .more-link,' +
-                'input[type=button],' +
-                'input[type=submit],' +
-                'button:not(.responsive-header-button),' +
-                '.button:not(.responsive-header-button),' +
-                '.wp-block-button__link,' +
-                'div.wpforms-container-full .wpforms-form input[type=submit],' +
-                'body div.wpforms-container-full .wpforms-form button[type=submit],' +
-                'div.wpforms-container-full .wpforms-form .wpforms-page-button';
-
-            var css = selectors + ' { background-color: ' + newval + ' !important; }';
-
-            jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+        value.bind( function() {
+            syncButtonBackgroundPreview();
         } );
+        syncButtonBackgroundPreview();
+    } );
+
+    api( 'responsive_button_presets', function( value ) {
+        value.bind( function() {
+            syncButtonBackgroundPreview();
+        } );
+        syncButtonBackgroundPreview();
     } );
 
     // Buttons hover color

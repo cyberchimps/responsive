@@ -46,6 +46,10 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 					'priority' => 10,
 				)
 			);
+			// Button Presets.
+			$buttons_presets_label = esc_html__( 'Button presets', 'responsive' );
+			responsive_button_presets_control( $wp_customize, 'button_presets', $buttons_presets_label, 'responsive_button', 1 );
+
 			// Buttons Typography.
 			$buttons_typography_label = esc_html__( 'Font', 'responsive' );
 			responsive_typography_group_control( $wp_customize, 'button_typography_group', $buttons_typography_label, 'responsive_button', 14, 'button_typography' );
