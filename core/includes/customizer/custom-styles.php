@@ -5908,6 +5908,12 @@ function responsive_customizer_styles() {
 					border-radius: ' . responsive_spacing_css( $header_button_border_radius_mobile_top_left, $header_button_border_radius_mobile_top_right, $header_button_border_radius_mobile_bottom_right, $header_button_border_radius_mobile_bottom_left ) . ';
 				}
 			}';
+		} elseif ( responsive_apply_header_button_border_none_reset() ) {
+			$custom_css .= '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button {
+				border-style: none;
+				border-width: 0;
+				border-radius: 0;
+			}';
 		}
 
 		$header_button_margin_top = get_theme_mod( 'responsive_header_button_margin_top_padding' );

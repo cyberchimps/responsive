@@ -3501,6 +3501,52 @@ function responsive_show_header_button_border_option() {
 }
 
 /**
+ * Whether desktop header button border "none" should reset inherited global button borders.
+ *
+ * @return bool
+ */
+function responsive_apply_header_button_border_none_reset() {
+	if ( 'none' !== get_theme_mod( 'responsive_header_button_border_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_style' ) ) ) {
+		return false;
+	}
+
+	return ! get_theme_mod( 'responsive_header_button_border_none_legacy', false );
+}
+
+/**
+ * One-time migration: keep prior appearance for existing header buttons that already use border none.
+ *
+ * @return void
+ */
+function responsive_header_button_border_none_legacy_migrate() {
+	$theme_options = get_option( 'responsive_theme_options', array() );
+
+	if ( ! empty( $theme_options['header-button-border-none-legacy-done'] ) ) {
+		return;
+	}
+
+	if ( Responsive\Core\responsive_check_element_present_in_hfb( 'header_button', 'header' )
+		&& 'none' === get_theme_mod( 'responsive_header_button_border_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_style' ) ) ) {
+		set_theme_mod( 'responsive_header_button_border_none_legacy', true );
+	}
+
+	$theme_options['header-button-border-none-legacy-done'] = true;
+	update_option( 'responsive_theme_options', $theme_options );
+}
+
+/**
+ * Clear legacy lock when border style is saved as none (re-select or new choice).
+ *
+ * @param WP_Customize_Setting $setting Setting instance.
+ * @return void
+ */
+function responsive_header_button_border_none_clear_legacy_on_save( $setting ) {
+	if ( 'none' === $setting->post_value() ) {
+		remove_theme_mod( 'responsive_header_button_border_none_legacy' );
+	}
+}
+
+/**
  * Check if the mobile header button border option should be displayed.
  *
  * Determines whether the mobile header button border option should be shown
