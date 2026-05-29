@@ -1234,8 +1234,24 @@ function responsive_customizer_styles() {
 		border-radius:' . responsive_spacing_css( $button_top_left_radius, $button_top_right_radius, $button_bottom_right_radius, $button_bottom_left_radius ) . ';
 	    color: ' . $button_text_color . ';
 		padding: ' . responsive_spacing_css( $buttons_padding_top, $buttons_padding_right, $buttons_padding_bottom, $buttons_padding_left ) . ';
+	}';
+
+	$button_preset              = get_theme_mod( 'responsive_button_presets', '' );
+	$button_hover_background    = $button_hover_color;
+	$is_outline_button_preset = ( $button_preset && 0 === strpos( $button_preset, 'outline' ) );
+
+	if ( $is_outline_button_preset ) {
+		$button_hover_background = 'transparent';
+		$custom_css           .= '
+	input[type=button],
+	input[type=submit],
+	button,
+	.button,
+	.wp-block-button__link,
+	.wp-block-file__button { background-color: transparent; }';
 	}
 
+	$custom_css .= '
 	.wp-block-search__button{
 		padding: ' . responsive_spacing_css( $buttons_padding_top, $buttons_padding_right, $buttons_padding_bottom, $buttons_padding_left ) . ';
 		border-color: ' . $button_border_color . ';
@@ -1326,7 +1342,7 @@ function responsive_customizer_styles() {
 	.wp-block-button__link.has-background:hover,
 	.wp-block-button__link.has-background:focus, .main-navigation .menu .res-button-menu .res-custom-button:hover, #off-canvas-site-navigation .menu .res-button-menu .res-custom-button:hover {
 		color:' . $button_hover_text_color . ' !important;
-		background-color:' . $button_hover_color . ' !important;
+		background-color:' . $button_hover_background . ' !important;
 	}
 
 	' . $sensei_button_hover . '
@@ -1355,7 +1371,7 @@ function responsive_customizer_styles() {
 	body div.wpforms-container-full .wpforms-form .wpforms-page-button:focus, .main-navigation .menu .res-button-menu .res-custom-button:hover, #off-canvas-site-navigation .menu .res-button-menu .res-custom-button:hover {
 	    color:' . $button_hover_text_color . ';
 		border-color: ' . $button_hover_border_color . ';	
-		background-color:' . $button_hover_color . ';
+		background-color:' . $button_hover_background . ';
 	}
 
 	select,
@@ -4304,7 +4320,7 @@ function responsive_customizer_styles() {
 				color: {$button_text_color};
 			}
 			.elementor-button-wrapper .elementor-button:hover, .elementor-widget-button .elementor-button:hover {
-				background-color: {$button_hover_color};
+				background-color: {$button_hover_background};
 				color: {$button_hover_text_color};
 				border-color: {$button_hover_border_color}
 			}
@@ -5891,6 +5907,12 @@ function responsive_customizer_styles() {
 				.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button {
 					border-radius: ' . responsive_spacing_css( $header_button_border_radius_mobile_top_left, $header_button_border_radius_mobile_top_right, $header_button_border_radius_mobile_bottom_right, $header_button_border_radius_mobile_bottom_left ) . ';
 				}
+			}';
+		} elseif ( responsive_apply_header_button_border_none_reset() ) {
+			$custom_css .= '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button {
+				border-style: none;
+				border-width: 0;
+				border-radius: 0;
 			}';
 		}
 

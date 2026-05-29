@@ -319,6 +319,7 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'shadow/class-responsive-customizer-shadow-control.php';
 	require_once $dir . 'input-with-dropdown/class-responsive-customizer-input-with-dropdown-control.php';
 	require_once $dir . 'fontpresets/class-responsive-customizer-font-preset-control.php';
+	require_once $dir . 'buttonpresets/class-responsive-customizer-button-preset-control.php';
 	require_once $dir . 'contact-info/class-responsive-customizer-contact-info-control.php';
 	require_once $dir . 'color-with-devices/class-responsive-customizer-color-with-devices-control.php';
 	require_once $dir . 'color-with-devices-and-hover/class-responsive-customizer-color-with-devices-and-hover-control.php';
@@ -360,6 +361,7 @@ function responsive_custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Shadow_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Social_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Input_With_Dropdown_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Button_Presets_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Contact_Info_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Color_With_Devices_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Color_With_Devices_And_Hover_Control' );

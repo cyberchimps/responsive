@@ -3009,3 +3009,7 @@ if( !function_exists( 'responsive_theme_background_updater_footer_links_restyle'
 		}
 	}
 }
+
+add_action( 'wp', 'responsive_header_button_border_none_legacy_migrate', 5 );
+add_action( 'admin_init', 'responsive_header_button_border_none_legacy_migrate', 5 );
+add_action( 'customize_save_responsive_header_button_border_style', 'responsive_header_button_border_none_clear_legacy_on_save' );
