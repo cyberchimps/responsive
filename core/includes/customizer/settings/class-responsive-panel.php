@@ -94,7 +94,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				'responsive_page',
 				array(
 					'title'    => __( 'Page', 'responsive' ),
-					'priority' => 9,
+					'priority' => 10,
 				)
 			);
 
@@ -103,7 +103,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'       => __( 'Blog / Archive', 'responsive' ),
 					'description' => __( 'Blog Options', 'responsive' ),
-					'priority'    => 10,
+					'priority'    => 11,
 				)
 			);
 			$wp_customize->add_panel(
@@ -111,7 +111,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'       => __( 'General', 'responsive' ),
 					'description' => __( 'General Options', 'responsive' ),
-					'priority'    => 11,
+					'priority'    => 12,
 				)
 			);
 
@@ -130,7 +130,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'       => __( 'Footer', 'responsive' ),
 					'description' => __( 'Footer Options', 'responsive' ),
-					'priority'    => 12,
+					'priority'    => 9,
 				)
 			);
 
