@@ -492,8 +492,13 @@ body.rtl .customize-control .responsive-switchers li {
 	margin-top: 10px;
 }
 
-#accordion-section-responsive_rp_layout {
+#accordion-section-responsive_rp_layout,
+#accordion-section-responsive_comments_layout {
 	display: none !important;
+}
+
+#customize-theme-controls .customize-pane-child#sub-accordion-section-responsive_comments_layout {
+	height: stretch;
 }
 
 #_customize-input-responsive_single_blog_related_posts_title {
@@ -1944,4 +1949,7 @@ div.customize-section-description{
 
 div.customize-section-description {
 	margin-top: 0px;
+}
+.wp-core-ui #accordion-section-responsive_upsell_section .accordion-section-title {
+	cursor: pointer;
 }

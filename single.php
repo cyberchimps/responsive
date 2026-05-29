@@ -27,7 +27,9 @@ if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_d
 	while ( have_posts() ) :
 		the_post();
 		get_template_part( 'partials/single/layout', get_post_type() );
-		comments_template();
+		if ( comments_open() || get_comments_number() ) {
+			comments_template();
+		}
 	endwhile;
 
 	?>

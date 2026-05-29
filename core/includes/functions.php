@@ -865,7 +865,7 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
  * Add Upgrade to pro button
  */
 function responsive_add_pro_button() {
-	$upgrade_link = esc_url_raw( 'https://cyberchimps.com/pricing/?utm_source=wpdash&utm_medium=rtheme&utm_campaign=cstmzer&utm_content=upgrade-to-pro' );
+	$upgrade_link = esc_url_raw( 'https://cyberchimps.com/responsive-go-pro/?utm_source=wpdash&utm_medium=rtheme&utm_campaign=cstmzer&utm_content=upgrade-to-pro' );
 	?>
 <script type="text/javascript">
 		jQuery( document ).ready( function( $ ) {
@@ -880,7 +880,7 @@ function responsive_add_pro_button() {
 	if (sectionTitle.length) {
 		sectionTitle.click(function(event) {
 			event.preventDefault(); // Prevent the default behavior
-			window.open('https://cyberchimps.com/pricing/?utm_source=wpdash&utm_medium=rtheme&utm_campaign=cstmzer&utm_content=view-pro-features', '_blank'); // Open in a new tab
+			window.open('https://cyberchimps.com/responsive-go-pro/?utm_source=wpdash&utm_medium=rtheme&utm_campaign=cstmzer&utm_content=upgrade-to-pro', '_blank');
 		});
 	}
 });
@@ -1652,7 +1652,15 @@ function defaults() {
 				'style' => 'playful-default',
 				'palette' => responsive_get_selected_palette_color_scheme(),
 			),
-		)
+		'responsive_single_blog_comments'       => true,
+		'responsive_comments_position'          => 'below',
+		'responsive_comments_border_width'      => 0,
+		'responsive_comments_border_color'      => '',
+		'responsive_comments_border_radius'     => 8,
+		'responsive_comments_padding'           => 30,
+		'responsive_comments_margin_y'          => 28,
+		'responsive_comments_margin_x'          => 0,
+		),
 	);
 	return $theme_options;
 }
