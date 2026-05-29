@@ -68,14 +68,24 @@ body .select2-container--default .select2-selection--single .select2-selection__
 label.responsive_font_family,
 label.responsive_font_weight {
 	display: flex;
-	align-items: center;
 	justify-content: space-between;
+	flex-direction: column;
 }
-label.responsive_font_family {
-	gap: 54px;
+label.responsive_font_family,label.responsive_font_weight {
+	gap: 14px;
 }
-label.responsive_font_weight select {
-	width: 152px;
+label.responsive_font_weight select, label.responsive_font_family select {
+    width: 228px;
+    height: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    opacity: 1;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    border: 1px solid #E2E2E2;
+    box-sizing: border-box;
 }
 label.responsive_font_weight select option {
 	color: #50575E;
