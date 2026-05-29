@@ -1892,6 +1892,19 @@ in both cases the footer builder is active */
 	border-left-width: 1px;
 	padding: 0px;
 }
+.responsive-typography-settings-group .responsive-typography-inline-container li[id$="font-style"] button.selectbtn-text {
+    width: 32px;
+    height: 32px;
+    opacity: 1;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-width: 1px 0px 1px 1px;
+    border-style: solid;
+    border-color: #E2E2E2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 .responsive-typography-settings-group 
 .responsive-typography-inline-container 
 li[id$="text-transform"] 
