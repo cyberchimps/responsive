@@ -2611,7 +2611,7 @@ function responsive_select_control( $wp_customize, $element, $label, $section, $
  *
  * @return void               [description].
  */
-function responsive_select_button_control( $wp_customize, $element, $label, $section, $priority, $choices, $default, $active_call, $transport = 'refresh', $description = '' ) {
+function responsive_select_button_control( $wp_customize, $element, $label, $section, $priority, $choices, $default, $active_call, $transport = 'refresh', $description = '', $note = '' ) {
 
 	$wp_customize->add_setting(
 		'responsive_' . $element,
@@ -2628,6 +2628,7 @@ function responsive_select_button_control( $wp_customize, $element, $label, $sec
 			array(
 				'label'           => $label,
 				'description'     => $description,
+				'note'            => $note,
 				'section'         => $section,
 				'settings'        => 'responsive_' . $element,
 				'priority'        => $priority,
@@ -4082,10 +4083,11 @@ endif;
  * @param  [type] $active_call  [description].
  * @return void                 [description].
  */
-function responsive_section_toggle_control( $wp_customize, $element, $label, $section, $priority, $linktype, $linkval, $active_call = null, $transport = 'refresh', $description = '' ) {
+function responsive_section_toggle_control( $wp_customize, $element, $label, $section, $priority, $linktype, $linkval, $default = false, $active_call = null, $transport = 'refresh', $description = '' ) {
 	$wp_customize->add_setting(
 		'responsive_' . $element,
 		array(
+			'default'           => $default,
 			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_checkbox_validate',
 		)

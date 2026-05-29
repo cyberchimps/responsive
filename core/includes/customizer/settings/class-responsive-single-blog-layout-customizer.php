@@ -56,6 +56,15 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				)
 			);
 
+			$wp_customize->add_section(
+				'responsive_comments_layout',
+				array(
+					'title'    => esc_html__( 'Comments', 'responsive' ),
+					'panel'    => 'responsive_blog',
+					'priority' => 24,
+				)
+			);
+
 			$general_tab_ids = [
 				'customize-control-rp_show_related',
 				'customize-control-responsive_rp_order',
@@ -381,7 +390,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 			$single_blog_related_posts_label = esc_html__( 'Related Posts', 'responsive' );
 			
 			responsive_separator_control( $wp_customize, 'single_blog_related_posts_separator', $single_blog_related_posts_label, 'responsive_single_blog_layout', 155 );
-			responsive_section_toggle_control( $wp_customize, 'single_blog_enable_related_posts', __( 'Enable Related Posts', 'responsive' ), 'responsive_single_blog_layout', 160, 'section', 'responsive_rp_layout', null, 'refresh', 'Enable the toggle to customize Related Posts settings.');
+			responsive_section_toggle_control( $wp_customize, 'single_blog_enable_related_posts', __( 'Enable Related Posts', 'responsive' ), 'responsive_single_blog_layout', 160, 'section', 'responsive_rp_layout', false, null, 'refresh', 'Enable the toggle to customize Related Posts settings.');
 
 			// Related Posts Section Title.
 			$wp_customize->add_setting(
@@ -513,6 +522,55 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 			);
 
 			responsive_horizontal_separator_control( $wp_customize, 'related_post_meta_elements_separator', 1, 'responsive_rp_layout',95, 1, null );
+
+			// Comments.
+			$single_blog_comments_label = esc_html__( 'Comments', 'responsive' );
+			
+			responsive_separator_control( $wp_customize, 'single_blog_comments_separator', $single_blog_comments_label, 'responsive_single_blog_layout', 165 );
+
+			responsive_section_toggle_control( $wp_customize, 'single_blog_comments', __( 'Enable Comments', 'responsive' ), 'responsive_single_blog_layout', 170, 'section', 'responsive_comments_layout', true, null, 'refresh', 'Enable the toggle to customize comments settings.');
+
+			$comments_general_tab_ids = [
+				'customize-control-responsive_comments_form_position',
+			];
+
+			$comments_design_tab_ids = [
+				'customize-control-responsive_comments_border_width_border',
+				'customize-control-responsive_comments_border_color_color',
+				'customize-control-responsive_border_comments_border_radius',
+				'customize-control-responsive_comments_padding_padding',
+				'customize-control-responsive_comments_margin_padding',
+			];
+
+			responsive_tabs_button_control( $wp_customize, 'comments_tabs', $tabs_label, 'responsive_comments_layout', 1, '', 'responsive_comments_general_tab', 'responsive_comments_design_tab', $comments_general_tab_ids, $comments_design_tab_ids, null );
+
+			$comments_form_position_choices = array(
+				'below' => esc_html__( 'Below', 'responsive' ),
+				'above' => esc_html__( 'Above', 'responsive' ),
+			);
+			responsive_select_button_control( $wp_customize, 'comments_form_position', 'Form Position', 'responsive_comments_layout', 4, $comments_form_position_choices, Responsive\Core\get_responsive_customizer_defaults( 'responsive_comments_position' ), null );
+
+			if ( $wp_customize->get_control( 'responsive_comments_form_position' ) ) {
+				$wp_customize->get_control( 'responsive_comments_form_position' )->note = __( 'You need at least one published comment on a post to see the effect in the live preview.', 'responsive' );
+			}
+
+			$default_comments_border_width = Responsive\Core\get_responsive_customizer_defaults( 'responsive_comments_border_width' );
+
+			responsive_borderwidth_control( $wp_customize, 'comments_border_width', 'responsive_comments_layout', 5, $default_comments_border_width, $default_comments_border_width, null, __( 'Border Width (px)', 'responsive' ) );
+
+			$default_comments_border_color = Responsive\Core\get_responsive_customizer_defaults( 'responsive_comments_border_color' );
+
+			responsive_color_control( $wp_customize, 'comments_border_color', __( 'Border Color', 'responsive' ), 'responsive_comments_layout', 6, $default_comments_border_color, null );
+
+			$default_comments_border_radius = Responsive\Core\get_responsive_customizer_defaults( 'responsive_comments_border_radius' );
+
+			responsive_radius_control( $wp_customize, 'comments_border_radius', 'responsive_comments_layout', 7, $default_comments_border_radius, $default_comments_border_radius, null, __( 'Border Radius (px)', 'responsive' ) );
+
+			$default_comments_padding = Responsive\Core\get_responsive_customizer_defaults( 'responsive_comments_padding' );
+
+			responsive_padding_control( $wp_customize, 'comments_padding', 'responsive_comments_layout', 8, $default_comments_padding, $default_comments_padding, null, __( 'Padding (px)', 'responsive' ) );
+
+			responsive_padding_control( $wp_customize, 'comments_margin', 'responsive_comments_layout', 9, Responsive\Core\get_responsive_customizer_defaults( 'responsive_comments_margin_y' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_comments_margin_x' ), null, __( 'Margin (px)', 'responsive' ) );
 		}
 
 	}

@@ -45,3 +45,13 @@
 #customize-control-responsive_header_search_icon .customize-control-responsive-selectbtn__button.active svg path{
     fill: #FFF;
 }
+.customize-control-responsive-selectbtn .responsive-selectbtn-control-wrapper .responsive-selectbtn-control-note {
+    font-size: 12px;
+    line-height: 18px;
+    color: #a4a4a4;;
+    margin-top: 10px;
+    font-style: italic;
+}
+.customize-control-responsive-selectbtn .responsive-selectbtn-control-wrapper .responsive-selectbtn-control-note span {
+    font-weight: 600;
+}

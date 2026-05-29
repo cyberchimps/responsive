@@ -33,7 +33,7 @@
             '</style>'
         );
     }
-    function responsive_dynamic_border_width(control, selector) {
+    function responsive_dynamic_border_width(control, selector, borderStyle = '') {
         var mobile_menu_breakpoint = api('responsive_mobile_menu_breakpoint').get();
         if (0 == api('responsive_disable_mobile_menu').get()) {
             mobile_menu_breakpoint = 0;
@@ -43,7 +43,12 @@
         var desktopBorderWidth = 'border-top-width:' + api('responsive_' + control + '_top_border').get() + 'px; ' +
                                  'border-right-width:' + api('responsive_' + control + '_right_border').get() + 'px; ' +
                                  'border-bottom-width:' + api('responsive_' + control + '_bottom_border').get() + 'px; ' +
-                                 'border-left-width:' + api('responsive_' + control + '_left_border').get() + 'px;';
+                                 'border-left-width:' + api('responsive_' + control + '_left_border').get() + 'px;'
+        
+        if ( '' !== borderStyle ) {
+            desktopBorderWidth += 'border-style: ' + borderStyle + ';';
+        }
+
         var tabletBorderWidth = 'border-top-width:' + api('responsive_' + control + '_tablet_top_border').get() + 'px; ' +
                                 'border-right-width:' + api('responsive_' + control + '_tablet_right_border').get() + 'px; ' +
                                 'border-bottom-width:' + api('responsive_' + control + '_tablet_bottom_border').get() + 'px; ' +
@@ -304,6 +309,57 @@
             $('div.wpforms-container-full .wpforms-form .wpforms-field input.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field input.user-invalid,div.wpforms-container-full .wpforms-form .wpforms-field textarea.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field textarea.user-invalid,div.wpforms-container-full .wpforms-form .wpforms-field select.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field select.user-invalid').css('border-width', newval+'px' );
         } );
     } );
+
+    // Comments Border Width.
+    function applyCommentsBorderWidth(controlName) {
+        api(controlName, function(value) {
+            value.bind( function( newval ) {
+                let selector = 'body .site .comments-area';
+                responsive_dynamic_border_width('comments_border_width', selector, 'solid');
+            } );
+        });
+    }
+    
+    applyCommentsBorderWidth('responsive_comments_border_width_top_border');
+    applyCommentsBorderWidth('responsive_comments_border_width_right_border');
+    applyCommentsBorderWidth('responsive_comments_border_width_bottom_border');
+    applyCommentsBorderWidth('responsive_comments_border_width_left_border');
+
+    applyCommentsBorderWidth('responsive_comments_border_width_tablet_top_border');
+    applyCommentsBorderWidth('responsive_comments_border_width_tablet_right_border');
+    applyCommentsBorderWidth('responsive_comments_border_width_tablet_bottom_border');
+    applyCommentsBorderWidth('responsive_comments_border_width_tablet_left_border');
+
+    applyCommentsBorderWidth('responsive_comments_border_width_mobile_top_border');
+    applyCommentsBorderWidth('responsive_comments_border_width_mobile_right_border');
+    applyCommentsBorderWidth('responsive_comments_border_width_mobile_bottom_border');
+    applyCommentsBorderWidth('responsive_comments_border_width_mobile_left_border');
+
+    // Comments Border Radius.
+    function applyCommentsBorderRadius(controlName) {
+        api(controlName, function(value) {
+            value.bind( function( newval ) {
+                let selector = 'body .site .comments-area';
+                responsive_dynamic_radius('comments_border', selector);
+            } );
+        });
+    }
+
+    applyCommentsBorderRadius('responsive_comments_border_radius_top_left_radius');
+    applyCommentsBorderRadius('responsive_comments_border_radius_bottom_left_radius');
+    applyCommentsBorderRadius('responsive_comments_border_radius_bottom_right_radius');
+    applyCommentsBorderRadius('responsive_comments_border_radius_top_right_radius');
+
+    applyCommentsBorderRadius('responsive_comments_border_radius_tablet_top_left_radius');
+    applyCommentsBorderRadius('responsive_comments_border_radius_tablet_top_right_radius');
+    applyCommentsBorderRadius('responsive_comments_border_radius_tablet_bottom_right_radius');
+    applyCommentsBorderRadius('responsive_comments_border_radius_tablet_bottom_left_radius');
+
+    applyCommentsBorderRadius('responsive_comments_border_radius_mobile_top_left_radius');
+    applyCommentsBorderRadius('responsive_comments_border_radius_mobile_top_right_radius');
+    applyCommentsBorderRadius('responsive_comments_border_radius_mobile_bottom_right_radius');
+    applyCommentsBorderRadius('responsive_comments_border_radius_mobile_bottom_left_radius');
+
 
     //Footer Border width
     // api( 'responsive_footer_border_size', function( value ) {

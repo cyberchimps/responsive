@@ -8,6 +8,19 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(26/05/2026) Version 6.3.7
+[+] = New = Added a new toggle option in the Responsive Theme to easily enable or disable comments on single post pages directly from the customization settings.
+[*] = Improvement = Improved the Responsive Theme editor experience by making the Viewport Selector auto-expand for quicker and more seamless device switching during customization.
+[!] = Fix = Fixed an issue with the hover color of scroll to top.
+
+(18/05/2026) Version 6.3.6
+[!] = Fix = Fixed an issue where the social icon color and size could not be changed in the Mobile Header Builder.
+[!] = Fix = Fixed an issue where the search widget in the Mobile Header Builder was not working when Full Screen mode was selected.
+[!] = Fix = Fixed an issue where the main content width setting was not working on single product and product catalog pages when sidebars were enabled.
+[!] = Fix = Fixed an issue with the footer widget link color and footer widget link hover color settings.
+[!] = Fix = Fixed an issue causing the page to reload when reset buttons were clicked in the Responsive Theme Customizer.
+[!] = Fix = Other minor bug fixes and improvements.
+
 (12/03/2026) Version 6.3.5
 [!] = Fix = Minor Bug Fixes and Improvements.
 
