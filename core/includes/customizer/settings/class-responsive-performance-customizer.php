@@ -33,6 +33,7 @@ if ( ! class_exists( 'Responsive_Performance_Customizer' ) ) :
 				array(
 					'title'    => esc_html__( 'Performance', 'responsive' ),
 					'priority' => 40,
+					'panel'    => 'responsive_general',
 				)
 			);
 
