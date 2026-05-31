@@ -1870,15 +1870,15 @@ div.customize-section-description{
 	margin-top:0; 
 }
 .responsive-typography-inline-container {
-	width: 100%;
-	gap: 60px;
-    background-color: #f9f9f9;
-	margin: -12px -12px;
-	padding: 20px 12px;
-	box-shadow: 0 3px 6px rgba(0, 0, 0, .4);
+	width: 228px;
+	height: 32px;
+	justify-content: space-between;
+	margin-bottom: 0px;
+}
+.responsive-typography-settings-group .responsive-typography-inline-container .responsive-selectbtn-control-wrapper .customize-control-responsive-selectbtn {
+	gap: 0px;
 }
 .responsive-typography-settings-group .customize-control-responsive-range {
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0.4), 0 0 3px rgba(0, 0, 0, 0.4);
     border-bottom: .5px solid #d0d0d060;
 }
 .responsive-typography-settings-group .responsive-typography-inline-container li[id$="text-transform"] {
@@ -1892,8 +1892,7 @@ div.customize-section-description{
 .responsive-typography-settings-group .responsive-typography-inline-container li[id$="text-transform"] button.selectbtn-text {
 	width: 32px;
 	height: 32px;
-	border-top-left-radius: 3px;
-	border-bottom-left-radius: 3px;
+	border-radius: 0px;
 	border-top-width: 1px;
 	border-bottom-width: 1px;
 	border-left-width: 1px;
@@ -1903,8 +1902,7 @@ div.customize-section-description{
     width: 32px;
     height: 32px;
     opacity: 1;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
+    border-radius: 0px;
     border-width: 1px 0px 1px 1px;
     border-style: solid;
     border-color: #E2E2E2;

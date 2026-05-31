@@ -39,17 +39,7 @@ body .select2-container--default .select2-selection--single .select2-selection__
 
 .responsive-typography-settings-group li.customize-control {
 	display: none;
-	margin-left: -12px;
-	margin-right: -12px;
-	padding-left: 12px;
-	padding-right: 12px;
-	background: #F9F9F9;
-	padding-top: 20px;
 	padding-bottom: 20px !important;
-	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
-}
-.responsive-typography-settings-group li.customize-control:first-child {
-	margin-top: 14px;
 }
 #sub-accordion-section-responsive_page .responsive-typography-settings-group li.customize-control:first-child,
 #sub-accordion-section-responsive_sidebar .responsive-typography-settings-group li.customize-control:first-child,
@@ -99,13 +89,19 @@ label.responsive_font_weight select option:checked {
 }
 .responsive-typography-settings-group .customize-control-title {
 	margin: 0 !important;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 600 !important;
+    font-size: 14px !important;
+    line-height: 1;
+    color: #50575E;
+    letter-spacing: 0;
 }
 .responsive-typography-settings-group .customize-control select {
 	height: 40px;
-	padding-left: 12px;
-	padding-right: 40px;
+	padding: 8px 12px;
 	color: #50575E;
-	border: 1px solid #A5A5A5;
+	border: 1px solid #e2e2e2;
+	border-radius: 5px;
 }
 .responsive-font-family-select-options {
 	color: #50575E;
@@ -300,4 +296,30 @@ label.responsive_font_weight select option:checked {
 .accordion-section .responsive-typography-settings-group-product_content_shop_typography .wp-picker-holder,
 .accordion-section .responsive-typography-settings-group-single_product_content_shop_typography .wp-picker-holder {
 	top: 72px;
+}
+ul.responsive-typography-settings-group{
+	width: 260px;
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .4);
+	gap: 14px;
+	padding: 16px;
+	border-radius: 4px;
+}
+.responsive-typography-settings-group .responsive-typography-inline-container li[id$="font-style"] {
+	border: none;
+}
+.responsive-typography-settings-group .responsive-typography-inline-container li[id$="font-style"] button.selectbtn-text:first-child {
+    border-radius: 3px 0px 0px 3px;
+}
+
+.responsive-typography-settings-group .responsive-typography-inline-container li[id$="font-style"] button.selectbtn-text:last-child {
+    border-radius: 0px 3px 3px 0px;
+    border-width: 1px;
+}
+ul.responsive-typography-settings-group li.customize-control {
+	width: 228px;
 }
