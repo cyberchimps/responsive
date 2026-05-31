@@ -3501,6 +3501,52 @@ function responsive_show_header_button_border_option() {
 }
 
 /**
+ * Whether desktop header button border "none" should reset inherited global button borders.
+ *
+ * @return bool
+ */
+function responsive_apply_header_button_border_none_reset() {
+	if ( 'none' !== get_theme_mod( 'responsive_header_button_border_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_style' ) ) ) {
+		return false;
+	}
+
+	return ! get_theme_mod( 'responsive_header_button_border_none_legacy', false );
+}
+
+/**
+ * One-time migration: keep prior appearance for existing header buttons that already use border none.
+ *
+ * @return void
+ */
+function responsive_header_button_border_none_legacy_migrate() {
+	$theme_options = get_option( 'responsive_theme_options', array() );
+
+	if ( ! empty( $theme_options['header-button-border-none-legacy-done'] ) ) {
+		return;
+	}
+
+	if ( Responsive\Core\responsive_check_element_present_in_hfb( 'header_button', 'header' )
+		&& 'none' === get_theme_mod( 'responsive_header_button_border_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_border_style' ) ) ) {
+		set_theme_mod( 'responsive_header_button_border_none_legacy', true );
+	}
+
+	$theme_options['header-button-border-none-legacy-done'] = true;
+	update_option( 'responsive_theme_options', $theme_options );
+}
+
+/**
+ * Clear legacy lock when border style is saved as none (re-select or new choice).
+ *
+ * @param WP_Customize_Setting $setting Setting instance.
+ * @return void
+ */
+function responsive_header_button_border_none_clear_legacy_on_save( $setting ) {
+	if ( 'none' === $setting->post_value() ) {
+		remove_theme_mod( 'responsive_header_button_border_none_legacy' );
+	}
+}
+
+/**
  * Check if the mobile header button border option should be displayed.
  *
  * Determines whether the mobile header button border option should be shown
@@ -3717,6 +3763,42 @@ function responsive_font_presets_control( $wp_customize, $element, $label, $sect
 	// Add control for font presets.
 	$wp_customize->add_control(
 		new Responsive_Customizer_Font_Presets_Control(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'label'       => $label,
+				'description' => $description,
+				'section'     => $section,
+				'settings'    => 'responsive_' . $element,
+				'priority'    => $priority,
+				'choices'     => $choices,
+			)
+		)
+	);
+}
+
+function responsive_button_presets_control( $wp_customize, $element, $label, $section, $priority, $default = '', $transport = 'postMessage', $description = '' ) {
+
+	$choices = array(
+		'filled_square'   => array( 'label' => __( 'Filled Square', 'responsive' ),   'radius' => 0,  'border_width' => 0, 'filled' => true ),
+		'filled_rounded'  => array( 'label' => __( 'Filled Rounded', 'responsive' ),  'radius' => 6,  'border_width' => 0, 'filled' => true ),
+		'filled_pill'     => array( 'label' => __( 'Filled Pill', 'responsive' ),      'radius' => 50, 'border_width' => 0, 'filled' => true ),
+		'outline_square'  => array( 'label' => __( 'Outline Square', 'responsive' ),  'radius' => 0,  'border_width' => 2, 'filled' => false ),
+		'outline_rounded' => array( 'label' => __( 'Outline Rounded', 'responsive' ), 'radius' => 6,  'border_width' => 2, 'filled' => false ),
+		'outline_pill'    => array( 'label' => __( 'Outline Pill', 'responsive' ),     'radius' => 50, 'border_width' => 2, 'filled' => false ),
+	);
+
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'default'           => $default,
+			'sanitize_callback' => 'sanitize_text_field',
+			'transport'         => $transport,
+		)
+	);
+
+	$wp_customize->add_control(
+		new Responsive_Customizer_Button_Presets_Control(
 			$wp_customize,
 			'responsive_' . $element,
 			array(

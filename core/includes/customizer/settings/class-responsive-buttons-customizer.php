@@ -42,10 +42,15 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 				'responsive_button',
 				array(
 					'title'    => __( 'Buttons', 'responsive' ),
+					'description' => '<div class="responsive-section-description"><p><b>' . __( 'Helpful Information', 'responsive' ) . '</b></p><p><a href="https://cyberchimps.com/docs/responsive-theme/responsive-theme-walkthrough/global-settings-button/" target="_blank">' . __( 'Buttons Overview »', 'responsive' ) . '</a></p></div>',
 					'panel'    => 'responsive_site',
 					'priority' => 10,
 				)
 			);
+			// Button Presets.
+			$buttons_presets_label = esc_html__( 'Button presets', 'responsive' );
+			responsive_button_presets_control( $wp_customize, 'button_presets', $buttons_presets_label, 'responsive_button', 1 );
+
 			// Buttons Typography.
 			$buttons_typography_label = esc_html__( 'Font', 'responsive' );
 			responsive_typography_group_control( $wp_customize, 'button_typography_group', $buttons_typography_label, 'responsive_button', 14, 'button_typography' );

@@ -25,6 +25,7 @@ import { responsiveHorizontalSeparator } from './horizontal-separator/control';
 import { responsiveBackgroundImage } from './backgroundimage/control';
 import { responsiveTypographyGroup } from './typography_group/control';
 import { responsiveFontPreset } from './fontpresets/control';
+import { responsiveButtonPreset } from './buttonpresets/control';
 import './breadcrumb-toggle';
 import { responsiveBuilderControl } from './builder-layout/control';
 import { responsiveMultiSelectControl } from './multi-select/control';
@@ -68,6 +69,7 @@ wp.customize.controlConstructor['responsive-horizontal-separator'] = responsiveH
 wp.customize.controlConstructor['responsive-background-image'] = responsiveBackgroundImage;
 wp.customize.controlConstructor['responsive-typography-settings-group'] = responsiveTypographyGroup;
 wp.customize.controlConstructor['responsive-font-presets'] = responsiveFontPreset;
+wp.customize.controlConstructor['responsive-button-presets'] = responsiveButtonPreset;
 wp.customize.controlConstructor['responsive-builder-control']           = responsiveBuilderControl;
 wp.customize.controlConstructor['responsive-multi-select']              = responsiveMultiSelectControl;
 wp.customize.controlConstructor['responsive-range-with-switchers']      = responsiveRangeWithSwitcher;

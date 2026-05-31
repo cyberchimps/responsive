@@ -130,9 +130,9 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			);
 
 			// Site Width.
-			$responsive_width_label  = __( 'Width', 'responsive' );
+			$responsive_width_label  = __( 'Container Layout', 'responsive' );
 			$responsive_width_choice = array(
-				'contained'  => esc_html__( 'Contained', 'responsive' ),
+				'contained'  => esc_html__( 'Normal', 'responsive' ),
 				'full-width' => esc_html__( 'Full Width', 'responsive' ),
 			);
 			responsive_imageradio_button_control( $wp_customize, 'width', $responsive_width_label, 'responsive_layout', 10, $responsive_width_choice, 'contained', null, 'svg', 'postMessage' );
@@ -146,7 +146,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 				$wp_customize->get_control( 'responsive_container_width' )->description = __( 'Note: This setting applies to Desktop devices only.', 'responsive' );
 			}
 			// Header Allignment.
-			$responsive_style_label  = __( 'Style', 'responsive' );
+			$responsive_style_label  = __( 'Container Style', 'responsive' );
 			$responsive_style_choice = array(
 				'boxed'         => esc_html__( 'Boxed', 'responsive' ),
 				'content-boxed' => esc_html__( 'Content Boxed', 'responsive' ),

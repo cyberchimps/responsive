@@ -41,8 +41,23 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 				'responsive_blog_layout',
 				array(
 					'title'    => esc_html__( 'Blog / Archive', 'responsive' ),
-					'panel'    => 'responsive_blog',
-					'priority' => 10,
+					'description' => '<div class="responsive-section-description">
+										<p><b>' . __( 'Helpful Information', 'responsive' ) . '</b></p>
+
+										<p>
+											<a href="https://cyberchimps.com/docs/responsive-theme/responsive-theme-walkthrough/show-last-updated-dates-on-your-blog-posts/" target="_blank">
+												' . __( 'Show Last Updated Dates on Your Blog Posts »', 'responsive' ) . '
+											</a>
+										</p>
+
+										<p>
+											<a href="https://cyberchimps.com/docs/responsive-theme/responsive-theme-walkthrough/blog-archive-settings/" target="_blank">
+												' . __( 'Blog Archive Settings »', 'responsive' ) . '
+											</a>
+										</p>
+									</div>',
+					'panel'    => 'responsive_post_types',
+					'priority' => 20,
 				)
 			);
 

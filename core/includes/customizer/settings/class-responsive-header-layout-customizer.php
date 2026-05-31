@@ -37,6 +37,7 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 				'responsive_header_layout',
 				array(
 					'title'    => esc_html__( 'Primary Header', 'responsive' ),
+					'description' => '<div class="responsive-section-description"><p><b>' . __( 'Helpful Information', 'responsive' ) . '</b></p><p><a href="https://cyberchimps.com/docs/responsive-theme/responsive-theme-walkthrough/create-a-header-using-responsive-themes-header-builder/" target="_blank">' . __( 'Header Overview »', 'responsive' ) . '</a></p></div>',
 					'panel'    => 'responsive_header',
 					'priority' => 10,
 

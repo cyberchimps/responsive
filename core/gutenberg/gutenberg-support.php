@@ -125,6 +125,16 @@ function responsive_gutenberg_customizer_css() {
 	$button_border_color       = esc_html( responsive_prepare_css_value( 'responsive_button_border_color', '#10659C' ) );
 	$button_hover_border_color = esc_html( responsive_prepare_css_value( 'responsive_button_hover_border_color', '#0066CC' ) );
 
+	$button_preset              = get_theme_mod( 'responsive_button_presets', '' );
+	$button_background          = $button_color;
+	$button_hover_background    = $button_hover_color;
+	$is_outline_button_preset = ( $button_preset && 0 === strpos( $button_preset, 'outline' ) );
+
+	if ( $is_outline_button_preset ) {
+		$button_background       = 'transparent';
+		$button_hover_background = 'transparent';
+	}
+
 	$buttons_padding_right  = esc_html( get_theme_mod( 'responsive_buttons_right_padding', 10 ) );
 	$buttons_padding_left   = esc_html( get_theme_mod( 'responsive_buttons_left_padding', 10 ) );
 	$buttons_padding_top    = esc_html( get_theme_mod( 'responsive_buttons_top_padding', 10 ) );
@@ -465,7 +475,7 @@ function responsive_gutenberg_customizer_css() {
 	.editor-styles-wrapper .wp-block-search__button,
 	.editor-styles-wrapper div.wpforms-container-full .wpforms-form button[type=submit],
 	.editor-styles-wrapper button.wc-block-components-button {
-		background-color:' . $button_color . ';
+		background-color:' . $button_background . ';
 		border-style: solid;
 		border-color: ' . $button_border_color . ';
 		border-top-width: ' . $buttons_border_width_top . 'px;
@@ -486,7 +496,7 @@ function responsive_gutenberg_customizer_css() {
 	}
 
 	.responsive-block-editor-addons-buttons-repeater.responsive-block-editor-addons-button__wrapper.wp-block-button__link {
-		background-color: ' . $button_color . ' !important;
+		background-color: ' . $button_background . ' !important;
 		border-color: ' . $button_border_color . ' !important;
 	}
 
@@ -499,7 +509,7 @@ function responsive_gutenberg_customizer_css() {
 	}
 
 	.responsive-block-editor-addons-buttons-repeater.responsive-block-editor-addons-button__wrapper.wp-block-button__link:hover {
-		background-color: ' . $button_hover_color . ' !important;
+		background-color: ' . $button_hover_background . ' !important;
 		border-color: ' . $button_hover_border_color . ' !important;
 	}
 
@@ -518,7 +528,7 @@ function responsive_gutenberg_customizer_css() {
 	.editor-styles-wrapper button.wc-block-components-button:hover,
 	.editor-styles-wrapper button.wc-block-components-button:focus {
 		color:' . $button_hover_text_color . ';
-		background-color:' . $button_hover_color . ';
+		background-color:' . $button_hover_background . ';
 		border-color: ' . $button_hover_border_color . ';
 	}
 
@@ -616,15 +626,15 @@ function responsive_gutenberg_customizer_css() {
 		}
 	}
 	';
-	if ( $button_background_image ) {
+	if ( $button_background_image && ! $is_outline_button_preset ) {
 		$custom_css .= "
 		.editor-styles-wrapper .wp-block-button__link,
 		.editor-styles-wrapper .wp-block-file__button,
 		.editor-styles-wrapper .wp-block-search__button,
 		.editor-styles-wrapper div.wpforms-container-full .wpforms-form button[type=submit],
 		.editor-styles-wrapper button.wc-block-components-button {
-			background-color:{$button_color};
-			background-image: linear-gradient(to right, {$button_color}, {$button_color}), url({$button_background_image});
+			background-color:{$button_background};
+			background-image: linear-gradient(to right, {$button_background}, {$button_background}), url({$button_background_image});
 			background-repeat: no-repeat;
 			background-size: cover;
 			background-attachment: scroll;

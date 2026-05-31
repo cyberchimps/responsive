@@ -41,8 +41,9 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'responsive_single_blog_layout',
 				array(
 					'title'    => esc_html__( 'Single Post', 'responsive' ),
-					'panel'    => 'responsive_blog',
-					'priority' => 20,
+					'description' => '<div class="responsive-section-description"><p><b>' . __( 'Helpful Information', 'responsive' ) . '</b></p><p><a href="https://cyberchimps.com/docs/responsive-theme/responsive-theme-walkthrough/single-post-settings/" target="_blank">' . __( 'Single Post Overview »', 'responsive' ) . '</a></p></div>',
+					'panel'    => 'responsive_post_types',
+					'priority' => 30,
 				)
 			);
 
@@ -50,8 +51,8 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'responsive_rp_layout',
 				array(
 					'title'    => esc_html__( 'Related Posts', 'responsive' ),
-					'panel'    => 'responsive_blog',
-					'priority' => 22,
+					'panel'    => 'responsive_post_types',
+					'priority' => 40,
 					
 				)
 			);
