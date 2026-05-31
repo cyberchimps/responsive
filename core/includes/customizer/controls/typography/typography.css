@@ -165,12 +165,57 @@ label.responsive_font_weight select option:checked {
 }
 .customize-control-responsive-text input[type=range] {
 	background-color: rgba(0, 0, 0, 0.1);
-	height: 5px; 
+	height: 3px; 
 	width: 69%;
 	padding: 0;
 	cursor: pointer;
 	transition: background .5s;
 	-webkit-appearance: none;
+}
+.customize-control-responsive-text input[type=range]:focus {
+	box-shadow: none !important;
+	outline: 0 !important;
+}
+.customize-control-responsive-text input[type=range]:hover {
+	background-color: rgba(0, 0, 0, 0.15);
+}
+.customize-control-responsive-text input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 15px;
+	height: 15px;
+	border: none;
+	border-radius: 15px;
+	background-color: #2e86b9;
+}
+.customize-control-responsive-text input[type=range]::-moz-range-track {
+	border: inherit;
+	background-color: transparent;
+}
+.customize-control-responsive-text input[type=range]::-ms-track {
+	border: inherit;
+	color: transparent;
+	background-color: transparent;
+}
+.customize-control-responsive-text input[type=range]::-ms-fill-lower,
+.customize-control-responsive-text input[type=range]::-ms-fill-upper {
+	background-color: transparent;
+}
+.customize-control-responsive-text input[type=range]::-ms-tooltip {
+	display: none;
+}
+.customize-control-responsive-text input[type=range]::-moz-range-thumb {
+	width: 15px;
+	height: 15px;
+	border: none;
+	border-radius: 15px;
+	background-color: #2e86b9;
+}
+.customize-control-responsive-text input[type=range]::-ms-thumb {
+	width: 15px;
+	height: 15px;
+	border-radius: 15px;
+	border: 0;
+	background-color: #2e86b9;
 }
 .customize-control-responsive-text input.responsive-range-input {
     width: 21%;
