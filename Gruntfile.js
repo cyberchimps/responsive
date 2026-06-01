@@ -342,6 +342,7 @@ module.exports = function(grunt) {
 					'!core/includes/customizer/extend-controls/build/index.js.map',
 					'!chromedriver',
 					'!.DS_Store',
+					'!admin/dashboard/**',
 				],
 				dest: 'build/<%= pkg.name %>/'
 			},

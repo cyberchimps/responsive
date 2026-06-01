@@ -217,7 +217,7 @@ const RPlusFeatures = () => {
                 </div>
                 <div className="grid grid-cols-3 gap-3 p-3 bg-slate-100 rounded-lg border border-slate-200">
                     <PlusFeatureCard title="Starter Templates" desc="Unlock the library of Premium WordPress Templates.">
-                        <Link to='/templates' className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Explore Templates</Link>
+                        <a href={localize?.rst_redirect} className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Explore Templates</a>
                     </PlusFeatureCard>
                     <PlusFeatureCard title="White Label" desc="White Label the theme name & settings with the Plus Plugin.">
                         <div className="text-blue-600">
@@ -369,7 +369,7 @@ const ExtendAndQuickAccess = () => {
                 <p className="font-normal text-base text-desc mt-2 mb-6">{__("Powerful tools to enhance your site's functionality", 'responsive')}</p>
                 <div className="grid md:grid-cols-2 gap-6 p-3 bg-slate-100 border border-slate-200 rounded-md">
                     <PluginCard title={__('Starter Templates', 'responsive')} description={__('150+ Ready to Import Designer-Made Website Starter Templates.', 'responsive')} image="rst">
-                        <button onClick={() => navigate('/templates')} className="mt-1.125 py-2.5 px-3.5 border-0 bg-blue-600 hover:bg-blue-900 rounded-md text-white text-sm leading-5 font-medium cursor-pointer">{__('Explore Templates', 'responsive')}</button>
+                        <button onClick={() => convertTruthyFalsyValue(localize?.isRSTActivated) ? window.location.href = localize.rst_redirect : navigate('/templates')} className="mt-1.125 py-2.5 px-3.5 border-0 bg-blue-600 hover:bg-blue-900 rounded-md text-white text-sm leading-5 font-medium cursor-pointer">{__('Explore Templates', 'responsive')}</button>
                     </PluginCard>
 
                     <PluginCard title={__('Responsive Plus', 'responsive')} description={__('Get Advanced modules: Site Builder, Fonts, WooCommerce, and more.', 'responsive')} image="rst">
