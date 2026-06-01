@@ -218,7 +218,7 @@ label.responsive_font_weight select option:checked {
 	background-color: #2e86b9;
 }
 .customize-control-responsive-text input.responsive-range-input {
-    width: 21%;
+    width: 25%;
     height: 32px;
     text-align: left;
     margin: 0;
@@ -344,7 +344,7 @@ label.responsive_font_weight select option:checked {
 }
 ul.responsive-typography-settings-group{
 	width: 260px;
-	display: flex;
+	display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -353,6 +353,9 @@ ul.responsive-typography-settings-group{
 	gap: 14px;
 	padding: 16px;
 	border-radius: 4px;
+}
+ul.responsive-typography-settings-group.active {
+	display: flex;
 }
 .responsive-typography-settings-group .responsive-typography-inline-container li[id$="font-style"] {
 	border: none;

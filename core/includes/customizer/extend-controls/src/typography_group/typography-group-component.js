@@ -61,10 +61,14 @@ const TypographyGroupControlComponent = (props) => {
         let ul = document.querySelector(`.responsive-typography-settings-group-${connected_control}`);
         if (!ul) {
             ul = document.createElement('ul');
-            ul.className = `responsive-typography-settings-group responsive-typography-settings-group-${connected_control} control-device-${activeDevice}`;
+            ul.classList.add('responsive-typography-settings-group');
+            ul.classList.add(`responsive-typography-settings-group-${connected_control}`);
+            ul.classList.add(`control-device-${activeDevice}`);
             typoGroupWrapperRef.current = ul;
         } else {
-            ul.className = `responsive-typography-settings-group responsive-typography-settings-group-${connected_control} control-device-${activeDevice}`;
+            ul.classList.remove('control-device-desktop', 'control-device-tablet', 'control-device-mobile');
+            ul.classList.add(`control-device-${activeDevice}`);
+            typoGroupWrapperRef.current = ul;
         }
     
         let inlineWrapper = ul.querySelector('.responsive-typography-inline-container');
@@ -73,10 +77,15 @@ const TypographyGroupControlComponent = (props) => {
             inlineWrapper.className = 'responsive-typography-inline-container';
         }
 
+        const isActive = ul.classList.contains('active');
+
         // Append <li> elements to the <ul>
         liIds.forEach(id => {
             const li = document.getElementById(id);
             if (li) {
+                if (isActive && window.getComputedStyle(li).display === 'none') {
+                    li.style.display = 'list-item';
+                }
                 if (id.endsWith('text-transform') || id.endsWith('font-style')) {
                     if (!inlineWrapper.contains(li)) {
                         inlineWrapper.appendChild(li);
@@ -132,6 +141,12 @@ const TypographyGroupControlComponent = (props) => {
 
     // Event listener for clicks outside the typoGroupSelectRef and typoGroupWrapperRef
     const handleClickOutsideTypoGroupSelect = (event) => {
+        // If the event target was removed from the DOM (e.g., by a React re-render), 
+        // ignore the click to prevent falsely closing the dropdown.
+        if (!document.body.contains(event.target)) {
+            return;
+        }
+
         if (
             typoGroupSelectRef.current &&
             !typoGroupSelectRef.current.contains(event.target) &&
@@ -148,6 +163,7 @@ const TypographyGroupControlComponent = (props) => {
 
             // Hide inline container
             if (typoGroupWrapperRef.current) {
+                typoGroupWrapperRef.current.classList.remove('active');
                 const inlineWrapper = typoGroupWrapperRef.current.querySelector('.responsive-typography-inline-container');
                 if (inlineWrapper) {
                     inlineWrapper.style.display = 'none';
@@ -166,20 +182,33 @@ const TypographyGroupControlComponent = (props) => {
 
     // Toggle visibility of related controls
     const toggleRelatedTypoControls = () => {
+        let hasVisibleChildren = false;
         const controlSuffixes = suffixes.map(suffix => `${connected_control}-${suffix}`);
         controlSuffixes.forEach(suffix => {
             const element = document.getElementById(`customize-control-${suffix}`);
             if (element) {
-                element.style.display = window.getComputedStyle(element).display === 'none' ? 'list-item' : 'none';
+                const isHidden = window.getComputedStyle(element).display === 'none';
+                if (isHidden) {
+                    element.style.display = 'list-item';
+                    hasVisibleChildren = true;
+                } else {
+                    element.style.display = 'none';
+                }
             }
         });
 
         // Toggle inline container based on children visibility
         if (typoGroupWrapperRef.current) {
+            if (hasVisibleChildren) {
+                typoGroupWrapperRef.current.classList.add('active');
+            } else {
+                typoGroupWrapperRef.current.classList.remove('active');
+            }
+
             const inlineWrapper = typoGroupWrapperRef.current.querySelector('.responsive-typography-inline-container');
             if (inlineWrapper) {
-                const hasVisibleChildren = Array.from(inlineWrapper.children).some(child => window.getComputedStyle(child).display !== 'none');
-                inlineWrapper.style.display = hasVisibleChildren ? 'flex' : 'none';
+                const hasVisibleInline = Array.from(inlineWrapper.children).some(child => window.getComputedStyle(child).display !== 'none');
+                inlineWrapper.style.display = hasVisibleInline ? 'flex' : 'none';
             }
         }
     };
