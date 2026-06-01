@@ -26,8 +26,8 @@ body .select2-container--default .select2-selection--single .select2-selection__
 
 .responsive-typography-settings-group-icon {
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
+	justify-content: space-between;
 	min-height: 36px;
 	margin-right: 10px;
 }
@@ -337,7 +337,8 @@ label.responsive_font_weight select option:checked {
 }
 ul.responsive-typography-settings-group{
 	position: relative;
-	width: 280px;
+	width: 260px;
+	box-sizing: border-box;
 	display: none;
     flex-direction: column;
     justify-content: center;
@@ -352,7 +353,7 @@ ul.responsive-typography-settings-group::before {
 	content: "";
 	position: absolute;
 	top: -8px;
-	right: 15px;
+	right: 12px;
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
 	border-bottom: 10px solid #ffffff;
@@ -377,4 +378,7 @@ ul.responsive-typography-settings-group li.customize-control {
 }
 .responsive-typo-font-size-label-units-wrap .responsive-reset-slider {
 	margin-top: -7px;
+}
+.responsive-typography-settings-group .responsive-typography-inline-container li.customize-control {
+    border: none;
 }
