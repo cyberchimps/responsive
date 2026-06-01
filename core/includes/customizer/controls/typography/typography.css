@@ -29,6 +29,7 @@ body .select2-container--default .select2-selection--single .select2-selection__
 	justify-content: space-between;
 	align-items: center;
 	min-height: 36px;
+	margin-right: 10px;
 }
 .responsive-typography-settings-group-icon .customize-control-title {
 	margin: 0 !important;
@@ -40,14 +41,6 @@ body .select2-container--default .select2-selection--single .select2-selection__
 .responsive-typography-settings-group li.customize-control {
 	display: none;
 	padding-bottom: 20px !important;
-}
-#sub-accordion-section-responsive_page .responsive-typography-settings-group li.customize-control:first-child,
-#sub-accordion-section-responsive_sidebar .responsive-typography-settings-group li.customize-control:first-child,
-.responsive-typography-settings-group.responsive-typography-settings-group-footer_typography li.customize-control:first-child,
-.responsive-typography-settings-group.responsive-typography-settings-group-header_site_tagline_typography li.customize-control:first-child,
-.responsive-typography-settings-group.responsive-typography-settings-group-content_header_description_typography li.customize-control:first-child,
-.responsive-typography-settings-group.responsive-typography-settings-group-breadcrumb_typography li.customize-control:first-child {
-	margin-top: 8px;
 }
 .responsive-typography-settings-group.responsive-typography-settings-group-headings_typography li.customize-control:first-child {
 	margin-top: -10px;
@@ -218,7 +211,7 @@ label.responsive_font_weight select option:checked {
 	background-color: #2e86b9;
 }
 .customize-control-responsive-text input.responsive-range-input {
-    width: 25%;
+    width: 27%;
     height: 32px;
     text-align: left;
     margin: 0;
@@ -343,7 +336,8 @@ label.responsive_font_weight select option:checked {
 	top: 72px;
 }
 ul.responsive-typography-settings-group{
-	width: 260px;
+	position: relative;
+	width: 280px;
 	display: none;
     flex-direction: column;
     justify-content: center;
@@ -353,6 +347,16 @@ ul.responsive-typography-settings-group{
 	gap: 14px;
 	padding: 16px;
 	border-radius: 4px;
+}
+ul.responsive-typography-settings-group::before {
+	content: "";
+	position: absolute;
+	top: -8px;
+	right: 15px;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #ffffff;
+	filter: drop-shadow(0px -2px 3px rgba(0, 0, 0, 0.2));
 }
 ul.responsive-typography-settings-group.active {
 	display: flex;
@@ -370,4 +374,7 @@ ul.responsive-typography-settings-group.active {
 }
 ul.responsive-typography-settings-group li.customize-control {
 	width: 228px;
+}
+.responsive-typo-font-size-label-units-wrap .responsive-reset-slider {
+	margin-top: -7px;
 }
