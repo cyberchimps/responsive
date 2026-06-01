@@ -1,21 +1,39 @@
 import { __ } from "@wordpress/i18n";
 import { useNavigate, useLocation } from "react-router-dom";
+import { convertTruthyFalsyValue } from "../Helper";
 
 const Header = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const tabs = [
+    let tabs = [
         { label: __("Dashboard", "responsive"), path: "/" },
-        { label: __("Settings", "responsive"), path: "/settings" },
         {
             label: __("Starter Templates", "responsive"),
             path: "/templates",
             conditional: true,
+            isActivated: convertTruthyFalsyValue( localize?.isRSTActivated ),
+            redirect: localize?.rst_redirect,
         },
-        { label: __("Blocks", "responsive"), path: "/blocks" },
-        { label: __("Addons for Elementor", "responsive"), path: "/rae" },
+        {
+            label: __("Blocks", "responsive"),
+            path: "/blocks",
+            conditional: true,
+            isActivated: convertTruthyFalsyValue( localize?.isRBAActivated ),
+            redirect: localize?.rbea_redirect,
+        },
+        {
+            label: __("Addons for Elementor", "responsive"),
+            path: "/rae",
+            conditional: true,
+            isActivated: convertTruthyFalsyValue( localize?.isRAEActivated ),
+            redirect: localize?.rae_redirect,
+        },
     ];
+
+    const settingsTab = { label: __("Settings", "responsive"), path: "/settings" }
+
+    if ( localize?.isRSTActivated ) tabs.splice(1, 0, settingsTab);
 
     const handleNavigation = (tab) => {
         if (tab.external) {
@@ -23,14 +41,9 @@ const Header = () => {
             return;
         }
 
-        if (tab.conditional) {
-            localize?.isRSTActivated !== "activated"
-                ? navigate(tab.path)
-                : (window.location.href = localize?.rst_redirect);
-            return;
-        }
+        tab.conditional && tab.isActivated ? (window.location.href = tab.redirect) : navigate(tab.path);
 
-        navigate(tab.path);
+        return;
     };
 
     return (
@@ -40,7 +53,7 @@ const Header = () => {
                     <div className="flex items-center w-10/12 gap-10">
                         <img
                             className="resp-cyberchimps-logo"
-                            src={`${localize?.responsiveurl}admin/images/responsive_logo.svg`}
+                            src={`${localize?.whiteLabelSettings?.theme_icon_url ? localize?.whiteLabelSettings?.theme_icon_url : localize?.responsiveurl + 'admin/images/responsive_logo.svg' } `}
                             alt="Responsive Logo"
                         />
 
@@ -48,7 +61,6 @@ const Header = () => {
                             {tabs.map((tab) => {
                                 const isActive =
                                     tab.path && location.pathname === tab.path;
-
                                 return (
                                     <div
                                         key={tab.label}

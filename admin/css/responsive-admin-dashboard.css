@@ -3,10 +3,13 @@
 @layer properties;
 :root, :host {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-red-500: oklch(63.7% 0.237 25.331);
   --color-yellow-500: oklch(79.5% 0.184 86.047);
+  --color-lime-600: oklch(64.8% 0.2 131.684);
   --color-green-50: oklch(98.2% 0.018 155.826);
   --color-green-300: oklch(87.1% 0.15 154.449);
   --color-green-500: oklch(72.3% 0.219 149.579);
+  --color-green-700: oklch(52.7% 0.154 150.069);
   --color-green-800: oklch(44.8% 0.119 151.328);
   --color-sky-100: oklch(95.1% 0.026 236.824);
   --color-blue-50: oklch(97% 0.014 254.604);
@@ -30,6 +33,7 @@
   --color-gray-500: oklch(55.1% 0.027 264.364);
   --color-gray-600: oklch(44.6% 0.03 256.802);
   --color-gray-800: oklch(27.8% 0.033 256.848);
+  --color-neutral-400: oklch(70.8% 0 0);
   --color-white: #fff;
   --spacing: 0.25rem;
   --text-xs: 0.75rem;
@@ -58,6 +62,12 @@
   --default-transition-duration: 150ms;
   --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+.pointer-events-none {
+  pointer-events: none;
+}
+.relative {
+  position: relative;
+}
 .m-0 {
   margin: calc(var(--spacing) * 0);
 }
@@ -81,6 +91,9 @@
 }
 .mt-2 {
   margin-top: calc(var(--spacing) * 2);
+}
+.mt-3\.5 {
+  margin-top: calc(var(--spacing) * 3.5);
 }
 .mt-8 {
   margin-top: calc(var(--spacing) * 8);
@@ -115,6 +128,9 @@
 .h-12\.5 {
   height: calc(var(--spacing) * 12.5);
 }
+.h-auto {
+  height: auto;
+}
 .w-1\/4 {
   width: calc(1 / 4 * 100%);
 }
@@ -135,6 +151,9 @@
 }
 .w-50 {
   width: calc(var(--spacing) * 50);
+}
+.w-64 {
+  width: calc(var(--spacing) * 64);
 }
 .w-125 {
   width: calc(var(--spacing) * 125);
@@ -190,6 +209,9 @@
 .gap-1 {
   gap: calc(var(--spacing) * 1);
 }
+.gap-1\.5 {
+  gap: calc(var(--spacing) * 1.5);
+}
 .gap-2 {
   gap: calc(var(--spacing) * 2);
 }
@@ -217,6 +239,9 @@
 .gap-7 {
   gap: calc(var(--spacing) * 7);
 }
+.gap-8 {
+  gap: calc(var(--spacing) * 8);
+}
 .gap-10 {
   gap: calc(var(--spacing) * 10);
 }
@@ -228,6 +253,9 @@
 }
 .rounded {
   border-radius: 0.25rem;
+}
+.rounded-3xl {
+  border-radius: var(--radius-3xl);
 }
 .rounded-\[10px\] {
   border-radius: 10px;
@@ -302,6 +330,18 @@
 .border-green-500 {
   border-color: var(--color-green-500);
 }
+.border-green-700 {
+  border-color: var(--color-green-700);
+}
+.border-lime-600 {
+  border-color: var(--color-lime-600);
+}
+.border-neutral-400 {
+  border-color: var(--color-neutral-400);
+}
+.border-red-500 {
+  border-color: var(--color-red-500);
+}
 .border-slate-100 {
   border-color: var(--color-slate-100);
 }
@@ -341,6 +381,9 @@
 .bg-\[linear-gradient\(93\.9deg\,\#080084_27\.66\%\,\#2563EB_96\.64\%\)\] {
   background-image: linear-gradient(93.9deg,#080084 27.66%,#2563EB 96.64%);
 }
+.object-cover {
+  object-fit: cover;
+}
 .p-2\.5 {
   padding: calc(var(--spacing) * 2.5);
 }
@@ -377,6 +420,9 @@
 .px-3\.5 {
   padding-inline: calc(var(--spacing) * 3.5);
 }
+.px-4 {
+  padding-inline: calc(var(--spacing) * 4);
+}
 .px-4\.5 {
   padding-inline: calc(var(--spacing) * 4.5);
 }
@@ -388,6 +434,9 @@
 }
 .py-1 {
   padding-block: calc(var(--spacing) * 1);
+}
+.py-2 {
+  padding-block: calc(var(--spacing) * 2);
 }
 .py-2\.5 {
   padding-block: calc(var(--spacing) * 2.5);
@@ -510,8 +559,14 @@
 .text-gray-800 {
   color: var(--color-gray-800);
 }
+.text-green-700 {
+  color: var(--color-green-700);
+}
 .text-green-800 {
   color: var(--color-green-800);
+}
+.text-red-500 {
+  color: var(--color-red-500);
 }
 .text-slate-400 {
   color: var(--color-slate-400);
@@ -592,6 +647,16 @@
     @media (hover: hover) {
       box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
     }
+  }
+}
+.disabled\:cursor-not-allowed {
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+.disabled\:opacity-60 {
+  &:disabled {
+    opacity: 60%;
   }
 }
 .max-xl\:mt-8 {
@@ -723,6 +788,59 @@
 .resp-setting-tab-active > p {
   color: var(--color-blue-500);
 }
+.resp-cyberchimps-logo {
+  width: calc(var(--spacing) * 12.5);
+}
+.rst-delete-auth #loader, .rst-start-auth #loader {
+  display: none;
+  position: absolute;
+  top: 2px;
+  width: 25px;
+  height: 25px;
+  border: solid 5px #000;
+  border-radius: 50%;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  transition: all 0.5s ease-in;
+  animation-name: rotate;
+  animation-duration: 1.0s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.rst-delete-auth #loader {
+  right: 35px;
+}
+.rst-start-auth #loader {
+  right: 50%;
+}
+.resp-sync-auth[disabled] svg path {
+  fill: var(--color-neutral-400);
+}
+.resp-sync-auth.resp-is-syncing svg {
+  animation: spin 2s linear infinite;
+  cursor: not-allowed;
+}
+.resp-sync-auth:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+.resp-sync-auth::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s;
+  margin-bottom: 5px;
+}
 @property --tw-border-style {
   syntax: "*";
   inherits: false;
@@ -800,6 +918,11 @@
   syntax: "*";
   inherits: false;
   initial-value: 0 0 #0000;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {

@@ -42,3 +42,63 @@
 .resp-setting-tab-active > p {
   @apply text-blue-500;
 }
+
+.resp-cyberchimps-logo {
+  @apply w-12.5;
+}
+
+.rst-delete-auth #loader,
+.rst-start-auth #loader {
+  display: none;
+  position: absolute;
+  top: 2px;
+  width: 25px;
+  height: 25px;
+  border: solid 5px #000;
+  border-radius: 50%;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  transition: all 0.5s ease-in;
+  animation-name: rotate;
+  animation-duration: 1.0s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.rst-delete-auth #loader {
+  right: 35px;
+}
+.rst-start-auth #loader {
+  right: 50%;
+}
+
+.resp-sync-auth[disabled] svg path {
+  @apply fill-neutral-400;
+}
+
+.resp-sync-auth.resp-is-syncing svg {
+  @apply cursor-not-allowed animate-[spin_2s_linear_infinite];
+}
+
+.resp-sync-auth:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.resp-sync-auth::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s;
+  margin-bottom: 5px;
+}

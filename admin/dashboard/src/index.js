@@ -3,12 +3,15 @@ import Header from "./components/Header";
 import Footer from './components/Footer';
 import Canvas from './screens/Canvas';
 import { createRoot } from '@wordpress/element';
+import { ResponsiveProvider } from './Context';
 
 const GettingStarted = () => {
     return (
         <>
             <Header />
-            <Canvas />
+            <ResponsiveProvider>
+                <Canvas />
+            </ResponsiveProvider>
             <Footer />
         </>
     )

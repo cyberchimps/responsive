@@ -4,6 +4,8 @@ import Icons from '../icons';
 import { Link, useNavigate } from 'react-router-dom';
 import { useContext, useState } from "react";
 import InstallButton from "../components/InstallButton";
+import { convertTruthyFalsyValue, displayToast } from "../Helper";
+import { ResponsiveContext } from "../Context";
 
 const Dashboard = () => {
     return (
@@ -133,6 +135,79 @@ const QuickSettingCard = ({ index, icon, title, link }) => {
 }
 
 const RPlusFeatures = () => {
+
+    const { isMegamenuEnabled, setIsMegamenuEnabled, isWooCommerceEnabled, setIsWooCommerceEnabled, isCustomFontsEnabled, setIsCustomFontsEnabled, isSiteBuilderEnabled, setIsSiteBuilderEnabled } = useContext(ResponsiveContext);
+
+    const handleToggle = async ({
+        value,
+        setter,
+        action,
+        nonce,
+        successMessage,
+        failMessage,
+        reload = false,
+    }) => {
+
+        setter(value);
+
+        const success = await saveSetting({
+            value,
+            action,
+            nonce,
+            successMessage,
+            failMessage,
+            isReloadRequired: reload,
+        });
+
+        if (!success) {
+            setter(!value);
+        }
+    };
+
+    const saveSetting = async ({
+        value,
+        action,
+        nonce,
+        successMessage,
+        failMessage,
+        isReloadRequired = false,
+    }) => {
+        try {
+            const formData = new FormData();
+
+            formData.append('action', action);
+            formData.append('_nonce', nonce);
+            formData.append('value', value ? 'on' : 'off');
+
+            const response = await fetch(localize.ajaxurl, {
+                method: 'POST',
+                body: formData,
+            });
+
+            const result = await response.json();
+
+            if (!result.success) {
+                throw new Error(failMessage);
+            }
+
+            displayToast(successMessage, 'success');
+
+            if (isReloadRequired) {
+                window.location.reload();
+            }
+
+            return true;
+        } catch (error) {
+            console.error(error);
+            displayToast(
+                error.message || 'An error occurred while updating the setting.',
+                'error'
+            );
+
+            return false;
+        }
+    };
+
     return (
         <div className="xl:flex lg:block justify-between xl:mx-14 md:mx-15 mt-8 mb-16 gap-12">
             <div className="flex flex-col gap-6 xl:w-2/3 lg:w-full">
@@ -144,52 +219,82 @@ const RPlusFeatures = () => {
                     <PlusFeatureCard title="Starter Templates" desc="Unlock the library of Premium WordPress Templates.">
                         <Link to='/templates' className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Explore Templates</Link>
                     </PlusFeatureCard>
-                    <PlusFeatureCard title="White Label" desc="Unlock the library of Premium WordPress Templates.">
+                    <PlusFeatureCard title="White Label" desc="White Label the theme name & settings with the Plus Plugin.">
                         <div className="text-blue-600">
-                            <a href="https://cyberchimps.com/docs/responsive-plus/modules-settings/how-to-white-label-cyberchimps-responsive-theme/" target="_blank" className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Docs</a> | <a className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Settings</a>
+                            <a href="https://cyberchimps.com/docs/responsive-plus/modules-settings/how-to-white-label-cyberchimps-responsive-theme/" target="_blank" className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Docs</a> {!convertTruthyFalsyValue(localize.whiteLabelSettings.hide_wl_settings) && <>| <Link to="/settings" className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Settings</Link></>}
                         </div>
                     </PlusFeatureCard>
                     <PlusFeatureCard title="Mega Menu" desc="Adds options such as mega menus, highlight tags, icons, etc.">
                         <div className="flex justify-between text-blue-600">
-                            <span><a href="https://cyberchimps.com/docs/responsive-plus/modules-settings/mega-menu/" className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Docs</a> | <a href={localize?.siteurl + '/wp-admin/nav-menus.php'} className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Customize</a></span>
+                            <span><a href="https://cyberchimps.com/docs/responsive-plus/modules-settings/mega-menu/" className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Docs</a> | <a href={localize?.siteurl + '/wp-admin/nav-menus.php'} className={`w-fit underline text-sm leading-5 font-normal ${isMegamenuEnabled ? ' text-blue-500 cursor-pointer' : 'text-gray-400 pointer-events-none'}`}>Customize</a></span>
                             <ToggleControl
-                                className="resp-setting-toggle"
-                                __nextHasNoMarginBottom
-                                checked={true}
-                                onChange={() => console.log('fefefefefef')}
+                                checked={isMegamenuEnabled}
+                                onChange={(value) =>
+                                    handleToggle({
+                                        value,
+                                        setter: setIsMegamenuEnabled,
+                                        action: 'responsive-pro-enable-megamenu',
+                                        nonce: localize?.megamenuNonce,
+                                        successMessage: value ? 'Mega Menu Enabled' : 'Mega Menu Disabled',
+                                        failMessage: 'Failed to update Mega Menu setting.',
+                                    })
+                                }
                             />
                         </div>
                     </PlusFeatureCard>
                     <PlusFeatureCard title="WooCommerce" desc="Adds enhanced settings in the Woo store customizer.">
                         <div className="flex justify-between text-blue-600">
-                            <span><a className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Docs</a> | <a className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Customize</a></span>
+                            <span><a target="_blank" href="https://cyberchimps.com/docs/responsive-plus/responsive-pro-plugin/woocommerce-module/" className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Docs</a> | <a href={localize?.customizerurlReturn + '&autofocus[section]=woocommerce'} className={`w-fit underline text-sm leading-5 font-normal ${isWooCommerceEnabled ? ' text-blue-500 cursor-pointer' : 'text-gray-400 pointer-events-none'}`}>Customize</a></span>
                             <ToggleControl
-                                className="resp-setting-toggle"
-                                __nextHasNoMarginBottom
-                                checked={true}
-                                onChange={() => console.log('fefefefefef')}
+                                checked={isWooCommerceEnabled}
+                                onChange={(value) =>
+                                    handleToggle({
+                                        value,  
+                                        setter: setIsWooCommerceEnabled,
+                                        action: 'responsive-pro-enable-woocommerce',
+                                        nonce: localize?.woocommerceNonce,
+                                        successMessage: value ? 'WooCommerce Enabled' : 'WooCommerce Disabled',
+                                        failMessage: 'Failed to update WooCommerce setting.',
+                                    })
+                                }
                             />
                         </div>
                     </PlusFeatureCard>
                     <PlusFeatureCard title="Custom Fonts" desc="Upload custom fonts directly, no additional font plugin required.">
                         <div className="flex justify-between text-blue-600">
-                            <span><a className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Docs</a> | <a className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Settings</a></span>
+                            <span><a target="_blank" href="https://cyberchimps.com/docs/responsive-plus/responsive-pro-plugin/custom-fonts/" className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Docs</a> | <a href={localize?.siteurl + '/wp-admin/edit-tags.php?taxonomy=responsive_custom_fonts'} className={`w-fit underline text-sm leading-5 font-normal ${isCustomFontsEnabled ? ' text-blue-500 cursor-pointer' : 'text-gray-400 pointer-events-none'}`}>Settings</a></span>
                             <ToggleControl
-                                className="resp-setting-toggle"
-                                __nextHasNoMarginBottom
-                                checked={true}
-                                onChange={() => console.log('fefefefefef')}
+                                checked={isCustomFontsEnabled}
+                                onChange={(value) =>
+                                    handleToggle({
+                                        value,  
+                                        setter: setIsCustomFontsEnabled,
+                                        action: 'responsive-plus-enable-custom-fonts',
+                                        nonce: localize?.customFontsNonce,
+                                        successMessage: value ? 'Custom Fonts Enabled' : 'Custom Fonts Disabled',
+                                        failMessage: 'Failed to update Custom Fonts setting.',
+                                        reload: true,
+                                    })
+                                }
                             />
                         </div>
                     </PlusFeatureCard>
                     <PlusFeatureCard title="Site Builder" desc="Edit your site's header, footer, 404, and archive templates.">
                         <div className="flex justify-between text-blue-600">
-                            <span><a className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Docs</a> | <a className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Settings</a></span>
+                            <span><a target="_blank" href="https://cyberchimps.com/docs/responsive-plus/modules-settings/site-builder/" className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Docs</a> | <a href={localize?.siteurl + '/wp-admin/admin.php?page=responsive-site-builder'} className={`w-fit underline text-sm leading-5 font-normal ${isSiteBuilderEnabled ? ' text-blue-500 cursor-pointer' : 'text-gray-400 pointer-events-none'}`}>Settings</a></span>
                             <ToggleControl
-                                className="resp-setting-toggle"
-                                __nextHasNoMarginBottom
-                                checked={true}
-                                onChange={() => console.log('fefefefefef')}
+                                checked={isSiteBuilderEnabled}
+                                onChange={(value) =>
+                                    handleToggle({
+                                        value,  
+                                        setter: setIsSiteBuilderEnabled,
+                                        action: 'responsive-plus-enable-site-builder',
+                                        nonce: localize?.siteBuilderNonce,
+                                        successMessage: value ? 'Site Builder Enabled' : 'Site Builder Disabled',
+                                        failMessage: 'Failed to update Site Builder setting.',
+                                        reload: true,
+                                    })
+                                }
                             />
                         </div>
                     </PlusFeatureCard>

@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import Blocks from './Blocks';
 import AddonsElementor from './AddonsElementor';
@@ -11,7 +11,14 @@ const Canvas = () => {
             <Route path='/' element={<Dashboard />} />
             <Route path='/blocks' element={<Blocks />} />
             <Route path='/rae' element={<AddonsElementor />} />
-            <Route path='/settings' element={<Settings />} />
+            <Route
+                path='/settings'
+                element={
+                    localize?.isRSTActivated
+                        ? <Settings />
+                        : <Navigate to='/templates' replace />
+                }
+            />
             <Route path='/templates' element={<Templates />} />
         </Routes>
     )

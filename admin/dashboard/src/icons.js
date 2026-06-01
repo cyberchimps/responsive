@@ -29,6 +29,10 @@ const Icons = {
 
     document: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" > <path stroke="#94A3B8" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.332" d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z" ></path> <path stroke="#94A3B8" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.332" d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8" ></path> </svg>,
 
+    connected: <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 15 15" > <g clipPath="url(#clip0_478_986)"> <path fill="#15803D" fillRule="evenodd" d="M0 7.5a7.5 7.5 0 1 1 15 0 7.5 7.5 0 0 1-15 0m7.072 3.21 4.318-5.398-.78-.624-3.682 4.601L4.32 7.116l-.64.768z" clipRule="evenodd" ></path> </g> <defs> <clipPath id="clip0_478_986"> <path fill="#fff" d="M0 0h15v15H0z"></path> </clipPath> </defs> </svg>,
+
+    sync: <svg xmlns="http://www.w3.org/2000/svg" width="21" height="19" fill="none" viewBox="0 0 21 19" > <path fill="#84CC16" d="m4.109 5.308 1.594-.488a1 1 0 0 1 .585 1.913l-3.825 1.17a1 1 0 0 1-1.25-.665L.044 3.413a1 1 0 0 1 1.914-.585l.44 1.441C4.805.56 9.582-1.035 13.823.703a9.38 9.38 0 0 1 5.38 5.831 1 1 0 1 1-1.905.608 7.38 7.38 0 0 0-13.19-1.834m12.327 8.195-1.775.443a.999.999 0 0 1-.846-1.778 1 1 0 0 1 .362-.162l3.643-.909a1 1 0 0 1 .61-.08 1 1 0 0 1 .84.75l.968 3.88a1 1 0 0 1-1.94.484l-.33-1.322a9.381 9.381 0 0 1-16.384-1.796l-.26-.634a1 1 0 1 1 1.85-.758l.26.633a7.38 7.38 0 0 0 13.002 1.249" ></path> </svg>,
+
 };
 
 export default Icons;
