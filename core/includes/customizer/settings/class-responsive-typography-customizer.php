@@ -720,7 +720,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								array(
 									'name'            => $element . '_typography[font-weight]',
 									'label'           => esc_html__( 'Font Weight', 'responsive' ),
-									'description'     => esc_html__( 'Not all fonts support every font-weight.', 'responsive' ),
+									'description'     => esc_html__( '', 'responsive' ),
 									'section'         => $section,
 									'responsive_setting_id' => 'responsive_font_weight',
 									'settings'        => $element . '_typography[font-weight]',
@@ -766,7 +766,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								$wp_customize,
 								$element . '_typography[font-style]',
 								array(
-									'label'           => esc_html__( 'Font Style', 'responsive' ),
+									'label'           => '',
 									'section'         => $section,
 									'settings'        => $element . '_typography[font-style]',
 									'priority'        => $priority,
@@ -800,7 +800,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								$wp_customize,
 								$element . '_typography[text-transform]',
 								array(
-									'label'           => esc_html__( 'Text Transform', 'responsive' ),
+									'label'           => '',
 									'section'         => $section,
 									'settings'        => $element . '_typography[text-transform]',
 									'priority'        => $priority,
@@ -905,8 +905,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								$wp_customize,
 								$element . '_typography[font-size]',
 								array(
-									'label'           => esc_html__( 'Size', 'responsive' ),
-									'description'     => esc_html__( 'You can add: px-em-%', 'responsive' ),
+									'label'           => esc_html__( 'Font Size', 'responsive' ),
 									'section'         => $section,
 									'settings'        => array(
 										'desktop'           => $element . '_typography[font-size]',

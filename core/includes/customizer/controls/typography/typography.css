@@ -26,9 +26,10 @@ body .select2-container--default .select2-selection--single .select2-selection__
 
 .responsive-typography-settings-group-icon {
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
+	justify-content: space-between;
 	min-height: 36px;
+	margin-right: 10px;
 }
 .responsive-typography-settings-group-icon .customize-control-title {
 	margin: 0 !important;
@@ -39,25 +40,7 @@ body .select2-container--default .select2-selection--single .select2-selection__
 
 .responsive-typography-settings-group li.customize-control {
 	display: none;
-	margin-left: -12px;
-	margin-right: -12px;
-	padding-left: 12px;
-	padding-right: 12px;
-	background: #F9F9F9;
-	padding-top: 20px;
 	padding-bottom: 20px !important;
-	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
-}
-.responsive-typography-settings-group li.customize-control:first-child {
-	margin-top: 14px;
-}
-#sub-accordion-section-responsive_page .responsive-typography-settings-group li.customize-control:first-child,
-#sub-accordion-section-responsive_sidebar .responsive-typography-settings-group li.customize-control:first-child,
-.responsive-typography-settings-group.responsive-typography-settings-group-footer_typography li.customize-control:first-child,
-.responsive-typography-settings-group.responsive-typography-settings-group-header_site_tagline_typography li.customize-control:first-child,
-.responsive-typography-settings-group.responsive-typography-settings-group-content_header_description_typography li.customize-control:first-child,
-.responsive-typography-settings-group.responsive-typography-settings-group-breadcrumb_typography li.customize-control:first-child {
-	margin-top: 8px;
 }
 .responsive-typography-settings-group.responsive-typography-settings-group-headings_typography li.customize-control:first-child {
 	margin-top: -10px;
@@ -68,14 +51,24 @@ body .select2-container--default .select2-selection--single .select2-selection__
 label.responsive_font_family,
 label.responsive_font_weight {
 	display: flex;
-	align-items: center;
 	justify-content: space-between;
+	flex-direction: column;
 }
-label.responsive_font_family {
-	gap: 54px;
+label.responsive_font_family,label.responsive_font_weight {
+	gap: 14px;
 }
-label.responsive_font_weight select {
-	width: 152px;
+label.responsive_font_weight select, label.responsive_font_family select {
+    width: 228px;
+    height: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    opacity: 1;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    border: 1px solid #E2E2E2;
+    box-sizing: border-box;
 }
 label.responsive_font_weight select option {
 	color: #50575E;
@@ -89,13 +82,19 @@ label.responsive_font_weight select option:checked {
 }
 .responsive-typography-settings-group .customize-control-title {
 	margin: 0 !important;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 600 !important;
+    font-size: 14px !important;
+    line-height: 1;
+    color: #50575E;
+    letter-spacing: 0;
 }
 .responsive-typography-settings-group .customize-control select {
 	height: 40px;
-	padding-left: 12px;
-	padding-right: 40px;
+	padding: 8px 12px;
 	color: #50575E;
-	border: 1px solid #A5A5A5;
+	border: 1px solid #e2e2e2;
+	border-radius: 5px;
 }
 .responsive-font-family-select-options {
 	color: #50575E;
@@ -159,15 +158,60 @@ label.responsive_font_weight select option:checked {
 }
 .customize-control-responsive-text input[type=range] {
 	background-color: rgba(0, 0, 0, 0.1);
-	height: 5px; 
+	height: 3px; 
 	width: 69%;
 	padding: 0;
 	cursor: pointer;
 	transition: background .5s;
 	-webkit-appearance: none;
 }
+.customize-control-responsive-text input[type=range]:focus {
+	box-shadow: none !important;
+	outline: 0 !important;
+}
+.customize-control-responsive-text input[type=range]:hover {
+	background-color: rgba(0, 0, 0, 0.15);
+}
+.customize-control-responsive-text input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 15px;
+	height: 15px;
+	border: none;
+	border-radius: 15px;
+	background-color: #2e86b9;
+}
+.customize-control-responsive-text input[type=range]::-moz-range-track {
+	border: inherit;
+	background-color: transparent;
+}
+.customize-control-responsive-text input[type=range]::-ms-track {
+	border: inherit;
+	color: transparent;
+	background-color: transparent;
+}
+.customize-control-responsive-text input[type=range]::-ms-fill-lower,
+.customize-control-responsive-text input[type=range]::-ms-fill-upper {
+	background-color: transparent;
+}
+.customize-control-responsive-text input[type=range]::-ms-tooltip {
+	display: none;
+}
+.customize-control-responsive-text input[type=range]::-moz-range-thumb {
+	width: 15px;
+	height: 15px;
+	border: none;
+	border-radius: 15px;
+	background-color: #2e86b9;
+}
+.customize-control-responsive-text input[type=range]::-ms-thumb {
+	width: 15px;
+	height: 15px;
+	border-radius: 15px;
+	border: 0;
+	background-color: #2e86b9;
+}
 .customize-control-responsive-text input.responsive-range-input {
-    width: 21%;
+    width: 27%;
     height: 32px;
     text-align: left;
     margin: 0;
@@ -290,4 +334,51 @@ label.responsive_font_weight select option:checked {
 .accordion-section .responsive-typography-settings-group-product_content_shop_typography .wp-picker-holder,
 .accordion-section .responsive-typography-settings-group-single_product_content_shop_typography .wp-picker-holder {
 	top: 72px;
+}
+ul.responsive-typography-settings-group{
+	position: relative;
+	width: 260px;
+	box-sizing: border-box;
+	display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .4);
+	gap: 14px;
+	padding: 16px;
+	border-radius: 4px;
+}
+ul.responsive-typography-settings-group::before {
+	content: "";
+	position: absolute;
+	top: -8px;
+	right: 12px;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #ffffff;
+	filter: drop-shadow(0px -2px 3px rgba(0, 0, 0, 0.2));
+}
+ul.responsive-typography-settings-group.active {
+	display: flex;
+}
+.responsive-typography-settings-group .responsive-typography-inline-container li[id$="font-style"] {
+	border: none;
+}
+.responsive-typography-settings-group .responsive-typography-inline-container li[id$="font-style"] button.selectbtn-text:first-child {
+    border-radius: 3px 0px 0px 3px;
+}
+
+.responsive-typography-settings-group .responsive-typography-inline-container li[id$="font-style"] button.selectbtn-text:last-child {
+    border-radius: 0px 3px 3px 0px;
+    border-width: 1px;
+}
+ul.responsive-typography-settings-group li.customize-control {
+	width: 228px;
+}
+.responsive-typo-font-size-label-units-wrap .responsive-reset-slider {
+	margin-top: -7px;
+}
+.responsive-typography-settings-group .responsive-typography-inline-container li.customize-control {
+    border: none;
 }

@@ -218,14 +218,15 @@ select {
 
 .customize-control .responsive-switchers li {
 	float: left;
-	margin: 0
+	margin: 0;
+	margin-top: 1px; 
 }
 
 .customize-control .responsive-switchers li button {
 	display: inline-block;
 	height: 20px;
 	width: 20px;
-	background-color: #a4afb7;
+	background-color: #ffffff;
 	position: relative;
 	margin-left: 5px;
 	color: #fff;
@@ -1868,6 +1869,63 @@ div.customize-section-description{
 
 #customize-control-responsive_header_menu_color_separator{ 
 	margin-top:0; 
+}
+.responsive-typography-inline-container {
+	width: 228px;
+	height: 32px;
+	justify-content: space-between;
+	margin-bottom: 0px;
+}
+.responsive-typography-settings-group .responsive-typography-inline-container .responsive-selectbtn-control-wrapper .customize-control-responsive-selectbtn {
+	gap: 0px;
+}
+.responsive-typography-settings-group .customize-control-responsive-range {
+    border-bottom: .5px solid #d0d0d060;
+}
+.responsive-typography-settings-group .responsive-typography-inline-container li[id$="text-transform"] {
+	width: 150px;
+	background: none;
+	padding-top: 0;
+	padding-bottom: 0;
+	box-shadow: none;
+	margin-top: 0;
+}
+.responsive-typography-settings-group .responsive-typography-inline-container li[id$="text-transform"] button.selectbtn-text {
+	width: 32px;
+	height: 32px;
+	border-radius: 0px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	padding: 0px;
+}
+.responsive-typography-settings-group .responsive-typography-inline-container li[id$="font-style"] button.selectbtn-text {
+    width: 32px;
+    height: 32px;
+    opacity: 1;
+    border-radius: 0px;
+    border-width: 1px 0px 1px 1px;
+    border-style: solid;
+    border-color: #E2E2E2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.responsive-typography-settings-group 
+.responsive-typography-inline-container 
+li[id$="text-transform"] 
+button.selectbtn-text:first-child {
+	width: 54px;
+}
+.responsive-typography-settings-group .responsive-typography-inline-container .responsive-selectbtn-control-wrapper .customize-control-responsive-selectbtn {
+	flex-wrap: nowrap;
+}
+.responsive-typography-settings-group .responsive-typography-inline-container li[id$="font-style"] {
+	width: 64px;
+	background: none;
+	padding-top: 0;
+	padding-bottom: 0;
+	box-shadow: none;
 }
 
 .responsive-section-description {
