@@ -222,6 +222,10 @@ select {
 	margin-top: 1px; 
 }
 
+#customize-control-responsive_menu_item_hover_style {
+	padding: 5px 0px 22px;
+}
+
 .customize-control .responsive-switchers li button {
 	display: inline-block;
 	height: 20px;
