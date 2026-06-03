@@ -58,7 +58,7 @@ label.responsive_font_family,label.responsive_font_weight {
 	gap: 14px;
 }
 label.responsive_font_weight select, label.responsive_font_family select {
-    width: 228px;
+    width: 100%;
     height: 32px;
     display: flex;
     justify-content: space-between;
@@ -346,7 +346,7 @@ label.responsive_font_weight select option:checked {
 }
 ul.responsive-typography-settings-group{
 	position: relative;
-	width: 260px;
+	width: 100%;
 	box-sizing: border-box;
 	display: none;
     flex-direction: column;
@@ -355,14 +355,14 @@ ul.responsive-typography-settings-group{
     background: #ffffff;
     box-shadow: 0 3px 6px rgba(0, 0, 0, .4);
 	gap: 14px;
-	padding: 16px;
+	padding: 26px 16px 16px;
 	border-radius: 4px;
 }
 ul.responsive-typography-settings-group::before {
 	content: "";
 	position: absolute;
-	top: -8px;
-	right: 12px;
+	top: -10px;
+	right: 21px;
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
 	border-bottom: 10px solid #ffffff;
@@ -383,7 +383,7 @@ ul.responsive-typography-settings-group.active {
     border-width: 1px;
 }
 ul.responsive-typography-settings-group li.customize-control {
-	width: 228px;
+	width: 100%;
 }
 .responsive-typo-font-size-label-units-wrap .responsive-reset-slider {
 	margin-top: -7px;
