@@ -966,4 +966,56 @@
         });
     });
 
+    // Main menu item hover style (underline / overline / zoom).
+    api( 'responsive_menu_item_hover_style', function( setting ) {
+        function menuHoverLineColor() {
+            var color = api( 'responsive_header_menu_link_hover_color' ).get();
+            if ( ! color ) {
+                color = api( 'responsive_header_menu_link_color' ).get();
+            }
+            if ( color && String( color ).indexOf( 'palette' ) === 0 ) {
+                return 'var(--responsive-global-' + color + ')';
+            }
+            return color || '#10659C';
+        }
+
+        function applyMainMenuHoverStyle( style ) {
+            jQuery( 'body' ).removeClass( 'menu-item-hover-style-none menu-item-hover-style-zoom menu-item-hover-style-underline menu-item-hover-style-overline' );
+            jQuery( 'style#responsive-main-menu-item-hover-style' ).remove();
+
+            if ( 'none' === style ) {
+                jQuery( 'body' ).addClass( 'menu-item-hover-style-none' );
+                return;
+            }
+            if ( 'zoom' === style ) {
+                jQuery( 'body' ).addClass( 'menu-item-hover-style-zoom' );
+                jQuery( 'head' ).append(
+                    '<style id="responsive-main-menu-item-hover-style">'
+                    + '.menu-item-hover-style-zoom .menu.nav-menu > li > a:hover, .menu.nav-menu > .menu-item > .menu-link:hover {'
+                    + 'transition: all 0.3s ease-in-out; transform: scale(1.1); }'
+                    + '</style>'
+                );
+                return;
+            }
+
+            var lineColor = menuHoverLineColor();
+            var bodyClass = 'underline' === style ? 'menu-item-hover-style-underline' : 'menu-item-hover-style-overline';
+            var pseudo = 'underline' === style ? 'after' : 'before';
+
+            jQuery( 'body' ).addClass( bodyClass );
+            jQuery( 'head' ).append(
+                '<style id="responsive-main-menu-item-hover-style">'
+                + '.' + bodyClass + ' .menu.nav-menu > li::' + pseudo + ' {'
+                + 'display: block; content: ""; border-bottom: solid 3px ' + lineColor + ';'
+                + 'transform: scaleX(0); transition: transform 250ms ease-in-out; }'
+                + '.' + bodyClass + ' .menu.nav-menu > li:hover::' + pseudo + ' { transform: scaleX(1); }'
+                + '.' + bodyClass + ' .menu.nav-menu > li::' + pseudo + ' { transform-origin: 0% 50%; }'
+                + '</style>'
+            );
+        }
+
+        setting.bind( applyMainMenuHoverStyle );
+        applyMainMenuHoverStyle( setting.get() );
+    } );
+
 } )( jQuery );
