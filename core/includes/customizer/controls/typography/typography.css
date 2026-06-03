@@ -309,18 +309,27 @@ label.responsive_font_weight select option:checked {
 #customize-control-responsive_site_background_image .responsive-background-image-control {
 	padding-bottom: 12px;
 }
+#customize-control-responsive_header_site_title_typography_group .responsive-typography-settings-group-icon {
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
 #customize-control-responsive_header_site_title_typo_separator .responsive-horizontal-separator-control-wrapper,
 #customize-control-responsive_content_header_heading_typography_group_separator .responsive-horizontal-separator-control-wrapper {
 	padding-top: 14px;
 	padding-bottom: 24px;
 }
-#customize-control-responsive_header_site_tagline_typo_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_header_site_tagline_typo_separator .responsive-horizontal-separator-control-wrapper {
+	padding: 0;
+}
 #customize-control-responsive_content_header_description_typography_group_separator .responsive-horizontal-separator-control-wrapper {
 	padding-top: 24px;
 	padding-bottom: 24px;
 }
-#customize-control-responsive_header_site_tagline_typography_group .responsive-typography-settings-group-icon,
-	#customize-control-responsive_content_header_description_typography_group .responsive-typography-settings-group-icon {
+#customize-control-responsive_header_site_tagline_typography_group .responsive-typography-settings-group-icon {
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
+#customize-control-responsive_content_header_description_typography_group .responsive-typography-settings-group-icon {
 	padding-bottom: 12px;
 }
 #customize-control-responsive_header_menu_typography_group  {
