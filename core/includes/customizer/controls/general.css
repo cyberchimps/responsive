@@ -2015,3 +2015,14 @@ div.customize-section-description {
 .wp-core-ui #accordion-section-responsive_upsell_section .accordion-section-title {
 	cursor: pointer;
 }
+#customize-controls .customize-info .customize-help-toggle:before {
+	margin: -9px -10px;
+}
+ul.control-panel-nav_menus .customize-help-toggle:before {
+	margin: -18px -6px !important;
+}
+#sub-accordion-section-custom_css.open 
+  .customize-section-title:has(.customize-section-description.open) 
+  .customize-help-toggle::before {
+  margin: -195px -10px !important;
+}
