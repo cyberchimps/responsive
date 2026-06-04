@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "wp-scripts start --progress",
-    "build": "wp-scripts build",
+    "build": "wp-scripts build && tailwindcss -i src/input.css -o ../css/responsive-admin-dashboard.css",
     "build:css": "tailwindcss -i src/input.css -o ../css/responsive-admin-dashboard.css --watch",
     "build:css:prod": "tailwindcss -i src/input.css -o ../css/responsive-admin-dashboard.css"
   },
