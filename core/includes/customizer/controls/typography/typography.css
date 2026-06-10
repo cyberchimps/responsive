@@ -158,7 +158,7 @@ label.responsive_font_weight select option:checked {
 }
 .customize-control-responsive-text input[type=range] {
 	background-color: rgba(0, 0, 0, 0.1);
-	height: 3px; 
+	height: 2px; 
 	width: 69%;
 	padding: 0;
 	cursor: pointer;
@@ -390,4 +390,11 @@ ul.responsive-typography-settings-group li.customize-control {
 }
 .responsive-typography-settings-group .responsive-typography-inline-container li.customize-control {
     border: none;
+}
+
+.responsive-typography-settings-group .responsive-typography-inline-container li[id$=text-transform] button.selectbtn-text:first-child {
+	border-radius: 3px 0px 0px 3px;
+}
+.responsive-typography-settings-group .responsive-typography-inline-container li[id$=text-transform] button.selectbtn-text:last-child {
+	border-radius: 0px 3px 3px 0px;
 }
