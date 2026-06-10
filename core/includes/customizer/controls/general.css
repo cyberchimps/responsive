@@ -1938,11 +1938,11 @@ button.selectbtn-text:first-child {
     padding: 20px;
 	border-bottom: 1px solid #D0D0D0;
 }
-#sub-accordion-panel-responsive_header .responsive-section-description, #sub-accordion-panel-responsive_footer .responsive-section-description {
+#sub-accordion-panel-responsive_header .responsive-section-description, #sub-accordion-panel-responsive_footer .responsive-section-description, #sub-accordion-panel-widgets .responsive-section-description {
 	padding: 10px 20px 10px 20px; 
 	border-bottom: none;
 }
-#sub-accordion-section-responsive_blog_layout .responsive-section-description, #sub-accordion-section-responsive_form_fields .responsive-section-description, #sub-accordion-section-responsive_page .responsive-section-description, #sub-accordion-section-responsive_header_site_logo_title .responsive-section-description {
+#sub-accordion-section-responsive_blog_layout .responsive-section-description, #sub-accordion-section-responsive_form_fields .responsive-section-description, #sub-accordion-section-responsive_page .responsive-section-description, #sub-accordion-section-responsive_header_site_logo_title .responsive-section-description, #sub-accordion-section-responsive_breadcrumb .responsive-section-description, #sub-accordion-section-responsive_sidebar .responsive-section-description {
 	border-bottom: none;
 }
 
@@ -2004,10 +2004,13 @@ button.selectbtn-text:first-child {
     background: none !important;
 }
 
-.customize-section-title,
+.customize-section-description-container .customize-section-title {
+	position: relative;
+}
+/* .customize-section-title,
 .customize-panel-title {
     position: relative !important;
-}
+} */
 
 div.customize-section-description {
 	margin-top: 0px;
