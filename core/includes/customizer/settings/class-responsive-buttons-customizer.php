@@ -48,7 +48,7 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 				)
 			);
 			// Button Presets.
-			$buttons_presets_label = esc_html__( 'Button presets', 'responsive' );
+			$buttons_presets_label = esc_html__( 'Button Presets', 'responsive' );
 			responsive_button_presets_control( $wp_customize, 'button_presets', $buttons_presets_label, 'responsive_button', 1 );
 
 			// Buttons Typography.

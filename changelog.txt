@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(10/06/2026) Version 6.3.8
+[+] = New = Introduced Button Presets in the Theme Customizer for faster and more consistent button styling across the website.
+[*] = Improvement = Added support for additional Block Editor style settings, providing more design customization options within the Styles panel in the Gutenberg editor.
+[*] = Improvement = Made minor UI enhancements and improvements.
+
 (26/05/2026) Version 6.3.7
 [+] = New = Added a new toggle option in the Responsive Theme to easily enable or disable comments on single post pages directly from the customization settings.
 [*] = Improvement = Improved the Responsive Theme editor experience by making the Viewport Selector auto-expand for quicker and more seamless device switching during customization.
