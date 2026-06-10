@@ -55,7 +55,7 @@ label.responsive_font_weight {
 	flex-direction: column;
 }
 label.responsive_font_family,label.responsive_font_weight {
-	gap: 14px;
+	gap: 10px;
 }
 label.responsive_font_weight select, label.responsive_font_family select {
     width: 228px;
@@ -90,11 +90,14 @@ label.responsive_font_weight select option:checked {
     letter-spacing: 0;
 }
 .responsive-typography-settings-group .customize-control select {
-	height: 40px;
+	min-height: 32px;
+	height: 32px;
 	padding: 8px 12px;
 	color: #50575E;
 	border: 1px solid #e2e2e2;
 	border-radius: 5px;
+	box-sizing: border-box;
+	line-height: 1;
 }
 .responsive-font-family-select-options {
 	color: #50575E;
@@ -211,16 +214,18 @@ label.responsive_font_weight select option:checked {
 	background-color: #2e86b9;
 }
 .customize-control-responsive-text input.responsive-range-input {
-    width: 27%;
+    width: 22%;
+	min-height: 32px !important;
     height: 32px;
     text-align: left;
     margin: 0;
     border-radius: 4px;
-    padding: 8px;
+    padding: 6px 8px;
     font-size: 14px;
     font-weight: 400;
     color: #50575E;
     border: 1px solid #D2D2D2;
+	box-sizing: border-box;
 }
 .responsive-typography-settings-group .responsive-selectbtn-control-wrapper .customize-control-responsive-selectbtn {
 	width: auto;
