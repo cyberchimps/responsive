@@ -1204,6 +1204,12 @@ function defaults() {
 			'label'                               => '#333333',
 
 			'responsive_style'                    => 'boxed',
+			'responsive_sidebar_style'            => 'unboxed',
+			'responsive_page_sidebar_style'       => 'default',
+			'responsive_blog_sidebar_style'       => 'default',
+			'responsive_single_blog_sidebar_style'=> 'default',
+			'responsive_shop_sidebar_style'       => 'default',
+			'responsive_single_product_sidebar_style' => 'default',
 			// 'responsive_header_layout'            => 'horizontal',
 			// 'responsive_header_alignment'         => 'center',
 			'header_menu_full_width'              => 1,
