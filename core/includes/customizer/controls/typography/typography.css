@@ -55,10 +55,10 @@ label.responsive_font_weight {
 	flex-direction: column;
 }
 label.responsive_font_family,label.responsive_font_weight {
-	gap: 10px;
+	gap: 14px;
 }
 label.responsive_font_weight select, label.responsive_font_family select {
-    width: 100%;
+    width: 228px;
     height: 32px;
     display: flex;
     justify-content: space-between;
@@ -90,14 +90,11 @@ label.responsive_font_weight select option:checked {
     letter-spacing: 0;
 }
 .responsive-typography-settings-group .customize-control select {
-	min-height: 32px;
-	height: 32px;
+	height: 40px;
 	padding: 8px 12px;
 	color: #50575E;
 	border: 1px solid #e2e2e2;
 	border-radius: 5px;
-	box-sizing: border-box;
-	line-height: 1;
 }
 .responsive-font-family-select-options {
 	color: #50575E;
@@ -161,7 +158,7 @@ label.responsive_font_weight select option:checked {
 }
 .customize-control-responsive-text input[type=range] {
 	background-color: rgba(0, 0, 0, 0.1);
-	height: 2px; 
+	height: 3px; 
 	width: 69%;
 	padding: 0;
 	cursor: pointer;
@@ -214,18 +211,16 @@ label.responsive_font_weight select option:checked {
 	background-color: #2e86b9;
 }
 .customize-control-responsive-text input.responsive-range-input {
-    width: 22%;
-	min-height: 32px !important;
+    width: 27%;
     height: 32px;
     text-align: left;
     margin: 0;
     border-radius: 4px;
-    padding: 6px 8px;
+    padding: 8px;
     font-size: 14px;
     font-weight: 400;
     color: #50575E;
     border: 1px solid #D2D2D2;
-	box-sizing: border-box;
 }
 .responsive-typography-settings-group .responsive-selectbtn-control-wrapper .customize-control-responsive-selectbtn {
 	width: auto;
@@ -309,27 +304,18 @@ label.responsive_font_weight select option:checked {
 #customize-control-responsive_site_background_image .responsive-background-image-control {
 	padding-bottom: 12px;
 }
-#customize-control-responsive_header_site_title_typography_group .responsive-typography-settings-group-icon {
-	padding-top: 12px;
-	padding-bottom: 12px;
-}
 #customize-control-responsive_header_site_title_typo_separator .responsive-horizontal-separator-control-wrapper,
 #customize-control-responsive_content_header_heading_typography_group_separator .responsive-horizontal-separator-control-wrapper {
 	padding-top: 14px;
 	padding-bottom: 24px;
 }
-#customize-control-responsive_header_site_tagline_typo_separator .responsive-horizontal-separator-control-wrapper {
-	padding: 0;
-}
+#customize-control-responsive_header_site_tagline_typo_separator .responsive-horizontal-separator-control-wrapper,
 #customize-control-responsive_content_header_description_typography_group_separator .responsive-horizontal-separator-control-wrapper {
 	padding-top: 24px;
 	padding-bottom: 24px;
 }
-#customize-control-responsive_header_site_tagline_typography_group .responsive-typography-settings-group-icon {
-	padding-top: 12px;
-	padding-bottom: 12px;
-}
-#customize-control-responsive_content_header_description_typography_group .responsive-typography-settings-group-icon {
+#customize-control-responsive_header_site_tagline_typography_group .responsive-typography-settings-group-icon,
+	#customize-control-responsive_content_header_description_typography_group .responsive-typography-settings-group-icon {
 	padding-bottom: 12px;
 }
 #customize-control-responsive_header_menu_typography_group  {
@@ -351,7 +337,7 @@ label.responsive_font_weight select option:checked {
 }
 ul.responsive-typography-settings-group{
 	position: relative;
-	width: 100%;
+	width: 260px;
 	box-sizing: border-box;
 	display: none;
     flex-direction: column;
@@ -360,14 +346,14 @@ ul.responsive-typography-settings-group{
     background: #ffffff;
     box-shadow: 0 3px 6px rgba(0, 0, 0, .4);
 	gap: 14px;
-	padding: 26px 16px 16px;
+	padding: 16px;
 	border-radius: 4px;
 }
 ul.responsive-typography-settings-group::before {
 	content: "";
 	position: absolute;
-	top: -10px;
-	right: 21px;
+	top: -8px;
+	right: 12px;
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
 	border-bottom: 10px solid #ffffff;
@@ -388,18 +374,11 @@ ul.responsive-typography-settings-group.active {
     border-width: 1px;
 }
 ul.responsive-typography-settings-group li.customize-control {
-	width: 100%;
+	width: 228px;
 }
 .responsive-typo-font-size-label-units-wrap .responsive-reset-slider {
 	margin-top: -7px;
 }
 .responsive-typography-settings-group .responsive-typography-inline-container li.customize-control {
     border: none;
-}
-
-.responsive-typography-settings-group .responsive-typography-inline-container li[id$=text-transform] button.selectbtn-text:first-child {
-	border-radius: 3px 0px 0px 3px;
-}
-.responsive-typography-settings-group .responsive-typography-inline-container li[id$=text-transform] button.selectbtn-text:last-child {
-	border-radius: 0px 3px 3px 0px;
 }

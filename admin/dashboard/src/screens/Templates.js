@@ -1,0 +1,30 @@
+import { __ } from "@wordpress/i18n";
+import { useState } from "react";
+import InstallButton from "../components/InstallButton";
+import PluginTab from "../components/PluginTab";
+
+const Templates = () => {
+
+  const [buttonText, setButtonText] = useState(localize?.rst_status);
+
+  return (
+    <PluginTab
+      bg={localize?.responsiveurl + "admin/images/rst-template-preview.jpg"}
+      logo={localize.responsiveurl + 'admin/images/rst.svg'}
+      heading={__('Responsive Starter Templates', 'responsive')}
+      desc={__('Build stunning sites fast with 250+ ready templates. Install the free Responsive Plus plugin to get started.', 'responsive')}
+    >
+      <InstallButton
+        type="plugin"
+        status={localize?.rst_status}
+        nonce={localize.rst_nonce}
+        redirect={localize.rst_redirect}
+        buttonText={buttonText}
+        setButtonText={setButtonText}
+        slug="responsive-add-ons"
+      />
+    </PluginTab>
+  )
+}
+
+export default Templates;
