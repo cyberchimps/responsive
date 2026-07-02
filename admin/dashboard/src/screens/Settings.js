@@ -7,7 +7,6 @@ import Icons from "../icons";
 const Settings = () => {
 
     const [settingsTab, setSettingsTab] = useState('connect');
-console.log('plann==='+localize.plan_details);
     return (
         <div className="flex xl:mx-14 md:mx-15 my-16">
             <div className="w-1/4 bg-white rounded-tl-3xl p-5">
