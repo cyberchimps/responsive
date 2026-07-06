@@ -48,17 +48,17 @@ if ( ! class_exists( 'Responsive_Container_Layout_Customizer' ) ) :
 
 			// Page Container Layout.
 			$page_container_layout_heading_label = esc_html__( 'Container Layout', 'responsive' );
-			responsive_separator_control( $wp_customize, 'page_container_layout_separator', $page_container_layout_heading_label, 'responsive_page', 27 );
+			responsive_separator_control( $wp_customize, 'page_container_layout_separator', $page_container_layout_heading_label, 'responsive_page', 26 );
 
 			$page_container_layout_label = esc_html__( 'Container Layout', 'responsive' );
 			responsive_imageradio_button_control( $wp_customize, 'page_container_layout', $page_container_layout_label, 'responsive_page', 28, $container_layout_choices, 'default', null, 'svg', 'postMessage' );
 
 			// Blog/Archive Container Layout.
 			$blog_container_layout_heading_label = esc_html__( 'Container Layout', 'responsive' );
-			responsive_separator_control( $wp_customize, 'blog_container_layout_separator', $blog_container_layout_heading_label, 'responsive_blog_layout', 36 );
+			responsive_separator_control( $wp_customize, 'blog_container_layout_separator', $blog_container_layout_heading_label, 'responsive_blog_layout', 24 );
 
 			$blog_container_layout_label = esc_html__( 'Container Layout', 'responsive' );
-			responsive_imageradio_button_control( $wp_customize, 'blog_container_layout', $blog_container_layout_label, 'responsive_blog_layout', 37, $container_layout_choices, 'default', null, 'svg', 'postMessage' );
+			responsive_imageradio_button_control( $wp_customize, 'blog_container_layout', $blog_container_layout_label, 'responsive_blog_layout', 24, $container_layout_choices, 'default', null, 'svg', 'postMessage' );
 
 			// Single Post Container Layout.
 			$single_blog_container_layout_heading_label = esc_html__( 'Container Layout', 'responsive' );
