@@ -1018,4 +1018,56 @@
         applyMainMenuHoverStyle( setting.get() );
     } );
 
+    // Sidebar style preview update helper
+    function updatePreviewSidebarStyle() {
+        var body = $('body');
+        var sidebar = $('#secondary');
+        if (!sidebar.length) return;
+
+        var globalStyle = api('responsive_sidebar_style').get() || 'unboxed';
+        var style = globalStyle;
+
+        if (body.hasClass('single-product')) {
+            var prodSetting = api('responsive_single_product_sidebar_style');
+            var prodStyle = prodSetting ? prodSetting.get() : 'default';
+            style = (prodStyle === 'default') ? globalStyle : prodStyle;
+        } else if (body.hasClass('archive') && (body.hasClass('post-type-archive-product') || body.hasClass('tax-product_cat') || body.hasClass('tax-product_tag') || body.hasClass('woocommerce-page'))) {
+            var shopSetting = api('responsive_shop_sidebar_style');
+            var shopStyle = shopSetting ? shopSetting.get() : 'default';
+            style = (shopStyle === 'default') ? globalStyle : shopStyle;
+        } else if (body.hasClass('page')) {
+            var pageSetting = api('responsive_page_sidebar_style');
+            var pageStyle = pageSetting ? pageSetting.get() : 'default';
+            style = (pageStyle === 'default') ? globalStyle : pageStyle;
+        } else if (body.hasClass('single')) {
+            var singleSetting = api('responsive_single_blog_sidebar_style');
+            var singleStyle = singleSetting ? singleSetting.get() : 'default';
+            style = (singleStyle === 'default') ? globalStyle : singleStyle;
+        } else if (body.hasClass('home') || body.hasClass('archive') || body.hasClass('search')) {
+            var blogSetting = api('responsive_blog_sidebar_style');
+            var blogStyle = blogSetting ? blogSetting.get() : 'default';
+            style = (blogStyle === 'default') ? globalStyle : blogStyle;
+        }
+
+        // Remove old style classes
+        sidebar.removeClass('responsive-sidebar-style-default responsive-sidebar-style-boxed responsive-sidebar-style-unboxed');
+        // Add new style class
+        sidebar.addClass('responsive-sidebar-style-' + style);
+    }
+
+    var sidebarSettings = [
+        'responsive_sidebar_style',
+        'responsive_page_sidebar_style',
+        'responsive_blog_sidebar_style',
+        'responsive_single_blog_sidebar_style',
+        'responsive_shop_sidebar_style',
+        'responsive_single_product_sidebar_style'
+    ];
+
+    $.each(sidebarSettings, function(index, settingName) {
+        api(settingName, function(value) {
+            value.bind(updatePreviewSidebarStyle);
+        });
+    });
+
 } )( jQuery );

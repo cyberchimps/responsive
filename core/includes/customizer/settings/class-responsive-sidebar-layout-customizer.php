@@ -90,7 +90,7 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
                 'unboxed' => esc_html__( 'Unboxed', 'responsive' ),
                 'boxed'   => esc_html__( 'Boxed', 'responsive' ),
             );
-            responsive_select_button_control( $wp_customize, 'sidebar_style', $sidebar_style_label, 'responsive_sidebar', 15, $sidebar_style_choice, Responsive\Core\get_responsive_customizer_defaults( 'responsive_sidebar_style' ), null, 'postMessage' );
+            responsive_select_button_control( $wp_customize, 'sidebar_style', $sidebar_style_label, 'responsive_sidebar', 15, $sidebar_style_choice, Responsive\Core\get_responsive_customizer_defaults( 'responsive_sidebar_style' ), 'responsive_active_default_sidebar_position', 'postMessage' );
 
             $default_sidebar_width_label = esc_html__('Sidebar Width (%)', 'responsive');
             responsive_drag_number_control( $wp_customize, 'default_sidebar_width',$default_sidebar_width_label, 'responsive_sidebar', 45, 30, 'responsive_active_default_sidebar_position' , 50, 15,'postMessage');

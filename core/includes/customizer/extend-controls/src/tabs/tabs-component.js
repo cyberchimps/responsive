@@ -86,10 +86,14 @@ const TabsComponent = props => {
 			value.bind( function( newval ) {
 				if( newval ) {
 					hideSidebarWidthControl(newval, 'global');
+					hideSidebarWidthControl(api('responsive_page_sidebar_position').get(), 'page');
+					hideSidebarWidthControl(api('responsive_blog_sidebar_position').get(), 'blog');
 					if(api('responsive_shop_sidebar_position')){
+						hideWoocommerceSidebarWidthControl(api('responsive_shop_sidebar_position').get(), 'shop');
 						hideWoocommerceMainContentWidthControl(api('responsive_shop_sidebar_position').get(), 'shop');
 					}
 					if(api('responsive_single_product_sidebar_position')){
+						hideWoocommerceSidebarWidthControl(api('responsive_single_product_sidebar_position').get(), 'single_product');
 						hideWoocommerceMainContentWidthControl(api('responsive_single_product_sidebar_position').get(), 'single_product');
 					}
 				}
@@ -712,8 +716,13 @@ const TabsComponent = props => {
         // For global sidebar: only hide when 'no'
         isVisible = value !== 'no' && tab === 'general';
     } else {
-        // For page/blog: hide when 'no' or 'global'
-        isVisible = value !== 'no' && value !== 'global' && tab === 'general';
+        // For page/blog: hide when 'no' or resolve 'global'
+        if (value === 'global') {
+            const globalValue = api('responsive_default_sidebar_position') ? api('responsive_default_sidebar_position').get() : 'no';
+            isVisible = globalValue !== 'no' && tab === 'general';
+        } else {
+            isVisible = value !== 'no' && tab === 'general';
+        }
     }
 
     if (isVisible) {
@@ -727,8 +736,13 @@ const TabsComponent = props => {
 		if (!controlElement) return;
 		controlElement.style.display = 'none';
 
-		// For shop/single product sidebar: hide when 'no' or 'global'
-		let isVisible = value !== 'no' && value !== 'global' && tab === 'general';
+		let isVisible = false;
+		if (value === 'global') {
+			const globalValue = api('responsive_default_sidebar_position') ? api('responsive_default_sidebar_position').get() : 'no';
+			isVisible = globalValue !== 'no' && tab === 'general';
+		} else {
+			isVisible = value !== 'no' && tab === 'general';
+		}
 
 		if (isVisible) {
 			controlElement.style.display = 'block';

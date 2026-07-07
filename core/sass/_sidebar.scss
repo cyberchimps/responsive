@@ -24,7 +24,9 @@
         padding-bottom: 0;
     }
 
-    .responsive-site-style-boxed & {
+    .responsive-site-style-boxed &,
+    aside#secondary.responsive-sidebar-style-boxed &,
+    aside#secondary.responsive-sidebar-style-unboxed & {
         padding: $base-line-height-px;
     }
 
