@@ -124,3 +124,10 @@
  #customize-controls .customize-info {
   margin-bottom: 0;
  }
+ #customize-control-responsive_single_product_container_style{
+  margin-bottom: 20px;
+ }
+ #customize-control-responsive_single_product_container_style_separator .responsive-horizontal-separator-control-wrapper,
+ #customize-control-responsive_product_catalog_container_style_separator .responsive-horizontal-separator-control-wrapper{
+  padding-bottom: 0;
+ }

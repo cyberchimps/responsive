@@ -73,7 +73,11 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				$general_tab_ids_prefix . 'shop_pagination_quick_view',
 				$general_tab_ids_prefix . 'responsive_shop_sidebar_separator', 
 				$general_tab_ids_prefix . 'responsive_shop_sidebar_position',
-				$general_tab_ids_prefix . 'responsive_shop_sidebar_width'
+				$general_tab_ids_prefix . 'responsive_shop_sidebar_width',
+				$general_tab_ids_prefix . 'responsive_product_catalog_container_layout_separator',
+				$general_tab_ids_prefix . 'responsive_product_catalog_container_layout',
+				$general_tab_ids_prefix . 'responsive_product_catalog_container_style_separator',
+				$general_tab_ids_prefix . 'responsive_product_catalog_container_style',
 			);
 			
 			$enable_native_popup_flag = get_theme_mod('enable_native_cart_popup');
@@ -95,6 +99,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			$general_tab_ids_prefix . 'responsive_popup_height_mobile',
 			$general_tab_ids_prefix . 'responsive_popup_padding',
 			$general_tab_ids_prefix . 'responsive_popup_radius_padding',
+			
 			);
 			
 			
@@ -124,7 +129,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_product_price_shop_typography_group_seperator',
 				$design_tab_ids_prefix . 'responsive_product_content_shop_typography_group_seperator',
 				$design_tab_ids_prefix . 'responsive_shop_product_background_color', 
-				$design_tab_ids_prefix . 'responsive_border_shop_product'
+				$design_tab_ids_prefix . 'responsive_border_shop_product',
 			);
 			
 			$native_design_pop_up_options = array(
