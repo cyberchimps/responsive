@@ -102,3 +102,12 @@
   transition: opacity 0.2s;
   margin-bottom: 5px;
 }
+.font-semi-bold {
+  font-weight: 600;
+}
+.text-3xl{
+  font-size: 2rem;
+}
+.text-gray1000{
+  color: #4B5563;
+}

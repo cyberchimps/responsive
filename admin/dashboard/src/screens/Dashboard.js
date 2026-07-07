@@ -9,25 +9,40 @@ import { ResponsiveContext } from "../Context";
 
 const Dashboard = () => {
     return (
-        <>
-            <HeroSection />
-            <QuickSettings />
-            <RPlusFeatures />
-            <ExtendAndQuickAccess />
-        </>
+        <div className="xl:flex lg:block justify-between xl:mx-14 md:mx-15 mt-8 mb-16 gap-12 items-start">
+            <div className="flex flex-col gap-16 xl:w-2/3 lg:w-full">
+                <HeroSection />
+                <QuickSettings />
+                <RPlusFeatures />
+                <ExtendAndQuickAccess />
+            </div>
+            <div className="flex flex-col gap-6 xl:w-1/3 lg-w-full max-xl:mt-8">
+                <UpgradeToProCard />
+                <QuickAccess />
+            </div>
+        </div>
     )
 }
 
 const HeroSection = () => {
     return (
-        <div className="xl:mx-14 md:mx-15 mt-8 mb-16 rounded-lg bg-[linear-gradient(93.9deg,#080084_27.66%,#2563EB_96.64%)]">
-            <div className="flex flex-col gap-6 py-15 px-6 sm:py-14 sm:px-14 pl-15">
-                <p className="text-white font-bold text-5xl sm:text-4xl md:text-5xl leading-tight m-0">{__('Welcome to Responsive Theme', 'responsive')}</p>
-                <p className="max-w-175 text-blue-50 font-medium text-sm leading-relaxed m-0">{__('Responsive is a fast, lightweight, and fully customizable WordPress theme designed to help you build stunning websites with ease. Whether you\'re creating a business site, blog, portfolio, or WooCommerce store, Responsive gives you complete control over design and performance.', 'responsive')}</p>
-                <p className="m-0">
-                    <button onClick={() => window.location.href = localize?.customizerurlReturn} className="flex items-center gap-1 py-2.5 px-3.5 text-blue-500 leading-5 cursor-pointer bg-white rounded-md font-medium border-0"> {Icons.pointerClick} {__('Start Customizing', 'responsive')}
-                    </button>
-                </p>
+        <div className="flex flex-col gap-6">
+            <p className="text-gray-900 font-semi-bold text-3xl leading-tight m-0">{__('Welcome to Responsive Theme', 'responsive')}</p>
+            <p className="max-w-175 text-gray1000 font-normal text-lg leading-relaxed m-0">{__('Build fast, beautiful websites with Responsive—a lightweight and fully customizable WordPress theme.', 'responsive')}</p>
+        </div>
+    )
+};
+
+const UpgradeToProCard = () => {
+    return (
+        <div className="p-3 bg-slate-100 rounded-lg border border-slate-200">
+            <div className="flex flex-col gap-7 p-4.5 bg-white">
+                <span className="text-gray-800 font-medium text-lg leading-7">Upgrade to Pro?</span>
+                <div>
+                    <span className="text-[#4B5563] text-base leading-6 font-normal">Why start from scratch when you can launch faster with ready-made designs?<br /></span>
+                    <span className="text-[#4B5563] text-base leading-6 font-normal">Upgrade to unlock premium starter templates and build stunning websites in minutes.</span>
+                </div>
+                <button onClick={() => window.open('https://cyberchimps.com/pricing/?utm_source=wpdash&utm_medium=rtheme&utm_campaign=theme-home-tab&utm_content=upgrade', '_blank')} className="self-start py-2.5 px-3.5 text-blue-500 leading-5 cursor-pointer bg-white rounded-md font-medium border border-blue-500">Upgrade Now</button>
             </div>
         </div>
     )
@@ -87,30 +102,15 @@ const QuickSettings = () => {
     ];
 
     return (
-        <div className="xl:flex lg:block justify-between xl:mx-14 md:mx-15 mt-8 mb-16 gap-12">
-            <div className="flex flex-col gap-6 xl:w-2/3 lg:w-full">
-                <div className="flex justify-between">
-                    <p className="font-medium text-2xl m-0">{__('Quick Settings', 'responsive')}</p>
-                    <button onClick={() => window.location.href = localize?.customizerurlReturn} className="cursor-pointer text-blue-600 bg-white border border-blue-600 py-2.5 px-3.5 rounded-md">{__('Go to Customizer', 'responsive')}</button>
-                </div>
-                <div className="grid grid-cols-2 gap-3 p-3 bg-slate-100 rounded-lg border border-slate-200">
-                    {settingsOptions.map((option, index) => (
-                        <QuickSettingCard index={option.key} icon={option.icon} title={option.name} link={option.link} />
-                    ))}
-                </div>
+        <div className="flex flex-col gap-6">
+            <div className="flex justify-between">
+                <p className="font-medium text-2xl m-0">{__('Customize Your Site', 'responsive')}</p>
+                <button onClick={() => window.location.href = localize?.customizerurlReturn} className="cursor-pointer text-blue-600 bg-white border border-blue-600 py-2.5 px-3.5 rounded-md">{__('Go to Customizer', 'responsive')}</button>
             </div>
-            <div className="xl:w-1/3 lg-w-full max-xl:mt-8">
-                <div className="p-3 mt-15 bg-slate-100 rounded-lg border border-slate-200">
-                    <div className="flex flex-col gap-7 p-4.5 bg-white">
-                        <span className="text-gray-800 font-medium text-lg leading-7">Upgrade to Pro?</span>
-                        <div>
-                            <span className="text-[#4B5563] text-base leading-6 font-normal">Why start from scratch when you can launch faster with ready-made designs?<br /></span>
-                            <span className="text-[#4B5563] text-base leading-6 font-normal">Upgrade to unlock premium starter templates and build stunning websites in minutes.</span>
-                        </div>
-                        <button onClick={() => window.open('https://cyberchimps.com/pricing/?utm_source=wpdash&utm_medium=rtheme&utm_campaign=theme-home-tab&utm_content=upgrade', '_blank')} className="self-start py-2.5 px-3.5 text-blue-500 leading-5 cursor-pointer bg-white rounded-md font-medium border border-blue-500">Upgrade Now</button>
-                    </div>
-
-                </div>
+            <div className="grid grid-cols-2 gap-3 p-3 bg-slate-100 rounded-lg border border-slate-200">
+                {settingsOptions.map((option, index) => (
+                    <QuickSettingCard index={option.key} icon={option.icon} title={option.name} link={option.link} />
+                ))}
             </div>
         </div>
     )
@@ -209,10 +209,9 @@ const RPlusFeatures = () => {
     };
 
     return (
-        <div className="xl:flex lg:block justify-between xl:mx-14 md:mx-15 mt-8 mb-16 gap-12">
-            <div className="flex flex-col gap-6 xl:w-2/3 lg:w-full">
-                <div className="flex flex-col gap-2">
-                    <span className="text-[#4B5563] text-2xl leading-8 font-medium">Responsive Plus Features</span>
+        <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-2">
+                <span className="text-[#4B5563] text-2xl leading-8 font-medium">Responsive X Features</span>
                     <span className="text-[#4B5563] text-base leading-6">Import Premium WordPress sites with Responsive Plus featuring white label, custom fonts, Woo settings, etc.</span>
                 </div>
                 <div className="grid grid-cols-3 gap-3 p-3 bg-slate-100 rounded-lg border border-slate-200">
@@ -300,8 +299,6 @@ const RPlusFeatures = () => {
                     </PlusFeatureCard>
                 </div>
             </div>
-            <QuickAccess />
-        </div>
     )
 }
 
@@ -322,7 +319,7 @@ const PlusFeatureCard = ({ title, desc, children }) => {
 
 const QuickAccess = () => {
     return (
-        <div className="flex flex-col gap-6 xl:w-1/3 lg-w-full max-xl:mt-8">
+        <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">
                 <span className="text-[#4B5563] text-2xl leading-8 font-medium">{__('Quick Access', 'responsive')}</span>
                 <span className="text-[#4B5563] text-base leading-6">{__('Helpful resources & links', 'responsive')}</span>
@@ -363,53 +360,50 @@ const ExtendAndQuickAccess = () => {
     const [raeText, setRaeText] = useState(localize?.rae_status);
 
     return (
-        <div className="xl:flex lg:block justify-between xl:mx-14 md:mx-15 mt-8 mb-16 gap-12">
-            <div className="xl:w-2/3 lg:w-full">
-                <p className="font-medium text-2xl m-0">{__('Extend Your Website', 'responsive')}</p>
-                <p className="font-normal text-base text-desc mt-2 mb-6">{__("Powerful tools to enhance your site's functionality", 'responsive')}</p>
-                <div className="grid md:grid-cols-2 gap-6 p-3 bg-slate-100 border border-slate-200 rounded-md">
-                    <PluginCard title={__('Starter Templates', 'responsive')} description={__('150+ Ready to Import Designer-Made Website Starter Templates.', 'responsive')} image="rst">
-                        <button onClick={() => convertTruthyFalsyValue(localize?.isRSTActivated) ? window.location.href = localize.rst_redirect : navigate('/templates')} className="mt-1.125 py-2.5 px-3.5 border-0 bg-blue-600 hover:bg-blue-900 rounded-md text-white text-sm leading-5 font-medium cursor-pointer">{__('Explore Templates', 'responsive')}</button>
-                    </PluginCard>
+        <div>
+            <p className="font-medium text-2xl m-0">{__('Extend Your Website', 'responsive')}</p>
+            <p className="font-normal text-base text-desc mt-2 mb-6">{__("Powerful tools to enhance your site's functionality", 'responsive')}</p>
+            <div className="grid md:grid-cols-2 gap-6 p-3 bg-slate-100 border border-slate-200 rounded-md">
+                <PluginCard title={__('Starter Templates', 'responsive')} description={__('150+ Ready to Import Designer-Made Website Starter Templates.', 'responsive')} image="rst">
+                    <button onClick={() => convertTruthyFalsyValue(localize?.isRSTActivated) ? window.location.href = localize.rst_redirect : navigate('/templates')} className="mt-1.125 py-2.5 px-3.5 border-0 bg-blue-600 hover:bg-blue-900 rounded-md text-white text-sm leading-5 font-medium cursor-pointer">{__('Explore Templates', 'responsive')}</button>
+                </PluginCard>
 
-                    <PluginCard title={__('Responsive Plus', 'responsive')} description={__('Get Advanced modules: Site Builder, Fonts, WooCommerce, and more.', 'responsive')} image="rst">
-                        <InstallButton
-                            type="plugin"
-                            status={localize?.rst_status}
-                            nonce={localize.rst_nonce}
-                            redirect={localize.rst_redirect}
-                            buttonText={rplusText}
-                            setButtonText={setRplusText}
-                            slug="responsive-add-ons"
-                        />
-                    </PluginCard>
+                <PluginCard title={__('Responsive Plus', 'responsive')} description={__('Get Advanced modules: Site Builder, Fonts, WooCommerce, and more.', 'responsive')} image="rst">
+                    <InstallButton
+                        type="plugin"
+                        status={localize?.rst_status}
+                        nonce={localize.rst_nonce}
+                        redirect={localize.rst_redirect}
+                        buttonText={rplusText}
+                        setButtonText={setRplusText}
+                        slug="responsive-add-ons"
+                    />
+                </PluginCard>
 
-                    <PluginCard title={__('Responsive Addons for Elementor', 'responsive')} description={__('50+ Blocks to Enhance Your WordPress Block Editor Experience.', 'responsive')} image="responsive_logo">
-                        <InstallButton
-                            type="plugin"
-                            status={localize?.rae_status}
-                            nonce={localize.rae_nonce}
-                            redirect={localize.rae_redirect}
-                            buttonText={raeText}
-                            setButtonText={setRaeText}
-                            slug="responsive-addons-for-elementor"
-                        />
-                    </PluginCard>
+                <PluginCard title={__('Responsive Addons for Elementor', 'responsive')} description={__('50+ Blocks to Enhance Your WordPress Block Editor Experience.', 'responsive')} image="responsive_logo">
+                    <InstallButton
+                        type="plugin"
+                        status={localize?.rae_status}
+                        nonce={localize.rae_nonce}
+                        redirect={localize.rae_redirect}
+                        buttonText={raeText}
+                        setButtonText={setRaeText}
+                        slug="responsive-addons-for-elementor"
+                    />
+                </PluginCard>
 
-                    <PluginCard title={__('Responsive Blocks', 'responsive')} description={__('50+ Blocks to Enhance Your WordPress Block Editor Experience.', 'responsive')} image="rbea_logo">
-                        <InstallButton
-                            type="plugin"
-                            status={localize?.rbea_status}
-                            nonce={localize.rbea_nonce}
-                            redirect={localize.rbea_redirect}
-                            buttonText={rbeaText}
-                            setButtonText={setRbeaText}
-                            slug="responsive-block-editor-addons"
-                        />
-                    </PluginCard>
-                </div>
+                <PluginCard title={__('Responsive Blocks', 'responsive')} description={__('50+ Blocks to Enhance Your WordPress Block Editor Experience.', 'responsive')} image="rbea_logo">
+                    <InstallButton
+                        type="plugin"
+                        status={localize?.rbea_status}
+                        nonce={localize.rbea_nonce}
+                        redirect={localize.rbea_redirect}
+                        buttonText={rbeaText}
+                        setButtonText={setRbeaText}
+                        slug="responsive-block-editor-addons"
+                    />
+                </PluginCard>
             </div>
-            <div className="xl:w-1/3 lg-w-full"></div>
         </div>
     )
 }
