@@ -94,6 +94,41 @@ if ( ! class_exists( 'Responsive_Container_Layout_Customizer' ) ) :
 				'unboxed' => esc_html__( 'Unboxed', 'responsive' ),
 			);
 			responsive_select_button_control( $wp_customize, 'single_blog_container_style', $single_blog_container_style_label, 'responsive_single_blog_layout', 8, $single_blog_container_style_choices, 'default', null, 'postMessage' );
+
+			// Woocommerce Single Product Container Layout.
+			$single_product_container_layout_label = esc_html__( 'Container Layout', 'responsive' );
+			responsive_separator_control( $wp_customize, 'single_product_container_layout_separator', $single_product_container_layout_label, 'responsive_woocommerce_single_product_layout', 40 );
+
+			responsive_imageradio_button_control( $wp_customize, 'single_product_container_layout', $single_product_container_layout_label, 'responsive_woocommerce_single_product_layout', 6, $container_layout_choices, 'default', null, 'svg', 'postMessage' );
+
+			responsive_horizontal_separator_control( $wp_customize, 'single_product_container_style_separator', 1, 'responsive_woocommerce_single_product_layout', 7, 1 );
+
+			// Woocommerce Single Product Container Style.
+			$single_product_container_style_label   = esc_html__( 'Container Style', 'responsive' );
+			$single_product_container_style_choices = array(
+				'default' => esc_html__( 'Default', 'responsive' ),
+				'boxed'   => esc_html__( 'Boxed', 'responsive' ),
+				'unboxed' => esc_html__( 'Unboxed', 'responsive' ),
+			);
+			responsive_select_button_control( $wp_customize, 'single_product_container_style', $single_product_container_style_label, 'responsive_woocommerce_single_product_layout', 8, $single_product_container_style_choices, 'default', null, 'postMessage' );
+
+			// Woocommerce Product Catalog Container Layout.
+			$product_catalog_container_layout_label = esc_html__( 'Container Layout', 'responsive' );
+			responsive_separator_control( $wp_customize, 'product_catalog_container_layout_separator', $product_catalog_container_layout_label, 'responsive_woocommerce_shop', 5 );
+
+			responsive_imageradio_button_control( $wp_customize, 'product_catalog_container_layout', $product_catalog_container_layout_label, 'responsive_woocommerce_shop', 6, $container_layout_choices, 'default', null, 'svg', 'postMessage' );
+
+			responsive_horizontal_separator_control( $wp_customize, 'product_catalog_container_style_separator', 1, 'responsive_woocommerce_shop', 7, 1 );
+
+			// Woocommerce Product Catalog Container Style.
+			$product_catalog_container_style_label   = esc_html__( 'Container Style', 'responsive' );
+			$product_catalog_container_style_choices = array(
+				'default' => esc_html__( 'Default', 'responsive' ),
+				'boxed'   => esc_html__( 'Boxed', 'responsive' ),
+				'unboxed' => esc_html__( 'Unboxed', 'responsive' ),
+			);
+			responsive_select_button_control( $wp_customize, 'product_catalog_container_style', $product_catalog_container_style_label, 'responsive_woocommerce_shop', 8, $product_catalog_container_style_choices, 'default', null, 'postMessage' );
+
 		}
 	}
 endif;

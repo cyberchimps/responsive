@@ -253,6 +253,42 @@ function responsive_customizer_styles() {
 		}";
 	}
 
+	// Product Catalog Container Layout.
+	$product_catalog_container_layout_setting = get_theme_mod( 'responsive_product_catalog_container_layout', 'default' );
+	$responsive_product_catalog_container_layout = ( 'default' === $product_catalog_container_layout_setting ) ? $global_container_layout_key : $product_catalog_container_layout_setting;
+
+	if ( 'full-width' === $responsive_product_catalog_container_layout ) {
+		$custom_css .= "
+		.woocommerce-shop .container,
+		.woocommerce-shop [class*='__inner-container'] {
+			max-width: 100% !important;
+		}";
+	} elseif ( 'normal' === $responsive_product_catalog_container_layout ) {
+		$custom_css .= "
+		.woocommerce-shop .container,
+		.woocommerce-shop [class*='__inner-container'] {
+			max-width: {$container_max_width}px !important;
+		}";
+	}
+
+	// Single Product Container Layout.
+	$single_product_container_layout_setting = get_theme_mod( 'responsive_single_product_container_layout', 'default' );
+	$responsive_single_product_container_layout = ( 'default' === $single_product_container_layout_setting ) ? $global_container_layout_key : $single_product_container_layout_setting;
+
+	if ( 'full-width' === $responsive_single_product_container_layout ) {
+		$custom_css .= "
+		.single-product .container,
+		.single-product [class*='__inner-container'] {
+			max-width: 100% !important;
+		}";
+	} elseif ( 'normal' === $responsive_single_product_container_layout ) {
+		$custom_css .= "
+		.single-product .container,
+		.single-product [class*='__inner-container'] {
+			max-width: {$container_max_width}px !important;
+		}";
+	}
+
 	// Container Style (Default / Boxed / Unboxed)
 	$global_container_style     = get_theme_mod( 'responsive_site_style', 'unboxed' );
 	$global_container_style_key = ( 'boxed' === $global_container_style ) ? 'boxed' : 'unboxed';
@@ -363,6 +399,74 @@ function responsive_customizer_styles() {
 			border-radius: 0;		
 			padding: " . responsive_spacing_css( $outside_container_padding_top, $outside_container_padding_right, $outside_container_padding_bottom, $outside_container_padding_left) . ";
 
+		}";
+	}
+
+	// Product Catalog Container Style.
+	$product_catalog_container_style_setting = get_theme_mod( 'responsive_product_catalog_container_style', 'default' );
+	$responsive_product_catalog_container_style = ( 'default' === $product_catalog_container_style_setting ) ? $global_container_style_key : $product_catalog_container_style_setting;
+error_log('responsive_product_catalog_container_style==='.$responsive_product_catalog_container_style);
+	if ( 'boxed' === $responsive_product_catalog_container_style ) {
+		$custom_css .= "
+		.woocommerce.archive:not(.single-product) ul.products li.product,
+		.woocommerce-page.archive:not(.single-product) ul.products li.product {
+			background-color: {$box_background_color};
+			border-radius: {$box_top_left_radius}px {$box_top_right_radius}px {$box_bottom_right_radius}px {$box_bottom_left_radius}px;
+			padding: " . responsive_spacing_css( $box_padding_top, $box_padding_right, $box_padding_bottom, $box_padding_left ) . ";
+		}
+		@media screen and ( max-width: 992px ) {
+			.woocommerce.archive:not(.single-product) ul.products li.product,
+			.woocommerce-page.archive:not(.single-product) ul.products li.product {
+				border-radius: {$box_tablet_top_left_radius}px {$box_tablet_top_right_radius}px {$box_tablet_bottom_right_radius}px {$box_tablet_bottom_left_radius}px;
+				padding: " . responsive_spacing_css( $box_tablet_padding_top, $box_tablet_padding_right, $box_tablet_padding_bottom, $box_tablet_padding_left ) . ";
+			}
+		}
+		@media screen and ( max-width: 576px ) {
+			.woocommerce.archive:not(.single-product) ul.products li.product,
+			.woocommerce-page.archive:not(.single-product) ul.products li.product {
+				border-radius: {$box_mobile_top_left_radius}px {$box_mobile_top_right_radius}px {$box_mobile_bottom_right_radius}px {$box_mobile_bottom_left_radius}px;
+				padding: " . responsive_spacing_css( $box_mobile_padding_top, $box_mobile_padding_right, $box_mobile_padding_bottom, $box_mobile_padding_left ) . ";
+			}
+		}";
+	} elseif ( 'unboxed' === $responsive_product_catalog_container_style ) {
+		$custom_css .= "
+		.woocommerce.archive:not(.single-product) ul.products li.product,
+		.woocommerce-page.archive:not(.single-product) ul.products li.product {
+			
+			border-radius: 0;
+			padding: " . responsive_spacing_css( $outside_container_padding_top, $outside_container_padding_right, $outside_container_padding_bottom, $outside_container_padding_left ) . ";
+		}";
+	}
+
+	// Single Product Container Style.
+	$single_product_container_style_setting = get_theme_mod( 'responsive_single_product_container_style', 'default' );
+	$responsive_single_product_container_style = ( 'default' === $single_product_container_style_setting ) ? $global_container_style_key : $single_product_container_style_setting;
+
+	if ( 'boxed' === $responsive_single_product_container_style ) {
+		$custom_css .= "
+		.single-product div.product {
+			background-color: {$box_background_color};
+			border-radius: {$box_top_left_radius}px {$box_top_right_radius}px {$box_bottom_right_radius}px {$box_bottom_left_radius}px;
+			padding: " . responsive_spacing_css( $box_padding_top, $box_padding_right, $box_padding_bottom, $box_padding_left ) . ";
+		}
+		@media screen and ( max-width: 992px ) {
+			.single-product div.product {
+				border-radius: {$box_tablet_top_left_radius}px {$box_tablet_top_right_radius}px {$box_tablet_bottom_right_radius}px {$box_tablet_bottom_left_radius}px;
+				padding: " . responsive_spacing_css( $box_tablet_padding_top, $box_tablet_padding_right, $box_tablet_padding_bottom, $box_tablet_padding_left ) . ";
+			}
+		}
+		@media screen and ( max-width: 576px ) {
+			.single-product div.product {
+				border-radius: {$box_mobile_top_left_radius}px {$box_mobile_top_right_radius}px {$box_mobile_bottom_right_radius}px {$box_mobile_bottom_left_radius}px;
+				padding: " . responsive_spacing_css( $box_mobile_padding_top, $box_mobile_padding_right, $box_mobile_padding_bottom, $box_mobile_padding_left ) . ";
+			}
+		}";
+	} elseif ( 'unboxed' === $responsive_single_product_container_style ) {
+		$custom_css .= "
+		.single-product div.product {
+			background-color: transparent;
+			border-radius: 0;
+			padding: " . responsive_spacing_css( $outside_container_padding_top, $outside_container_padding_right, $outside_container_padding_bottom, $outside_container_padding_left ) . ";
 		}";
 	}
 

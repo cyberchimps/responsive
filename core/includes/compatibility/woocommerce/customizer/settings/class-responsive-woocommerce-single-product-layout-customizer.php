@@ -59,6 +59,10 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				$general_tab_ids_prefix . 'responsive_single_product_sidebar_position',
 				$general_tab_ids_prefix . 'responsive_single_product_sidebar_separator',
 				$general_tab_ids_prefix . 'responsive_single_product_sidebar_width',
+				$general_tab_ids_prefix . 'responsive_single_product_container_layout_separator',
+				$general_tab_ids_prefix . 'responsive_single_product_container_layout',
+				$general_tab_ids_prefix . 'responsive_single_product_container_style_separator',
+				$general_tab_ids_prefix . 'responsive_single_product_container_style',
 			);
 
 
