@@ -106,7 +106,7 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
 
             // Page Sidebar Sub-Heading
             $page_sidebar_heading_label = esc_html__('Sidebar', 'responsive');
-            responsive_separator_control($wp_customize, 'page_sidebar_separator', $page_sidebar_heading_label, 'responsive_page', 15);
+            responsive_separator_control($wp_customize, 'page_sidebar_separator', $page_sidebar_heading_label, 'responsive_page', 20);
 
             // Page Sidebar.
             $sidebar_label   = esc_html__('Sidebar Position', 'responsive');
@@ -124,7 +124,7 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
                     'left' => esc_html__('Right', 'responsive'),
                 );
             }
-            responsive_imageradio_button_control($wp_customize, 'page_sidebar_position', $sidebar_label, 'responsive_page', 20, $sidebar_choices, 'global', null, 'svg');
+            responsive_imageradio_button_control($wp_customize, 'page_sidebar_position', $sidebar_label, 'responsive_page', 22, $sidebar_choices, 'global', null, 'svg');
 
             $page_sidebar_style_label  = __( 'Sidebar Style', 'responsive' );
             $page_sidebar_style_choice = array(
@@ -135,10 +135,10 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
             responsive_select_button_control( $wp_customize, 'page_sidebar_style', $page_sidebar_style_label, 'responsive_page', 22, $page_sidebar_style_choice, Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_sidebar_style' ), 'responsive_active_page_sidebar_position', 'postMessage' );
 
             $page_sidebar_width_label = esc_html__('Sidebar Width (%)', 'responsive');
-            responsive_drag_number_control($wp_customize, 'page_sidebar_width', $page_sidebar_width_label, 'responsive_page', 25, 30, 'responsive_active_page_sidebar_position', 50, 20, 'postMessage');
+            responsive_drag_number_control($wp_customize, 'page_sidebar_width', $page_sidebar_width_label, 'responsive_page', 24, 30, 'responsive_active_page_sidebar_position', 50, 20, 'postMessage');
 
             $blog_sidebar_heading_label = esc_html__( 'Blog/Archive Sidebar', 'responsive' );
-			responsive_separator_control( $wp_customize, 'blog_sidebar_separator', $blog_sidebar_heading_label, 'responsive_blog_layout', 25 );
+			responsive_separator_control( $wp_customize, 'blog_sidebar_separator', $blog_sidebar_heading_label, 'responsive_blog_layout', 26 );
 
             // Blog/Archive Sidebar.
             $sidebar_label   = esc_html__('Sidebar Position', 'responsive');
