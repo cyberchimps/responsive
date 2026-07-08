@@ -77,6 +77,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
                 $general_tab_ids_prefix . 'responsive_blog_post_title_toggle_separator',
 				$general_tab_ids_prefix . 'responsive_blog_sidebar_separator',
 				$general_tab_ids_prefix . 'responsive_blog_sidebar_position',
+				$general_tab_ids_prefix . 'responsive_blog_sidebar_style',
 				$general_tab_ids_prefix . 'responsive_blog_sidebar_width',
 				$general_tab_ids_prefix . 'responsive_blog_layout_separator',
 				$general_tab_ids_prefix . 'responsive_blog_layout',

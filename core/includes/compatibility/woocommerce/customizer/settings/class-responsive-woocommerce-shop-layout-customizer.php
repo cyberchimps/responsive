@@ -73,6 +73,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				$general_tab_ids_prefix . 'shop_pagination_quick_view',
 				$general_tab_ids_prefix . 'responsive_shop_sidebar_separator', 
 				$general_tab_ids_prefix . 'responsive_shop_sidebar_position',
+				$general_tab_ids_prefix . 'responsive_shop_sidebar_style',
 				$general_tab_ids_prefix . 'responsive_shop_sidebar_width',
 				$general_tab_ids_prefix . 'responsive_product_catalog_container_layout_separator',
 				$general_tab_ids_prefix . 'responsive_product_catalog_container_layout',
@@ -201,6 +202,15 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			}
 
 			responsive_imageradio_button_control( $wp_customize, 'shop_sidebar_position', $sidebar_label, 'responsive_woocommerce_shop', 38, $sidebar_choices, 'global', null, 'svg');
+
+			$shop_sidebar_style_label  = __( 'Sidebar Style', 'responsive' );
+			$shop_sidebar_style_choice = array(
+				'default' => esc_html__( 'Default', 'responsive' ),
+				'unboxed' => esc_html__( 'Unboxed', 'responsive' ),
+				'boxed'   => esc_html__( 'Boxed', 'responsive' ),
+			);
+			responsive_select_button_control( $wp_customize, 'shop_sidebar_style', $shop_sidebar_style_label, 'responsive_woocommerce_shop', 39, $shop_sidebar_style_choice, Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_sidebar_style' ), 'responsive_active_shop_sidebar_position', 'postMessage' );
+
 			$container_spacing_label = esc_html__( 'Product Card Spacing', 'responsive' );
 			responsive_separator_control( $wp_customize, 'product_card_spacing', $container_spacing_label, 'responsive_woocommerce_shop', 30 );
 

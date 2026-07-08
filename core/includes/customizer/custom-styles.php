@@ -532,7 +532,7 @@ error_log('responsive_product_catalog_container_style==='.$responsive_product_ca
 		.responsive-site-style-boxed .comments-area,
 		.responsive-site-style-boxed .comment-respond,
 		.responsive-site-style-boxed .comment-respond,
-		.responsive-site-style-boxed aside#secondary .widget-wrapper,
+		aside#secondary.responsive-sidebar-style-boxed .widget-wrapper,
 		.responsive-site-style-boxed .site-content article.product,
 		.woocommerce.responsive-site-style-content-boxed .related-product-wrapper,
 		.woocommerce-page.responsive-site-style-content-boxed .related-product-wrapper,
@@ -578,7 +578,7 @@ error_log('responsive_product_catalog_container_style==='.$responsive_product_ca
 		.responsive-site-style-boxed .comments-area,
 		.responsive-site-style-boxed .comment-respond,
 		.responsive-site-style-boxed .comment-respond,
-		.responsive-site-style-boxed aside#secondary .widget-wrapper,
+		aside#secondary.responsive-sidebar-style-boxed .widget-wrapper,
 		.responsive-site-style-boxed .site-content article.product,
 		.woocommerce.responsive-site-style-content-boxed .related-product-wrapper,
 		.woocommerce-page.responsive-site-style-content-boxed .related-product-wrapper,
@@ -633,7 +633,7 @@ error_log('responsive_product_catalog_container_style==='.$responsive_product_ca
 		.responsive-site-style-boxed .comments-area,
 		.responsive-site-style-boxed .comment-respond,
 		.responsive-site-style-boxed .comment-respond,
-		.responsive-site-style-boxed aside#secondary .widget-wrapper,
+		aside#secondary.responsive-sidebar-style-boxed .widget-wrapper,
 		.responsive-site-style-boxed .site-content article.product {
 			border-radius:{$box_tablet_top_left_radius}px {$box_tablet_top_right_radius}px {$box_tablet_bottom_right_radius}px {$box_tablet_bottom_left_radius}px;
 		}
@@ -671,7 +671,7 @@ error_log('responsive_product_catalog_container_style==='.$responsive_product_ca
 		.responsive-site-style-boxed .comments-area,
 		.responsive-site-style-boxed .comment-respond,
 		.responsive-site-style-boxed .comment-respond,
-		.responsive-site-style-boxed aside#secondary .widget-wrapper,
+		aside#secondary.responsive-sidebar-style-boxed .widget-wrapper,
 		.responsive-site-style-boxed .site-content article.product {
 			border-radius:{$box_mobile_top_left_radius}px {$box_mobile_top_right_radius}px {$box_mobile_bottom_right_radius}px {$box_mobile_bottom_left_radius}px;
 		}
@@ -763,10 +763,26 @@ error_log('responsive_product_catalog_container_style==='.$responsive_product_ca
 		.blog.front-page.responsive-site-style-flat .widget-wrapper,
 		.responsive-site-style-boxed .widget-wrapper,
 		.responsive-site-style-boxed .site-content article.product,
-		{
+		}
+	}';
+	$custom_css .= '
+	aside#secondary.responsive-sidebar-style-boxed .widget-wrapper,
+	aside#secondary.responsive-sidebar-style-unboxed .widget-wrapper {
+		padding: ' . responsive_spacing_css( $box_padding_top, $box_padding_right, $box_padding_bottom, $box_padding_left ) . ';
+	}
+	@media screen and ( max-width: 992px ) {
+		aside#secondary.responsive-sidebar-style-boxed .widget-wrapper,
+		aside#secondary.responsive-sidebar-style-unboxed .widget-wrapper {
+			padding: ' . responsive_spacing_css( $box_tablet_padding_top, $box_tablet_padding_right, $box_tablet_padding_bottom, $box_tablet_padding_left ) . ';
+		}
+	}
+	@media screen and ( max-width: 576px ) {
+		aside#secondary.responsive-sidebar-style-boxed .widget-wrapper,
+		aside#secondary.responsive-sidebar-style-unboxed .widget-wrapper {
 			padding: ' . responsive_spacing_css( $box_mobile_padding_top, $box_mobile_padding_right, $box_mobile_padding_bottom, $box_mobile_padding_left ) . ';
 		}
 	}';
+
 	if ( $logo_custom_width ) {
 		$custom_css .= ".site-header .custom-logo {
 			width: {$logo_custom_width}px;
@@ -891,7 +907,7 @@ error_log('responsive_product_catalog_container_style==='.$responsive_product_ca
 			.responsive-site-style-boxed .comments-area,
 			.responsive-site-style-boxed .comment-respond,
 			.responsive-site-style-boxed .comment-respond,
-			.responsive-site-style-boxed aside#secondary .widget-wrapper,
+			aside#secondary.responsive-sidebar-style-boxed .widget-wrapper,
 			.responsive-site-style-boxed .site-content article.product {
 				background-color:{$box_background_color};
 				background-image: linear-gradient(to right, {$box_background_color}, {$box_background_color}), url({$box_background_image});
@@ -1022,7 +1038,7 @@ error_log('responsive_product_catalog_container_style==='.$responsive_product_ca
 		// Priority to Sidebar Background Image and Color Over Box Background Image and Color
 		if ( $sidebar_background_image || ( !$is_sidebar_color_default && $sidebar_background_color !== $default_sidebar_color ) ) {
 			$background_image = $sidebar_background_image ? $sidebar_background_image : $box_background_image;
-			$custom_css .= ".responsive-site-style-boxed aside#secondary.main-sidebar .widget-wrapper {
+			$custom_css .= "aside#secondary.responsive-sidebar-style-boxed .widget-wrapper {
 				background-color: $sidebar_background_color;
 				background-image: linear-gradient(to right, {$sidebar_background_color}, {$sidebar_background_color}), url({$background_image});
 				background-repeat: no-repeat;
@@ -1031,14 +1047,14 @@ error_log('responsive_product_catalog_container_style==='.$responsive_product_ca
 			}";
 		} else {
 			if( 'gradient' === $box_background_color_type ) {
-				$custom_css .= ".responsive-site-style-boxed aside#secondary.main-sidebar .widget-wrapper {
+				$custom_css .= "aside#secondary.responsive-sidebar-style-boxed .widget-wrapper {
 					background: $box_background_gradient_color;
 					background-repeat: no-repeat;
 					background-size: cover;
 					background-attachment: scroll;
 				}";
 			} else {
-				$custom_css .= ".responsive-site-style-boxed aside#secondary.main-sidebar .widget-wrapper {
+				$custom_css .= "aside#secondary.responsive-sidebar-style-boxed .widget-wrapper {
 					background-color: $box_background_color;
 					background-image: linear-gradient(to right, {$box_background_color}, {$box_background_color}), url({$box_background_image});
 					background-repeat: no-repeat;
@@ -2093,7 +2109,7 @@ error_log('responsive_product_catalog_container_style==='.$responsive_product_ca
         color: {$sidebar_headings_color};
     }
 
-	.responsive-site-style-boxed aside#secondary .widget-wrapper {
+	aside#secondary.responsive-sidebar-style-boxed .widget-wrapper {
 		background-color:{$sidebar_background_color};
 	}
 

@@ -78,6 +78,7 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 				$general_tab_ids_prefix . 'title_alignment_separator',
 				$general_tab_ids_prefix . 'sidebar_separator',
 				$general_tab_ids_prefix . 'sidebar_position',
+				$general_tab_ids_prefix . 'sidebar_style',
 				$general_tab_ids_prefix . 'sidebar_width',
 				$general_tab_ids_prefix . 'container_layout',
 				$general_tab_ids_prefix . 'container_style',
