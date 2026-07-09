@@ -208,7 +208,6 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 						$plan  = esc_html( ucwords( $user->get_plan() ) );
 					}
 				}
-
 				$localized_data = array(
 					'ajaxurl'               => admin_url( 'admin-ajax.php' ),
 					'responsiveVersion'     => RESPONSIVE_THEME_VERSION,
@@ -241,6 +240,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 					'ajax_req_aborted'      => esc_html__( 'Ajax request aborted', 'responsive' ),
 					'uncaught_error'        => esc_html__( 'Uncaught Error', 'responsive' ),
 					'isSiteBuilderEnabled'  => get_option( 'rplus_site_builder_enable' ),
+					'isAISuiteEnabled'      => get_option( 'rplus_ai_suite_enable' ),
 					'isWooCommerceEnabled'  => get_option( 'rpro_woocommerce_enable' ),
 					'isCustomFontsEnabled'  => get_option( 'rplus_custom_fonts_enable' ),
 					'isMegamenuEnabled'     => get_option( 'rpo_megamenu_enable' ),
@@ -255,6 +255,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 					'woocommerceNonce'      => esc_attr( wp_create_nonce( 'rpro_toggle_woocommerce' ) ),
 					'customFontsNonce'      => esc_attr( wp_create_nonce( 'rplus_toggle_custom_fonts' ) ),
 					'siteBuilderNonce'      => esc_attr( wp_create_nonce( 'rplus_toggle_site_builder' ) ),
+					'aiSuiteNonce'          => esc_attr( wp_create_nonce( 'rplus_toggle_ai_suite' ) ),
 					'plan_details' 			=> $plan_details,
 				);
 

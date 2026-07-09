@@ -111,6 +111,13 @@
 .text-gray1000{
   color: #4B5563;
 }
-.upgrade-button{
+.upgrade-button,
+.connect-button{
   background-color: #1D4ED8;
+}
+.no-border{
+  border: none;
+}
+.connection-border{
+  border-color: #2563EB;
 }
