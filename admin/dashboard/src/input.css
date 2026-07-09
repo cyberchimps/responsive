@@ -102,3 +102,31 @@
   transition: opacity 0.2s;
   margin-bottom: 5px;
 }
+.font-semi-bold {
+  font-weight: 600;
+}
+.text-3xl{
+  font-size: 2rem;
+}
+.text-gray1000{
+  color: #4B5563;
+}
+.upgrade-button,
+.connect-button{
+  background-color: #1D4ED8;
+}
+.no-border{
+  border: none;
+}
+.connection-border{
+  border-color: #2563EB;
+}
+.free-badge-bg{
+  background-color: #F1F3F5;
+}
+.pro-badge-bg{
+  background-color: #EFF6FF;
+}
+.margin-right-8{
+  margin-right: 8em;
+}

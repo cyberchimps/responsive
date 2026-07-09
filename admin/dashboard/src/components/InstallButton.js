@@ -29,7 +29,7 @@ const InstallButton = ({ type, status, nonce, redirect, buttonText, setButtonTex
             return (
                 <button
                     onClick={handleInstall}
-                    className="mt-1.125 py-2.5 px-3.5 bg-white hover:bg-sky-100 border border-blue-600 text-blue-600 rounded-md text-sm leading-5 font-medium capitalize cursor-pointer"
+                    className="mt-1.125 py-2.5 px-3.5 bg-white border border-blue-600 text-blue-600 rounded-md text-sm leading-5 font-medium capitalize cursor-pointer"
                 >
                     {buttonText}
                 </button>
@@ -38,14 +38,14 @@ const InstallButton = ({ type, status, nonce, redirect, buttonText, setButtonTex
             return (
                 <button
                     onClick={handleActivate}
-                    className="mt-1.125 py-2.5 px-3.5 bg-white hover:bg-sky-100 border border-blue-600 text-blue-600 rounded-md text-sm leading-5 font-medium capitalize cursor-pointer"
+                    className="mt-1.125 py-2.5 bg-white no-border text-blue-600 rounded-md text-sm leading-5 font-medium capitalize cursor-pointer"
                 >
                     {buttonText}
                 </button>
             );
         case 'activated':
             return (
-                <button className="mt-1.125 py-2.5 px-3.5 border border-blue-300 text-blue-300 bg-white rounded-md text-sm leading-5 font-medium capitalize cursor-not-allowed" disabled>
+                <button className="mt-1.125 py-2.5 no-border text-blue-300 bg-white rounded-md text-sm leading-5 font-medium capitalize cursor-not-allowed" disabled>
                     {__( 'Activated', 'responsive' )}
                 </button>
             );
