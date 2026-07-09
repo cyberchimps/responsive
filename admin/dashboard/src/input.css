@@ -121,3 +121,12 @@
 .connection-border{
   border-color: #2563EB;
 }
+.free-badge-bg{
+  background-color: #F1F3F5;
+}
+.pro-badge-bg{
+  background-color: #EFF6FF;
+}
+.margin-right-8{
+  margin-right: 8em;
+}

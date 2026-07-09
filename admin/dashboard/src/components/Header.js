@@ -6,6 +6,11 @@ const Header = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
+    const planDetailsHead = localize?.plan_details; 
+
+    const isProBadge = (planDetailsHead && planDetailsHead !== 'free')  && convertTruthyFalsyValue(localize?.isResponsiveXActivated);
+
+
     let tabs = [
         { label: __("Dashboard", "responsive"), path: "/" },
         {
@@ -48,16 +53,16 @@ const Header = () => {
 
     return (
         <div className="bg-white border-b border-b-blue-100">
-            <div className="mx-auto xl:px-14 md:px-15">
-                <div className="flex justify-between">
-                    <div className="flex items-center w-10/12 gap-10">
+            <div className="mx-auto xl:px-14 md:px-8 px-4 margin-right-8">
+                <div className="flex justify-between items-center">
+                    <div className="flex items-center gap-10">
                         <img
                             className="resp-cyberchimps-logo"
                             src={`${localize?.whiteLabelSettings?.theme_icon_url ? localize?.whiteLabelSettings?.theme_icon_url : localize?.responsiveurl + 'admin/images/responsive_logo.svg' } `}
                             alt="Responsive Logo"
                         />
 
-                        <div className="flex w-full md:flex-wrap xl:flex-nowrap">
+                        <div className="flex flex-wrap xl:flex-nowrap">
                             {tabs.map((tab) => {
                                 const isActive =
                                     tab.path && location.pathname === tab.path;
@@ -78,7 +83,16 @@ const Header = () => {
                         </div>
                     </div>
 
-                    <div className="flex w-auto items-center justify-end">
+                     <div className="flex items-center gap-2.5 flex-shrink-0">
+                        <span
+                            className={`flex items-center p-2.5 rounded-md no-border text-[#1D4ED8] text-sm font-normal leading-5 ${
+                                isProBadge
+                                    ? "text-indigo-700 pro-badge-bg"
+                                    : "text-gray-600 free-badge-bg"
+                            }`}
+                        >
+                            {isProBadge ? __("PRO", "responsive") : __("FREE", "responsive")}
+                        </span>
                         <div className="border border-slate-200 rounded-md p-2.5">
                             <p className="text-gray-400 font-medium text-sm m-0">
                                 v{localize?.responsiveVersion}

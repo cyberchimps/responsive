@@ -9,9 +9,7 @@ import { ResponsiveContext } from "../Context";
 
 const Dashboard = () => {
     const planDetails = localize?.plan_details;
-    console.log('planDetails='+planDetails);
     const isConnectedPlan = Boolean(planDetails);
-    console.log('isConnectedPlan=='+isConnectedPlan);
 
     return (
         <div className="xl:flex lg:block xl:mx-14 md:mx-15 mt-8 mb-16 gap-15 items-start">
