@@ -155,7 +155,7 @@ const ConnectWebsiteCard = () => {
                         {__('Connect Your Website', 'responsive')}
                     </span>
                     <p className="text-gray-500 text-sm leading-5 m-0">
-                        {__('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'responsive')}
+                        {__('Connect your website to the Responsive Pro plugin to unlock access and seamlessly import premium templates directly to your site.', 'responsive')}
                     </p>
                 </div>
 
@@ -548,7 +548,7 @@ const QuickAccess = () => {
             <div className="flex gap-5 p-3.5 bg-white rounded-md">
                 <span className="flex items-center self-start p-2.5 rounded-md border border-yellow-500">{Icons.community}</span>
                 <div>
-                    <a href="https://www.facebook.com/groups/responsive.theme" target="_blank" className="text-lg leading-7 font-medium text-desc text-[#4B5563] no-underline">{__('Join the Newsletter', 'responsive')}</a>
+                    <a href="https://cyberchimps.com/blog/#mautic-api-form" target="_blank" className="text-lg leading-7 font-medium text-desc text-[#4B5563] no-underline">{__('Join the Newsletter', 'responsive')}</a>
                     <p className="text-sm leading-5 font-normal text-desc m-0">{__('Get the latest updates from us', 'responsive')}</p>
                 </div>
             </div>
