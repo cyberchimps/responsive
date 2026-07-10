@@ -320,7 +320,7 @@ function responsive_customizer_styles() {
 	}
 	
 	html body.page-template-gutenberg-fullwidth .wp-block-group.wp-block-group.wp-block-group-is-layout-constrained > :where(:not(.alignwide):not(.alignfull)) {
-		max-width: var(--wp--style--global--content-size);
+		max-width: 720px;
 	}
 
 	html body.page-template-gutenberg-fullwidth .wp-block-group.wp-block-group.wp-block-group-is-layout-constrained > .alignwide {
