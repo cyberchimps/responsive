@@ -222,6 +222,9 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 		),
 	);
 
+	$links = array();
+	$links = apply_filters( 'responsivex_white_label_links', array() );
+
 	$responsive_addons_cards_content = array(
 		array(
 			// WP-6871 This part add Free batch on Dashboard > Responsive Plus feature cards (no longer needed)
@@ -241,16 +244,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 			// 'tag'   => 'free',
 			'title' => __( 'White Label', 'responsive' ),
 			'desc'  => __( 'White Label the theme name & settings with the Pro Plugin.', 'responsive' ),
-			'links' => array(
-				array(
-					'name' => __( 'Docs', 'responsive' ),
-					'link' => 'https://cyberchimps.com/docs/responsive-plus/responsive-pro-plugin/how-to-white-label-cyberchimps-responsive-theme/',
-				),
-				array(
-					'name' => __( 'Settings', 'responsive' ),
-					'link' => admin_url( 'admin.php?page=responsive#raddons-settings:subtab=white-label' )
-				),
-			),
+			'links' => $links,
 		),
 	);
 
@@ -544,65 +538,11 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html_e( 'Mega Menu', 'responsive' ); ?></div>
 							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Adds menu options such as mega menus, highlight tags, icons, etc.', 'responsive' ); ?></div>
 							<?php
-							if ( check_is_responsive_pro_installed() ) {
-								if ( 'activated' === $state ) {
-									?>
-									<div class="responsive-theme-pro-features mt-2 
-									<?php
-									if ( 'on' !== get_option( 'rpo_megamenu_enable' ) ) {
-										echo 'disable-customize'; }
-									?>
-									">
-										<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/responsive-plus/modules-settings/mega-menu/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
-										<span class="responsive-theme-feature-seperator">|</span>
-										<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>" class="rpro-feature-customize-btn"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
-										<?php
-										global $wcam_lib_responsive_pro;
-										$license_status = get_option( $wcam_lib_responsive_pro->wc_am_activated_key );
-										if ( 'Activated' !== $license_status && 'on' === $rpro_megamenu_status ) {
-											update_option( 'rpo_megamenu_enable', 'off' );
-										}
-										if ( 'Activated' === $license_status ) {
-											?>
-										<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
-											<input class="resp-megamenu-input-checkbox" type="checkbox" 
-											<?php
-											if ( 'on' === get_option( 'rpo_megamenu_enable' ) ) {
-												echo 'checked'; }
-											?>
-											 data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_megamenu' ) ); ?>" <?php echo esc_attr( $rpro_megamenu_status ); ?>>
-											<span class="resp-megamenu-slider resp-megamenu-round"></span>
-										</label>
-											<?php
-										}
-										?>
-									</div>
-									<?php
-								}
+							// Display Docs, Settings and toggle for MegaMenu card
+							if ( has_action( 'responsivex_render_feature_links_mega_menu' ) ) {
+								do_action('responsivex_render_feature_links_mega_menu');
 							}
-							if ( ! check_is_responsive_pro_activated() && check_is_responsive_addons_greater() ) {
-								?>
-								<div class="responsive-theme-pro-features mt-2 
-								<?php
-								if ( 'on' !== get_option( 'rpo_megamenu_enable' ) ) {
-									echo 'disable-customize'; }
-								?>
-								">
-									<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/responsive-plus/modules-settings/mega-menu/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
-									<span class="responsive-theme-feature-seperator">|</span>
-									<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>" class="rpro-feature-customize-btn"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
-									<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
-										<input class="resp-megamenu-input-checkbox" type="checkbox" 
-										<?php
-										if ( 'on' === get_option( 'rpo_megamenu_enable' ) ) {
-											echo 'checked'; }
-										?>
-										 data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_megamenu' ) ); ?>" <?php echo esc_attr( $rpro_megamenu_status ); ?>>
-										<span class="resp-megamenu-slider resp-megamenu-round"></span>
-									</label>
-								</div>
-								<?php
-							}
+							
 							?>
 						</div>
 					</div>
@@ -845,27 +785,10 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Site Builder lets you edit parts of site like the header, footer, 404, and archive templates.', 'responsive' ); ?></div>
 							<?php
 							if ( is_responsive_addons_installed_above( '3.2.5', 'greater' ) ) {
-							?>
-							<div class="responsive-theme-pro-features mt-2 
-							<?php
-							if ( 'on' !== get_option( 'rplus_site_builder_enable' ) ) {
-								echo 'disable-customize'; }
-							?>
-							">
-								<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/responsive-plus/modules-settings/site-builder/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
-								<span class="responsive-theme-feature-seperator">|</span>
-								<a href="<?php echo esc_url( admin_url() ) . 'admin.php?page=responsive-site-builder'; ?>" class="rpro-feature-customize-btn"><?php esc_html_e( 'Settings', 'responsive' ); ?></a>
-								<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
-									<input class="resp-site-builder-input-checkbox" type="checkbox" 
-									<?php
-									if ( 'on' === get_option( 'rplus_site_builder_enable' ) ) {
-										echo 'checked'; }
-									?>
-									data-nonce="<?php echo esc_attr( wp_create_nonce( 'rplus_toggle_site_builder' ) ); ?>" <?php echo esc_attr( $rplus_site_builder_status ); ?>>
-									<span class="resp-megamenu-slider resp-megamenu-round"></span>
-								</label>
-							</div>
-							<?php
+								if ( has_action( 'responsivex_render_feature_links_site_builder' ) ) {
+									do_action( 'responsivex_render_feature_links_site_builder', $rplus_site_builder_status );
+								}
+						
 							}
 							?>
 						</div>

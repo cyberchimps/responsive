@@ -222,10 +222,6 @@ select {
 	margin-top: 1px; 
 }
 
-#customize-control-responsive_menu_item_hover_style {
-	padding: 5px 0px 22px;
-}
-
 .customize-control .responsive-switchers li button {
 	display: inline-block;
 	height: 20px;
@@ -1875,7 +1871,7 @@ div.customize-section-description{
 	margin-top:0; 
 }
 .responsive-typography-inline-container {
-	width: 100%;
+	width: 228px;
 	height: 32px;
 	justify-content: space-between;
 	margin-bottom: 0px;
@@ -1895,8 +1891,8 @@ div.customize-section-description{
 	margin-top: 0;
 }
 .responsive-typography-settings-group .responsive-typography-inline-container li[id$="text-transform"] button.selectbtn-text {
-	width: 30px;
-	height: 30px;
+	width: 32px;
+	height: 32px;
 	border-radius: 0px;
 	border-top-width: 1px;
 	border-bottom-width: 1px;
@@ -1904,8 +1900,8 @@ div.customize-section-description{
 	padding: 0px;
 }
 .responsive-typography-settings-group .responsive-typography-inline-container li[id$="font-style"] button.selectbtn-text {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     opacity: 1;
     border-radius: 0px;
     border-width: 1px 0px 1px 1px;
@@ -1938,11 +1934,11 @@ button.selectbtn-text:first-child {
     padding: 20px;
 	border-bottom: 1px solid #D0D0D0;
 }
-#sub-accordion-panel-responsive_header .responsive-section-description, #sub-accordion-panel-responsive_footer .responsive-section-description, #sub-accordion-panel-widgets .responsive-section-description {
+#sub-accordion-panel-responsive_header .responsive-section-description, #sub-accordion-panel-responsive_footer .responsive-section-description {
 	padding: 10px 20px 10px 20px; 
 	border-bottom: none;
 }
-#sub-accordion-section-responsive_blog_layout .responsive-section-description, #sub-accordion-section-responsive_form_fields .responsive-section-description, #sub-accordion-section-responsive_page .responsive-section-description, #sub-accordion-section-responsive_header_site_logo_title .responsive-section-description, #sub-accordion-section-responsive_breadcrumb .responsive-section-description, #sub-accordion-section-responsive_sidebar .responsive-section-description {
+#sub-accordion-section-responsive_blog_layout .responsive-section-description, #sub-accordion-section-responsive_form_fields .responsive-section-description, #sub-accordion-section-responsive_page .responsive-section-description, #sub-accordion-section-responsive_header_site_logo_title .responsive-section-description {
 	border-bottom: none;
 }
 
@@ -2004,28 +2000,14 @@ button.selectbtn-text:first-child {
     background: none !important;
 }
 
-.customize-section-description-container .customize-section-title {
-	position: relative;
-}
-/* .customize-section-title,
+.customize-section-title,
 .customize-panel-title {
     position: relative !important;
-} */
+}
 
 div.customize-section-description {
 	margin-top: 0px;
 }
 .wp-core-ui #accordion-section-responsive_upsell_section .accordion-section-title {
 	cursor: pointer;
-}
-#customize-controls .customize-info .customize-help-toggle:before {
-	margin: -9px -10px;
-}
-ul.control-panel-nav_menus .customize-help-toggle:before {
-	margin: -18px -6px !important;
-}
-#sub-accordion-section-custom_css.open 
-  .customize-section-title:has(.customize-section-description.open) 
-  .customize-help-toggle::before {
-  margin: -195px -10px !important;
 }

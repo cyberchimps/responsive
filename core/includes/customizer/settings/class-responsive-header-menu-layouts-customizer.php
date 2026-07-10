@@ -111,7 +111,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				'underline' => esc_html__( 'Underline', 'responsive' ),
 				'overline'  => esc_html__( 'Overline', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'menu_item_hover_style', $menu_item_hover_style_label, 'responsive_header_menu_layout', 26, $menu_item_hover_style_choices, 'none', 'responsive_disabled_main_menu', 'postMessage' );
+			responsive_select_control( $wp_customize, 'menu_item_hover_style', $menu_item_hover_style_label, 'responsive_header_menu_layout', 26, $menu_item_hover_style_choices, 'none', 'responsive_disabled_main_menu' );
 
 			// Last Item In The Menu.
 			$menu_last_item         = __( 'Last Item in Menu', 'responsive' );
