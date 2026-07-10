@@ -223,6 +223,9 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 		),
 	);
 
+	$links = array();
+	$links = apply_filters( 'responsivex_white_label_links', array() );
+
 	$responsive_addons_cards_content = array(
 		array(
 			// WP-6871 This part add Free batch on Dashboard > Responsive Plus feature cards (no longer needed)

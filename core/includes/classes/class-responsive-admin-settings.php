@@ -117,40 +117,152 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 
 			if ( isset( $_GET['page'] ) && 'responsive' === $_GET['page'] ) {
 
-				wp_enqueue_script( 'responsive-getting-started-bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
+				$rst_path = 'responsive-add-ons/responsive-add-ons.php';
+				
+				$responsivex_path = 'responsivex/responsivex.php';
 
-				wp_enqueue_script( 'responsive-getting-started-toastify', 'https://cdn.jsdelivr.net/npm/toastify-js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
+				$rst_nonce = add_query_arg(
+					array(
+						'action'        => 'activate',
+						'plugin'        => rawurlencode( $rst_path ),
+						'plugin_status' => 'all',
+						'paged'         => '1',
+						'_wpnonce'      => wp_create_nonce( 'activate-plugin_' . $rst_path ),
+					),
+					network_admin_url( 'plugins.php' )
+				);
 
-				wp_enqueue_style( 'responsive-admin-getting-started', RESPONSIVE_THEME_URI . 'admin/css/responsive-getting-started-page.css', array(), RESPONSIVE_THEME_VERSION );
+				$rbea_path = 'responsive-block-editor-addons/responsive-block-editor-addons.php';
 
+				$rbea_nonce = add_query_arg(
+					array(
+						'action'        => 'activate',
+						'plugin'        => rawurlencode( $rbea_path ),
+						'plugin_status' => 'all',
+						'paged'         => '1',
+						'_wpnonce'      => wp_create_nonce( 'activate-plugin_' . $rbea_path ),
+					),
+					network_admin_url( 'plugins.php' )
+				);
+
+				$rae_path = 'responsive-addons-for-elementor/responsive-addons-for-elementor.php';
+
+				$rae_nonce = add_query_arg(
+					array(
+						'action'        => 'activate',
+						'plugin'        => rawurlencode( $rae_path ),
+						'plugin_status' => 'all',
+						'paged'         => '1',
+						'_wpnonce'      => wp_create_nonce( 'activate-plugin_' . $rae_path ),
+					),
+					network_admin_url( 'plugins.php' )
+				);
+
+				wp_register_style( 'responsive-admin-dashboard', RESPONSIVE_THEME_URI . 'admin/css/responsive-admin-dashboard.css', false, RESPONSIVE_THEME_VERSION );
+				wp_enqueue_style( 'responsive-admin-dashboard' );
 				wp_enqueue_script(
-					'responsive-getting-started-jsfile',
-					RESPONSIVE_THEME_URI . 'admin/js/responsive-getting-started.js',
-					array( 'jquery' ),
+					'responsive-admin-dashboard-jsfile',
+					RESPONSIVE_THEME_URI . 'admin/js/dashboard/responsive-admin-dashboard.js',
+					array( 'jquery', 'react', 'react-dom', 'wp-components' ),
 					RESPONSIVE_THEME_VERSION,
 					true
 				);
 
+				wp_enqueue_style( 'wp-components' );
+
+				wp_enqueue_script( 'updates' );
+
+				wp_enqueue_style( 'responsive-getting-started-toastify', RESPONSIVE_THEME_URI . 'admin/lib/toastify/responsive-toastify.min.css', false, RESPONSIVE_THEME_VERSION );
+
+				wp_enqueue_script( 'responsive-getting-started-toastify', RESPONSIVE_THEME_URI . 'admin/lib/toastify/responsive-toastify.min.js', array(), RESPONSIVE_THEME_VERSION, true );
+
+				$customizer_return_url = admin_url( 'admin.php?page=responsive' );
+
+				$customizer_url_return = add_query_arg(
+					'return',
+					rawurlencode( $customizer_return_url ),
+					admin_url( 'customize.php' )
+				);
+
+				$is_rst_active = is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' );
+
+				// Fetch the current user plan
+				$is_responsivex_active = is_plugin_active( 'responsivex/responsivex.php' );
+
+				if ( $is_responsivex_active && class_exists( 'ResponsiveX' ) ) {
+					$responsivex_settings = new ResponsiveX();
+					$plan_details = $responsivex_settings->get_responsivex_plan();
+				}
+
+				$is_connected = 'no';
+				$email        = '';
+				$plan         = '';
+
+				if ( $is_rst_active && class_exists( 'Responsive_Add_Ons_App_Auth' ) ) {
+					require_once RESPONSIVE_ADDONS_DIR . 'includes/class-responsive-add-ons-app-auth.php';
+					$cc_app_auth = new Responsive_Add_Ons_App_Auth();
+					$is_connected = $cc_app_auth->has_auth();
+					if ( $is_connected && class_exists( 'Responsive_Add_Ons_Settings' ) ) {
+						$user  = Responsive_Add_Ons_Settings::get_instance();
+						$email = esc_html( $user->get_email() );
+						$plan  = esc_html( ucwords( $user->get_plan() ) );
+					}
+				}
+				$localized_data = array(
+					'ajaxurl'               => admin_url( 'admin-ajax.php' ),
+					'responsiveVersion'     => RESPONSIVE_THEME_VERSION,
+					'responsiveurl'         => RESPONSIVE_THEME_URI,
+					'customizerurl'         => esc_url( admin_url( 'customize.php' ) ),
+					'customizerurlReturn'   => esc_url( $customizer_url_return ),
+					'siteurl'               => site_url(),
+					'isRSTActivated'        => $is_rst_active,
+					'isResponsiveXActivated'=> $is_responsivex_active,
+					'isRBAActivated'        => is_plugin_active( 'responsive-block-editor-addons/responsive-block-editor-addons.php' ),
+					'isRAEActivated'        => is_plugin_active( 'responsive-addons-for-elementor/responsive-addons-for-elementor.php' ),
+					'rst_status'            => self::responsive_check_plugin_status( $rst_path ),
+					'rbea_status'           => self::responsive_check_plugin_status( $rbea_path ),
+					'rae_status'            => self::responsive_check_plugin_status( $rae_path ),
+					'responsivex_status'	=> self::responsive_check_plugin_status( $responsivex_path ),
+					'rst_nonce'             => $rst_nonce,
+					'rbea_nonce'            => $rbea_nonce,
+					'rae_nonce'             => $rae_nonce,
+					'rst_redirect'          => admin_url( 'admin.php?page=responsive_add_ons' ),
+					'rbea_redirect'         => admin_url( 'admin.php?page=responsive_block_editor_addons' ),
+					'rae_redirect'          => admin_url( 'admin.php?page=rael_getting_started' ),
+					'review_link'           => esc_url( 'https://wordpress.org/support/theme/responsive/reviews/#new-post' ),
+					'installing'            => esc_html__( 'Installing ', 'responsive' ),
+					'activating'            => esc_html__( 'Activating ', 'responsive' ),
+					'verify_network'        => esc_html__( 'Not connect. Verify Network.', 'responsive' ),
+					'page_not_found'        => esc_html__( 'Requested page not found. [404]', 'responsive' ),
+					'internal_server_error' => esc_html__( 'Internal Server Error [500]', 'responsive' ),
+					'json_parse_failed'     => esc_html__( 'Requested JSON parse failed', 'responsive' ),
+					'timeout_error'         => esc_html__( 'Time out error', 'responsive' ),
+					'ajax_req_aborted'      => esc_html__( 'Ajax request aborted', 'responsive' ),
+					'uncaught_error'        => esc_html__( 'Uncaught Error', 'responsive' ),
+					'isSiteBuilderEnabled'  => get_option( 'rplus_site_builder_enable' ),
+					'isAISuiteEnabled'      => get_option( 'rplus_ai_suite_enable' ),
+					'isWooCommerceEnabled'  => get_option( 'rpro_woocommerce_enable' ),
+					'isCustomFontsEnabled'  => get_option( 'rplus_custom_fonts_enable' ),
+					'isMegamenuEnabled'     => get_option( 'rpo_megamenu_enable' ),
+					'whitelabelNonce'       => esc_attr( wp_create_nonce( 'white_label_settings' ) ),
+					'whiteLabelSettings'    => get_option( 'rpro_elementor_settings' ),
+					'isConnected'           => $is_connected,
+					'userEmail'             => $email,
+					'userPlan'              => $plan,
+					'connectionNonce'       => esc_attr( wp_create_nonce( 'responsive-addons' ) ),
+					'lastSync'              => get_transient( 'resp_app_last_sync' ),
+					'megamenuNonce'         => esc_attr( wp_create_nonce( 'rpro_toggle_megamenu' ) ),
+					'woocommerceNonce'      => esc_attr( wp_create_nonce( 'rpro_toggle_woocommerce' ) ),
+					'customFontsNonce'      => esc_attr( wp_create_nonce( 'rplus_toggle_custom_fonts' ) ),
+					'siteBuilderNonce'      => esc_attr( wp_create_nonce( 'rplus_toggle_site_builder' ) ),
+					'aiSuiteNonce'          => esc_attr( wp_create_nonce( 'rplus_toggle_ai_suite' ) ),
+					'plan_details' 			=> $plan_details,
+				);
+
 				wp_localize_script(
-					'responsive-getting-started-jsfile',
+					'responsive-admin-dashboard-jsfile',
 					'localize',
-					array(
-						'ajaxurl'               => admin_url( 'admin-ajax.php' ),
-						'responsiveurl'         => RESPONSIVE_THEME_URI,
-						'siteurl'               => site_url(),
-						'isRSTActivated'        => is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ),
-						'isRBAActivated'        => is_plugin_active( 'responsive-block-editor-addons/responsive-block-editor-addons.php' ),
-						'isRAEActivated'        => is_plugin_active( 'responsive-addons-for-elementor/responsive-addons-for-elementor.php' ),
-						'installing'            => esc_html__( 'Installing ', 'responsive' ),
-						'activating'            => esc_html__( 'Activating ', 'responsive' ),
-						'verify_network'        => esc_html__( 'Not connect. Verify Network.', 'responsive' ),
-						'page_not_found'        => esc_html__( 'Requested page not found. [404]', 'responsive' ),
-						'internal_server_error' => esc_html__( 'Internal Server Error [500]', 'responsive' ),
-						'json_parse_failed'     => esc_html__( 'Requested JSON parse failed', 'responsive' ),
-						'timeout_error'         => esc_html__( 'Time out error', 'responsive' ),
-						'ajax_req_aborted'      => esc_html__( 'Ajax request aborted', 'responsive' ),
-						'uncaught_error'        => esc_html__( 'Uncaught Error', 'responsive' ),
-					)
+					$localized_data
 				);
 
 				add_filter( 'admin_footer_text', '__return_false' );
@@ -186,7 +298,31 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 		 * @since 1.0
 		 */
 		public static function menu_callback() {
-			require_once RESPONSIVE_THEME_DIR . 'admin/templates/get-started.php';
+			// require_once RESPONSIVE_THEME_DIR . 'admin/templates/get-started.php';
+			echo '<div id="responsive-getting-started-page-app"></div>';
+		}
+
+		/**
+		 * Check if plugin is installed or activated.
+		 *
+		 * @param $path Path of the plugin.
+		 * 
+		 * @return string
+		 */
+		public static function responsive_check_plugin_status( $path ) {
+
+			if ( is_plugin_active( $path ) ) {
+				return 'activated';
+			}
+
+			// Check if plugin is installed.
+			$installed_plugins = get_plugins();
+
+			if ( isset( $installed_plugins[ $path ] ) ) {
+				return 'activate';
+			} else {
+				return 'install';
+			}
 		}
 
 	}
