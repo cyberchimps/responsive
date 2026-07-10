@@ -315,6 +315,18 @@ function responsive_customizer_styles() {
 		max-width: {$container_max_width}px;
 	}
 	
+	.wp-block-group {
+		--wp--style--global--wide-size: {$container_max_width}px;
+	}
+	
+	html body.page-template-gutenberg-fullwidth .wp-block-group.wp-block-group.wp-block-group-is-layout-constrained > :where(:not(.alignwide):not(.alignfull)) {
+		max-width: var(--wp--style--global--content-size);
+	}
+
+	html body.page-template-gutenberg-fullwidth .wp-block-group.wp-block-group.wp-block-group-is-layout-constrained > .alignwide {
+		max-width: var(--wp--style--global--wide-size);
+	}
+	
 	@media screen and ( max-width: 992px ) {
 		.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,
 		.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,
