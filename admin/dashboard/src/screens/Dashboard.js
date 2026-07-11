@@ -9,7 +9,7 @@ import { ResponsiveContext } from "../Context";
 
 const Dashboard = () => {
     const planDetails = localize?.plan_details;
-    const isConnectedPlan = Boolean(planDetails);
+    const isConnectedPlan = Boolean(localize?.isConnected && localize.isConnected !== 'no');
 
     return (
         <div className="xl:flex lg:block xl:mx-14 md:mx-15 mt-8 mb-16 gap-15 items-start">
@@ -319,196 +319,69 @@ const QuickSettingCard = ({ index, icon, title, link }) => {
     )
 }
 
-const RPlusFeatures = () => {
+const DynamicPlusFeatureCard = ({ feature }) => {
+    const [isEnabled, setIsEnabled] = useState(feature.isEnabled || false);
 
-    const { isMegamenuEnabled, setIsMegamenuEnabled, isWooCommerceEnabled, setIsWooCommerceEnabled, isCustomFontsEnabled, setIsCustomFontsEnabled, isSiteBuilderEnabled, setIsSiteBuilderEnabled, isAISuiteEnabled, setIsAISuiteEnabled } = useContext(ResponsiveContext);
-
-    const handleToggle = async ({
-        value,
-        setter,
-        action,
-        nonce,
-        successMessage,
-        failMessage,
-        reload = false,
-    }) => {
-
-        setter(value);
-
-        const success = await saveSetting({
-            value,
-            action,
-            nonce,
-            successMessage,
-            failMessage,
-            isReloadRequired: reload,
-        });
-
-        if (!success) {
-            setter(!value);
-        }
-    };
-
-    const saveSetting = async ({
-        value,
-        action,
-        nonce,
-        successMessage,
-        failMessage,
-        isReloadRequired = false,
-    }) => {
+    const handleToggle = async (value) => {
+        setIsEnabled(value);
         try {
             const formData = new FormData();
-
-            formData.append('action', action);
-            formData.append('_nonce', nonce);
+            formData.append('action', feature.action);
+            formData.append('_nonce', feature.nonce);
             formData.append('value', value ? 'on' : 'off');
 
-            const response = await fetch(localize.ajaxurl, {
-                method: 'POST',
-                body: formData,
-            });
-
+            const response = await fetch(localize.ajaxurl, { method: 'POST', body: formData });
             const result = await response.json();
 
-            if (!result.success) {
-                throw new Error(failMessage);
-            }
+            if (!result.success) throw new Error();
 
-            displayToast(successMessage, 'success');
-
-            if (isReloadRequired) {
-                window.location.reload();
-            }
-
-            return true;
+            displayToast(value ? `${feature.title} Enabled` : `${feature.title} Disabled`, 'success');
+            if (feature.reload) window.location.reload();
         } catch (error) {
-            console.error(error);
-            displayToast(
-                error.message || 'An error occurred while updating the setting.',
-                'error'
-            );
-
-            return false;
+            setIsEnabled(!value);
+            displayToast(`Failed to update ${feature.title} setting.`, 'error');
         }
     };
 
     return (
+        <PlusFeatureCard title={feature.title} desc={feature.desc} locked={feature.locked}>
+            {!feature.locked && (
+                feature.isWhiteLabel ? (
+                    <div className="text-blue-600">
+                        <a href={feature.docsLink} target="_blank" className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Docs</a>
+                        {!convertTruthyFalsyValue(localize.whiteLabelSettings?.hide_wl_settings) && <> | <Link to="/settings" className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Settings</Link></>}
+                    </div>
+                ) : feature.hasToggle ? (
+                    <div className="flex justify-between text-blue-600">
+                        <span>
+                            <a target="_blank" href={feature.docsLink} className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Docs</a>
+                            {feature.settingsText && (
+                                <> | <a href={feature.settingsLink} className={`w-fit underline text-sm leading-5 font-normal ${isEnabled ? ' text-blue-500 cursor-pointer' : 'text-gray-400 pointer-events-none'}`}>{feature.settingsText}</a></>
+                            )}
+                        </span>
+                        <ToggleControl checked={isEnabled} onChange={handleToggle} />
+                    </div>
+                ) : null
+            )}
+        </PlusFeatureCard>
+    );
+};
+
+const RPlusFeatures = () => {
+    return (
         <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">
-                <span className="text-[#4B5563] text-2xl leading-8 font-medium">Responsive Pro Features</span>
-                <span className="text-[#4B5563] text-base leading-6">Import Premium WordPress sites with Responsive Plus featuring white label, custom fonts, Woo settings, etc.</span>
+                <span className="text-[#4B5563] text-2xl leading-8 font-medium">Responsive X Features</span>
+                <span className="text-[#4B5563] text-base leading-6">Supercharge your free Responsive theme with Responsive X Plugin features and get full access to our premium starter templates.</span>
             </div>
             <div className="grid grid-cols-3 gap-3 p-3 bg-slate-100 rounded-lg border border-slate-200">
                 <PlusFeatureCard title="Starter Templates" desc="Unlock the library of Premium WordPress Templates.">
                     <a href={localize?.rst_redirect} className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Explore Templates</a>
                 </PlusFeatureCard>
-                <PlusFeatureCard title="White Label" desc="White Label the theme name & settings with the Plus Plugin." locked={!convertTruthyFalsyValue(localize.isResponsiveXActivated)}>
-                    {convertTruthyFalsyValue(localize.isResponsiveXActivated) && (
-                        <div className="text-blue-600">
-                            <a href="https://cyberchimps.com/docs/responsive-plus/modules-settings/how-to-white-label-cyberchimps-responsive-theme/" target="_blank" className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Docs</a> {!convertTruthyFalsyValue(localize.whiteLabelSettings.hide_wl_settings) && <>| <Link to="/settings" className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Settings</Link></>}
-                        </div>
-                    )}
-                </PlusFeatureCard>
-                <PlusFeatureCard title="Mega Menu" desc="Adds options such as mega menus, highlight tags, icons, etc." locked={!convertTruthyFalsyValue(localize.isResponsiveXActivated)}>
-                     {convertTruthyFalsyValue(localize.isResponsiveXActivated) && ( 
-                        <div className="flex justify-between text-blue-600">
-                        <span><a href="https://cyberchimps.com/docs/responsive-plus/modules-settings/mega-menu/" className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Docs</a> | <a href={localize?.siteurl + '/wp-admin/nav-menus.php'} className={`w-fit underline text-sm leading-5 font-normal ${isMegamenuEnabled ? ' text-blue-500 cursor-pointer' : 'text-gray-400 pointer-events-none'}`}>Customize</a></span>
-                        <ToggleControl
-                            checked={isMegamenuEnabled}
-                            onChange={(value) =>
-                                handleToggle({
-                                    value,
-                                    setter: setIsMegamenuEnabled,
-                                    action: 'responsive-pro-enable-megamenu',
-                                    nonce: localize?.megamenuNonce,
-                                    successMessage: value ? 'Mega Menu Enabled' : 'Mega Menu Disabled',
-                                    failMessage: 'Failed to update Mega Menu setting.',
-                                })
-                            }
-                        />
-                    </div>
-                     )}
-                </PlusFeatureCard>
-                <PlusFeatureCard title="WooCommerce" desc="Adds enhanced settings in the Woo store customizer.">
-                    <div className="flex justify-between text-blue-600">
-                        <span><a target="_blank" href="https://cyberchimps.com/docs/responsive-plus/responsive-pro-plugin/woocommerce-module/" className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Docs</a> | <a href={localize?.customizerurlReturn + '&autofocus[section]=woocommerce'} className={`w-fit underline text-sm leading-5 font-normal ${isWooCommerceEnabled ? ' text-blue-500 cursor-pointer' : 'text-gray-400 pointer-events-none'}`}>Customize</a></span>
-                        <ToggleControl
-                            checked={isWooCommerceEnabled}
-                            onChange={(value) =>
-                                handleToggle({
-                                    value,  
-                                    setter: setIsWooCommerceEnabled,
-                                    action: 'responsive-pro-enable-woocommerce',
-                                    nonce: localize?.woocommerceNonce,
-                                    successMessage: value ? 'WooCommerce Enabled' : 'WooCommerce Disabled',
-                                    failMessage: 'Failed to update WooCommerce setting.',
-                                })
-                            }
-                        />
-                    </div>
-                </PlusFeatureCard>
-                <PlusFeatureCard title="Custom Fonts" desc="Upload custom fonts directly, no additional font plugin required.">
-                    <div className="flex justify-between text-blue-600">
-                        <span><a target="_blank" href="https://cyberchimps.com/docs/responsive-plus/responsive-pro-plugin/custom-fonts/" className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Docs</a> | <a href={localize?.siteurl + '/wp-admin/edit-tags.php?taxonomy=responsive_custom_fonts'} className={`w-fit underline text-sm leading-5 font-normal ${isCustomFontsEnabled ? ' text-blue-500 cursor-pointer' : 'text-gray-400 pointer-events-none'}`}>Settings</a></span>
-                        <ToggleControl
-                            checked={isCustomFontsEnabled}
-                            onChange={(value) =>
-                                handleToggle({
-                                    value,  
-                                    setter: setIsCustomFontsEnabled,
-                                    action: 'responsive-plus-enable-custom-fonts',
-                                    nonce: localize?.customFontsNonce,
-                                    successMessage: value ? 'Custom Fonts Enabled' : 'Custom Fonts Disabled',
-                                    failMessage: 'Failed to update Custom Fonts setting.',
-                                    reload: true,
-                                })
-                            }
-                        />
-                    </div>
-                </PlusFeatureCard>
-                <PlusFeatureCard title="Site Builder" desc="Edit your site's header, footer, 404, and archive templates." locked={!convertTruthyFalsyValue(localize.isResponsiveXActivated)}>
-                    {convertTruthyFalsyValue(localize.isResponsiveXActivated) && ( 
-                    <div className="flex justify-between text-blue-600">
-                        <span><a target="_blank" href="https://cyberchimps.com/docs/responsive-plus/modules-settings/site-builder/" className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Docs</a> | <a href={localize?.siteurl + '/wp-admin/admin.php?page=responsive-site-builder'} className={`w-fit underline text-sm leading-5 font-normal ${isSiteBuilderEnabled ? ' text-blue-500 cursor-pointer' : 'text-gray-400 pointer-events-none'}`}>Settings</a></span>
-                        <ToggleControl
-                            checked={isSiteBuilderEnabled}
-                            onChange={(value) =>
-                                handleToggle({
-                                    value,  
-                                    setter: setIsSiteBuilderEnabled,
-                                    action: 'responsive-plus-enable-site-builder',
-                                    nonce: localize?.siteBuilderNonce,
-                                    successMessage: value ? 'Site Builder Enabled' : 'Site Builder Disabled',
-                                    failMessage: 'Failed to update Site Builder setting.',
-                                    reload: true,
-                                })
-                            }
-                        />
-                    </div>
-                    )}
-                </PlusFeatureCard>
-                 <PlusFeatureCard title="AI Content Creation" desc="Generate engaging content, layouts, and more with AI." locked={!convertTruthyFalsyValue(localize.isResponsiveXActivated)}>
-                    {convertTruthyFalsyValue(localize.isResponsiveXActivated) && ( 
-                    <div className="flex justify-between text-blue-600">
-                        <span><a target="_blank" href="https://cyberchimps.com/docs/responsive-plus/modules-settings/ai-suite-in-responsive-pro/" className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Docs</a> | <a href={localize?.siteurl + '/wp-admin/admin.php?page=responsivex#/ai-suite'} className={`w-fit underline text-sm leading-5 font-normal ${isAISuiteEnabled ? ' text-blue-500 cursor-pointer' : 'text-gray-400 pointer-events-none'}`}>Settings</a></span>
-                        <ToggleControl
-                            checked={isAISuiteEnabled}
-                            onChange={(value) =>
-                                handleToggle({
-                                    value,  
-                                    setter: setIsAISuiteEnabled,
-                                    action: 'responsive-plus-enable-ai-suite',
-                                    nonce: localize?.aiSuiteNonce,
-                                    successMessage: value ? 'AI Suite Enabled' : 'AI Suite Disabled',
-                                    failMessage: 'Failed to update AI Suite setting.',
-                                    reload: true,
-                                })
-                            }
-                        />
-                    </div>
-                    )}
-                </PlusFeatureCard>
+
+                {localize?.proFeatures && Object.values(localize.proFeatures).map((feature, index) => (
+                    <DynamicPlusFeatureCard key={index} feature={feature} />
+                ))}
             </div>
         </div>
     )
