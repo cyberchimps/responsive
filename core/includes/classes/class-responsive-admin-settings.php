@@ -188,6 +188,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 
 				// Fetch the current user plan
 				$is_responsivex_active = is_plugin_active( 'responsivex/responsivex.php' );
+				$plan_details = null;
 
 				if ( $is_responsivex_active && class_exists( 'ResponsiveX' ) ) {
 					$responsivex_settings = new ResponsiveX();
@@ -257,7 +258,48 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 					'siteBuilderNonce'      => esc_attr( wp_create_nonce( 'rplus_toggle_site_builder' ) ),
 					'aiSuiteNonce'          => esc_attr( wp_create_nonce( 'rplus_toggle_ai_suite' ) ),
 					'plan_details' 			=> $plan_details,
+					'proFeatures'           => array(
+						array(
+							'id' => 'white-label',
+							'title' => 'White Label',
+							'desc'  => 'White Label the theme name & settings with the Plus Plugin.',
+							'locked' => true,
+							'isWhiteLabel' => true,
+						),
+						array(
+							'id' => 'mega-menu',
+							'title' => 'Mega Menu',
+							'desc'  => 'Adds options such as mega menus, highlight tags, icons, etc.',
+							'locked' => true,
+						),
+						array(
+							'id' => 'woocommerce',
+							'title' => 'WooCommerce',
+							'desc'  => 'Adds enhanced settings in the Woo store customizer.',
+							'locked' => true,
+						),
+						array(
+							'id' => 'custom-fonts',
+							'title' => 'Custom Fonts',
+							'desc'  => 'Upload custom fonts directly, no additional font plugin required.',
+							'locked' => true,
+						),
+						array(
+							'id' => 'site-builder',
+							'title' => 'Site Builder',
+							'desc'  => 'Edit your site\'s header, footer, 404, and archive templates.',
+							'locked' => true,
+						),
+						array(
+							'id' => 'ai-suite',
+							'title' => 'AI Content Creation',
+							'desc'  => 'Generate engaging content, layouts, and more with AI.',
+							'locked' => true,
+						),
+					),
 				);
+
+				$localized_data = apply_filters( 'responsive_dashboard_localized_data', $localized_data );
 
 				wp_localize_script(
 					'responsive-admin-dashboard-jsfile',

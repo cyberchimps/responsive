@@ -18,7 +18,8 @@ const Settings = () => {
                 </div>
                 {!convertTruthyFalsyValue(localize.whiteLabelSettings.hide_wl_settings)  &&
     localize.plan_details !== 'free' &&
-    convertTruthyFalsyValue(localize.isResponsiveXActivated) && (
+    convertTruthyFalsyValue(localize.isResponsiveXActivated) &&
+    localize.isPremiumFeatureAccessible && (
                     <div className="flex flex-col gap-2">
                         <div onClick={() => setSettingsTab('whitelabel')} className={`flex items-center gap-2 px-3 py-4 cursor-pointer rounded-md ${settingsTab === 'whitelabel' && 'resp-setting-tab-active'}`}>
                             {Icons.document}
@@ -29,7 +30,7 @@ const Settings = () => {
             </div>
             <div className="w-3/4 rounded-tr-3xl p-10 bg-slate-100">
                 {settingsTab === 'connect' && <ConnectSettings />}
-                {!convertTruthyFalsyValue(localize.whiteLabelSettings.hide_wl_settings) && settingsTab === 'whitelabel' && <WhiteLabelSettings />}
+                {!convertTruthyFalsyValue(localize.whiteLabelSettings.hide_wl_settings) && localize.isPremiumFeatureAccessible && settingsTab === 'whitelabel' && <WhiteLabelSettings />}
             </div>
         </div>
     )
