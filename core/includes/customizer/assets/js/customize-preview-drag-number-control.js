@@ -12,6 +12,12 @@
     api( 'responsive_container_width', function( value ) {
         value.bind( function( newval ) {
             $('.container,[class*=\'__inner-container\'],.site-header-full-width-main-navigation:not(.responsive-site-full-width) .main-navigation-wrapper').css('max-width', newval+'px' );
+            jQuery('style#responsive-gutenberg-wide-size').remove();
+            jQuery('head').append(
+                '<style id="responsive-gutenberg-wide-size">' +
+                '.wp-block-group { --wp--style--global--wide-size: ' + newval + 'px !important; }' +
+                '</style>'
+            );
             if ( $(window).width() > 769 ) {
                 $( '.floatingb-container' ).css( 'width', newval+'px' );
             } else {

@@ -581,6 +581,10 @@ function responsive_gutenberg_customizer_css() {
 
 	}
 
+	.editor-styles-wrapper .wp-block-group {
+		--wp--style--global--wide-size: ' . $responsive_container_width . 'px;
+	}
+
 	@media screen and ( max-width: 992px ) {
 		.editor-styles-wrapper .wp-block-button__link,
 		.editor-styles-wrapper .wp-block-file__button,
