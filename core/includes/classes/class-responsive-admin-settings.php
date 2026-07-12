@@ -119,7 +119,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 
 				$rst_path = 'responsive-add-ons/responsive-add-ons.php';
 				
-				$responsivex_path = 'responsivex/responsivex.php';
+				$responsivex_path = 'responsivepro/responsivepro.php';
 
 				$rst_nonce = add_query_arg(
 					array(
@@ -187,12 +187,12 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 				$is_rst_active = is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' );
 
 				// Fetch the current user plan
-				$is_responsivex_active = is_plugin_active( 'responsivex/responsivex.php' );
+				$is_responsivex_active = is_plugin_active( $responsivex_path );
 				$plan_details = null;
 
-				if ( $is_responsivex_active && class_exists( 'ResponsiveX' ) ) {
-					$responsivex_settings = new ResponsiveX();
-					$plan_details = $responsivex_settings->get_responsivex_plan();
+				if ( $is_responsivex_active && class_exists( 'RESPONSIVEPRO' ) ) {
+					$responsivex_settings = new RESPONSIVEPRO();
+					$plan_details = $responsivex_settings->get_responsivepro_plan();
 				}
 
 				$is_connected = 'no';
