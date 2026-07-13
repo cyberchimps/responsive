@@ -371,7 +371,7 @@ const RPlusFeatures = () => {
     return (
         <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">
-                <span className="text-[#4B5563] text-2xl leading-8 font-medium">Responsive X Features</span>
+                <span className="text-[#4B5563] text-2xl leading-8 font-medium">Responsive Pro Features</span>
                 <span className="text-[#4B5563] text-base leading-6">Supercharge your free Responsive theme with Responsive X Plugin features and get full access to our premium starter templates.</span>
             </div>
             <div className="grid grid-cols-3 gap-3 p-3 bg-slate-100 rounded-lg border border-slate-200">
