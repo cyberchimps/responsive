@@ -117,7 +117,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 
 			if ( isset( $_GET['page'] ) && 'responsive' === $_GET['page'] ) {
 
-				$rst_path = 'responsive-add-ons/responsive-add-ons.php';
+				$rst_path = 'responsivepro/responsivepro.php';
 				
 				$responsivex_path = 'responsivepro/responsivepro.php';
 
@@ -184,14 +184,14 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 					admin_url( 'customize.php' )
 				);
 
-				$is_rst_active = is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' );
+				$is_responsivepro_active = is_plugin_active( 'responsivepro/responsivepro.php' );
 
 				// Fetch the current user plan
 				$is_responsivex_active = is_plugin_active( $responsivex_path );
 				$plan_details = null;
 
-				if ( $is_responsivex_active && class_exists( 'RESPONSIVEPRO' ) ) {
-					$responsivex_settings = new RESPONSIVEPRO();
+				if ( $is_responsivex_active && class_exists( 'ResponsivePRO' ) ) {
+					$responsivex_settings = new ResponsivePRO();
 					$plan_details = $responsivex_settings->get_responsivepro_plan();
 				}
 
@@ -199,12 +199,12 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 				$email        = '';
 				$plan         = '';
 
-				if ( $is_rst_active && class_exists( 'Responsive_Add_Ons_App_Auth' ) ) {
-					require_once RESPONSIVE_ADDONS_DIR . 'includes/class-responsive-add-ons-app-auth.php';
-					$cc_app_auth = new Responsive_Add_Ons_App_Auth();
+				if ( $is_responsivepro_active && class_exists( 'ResponsivePRO_App_Auth' ) ) {
+					// require_once RESPONSIVE_ADDONS_DIR . 'includes/class-responsive-add-ons-app-auth.php';
+					$cc_app_auth = new ResponsivePRO_App_Auth();
 					$is_connected = $cc_app_auth->has_auth();
-					if ( $is_connected && class_exists( 'Responsive_Add_Ons_Settings' ) ) {
-						$user  = Responsive_Add_Ons_Settings::get_instance();
+					if ( $is_connected && class_exists( 'ResponsivePRO_Settings' ) ) {
+						$user  = ResponsivePRO_Settings::get_instance();
 						$email = esc_html( $user->get_email() );
 						$plan  = esc_html( ucwords( $user->get_plan() ) );
 					}
@@ -216,7 +216,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 					'customizerurl'         => esc_url( admin_url( 'customize.php' ) ),
 					'customizerurlReturn'   => esc_url( $customizer_url_return ),
 					'siteurl'               => site_url(),
-					'isRSTActivated'        => $is_rst_active,
+					'isRSTActivated'        => $is_responsivepro_active,
 					'isResponsiveXActivated'=> $is_responsivex_active,
 					'isRBAActivated'        => is_plugin_active( 'responsive-block-editor-addons/responsive-block-editor-addons.php' ),
 					'isRAEActivated'        => is_plugin_active( 'responsive-addons-for-elementor/responsive-addons-for-elementor.php' ),
