@@ -52,6 +52,186 @@ function responsive_enqueue_notices_handler() {
 
 add_action( 'admin_enqueue_scripts', 'responsive_enqueue_notices_handler', 99 );
 
+/**
+ * Enqueue the Customizer Command Palette (Ctrl/Cmd + K) integration for Responsive.
+ */
+function responsive_enqueue_command_palette_scripts() {
+	wp_enqueue_style( 'wp-components' );
+	wp_enqueue_script(
+		'responsive-command-palette',
+		RESPONSIVE_THEME_URI . 'admin/js/responsive-command-palette.js',
+		array( 'wp-commands', 'wp-data', 'wp-i18n', 'wp-element', 'wp-components', 'wp-dom-ready' ),
+		RESPONSIVE_THEME_VERSION,
+		true
+	);
+
+	$sections = array(
+		array(
+			'name'        => 'responsive/customizer-header',
+			'label'       => __( 'Customizer: Header', 'responsive' ),
+			'searchLabel' => __( 'Header, Primary Header, Logo, Site Title, Navigation, Menu, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[panel]=responsive_header' ),
+		),
+		array(
+			'name'        => 'responsive/customizer-footer',
+			'label'       => __( 'Customizer: Footer', 'responsive' ),
+			'searchLabel' => __( 'Footer, Bottom Bar, Copyright, Widgets, Menu, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[panel]=responsive_footer' ),
+		),
+		array(
+			'name'        => 'responsive/customizer-global',
+			'label'       => __( 'Customizer: Global', 'responsive' ),
+			'searchLabel' => __( 'Global, Layout, Buttons, Color Palette, Form Fields, Typography, Background, Embed Scripts', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[panel]=responsive_site' ),
+		),
+		array(
+			'name'        => 'responsive/customizer-typography',
+			'label'       => __( 'Customizer: Typography', 'responsive' ),
+			'searchLabel' => __( 'Typography, Fonts, Text, Base Typography, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_typography' ),
+		),
+		array(
+			'name'        => 'responsive/customizer-blog',
+			'label'       => __( 'Customizer: Blog', 'responsive' ),
+			'searchLabel' => __( 'Blog, Archive, Single Post, Post, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_blog_options' ),
+		),
+		array(
+			'name'        => 'responsive/customizer-performance',
+			'label'       => __( 'Customizer: Performance', 'responsive' ),
+			'searchLabel' => __( 'Performance, Local Font, Speed, Optimization', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_performance' ),
+		),
+		array(
+			'name'        => 'responsive/customizer-breadcrumb',
+			'label'       => __( 'Customizer: Breadcrumb', 'responsive' ),
+			'searchLabel' => __( 'Breadcrumb, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_breadcrumb' ),
+		),
+		array(
+			'name'        => 'responsive/customizer-sidebar',
+			'label'       => __( 'Customizer: Sidebar', 'responsive' ),
+			'searchLabel' => __( 'Sidebar, Default Sidebar, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_sidebar' ),
+		),
+		array(
+			'name'        => 'responsive/customizer-site-identity',
+			'label'       => __( 'Customizer: Site Identity', 'responsive' ),
+			'searchLabel' => __( 'Site Identity, Logo, Site Title, Site Tagline, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=title_tagline' ),
+		),
+		array(
+			'name'        => 'responsive/customizer-general',
+			'label'       => __( 'Customizer: General', 'responsive' ),
+			'searchLabel' => __( 'General, Breadcrumb, Sidebar, Performance, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_general' ),
+		),
+		array(
+			'name'        => 'responsive/customizer-post-types',
+			'label'       => __( 'Customizer: Post Types', 'responsive' ),
+			'searchLabel' => __( 'Post Types, Post, Page, Blog/Archive, Single Post, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_post_types' ),
+		),
+		array(
+			'name'        => 'responsive/customizer-homepage-settings',
+			'label'       => __( 'Customizer: Homepage Settings', 'responsive' ),
+			'searchLabel' => __( 'Homepage Settings, Static Front Page, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=static_front_page' ),
+		),
+		array(
+			'name'        => 'responsive/customizer-menus',
+			'label'       => __( 'Customizer: Menus', 'responsive' ),
+			'searchLabel' => __( 'Menus, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[panel]=nav_menus' ),
+		),
+		array(
+			'name'        => 'responsive/customizer-additional-css',
+			'label'       => __( 'Customizer: Additional CSS', 'responsive' ),
+			'searchLabel' => __( 'Additional CSS, Custom CSS, CSS, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=custom_css' ),
+		),
+		array(
+			'name'        => 'responsive/customizer-page',
+			'label'       => __( 'Customizer: Page', 'responsive' ),
+			'searchLabel' => __( 'Page, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_page' ),
+		),
+		array(
+			'name'        => 'responsive/customizer-blog_layout',
+			'label'       => __( 'Customizer: Blog / Archive', 'responsive' ),
+			'searchLabel' => __( 'Blog / Archive, Archive, Blog, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_blog_layout' ),
+		),
+		array(
+			'name'        => 'responsive/customizer-single_blog_layout',
+			'label'       => __( 'Customizer: Single Post', 'responsive' ),
+			'searchLabel' => __( 'Single Post, Post, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_single_blog_layout' ),
+		),
+	);
+
+	// Conditionally add WooCommerce sections if it's active.
+	if ( class_exists( 'WooCommerce' ) ) {
+		$sections[] = array(
+			'name'        => 'responsive/customizer-woocommerce',
+			'label'       => __( 'Customizer: WooCommerce', 'responsive' ),
+			'searchLabel' => __( 'WooCommerce, Shop, Store, Product, Cart, Checkout, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[panel]=woocommerce' ),
+		);
+		$sections[] = array(
+			'name'        => 'responsive/customizer-product-catalog',
+			'label'       => __( 'Customizer: Product Catalog', 'responsive' ),
+			'searchLabel' => __( 'Product Catalog, Catalog, Store, Product, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=woocommerce_product_catalog' ),
+		);
+		$sections[] = array(
+			'name'        => 'responsive/customizer-product-images',
+			'label'       => __( 'Customizer: Product Images', 'responsive' ),
+			'searchLabel' => __( 'Product Images, Images, Product, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=woocommerce_product_images' ),
+		);
+		$sections[] = array(
+			'name'        => 'responsive/customizer-single-product',
+			'label'       => __( 'Customizer: Single Product', 'responsive' ),
+			'searchLabel' => __( 'Single Product, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_woocommerce_single_product_layout' ),
+		);
+		$sections[] = array(
+			'name'        => 'responsive/customizer-product-catalog-options',
+			'label'       => __( 'Customizer: Product Catalog Options', 'responsive' ),
+			'searchLabel' => __( 'Product Catalog Options, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_woocommerce_shop' ),
+		);
+		$sections[] = array(
+			'name'        => 'responsive/customizer-cart-options',
+			'label'       => __( 'Customizer: Cart Options', 'responsive' ),
+			'searchLabel' => __( 'Cart Options, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_woocommerce_cart' ),
+		);
+		$sections[] = array(
+			'name'        => 'responsive/customizer-distraction-free-woocommerce',
+			'label'       => __( 'Customizer: Distraction Free', 'responsive' ),
+			'searchLabel' => __( 'Distraction Free, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_woocommerce_distraction_free' ),
+		);
+		$sections[] = array(
+			'name'        => 'responsive/customizer-store-notice',
+			'label'       => __( 'Customizer: Store Notice', 'responsive' ),
+			'searchLabel' => __( 'Store Notice, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=woocommerce_store_notice' ),
+		);
+	}
+
+	wp_localize_script(
+		'responsive-command-palette',
+		'responsiveCommandPalette',
+		array(
+			'sections' => $sections,
+			'iconUrl'  => RESPONSIVE_THEME_URI . 'admin/images/responsive-theme-cmd-pal-logo.svg',
+		)
+	);
+}
+add_action( 'admin_enqueue_scripts', 'responsive_enqueue_command_palette_scripts' );
 
 /**
  * Include Welcome page right starter sites content
