@@ -262,7 +262,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 						array(
 							'id' => 'white-label',
 							'title' => 'White Label',
-							'desc'  => 'White Label the theme name & settings with the Plus Plugin.',
+							'desc'  => 'White Label the theme name & settings with the Responsive Pro Plugin.',
 							'locked' => true,
 							'isWhiteLabel' => true,
 						),

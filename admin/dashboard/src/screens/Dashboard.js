@@ -418,23 +418,27 @@ const QuickAccess = () => {
                 <span className="text-[#4B5563] text-2xl leading-8 font-medium">{__('Quick Access', 'responsive')}</span>
                 <span className="text-[#4B5563] text-base leading-6">{__('Helpful resources & links', 'responsive')}</span>
             </div>
-            <div className="flex gap-5 p-3.5 bg-white rounded-md">
-                <span className="flex items-center self-start p-2.5 rounded-md border border-yellow-500">{Icons.community}</span>
-                <div>
-                    <a href="https://cyberchimps.com/blog/#mautic-api-form" target="_blank" className="text-lg leading-7 font-medium text-desc text-[#4B5563] no-underline">{__('Join the Newsletter', 'responsive')}</a>
-                    <p className="text-sm leading-5 font-normal text-desc m-0">{__('Get the latest updates from us', 'responsive')}</p>
-                </div>
-            </div>
-            <div className="flex gap-5 p-3.5 bg-white rounded-md">
-                <span className="flex items-center self-start p-2.5 rounded-md border border-blue-200">{Icons.help}</span>
-                <div>
-                    <a href="https://wordpress.org/support/theme/responsive/" target="_blank" className="text-lg leading-7 font-medium text-[#4B5563] no-underline">{__('Support', 'responsive')}</a>
-                    <p className="text-sm leading-5 font-normal text-desc m-0">{__('Get help from our support team', 'responsive')}</p>
-                </div>
-            </div>
             <div className="flex flex-col gap-3 p-3 bg-slate-100 rounded-md border border-slate-200">
+                <div className="flex gap-5 p-3.5 bg-white rounded-md">
+                    <span className="flex items-center self-start p-2.5 rounded-md border border-yellow-500 bg-[#FEFCE8]">{Icons.community}</span>
+                    <div>
+                        <a href="https://cyberchimps.com/blog/#mautic-api-form" target="_blank" className="text-lg leading-7 font-medium text-desc text-[#4B5563] no-underline">{__('Join our Newsletter', 'responsive')}</a>
+                        <p className="text-sm leading-5 font-normal text-desc m-0">{__('Get the latest updates from us', 'responsive')}</p>
+                    </div>
+                </div>
+            
+                
+                    <div className="flex gap-5 p-3.5 bg-white rounded-md ">
+                        <span className="flex items-center self-start p-2.5 rounded-md border border-blue-200 bg-[#E9F1F7]">{Icons.help}</span>
+                        <div>
+                            <a href="https://wordpress.org/support/theme/responsive/" target="_blank" className="text-lg leading-7 font-medium text-[#4B5563] no-underline">{__('Support', 'responsive')}</a>
+                            <p className="text-sm leading-5 font-normal text-desc m-0">{__('Get help from our support team', 'responsive')}</p>
+                        </div>
+                    </div>
+                
+            
                 <div className="flex gap-5 i p-3.5 bg-white rounded-md">
-                    <span className="flex items-center self-start p-2.5 rounded-md border border-green-500">{Icons.star}</span>
+                    <span className="flex items-center self-start p-2.5 rounded-md border border-green-500 bg-[#F0FDF4]">{Icons.star}</span>
                     <div>
                         <a href={localize.review_link} target="_blank" className="text-lg leading-7 font-medium text-desc text-[#4B5563] no-underline">{__('Rate Us', 'responsive')}</a>
                         <p className="text-sm leading-5 font-normal text-desc m-0">{__('Share your experience', 'responsive')}</p>

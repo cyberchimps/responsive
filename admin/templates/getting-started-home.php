@@ -209,7 +209,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 			'tag'   => 'pro',
 			'title' => __( 'White Label', 'responsive' ),
 			'desc'  => __( 'White Label the theme name & settings with the Pro Plugin.', 'responsive' ),
-			'toggle_action' => 'responsivex_render_feature_toggle_white_label',
+			'toggle_action' => 'responsivepro_render_feature_toggle_white_label',
 			'links' => array(
 				array(
 					'name' => __( 'Docs', 'responsive' ),
@@ -245,7 +245,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 			// 'tag'   => 'free',
 			'title' => __( 'White Label', 'responsive' ),
 			'desc'  => __( 'White Label the theme name & settings with the Pro Plugin.', 'responsive' ),
-			'toggle_action' => 'responsivex_render_feature_toggle_white_label',
+			'toggle_action' => 'responsivepro_render_feature_toggle_white_label',
 			'links' => array(
 				array(
 					'name' => __( 'Docs', 'responsive' ),

@@ -81,7 +81,7 @@ function responsive_enqueue_command_palette_scripts() {
 		array(
 			'name'        => 'responsive/customizer-global',
 			'label'       => __( 'Customizer: Global', 'responsive' ),
-			'searchLabel' => __( 'Global, Layout, Buttons, Color Palette, Form Fields, Typography, Background, Embed Scripts', 'responsive' ),
+			'searchLabel' => __( 'Global, Layout, Buttons, Color Palette, Form Fields, Typography, Background, Embed Scripts, Customizer', 'responsive' ),
 			'url'         => admin_url( 'customize.php?autofocus[panel]=responsive_site' ),
 		),
 		array(
@@ -92,14 +92,14 @@ function responsive_enqueue_command_palette_scripts() {
 		),
 		array(
 			'name'        => 'responsive/customizer-blog',
-			'label'       => __( 'Customizer: Blog', 'responsive' ),
+			'label'       => __( 'Customizer: Blog/Archive', 'responsive' ),
 			'searchLabel' => __( 'Blog, Archive, Single Post, Post, Customizer', 'responsive' ),
 			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_blog_options' ),
 		),
 		array(
 			'name'        => 'responsive/customizer-performance',
 			'label'       => __( 'Customizer: Performance', 'responsive' ),
-			'searchLabel' => __( 'Performance, Local Font, Speed, Optimization', 'responsive' ),
+			'searchLabel' => __( 'Performance, Local Font, Speed, Optimization, Customizer', 'responsive' ),
 			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_performance' ),
 		),
 		array(
@@ -130,7 +130,7 @@ function responsive_enqueue_command_palette_scripts() {
 			'name'        => 'responsive/customizer-post-types',
 			'label'       => __( 'Customizer: Post Types', 'responsive' ),
 			'searchLabel' => __( 'Post Types, Post, Page, Blog/Archive, Single Post, Customizer', 'responsive' ),
-			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_post_types' ),
+			'url'         => admin_url( 'customize.php?autofocus[panel]=responsive_post_types' ),
 		),
 		array(
 			'name'        => 'responsive/customizer-homepage-settings',
@@ -167,6 +167,48 @@ function responsive_enqueue_command_palette_scripts() {
 			'label'       => __( 'Customizer: Single Post', 'responsive' ),
 			'searchLabel' => __( 'Single Post, Post, Customizer', 'responsive' ),
 			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_single_blog_layout' ),
+		),
+		array(
+			'name'        => 'responsive/customizer-layout',
+			'label'       => __( 'Customizer: Layout', 'responsive' ),
+			'searchLabel' => __( 'Layout, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_layout' ),
+		),
+		array(
+			'name'        => 'responsive/customizer-buttons',
+			'label'       => __( 'Customizer: Buttons', 'responsive' ),
+			'searchLabel' => __( 'Buttons, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_button' ),
+		),
+		array(
+			'name'        => 'responsive/customizer-form-fields',
+			'label'       => __( 'Customizer: Form Fields', 'responsive' ),
+			'searchLabel' => __( 'Form Fields, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_form_fields' ),
+		),
+		array(
+			'name'        => 'responsive/customizer-colors',
+			'label'       => __( 'Customizer: Colors & Backgrounds', 'responsive' ),
+			'searchLabel' => __( 'Colors & Backgrounds, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_colors' ),
+		),
+		array(
+			'name'        => 'responsive/customizer-typography',
+			'label'       => __( 'Customizer: Typography', 'responsive' ),
+			'searchLabel' => __( 'Typography, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_typography' ),
+		),
+		array(
+			'name'        => 'responsive/customizer-embed-scripts',
+			'label'       => __( 'Customizer: Embed Scripts', 'responsive' ),
+			'searchLabel' => __( 'Embed Scripts, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_scripts' ),
+		),
+		array(
+			'name'        => 'responsive/customizer-widgets',
+			'label'       => __( 'Customizer: Widgets', 'responsive' ),
+			'searchLabel' => __( 'Widgets, Customizer', 'responsive' ),
+			'url'         => admin_url( 'customize.php?autofocus[panel]=widgets' ),
 		),
 	);
 
