@@ -1128,8 +1128,10 @@ function responsive_customizer_styles() {
 	a:hover {
 		color:{$link_hover_color};
 	}
-	label {
-		color:{$label_color};
+	label,
+	div.wpforms-container-full .wpforms-form .wpforms-field-label,
+	.wp-core-ui div.wpforms-container-full .wpforms-form .wpforms-field-label {
+		color:{$label_color} !important;
 	}
 	";
 

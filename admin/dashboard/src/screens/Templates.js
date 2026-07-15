@@ -12,7 +12,7 @@ const Templates = () => {
       bg={localize?.responsiveurl + "admin/images/rst-template-preview.jpg"}
       logo={localize.responsiveurl + 'admin/images/rst_sm_logo.svg'}
       heading={__('Responsive Starter Templates', 'responsive')}
-      desc={__('Build stunning sites fast with 250+ ready templates. Install the free Responsive Plus plugin to get started.', 'responsive')}
+      desc={__('Build stunning sites fast with 250+ ready templates. Install the free Responsive Starter Templates plugin to get started.', 'responsive')}
     >
       <InstallButton
         type="plugin"
