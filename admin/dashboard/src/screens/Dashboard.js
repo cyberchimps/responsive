@@ -462,7 +462,7 @@ const ExtendAndQuickAccess = () => {
             <p className="font-medium text-2xl m-0">{__('Extend Your Website', 'responsive')}</p>
             <p className="font-normal text-base text-desc mt-2 mb-6">{__("Powerful tools to enhance your site's functionality", 'responsive')}</p>
             <div className="grid md:grid-cols-3 gap-6 p-3 bg-slate-100 border border-slate-200 rounded-md">
-                <PluginCard title={__('Responsive Starter Templates', 'responsive')} description={__('Ready to Import Professionally Designed Website Starter Templates.', 'responsive')} image="rst">
+                <PluginCard title={__('Responsive Starter Templates', 'responsive')} description={__('Ready to Import Professionally Designed Website Starter Templates.', 'responsive')} image="rst_sm_logo">
                     {/* <button onClick={() => convertTruthyFalsyValue(localize?.isRSTActivated) ? window.location.href = localize.rst_redirect : navigate('/templates')} className="mt-1.125 py-2.5 px-3.5 border-0 bg-white text-[#1D4ED8] rounded-md text-sm leading-5 font-medium cursor-pointer">{__('Explore Templates', 'responsive')}</button> */}
                     <a                                                         
                     onClick={(e) => {
