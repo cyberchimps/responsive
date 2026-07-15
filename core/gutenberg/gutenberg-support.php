@@ -547,8 +547,9 @@ function responsive_gutenberg_customizer_css() {
 	}
 
 	.editor-styles-wrapper label,
-	.editor-styles-wrapper .wp-block-search__label {
-		color:' . $label_color .';
+	.editor-styles-wrapper .wp-block-search__label,
+	.editor-styles-wrapper div.wpforms-container-full .wpforms-form .wpforms-field-label {
+		color:' . $label_color . '!important;
 	}
 	.editor-styles-wrapper.post-type-page .edit-post-visual-editor__post-title-wrapper {
 		text-align: '. $page_title_alignment .';

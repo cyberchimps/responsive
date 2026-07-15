@@ -268,7 +268,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 	$useful_plugins = array(
 		array(
 			'tag'    => __( 'free', 'responsive' ),
-			'title'  => 'Responsive Plus - Starter Templates',
+			'title'  => 'Responsive Starter Templates',
 			'desc'   => __( '150+ Ready to Import Designer-Made Website Starter Templates.', 'responsive' ),
 			'button' => Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-add-ons', 'rst', 'responsive_add_ons' ),
 			'logo'   => 'rst',
@@ -386,9 +386,9 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 						if ( check_is_responsive_pro_activated() ) {
 							esc_html_e( 'Responsive Pro Features', 'responsive' );
 						} elseif ( check_is_responsive_addons_installed() ) {
-							esc_html_e( 'Responsive Plus Features', 'responsive' );
+							esc_html_e( 'Responsive Starter Templates Features', 'responsive' );
 						} else {
-							esc_html_e( 'Unlock More Features by Installing Responsive Plus', 'responsive' );
+							esc_html_e( 'Unlock More Features by Installing Responsive Starter Templates', 'responsive' );
 						}
 						?>
 					</p>
