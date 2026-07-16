@@ -185,6 +185,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 				);
 
 				$is_responsivepro_active = is_plugin_active( 'responsivepro/responsivepro.php' );
+				$is_rst_active = is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' );
 
 				// Fetch the current user plan
 				$is_responsivex_active = is_plugin_active( $responsivex_path );
@@ -216,7 +217,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 					'customizerurl'         => esc_url( admin_url( 'customize.php' ) ),
 					'customizerurlReturn'   => esc_url( $customizer_url_return ),
 					'siteurl'               => site_url(),
-					'isRSTActivated'        => $is_responsivepro_active,
+					'isRSTActivated'        => $is_rst_active,
 					'isResponsiveXActivated'=> $is_responsivex_active,
 					'isRBAActivated'        => is_plugin_active( 'responsive-block-editor-addons/responsive-block-editor-addons.php' ),
 					'isRAEActivated'        => is_plugin_active( 'responsive-addons-for-elementor/responsive-addons-for-elementor.php' ),

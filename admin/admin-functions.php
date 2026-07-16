@@ -305,7 +305,7 @@ function responsive_welcome_banner_notice() {
 			</div>
 			<div class="responsive-addons-banner-content">
 				<p>
-					<?php esc_html_e( 'Import 250+ fully functional and ready to use business websites with the free Responsive Addons Plugin. Explore features like the mega menu, white label, advance WooCommerce settings and many more.', 'responsive' ); ?>
+					<?php esc_html_e( 'Import 100+ fully functional and ready to use business websites with the free Responsive Starter Templates Plugin.', 'responsive' ); ?>
 					<?php echo Responsive_Plugin_Install_Helper::instance()->get_button_html( 'responsive-add-ons' ); //phpcs:ignore ?>
 				</p>
 			</div>
