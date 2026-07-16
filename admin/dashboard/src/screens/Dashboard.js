@@ -349,7 +349,7 @@ const DynamicPlusFeatureCard = ({ feature }) => {
                 feature.isWhiteLabel ? (
                     <div className="text-blue-600">
                         <a href={feature.docsLink} target="_blank" className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Docs</a>
-                        {!convertTruthyFalsyValue(localize.whiteLabelSettings?.hide_wl_settings) && <> | <Link to="/settings" className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Settings</Link></>}
+                        {!convertTruthyFalsyValue(localize.whiteLabelSettings?.hide_wl_settings) && <> | <Link to="/settings" state={{ tab: 'whitelabel' }} className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Settings</Link></>}
                     </div>
                 ) : feature.hasToggle ? (
                     <div className="flex justify-between text-blue-600">
