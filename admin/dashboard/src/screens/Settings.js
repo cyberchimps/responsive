@@ -1,12 +1,24 @@
 import { __ } from "@wordpress/i18n";
 import { useState, useEffect, useContext } from '@wordpress/element';
+import { useLocation } from 'react-router-dom';
 import { ResponsiveContext } from '../Context';
 import { displayToast, convertTruthyFalsyValue } from '../Helper';
 import Icons from "../icons";
 
 const Settings = () => {
 
-    const [settingsTab, setSettingsTab] = useState('connect');
+    const location = useLocation();
+    const initialTab = location.state?.tab || 'connect';
+
+    const [settingsTab, setSettingsTab] = useState(initialTab);
+
+    useEffect(() => {
+        if (location.state?.tab) {
+            setSettingsTab(location.state.tab);
+        }
+        window.scrollTo(0, 0);
+    }, [location.state?.tab]);
+
     return (
         <div className="flex xl:mx-14 md:mx-15 my-16">
             <div className="w-1/4 bg-white rounded-tl-3xl p-5">
