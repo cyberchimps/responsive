@@ -486,7 +486,7 @@ const ExtendAndQuickAccess = () => {
                 </a>                                                          
                 </PluginCard>
 
-                <PluginCard title={__('Responsive Addons for Elementor', 'responsive')} description={__('A free Elementor Addons plugin with more than 80+ premium quality Elementor widgets.', 'responsive')} image="responsive_logo">
+                <PluginCard title={__('Responsive Addons for Elementor', 'responsive')} description={__('A free Elementor Addons plugin with more than 80+ premium quality Elementor widgets.', 'responsive')} image="rae">
                     <InstallButton
                         type="plugin"
                         status={localize?.rae_status}
