@@ -39,7 +39,7 @@ const HeroSection = () => {
     return (
         <div className="flex flex-col gap-6">
             <p className="text-gray-900 font-semi-bold text-3xl leading-tight m-0">{__('Welcome to Responsive Theme', 'responsive')}</p>
-            <p className="max-w-500 text-gray1000 font-normal text-lg leading-relaxed m-0">{__('Build fast, beautiful websites with Responsive—a lightweight and fully customizable WordPress theme.', 'responsive')}</p>
+            <p className="max-w-500 text-gray1000 font-normal text-lg leading-relaxed m-0">{__('Build fast, beautiful websites with Responsive — lightweight and fully customizable WordPress theme.', 'responsive')}</p>
         </div>
     )
 };
@@ -240,49 +240,57 @@ const QuickSettings = () => {
             key: 1,
             icon: Icons.siteLayout,
             name: __('Change Site Layout', 'responsive'),
-            link: 'responsive_layout'
+            link: 'responsive_layout',
+            type: 'section'
         },
         {
             key: 2,
             icon: Icons.customizeFonts,
             name: __('Customize Fonts/Typography', 'responsive'),
-            link: 'responsive_typography'
+            link: 'responsive_typography',
+            type: 'section'
         },
         {
             key: 3,
             icon: Icons.uploadLogo,
             name: __('Upload logo & site icon', 'responsive'),
-            link: 'title_tagline'
+            link: 'title_tagline',
+            type: 'section'
         },
         {
             key: 4,
             icon: Icons.editNavigationMenu,
             name: __('Add/edit navigation menu', 'responsive'),
-            link: 'nav_menus'
+            link: 'nav_menus',
+            type: 'panel'
         },
         {
             key: 5,
             icon: Icons.customizeHeader,
             name: __('Customize header options', 'responsive'),
-            link: 'responsive_header'
+            link: 'responsive_header',
+            type: 'panel'
         },
         {
             key: 6,
             icon: Icons.customizeFooter,
             name: __('Customize footer options', 'responsive'),
-            link: 'responsive_footer'
+            link: 'responsive_footer',
+            type: 'panel'
         },
         {
             key: 7,
             icon: Icons.updateBlogLayout,
             name: __('Update blog layout', 'responsive'),
-            link: 'responsive_blog_layout'
+            link: 'responsive_blog_layout',
+            type: 'section'
         },
         {
             key: 8,
             icon: Icons.updatePageLayout,
             name: __('Update page layout', 'responsive'),
-            link: 'responsive_page'
+            link: 'responsive_page',
+            type: 'section'
         },
     ];
 
@@ -294,19 +302,19 @@ const QuickSettings = () => {
             </div>
             <div className="grid grid-cols-2 gap-3 p-3 bg-slate-100 rounded-lg border border-slate-200">
                 {settingsOptions.map((option, index) => (
-                    <QuickSettingCard index={option.key} icon={option.icon} title={option.name} link={option.link} />
+                    <QuickSettingCard index={option.key} icon={option.icon} title={option.name} link={option.link}  type={option.type} />
                 ))}
             </div>
         </div>
     )
 }
 
-const QuickSettingCard = ({ index, icon, title, link }) => {
+const QuickSettingCard = ({ index, icon, title, link, type = 'section' }) => {
     return (
         <div
             key={index}
             className="rounded-md px-4.5 py-4 bg-white border border-slate-100 hover:shadow-[0px_4px_6px_-2px_rgba(0,0,0,0.05),0px_10px_15px_-3px_rgba(0,0,0,0.1)] cursor-pointer"
-            onClick={() => window.location.href = `${localize.customizerurlReturn}&autofocus[section]=${link}`}
+            onClick={() => window.location.href = `${localize.customizerurlReturn}&autofocus[${type}]=${link}`}
         >
             <div className="flex justify-between items-center">
                 <div className="flex items-center gap-2">
