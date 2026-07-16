@@ -101,7 +101,7 @@ const UpgradeToProCard = () => {
         { text: 'AI Content Creation' },
         { text: 'White Label', info: true, tooltip: 'Available in Business & Agency Plans' },
         { text: 'Site Builder', info: true, tooltip: 'Available in Business & Agency Plans' },
-        { text: 'Import/Export settings', info: true, tooltip: 'Available in Business & Agency Plans' },
+        { text: 'Import/Export Settings', info: true, tooltip: 'Available in Business & Agency Plans' },
         { text: 'VIP Support' },
     ];
     const Tooltip = ({ text }) => (
