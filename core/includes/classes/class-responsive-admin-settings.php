@@ -187,6 +187,18 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 				$is_responsivepro_active = is_plugin_active( 'responsivepro/responsivepro.php' );
 				$is_rst_active = is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' );
 
+				$rst_templates_path = 'responsive-add-ons/responsive-add-ons.php'; // actual Starter Templates plugin
+				$rst_templates_nonce = add_query_arg(
+				array(
+						'action'        => 'activate',
+						'plugin'        => rawurlencode( $rst_templates_path ),
+						'plugin_status' => 'all',
+						'paged'         => '1',
+						'_wpnonce'      => wp_create_nonce( 'activate-plugin_' . $rst_templates_path ),
+					),
+					network_admin_url( 'plugins.php' )
+				);
+
 				// Fetch the current user plan
 				$is_responsivex_active = is_plugin_active( $responsivex_path );
 				$plan_details = null;
@@ -229,6 +241,9 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 					'rst_nonce'             => $rst_nonce,
 					'rbea_nonce'            => $rbea_nonce,
 					'rae_nonce'             => $rae_nonce,
+					'rst_templates_status'  => self::responsive_check_plugin_status( $rst_templates_path ),
+					'rst_templates_nonce'   => $rst_templates_nonce,
+					'rst_templates_redirect'=> admin_url( 'admin.php?page=responsive_add_ons' ),
 					'rst_redirect'          => admin_url( 'admin.php?page=responsive_add_ons' ),
 					'rbea_redirect'         => admin_url( 'admin.php?page=responsive_block_editor_addons' ),
 					'rae_redirect'          => admin_url( 'admin.php?page=rael_getting_started' ),

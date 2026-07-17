@@ -5,7 +5,7 @@ import PluginTab from "../components/PluginTab";
 
 const Templates = () => {
 
-  const [buttonText, setButtonText] = useState(localize?.rst_status);
+  const [buttonText, setButtonText] = useState(localize?.rst_templates_status);
 
   return (
     <PluginTab
@@ -16,9 +16,9 @@ const Templates = () => {
     >
       <InstallButton
         type="plugin"
-        status={localize?.rst_status}
-        nonce={localize.rst_nonce}
-        redirect={localize.rst_redirect}
+        status={localize?.rst_templates_status}
+        nonce={localize.rst_templates_nonce}
+        redirect={localize.rst_templates_redirect}
         buttonText={buttonText}
         setButtonText={setButtonText}
         slug="responsive-add-ons"
