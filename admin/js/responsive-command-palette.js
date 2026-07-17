@@ -7,6 +7,7 @@
 	const { store: commandsStore } = wp.commands;
 	const sections = window.responsiveCommandPalette.sections || [];
 	const iconUrl = window.responsiveCommandPalette.iconUrl || '';
+	const whiteLabelThemeName = window.localize?.whiteLabelSettings?.theme_name || 'Responsive';
 	if ( sections.length === 0 ) {
 		return;
 	}
@@ -15,7 +16,7 @@
 		'img',
 		{
 			src: iconUrl,
-			alt: 'Responsive Theme',
+			alt: whiteLabelThemeName + ' Theme',
 			width: 20,
 			height: 20,
 		}

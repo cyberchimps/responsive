@@ -7,9 +7,12 @@ import InstallButton from "../components/InstallButton";
 import { convertTruthyFalsyValue, displayToast } from "../Helper";
 import { ResponsiveContext } from "../Context";
 
+const rawName = window.localize?.whiteLabelSettings?.theme_name;
+const themeName = (rawName && rawName.trim() !== '') ? rawName : 'Responsive'; 
 const Dashboard = () => {
     const planDetails = localize?.plan_details;
     const isConnectedPlan = Boolean(localize?.isConnected && localize.isConnected !== 'no');
+
 
     return (
         <div className="xl:flex lg:block xl:mx-14 md:mx-15 mt-8 mb-16 gap-15 items-start">
@@ -38,8 +41,8 @@ const Dashboard = () => {
 const HeroSection = () => {
     return (
         <div className="flex flex-col gap-6">
-            <p className="text-gray-900 font-semi-bold text-3xl leading-tight m-0">{__('Welcome to Responsive Theme', 'responsive')}</p>
-            <p className="max-w-500 text-gray1000 font-normal text-lg leading-relaxed m-0">{__('Build fast, beautiful websites with Responsive — lightweight and fully customizable WordPress theme.', 'responsive')}</p>
+            <p className="text-gray-900 font-semi-bold text-3xl leading-tight m-0">{__('Welcome to', 'responsive')} {themeName} {__('Theme', 'responsive')}</p>
+            <p className="max-w-500 text-gray1000 font-normal text-lg leading-relaxed m-0">{__('Build fast, beautiful websites with ' + themeName + ' — lightweight and fully customizable WordPress theme.', 'responsive')}</p>
         </div>
     )
 };
@@ -207,7 +210,7 @@ const WebsiteConnectedCard = () => {
                     </span>
                     <p className="text-gray-500 text-sm leading-5 m-0">
                         {__('You are using', 'responsive')}{' '}
-                        <span className="font-semibold text-gray-700">{__('Responsive theme + Responsive Pro plugin.', 'responsive')}</span>
+                        <span className="font-semibold text-gray-700">{themeName} + {__('Responsive Pro plugin', 'responsive')}</span>
                     </p>
                 </div>
 
@@ -374,7 +377,7 @@ const RPlusFeatures = () => {
         <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">
                 <span className="text-[#4B5563] text-2xl leading-8 font-medium">Responsive Pro Features</span>
-                <span className="text-[#4B5563] text-base leading-6">Supercharge your free Responsive theme with Responsive Pro Plugin features and get full access to our premium starter templates.</span>
+                <span className="text-[#4B5563] text-base leading-6">Supercharge your free {themeName} with Responsive Pro Plugin features and get full access to our premium starter templates.</span>
             </div>
             <div className="grid grid-cols-3 gap-3 p-3 bg-slate-100 rounded-lg border border-slate-200">
                 <PlusFeatureCard title="Starter Templates" desc="Unlock the library of Premium WordPress Templates.">
