@@ -1,12 +1,24 @@
 import { __ } from "@wordpress/i18n";
 import { useState, useEffect, useContext } from '@wordpress/element';
+import { useLocation } from 'react-router-dom';
 import { ResponsiveContext } from '../Context';
 import { displayToast, convertTruthyFalsyValue } from '../Helper';
 import Icons from "../icons";
 
 const Settings = () => {
 
-    const [settingsTab, setSettingsTab] = useState('connect');
+    const location = useLocation();
+    const initialTab = location.state?.tab || 'connect';
+
+    const [settingsTab, setSettingsTab] = useState(initialTab);
+
+    useEffect(() => {
+        if (location.state?.tab) {
+            setSettingsTab(location.state.tab);
+        }
+        window.scrollTo(0, 0);
+    }, [location.state?.tab]);
+
     return (
         <div className="flex xl:mx-14 md:mx-15 my-16">
             <div className="w-1/4 bg-white rounded-tl-3xl p-5">
@@ -377,21 +389,10 @@ const Connected = () => {
 const NotConnected = () => {
     return (
         <div className="flex flex-col gap-6 p-8 bg-white border border-slate-100 rounded-[10px]">
-            <span className="text-slate-900 text-2xl leading-8 font-medium">Connect Your Website to Cyberchimps Responsive</span>
-            <span className="text-slate-800 text-base leading-6 font-normal">Create a free account to connect with Cyberchimps Responsive. After connecting, you can get access to all the Starter Templates and additional features for the Cyberchimps Responsive theme like:</span>
-            <div>
-                <ul className="flex flex-col gap-3 my-0 pl-5 list-disc">
-                    <li><span className="text-slate-800 font-bold text-base leading-6">Mega Menu: </span><span className="text-slate-800 font-normal text-base leading-6">Adds menu options such as mega menus, highlight tags, icons, etc.</span></li>
-                    <li><span className="text-slate-800 font-bold text-base leading-6">White Label: </span><span className="text-slate-800 font-normal text-base leading-6">White Label the theme name & settings with the Pro Plugin.</span></li>
-                    <li><span className="text-slate-800 font-bold text-base leading-6">Woocommerce: </span><span className="text-slate-800 font-normal text-base leading-6">Adds enhanced set of options in the WooCommerce store customizer.</span></li>
-                </ul>
-            </div>
-            <span className="text-slate-700 font-normal text-sm leading-5">You can continue using the plugin without connecting to the web app if you wish so. Please note that the standalone version of the plugin doesn't provide some advanced features.</span>
+            <span className="text-slate-900 text-2xl leading-8 font-medium">Connect Your Account to Activate Responsive Pro</span>
+            <span className="text-slate-800 text-base leading-6 font-normal">Connect your website using the email address associated with your CyberChimps account. Connecting validates your purchase and unlocks access to your Pro Features and Starter Templates based on your plan.</span>
             <div className="flex gap-6">
-                <button className="rst-start-auth rst-start-auth-new relative py-2.5 px-3.5 text-white bg-blue-600 text-sm leading-5 font-medium rounded-md border border-blue-600 cursor-pointer">New? Create a free account
-                    <span id="loader"></span>
-                </button>
-                <button className="rst-start-auth rst-start-auth-exist relative py-2.5 px-3.5 text-blue-600 bg-white text-sm leading-5 font-medium rounded-md border border-blue-600 cursor-pointer">Connect your existing account
+                <button className="rst-start-auth rst-start-auth-exist relative py-2.5 px-3.5 text-white bg-blue-600 text-sm leading-5 font-medium rounded-md border border-blue-600 cursor-pointer">Connect Account & Activate
                     <span id="loader"></span>
                 </button>
             </div>

@@ -39,7 +39,7 @@ const HeroSection = () => {
     return (
         <div className="flex flex-col gap-6">
             <p className="text-gray-900 font-semi-bold text-3xl leading-tight m-0">{__('Welcome to Responsive Theme', 'responsive')}</p>
-            <p className="max-w-500 text-gray1000 font-normal text-lg leading-relaxed m-0">{__('Build fast, beautiful websites with Responsive—a lightweight and fully customizable WordPress theme.', 'responsive')}</p>
+            <p className="max-w-500 text-gray1000 font-normal text-lg leading-relaxed m-0">{__('Build fast, beautiful websites with Responsive — lightweight and fully customizable WordPress theme.', 'responsive')}</p>
         </div>
     )
 };
@@ -101,7 +101,7 @@ const UpgradeToProCard = () => {
         { text: 'AI Content Creation' },
         { text: 'White Label', info: true, tooltip: 'Available in Business & Agency Plans' },
         { text: 'Site Builder', info: true, tooltip: 'Available in Business & Agency Plans' },
-        { text: 'Import/Export settings', info: true, tooltip: 'Available in Business & Agency Plans' },
+        { text: 'Import/Export Settings', info: true, tooltip: 'Available in Business & Agency Plans' },
         { text: 'VIP Support' },
     ];
     const Tooltip = ({ text }) => (
@@ -234,49 +234,57 @@ const QuickSettings = () => {
             key: 1,
             icon: Icons.siteLayout,
             name: __('Change Site Layout', 'responsive'),
-            link: 'responsive_layout'
+            link: 'responsive_layout',
+            type: 'section'
         },
         {
             key: 2,
             icon: Icons.customizeFonts,
             name: __('Customize Fonts/Typography', 'responsive'),
-            link: 'responsive_typography'
+            link: 'responsive_typography',
+            type: 'section'
         },
         {
             key: 3,
             icon: Icons.uploadLogo,
             name: __('Upload logo & site icon', 'responsive'),
-            link: 'title_tagline'
+            link: 'title_tagline',
+            type: 'section'
         },
         {
             key: 4,
             icon: Icons.editNavigationMenu,
             name: __('Add/edit navigation menu', 'responsive'),
-            link: 'nav_menus'
+            link: 'nav_menus',
+            type: 'panel'
         },
         {
             key: 5,
             icon: Icons.customizeHeader,
             name: __('Customize header options', 'responsive'),
-            link: 'responsive_header'
+            link: 'responsive_header',
+            type: 'panel'
         },
         {
             key: 6,
             icon: Icons.customizeFooter,
             name: __('Customize footer options', 'responsive'),
-            link: 'responsive_footer'
+            link: 'responsive_footer',
+            type: 'panel'
         },
         {
             key: 7,
             icon: Icons.updateBlogLayout,
             name: __('Update blog layout', 'responsive'),
-            link: 'responsive_blog_layout'
+            link: 'responsive_blog_layout',
+            type: 'section'
         },
         {
             key: 8,
             icon: Icons.updatePageLayout,
             name: __('Update page layout', 'responsive'),
-            link: 'responsive_page'
+            link: 'responsive_page',
+            type: 'section'
         },
     ];
 
@@ -288,19 +296,19 @@ const QuickSettings = () => {
             </div>
             <div className="grid grid-cols-2 gap-3 p-3 bg-slate-100 rounded-lg border border-slate-200">
                 {settingsOptions.map((option, index) => (
-                    <QuickSettingCard index={option.key} icon={option.icon} title={option.name} link={option.link} />
+                    <QuickSettingCard index={option.key} icon={option.icon} title={option.name} link={option.link}  type={option.type} />
                 ))}
             </div>
         </div>
     )
 }
 
-const QuickSettingCard = ({ index, icon, title, link }) => {
+const QuickSettingCard = ({ index, icon, title, link, type = 'section' }) => {
     return (
         <div
             key={index}
             className="rounded-md px-4.5 py-4 bg-white border border-slate-100 hover:shadow-[0px_4px_6px_-2px_rgba(0,0,0,0.05),0px_10px_15px_-3px_rgba(0,0,0,0.1)] cursor-pointer"
-            onClick={() => window.location.href = `${localize.customizerurlReturn}&autofocus[section]=${link}`}
+            onClick={() => window.location.href = `${localize.customizerurlReturn}&autofocus[${type}]=${link}`}
         >
             <div className="flex justify-between items-center">
                 <div className="flex items-center gap-2">
@@ -343,7 +351,7 @@ const DynamicPlusFeatureCard = ({ feature }) => {
                 feature.isWhiteLabel ? (
                     <div className="text-blue-600">
                         <a href={feature.docsLink} target="_blank" className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Docs</a>
-                        {!convertTruthyFalsyValue(localize.whiteLabelSettings?.hide_wl_settings) && <> | <Link to="/settings" className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Settings</Link></>}
+                        {!convertTruthyFalsyValue(localize.whiteLabelSettings?.hide_wl_settings) && <> | <Link to="/settings" state={{ tab: 'whitelabel' }} className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Settings</Link></>}
                     </div>
                 ) : feature.hasToggle ? (
                     <div className="flex justify-between text-blue-600">
@@ -456,7 +464,7 @@ const ExtendAndQuickAccess = () => {
             <p className="font-medium text-2xl m-0">{__('Extend Your Website', 'responsive')}</p>
             <p className="font-normal text-base text-desc mt-2 mb-6">{__("Powerful tools to enhance your site's functionality", 'responsive')}</p>
             <div className="grid md:grid-cols-3 gap-6 p-3 bg-slate-100 border border-slate-200 rounded-md">
-                <PluginCard title={__('Responsive Starter Templates', 'responsive')} description={__('Ready to Import Professionally Designed Website Starter Templates.', 'responsive')} image="rst">
+                <PluginCard title={__('Responsive Starter Templates', 'responsive')} description={__('Ready to Import Professionally Designed Website Starter Templates.', 'responsive')} image="rst_sm_logo">
                     {/* <button onClick={() => convertTruthyFalsyValue(localize?.isRSTActivated) ? window.location.href = localize.rst_redirect : navigate('/templates')} className="mt-1.125 py-2.5 px-3.5 border-0 bg-white text-[#1D4ED8] rounded-md text-sm leading-5 font-medium cursor-pointer">{__('Explore Templates', 'responsive')}</button> */}
                     <a                                                         
                     onClick={(e) => {
@@ -472,7 +480,7 @@ const ExtendAndQuickAccess = () => {
                 </a>                                                          
                 </PluginCard>
 
-                <PluginCard title={__('Responsive Addons for Elementor', 'responsive')} description={__('A free Elementor Addons plugin with more than 80+ premium quality Elementor widgets.', 'responsive')} image="responsive_logo">
+                <PluginCard title={__('Responsive Addons for Elementor', 'responsive')} description={__('A free Elementor Addons plugin with more than 80+ premium quality Elementor widgets.', 'responsive')} image="rae">
                     <InstallButton
                         type="plugin"
                         status={localize?.rae_status}

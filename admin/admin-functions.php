@@ -281,7 +281,17 @@ add_action( 'admin_enqueue_scripts', 'responsive_enqueue_command_palette_scripts
  * @since 4.0.3
  */
 function responsive_welcome_banner_notice() {
+	
+	global $pagenow;
+
 	if ( isset( $_GET['page'] ) && 'responsive' === $_GET['page'] ) {
+		return;
+	}
+	$screen = get_current_screen();
+	if ( $screen && 'plugin-install' === $screen->id ) {
+		return;
+	}
+	if ( 'update.php' === $pagenow && isset( $_REQUEST['action'] ) && 'upload-plugin' === $_REQUEST['action'] ) {
 		return;
 	}
 	if( is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) ) {
@@ -305,7 +315,7 @@ function responsive_welcome_banner_notice() {
 			</div>
 			<div class="responsive-addons-banner-content">
 				<p>
-					<?php esc_html_e( 'Import 250+ fully functional and ready to use business websites with the free Responsive Addons Plugin. Explore features like the mega menu, white label, advance WooCommerce settings and many more.', 'responsive' ); ?>
+					<?php esc_html_e( 'Import 100+ fully functional and ready to use business websites with the free Responsive Starter Templates Plugin.', 'responsive' ); ?>
 					<?php echo Responsive_Plugin_Install_Helper::instance()->get_button_html( 'responsive-add-ons' ); //phpcs:ignore ?>
 				</p>
 			</div>
