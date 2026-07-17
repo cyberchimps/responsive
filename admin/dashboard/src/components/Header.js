@@ -17,7 +17,7 @@ const Header = () => {
             label: __("Starter Templates", "responsive"),
             path: "/templates",
             conditional: true,
-            isActivated: convertTruthyFalsyValue( localize?.isRSTActivated ),
+            isActivated: convertTruthyFalsyValue( localize?.isRSTemplatesActivated ),
             redirect: localize?.rst_redirect,
         },
         {
