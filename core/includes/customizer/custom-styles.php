@@ -185,6 +185,15 @@ function responsive_customizer_styles() {
 		$single_blog_primary_content_area_width = 100;
 	}
 
+	$box_background_color = esc_html( responsive_prepare_css_value( 'responsive_box_background_color' ) );
+	$box_background_gradient_color = esc_html( get_theme_mod( 'responsive_box_background_gradient_color', Responsive\Core\get_responsive_customizer_defaults( 'background_gradient_color' ) ) );
+	$box_background_color_type = get_theme_mod( 'responsive_box_background_color_type', 'color' );
+
+	$alt_background_color  = esc_html( responsive_prepare_css_value( 'responsive_alt_background_color' ) );
+	$site_background_color = esc_html( responsive_prepare_css_value( 'responsive_site_background_color' ) );
+	$site_background_gradient_color = get_theme_mod( 'responsive_site_background_gradient_color' );
+	$site_background_color_type = get_theme_mod( 'responsive_site_background_color_type', 'color' );
+
 	// Container Layout (Default / Normal / Full Width)
 	$global_container_layout = get_theme_mod( 'responsive_width', 'contained' );
 	$global_container_layout_key = ( 'full-width' === $global_container_layout ) ? 'full-width' : 'normal';
@@ -290,7 +299,7 @@ function responsive_customizer_styles() {
 	}
 
 	// Container Style (Default / Boxed / Unboxed)
-	$global_container_style     = get_theme_mod( 'responsive_site_style', 'unboxed' );
+	$global_container_style     = get_theme_mod( 'responsive_style', 'unboxed' );
 	$global_container_style_key = ( 'boxed' === $global_container_style ) ? 'boxed' : 'unboxed';
 
 	// Page Container Style.
@@ -326,7 +335,7 @@ function responsive_customizer_styles() {
 	} elseif ( 'unboxed' === $responsive_page_container_style ) {
 		$custom_css .= "
 		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout) .site-content .hentry {
-			background-color: transparent;
+			background-color: {$site_background_color};
 			border-radius: 0;
 
 		}";
@@ -362,7 +371,7 @@ function responsive_customizer_styles() {
 		$custom_css .= "
 		.blog:not(.custom-home-page-active) .site-content .hentry,
 		.archive:not(.post-type-archive-product) .site-content .hentry {
-			background-color: transparent;
+			background-color: {$site_background_color};
 			border-radius: 0;
 			padding: " . responsive_spacing_css( $blog_outside_container_padding_top, $blog_outside_container_padding_right, $blog_outside_container_padding_bottom, $blog_outside_container_padding_left ) . ";
 
@@ -370,32 +379,43 @@ function responsive_customizer_styles() {
 	}
 
 	// Single Post Container Style.
-	$single_blog_container_style_setting = get_theme_mod( 'responsive_single_blog_container_style', 'default' );
+		$single_blog_container_style_setting = get_theme_mod( 'responsive_single_blog_container_style', 'default' );
 	$responsive_single_blog_container_style = ( 'default' === $single_blog_container_style_setting ) ? $global_container_style_key : $single_blog_container_style_setting;
 
 	if ( 'boxed' === $responsive_single_blog_container_style ) {
+		$single_boxed_background_css = ( 'gradient' === $box_background_color_type && ! empty( $box_background_gradient_color ) )
+			? "background: {$box_background_gradient_color};"
+			: "background-color: {$box_background_color};";
 		$custom_css .= "
-		.single:not(.single-product) .site-content .hentry {
-			background-color: {$box_background_color};
+		.single:not(.single-product) .site-content .hentry,
+		.single:not(.single-product) .comments-area,
+		.single:not(.single-product) .comment-respond {
+			{$single_boxed_background_css}
 			border-radius: {$box_top_left_radius}px {$box_top_right_radius}px {$box_bottom_right_radius}px {$box_bottom_left_radius}px;
 			padding: " . responsive_spacing_css( $box_padding_top, $box_padding_right, $box_padding_bottom, $box_padding_left ) . ";
 		}
 		@media screen and ( max-width: 992px ) {
-			.single:not(.single-product) .site-content .hentry {
+			.single:not(.single-product) .site-content .hentry,
+			.single:not(.single-product) .comments-area,
+			.single:not(.single-product) .comment-respond {
 				border-radius: {$box_tablet_top_left_radius}px {$box_tablet_top_right_radius}px {$box_tablet_bottom_right_radius}px {$box_tablet_bottom_left_radius}px;
 				padding: " . responsive_spacing_css( $box_tablet_padding_top, $box_tablet_padding_right, $box_tablet_padding_bottom, $box_tablet_padding_left ) . ";
 			}
 		}
 		@media screen and ( max-width: 576px ) {
-			.single:not(.single-product) .site-content .hentry {
+			.single:not(.single-product) .site-content .hentry,
+			.single:not(.single-product) .comments-area,
+			.single:not(.single-product) .comment-respond {
 				border-radius: {$box_mobile_top_left_radius}px {$box_mobile_top_right_radius}px {$box_mobile_bottom_right_radius}px {$box_mobile_bottom_left_radius}px;
 				padding: " . responsive_spacing_css( $box_mobile_padding_top, $box_mobile_padding_right, $box_mobile_padding_bottom, $box_mobile_padding_left ) . ";
 			}
 		}";
 	} elseif ( 'unboxed' === $responsive_single_blog_container_style ) {
 		$custom_css .= "
-		.single:not(.single-product) .site-content .hentry {
-			background-color: transparent;
+		.single:not(.single-product) .site-content .hentry,
+		.single:not(.single-product) .comments-area,
+		.single:not(.single-product) .comment-respond {
+			background-color: {$site_background_color};
 			border-radius: 0;		
 			padding: " . responsive_spacing_css( $outside_container_padding_top, $outside_container_padding_right, $outside_container_padding_bottom, $outside_container_padding_left) . ";
 
@@ -405,7 +425,6 @@ function responsive_customizer_styles() {
 	// Product Catalog Container Style.
 	$product_catalog_container_style_setting = get_theme_mod( 'responsive_product_catalog_container_style', 'default' );
 	$responsive_product_catalog_container_style = ( 'default' === $product_catalog_container_style_setting ) ? $global_container_style_key : $product_catalog_container_style_setting;
-error_log('responsive_product_catalog_container_style==='.$responsive_product_catalog_container_style);
 	if ( 'boxed' === $responsive_product_catalog_container_style ) {
 		$custom_css .= "
 		.woocommerce.archive:not(.single-product) ul.products li.product,
@@ -432,7 +451,7 @@ error_log('responsive_product_catalog_container_style==='.$responsive_product_ca
 		$custom_css .= "
 		.woocommerce.archive:not(.single-product) ul.products li.product,
 		.woocommerce-page.archive:not(.single-product) ul.products li.product {
-			
+			background-color: {$site_background_color};
 			border-radius: 0;
 			padding: " . responsive_spacing_css( $outside_container_padding_top, $outside_container_padding_right, $outside_container_padding_bottom, $outside_container_padding_left ) . ";
 		}";
@@ -464,20 +483,12 @@ error_log('responsive_product_catalog_container_style==='.$responsive_product_ca
 	} elseif ( 'unboxed' === $responsive_single_product_container_style ) {
 		$custom_css .= "
 		.single-product div.product {
-			background-color: transparent;
+			background-color: {$site_background_color};
 			border-radius: 0;
 			padding: " . responsive_spacing_css( $outside_container_padding_top, $outside_container_padding_right, $outside_container_padding_bottom, $outside_container_padding_left ) . ";
 		}";
 	}
 
-	$box_background_color = esc_html( responsive_prepare_css_value( 'responsive_box_background_color' ) );
-	$box_background_gradient_color = esc_html( get_theme_mod( 'responsive_box_background_gradient_color', Responsive\Core\get_responsive_customizer_defaults( 'background_gradient_color' ) ) );
-	$box_background_color_type = get_theme_mod( 'responsive_box_background_color_type', 'color' );
-
-	$alt_background_color  = esc_html( responsive_prepare_css_value( 'responsive_alt_background_color' ) );
-	$site_background_color = esc_html( responsive_prepare_css_value( 'responsive_site_background_color' ) );
-	$site_background_gradient_color = get_theme_mod( 'responsive_site_background_gradient_color' );
-	$site_background_color_type = get_theme_mod( 'responsive_site_background_color_type', 'color' );
 
 	// Detect the operating system and set the typical scrollbar width.
 	$user_agent = isset( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : '';
@@ -598,6 +609,18 @@ error_log('responsive_product_catalog_container_style==='.$responsive_product_ca
 	[class*='__inner-container'],
 	.site-header-full-width-main-navigation.site-mobile-header-layout-vertical:not(.responsive-site-full-width) .main-navigation-wrapper {
 		max-width: {$container_max_width}px;
+	}
+	
+	.wp-block-group {
+		--wp--style--global--wide-size: {$container_max_width}px;
+	}
+	
+	html body.page-template-gutenberg-fullwidth .wp-block-group.wp-block-group.wp-block-group-is-layout-constrained > :where(:not(.alignwide):not(.alignfull)) {
+		max-width: 720px;
+	}
+
+	html body.page-template-gutenberg-fullwidth .wp-block-group.wp-block-group.wp-block-group-is-layout-constrained > .alignwide {
+		max-width: var(--wp--style--global--wide-size);
 	}
 	
 	@media screen and ( max-width: 992px ) {
@@ -969,7 +992,10 @@ error_log('responsive_product_catalog_container_style==='.$responsive_product_ca
 				.wp-block-button__link,
 				body div.wpforms-container-full .wpforms-form input[type=submit],
 				body div.wpforms-container-full .wpforms-form button[type=submit],
-				body div.wpforms-container-full .wpforms-form .wpforms-page-button {
+				body div.wpforms-container-full .wpforms-form .wpforms-page-button,
+				body div.wpforms-container-full .wpforms-form input[type=submit]:not(:hover):not(:active),
+				body div.wpforms-container-full .wpforms-form button[type=submit]:not(:hover):not(:active),
+				body div.wpforms-container-full .wpforms-form .wpforms-page-button:not(:hover):not(:active) {
 					background-color:{$button_background_color};
 					background-image: linear-gradient(to right, {$button_background_color}, {$button_background_color}), url({$button_background_image});
 					background-repeat: no-repeat;
@@ -1417,8 +1443,10 @@ error_log('responsive_product_catalog_container_style==='.$responsive_product_ca
 	a:hover {
 		color:{$link_hover_color};
 	}
-	label {
-		color:{$label_color};
+	label,
+	div.wpforms-container-full .wpforms-form .wpforms-field-label,
+	.wp-core-ui div.wpforms-container-full .wpforms-form .wpforms-field-label {
+		color:{$label_color} !important;
 	}
 	";
 
@@ -1522,7 +1550,10 @@ error_log('responsive_product_catalog_container_style==='.$responsive_product_ca
 	.wp-block-file__button,
 	body div.wpforms-container-full .wpforms-form input[type=submit],
 	body div.wpforms-container-full .wpforms-form button[type=submit],
-	body div.wpforms-container-full .wpforms-form .wpforms-page-button, .main-navigation .menu .res-button-menu .res-custom-button,
+	body div.wpforms-container-full .wpforms-form .wpforms-page-button,
+	body div.wpforms-container-full .wpforms-form input[type=submit]:not(:hover):not(:active),
+	body div.wpforms-container-full .wpforms-form button[type=submit]:not(:hover):not(:active),
+	body div.wpforms-container-full .wpforms-form .wpforms-page-button:not(:hover):not(:active), .main-navigation .menu .res-button-menu .res-custom-button,
 	form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button,
 	#off-canvas-site-navigation .menu .res-button-menu .res-custom-button {
 		background-color:' . $button_color . ';
@@ -1575,7 +1606,10 @@ error_log('responsive_product_catalog_container_style==='.$responsive_product_ca
 		.button,
 		body div.wpforms-container-full .wpforms-form input[type=submit],
 		body div.wpforms-container-full .wpforms-form button[type=submit],
-		body div.wpforms-container-full .wpforms-form .wpforms-page-button, .main-navigation .menu .res-button-menu .res-custom-button, #off-canvas-site-navigation .menu .res-button-menu .res-custom-button {
+		body div.wpforms-container-full .wpforms-form .wpforms-page-button,
+		body div.wpforms-container-full .wpforms-form input[type=submit]:not(:hover):not(:active),
+		body div.wpforms-container-full .wpforms-form button[type=submit]:not(:hover):not(:active),
+		body div.wpforms-container-full .wpforms-form .wpforms-page-button:not(:hover):not(:active), .main-navigation .menu .res-button-menu .res-custom-button, #off-canvas-site-navigation .menu .res-button-menu .res-custom-button {
 			padding: ' . responsive_spacing_css( $buttons_tablet_padding_top, $buttons_tablet_padding_right, $buttons_tablet_padding_bottom, $buttons_tablet_padding_left ) . ';
 			border-radius:' . responsive_spacing_css( $button_tablet_top_left_radius, $button_tablet_top_right_radius, $button_tablet_bottom_right_radius, $button_tablet_bottom_left_radius ) . ';
 			border-color: ' . $button_border_color . ';
@@ -1610,7 +1644,10 @@ error_log('responsive_product_catalog_container_style==='.$responsive_product_ca
 		.button,
 		body div.wpforms-container-full .wpforms-form input[type=submit],
 		body div.wpforms-container-full .wpforms-form button[type=submit],
-		body div.wpforms-container-full .wpforms-form .wpforms-page-button, .main-navigation .menu .res-button-menu .res-custom-button, #off-canvas-site-navigation .menu .res-button-menu .res-custom-button {
+		body div.wpforms-container-full .wpforms-form .wpforms-page-button,
+		body div.wpforms-container-full .wpforms-form input[type=submit]:not(:hover):not(:active),
+		body div.wpforms-container-full .wpforms-form button[type=submit]:not(:hover):not(:active),
+		body div.wpforms-container-full .wpforms-form .wpforms-page-button:not(:hover):not(:active), .main-navigation .menu .res-button-menu .res-custom-button, #off-canvas-site-navigation .menu .res-button-menu .res-custom-button {
 			padding: ' . responsive_spacing_css( $buttons_mobile_padding_top, $buttons_mobile_padding_right, $buttons_mobile_padding_bottom, $buttons_mobile_padding_left ) . ';
 			border-radius:' . responsive_spacing_css( $button_mobile_top_left_radius, $button_mobile_top_right_radius, $button_mobile_bottom_right_radius, $button_mobile_bottom_left_radius ) . ';
 			border-color: ' . $button_border_color . ';
