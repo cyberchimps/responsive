@@ -1024,7 +1024,7 @@
         var sidebar = $('#secondary');
         if (!sidebar.length) return;
 
-        var globalStyle = api('responsive_sidebar_style').get() || 'unboxed';
+        var globalStyle = api('responsive_sidebar_style').get() || 'boxed';
         var style = globalStyle;
 
         if (body.hasClass('single-product')) {

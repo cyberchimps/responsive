@@ -45,7 +45,7 @@ function responsive_get_content_classes() {
  * Get current sidebar style
  */
 function responsive_get_sidebar_style() {
-	$global_style = get_theme_mod( 'responsive_sidebar_style', 'unboxed' );
+	$global_style = get_theme_mod( 'responsive_sidebar_style', 'boxed' );
 
 	if ( class_exists( 'WooCommerce' ) && is_shop() ) {
 		$style = get_theme_mod( 'responsive_shop_sidebar_style', 'default' );
