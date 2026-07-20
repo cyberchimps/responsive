@@ -1555,6 +1555,13 @@
     //Background Color
     api( 'responsive_sidebar_background_color', function( value ) {
         value.bind( function( newval ) {
+            if ( ! $('#secondary').hasClass('responsive-sidebar-style-boxed') ) {
+                $('.responsive-site-style-boxed aside#secondary .widget-wrapper').css({
+                    'background-image': 'none',
+                    'background-color': ''
+                });
+                return;
+            }
             if( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
