@@ -656,8 +656,8 @@
         '.read-more-button .hentry .read-more .more-link,' +
         'input[type=button],' +
         'input[type=submit],' +
-        'button:not(.responsive-header-button):not(.customize-partial-edit-shortcut-button),' +
-        '.button:not(.responsive-header-button):not(.customize-partial-edit-shortcut-button),' +
+        'button:not(.responsive-header-button),' +
+        '.button:not(.responsive-header-button),' +
         '.wp-block-button__link,' +
         'div.wpforms-container-full .wpforms-form input[type=submit],' +
         'body div.wpforms-container-full .wpforms-form button[type=submit],' +
@@ -670,8 +670,8 @@
         '.read-more-button .hentry .read-more .more-link:hover,' +
         'input[type=button]:hover,' +
         'input[type=submit]:hover,' +
-        'button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button):not(.customize-partial-edit-shortcut-button),' +
-        '.button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button):not(.customize-partial-edit-shortcut-button),' +
+        'button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button),' +
+        '.button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button),' +
         '.wp-block-button__link:hover,' +
         'div.wpforms-container-full .wpforms-form input[type=submit]:hover,' +
         'body div.wpforms-container-full .wpforms-form button[type=submit]:hover,' +

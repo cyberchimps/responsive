@@ -19,6 +19,7 @@
 }
 
 .customize-control-responsive-buttonpreset__button {
+	width: 89px;
 	height: 35px;
 	padding: 0;
 	border: 0;
@@ -34,8 +35,6 @@
 
 .customize-control-responsive-buttonpreset__button svg {
 	display: block;
-	width: 100%;
-	height: 100%;
 }
 
 .customize-control-responsive-buttonpreset__button:focus {
