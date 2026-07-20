@@ -912,140 +912,140 @@
     // Sidebar Outside Padding
     api( 'responsive_sidebar_outside_container_top_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('sidebar_outside_container', '#secondary.widget-area');
+            responsive_dynamic_padding('sidebar_outside_container', 'aside#secondary.widget-area, #secondary.widget-area, aside#secondary, #secondary');
         } );
     } );
     api( 'responsive_sidebar_outside_container_left_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('sidebar_outside_container', '#secondary.widget-area');
+            responsive_dynamic_padding('sidebar_outside_container', 'aside#secondary.widget-area, #secondary.widget-area, aside#secondary, #secondary');
         } );
     } );
     api( 'responsive_sidebar_outside_container_bottom_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('sidebar_outside_container', '#secondary.widget-area');
+            responsive_dynamic_padding('sidebar_outside_container', 'aside#secondary.widget-area, #secondary.widget-area, aside#secondary, #secondary');
         } );
     } );
     api( 'responsive_sidebar_outside_container_right_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('sidebar_outside_container', '#secondary.widget-area');
+            responsive_dynamic_padding('sidebar_outside_container', 'aside#secondary.widget-area, #secondary.widget-area, aside#secondary, #secondary');
         } );
     } );
 
     api( 'responsive_sidebar_outside_container_tablet_top_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('sidebar_outside_container', '#secondary.widget-area');
+            responsive_dynamic_padding('sidebar_outside_container', 'aside#secondary.widget-area, #secondary.widget-area, aside#secondary, #secondary');
         } );
     } );
 
     api( 'responsive_sidebar_outside_container_tablet_bottom_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('sidebar_outside_container', '#secondary.widget-area');
+            responsive_dynamic_padding('sidebar_outside_container', 'aside#secondary.widget-area, #secondary.widget-area, aside#secondary, #secondary');
         } );
     } );
 
     api( 'responsive_sidebar_outside_container_tablet_left_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('sidebar_outside_container', '#secondary.widget-area');
+            responsive_dynamic_padding('sidebar_outside_container', 'aside#secondary.widget-area, #secondary.widget-area, aside#secondary, #secondary');
         } );
     } );
 
     api( 'responsive_sidebar_outside_container_tablet_right_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('sidebar_outside_container', '#secondary.widget-area');
+            responsive_dynamic_padding('sidebar_outside_container', 'aside#secondary.widget-area, #secondary.widget-area, aside#secondary, #secondary');
         } );
     } );
 
     api( 'responsive_sidebar_outside_container_mobile_top_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('sidebar_outside_container', '#secondary.widget-area');
+            responsive_dynamic_padding('sidebar_outside_container', 'aside#secondary.widget-area, #secondary.widget-area, aside#secondary, #secondary');
         } );
     } );
 
     api( 'responsive_sidebar_outside_container_mobile_bottom_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('sidebar_outside_container', '#secondary.widget-area');
+            responsive_dynamic_padding('sidebar_outside_container', 'aside#secondary.widget-area, #secondary.widget-area, aside#secondary, #secondary');
         } );
     } );
 
     api( 'responsive_sidebar_outside_container_mobile_left_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('sidebar_outside_container', '#secondary.widget-area');
+            responsive_dynamic_padding('sidebar_outside_container', 'aside#secondary.widget-area, #secondary.widget-area, aside#secondary, #secondary');
         } );
     } );
 
     api( 'responsive_sidebar_outside_container_mobile_right_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('sidebar_outside_container', '#secondary.widget-area');
+            responsive_dynamic_padding('sidebar_outside_container', 'aside#secondary.widget-area, #secondary.widget-area, aside#secondary, #secondary');
         } );
     } );
 
     // Sidebar Inside Padding
     api( 'responsive_sidebar_inside_container_top_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('sidebar_inside_container', '#secondary.widget-area .widget-wrapper');
+            responsive_dynamic_padding('sidebar_inside_container', 'aside#secondary.responsive-sidebar-style-boxed.widget-area .widget-wrapper, aside#secondary.responsive-sidebar-style-unboxed.widget-area .widget-wrapper, #secondary.responsive-sidebar-style-boxed.widget-area .widget-wrapper, #secondary.responsive-sidebar-style-unboxed.widget-area .widget-wrapper, #secondary.widget-area .widget-wrapper');
         } );
     } );
     api( 'responsive_sidebar_inside_container_left_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('sidebar_inside_container', '#secondary.widget-area .widget-wrapper');
+            responsive_dynamic_padding('sidebar_inside_container', 'aside#secondary.responsive-sidebar-style-boxed.widget-area .widget-wrapper, aside#secondary.responsive-sidebar-style-unboxed.widget-area .widget-wrapper, #secondary.responsive-sidebar-style-boxed.widget-area .widget-wrapper, #secondary.responsive-sidebar-style-unboxed.widget-area .widget-wrapper, #secondary.widget-area .widget-wrapper');
         } );
     } );
     api( 'responsive_sidebar_inside_container_bottom_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('sidebar_inside_container', '#secondary.widget-area .widget-wrapper');
+            responsive_dynamic_padding('sidebar_inside_container', 'aside#secondary.responsive-sidebar-style-boxed.widget-area .widget-wrapper, aside#secondary.responsive-sidebar-style-unboxed.widget-area .widget-wrapper, #secondary.responsive-sidebar-style-boxed.widget-area .widget-wrapper, #secondary.responsive-sidebar-style-unboxed.widget-area .widget-wrapper, #secondary.widget-area .widget-wrapper');
         } );
     } );
     api( 'responsive_sidebar_inside_container_right_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('sidebar_inside_container', '#secondary.widget-area .widget-wrapper');
+            responsive_dynamic_padding('sidebar_inside_container', 'aside#secondary.responsive-sidebar-style-boxed.widget-area .widget-wrapper, aside#secondary.responsive-sidebar-style-unboxed.widget-area .widget-wrapper, #secondary.responsive-sidebar-style-boxed.widget-area .widget-wrapper, #secondary.responsive-sidebar-style-unboxed.widget-area .widget-wrapper, #secondary.widget-area .widget-wrapper');
         } );
     } );
 
     api( 'responsive_sidebar_inside_container_tablet_top_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('sidebar_inside_container', '#secondary.widget-area .widget-wrapper');
+            responsive_dynamic_padding('sidebar_inside_container', 'aside#secondary.responsive-sidebar-style-boxed.widget-area .widget-wrapper, aside#secondary.responsive-sidebar-style-unboxed.widget-area .widget-wrapper, #secondary.responsive-sidebar-style-boxed.widget-area .widget-wrapper, #secondary.responsive-sidebar-style-unboxed.widget-area .widget-wrapper, #secondary.widget-area .widget-wrapper');
         } );
     } );
 
     api( 'responsive_sidebar_inside_container_tablet_bottom_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('sidebar_inside_container', '#secondary.widget-area .widget-wrapper');
+            responsive_dynamic_padding('sidebar_inside_container', 'aside#secondary.responsive-sidebar-style-boxed.widget-area .widget-wrapper, aside#secondary.responsive-sidebar-style-unboxed.widget-area .widget-wrapper, #secondary.responsive-sidebar-style-boxed.widget-area .widget-wrapper, #secondary.responsive-sidebar-style-unboxed.widget-area .widget-wrapper, #secondary.widget-area .widget-wrapper');
         } );
     } );
 
     api( 'responsive_sidebar_inside_container_tablet_left_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('sidebar_inside_container', '#secondary.widget-area .widget-wrapper');
+            responsive_dynamic_padding('sidebar_inside_container', 'aside#secondary.responsive-sidebar-style-boxed.widget-area .widget-wrapper, aside#secondary.responsive-sidebar-style-unboxed.widget-area .widget-wrapper, #secondary.responsive-sidebar-style-boxed.widget-area .widget-wrapper, #secondary.responsive-sidebar-style-unboxed.widget-area .widget-wrapper, #secondary.widget-area .widget-wrapper');
         } );
     } );
 
     api( 'responsive_sidebar_inside_container_tablet_right_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('sidebar_inside_container', '#secondary.widget-area .widget-wrapper');
+            responsive_dynamic_padding('sidebar_inside_container', 'aside#secondary.responsive-sidebar-style-boxed.widget-area .widget-wrapper, aside#secondary.responsive-sidebar-style-unboxed.widget-area .widget-wrapper, #secondary.responsive-sidebar-style-boxed.widget-area .widget-wrapper, #secondary.responsive-sidebar-style-unboxed.widget-area .widget-wrapper, #secondary.widget-area .widget-wrapper');
         } );
     } );
 
     api( 'responsive_sidebar_inside_container_mobile_top_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('sidebar_inside_container', '#secondary.widget-area .widget-wrapper');
+            responsive_dynamic_padding('sidebar_inside_container', 'aside#secondary.responsive-sidebar-style-boxed.widget-area .widget-wrapper, aside#secondary.responsive-sidebar-style-unboxed.widget-area .widget-wrapper, #secondary.responsive-sidebar-style-boxed.widget-area .widget-wrapper, #secondary.responsive-sidebar-style-unboxed.widget-area .widget-wrapper, #secondary.widget-area .widget-wrapper');
         } );
     } );
 
     api( 'responsive_sidebar_inside_container_mobile_bottom_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('sidebar_inside_container', '#secondary.widget-area .widget-wrapper');
+            responsive_dynamic_padding('sidebar_inside_container', 'aside#secondary.responsive-sidebar-style-boxed.widget-area .widget-wrapper, aside#secondary.responsive-sidebar-style-unboxed.widget-area .widget-wrapper, #secondary.responsive-sidebar-style-boxed.widget-area .widget-wrapper, #secondary.responsive-sidebar-style-unboxed.widget-area .widget-wrapper, #secondary.widget-area .widget-wrapper');
         } );
     } );
 
     api( 'responsive_sidebar_inside_container_mobile_left_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('sidebar_inside_container', '#secondary.widget-area .widget-wrapper');
+            responsive_dynamic_padding('sidebar_inside_container', 'aside#secondary.responsive-sidebar-style-boxed.widget-area .widget-wrapper, aside#secondary.responsive-sidebar-style-unboxed.widget-area .widget-wrapper, #secondary.responsive-sidebar-style-boxed.widget-area .widget-wrapper, #secondary.responsive-sidebar-style-unboxed.widget-area .widget-wrapper, #secondary.widget-area .widget-wrapper');
         } );
     } );
 
     api( 'responsive_sidebar_inside_container_mobile_right_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('sidebar_inside_container', '#secondary.widget-area .widget-wrapper');
+            responsive_dynamic_padding('sidebar_inside_container', 'aside#secondary.responsive-sidebar-style-boxed.widget-area .widget-wrapper, aside#secondary.responsive-sidebar-style-unboxed.widget-area .widget-wrapper, #secondary.responsive-sidebar-style-boxed.widget-area .widget-wrapper, #secondary.responsive-sidebar-style-unboxed.widget-area .widget-wrapper, #secondary.widget-area .widget-wrapper');
         } );
     } );
 
