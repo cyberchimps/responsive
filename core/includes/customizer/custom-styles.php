@@ -600,6 +600,18 @@ error_log('responsive_product_catalog_container_style==='.$responsive_product_ca
 		max-width: {$container_max_width}px;
 	}
 	
+	.wp-block-group {
+		--wp--style--global--wide-size: {$container_max_width}px;
+	}
+	
+	html body.page-template-gutenberg-fullwidth .wp-block-group.wp-block-group.wp-block-group-is-layout-constrained > :where(:not(.alignwide):not(.alignfull)) {
+		max-width: 720px;
+	}
+
+	html body.page-template-gutenberg-fullwidth .wp-block-group.wp-block-group.wp-block-group-is-layout-constrained > .alignwide {
+		max-width: var(--wp--style--global--wide-size);
+	}
+	
 	@media screen and ( max-width: 992px ) {
 		.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,
 		.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,
@@ -969,7 +981,10 @@ error_log('responsive_product_catalog_container_style==='.$responsive_product_ca
 				.wp-block-button__link,
 				body div.wpforms-container-full .wpforms-form input[type=submit],
 				body div.wpforms-container-full .wpforms-form button[type=submit],
-				body div.wpforms-container-full .wpforms-form .wpforms-page-button {
+				body div.wpforms-container-full .wpforms-form .wpforms-page-button,
+				body div.wpforms-container-full .wpforms-form input[type=submit]:not(:hover):not(:active),
+				body div.wpforms-container-full .wpforms-form button[type=submit]:not(:hover):not(:active),
+				body div.wpforms-container-full .wpforms-form .wpforms-page-button:not(:hover):not(:active) {
 					background-color:{$button_background_color};
 					background-image: linear-gradient(to right, {$button_background_color}, {$button_background_color}), url({$button_background_image});
 					background-repeat: no-repeat;
@@ -1417,8 +1432,10 @@ error_log('responsive_product_catalog_container_style==='.$responsive_product_ca
 	a:hover {
 		color:{$link_hover_color};
 	}
-	label {
-		color:{$label_color};
+	label,
+	div.wpforms-container-full .wpforms-form .wpforms-field-label,
+	.wp-core-ui div.wpforms-container-full .wpforms-form .wpforms-field-label {
+		color:{$label_color} !important;
 	}
 	";
 
@@ -1522,7 +1539,10 @@ error_log('responsive_product_catalog_container_style==='.$responsive_product_ca
 	.wp-block-file__button,
 	body div.wpforms-container-full .wpforms-form input[type=submit],
 	body div.wpforms-container-full .wpforms-form button[type=submit],
-	body div.wpforms-container-full .wpforms-form .wpforms-page-button, .main-navigation .menu .res-button-menu .res-custom-button,
+	body div.wpforms-container-full .wpforms-form .wpforms-page-button,
+	body div.wpforms-container-full .wpforms-form input[type=submit]:not(:hover):not(:active),
+	body div.wpforms-container-full .wpforms-form button[type=submit]:not(:hover):not(:active),
+	body div.wpforms-container-full .wpforms-form .wpforms-page-button:not(:hover):not(:active), .main-navigation .menu .res-button-menu .res-custom-button,
 	form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button,
 	#off-canvas-site-navigation .menu .res-button-menu .res-custom-button {
 		background-color:' . $button_color . ';
@@ -1575,7 +1595,10 @@ error_log('responsive_product_catalog_container_style==='.$responsive_product_ca
 		.button,
 		body div.wpforms-container-full .wpforms-form input[type=submit],
 		body div.wpforms-container-full .wpforms-form button[type=submit],
-		body div.wpforms-container-full .wpforms-form .wpforms-page-button, .main-navigation .menu .res-button-menu .res-custom-button, #off-canvas-site-navigation .menu .res-button-menu .res-custom-button {
+		body div.wpforms-container-full .wpforms-form .wpforms-page-button,
+		body div.wpforms-container-full .wpforms-form input[type=submit]:not(:hover):not(:active),
+		body div.wpforms-container-full .wpforms-form button[type=submit]:not(:hover):not(:active),
+		body div.wpforms-container-full .wpforms-form .wpforms-page-button:not(:hover):not(:active), .main-navigation .menu .res-button-menu .res-custom-button, #off-canvas-site-navigation .menu .res-button-menu .res-custom-button {
 			padding: ' . responsive_spacing_css( $buttons_tablet_padding_top, $buttons_tablet_padding_right, $buttons_tablet_padding_bottom, $buttons_tablet_padding_left ) . ';
 			border-radius:' . responsive_spacing_css( $button_tablet_top_left_radius, $button_tablet_top_right_radius, $button_tablet_bottom_right_radius, $button_tablet_bottom_left_radius ) . ';
 			border-color: ' . $button_border_color . ';
@@ -1610,7 +1633,10 @@ error_log('responsive_product_catalog_container_style==='.$responsive_product_ca
 		.button,
 		body div.wpforms-container-full .wpforms-form input[type=submit],
 		body div.wpforms-container-full .wpforms-form button[type=submit],
-		body div.wpforms-container-full .wpforms-form .wpforms-page-button, .main-navigation .menu .res-button-menu .res-custom-button, #off-canvas-site-navigation .menu .res-button-menu .res-custom-button {
+		body div.wpforms-container-full .wpforms-form .wpforms-page-button,
+		body div.wpforms-container-full .wpforms-form input[type=submit]:not(:hover):not(:active),
+		body div.wpforms-container-full .wpforms-form button[type=submit]:not(:hover):not(:active),
+		body div.wpforms-container-full .wpforms-form .wpforms-page-button:not(:hover):not(:active), .main-navigation .menu .res-button-menu .res-custom-button, #off-canvas-site-navigation .menu .res-button-menu .res-custom-button {
 			padding: ' . responsive_spacing_css( $buttons_mobile_padding_top, $buttons_mobile_padding_right, $buttons_mobile_padding_bottom, $buttons_mobile_padding_left ) . ';
 			border-radius:' . responsive_spacing_css( $button_mobile_top_left_radius, $button_mobile_top_right_radius, $button_mobile_bottom_right_radius, $button_mobile_bottom_left_radius ) . ';
 			border-color: ' . $button_border_color . ';
