@@ -42,7 +42,6 @@ Responsive\responsive_wrapper_top(); // before wrapper content hook.
 							<?php Responsive\responsive_entry_top(); ?>
 							<div class="post-entry">
 								<?php
-								responsive_page_featured_image();
 								the_content( __( 'Read more &#8250;', 'responsive' ) );
 								wp_link_pages(
 									array(
