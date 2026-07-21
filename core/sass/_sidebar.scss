@@ -24,12 +24,6 @@
         padding-bottom: 0;
     }
 
-    .responsive-site-style-boxed &,
-    aside#secondary.responsive-sidebar-style-boxed &,
-    aside#secondary.responsive-sidebar-style-unboxed & {
-        padding: $base-line-height-px;
-    }
-
     // Sidebar widget Area
     .widget-area:not(.home-widgets) & {
         font-size: map-get($font-sizes, small);

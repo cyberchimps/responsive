@@ -1249,7 +1249,7 @@ function defaults() {
 			'label'                               => '#333333',
 
 			'responsive_style'                    => 'boxed',
-			'responsive_sidebar_style'            => 'unboxed',
+			'responsive_sidebar_style'            => 'boxed',
 			'responsive_page_sidebar_style'       => 'default',
 			'responsive_blog_sidebar_style'       => 'default',
 			'responsive_single_blog_sidebar_style'=> 'default',
