@@ -37,7 +37,7 @@ if ( ! class_exists( 'Responsive_Container_Layout_Customizer' ) ) :
 		public function customizer_options( $wp_customize ) {
 
 			$container_layout_choices = array(
-				'default'    => esc_html__( 'Default', 'responsive' ),
+				'default_container'    => esc_html__( 'Default', 'responsive' ),
 				'normal'     => esc_html__( 'Normal', 'responsive' ),
 				'full-width' => esc_html__( 'Full Width', 'responsive' ),
 			);
