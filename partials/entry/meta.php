@@ -45,7 +45,6 @@ do_action( 'responsive_before_blog_entry_meta' );
 						sprintf(
 							'<span class="author vcard">
 								<a class="url fn n" href="%1$s" aria-label="%2$s" title="%2$s" itemprop="url">
-									<i class="icon-user"></i>
 									<span itemprop="name">%3$s</span>
 								</a>
 							</span>',
@@ -116,18 +115,7 @@ do_action( 'responsive_before_blog_entry_meta' );
 			<?php
 		}
 
-		if ( 'categories' === $section ) {
-			?>
-			<span class="entry-category">
-				<span class='posted-in'><i class="icon-folder-open" aria-hidden="true"></i>
-					<?php
-					/* translators: %s: category list */
-					printf( esc_html__( 'Posted in %s', 'responsive' ), wp_kses_post( get_the_category_list( __( ', ', 'responsive' ) ) ) );
-					?>
-				</span>
-			</span>
-			<?php
-		}
+
 		if ( 'tag' === $section ) {
 			?>
 			<?php if ( has_tag() ) { ?>
