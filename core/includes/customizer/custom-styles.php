@@ -329,7 +329,7 @@ function responsive_customizer_styles() {
 
 	// Container Style (Default / Boxed / Unboxed)
 	$global_container_style     = get_theme_mod( 'responsive_style', 'unboxed' );
-	$global_container_style_key = ( 'boxed' === $global_container_style ) ? 'boxed' : 'unboxed';
+	$global_container_style_key = in_array( $global_container_style, array( 'boxed', 'content-boxed' ), true ) ? $global_container_style : 'unboxed';
 
 	// Page Container Style.
 	if ( is_page() ) {
