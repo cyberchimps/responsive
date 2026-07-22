@@ -32,6 +32,7 @@ if ( ! function_exists( 'responsive_blog_entry_elements' ) ) {
 		$elements = apply_filters(
 			'responsive_blog_entry_elements',
 			array(
+				'categories'     => esc_html__( 'Categories', 'responsive' ),
 				'title'          => esc_html__( 'Title', 'responsive' ),
 				'featured_image' => esc_html__( 'Featured Image', 'responsive' ),
 				'meta'           => esc_html__( 'Meta', 'responsive' ),
@@ -55,7 +56,7 @@ if ( ! function_exists( 'responsive_blog_entry_elements_positioning' ) ) {
 	function responsive_blog_entry_elements_positioning() {
 
 		// Default sections.
-		$sections = array( 'title', 'meta', 'featured_image', 'content' );
+		$sections = array( 'featured_image', 'categories', 'title', 'meta', 'content' );
 
 		// Get sections from Customizer.
 		$sections = get_theme_mod( 'responsive_blog_entry_elements_positioning', $sections );
@@ -83,7 +84,7 @@ if ( ! function_exists( 'responsive_blog_entry_meta' ) ) {
 	function responsive_blog_entry_meta() {
 
 		// Default sections.
-		$sections = array( 'author', 'date', 'categories', 'tag' );
+		$sections = array( 'author', 'date', 'tag' );
 
 		// Get sections from Customizer.
 		$sections = get_theme_mod( 'responsive_blog_entry_meta', $sections );
@@ -114,6 +115,7 @@ if ( ! function_exists( 'responsive_blog_single_elements' ) ) {
 		$elements = apply_filters(
 			'responsive_blog_single_elements',
 			array(
+				'categories'     => esc_html__( 'Categories', 'responsive' ),
 				'title'          => esc_html__( 'Title', 'responsive' ),
 				'featured_image' => esc_html__( 'Featured Image', 'responsive' ),
 				'meta'           => esc_html__( 'Meta', 'responsive' ),
@@ -137,7 +139,7 @@ if ( ! function_exists( 'responsive_blog_single_elements_positioning' ) ) {
 	function responsive_blog_single_elements_positioning() {
 
 		// Default sections.
-		$sections = array( 'title', 'meta', 'featured_image', 'content' );
+		$sections = array( 'categories', 'title', 'meta', 'featured_image', 'content' );
 
 		// Get sections from Customizer.
 		$sections = get_theme_mod( 'responsive_blog_single_elements_positioning', $sections );
@@ -210,7 +212,7 @@ if ( ! function_exists( 'responsive_blog_single_meta' ) ) {
 	function responsive_blog_single_meta() {
 
 		/** Default sections */
-		$sections = array( 'author', 'date', 'categories', 'comments', 'tag' );
+		$sections = array( 'author', 'date', 'comments', 'tag' );
 
 		/** Get sections from Customizer */
 		$sections = get_theme_mod( 'responsive_blog_single_meta', $sections );
@@ -833,7 +835,7 @@ if ( ! function_exists( 'responsive_schema_markup' ) ) {
  */
 function responsive_read_more_text( $text ) {
 
-	$read_more = get_theme_mod( 'responsive_blog_read_more_text', __( 'Read more &raquo;', 'responsive' ) );
+	$read_more = get_theme_mod( 'responsive_blog_read_more_text', __( 'Read more →', 'responsive' ) );
 	if ( '' !== $read_more ) {
 		$text = $read_more;
 	}
@@ -873,7 +875,7 @@ if ( ! function_exists( 'responsive_post_link' ) ) {
 	 */
 	function responsive_post_link( $output_filter = '' ) {
 
-		$read_more_text = apply_filters( 'responsive_post_read_more', __( 'Read More &raquo;', 'responsive' ) );
+		$read_more_text = apply_filters( 'responsive_post_read_more', __( 'Read more →', 'responsive' ) );
 
 		$post_link = sprintf(
 			esc_html( '%s' ),
@@ -894,7 +896,7 @@ if ( ! function_exists( 'responsive_modify_read_more_link' ) ) {
 	 * @return html
 	 */
 	function responsive_modify_read_more_link() {
-		$read_more_text = apply_filters( 'responsive_post_read_more', __( 'Read More &raquo;', 'responsive' ) );
+		$read_more_text = apply_filters( 'responsive_post_read_more', __( 'Read more →', 'responsive' ) );
 		return '<a class="more-link" href="' . get_permalink() . '">' . $read_more_text . '</a>';
 	}
 }

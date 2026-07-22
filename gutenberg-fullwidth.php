@@ -42,7 +42,7 @@ Responsive\responsive_wrapper_top(); // before wrapper content hook.
 							<?php Responsive\responsive_entry_top(); ?>
 							<div class="post-entry">
 								<?php
-								the_content( __( 'Read more &#8250;', 'responsive' ) );
+								the_content( __( 'Read more →', 'responsive' ) );
 								wp_link_pages(
 									array(
 										'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ),

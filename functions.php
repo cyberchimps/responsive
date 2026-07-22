@@ -122,7 +122,7 @@ function responsive_setup_content_width() {
 	 * Content Width
 	 */
 	if ( ( 'contained' === get_theme_mod( 'responsive_width', 'contained' ) ) ) {
-		$container_max_width = esc_html( get_theme_mod( 'responsive_container_width', 1140 ) );
+		$container_max_width = esc_html( get_theme_mod( 'responsive_container_width', Responsive\Core\get_responsive_customizer_defaults( 'responsive_container_width' ) ) );
 
 		// Helper to resolve sidebar position with "global" fallback
 		$get_sidebar_position = function( $context, $fallback = 'no' ) {
@@ -136,7 +136,7 @@ function responsive_setup_content_width() {
 			$sidebar_position = $get_sidebar_position( 'page', 'no' );
 
 			if ( 'no' !== $sidebar_position ) {
-				$page_content_width = esc_html( get_theme_mod( 'responsive_page_content_width', 66 ) );
+				$page_content_width = esc_html( get_theme_mod( 'responsive_page_content_width', 100 ) );
 				$content_width      = ( $page_content_width / 100 ) * $container_max_width;
 			} else {
 				$content_width = $container_max_width;
@@ -799,7 +799,7 @@ if ( ! get_option( 'responsive_version_410' ) ) {
 			}
 
 			! get_theme_mod( 'responsive_header_alignment' ) && get_theme_mod( 'header_layout_options' ) ? set_theme_mod( 'responsive_header_alignment', str_replace( 'header-logo-', '', get_theme_mod( 'header_layout_options' ) ) ) : '';
-			! get_theme_mod( 'responsive_container_width' ) ? set_theme_mod( 'responsive_container_width', get_theme_mod( 'responsive_main_container_width', 1140 ) ) : '';
+			! get_theme_mod( 'responsive_container_width' ) ? set_theme_mod( 'responsive_container_width', get_theme_mod( 'responsive_main_container_width', 1340 ) ) : '';
 
 			$responsive_options_blog = array( 'full-width-page', 'blog-2-col', 'blog-3-col', 'blog-4-col' );
 
@@ -3013,3 +3013,13 @@ if( !function_exists( 'responsive_theme_background_updater_footer_links_restyle'
 add_action( 'wp', 'responsive_header_button_border_none_legacy_migrate', 5 );
 add_action( 'admin_init', 'responsive_header_button_border_none_legacy_migrate', 5 );
 add_action( 'customize_save_responsive_header_button_border_style', 'responsive_header_button_border_none_clear_legacy_on_save' );
+
+/**
+ * Remove Category: prefix from category archive titles
+ */
+add_filter( 'get_the_archive_title', function( $title ) {
+	if ( is_category() ) {
+		$title = single_cat_title( '', false );
+	}
+	return $title;
+} );

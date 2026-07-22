@@ -116,7 +116,7 @@ function responsive_customizer_styles() {
 	$underline_content_links = esc_html( get_theme_mod( 'responsive_underline_content_links', false ) );
 	// Site custom styles.
 
-	$container_max_width = esc_html( get_theme_mod( 'responsive_container_width', 1140 ) );
+	$container_max_width = esc_html( get_theme_mod( 'responsive_container_width', Responsive\Core\get_responsive_customizer_defaults( 'responsive_container_width' ) ) );
 	$logo_custom_width   = esc_html( get_theme_mod( 'responsive_logo_width' ) );
 	$logo_custom_width_tablet = esc_html( get_theme_mod( 'responsive_logo_width_tablet' ) );
 	$logo_custom_width_mobile = esc_html( get_theme_mod( 'responsive_logo_width_mobile') );
@@ -1121,15 +1121,18 @@ function responsive_customizer_styles() {
 	.post-meta *, .hentry .post-meta a {
 	    color:{$meta_text_color};
 	}
-	a {
+	a:not(:where(h1, h2, h3, h4, h5, h6) a) {
 		color:{$link_color};
+	}
+	:where(h1, h2, h3, h4, h5, h6) a {
+		color: inherit;
 	}
 	.entry-content .woocommerce a.remove:hover {
 		color:{$link_color} !important;
 		border-color:{$link_color};
 	}
-	a:hover {
-		color:{$link_hover_color};
+	a:hover:not(:where(h1, h2, h3, h4, h5, h6) a) {
+    	color: {$link_hover_color};
 	}
 	label,
 	div.wpforms-container-full .wpforms-form .wpforms-field-label,
@@ -3798,7 +3801,7 @@ function responsive_customizer_styles() {
 	}
 
 	// Entry Blog Meta Separator.
-	$blog_entry_meta_separator = esc_html( get_theme_mod( 'responsive_blog_entry_meta_separator_text', '-' ) );
+	$blog_entry_meta_separator = esc_html( get_theme_mod( 'responsive_blog_entry_meta_separator_text', '•' ) );
 
 	$custom_css .= "
 	.search .hentry .post-meta > span::after,
@@ -3868,7 +3871,7 @@ function responsive_customizer_styles() {
 	}
 
 	// Entry Blog Meta Separator.
-	$single_blog_entry_meta_separator = esc_html( get_theme_mod( 'responsive_single_blog_meta_separator_text', '-' ) );
+	$single_blog_entry_meta_separator = esc_html( get_theme_mod( 'responsive_single_blog_meta_separator_text', '•' ) );
 
 	$custom_css .= "
 	.single .hentry .post-meta > span::after {
@@ -9009,7 +9012,7 @@ function responsive_customizer_styles() {
 		$floatingb_addtocart_font_color      = esc_html( get_theme_mod( 'responsive_floatingb_addtocart_font_color', '#ffffff' ) );
 		$floatingb_addtocart_fonthover_color = esc_html( get_theme_mod( 'responsive_floatingb_addtocart_fonthover_color', '#f1f1f1' ) );
 		$floatingb_width                     = esc_html( get_theme_mod( 'responsive_width', 'contained' ) );
-		$floatingb_container_width           = esc_html( get_theme_mod( 'responsive_container_width', 1140 ) );
+		$floatingb_container_width           = esc_html( get_theme_mod( 'responsive_container_width', Responsive\Core\get_responsive_customizer_defaults( 'responsive_container_width' ) ) );
 
 		if ( is_admin_bar_showing() ) {
 			$woocommerce_custom_css .= '

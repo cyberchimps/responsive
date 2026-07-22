@@ -61,7 +61,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'responsive_comments_layout',
 				array(
 					'title'    => esc_html__( 'Comments', 'responsive' ),
-					'panel'    => 'responsive_blog',
+					'panel'    => 'responsive_post_types',
 					'priority' => 24,
 				)
 			);
@@ -329,7 +329,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_single_blog_meta_separator_text',
 				array(
-					'default'           => '-',
+					'default'           => '•',
 					'sanitize_callback' => 'wp_check_invalid_utf8',
 					'type'              => 'theme_mod',
 					'transport'         => 'postMessage',

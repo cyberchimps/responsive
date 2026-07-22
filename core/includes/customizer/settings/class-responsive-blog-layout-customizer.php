@@ -338,7 +338,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_blog_entry_meta_separator_text',
 				array(
-					'default'           => '-',
+					'default'           => '•',
 					'sanitize_callback' => 'wp_check_invalid_utf8',
 					'type'              => 'theme_mod',
 					'transport'         => 'postMessage',
