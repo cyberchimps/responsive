@@ -46,6 +46,7 @@ function setup() {
 	add_filter( 'pre_update_option_show_on_front', $n( 'responsive_front_page_override' ), 10, 2 );
 	add_filter( 'body_class', $n( 'responsive_add_class' ), 999 );
 	add_filter( 'body_class', $n( 'responsive_add_custom_body_classes' ), 999 );
+	add_filter( 'body_class', $n( 'responsive_add_container_layout_body_classes' ), 999 );
 	add_filter( 'get_custom_logo', $n( 'responsive_transparent_custom_logo', 10, 1 ) );
 
 	if ( ! class_exists( 'Responsive_Addons_Pro_Public' ) && !responsive_is_user_pro()) {
@@ -582,6 +583,19 @@ function responsive_add_custom_body_classes( $classes ) {
 		$classes[] = 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' );
 	}
 
+	// Blog / Archive Container Style override (Blog / Archive > Container Style).
+	// 'default' inherits the global responsive_style setting above. Container Layout
+	// (Default/Normal/Full Width) for Page/Blog/Single is handled in
+	// responsive_add_container_layout_body_classes() below.
+	if ( ! is_singular() && ( is_home() || is_archive() ) && ! is_search() ) {
+
+		$blog_container_style = get_theme_mod( 'responsive_blog_container_style', 'default' );
+		if ( 'default' !== $blog_container_style ) {
+			$classes   = array_diff( $classes, array( 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' ) ) );
+			$classes[] = 'responsive-site-style-' . ( 'unboxed' === $blog_container_style ? 'flat' : 'boxed' );
+		}
+	}
+
 	$search_screen = get_theme_mod( 'search_style', 'search' );
 	if ( 'full-screen' == $search_screen ) {
 		$classes[] = 'full-screen';
@@ -808,8 +822,39 @@ function responsive_add_custom_body_classes( $classes ) {
 }
 
 /**
- * This function prints post meta data.
+ * Adds a body class for the per-content-type Container Layout override
+ * (Default / Normal / Full Width), registered on the Page, Blog / Archive,
+ * and Single Post customizer sections via
+ * class-responsive-container-layout-customizer.php.
  *
+ * 'default' inherits the global Layout > Container Layout setting
+ * (responsive_width), so no class swap happens in that case.
+ *
+ * @param array $classes Body classes.
+ * @return array
+ */
+function responsive_add_container_layout_body_classes( $classes ) {
+
+	$container_layout = 'default';
+
+	if ( is_page() ) {
+		$container_layout = get_theme_mod( 'responsive_page_container_layout', 'default' );
+	} elseif ( is_single() ) {
+		$container_layout = get_theme_mod( 'responsive_single_blog_container_layout', 'default' );
+	} elseif ( ! is_singular() && ( is_home() || is_archive() ) && ! is_search() ) {
+		$container_layout = get_theme_mod( 'responsive_blog_container_layout', 'default' );
+	}
+
+	if ( 'default' !== $container_layout ) {
+		$classes   = array_diff( $classes, array( 'responsive-site-' . get_theme_mod( 'responsive_width', 'contained' ) ) );
+		$classes[] = 'responsive-site-' . ( 'full-width' === $container_layout ? 'full-width' : 'contained' );
+	}
+
+	return $classes;
+}
+
+
+ /*
  * Ulrich Pogson Contribution
  */
 if ( ! function_exists( 'responsive_post_meta_data' ) ) {
@@ -1205,6 +1250,12 @@ function defaults() {
 			'label'                               => '#333333',
 
 			'responsive_style'                    => 'boxed',
+			'responsive_sidebar_style'            => 'boxed',
+			'responsive_page_sidebar_style'       => 'default',
+			'responsive_blog_sidebar_style'       => 'default',
+			'responsive_single_blog_sidebar_style'=> 'default',
+			'responsive_shop_sidebar_style'       => 'default',
+			'responsive_single_product_sidebar_style' => 'default',
 			// 'responsive_header_layout'            => 'horizontal',
 			// 'responsive_header_alignment'         => 'center',
 			'header_menu_full_width'              => 1,

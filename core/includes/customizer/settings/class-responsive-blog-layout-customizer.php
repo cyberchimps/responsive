@@ -77,6 +77,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
                 $general_tab_ids_prefix . 'responsive_blog_post_title_toggle_separator',
 				$general_tab_ids_prefix . 'responsive_blog_sidebar_separator',
 				$general_tab_ids_prefix . 'responsive_blog_sidebar_position',
+				$general_tab_ids_prefix . 'responsive_blog_sidebar_style',
 				$general_tab_ids_prefix . 'responsive_blog_sidebar_width',
 				$general_tab_ids_prefix . 'responsive_blog_layout_separator',
 				$general_tab_ids_prefix . 'responsive_blog_layout',
@@ -122,6 +123,10 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 				$general_tab_ids_prefix . 'responsive_blog_outside_container_padding',
 				$general_tab_ids_prefix . 'responsive_blog_outside_container_separator',
 				$general_tab_ids_prefix . 'responsive_blog_inside_container_padding',
+				$general_tab_ids_prefix . 'responsive_blog_container_layout',
+                $general_tab_ids_prefix . 'responsive_blog_container_style',
+				$general_tab_ids_prefix . 'responsive_blog_container_style_separator',
+				$general_tab_ids_prefix . 'responsive_blog_container_layout_separator',
 			);
 
 			responsive_tabs_button_control( $wp_customize, 'blog_archive_tabs', $tabs_label, 'responsive_blog_layout', 1, '', 'responsive_blog_layout_general_tab', 'responsive_blog_layout_design_tab', $general_tab_ids, $design_tab_ids, null );

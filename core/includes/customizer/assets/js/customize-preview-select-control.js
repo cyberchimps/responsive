@@ -966,4 +966,130 @@
         });
     });
 
+    // Main menu item hover style (underline / overline / zoom).
+    api( 'responsive_menu_item_hover_style', function( setting ) {
+        function menuHoverLineColor() {
+            var color = api( 'responsive_header_menu_link_hover_color' ).get();
+            if ( ! color ) {
+                color = api( 'responsive_header_menu_link_color' ).get();
+            }
+            if ( color && String( color ).indexOf( 'palette' ) === 0 ) {
+                return 'var(--responsive-global-' + color + ')';
+            }
+            return color || '#10659C';
+        }
+
+        function applyMainMenuHoverStyle( style ) {
+            jQuery( 'body' ).removeClass( 'menu-item-hover-style-none menu-item-hover-style-zoom menu-item-hover-style-underline menu-item-hover-style-overline' );
+            jQuery( 'style#responsive-main-menu-item-hover-style' ).remove();
+
+            if ( 'none' === style ) {
+                jQuery( 'body' ).addClass( 'menu-item-hover-style-none' );
+                return;
+            }
+            if ( 'zoom' === style ) {
+                jQuery( 'body' ).addClass( 'menu-item-hover-style-zoom' );
+                jQuery( 'head' ).append(
+                    '<style id="responsive-main-menu-item-hover-style">'
+                    + '.menu-item-hover-style-zoom .menu.nav-menu > li > a:hover, .menu.nav-menu > .menu-item > .menu-link:hover {'
+                    + 'transition: all 0.3s ease-in-out; transform: scale(1.1); }'
+                    + '</style>'
+                );
+                return;
+            }
+
+            var lineColor = menuHoverLineColor();
+            var bodyClass = 'underline' === style ? 'menu-item-hover-style-underline' : 'menu-item-hover-style-overline';
+            var pseudo = 'underline' === style ? 'after' : 'before';
+
+            jQuery( 'body' ).addClass( bodyClass );
+            jQuery( 'head' ).append(
+                '<style id="responsive-main-menu-item-hover-style">'
+                + '.' + bodyClass + ' .menu.nav-menu > li::' + pseudo + ' {'
+                + 'display: block; content: ""; border-bottom: solid 3px ' + lineColor + ';'
+                + 'transform: scaleX(0); transition: transform 250ms ease-in-out; }'
+                + '.' + bodyClass + ' .menu.nav-menu > li:hover::' + pseudo + ' { transform: scaleX(1); }'
+                + '.' + bodyClass + ' .menu.nav-menu > li::' + pseudo + ' { transform-origin: 0% 50%; }'
+                + '</style>'
+            );
+        }
+
+        setting.bind( applyMainMenuHoverStyle );
+        applyMainMenuHoverStyle( setting.get() );
+    } );
+
+    // Sidebar style preview update helper
+    function updatePreviewSidebarStyle() {
+        var body = $('body');
+        var sidebar = $('#secondary');
+        if (!sidebar.length) return;
+
+        var globalStyle = api('responsive_sidebar_style').get() || 'boxed';
+        var style = globalStyle;
+
+        if (body.hasClass('single-product')) {
+            var prodSetting = api('responsive_single_product_sidebar_style');
+            var prodStyle = prodSetting ? prodSetting.get() : 'default';
+            style = (prodStyle === 'default') ? globalStyle : prodStyle;
+        } else if (body.hasClass('archive') && (body.hasClass('post-type-archive-product') || body.hasClass('tax-product_cat') || body.hasClass('tax-product_tag') || body.hasClass('woocommerce-page'))) {
+            var shopSetting = api('responsive_shop_sidebar_style');
+            var shopStyle = shopSetting ? shopSetting.get() : 'default';
+            style = (shopStyle === 'default') ? globalStyle : shopStyle;
+        } else if (body.hasClass('page')) {
+            var pageSetting = api('responsive_page_sidebar_style');
+            var pageStyle = pageSetting ? pageSetting.get() : 'default';
+            style = (pageStyle === 'default') ? globalStyle : pageStyle;
+        } else if (body.hasClass('single')) {
+            var singleSetting = api('responsive_single_blog_sidebar_style');
+            var singleStyle = singleSetting ? singleSetting.get() : 'default';
+            style = (singleStyle === 'default') ? globalStyle : singleStyle;
+        } else if (body.hasClass('home') || body.hasClass('archive') || body.hasClass('search')) {
+            var blogSetting = api('responsive_blog_sidebar_style');
+            var blogStyle = blogSetting ? blogSetting.get() : 'default';
+            style = (blogStyle === 'default') ? globalStyle : blogStyle;
+        }
+
+        // Remove old style classes
+        sidebar.removeClass('responsive-sidebar-style-default responsive-sidebar-style-boxed responsive-sidebar-style-unboxed');
+        // Add new style class
+        sidebar.addClass('responsive-sidebar-style-' + style);
+
+        if (style === 'boxed') {
+            var color = api('responsive_sidebar_background_color').get() || '';
+            if (color && color.startsWith('palette')) {
+                color = 'var(--responsive-global-' + color + ')';
+            }
+            var image = api('responsive_sidebar_background_image').get();
+            var img_toggle = api('responsive_sidebar_background_image_toggle').get();
+
+            var wrapper = $('.responsive-site-style-boxed aside#secondary .widget-wrapper');
+            wrapper.css('background-color', color);
+            if (image && img_toggle) {
+                wrapper.css('background-image', 'linear-gradient(to right,' + color + ',' + color + '),url(' + image + ')');
+            } else {
+                wrapper.css('background-image', 'linear-gradient(to right,' + color + ',' + color + ')');
+            }
+        } else {
+            $('.responsive-site-style-boxed aside#secondary .widget-wrapper').css({
+                'background-image': 'none',
+                'background-color': ''
+            });
+        }
+    }
+
+    var sidebarSettings = [
+        'responsive_sidebar_style',
+        'responsive_page_sidebar_style',
+        'responsive_blog_sidebar_style',
+        'responsive_single_blog_sidebar_style',
+        'responsive_shop_sidebar_style',
+        'responsive_single_product_sidebar_style'
+    ];
+
+    $.each(sidebarSettings, function(index, settingName) {
+        api(settingName, function(value) {
+            value.bind(updatePreviewSidebarStyle);
+        });
+    });
+
 } )( jQuery );

@@ -57,8 +57,13 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				$general_tab_ids_prefix . 'responsive_single_product_image_width',
 				$general_tab_ids_prefix . 'responsive_single_product_breadcrumbs',
 				$general_tab_ids_prefix . 'responsive_single_product_sidebar_position',
+				$general_tab_ids_prefix . 'responsive_single_product_sidebar_style',
 				$general_tab_ids_prefix . 'responsive_single_product_sidebar_separator',
 				$general_tab_ids_prefix . 'responsive_single_product_sidebar_width',
+				$general_tab_ids_prefix . 'responsive_single_product_container_layout_separator',
+				$general_tab_ids_prefix . 'responsive_single_product_container_layout',
+				$general_tab_ids_prefix . 'responsive_single_product_container_style_separator',
+				$general_tab_ids_prefix . 'responsive_single_product_container_style',
 			);
 
 
@@ -121,9 +126,17 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 
 			responsive_imageradio_button_control( $wp_customize, 'single_product_sidebar_position', $sidebar_label, 'responsive_woocommerce_single_product_layout', 66, $sidebar_choices, 'global', null, 'svg' );
 
+			$single_product_sidebar_style_label  = __( 'Sidebar Style', 'responsive' );
+			$single_product_sidebar_style_choice = array(
+				'default' => esc_html__( 'Default', 'responsive' ),
+				'unboxed' => esc_html__( 'Unboxed', 'responsive' ),
+				'boxed'   => esc_html__( 'Boxed', 'responsive' ),
+			);
+			responsive_select_button_control( $wp_customize, 'single_product_sidebar_style', $single_product_sidebar_style_label, 'responsive_woocommerce_single_product_layout', 67, $single_product_sidebar_style_choice, Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_sidebar_style' ), 'responsive_active_single_product_sidebar_position', 'postMessage' );
+
 			// Sidebar Width
 			$single_product_sidebar_width_label = esc_html__( 'Sidebar Width (%)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'single_product_sidebar_width', $single_product_sidebar_width_label, 'responsive_woocommerce_single_product_layout', 67, 30, 'responsive_active_single_product_sidebar_position', 50, 15, 'postMessage' );
+			responsive_drag_number_control( $wp_customize, 'single_product_sidebar_width', $single_product_sidebar_width_label, 'responsive_woocommerce_single_product_layout', 68, 30, 'responsive_active_single_product_sidebar_position', 50, 15, 'postMessage' );
 			
 			// Product Elements.
 			$single_product_elements_label = esc_html__( 'Product Elements', 'responsive' );

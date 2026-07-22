@@ -49,14 +49,20 @@ const TabsComponent = props => {
 
 
 		hideSidebarWidthControl( api('responsive_page_sidebar_position').get(), 'page' );
+		hideSidebarStyleControl( api('responsive_page_sidebar_position').get(), 'page' );
 		hideSidebarWidthControl( api('responsive_blog_sidebar_position').get(), 'blog' );
+		hideSidebarStyleControl( api('responsive_blog_sidebar_position').get(), 'blog' );
 		hideSidebarWidthControl( api('responsive_default_sidebar_position').get(), 'default' );
+		hideSidebarStyleControl( api('responsive_default_sidebar_position').get(), 'default' );
+		hideSidebarSpacingControls( api('responsive_default_sidebar_position').get() );
 		if(api('responsive_shop_sidebar_position')){
 			hideWoocommerceSidebarWidthControl( api('responsive_shop_sidebar_position').get(), 'shop');
+			hideWoocommerceSidebarStyleControl( api('responsive_shop_sidebar_position').get(), 'shop');
 		}
 		if(api('responsive_single_product_sidebar_position'))
 		{
 			hideWoocommerceSidebarWidthControl( api('responsive_single_product_sidebar_position').get(), 'single_product');
+			hideWoocommerceSidebarStyleControl( api('responsive_single_product_sidebar_position').get(), 'single_product');
 		}
 		if(api('responsive_shop_sidebar_position')){
 			hideWoocommerceMainContentWidthControl( api('responsive_shop_sidebar_position').get(), 'shop');
@@ -72,6 +78,7 @@ const TabsComponent = props => {
 			value.bind( function( newval ) {
 				if ( newval ) {
 					hideSidebarWidthControl(newval, 'page');
+					hideSidebarStyleControl(newval, 'page');
 				}
 			});
 		});
@@ -79,6 +86,7 @@ const TabsComponent = props => {
 			value.bind( function( newval ) {
 				if ( newval ) {
 					hideSidebarWidthControl(newval, 'blog');
+					hideSidebarStyleControl(newval, 'blog');
 				}
 			});
 		});
@@ -86,10 +94,20 @@ const TabsComponent = props => {
 			value.bind( function( newval ) {
 				if( newval ) {
 					hideSidebarWidthControl(newval, 'global');
+					hideSidebarStyleControl(newval, 'default');
+					hideSidebarSpacingControls(newval);
+					hideSidebarWidthControl(api('responsive_page_sidebar_position').get(), 'page');
+					hideSidebarStyleControl(api('responsive_page_sidebar_position').get(), 'page');
+					hideSidebarWidthControl(api('responsive_blog_sidebar_position').get(), 'blog');
+					hideSidebarStyleControl(api('responsive_blog_sidebar_position').get(), 'blog');
 					if(api('responsive_shop_sidebar_position')){
+						hideWoocommerceSidebarWidthControl(api('responsive_shop_sidebar_position').get(), 'shop');
+						hideWoocommerceSidebarStyleControl(api('responsive_shop_sidebar_position').get(), 'shop');
 						hideWoocommerceMainContentWidthControl(api('responsive_shop_sidebar_position').get(), 'shop');
 					}
 					if(api('responsive_single_product_sidebar_position')){
+						hideWoocommerceSidebarWidthControl(api('responsive_single_product_sidebar_position').get(), 'single_product');
+						hideWoocommerceSidebarStyleControl(api('responsive_single_product_sidebar_position').get(), 'single_product');
 						hideWoocommerceMainContentWidthControl(api('responsive_single_product_sidebar_position').get(), 'single_product');
 					}
 				}
@@ -99,6 +117,7 @@ const TabsComponent = props => {
 			value.bind( function( newval ) {
 				if( newval ) {
 					hideWoocommerceSidebarWidthControl(newval, 'shop');
+					hideWoocommerceSidebarStyleControl(newval, 'shop');
 					hideWoocommerceMainContentWidthControl(newval, 'shop');
 				}
 			})
@@ -107,6 +126,7 @@ const TabsComponent = props => {
 			value.bind( function( newval ) {
 				if( newval ) {
 					hideWoocommerceSidebarWidthControl(newval, 'single_product');
+					hideWoocommerceSidebarStyleControl(newval, 'single_product');
 					hideWoocommerceMainContentWidthControl(newval, 'single_product');
 				}
 			})
@@ -712,8 +732,13 @@ const TabsComponent = props => {
         // For global sidebar: only hide when 'no'
         isVisible = value !== 'no' && tab === 'general';
     } else {
-        // For page/blog: hide when 'no' or 'global'
-        isVisible = value !== 'no' && value !== 'global' && tab === 'general';
+        // For page/blog: hide when 'no' or resolve 'global'
+        if (value === 'global') {
+            const globalValue = api('responsive_default_sidebar_position') ? api('responsive_default_sidebar_position').get() : 'no';
+            isVisible = globalValue !== 'no' && tab === 'general';
+        } else {
+            isVisible = value !== 'no' && tab === 'general';
+        }
     }
 
     if (isVisible) {
@@ -721,19 +746,93 @@ const TabsComponent = props => {
     }
 };
 
+	const hideSidebarStyleControl = (value, control) => {
+		const controlId = (control === 'global' || control === 'default')
+			? 'customize-control-responsive_sidebar_style'
+			: `customize-control-responsive_${control}_sidebar_style`;
+		const controlElement = document.getElementById(controlId);
+
+		if (!controlElement) return;
+
+		controlElement.style.display = 'none';
+
+		let isVisible = false;
+		if (control === 'global' || control === 'default') {
+			// For global sidebar: only hide when 'no'
+			isVisible = value !== 'no' && tab === 'general';
+		} else {
+			// For page/blog: hide when 'no' or resolve 'global'
+			if (value === 'global') {
+				const globalValue = api('responsive_default_sidebar_position') ? api('responsive_default_sidebar_position').get() : 'no';
+				isVisible = globalValue !== 'no' && tab === 'general';
+			} else {
+				isVisible = value !== 'no' && tab === 'general';
+			}
+		}
+
+		if (isVisible) {
+			controlElement.style.display = 'block';
+		}
+	};
+
+	const hideSidebarSpacingControls = (value) => {
+		const spacingControls = [
+			'customize-control-responsive_sidebar_spacing',
+			'customize-control-responsive_sidebar_outside_container_padding',
+			'customize-control-responsive_sidebar_inside_container_padding'
+		];
+
+		spacingControls.forEach(controlId => {
+			const element = document.getElementById(controlId);
+			if (!element) return;
+
+			element.style.display = 'none';
+
+			// Show only if default sidebar position is not 'no' AND active tab is 'design'
+			const isVisible = value !== 'no' && tab === 'design';
+			if (isVisible) {
+				element.style.display = 'block';
+			}
+		});
+	};
+
 	const hideWoocommerceSidebarWidthControl = (value,control) => {
 		const controlId = `customize-control-responsive_${control}_sidebar_width`;
 		const controlElement = document.getElementById(controlId);
 		if (!controlElement) return;
 		controlElement.style.display = 'none';
 
-		// For shop/single product sidebar: hide when 'no' or 'global'
-		let isVisible = value !== 'no' && value !== 'global' && tab === 'general';
+		let isVisible = false;
+		if (value === 'global') {
+			const globalValue = api('responsive_default_sidebar_position') ? api('responsive_default_sidebar_position').get() : 'no';
+			isVisible = globalValue !== 'no' && tab === 'general';
+		} else {
+			isVisible = value !== 'no' && tab === 'general';
+		}
 
 		if (isVisible) {
 			controlElement.style.display = 'block';
 		}
-	}
+	};
+
+	const hideWoocommerceSidebarStyleControl = (value,control) => {
+		const controlId = `customize-control-responsive_${control}_sidebar_style`;
+		const controlElement = document.getElementById(controlId);
+		if (!controlElement) return;
+		controlElement.style.display = 'none';
+
+		let isVisible = false;
+		if (value === 'global') {
+			const globalValue = api('responsive_default_sidebar_position') ? api('responsive_default_sidebar_position').get() : 'no';
+			isVisible = globalValue !== 'no' && tab === 'general';
+		} else {
+			isVisible = value !== 'no' && tab === 'general';
+		}
+
+		if (isVisible) {
+			controlElement.style.display = 'block';
+		}
+	};
 
 	const hideWoocommerceMainContentWidthControl = (value, control) => {
 		const controlId = `customize-control-responsive_${control}_content_width`;

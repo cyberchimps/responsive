@@ -215,6 +215,7 @@ function responsive_register_options() {
 		'class-responsive-header-widgets-customizer',
 		'class-responsive-mobile-header-widgets-customizer',
 		'class-responsive-sidebar-layout-customizer',
+		'class-responsive-container-layout-customizer',
 		'hfb-builder/class-responsive-header-footer-builder',
 		'hfb-builder/header/class-responsive-hfb-header-above-row',
 		'hfb-builder/header/class-responsive-hfb-header-pimary-row',
