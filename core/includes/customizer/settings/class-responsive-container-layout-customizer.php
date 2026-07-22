@@ -97,7 +97,7 @@ if ( ! class_exists( 'Responsive_Container_Layout_Customizer' ) ) :
 
 			// Woocommerce Single Product Container Layout.
 			$single_product_container_layout_label = esc_html__( 'Container Layout', 'responsive' );
-			responsive_separator_control( $wp_customize, 'single_product_container_layout_separator', $single_product_container_layout_label, 'responsive_woocommerce_single_product_layout', 40 );
+			responsive_separator_control( $wp_customize, 'single_product_container_layout_separator', $single_product_container_layout_label, 'responsive_woocommerce_single_product_layout', 6 );
 
 			responsive_imageradio_button_control( $wp_customize, 'single_product_container_layout', $single_product_container_layout_label, 'responsive_woocommerce_single_product_layout', 6, $container_layout_choices, 'default', null, 'svg', 'refresh' );
 
