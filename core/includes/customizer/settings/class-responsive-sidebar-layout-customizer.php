@@ -38,9 +38,6 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
         {
             $general_tab_ids_prefix = 'customize-control-';
             $general_tab_ids = array(
-                $general_tab_ids_prefix . 'responsive_sidebar_outside_container_padding', 
-                $general_tab_ids_prefix . 'responsive_sidebar_inside_container_padding', 
-                $general_tab_ids_prefix . 'responsive_sidebar_spacing', 
                 $general_tab_ids_prefix . 'responsive_sidebar_separator', 
                 $general_tab_ids_prefix . 'responsive_default_sidebar_position',
                 $general_tab_ids_prefix . 'responsive_sidebar_style',
@@ -59,7 +56,10 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
                 $design_tab_ids_prefix . 'responsive_sidebar_headings_separator', 
                 $design_tab_ids_prefix . 'responsive_sidebar_text_separator', 
                 $design_tab_ids_prefix . 'responsive_sidebar_link_separator', 
-                $design_tab_ids_prefix . 'responsive_sidebar_typography_separator'
+                $design_tab_ids_prefix . 'responsive_sidebar_typography_separator',
+                $design_tab_ids_prefix . 'responsive_sidebar_spacing',
+                $design_tab_ids_prefix . 'responsive_sidebar_outside_container_padding', 
+                $design_tab_ids_prefix . 'responsive_sidebar_inside_container_padding'
             ); 
 
             $tabs_label            = esc_html__( 'Tabs', 'responsive' );
