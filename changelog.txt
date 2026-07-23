@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(23/07/2026) Version 6.4.0
+[+] = New = Introduced Sidebar Style settings in the Theme Customizer for enhanced sidebar customization.
+[+] = New = Introduced Container Layout and Container Style controls for Pages, Single Posts, Blog/Archive pages, WooCommerce Product Catalog, and Single Product pages to provide more flexible layout customization.
+[!] = Fix = Minor Bug Fixes and Improvements.
+
 (17/07/2026) Version 6.3.9
 [*] = Improvement = Updated dashboard UI and connection modules for full compatibility with Responsive Pro v5.0.0.
 [*] = Improvement = Improved overall performance and integration across Responsive ecosystem plugins.
