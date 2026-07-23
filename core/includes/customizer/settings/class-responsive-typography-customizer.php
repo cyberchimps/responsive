@@ -68,7 +68,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 2,
 					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
-						'font-family'    => 'Inter',
+						'font-family'    => 'System Font',
 						'font-size'      => '16px',
 						'font-weight'    => '400',
 						'line-height'    => '1.75',
@@ -107,7 +107,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 9,
 					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
-						'font-family'    => 'Inter',
+						'font-family'    => 'System Font',
 						'font-size'      => '30px',
 						'font-weight'    => '600',
 						'line-height'    => '1.25',
@@ -168,7 +168,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 19,
 					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
-						'font-family'    => 'Inter',
+						'font-family'    => 'System Font',
 						'font-size'      => '12px',
 						'line-height'    => '1.75',
 						'text-transform' => 'uppercase',
@@ -203,7 +203,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 14,
 					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
-						'font-family'    => 'Inter',
+						'font-family'    => 'System Font',
 						'font-size'      => '20px',
 						'line-height'    => '1',
 						'letter-spacing' => '0',
@@ -216,7 +216,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 15,
 					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
-						'font-family'    => 'Inter',
+						'font-family'    => 'System Font',
 						'font-size'      => '13px',
 						'line-height'    => '1.25',
 						'letter-spacing' => '0',
@@ -260,7 +260,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority'        => 110,
 					'active_callback' => 'responsive_disabled_main_menu',
 					'defaults'        => array(
-						'font-family' => 'Inter',
+						'font-family' => 'System Font',
 						'font-size'   => '16px',
 						'font-weight' => '600',
 						'line-height' => '1.75',
@@ -1158,6 +1158,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								$val = str_replace( '\'', '', $val );
 							} else {
 								$val = $val;
+							}
+							if ( 'System Font' === $val || '\'System Font\'' === $val || '"System Font"' === $val ) {
+								$val = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
 							}
 							$fonts[] = $val;
 						}

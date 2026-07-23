@@ -107,7 +107,8 @@
 
     .responsive-site-style-content-boxed & {
         margin: 0;
-        border-bottom: 1px solid map-get($colors, light-gray);
+        border: 1px solid map-get($colors, light-gray);
+        border-radius: none !important;
     }
 
     .entry-title {
@@ -122,6 +123,17 @@
         .thumbnail-caption {
             font-size: map-get($font-sizes, small);
         }
+    }
+
+    .entry-category,
+    .entry-category a,
+    .blog-entry-category,
+    .blog-entry-category a,
+    .posted-in,
+    .posted-in a,
+    .cat-links,
+    .cat-links a {
+        text-transform: capitalize;
     }
 
     .post-data,
