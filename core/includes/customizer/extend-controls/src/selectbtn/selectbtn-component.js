@@ -38,15 +38,28 @@ const SelectButtonComponent = props => {
 	}
 
 	let optionsHtml = Object.entries(choices).map(([choiceValue, icon]) => {
+		let tooltipText = '';
+		if (id && id.includes('text-transform')) {
+			if (choiceValue === '') tooltipText = 'Default';
+			else if (choiceValue === 'capitalize') tooltipText = 'Capitalize';
+			else if (choiceValue === 'lowercase') tooltipText = 'Lowercase';
+			else if (choiceValue === 'uppercase') tooltipText = 'Uppercase';
+		} else if (id && id.includes('font-style')) {
+			if (choiceValue === 'italic') tooltipText = 'Italic';
+			else if (choiceValue === 'normal') tooltipText = 'Normal';
+		}
+		const tooltipHtml = tooltipText ? <span className="responsive-tooltip">{tooltipText}</span> : null;
+
 		if(icon.toLowerCase().includes('dashicons')) {
 			return (
 				<button
 				key={choiceValue}
 				type="button"
-				className={`customize-control-responsive-selectbtn__button selectbtn-dashicon ${props_value === choiceValue ? 'active' : ''}`}
+				className={`customize-control-responsive-selectbtn__button selectbtn-dashicon ${props_value === choiceValue ? 'active' : ''} ${tooltipText ? 'has-tooltip' : ''}`}
 				onClick={() => onOptionClick(choiceValue)}
 				>
 				<span className={`responsive-selectbtn-dashicon dashicons ${icon}`} />
+				{tooltipHtml}
 				</button>
 			);
 		}
@@ -55,10 +68,11 @@ const SelectButtonComponent = props => {
 			<button
 					key={choiceValue}
 					type="button"
-					className={`customize-control-responsive-selectbtn__button selectbtn-text ${props_value === choiceValue ? 'active' : ''}`}
+					className={`customize-control-responsive-selectbtn__button selectbtn-text ${props_value === choiceValue ? 'active' : ''} ${tooltipText ? 'has-tooltip' : ''}`}
 					onClick={() => onOptionClick(choiceValue)}
 					>
 					<span className={`responsive-selectbtn-text ${icon}`}>Icon</span>
+					{tooltipHtml}
 				</button>
 			);
 		}
@@ -67,19 +81,21 @@ const SelectButtonComponent = props => {
 				<button
 					key={choiceValue}
 					type="button"
-					className={`customize-control-responsive-selectbtn__button selectbtn-icon ${props_value === choiceValue ? 'active' : ''}`}
+					className={`customize-control-responsive-selectbtn__button selectbtn-icon ${props_value === choiceValue ? 'active' : ''} ${tooltipText ? 'has-tooltip' : ''}`}
 					onClick={() => onOptionClick(choiceValue)}
 				>
 					{Icons[icon]}
+					{tooltipHtml}
 				</button>
 			) : (
 				<button
 					key={choiceValue}
 					type="button"
-					className={`customize-control-responsive-selectbtn__button selectbtn-icon ${props_value === choiceValue ? 'active' : ''}`}
+					className={`customize-control-responsive-selectbtn__button selectbtn-icon ${props_value === choiceValue ? 'active' : ''} ${tooltipText ? 'has-tooltip' : ''}`}
 					onClick={() => onOptionClick(choiceValue)}
 				>
 					<span className={`responsive-selectbtn-icon icon ${icon}`} />
+					{tooltipHtml}
 				</button>
 			);
 		}
@@ -88,10 +104,11 @@ const SelectButtonComponent = props => {
 			<button
 				key={choiceValue}
 				type="button"
-				className={`customize-control-responsive-selectbtn__button selectbtn-text ${props_value === choiceValue ? 'active' : ''}`}
+				className={`customize-control-responsive-selectbtn__button selectbtn-text ${props_value === choiceValue ? 'active' : ''} ${tooltipText ? 'has-tooltip' : ''}`}
 				onClick={() => onOptionClick(choiceValue)}
 				>
 				<span className={`responsive-selectbtn-text ${icon}`}>{icon}</span>
+				{tooltipHtml}
 			</button>
 		);
 	});
