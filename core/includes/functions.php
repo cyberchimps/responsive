@@ -847,7 +847,13 @@ function responsive_add_container_layout_body_classes( $classes ) {
 
 	if ( 'default' !== $container_layout ) {
 		$classes   = array_diff( $classes, array( 'responsive-site-' . get_theme_mod( 'responsive_width', 'contained' ) ) );
-		$classes[] = 'responsive-site-' . ( 'full-width' === $container_layout ? 'full-width' : 'contained' );
+		if ( 'full-width' === $container_layout ) {
+			$classes[] = 'responsive-site-full-width';
+		} elseif ( 'narrow' === $container_layout ) {
+			$classes[] = 'responsive-site-narrow';
+		} else {
+			$classes[] = 'responsive-site-contained';
+		}
 	}
 
 	return $classes;
