@@ -48,7 +48,7 @@ if ( ! class_exists( 'Responsive_Container_Layout_Customizer' ) ) :
 			responsive_separator_control( $wp_customize, 'page_container_layout_separator', $page_container_layout_label, 'responsive_page', 14 );
 
 			//$page_container_layout_label = esc_html__( 'Container Layout', 'responsive' );
-			responsive_imageradio_button_control( $wp_customize, 'page_container_layout', $page_container_layout_label, 'responsive_page', 15, $container_layout_choices, 'default', null, 'svg', 'refresh' );
+			responsive_imageradio_button_control( $wp_customize, 'page_container_layout', $page_container_layout_label, 'responsive_page', 15, $container_layout_choices, 'default_container', null, 'svg', 'refresh' );
 
 			responsive_horizontal_separator_control( $wp_customize, 'page_container_style_separator', 1, 'responsive_page', 16, 1 );
 
@@ -65,7 +65,7 @@ if ( ! class_exists( 'Responsive_Container_Layout_Customizer' ) ) :
 			$blog_container_layout_label = esc_html__( 'Container Layout', 'responsive' );
 			responsive_separator_control( $wp_customize, 'blog_container_layout_separator', $blog_container_layout_label, 'responsive_blog_layout', 10 );
 
-			responsive_imageradio_button_control( $wp_customize, 'blog_container_layout', $blog_container_layout_label, 'responsive_blog_layout', 11, $container_layout_choices, 'default', null, 'svg', 'refresh' );
+			responsive_imageradio_button_control( $wp_customize, 'blog_container_layout', $blog_container_layout_label, 'responsive_blog_layout', 11, $container_layout_choices, 'default_container', null, 'svg', 'refresh' );
 
 			responsive_horizontal_separator_control( $wp_customize, 'blog_container_style_separator', 1, 'responsive_blog_layout', 12, 1 );
 
@@ -83,7 +83,7 @@ if ( ! class_exists( 'Responsive_Container_Layout_Customizer' ) ) :
 			$single_blog_container_layout_label = esc_html__( 'Container Layout', 'responsive' );
 			responsive_separator_control( $wp_customize, 'single_blog_container_layout_separator', $single_blog_container_layout_label, 'responsive_single_blog_layout', 5 );
 
-			responsive_imageradio_button_control( $wp_customize, 'single_blog_container_layout', $single_blog_container_layout_label, 'responsive_single_blog_layout', 6, $container_layout_choices, 'default', null, 'svg', 'refresh' );
+			responsive_imageradio_button_control( $wp_customize, 'single_blog_container_layout', $single_blog_container_layout_label, 'responsive_single_blog_layout', 6, $container_layout_choices, 'default_container', null, 'svg', 'refresh' );
 
 			responsive_horizontal_separator_control( $wp_customize, 'single_blog_container_style_separator', 1, 'responsive_single_blog_layout', 7, 1 );
 
@@ -100,7 +100,7 @@ if ( ! class_exists( 'Responsive_Container_Layout_Customizer' ) ) :
 			$single_product_container_layout_label = esc_html__( 'Container Layout', 'responsive' );
 			responsive_separator_control( $wp_customize, 'single_product_container_layout_separator', $single_product_container_layout_label, 'responsive_woocommerce_single_product_layout', 6 );
 
-			responsive_imageradio_button_control( $wp_customize, 'single_product_container_layout', $single_product_container_layout_label, 'responsive_woocommerce_single_product_layout', 6, $container_layout_choices, 'default', null, 'svg', 'refresh' );
+			responsive_imageradio_button_control( $wp_customize, 'single_product_container_layout', $single_product_container_layout_label, 'responsive_woocommerce_single_product_layout', 6, $container_layout_choices, 'default_container', null, 'svg', 'refresh' );
 
 			responsive_horizontal_separator_control( $wp_customize, 'single_product_container_style_separator', 1, 'responsive_woocommerce_single_product_layout', 7, 1 );
 
@@ -117,7 +117,7 @@ if ( ! class_exists( 'Responsive_Container_Layout_Customizer' ) ) :
 			$product_catalog_container_layout_label = esc_html__( 'Container Layout', 'responsive' );
 			responsive_separator_control( $wp_customize, 'product_catalog_container_layout_separator', $product_catalog_container_layout_label, 'responsive_woocommerce_shop', 5 );
 
-			responsive_imageradio_button_control( $wp_customize, 'product_catalog_container_layout', $product_catalog_container_layout_label, 'responsive_woocommerce_shop', 6, $container_layout_choices, 'default', null, 'svg', 'refresh' );
+			responsive_imageradio_button_control( $wp_customize, 'product_catalog_container_layout', $product_catalog_container_layout_label, 'responsive_woocommerce_shop', 6, $container_layout_choices, 'default_container', null, 'svg', 'refresh' );
 
 			responsive_horizontal_separator_control( $wp_customize, 'product_catalog_container_style_separator', 1, 'responsive_woocommerce_shop', 7, 1 );
 
