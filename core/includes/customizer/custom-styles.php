@@ -333,17 +333,16 @@ function responsive_customizer_styles() {
 	}
 
 	// Container Style (Default / Boxed / Unboxed)
-	$global_container_style     = get_theme_mod( 'responsive_style', 'unboxed' );
-//	$global_container_style_key = in_array( $global_container_style, array( 'boxed', 'content-boxed' ), true ) ? $global_container_style : 'unboxed';
-if ( 'flat' === $global_container_style ) {
-    $global_container_style_key = 'flat';
-} elseif ( 'boxed' === $global_container_style ) {
-    $global_container_style_key = 'boxed';
-} elseif ( 'content-boxed' === $global_container_style ) {
-    $global_container_style_key = 'content-boxed';
-} else {
-    $global_container_style_key = 'unboxed';
-}
+	$global_container_style     = get_theme_mod( 'responsive_style', 'boxed' );
+	if ( 'flat' === $global_container_style ) {
+		$global_container_style_key = 'flat';
+	} elseif ( 'boxed' === $global_container_style ) {
+		$global_container_style_key = 'boxed';
+	} elseif ( 'content-boxed' === $global_container_style ) {
+		$global_container_style_key = 'content-boxed';
+	} else {
+		$global_container_style_key = 'unboxed';
+	}
 	// Page Container Style.
 	if ( is_page() ) {
 		$page_container_style_setting = get_post_meta( get_the_ID(), 'responsive_page_meta_container_style', true );
