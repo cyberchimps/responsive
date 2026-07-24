@@ -16,6 +16,20 @@ function responsive_standard_fonts()
 	return apply_filters(
 		'responsive_standard_fonts_array',
 		array(
+			'System Font'     => array(
+				array(
+					100,
+					200,
+					300,
+					400,
+					500,
+					600,
+					700,
+					800,
+					900,
+				),
+				'-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+			),
 			'Open Sans'       => array(
 				array(
 					300,

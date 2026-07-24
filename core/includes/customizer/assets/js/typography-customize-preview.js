@@ -9,6 +9,13 @@
     // Declare vars
     var api = wp.customize;
 
+    function sanitizeFontFamily( font ) {
+        if ( font === 'System Font' || font === "'System Font'" || font === '"System Font"' ) {
+            return '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
+        }
+        return font;
+    }
+
     /******** TYPOGRAPHY OPTIONS LOOP *********/
     if ( responsive.isThemeGreater ) {
         api( "page_title_typography[font-family]", function( $swipe ) {
@@ -173,6 +180,7 @@
     }
     api( "body_typography[font-family]", function( $swipe ) {
         $swipe.bind( function( pair ) {
+            pair = sanitizeFontFamily( pair );
             if ( pair ) {
                 /** @type {string} */
                 var fontName = pair.split(",")[0];

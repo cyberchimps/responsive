@@ -867,7 +867,7 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 		<span class="entry-author" <?php responsive_schema_markup( 'entry-author' ); ?>>
 			<?php
 				printf(
-					'<i class="icon-calendar" aria-hidden="true"></i><span class="%1$s">' . esc_html_e( 'Posted on', 'responsive' ) . '</span>%2$s<span class="%3$s"> ' . esc_html_e( 'By', 'responsive' ) . ' </span>%4$s',
+					'<span class="%3$s"></span>%4$s &bull; <span class="%1$s"></span>%2$s',
 					'meta-prep meta-prep-author posted',
 					sprintf(
 						'<a href="%1$s" aria-label="%2$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s">%4$s</time></a>',
@@ -1116,16 +1116,17 @@ function defaults() {
 	$theme_options = apply_filters(
 		'responsive_theme_defaults',
 		array(
-			'entry_columns'                       => 2,
+			'entry_columns'                       => 3,
 			'buttons_radius'                      => 0,
-			'responsive_border_box'               => 8,
+			'responsive_border_box'               => 4,
 			'shop_content_width'                  => 100,
-			'blog_content_width'                  => 66,
+			'blog_content_width'                  => 100,
+			'responsive_container_width'		  => 1340,
 			'single_blog_content_width'           => 66,
-			'page_content_width'                  => 66,
+			'page_content_width'                  => 100,
 			'breadcrumb_alignment'                => 'center',
-			'read_more_text'                      => 'Read more &raquo;',
-			'blog_entry_elements_positioning'     => array( 'title', 'meta', 'featured_image', 'content' ),
+			'read_more_text'                      => 'Read more →',
+			'blog_entry_elements_positioning'     => array( 'featured_image', 'categories', 'title', 'meta', 'content' ),
 			'blog_single_elements_positioning'    => array( 'title', 'meta', 'featured_image', 'content' ),
 
 			// alignment.
@@ -1259,7 +1260,7 @@ function defaults() {
 			// 'responsive_header_alignment'         => 'center',
 			'header_menu_full_width'              => 1,
 			'header_secondary_menu_full_width'    => 1,
-			'blog_content_width'                  => 66,
+			'blog_content_width'                  => 100,
 			'res_breadcrumb'                      => 1,
 			'blog_sidebar_position'               => 'global',
 			'header_social_show_label'            => 0,

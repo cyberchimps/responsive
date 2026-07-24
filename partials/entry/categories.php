@@ -1,6 +1,6 @@
 <?php
 /**
- * Category for the thumbnail style.
+ * Displays the post entry categories
  *
  * @package Responsive WordPress theme
  */
@@ -9,7 +9,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
 // Get positioning elements.
 $elements = responsive_blog_entry_elements_positioning();
 
@@ -17,11 +16,15 @@ $elements = responsive_blog_entry_elements_positioning();
 if ( ! in_array( 'categories', $elements, true ) ) {
 	return;
 }
+?>
 
-if ( 'post' == get_post_type() ) { ?>
-
-	<div class="blog-entry-category clr">
-		<?php the_category( ' / ', get_the_ID() ); ?>
-	</div>
-
-<?php } ?>
+<div class="post-meta entry-meta">
+	<span class="entry-category">
+		<span class='posted-in'>
+			<?php
+			/* translators: %s: category list */
+			echo wp_kses_post( get_the_category_list( __( ', ', 'responsive' ) ) );
+			?>
+		</span>
+	</span>
+</div>
