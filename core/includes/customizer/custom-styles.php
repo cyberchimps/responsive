@@ -8856,6 +8856,15 @@ if ( 'flat' === $global_container_style ) {
 			}
 		}";
 	}
+
+	// Single Blog - Page Tite
+	// check if enabled
+	$single_blog_post_title = get_theme_mod( 'responsive_single_blog_post_title', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_post_title' ) );
+	if( $single_blog_post_title ) {
+
+	} else {
+		// hiding the single blog page title
+	}
 	
 	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', responsive_minimize_css( $custom_css ) ) );
 	wp_add_inline_style('responsive-style', responsive_minimize_css( $font_preset_css));
