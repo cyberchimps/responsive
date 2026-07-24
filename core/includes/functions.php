@@ -1122,6 +1122,7 @@ function defaults() {
 			'shop_content_width'                  => 100,
 			'blog_content_width'                  => 100,
 			'responsive_container_width'		  => 1340,
+			'responsive_narrow_container_width'   => 750,
 			'single_blog_content_width'           => 66,
 			'page_content_width'                  => 100,
 			'breadcrumb_alignment'                => 'center',

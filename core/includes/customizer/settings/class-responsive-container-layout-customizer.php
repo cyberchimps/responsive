@@ -39,6 +39,7 @@ if ( ! class_exists( 'Responsive_Container_Layout_Customizer' ) ) :
 			$container_layout_choices = array(
 				'default_container'    => esc_html__( 'Default', 'responsive' ),
 				'normal'     => esc_html__( 'Normal', 'responsive' ),
+				'narrow'     => esc_html__( 'Narrow', 'responsive' ),
 				'full-width' => esc_html__( 'Full Width', 'responsive' ),
 			);
 

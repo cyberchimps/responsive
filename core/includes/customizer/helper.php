@@ -1759,6 +1759,18 @@ function responsive_active_site_layout_contained() {
 }
 
 /**
+ * responsive_active_site_layout_narrow.
+ *
+ * @return bool
+ */
+function responsive_active_site_layout_narrow() {
+
+	$header_layout = get_theme_mod( 'responsive_width', 'contained' );
+
+	return ( 'narrow' === $header_layout ) ? true : false;
+}
+
+/**
  * [responsive_not_active_site_style_flat description]
  *
  * @return [type] [description]
