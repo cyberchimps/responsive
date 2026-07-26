@@ -833,20 +833,63 @@ function responsive_add_custom_body_classes( $classes ) {
  * @param array $classes Body classes.
  * @return array
  */
-function responsive_add_container_layout_body_classes( $classes ) {
-
+/**
+ * Check if the narrow container layout is active for the current page context.
+ *
+ * @return bool
+ */
+function responsive_is_narrow_container_layout() {
 	$container_layout = 'default';
 
-	if ( is_page() ) {
-		$container_layout = get_theme_mod( 'responsive_page_container_layout', 'default' );
+	if ( class_exists( 'WooCommerce' ) && ( is_shop() || is_product_category() || is_product_tag() ) ) {
+		$container_layout = get_theme_mod( 'responsive_product_catalog_container_layout', 'default' );
+	} elseif ( class_exists( 'WooCommerce' ) && is_product() ) {
+		$container_layout = get_theme_mod( 'responsive_single_product_container_layout', 'default' );
+	} elseif ( is_page() ) {
+		$container_layout = get_post_meta( get_the_ID(), 'responsive_page_meta_container_layout', true );
+		if ( ! $container_layout ) {
+			$container_layout = get_theme_mod( 'responsive_page_container_layout', 'default' );
+		}
 	} elseif ( is_single() ) {
 		$container_layout = get_theme_mod( 'responsive_single_blog_container_layout', 'default' );
 	} elseif ( ! is_singular() && ( is_home() || is_archive() ) && ! is_search() ) {
 		$container_layout = get_theme_mod( 'responsive_blog_container_layout', 'default' );
 	}
 
-	if ( 'default' !== $container_layout ) {
-		$classes   = array_diff( $classes, array( 'responsive-site-' . get_theme_mod( 'responsive_width', 'contained' ) ) );
+	$global_container_layout = get_theme_mod( 'responsive_width', 'contained' );
+	$global_container_layout_key = 'normal';
+	if ( 'full-width' === $global_container_layout ) {
+		$global_container_layout_key = 'full-width';
+	} elseif ( 'narrow' === $global_container_layout ) {
+		$global_container_layout_key = 'narrow';
+	}
+
+	$resolved_layout = ( 'default' === $container_layout || 'default_container' === $container_layout ) ? $global_container_layout_key : $container_layout;
+
+	return 'narrow' === $resolved_layout;
+}
+
+function responsive_add_container_layout_body_classes( $classes ) {
+
+	$container_layout = 'default';
+
+	if ( class_exists( 'WooCommerce' ) && ( is_shop() || is_product_category() || is_product_tag() ) ) {
+		$container_layout = get_theme_mod( 'responsive_product_catalog_container_layout', 'default' );
+	} elseif ( class_exists( 'WooCommerce' ) && is_product() ) {
+		$container_layout = get_theme_mod( 'responsive_single_product_container_layout', 'default' );
+	} elseif ( is_page() ) {
+		$container_layout = get_post_meta( get_the_ID(), 'responsive_page_meta_container_layout', true );
+		if ( ! $container_layout ) {
+			$container_layout = get_theme_mod( 'responsive_page_container_layout', 'default' );
+		}
+	} elseif ( is_single() ) {
+		$container_layout = get_theme_mod( 'responsive_single_blog_container_layout', 'default' );
+	} elseif ( ! is_singular() && ( is_home() || is_archive() ) && ! is_search() ) {
+		$container_layout = get_theme_mod( 'responsive_blog_container_layout', 'default' );
+	}
+
+	if ( 'default' !== $container_layout && 'default_container' !== $container_layout ) {
+		$classes = array_diff( $classes, array( 'responsive-site-' . get_theme_mod( 'responsive_width', 'contained' ) ) );
 		if ( 'full-width' === $container_layout ) {
 			$classes[] = 'responsive-site-full-width';
 		} elseif ( 'narrow' === $container_layout ) {
@@ -854,6 +897,15 @@ function responsive_add_container_layout_body_classes( $classes ) {
 		} else {
 			$classes[] = 'responsive-site-contained';
 		}
+	}
+
+	if ( responsive_is_narrow_container_layout() ) {
+		$classes = array_diff( $classes, array(
+			'sidebar-position-left',
+			'sidebar-position-right',
+			'sidebar-position-no',
+		) );
+		$classes[] = 'sidebar-position-no';
 	}
 
 	return $classes;

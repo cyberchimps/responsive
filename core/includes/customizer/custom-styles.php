@@ -125,7 +125,10 @@ function responsive_customizer_styles() {
 	$global_sidebar_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
 	$page_sidebar_setting = get_theme_mod( 'responsive_page_sidebar_position', 'global' );
 	$responsive_page_sidebar_position = esc_html( ($page_sidebar_setting === 'global' || $page_sidebar_setting === 'default') ? $global_sidebar_position : $page_sidebar_setting);
-	if($page_sidebar_setting === 'global' || $page_sidebar_setting === 'default')
+	if ( Responsive\Core\responsive_is_narrow_container_layout() ) {
+		$responsive_page_sidebar_width = 0; 
+		$page_primary_content_area_width = 100;
+	} else if($page_sidebar_setting === 'global' || $page_sidebar_setting === 'default')
 	{
 		$responsive_page_sidebar_width = esc_html(get_theme_mod('responsive_default_sidebar_width', 30)); 
 		$page_primary_content_area_width  = 100 - $responsive_page_sidebar_width;
@@ -147,7 +150,10 @@ function responsive_customizer_styles() {
 		( $blog_sidebar_setting === 'global' || $blog_sidebar_setting === 'default' ) ? $global_sidebar_position : $blog_sidebar_setting
 	);
 
-	if($blog_sidebar_setting === 'left' || $blog_sidebar_setting === 'right')
+	if ( Responsive\Core\responsive_is_narrow_container_layout() ) {
+		$responsive_blog_archive_sidebar_width = 0; 
+		$blog_archive_primary_content_area_width  = 100;
+	} else if($blog_sidebar_setting === 'left' || $blog_sidebar_setting === 'right')
 	{
 		$responsive_blog_archive_sidebar_width    = esc_html( get_theme_mod( 'responsive_blog_sidebar_width', 30 ) );
 		$blog_archive_primary_content_area_width  = 100 - $responsive_blog_archive_sidebar_width;
@@ -170,7 +176,10 @@ function responsive_customizer_styles() {
 		( $single_blog_sidebar_setting === 'global' || $single_blog_sidebar_setting === 'default' ) ? $global_sidebar_position : $single_blog_sidebar_setting 
 	);
 
-	if($single_blog_sidebar_setting === 'global' || $single_blog_sidebar_setting === 'default')
+	if ( Responsive\Core\responsive_is_narrow_container_layout() ) {
+		$responsive_single_blog_sidebar_width = 0; 
+		$single_blog_primary_content_area_width = 100;
+	} else if($single_blog_sidebar_setting === 'global' || $single_blog_sidebar_setting === 'default')
 	{
 		$responsive_single_blog_sidebar_width = esc_html(get_theme_mod('responsive_default_sidebar_width', 30));
 		$single_blog_primary_content_area_width  = 100 - $responsive_single_blog_sidebar_width;
@@ -8993,7 +9002,11 @@ function responsive_customizer_styles() {
 		$mobile_breakpoint 					 = 544; 
 
 		$shop_sidebar_setting_for_width = get_theme_mod( 'responsive_shop_sidebar_position', 'global' );
-		if( $shop_sidebar_position === 'no' )
+		if ( Responsive\Core\responsive_is_narrow_container_layout() ) {
+			$shop_sidebar_width = 0;
+			$shop_sidebar_position = 'no';
+		}
+		else if( $shop_sidebar_position === 'no' )
 		{
 			$shop_sidebar_width = 0;
 		}
@@ -9111,7 +9124,11 @@ function responsive_customizer_styles() {
 		$single_product_setting        = get_theme_mod( 'responsive_single_product_sidebar_position', 'global' );
 		$single_product_sidebar_position = esc_html( ( $single_product_setting === 'global' || $single_product_setting === 'default' ) ? $global_sidebar : $single_product_setting );
 		
-		if( $single_product_setting === 'global' || $single_product_setting === 'default' )
+		if ( Responsive\Core\responsive_is_narrow_container_layout() ) {
+			$single_product_sidebar_width = 0;
+			$single_product_sidebar_position = 'no';
+		}
+		else if( $single_product_setting === 'global' || $single_product_setting === 'default' )
 		{
 			$single_product_sidebar_width = esc_html( get_theme_mod('responsive_default_sidebar_width', 30) );
 		}
