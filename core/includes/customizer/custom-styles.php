@@ -7821,9 +7821,30 @@ function responsive_customizer_styles() {
 		$blog_border_radius_bottom_right = esc_html( get_theme_mod( 'responsive_blog_border_radius_bottom_right_radius', 8 ) );
 		$blog_border_radius_bottom_left  = esc_html( get_theme_mod( 'responsive_blog_border_radius_bottom_left_radius', 8 ) );
 
+		$blog_border_radius_tablet_top_left     = esc_html( get_theme_mod( 'responsive_blog_border_radius_tablet_top_left_radius', 8 ) );
+		$blog_border_radius_tablet_top_right    = esc_html( get_theme_mod( 'responsive_blog_border_radius_tablet_top_right_radius', 8 ) );
+		$blog_border_radius_tablet_bottom_right = esc_html( get_theme_mod( 'responsive_blog_border_radius_tablet_bottom_right_radius', 8 ) );
+		$blog_border_radius_tablet_bottom_left  = esc_html( get_theme_mod( 'responsive_blog_border_radius_tablet_bottom_left_radius', 8 ) );
+
+		$blog_border_radius_mobile_top_left     = esc_html( get_theme_mod( 'responsive_blog_border_radius_mobile_top_left_radius', 8 ) );
+		$blog_border_radius_mobile_top_right    = esc_html( get_theme_mod( 'responsive_blog_border_radius_mobile_top_right_radius', 8 ) );
+		$blog_border_radius_mobile_bottom_right = esc_html( get_theme_mod( 'responsive_blog_border_radius_mobile_bottom_right_radius', 8 ) );
+		$blog_border_radius_mobile_bottom_left  = esc_html( get_theme_mod( 'responsive_blog_border_radius_mobile_bottom_left_radius', 8 ) );
+
+
 		$custom_css .= ".blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry{
 		
 			border-radius: {$blog_border_radius_top_left}px {$blog_border_radius_top_right}px {$blog_border_radius_bottom_right}px {$blog_border_radius_bottom_left}px;
+			}
+			@media screen and ( max-width: 992px ) {
+				.blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry {
+					border-radius: {$blog_border_radius_tablet_top_left}px {$blog_border_radius_tablet_top_right}px {$blog_border_radius_tablet_bottom_right}px {$blog_border_radius_tablet_bottom_left}px;
+				}
+			}
+			@media screen and ( max-width: 576px ) {
+				.blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry {
+					border-radius: {$blog_border_radius_mobile_top_left}px {$blog_border_radius_mobile_top_right}px {$blog_border_radius_mobile_bottom_right}px {$blog_border_radius_mobile_bottom_left}px;
+				}
 			}";
 
 		// Styling for blog/archive date box.
