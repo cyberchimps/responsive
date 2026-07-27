@@ -7847,6 +7847,21 @@ function responsive_customizer_styles() {
 				}
 			}";
 
+		// Styling for Post Title Size, Meta font size and Taxonomy font size in Blog/Archive 
+		$blog_post_title_size = esc_html( get_theme_mod( 'responsive_blog_post_title_size', 20 ) );
+		$blog_meta_font_size   = esc_html( get_theme_mod( 'responsive_blog_meta_font_size', 14 ) );
+		$blog_taxonomy_font_size = esc_html( get_theme_mod( 'responsive_blog_taxonomy_font_size', 14 ) );
+
+		$custom_css .= "
+		.blog .hentry .entry-title, .archive .hentry .entry-title {
+			font-size: {$blog_post_title_size}px;
+		}
+		.blog .hentry .post-meta span, .blog .hentry .post-meta span.entry-date .posted time, .archive .hentry .post-meta span, .archive .hentry .post-meta span.entry-date .posted time {
+			font-size: {$blog_meta_font_size}px;
+		}
+		.blog .hentry .entry-category a, .archive .hentry .entry-category a {
+			font-size: {$blog_taxonomy_font_size}px;
+		}";
 		// Styling for blog/archive date box.
 		$responsive_date_box             = esc_html( get_theme_mod( 'responsive_date_box_toggle' ) );
 		$date_box_background_color       = esc_html( responsive_prepare_css_value( 'responsive_link_color' ) );
