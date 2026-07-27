@@ -1788,6 +1788,9 @@ function responsive_not_active_site_style_flat() {
  * @return [type] [description]
  */
 function responsive_active_single_blog_sidebar_position() {
+	if ( ! responsive_active_single_blog_sidebar_section() ) {
+		return false;
+	}
 	$position = get_theme_mod( 'responsive_single_blog_sidebar_position', 'global' );
 	if ( 'global' === $position ) {
 		$global_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
@@ -1802,6 +1805,9 @@ function responsive_active_single_blog_sidebar_position() {
  * @return [type] [description]
  */
 function responsive_active_blog_sidebar_position() {
+	if ( ! responsive_active_blog_sidebar_section() ) {
+		return false;
+	}
 	$position = get_theme_mod( 'responsive_blog_sidebar_position', 'global' );
 	if ( 'global' === $position ) {
 		$global_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
@@ -1814,6 +1820,43 @@ function responsive_active_default_sidebar_position() {
 	$position = get_theme_mod( 'responsive_default_sidebar_position', 'no'); 
 		return ( 'no' !== $position && 'global' !== $position ) ? true : false;
 }
+
+/**
+ * Check if the layout resolves to narrow container.
+ *
+ * @param string $container_layout The container layout setting value.
+ * @return bool
+ */
+function responsive_is_layout_narrow( $container_layout ) {
+	$global_container = get_theme_mod( 'responsive_width', 'contained' );
+	$global_resolved = ( 'full-width' === $global_container ) ? 'full-width' : ( ( 'narrow' === $global_container ) ? 'narrow' : 'normal' );
+	$resolved = ( 'default' === $container_layout || 'default_container' === $container_layout ) ? $global_resolved : $container_layout;
+	return 'narrow' === $resolved;
+}
+
+/**
+ * Active callbacks for sidebar sections when container layout is narrow.
+ */
+function responsive_active_page_sidebar_section() {
+	return ! responsive_is_layout_narrow( get_theme_mod( 'responsive_page_container_layout', 'default_container' ) );
+}
+
+function responsive_active_blog_sidebar_section() {
+	return ! responsive_is_layout_narrow( get_theme_mod( 'responsive_blog_container_layout', 'default_container' ) );
+}
+
+function responsive_active_single_blog_sidebar_section() {
+	return ! responsive_is_layout_narrow( get_theme_mod( 'responsive_single_blog_container_layout', 'default_container' ) );
+}
+
+function responsive_active_shop_sidebar_section() {
+	return ! responsive_is_layout_narrow( get_theme_mod( 'responsive_product_catalog_container_layout', 'default_container' ) );
+}
+
+function responsive_active_single_product_sidebar_section() {
+	return ! responsive_is_layout_narrow( get_theme_mod( 'responsive_single_product_container_layout', 'default_container' ) );
+}
+
 
 /**
  * [responsive_not_active_page_sidebar description]
@@ -1869,6 +1912,9 @@ function responsive_not_active_single_post_sidebar() {
  * @return [type] [description]
  */
 function responsive_active_page_sidebar_position() {
+	if ( ! responsive_active_page_sidebar_section() ) {
+		return false;
+	}
 	$position = get_theme_mod( 'responsive_page_sidebar_position', 'global' );
 	if ( 'global' === $position ) {
 		$global_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
@@ -1883,6 +1929,9 @@ function responsive_active_page_sidebar_position() {
  * @return [type] [description]
  */
 function responsive_active_shop_sidebar_position() {
+	if ( ! responsive_active_shop_sidebar_section() ) {
+		return false;
+	}
 	$position = get_theme_mod( 'responsive_shop_sidebar_position', 'global' );
 	if ( 'global' === $position ) {
 		$global_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
@@ -1897,6 +1946,9 @@ function responsive_active_shop_sidebar_position() {
  * @return [type] [description]
  */
 function responsive_active_single_product_sidebar_position() {
+	if ( ! responsive_active_single_product_sidebar_section() ) {
+		return false;
+	}
 	$position = get_theme_mod( 'responsive_single_product_sidebar_position', 'global' );
 	if ( 'global' === $position ) {
 		$global_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
