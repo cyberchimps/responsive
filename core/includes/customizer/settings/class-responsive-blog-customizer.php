@@ -76,7 +76,7 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 				)
 			);
 			$blog_border_radius_label = esc_html__( 'Border Radius (px)', 'responsive' );
-			responsive_radius_control($wp_customize, 'blog_border_radius', 'responsive_blog_layout', 30, 8, 8, null, $blog_border_radius_label, 'postMessage',);
+			responsive_radius_control($wp_customize, 'blog_border_radius', 'responsive_blog_layout', 30, 6, 6, null, $blog_border_radius_label, 'postMessage',);
 			/* End of Border radius setting */
 
 			$date_box_label = esc_html__( 'Enable Date Box', 'responsive' );
