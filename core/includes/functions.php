@@ -498,12 +498,6 @@ if ( ! function_exists( 'responsive_js' ) ) {
 
 /**
  * LCP fix: stop 'responsive-style' and 'icomoon-style' from blocking initial render.
- *
- * Rewrites the <link rel="stylesheet"> tags for these two handles into a
- * preload-then-swap pattern (rel="preload" ... onload="this.rel='stylesheet'")
- * with a <noscript> fallback, so the browser can paint without waiting on them.
- * This directly targets the "Render-blocking requests" audit for
- * core/css/style.min.css and core/css/icomoon/style.min.css.
  */
 if ( ! function_exists( 'responsive_defer_non_critical_styles' ) ) {
 	function responsive_defer_non_critical_styles( $html, $handle ) {
