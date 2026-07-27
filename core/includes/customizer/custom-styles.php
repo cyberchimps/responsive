@@ -7815,6 +7815,17 @@ function responsive_customizer_styles() {
 			}
 			";
 
+		// Styling for Blog/Archive Border radius
+		$blog_border_radius_top_left     = esc_html( get_theme_mod( 'responsive_blog_border_radius_top_left_radius', 8 ) );
+		$blog_border_radius_top_right    = esc_html( get_theme_mod( 'responsive_blog_border_radius_top_right_radius', 8 ) );
+		$blog_border_radius_bottom_right = esc_html( get_theme_mod( 'responsive_blog_border_radius_bottom_right_radius', 8 ) );
+		$blog_border_radius_bottom_left  = esc_html( get_theme_mod( 'responsive_blog_border_radius_bottom_left_radius', 8 ) );
+
+		$custom_css .= ".blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry{
+		
+			border-radius: {$blog_border_radius_top_left}px {$blog_border_radius_top_right}px {$blog_border_radius_bottom_right}px {$blog_border_radius_bottom_left}px;
+			}";
+
 		// Styling for blog/archive date box.
 		$responsive_date_box             = esc_html( get_theme_mod( 'responsive_date_box_toggle' ) );
 		$date_box_background_color       = esc_html( responsive_prepare_css_value( 'responsive_link_color' ) );

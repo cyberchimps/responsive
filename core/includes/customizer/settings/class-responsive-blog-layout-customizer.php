@@ -65,6 +65,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 			$tabs_label            = esc_html__( 'Tabs', 'responsive' );
 			$design_tab_ids_prefix = 'customize-control-';
 			$design_tab_ids        = array(
+				$design_tab_ids_prefix . 'responsive_border_blog_border_radius',
 				$design_tab_ids_prefix . 'responsive_date_box_toggle',
 				$design_tab_ids_prefix . 'responsive_date_box_toggle_separator',
 				$design_tab_ids_prefix . 'responsive_date_box_style',

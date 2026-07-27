@@ -66,6 +66,18 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 			responsive_horizontal_separator_control($wp_customize, 'blog_image_positions_layout_separator', 1, 'responsive_blog_layout', 47, 1, 'responsive_active_blog_layout_list' );
 
 			/* End of blog layout setting */
+			/* Border radius setting */
+			$wp_customize->add_setting(
+				'blog_border_radius',
+				array(
+					'default'           => 'default',
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_select',
+				)
+			);
+			$blog_border_radius_label = esc_html__( 'Border Radius (px)', 'responsive' );
+			responsive_radius_control($wp_customize, 'blog_border_radius', 'responsive_blog_layout', 30, 8, 8, null, $blog_border_radius_label, 'postMessage',);
+			/* End of Border radius setting */
 
 			$date_box_label = esc_html__( 'Enable Date Box', 'responsive' );
 			responsive_toggle_control( $wp_customize, 'date_box_toggle', $date_box_label, 'responsive_blog_layout', 280, 0, '' );
