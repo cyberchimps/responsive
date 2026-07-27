@@ -78,9 +78,11 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 			$blog_border_radius_label = esc_html__( 'Border Radius (px)', 'responsive' );
 			responsive_radius_control($wp_customize, 'blog_border_radius', 'responsive_blog_layout', 30, 6, 6, null, $blog_border_radius_label, 'postMessage',);
 			/* End of Border radius setting */
+			responsive_horizontal_separator_control($wp_customize, 'blog_border_radius_separator', 1, 'responsive_blog_layout', 32, 1, null );
+
 			// Post Title Size.
 			$blog_post_title_size_label = esc_html__( 'Post Title Size', 'responsive' );
-			responsive_drag_number_control_with_switchers( $wp_customize, 'blog_post_title_size', $blog_post_title_size_label, 'responsive_blog_layout', 133, 20, null, 100, 8, 'postMessage', 1 );
+			responsive_drag_number_control_with_switchers( $wp_customize, 'blog_post_title_size', $blog_post_title_size_label, 'responsive_blog_layout', 79, 20, null, 100, 8, 'postMessage', 1 );
 
 			// Meta Font Size.
 			$blog_meta_font_size_label = esc_html__( 'Meta Font Size', 'responsive' );
@@ -88,7 +90,36 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 
 			// Taxonomy Font Size.
 			$blog_taxonomy_font_size_label = esc_html__( 'Taxonomy Font Size', 'responsive' );
-			responsive_drag_number_control_with_switchers( $wp_customize, 'blog_taxonomy_font_size', $blog_taxonomy_font_size_label, 'responsive_blog_layout', 79, 14, null, 60, 8, 'postMessage', 1 );
+			responsive_drag_number_control_with_switchers( $wp_customize, 'blog_taxonomy_font_size', $blog_taxonomy_font_size_label, 'responsive_blog_layout', 93, 14, null, 60, 8, 'postMessage', 1 );
+
+			responsive_horizontal_separator_control($wp_customize, 'blog_taxonomy_font_separator', 1, 'responsive_blog_layout', 94, 1, null );
+
+			$blog_category_color_label = __( 'Item Category Color', 'responsive' );
+			responsive_color_control(
+				$wp_customize,
+				'blog_category',                                                                      
+				$blog_category_color_label,                                                            
+				'responsive_blog_layout',                                                              
+				94,                                                                                     
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_blog_category_color' ), 
+				null,                                                                                   
+				'',                                                                                     
+				true,                                                                                   
+				Responsive\Core\get_responsive_customizer_defaults( 'blog_category_hover' ),            
+				'blog_category_hover',
+				'refresh',                                                                  
+			);
+
+			$item_category_typography_label = esc_html__( 'Item Category Font', 'responsive' );
+
+			responsive_typography_group_control(
+				$wp_customize,
+				'item_category_typography_group',   
+				$item_category_typography_label,    
+				'responsive_blog_layout',
+				95,
+				'item_category_typography'          
+			);
 
 			/* Date box setting */
 			$date_box_label = esc_html__( 'Enable Date Box', 'responsive' );

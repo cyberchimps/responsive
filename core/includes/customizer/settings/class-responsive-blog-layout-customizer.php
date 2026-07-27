@@ -72,6 +72,8 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_blog_post_title_size',
 				$design_tab_ids_prefix . 'responsive_blog_meta_font_size',
 				$design_tab_ids_prefix . 'responsive_blog_taxonomy_font_size',
+				$design_tab_ids_prefix . 'responsive_blog_category_color',
+				$design_tab_ids_prefix . 'responsive_item_category_typography_group',
 			);
 
 			$general_tab_ids_prefix = 'customize-control-';

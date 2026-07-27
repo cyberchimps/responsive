@@ -7862,6 +7862,22 @@ function responsive_customizer_styles() {
 		.blog .hentry .entry-category a, .archive .hentry .entry-category a {
 			font-size: {$blog_taxonomy_font_size}px;
 		}";
+
+		// Styling Blog Category Color.
+		$blog_category_color       = esc_html( get_theme_mod( 'responsive_blog_category_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_blog_category_color' ) ) );
+		$blog_category_hover_color = esc_html( get_theme_mod( 'responsive_blog_category_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'blog_category_hover' ) ) );
+
+		$custom_css .= "
+		.search .entry-category a,
+		.archive .entry-category a,
+		.blog .entry-category a {
+			color: {$blog_category_color};
+		}
+		.search .entry-category a:hover,
+		.archive .entry-category a:hover,
+		.blog .entry-category a:hover {
+			color: {$blog_category_hover_color};
+		}";
 		// Styling for blog/archive date box.
 		$responsive_date_box             = esc_html( get_theme_mod( 'responsive_date_box_toggle' ) );
 		$date_box_background_color       = esc_html( responsive_prepare_css_value( 'responsive_link_color' ) );

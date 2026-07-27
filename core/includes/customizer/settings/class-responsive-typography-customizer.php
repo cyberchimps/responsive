@@ -170,6 +170,18 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'text-transform' => 'uppercase',
 					),
 				),
+				// Blog/Archive page Item Category font
+				'item_category'              => array(
+					'label'    => esc_html__( 'Item Category', 'responsive' ),
+					'target'   => $selectorArray['item_category'],
+					'section'  => 'responsive_blog_layout',
+					'priority' => 96,
+					'exclude'  => array( 'font-color','font-size' ),
+					'defaults' => array(
+						'font-size'   => '13px',
+						'line-height' => '1.5',
+					),
+				),
 				'button'                     => array(
 					'label'    => esc_html__( 'Body', 'responsive' ),
 					'target'   => $selectorArray['button'],
@@ -550,6 +562,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'header_contact_info'        => '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list  .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-title, .site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text',
 				'mobile_header_contact_info' => '.site-mobile-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list  .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-title, .site-mobile-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text',
 				'header_off_canvas_menu'     => '.responsive-off-canvas-menu-container .responsive-off-canvas-menu-wrapper .responsive-off-canvas-menu-inner-wrapper .responsive-off-canvas-menu .responsive-off-canvas-menu-items .responsive-off-canvas-menu-item a, .off-canvas-widget-area #off-canvas-menu li a, #off-canvas-site-navigation .menu li a',
+				'item_category'               => '.blog .hentry .post-meta .entry-category a, .archive .hentry .post-meta .entry-category a', 
 			);
 
 			if ( $this->is_responsive_version_greater() ) {
