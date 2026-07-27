@@ -565,7 +565,7 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_single_blog_sidebar_width {
 	padding-bottom: 12px;
 }
-#sub-accordion-section-responsive_page .customize-control-title, #customize-control-responsive_single_blog_post_title {
+#sub-accordion-section-responsive_page .customize-control-title, #customize-control-responsive_single_blog_post_title, #customize-control-responsive_single_blog_post_title_inner_elements_spacing_separator, #customize-control-responsive_single_blog_post_title_color, #customize-control-responsive_single_blog_post_link_hover_separator, li#customize-control-responsive_single_blog_post_title_inner_elements_spacing {
 	margin-top: 24px;
 }
 #sub-accordion-section-responsive_page .responsive-horizontal-separator-control-wrapper {

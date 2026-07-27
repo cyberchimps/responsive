@@ -87,31 +87,6 @@ if ( ! class_exists( 'Responsive_Container_Layout_Customizer' ) ) :
 			);
 			responsive_select_button_control( $wp_customize, 'blog_container_style', $blog_container_style_label, 'responsive_blog_layout', 12, $blog_container_style_choices, 'default', null, 'refresh' );
 
-			// Single Blog Post Title
-			responsive_section_toggle_control( $wp_customize, 'single_blog_post_title', __( 'Post Title Area', 'responsive' ), 'responsive_single_blog_layout', 1, 'section', 'responsive_single_blog_post_title_layout', true, null, 'refresh', 'Enable the toggle to customize single blog post title settings.');
-
-			// Single Blog Post Title Tabs
-			$single_blog_post_title_general_tab_ids = [
-				'customize-control-responsive_single_blog_post_title_layout',
-			];
-
-			$single_blog_post_title_design_tab_ids = [
-				
-			];
-
-			$tabs_label = esc_html__( 'Tabs', 'responsive' );
-
-			responsive_tabs_button_control( $wp_customize, 'single_blog_post_title_tabs', $tabs_label, 'responsive_single_blog_post_title_layout', 1, '', 'responsive_single_blog_post_title_general_tab', 'responsive_single_blog_post_title_design_tab', $single_blog_post_title_general_tab_ids, $single_blog_post_title_design_tab_ids, null );
-
-			$single_blog_post_title_layout_choices = array(
-				'post_title_layout1'    => esc_html__( 'Layout 1', 'responsive' ),
-				'post_title_layout2'     => esc_html__( 'Layout 2', 'responsive' ),
-			);
-			
-			$single_blog_post_title_layout_label   = esc_html__( 'Banner Layout', 'responsive' );
-
-			responsive_imageradio_button_control( $wp_customize, 'single_blog_post_title_layout', $single_blog_post_title_layout_label, 'responsive_single_blog_post_title_layout', 1, $single_blog_post_title_layout_choices, 'post_title_layout1', null, 'svg', 'refresh' );
-
 			// Single Post Container Layout.
 			$single_blog_container_layout_label = esc_html__( 'Container Layout', 'responsive' );
 			responsive_separator_control( $wp_customize, 'single_blog_container_layout_separator', $single_blog_container_layout_label, 'responsive_single_blog_layout', 5 );

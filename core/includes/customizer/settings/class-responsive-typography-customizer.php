@@ -471,7 +471,40 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'font-size'   => '16px',
 						'line-height' => '1.75',
 					),
-				)
+				),
+				'single_blog_post_title' => array(
+					'label'	   => esc_html( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['single_blog_post_title'],
+					'section'  => 'responsive_single_blog_post_title_layout', 
+					'exclude'  => array( 'font-color' ),
+					'priority' => 40,
+					'defaults' => array(
+						'font-size'   => '32px',
+						'line-height' => '1.75'
+					)
+				),
+				'single_blog_post_text' => array(
+					'label'	   => esc_html( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['single_blog_post_text'],
+					'section'  => 'responsive_single_blog_post_title_layout', 
+					'exclude'  => array( 'font-color' ),
+					'priority' => 45,
+					'defaults' => array(
+						'font-size'   => '16px',
+						'line-height' => '1.75'
+					)
+				),
+				'single_blog_post_meta' => array(
+					'label'	   => esc_html( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['single_blog_post_meta'],
+					'section'  => 'responsive_single_blog_post_title_layout', 
+					'exclude'  => array( 'font-color' ),
+					'priority' => 45,
+					'defaults' => array(
+						'font-size'   => '12px',
+						'line-height' => '1.75'
+					)
+				),
 			);
 
 			for( $i=1;$i<=6;$i++ ) {
@@ -557,6 +590,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'header_contact_info'        => '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list  .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-title, .site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text',
 				'mobile_header_contact_info' => '.site-mobile-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list  .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-title, .site-mobile-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text',
 				'header_off_canvas_menu'     => '.responsive-off-canvas-menu-container .responsive-off-canvas-menu-wrapper .responsive-off-canvas-menu-inner-wrapper .responsive-off-canvas-menu .responsive-off-canvas-menu-items .responsive-off-canvas-menu-item a, .off-canvas-widget-area #off-canvas-menu li a, #off-canvas-site-navigation .menu li a',
+				'single_blog_post_title'     => '.single-post .site-content article .post-entry .post-title',
+				'single_blog_post_text'      => '.single-post .site-content article .post-entry .entry-content',
+				'single_blog_post_meta'      => '.single-post .site-content article .post-entry .post-meta span, .single-post .site-content article .post-entry .post-meta i, .single-post .site-content article .post-entry .post-meta span a , .single-post .site-content article .post-entry .post-meta span a time, .single-post .site-content article .post-entry .entry-meta'
 			);
 
 			if ( $this->is_responsive_version_greater() ) {
