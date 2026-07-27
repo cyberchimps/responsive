@@ -652,6 +652,27 @@ endif;
 add_action( 'pre_get_posts', 'responsive_exclude_post_cat', 10 );
 
 /**
+ * Set custom posts per page for blog and archive pages.
+ */
+if ( ! function_exists( 'responsive_blog_posts_per_page' ) ) :
+	/**
+	 * Set custom posts per page for blog and archive pages.
+	 *
+	 * @param object $query Query.
+	 */
+	function responsive_blog_posts_per_page( $query ) {
+		$per_page = get_theme_mod( 'responsive_blog_post_per_page', 10 );
+
+		if ( ! is_admin() && $query->is_main_query() ) {
+			if ( $query->is_home() || $query->is_archive() ) {
+				$query->set( 'posts_per_page', absint( $per_page ) );
+			}
+		}
+	}
+endif;
+add_action( 'pre_get_posts', 'responsive_blog_posts_per_page', 10 );
+
+/**
  * Enqueue customizer styling
  */
 function responsive_controls_style() {

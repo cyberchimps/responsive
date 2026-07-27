@@ -207,6 +207,11 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 						
 			$blog_content_width_label = esc_html__( 'Main Content Width (%)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'blog_content_width', $blog_content_width_label, 'responsive_blog_layout', 60, Responsive\Core\get_responsive_customizer_defaults( 'blog_content_width' ), null, 100, 1, 'postMessage' );
+			
+			responsive_horizontal_separator_control($wp_customize, 'blog_content_width_separator', 1, 'responsive_blog_layout', 61, 1 );
+
+			$blog_post_per_page_label = esc_html__( 'Post Per Page', 'responsive' );
+			responsive_drag_number_control_with_switchers( $wp_customize, 'blog_post_per_page', $blog_post_per_page_label, 'responsive_blog_layout', 62, 10, null, 100, 0, 'refresh', 1 );
 
 			$blog_post_elements_heading_label = esc_html__( 'Post Structure', 'responsive' );
 			responsive_separator_control( $wp_customize, 'blog_post_elements_head', $blog_post_elements_heading_label, 'responsive_blog_layout', 65 );
