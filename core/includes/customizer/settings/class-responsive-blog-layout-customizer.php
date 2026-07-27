@@ -233,7 +233,21 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 						'settings' => 'responsive_blog_entry_elements_positioning',
 						'priority' => 70,
 						'choices'  => responsive_blog_entry_elements(),
+						'sub_controls' => array(
+							'meta' => array(
+								'responsive_blog_entry_meta_divider'
+							)
+						),
 					)
+				)
+			);
+
+			$wp_customize->add_setting(
+				'responsive_blog_entry_meta_divider',
+				array(
+					'default'           => '/',
+					'sanitize_callback' => 'sanitize_text_field',
+					'transport'         => 'refresh',
 				)
 			);
 
@@ -333,7 +347,94 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 								'tag'        => esc_html__( 'Tag', 'responsive' ),
 							)
 						),
+						'sub_controls' => array(
+							'author' => array(
+								'responsive_blog_author_prefix_label',
+								'responsive_blog_author_avatar',
+								'responsive_blog_author_avatar_size'
+							),
+							'date' => array(
+								'responsive_blog_date_format'
+							),
+							'updated' => array(
+								'responsive_blog_updated_format'
+							),
+							'categories' => array(
+								'responsive_blog_categories_style'
+							),
+							'tag' => array(
+								'responsive_blog_tag_style'
+							)
+						),
 					)
+				)
+			);
+
+			// Author Meta Sub-Controls
+			$wp_customize->add_setting(
+				'responsive_blog_author_prefix_label',
+				array(
+					'default'           => 'By',
+					'sanitize_callback' => 'sanitize_text_field',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_setting(
+				'responsive_blog_author_avatar',
+				array(
+					'default'           => 0,
+					'sanitize_callback' => 'responsive_sanitize_toggle',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_setting(
+				'responsive_blog_author_avatar_size',
+				array( 
+					'default'           => 30,
+					'sanitize_callback' => 'responsive_sanitize_number',
+					'transport'         => 'postMessage',
+				)
+			);
+
+			// Date Meta Sub-Controls
+			$wp_customize->add_setting(
+				'responsive_blog_date_format',
+				array(
+					'default'           => 'default',
+					'sanitize_callback' => 'sanitize_text_field',
+					'transport'         => 'refresh',
+				)
+			);
+
+			// Updated Meta Sub-Controls
+			$wp_customize->add_setting(
+				'responsive_blog_updated_format',
+				array(
+					'default'           => 'default',
+					'sanitize_callback' => 'sanitize_text_field',
+					'transport'         => 'refresh',
+				)
+			);
+
+			// Categories Meta Sub-Controls
+			$wp_customize->add_setting(
+				'responsive_blog_categories_style',
+				array(
+					'default'           => 'default',
+					'sanitize_callback' => 'sanitize_text_field',
+					'transport'         => 'refresh',
+				)
+			);
+
+			// Tag Meta Sub-Controls
+			$wp_customize->add_setting(
+				'responsive_blog_tag_style',
+				array(
+					'default'           => 'default',
+					'sanitize_callback' => 'sanitize_text_field',
+					'transport'         => 'refresh',
 				)
 			);
 

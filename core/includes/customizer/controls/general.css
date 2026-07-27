@@ -1401,7 +1401,8 @@ in both cases the footer builder is active */
 #customize-control-responsive_header_woo_cart_button_separator,
 #customize-control-responsive_header_cart_checkout_button_separator,
 #customize-control-responsive_cart_spacing_separator,
-#customize-control-responsive_header_cart_tray_separator {
+#customize-control-responsive_header_cart_tray_separator,
+#customize-control-responsive_header_site_title_tagline_color_separator {
 	margin-top: 24px;
 }
 #customize-control-responsive_cart_icon_separator,

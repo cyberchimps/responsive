@@ -277,15 +277,15 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 					'right'  => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
 				);
 			}
-			responsive_select_button_control( $wp_customize, 'single_blog_title_alignment', $single_blog_title_alignment_label, 'responsive_single_blog_layout', 90, $single_blog_title_alignment_choices, 'left', null );
+			responsive_select_button_control( $wp_customize, 'single_blog_title_alignment', $single_blog_title_alignment_label, 'responsive_single_blog_post_title_layout', 90, $single_blog_title_alignment_choices, 'left', null );
 
 			/**
 			* Entry meta.
 			*/
 			$single_blog_meta_label = esc_html__( 'Meta', 'responsive' );
-			responsive_separator_control( $wp_customize, 'single_blog_meta_control_separator', $single_blog_meta_label, 'responsive_single_blog_layout', 100 );
+			responsive_separator_control( $wp_customize, 'single_blog_meta_control_separator', $single_blog_meta_label, 'responsive_single_blog_post_title_layout', 100 );
 
-			responsive_horizontal_separator_control( $wp_customize, 'responsive_disable_author_meta_separator', 1, 'responsive_single_blog_layout',106, 1 );
+			responsive_horizontal_separator_control( $wp_customize, 'responsive_disable_author_meta_separator', 1, 'responsive_single_blog_post_title_layout',106, 1 );
 
 			/**
 			 * Blog Single Meta
@@ -305,7 +305,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 					'responsive_blog_single_meta',
 					array(
 						'label'    => esc_html__( 'Meta Elements', 'responsive' ),
-						'section'  => 'responsive_single_blog_layout',
+						'section'  => 'responsive_single_blog_post_title_layout',
 						'settings' => 'responsive_blog_single_meta',
 						'priority' => 110,
 						'choices'  => apply_filters(
@@ -323,7 +323,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				)
 			);
 
-			responsive_horizontal_separator_control( $wp_customize, 'responsive_blog_single_meta_separator', 1, 'responsive_single_blog_layout',111, 1 );
+			responsive_horizontal_separator_control( $wp_customize, 'responsive_blog_single_meta_separator', 1, 'responsive_single_blog_post_title_layout',111, 1 );
 
 			// Meta Separator Text.
 			$wp_customize->add_setting(
@@ -339,14 +339,14 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'responsive_single_blog_meta_separator_text',
 				array(
 					'label'    => __( 'Meta Separator', 'responsive' ),
-					'section'  => 'responsive_single_blog_layout',
+					'section'  => 'responsive_single_blog_post_title_layout',
 					'settings' => 'responsive_single_blog_meta_separator_text',
 					'type'     => 'text',
 					'priority' => 120,
 				)
 			);
 
-			responsive_horizontal_separator_control( $wp_customize, 'responsive_single_blog_meta_separator_text_separator', 1, 'responsive_single_blog_layout',121, 1 );
+			responsive_horizontal_separator_control( $wp_customize, 'responsive_single_blog_meta_separator_text_separator', 1, 'responsive_single_blog_post_title_layout',121, 1 );
 
 			// Meta Alignment.
 			$single_blog_meta_alignment_label   = esc_html__( 'Meta Alignment', 'responsive' );
@@ -362,9 +362,9 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 					'right'  => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
 				);
 			}
-			responsive_select_button_control( $wp_customize, 'single_blog_meta_alignment', $single_blog_meta_alignment_label, 'responsive_single_blog_layout', 130, $single_blog_meta_alignment_choices, 'left', null );
+			responsive_select_button_control( $wp_customize, 'single_blog_meta_alignment', $single_blog_meta_alignment_label, 'responsive_single_blog_post_title_layout', 130, $single_blog_meta_alignment_choices, 'left', null );
 
-			responsive_horizontal_separator_control( $wp_customize, 'single_blog_meta_alignment_separator', 2, 'responsive_single_blog_layout',131, 1 );
+			responsive_horizontal_separator_control( $wp_customize, 'single_blog_meta_alignment_separator', 2, 'responsive_single_blog_post_title_layout',131, 1 );
 
 			// Content Alignment.
 			$single_blog_content_alignment_label   = esc_html__( 'Post Content Alignment', 'responsive' );
