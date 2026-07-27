@@ -505,6 +505,39 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'line-height' => '1.75'
 					)
 				),
+				'page_title_area_title' => array(
+					'label'	   => esc_html( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['page_title_area_title'],
+					'section'  => 'responsive_page_title_area_layout', 
+					'exclude'  => array( 'font-color' ),
+					'priority' => 40,
+					'defaults' => array(
+						'font-size'   => '32px',
+						'line-height' => '1.75'
+					)
+				),
+				'page_title_area_text' => array(
+					'label'	   => esc_html( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['page_title_area_text'],
+					'section'  => 'responsive_page_title_area_layout', 
+					'exclude'  => array( 'font-color' ),
+					'priority' => 45,
+					'defaults' => array(
+						'font-size'   => '16px',
+						'line-height' => '1.75'
+					)
+				),
+				'page_title_area_meta' => array(
+					'label'	   => esc_html( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['page_title_area_meta'],
+					'section'  => 'responsive_page_title_area_layout', 
+					'exclude'  => array( 'font-color' ),
+					'priority' => 45,
+					'defaults' => array(
+						'font-size'   => '12px',
+						'line-height' => '1.75'
+					)
+				),
 			);
 
 			for( $i=1;$i<=6;$i++ ) {
@@ -592,7 +625,8 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'header_off_canvas_menu'     => '.responsive-off-canvas-menu-container .responsive-off-canvas-menu-wrapper .responsive-off-canvas-menu-inner-wrapper .responsive-off-canvas-menu .responsive-off-canvas-menu-items .responsive-off-canvas-menu-item a, .off-canvas-widget-area #off-canvas-menu li a, #off-canvas-site-navigation .menu li a',
 				'single_blog_post_title'     => '.single-post .site-content article .post-entry .post-title',
 				'single_blog_post_text'      => '.single-post .site-content article .post-entry .entry-content',
-				'single_blog_post_meta'      => '.single-post .site-content article .post-entry .post-meta span, .single-post .site-content article .post-entry .post-meta i, .single-post .site-content article .post-entry .post-meta span a , .single-post .site-content article .post-entry .post-meta span a time, .single-post .site-content article .post-entry .entry-meta'
+				'single_blog_post_meta'      => '.single-post .site-content article .post-entry .post-meta span, .single-post .site-content article .post-entry .post-meta i, .single-post .site-content article .post-entry .post-meta span a , .single-post .site-content article .post-entry .post-meta span a time, .single-post .site-content article .post-entry .entry-meta',
+				'page_title_area_title'      => '.page #page .post-entry .post-title',
 			);
 
 			if ( $this->is_responsive_version_greater() ) {

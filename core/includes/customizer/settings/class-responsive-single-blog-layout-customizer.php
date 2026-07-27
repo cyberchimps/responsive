@@ -217,6 +217,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'customize-control-responsive_single_blog_post_link_hover_separator',
 				'customize-control-responsive_single_blog_post_title_typography_group',
 				'customize-control-responsive_single_blog_post_text_typography_group',
+				'customize-control-responsive_single_blog_post_meta_typography_group'
 			];
 
 			// Single Blog Post Title Tabs
