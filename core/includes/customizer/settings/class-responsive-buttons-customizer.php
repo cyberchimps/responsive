@@ -83,6 +83,68 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 			$buttons_padding_label = __( 'Padding (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'buttons', 'responsive_button', 240, 10, 10, null, $buttons_padding_label );
 
+			// Separator.
+			responsive_horizontal_separator_control( $wp_customize, 'button_shadow_separator', 1, 'responsive_button', 245, 1 );
+
+			// Button Shadow.
+			responsive_shadow_control(
+				$wp_customize,
+				'button_shadow',
+				__( 'Button Shadow', 'responsive' ),
+				'responsive_button',
+				250,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_x' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_y' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_blur' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_spread' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_inset' ),
+				null
+			);
+
+			// Button Shadow Color.
+			responsive_color_control(
+				$wp_customize,
+				'button_shadow',
+				__( 'Button Shadow Color', 'responsive' ),
+				'responsive_button',
+				252,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_color' ),
+				null,
+				'',
+				false
+			);
+
+			// Separator.
+			responsive_horizontal_separator_control( $wp_customize, 'button_hover_shadow_separator', 1, 'responsive_button', 255, 1 );
+
+			// Button Hover Shadow.
+			responsive_shadow_control(
+				$wp_customize,
+				'button_hover_shadow',
+				__( 'Button Hover Shadow', 'responsive' ),
+				'responsive_button',
+				260,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_x' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_y' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_blur' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_spread' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_inset' ),
+				null
+			);
+
+			// Button Hover Shadow Color.
+			responsive_color_control(
+				$wp_customize,
+				'button_hover_shadow',
+				__( 'Button Hover Shadow Color', 'responsive' ),
+				'responsive_button',
+				262,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_color' ),
+				null,
+				'',
+				false
+			);
+
 		}
 
 

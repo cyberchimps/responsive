@@ -1426,6 +1426,24 @@ function responsive_customizer_styles() {
 	$buttons_border_mobile_width_bottom = esc_html( get_theme_mod( 'responsive_buttons_border_width_mobile_bottom_border', 1 ) );
 	$buttons_border_mobile_width_left = esc_html( get_theme_mod( 'responsive_buttons_border_width_mobile_left_border', 1 ) );
 
+	// Button Shadow.
+	$button_shadow_x           = get_theme_mod( 'responsive_button_shadow_x_axis', Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_x' ) );
+	$button_shadow_y           = get_theme_mod( 'responsive_button_shadow_y_axis', Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_y' ) );
+	$button_shadow_blur        = get_theme_mod( 'responsive_button_shadow_blur', Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_blur' ) );
+	$button_shadow_spread      = get_theme_mod( 'responsive_button_shadow_spread', Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_spread' ) );
+	$button_shadow_inset       = get_theme_mod( 'responsive_button_shadow_inset', Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_inset' ) );
+	$button_shadow_color       = esc_html( responsive_prepare_css_value( 'responsive_button_shadow_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_color' ) ) );
+	$button_shadow_inset_style = $button_shadow_inset ? 'inset' : '';
+
+	// Button Hover Shadow.
+	$button_hover_shadow_x           = get_theme_mod( 'responsive_button_hover_shadow_x_axis', Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_x' ) );
+	$button_hover_shadow_y           = get_theme_mod( 'responsive_button_hover_shadow_y_axis', Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_y' ) );
+	$button_hover_shadow_blur        = get_theme_mod( 'responsive_button_hover_shadow_blur', Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_blur' ) );
+	$button_hover_shadow_spread      = get_theme_mod( 'responsive_button_hover_shadow_spread', Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_spread' ) );
+	$button_hover_shadow_inset       = get_theme_mod( 'responsive_button_hover_shadow_inset', Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_inset' ) );
+	$button_hover_shadow_color       = esc_html( responsive_prepare_css_value( 'responsive_button_hover_shadow_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_color' ) ) );
+	$button_hover_shadow_inset_style = $button_hover_shadow_inset ? 'inset' : '';
+
 	// Inputs Padding.
 	$inputs_padding_right  = esc_html( get_theme_mod( 'responsive_inputs_right_padding', 3 ) );
 	$inputs_padding_left   = esc_html( get_theme_mod( 'responsive_inputs_left_padding', 3 ) );
@@ -1662,6 +1680,7 @@ function responsive_customizer_styles() {
 		border-radius:' . responsive_spacing_css( $button_top_left_radius, $button_top_right_radius, $button_bottom_right_radius, $button_bottom_left_radius ) . ';
 	    color: ' . $button_text_color . ';
 		padding: ' . responsive_spacing_css( $buttons_padding_top, $buttons_padding_right, $buttons_padding_bottom, $buttons_padding_left ) . ';
+		box-shadow: ' . $button_shadow_inset_style . ' ' . $button_shadow_x . 'px ' . $button_shadow_y . 'px ' . $button_shadow_blur . 'px ' . $button_shadow_spread . 'px ' . $button_shadow_color . ';
 	}';
 
 	$button_preset              = get_theme_mod( 'responsive_button_presets', '' );
@@ -1806,6 +1825,7 @@ function responsive_customizer_styles() {
 	    color:' . $button_hover_text_color . ';
 		border-color: ' . $button_hover_border_color . ';	
 		background-color:' . $button_hover_background . ';
+		box-shadow: ' . $button_hover_shadow_inset_style . ' ' . $button_hover_shadow_x . 'px ' . $button_hover_shadow_y . 'px ' . $button_hover_shadow_blur . 'px ' . $button_hover_shadow_spread . 'px ' . $button_hover_shadow_color . ';
 	}
 
 	select,
