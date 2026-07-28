@@ -3023,3 +3023,81 @@ add_filter( 'get_the_archive_title', function( $title ) {
 	}
 	return $title;
 } );
+
+if ( ! function_exists( 'responsive_is_seo_plugin_active' ) ) {
+	/**
+	 * Check if a dedicated SEO plugin is active that already outputs a meta description.
+	 *
+	 * @return bool
+	 */
+	function responsive_is_seo_plugin_active() {
+		// Yoast SEO, Rank Math, All in One SEO, SEOPress, The SEO Framework.
+		return defined( 'WPSEO_VERSION' )
+			|| class_exists( 'RankMath' )
+			|| defined( 'AIOSEO_VERSION' )
+			|| defined( 'SEOPRESS_VERSION' )
+			|| class_exists( 'The_SEO_Framework\Load' );
+	}
+}
+
+if ( ! function_exists( 'responsive_get_meta_description' ) ) {
+	/**
+	 * Build a fallback meta description string for the current request.
+	 *
+	 * @return string
+	 */
+	function responsive_get_meta_description() {
+		$description = '';
+
+		if ( is_home() ) {
+			if ( 'page' === get_option( 'show_on_front' ) && is_front_page() ) {
+				// Home set as a static front page
+				global $post;
+				if ( $post instanceof WP_Post && has_excerpt( $post ) ) {
+					$description = $post->post_excerpt;
+				} else {
+					$description = get_bloginfo( 'description' );
+				}
+			} else {
+				// Default posts page as home
+				$description = get_bloginfo( 'description' );
+			}
+		}
+
+		if ( empty( $description ) ) {
+			$description = get_bloginfo( 'description' );
+		}
+
+		$description = wp_strip_all_tags( strip_shortcodes( $description ) );
+		$description = trim( preg_replace( '/\s+/', ' ', $description ) );
+
+		return wp_trim_words( $description, 30, '...' );
+	}
+}
+
+if ( ! function_exists( 'responsive_output_meta_description' ) ) {
+	/**
+	 * Output a meta description tag in wp_head when no SEO plugin is handling it.
+	 */
+	function responsive_output_meta_description() {
+		if ( is_admin() || responsive_is_seo_plugin_active() ) {
+			return;
+		}
+
+		if ( is_404() || ( is_search() && empty( get_search_query() ) ) ) {
+			return;
+		}
+
+		$description = responsive_get_meta_description();
+		$default_desc = "Responsive is a flexible WordPress theme that helps you create fast, mobile-friendly, and professional websites.";
+
+		if ( empty( $description ) ) {
+			echo '<meta name="description" content="' . esc_attr( $default_desc ) . '" />' . "\n";
+		}
+		else{
+			echo '<meta name="description" content="' . esc_attr( $description ) . '" />' . "\n";
+		}
+	}
+}
+
+add_action( 'wp_head', 'responsive_output_meta_description', 1 );

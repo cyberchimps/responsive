@@ -5768,6 +5768,7 @@ function responsive_customizer_styles() {
 			}
 			.footer-layouts.copyright a {
 				color: {$copyright_links_color};
+				text-decoration: underline;
 			}
 			.footer-layouts.copyright a:hover {
 				color: {$copyright_links_hover_color};
