@@ -5764,6 +5764,7 @@ if ( 'flat' === $global_container_style ) {
 			}
 			.footer-layouts.copyright a {
 				color: {$copyright_links_color};
+				text-decoration: underline;
 			}
 			.footer-layouts.copyright a:hover {
 				color: {$copyright_links_hover_color};
