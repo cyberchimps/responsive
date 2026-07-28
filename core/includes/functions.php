@@ -495,6 +495,58 @@ if ( ! function_exists( 'responsive_js' ) ) {
 	}
 }
 
+
+/**
+ * LCP fix: stop 'responsive-style' and 'icomoon-style' from blocking initial render.
+ */
+if ( ! function_exists( 'responsive_defer_non_critical_styles' ) ) {
+	function responsive_defer_non_critical_styles( $html, $handle ) {
+		$deferred_handles = array( 'icomoon-style' );
+
+		if ( ! in_array( $handle, $deferred_handles, true ) ) {
+			return $html;
+		}
+
+		// Turn the stylesheet link into a low-priority preload that swaps
+		// itself to a real stylesheet once loaded, without blocking the parser.
+		$html = preg_replace(
+			"/rel=(['\"])stylesheet\\1/",
+			"rel='preload' as='style' onload=\"this.onload=null;this.rel='stylesheet'\"",
+			$html,
+			1
+		);
+
+		// Fallback for no-JS environments so styles still load.
+		$noscript_html = preg_replace( "/(rel=)(['\"])preload\\2\\s+as=(['\"])style\\3\\s+onload=\"[^\"]*\"/", '$1$2stylesheet$2', $html, 1 );
+		$html          .= '<noscript>' . $noscript_html . '</noscript>';
+
+		return $html;
+	}
+	add_filter( 'style_loader_tag', __NAMESPACE__ . '\\responsive_defer_non_critical_styles', 10, 2 );
+}
+
+/**
+ * LCP fix: belt-and-suspenders defer on nav/menu scripts.
+ *
+ * 'navigation-scripts' and 'responsive_theme_nested_menus' are already
+ * enqueued with $in_footer = true, but some caching/optimization setups
+ * (or third-party plugins) can still surface them as render-blocking.
+ * Explicitly adding `defer` guarantees they never block the parser
+ * regardless of where they're printed.
+ */
+if ( ! function_exists( 'responsive_defer_nav_scripts' ) ) {
+	function responsive_defer_nav_scripts( $tag, $handle ) {
+		$defer_handles = array( 'navigation-scripts', 'responsive_theme_nested_menus' );
+
+		if ( in_array( $handle, $defer_handles, true ) && false === strpos( $tag, ' defer' ) ) {
+			$tag = str_replace( ' src=', ' defer src=', $tag );
+		}
+
+		return $tag;
+	}
+	add_filter( 'script_loader_tag', __NAMESPACE__ . '\\responsive_defer_nav_scripts', 10, 2 );
+}
+
 /**
  * A comment reply.
  */
