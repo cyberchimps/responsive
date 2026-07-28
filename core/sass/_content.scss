@@ -107,7 +107,8 @@
 
     .responsive-site-style-content-boxed & {
         margin: 0;
-        border-bottom: 1px solid map-get($colors, light-gray);
+        border: 1px solid map-get($colors, light-gray);
+        border-radius: none !important;
     }
 
     .entry-title {
@@ -122,6 +123,17 @@
         .thumbnail-caption {
             font-size: map-get($font-sizes, small);
         }
+    }
+
+    .entry-category,
+    .entry-category a,
+    .blog-entry-category,
+    .blog-entry-category a,
+    .posted-in,
+    .posted-in a,
+    .cat-links,
+    .cat-links a {
+        text-transform: capitalize;
     }
 
     .post-data,
@@ -524,8 +536,11 @@
     display: flex;
 }
 
-.comment-respond,
-.comments-area {
+.comment-respond {
+    margin-top: 28px;
+}
+
+div.comments-area {
     @include make-block-element();
     padding: $base-line-height-px;
     background-color: map-get($colors, white);
@@ -536,7 +551,7 @@
     }
 
     .responsive-site-style-flat & {
-        padding: 0;
+        padding: 0 !important;
         background-color: transparent;
     }
 
@@ -637,4 +652,14 @@ embed, iframe, object {
 
 .course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type="submit"], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type="submit"], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type="submit"], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type="submit"], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type="button"], input[type="submit"], button, .button, .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type="submit"], body div.wpforms-container-full .wpforms-form button[type="submit"], div.wpforms-container-full .wpforms-form .wpforms-page-button, .read-more-button .hentry .read-more .more-link, input[type="button"], input[type="submit"], button, .button, .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type="submit"], div.wpforms-container-full .wpforms-form button[type="submit"], div.wpforms-container-full .wpforms-form .wpforms-page-button, .page.woocommerce-cart .woocommerce a.button.alt, .page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt, .woocommerce-cart .woocommerce a.button, .woocommerce button.button, .wp-block-button__link {
   line-height: 1;
+}
+
+.comment-content {
+    margin-top: 16px;
+}
+
+
+.comment-content, 
+.comment-meta {
+    overflow: hidden;
 }

@@ -151,8 +151,13 @@ table {
  * Inline elements styles
  * -----------------------------------------------------------------------------
  */
+a:not(:where(h1, h2, h3, h4, h5, h6) a) {
+    @include make-link(map-get($colors, dark-blue), map-get($colors, gray));
+}
+:where(h1, h2, h3, h4, h5, h6) a {
+    color: inherit;
+}
 a {
-    @include make-link(map-get($colors, dark-blue),  map-get($colors, gray));
     text-decoration: none;
 }
 
