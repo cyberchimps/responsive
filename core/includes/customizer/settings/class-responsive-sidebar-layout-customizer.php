@@ -60,7 +60,11 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
                 $design_tab_ids_prefix . 'responsive_sidebar_spacing',
                 $design_tab_ids_prefix . 'responsive_sidebar_outside_container_padding', 
                 $design_tab_ids_prefix . 'responsive_sidebar_inside_container_padding',
-                $design_tab_ids_prefix . 'responsive_widget_bottom_spacing'
+                $design_tab_ids_prefix . 'responsive_widget_bottom_spacing',
+                $design_tab_ids_prefix . 'responsive_sidebar_border_divider_separator',
+                $design_tab_ids_prefix . 'responsive_sidebar_border_divider_style',
+                $design_tab_ids_prefix . 'responsive_sidebar_border_divider_width',
+                $design_tab_ids_prefix . 'responsive_sidebar_border_divider_color'
             ); 
 
             $tabs_label            = esc_html__( 'Tabs', 'responsive' );
@@ -121,6 +125,63 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
                 '',
                 array( 'desktop', 'tablet', 'mobile' ),
                 array( 'px', 'em', 'rem' )
+            );
+
+            responsive_horizontal_separator_control(
+                $wp_customize,
+                'sidebar_border_divider_separator',
+                1,
+                'responsive_sidebar',
+                65.5,
+                1,
+                null
+            );
+
+            $border_divider_styles = array(
+                'none'   => esc_html__( 'None', 'responsive' ),
+                'solid'  => esc_html__( 'Solid', 'responsive' ),
+                'dashed' => esc_html__( 'Dashed', 'responsive' ),
+                'dotted' => esc_html__( 'Dotted', 'responsive' ),
+                'double' => esc_html__( 'Double', 'responsive' ),
+            );
+            responsive_select_button_control(
+                $wp_customize,
+                'sidebar_border_divider_style',
+                __( 'Divider Style', 'responsive' ),
+                'responsive_sidebar',
+                66,
+                $border_divider_styles,
+                Responsive\Core\get_responsive_customizer_defaults( 'responsive_sidebar_border_divider_style' ),
+                null,
+                'postMessage'
+            );
+
+            responsive_drag_number_control_with_switchers(
+                $wp_customize,
+                'sidebar_border_divider_width',
+                esc_html__( 'Divider Width', 'responsive' ),
+                'responsive_sidebar',
+                67,
+                0,
+                null,
+                20,
+                0,
+                'postMessage',
+                1,
+                '',
+                '',
+                array( 'desktop', 'tablet', 'mobile' ),
+                array( 'px', 'em', 'rem' )
+            );
+
+            responsive_color_control(
+                $wp_customize,
+                'sidebar_border_divider',
+                __( 'Divider Color', 'responsive' ),
+                'responsive_sidebar',
+                68,
+                Responsive\Core\get_responsive_customizer_defaults( 'responsive_sidebar_border_divider_color' ),
+                null
             );
 
             // Page Sidebar Sub-Heading
