@@ -500,6 +500,7 @@ body.rtl .customize-control .responsive-switchers li {
 #accordion-section-responsive_rp_layout,
 #accordion-section-responsive_comments_layout,
 #accordion-section-responsive_page_title_area_layout,
+#accordion-section-responsive_blog_title_layout,
 #accordion-section-responsive_single_blog_post_title_layout {
 	display: none !important;
 }
