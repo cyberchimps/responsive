@@ -263,7 +263,12 @@ function responsive_gutenberg_customizer_css() {
 	$all_headings_typography           = get_theme_mod( 'headings_typography' );
 	$box_background_image              = get_theme_mod( 'responsive_box_background_image_toggle' ) ? esc_url( get_theme_mod( 'responsive_box_background_image' ) ) : null ;
 
-	$responsive_container_width        = get_theme_mod( 'responsive_container_width', Responsive\Core\get_responsive_customizer_defaults( 'responsive_container_width' ) );
+	$global_container_layout           = get_theme_mod( 'responsive_width', 'contained' );
+	if ( 'narrow' === $global_container_layout ) {
+		$responsive_container_width    = get_theme_mod( 'responsive_narrow_container_width', Responsive\Core\get_responsive_customizer_defaults( 'responsive_narrow_container_width' ) );
+	} else {
+		$responsive_container_width    = get_theme_mod( 'responsive_container_width', Responsive\Core\get_responsive_customizer_defaults( 'responsive_container_width' ) );
+	}
 	$responsive_page_content_width     = get_theme_mod( 'responsive_page_content_width', Responsive\Core\get_responsive_customizer_defaults( 'page_content_width' ) );
 	$global_sidebar_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
 	$page_sidebar_setting = get_theme_mod( 'responsive_page_sidebar_position' );
