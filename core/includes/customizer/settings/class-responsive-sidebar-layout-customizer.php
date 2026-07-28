@@ -59,7 +59,8 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
                 $design_tab_ids_prefix . 'responsive_sidebar_typography_separator',
                 $design_tab_ids_prefix . 'responsive_sidebar_spacing',
                 $design_tab_ids_prefix . 'responsive_sidebar_outside_container_padding', 
-                $design_tab_ids_prefix . 'responsive_sidebar_inside_container_padding'
+                $design_tab_ids_prefix . 'responsive_sidebar_inside_container_padding',
+                $design_tab_ids_prefix . 'responsive_widget_bottom_spacing'
             ); 
 
             $tabs_label            = esc_html__( 'Tabs', 'responsive' );
@@ -103,6 +104,24 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
              */
             $sidebar_typography_label = esc_html__('Sidebar Font', 'responsive');
             responsive_typography_group_control($wp_customize, 'sidebar_typography_group', $sidebar_typography_label, 'responsive_sidebar', 60, 'sidebar_typography');
+
+            responsive_drag_number_control_with_switchers(
+                $wp_customize,
+                'widget_bottom_spacing',
+                esc_html__('Widget Bottom Spacing', 'responsive'),
+                'responsive_sidebar',
+                65,
+                30,
+                'responsive_active_default_sidebar_position',
+                200,
+                0,
+                'postMessage',
+                1,
+                '',
+                '',
+                array( 'desktop', 'tablet', 'mobile' ),
+                array( 'px', 'em', 'rem' )
+            );
 
             // Page Sidebar Sub-Heading
             $page_sidebar_heading_label = esc_html__('Sidebar', 'responsive');

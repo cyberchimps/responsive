@@ -1553,7 +1553,7 @@ function responsive_drag_number_control( $wp_customize, $element, $label, $secti
  * @param  [type]  $step  [description].
  * @return void                [description].
  */
-function responsive_drag_number_control_with_switchers( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $max = 4096, $min = 1, $transport = 'refresh', $step = 1, $tablet_default = null, $mobile_default = null, $devices = array( 'desktop', 'tablet', 'mobile' ) ) {
+function responsive_drag_number_control_with_switchers( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $max = 4096, $min = 1, $transport = 'refresh', $step = 1, $tablet_default = null, $mobile_default = null, $devices = array( 'desktop', 'tablet', 'mobile' ), $units = array() ) {
 
 	// Conditionally register settings based on devices parameter
 	$settings = array();
@@ -1568,6 +1568,18 @@ function responsive_drag_number_control_with_switchers( $wp_customize, $element,
 			)
 		);
 		$settings['desktop'] = 'responsive_' . $element;
+
+		if ( ! empty( $units ) ) {
+			$wp_customize->add_setting(
+				'responsive_' . $element . '_unit',
+				array(
+					'transport'         => $transport,
+					'default'           => $units[0],
+					'sanitize_callback' => 'sanitize_text_field',
+				)
+			);
+			$settings['desktop_unit'] = 'responsive_' . $element . '_unit';
+		}
 	}
 
 	if ( in_array( 'tablet', $devices ) ) {
@@ -1580,6 +1592,18 @@ function responsive_drag_number_control_with_switchers( $wp_customize, $element,
 			)
 		);
 		$settings['tablet'] = 'responsive_' . $element . '_tablet';
+
+		if ( ! empty( $units ) ) {
+			$wp_customize->add_setting(
+				'responsive_' . $element . '_tablet_unit',
+				array(
+					'transport'         => $transport,
+					'default'           => $units[0],
+					'sanitize_callback' => 'sanitize_text_field',
+				)
+			);
+			$settings['tablet_unit'] = 'responsive_' . $element . '_tablet_unit';
+		}
 	}
 
 	if ( in_array( 'mobile', $devices ) ) {
@@ -1592,6 +1616,18 @@ function responsive_drag_number_control_with_switchers( $wp_customize, $element,
 			)
 		);
 		$settings['mobile'] = 'responsive_' . $element . '_mobile';
+
+		if ( ! empty( $units ) ) {
+			$wp_customize->add_setting(
+				'responsive_' . $element . '_mobile_unit',
+				array(
+					'transport'         => $transport,
+					'default'           => $units[0],
+					'sanitize_callback' => 'sanitize_text_field',
+				)
+			);
+			$settings['mobile_unit'] = 'responsive_' . $element . '_mobile_unit';
+		}
 	}
 
 	$wp_customize->add_control(
@@ -1603,6 +1639,7 @@ function responsive_drag_number_control_with_switchers( $wp_customize, $element,
 				'section'         => $section,
 				'settings'        => $settings,
 				'devices'         => $devices,
+				'units'           => $units,
 				'priority'        => $priority,
 				'active_callback' => $active_call,
 				'input_attrs'     => array(

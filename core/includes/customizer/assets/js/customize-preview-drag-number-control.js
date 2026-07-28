@@ -1505,4 +1505,44 @@
         });
     });
 
+    function updateWidgetBottomSpacingCss() {
+        jQuery('style#responsive-widget-bottom-spacing-css').remove();
+        
+        var val = api('responsive_widget_bottom_spacing') ? api('responsive_widget_bottom_spacing').get() : 30;
+        var unit = api('responsive_widget_bottom_spacing_unit') ? api('responsive_widget_bottom_spacing_unit').get() : 'px';
+
+        var val_tablet = api('responsive_widget_bottom_spacing_tablet') ? api('responsive_widget_bottom_spacing_tablet').get() : '';
+        var unit_tablet = api('responsive_widget_bottom_spacing_tablet_unit') ? api('responsive_widget_bottom_spacing_tablet_unit').get() : 'px';
+
+        var val_mobile = api('responsive_widget_bottom_spacing_mobile') ? api('responsive_widget_bottom_spacing_mobile').get() : '';
+        var unit_mobile = api('responsive_widget_bottom_spacing_mobile_unit') ? api('responsive_widget_bottom_spacing_mobile_unit').get() : 'px';
+
+        var css = '#secondary.widget-area .widget-wrapper { margin-bottom: ' + val + unit + '; }';
+
+        if (val_tablet !== '') {
+            css += '@media screen and (max-width: 992px) { #secondary.widget-area .widget-wrapper { margin-bottom: ' + val_tablet + unit_tablet + '; } }';
+        }
+        if (val_mobile !== '') {
+            css += '@media screen and (max-width: 576px) { #secondary.widget-area .widget-wrapper { margin-bottom: ' + val_mobile + unit_mobile + ' !important; } }';
+        }
+
+        jQuery('head').append('<style id="responsive-widget-bottom-spacing-css">' + css + '</style>');
+    }
+
+    var settingsToBind = [
+        'responsive_widget_bottom_spacing',
+        'responsive_widget_bottom_spacing_unit',
+        'responsive_widget_bottom_spacing_tablet',
+        'responsive_widget_bottom_spacing_tablet_unit',
+        'responsive_widget_bottom_spacing_mobile',
+        'responsive_widget_bottom_spacing_mobile_unit'
+    ];
+
+    settingsToBind.forEach(function(settingId) {
+        api(settingId, function(value) {
+            value.bind(updateWidgetBottomSpacingCss);
+        });
+    });
+
 } )( jQuery );
+
