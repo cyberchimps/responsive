@@ -265,6 +265,24 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 				230
 			);
 
+			responsive_drag_number_control_with_switchers(
+				$wp_customize,
+				'archive_grid_boxed_radius',
+				__( 'Border Radius', 'responsive' ),
+				'responsive_layout',
+				235,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_archive_grid_boxed_radius' ),
+				null,
+				100,
+				0,
+				'refresh',
+				1,
+				null,
+				null,
+				array( 'desktop' ),
+				array( 'px', 'em', 'rem' )
+			);
+
 			responsive_shadow_control(
 				$wp_customize,
 				'archive_grid_boxed_shadow',
