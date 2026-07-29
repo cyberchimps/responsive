@@ -586,6 +586,9 @@ body.rtl .customize-control .responsive-switchers li {
 #sub-accordion-section-responsive_blog_layout .responsive-horizontal-separator-control-wrapper {
 	padding-top: 24px;
 }
+#sub-accordion-section-responsive_single_blog_layout .responsive-horizontal-separator-control-wrapper {
+	padding-top: 24px;
+}
 #customize-control-responsive_blog_layout_options .customize-control-title {
 	margin-top: 9px;
 	margin-bottom: 0;
