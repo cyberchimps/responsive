@@ -182,6 +182,18 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'line-height' => '1.5',
 					),
 				),
+				// Blog/Archive page Item Meta font
+				'item_meta'              => array(
+					'label'    => esc_html__( 'Item Meta Font', 'responsive' ),
+					'target'   => $selectorArray['item_meta'],
+					'section'  => 'responsive_blog_layout',
+					'priority' => 98,
+					'exclude'  => array( 'font-color','font-size' ),
+					'defaults' => array(
+						'font-size'   => '13px',
+						'line-height' => '1.5',
+					),
+				),
 				'button'                     => array(
 					'label'    => esc_html__( 'Body', 'responsive' ),
 					'target'   => $selectorArray['button'],
@@ -562,7 +574,8 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'header_contact_info'        => '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list  .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-title, .site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text',
 				'mobile_header_contact_info' => '.site-mobile-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list  .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-title, .site-mobile-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text',
 				'header_off_canvas_menu'     => '.responsive-off-canvas-menu-container .responsive-off-canvas-menu-wrapper .responsive-off-canvas-menu-inner-wrapper .responsive-off-canvas-menu .responsive-off-canvas-menu-items .responsive-off-canvas-menu-item a, .off-canvas-widget-area #off-canvas-menu li a, #off-canvas-site-navigation .menu li a',
-				'item_category'               => '.blog .hentry .post-meta .entry-category a, .archive .hentry .post-meta .entry-category a', 
+				'item_category'              => '.blog .hentry .post-meta .entry-category a, .archive .hentry .post-meta .entry-category a', 
+				'item_meta'             	 => '.blog .hentry .post-meta .entry-author, .blog .hentry .post-meta .entry-date, .archive .hentry .post-meta .entry-author, .archive .hentry .post-meta .entry-date', 
 			);
 
 			if ( $this->is_responsive_version_greater() ) {

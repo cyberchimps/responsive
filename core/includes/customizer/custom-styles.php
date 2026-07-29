@@ -1470,10 +1470,7 @@ function responsive_customizer_styles() {
 	body {
 		color:{$body_text_color};
 	}
-	.post-data *, .hentry .post-data a, .hentry .post-data,
-	.post-meta *, .hentry .post-meta a {
-	    color:{$meta_text_color};
-	}
+	
 	a {
 		color:{$link_color};
 	}
@@ -7878,6 +7875,28 @@ function responsive_customizer_styles() {
 		.blog .entry-category a:hover {
 			color: {$blog_category_hover_color};
 		}";
+		// Styling Blog Item Meta Color.
+		$blog_item_meta_color       = esc_html( get_theme_mod( 'responsive_blog_item_meta_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_blog_item_meta_color' ) ) );
+		$blog_item_meta_hover_color = esc_html( get_theme_mod( 'responsive_blog_item_meta_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'blog_item_meta_hover' ) ) );
+
+		$custom_css .= "
+		.search .hentry .post-meta .entry-author a,
+		.archive .post-meta .entry-author a,
+		.blog .hentry .post-meta .entry-author a,
+		.search .hentry .post-meta .entry-date a,
+		.archive .post-meta .entry-date a,
+		.blog .hentry .post-meta .entry-date a {
+			color: {$blog_item_meta_color};
+		}
+		.search .hentry .post-meta .entry-author a:hover,
+		.archive .hentry .post-meta .entry-author a:hover,
+		.blog .hentry .post-meta .entry-author a:hover,
+		.search .hentry .post-meta .entry-date a:hover,
+		.archive .hentry .post-meta .entry-date a:hover,
+		.blog .hentry .post-meta .entry-date a:hover {
+			color: {$blog_item_meta_hover_color};
+		}";
+
 		// Styling for blog/archive date box.
 		$responsive_date_box             = esc_html( get_theme_mod( 'responsive_date_box_toggle' ) );
 		$date_box_background_color       = esc_html( responsive_prepare_css_value( 'responsive_link_color' ) );
