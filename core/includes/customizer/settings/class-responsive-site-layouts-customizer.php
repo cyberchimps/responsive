@@ -205,6 +205,24 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 				200
 			);
 
+			responsive_drag_number_control_with_switchers(
+				$wp_customize,
+				'single_post_boxed_radius',
+				__( 'Border Radius', 'responsive' ),
+				'responsive_layout',
+				205,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_post_boxed_radius' ),
+				null,
+				100,
+				0,
+				'refresh',
+				1,
+				null,
+				null,
+				array( 'desktop' ),
+				array( 'px', 'em', 'rem' )
+			);
+
 			responsive_shadow_control(
 				$wp_customize,
 				'single_post_boxed_shadow',

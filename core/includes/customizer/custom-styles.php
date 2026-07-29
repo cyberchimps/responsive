@@ -493,6 +493,10 @@ function responsive_customizer_styles() {
 		$single_post_boxed_shadow_color = esc_html( responsive_prepare_css_value( 'responsive_single_post_boxed_shadow_color', '#FFFFFF' ) );
 		$single_post_boxed_shadow_inset_style = $single_post_boxed_shadow_inset ? 'inset' : '';
 
+		// Single Post Boxed Border Radius.
+		$single_post_boxed_radius      = get_theme_mod( 'responsive_single_post_boxed_radius', '' );
+		$single_post_boxed_radius_unit = get_theme_mod( 'responsive_single_post_boxed_radius_unit', 'px' );
+
 		$single_boxed_background_css = ( 'gradient' === $box_background_color_type && ! empty( $box_background_gradient_color ) )
 			? "background: {$box_background_gradient_color};"
 			: "background-color: {$box_background_color};";
@@ -502,7 +506,14 @@ function responsive_customizer_styles() {
 			{$single_boxed_background_css}
 			border-radius: {$box_top_left_radius}px {$box_top_right_radius}px {$box_bottom_right_radius}px {$box_bottom_left_radius}px;
 			padding: " . responsive_spacing_css( $box_padding_top, $box_padding_right, $box_padding_bottom, $box_padding_left ) . ";
+		}";
+		if ( '' !== $single_post_boxed_radius ) {
+			$custom_css .= "
+			.single:not(.single-product) .site-content .hentry {
+				border-radius: {$single_post_boxed_radius}{$single_post_boxed_radius_unit};
+			}";
 		}
+		$custom_css .= "
 		.single:not(.single-product) .site-content .hentry {
 			box-shadow: {$single_post_boxed_shadow_inset_style} {$single_post_boxed_shadow_x}px {$single_post_boxed_shadow_y}px {$single_post_boxed_shadow_blur}px {$single_post_boxed_shadow_spread}px {$single_post_boxed_shadow_color};
 		}
@@ -511,14 +522,28 @@ function responsive_customizer_styles() {
 			.single:not(.single-product) .comments-area {
 				border-radius: {$box_tablet_top_left_radius}px {$box_tablet_top_right_radius}px {$box_tablet_bottom_right_radius}px {$box_tablet_bottom_left_radius}px;
 				padding: " . responsive_spacing_css( $box_tablet_padding_top, $box_tablet_padding_right, $box_tablet_padding_bottom, $box_tablet_padding_left ) . ";
-			}
+			}";
+		if ( '' !== $single_post_boxed_radius ) {
+			$custom_css .= "
+			.single:not(.single-product) .site-content .hentry {
+				border-radius: {$single_post_boxed_radius}{$single_post_boxed_radius_unit};
+			}";
+		}
+		$custom_css .= "
 		}
 		@media screen and ( max-width: 576px ) {
 			.single:not(.single-product) .site-content .hentry,
 			.single:not(.single-product) .comments-area {
 				border-radius: {$box_mobile_top_left_radius}px {$box_mobile_top_right_radius}px {$box_mobile_bottom_right_radius}px {$box_mobile_bottom_left_radius}px;
 				padding: " . responsive_spacing_css( $box_mobile_padding_top, $box_mobile_padding_right, $box_mobile_padding_bottom, $box_mobile_padding_left ) . ";
-			}
+			}";
+		if ( '' !== $single_post_boxed_radius ) {
+			$custom_css .= "
+			.single:not(.single-product) .site-content .hentry {
+				border-radius: {$single_post_boxed_radius}{$single_post_boxed_radius_unit};
+			}";
+		}
+		$custom_css .= "
 		}";
 	} elseif ( 'unboxed' === $responsive_single_blog_container_style ) {
 		$custom_css .= "

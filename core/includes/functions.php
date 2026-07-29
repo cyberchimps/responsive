@@ -1862,6 +1862,8 @@ function defaults() {
 		'responsive_archive_grid_boxed_shadow_spread' => 0,
 		'responsive_archive_grid_boxed_shadow_inset' => false,
 		'responsive_archive_grid_boxed_shadow_color' => '#FFFFFF',
+		'responsive_single_post_boxed_radius' => '',
+		'responsive_single_post_boxed_radius_unit' => 'px',
 		),
 	);
 	return $theme_options;
