@@ -1856,6 +1856,12 @@ function defaults() {
 		'responsive_single_post_boxed_shadow_spread' => 0,
 		'responsive_single_post_boxed_shadow_inset' => false,
 		'responsive_single_post_boxed_shadow_color' => '#FFFFFF',
+		'responsive_archive_grid_boxed_shadow_x' => 0,
+		'responsive_archive_grid_boxed_shadow_y' => 0,
+		'responsive_archive_grid_boxed_shadow_blur' => 0,
+		'responsive_archive_grid_boxed_shadow_spread' => 0,
+		'responsive_archive_grid_boxed_shadow_inset' => false,
+		'responsive_archive_grid_boxed_shadow_color' => '#FFFFFF',
 		),
 	);
 	return $theme_options;

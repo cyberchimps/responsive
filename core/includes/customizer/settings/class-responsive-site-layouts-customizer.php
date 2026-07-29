@@ -237,6 +237,48 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 				'color',
 				'refresh'
 			);
+
+			// Archive Grid Boxed Shadow controls.
+			responsive_separator_control(
+				$wp_customize,
+				'archive_grid_boxed_separator',
+				__( 'Archive Grid Boxed', 'responsive' ),
+				'responsive_layout',
+				230
+			);
+
+			responsive_shadow_control(
+				$wp_customize,
+				'archive_grid_boxed_shadow',
+				__( 'Box Shadow', 'responsive' ),
+				'responsive_layout',
+				240,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_archive_grid_boxed_shadow_x' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_archive_grid_boxed_shadow_y' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_archive_grid_boxed_shadow_blur' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_archive_grid_boxed_shadow_spread' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_archive_grid_boxed_shadow_inset' ),
+				null
+			);
+
+			responsive_color_control(
+				$wp_customize,
+				'archive_grid_boxed_shadow',
+				__( 'Box Shadow Color', 'responsive' ),
+				'responsive_layout',
+				250,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_archive_grid_boxed_shadow_color' ),
+				null,
+				'',
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'color',
+				'refresh'
+			);
 		}
 
 
