@@ -1850,6 +1850,12 @@ function defaults() {
 		'responsive_comments_padding'           => 30,
 		'responsive_comments_margin_y'          => 28,
 		'responsive_comments_margin_x'          => 0,
+		'responsive_single_post_boxed_shadow_x' => 0,
+		'responsive_single_post_boxed_shadow_y' => 0,
+		'responsive_single_post_boxed_shadow_blur' => 0,
+		'responsive_single_post_boxed_shadow_spread' => 0,
+		'responsive_single_post_boxed_shadow_inset' => false,
+		'responsive_single_post_boxed_shadow_color' => '#FFFFFF',
 		),
 	);
 	return $theme_options;

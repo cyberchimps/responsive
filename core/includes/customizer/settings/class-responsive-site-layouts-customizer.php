@@ -195,6 +195,41 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			// Site Tagline Visibility control
 			$site_tagline_visibility_label = __( 'Site Tagline Visibility', 'responsive' );
 			responsive_multi_select_button_control($wp_customize, 'site_tagline_visibility', $site_tagline_visibility_label, 'responsive_header_site_logo_title', 16, $site_tagline_visibility_choices, array('desktop','tablet','mobile'), null, 'refresh');
+
+			// Single Post Boxed Shadow controls.
+			responsive_separator_control(
+				$wp_customize,
+				'single_post_boxed_separator',
+				__( 'Single Post Boxed', 'responsive' ),
+				'responsive_layout',
+				200
+			);
+
+			responsive_shadow_control(
+				$wp_customize,
+				'single_post_boxed_shadow',
+				__( 'Box Shadow', 'responsive' ),
+				'responsive_layout',
+				210,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_post_boxed_shadow_x' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_post_boxed_shadow_y' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_post_boxed_shadow_blur' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_post_boxed_shadow_spread' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_post_boxed_shadow_inset' ),
+				null
+			);
+
+			responsive_color_control(
+				$wp_customize,
+				'single_post_boxed_shadow',
+				__( 'Box Shadow Color', 'responsive' ),
+				'responsive_layout',
+				220,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_post_boxed_shadow_color' ),
+				null,
+				'',
+				false
+			);
 		}
 
 
