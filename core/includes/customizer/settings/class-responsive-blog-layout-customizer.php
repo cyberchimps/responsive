@@ -134,7 +134,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 
 			// Single Blog Post Title Tabs
 			$blog_title_area_general_tab_ids = [
-				'customize-control-responsive_page_title_layout',
+				'customize-control-responsive_blog_title_area',
 				'customize-control-responsive_page_title_horizontal_alignment',
 				'customize-control-responsive_single_blog_title_alignment',
 				'customize-control-responsive_disable_author_meta',
@@ -297,6 +297,14 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 					'default'           => '/',
 					'sanitize_callback' => 'sanitize_text_field',
 					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				'responsive_blog_entry_meta_divider',
+				array(
+					'section'  => 'responsive_blog_layout',
+					'settings' => 'responsive_blog_entry_meta_divider',
+					'type'     => 'hidden',
 				)
 			);
 

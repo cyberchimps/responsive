@@ -717,6 +717,23 @@ const TabsComponent = props => {
 				}
 			});
 		});
+
+		toggleBannerLayoutControls();
+		if (api('responsive_single_blog_post_title_layout')) {
+			api('responsive_single_blog_post_title_layout', function(value) {
+				value.bind(function() {
+					toggleBannerLayoutControls();
+				});
+			});
+		}
+		if (api('responsive_single_blog_banner_container_width')) {
+			api('responsive_single_blog_banner_container_width', function(value) {
+				value.bind(function() {
+					toggleBannerLayoutControls();
+				});
+			});
+		}
+
 	}, [tab]);
 
 	const hideSidebarWidthControl = (value, control) => {
@@ -1011,6 +1028,37 @@ const TabsComponent = props => {
 		const colorElement = document.getElementById('customize-control-responsive_footer_social_item_color');
 		if (colorElement) {
 			colorElement.style.display = (brandColors !== 'yes' && tab === 'design') ? 'block' : 'none';
+		}
+	};
+
+	const toggleBannerLayoutControls = () => {
+		const layout = api('responsive_single_blog_post_title_layout') ? api('responsive_single_blog_post_title_layout').get() : 'post_title_layout1';
+		const containerWidth = api('responsive_single_blog_banner_container_width') ? api('responsive_single_blog_banner_container_width').get() : 'full_width';
+
+		const containerWidthElement = document.getElementById('customize-control-responsive_single_blog_banner_container_width');
+		const customWidthElement = document.getElementById('customize-control-responsive_single_blog_banner_custom_width');
+		const minHeightElement = document.getElementById('customize-control-responsive_single_blog_banner_min_height');
+		const bgColorElement = document.getElementById('customize-control-responsive_single_blog_banner_background_color');
+		const paddingElement = document.getElementById('customize-control-responsive_single_blog_banner_padding_padding');
+		const marginElement = document.getElementById('customize-control-responsive_single_blog_banner_margin_padding');
+
+		if (containerWidthElement) {
+			containerWidthElement.style.display = (layout === 'post_title_layout2' && tab === 'general') ? 'block' : 'none';
+		}
+		if (customWidthElement) {
+			customWidthElement.style.display = (layout === 'post_title_layout2' && containerWidth === 'custom' && tab === 'general') ? 'block' : 'none';
+		}
+		if (minHeightElement) {
+			minHeightElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
+		}
+		if (bgColorElement) {
+			bgColorElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
+		}
+		if (paddingElement) {
+			paddingElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
+		}
+		if (marginElement) {
+			marginElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
 		}
 	};
 

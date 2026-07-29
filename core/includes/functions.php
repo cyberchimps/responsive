@@ -1175,7 +1175,10 @@ function defaults() {
 			'blog_content_width'                  => 100,
 			'responsive_container_width'		  => 1340,
 			'single_blog_content_width'           => 66,
-			'single_blog_post_title_inner_elements_spacing' => 15,
+			'single_blog_post_title_inner_elements_spacing' => 20,
+			'single_blog_post_title_layout'       => 'post_title_layout1',
+			'
+			' => 'left',
 			'page_title_inner_elements_spacing'   => 10,
 			'single_blog_post_title_color'        => 'palette3',
 			'single_blog_post_text_color'		  => 'palette2',

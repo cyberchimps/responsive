@@ -174,7 +174,7 @@ const SubControls = ({ choiceID, subControlIds }) => {
 	}
 	if (choiceID === 'meta' && subControlIds && subControlIds.length >= 1) {
 		const dividerSettingId = subControlIds[0];
-		const [divider, setDivider] = React.useState((wp.customize(dividerSettingId) && wp.customize(dividerSettingId).get()) || '/');
+		const [divider, setDivider] = React.useState((wp.customize(dividerSettingId) && wp.customize(dividerSettingId).get()) || '•');
 
 		React.useEffect(() => {
 			const dividerSetting = wp.customize(dividerSettingId);
@@ -257,7 +257,19 @@ const SortableComponent = props => {
 					</div>
 					<div class="responsive-sortable-item-actions">
 						{hasSubControls && (
-							<span className="responsive-sortable-chevron">
+							<span className="responsive-sortable-chevron" onClick={(e) => {
+								e.stopPropagation();
+								const target = e.currentTarget;
+								target.classList.toggle('expanded');
+								const dropdown = target.closest('li').querySelector('.responsive-sortable-dropdown');
+								if (dropdown) {
+									if (dropdown.style.display === 'none') {
+										dropdown.style.display = 'block';
+									} else {
+										dropdown.style.display = 'none';
+									}
+								}
+							}}>
 								<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
 							</span>
 						)}

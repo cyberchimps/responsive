@@ -96,3 +96,34 @@ function resposive_entry_content_404_page_template() {
       </div>
    <?php
 }
+
+add_action( 'responsive_wrapper_top', 'responsive_single_blog_banner2' );
+
+function responsive_single_blog_banner2() {
+	if ( is_singular( 'post' ) && get_theme_mod( 'responsive_single_blog_post_title_layout', 'post_title_layout1' ) === 'post_title_layout2' ) {
+		global $post;
+		setup_postdata( $post );
+		?>
+		<section class="responsive-blog-single-banner2">
+			<div class="container">
+				<?php
+				$elements = responsive_blog_single_elements_positioning();
+				foreach ( $elements as $element ) {
+					if ( 'content' === $element ) {
+						continue;
+					}
+
+					if ( 'featured_image' === $element && ! post_password_required() ) {
+						$format = get_post_format() ? get_post_format() : 'thumbnail';
+						get_template_part( 'partials/single/media/blog-single', $format );
+					} else {
+						get_template_part( 'partials/single/' . $element );
+					}
+				}
+				?>
+			</div>
+		</section>
+		<?php
+		wp_reset_postdata();
+	}
+}

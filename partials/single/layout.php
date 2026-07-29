@@ -22,23 +22,36 @@ Responsive\responsive_entry_before();
 		// Get posts format.
 		$format = get_post_format();
 
-		// Get elements.
-		$elements = responsive_blog_single_elements_positioning();
-		// Loop through elements.
-		foreach ( $elements as $element ) {
+		if ( get_theme_mod( 'responsive_single_blog_post_title_layout', 'post_title_layout1' ) === 'post_title_layout1' ) {
+			// Get elements.
+			$elements = responsive_blog_single_elements_positioning();
+			?>
+			<header class="entry-header">
+				<?php
+				// Loop through elements.
+				foreach ( $elements as $element ) {
+					if ( 'content' === $element ) {
+						continue;
+					}
 
-			// Featured Image.
-			if ( 'featured_image' === $element
-				&& ! post_password_required() ) {
+					// Featured Image.
+					if ( 'featured_image' === $element
+						&& ! post_password_required() ) {
 
-				$format = $format ? $format : 'thumbnail';
+						$format = $format ? $format : 'thumbnail';
 
-				get_template_part( 'partials/single/media/blog-single', $format );
+						get_template_part( 'partials/single/media/blog-single', $format );
 
-			} else {
-				get_template_part( 'partials/single/' . $element );
-			}
+					} else {
+						get_template_part( 'partials/single/' . $element );
+					}
+				}
+				?>
+			</header>
+			<?php
 		}
+
+		get_template_part( 'partials/single/content' );
 		?>
 
 		<?php if ( '' !== get_the_author_meta( 'description' ) && 0 === get_theme_mod( 'responsive_disable_author_meta', 0 ) ) : ?>

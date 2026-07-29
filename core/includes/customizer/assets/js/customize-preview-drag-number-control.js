@@ -306,6 +306,25 @@
       } );
     } );
 
+    api( 'responsive_single_blog_banner_custom_width', function( value ) {
+        value.bind( function( newval )  {
+            $('body .responsive-blog-single-banner2').css('max-width', newval+'px');
+        } );
+    });
+
+    api( 'responsive_single_blog_banner_min_height', function( value ) {
+        value.bind( function( newval ) {
+            $('body .responsive-blog-single-banner2').css('min-height', newval+'px');
+        })
+    });
+
+    api( 'responsive_single_blog_post_title_inner_elements_spacing', function( value ) {
+        value.bind( function( newval ) {
+            $('body .responsive-blog-single-banner2 .container > *:not(:last-child), .single-post .entry-header > *:not(:last-child)').css('margin-bottom', newval+'px');
+        })
+    });
+
+
     //Footer Layout -> Footer Widgets
     //Number Of Columns
     api(
