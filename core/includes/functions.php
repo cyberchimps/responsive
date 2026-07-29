@@ -1381,6 +1381,7 @@ function defaults() {
 			'responsive_sidebar_border_divider_width_mobile' => '',
 			'responsive_sidebar_border_divider_width_mobile_unit' => 'px',
 			'responsive_sidebar_border_divider_color'    => '#cccccc',
+			'responsive_sidebar_sticky'                  => 0,
 			// 'responsive_header_layout'            => 'horizontal',
 			// 'responsive_header_alignment'         => 'center',
 			'header_menu_full_width'              => 1,

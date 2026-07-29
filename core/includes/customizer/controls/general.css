@@ -2029,3 +2029,7 @@ ul.control-panel-nav_menus .customize-help-toggle:before {
   .customize-help-toggle::before {
   margin: -195px -10px !important;
 }
+
+#customize-control-responsive_sidebar_sticky .responsive-toggle-control-wrapper {
+    padding-top: 18px;
+}

@@ -1598,5 +1598,34 @@
         });
     });
 
+    function updateSidebarStickyCss() {
+        jQuery('style#responsive-sidebar-sticky-css').remove();
+        var sticky = api('responsive_sidebar_sticky') ? api('responsive_sidebar_sticky').get() : 0;
+        if (sticky == 1) {
+            var isAdminBar = jQuery('body').hasClass('admin-bar');
+            var hasStickyHeader = jQuery('#masthead').hasClass('sticky-header');
+
+            var baseOffset = 20;
+            var headerHeight = hasStickyHeader ? 80 : 0;
+            var topOffset = baseOffset + headerHeight;
+            var topOffsetAdmin = topOffset + (isAdminBar ? 32 : 0);
+
+            var css = '@media screen and (min-width: 992px) {' +
+                      '  #secondary.widget-area {' +
+                      '    position: sticky;' +
+                      '    top: ' + topOffsetAdmin + 'px;' +
+                      '    align-self: flex-start;' +
+                      '    max-height: calc(100vh - ' + (topOffsetAdmin + 20) + 'px);' +
+                      '    overflow-y: auto;' +
+                      '  }' +
+                      '}';
+            jQuery('head').append('<style id="responsive-sidebar-sticky-css">' + css + '</style>');
+        }
+    }
+
+    api('responsive_sidebar_sticky', function(value) {
+        value.bind(updateSidebarStickyCss);
+    });
+
 } )( jQuery );
 

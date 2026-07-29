@@ -7848,6 +7848,37 @@ function responsive_customizer_styles() {
 			}
 		}
 
+		// Sticky Sidebar.
+		$sidebar_sticky = get_theme_mod( 'responsive_sidebar_sticky', 0 );
+		if ( 1 == $sidebar_sticky ) {
+			$sticky_header = false;
+			if ( function_exists( 'responsive_is_sticky_header_enabled' ) && responsive_is_sticky_header_enabled() ) {
+				$sticky_header = true;
+			}
+
+			$base_offset = 20;
+			$header_height = $sticky_header ? 80 : 0;
+
+			$top_desktop = $base_offset + $header_height;
+			$top_desktop_admin = $top_desktop + 32;
+
+			$custom_css .= '
+			@media screen and ( min-width: 992px ) {
+				#secondary.widget-area {
+					position: sticky;
+					top: ' . $top_desktop . 'px;
+					align-self: flex-start;
+					max-height: calc( 100vh - ' . ( $top_desktop + 20 ) . 'px );
+					overflow-y: auto;
+				}
+				.admin-bar #secondary.widget-area {
+					top: ' . $top_desktop_admin . 'px;
+					max-height: calc( 100vh - ' . ( $top_desktop_admin + 20 ) . 'px );
+				}
+			}
+			';
+		}
+
 		// Mobile Menu Breakpoint.
 		$disable_mobile_menu    = get_theme_mod( 'responsive_disable_mobile_menu', 1 );
 		$mobile_menu_breakpoint = get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 );
