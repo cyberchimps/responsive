@@ -492,6 +492,8 @@ function responsive_customizer_styles() {
 			{$single_boxed_background_css}
 			border-radius: {$box_top_left_radius}px {$box_top_right_radius}px {$box_bottom_right_radius}px {$box_bottom_left_radius}px;
 			padding: " . responsive_spacing_css( $box_padding_top, $box_padding_right, $box_padding_bottom, $box_padding_left ) . ";
+		}
+		.single:not(.single-product) .site-content .hentry {
 			box-shadow: {$single_post_boxed_shadow_inset_style} {$single_post_boxed_shadow_x}px {$single_post_boxed_shadow_y}px {$single_post_boxed_shadow_blur}px {$single_post_boxed_shadow_spread}px {$single_post_boxed_shadow_color};
 		}
 		@media screen and ( max-width: 992px ) {

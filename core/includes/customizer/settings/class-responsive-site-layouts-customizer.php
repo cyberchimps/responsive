@@ -228,7 +228,14 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_post_boxed_shadow_color' ),
 				null,
 				'',
-				false
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'color',
+				'refresh'
 			);
 		}
 
