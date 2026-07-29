@@ -7897,6 +7897,42 @@ function responsive_customizer_styles() {
 			color: {$blog_item_meta_hover_color};
 		}";
 
+		// Styling Blog Site Background
+
+		$blog_site_background_color = esc_html(
+			get_theme_mod(
+				'responsive_blog_site_background_color',
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_blog_site_background_color' )
+			)
+		);
+
+		
+		if ( ! empty( $blog_site_background_color ) ) {
+			$custom_css .= "
+			body.blog,
+			body.archive,
+			body.search-results {
+				background-color: {$blog_site_background_color};
+			}";
+		}
+		// Styling Blog/Archive Content Background Color.
+
+		$blog_content_background_color = esc_html(
+			get_theme_mod(
+				'responsive_blog_content_background_color',
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_blog_content_background_color' )
+			)
+		);
+
+		if ( ! empty( $blog_content_background_color ) ) {
+			$custom_css .= "
+			.blog:not(.custom-home-page-active) .site-content .hentry,
+			.archive:not(.post-type-archive-product) .site-content .hentry ,
+			.search-results .site-content article.hentry {
+				background-color: {$blog_content_background_color};
+			}";
+		}
+		
 		// Styling for blog/archive date box.
 		$responsive_date_box             = esc_html( get_theme_mod( 'responsive_date_box_toggle' ) );
 		$date_box_background_color       = esc_html( responsive_prepare_css_value( 'responsive_link_color' ) );

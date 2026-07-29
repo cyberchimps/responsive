@@ -4529,5 +4529,98 @@
         });
     } 
     // Footer Widgets Title & Content Typography - End
+    // Blog/Archive Item Category & Item Meta Typography - Start
+    [
+        { settingBase: 'item_category_typography', selectorKey: 'item_category' },
+        { settingBase: 'item_meta_typography',      selectorKey: 'item_meta' }   // change to 'item_meta_font' if that's still the live key
+    ].forEach( function( group ) {
+        var contentSettingBase = group.settingBase;
+        var contentSelectorKey = group.selectorKey;
+
+        // font-family (with Google Font loading)
+        api( `${contentSettingBase}[font-family]`, function ( $swipe ) {
+            $swipe.bind( function ( val ) {
+                if ( val ) {
+                    let fontName = val.split( "," )[0].replace( /'/g, '' ).trim();
+                    const id = `customize-control-${contentSettingBase}-font-family`;
+                    const fontUrl = `${responsive.googleFontsUrl}/css?family=${fontName.replace( / /g, "%20" ).replace( ",", "%2C" )}:${responsive.googleFontsWeight}`;
+                    if ( fontName in responsive.googleFonts ) {
+                        if ( jQuery( `#${id}` ).length ) {
+                            jQuery( `#${id}` ).attr( "href", fontUrl );
+                        } else {
+                            jQuery( 'head' ).append( `<link id="${id}" rel="stylesheet" type="text/css" href="${fontUrl}">` );
+                        }
+                    }
+                }
+                jQuery( `style.customizer-typography-${contentSettingBase}-font-family` ).remove();
+                jQuery( 'head' ).append(
+                    `<style class="customizer-typography-${contentSettingBase}-font-family">
+                        ${responsive.selectorArray[contentSelectorKey]} { font-family:${val}; }
+                    </style>`
+                );
+            } );
+        } );
+
+        // font-weight
+        api( `${contentSettingBase}[font-weight]`, function ( $swipe ) {
+            $swipe.bind( function ( val ) {
+                jQuery( `style.customizer-typography-${contentSettingBase}-font-weight` ).remove();
+                jQuery( 'head' ).append(
+                    `<style class="customizer-typography-${contentSettingBase}-font-weight">
+                        ${responsive.selectorArray[contentSelectorKey]} { font-weight:${val}; }
+                    </style>`
+                );
+            } );
+        } );
+
+        // font-style
+        api( `${contentSettingBase}[font-style]`, function ( $swipe ) {
+            $swipe.bind( function ( val ) {
+                jQuery( `style.customizer-typography-${contentSettingBase}-font-style` ).remove();
+                jQuery( 'head' ).append(
+                    `<style class="customizer-typography-${contentSettingBase}-font-style">
+                        ${responsive.selectorArray[contentSelectorKey]} { font-style:${val}; }
+                    </style>`
+                );
+            } );
+        } );
+
+        // text-transform
+        api( `${contentSettingBase}[text-transform]`, function ( $swipe ) {
+            $swipe.bind( function ( val ) {
+                jQuery( `style.customizer-typography-${contentSettingBase}-text-transform` ).remove();
+                jQuery( 'head' ).append(
+                    `<style class="customizer-typography-${contentSettingBase}-text-transform">
+                        ${responsive.selectorArray[contentSelectorKey]} { text-transform:${val}; }
+                    </style>`
+                );
+            } );
+        } );
+
+        // line-height
+        api( `${contentSettingBase}[line-height]`, function ( $swipe ) {
+            $swipe.bind( function ( val ) {
+                jQuery( `style.customizer-typography-${contentSettingBase}-line-height` ).remove();
+                jQuery( 'head' ).append(
+                    `<style class="customizer-typography-${contentSettingBase}-line-height">
+                        ${responsive.selectorArray[contentSelectorKey]} { line-height:${val}; }
+                    </style>`
+                );
+            } );
+        } );
+
+        // letter-spacing
+        api( `${contentSettingBase}[letter-spacing]`, function ( $swipe ) {
+            $swipe.bind( function ( val ) {
+                jQuery( `style.customizer-typography-${contentSettingBase}-letter-spacing` ).remove();
+                jQuery( 'head' ).append(
+                    `<style class="customizer-typography-${contentSettingBase}-letter-spacing">
+                        ${responsive.selectorArray[contentSelectorKey]} { letter-spacing:${val}px; }
+                    </style>`
+                );
+            } );
+        } );
+    } );
+    // Item Category & Item Meta Typography - End
 } )( jQuery );
 
