@@ -1227,7 +1227,8 @@ function defaults() {
 		'responsive_theme_defaults',
 		array(
 			'entry_columns'                       => 3,
-			'buttons_radius'                      => 0,
+			'responsive_buttons_radius'			  => 4,
+			'buttons_radius'                      => 4,
 			'responsive_border_box'               => 4,
 			'shop_content_width'                  => 100,
 			'blog_content_width'                  => 100,
@@ -2013,7 +2014,7 @@ endif;
 	function responsive_border_width_backward_compatibility() {
 		if ( ! get_option( 'responsive_old_border_width_compatible_done' ) ) {
 			// Set default fallback value
-			$default_value = 1;
+			$default_value = 0;
 			
 			// Inputs border width 
 			$input_border_width = get_theme_mod( 'responsive_inputs_border_width', $default_value );

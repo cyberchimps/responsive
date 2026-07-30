@@ -183,6 +183,8 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'defaults' => array(
 						'font-size'   => '16px',
 						'line-height' => '1',
+						'text-transform' => 'capitalize',
+						'font-weight'    => '400',
 					),
 				),
 				'input'                      => array(

@@ -2082,7 +2082,7 @@ function responsive_get_available_design_styles() {
 						'header_text'       => '#404040',
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
-						'alt_background'    => '#eaeaea',
+						'alt_background'    => '#ffffff',
 						'subtle_background' => '#10659C'
 
 					),

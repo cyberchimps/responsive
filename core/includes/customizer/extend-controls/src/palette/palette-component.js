@@ -227,7 +227,7 @@ const PaletteComponent = props => {
                 return "#f8fafc";
             }
             else if(settingId === "responsive_global_color_palette_alt_background_color"){
-                return "#eaeaea";
+                return "#ffffff";
             }
             else if(settingId === "responsive_global_color_palette_subtle_background_color"){
                 return "#007fff";
