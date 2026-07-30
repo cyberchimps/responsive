@@ -200,6 +200,12 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			$typography_label = __( 'Title Font', 'responsive' );
 			responsive_typography_group_control( $wp_customize, 'page_title_typography_group', $typography_label, 'responsive_page', 91, 'page_title_typography' );
 
+			responsive_horizontal_separator_control($wp_customize, 'page_title_typography_separator', 2, 'responsive_page', 92, 1, );
+
+			responsive_unit_padding_control( $wp_customize, 'page_padding', 'responsive_page', 93, 3, 3, null, __( 'Padding', 'responsive' ), 'postMessage', 3, 3, 3, 3, 'px' );
+
+			responsive_unit_padding_control( $wp_customize, 'page_margin', 'responsive_page', 93, 3, 3, null, __( 'Margin', 'responsive' ), 'postMessage', 3, 3, 3, 3, 'px' );
+
 		}
 
 	}
