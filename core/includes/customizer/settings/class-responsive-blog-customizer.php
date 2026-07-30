@@ -147,14 +147,18 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 				97,
 				'item_meta_typography'          
 			);
+			
+			responsive_horizontal_separator_control($wp_customize, 'blog_item_meta_font_separator', 1, 'responsive_blog_layout', 98, 1, null );
 
 			// Blog/Archive Site Background Color.
 			$blog_site_background_color_label = __( 'Site Background', 'responsive' );
-			responsive_color_control( $wp_customize, 'blog_site_background', $blog_site_background_color_label, 'responsive_blog_layout', 98, Responsive\Core\get_responsive_customizer_defaults('responsive_blog_site_background_color') );
+			responsive_color_control( $wp_customize, 'blog_site_background', $blog_site_background_color_label, 'responsive_blog_layout', 99, Responsive\Core\get_responsive_customizer_defaults('responsive_blog_site_background_color') );
 
 			// Blog/Archive Content Background Color.
 			$blog_content_background_color_label = __( 'Content Background', 'responsive' );
-			responsive_color_control( $wp_customize, 'blog_content_background', $blog_content_background_color_label, 'responsive_blog_layout', 99, Responsive\Core\get_responsive_customizer_defaults('responsive_blog_content_background_color') );
+			responsive_color_control( $wp_customize, 'blog_content_background', $blog_content_background_color_label, 'responsive_blog_layout', 100, Responsive\Core\get_responsive_customizer_defaults('responsive_blog_content_background_color') );
+
+			responsive_horizontal_separator_control($wp_customize, 'blog_content_background_separator', 1, 'responsive_blog_layout', 101, 1, null );
 
 			/* Date box setting */
 			$date_box_label = esc_html__( 'Enable Date Box', 'responsive' );
