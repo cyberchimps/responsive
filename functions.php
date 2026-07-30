@@ -2660,10 +2660,10 @@ if ( ! function_exists( 'responsive_theme_background_updater_global_palette_reva
 					'style' => $old_palette_scheme,
 					'palette' => array (
 						'label'              => '',
-						'accent'             => get_theme_mod( 'responsive_global_color_palette_accent_color', '#0066CC' ),
+						'accent'             => get_theme_mod( 'responsive_global_color_palette_accent_color', '#3B82F6' ),
 						'link_hover'		 => get_theme_mod( 'responsive_global_color_palette_link_hover_color', '#10659C' ),
-						'text'               => get_theme_mod( 'responsive_global_color_palette_text_color', '#333333' ),
-						'header_text'        => get_theme_mod( 'responsive_global_color_palette_headings_color', '#333333' ),
+						'text'               => get_theme_mod( 'responsive_global_color_palette_text_color', '#404040' ),
+						'header_text'        => get_theme_mod( 'responsive_global_color_palette_headings_color', '#404040' ),
 						'content_background' => get_theme_mod( 'responsive_global_color_palette_content_bg_color', '#ffffff' ),
 						'site_background'    => get_theme_mod( 'responsive_global_color_palette_site_background_color', '#f0f5fa' ),
 						'alt_background'     => get_theme_mod( 'responsive_global_color_palette_alt_background_color', '#eaeaea' ),
@@ -3014,16 +3014,6 @@ add_action( 'wp', 'responsive_header_button_border_none_legacy_migrate', 5 );
 add_action( 'admin_init', 'responsive_header_button_border_none_legacy_migrate', 5 );
 add_action( 'customize_save_responsive_header_button_border_style', 'responsive_header_button_border_none_clear_legacy_on_save' );
 
-/**
- * Remove Category: prefix from category archive titles
- */
-add_filter( 'get_the_archive_title', function( $title ) {
-	if ( is_category() ) {
-		$title = single_cat_title( '', false );
-	}
-	return $title;
-} );
-
 if ( ! function_exists( 'responsive_is_seo_plugin_active' ) ) {
 	/**
 	 * Check if a dedicated SEO plugin is active that already outputs a meta description.
@@ -3101,3 +3091,22 @@ if ( ! function_exists( 'responsive_output_meta_description' ) ) {
 }
 
 add_action( 'wp_head', 'responsive_output_meta_description', 1 );
+
+/**
+ * Append edit link to the reply link so they appear together at the bottom.
+ */
+add_filter( 'comment_reply_link', 'responsive_custom_comment_reply_link', 10, 4 );
+function responsive_custom_comment_reply_link( $link, $args, $comment, $post ) {
+	if ( current_user_can( 'edit_comment', $comment->comment_ID ) ) {
+		$edit_url = get_edit_comment_link( $comment );
+		$edit_link = '<span class="edit-link"><a class="comment-edit-link" href="' . esc_url( $edit_url ) . '">' . __( 'Edit', 'responsive' ) . '</a></span>';
+		
+		$pos = strrpos( $link, '</div>' );
+		if ( $pos !== false ) {
+			$link = substr_replace( $link, $edit_link . '</div>', $pos, 6 );
+		} else {
+			$link .= $edit_link;
+		}
+	}
+	return $link;
+}
