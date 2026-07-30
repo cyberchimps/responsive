@@ -2014,7 +2014,7 @@ endif;
 	function responsive_border_width_backward_compatibility() {
 		if ( ! get_option( 'responsive_old_border_width_compatible_done' ) ) {
 			// Set default fallback value
-			$default_value = 0;
+			$default_value = 1;
 			
 			// Inputs border width 
 			$input_border_width = get_theme_mod( 'responsive_inputs_border_width', $default_value );
