@@ -2076,10 +2076,10 @@ function responsive_get_available_design_styles() {
 				'color_schemes' => array(
 					'default' => array(
 						'label'             => _x( 'Default', 'color palette name', 'responsive' ),
-						'accent'            => '#0066CC',
+						'accent'            => '#3B82F6',
 						'link_hover'		=> '#10659C',
-						'text'              => '#333333',
-						'header_text'       => '#333333',
+						'text'              => '#404040',
+						'header_text'       => '#404040',
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#eaeaea',

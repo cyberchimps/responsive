@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 function responsive_gutenberg_color_palette() {
 
 	$body_typography      = get_theme_mod( 'body_typography' );
-	$body_text_color      = esc_html( responsive_prepare_css_value( 'responsive_body_text_color', '#333333' ) );
+	$body_text_color      = esc_html( responsive_prepare_css_value( 'responsive_body_text_color', '#404040' ) );
 	$box_background_color = esc_html( responsive_prepare_css_value( 'responsive_box_background_color', '#ffffff' ) );
 
 	$button_color            = esc_html( responsive_prepare_css_value( 'responsive_button_color', '#0066CC' ) );

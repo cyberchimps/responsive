@@ -220,8 +220,8 @@ class Responsive_Home_Starter_Content {
 				'responsive_footer_bar_mobile_right_padding'          => 0,
 			
 				// Typography
-				'body_typography[font-family]'                        => "'Libre Franklin', sans-serif",
-				'button_typography[font-family]'                      => "'Libre Franklin', sans-serif",
+				'body_typography[font-family]'                        => '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif',
+				'button_typography[font-family]'                      => '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif',
 				'button_typography[font-size]'                        => '22px',
 				'button_typography_font_size_value'                   => 22,
 				'button_tablet_typography[font-size]'                 => '20px',
@@ -282,6 +282,7 @@ class Responsive_Home_Starter_Content {
 				'responsive_button_text_color'                         => '#1c1c1c',
 				'responsive_button_hover_text_color'                   => '#1c1c1c',
 				'responsive_content_header_heading_color'              => '#ffffff',
+				'responsive_all_heading_text_color' 				   => '#404040',
 			
 				// Buttons Radius
 				'responsive_buttons_radius_bottom_left_radius'         => 13,

@@ -169,9 +169,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
 						'font-family'    => 'System Font',
-						'font-size'      => '12px',
+						'font-size'      => '14px',
 						'line-height'    => '1.75',
-						'text-transform' => 'uppercase',
+						'text-transform' => 'capitalize',
 					),
 				),
 				'button'                     => array(
@@ -296,8 +296,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'section'  => 'responsive_content_header_layout',
 					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
-						'font-size'   => '33px',
+						'font-size'   => '32px',
 						'line-height' => '1.75',
+						'font-weight' => '600',
 					),
 				),
 				'content_header_description' => array(
@@ -380,7 +381,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'exclude'  => array( 'font-color' ),
 					'priority' => 80,
 					'defaults' => array(
-						'font-size'   => '13px',
+						'font-size'   => '16px',
 						'line-height' => '1.75',
 					),
 				),
@@ -798,7 +799,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								'type'              => 'theme_mod',
 								'sanitize_callback' => 'responsive_sanitize_select',
 								'transport'         => $transport,
-								'default'           => 'meta' === $element ? 'uppercase' : '',
+								'default'           => 'meta' === $element ? 'capitalize' : '',
 							)
 						);
 

@@ -206,15 +206,15 @@ const PaletteComponent = props => {
         function getDefaultColor(settingId) {
             if(settingId === "responsive_global_color_palette_text_color")
             {
-                return "#364151";
+                return "#404040";
             }
             else if(settingId === "responsive_global_color_palette_headings_color")
             {
-                return "#fcba03";
+                return "#404040";
             }
             else if(settingId === "responsive_global_color_palette_accent_color")
             {
-                return "#0066CC";
+                return "#3B82F6";
             }
             else if(settingId === "responsive_global_color_palette_link_hover_color")
             {
@@ -224,7 +224,7 @@ const PaletteComponent = props => {
                 return "#ffffff";
             }
             else if(settingId === "responsive_global_color_palette_site_background_color"){
-                return "#f0f5fa";
+                return "#f8fafc";
             }
             else if(settingId === "responsive_global_color_palette_alt_background_color"){
                 return "#eaeaea";
