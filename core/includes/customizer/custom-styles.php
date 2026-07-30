@@ -8014,6 +8014,39 @@ function responsive_customizer_styles() {
 			}
 		";
 
+		// Styling Vertical Content Spacing - Single Page
+		$page_content_top_bottom_spacing = esc_html( get_theme_mod( 'responsive_page_content_top_bottom_spacing', '10' ) );
+		$page_content_vertical            = esc_html( get_theme_mod( 'responsive_page_content_vertical', 'enable' ) );
+
+		$page_content_vertical_margin_top    = '0';
+		$page_content_vertical_margin_bottom = '0';
+
+		switch ( $page_content_vertical ) {
+			case 'enable':
+				$page_content_vertical_margin_top    = $page_content_top_bottom_spacing . 'px';
+				$page_content_vertical_margin_bottom = $page_content_top_bottom_spacing . 'px';
+				break;
+			case 'top_only':
+				$page_content_vertical_margin_top    = $page_content_top_bottom_spacing . 'px';
+				$page_content_vertical_margin_bottom = '0';
+				break;
+			case 'bottom_only':
+				$page_content_vertical_margin_top    = '0';
+				$page_content_vertical_margin_bottom = $page_content_top_bottom_spacing . 'px';
+				break;
+			case 'disable':
+			default:
+				$page_content_vertical_margin_top    = '0';
+				$page_content_vertical_margin_bottom = '0';
+				break;
+		}
+
+		$custom_css .= "
+			.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) #primary.content-area {
+				margin-top: {$page_content_vertical_margin_top};
+				margin-bottom: {$page_content_vertical_margin_bottom};
+			}
+		";
 		
 		/* Taking body font size value for all views */
 		$body_font_val_desktop = ( isset( get_theme_mod( 'body_typography' )['font-size'] ) && '' !== get_theme_mod( 'body_typography' )['font-size'] ) ? get_theme_mod( 'body_typography' )['font-size'] : '16px';
