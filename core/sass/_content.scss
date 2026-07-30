@@ -523,6 +523,18 @@
 
 .single .navigation .nav-links {
     display: flex;
+    justify-content: space-between;
+
+    .nav-subtitle {
+        display: block;
+        color: #777;
+        margin-bottom: 5px;
+    }
+
+    .nav-next {
+        text-align: right;
+        margin-left: auto;
+    }
 }
 
 .comment-respond {
