@@ -11,6 +11,15 @@
   border-left: 1px solid #404040;
 }
 
+.blog.responsive-site-style-content-boxed .site-content #main-blog  {
+  padding: 30px;
+  row-gap: 24px;
+}
+
+.responsive-site-style-content-boxed .site-content .comments-area, .responsive-site-style-content-boxed .site-content .comment-respond {
+  background: none;
+}
+
 .responsive-loader {
     display: none;
     margin: 0 auto;
