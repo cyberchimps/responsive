@@ -76,8 +76,8 @@ Responsive\responsive_entry_before();
 Responsive\responsive_entry_after();
 the_post_navigation(
 	array(
-		'prev_text' => '<span class="screen-reader-text">' . esc_html__( 'Previous Post is ', 'responsive' ) . ' </span>&#8249; %title',
-		'next_text' => '<span class="screen-reader-text">' . esc_html__( 'Next Post is', 'responsive' ) . ' </span>%title &#8250;',
+		'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous', 'responsive' ) . '</span> <span class="nav-title">&larr; %title</span>',
+		'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next', 'responsive' ) . '</span> <span class="nav-title">%title &rarr;</span>',
 		'excluded_terms' => get_theme_mod( 'exclude_post_cat' ),
 	)
 );

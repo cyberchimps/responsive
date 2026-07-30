@@ -16,30 +16,6 @@ function responsive_standard_fonts()
 	return apply_filters(
 		'responsive_standard_fonts_array',
 		array(
-			'System Font'     => array(
-				array(
-					100,
-					200,
-					300,
-					400,
-					500,
-					600,
-					700,
-					800,
-					900,
-				),
-				'-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-			),
-			'Open Sans'       => array(
-				array(
-					300,
-					400,
-					600,
-					700,
-					800,
-				),
-				'sans-serif',
-			),
 			'Times New Roman' => array(
 				array(
 					400,
@@ -91,14 +67,6 @@ function responsive_standard_fonts()
 			),
 			'Courier'        => array(
 				array(
-					400,
-					700,
-				),
-				'sans-serif',
-			),
-			'Libre Franklin'  => array(
-				array(
-					200,
 					400,
 					700,
 				),

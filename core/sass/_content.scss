@@ -125,22 +125,11 @@
         }
     }
 
-    .entry-category,
-    .entry-category a,
-    .blog-entry-category,
-    .blog-entry-category a,
-    .posted-in,
-    .posted-in a,
-    .cat-links,
-    .cat-links a {
-        text-transform: capitalize;
-    }
-
     .post-data,
     .post-edit-link,
     .post-meta {
-        margin-top:  $base-line-height-px / 2;
-        margin-bottom: $base-line-height-px / 2;
+        margin-top:  20px;
+        margin-bottom:  20px;
         color: map-get($colors, gray);
         font-size: map-get($font-sizes, small);
 
@@ -534,6 +523,18 @@
 
 .single .navigation .nav-links {
     display: flex;
+    justify-content: space-between;
+
+    .nav-subtitle {
+        display: block;
+        color: #777;
+        margin-bottom: 5px;
+    }
+
+    .nav-next {
+        text-align: right;
+        margin-left: auto;
+    }
 }
 
 .comment-respond {
@@ -576,8 +577,17 @@ div.comments-area {
             font-size: map-get($font-sizes, small);
         }
 
+        .reply {
+            margin-top: 30px;
+        }
+        
+        .comment-metadata .edit-link {
+            display: none;
+        }
+
         .comment-reply-link {
-            float: right;
+            display: inline-block;
+            margin-right: 15px;
 
             &:before {
                 margin-right: $base-line-height-px / 5;
@@ -588,7 +598,8 @@ div.comments-area {
         }
 
         .comment-edit-link {
-            float: right;
+            display: inline-block;
+            margin-right: 15px;
 
             &:before {
                 margin-right: $base-line-height-px / 5;
