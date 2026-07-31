@@ -51,6 +51,9 @@
         if (typeof value === 'string' && value.startsWith('palette')) {
             return `var(--responsive-global-${value})`;
         }
+        if (typeof value === 'string' && value === 'border-color') {
+            return `var(--responsive-border-color)`;
+        }
         return value;
 	}
 
@@ -516,6 +519,19 @@
                 newval = `var(--responsive-global-${newval})`;
             }
             $('body, .wc-block-grid__product-title').css('color', newval );
+        } );
+    } );
+
+    //Global Border Color
+    api( 'responsive_border_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            document.documentElement.style.setProperty(
+                '--responsive-border-color',
+                newval
+            );
         } );
     } );
 

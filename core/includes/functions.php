@@ -1357,7 +1357,8 @@ function defaults() {
 			'button_hover_border'                 => '#0066CC',
 			'inputs_background'                   => '#ffffff',
 			'inputs_text'                         => '#333333',
-			'inputs_border'                       => '#cccccc',
+			'inputs_border'                       => 'border-color',
+			'responsive_border_color'             => '#d1d5db',
 			'label'                               => '#333333',
 
 			'responsive_style'                    => 'boxed',
@@ -1480,22 +1481,34 @@ function defaults() {
 			),
 			'responsive_header_primary_row_bg_color'                  => '#FFFFFF',
 			'responsive_header_primary_row_bg_hover_color'            => '#FFFFFF',
-			'responsive_header_primary_row_bottom_border_color'       => '#0066CC',
+			'responsive_header_primary_row_bottom_border_color'       => 'border-color',
+			'responsive_header_primary_row_bottom_border_color_tablet'=> 'border-color',
+			'responsive_header_primary_row_bottom_border_color_mobile'=> 'border-color',
 			'responsive_header_primary_row_bottom_border_hover_color' => '#0066CC',
 			'responsive_header_above_row_bg_color'                    => '#FFFFFF',
 			'responsive_header_above_row_bg_hover_color'              => '#FFFFFF',
-			'responsive_header_above_row_bottom_border_color'         => '#007CBA',
+			'responsive_header_above_row_bottom_border_color'         => 'border-color',
+			'responsive_header_above_row_bottom_border_color_tablet'  => 'border-color',
+			'responsive_header_above_row_bottom_border_color_mobile'  => 'border-color',
 			'responsive_header_above_row_bottom_border_hover_color'   => '#D9D9D9',
 			'responsive_header_below_row_bg_color'                    => '#FFFFFF',
 			'responsive_header_below_row_bg_hover_color'              => '#FFFFFF',
-			'responsive_header_below_row_bottom_border_color'         => '#007CBA',
+			'responsive_header_below_row_bottom_border_color'         => 'border-color',
+			'responsive_header_below_row_bottom_border_color_tablet'  => 'border-color',
+			'responsive_header_below_row_bottom_border_color_mobile'  => 'border-color',
 			'responsive_header_below_row_bottom_border_hover_color'   => '#D9D9D9',
 			'responsive_footer_above_row_bg_color'                    => '#333333',
-			'responsive_footer_above_row_border_color'                => '#FFFFFF',
+			'responsive_footer_above_row_border_color'                => 'border-color',
+			'responsive_footer_above_row_border_color_tablet'         => 'border-color',
+			'responsive_footer_above_row_border_color_mobile'         => 'border-color',
 			'responsive_footer_primary_row_bg_color'                  => '#333333',
-			'responsive_footer_primary_row_border_color'              => '#aaaaaa',
+			'responsive_footer_primary_row_border_color'              => 'border-color',
+			'responsive_footer_primary_row_border_color_tablet'       => 'border-color',
+			'responsive_footer_primary_row_border_color_mobile'       => 'border-color',
 			'responsive_footer_below_row_bg_color'                    => '#FFFFFF',
-			'responsive_footer_below_row_border_color'                => '#0066CC',
+			'responsive_footer_below_row_border_color'                => 'border-color',
+			'responsive_footer_below_row_border_color_tablet'         => 'border-color',
+			'responsive_footer_below_row_border_color_mobile'         => 'border-color',
 			'responsive_header_button_label'                          => 'Button',
 			'responsive_header_toggle_button_menu_label'			  => '',
 			'responsive_header_toggle_button_icon'                    => 'hamburger_solid',
@@ -2957,6 +2970,10 @@ if( ! function_exists( 'responsive_prepare_css_value' ) ) {
 
 		if ( is_string( $value ) && ( preg_match( '/^palette\d+$/', $value ) || false !== strpos( $value, 'headings-color' ) ) ) {
 			return 'var(--responsive-global-' . $value . ')';
+		}
+
+		if ( 'border-color' === $value ) {
+			return 'var(--responsive-border-color)';
 		}
 
 		return $value;

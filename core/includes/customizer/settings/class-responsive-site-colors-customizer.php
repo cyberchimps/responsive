@@ -104,6 +104,10 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 
 			responsive_horizontal_separator_control( $wp_customize, 'h6_text_separator', 1, 'responsive_colors',85, 1 );
 
+			// Global Borders Color.
+			$border_color_label = __( 'Borders', 'responsive' );
+			responsive_color_control( $wp_customize, 'border', $border_color_label, 'responsive_colors', 87, Responsive\Core\get_responsive_customizer_defaults( 'responsive_border_color' ), null );
+
 			// Site Background Color.
 			$site_background_color_label = __( 'Site Background', 'responsive' );
 			responsive_color_control( 
