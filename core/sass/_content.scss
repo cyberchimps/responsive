@@ -350,6 +350,10 @@
             margin-bottom: 0;
         }
 
+        &:last-child {
+            margin-bottom: $grid-gutter-width;
+        }
+
         .archive.blog-entry-columns-2 &,
         .search.blog-entry-columns-2 &,
         .blog.blog-entry-columns-2 & {
@@ -385,6 +389,10 @@
         margin-top: 0;
         .responsive-site-style-content-boxed & {
             margin-bottom: 0;
+        }
+
+        &:last-child {
+            margin-bottom: $grid-gutter-width;
         }
 
         .archive.blog-entry-columns-2 &,
