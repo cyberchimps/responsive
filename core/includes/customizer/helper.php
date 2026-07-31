@@ -863,7 +863,7 @@ function responsive_custom_excerpt_length( $length ) {
  *
  * @since 3.17.2
  *
- * @return html
+ * @return string
  */
 if ( ! function_exists( 'responsive_post_link' ) ) {
 
@@ -871,7 +871,7 @@ if ( ! function_exists( 'responsive_post_link' ) ) {
 	 * Function to get Read More Link of Post
 	 *
 	 * @param  string $output_filter Filter string.
-	 * @return html                Markup.
+	 * @return string                Markup.
 	 */
 	function responsive_post_link( $output_filter = '' ) {
 
@@ -893,11 +893,11 @@ if ( ! function_exists( 'responsive_modify_read_more_link' ) ) {
 	 * Function to get Read More Link of Post
 	 *
 	 * @since 3.17.2
-	 * @return html
+	 * @return string
 	 */
 	function responsive_modify_read_more_link() {
 		$read_more_text = apply_filters( 'responsive_post_read_more', __( 'Read more →', 'responsive' ) );
-		return '<a class="more-link" href="' . get_permalink() . '">' . $read_more_text . '</a>';
+		return '<p class="read-more"><a class="more-link" href="' . get_permalink() . '">' . $read_more_text . '</a></p>';
 	}
 }
 

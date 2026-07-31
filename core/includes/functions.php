@@ -48,6 +48,7 @@ function setup() {
 	add_filter( 'body_class', $n( 'responsive_add_custom_body_classes' ), 999 );
 	add_filter( 'body_class', $n( 'responsive_add_container_layout_body_classes' ), 999 );
 	add_filter( 'get_custom_logo', $n( 'responsive_transparent_custom_logo', 10, 1 ) );
+	add_filter( 'the_content_more_link', 'responsive_modify_read_more_link' );
 
 	if ( ! class_exists( 'Responsive_Addons_Pro_Public' ) && !responsive_is_user_pro()) {
 		add_action( 'customize_controls_print_footer_scripts', $n( 'responsive_add_pro_button' ) );
@@ -1481,7 +1482,7 @@ function defaults() {
 			'responsive_footer_primary_row_bg_color'                  => '#333333',
 			'responsive_footer_primary_row_border_color'              => '#aaaaaa',
 			'responsive_footer_below_row_bg_color'                    => '#FFFFFF',
-			'responsive_footer_below_row_border_color'                => '#0066CC',
+			'responsive_footer_below_row_border_color'                => '#D4D4D4',
 			'responsive_header_button_label'                          => 'Button',
 			'responsive_header_toggle_button_menu_label'			  => '',
 			'responsive_header_toggle_button_icon'                    => 'hamburger_solid',
@@ -2014,7 +2015,7 @@ endif;
 	function responsive_border_width_backward_compatibility() {
 		if ( ! get_option( 'responsive_old_border_width_compatible_done' ) ) {
 			// Set default fallback value
-			$default_value = 0;
+			$default_value = 1;
 			
 			// Inputs border width 
 			$input_border_width = get_theme_mod( 'responsive_inputs_border_width', $default_value );
@@ -2053,7 +2054,7 @@ endif;
 			}
 
 			// Buttons border width 
-			$button_border_width = get_theme_mod( 'responsive_buttons_border_width', $default_value );
+			$button_border_width = get_theme_mod( 'responsive_buttons_border_width', 0 );
 
 			foreach ( $sides as $side ) {
 				set_theme_mod( "responsive_buttons_border_width_{$side}_border", $button_border_width );

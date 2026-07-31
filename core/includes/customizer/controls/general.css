@@ -1102,7 +1102,7 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_footer_primary_height,
 #customize-control-responsive_footer_below_height {
 	padding-top: 22px;
-	border-top: 4px double #D0D0D0;
+	border-top: 4px solid #D0D0D0;
 	margin-top: 24px;
 }
 #customize-control-responsive_footer_above_width,

@@ -1,9 +1,9 @@
 /* Loader */
-.blog.responsive-site-style-boxed .site-content .container, .blog.responsive-site-style-content-boxed .site-content .container, .blog.responsive-site-style-flat .site-content .container {
-  margin: 52px auto auto;
+.site-content .container {
+  margin: 52px auto;
 }
 
-.blog .site-content article {
+.blog .site-content article, .category .site-content article, .search .site-content article, .author .site-content article {
   height: 100%;
 }
 
