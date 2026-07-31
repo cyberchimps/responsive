@@ -229,7 +229,14 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 				'top_only' => esc_html__( 'Top Only', 'responsive' ),
 				'bottom_only' => esc_html__( 'Bottom Only', 'responsive' ),
 			);
+			
 			responsive_select_button_control( $wp_customize, 'page_content_vertical', $page_content_vertical_label, 'responsive_page', 98, $page_content_vertical_choices, 'default', null, 'refresh' );
+			
+			responsive_horizontal_separator_control($wp_customize, 'page_content_vertical_separator', 1, 'responsive_page', 99, 1, );
+
+			// Show Comments
+			$page_show_comments_label = esc_html__( 'Show Comments', 'responsive' );
+			responsive_toggle_control( $wp_customize, 'page_show_comments', $page_show_comments_label, 'responsive_page', 100, false, null, 'refresh' );
 
 		}
 
