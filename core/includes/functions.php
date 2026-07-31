@@ -1481,7 +1481,7 @@ function defaults() {
 			'responsive_footer_primary_row_bg_color'                  => '#333333',
 			'responsive_footer_primary_row_border_color'              => '#aaaaaa',
 			'responsive_footer_below_row_bg_color'                    => '#FFFFFF',
-			'responsive_footer_below_row_border_color'                => '#0066CC',
+			'responsive_footer_below_row_border_color'                => '#D4D4D4',
 			'responsive_header_button_label'                          => 'Button',
 			'responsive_header_toggle_button_menu_label'			  => '',
 			'responsive_header_toggle_button_icon'                    => 'hamburger_solid',
@@ -2053,7 +2053,7 @@ endif;
 			}
 
 			// Buttons border width 
-			$button_border_width = get_theme_mod( 'responsive_buttons_border_width', $default_value );
+			$button_border_width = get_theme_mod( 'responsive_buttons_border_width', 0 );
 
 			foreach ( $sides as $side ) {
 				set_theme_mod( "responsive_buttons_border_width_{$side}_border", $button_border_width );
