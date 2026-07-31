@@ -60,6 +60,10 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_page_content_vertical',
 				$design_tab_ids_prefix . 'responsive_page_title_typography_group_separator',
 				$design_tab_ids_prefix . 'responsive_page_margin_separator',
+				$design_tab_ids_prefix . 'responsive_page_site_background_color',
+				$design_tab_ids_prefix . 'responsive_page_content_background_color',
+				$design_tab_ids_prefix . 'responsive_page_content_background_separator',
+				$design_tab_ids_prefix . 'responsive_page_content_before_background_separator',
 			);
 
 			$general_tab_ids_prefix = 'customize-control-responsive_page_';
@@ -239,6 +243,18 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			// Show Comments
 			$page_show_comments_label = esc_html__( 'Show Comments', 'responsive' );
 			responsive_toggle_control( $wp_customize, 'page_show_comments', $page_show_comments_label, 'responsive_page', 100, false, null, 'refresh' );
+
+			responsive_horizontal_separator_control($wp_customize, 'page_content_before_background_separator', 1, 'responsive_page', 101, 1, null );
+
+			// Page Site Background Color.
+			$page_site_background_color_label = __( 'Site Background', 'responsive' );
+			responsive_color_control( $wp_customize, 'page_site_background', $page_site_background_color_label, 'responsive_page', 102, Responsive\Core\get_responsive_customizer_defaults('responsive_page_site_background_color') );
+
+			// Page Content Background Color.
+			$page_content_background_color_label = __( 'Content Background', 'responsive' );
+			responsive_color_control( $wp_customize, 'page_content_background', $page_content_background_color_label, 'responsive_page', 103, Responsive\Core\get_responsive_customizer_defaults('responsive_page_content_background_color') );
+
+			responsive_horizontal_separator_control($wp_customize, 'page_content_background_separator', 1, 'responsive_page', 104, 1, null );
 
 		}
 
