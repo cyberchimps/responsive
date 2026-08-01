@@ -587,7 +587,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				106, 
 				$author_box_style_choices,
 				'normal',
-				null
+				'responsive_show_post_author_box',
 			);
 		}
 
