@@ -285,7 +285,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 			$single_blog_meta_label = esc_html__( 'Meta', 'responsive' );
 			responsive_separator_control( $wp_customize, 'single_blog_meta_control_separator', $single_blog_meta_label, 'responsive_single_blog_layout', 100 );
 
-			responsive_horizontal_separator_control( $wp_customize, 'responsive_disable_author_meta_separator', 1, 'responsive_single_blog_layout',106, 1 );
+			responsive_horizontal_separator_control( $wp_customize, 'responsive_disable_author_meta_separator', 1, 'responsive_single_blog_layout',107, 1 );
 
 			/**
 			 * Blog Single Meta
@@ -572,6 +572,23 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 			responsive_padding_control( $wp_customize, 'comments_padding', 'responsive_comments_layout', 8, $default_comments_padding, $default_comments_padding, null, __( 'Padding (px)', 'responsive' ) );
 
 			responsive_padding_control( $wp_customize, 'comments_margin', 'responsive_comments_layout', 9, Responsive\Core\get_responsive_customizer_defaults( 'responsive_comments_margin_y' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_comments_margin_x' ), null, __( 'Margin (px)', 'responsive' ) );
+		
+			// Author Box Style — only visible when author box is NOT disabled.
+			$author_box_style_label   = esc_html__( 'Author Box Style', 'responsive' );
+			$author_box_style_choices = array(
+				'normal' => esc_html__( 'Normal', 'responsive' ),
+				'center' => esc_html__( 'Center', 'responsive' ),
+			);
+			responsive_select_button_control(
+				$wp_customize,
+				'post_author_box_style',
+				$author_box_style_label,
+				'responsive_single_blog_layout',
+				106, 
+				$author_box_style_choices,
+				'normal',
+				null
+			);
 		}
 
 	}

@@ -8076,6 +8076,84 @@ function responsive_customizer_styles() {
 				background-color: {$page_content_background_color};
 			}";
 		}
+
+		
+		// Single Post - Author Box Style.
+		$post_author_box_style = get_theme_mod( 'responsive_post_author_box_style', 'normal' );
+
+		// Shared rules for both variants — hide the "About " prefix and bio text.
+		$custom_css .= "
+		#author-meta p {
+			display: none;
+		}
+		#author-meta .about-author {
+			font-size: 0;
+		}
+		#author-meta .about-author a {
+			font-size: 16px;
+			font-weight: 700;
+			text-decoration: none;
+		}
+		#author-meta img.avatar {
+			border-radius: 50%;
+		}
+		";
+
+		if ( 'center' === $post_author_box_style ) {
+			$custom_css .= "
+			#author-meta {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+			#author-meta::before,
+			#author-meta::after {
+				content: '';
+				height: 1px;
+				background: #d8dde3;
+				flex: 1 1 auto;
+				max-width: 220px;
+			}
+			#author-meta::before {
+				order: 1;
+			}
+			#author-meta img.avatar {
+				order: 2;
+				margin: 0 20px;
+			}
+			#author-meta::after {
+				order: 3;
+			}
+			#author-meta .about-author {
+				order: 4;
+				flex-basis: 100%;
+				text-align: center;
+				margin-top: 16px;
+				padding-bottom: 20px;
+				position: relative;
+			}
+			#author-meta .about-author::after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 78%;
+				max-width: 80%;
+				height: 1px;
+				background: #d8dde3;
+			}
+			";
+		} else {
+			$custom_css .= "
+			#author-meta {
+				display: flex;
+				align-items: center;
+				gap: 12px;
+			}
+			";
+		}
 				
 		/* Taking body font size value for all views */
 		$body_font_val_desktop = ( isset( get_theme_mod( 'body_typography' )['font-size'] ) && '' !== get_theme_mod( 'body_typography' )['font-size'] ) ? get_theme_mod( 'body_typography' )['font-size'] : '16px';
