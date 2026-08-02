@@ -58,6 +58,9 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
                 $design_tab_ids_prefix . 'responsive_sidebar_text_separator', 
                 $design_tab_ids_prefix . 'responsive_sidebar_link_separator', 
                 $design_tab_ids_prefix . 'responsive_sidebar_typography_separator',
+                $design_tab_ids_prefix . 'responsive_sidebar_link_style_before_separator',
+                $design_tab_ids_prefix . 'responsive_sidebar_link_style',
+                $design_tab_ids_prefix . 'responsive_sidebar_link_style_after_separator',
                 $design_tab_ids_prefix . 'responsive_sidebar_spacing',
                 $design_tab_ids_prefix . 'responsive_sidebar_outside_container_padding', 
                 $design_tab_ids_prefix . 'responsive_sidebar_inside_container_padding',
@@ -120,6 +123,28 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
              */
             $sidebar_typography_label = esc_html__('Sidebar Font', 'responsive');
             responsive_typography_group_control($wp_customize, 'sidebar_typography_group', $sidebar_typography_label, 'responsive_sidebar', 60, 'sidebar_typography');
+
+            responsive_horizontal_separator_control($wp_customize, 'sidebar_link_style_before_separator', 1, 'responsive_sidebar', 61, 1);
+
+            $sidebar_link_style_label   = __( 'Link Style', 'responsive' );
+            $sidebar_link_style_choices = array(
+                'hover'     => esc_html__( 'Underline on Hover', 'responsive' ),
+                'underline' => esc_html__( 'Underline', 'responsive' ),
+                'none'      => esc_html__( 'No Underline', 'responsive' ),
+            );
+            responsive_select_control(
+                $wp_customize,
+                'sidebar_link_style',
+                $sidebar_link_style_label,
+                'responsive_sidebar',
+                62,
+                $sidebar_link_style_choices,
+                Responsive\Core\get_responsive_customizer_defaults( 'responsive_sidebar_link_style' ),
+                null,
+                'postMessage'
+            );
+
+            responsive_horizontal_separator_control($wp_customize, 'sidebar_link_style_after_separator', 1, 'responsive_sidebar', 63, 1);
 
             responsive_drag_number_control_with_switchers(
                 $wp_customize,

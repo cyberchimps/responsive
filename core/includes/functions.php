@@ -1367,6 +1367,7 @@ function defaults() {
 
 			'responsive_style'                    => 'boxed',
 			'responsive_sidebar_style'            => 'boxed',
+			'responsive_sidebar_link_style'       => 'none',
 			'responsive_page_sidebar_style'       => 'default',
 			'responsive_blog_sidebar_style'       => 'default',
 			'responsive_single_blog_sidebar_style'=> 'default',

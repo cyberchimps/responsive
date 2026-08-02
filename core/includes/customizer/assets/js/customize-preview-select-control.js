@@ -67,6 +67,29 @@
         }
     );
 
+    // Sidebar Link Style
+    api( 'responsive_sidebar_link_style', function( $swipe ) {
+            $swipe.bind(
+                function( newval ) {
+                    var styleId = 'responsive-sidebar-link-style-preview';
+                    var $style = $('#' + styleId);
+                    if (!$style.length) {
+                        $style = $('<style id="' + styleId + '"></style>').appendTo('head');
+                    }
+                    var css = '';
+                    if (newval === 'hover') {
+                        css = '.widget-area .widget-wrapper a { text-decoration: none !important; } .widget-area .widget-wrapper a:hover { text-decoration: underline !important; }';
+                    } else if (newval === 'underline') {
+                        css = '.widget-area .widget-wrapper a { text-decoration: underline !important; } .widget-area .widget-wrapper a:hover { text-decoration: underline !important; }';
+                    } else {
+                        css = '.widget-area .widget-wrapper a { text-decoration: none !important; } .widget-area .widget-wrapper a:hover { text-decoration: none !important; }';
+                    }
+                    $style.text(css);
+                }
+            );
+        }
+    );
+
     // Header -> Layout
     //Header Layout
     // api( 'responsive_header_layout', function( $swipe ) {

@@ -2392,6 +2392,17 @@ function responsive_customizer_styles() {
 	$sidebar_text_color       = esc_html( responsive_prepare_css_value( 'responsive_sidebar_text_color' ) );
 	$sidebar_link_color       = esc_html( responsive_prepare_css_value( 'responsive_sidebar_link_color' ) );
 	$sidebar_link_hover_color = esc_html( responsive_prepare_css_value('responsive_sidebar_link_hover_color') );
+	$sidebar_link_style       = get_theme_mod( 'responsive_sidebar_link_style', 'none' );
+	$sidebar_link_decoration  = 'none';
+	$sidebar_link_hover_deco  = 'none';
+
+	if ( 'hover' === $sidebar_link_style ) {
+		$sidebar_link_decoration = 'none';
+		$sidebar_link_hover_deco = 'underline';
+	} elseif ( 'underline' === $sidebar_link_style ) {
+		$sidebar_link_decoration = 'underline';
+		$sidebar_link_hover_deco = 'underline';
+	}
 
 	$custom_css .= "
     .widget-area h1, .widget-area h2, .widget-area h3, .widget-area h4, .widget-area h5, .widget-area h6 {
@@ -2407,10 +2418,12 @@ function responsive_customizer_styles() {
     }
     .widget-area .widget-wrapper a {
         color: {$sidebar_link_color};
+        text-decoration: {$sidebar_link_decoration};
     }
 
     .widget-area .widget-wrapper a:hover {
         color: {$sidebar_link_hover_color};
+        text-decoration: {$sidebar_link_hover_deco};
     }
     ";
 
