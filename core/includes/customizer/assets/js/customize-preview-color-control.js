@@ -535,6 +535,32 @@
         } );
     } );
 
+    // Title Above Content Background Color
+    api( 'responsive_title_above_content_bg_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            document.documentElement.style.setProperty(
+                '--responsive-title-above-content-bg-color',
+                newval
+            );
+        } );
+    } );
+
+    // Title Above Content Overlay Color
+    api( 'responsive_title_above_content_overlay_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            document.documentElement.style.setProperty(
+                '--responsive-title-above-content-overlay-color',
+                newval
+            );
+        } );
+    } );
+
     //All Heading text Color
     api( 'responsive_all_heading_text_color', function( value ) {
         value.bind( function( newval ) {

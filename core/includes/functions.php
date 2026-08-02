@@ -1359,6 +1359,8 @@ function defaults() {
 			'inputs_text'                         => '#333333',
 			'inputs_border'                       => 'border-color',
 			'responsive_border_color'             => '#d1d5db',
+			'responsive_title_above_content_bg_color'      => '',
+			'responsive_title_above_content_overlay_color' => '',
 			'label'                               => '#333333',
 
 			'responsive_style'                    => 'boxed',
@@ -2974,6 +2976,14 @@ if( ! function_exists( 'responsive_prepare_css_value' ) ) {
 
 		if ( 'border-color' === $value ) {
 			return 'var(--responsive-border-color)';
+		}
+
+		if ( 'title-above-content-bg-color' === $value ) {
+			return 'var(--responsive-title-above-content-bg-color)';
+		}
+
+		if ( 'title-above-content-overlay-color' === $value ) {
+			return 'var(--responsive-title-above-content-overlay-color)';
 		}
 
 		return $value;

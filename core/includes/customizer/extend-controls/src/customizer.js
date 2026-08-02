@@ -492,6 +492,30 @@
 			});
 		});
 
+		wp.customize( 'responsive_title_above_content_bg_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				document.documentElement.style.setProperty(
+					'--responsive-title-above-content-bg-color',
+					newval
+				);
+			});
+		});
+
+		wp.customize( 'responsive_title_above_content_overlay_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				document.documentElement.style.setProperty(
+					'--responsive-title-above-content-overlay-color',
+					newval
+				);
+			});
+		});
+
 		wp.customize( 'responsive_all_heading_text_color', function( value ) {
 				value.bind( function( newval ) {
 				if( newval && newval.startsWith('palette') ) {
