@@ -46,6 +46,27 @@
         }
     );
 
+    // Link Style
+    api( 'responsive_link_style', function( $swipe ) {
+            $swipe.bind(
+                function( newval ) {
+                    $.fn.removeClassRegEx = function(regex) {
+                        var classes = $(this).attr('class');
+                        if (!classes || !regex) return false;
+                        var classArray = [];
+                        classes = classes.split(' ');
+                        for (var i = 0, len = classes.length; i < len; i++)
+                            if (!classes[i].match(regex)) classArray.push(classes[i]);
+                        $(this).attr('class', classArray.join(' '));
+                    };
+
+                    $('body').removeClassRegEx('link-style-');
+                    jQuery( 'body' ).addClass( 'link-style-'+ newval );
+                }
+            );
+        }
+    );
+
     // Header -> Layout
     //Header Layout
     // api( 'responsive_header_layout', function( $swipe ) {

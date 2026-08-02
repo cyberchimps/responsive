@@ -1635,6 +1635,64 @@ function responsive_customizer_styles() {
     	color: {$link_hover_color};
 	}
 
+	/* Content Link Styles */
+	.link-style-color-underline .entry-content p a:hover,
+	.link-style-color-underline .entry-content strong>a:hover,
+	.link-style-color-underline .entry-content em>a:hover,
+	.link-style-color-underline .entry-content>ul a:hover,
+	.link-style-color-underline .entry-content>ol a:hover {
+		color: {$link_color};
+		text-decoration-color: {$link_hover_color};
+	}
+
+	.link-style-no-underline .entry-content p a,
+	.link-style-no-underline .entry-content strong>a,
+	.link-style-no-underline .entry-content em>a,
+	.link-style-no-underline .entry-content>ul a,
+	.link-style-no-underline .entry-content>ol a,
+	.link-style-no-underline .entry-content p a:hover,
+	.link-style-no-underline .entry-content strong>a:hover,
+	.link-style-no-underline .entry-content em>a:hover,
+	.link-style-no-underline .entry-content>ul a:hover,
+	.link-style-no-underline .entry-content>ol a:hover {
+		text-decoration: none;
+	}
+
+	.link-style-hover-background .entry-content p a:hover,
+	.link-style-hover-background .entry-content strong>a:hover,
+	.link-style-hover-background .entry-content em>a:hover,
+	.link-style-hover-background .entry-content>ul a:hover,
+	.link-style-hover-background .entry-content>ol a:hover {
+		background-color: {$link_color};
+		color: {$link_hover_color};
+		text-decoration: none;
+	}
+
+	.link-style-offset-background .entry-content p a,
+	.link-style-offset-background .entry-content strong>a,
+	.link-style-offset-background .entry-content em>a,
+	.link-style-offset-background .entry-content>ul a,
+	.link-style-offset-background .entry-content>ol a {
+		color: inherit;
+		text-decoration: none;
+		background-image: linear-gradient(180deg, transparent 60%, {$link_color} 0%);
+		background-repeat: no-repeat;
+		background-position: 0 bottom;
+		background-size: 100% 10px;
+	}
+
+	.link-style-offset-background .entry-content p a:hover,
+	.link-style-offset-background .entry-content strong>a:hover,
+	.link-style-offset-background .entry-content em>a:hover,
+	.link-style-offset-background .entry-content>ul a:hover,
+	.link-style-offset-background .entry-content>ol a:hover {
+		color: inherit;
+		text-decoration: none;
+		background-image: linear-gradient(180deg, transparent 60%, {$link_hover_color} 0%);
+		background-position: 0 bottom;
+		background-size: 100% 10px;
+	}
+
 	label,
 	div.wpforms-container-full .wpforms-form .wpforms-field-label,
 	.wp-core-ui div.wpforms-container-full .wpforms-form .wpforms-field-label {

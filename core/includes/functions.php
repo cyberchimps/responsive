@@ -625,6 +625,7 @@ function responsive_add_custom_body_classes( $classes ) {
 	}
 
 	$classes[] = 'responsive-site-' . get_theme_mod( 'responsive_width', 'contained' );
+	$classes[] = 'link-style-' . get_theme_mod( 'responsive_link_style', 'standard' );
 
 	if ( is_page() ) {
 		$site_style = get_post_meta( get_the_ID(), 'responsive_page_meta_layout_style', true );
@@ -1361,6 +1362,7 @@ function defaults() {
 			'responsive_border_color'             => '#d1d5db',
 			'responsive_title_above_content_bg_color'      => '',
 			'responsive_title_above_content_overlay_color' => '',
+			'responsive_link_style'               => 'standard',
 			'label'                               => '#333333',
 
 			'responsive_style'                    => 'boxed',
