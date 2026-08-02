@@ -181,7 +181,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 
 			// Sidebar Layout heading.
 			$shop_sidebar_heading = esc_html__( 'Sidebar Layout', 'responsive' );
-			responsive_separator_control( $wp_customize, 'shop_sidebar_separator', $shop_sidebar_heading, 'responsive_woocommerce_shop', 37);
+			responsive_separator_control( $wp_customize, 'shop_sidebar_separator', $shop_sidebar_heading, 'responsive_woocommerce_shop', 37, 'responsive_active_shop_sidebar_section');
 
 			// Sidebar Position.
 			$sidebar_label   = esc_html__( 'WooCommerce Sidebar Position', 'responsive' );
@@ -201,7 +201,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				);
 			}
 
-			responsive_imageradio_button_control( $wp_customize, 'shop_sidebar_position', $sidebar_label, 'responsive_woocommerce_shop', 38, $sidebar_choices, 'global', null, 'svg');
+			responsive_imageradio_button_control( $wp_customize, 'shop_sidebar_position', $sidebar_label, 'responsive_woocommerce_shop', 38, $sidebar_choices, 'global', 'responsive_active_shop_sidebar_section', 'svg');
 
 			$shop_sidebar_style_label  = __( 'Sidebar Style', 'responsive' );
 			$shop_sidebar_style_choice = array(

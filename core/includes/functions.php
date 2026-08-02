@@ -48,6 +48,7 @@ function setup() {
 	add_filter( 'body_class', $n( 'responsive_add_custom_body_classes' ), 999 );
 	add_filter( 'body_class', $n( 'responsive_add_container_layout_body_classes' ), 999 );
 	add_filter( 'get_custom_logo', $n( 'responsive_transparent_custom_logo', 10, 1 ) );
+	add_filter( 'the_content_more_link', 'responsive_modify_read_more_link' );
 
 	if ( ! class_exists( 'Responsive_Addons_Pro_Public' ) && !responsive_is_user_pro()) {
 		add_action( 'customize_controls_print_footer_scripts', $n( 'responsive_add_pro_button' ) );
@@ -885,21 +886,79 @@ function responsive_add_custom_body_classes( $classes ) {
  * @param array $classes Body classes.
  * @return array
  */
-function responsive_add_container_layout_body_classes( $classes ) {
-
+/**
+ * Check if the narrow container layout is active for the current page context.
+ *
+ * @return bool
+ */
+function responsive_is_narrow_container_layout() {
 	$container_layout = 'default';
 
-	if ( is_page() ) {
-		$container_layout = get_theme_mod( 'responsive_page_container_layout', 'default' );
+	if ( class_exists( 'WooCommerce' ) && ( is_shop() || is_product_category() || is_product_tag() ) ) {
+		$container_layout = get_theme_mod( 'responsive_product_catalog_container_layout', 'default' );
+	} elseif ( class_exists( 'WooCommerce' ) && is_product() ) {
+		$container_layout = get_theme_mod( 'responsive_single_product_container_layout', 'default' );
+	} elseif ( is_page() ) {
+		$container_layout = get_post_meta( get_the_ID(), 'responsive_page_meta_container_layout', true );
+		if ( ! $container_layout ) {
+			$container_layout = get_theme_mod( 'responsive_page_container_layout', 'default' );
+		}
 	} elseif ( is_single() ) {
 		$container_layout = get_theme_mod( 'responsive_single_blog_container_layout', 'default' );
 	} elseif ( ! is_singular() && ( is_home() || is_archive() ) && ! is_search() ) {
 		$container_layout = get_theme_mod( 'responsive_blog_container_layout', 'default' );
 	}
 
-	if ( 'default' !== $container_layout ) {
-		$classes   = array_diff( $classes, array( 'responsive-site-' . get_theme_mod( 'responsive_width', 'contained' ) ) );
-		$classes[] = 'responsive-site-' . ( 'full-width' === $container_layout ? 'full-width' : 'contained' );
+	$global_container_layout = get_theme_mod( 'responsive_width', 'contained' );
+	$global_container_layout_key = 'normal';
+	if ( 'full-width' === $global_container_layout ) {
+		$global_container_layout_key = 'full-width';
+	} elseif ( 'narrow' === $global_container_layout ) {
+		$global_container_layout_key = 'narrow';
+	}
+
+	$resolved_layout = ( 'default' === $container_layout || 'default_container' === $container_layout ) ? $global_container_layout_key : $container_layout;
+
+	return 'narrow' === $resolved_layout;
+}
+
+function responsive_add_container_layout_body_classes( $classes ) {
+
+	$container_layout = 'default';
+
+	if ( class_exists( 'WooCommerce' ) && ( is_shop() || is_product_category() || is_product_tag() ) ) {
+		$container_layout = get_theme_mod( 'responsive_product_catalog_container_layout', 'default' );
+	} elseif ( class_exists( 'WooCommerce' ) && is_product() ) {
+		$container_layout = get_theme_mod( 'responsive_single_product_container_layout', 'default' );
+	} elseif ( is_page() ) {
+		$container_layout = get_post_meta( get_the_ID(), 'responsive_page_meta_container_layout', true );
+		if ( ! $container_layout ) {
+			$container_layout = get_theme_mod( 'responsive_page_container_layout', 'default' );
+		}
+	} elseif ( is_single() ) {
+		$container_layout = get_theme_mod( 'responsive_single_blog_container_layout', 'default' );
+	} elseif ( ! is_singular() && ( is_home() || is_archive() ) && ! is_search() ) {
+		$container_layout = get_theme_mod( 'responsive_blog_container_layout', 'default' );
+	}
+
+	if ( 'default' !== $container_layout && 'default_container' !== $container_layout ) {
+		$classes = array_diff( $classes, array( 'responsive-site-' . get_theme_mod( 'responsive_width', 'contained' ) ) );
+		if ( 'full-width' === $container_layout ) {
+			$classes[] = 'responsive-site-full-width';
+		} elseif ( 'narrow' === $container_layout ) {
+			$classes[] = 'responsive-site-narrow';
+		} else {
+			$classes[] = 'responsive-site-contained';
+		}
+	}
+
+	if ( responsive_is_narrow_container_layout() ) {
+		$classes = array_diff( $classes, array(
+			'sidebar-position-left',
+			'sidebar-position-right',
+			'sidebar-position-no',
+		) );
+		$classes[] = 'sidebar-position-no';
 	}
 
 	return $classes;
@@ -926,7 +985,7 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 						esc_url( get_permalink() ),
 						esc_attr( get_the_title() ),
 						esc_html( get_the_date( 'c' ) ),
-						esc_html( get_the_date() )
+						esc_html( get_the_date( 'M j, Y' ) )
 					),
 					'byline',
 					sprintf(
@@ -1169,7 +1228,8 @@ function defaults() {
 		'responsive_theme_defaults',
 		array(
 			'entry_columns'                       => 3,
-			'buttons_radius'                      => 0,
+			'responsive_buttons_radius'			  => 4,
+			'buttons_radius'                      => 4,
 			'responsive_border_box'               => 4,
 			'shop_content_width'                  => 100,
 			'blog_content_width'                  => 100,
@@ -1184,6 +1244,8 @@ function defaults() {
 			'single_blog_post_text_color'		  => 'palette2',
 			'single_blog_post_link_color'		  => 'palette0',
 			'single_blog_post_link_hover_color'   => 'palette1',
+			'responsive_narrow_container_width'   => 750,
+			'single_blog_content_width'           => 100,
 			'page_content_width'                  => 100,
 			'breadcrumb_alignment'                => 'center',
 			'read_more_text'                      => 'Read more →',
@@ -1210,7 +1272,7 @@ function defaults() {
 			'responsive_header_button_bg_hover_color' => 'palette7',
 			'responsive_mobile_header_button_bg_hover_color' => 'palette7',
 			'shop_product_price'                  => '#333333',
-			'content_header_heading'              => '#333333',
+			'content_header_heading'              => '#404040',
 			'content_header_description'          => '#999999',
 			'breadcrumb'                          => '#1e73be',
 			'footer_background'                   => '#333333',
@@ -1219,7 +1281,7 @@ function defaults() {
 			'footer_links_hover'                  => '#ffffff',
 			'header_background'                   => '#ffffff',
 			'header_border'                       => '#eaeaea',
-			'header_site_title'                   => '#333333',
+			'header_site_title'                   => '#404040',
 			'header_site_title_hover'             => '#10659C',
 			'header_text'						  => 'palette2',
 
@@ -1283,18 +1345,18 @@ function defaults() {
 			'responsive_alt_background_color'     => 'palette6',
 			'responsive_button_text_color'		  => 'palette6',
 			'responsive_button_hover_text_color'  => 'palette1',
-			'body_text'                           => '#333333',
+			'body_text'                           => '#404040',
 			'responsive_h1_text_color'            => 'headings-color',
 			'responsive_h2_text_color'            => 'headings-color',
 			'responsive_h3_text_color'            => 'headings-color',
 			'responsive_h4_text_color'            => 'headings-color',
 			'responsive_h5_text_color'            => 'headings-color',
 			'responsive_h6_text_color'            => 'headings-color',
-			'h2_text'                             => '#333333',
-			'h3_text'                             => '#333333',
-			'h4_text'                             => '#333333', 
-			'h5_text'                             => '#333333', 
-			'h6_text'                             => '#333333',
+			'h2_text'                             => '#404040',
+			'h3_text'                             => '#404040',
+			'h4_text'                             => '#404040', 
+			'h5_text'                             => '#404040', 
+			'h6_text'                             => '#404040',
 			'responsive_all_heading_text_color'   => 'palette3',
 			'responsive_meta_text_color'          => 'palette0',
 			'link'                                => '#0066CC',
@@ -1306,9 +1368,9 @@ function defaults() {
 			'button_border'                       => '#10659C',
 			'button_hover_border'                 => '#0066CC',
 			'inputs_background'                   => '#ffffff',
-			'inputs_text'                         => '#333333',
+			'inputs_text'                         => '#404040',
 			'inputs_border'                       => '#cccccc',
-			'label'                               => '#333333',
+			'label'                               => '#404040',
 
 			'responsive_style'                    => 'boxed',
 			'responsive_sidebar_style'            => 'boxed',
@@ -1415,8 +1477,8 @@ function defaults() {
 			),
 			'responsive_header_primary_row_bg_color'                  => '#FFFFFF',
 			'responsive_header_primary_row_bg_hover_color'            => '#FFFFFF',
-			'responsive_header_primary_row_bottom_border_color'       => '#0066CC',
-			'responsive_header_primary_row_bottom_border_hover_color' => '#0066CC',
+			'responsive_header_primary_row_bottom_border_color'       => '#D4D4D4',
+			'responsive_header_primary_row_bottom_border_hover_color' => '#D4D4D4',
 			'responsive_header_above_row_bg_color'                    => '#FFFFFF',
 			'responsive_header_above_row_bg_hover_color'              => '#FFFFFF',
 			'responsive_header_above_row_bottom_border_color'         => '#007CBA',
@@ -1430,7 +1492,7 @@ function defaults() {
 			'responsive_footer_primary_row_bg_color'                  => '#333333',
 			'responsive_footer_primary_row_border_color'              => '#aaaaaa',
 			'responsive_footer_below_row_bg_color'                    => '#FFFFFF',
-			'responsive_footer_below_row_border_color'                => '#0066CC',
+			'responsive_footer_below_row_border_color'                => '#D4D4D4',
 			'responsive_header_button_label'                          => 'Button',
 			'responsive_header_toggle_button_menu_label'			  => '',
 			'responsive_header_toggle_button_icon'                    => 'hamburger_solid',
@@ -2004,7 +2066,7 @@ endif;
 			}
 
 			// Buttons border width 
-			$button_border_width = get_theme_mod( 'responsive_buttons_border_width', $default_value );
+			$button_border_width = get_theme_mod( 'responsive_buttons_border_width', 0 );
 
 			foreach ( $sides as $side ) {
 				set_theme_mod( "responsive_buttons_border_width_{$side}_border", $button_border_width );

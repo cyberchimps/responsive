@@ -18,6 +18,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+if ( Responsive\Core\responsive_is_narrow_container_layout() ) {
+	return;
+}
 
 Responsive\responsive_widgets_before(); // above widgets container hook.
 if ( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_checkout() ) ) {

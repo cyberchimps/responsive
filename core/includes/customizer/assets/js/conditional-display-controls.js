@@ -60,7 +60,6 @@
 				function( newval ) {
 					switch (newval) {
 						case 'full-width':
-							api.control( 'responsive_container_width' ).toggle( false );
 							// api.control( 'responsive_footer_full_width' ).toggle( false );
 							api.control( 'responsive_header_full_width' ).toggle( false );
 							api.control( 'responsive_inline_logo_site_title' ).toggle( false );
@@ -69,8 +68,11 @@
 						 * The select was switched to »show«.
 						 */
 						case 'contained':
-							api.control( 'responsive_container_width' ).toggle( true );
 							// api.control( 'responsive_footer_full_width' ).toggle( true );
+							api.control( 'responsive_header_full_width' ).toggle( true );
+							api.control( 'responsive_inline_logo_site_title' ).toggle( true );
+							break;
+						case 'narrow':
 							api.control( 'responsive_header_full_width' ).toggle( true );
 							api.control( 'responsive_inline_logo_site_title' ).toggle( true );
 							break;

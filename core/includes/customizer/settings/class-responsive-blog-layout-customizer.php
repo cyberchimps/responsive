@@ -326,7 +326,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 				'default'   => esc_html__( 'Default', 'responsive' ),
 				'stretched' => esc_html__( 'Stretched', 'responsive' ),
 			);
-			responsive_select_button_control( $wp_customize, 'blog_entry_featured_image_style', $featured_image_style_label, 'responsive_blog_layout', 100, $featured_image_style_choices, 'default', null, 'postMessage' );
+			responsive_select_button_control( $wp_customize, 'blog_entry_featured_image_style', $featured_image_style_label, 'responsive_blog_layout', 100, $featured_image_style_choices, 'stretched', null, 'postMessage' );
 			responsive_horizontal_separator_control($wp_customize, 'blog_entry_featured_image_style_separator', 1, 'responsive_blog_layout', 102, 1, );
 			// Featured Image Alignment.
 			$featured_image_alignment_label   = esc_html__( 'Image Alignment', 'responsive' );

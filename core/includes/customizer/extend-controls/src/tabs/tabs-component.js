@@ -28,12 +28,36 @@ const TabsComponent = props => {
 		general: design_tab_ids,
 	};
 
+	const isSidebarControlInactive = (elementId) => {
+		let posControlKey = null;
+		if (elementId.indexOf('responsive_page_sidebar') !== -1) {
+			posControlKey = 'responsive_page_sidebar_position';
+		} else if (elementId.indexOf('responsive_blog_sidebar') !== -1) {
+			posControlKey = 'responsive_blog_sidebar_position';
+		} else if (elementId.indexOf('responsive_shop_sidebar') !== -1) {
+			posControlKey = 'responsive_shop_sidebar_position';
+		} else if (elementId.indexOf('responsive_single_product_sidebar') !== -1) {
+			posControlKey = 'responsive_single_product_sidebar_position';
+		}
+		if (posControlKey) {
+			const posCtrl = api.control(posControlKey);
+			if (posCtrl && posCtrl.active && !posCtrl.active.get()) {
+				return true;
+			}
+		}
+		return false;
+	};
+
 	useEffect(() => {
 		const showElements = tab === 'general' ? 'design' : 'general';
 		elementsToHide[showElements].forEach(elementId => {
 			const element = document.getElementById(elementId);
 			if (element) {
-				element.style.display = 'block';
+				if (isSidebarControlInactive(elementId)) {
+					element.style.display = 'none';
+				} else {
+					element.style.display = 'block';
+				}
 			}
 		});
 		elementsToHide[tab].forEach(elementId => {
@@ -758,7 +782,7 @@ const TabsComponent = props => {
         }
     }
 
-    if (isVisible) {
+    if (isVisible && !isSidebarControlInactive(controlId)) {
         controlElement.style.display = 'block';
     }
 };
@@ -787,7 +811,7 @@ const TabsComponent = props => {
 			}
 		}
 
-		if (isVisible) {
+		if (isVisible && !isSidebarControlInactive(controlId)) {
 			controlElement.style.display = 'block';
 		}
 	};
@@ -827,7 +851,7 @@ const TabsComponent = props => {
 			isVisible = value !== 'no' && tab === 'general';
 		}
 
-		if (isVisible) {
+		if (isVisible && !isSidebarControlInactive(controlId)) {
 			controlElement.style.display = 'block';
 		}
 	};
@@ -846,7 +870,7 @@ const TabsComponent = props => {
 			isVisible = value !== 'no' && tab === 'general';
 		}
 
-		if (isVisible) {
+		if (isVisible && !isSidebarControlInactive(controlId)) {
 			controlElement.style.display = 'block';
 		}
 	};

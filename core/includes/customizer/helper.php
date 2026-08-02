@@ -865,7 +865,7 @@ function responsive_custom_excerpt_length( $length ) {
  *
  * @since 3.17.2
  *
- * @return html
+ * @return string
  */
 if ( ! function_exists( 'responsive_post_link' ) ) {
 
@@ -873,7 +873,7 @@ if ( ! function_exists( 'responsive_post_link' ) ) {
 	 * Function to get Read More Link of Post
 	 *
 	 * @param  string $output_filter Filter string.
-	 * @return html                Markup.
+	 * @return string                Markup.
 	 */
 	function responsive_post_link( $output_filter = '' ) {
 
@@ -895,11 +895,11 @@ if ( ! function_exists( 'responsive_modify_read_more_link' ) ) {
 	 * Function to get Read More Link of Post
 	 *
 	 * @since 3.17.2
-	 * @return html
+	 * @return string
 	 */
 	function responsive_modify_read_more_link() {
 		$read_more_text = apply_filters( 'responsive_post_read_more', __( 'Read more →', 'responsive' ) );
-		return '<a class="more-link" href="' . get_permalink() . '">' . $read_more_text . '</a>';
+		return '<p class="read-more"><a class="more-link" href="' . get_permalink() . '">' . $read_more_text . '</a></p>';
 	}
 }
 
@@ -1926,6 +1926,18 @@ function responsive_active_site_layout_contained() {
 }
 
 /**
+ * responsive_active_site_layout_narrow.
+ *
+ * @return bool
+ */
+function responsive_active_site_layout_narrow() {
+
+	$header_layout = get_theme_mod( 'responsive_width', 'contained' );
+
+	return ( 'narrow' === $header_layout ) ? true : false;
+}
+
+/**
  * [responsive_not_active_site_style_flat description]
  *
  * @return [type] [description]
@@ -1943,6 +1955,9 @@ function responsive_not_active_site_style_flat() {
  * @return [type] [description]
  */
 function responsive_active_single_blog_sidebar_position() {
+	if ( ! responsive_active_single_blog_sidebar_section() ) {
+		return false;
+	}
 	$position = get_theme_mod( 'responsive_single_blog_sidebar_position', 'global' );
 	if ( 'global' === $position ) {
 		$global_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
@@ -1957,6 +1972,9 @@ function responsive_active_single_blog_sidebar_position() {
  * @return [type] [description]
  */
 function responsive_active_blog_sidebar_position() {
+	if ( ! responsive_active_blog_sidebar_section() ) {
+		return false;
+	}
 	$position = get_theme_mod( 'responsive_blog_sidebar_position', 'global' );
 	if ( 'global' === $position ) {
 		$global_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
@@ -1969,6 +1987,43 @@ function responsive_active_default_sidebar_position() {
 	$position = get_theme_mod( 'responsive_default_sidebar_position', 'no'); 
 		return ( 'no' !== $position && 'global' !== $position ) ? true : false;
 }
+
+/**
+ * Check if the layout resolves to narrow container.
+ *
+ * @param string $container_layout The container layout setting value.
+ * @return bool
+ */
+function responsive_is_layout_narrow( $container_layout ) {
+	$global_container = get_theme_mod( 'responsive_width', 'contained' );
+	$global_resolved = ( 'full-width' === $global_container ) ? 'full-width' : ( ( 'narrow' === $global_container ) ? 'narrow' : 'normal' );
+	$resolved = ( 'default' === $container_layout || 'default_container' === $container_layout ) ? $global_resolved : $container_layout;
+	return 'narrow' === $resolved;
+}
+
+/**
+ * Active callbacks for sidebar sections when container layout is narrow.
+ */
+function responsive_active_page_sidebar_section() {
+	return ! responsive_is_layout_narrow( get_theme_mod( 'responsive_page_container_layout', 'default_container' ) );
+}
+
+function responsive_active_blog_sidebar_section() {
+	return ! responsive_is_layout_narrow( get_theme_mod( 'responsive_blog_container_layout', 'default_container' ) );
+}
+
+function responsive_active_single_blog_sidebar_section() {
+	return ! responsive_is_layout_narrow( get_theme_mod( 'responsive_single_blog_container_layout', 'default_container' ) );
+}
+
+function responsive_active_shop_sidebar_section() {
+	return ! responsive_is_layout_narrow( get_theme_mod( 'responsive_product_catalog_container_layout', 'default_container' ) );
+}
+
+function responsive_active_single_product_sidebar_section() {
+	return ! responsive_is_layout_narrow( get_theme_mod( 'responsive_single_product_container_layout', 'default_container' ) );
+}
+
 
 /**
  * [responsive_not_active_page_sidebar description]
@@ -2024,6 +2079,9 @@ function responsive_not_active_single_post_sidebar() {
  * @return [type] [description]
  */
 function responsive_active_page_sidebar_position() {
+	if ( ! responsive_active_page_sidebar_section() ) {
+		return false;
+	}
 	$position = get_theme_mod( 'responsive_page_sidebar_position', 'global' );
 	if ( 'global' === $position ) {
 		$global_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
@@ -2038,6 +2096,9 @@ function responsive_active_page_sidebar_position() {
  * @return [type] [description]
  */
 function responsive_active_shop_sidebar_position() {
+	if ( ! responsive_active_shop_sidebar_section() ) {
+		return false;
+	}
 	$position = get_theme_mod( 'responsive_shop_sidebar_position', 'global' );
 	if ( 'global' === $position ) {
 		$global_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
@@ -2052,6 +2113,9 @@ function responsive_active_shop_sidebar_position() {
  * @return [type] [description]
  */
 function responsive_active_single_product_sidebar_position() {
+	if ( ! responsive_active_single_product_sidebar_section() ) {
+		return false;
+	}
 	$position = get_theme_mod( 'responsive_single_product_sidebar_position', 'global' );
 	if ( 'global' === $position ) {
 		$global_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
@@ -2179,13 +2243,13 @@ function responsive_get_available_design_styles() {
 				'color_schemes' => array(
 					'default' => array(
 						'label'             => _x( 'Default', 'color palette name', 'responsive' ),
-						'accent'            => '#0066CC',
+						'accent'            => '#3B82F6',
 						'link_hover'		=> '#10659C',
-						'text'              => '#333333',
-						'header_text'       => '#333333',
+						'text'              => '#404040',
+						'header_text'       => '#404040',
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
-						'alt_background'    => '#eaeaea',
+						'alt_background'    => '#ffffff',
 						'subtle_background' => '#10659C'
 
 					),

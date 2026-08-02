@@ -26,6 +26,24 @@
             
         } );
     } );
+    api( 'responsive_narrow_container_width', function( value ) {
+        value.bind( function( newval ) {
+            if ( api( 'responsive_width' ).get() === 'narrow' ) {
+                $('.container,[class*=\'__inner-container\'],.site-header-full-width-main-navigation:not(.responsive-site-full-width) .main-navigation-wrapper').css('max-width', newval+'px' );
+                jQuery('style#responsive-gutenberg-wide-size').remove();
+                jQuery('head').append(
+                    '<style id="responsive-gutenberg-wide-size">' +
+                    '.wp-block-group { --wp--style--global--wide-size: ' + newval + 'px !important; }' +
+                    '</style>'
+                );
+                if ( $(window).width() > 769 ) {
+                    $( '.floatingb-container' ).css( 'width', newval+'px' );
+                } else {
+                    $( '.floatingb-container' ).css( 'width', '100%' );    
+                }
+            }
+        } );
+    } );
     //Logo Width
     api( 'responsive_logo_width', function( value ) {
         value.bind( function( newval ) {
@@ -299,10 +317,13 @@
 
     api( 'responsive_width', function( value ) {
       value.bind( function( newval ) {
-        if(newval !== "contained")
-          $('.container,[class*=\'__inner-container\'],.site-header-full-width-main-navigation:not(.responsive-site-full-width) .main-navigation-wrapper').css('max-width', 'none' );
-        else
+        if ( newval === 'contained' ) {
           $('.container,[class*=\'__inner-container\'],.site-header-full-width-main-navigation:not(.responsive-site-full-width) .main-navigation-wrapper').css('max-width', api( 'responsive_container_width' ).get()+'px' );
+        } else if ( newval === 'narrow' ) {
+          $('.container,[class*=\'__inner-container\'],.site-header-full-width-main-navigation:not(.responsive-site-full-width) .main-navigation-wrapper').css('max-width', api( 'responsive_narrow_container_width' ).get()+'px' );
+        } else {
+          $('.container,[class*=\'__inner-container\'],.site-header-full-width-main-navigation:not(.responsive-site-full-width) .main-navigation-wrapper').css('max-width', 'none' );
+        }
       } );
     } );
 

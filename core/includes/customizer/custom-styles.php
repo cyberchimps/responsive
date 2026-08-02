@@ -129,6 +129,10 @@ function responsive_customizer_styles() {
 		$responsive_page_sidebar_width = 0; 
 		$page_primary_content_area_width = 100;
 	} else if($page_sidebar_setting === 'global' || $page_sidebar_setting === 'default')
+	if ( Responsive\Core\responsive_is_narrow_container_layout() ) {
+		$responsive_page_sidebar_width = 0; 
+		$page_primary_content_area_width = 100;
+	} else if($page_sidebar_setting === 'global' || $page_sidebar_setting === 'default')
 	{
 		$responsive_page_sidebar_width = esc_html(get_theme_mod('responsive_default_sidebar_width', 30)); 
 		$page_primary_content_area_width  = 100 - $responsive_page_sidebar_width;
@@ -7746,7 +7750,6 @@ function responsive_customizer_styles() {
 			}
 		}
 		';
-
 		// Mobile Menu Breakpoint.
 		$disable_mobile_menu    = get_theme_mod( 'responsive_disable_mobile_menu', 1 );
 		$mobile_menu_breakpoint = get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 );

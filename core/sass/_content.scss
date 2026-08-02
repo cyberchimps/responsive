@@ -120,20 +120,11 @@
         }
     }
 
-    .entry-category,
-    .entry-category a,
-    .blog-entry-category,
-    .blog-entry-category a,
-    .posted-in,
-    .posted-in a,
-    .cat-links,
-    .cat-links a {
-        text-transform: capitalize;
-    }
-
     .post-data,
     .post-edit-link,
     .post-meta {
+        margin-top:  20px;
+        margin-bottom:  20px;
         color: map-get($colors, gray);
         font-size: map-get($font-sizes, small);
 
@@ -354,6 +345,10 @@
             margin-bottom: 0;
         }
 
+        &:last-child {
+            margin-bottom: $grid-gutter-width;
+        }
+
         .archive.blog-entry-columns-2 &,
         .search.blog-entry-columns-2 &,
         .blog.blog-entry-columns-2 & {
@@ -389,6 +384,10 @@
         margin-top: 0;
         .responsive-site-style-content-boxed & {
             margin-bottom: 0;
+        }
+
+        &:last-child {
+            margin-bottom: $grid-gutter-width;
         }
 
         .archive.blog-entry-columns-2 &,
@@ -527,10 +526,26 @@
 
 .single .navigation .nav-links {
     display: flex;
+    justify-content: space-between;
+
+    .nav-subtitle {
+        display: block;
+        color: #777;
+        margin-bottom: 5px;
+    }
+
+    .nav-next {
+        text-align: right;
+        margin-left: auto;
+    }
 }
 
 .comment-respond {
     margin-top: 28px;
+}
+
+.comment-respond form p.form-submit {
+    margin-bottom: 0;
 }
 
 div.comments-area {
@@ -564,29 +579,51 @@ div.comments-area {
         }
 
         .reply,
-        .comment-meta,
         .comment-author {
-            font-size: map-get($font-sizes, small);
+            font-size: map-get($font-sizes, normal);
+        }
+
+        .comment-metadata {
+            font-size: 14px;
+            color: #737373;
+        }
+
+        .comment-metadata a {
+            color: #737373;
+        }
+
+        .comment-author a {
+            color: #404040;
+        }
+
+        .reply {
+            margin-top: 40px;
+        }
+        
+        .comment-metadata .edit-link {
+            display: none;
         }
 
         .comment-reply-link {
-            float: right;
+            display: inline-block;
+            margin-right: 30px;
+            color: #737373;
 
             &:before {
                 margin-right: $base-line-height-px / 5;
-                color: inherit;
-                font-family: icomoon;
-                content: "\f122";
+                content: url("../../admin/images/reply.svg");
             }
         }
+        
 
         .comment-edit-link {
-            float: right;
+            display: inline-block;
+            margin-right: 15px;
+            color: #737373;
 
             &:before {
                 margin-right: $base-line-height-px / 5;
-                font-family: icomoon;
-                content: "\f044";
+                content: url("../../admin/images/edit.svg");
             }
         }
 
