@@ -746,12 +746,17 @@ function responsive_add_custom_body_classes( $classes ) {
 			$classes[] = 'sidebar-position-' . (
 				( $single_blog_sidebar_value === 'global' || $single_blog_sidebar_value === 'default' ) ? $global_sidebar_position : $single_blog_sidebar_value
 			);
-			// Single Blog Featured Image Aligmnmnet.
+			// Single Blog Featured Image Alignment.
 			$classes[] = 'featured-image-alignment-' . get_theme_mod( 'responsive_single_blog_featured_image_alignment', 'left' );
 			// Single Blog Title Aligmnmnet.
 			$classes[] = 'title-alignment-' . get_theme_mod( 'responsive_single_blog_title_alignment', 'left' );
-			// Single Blog Meta Aligmnmnet.
+			$classes[] = 'title-alignment-tablet-' . get_theme_mod( 'responsive_single_blog_title_alignment_tablet', 'left' );
+			$classes[] = 'title-alignment-mobile-' . get_theme_mod( 'responsive_single_blog_title_alignment_mobile', 'left' );
+
+ 			// Single Blog Meta Aligmnmnet.
 			$classes[] = 'meta-alignment-' . get_theme_mod( 'responsive_single_blog_meta_alignment', 'left' );
+			$classes[] = 'meta-alignment-tablet-' . get_theme_mod( 'responsive_single_blog_meta_alignment_tablet', 'left' );
+			$classes[] = 'meta-alignment-mobile-' . get_theme_mod( 'responsive_single_blog_meta_alignment_mobile', 'left' );
 			// Single Blog Content Aligmnmnet.
 			$classes[] = 'content-alignment-' . get_theme_mod( 'responsive_single_blog_content_alignment', 'left' );
 

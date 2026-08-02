@@ -4999,6 +4999,20 @@
         });
     });
 
+    // Single Blog Post Title Color
+    api( 'responsive_single_blog_post_title_color', function(value) {
+        value.bind(function(newval) {
+            $('.single-post .entry-title').css('color', newval);
+        })
+    });
+
+    // Single Blog Post Text Color
+    api( 'responsive_single_blog_post_text_color', function(value) {
+        value.bind(function(newval) {
+            $('.responsive-blog-single-banner2 .container *, header.entry-header *').css('color', newval);
+        })
+    });
+
     // Single Blog Post Title Banner Background
     api('responsive_single_blog_banner_background_color', function(val) {
         val.bind(function(newval) {
@@ -5014,10 +5028,8 @@
             );
         });
     });
-    api('responsive_single_blog_banner_background_tablet', function(val) {
+    api('responsive_single_blog_banner_background_color_tablet', function(val) {
         val.bind(function(newval) {
-
-            const borderSize = api('responsive_single_blog_banner_background_tablet').get();
 
             jQuery('style#responsive-single-blog-banner-background-color-tablet').remove();
 
@@ -5030,15 +5042,13 @@
             );
         });
     });
-    api('responsive_single_blog_banner_background_mobile', function(val) {
+    api('responsive_single_blog_banner_background_color_mobile', function(val) {
         val.bind(function(newval) {
 
-            const bgColor = api('responsive_footer_above_row_top_border_size_mobile').get();
-
-            jQuery('style#responsive-single-blog-banner-background-color-tablet').remove();
+            jQuery('style#responsive-single-blog-banner-background-color-mobile').remove();
 
             jQuery('head').append(
-                '<style id="responsive-single-blog-banner-background-color-tablet">' +
+                '<style id="responsive-single-blog-banner-background-color-mobile">' +
                 '@media screen and (max-width: 576px) {' +
                 ' .responsive-blog-single-banner2 { background-color: ' + newval + '; }' +
                 '}' +
