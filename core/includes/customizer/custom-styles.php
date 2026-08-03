@@ -7950,22 +7950,22 @@ function responsive_customizer_styles() {
 		$date_box_calculated_color_value = required_font_color_value( $date_box_background_color );
 
 		//Styling Page parity - Padding
-		$page_padding_top     = esc_html( get_theme_mod( 'responsive_page_padding_top_padding', 3 ) );
-		$page_padding_right   = esc_html( get_theme_mod( 'responsive_page_padding_right_padding', 3 ) );
-		$page_padding_bottom  = esc_html( get_theme_mod( 'responsive_page_padding_bottom_padding', 3 ) );
-		$page_padding_left    = esc_html( get_theme_mod( 'responsive_page_padding_left_padding', 3 ) );
+		$page_padding_top     = esc_html( get_theme_mod( 'responsive_page_padding_top_padding', 30 ) );
+		$page_padding_right   = esc_html( get_theme_mod( 'responsive_page_padding_right_padding', 30 ) );
+		$page_padding_bottom  = esc_html( get_theme_mod( 'responsive_page_padding_bottom_padding', 30 ) );
+		$page_padding_left    = esc_html( get_theme_mod( 'responsive_page_padding_left_padding', 30 ) );
 		$page_padding_unit    = esc_html( get_theme_mod( 'responsive_page_padding_desktop_unit', 'px' ) );
 
-		$page_padding_tablet_top     = esc_html( get_theme_mod( 'responsive_page_padding_tablet_top_padding', 3 ) );
-		$page_padding_tablet_right   = esc_html( get_theme_mod( 'responsive_page_padding_tablet_right_padding', 3 ) );
-		$page_padding_tablet_bottom  = esc_html( get_theme_mod( 'responsive_page_padding_tablet_bottom_padding', 3 ) );
-		$page_padding_tablet_left    = esc_html( get_theme_mod( 'responsive_page_padding_tablet_left_padding', 3 ) );
+		$page_padding_tablet_top     = esc_html( get_theme_mod( 'responsive_page_padding_tablet_top_padding', 30 ) );
+		$page_padding_tablet_right   = esc_html( get_theme_mod( 'responsive_page_padding_tablet_right_padding', 30 ) );
+		$page_padding_tablet_bottom  = esc_html( get_theme_mod( 'responsive_page_padding_tablet_bottom_padding', 30 ) );
+		$page_padding_tablet_left    = esc_html( get_theme_mod( 'responsive_page_padding_tablet_left_padding', 30 ) );
 		$page_padding_tablet_unit    = esc_html( get_theme_mod( 'responsive_page_padding_tablet_unit', 'px' ) );
 
-		$page_padding_mobile_top     = esc_html( get_theme_mod( 'responsive_page_padding_mobile_top_padding', 3 ) );
-		$page_padding_mobile_right   = esc_html( get_theme_mod( 'responsive_page_padding_mobile_right_padding', 3 ) );
-		$page_padding_mobile_bottom  = esc_html( get_theme_mod( 'responsive_page_padding_mobile_bottom_padding', 3 ) );
-		$page_padding_mobile_left    = esc_html( get_theme_mod( 'responsive_page_padding_mobile_left_padding', 3 ) );
+		$page_padding_mobile_top     = esc_html( get_theme_mod( 'responsive_page_padding_mobile_top_padding', 30 ) );
+		$page_padding_mobile_right   = esc_html( get_theme_mod( 'responsive_page_padding_mobile_right_padding', 30 ) );
+		$page_padding_mobile_bottom  = esc_html( get_theme_mod( 'responsive_page_padding_mobile_bottom_padding', 30 ) );
+		$page_padding_mobile_left    = esc_html( get_theme_mod( 'responsive_page_padding_mobile_left_padding', 30 ) );
 		$page_padding_mobile_unit    = esc_html( get_theme_mod( 'responsive_page_padding_mobile_unit', 'px' ) );
 
 		$custom_css .= "
@@ -7985,22 +7985,22 @@ function responsive_customizer_styles() {
 		";
 
 		//Styling Page parity - Margin
-		$page_margin_top     = esc_html( get_theme_mod( 'responsive_page_margin_top_padding', 3 ) );
-		$page_margin_right   = esc_html( get_theme_mod( 'responsive_page_margin_right_padding', 3 ) );
-		$page_margin_bottom  = esc_html( get_theme_mod( 'responsive_page_margin_bottom_padding', 3 ) );
-		$page_margin_left    = esc_html( get_theme_mod( 'responsive_page_margin_left_padding', 3 ) );
+		$page_margin_top     = esc_html( get_theme_mod( 'responsive_page_margin_top_padding', 0 ) );
+		$page_margin_right   = esc_html( get_theme_mod( 'responsive_page_margin_right_padding', 0 ) );
+		$page_margin_bottom  = esc_html( get_theme_mod( 'responsive_page_margin_bottom_padding', 0 ) );
+		$page_margin_left    = esc_html( get_theme_mod( 'responsive_page_margin_left_padding', 0 ) );
 		$page_margin_unit    = esc_html( get_theme_mod( 'responsive_page_margin_desktop_unit', 'px' ) );
 
-		$page_margin_tablet_top     = esc_html( get_theme_mod( 'responsive_page_margin_tablet_top_padding', 3 ) );
-		$page_margin_tablet_right   = esc_html( get_theme_mod( 'responsive_page_margin_tablet_right_padding', 3 ) );
-		$page_margin_tablet_bottom  = esc_html( get_theme_mod( 'responsive_page_margin_tablet_bottom_padding', 3 ) );
-		$page_margin_tablet_left    = esc_html( get_theme_mod( 'responsive_page_margin_tablet_left_padding', 3 ) );
+		$page_margin_tablet_top     = esc_html( get_theme_mod( 'responsive_page_margin_tablet_top_padding', 0 ) );
+		$page_margin_tablet_right   = esc_html( get_theme_mod( 'responsive_page_margin_tablet_right_padding', 0 ) );
+		$page_margin_tablet_bottom  = esc_html( get_theme_mod( 'responsive_page_margin_tablet_bottom_padding', 0 ) );
+		$page_margin_tablet_left    = esc_html( get_theme_mod( 'responsive_page_margin_tablet_left_padding', 0 ) );
 		$page_margin_tablet_unit    = esc_html( get_theme_mod( 'responsive_page_margin_tablet_unit', 'px' ) );
 
-		$page_margin_mobile_top     = esc_html( get_theme_mod( 'responsive_page_margin_mobile_top_padding', 3 ) );
-		$page_margin_mobile_right   = esc_html( get_theme_mod( 'responsive_page_margin_mobile_right_padding', 3 ) );
-		$page_margin_mobile_bottom  = esc_html( get_theme_mod( 'responsive_page_margin_mobile_bottom_padding', 3 ) );
-		$page_margin_mobile_left    = esc_html( get_theme_mod( 'responsive_page_margin_mobile_left_padding', 3 ) );
+		$page_margin_mobile_top     = esc_html( get_theme_mod( 'responsive_page_margin_mobile_top_padding', 0 ) );
+		$page_margin_mobile_right   = esc_html( get_theme_mod( 'responsive_page_margin_mobile_right_padding', 0 ) );
+		$page_margin_mobile_bottom  = esc_html( get_theme_mod( 'responsive_page_margin_mobile_bottom_padding', 0 ) );
+		$page_margin_mobile_left    = esc_html( get_theme_mod( 'responsive_page_margin_mobile_left_padding', 0 ) );
 		$page_margin_mobile_unit    = esc_html( get_theme_mod( 'responsive_page_margin_mobile_unit', 'px' ) );
 
 		$custom_css .= "

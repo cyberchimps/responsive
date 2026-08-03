@@ -150,9 +150,6 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'customize-control-responsive_rp_read_more',
 				'customize-control-responsive_related_post_meta_elements_separator',
 				'customize-control-responsive_rp_enable_excerpt',
-				'customize-control-responsive_rp_carousel_separator',
-				'customize-control-responsive_rp_carousel_dots',
-				'customize-control-responsive_rp_carousel_infinite_loop',
 			];
 
 			$design_tab_ids = [
@@ -588,14 +585,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 			);
 
 			responsive_horizontal_separator_control( $wp_customize, 'related_post_meta_elements_separator', 1, 'responsive_rp_layout',95, 1, null );
-
-			// Show Related Posts navigation dots
-			responsive_horizontal_separator_control( $wp_customize, 'rp_carousel_separator', 1, 'responsive_rp_layout', 125, 1, null );
-
-			responsive_toggle_control( $wp_customize, 'rp_carousel_dots', __( 'Show Related Posts Pagination Dots?', 'responsive' ), 'responsive_rp_layout', 160, 0, null );
-
-			responsive_toggle_control( $wp_customize, 'rp_carousel_infinite_loop', __( 'Endlessly Loop Related Carousel?', 'responsive' ), 'responsive_rp_layout', 170, 0, null );
-
+			
 			// Comments.
 			$single_blog_comments_label = esc_html__( 'Comments', 'responsive' );
 			

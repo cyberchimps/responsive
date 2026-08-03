@@ -221,9 +221,9 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 
 			responsive_horizontal_separator_control($wp_customize, 'page_title_typography_group_separator', 1, 'responsive_page', 94, 1, );
 
-			responsive_unit_padding_control( $wp_customize, 'page_padding', 'responsive_page', 95, 3, 3, null, __( 'Padding', 'responsive' ), 'postMessage', 3, 3, 3, 3, 'px' );
+			responsive_unit_padding_control( $wp_customize, 'page_padding', 'responsive_page', 95, 30, 30, null, __( 'Padding', 'responsive' ), 'postMessage', 30, 30, 30, 30, 'px' );
 
-			responsive_unit_padding_control( $wp_customize, 'page_margin', 'responsive_page', 96, 3, 3, null, __( 'Margin', 'responsive' ), 'postMessage', 3, 3, 3, 3, 'px' );
+			responsive_unit_padding_control( $wp_customize, 'page_margin', 'responsive_page', 96, 0, 0, null, __( 'Margin', 'responsive' ), 'postMessage', 0, 0, 0, 0, 'px' );
 
 			responsive_horizontal_separator_control($wp_customize, 'page_margin_separator', 1, 'responsive_page', 97, 1, );
 

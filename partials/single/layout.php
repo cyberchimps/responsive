@@ -83,5 +83,5 @@ if ( 1 === (int) get_theme_mod( 'responsive_single_blog_navigation', 0 ) ) {
 		)
 	);
 }
-//Responsive\responsive_single_blog_related_posts_entry();
+Responsive\responsive_single_blog_related_posts_entry();
 ?>

@@ -138,7 +138,7 @@ if ( ! function_exists( 'responsive_blog_single_elements_positioning' ) ) {
 	function responsive_blog_single_elements_positioning() {
 
 		// Default sections.
-		$sections = array( 'title', 'meta', 'featured_image', 'content', 'excerpt');
+		$sections = array( 'title', 'meta', 'featured_image', 'content' );
 
 		// Get sections from Customizer.
 		$sections = get_theme_mod( 'responsive_blog_single_elements_positioning', $sections );
@@ -4388,14 +4388,4 @@ if ( ! function_exists( 'responsive_show_post_author_box' ) ) {
 	function responsive_show_post_author_box() {
 		return ! (bool) get_theme_mod( 'responsive_disable_author_meta', 0 );
 	}
-}
-/**
- * Whether Related Posts carousel should be active — implicit, driven by
- * whether Dots or Infinite Loop has been turned on (no separate master toggle).
- *
- * @return bool
- */
-function responsive_rp_carousel_enabled() {
-	return (bool) get_theme_mod( 'responsive_rp_carousel_dots', 0 )
-		|| (bool) get_theme_mod( 'responsive_rp_carousel_infinite_loop', 0 );
 }
