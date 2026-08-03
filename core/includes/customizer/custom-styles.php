@@ -8138,17 +8138,7 @@ function responsive_customizer_styles() {
 				padding-bottom: 20px;
 				position: relative;
 			}
-			#author-meta .about-author::after {
-				content: '';
-				position: absolute;
-				bottom: 0;
-				left: 50%;
-				transform: translateX(-50%);
-				width: 78%;
-				max-width: 80%;
-				height: 1px;
-				background: #d8dde3;
-			}
+			
 			";
 		} else {
 			$custom_css .= "
@@ -8284,16 +8274,21 @@ function responsive_customizer_styles() {
 		}
 
 		// Single Post — Excerpt Color.
-		$single_blog_excerpt_color = esc_html(
-			get_theme_mod(
-				'responsive_single_blog_excerpt_color_color',
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_excerpt_color' )
-			)
-		);
+		$single_blog_excerpt_color       = esc_html( get_theme_mod( 'responsive_single_blog_excerpt_color_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_excerpt_color' ) ) );
+		$single_blog_excerpt_hover_color = esc_html( get_theme_mod( 'responsive_single_blog_excerpt_color_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_excerpt_color_hover' ) ) );
 
 		$custom_css .= "
-		.single.single-post .entry-content {
+		.single:not(.single-product) .entry-content .entry-summary,
+		.single:not(.single-product) .entry-excerpt {
 			color: {$single_blog_excerpt_color};
+		}
+		.single:not(.single-product) .entry-content .entry-summary a,
+		.single:not(.single-product) .entry-excerpt a {
+			color: {$single_blog_excerpt_color};
+		}
+		.single:not(.single-product) .entry-content .entry-summary a:hover,
+		.single:not(.single-product) .entry-excerpt a:hover {
+			color: {$single_blog_excerpt_hover_color};
 		}";
 
 		// Single Post — Excerpt Font.

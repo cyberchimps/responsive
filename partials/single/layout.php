@@ -74,12 +74,14 @@ Responsive\responsive_entry_before();
 </article><!-- end of #post-<?php the_ID(); ?> -->
 <?php
 Responsive\responsive_entry_after();
-the_post_navigation(
-	array(
-		'prev_text' => '<span class="screen-reader-text">' . esc_html__( 'Previous Post is ', 'responsive' ) . ' </span>&#8249; %title',
-		'next_text' => '<span class="screen-reader-text">' . esc_html__( 'Next Post is', 'responsive' ) . ' </span>%title &#8250;',
-		'excluded_terms' => get_theme_mod( 'exclude_post_cat' ),
-	)
-);
-Responsive\responsive_single_blog_related_posts_entry();
+if ( 1 === (int) get_theme_mod( 'responsive_single_blog_navigation', 0 ) ) {
+	the_post_navigation(
+		array(
+			'prev_text' => '<span class="screen-reader-text">' . esc_html__( 'Previous Post is ', 'responsive' ) . ' </span>&#8249; %title',
+			'next_text' => '<span class="screen-reader-text">' . esc_html__( 'Next Post is', 'responsive' ) . ' </span>%title &#8250;',
+			'excluded_terms' => get_theme_mod( 'exclude_post_cat' ),
+		)
+	);
+}
+//Responsive\responsive_single_blog_related_posts_entry();
 ?>

@@ -194,6 +194,42 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'line-height' => '1.5',
 					),
 				),
+				// Single Post — Excerpt Font.
+				'single_blog_excerpt'    => array(
+					'label'    => esc_html__( 'Excerpt Font', 'responsive' ),
+					'target'   => $selectorArray['single_blog_excerpt'],
+					'section'  => 'responsive_single_blog_layout',
+					'priority' => 111,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size'   => '16px',
+						'line-height' => '1.75',
+					),
+				),
+				// Single Post — Breadcrumb Font.
+				'single_blog_breadcrumb' => array(
+					'label'    => esc_html__( 'Breadcrumb Font', 'responsive' ),
+					'target'   => $selectorArray['single_blog_breadcrumb'],
+					'section'  => 'responsive_single_blog_layout',
+					'priority' => 109,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size'   => '13px',
+						'line-height' => '1.75',
+					),
+				),
+				// Single Post — Category Font.
+				'single_blog_category'   => array(
+					'label'    => esc_html__( 'Category Font', 'responsive' ),
+					'target'   => $selectorArray['single_blog_category'],
+					'section'  => 'responsive_single_blog_layout',
+					'priority' => 116,
+					'exclude'  => array( 'font-color', 'font-size' ),
+					'defaults' => array(
+						'font-size'   => '13px',
+						'line-height' => '1.5',
+					),
+				),
 				'button'                     => array(
 					'label'    => esc_html__( 'Body', 'responsive' ),
 					'target'   => $selectorArray['button'],
@@ -576,6 +612,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'header_off_canvas_menu'     => '.responsive-off-canvas-menu-container .responsive-off-canvas-menu-wrapper .responsive-off-canvas-menu-inner-wrapper .responsive-off-canvas-menu .responsive-off-canvas-menu-items .responsive-off-canvas-menu-item a, .off-canvas-widget-area #off-canvas-menu li a, #off-canvas-site-navigation .menu li a',
 				'item_category'              => '.blog .hentry .post-meta .entry-category a, .archive .hentry .post-meta .entry-category a', 
 				'item_meta'             	 => '.blog .hentry .post-meta .entry-author, .blog .hentry .post-meta .entry-date, .archive .hentry .post-meta .entry-author, .archive .hentry .post-meta .entry-date', 
+				'single_blog_excerpt'    => '.single.single-post .entry-excerpt',
+				'single_blog_breadcrumb' => '.single.single-post .breadcrumbs',
+				'single_blog_category'   => '.single.single-post .entry-category a',
 			);
 
 			if ( $this->is_responsive_version_greater() ) {
