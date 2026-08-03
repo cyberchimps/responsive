@@ -3,6 +3,11 @@
   margin: 52px auto;
 }
 
+body.responsive-blog-container-margin-legacy .site-content .container {
+  margin-top: unset;
+  margin-bottom: unset;
+}
+
 .blog .site-content article, .category .site-content article, .search .site-content article, .author .site-content article {
   height: 100%;
 }
