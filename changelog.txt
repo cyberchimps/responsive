@@ -8,6 +8,12 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(03/08/2026) Version 6.4.1
+[+] = New = Introduced Narrow Container layout option in the Theme Customizer.
+[+] = New = Introduced native System Fonts in typography settings.
+[*] = Improvement = Optimized speed and overall theme performance.
+[*] = Improvement = Enhanced frontend UI elements across the theme.
+
 (23/07/2026) Version 6.4.0
 [+] = New = Introduced Sidebar Style settings in the Theme Customizer for enhanced sidebar customization.
 [+] = New = Introduced Container Layout and Container Style controls for Pages, Single Posts, Blog/Archive pages, WooCommerce Product Catalog, and Single Product pages to provide more flexible layout customization.
