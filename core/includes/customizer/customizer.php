@@ -300,6 +300,7 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'tinymce/class-responsive-customizer-tinymce-control.php';
 	require_once $dir . 'html/class-responsive-customizer-html-control.php';
 	require_once $dir . 'dimensions/class-responsive-customizer-dimensions-control.php';
+	require_once $dir . 'unit-dimensions/class-responsive-customizer-unit-dimensions-control.php';
 	require_once $dir . 'heading/class-responsive-customizer-heading-control.php';
 	require_once $dir . 'select/class-responsive-customizer-responsive-select-control.php';
 	require_once $dir . 'checkbox/class-responsive-customizer-responsive-checkbox-control.php';

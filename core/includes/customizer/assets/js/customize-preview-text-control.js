@@ -35,7 +35,7 @@
             jQuery( 'style#responsive-single-blog-meta-seperator-content' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-single-blog-meta-seperator-content">'
-                + '.single .hentry .post-meta > span::after { content:"' + newval +'" }'
+                + '.single .hentry .post-meta > span:not(:last-child)::after, .single .responsive-blog-single-banner2 .post-meta > span:not(:last-child)::after { content:"' + newval +'" }'
                 + '</style>'
             );
         } );

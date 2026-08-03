@@ -111,11 +111,6 @@
         border-radius: none !important;
     }
 
-    .entry-title {
-        margin-top:  $base-line-height-px / 2;
-        margin-bottom: $base-line-height-px / 2;
-    }
-
     .thumbnail {
         margin-top:  $base-line-height-px / 2;
         margin-bottom: $base-line-height-px / 2;
@@ -139,8 +134,6 @@
     .post-data,
     .post-edit-link,
     .post-meta {
-        margin-top:  $base-line-height-px / 2;
-        margin-bottom: $base-line-height-px / 2;
         color: map-get($colors, gray);
         font-size: map-get($font-sizes, small);
 
