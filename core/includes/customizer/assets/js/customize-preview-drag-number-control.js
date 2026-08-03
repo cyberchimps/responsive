@@ -384,6 +384,64 @@
         })
     });
 
+    // Blog/Archive Title
+    api( 'responsive_blog_banner_custom_width', function( value ) {
+        value.bind( function( newval )  {
+            $('body .responsive-archive-entry-banner').css('max-width', newval+'px');
+        } );
+    });
+
+    api( 'responsive_blog_banner_min_height', function( value ) {
+        value.bind( function( newval ) {
+            const styleId = 'responsive-blog-banner-min-height-desktop';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 993px) {
+                        body .responsive-archive-entry-banner { min-height: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+    api( 'responsive_blog_banner_min_height_mobile_tablet', function( value ) {
+        value.bind( function( newval ) {
+            const styleId = 'responsive-blog-banner-min-height-tablet';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 577px) and (max-width: 992px) {
+                        body .responsive-archive-entry-banner { min-height: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+    api( 'responsive_blog_banner_min_height_mobile', function( value ) {
+        value.bind( function( newval ) {
+            const styleId = 'responsive-blog-banner-min-height-mobile';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (max-width: 576px) {
+                        body .responsive-archive-entry-banner { min-height: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+    api( 'responsive_blog_post_title_inner_elements_spacing', function( value ) {
+        value.bind( function( newval ) {
+            $('body .responsive-archive-entry-banner  .container > *:not(:last-child)').css('margin-bottom', newval+'px');
+        })
+    });
+
 
     //Footer Layout -> Footer Widgets
     //Number Of Columns

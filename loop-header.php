@@ -96,6 +96,34 @@ if ( 1 === $responsive_options['breadcrumb'] ) {
 if ( ! $responsive_page_title && ! $responsive_page_description && ! $responsive_show_breadcrumbs ) {
 	return;
 }
+
+$is_blog_archive = ( is_home() || ( is_archive() && ! is_search() ) );
+$blog_layout     = get_theme_mod( 'responsive_blog_title_layout', 'post_title_layout1' );
+
+if ( $is_blog_archive ) {
+	if ( 'post_title_layout2' === $blog_layout ) {
+		// Output is handled in responsive_wrapper_top hook
+		return;
+	}
+
+	// Layout 1: only output breadcrumbs within a section
+	?>
+	<section class="responsive-archive-entry-banner">
+		<div class="container">
+			<?php if ( $responsive_show_breadcrumbs ) : ?>
+				<div class="responsive-breadcrumbs-wrapper">
+					<div class="breadcrumbs-inner">
+						<nav class="breadcrumbs" <?php responsive_check_yoast_enabled_breadcrumbs() ? '' : responsive_schema_markup( 'breadcrumb' ); ?>>
+							<?php responsive_get_breadcrumb_lists(); ?>
+						</nav>
+					</div>
+				</div>
+			<?php endif; ?>
+		</div>
+	</section>
+	<?php
+	return;
+}
 ?>
 <div class="site-content-header">
 	<?php if ( $responsive_show_breadcrumbs && ( 'before' === get_theme_mod( 'responsive_breadcrumb_position', 'before' ) ) ) : ?>

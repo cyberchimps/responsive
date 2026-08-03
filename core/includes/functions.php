@@ -1242,8 +1242,8 @@ function defaults() {
 			'single_blog_content_width'           => 66,
 			'single_blog_post_title_inner_elements_spacing' => 20,
 			'single_blog_post_title_layout'       => 'post_title_layout1',
-			'
-			' => 'left',
+			'blog_title_layout'					  => 'post_title_layout1',
+			'page_title_layout'                   => 'post_title_layout1',
 			'page_title_inner_elements_spacing'   => 10,
 			'single_blog_post_title_color'        => 'palette3',
 			'single_blog_post_text_color'		  => 'palette2',
@@ -1835,6 +1835,7 @@ function defaults() {
 		'responsive_single_blog_comments'       => true,
 		'responsive_single_blog_post_title'     => true,
 		'responsive_page_title_area'			=> true,
+		'responsive_blog_title_area'            => true,
 		'responsive_comments_position'          => 'below',
 		'responsive_comments_border_width'      => 0,
 		'responsive_comments_border_color'      => '',
