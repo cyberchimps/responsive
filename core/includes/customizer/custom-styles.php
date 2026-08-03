@@ -8974,29 +8974,35 @@ function responsive_customizer_styles() {
 
 			// check vertical alignment
 			$single_blog_post_title_layout2_vertical_alignment = get_theme_mod( 'responsive_single_blog_post_title_vertical_alignment', 'flex-start');
-			$custom_css .= "
-				.responsive-blog-single-banner2 {
-					width: 100%;
-					display: flex;
-					flex-direction: column;
-					justify-content: ${single_blog_post_title_layout2_vertical_alignment};
-					min-height: {$single_blog_post_title_layout2_banner_height}px;
-					background-color: {$single_blog_banner_background_color};
+
+			// check banner padding and margin
+			$single_blog_banner_padding = get_responsive_spacing_values('responsive_single_blog_banner_padding', 0, 0, 0, 0);
+			$single_blog_banner_padding_desktop_unit = get_theme_mod('responsive_single_blog_banner_padding_desktop_unit', 'px');
+			$single_blog_banner_padding_tablet_unit  = get_theme_mod('responsive_single_blog_banner_padding_tablet_unit', 'px');
+			$single_blog_banner_padding_mobile_unit  = get_theme_mod('responsive_single_blog_banner_padding_mobile_unit', 'px');
+
+			$single_blog_banner_margin = get_responsive_spacing_values('responsive_single_blog_banner_margin', '', '', '', '');
+			$single_blog_banner_margin_desktop_unit = get_theme_mod('responsive_single_blog_banner_margin_desktop_unit', 'px');
+			$single_blog_banner_margin_tablet_unit  = get_theme_mod('responsive_single_blog_banner_margin_tablet_unit', 'px');
+			$single_blog_banner_margin_mobile_unit  = get_theme_mod('responsive_single_blog_banner_margin_mobile_unit', 'px');
+
+			$format_spacing = function( $val, $unit, $is_margin = false ) {
+				$t = isset( $val['top'] ) ? $val['top'] : '';
+				$r = isset( $val['right'] ) ? $val['right'] : '';
+				$b = isset( $val['bottom'] ) ? $val['bottom'] : '';
+				$l = isset( $val['left'] ) ? $val['left'] : '';
+
+				if ( $is_margin && $t === '' && $r === '' && $b === '' && $l === '' ) {
+					return '0 auto';
 				}
-			@media screen and ( max-width: 992px ) {
-				.responsive-blog-single-banner2 {
-					min-height: {$single_blog_post_title_layout2_banner_height_tablet}px;
-					background-color: {$single_blog_banner_table_background_color};
-				}
-			}
-			@media screen and ( max-width: 576px ) {
-				.responsive-blog-single-banner2 {
-					min-height: {$single_blog_post_title_layout2_banner_height_mobile}px;
-					background-color: {$single_blog_banner_mobile_background_color};
-				}
-			}
-			";
-			
+
+				$top = ( '' !== $t ) ? $t . $unit : '0' . $unit;
+				$right = ( '' !== $r ) ? $r . $unit : '0' . $unit;
+				$bottom = ( '' !== $b ) ? $b . $unit : '0' . $unit;
+				$left = ( '' !== $l ) ? $l . $unit : '0' . $unit;
+				return "{$top} {$right} {$bottom} {$left}";
+			};
+
 			// check container width
 			$single_blog_post_title_container_width = get_theme_mod( 'responsive_single_blog_banner_container_width', 'full_width' );
 
@@ -9016,6 +9022,37 @@ function responsive_customizer_styles() {
 					}
 				";
 			}
+
+			$custom_css .= "
+				.responsive-blog-single-banner2 {
+					width: 100%;
+					display: flex;
+					flex-direction: column;
+					justify-content: ${single_blog_post_title_layout2_vertical_alignment};
+					min-height: {$single_blog_post_title_layout2_banner_height}px;
+					background-color: {$single_blog_banner_background_color};
+					padding: " . $format_spacing( $single_blog_banner_padding['desktop'], $single_blog_banner_padding_desktop_unit ) . ";
+					margin: " . $format_spacing( $single_blog_banner_margin['desktop'], $single_blog_banner_margin_desktop_unit, true ) . ";
+				}
+			@media screen and ( max-width: 992px ) {
+				.responsive-blog-single-banner2 {
+					min-height: {$single_blog_post_title_layout2_banner_height_tablet}px;
+					background-color: {$single_blog_banner_table_background_color};
+					padding: " . $format_spacing( $single_blog_banner_padding['tablet'], $single_blog_banner_padding_tablet_unit ) . ";
+					margin: " . $format_spacing( $single_blog_banner_margin['tablet'], $single_blog_banner_margin_tablet_unit, true ) . ";
+				}
+			}
+			@media screen and ( max-width: 576px ) {
+				.responsive-blog-single-banner2 {
+					min-height: {$single_blog_post_title_layout2_banner_height_mobile}px;
+					background-color: {$single_blog_banner_mobile_background_color};
+					padding: " . $format_spacing( $single_blog_banner_padding['mobile'], $single_blog_banner_padding_mobile_unit ) . ";
+					margin: " . $format_spacing( $single_blog_banner_margin['mobile'], $single_blog_banner_margin_mobile_unit, true ) . ";
+				}
+			}
+			";
+			
+			
 		}
 		
 	}
