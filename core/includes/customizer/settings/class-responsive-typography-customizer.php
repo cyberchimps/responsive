@@ -230,6 +230,18 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'line-height' => '1.5',
 					),
 				),
+				// Single Post -  Meta font
+				'single_blog_meta'              => array(
+					'label'    => esc_html__( 'Meta Font', 'responsive' ),
+					'target'   => $selectorArray['single_blog_meta'],
+					'section'  => 'responsive_single_blog_layout',
+					'priority' => 98,
+					'exclude'  => array( 'font-color','font-size' ),
+					'defaults' => array(
+						'font-size'   => '13px',
+						'line-height' => '1.5',
+					),
+				),
 				'button'                     => array(
 					'label'    => esc_html__( 'Body', 'responsive' ),
 					'target'   => $selectorArray['button'],
@@ -615,6 +627,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'single_blog_excerpt'    => '.single.single-post .entry-excerpt',
 				'single_blog_breadcrumb' => '.single.single-post .breadcrumbs',
 				'single_blog_category'   => '.single.single-post .entry-category a',
+				'single_blog_meta'		 => '.single.single-post .hentry .post-meta .entry-author, .single.single-post .hentry .post-meta .entry-date',
 			);
 
 			if ( $this->is_responsive_version_greater() ) {

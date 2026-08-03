@@ -701,6 +701,17 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'refresh',
 			);
 
+			// Meta Font.
+			$blog_meta_typography_label = esc_html__( 'Meta Font', 'responsive' );
+			responsive_typography_group_control(
+				$wp_customize,
+				'single_blog_meta_typography_group',
+				$blog_meta_typography_label,
+				'responsive_single_blog_layout',
+				110,
+				'single_blog_meta_typography'
+			);
+
 			// Breadcrumb Color
 			$blog_breadcrumb_color_label = __( 'Breadcrumb Color', 'responsive' );
 			responsive_color_control(
@@ -708,7 +719,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'single_blog_breadcrumb',
 				$blog_breadcrumb_color_label,
 				'responsive_single_blog_layout',
-				110,
+				111,
 				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_breadcrumb_color' ),
 				null,   
 				'',     
@@ -729,7 +740,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'single_blog_breadcrumb_typography_group',
 				$blog_breadcrumb_typography_label,
 				'responsive_single_blog_layout',
-				111,
+				112,
 				'single_blog_breadcrumb_typography'
 			);
 
@@ -740,7 +751,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'single_blog_excerpt_color',
 				$blog_excerpt_color_label,
 				'responsive_single_blog_layout',
-				112,
+				113,
 				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_excerpt_color' ),
 				null,
 				'',
@@ -757,7 +768,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'single_blog_excerpt_typography_group',
 				$blog_excerpt_typography_label,
 				'responsive_single_blog_layout',
-				113,
+				114,
 				'single_blog_excerpt_typography'
 			);
 
@@ -768,7 +779,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'single_blog_site_background',
 				$blog_site_background_color_label,
 				'responsive_single_blog_layout',
-				114,
+				115,
 				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_site_background_color' ),
 				null,   
 				'',     
@@ -789,7 +800,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'single_blog_content_background',
 				$blog_content_background_color_label,
 				'responsive_single_blog_layout',
-				115,
+				116,
 				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_content_background_color' ),
 				null,   
 				'',     
