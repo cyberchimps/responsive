@@ -9019,13 +9019,13 @@ function responsive_customizer_styles() {
 				$custom_css .= "
 					.responsive-blog-single-banner2 {
 						max-width: {$single_blog_post_title_custom_container_width}px;
+						width: 100%;
 					}
 				";
 			}
 
 			$custom_css .= "
 				.responsive-blog-single-banner2 {
-					width: 100%;
 					display: flex;
 					flex-direction: column;
 					justify-content: ${single_blog_post_title_layout2_vertical_alignment};
@@ -9158,6 +9158,20 @@ function responsive_customizer_styles() {
 			// check vertical alignment
 			$blog_post_title_layout2_vertical_alignment = get_theme_mod( 'responsive_blog_post_title_vertical_alignment', 'flex-start');
 
+			// check horizontal alignment
+			$blog_post_title_horizontal_alignment = get_theme_mod( 'responsive_blog_post_title_horizontal_alignment', 'center');
+			$blog_post_title_horizontal_alignment_tablet = get_theme_mod( 'responsive_blog_post_title_horizontal_alignment_tablet', 'center');
+			$blog_post_title_horizontal_alignment_mobile = get_theme_mod( 'responsive_blog_post_title_horizontal_alignment_mobile', 'center');
+
+			$map_text_align = array(
+				'flex-start' => 'left',
+				'center'     => 'center',
+				'flex-end'   => 'right',
+			);
+			$text_align_desktop = isset( $map_text_align[ $blog_post_title_horizontal_alignment ] ) ? $map_text_align[ $blog_post_title_horizontal_alignment ] : 'center';
+			$text_align_tablet  = isset( $map_text_align[ $blog_post_title_horizontal_alignment_tablet ] ) ? $map_text_align[ $blog_post_title_horizontal_alignment_tablet ] : 'center';
+			$text_align_mobile  = isset( $map_text_align[ $blog_post_title_horizontal_alignment_mobile ] ) ? $map_text_align[ $blog_post_title_horizontal_alignment_mobile ] : 'center';
+
 			// check container width
 			$blog_post_title_container_width = get_theme_mod( 'responsive_blog_banner_container_width', 'full_width' );
 
@@ -9174,16 +9188,18 @@ function responsive_customizer_styles() {
 				$custom_css .= "
 					.responsive-archive-entry-banner {
 						max-width: {$blog_post_title_custom_container_width}px;
+						width: 100%;
 					}
 				";
 			}
 
 			$custom_css .= "
 				.responsive-archive-entry-banner {
-					width: 100%;
 					display: flex;
 					flex-direction: column;
 					justify-content: ${blog_post_title_layout2_vertical_alignment};
+					align-items: {$blog_post_title_horizontal_alignment};
+					text-align: {$text_align_desktop};
 					min-height: {$blog_title_layout2_banner_height}px;
 					background-color: {$blog_banner_background_color};
 				}
@@ -9191,12 +9207,16 @@ function responsive_customizer_styles() {
 				.responsive-archive-entry-banner {
 					min-height: {$blog_title_layout2_banner_height_tablet}px;
 					background-color: {$blog_banner_tablet_background_color};
+					align-items: {$blog_post_title_horizontal_alignment_tablet};
+					text-align: {$text_align_tablet};
 				}
 			}
 			@media screen and ( max-width: 576px ) {
 				.responsive-archive-entry-banner {
 					min-height: {$blog_title_layout2_banner_height_mobile}px;
 					background-color: {$blog_banner_mobile_background_color};
+					align-items: {$blog_post_title_horizontal_alignment_mobile};
+					text-align: {$text_align_mobile};
 				}
 			}
 			";

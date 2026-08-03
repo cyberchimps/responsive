@@ -2504,4 +2504,58 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
         });
     });
 
+    // Blog Banner Padding Settings.
+    const blogBannerPaddingSettings = [
+        'responsive_blog_banner_padding_top_padding',
+        'responsive_blog_banner_padding_left_padding',
+        'responsive_blog_banner_padding_bottom_padding',
+        'responsive_blog_banner_padding_right_padding',
+        'responsive_blog_banner_padding_tablet_top_padding',
+        'responsive_blog_banner_padding_tablet_right_padding',
+        'responsive_blog_banner_padding_tablet_bottom_padding',
+        'responsive_blog_banner_padding_tablet_left_padding',
+        'responsive_blog_banner_padding_mobile_top_padding',
+        'responsive_blog_banner_padding_mobile_right_padding',
+        'responsive_blog_banner_padding_mobile_bottom_padding',
+        'responsive_blog_banner_padding_mobile_left_padding',
+        'responsive_blog_banner_padding_desktop_unit',
+        'responsive_blog_banner_padding_tablet_unit',
+        'responsive_blog_banner_padding_mobile_unit'
+    ];
+
+    blogBannerPaddingSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_unit_padding('blog_banner_padding', '.responsive-archive-entry-banner');
+            });
+        });
+    });
+
+    // Blog Banner Margin Settings.
+    const blogBannerMarginSettings = [
+        'responsive_blog_banner_margin_top_padding',
+        'responsive_blog_banner_margin_left_padding',
+        'responsive_blog_banner_margin_bottom_padding',
+        'responsive_blog_banner_margin_right_padding',
+        'responsive_blog_banner_margin_tablet_top_padding',
+        'responsive_blog_banner_margin_tablet_right_padding',
+        'responsive_blog_banner_margin_tablet_bottom_padding',
+        'responsive_blog_banner_margin_tablet_left_padding',
+        'responsive_blog_banner_margin_mobile_top_padding',
+        'responsive_blog_banner_margin_mobile_right_padding',
+        'responsive_blog_banner_margin_mobile_bottom_padding',
+        'responsive_blog_banner_margin_mobile_left_padding',
+        'responsive_blog_banner_margin_desktop_unit',
+        'responsive_blog_banner_margin_tablet_unit',
+        'responsive_blog_banner_margin_mobile_unit'
+    ];
+
+    blogBannerMarginSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_unit_margin('blog_banner_margin', '.responsive-archive-entry-banner');
+            });
+        });
+    });
+
 } )( jQuery );

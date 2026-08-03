@@ -140,17 +140,9 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 				'customize-control-responsive_blog_title_description',
 				'customize-control-responsive_blog_post_title_toggle',
 				'customize-control-res_blog_post_title_text',
-				'customize-control-responsive_page_title_horizontal_alignment',
-				'customize-control-responsive_single_blog_title_alignment',
-				'customize-control-responsive_disable_author_meta',
-				'customize-control-responsive_responsive_disable_author_meta_separator',
+				'customize-control-responsive_blog_post_title_horizontal_alignment',
 				'customize-control-responsive_blog_single_meta',
 				'customize-control-responsive_responsive_blog_single_meta_separator',
-				'customize-control-responsive_single_blog_meta_separator_text',
-				'customize-control-responsive_responsive_single_blog_meta_separator_text_separator',
-				'customize-control-responsive_single_blog_meta_alignment',
-				'customize-control-responsive_single_blog_meta_control_separator',
-				'customize-control-responsive_single_blog_meta_alignment_separator',
 				'customize-control-responsive_blog_single_elements_positioning',
 				'customize-control-responsive_blog_post_title_vertical_alignment'
 
@@ -279,6 +271,17 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 
 			// Blog Post Title Vertical Alignment
 			responsive_select_button_control( $wp_customize, 'blog_post_title_vertical_alignment', $blog_post_title_vertical_alignment_label, 'responsive_blog_title_layout', 7, $blog_post_title_vertical_alignment_choices, 'flex-start', null );
+
+			// Horizontal Alignment.
+			$blog_post_title_horizontal_alignment_label   = esc_html__( 'Horizontal Alignment', 'responsive' );
+			$blog_post_title_horizontal_alignment_choices = array(
+				'flex-start' => esc_html__( 'Left', 'responsive' ),
+				'center'     => esc_html__( 'Center', 'responsive' ),
+				'flex-end'   => esc_html__( 'Right', 'responsive' ),
+			);
+
+			// Blog Post Title Horizontal Alignment
+			responsive_select_button_with_switchers_control( $wp_customize, 'blog_post_title_horizontal_alignment', $blog_post_title_horizontal_alignment_label, 'responsive_blog_title_layout', 8, $blog_post_title_horizontal_alignment_choices, 'center', null, 'refresh', '', 'center', 'center' );
 
 
 			// Banner Min Height
