@@ -4130,7 +4130,7 @@ function responsive_customizer_styles() {
 			width: {$blog_entry_featured_image_style};
 		}";
 
-	$blog_entry_featured_image_style = get_theme_mod( 'responsive_blog_entry_featured_image_style', 'stretched' );
+	$blog_entry_featured_image_style = get_theme_mod( 'responsive_blog_entry_featured_image_style', 'default' );
 
 	if ( 'stretched' === $blog_entry_featured_image_style ) {
 		$custom_css .= "
@@ -5869,7 +5869,7 @@ function responsive_customizer_styles() {
 			}
 		";
 		// copyright padding - tablet and mobile
-		$copyright_padding_values = get_responsive_spacing_values('responsive_footer_copyright', 30, 30, 30, 30);
+		$copyright_padding_values = get_responsive_spacing_values('responsive_footer_copyright', 15, 15, 15, 15);
 
 		$custom_css .= "@media screen and (max-width: 992px) {";
 		$custom_css .= ".footer-layouts.copyright {";

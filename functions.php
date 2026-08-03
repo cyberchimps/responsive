@@ -835,7 +835,7 @@ if ( ! get_option( 'responsive_version_410' ) ) {
 
 
 			if ( get_theme_mod( 'responsive_display_thumbnail_without_padding' ) ) {
-				! get_theme_mod( 'responsive_blog_entry_featured_image_style' ) ? set_theme_mod( 'responsive_blog_entry_featured_image_style', 'stretched' ) : '';
+				! get_theme_mod( 'responsive_blog_entry_featured_image_style' ) ? set_theme_mod( 'responsive_blog_entry_featured_image_style', 'default' ) : '';
 			}
 
 			if ( 'sidebar-content-page' === $responsive_options['single_post_layout_default'] ) {
@@ -3009,6 +3009,74 @@ if( !function_exists( 'responsive_theme_background_updater_footer_links_restyle'
 		}
 	}
 }
+
+if( !function_exists( 'responsive_theme_background_updater_blog_container_margin_legacy' ) ) {
+	/**
+	 * Handle backward compatibility for blog container margin which was added in 6.4.1
+	 * @since 6.4.1
+	 * @return void
+	 */
+	function responsive_theme_background_updater_blog_container_margin_legacy() {
+		$responsive_options = get_option( 'responsive_theme_options' );
+		if ( ! isset( $responsive_options['blog_container_margin_6_4_1_backward_done'] ) || ! $responsive_options['blog_container_margin_6_4_1_backward_done'] ) {
+			
+			$single_mods = array(
+				'responsive_blog_content_width' => 66,
+				'responsive_container_width' => 1140,
+				'responsive_blog_entry_columns' => 2,
+				'responsive_page_content_width' => 66,
+				'responsive_single_blog_content_width' => 66,
+				'responsive_header_primary_row_bottom_border_color' => '#0066CC',
+				'responsive_footer_below_row_border_color' => '#0066CC',
+				'responsive_global_color_palette_accent_color' => '#0066CC',
+				'responsive_global_color_palette_site_background_color' => '#F0F5FA',
+				'responsive_global_color_palette_alt_background_color' => '#EAEAEA',
+				'responsive_blog_entry_featured_image_style' => 'default'
+			);
+
+			foreach( $single_mods as $mod_name => $value ) {
+				if ( false === get_theme_mod( $mod_name, false ) ) {
+					set_theme_mod( $mod_name, $value );
+				}
+			}
+
+			$padding_types = array(
+				'responsive_outside_container',
+				'responsive_blog_outside_container',
+				'responsive_sidebar_outside_container'
+			);
+			$devices = array( '', '_tablet', '_mobile' );
+			$sides = array(
+				'top' => 0,
+				'right' => 15,
+				'bottom' => 0,
+				'left' => 15
+			);
+			foreach( $padding_types as $padding_type ) {
+				foreach( $devices as $device ) {
+					foreach( $sides as $side => $value ) {
+						$mod_name = $padding_type . $device . '_' . $side . '_padding';
+						if ( false === get_theme_mod( $mod_name, false ) ) {
+							set_theme_mod( $mod_name, $value );
+						}
+					}
+				}
+			}
+
+			$responsive_options['blog_container_margin_6_4_1_backward_legacy'] = true;
+			$responsive_options['blog_container_margin_6_4_1_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+}
+}
+
+add_filter( 'body_class', function( $classes ) {
+	$responsive_options = get_option( 'responsive_theme_options' );
+	if ( isset( $responsive_options['blog_container_margin_6_4_1_backward_legacy'] ) && $responsive_options['blog_container_margin_6_4_1_backward_legacy'] ) {
+		$classes[] = 'responsive-blog-container-margin-legacy';
+	}
+	return $classes;
+} );
 
 add_action( 'wp', 'responsive_header_button_border_none_legacy_migrate', 5 );
 add_action( 'admin_init', 'responsive_header_button_border_none_legacy_migrate', 5 );
