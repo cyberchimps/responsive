@@ -72,15 +72,15 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 			responsive_color_control( $wp_customize, 'button_border', $button_border_color_label, 'responsive_button', 198, Responsive\Core\get_responsive_customizer_defaults( 'button_border' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'button_hover_border' ), 'button_hover_border' );
 
 			// Buttons Border Width.
-			$buttons_border_width_label = __( 'Border Width (px)', 'responsive' );
+			$buttons_border_width_label = __( 'Border Width', 'responsive' );
 			responsive_borderwidth_control( $wp_customize, 'buttons_border_width', 'responsive_button', 200, 0, 0, null, $buttons_border_width_label, 'postMessage' );
 
 			// Buttons Radius.
-			$buttons_radius_label = __( 'Radius (px)', 'responsive' );
+			$buttons_radius_label = __( 'Radius', 'responsive' );
 			responsive_radius_control( $wp_customize, 'buttons_radius', 'responsive_button', 210, 0, 0, null, $buttons_radius_label );
 
-			// Buttons Padding (px).
-			$buttons_padding_label = __( 'Padding (px)', 'responsive' );
+			// Buttons Padding.
+			$buttons_padding_label = __( 'Padding', 'responsive' );
 			responsive_padding_control( $wp_customize, 'buttons', 'responsive_button', 240, 10, 10, null, $buttons_padding_label );
 
 			// Separator.
