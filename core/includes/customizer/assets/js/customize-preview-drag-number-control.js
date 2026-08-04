@@ -380,7 +380,7 @@
 
     api( 'responsive_single_blog_post_title_inner_elements_spacing', function( value ) {
         value.bind( function( newval ) {
-            $('body .responsive-blog-single-banner2 .container > *:not(:last-child), .archive .entry-header > *:not(:last-child)').css('margin-bottom', newval+'px');
+            $('body .responsive-blog-single-banner2 .container > *:not(:last-child), .single .entry-header > *:not(:last-child)').css('margin-bottom', newval+'px');
         })
     });
 
@@ -399,7 +399,7 @@
             jQuery('head').append(
                 `<style id="${styleId}">
                     @media (min-width: 993px) {
-                        body .responsive-archive-entry-banner, .archive .site-content-header { min-height: ${newval}px; }
+                        body .responsive-archive-entry-banner, .archive:not(.woocommerce) .site-content-header { min-height: ${newval}px; }
                     }
                 </style>`
             );
@@ -414,7 +414,7 @@
             jQuery('head').append(
                 `<style id="${styleId}">
                     @media (min-width: 577px) and (max-width: 992px) {
-                        body .responsive-archive-entry-banner, .archive .site-content-header { min-height: ${newval}px; }
+                        body .responsive-archive-entry-banner, .archive:not(.woocommerce) .site-content-header { min-height: ${newval}px; }
                     }
                 </style>`
             );
@@ -429,7 +429,7 @@
             jQuery('head').append(
                 `<style id="${styleId}">
                     @media (max-width: 576px) {
-                        body .responsive-archive-entry-banner, .archive .site-content-header { min-height: ${newval}px; }
+                        body .responsive-archive-entry-banner, .archive:not(.woocommerce) .site-content-header { min-height: ${newval}px; }
                     }
                 </style>`
             );
@@ -438,7 +438,7 @@
 
     api( 'responsive_blog_post_title_inner_elements_spacing', function( value ) {
         value.bind( function( newval ) {
-            $('body .responsive-archive-entry-banner  .container > *:not(:last-child)').css('margin-bottom', newval+'px');
+            $('body .responsive-archive-entry-banner  .container > *:not(:last-child), .archive:not(.woocommerce) .site-content-header > *:not(:last-child)').css('margin-bottom', newval+'px');
         })
     });
 

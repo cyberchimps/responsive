@@ -308,19 +308,19 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 
 			// Blog Post Title Color
 			$blog_post_title_color_label = __( 'Title Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'blog_post_title', $blog_post_title_color_label, 'responsive_blog_title_layout', 27, Responsive\Core\get_responsive_customizer_defaults( 'blog_post_title_color' ) );
+			responsive_color_control( $wp_customize, 'blog_post_title', $blog_post_title_color_label, 'responsive_blog_title_layout', 27, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_title_color' ) );
 
 			// Blog Post Text Color
 			$blog_post_text_color_label = __( 'Text Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'blog_post_text', $blog_post_text_color_label, 'responsive_blog_title_layout', 28, Responsive\Core\get_responsive_customizer_defaults( 'blog_post_text_color' ) );
+			responsive_color_control( $wp_customize, 'blog_post_text', $blog_post_text_color_label, 'responsive_blog_title_layout', 28, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_text_color' ) );
 
 			// Blog Post Link Color
 			$blog_post_link_color_label = __( 'Link Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'blog_post_link', $blog_post_link_color_label, 'responsive_blog_title_layout', 29, Responsive\Core\get_responsive_customizer_defaults( 'blog_post_link_color' ) );
+			responsive_color_control( $wp_customize, 'blog_post_link', $blog_post_link_color_label, 'responsive_blog_title_layout', 29, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_color' ) );
 
 			// Blog Post Link Hover Color
 			$blog_post_link_hover_color_label = __( 'Link Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'blog_post_link_hover', $blog_post_link_hover_color_label, 'responsive_blog_title_layout', 30, Responsive\Core\get_responsive_customizer_defaults( 'blog_post_link_hover_color' ) );
+			responsive_color_control( $wp_customize, 'blog_post_link_hover', $blog_post_link_hover_color_label, 'responsive_blog_title_layout', 30, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_hover_color' ) );
 
 			responsive_horizontal_separator_control( $wp_customize, 'blog_post_link_hover_separator', 1, 'responsive_blog_title_layout',30, 1 );
 
