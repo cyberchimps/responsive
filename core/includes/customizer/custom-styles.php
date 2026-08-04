@@ -9297,22 +9297,22 @@ function responsive_customizer_styles() {
 		// Link Hover Color
 		$page_title_link_hover_color = responsive_prepare_css_value( 'responsive_page_title_area_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_hover_color' ) );
 		$custom_css .= "
-			.single-post .entry-title {
+			.responsive-single-entry-banner .container .entry-title, .page .entry-header .entry-title {
 				color: {$page_title_color};
 			}
 		";
 		$custom_css .= "
-			.responsive-blog-single-banner2 .container *, header.entry-header * {
+			.responsive-single-entry-banner .container *, .page .entry-header * {
 				color: {$page_title_text_color};
 			} 
 		";
 		$custom_css .= "
-			header.entry-header a, header.entry-header a *, .responsive-blog-single-banner2 .container a, .responsive-blog-single-banner2 .container a * {
+			.page .entry-header a, .page .entry-header a *, .responsive-single-entry-banner .container a, .responsive-single-entry-banner .container a * {
 				color: {$page_title_link_color};
 			}
 		";
 		$custom_css .= "
-			header.entry-header a:hover, header.entry-header a:hover *, .responsive-blog-single-banner2 .container a:hover, .responsive-blog-single-banner2 .container a:hover * {
+			.page .entry-header a:hover, .page .entry-header a:hover *, .responsive-single-entry-banner .container a:hover, .responsive-single-entry-banner .container a:hover * {
 				color: {$page_title_link_hover_color};
 			}
 		";
@@ -9409,10 +9409,7 @@ function responsive_customizer_styles() {
 					'left'   => get_theme_mod( 'responsive_page_banner_margin_mobile_left_padding', '' ),
 				],
 			];
-			// error_log( 'Desktop banner padding — Top: ' . $single_blog_banner_margin['desktop']['top']
-			// 	. ', Right: ' . $single_blog_banner_margin['desktop']['right']
-			// 	. ', Bottom: ' . $single_blog_banner_margin['dpageottom']
-			// 	. ', Left: ' . $single_blog_banner_margin['desktop']['left'] );
+			
 			$page_banner_margin_desktop_unit = get_theme_mod('responsive_page_banner_margin_desktop_unit', 'px');
 			$page_banner_margin_tablet_unit  = get_theme_mod('responsive_page_banner_margin_tablet_unit', 'px');
 			$page_banner_margin_mobile_unit  = get_theme_mod('responsive_page_banner_margin_mobile_unit', 'px');

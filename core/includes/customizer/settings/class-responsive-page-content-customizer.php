@@ -91,7 +91,7 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			// Page Title Area
 			responsive_section_toggle_control( $wp_customize, 'page_title_area', __( 'Page Title Area', 'responsive' ), 'responsive_page', 8, 'section', 'responsive_page_title_area_layout', true, null, 'refresh', 'Enable the toggle to customize page title title settings.');
 
-			// Single Blog Post Title Tabs
+			// Page Title Tabs
 			$page_title_general_tab_ids = [
 				'customize-control-responsive_page_title_layout',
 				'customize-control-responsive_page_title_horizontal_alignment',
