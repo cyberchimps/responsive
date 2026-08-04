@@ -3205,7 +3205,7 @@ function responsive_is_user_pro() {
  *
  * @return void               [description].
  */
-function responsive_tabs_button_control( $wp_customize, $element, $label, $section, $priority, $default, $general_id, $design_id, $general_tab_ids, $design_tab_ids, $active_call, $transport = 'refresh', $description = '' ) {
+function responsive_tabs_button_control( $wp_customize, $element, $label, $section, $priority, $default, $general_id, $design_id, $general_tab_ids, $design_tab_ids, $active_call, $transport = 'refresh', $description = '', $general_label = '', $design_label = '' ) {
 
 	$wp_customize->add_setting(
 		'responsive_' . $element,
@@ -3230,6 +3230,8 @@ function responsive_tabs_button_control( $wp_customize, $element, $label, $secti
 				'design_id'       => $design_id,
 				'general_tab_ids' => $general_tab_ids,
 				'design_tab_ids'  => $design_tab_ids,
+				'general_label'   => $general_label,
+				'design_label'    => $design_label,
 			)
 		)
 	);

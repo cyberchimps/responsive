@@ -47,6 +47,47 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 					'priority' => 10,
 				)
 			);
+			$tabs_label     = esc_html__( 'Tabs', 'responsive' );
+			$tab_ids_prefix = 'customize-control-';
+			$general_tab_ids = array(
+				$tab_ids_prefix . 'responsive_button_presets',
+				$tab_ids_prefix . 'responsive_button_typography_group',
+				$tab_ids_prefix . 'responsive_responsive_general_buttons_separator',
+				$tab_ids_prefix . 'responsive_button_text_color',
+				$tab_ids_prefix . 'responsive_button_color',
+				$tab_ids_prefix . 'responsive_button_background_image',
+				$tab_ids_prefix . 'responsive_button_border_color',
+				$tab_ids_prefix . 'responsive_buttons_border_width_border',
+				$tab_ids_prefix . 'responsive_border_buttons_radius',
+				$tab_ids_prefix . 'responsive_buttons_padding',
+				$tab_ids_prefix . 'responsive_button_shadow_separator',
+				$tab_ids_prefix . 'responsive_button_shadow',
+				$tab_ids_prefix . 'responsive_button_shadow_color',
+				$tab_ids_prefix . 'responsive_button_hover_shadow_separator',
+				$tab_ids_prefix . 'responsive_button_hover_shadow',
+				$tab_ids_prefix . 'responsive_button_hover_shadow_color',
+			);
+
+			$design_tab_ids = array();
+
+			responsive_tabs_button_control(
+				$wp_customize,
+				'responsive_buttons_tabs',
+				$tabs_label,
+				'responsive_button',
+				0,
+				'',
+				'responsive_buttons_primary_tab',
+				'responsive_buttons_secondary_tab',
+				$general_tab_ids,
+				$design_tab_ids,
+				null,
+				'refresh',
+				'',
+				__( 'Primary', 'responsive' ),
+				__( 'Secondary', 'responsive' )
+			);
+
 			// Button Presets.
 			$buttons_presets_label = esc_html__( 'Button Presets', 'responsive' );
 			responsive_button_presets_control( $wp_customize, 'button_presets', $buttons_presets_label, 'responsive_button', 1 );
