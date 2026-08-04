@@ -125,6 +125,8 @@ if ( $is_blog_archive ) {
 		$responsive_page_description = '';
 		if ( ! in_array( 'breadcrumb', $elements, true ) ) {
 			$responsive_show_breadcrumbs = false;
+		} else {
+			$responsive_show_breadcrumbs = true;
 		}
 	}
 
