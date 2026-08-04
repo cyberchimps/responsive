@@ -773,6 +773,22 @@ const TabsComponent = props => {
 			});
 		}
 
+		togglePageTitleLayoutControls();
+		if (api('responsive_page_title_layout')) {
+			api('responsive_page_title_layout', function(value) {
+				value.bind(function() {
+					togglePageTitleLayoutControls();
+				});
+			});
+		}
+		if (api('responsive_page_title_container_width')) {
+			api('responsive_page_title_container_width', function(value) {
+				value.bind(function() {
+					togglePageTitleLayoutControls();
+				});
+			});
+		}
+
 	}, [tab]);
 
 	const hideSidebarWidthControl = (value, control) => {
@@ -1151,6 +1167,41 @@ const TabsComponent = props => {
 			minHeightElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
 		}
 
+	};
+
+	const togglePageTitleLayoutControls = () => {
+		const layout = api('responsive_page_title_layout') ? api('responsive_page_title_layout').get() : 'post_title_layout1';
+		const containerWidth = api('responsive_page_title_container_width') ? api('responsive_page_title_container_width').get() : 'full_width';
+
+		const containerWidthElement = document.getElementById('customize-control-responsive_page_title_container_width');
+		const verticalAlignment = document.getElementById('customize-control-responsive_page_title_vertical_alignment');
+		const customWidthElement = document.getElementById('customize-control-responsive_page_title_custom_width');
+		const minHeightElement = document.getElementById('customize-control-responsive_page_title_banner_min_height');
+		const bgColorElement = document.getElementById('customize-control-responsive_page_title_banner_background_color');
+		const paddingElement = document.getElementById('customize-control-responsive_page_title_banner_padding_padding');
+		const marginElement = document.getElementById('customize-control-responsive_page_title_banner_margin_padding');
+
+		if (containerWidthElement) {
+			containerWidthElement.style.display = (layout === 'post_title_layout2' && tab === 'general') ? 'block' : 'none';
+		}
+		if (verticalAlignment) {
+			verticalAlignment.style.display = (layout === 'post_title_layout2' && tab === 'general') ? 'block' : 'none';
+		}
+		if (customWidthElement) {
+			customWidthElement.style.display = (layout === 'post_title_layout2' && containerWidth === 'custom' && tab === 'general') ? 'block' : 'none';
+		}
+		if (minHeightElement) {
+			minHeightElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
+		}
+		if (bgColorElement) {
+			bgColorElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
+		}
+		if (paddingElement) {
+			paddingElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
+		}
+		if (marginElement) {
+			marginElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
+		}
 	};
 
 	return <>

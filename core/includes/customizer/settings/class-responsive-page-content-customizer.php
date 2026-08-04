@@ -61,7 +61,6 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			$general_tab_ids        = array(
 				$general_tab_ids_prefix . 'content_width',
 				$general_tab_ids_prefix . 'elements_separator',
-				$general_tab_ids_prefix . 'single_elements_positioning',
 				$general_tab_ids_prefix . 'featured_image_separator',
 				$general_tab_ids_prefix . 'featured_image_width',
 				$general_tab_ids_prefix . 'featured_image_style',
@@ -95,21 +94,19 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			$page_title_general_tab_ids = [
 				'customize-control-responsive_page_title_layout',
 				'customize-control-responsive_page_title_horizontal_alignment',
-				'customize-control-responsive_single_blog_title_alignment',
-				'customize-control-responsive_disable_author_meta',
-				'customize-control-responsive_responsive_disable_author_meta_separator',
-				'customize-control-responsive_blog_single_meta',
-				'customize-control-responsive_responsive_blog_single_meta_separator',
-				'customize-control-responsive_single_blog_meta_separator_text',
-				'customize-control-responsive_responsive_single_blog_meta_separator_text_separator',
-				'customize-control-responsive_single_blog_meta_alignment',
-				'customize-control-responsive_single_blog_meta_control_separator',
-				'customize-control-responsive_single_blog_meta_alignment_separator',
-				'customize-control-responsive_blog_single_elements_positioning',
-
+				'customize-control-responsive_page_title_container_width',
+				'customize-control-responsive_page_title_custom_width',
+				'customize-control-responsive_page_title_vertical_alignment',
+				'customize-control-responsive_page_meta_control_separator',
+				'customize-control-responsive_page_single_meta',
+				'customize-control-responsive_page_single_meta_separator_text',
+				'customize-control-responsive_page_single_meta_separator_text_separator',
+				'customize-control-responsive_page_single_elements_positioning',
 			];
 
 			$page_title_design_tab_ids = [
+				'customize-control-responsive_page_title_banner_min_height',
+				'customize-control-responsive_page_title_banner_background_color',
 				'customize-control-responsive_page_title_inner_elements_spacing',
 				'customize-control-responsive_page_title_inner_elements_spacing_separator',
 				'customize-control-responsive_page_title_area_title_color',
@@ -119,7 +116,9 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 				'customize-control-responsive_page_title_area_link_hover_separator',
 				'customize-control-responsive_page_title_area_title_typography_group',
 				'customize-control-responsive_page_title_area_text_typography_group',
-				'customize-control-responsive_page_title_area_meta_typography_group'
+				'customize-control-responsive_page_title_area_meta_typography_group',
+				'customize-control-responsive_page_title_banner_padding_padding',
+				'customize-control-responsive_page_title_banner_margin_padding'
 			];
 
 			// Single Blog Post Title Tabs
@@ -153,6 +152,102 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 
 			// Page Title Horizontal Alignment
 			responsive_select_button_with_switchers_control( $wp_customize, 'page_title_horizontal_alignment', $page_title_horizontal_alignment_label, 'responsive_page_title_area_layout', 135, $page_title_horizontal_alignment_choices, 'left', null );
+
+			// Container Width.
+			$page_title_container_width_label   = esc_html__( 'Container Width', 'responsive' );
+			$page_title_container_width_choices = array(
+				'full_width' => esc_html__( 'Full Width', 'responsive' ),
+				'custom'     => esc_html__( 'Custom', 'responsive' ),
+			);
+			responsive_select_button_control( $wp_customize, 'page_title_container_width', $page_title_container_width_label, 'responsive_page_title_area_layout', 2, $page_title_container_width_choices, 'full_width', null, 'refresh' );
+
+			// Custom Width.
+			$page_title_custom_width_label = esc_html__( 'Custom Width', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'page_title_custom_width', $page_title_custom_width_label, 'responsive_page_title_area_layout', 3, 1200, null, 1920, 768, 'postMessage' );
+
+			// Vertical Alignment.
+			$page_title_vertical_alignment_label   = esc_html__( 'Vertical Alignment', 'responsive' );
+			$page_title_vertical_alignment_choices = array(
+				'flex-start'   => esc_html__( 'Top', 'responsive' ),
+				'center' => esc_html__( 'Middle', 'responsive' ),
+				'flex-end'  => esc_html__( 'Bottom', 'responsive' ),
+			);
+
+			// Banner Min Height
+			$page_title_banner_min_height_label = esc_html__( 'Banner Min Height', 'responsive' );
+			responsive_drag_number_control_with_switchers( $wp_customize, 'page_title_banner_min_height', $page_title_banner_min_height_label, 'responsive_page_title_area_layout', 4, 0, null, 1000, 0, 'postMessage' );
+
+			// Banner Background Color
+			$page_title_banner_background_color_label = __( 'Banner Background Color', 'responsive' );
+			responsive_color_control_with_device_switchers( $wp_customize, 'page_title_banner_background', $page_title_banner_background_color_label, 'responsive_page_title_area_layout', 4, '#ffffff' );
+
+
+			// Page Title Vertical Alignment
+			responsive_select_button_control( $wp_customize, 'page_title_vertical_alignment', $page_title_vertical_alignment_label, 'responsive_page_title_area_layout', 135, $page_title_vertical_alignment_choices, 'flex-start', null );
+
+			/**
+			* Entry meta.
+			*/
+			$page_meta_label = esc_html__( 'Meta', 'responsive' );
+			responsive_separator_control( $wp_customize, 'page_meta_control_separator', $page_meta_label, 'responsive_page_title_area_layout', 136 );
+
+			/**
+			 * Page Single Meta
+			 */
+			$wp_customize->add_setting(
+				'responsive_page_single_meta',
+				array(
+					'default'           => array( 'author', 'date', 'categories', 'comments', 'tag' ),
+					'sanitize_callback' => 'responsive_sanitize_multi_choices',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_control(
+				new Responsive_Customizer_Sortable_Control(
+					$wp_customize,
+					'responsive_page_single_meta',
+					array(
+						'label'    => esc_html__( 'Meta Elements', 'responsive' ),
+						'section'  => 'responsive_page_title_area_layout',
+						'settings' => 'responsive_page_single_meta',
+						'priority' => 137,
+						'choices'  => apply_filters(
+							'responsive_page_meta_choices',
+							array(
+								'author'     => esc_html__( 'Author', 'responsive' ),
+								'date'       => esc_html__( 'Date Published', 'responsive' ),
+								'updated'    => esc_html__( 'Last Updated', 'responsive' ),
+								'categories' => esc_html__( 'Categories', 'responsive' ),
+								'comments'   => esc_html__( 'Comments', 'responsive' ),
+								'tag'        => esc_html__( 'Tag', 'responsive' ),
+							)
+						),
+					)
+				)
+			);
+
+			// Meta Separator Text.
+			$wp_customize->add_setting(
+				'responsive_page_single_meta_separator_text',
+				array(
+					'default'           => '•',
+					'sanitize_callback' => 'wp_check_invalid_utf8',
+					'type'              => 'theme_mod',
+					'transport'         => 'postMessage',
+				)
+			);
+			$wp_customize->add_control(
+				'responsive_page_single_meta_separator_text',
+				array(
+					'section'  => 'responsive_page_title_area_layout',
+					'settings' => 'responsive_page_single_meta_separator_text',
+					'priority' => 138,
+					'type'     => 'hidden',
+				)
+			);
+
+			responsive_horizontal_separator_control( $wp_customize, 'page_single_meta_separator_text_separator', 1, 'responsive_page_title_area_layout', 139, 1 );
 
 			// Inner Elements Spacing
 			$page_title_inner_elements_spacing_label = esc_html__( 'Inner Elements Spacing', 'responsive' );
@@ -190,6 +285,12 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			$page_meta_typography_label = __( 'Meta Font', 'responsive' );
 			responsive_typography_group_control( $wp_customize, 'page_title_area_meta_typography_group', $page_meta_typography_label, 'responsive_page_title_area_layout', 45, 'page_title_area_meta_typography', true );
 
+			// Padding
+			responsive_unit_padding_control( $wp_customize, 'page_title_banner_padding', 'responsive_page_title_area_layout', 50, 0, 0, null, __( 'Padding', 'responsive' ), 'postMessage','', '', '', '', 'px' );
+
+			// Margin
+			responsive_unit_padding_control( $wp_customize, 'page_title_banner_margin', 'responsive_page_title_area_layout', 55, 0, 0, null, __( 'Margin', 'responsive' ), 'postMessage', '', '', '', '', 'px' );
+
 
 			// Main Content Width.
 			$page_content_width_label = esc_html__( 'Main Content Width (%)', 'responsive' );
@@ -203,7 +304,7 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_page_single_elements_positioning',
 				array(
-					'default'           => array( 'title', 'featured_image', 'content' ),
+					'default'           => array( 'title', 'featured_image' ),
 					'sanitize_callback' => 'responsive_sanitize_multi_choices',
 					'transport'         => 'refresh',
 				)
@@ -215,9 +316,9 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 					'responsive_page_single_elements_positioning',
 					array(
 						'label'    => esc_html__( 'Page Elements', 'responsive' ),
-						'section'  => 'responsive_page',
+						'section'  => 'responsive_page_title_area_layout',
 						'settings' => 'responsive_page_single_elements_positioning',
-						'priority' => 14,
+						'priority' => 140,
 						'choices'  => responsive_page_elements(),
 					)
 				)
