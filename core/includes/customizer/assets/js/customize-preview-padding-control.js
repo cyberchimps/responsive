@@ -2558,4 +2558,58 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
         });
     });
 
+    // Page Title Banner Padding Settings.
+    const pageTitleBannerPaddingSettings = [
+        'responsive_page_title_banner_padding_top_padding',
+        'responsive_page_title_banner_padding_left_padding',
+        'responsive_page_title_banner_padding_bottom_padding',
+        'responsive_page_title_banner_padding_right_padding',
+        'responsive_page_title_banner_padding_tablet_top_padding',
+        'responsive_page_title_banner_padding_tablet_right_padding',
+        'responsive_page_title_banner_padding_tablet_bottom_padding',
+        'responsive_page_title_banner_padding_tablet_left_padding',
+        'responsive_page_title_banner_padding_mobile_top_padding',
+        'responsive_page_title_banner_padding_mobile_right_padding',
+        'responsive_page_title_banner_padding_mobile_bottom_padding',
+        'responsive_page_title_banner_padding_mobile_left_padding',
+        'responsive_page_title_banner_padding_desktop_unit',
+        'responsive_page_title_banner_padding_tablet_unit',
+        'responsive_page_title_banner_padding_mobile_unit'
+    ];
+
+    pageTitleBannerPaddingSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_unit_padding('page_title_banner_padding', '.responsive-single-entry-banner');
+            });
+        });
+    });
+
+    // Page Title Banner Margin Settings.
+    const pageTitleBannerMarginSettings = [
+        'responsive_page_title_banner_margin_top_padding',
+        'responsive_page_title_banner_margin_left_padding',
+        'responsive_page_title_banner_margin_bottom_padding',
+        'responsive_page_title_banner_margin_right_padding',
+        'responsive_page_title_banner_margin_tablet_top_padding',
+        'responsive_page_title_banner_margin_tablet_right_padding',
+        'responsive_page_title_banner_margin_tablet_bottom_padding',
+        'responsive_page_title_banner_margin_tablet_left_padding',
+        'responsive_page_title_banner_margin_mobile_top_padding',
+        'responsive_page_title_banner_margin_mobile_right_padding',
+        'responsive_page_title_banner_margin_mobile_bottom_padding',
+        'responsive_page_title_banner_margin_mobile_left_padding',
+        'responsive_page_title_banner_margin_desktop_unit',
+        'responsive_page_title_banner_margin_tablet_unit',
+        'responsive_page_title_banner_margin_mobile_unit'
+    ];
+
+    pageTitleBannerMarginSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_unit_margin('page_title_banner_margin', '.responsive-single-entry-banner');
+            });
+        });
+    });
+
 } )( jQuery );

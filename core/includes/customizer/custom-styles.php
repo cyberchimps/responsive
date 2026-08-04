@@ -9384,35 +9384,35 @@ function responsive_customizer_styles() {
 			$page_title_layout2_vertical_alignment = get_theme_mod( 'responsive_page_title_vertical_alignment', 'flex-start');
 
 			// check banner padding and margin
-			$page_banner_padding = get_responsive_spacing_values('responsive_page_banner_padding', 0, 0, 0, 0);
-			$page_banner_padding_desktop_unit = get_theme_mod('responsive_page_banner_padding_desktop_unit', 'px');
-			$page_banner_padding_tablet_unit  = get_theme_mod('responsive_page_banner_padding_tablet_unit', 'px');
-			$page_banner_padding_mobile_unit  = get_theme_mod('responsive_page_banner_padding_mobile_unit', 'px');
+			$page_banner_padding = get_responsive_spacing_values('responsive_page_title_banner_padding', 0, 0, 0, 0);
+			$page_banner_padding_desktop_unit = get_theme_mod('responsive_page_title_banner_padding_desktop_unit', 'px');
+			$page_banner_padding_tablet_unit  = get_theme_mod('responsive_page_title_banner_padding_tablet_unit', 'px');
+			$page_banner_padding_mobile_unit  = get_theme_mod('responsive_page_title_banner_padding_mobile_unit', 'px');
 
 			$page_banner_margin = [
 				'desktop' => [
-					'top'    => get_theme_mod( 'responsive_page_banner_margin_top_padding', '' ),
-					'right'  => get_theme_mod( 'responsive_page_banner_margin_right_padding', '' ),
-					'bottom' => get_theme_mod( 'responsive_page_banner_margin_bottom_padding', '' ),
-					'left'   => get_theme_mod( 'responsive_page_banner_margin_left_padding', '' ),
+					'top'    => get_theme_mod( 'responsive_page_title_banner_margin_top_padding', '' ),
+					'right'  => get_theme_mod( 'responsive_page_title_banner_margin_right_padding', '' ),
+					'bottom' => get_theme_mod( 'responsive_page_title_banner_margin_bottom_padding', '' ),
+					'left'   => get_theme_mod( 'responsive_page_title_banner_margin_left_padding', '' ),
 				],
 				'tablet' => [
-					'top'    => get_theme_mod( 'responsive_page_banner_margin_tablet_top_padding', '' ),
-					'right'  => get_theme_mod( 'responsive_page_banner_margin_tablet_right_padding', '' ),
-					'bottom' => get_theme_mod( 'responsive_page_banner_margin_tablet_bottom_padding', '' ),
-					'left'   => get_theme_mod( 'responsive_page_banner_margin_tablet_left_padding', '' ),
+					'top'    => get_theme_mod( 'responsive_page_title_banner_margin_tablet_top_padding', '' ),
+					'right'  => get_theme_mod( 'responsive_page_title_banner_margin_tablet_right_padding', '' ),
+					'bottom' => get_theme_mod( 'responsive_page_title_banner_margin_tablet_bottom_padding', '' ),
+					'left'   => get_theme_mod( 'responsive_page_title_banner_margin_tablet_left_padding', '' ),
 				],
 				'mobile' => [
-					'top'    => get_theme_mod( 'responsive_page_banner_margin_mobile_top_padding', '' ),
-					'right'  => get_theme_mod( 'responsive_page_banner_margin_mobile_right_padding', '' ),
-					'bottom' => get_theme_mod( 'responsive_page_banner_margin_mobile_bottom_padding', '' ),
-					'left'   => get_theme_mod( 'responsive_page_banner_margin_mobile_left_padding', '' ),
+					'top'    => get_theme_mod( 'responsive_page_title_banner_margin_mobile_top_padding', '' ),
+					'right'  => get_theme_mod( 'responsive_page_title_banner_margin_mobile_right_padding', '' ),
+					'bottom' => get_theme_mod( 'responsive_page_title_banner_margin_mobile_bottom_padding', '' ),
+					'left'   => get_theme_mod( 'responsive_page_title_banner_margin_mobile_left_padding', '' ),
 				],
 			];
 			
-			$page_banner_margin_desktop_unit = get_theme_mod('responsive_page_banner_margin_desktop_unit', 'px');
-			$page_banner_margin_tablet_unit  = get_theme_mod('responsive_page_banner_margin_tablet_unit', 'px');
-			$page_banner_margin_mobile_unit  = get_theme_mod('responsive_page_banner_margin_mobile_unit', 'px');
+			$page_banner_margin_desktop_unit = get_theme_mod('responsive_page_title_banner_margin_desktop_unit', 'px');
+			$page_banner_margin_tablet_unit  = get_theme_mod('responsive_page_title_banner_margin_tablet_unit', 'px');
+			$page_banner_margin_mobile_unit  = get_theme_mod('responsive_page_title_banner_margin_mobile_unit', 'px');
 
 			// check container width
 			$page_title_container_width = get_theme_mod( 'responsive_page_title_container_width', 'full_width' );
