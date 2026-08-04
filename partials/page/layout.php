@@ -22,22 +22,32 @@ Responsive\responsive_entry_before();
 			// Get posts format.
 			$format = get_post_format();
 
-			// Get elements.
-			$elements = responsive_page_single_elements_positioning();
-			// Loop through elements.
-			foreach ( $elements as $element ) {
+			if ( get_theme_mod( 'responsive_page_title_layout', 'post_title_layout1' ) === 'post_title_layout1' ) {
+				// Get elements.
+				$elements = responsive_page_single_elements_positioning();
+				// Loop through elements.
+				foreach ( $elements as $element ) {
 
-				// Featured Image.
-				if ( 'featured_image' === $element
-					&& ! post_password_required() ) {
+					// Skip content if it still exists in the DB settings, as it will be rendered unconditionally
+					if ( 'content' === $element ) {
+						continue;
+					}
 
-					get_template_part( 'partials/page/thumbnail' );
+					// Featured Image.
+					if ( 'featured_image' === $element
+						&& ! post_password_required() ) {
 
-				} else {
-					get_template_part( 'partials/page/' . $element );
+						get_template_part( 'partials/page/thumbnail' );
 
+					} else {
+						get_template_part( 'partials/page/' . $element );
+
+					}
 				}
 			}
+
+			// Unconditionally render content
+			get_template_part( 'partials/page/content' );
 			?>
 			<?php
 			wp_link_pages(
