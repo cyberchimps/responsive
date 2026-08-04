@@ -136,12 +136,14 @@ function responsive_archive_blog_banner2() {
 		<section class="responsive-archive-entry-banner">
 			<div class="container">
 				<?php
-				$elements = get_theme_mod( 'responsive_blog_title_elements_positioning', array( 'title', 'description', 'breadcrumb' ) );
+				// For layout2:
+				// Always show title, description, and breadcrumbs.
+				$elements = array( 'title', 'description', 'breadcrumb' );
 				
 				$responsive_page_title       = '';
 				$responsive_page_description = null;
 
-				if ( is_home() && get_theme_mod( 'responsive_blog_post_title_toggle' ) ) {
+				if ( is_home() ) {
 					$responsive_page_title = responsive_free_get_option( 'blog_post_title_text', 'Blog Page' );
 					$responsive_page_description = get_theme_mod( 'responsive_blog_title_description', '' );
 				} elseif ( is_archive() ) {

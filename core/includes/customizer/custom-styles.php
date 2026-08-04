@@ -9101,12 +9101,12 @@ function responsive_customizer_styles() {
 		";
 
 		// check banner padding and margin
-		$blog_banner_padding = get_responsive_spacing_values('responsive_blog_banner_padding', 0, 0, 0, 0);
+		$blog_banner_padding = get_responsive_spacing_values('responsive_blog_banner_padding', 30, 30, 30, 30);
 		$blog_banner_padding_desktop_unit = get_theme_mod('responsive_blog_banner_padding_desktop_unit', 'px');
 		$blog_banner_padding_tablet_unit  = get_theme_mod('responsive_blog_banner_padding_tablet_unit', 'px');
 		$blog_banner_padding_mobile_unit  = get_theme_mod('responsive_blog_banner_padding_mobile_unit', 'px');
 
-		$blog_banner_margin = get_responsive_spacing_values('responsive_blog_banner_margin', '', '', '', '');
+		$blog_banner_margin = get_responsive_spacing_values('responsive_blog_banner_margin', '', '', 24, '');
 		$blog_banner_margin_desktop_unit = get_theme_mod('responsive_blog_banner_margin_desktop_unit', 'px');
 		$blog_banner_margin_tablet_unit  = get_theme_mod('responsive_blog_banner_margin_tablet_unit', 'px');
 		$blog_banner_margin_mobile_unit  = get_theme_mod('responsive_blog_banner_margin_mobile_unit', 'px');
@@ -9138,6 +9138,49 @@ function responsive_customizer_styles() {
 			}
 		";
 
+		// check banner background color
+		$blog_banner_background_color  = get_theme_mod( 'responsive_blog_banner_background_color', '#ffffff' );
+		$blog_banner_tablet_background_color = get_theme_mod( 'responsive_blog_banner_background_color_tablet',  '#ffffff' );
+		$blog_banner_mobile_background_color = get_theme_mod( 'responsive_blog_banner_background_color_mobile', '#ffffff' );
+
+		// check horizontal alignment
+		$blog_post_title_horizontal_alignment = get_theme_mod( 'responsive_blog_post_title_horizontal_alignment', 'center');
+		$blog_post_title_horizontal_alignment_tablet = get_theme_mod( 'responsive_blog_post_title_horizontal_alignment_tablet', 'center');
+		$blog_post_title_horizontal_alignment_mobile = get_theme_mod( 'responsive_blog_post_title_horizontal_alignment_mobile', 'center');
+
+		$map_text_align = array(
+			'flex-start' => 'left',
+			'center'     => 'center',
+			'flex-end'   => 'right',
+		);
+		$text_align_desktop = isset( $map_text_align[ $blog_post_title_horizontal_alignment ] ) ? $map_text_align[ $blog_post_title_horizontal_alignment ] : 'center';
+		$text_align_tablet  = isset( $map_text_align[ $blog_post_title_horizontal_alignment_tablet ] ) ? $map_text_align[ $blog_post_title_horizontal_alignment_tablet ] : 'center';
+		$text_align_mobile  = isset( $map_text_align[ $blog_post_title_horizontal_alignment_mobile ] ) ? $map_text_align[ $blog_post_title_horizontal_alignment_mobile ] : 'center';
+
+		$custom_css .= "
+				.responsive-archive-entry-banner, .archive .site-content-header {
+					display: flex;
+					flex-direction: column;
+					align-items: {$blog_post_title_horizontal_alignment};
+					text-align: {$text_align_desktop};
+					background-color: {$blog_banner_background_color};
+				}
+			@media screen and ( max-width: 992px ) {
+				.responsive-archive-entry-banner, .archive .site-content-header {
+					background-color: {$blog_banner_tablet_background_color};
+					align-items: {$blog_post_title_horizontal_alignment_tablet};
+					text-align: {$text_align_tablet};
+				}
+			}
+			@media screen and ( max-width: 576px ) {
+				.responsive-archive-entry-banner, .archive .site-content-header {
+					background-color: {$blog_banner_mobile_background_color};
+					align-items: {$blog_post_title_horizontal_alignment_mobile};
+					text-align: {$text_align_mobile};
+				}
+			}
+		";
+
 		if( $blog_title_banner === 'post_title_layout2' )
 		{
 			$custom_css .= "
@@ -9145,32 +9188,25 @@ function responsive_customizer_styles() {
 				width: 100%;
 			}";
 
+			// checking post title is enabled on blog page 
+			$blog_page_title_toggle = get_theme_mod( 'responsive_blog_post_title_toggle', 0 );
+			if( $blog_page_title_toggle === 0 )
+			{
+				$custom_css .= "
+				   .blog .responsive-archive-entry-banner {
+						display: none;	
+				   }
+				";
+			}
+
 			// check banner min height 
 			$blog_title_layout2_banner_height = get_theme_mod( 'responsive_blog_banner_min_height', 0 );
 			$blog_title_layout2_banner_height_tablet = get_theme_mod( 'responsive_blog_banner_min_height_tablet', 0 );
 			$blog_title_layout2_banner_height_mobile = get_theme_mod( 'responsive_blog_banner_min_height_mobile', 0 );
 
-			// check banner background color
-			$blog_banner_background_color  = get_theme_mod( 'responsive_blog_banner_background_color', '#ffffff' );
-			$blog_banner_tablet_background_color = get_theme_mod( 'responsive_blog_banner_background_color_tablet',  '#ffffff' );
-			$blog_banner_mobile_background_color = get_theme_mod( 'responsive_blog_banner_background_color_mobile', '#ffffff' );
 
 			// check vertical alignment
 			$blog_post_title_layout2_vertical_alignment = get_theme_mod( 'responsive_blog_post_title_vertical_alignment', 'flex-start');
-
-			// check horizontal alignment
-			$blog_post_title_horizontal_alignment = get_theme_mod( 'responsive_blog_post_title_horizontal_alignment', 'center');
-			$blog_post_title_horizontal_alignment_tablet = get_theme_mod( 'responsive_blog_post_title_horizontal_alignment_tablet', 'center');
-			$blog_post_title_horizontal_alignment_mobile = get_theme_mod( 'responsive_blog_post_title_horizontal_alignment_mobile', 'center');
-
-			$map_text_align = array(
-				'flex-start' => 'left',
-				'center'     => 'center',
-				'flex-end'   => 'right',
-			);
-			$text_align_desktop = isset( $map_text_align[ $blog_post_title_horizontal_alignment ] ) ? $map_text_align[ $blog_post_title_horizontal_alignment ] : 'center';
-			$text_align_tablet  = isset( $map_text_align[ $blog_post_title_horizontal_alignment_tablet ] ) ? $map_text_align[ $blog_post_title_horizontal_alignment_tablet ] : 'center';
-			$text_align_mobile  = isset( $map_text_align[ $blog_post_title_horizontal_alignment_mobile ] ) ? $map_text_align[ $blog_post_title_horizontal_alignment_mobile ] : 'center';
 
 			// check container width
 			$blog_post_title_container_width = get_theme_mod( 'responsive_blog_banner_container_width', 'full_width' );
@@ -9195,31 +9231,20 @@ function responsive_customizer_styles() {
 
 			$custom_css .= "
 				.responsive-archive-entry-banner, .archive .site-content-header {
-					display: flex;
-					flex-direction: column;
-					justify-content: ${blog_post_title_layout2_vertical_alignment};
-					align-items: {$blog_post_title_horizontal_alignment};
-					text-align: {$text_align_desktop};
 					min-height: {$blog_title_layout2_banner_height}px;
-					background-color: {$blog_banner_background_color};
+					justify-content: ${blog_post_title_layout2_vertical_alignment};	
 				}
-			@media screen and ( max-width: 992px ) {
-				.responsive-archive-entry-banner, .archive .site-content-header {
-					min-height: {$blog_title_layout2_banner_height_tablet}px;
-					background-color: {$blog_banner_tablet_background_color};
-					align-items: {$blog_post_title_horizontal_alignment_tablet};
-					text-align: {$text_align_tablet};
+				@media screen and ( max-width: 992px ) {
+					.responsive-archive-entry-banner, .archive .site-content-header {
+						min-height: {$blog_title_layout2_banner_height_tablet}px;
+					}
 				}
-			}
-			@media screen and ( max-width: 576px ) {
-				.responsive-archive-entry-banner, .archive .site-content-header {
-					min-height: {$blog_title_layout2_banner_height_mobile}px;
-					background-color: {$blog_banner_mobile_background_color};
-					align-items: {$blog_post_title_horizontal_alignment_mobile};
-					text-align: {$text_align_mobile};
+				@media screen and ( max-width: 576px ) {
+					.responsive-archive-entry-banner, .archive .site-content-header {
+						min-height: {$blog_title_layout2_banner_height_mobile}px;
+					}
 				}
-			}
-			";
+			";			
 		}
 	}
 	

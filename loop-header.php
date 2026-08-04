@@ -106,23 +106,31 @@ if ( $is_blog_archive ) {
 		return;
 	}
 
-	// Layout 1: only output breadcrumbs within a section
-	?>
-	<section class="responsive-archive-entry-banner">
-		<div class="container">
-			<?php if ( $responsive_show_breadcrumbs ) : ?>
-				<div class="responsive-breadcrumbs-wrapper">
-					<div class="breadcrumbs-inner">
-						<nav class="breadcrumbs" <?php responsive_check_yoast_enabled_breadcrumbs() ? '' : responsive_schema_markup( 'breadcrumb' ); ?>>
-							<?php responsive_get_breadcrumb_lists(); ?>
-						</nav>
-					</div>
-				</div>
-			<?php endif; ?>
-		</div>
-	</section>
-	<?php
-	return;
+	$elements = get_theme_mod( 'responsive_blog_title_elements_positioning', array( 'title', 'description', 'breadcrumb' ) );
+	if ( is_string( $elements ) ) {
+		$decoded = json_decode( $elements, true );
+		$elements = is_array( $decoded ) ? $decoded : explode( ',', $elements );
+	} else if ( ! is_array( $elements ) ) {
+		$elements = array();
+	}
+
+	// For layout1:
+	// Hide everything on the blog page.
+	if ( is_home() ) {
+		$responsive_page_title = '';
+		$responsive_page_description = '';
+		$responsive_show_breadcrumbs = false;
+	} else {
+		// For archive pages, show the title and conditionally show breadcrumbs.
+		$responsive_page_description = '';
+		if ( ! in_array( 'breadcrumb', $elements, true ) ) {
+			$responsive_show_breadcrumbs = false;
+		}
+	}
+
+	if ( ! $responsive_page_title && ! $responsive_page_description && ! $responsive_show_breadcrumbs ) {
+		return;
+	}
 }
 ?>
 <div class="site-content-header">

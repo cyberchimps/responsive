@@ -299,7 +299,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 			responsive_horizontal_separator_control( $wp_customize, 'blog_post_title_inner_elements_spacing_separator', 1, 'responsive_blog_title_layout',24, 1 );
 
 			// Padding
-			responsive_unit_padding_control( $wp_customize, 'blog_banner_padding', 'responsive_blog_title_layout', 25, 0, 0, null, __( 'Padding', 'responsive' ), 'postMessage', 0, 0, 0, 0, 'px' );
+			responsive_unit_padding_control( $wp_customize, 'blog_banner_padding', 'responsive_blog_title_layout', 25, 30, 30, null, __( 'Padding', 'responsive' ), 'postMessage', 30, 30, 30, 30, 'px' );
 
 			// Margin
 			responsive_unit_padding_control( $wp_customize, 'blog_banner_margin', 'responsive_blog_title_layout', 26, 0, 0, null, __( 'Margin', 'responsive' ), 'postMessage', 0, 0, 0, 0, 'px' );

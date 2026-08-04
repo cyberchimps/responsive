@@ -1121,6 +1121,7 @@ const TabsComponent = props => {
 
 		const containerWidthElement = document.getElementById('customize-control-responsive_blog_banner_container_width');
 		const customWidthElement = document.getElementById('customize-control-responsive_blog_banner_custom_width');
+		const minHeightElement = document.getElementById('customize-control-responsive_blog_banner_min_height');
 
 		const verticalAlignment = document.getElementById('customize-control-responsive_blog_post_title_vertical_alignment');
 		if (verticalAlignment) {
@@ -1146,6 +1147,10 @@ const TabsComponent = props => {
 		if (customWidthElement) {
 			customWidthElement.style.display = (layout === 'post_title_layout2' && containerWidth === 'custom' && tab === 'general') ? 'block' : 'none';
 		}
+		if (minHeightElement) {
+			minHeightElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
+		}
+
 	};
 
 	return <>
