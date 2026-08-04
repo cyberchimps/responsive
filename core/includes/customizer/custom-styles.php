@@ -9088,6 +9088,9 @@ function responsive_customizer_styles() {
 			.responsive-archive-entry-banner .container *, .archive .site-content-header *{
 				color: {$blog_post_title_text_color};
 			} 
+			.responsive-archive-entry-banner .page-title {
+				margin-top: 0;
+			}
 		";
 
 		$custom_css .= "

@@ -207,11 +207,12 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 					$wp_customize,
 					'responsive_blog_title_elements_positioning',
 					array(
-						'label'    => esc_html__( 'Blog Title Elements', 'responsive' ),
-						'section'  => 'responsive_blog_title_layout',
-						'settings' => 'responsive_blog_title_elements_positioning',
-						'priority' => 5,
-						'choices'  => array(
+						'label'       => esc_html__( 'Blog Title Elements', 'responsive' ),
+						'description' => esc_html__( 'Note: Title and description only appear when Layout 2 is selected.', 'responsive' ),
+						'section'     => 'responsive_blog_title_layout',
+						'settings'    => 'responsive_blog_title_elements_positioning',
+						'priority'    => 5,
+						'choices'     => array(
 							'title'       => esc_html__( 'Title', 'responsive' ),
 							'description' => esc_html__( 'Description', 'responsive' ),
 							'breadcrumb'  => esc_html__( 'Breadcrumb', 'responsive' ),
@@ -232,11 +233,12 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				'responsive_blog_title_description',
 				array(
-					'label'    => esc_html__( 'Blog Description', 'responsive' ),
-					'section'  => 'responsive_blog_title_layout',
-					'settings' => 'responsive_blog_title_description',
-					'type'     => 'textarea',
-					'priority' => 8,
+					'label'       => esc_html__( 'Blog Description', 'responsive' ),
+					'description' => esc_html__( 'Note: Title and description only appear when Layout 2 is selected.', 'responsive' ),
+					'section'     => 'responsive_blog_title_layout',
+					'settings'    => 'responsive_blog_title_description',
+					'type'        => 'textarea',
+					'priority'    => 8,
 				)
 			);
 			

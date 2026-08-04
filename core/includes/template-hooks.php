@@ -137,8 +137,14 @@ function responsive_archive_blog_banner2() {
 			<div class="container">
 				<?php
 				// For layout2:
-				// Always show title, description, and breadcrumbs.
-				$elements = array( 'title', 'description', 'breadcrumb' );
+				// Show elements based on user's sorted order.
+				$elements = get_theme_mod( 'responsive_blog_title_elements_positioning', array( 'title', 'description', 'breadcrumb' ) );
+				if ( is_string( $elements ) ) {
+					$decoded = json_decode( $elements, true );
+					$elements = is_array( $decoded ) ? $decoded : explode( ',', $elements );
+				} else if ( ! is_array( $elements ) ) {
+					$elements = array();
+				}
 				
 				$responsive_page_title       = '';
 				$responsive_page_description = null;
