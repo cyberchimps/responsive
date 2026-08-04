@@ -541,6 +541,29 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'line-height' => '1.75'
 					)
 				),
+				'blog_post_title' => array(
+					'label'	   => esc_html( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['blog_post_title'],
+					'section'  => 'responsive_blog_title_layout', 
+					'exclude'  => array( 'font-color' ),
+					'priority' => 45,
+					'defaults' => array(
+						'font-size'   => '32px',
+						'line-height' => '1.75'
+					)
+				),
+				'blog_post_text' => array(
+					'label'	   => esc_html( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['blog_post_text'],
+					'section'  => 'responsive_blog_title_layout', 
+					'exclude'  => array( 'font-color' ),
+					'priority' => 45,
+					'defaults' => array(
+						'font-size'   => '16px',
+						'line-height' => '1.75'
+					)
+				)
+
 			);
 
 			for( $i=1;$i<=6;$i++ ) {
@@ -630,6 +653,8 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'single_blog_post_text'      => '.single-post .site-content article .post-entry .',
 				'single_blog_post_meta'      => '.single-post .site-content article .post-entry .post-meta span, .single-post .site-content article .post-entry .post-meta i, .single-post .site-content article .post-entry .post-meta span a , .single-post .site-content article .post-entry .post-meta span a time, .single-post .site-content article .post-entry .entry-meta',
 				'page_title_area_title'      => '.page #page .post-entry .post-title',
+				'blog_post_title'			 => 'body .responsive-archive-entry-banner .page-title, body .responsive-archive-entry-banner .page-title *, body.archive .site-content-header .page-title, body.archive .site-content-header .page-title *',
+				'blog_post_text'			 => '.responsive-archive-entry-banner .container *, .archive .site-content-header *'
 			);
 
 			if ( $this->is_responsive_version_greater() ) {

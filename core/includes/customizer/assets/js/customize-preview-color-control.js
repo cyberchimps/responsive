@@ -5060,14 +5060,14 @@
     // Blog/Archive Text Color
     api( 'responsive_blog_post_text_color', function(value) {
         value.bind(function(newval) {
-            $('.responsive-archive-entry-banner .container *').css('color', newval);
+            $('.responsive-archive-entry-banner .container *, .archive .site-content-header *').css('color', newval);
         })
     });
 
     // Blog/Archive Title Color
     api( 'responsive_blog_post_title_color', function(value) {
         value.bind(function(newval) {
-            $('.responsive-archive-entry-banner .page-title, .responsive-archive-entry-banner .page-title *').css('color', newval);
+            $('.responsive-archive-entry-banner .page-title, .responsive-archive-entry-banner .page-title *, .archive .site-content-header .page-title, .archive .site-content-header .page-title *').css('color', newval);
         })
     });
 
@@ -5080,7 +5080,7 @@
             jQuery('head').append(
                 '<style id="responsive_blog_banner_background_color">' +
                 '@media screen and (min-width: 993px) {' +
-                ' .responsive-archive-entry-banner { background-color: ' + newval + '; }' +
+                ' .responsive-archive-entry-banner, .archive .site-content-header { background-color: ' + newval + '; }' +
                 '}' +
                 '</style>'
             );
@@ -5094,7 +5094,7 @@
             jQuery('head').append(
                 '<style id="responsive_blog_banner_background_color-tablet">' +
                 '@media screen and (min-width: 577px) and (max-width: 992px) {' +
-                ' .responsive-archive-entry-banner{ background-color: ' + newval + '; }' +
+                ' .responsive-archive-entry-banner, .archive .site-content-header { background-color: ' + newval + '; }' +
                 '}' +
                 '</style>'
             );
@@ -5108,7 +5108,7 @@
             jQuery('head').append(
                 '<style id="responsive_blog_banner_background_color-mobile">' +
                 '@media screen and (max-width: 576px) {' +
-                ' .responsive-archive-entry-banner { background-color: ' + newval + '; }' +
+                ' .responsive-archive-entry-banner, .archive .site-content-header { background-color: ' + newval + '; }' +
                 '}' +
                 '</style>'
             );

@@ -2526,7 +2526,7 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
     blogBannerPaddingSettings.forEach(function(setting) {
         api(setting, function(value) {
             value.bind(function(newval) {
-                responsive_dynamic_unit_padding('blog_banner_padding', '.responsive-archive-entry-banner');
+                responsive_dynamic_unit_padding('blog_banner_padding', '.responsive-archive-entry-banner, .category .site-content-header');
             });
         });
     });
@@ -2553,7 +2553,7 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
     blogBannerMarginSettings.forEach(function(setting) {
         api(setting, function(value) {
             value.bind(function(newval) {
-                responsive_dynamic_unit_margin('blog_banner_margin', '.responsive-archive-entry-banner');
+                responsive_dynamic_unit_margin('blog_banner_margin', '.responsive-archive-entry-banner, .category .site-content-header');
             });
         });
     });

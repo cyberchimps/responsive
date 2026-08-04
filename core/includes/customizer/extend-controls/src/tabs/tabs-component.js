@@ -1076,7 +1076,7 @@ const TabsComponent = props => {
 
 		const containerWidthElement = document.getElementById('customize-control-responsive_single_blog_banner_container_width');
 		const metaAlignmentSeparator = document.getElementById('customize-control-responsive_single_blog_meta_alignment_separator');
-		const horizontalAlignment = document.getElementById('customize-control-responsive_single_blog_post_title_vertical_alignment');
+		const verticalAlignment = document.getElementById('customize-control-responsive_single_blog_post_title_vertical_alignment');
 		const customWidthElement = document.getElementById('customize-control-responsive_single_blog_banner_custom_width');
 		const minHeightElement = document.getElementById('customize-control-responsive_single_blog_banner_min_height');
 		const bgColorElement = document.getElementById('customize-control-responsive_single_blog_banner_background_color');
@@ -1089,8 +1089,8 @@ const TabsComponent = props => {
 		if(metaAlignmentSeparator) {
 			metaAlignmentSeparator.style.display = (layout === 'post_title_layout2' && tab=== 'general') ? 'block' : 'none';
 		}
-		if (horizontalAlignment) {
-			horizontalAlignment.style.display = (layout === 'post_title_layout2' && tab === 'general') ? 'block' : 'none';
+		if (verticalAlignment) {
+			verticalAlignment.style.display = (layout === 'post_title_layout2' && tab === 'general') ? 'block' : 'none';
 		}
 		if (customWidthElement) {
 			customWidthElement.style.display = (layout === 'post_title_layout2' && containerWidth === 'custom' && tab === 'general') ? 'block' : 'none';
@@ -1121,6 +1121,11 @@ const TabsComponent = props => {
 
 		const containerWidthElement = document.getElementById('customize-control-responsive_blog_banner_container_width');
 		const customWidthElement = document.getElementById('customize-control-responsive_blog_banner_custom_width');
+
+		const verticalAlignment = document.getElementById('customize-control-responsive_blog_post_title_vertical_alignment');
+		if (verticalAlignment) {
+			verticalAlignment.style.display = (layout === 'post_title_layout2' && tab === 'general') ? 'block' : 'none';
+		}
 
 		if (containerWidthElement) {
 			containerWidthElement.style.display = (layout === 'post_title_layout2' && tab === 'general') ? 'block' : 'none';

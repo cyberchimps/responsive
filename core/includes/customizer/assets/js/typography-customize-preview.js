@@ -5094,5 +5094,151 @@
         });
     } 
     // Footer Widgets Title & Content Typography - End
-} )( jQuery );
 
+    // Blog Archive Title & Text Typography
+    const blogArchiveTypos = [
+        { settingBase: 'blog_post_title_typography', selectorKey: 'blog_post_title', tablet: 'blog_post_title_tablet_typography', mobile: 'blog_post_title_mobile_typography' },
+        { settingBase: 'blog_post_text_typography', selectorKey: 'blog_post_text', tablet: 'blog_post_text_tablet_typography', mobile: 'blog_post_text_mobile_typography' }
+    ];
+
+    blogArchiveTypos.forEach(function(item) {
+        const titleSettingBase = item.settingBase;
+        const titleSelectorKey = item.selectorKey;
+        const tabletSetting = item.tablet;
+        const mobileSetting = item.mobile;
+
+        // === text-transform ===
+        api(`${titleSettingBase}[text-transform]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${titleSettingBase}-text-transform`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-text-transform">
+                        ${responsive.selectorArray[titleSelectorKey]} { text-transform:${val}; }
+                    </style>`
+                );
+            });
+        });
+
+        // === font-family ===
+        api(`${titleSettingBase}[font-family]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                if (val) {
+                    let fontName = val.split(",")[0].replace(/'/g, '').trim();
+                    const id = `customize-control-${titleSettingBase}-font-family`;
+                    const fontUrl = `${responsive.googleFontsUrl}/css?family=${fontName.replace(/ /g, "%20").replace(",", "%2C")}:${responsive.googleFontsWeight}`;
+                    
+                    if (fontName in responsive.googleFonts) {
+                        if (jQuery(`#${id}`).length) {
+                            jQuery(`#${id}`).attr("href", fontUrl);
+                        } else {
+                            jQuery('head').append(`<link id="${id}" rel="stylesheet" type="text/css" href="${fontUrl}">`);
+                        }
+                    }
+                }
+                jQuery(`style.customizer-typography-${titleSettingBase}-font-family`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-font-family">
+                        ${responsive.selectorArray[titleSelectorKey]} { font-family:${val}; }
+                    </style>`
+                );
+            });
+        });
+
+        // === font-weight ===
+        api(`${titleSettingBase}[font-weight]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${titleSettingBase}-font-weight`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-font-weight">
+                        ${responsive.selectorArray[titleSelectorKey]} { font-weight:${val}; }
+                    </style>`
+                );
+            });
+        });
+
+        // === font-size ===
+        api(`${titleSettingBase}[font-size]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${titleSettingBase}-font-size`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-font-size">
+                        ${responsive.selectorArray[titleSelectorKey]} { font-size:${val}; }
+                        @media (max-width: 768px) {
+                            ${responsive.selectorArray[titleSelectorKey]} { font-size:${api(`${tabletSetting}[font-size]`).get()}; }
+                        }
+                        @media (max-width: 480px) {
+                            ${responsive.selectorArray[titleSelectorKey]} { font-size:${api(`${mobileSetting}[font-size]`).get()}; }
+                        }
+                    </style>`
+                );
+            });
+        });
+
+        // === tablet font-size ===
+        api(`${tabletSetting}[font-size]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${titleSettingBase}-tablet-font-size`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-tablet-font-size">
+                        @media (max-width: 768px) {
+                            ${responsive.selectorArray[titleSelectorKey]} { font-size:${val}; }
+                        }
+                        @media (max-width: 480px) {
+                            ${responsive.selectorArray[titleSelectorKey]} { font-size:${api(`${mobileSetting}[font-size]`).get()}; }
+                        }
+                    </style>`
+                );
+            });
+        });
+
+        // === mobile font-size ===
+        api(`${mobileSetting}[font-size]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${titleSettingBase}-mobile-font-size`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-mobile-font-size">
+                        @media (max-width: 480px) {
+                            ${responsive.selectorArray[titleSelectorKey]} { font-size:${val}; }
+                        }
+                    </style>`
+                );
+            });
+        });
+
+        // === line-height ===
+        api(`${titleSettingBase}[line-height]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${titleSettingBase}-line-height`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-line-height">
+                        ${responsive.selectorArray[titleSelectorKey]} { line-height:${val}; }
+                    </style>`
+                );
+            });
+        });
+
+        // === letter-spacing ===
+        api(`${titleSettingBase}[letter-spacing]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${titleSettingBase}-letter-spacing`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-letter-spacing">
+                        ${responsive.selectorArray[titleSelectorKey]} { letter-spacing:${val}px; }
+                    </style>`
+                );
+            });
+        });
+
+        // === font-style ===
+        api(`${titleSettingBase}[font-style]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${titleSettingBase}-font-style`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-font-style">
+                        ${responsive.selectorArray[titleSelectorKey]} { font-style:${val}; }
+                    </style>`
+                );
+            });
+        });
+    });
+} )( jQuery );
