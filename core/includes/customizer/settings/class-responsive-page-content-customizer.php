@@ -83,6 +83,7 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 				$general_tab_ids_prefix . 'container_style',
 				$general_tab_ids_prefix . 'container_layout_separator',
 				$general_tab_ids_prefix . 'container_style_separator',
+				$general_tab_ids_prefix . 'title_area'
 
 			);
 			responsive_tabs_button_control( $wp_customize, 'page_tabs', $tabs_label, 'responsive_page', 5, '', 'responsive_page_content_general_tab', 'responsive_page_content_design_tab', $general_tab_ids, $design_tab_ids, null );

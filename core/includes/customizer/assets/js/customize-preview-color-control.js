@@ -5009,7 +5009,7 @@
     // Single Blog Post Text Color
     api( 'responsive_single_blog_post_text_color', function(value) {
         value.bind(function(newval) {
-            $('.responsive-blog-single-banner2 .container *, header.entry-header *').css('color', newval);
+            $('.responsive-blog-single-banner2 .container *, .single-post .entry-header *').css('color', newval);
         })
     });
 

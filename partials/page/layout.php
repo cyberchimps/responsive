@@ -25,25 +25,31 @@ Responsive\responsive_entry_before();
 			if ( get_theme_mod( 'responsive_page_title_layout', 'post_title_layout1' ) === 'post_title_layout1' ) {
 				// Get elements.
 				$elements = responsive_page_single_elements_positioning();
-				// Loop through elements.
-				foreach ( $elements as $element ) {
+				?>
+				<header class="entry-header">
+					<?php
+					// Loop through elements.
+					foreach ( $elements as $element ) {
 
-					// Skip content if it still exists in the DB settings, as it will be rendered unconditionally
-					if ( 'content' === $element ) {
-						continue;
+						// Skip content if it still exists in the DB settings, as it will be rendered unconditionally
+						if ( 'content' === $element ) {
+							continue;
+						}
+
+						// Featured Image.
+						if ( 'featured_image' === $element
+							&& ! post_password_required() ) {
+
+							get_template_part( 'partials/page/thumbnail' );
+
+						} else {
+							get_template_part( 'partials/page/' . $element );
+
+						}
 					}
-
-					// Featured Image.
-					if ( 'featured_image' === $element
-						&& ! post_password_required() ) {
-
-						get_template_part( 'partials/page/thumbnail' );
-
-					} else {
-						get_template_part( 'partials/page/' . $element );
-
-					}
-				}
+					?>
+				</header>
+				<?php
 			}
 
 			// Unconditionally render content
