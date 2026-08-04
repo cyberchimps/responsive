@@ -9063,7 +9063,14 @@ function responsive_customizer_styles() {
 	// Blog/Archive - Title
 	// check if enabled
 	$check_blog_title = get_theme_mod( 'responsive_blog_title_area', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_post_title' ));
-	if( $check_blog_title )
+	if( !$check_blog_title ) {
+		$custom_css .= "
+			.blog .responsive-archive-entry-banner, .archive .responsive-archive-entry-banner, .archive .site-content-header {
+				display: none;
+			}
+		";
+	}
+	else if( $check_blog_title )
 	{
 		// check banner type 
 		$blog_title_banner = get_theme_mod( 'responsive_blog_title_layout', Responsive\Core\get_responsive_customizer_defaults( 'blog_title_layout' ) );

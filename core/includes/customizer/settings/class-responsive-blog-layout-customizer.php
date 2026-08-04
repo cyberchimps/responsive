@@ -236,7 +236,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 					'section'  => 'responsive_blog_title_layout',
 					'settings' => 'responsive_blog_title_description',
 					'type'     => 'textarea',
-					'priority' => 6,
+					'priority' => 8,
 				)
 			);
 			
@@ -256,7 +256,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 						'label'    => __( 'Enable Blog Page Title', 'responsive' ),
 						'section'  => 'responsive_blog_title_layout',
 						'settings' => 'responsive_blog_post_title_toggle',
-						'priority' => 20,
+						'priority' => 6,
 					)
 				)
 			);
@@ -270,7 +270,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 			);
 
 			// Blog Post Title Vertical Alignment
-			responsive_select_button_control( $wp_customize, 'blog_post_title_vertical_alignment', $blog_post_title_vertical_alignment_label, 'responsive_blog_title_layout', 7, $blog_post_title_vertical_alignment_choices, 'flex-start', null );
+			responsive_select_button_control( $wp_customize, 'blog_post_title_vertical_alignment', $blog_post_title_vertical_alignment_label, 'responsive_blog_title_layout', 8, $blog_post_title_vertical_alignment_choices, 'flex-start', null );
 
 			// Horizontal Alignment.
 			$blog_post_title_horizontal_alignment_label   = esc_html__( 'Horizontal Alignment', 'responsive' );
@@ -281,7 +281,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 			);
 
 			// Blog Post Title Horizontal Alignment
-			responsive_select_button_with_switchers_control( $wp_customize, 'blog_post_title_horizontal_alignment', $blog_post_title_horizontal_alignment_label, 'responsive_blog_title_layout', 8, $blog_post_title_horizontal_alignment_choices, 'center', null, 'refresh', '', 'center', 'center' );
+			responsive_select_button_with_switchers_control( $wp_customize, 'blog_post_title_horizontal_alignment', $blog_post_title_horizontal_alignment_label, 'responsive_blog_title_layout', 9, $blog_post_title_horizontal_alignment_choices, 'center', null, 'refresh', '', 'center', 'center' );
 
 
 			// Banner Min Height
@@ -345,7 +345,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 					'section'  => 'responsive_blog_title_layout',
 					'settings' => 'responsive_theme_options[blog_post_title_text]',
 					'type'     => 'text',
-					'priority' => 30,
+					'priority' => 7,
 					'active_callback' => 'responsive_blog_post_title_toggle_callback',
 				)
 			);
