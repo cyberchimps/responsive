@@ -4302,3 +4302,19 @@ if ( ! function_exists( 'responsive_active_blog_layout_cover_background' ) ) :
 		return get_theme_mod( 'responsive_blog_layout', 'grid' ) === 'cover';
 	}
 endif;
+
+function responsive_get_page_sidebar_choices() {
+	return array(
+		'main-sidebar' => __( 'Main Sidebar', 'responsive' ),
+		'sidebar-1'    => __( 'Sidebar 1', 'responsive' ),
+		'sidebar-2'    => __( 'Sidebar 2', 'responsive' ),
+	);
+}
+function responsive_get_current_sidebar() {
+
+	if ( is_page() ) {
+		return get_theme_mod( 'responsive_page_default_sidebar', 'main-sidebar' );
+	}
+
+	return 'main-sidebar';
+}

@@ -8908,7 +8908,12 @@ function responsive_customizer_styles() {
 		// Styling for Cover layout background color -> Blog/Archive
 		$blog_layout = get_theme_mod( 'responsive_blog_layout', 'grid' );
 
-		$blog_cover_background = get_theme_mod( 'responsive_blog_cover_background_color', '' );
+		$blog_cover_background = get_theme_mod( 'responsive_blog_cover_background_color', '#f9f9f9' );
+		$transparent_overlay = false;
+		if ( false !== strpos( $blog_cover_background, ',0)' ) ) {
+			$transparent_overlay = true;
+			$blog_cover_background = '#f9f9f9';
+		}
 
 		if ( 'cover' === $blog_layout && ! empty( $blog_cover_background ) ) {
 			$custom_css .= "
@@ -8971,8 +8976,8 @@ function responsive_customizer_styles() {
 					content: '';
 					position: absolute;
 					inset: 0;
-					background: $blog_cover_background;
-					border-radius: {$box_top_left_radius}px {$box_top_right_radius}px {$box_bottom_right_radius}px {$box_bottom_left_radius}px;
+					background-color: {$blog_cover_background};
+					opacity: " . ( $transparent_overlay ? '0' : '1' ) . ";
 				}
 
 				/* Content above image */

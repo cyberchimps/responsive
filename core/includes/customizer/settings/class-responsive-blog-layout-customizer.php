@@ -68,6 +68,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_date_box_toggle',
 				$design_tab_ids_prefix . 'responsive_date_box_toggle_separator',
 				$design_tab_ids_prefix . 'responsive_date_box_style',
+				$design_tab_ids_prefix . 'responsive_blog_cover_background_color',
 			);
 
 			$general_tab_ids_prefix = 'customize-control-';

@@ -41,7 +41,7 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
                 $general_tab_ids_prefix . 'responsive_sidebar_separator', 
                 $general_tab_ids_prefix . 'responsive_default_sidebar_position',
                 $general_tab_ids_prefix . 'responsive_sidebar_style',
-                $general_tab_ids_prefix . 'responsive_default_sidebar_width'
+                $general_tab_ids_prefix . 'responsive_default_sidebar_width',
             ); 
 
             $design_tab_ids_prefix = 'customize-control-'; 
@@ -133,9 +133,36 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
                 'boxed'   => esc_html__( 'Boxed', 'responsive' ),
             );
             responsive_select_button_control( $wp_customize, 'page_sidebar_style', $page_sidebar_style_label, 'responsive_page', 22, $page_sidebar_style_choice, Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_sidebar_style' ), 'responsive_active_page_sidebar_position', 'postMessage' );
+            
+            responsive_horizontal_separator_control($wp_customize, 'page_default_sidebar_before_separator', 1, 'responsive_page', 23, 1, );
 
+            // Page Default Sidebar
+            $wp_customize->add_setting(
+                'responsive_page_default_sidebar',
+                array(
+                    'default'           => 'main-sidebar',
+                    'sanitize_callback' => 'sanitize_text_field',
+                )
+            );
+
+            $wp_customize->add_control(
+                'responsive_page_default_sidebar',
+                array(
+                    'label'           => __( 'Page Default Sidebar', 'responsive' ),
+                    'section'         => 'responsive_page',
+                    'type'            => 'select',
+                    'choices'         => array(
+                        'main-sidebar' => __( 'Main Sidebar', 'responsive' ),
+                        'sidebar-1'    => __( 'Sidebar 1', 'responsive' ),
+                        'sidebar-2'    => __( 'Sidebar 2', 'responsive' ),
+                    ),
+                    'priority'        => 24,
+                    'active_callback' => 'responsive_active_page_sidebar_section',
+                )
+            );
+            
             $page_sidebar_width_label = esc_html__('Sidebar Width (%)', 'responsive');
-            responsive_drag_number_control($wp_customize, 'page_sidebar_width', $page_sidebar_width_label, 'responsive_page', 24, 30, 'responsive_active_page_sidebar_position', 50, 20, 'postMessage');
+            responsive_drag_number_control($wp_customize, 'page_sidebar_width', $page_sidebar_width_label, 'responsive_page', 25, 30, 'responsive_active_page_sidebar_position', 50, 20, 'postMessage');
 
             $blog_sidebar_heading_label = esc_html__( 'Blog/Archive Sidebar', 'responsive' );
 			responsive_separator_control( $wp_customize, 'blog_sidebar_separator', $blog_sidebar_heading_label, 'responsive_blog_layout', 26, 'responsive_active_blog_sidebar_section' );
