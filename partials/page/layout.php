@@ -63,7 +63,9 @@ if ( in_array( $page_title_layout, array( 'post_title_layout1', 'post_title_layo
 				if ( 'background' === $page_featured_image_position && has_post_thumbnail() && ! post_password_required() ) {
 					$featured_image_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
 					if ( $featured_image_url ) {
-						$bg_css = 'background-image: url(' . esc_url( $featured_image_url ) . '); background-repeat: no-repeat; background-size: cover; background-attachment: scroll; background-position: center center;';
+						$overlay_color = Responsive\Core\responsive_prepare_css_value( 'responsive_page_featured_image_overlay_color', '' );
+						$overlay_css = empty( $overlay_color ) ? 'transparent' : $overlay_color;
+						$bg_css = '--overlay-color: ' . $overlay_css . '; background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), url(' . esc_url( $featured_image_url ) . '); background-repeat: no-repeat; background-size: cover; background-attachment: scroll; background-position: center center;';
 						if ( $ratio_css ) {
 							$bg_css .= ' ' . $ratio_css;
 						}

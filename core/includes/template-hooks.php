@@ -104,7 +104,34 @@ function responsive_single_blog_banner2() {
 		global $post;
 		setup_postdata( $post );
 		?>
-		<section class="responsive-blog-single-banner2">
+		<?php
+		$single_featured_image_position = get_theme_mod( 'responsive_single_blog_featured_image_position', 'none' );
+		$single_featured_image_ratio    = get_theme_mod( 'responsive_single_blog_featured_image_ratio', 'original' );
+		
+		$ratio_css = '';
+		if ( 'predefined' === $single_featured_image_ratio ) {
+			$predefined_ratio = get_theme_mod( 'responsive_single_blog_featured_image_predefined_ratio', '1:1' );
+			$ratio_value = str_replace( ':', '/', $predefined_ratio );
+			$ratio_css = ' aspect-ratio: ' . esc_attr( $ratio_value ) . ';';
+		} elseif ( 'custom' === $single_featured_image_ratio ) {
+			$custom_width  = get_theme_mod( 'responsive_single_blog_featured_image_custom_width', '' );
+			$custom_height = get_theme_mod( 'responsive_single_blog_featured_image_custom_height', '' );
+			if ( $custom_width && $custom_height ) {
+				$ratio_css = ' aspect-ratio: ' . esc_attr( $custom_width ) . '/' . esc_attr( $custom_height ) . ';';
+			}
+		}
+		
+		$section_style = '';
+		if ( 'background' === $single_featured_image_position && has_post_thumbnail() && ! post_password_required() ) {
+			$featured_image_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+			if ( $featured_image_url ) {
+				$overlay_color = Responsive\Core\responsive_prepare_css_value( 'responsive_single_blog_featured_image_overlay_color', '' );
+				$overlay_css = empty( $overlay_color ) ? 'transparent' : $overlay_color;
+				$section_style = ' style="--overlay-color: ' . $overlay_css . '; background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), url(' . esc_url( $featured_image_url ) . '); background-repeat: no-repeat; background-size: cover; background-attachment: scroll; background-position: center center;' . $ratio_css . '"';
+			}
+		}
+		?>
+		<section class="responsive-blog-single-banner2"<?php echo $section_style; ?>>
 			<div class="container">
 				<?php
 				$elements = responsive_blog_single_elements_positioning();
@@ -114,8 +141,11 @@ function responsive_single_blog_banner2() {
 					}
 
 					if ( 'featured_image' === $element && ! post_password_required() ) {
-						$format = get_post_format() ? get_post_format() : 'thumbnail';
-						get_template_part( 'partials/single/media/blog-single', $format );
+						$single_featured_image_position = get_theme_mod( 'responsive_single_blog_featured_image_position', 'none' );
+						if ( ! in_array( $single_featured_image_position, array( 'outside', 'background' ), true ) ) {
+							$format = get_post_format() ? get_post_format() : 'thumbnail';
+							get_template_part( 'partials/single/media/blog-single', $format );
+						}
 					} else {
 						get_template_part( 'partials/single/' . $element );
 					}
@@ -156,7 +186,9 @@ function responsive_single_page_banner2() {
 		if ( 'background' === $page_featured_image_position && has_post_thumbnail() && ! post_password_required() ) {
 			$featured_image_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
 			if ( $featured_image_url ) {
-				$section_style = ' style="background-image: url(' . esc_url( $featured_image_url ) . '); background-repeat: no-repeat; background-size: cover; background-attachment: scroll; background-position: center center;' . $ratio_css . '"';
+				$overlay_color = Responsive\Core\responsive_prepare_css_value( 'responsive_page_featured_image_overlay_color', '' );
+				$overlay_css = empty( $overlay_color ) ? 'transparent' : $overlay_color;
+				$section_style = ' style="--overlay-color: ' . $overlay_css . '; background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), url(' . esc_url( $featured_image_url ) . '); background-repeat: no-repeat; background-size: cover; background-attachment: scroll; background-position: center center;' . $ratio_css . '"';
 			}
 		}
 		?>

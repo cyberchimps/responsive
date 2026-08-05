@@ -5244,5 +5244,21 @@
             );
         });
     });
+    // Featured Image Overlay Colors
+    api('responsive_single_blog_featured_image_overlay_color', function(value) {
+        value.bind(function() {
+            var color = processThemeSettingForCSS('responsive_single_blog_featured_image_overlay_color');
+            if ( !color ) color = 'transparent';
+            $('.responsive-blog-single-banner2, .responsive-single-post-featured-section.post-thumb, .entry-header').css('--overlay-color', color);
+        });
+    });
+
+    api('responsive_page_featured_image_overlay_color', function(value) {
+        value.bind(function() {
+            var color = processThemeSettingForCSS('responsive_page_featured_image_overlay_color');
+            if ( !color ) color = 'transparent';
+            $('.responsive-single-entry-banner, .responsive-single-post-featured-section.post-thumb, .entry-header').css('--overlay-color', color);
+        });
+    });
 
 } )( jQuery );
