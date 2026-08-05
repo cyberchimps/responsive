@@ -2991,15 +2991,5 @@ if( ! function_exists( 'responsive_prepare_css_value' ) ) {
 
 		return false;
 	}
-	add_action( 'wp_footer', function() {
-	if ( current_user_can( 'manage_options' ) ) { // only show to admins
-		echo '<pre>';
-		print_r( array_keys( array_filter(
-			\WP_Block_Type_Registry::get_instance()->get_all_registered(),
-			fn( $name ) => str_starts_with( $name, 'woocommerce/' ),
-			ARRAY_FILTER_USE_KEY
-		) ) );
-		echo '</pre>';
-	}
-} );
+	
 }
