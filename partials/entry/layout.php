@@ -37,7 +37,7 @@ Responsive\responsive_entry_before();
 		// Get elements.
 		$elements = responsive_blog_entry_elements_positioning();
 		// Loop through elements.
-		if ( 'blog-layout-1' === get_theme_mod( 'responsive_blog_layout_options' ) || responsive_active_blog_layout_grid() ) {
+		if ( 'blog-layout-1' === get_theme_mod( 'responsive_blog_layout_options' ) || responsive_active_blog_layout_grid() || responsive_active_blog_layout_cover()) {
 			foreach ( $elements as $element ) {
 				// Featured Image.
 				if ( 'featured_image' === $element && ! post_password_required() ) {

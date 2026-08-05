@@ -779,7 +779,7 @@ function responsive_add_custom_body_classes( $classes ) {
 			$classes[] = 'content-alignment-' . get_theme_mod( 'responsive_blog_entry_content_alignment', 'left' );
 			// Entry Blog Columns.
 			$masonry   = ( 1 === get_theme_mod( 'responsive_blog_entry_display_masonry', 0 ) ) ? '-masonry' : '';
-			if ( get_theme_mod( 'responsive_blog_layout', 'grid' ) === 'grid' ) {
+			if ( get_theme_mod( 'responsive_blog_layout', 'grid' ) === 'grid' ||  get_theme_mod( 'responsive_blog_layout', 'grid' ) === 'cover') {
 				$classes[] = 'blog-entry-columns-' . get_theme_mod( 'responsive_blog_entry_columns', get_responsive_customizer_defaults( 'entry_columns' ) ) . $masonry;
 			}
 			$get_sidebar_position = function( $context, $default = 'no' ) {

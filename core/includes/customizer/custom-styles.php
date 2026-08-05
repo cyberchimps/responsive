@@ -8905,6 +8905,19 @@ function responsive_customizer_styles() {
 				margin: " . responsive_spacing_css( $comments_margin_top_mobile, $comments_margin_right_mobile, $comments_margin_bottom_mobile, $comments_margin_left_mobile ) . ";
 			}
 		}";
+		// Styling for Cover layout background color -> Blog/Archive
+		$blog_layout = get_theme_mod( 'responsive_blog_layout', 'grid' );
+
+		$blog_cover_background = get_theme_mod( 'responsive_blog_cover_background_color', '' );
+
+		if ( 'cover' === $blog_layout && ! empty( $blog_cover_background ) ) {
+			$custom_css .= '
+				.blog:not(.custom-home-page-active) .site-content .hentry,
+				.archive:not(.post-type-archive-product) .site-content .hentry {
+					background-color: ' . esc_attr( $blog_cover_background ) . ';
+				}
+			';
+		}
 	}
 	
 	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', responsive_minimize_css( $custom_css ) ) );

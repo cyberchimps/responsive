@@ -4214,6 +4214,17 @@ if ( ! function_exists( 'responsive_active_blog_layout_grid' ) ) :
 		return get_theme_mod( 'responsive_blog_layout', 'grid' ) === 'grid';
 	}
 endif;
+if ( ! function_exists( 'responsive_active_blog_layout_cover' ) ) :
+
+	/**
+	 * Determines whether active blog layout is list or grid.
+	 *
+	 * @return bool true if the active layout is grid, false otherwise.
+	 */
+	function responsive_active_blog_layout_cover() {
+		return get_theme_mod( 'responsive_blog_layout', 'grid' ) === 'cover';
+	}
+endif;
 
 if( ! function_exists( 'responsive_site_background_image_present' ) ) :
 	/**
@@ -4278,3 +4289,15 @@ function responsive_section_toggle_control( $wp_customize, $element, $label, $se
 		)
 	);
 }
+/* For Blog/Archive section -> Blog layout cover option */
+if ( ! function_exists( 'responsive_active_blog_layout_cover_background' ) ) :
+
+	/**
+	 * Determines whether active blog layout is cover.
+	 *
+	 * @return bool true if the active layout is cover, false otherwise.
+	 */
+	function responsive_active_blog_layout_cover_background() {
+		return get_theme_mod( 'responsive_blog_layout', 'grid' ) === 'cover';
+	}
+endif;

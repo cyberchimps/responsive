@@ -2032,3 +2032,6 @@ ul.control-panel-nav_menus .customize-help-toggle:before {
   .customize-help-toggle::before {
   margin: -195px -10px !important;
 }
+#customize-theme-controls .customize-pane-child.open#sub-accordion-section-responsive_blog_layout{
+	height: 100%;
+}
