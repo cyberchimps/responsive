@@ -300,8 +300,6 @@ if ( ! function_exists( 'responsive_page_elements' ) ) {
 				'breadcrumbs'    => esc_html__( 'Breadcrumbs', 'responsive' ),
 				'excerpt'        => esc_html__( 'Excerpt', 'responsive' ),
 				'meta'           => esc_html__( 'Meta', 'responsive' ),
-				'categories'     => esc_html__( 'Categories', 'responsive' ),
-				'tags'           => esc_html__( 'Tags', 'responsive' ),
 			)
 		);
 
