@@ -135,7 +135,32 @@ function responsive_single_page_banner2() {
 		global $post;
 		setup_postdata( $post );
 		?>
-		<section class="responsive-single-entry-banner" data-post-type="page" data-banner-layout="layout-2">
+		<?php
+		$page_featured_image_position = get_theme_mod( 'responsive_page_featured_image_position', 'none' );
+		$page_featured_image_ratio    = get_theme_mod( 'responsive_page_featured_image_ratio', 'original' );
+		
+		$ratio_css = '';
+		if ( 'predefined' === $page_featured_image_ratio ) {
+			$predefined_ratio = get_theme_mod( 'responsive_page_featured_image_predefined_ratio', '1:1' );
+			$ratio_value = str_replace( ':', '/', $predefined_ratio );
+			$ratio_css = ' aspect-ratio: ' . esc_attr( $ratio_value ) . ';';
+		} elseif ( 'custom' === $page_featured_image_ratio ) {
+			$custom_width  = get_theme_mod( 'responsive_page_featured_image_custom_width', '' );
+			$custom_height = get_theme_mod( 'responsive_page_featured_image_custom_height', '' );
+			if ( $custom_width && $custom_height ) {
+				$ratio_css = ' aspect-ratio: ' . esc_attr( $custom_width ) . '/' . esc_attr( $custom_height ) . ';';
+			}
+		}
+		
+		$section_style = '';
+		if ( 'background' === $page_featured_image_position && has_post_thumbnail() && ! post_password_required() ) {
+			$featured_image_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+			if ( $featured_image_url ) {
+				$section_style = ' style="background-image: url(' . esc_url( $featured_image_url ) . '); background-repeat: no-repeat; background-size: cover; background-attachment: scroll; background-position: center center;' . $ratio_css . '"';
+			}
+		}
+		?>
+		<section class="responsive-single-entry-banner" data-post-type="page" data-banner-layout="layout-2"<?php echo $section_style; ?>>
 			<div class="container">
 				<?php
 				$elements = responsive_page_single_elements_positioning();
@@ -145,7 +170,10 @@ function responsive_single_page_banner2() {
 					}
 
 					if ( 'featured_image' === $element && ! post_password_required() ) {
-						get_template_part( 'partials/page/thumbnail' );
+						$page_featured_image_position = get_theme_mod( 'responsive_page_featured_image_position', 'none' );
+						if ( ! in_array( $page_featured_image_position, array( 'outside', 'background' ), true ) ) {
+							get_template_part( 'partials/page/thumbnail' );
+						}
 					} else {
 						get_template_part( 'partials/page/' . $element );
 					}

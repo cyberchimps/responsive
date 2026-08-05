@@ -789,6 +789,22 @@ const TabsComponent = props => {
 			});
 		}
 
+		togglePageFeaturedImageControls();
+		if (api('responsive_page_featured_image_ratio')) {
+			api('responsive_page_featured_image_ratio', function(value) {
+				value.bind(function() {
+					togglePageFeaturedImageControls();
+				});
+			});
+		}
+		if (api('responsive_page_featured_image_position')) {
+			api('responsive_page_featured_image_position', function(value) {
+				value.bind(function() {
+					togglePageFeaturedImageControls();
+				});
+			});
+		}
+
 	}, [tab]);
 
 	const hideSidebarWidthControl = (value, control) => {
@@ -1201,6 +1217,29 @@ const TabsComponent = props => {
 		}
 		if (marginElement) {
 			marginElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
+		}
+	};
+
+	const togglePageFeaturedImageControls = () => {
+		const ratio = api('responsive_page_featured_image_ratio') ? api('responsive_page_featured_image_ratio').get() : 'original';
+		const position = api('responsive_page_featured_image_position') ? api('responsive_page_featured_image_position').get() : 'none';
+
+		const predefinedRatioElement = document.getElementById('customize-control-responsive_page_featured_image_predefined_ratio');
+		const customWidthElement = document.getElementById('customize-control-responsive_page_featured_image_custom_width');
+		const customHeightElement = document.getElementById('customize-control-responsive_page_featured_image_custom_height');
+		const overlayColorElement = document.getElementById('customize-control-responsive_page_featured_image_overlay_color');
+
+		if (predefinedRatioElement) {
+			predefinedRatioElement.style.display = (ratio === 'predefined' && tab === 'general') ? 'block' : 'none';
+		}
+		if (customWidthElement) {
+			customWidthElement.style.display = (ratio === 'custom' && tab === 'general') ? 'block' : 'none';
+		}
+		if (customHeightElement) {
+			customHeightElement.style.display = (ratio === 'custom' && tab === 'general') ? 'block' : 'none';
+		}
+		if (overlayColorElement) {
+			overlayColorElement.style.display = (position === 'background' && tab === 'design') ? 'block' : 'none';
 		}
 	};
 
