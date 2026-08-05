@@ -8966,8 +8966,8 @@ function responsive_customizer_styles() {
 				}
 
 				/* Overlay */
-				.blog:not(.post-type-archive-product) .site-content  .responsive-cover-image::before
-				.archive:not(.post-type-archive-product) .site-content  .responsive-cover-image::before {
+				.blog:not(.post-type-archive-product) .site-content  .responsive-cover-image:before,
+				.archive:not(.post-type-archive-product) .site-content  .responsive-cover-image:before {
 					content: '';
 					position: absolute;
 					inset: 0;
