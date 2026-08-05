@@ -408,7 +408,13 @@ if ( ! function_exists( 'responsive_css' ) ) {
 		wp_enqueue_style( 'icomoon-style', get_template_directory_uri() . "/core/css/icomoon/style{$suffix}.css", false, $responsive['Version'] );
 
 		// If plugin - 'WooCommerce' is active.
-		if ( class_exists( 'WooCommerce' ) ) {
+		if ( class_exists( 'WooCommerce' ) && (
+			is_woocommerce() || is_cart() || is_checkout() || is_account_page()
+			|| responsive_check_element_present_in_hfb( 'woo-cart', 'header' )
+			|| responsive_check_element_in_mobile_tablet_items( 'woo-cart', 'header' )
+			|| responsive_page_has_woocommerce_content()
+			|| is_customize_preview()
+		) ) {
 			wp_enqueue_style( 'responsive-woocommerce-style', get_template_directory_uri() . "/core/css/woocommerce{$suffix}.css", false, $responsive['Version'] );
 		}
 
@@ -2920,4 +2926,70 @@ if( ! function_exists( 'responsive_prepare_css_value' ) ) {
 
 		return $value;
 	}
+	/**
+	* Check if the current singular page contains WooCommerce blocks or shortcodes.
+	* Lightweight helper — uses WordPress core has_block() and has_shortcode()
+	* which operate on already-fetched post content (no extra DB queries).
+	* Only runs on singular pages; returns false for archives/listings.
+	*
+	* @return bool True if the page contains WooCommerce content.
+	 */
+	function responsive_page_has_woocommerce_content() {
+		if ( ! is_singular() ) {
+			return false;
+		}
+		$post = get_queried_object();
+		if ( ! $post || ! isset( $post->post_content ) ) {
+			return false;
+		}
+
+		// Check for WooCommerce blocks — must use the 'woocommerce/' namespace,
+		// not a bare name, or has_block() silently rewrites it to 'core/...'
+		// and never matches.
+		$wc_blocks = array(
+			'woocommerce/cart',
+			'woocommerce/checkout',
+			'woocommerce/all-products',
+			'woocommerce/all-reviews',
+			'woocommerce/featured-product',
+			'woocommerce/product-new',
+			'woocommerce/product-category',
+			'woocommerce/product-best-sellers',
+			'woocommerce/product-top-rated',
+			'woocommerce/product-on-sale',
+			'woocommerce/product-search',
+		);
+		foreach ( $wc_blocks as $block ) {
+			if ( has_block( $block, $post ) ) {
+				return true;
+			}
+		}
+
+		// Check for WooCommerce shortcodes.
+		$wc_shortcodes = array(
+			'products',
+			'product_category',
+			'product',
+			'product_page',
+			'add_to_cart',
+			'add_to_cart_url',
+			'best_selling_products',
+			'recent_products',
+			'featured_products',
+			'sale_products',
+			'top_rated_products',
+			'related_products',
+			'woocommerce_cart',
+			'woocommerce_checkout',
+			'woocommerce_my_account',
+		);
+		foreach ( $wc_shortcodes as $shortcode ) {
+			if ( has_shortcode( $post->post_content, $shortcode ) ) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+	
 }
