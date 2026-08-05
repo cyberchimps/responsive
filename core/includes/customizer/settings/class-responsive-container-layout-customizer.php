@@ -36,6 +36,36 @@ if ( ! class_exists( 'Responsive_Container_Layout_Customizer' ) ) :
 		 */
 		public function customizer_options( $wp_customize ) {
 
+			// Adding Single Blog Post Title Layout Setting
+			$wp_customize->add_section(
+				'responsive_single_blog_post_title_layout',
+				array(
+					'title'    => esc_html__( 'Post Title Area', 'responsive' ),
+					'panel'    => 'responsive_post_types',
+					'priority' => 30,
+				)
+			);
+
+			// Adding Single Page - Page Title Layout Setting
+			$wp_customize->add_section(
+				'responsive_page_title_area_layout',
+				array(
+					'title'    => esc_html__( 'Page Title Area', 'responsive' ),
+					'panel'    => 'responsive_post_types',
+					'priority' => 35,
+				)
+			);
+			
+			// Adding Blog/Archive - Blog Title Layout Setting
+			$wp_customize->add_section(
+				'responsive_blog_title_layout',
+				array(
+					'title'    => esc_html( 'Blog Title Area', 'resposnive' ),
+					'panel'    => 'responsive_post_types',
+					'priority' => 40
+				)
+			);
+
 			$container_layout_choices = array(
 				'default_container'    => esc_html__( 'Default', 'responsive' ),
 				'normal'     => esc_html__( 'Normal', 'responsive' ),

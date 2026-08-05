@@ -96,6 +96,44 @@ if ( 1 === $responsive_options['breadcrumb'] ) {
 if ( ! $responsive_page_title && ! $responsive_page_description && ! $responsive_show_breadcrumbs ) {
 	return;
 }
+
+$is_blog_archive = ( is_home() || ( is_archive() && ! is_search() ) );
+$blog_layout     = get_theme_mod( 'responsive_blog_title_layout', 'post_title_layout1' );
+
+if ( $is_blog_archive ) {
+	if ( 'post_title_layout2' === $blog_layout ) {
+		// Output is handled in responsive_wrapper_top hook
+		return;
+	}
+
+	$elements = get_theme_mod( 'responsive_blog_title_elements_positioning', array( 'title', 'description', 'breadcrumb' ) );
+	if ( is_string( $elements ) ) {
+		$decoded = json_decode( $elements, true );
+		$elements = is_array( $decoded ) ? $decoded : explode( ',', $elements );
+	} else if ( ! is_array( $elements ) ) {
+		$elements = array();
+	}
+
+	// For layout1:
+	// Hide everything on the blog page.
+	if ( is_home() ) {
+		$responsive_page_title = '';
+		$responsive_page_description = '';
+		$responsive_show_breadcrumbs = false;
+	} else {
+		// For archive pages, show the title and conditionally show breadcrumbs.
+		$responsive_page_description = '';
+		if ( ! in_array( 'breadcrumb', $elements, true ) ) {
+			$responsive_show_breadcrumbs = false;
+		} else {
+			$responsive_show_breadcrumbs = true;
+		}
+	}
+
+	if ( ! $responsive_page_title && ! $responsive_page_description && ! $responsive_show_breadcrumbs ) {
+		return;
+	}
+}
 ?>
 <div class="site-content-header">
 	<?php if ( $responsive_show_breadcrumbs && ( 'before' === get_theme_mod( 'responsive_breadcrumb_position', 'before' ) ) ) : ?>

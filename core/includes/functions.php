@@ -752,12 +752,17 @@ function responsive_add_custom_body_classes( $classes ) {
 			$classes[] = 'sidebar-position-' . (
 				( $single_blog_sidebar_value === 'global' || $single_blog_sidebar_value === 'default' ) ? $global_sidebar_position : $single_blog_sidebar_value
 			);
-			// Single Blog Featured Image Aligmnmnet.
+			// Single Blog Featured Image Alignment.
 			$classes[] = 'featured-image-alignment-' . get_theme_mod( 'responsive_single_blog_featured_image_alignment', 'left' );
 			// Single Blog Title Aligmnmnet.
 			$classes[] = 'title-alignment-' . get_theme_mod( 'responsive_single_blog_title_alignment', 'left' );
-			// Single Blog Meta Aligmnmnet.
+			$classes[] = 'title-alignment-tablet-' . get_theme_mod( 'responsive_single_blog_title_alignment_tablet', 'left' );
+			$classes[] = 'title-alignment-mobile-' . get_theme_mod( 'responsive_single_blog_title_alignment_mobile', 'left' );
+
+ 			// Single Blog Meta Aligmnmnet.
 			$classes[] = 'meta-alignment-' . get_theme_mod( 'responsive_single_blog_meta_alignment', 'left' );
+			$classes[] = 'meta-alignment-tablet-' . get_theme_mod( 'responsive_single_blog_meta_alignment_tablet', 'left' );
+			$classes[] = 'meta-alignment-mobile-' . get_theme_mod( 'responsive_single_blog_meta_alignment_mobile', 'left' );
 			// Single Blog Content Aligmnmnet.
 			$classes[] = 'content-alignment-' . get_theme_mod( 'responsive_single_blog_content_alignment', 'left' );
 
@@ -1240,6 +1245,16 @@ function defaults() {
 			'shop_content_width'                  => 100,
 			'blog_content_width'                  => 100,
 			'responsive_container_width'		  => 1340,
+			'single_blog_content_width'           => 66,
+			'single_blog_post_title_inner_elements_spacing' => 20,
+			'single_blog_post_title_layout'       => 'post_title_layout1',
+			'blog_title_layout'					  => 'post_title_layout1',
+			'page_title_layout'                   => 'post_title_layout1',
+			'page_title_inner_elements_spacing'   => 10,
+			'single_blog_post_title_color'        => 'palette3',
+			'single_blog_post_text_color'		  => 'palette2',
+			'single_blog_post_link_color'		  => 'palette0',
+			'single_blog_post_link_hover_color'   => 'palette1',
 			'responsive_narrow_container_width'   => 750,
 			'single_blog_content_width'           => 100,
 			'page_content_width'                  => 100,
@@ -1824,6 +1839,9 @@ function defaults() {
 				'palette' => responsive_get_selected_palette_color_scheme(),
 			),
 		'responsive_single_blog_comments'       => true,
+		'responsive_single_blog_post_title'     => true,
+		'responsive_page_title_area'			=> true,
+		'responsive_blog_title_area'            => true,
 		'responsive_comments_position'          => 'below',
 		'responsive_comments_border_width'      => 0,
 		'responsive_comments_border_color'      => '',

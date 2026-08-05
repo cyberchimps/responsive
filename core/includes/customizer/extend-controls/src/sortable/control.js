@@ -41,6 +41,17 @@ export const responsiveSortable = wp.customize.responsiveControl.extend( {
 			// Update value on click.
 			control.updateValue();
 		});
+
+		// Sub-controls logic handled in React now
+		let subControls = control.params.sub_controls || {};
+		console.log('Sortable Control Init:', control.id, 'Sub-controls mapping:', subControls);
+
+		// Handle chevron click for dropdown
+		control.sortableContainer.find('.responsive-sortable-chevron').click(function(e) {
+			e.stopPropagation(); // prevent drag or visibility toggle from capturing this
+			jQuery(this).toggleClass('expanded');
+			jQuery(this).closest('li').find('.responsive-sortable-dropdown').slideToggle();
+		});
 	},
 
 	/**

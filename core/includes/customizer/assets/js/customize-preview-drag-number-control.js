@@ -327,6 +327,179 @@
       } );
     } );
 
+    api( 'responsive_single_blog_banner_custom_width', function( value ) {
+        value.bind( function( newval )  {
+            $('body .responsive-blog-single-banner2').css('max-width', newval+'px');
+        } );
+    });
+
+    api( 'responsive_single_blog_banner_min_height', function( value ) {
+        value.bind( function( newval ) {
+            const styleId = 'responsive-single-blog-banner-min-height-desktop';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 993px) {
+                        body .responsive-blog-single-banner2 { min-height: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+    api( 'responsive_single_blog_banner_min_height_tablet', function( value ) {
+        value.bind( function( newval ) {
+            const styleId = 'responsive-single-blog-banner-min-height-tablet';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 577px) and (max-width: 992px) {
+                        body .responsive-blog-single-banner2 { min-height: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+    api( 'responsive_single_blog_banner_min_height_mobile', function( value ) {
+        value.bind( function( newval ) {
+            const styleId = 'responsive-single-blog-banner-min-height-mobile';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (max-width: 576px) {
+                        body .responsive-blog-single-banner2 { min-height: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+    api( 'responsive_single_blog_post_title_inner_elements_spacing', function( value ) {
+        value.bind( function( newval ) {
+            $('body .responsive-blog-single-banner2 .container > *:not(:last-child), .single .entry-header > *:not(:last-child)').css('margin-bottom', newval+'px');
+        })
+    });
+
+    // Blog/Archive Title
+    api( 'responsive_blog_banner_custom_width', function( value ) {
+        value.bind( function( newval )  {
+            $('body .responsive-archive-entry-banner').css('max-width', newval+'px');
+        } );
+    });
+
+    api( 'responsive_blog_banner_min_height', function( value ) {
+        value.bind( function( newval ) {
+            const styleId = 'responsive-blog-banner-min-height-desktop';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 993px) {
+                        body .responsive-archive-entry-banner, .archive:not(.woocommerce) .site-content-header { min-height: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+    api( 'responsive_blog_banner_min_height_tablet', function( value ) {
+        value.bind( function( newval ) {
+            const styleId = 'responsive-blog-banner-min-height-tablet';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 577px) and (max-width: 992px) {
+                        body .responsive-archive-entry-banner, .archive:not(.woocommerce) .site-content-header { min-height: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+    api( 'responsive_blog_banner_min_height_mobile', function( value ) {
+        value.bind( function( newval ) {
+            const styleId = 'responsive-blog-banner-min-height-mobile';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (max-width: 576px) {
+                        body .responsive-archive-entry-banner, .archive:not(.woocommerce) .site-content-header { min-height: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+    api( 'responsive_blog_post_title_inner_elements_spacing', function( value ) {
+        value.bind( function( newval ) {
+            $('body .responsive-archive-entry-banner  .container > *:not(:last-child), .archive:not(.woocommerce) .site-content-header > *:not(:last-child)').css('margin-bottom', newval+'px');
+        })
+    });
+
+    // Page Title Area
+    api( 'responsive_page_title_custom_width', function( value ) {
+        value.bind( function( newval )  {
+            $('body .responsive-single-entry-banner').css('max-width', newval+'px');
+        } );
+    });
+
+    api( 'responsive_page_title_banner_min_height', function( value ) {
+        value.bind( function( newval ) {
+            const styleId = 'responsive-page-banner-min-height-desktop';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 993px) {
+                        body .responsive-single-entry-banner { min-height: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+    api( 'responsive_page_title_banner_min_height_tablet', function( value ) {
+        value.bind( function( newval ) {
+            const styleId = 'responsive-page-banner-min-height-tablet';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 577px) and (max-width: 992px) {
+                        body .responsive-single-entry-banner { min-height: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+    api( 'responsive_page_title_banner_min_height_mobile', function( value ) {
+        value.bind( function( newval ) {
+            const styleId = 'responsive-page-banner-min-height-mobile';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (max-width: 576px) {
+                        body .responsive-single-entry-banner { min-height: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+    api( 'responsive_page_title_inner_elements_spacing', function( value ) {
+        value.bind( function( newval ) {
+            $('body .responsive-single-entry-banner .container > *:not(:last-child), .page .entry-header > *:not(:last-child)').css('margin-bottom', newval+'px');
+        })
+    });
+
     //Footer Layout -> Footer Widgets
     //Number Of Columns
     api(

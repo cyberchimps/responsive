@@ -4260,7 +4260,784 @@
             );
 
         } );
-    } )
+    } ),  api( "single_blog_post_title_typography[text-transform]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_title_typography-text-transform' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_title_typography-text-transform">'
+                    +  responsive.selectorArray['single_blog_post_title'] + '{ text-transform:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "single_blog_post_title_typography[font-family]", function( $swipe ) {
+            $swipe.bind( function( pair ) {
+                if ( pair ) {
+                    /** @type {string} */
+                    var fontName = pair.split(",")[0];
+                    fontName = fontName.replace(/'/g, '');
+                    var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customize-control-single_blog_post_title_typography-font-family" );
+                    var fontSize = fontName.replace( " ", "%20" );
+                    fontSize = fontSize.replace( ",", "%2C" );
+                    /** @type {string} */
+                    fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+                    if ( fontName in responsive.googleFonts ) {
+                        if ($("#" + idfirst).length) {
+                            $("#" + idfirst).attr("href", fontSize);
+                        } else {
+                            $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
+                        }
+                    }
+                }
+                jQuery( 'style.customizer-typography-single_blog_post_title_typography-font-family' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_title_typography-font-family">'
+                    +  responsive.selectorArray['single_blog_post_title'] + '{ font-family:' + pair +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "single_blog_post_title_typography[font-weight]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_title_typography-font-weight' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_title_typography-font-weight">'
+                    +  responsive.selectorArray['single_blog_post_title'] + '{ font-weight:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "single_blog_post_title_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_title_typography-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_title_typography-font-size">'
+                    + responsive.selectorArray['single_blog_post_title'] + '{ font-size:' + dataAndEvents +';}'
+                    + '@media (max-width: 768px){'+ responsive.selectorArray['single_blog_post_title'] +'{ font-size:' + api( "single_blog_post_title_tablet_typography[font-size]").get() +';}}'
+                    + '@media (max-width: 480px){'+ responsive.selectorArray['single_blog_post_title'] +'{ font-size:' + api( "single_blog_post_title_mobile_typography[font-size]").get() +';}}'
+                    + '</style>'
+                );
+            } );
+        } ), 
+        api( "single_blog_post_title_tablet_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_title_typography-tablet-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_title_typography-tablet-font-size">'
+                    + '@media (max-width: 768px){'+ responsive.selectorArray['single_blog_post_title'] +'{ font-size:' + dataAndEvents +';}}'
+                    + '@media (max-width: 480px){'+ responsive.selectorArray['single_blog_post_title'] +'{ font-size:' + api( "single_blog_post_title_mobile_typography[font-size]").get() +';}}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "single_blog_post_title_mobile_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_title_typography-mobile-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_title_typography-mobile-font-size">'
+                    + '@media (max-width: 480px){'+ responsive.selectorArray['single_blog_post_title'] + '{ font-size:' + dataAndEvents +';}}'
+                    + '</style>'
+                );
+            } );
+        }),
+        api( "single_blog_post_title_typography[line-height]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_title_typography-line-height' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_title_typography-line-height">'
+                    +  responsive.selectorArray['single_blog_post_title'] + '{ line-height:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "single_blog_post_title_typography[letter-spacing]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_title_typography-letter-spacing' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_title_typography-letter-spacing">'
+                    +  responsive.selectorArray['single_blog_post_title'] + '{ letter-spacing:' + dataAndEvents +'px;}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "single_blog_post_title_typography[font-style]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_title_typography-font-style' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_title_typography-font-style">'
+                    +  responsive.selectorArray['single_blog_post_title'] + '{ font-style:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ),  api( "single_blog_post_title_typography[text-transform]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_title_typography-text-transform' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_title_typography-text-transform">'
+                    +  responsive.selectorArray['single_blog_post_title'] + '{ text-transform:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "single_blog_post_title_typography[font-family]", function( $swipe ) {
+            $swipe.bind( function( pair ) {
+                if ( pair ) {
+                    /** @type {string} */
+                    var fontName = pair.split(",")[0];
+                    fontName = fontName.replace(/'/g, '');
+                    var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customize-control-single_blog_post_title_typography-font-family" );
+                    var fontSize = fontName.replace( " ", "%20" );
+                    fontSize = fontSize.replace( ",", "%2C" );
+                    /** @type {string} */
+                    fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+                    if ( fontName in responsive.googleFonts ) {
+                        if ($("#" + idfirst).length) {
+                            $("#" + idfirst).attr("href", fontSize);
+                        } else {
+                            $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
+                        }
+                    }
+                }
+                jQuery( 'style.customizer-typography-single_blog_post_title_typography-font-family' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_title_typography-font-family">'
+                    +  responsive.selectorArray['single_blog_post_title'] + '{ font-family:' + pair +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "single_blog_post_title_typography[font-weight]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_title_typography-font-weight' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_title_typography-font-weight">'
+                    +  responsive.selectorArray['single_blog_post_title'] + '{ font-weight:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "single_blog_post_title_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_title_typography-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_title_typography-font-size">'
+                    + responsive.selectorArray['single_blog_post_title'] + '{ font-size:' + dataAndEvents +';}'
+                    + '@media (max-width: 768px){'+ responsive.selectorArray['single_blog_post_title'] +'{ font-size:' + api( "single_blog_post_title_tablet_typography[font-size]").get() +';}}'
+                    + '@media (max-width: 480px){'+ responsive.selectorArray['single_blog_post_title'] +'{ font-size:' + api( "single_blog_post_title_mobile_typography[font-size]").get() +';}}'
+                    + '</style>'
+                );
+            } );
+        } ), 
+        api( "single_blog_post_title_tablet_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_title_typography-tablet-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_title_typography-tablet-font-size">'
+                    + '@media (max-width: 768px){'+ responsive.selectorArray['single_blog_post_title'] +'{ font-size:' + dataAndEvents +';}}'
+                    + '@media (max-width: 480px){'+ responsive.selectorArray['single_blog_post_title'] +'{ font-size:' + api( "single_blog_post_title_mobile_typography[font-size]").get() +';}}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "single_blog_post_title_mobile_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_title_typography-mobile-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_title_typography-mobile-font-size">'
+                    + '@media (max-width: 480px){'+ responsive.selectorArray['single_blog_post_title'] + '{ font-size:' + dataAndEvents +';}}'
+                    + '</style>'
+                );
+            } );
+        }),
+        api( "single_blog_post_title_typography[line-height]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_title_typography-line-height' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_title_typography-line-height">'
+                    +  responsive.selectorArray['single_blog_post_title'] + '{ line-height:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "single_blog_post_title_typography[letter-spacing]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_title_typography-letter-spacing' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_title_typography-letter-spacing">'
+                    +  responsive.selectorArray['single_blog_post_title'] + '{ letter-spacing:' + dataAndEvents +'px;}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "single_blog_post_title_typography[font-style]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_title_typography-font-style' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_title_typography-font-style">'
+                    +  responsive.selectorArray['single_blog_post_title'] + '{ font-style:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ), 
+
+
+
+
+        // post text
+        api( "single_blog_post_text_typography[text-transform]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_text_typography-text-transform' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_text_typography-text-transform">'
+                    +  responsive.selectorArray['single_blog_post_text'] + '{ text-transform:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "single_blog_post_text_typography[font-family]", function( $swipe ) {
+            $swipe.bind( function( pair ) {
+                if ( pair ) {
+                    /** @type {string} */
+                    var fontName = pair.split(",")[0];
+                    fontName = fontName.replace(/'/g, '');
+                    var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customize-control-single_blog_post_text_typography-font-family" );
+                    var fontSize = fontName.replace( " ", "%20" );
+                    fontSize = fontSize.replace( ",", "%2C" );
+                    /** @type {string} */
+                    fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+                    if ( fontName in responsive.googleFonts ) {
+                        if ($("#" + idfirst).length) {
+                            $("#" + idfirst).attr("href", fontSize);
+                        } else {
+                            $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
+                        }
+                    }
+                }
+                jQuery( 'style.customizer-typography-single_blog_post_text_typography-font-family' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_text_typography-font-family">'
+                    +  responsive.selectorArray['single_blog_post_text'] + '{ font-family:' + pair +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "single_blog_post_text_typography[font-weight]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_text_typography-font-weight' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_text_typography-font-weight">'
+                    +  responsive.selectorArray['single_blog_post_text'] + '{ font-weight:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "single_blog_post_text_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_text_typography-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_text_typography-font-size">'
+                    + responsive.selectorArray['single_blog_post_text'] + '{ font-size:' + dataAndEvents +';}'
+                    + '@media (max-width: 768px){'+ responsive.selectorArray['single_blog_post_text'] +'{ font-size:' + api( "single_blog_post_text_tablet_typography[font-size]").get() +';}}'
+                    + '@media (max-width: 480px){'+ responsive.selectorArray['single_blog_post_text'] +'{ font-size:' + api( "single_blog_post_text_mobile_typography[font-size]").get() +';}}'
+                    + '</style>'
+                );
+            } );
+        } ), 
+        api( "single_blog_post_text_tablet_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_text_typography-tablet-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_text_typography-tablet-font-size">'
+                    + '@media (max-width: 768px){'+ responsive.selectorArray['single_blog_post_text'] +'{ font-size:' + dataAndEvents +';}}'
+                    + '@media (max-width: 480px){'+ responsive.selectorArray['single_blog_post_text'] +'{ font-size:' + api( "single_blog_post_text_mobile_typography[font-size]").get() +';}}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "single_blog_post_text_mobile_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_text_typography-mobile-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_text_typography-mobile-font-size">'
+                    + '@media (max-width: 480px){'+ responsive.selectorArray['single_blog_post_text'] + '{ font-size:' + dataAndEvents +';}}'
+                    + '</style>'
+                );
+            } );
+        }),
+        api( "single_blog_post_text_typography[line-height]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_text_typography-line-height' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_text_typography-line-height">'
+                    +  responsive.selectorArray['single_blog_post_text'] + '{ line-height:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "single_blog_post_text_typography[letter-spacing]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_text_typography-letter-spacing' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_text_typography-letter-spacing">'
+                    +  responsive.selectorArray['single_blog_post_text'] + '{ letter-spacing:' + dataAndEvents +'px;}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "single_blog_post_text_typography[font-style]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_text_typography-font-style' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_text_typography-font-style">'
+                    +  responsive.selectorArray['single_blog_post_text'] + '{ font-style:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ), 
+
+        // meta font
+        api( "single_blog_post_meta_typography[text-transform]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_meta_typography-text-transform' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_meta_typography-text-transform">'
+                    +  responsive.selectorArray['single_blog_post_meta'] + '{ text-transform:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "single_blog_post_meta_typography[font-family]", function( $swipe ) {
+            $swipe.bind( function( pair ) {
+                if ( pair ) {
+                    /** @type {string} */
+                    var fontName = pair.split(",")[0];
+                    fontName = fontName.replace(/'/g, '');
+                    var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customize-control-single_blog_post_meta_typography-font-family" );
+                    var fontSize = fontName.replace( " ", "%20" );
+                    fontSize = fontSize.replace( ",", "%2C" );
+                    /** @type {string} */
+                    fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+                    if ( fontName in responsive.googleFonts ) {
+                        if ($("#" + idfirst).length) {
+                            $("#" + idfirst).attr("href", fontSize);
+                        } else {
+                            $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
+                        }
+                    }
+                }
+                jQuery( 'style.customizer-typography-single_blog_post_meta_typography-font-family' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_meta_typography-font-family">'
+                    +  responsive.selectorArray['single_blog_post_meta'] + '{ font-family:' + pair +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "single_blog_post_meta_typography[font-weight]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_meta_typography-font-weight' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_meta_typography-font-weight">'
+                    +  responsive.selectorArray['single_blog_post_meta'] + '{ font-weight:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "single_blog_post_meta_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_meta_typography-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_meta_typography-font-size">'
+                    + responsive.selectorArray['single_blog_post_meta'] + '{ font-size:' + dataAndEvents +';}'
+                    + '@media (max-width: 768px){'+ responsive.selectorArray['single_blog_post_meta'] +'{ font-size:' + api( "single_blog_post_meta_tablet_typography[font-size]").get() +';}}'
+                    + '@media (max-width: 480px){'+ responsive.selectorArray['single_blog_post_meta'] +'{ font-size:' + api( "single_blog_post_meta_mobile_typography[font-size]").get() +';}}'
+                    + '</style>'
+                );
+            } );
+        } ), 
+        api( "single_blog_post_meta_tablet_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_meta_typography-tablet-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_meta_typography-tablet-font-size">'
+                    + '@media (max-width: 768px){'+ responsive.selectorArray['single_blog_post_meta'] +'{ font-size:' + dataAndEvents +';}}'
+                    + '@media (max-width: 480px){'+ responsive.selectorArray['single_blog_post_meta'] +'{ font-size:' + api( "single_blog_post_meta_mobile_typography[font-size]").get() +';}}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "single_blog_post_meta_mobile_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_meta_typography-mobile-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_meta_typography-mobile-font-size">'
+                    + '@media (max-width: 480px){'+ responsive.selectorArray['single_blog_post_meta'] + '{ font-size:' + dataAndEvents +';}}'
+                    + '</style>'
+                );
+            } );
+        }),
+        api( "single_blog_post_meta_typography[line-height]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_meta_typography-line-height' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_meta_typography-line-height">'
+                    +  responsive.selectorArray['single_blog_post_meta'] + '{ line-height:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "single_blog_post_meta_typography[letter-spacing]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_meta_typography-letter-spacing' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_meta_typography-letter-spacing">'
+                    +  responsive.selectorArray['single_blog_post_meta'] + '{ letter-spacing:' + dataAndEvents +'px;}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "single_blog_post_meta_typography[font-style]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-single_blog_post_meta_typography-font-style' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-single_blog_post_meta_typography-font-style">'
+                    +  responsive.selectorArray['single_blog_post_meta'] + '{ font-style:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+
+        // Page - Title
+        api( "page_title_area_title_typography[text-transform]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title_area_title_typography-text-transform' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_title_typography-text-transform">'
+                    +  responsive.selectorArray['page_title_area_title'] + '{ text-transform:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "page_title_area_title_typography[font-family]", function( $swipe ) {
+            $swipe.bind( function( pair ) {
+                if ( pair ) {
+                    /** @type {string} */
+                    var fontName = pair.split(",")[0];
+                    fontName = fontName.replace(/'/g, '');
+                    var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customize-control-page_title_area_title_typography-font-family" );
+                    var fontSize = fontName.replace( " ", "%20" );
+                    fontSize = fontSize.replace( ",", "%2C" );
+                    /** @type {string} */
+                    fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+                    if ( fontName in responsive.googleFonts ) {
+                        if ($("#" + idfirst).length) {
+                            $("#" + idfirst).attr("href", fontSize);
+                        } else {
+                            $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
+                        }
+                    }
+                }
+                jQuery( 'style.customizer-typography-page_title_area_title_typography-font-family' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_title_typography-font-family">'
+                    +  responsive.selectorArray['page_title_area_title'] + '{ font-family:' + pair +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "page_title_area_title_typography[font-weight]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title_area_title_typography-font-weight' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_title_typography-font-weight">'
+                    +  responsive.selectorArray['page_title_area_title'] + '{ font-weight:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "page_title_area_title_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title_area_title_typography-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_title_typography-font-size">'
+                    + responsive.selectorArray['page_title_area_title'] + '{ font-size:' + dataAndEvents +';}'
+                    + '@media (max-width: 768px){'+ responsive.selectorArray['page_title_area_title'] +'{ font-size:' + api( "page_title_area_title_tablet_typography[font-size]").get() +';}}'
+                    + '@media (max-width: 480px){'+ responsive.selectorArray['page_title_area_title'] +'{ font-size:' + api( "page_title_area_title_mobile_typography[font-size]").get() +';}}'
+                    + '</style>'
+                );
+            } );
+        } ), 
+        api( "page_title_area_title_tablet_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title_area_title_typography-tablet-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_title_typography-tablet-font-size">'
+                    + '@media (max-width: 768px){'+ responsive.selectorArray['page_title_area_title'] +'{ font-size:' + dataAndEvents +';}}'
+                    + '@media (max-width: 480px){'+ responsive.selectorArray['page_title_area_title'] +'{ font-size:' + api( "page_title_area_title_mobile_typography[font-size]").get() +';}}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "page_title_area_title_mobile_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title_area_title_typography-mobile-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_title_typography-mobile-font-size">'
+                    + '@media (max-width: 480px){'+ responsive.selectorArray['page_title_area_title'] + '{ font-size:' + dataAndEvents +';}}'
+                    + '</style>'
+                );
+            } );
+        }),
+        api( "page_title_area_title_typography[line-height]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title_area_title_typography-line-height' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_title_typography-line-height">'
+                    +  responsive.selectorArray['page_title_area_title'] + '{ line-height:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "page_title_area_title_typography[letter-spacing]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title_area_title_typography-letter-spacing' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_title_typography-letter-spacing">'
+                    +  responsive.selectorArray['page_title_area_title'] + '{ letter-spacing:' + dataAndEvents +'px;}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "page_title_area_title_typography[font-style]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title_area_title_typography-font-style' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_title_typography-font-style">'
+                    +  responsive.selectorArray['page_title_area_title'] + '{ font-style:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "page_title_area_text_typography[text-transform]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title_area_text_typography-text-transform' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_text_typography-text-transform">'
+                    +  responsive.selectorArray['page_title_area_text'] + '{ text-transform:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "page_title_area_text_typography[font-family]", function( $swipe ) {
+            $swipe.bind( function( pair ) {
+                if ( pair ) {
+                    /** @type {string} */
+                    var fontName = pair.split(",")[0];
+                    fontName = fontName.replace(/'/g, '');
+                    var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customize-control-page_title_area_text_typography-font-family" );
+                    var fontSize = fontName.replace( " ", "%20" );
+                    fontSize = fontSize.replace( ",", "%2C" );
+                    /** @type {string} */
+                    fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+                    if ( fontName in responsive.googleFonts ) {
+                        if ($("#" + idfirst).length) {
+                            $("#" + idfirst).attr("href", fontSize);
+                        } else {
+                            $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
+                        }
+                    }
+                }
+                jQuery( 'style.customizer-typography-page_title_area_text_typography-font-family' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_text_typography-font-family">'
+                    +  responsive.selectorArray['page_title_area_text'] + '{ font-family:' + pair +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "page_title_area_text_typography[font-weight]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title_area_text_typography-font-weight' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_text_typography-font-weight">'
+                    +  responsive.selectorArray['page_title_area_text'] + '{ font-weight:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "page_title_area_text_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title_area_text_typography-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_text_typography-font-size">'
+                    + responsive.selectorArray['page_title_area_text'] + '{ font-size:' + dataAndEvents +';}'
+                    + '@media (max-width: 768px){'+ responsive.selectorArray['page_title_area_text'] +'{ font-size:' + api( "page_title_area_text_tablet_typography[font-size]").get() +';}}'
+                    + '@media (max-width: 480px){'+ responsive.selectorArray['page_title_area_text'] +'{ font-size:' + api( "page_title_area_text_mobile_typography[font-size]").get() +';}}'
+                    + '</style>'
+                );
+            } );
+        } ), 
+        api( "page_title_area_text_tablet_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title_area_text_typography-tablet-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_text_typography-tablet-font-size">'
+                    + '@media (max-width: 768px){'+ responsive.selectorArray['page_title_area_text'] +'{ font-size:' + dataAndEvents +';}}'
+                    + '@media (max-width: 480px){'+ responsive.selectorArray['page_title_area_text'] +'{ font-size:' + api( "page_title_area_text_mobile_typography[font-size]").get() +';}}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "page_title_area_text_mobile_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title_area_text_typography-mobile-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_text_typography-mobile-font-size">'
+                    + '@media (max-width: 480px){'+ responsive.selectorArray['page_title_area_text'] + '{ font-size:' + dataAndEvents +';}}'
+                    + '</style>'
+                );
+            } );
+        }),
+        api( "page_title_area_text_typography[line-height]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title_area_text_typography-line-height' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_text_typography-line-height">'
+                    +  responsive.selectorArray['page_title_area_text'] + '{ line-height:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "page_title_area_text_typography[letter-spacing]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title_area_text_typography-letter-spacing' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_text_typography-letter-spacing">'
+                    +  responsive.selectorArray['page_title_area_text'] + '{ letter-spacing:' + dataAndEvents +'px;}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "page_title_area_text_typography[font-style]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title_area_text_typography-font-style' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_text_typography-font-style">'
+                    +  responsive.selectorArray['page_title_area_text'] + '{ font-style:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "page_title_area_meta_typography[text-transform]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title_area_meta_typography-text-transform' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_meta_typography-text-transform">'
+                    +  responsive.selectorArray['page_title_area_meta'] + '{ text-transform:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "page_title_area_meta_typography[font-family]", function( $swipe ) {
+            $swipe.bind( function( pair ) {
+                if ( pair ) {
+                    /** @type {string} */
+                    var fontName = pair.split(",")[0];
+                    fontName = fontName.replace(/'/g, '');
+                    var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customize-control-page_title_area_meta_typography-font-family" );
+                    var fontSize = fontName.replace( " ", "%20" );
+                    fontSize = fontSize.replace( ",", "%2C" );
+                    /** @type {string} */
+                    fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+                    if ( fontName in responsive.googleFonts ) {
+                        if ($("#" + idfirst).length) {
+                            $("#" + idfirst).attr("href", fontSize);
+                        } else {
+                            $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
+                        }
+                    }
+                }
+                jQuery( 'style.customizer-typography-page_title_area_meta_typography-font-family' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_meta_typography-font-family">'
+                    +  responsive.selectorArray['page_title_area_meta'] + '{ font-family:' + pair +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "page_title_area_meta_typography[font-weight]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title_area_meta_typography-font-weight' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_meta_typography-font-weight">'
+                    +  responsive.selectorArray['page_title_area_meta'] + '{ font-weight:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "page_title_area_meta_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title_area_meta_typography-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_meta_typography-font-size">'
+                    + responsive.selectorArray['page_title_area_meta'] + '{ font-size:' + dataAndEvents +';}'
+                    + '@media (max-width: 768px){'+ responsive.selectorArray['page_title_area_meta'] +'{ font-size:' + api( "page_title_area_meta_tablet_typography[font-size]").get() +';}}'
+                    + '@media (max-width: 480px){'+ responsive.selectorArray['page_title_area_meta'] +'{ font-size:' + api( "page_title_area_meta_mobile_typography[font-size]").get() +';}}'
+                    + '</style>'
+                );
+            } );
+        } ), 
+        api( "page_title_area_meta_tablet_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title_area_meta_typography-tablet-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_meta_typography-tablet-font-size">'
+                    + '@media (max-width: 768px){'+ responsive.selectorArray['page_title_area_meta'] +'{ font-size:' + dataAndEvents +';}}'
+                    + '@media (max-width: 480px){'+ responsive.selectorArray['page_title_area_meta'] +'{ font-size:' + api( "page_title_area_meta_mobile_typography[font-size]").get() +';}}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "page_title_area_meta_mobile_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title_area_meta_typography-mobile-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_meta_typography-mobile-font-size">'
+                    + '@media (max-width: 480px){'+ responsive.selectorArray['page_title_area_meta'] + '{ font-size:' + dataAndEvents +';}}'
+                    + '</style>'
+                );
+            } );
+        }),
+        api( "page_title_area_meta_typography[line-height]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title_area_meta_typography-line-height' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_meta_typography-line-height">'
+                    +  responsive.selectorArray['page_title_area_meta'] + '{ line-height:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "page_title_area_meta_typography[letter-spacing]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title_area_meta_typography-letter-spacing' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_meta_typography-letter-spacing">'
+                    +  responsive.selectorArray['page_title_area_meta'] + '{ letter-spacing:' + dataAndEvents +'px;}'
+                    + '</style>'
+                );
+            } );
+        } ),
+        api( "page_title_area_meta_typography[font-style]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title_area_meta_typography-font-style' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title_area_meta_typography-font-style">'
+                    +  responsive.selectorArray['page_title_area_meta'] + '{ font-style:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+            } );
+        } )
     // Footer Widgets Title & Content Typography - Start
     for (let i = 1; i <= 6; i++) {
         const titleSettingBase   = `footer_widget${i}_title_typography`;
@@ -4537,5 +5314,151 @@
         });
     } 
     // Footer Widgets Title & Content Typography - End
-} )( jQuery );
 
+    // Blog Archive Title & Text Typography
+    const blogArchiveTypos = [
+        { settingBase: 'blog_post_title_typography', selectorKey: 'blog_post_title', tablet: 'blog_post_title_tablet_typography', mobile: 'blog_post_title_mobile_typography' },
+        { settingBase: 'blog_post_text_typography', selectorKey: 'blog_post_text', tablet: 'blog_post_text_tablet_typography', mobile: 'blog_post_text_mobile_typography' }
+    ];
+
+    blogArchiveTypos.forEach(function(item) {
+        const titleSettingBase = item.settingBase;
+        const titleSelectorKey = item.selectorKey;
+        const tabletSetting = item.tablet;
+        const mobileSetting = item.mobile;
+
+        // === text-transform ===
+        api(`${titleSettingBase}[text-transform]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${titleSettingBase}-text-transform`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-text-transform">
+                        ${responsive.selectorArray[titleSelectorKey]} { text-transform:${val}; }
+                    </style>`
+                );
+            });
+        });
+
+        // === font-family ===
+        api(`${titleSettingBase}[font-family]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                if (val) {
+                    let fontName = val.split(",")[0].replace(/'/g, '').trim();
+                    const id = `customize-control-${titleSettingBase}-font-family`;
+                    const fontUrl = `${responsive.googleFontsUrl}/css?family=${fontName.replace(/ /g, "%20").replace(",", "%2C")}:${responsive.googleFontsWeight}`;
+                    
+                    if (fontName in responsive.googleFonts) {
+                        if (jQuery(`#${id}`).length) {
+                            jQuery(`#${id}`).attr("href", fontUrl);
+                        } else {
+                            jQuery('head').append(`<link id="${id}" rel="stylesheet" type="text/css" href="${fontUrl}">`);
+                        }
+                    }
+                }
+                jQuery(`style.customizer-typography-${titleSettingBase}-font-family`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-font-family">
+                        ${responsive.selectorArray[titleSelectorKey]} { font-family:${val}; }
+                    </style>`
+                );
+            });
+        });
+
+        // === font-weight ===
+        api(`${titleSettingBase}[font-weight]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${titleSettingBase}-font-weight`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-font-weight">
+                        ${responsive.selectorArray[titleSelectorKey]} { font-weight:${val}; }
+                    </style>`
+                );
+            });
+        });
+
+        // === font-size ===
+        api(`${titleSettingBase}[font-size]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${titleSettingBase}-font-size`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-font-size">
+                        ${responsive.selectorArray[titleSelectorKey]} { font-size:${val}; }
+                        @media (max-width: 768px) {
+                            ${responsive.selectorArray[titleSelectorKey]} { font-size:${api(`${tabletSetting}[font-size]`).get()}; }
+                        }
+                        @media (max-width: 480px) {
+                            ${responsive.selectorArray[titleSelectorKey]} { font-size:${api(`${mobileSetting}[font-size]`).get()}; }
+                        }
+                    </style>`
+                );
+            });
+        });
+
+        // === tablet font-size ===
+        api(`${tabletSetting}[font-size]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${titleSettingBase}-tablet-font-size`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-tablet-font-size">
+                        @media (max-width: 768px) {
+                            ${responsive.selectorArray[titleSelectorKey]} { font-size:${val}; }
+                        }
+                        @media (max-width: 480px) {
+                            ${responsive.selectorArray[titleSelectorKey]} { font-size:${api(`${mobileSetting}[font-size]`).get()}; }
+                        }
+                    </style>`
+                );
+            });
+        });
+
+        // === mobile font-size ===
+        api(`${mobileSetting}[font-size]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${titleSettingBase}-mobile-font-size`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-mobile-font-size">
+                        @media (max-width: 480px) {
+                            ${responsive.selectorArray[titleSelectorKey]} { font-size:${val}; }
+                        }
+                    </style>`
+                );
+            });
+        });
+
+        // === line-height ===
+        api(`${titleSettingBase}[line-height]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${titleSettingBase}-line-height`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-line-height">
+                        ${responsive.selectorArray[titleSelectorKey]} { line-height:${val}; }
+                    </style>`
+                );
+            });
+        });
+
+        // === letter-spacing ===
+        api(`${titleSettingBase}[letter-spacing]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${titleSettingBase}-letter-spacing`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-letter-spacing">
+                        ${responsive.selectorArray[titleSelectorKey]} { letter-spacing:${val}px; }
+                    </style>`
+                );
+            });
+        });
+
+        // === font-style ===
+        api(`${titleSettingBase}[font-style]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${titleSettingBase}-font-style`).remove();
+                jQuery('head').append(
+                    `<style class="customizer-typography-${titleSettingBase}-font-style">
+                        ${responsive.selectorArray[titleSelectorKey]} { font-style:${val}; }
+                    </style>`
+                );
+            });
+        });
+    });
+} )( jQuery );
