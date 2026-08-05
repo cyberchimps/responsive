@@ -459,7 +459,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 				null,
 				null,
 				'color',
-				'postMessage'                          
+				'refresh'                          
 			);
 		}
 

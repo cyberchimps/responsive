@@ -874,8 +874,9 @@ if ( ! function_exists( 'responsive_post_link' ) ) {
 	 * @return string                Markup.
 	 */
 	function responsive_post_link( $output_filter = '' ) {
-
-		$read_more_text = apply_filters( 'responsive_post_read_more', __( 'Read more →', 'responsive' ) );
+		if ( ! responsive_active_blog_layout_cover() ) {
+			$read_more_text = apply_filters( 'responsive_post_read_more', __( 'Read more →', 'responsive' ) );
+		}
 
 		$post_link = sprintf(
 			esc_html( '%s' ),
