@@ -634,6 +634,7 @@ function responsive_customizer_styles() {
 		.responsive-site-style-boxed .comments-area,
 		.responsive-site-style-boxed .comment-respond,
 		.responsive-site-style-boxed .comment-respond,
+		.responsive-site-style-boxed .custom-home-widget-section .widget-wrapper,
 		aside#secondary.responsive-sidebar-style-boxed .widget-wrapper,
 		.responsive-site-style-boxed .site-content article.product,
 		.woocommerce.responsive-site-style-content-boxed .related-product-wrapper,
@@ -680,6 +681,7 @@ function responsive_customizer_styles() {
 		.responsive-site-style-boxed .comments-area,
 		.responsive-site-style-boxed .comment-respond,
 		.responsive-site-style-boxed .comment-respond,
+		.responsive-site-style-boxed .custom-home-widget-section .widget-wrapper,
 		aside#secondary.responsive-sidebar-style-boxed .widget-wrapper,
 		.responsive-site-style-boxed .site-content article.product,
 		.woocommerce.responsive-site-style-content-boxed .related-product-wrapper,
@@ -747,6 +749,7 @@ function responsive_customizer_styles() {
 		.responsive-site-style-boxed .comments-area,
 		.responsive-site-style-boxed .comment-respond,
 		.responsive-site-style-boxed .comment-respond,
+		.responsive-site-style-boxed .custom-home-widget-section .widget-wrapper,
 		aside#secondary.responsive-sidebar-style-boxed .widget-wrapper,
 		.responsive-site-style-boxed .site-content article.product {
 			border-radius:{$box_tablet_top_left_radius}px {$box_tablet_top_right_radius}px {$box_tablet_bottom_right_radius}px {$box_tablet_bottom_left_radius}px;
@@ -785,6 +788,7 @@ function responsive_customizer_styles() {
 		.responsive-site-style-boxed .comments-area,
 		.responsive-site-style-boxed .comment-respond,
 		.responsive-site-style-boxed .comment-respond,
+		.responsive-site-style-boxed .custom-home-widget-section .widget-wrapper,
 		aside#secondary.responsive-sidebar-style-boxed .widget-wrapper,
 		.responsive-site-style-boxed .site-content article.product {
 			border-radius:{$box_mobile_top_left_radius}px {$box_mobile_top_right_radius}px {$box_mobile_bottom_right_radius}px {$box_mobile_bottom_left_radius}px;
@@ -1018,6 +1022,7 @@ function responsive_customizer_styles() {
 			.responsive-site-style-boxed .comments-area,
 			.responsive-site-style-boxed .comment-respond,
 			.responsive-site-style-boxed .comment-respond,
+			.responsive-site-style-boxed .custom-home-widget-section .widget-wrapper,
 			aside#secondary.responsive-sidebar-style-boxed .widget-wrapper,
 			.responsive-site-style-boxed .site-content article.product {
 				background-color:{$box_background_color};
@@ -1161,14 +1166,16 @@ function responsive_customizer_styles() {
 			}";
 		} else {
 			if( 'gradient' === $box_background_color_type ) {
-				$custom_css .= "aside#secondary.responsive-sidebar-style-boxed .widget-wrapper {
+				$custom_css .= ".responsive-site-style-boxed .custom-home-widget-section .widget-wrapper,
+				aside#secondary.responsive-sidebar-style-boxed .widget-wrapper {
 					background: $box_background_gradient_color;
 					background-repeat: no-repeat;
 					background-size: cover;
 					background-attachment: scroll;
 				}";
 			} else {
-				$custom_css .= "aside#secondary.responsive-sidebar-style-boxed .widget-wrapper {
+				$custom_css .= ".responsive-site-style-boxed .custom-home-widget-section .widget-wrapper,
+				aside#secondary.responsive-sidebar-style-boxed .widget-wrapper {
 					background-color: $box_background_color;
 					background-image: linear-gradient(to right, {$box_background_color}, {$box_background_color}), url({$box_background_image});
 					background-repeat: no-repeat;

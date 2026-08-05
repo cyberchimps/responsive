@@ -110,7 +110,7 @@
                     '.responsive-site-style-boxed .custom-home-team-section,' +
                     '.responsive-site-style-boxed .custom-home-testimonial-section,' +
                     '.responsive-site-style-boxed .custom-home-contact-section,' +
-                    '.responsive-site-style-boxed .custom-home-widget-section,' +
+                    '.responsive-site-style-boxed .custom-home-widget-section .widget-wrapper,' +
                     '.responsive-site-style-boxed .custom-home-featured-area,' +
                     '.responsive-site-style-boxed .site-content-header,' +
                     '.responsive-site-style-boxed .site-content .hentry:not(.bbp-forum-status-open),' +
@@ -171,7 +171,7 @@
                     '.responsive-site-style-boxed .custom-home-team-section,' +
                     '.responsive-site-style-boxed .custom-home-testimonial-section,' +
                     '.responsive-site-style-boxed .custom-home-contact-section,' +
-                    '.responsive-site-style-boxed .custom-home-widget-section,' +
+                    '.responsive-site-style-boxed .custom-home-widget-section .widget-wrapper,' +
                     '.responsive-site-style-boxed .custom-home-featured-area,' +
                     '.responsive-site-style-boxed .site-content-header,' +
                     '.responsive-site-style-boxed .site-content .hentry:not(.bbp-forum-status-open),' +
