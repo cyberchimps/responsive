@@ -26,6 +26,9 @@ do_action( 'responsive_before_single_page_meta' );
 <div class="post-meta entry-meta">
 	<?php
 	$separator_text = get_theme_mod( 'responsive_page_single_meta_separator_text', '•' );
+	if ( 'none' === strtolower( $separator_text ) ) {
+		$separator_text = '';
+	}
 	$separator_html = '<span class="meta-separator">' . esc_html( $separator_text ) . '</span>';
 	$meta_items = array();
 

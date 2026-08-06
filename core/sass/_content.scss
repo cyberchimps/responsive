@@ -209,19 +209,19 @@
 .blog {
     &.featured-image-alignment {
         &-left {
-            .hentry .thumbnail {
+            .hentry .thumbnail, .responsive-single-entry-banner .container .thumbnail, .responsive-blog-single-banner2 .container .thumbnail {
                 text-align: left;
             }
         }
 
         &-right {
-            .hentry .thumbnail {
+            .hentry .thumbnail, .responsive-single-entry-banner .container .thumbnail, .responsive-blog-single-banner2 .container .thumbnail {
                 text-align: right;
             }
         }
 
         &-center {
-            .hentry .thumbnail {
+            .hentry .thumbnail, .responsive-single-entry-banner .container .thumbnail, .responsive-blog-single-banner2 .container .thumbnail {
                 text-align: center;
             }
         }
