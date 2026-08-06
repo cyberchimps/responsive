@@ -20,14 +20,15 @@ const PaletteComponent = props => {
 
     // Mapping between palette keys and individual setting IDs
     const paletteToSettingMapping = {
-        accent: 'responsive_global_color_palette_accent_color',
-        link_hover: 'responsive_global_color_palette_link_hover_color',
-        text: 'responsive_global_color_palette_text_color',
-        header_text: 'responsive_global_color_palette_headings_color',
-        content_background: 'responsive_global_color_palette_content_bg_color',
-        site_background: 'responsive_global_color_palette_site_background_color',
-        alt_background: 'responsive_global_color_palette_alt_background_color',
-        subtle_background: 'responsive_global_color_palette_subtle_background_color'
+        palette_1: 'responsive_global_color_palette_1',
+        palette_2: 'responsive_global_color_palette_2',
+        palette_3: 'responsive_global_color_palette_3',
+        palette_4: 'responsive_global_color_palette_4',
+        palette_5: 'responsive_global_color_palette_5',
+        palette_6: 'responsive_global_color_palette_6',
+        palette_7: 'responsive_global_color_palette_7',
+        palette_8: 'responsive_global_color_palette_8',
+        palette_9: 'responsive_global_color_palette_9',
     };
 
     // Helper function to build palette object from current individual settings
@@ -108,9 +109,9 @@ const PaletteComponent = props => {
             style.innerHTML = `
                 .responsive-inline-color-picker.lg-round .wp-color-result {
                     padding: 0 !important;
-                    width: 26px !important;
+                    width: 25.2px !important;
                     border-radius: 50% !important;
-                    min-height: 26px !important;
+                    min-height: 25.2px !important;
                 }
             `;
             document.head.appendChild(style);
@@ -204,33 +205,36 @@ const PaletteComponent = props => {
         }
 
         function getDefaultColor(settingId) {
-            if(settingId === "responsive_global_color_palette_text_color")
+            if(settingId === "responsive_global_color_palette_3")
             {
                 return "#404040";
             }
-            else if(settingId === "responsive_global_color_palette_headings_color")
+            else if(settingId === "responsive_global_color_palette_4")
             {
                 return "#404040";
             }
-            else if(settingId === "responsive_global_color_palette_accent_color")
+            else if(settingId === "responsive_global_color_palette_1")
             {
                 return "#3B82F6";
             }
-            else if(settingId === "responsive_global_color_palette_link_hover_color")
+            else if(settingId === "responsive_global_color_palette_2")
             {
-                return "#007fff";
+                return "#10659C";
             }
-            else if(settingId === "responsive_global_color_palette_content_bg_color"){
+            else if(settingId === "responsive_global_color_palette_5"){
                 return "#ffffff";
             }
-            else if(settingId === "responsive_global_color_palette_site_background_color"){
-                return "#f8fafc";
+            else if(settingId === "responsive_global_color_palette_6"){
+                return "#f0f5fa";
             }
-            else if(settingId === "responsive_global_color_palette_alt_background_color"){
+            else if(settingId === "responsive_global_color_palette_7"){
                 return "#ffffff";
             }
-            else if(settingId === "responsive_global_color_palette_subtle_background_color"){
-                return "#007fff";
+            else if(settingId === "responsive_global_color_palette_8"){
+                return "#10659C";
+            }
+            else if(settifId == "responsive_global_color_palette_9") {
+                return "#10659C";
             }
             return "#ffffff";
 
@@ -331,14 +335,15 @@ const PaletteComponent = props => {
     let selectedPaletteColorsRow = <div className="responsive-selected-palette-all-colors">
         <div className="responsive-selected-palette-editor">
             <div className="responsive-selected-palette-pickers">
-                <InlineThemeModColorPicker key={0} settingId={'responsive_global_color_palette_accent_color'} labelText={'Accent'} settingKey={'accent'} selectedChoice={selectedChoice} />
-                <InlineThemeModColorPicker key={1} settingId={'responsive_global_color_palette_link_hover_color'} labelText={'Link Hover'} settingKey={'link_hover'} selectedChoice={selectedChoice} />
-                <InlineThemeModColorPicker key={2} settingId={'responsive_global_color_palette_text_color'} labelText={'Text'} settingKey={'text'} selectedChoice={selectedChoice} />
-                <InlineThemeModColorPicker key={3} settingId={'responsive_global_color_palette_headings_color'} labelText={'Headings'} settingKey={'header_text'} selectedChoice={selectedChoice} />
-                <InlineThemeModColorPicker key={4} settingId={'responsive_global_color_palette_content_bg_color'} labelText={'Content Background'} settingKey={'content_background'} selectedChoice={selectedChoice} />
-                <InlineThemeModColorPicker key={5} settingId={'responsive_global_color_palette_site_background_color'} labelText={'Site Background'} settingKey={'site_background'} selectedChoice={selectedChoice} />
-                <InlineThemeModColorPicker key={6} settingId={'responsive_global_color_palette_alt_background_color'} labelText={'Alt Background'} settingKey={'alt_background'} selectedChoice={selectedChoice} />
-                <InlineThemeModColorPicker key={7} settingId={'responsive_global_color_palette_subtle_background_color'} labelText={'Subtle Background'} settingKey={'subtle_background'} selectedChoice={selectedChoice} />
+                <InlineThemeModColorPicker key={0} settingId={'responsive_global_color_palette_1'} labelText={'Primary Accent'} settingKey={'primary_accent'} selectedChoice={selectedChoice} />
+                <InlineThemeModColorPicker key={1} settingId={'responsive_global_color_palette_2'} labelText={'Secondary Accent'} settingKey={'secondary_accent'} selectedChoice={selectedChoice} />
+                <InlineThemeModColorPicker key={2} settingId={'responsive_global_color_palette_3'} labelText={'Primary Contrast'} settingKey={'primary_contrast'} selectedChoice={selectedChoice} />
+                <InlineThemeModColorPicker key={3} settingId={'responsive_global_color_palette_4'} labelText={'Secondary Contrast'} settingKey={'secondary_contrast'} selectedChoice={selectedChoice} />
+                <InlineThemeModColorPicker key={4} settingId={'responsive_global_color_palette_5'} labelText={'Primary Background'} settingKey={'primary_background'} selectedChoice={selectedChoice} />
+                <InlineThemeModColorPicker key={5} settingId={'responsive_global_color_palette_6'} labelText={'Secondary Background'} settingKey={'secondary_background'} selectedChoice={selectedChoice} />
+                <InlineThemeModColorPicker key={6} settingId={'responsive_global_color_palette_7'} labelText={'Alternate Background'} settingKey={'alternate_background'} selectedChoice={selectedChoice} />
+                <InlineThemeModColorPicker key={7} settingId={'responsive_global_color_palette_8'} labelText={'Primary Neutral'} settingKey={'primary_neutral'} selectedChoice={selectedChoice} />
+                <InlineThemeModColorPicker key={7} settingId={'responsive_global_color_palette_9'} labelText={'Secondary Neutral'} settingKey={'secondary_neutral'} selectedChoice={selectedChoice} />
             </div>
         </div>
     </div>

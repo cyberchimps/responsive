@@ -200,6 +200,6 @@
 }
 .responsive-selected-palette-all-colors .responsive-selected-palette-editor .responsive-selected-palette-pickers {
     display : flex; 
-    gap : 10px;
+    gap : 8px;
     justify-content: center;
 }
