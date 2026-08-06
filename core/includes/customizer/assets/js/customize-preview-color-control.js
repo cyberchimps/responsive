@@ -5116,7 +5116,7 @@
             jQuery('head').append(
                 '<style id="responsive_blog_banner_background_color">' +
                 '@media screen and (min-width: 993px) {' +
-                ' .responsive-archive-entry-banner, .archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
+                'body .responsive-archive-entry-banner, body .archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
                 '}' +
                 '</style>'
             );
@@ -5130,7 +5130,7 @@
             jQuery('head').append(
                 '<style id="responsive_blog_banner_background_color-tablet">' +
                 '@media screen and (min-width: 577px) and (max-width: 992px) {' +
-                ' .responsive-archive-entry-banner, .archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
+                'body .responsive-archive-entry-banner, body .archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
                 '}' +
                 '</style>'
             );
@@ -5144,7 +5144,7 @@
             jQuery('head').append(
                 '<style id="responsive_blog_banner_background_color-mobile">' +
                 '@media screen and (max-width: 576px) {' +
-                ' .responsive-archive-entry-banner, .archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
+                'body .responsive-archive-entry-banner, body .archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
                 '}' +
                 '</style>'
             );
@@ -5210,7 +5210,7 @@
             jQuery('head').append(
                 '<style id="responsive_page_title_banner_background_color">' +
                 '@media screen and (min-width: 993px) {' +
-                ' .responsive-single-entry-banner { background-color: ' + newval + '; }' +
+                'body .responsive-single-entry-banner { background-color: ' + newval + '; }' +
                 '}' +
                 '</style>'
             );
@@ -5224,7 +5224,7 @@
             jQuery('head').append(
                 '<style id="responsive-page-title-banner-background-color-tablet">' +
                 '@media screen and (min-width: 577px) and (max-width: 992px) {' +
-                ' .responsive-single-entry-banner { background-color: ' + newval + '; }' +
+                'body .responsive-single-entry-banner { background-color: ' + newval + '; }' +
                 '}' +
                 '</style>'
             );
@@ -5238,7 +5238,7 @@
             jQuery('head').append(
                 '<style id="responsive-page-title-banner-background-color-mobile">' +
                 '@media screen and (max-width: 576px) {' +
-                ' .responsive-single-entry-banner { background-color: ' + newval + '; }' +
+                'body .responsive-single-entry-banner { background-color: ' + newval + '; }' +
                 '}' +
                 '</style>'
             );
@@ -5249,7 +5249,7 @@
         value.bind(function() {
             var color = processThemeSettingForCSS('responsive_single_blog_featured_image_overlay_color');
             if ( !color ) color = 'transparent';
-            $('.responsive-blog-single-banner2, .responsive-single-post-featured-section.post-thumb, .entry-header').css('--overlay-color', color);
+            $('body .responsive-blog-single-banner2, body .responsive-single-post-featured-section.post-thumb, body .entry-header').css('--overlay-color', color);
         });
     });
 
@@ -5257,7 +5257,7 @@
         value.bind(function() {
             var color = processThemeSettingForCSS('responsive_page_featured_image_overlay_color');
             if ( !color ) color = 'transparent';
-            $('.responsive-single-entry-banner, .responsive-single-post-featured-section.post-thumb, .entry-header').css('--overlay-color', color);
+            $('body .responsive-single-entry-banner, body .responsive-single-post-featured-section.post-thumb, body .entry-header').css('--overlay-color', color);
         });
     });
 

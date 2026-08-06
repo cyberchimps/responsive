@@ -166,6 +166,7 @@ function responsive_single_page_banner2() {
 		setup_postdata( $post );
 		?>
 		<?php
+		$elements = responsive_page_single_elements_positioning();
 		$page_featured_image_position = get_theme_mod( 'responsive_page_featured_image_position', 'none' );
 		$page_featured_image_ratio    = get_theme_mod( 'responsive_page_featured_image_ratio', 'original' );
 		
@@ -183,7 +184,7 @@ function responsive_single_page_banner2() {
 		}
 		
 		$section_style = '';
-		if ( 'background' === $page_featured_image_position && has_post_thumbnail() && ! post_password_required() ) {
+		if ( 'background' === $page_featured_image_position && has_post_thumbnail() && ! post_password_required() && in_array( 'featured_image', $elements, true ) ) {
 			$featured_image_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
 			if ( $featured_image_url ) {
 				$overlay_color = Responsive\Core\responsive_prepare_css_value( 'responsive_page_featured_image_overlay_color', '' );
@@ -195,7 +196,6 @@ function responsive_single_page_banner2() {
 		<section class="responsive-single-entry-banner" data-post-type="page" data-banner-layout="layout-2"<?php echo $section_style; ?>>
 			<div class="container">
 				<?php
-				$elements = responsive_page_single_elements_positioning();
 				foreach ( $elements as $element ) {
 					if ( 'content' === $element ) {
 						continue;

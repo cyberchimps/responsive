@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$sections = get_theme_mod( 'responsive_page_single_meta', array( 'author', 'date', 'categories', 'comments', 'tag' ) );
+$sections = get_theme_mod( 'responsive_page_single_meta', array( 'author', 'date', 'comments' ) );
 if ( $sections && ! is_array( $sections ) ) {
 	$sections = explode( ',', $sections );
 }

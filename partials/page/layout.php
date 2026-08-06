@@ -33,7 +33,7 @@ if ( 'predefined' === $page_featured_image_ratio ) {
 	}
 }
 
-if ( in_array( $page_title_layout, array( 'post_title_layout1', 'post_title_layout2' ) ) && 'outside' === $page_featured_image_position && has_post_thumbnail() && ! post_password_required() ) {
+if ( in_array( $page_title_layout, array( 'post_title_layout1', 'post_title_layout2' ) ) && 'outside' === $page_featured_image_position && has_post_thumbnail() && ! post_password_required() && in_array( 'featured_image', responsive_page_single_elements_positioning(), true ) ) {
 	?>
 	<div class="responsive-single-post-featured-section post-thumb responsive-article-image-container--wide" style="text-align: <?php echo esc_attr( $page_featured_image_alignment ); ?>;">
 		<?php 
@@ -60,7 +60,7 @@ if ( in_array( $page_title_layout, array( 'post_title_layout1', 'post_title_layo
 				?>
 				<?php
 				$header_style = '';
-				if ( 'background' === $page_featured_image_position && has_post_thumbnail() && ! post_password_required() ) {
+				if ( 'background' === $page_featured_image_position && has_post_thumbnail() && ! post_password_required() && in_array( 'featured_image', $elements, true ) ) {
 					$featured_image_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
 					if ( $featured_image_url ) {
 						$overlay_color = Responsive\Core\responsive_prepare_css_value( 'responsive_page_featured_image_overlay_color', '' );

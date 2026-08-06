@@ -2472,7 +2472,7 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
     singleBlogBannerPaddingSettings.forEach(function(setting) {
         api(setting, function(value) {
             value.bind(function(newval) {
-                responsive_dynamic_unit_padding('single_blog_banner_padding', '.responsive-blog-single-banner2');
+                responsive_dynamic_unit_padding('single_blog_banner_padding', 'body .responsive-blog-single-banner2');
             });
         });
     });
@@ -2499,7 +2499,7 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
     singleBlogBannerMarginSettings.forEach(function(setting) {
         api(setting, function(value) {
             value.bind(function(newval) {
-                responsive_dynamic_unit_margin('single_blog_banner_margin', '.responsive-blog-single-banner2');
+                responsive_dynamic_unit_margin('single_blog_banner_margin', 'body .responsive-blog-single-banner2');
             });
         });
     });
@@ -2526,7 +2526,7 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
     blogBannerPaddingSettings.forEach(function(setting) {
         api(setting, function(value) {
             value.bind(function(newval) {
-                responsive_dynamic_unit_padding('blog_banner_padding', '.responsive-archive-entry-banner, .archive:not(.woocommerce) .site-content-header');
+                responsive_dynamic_unit_padding('blog_banner_padding', 'body .responsive-archive-entry-banner, body .archive:not(.woocommerce) .site-content-header');
             });
         });
     });
@@ -2553,7 +2553,7 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
     blogBannerMarginSettings.forEach(function(setting) {
         api(setting, function(value) {
             value.bind(function(newval) {
-                responsive_dynamic_unit_margin('blog_banner_margin', '.responsive-archive-entry-banner, .archive:not(.woocommerce) .site-content-header');
+                responsive_dynamic_unit_margin('blog_banner_margin', 'body .responsive-archive-entry-banner, body .archive:not(.woocommerce) .site-content-header');
             });
         });
     });
@@ -2580,7 +2580,7 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
     pageTitleBannerPaddingSettings.forEach(function(setting) {
         api(setting, function(value) {
             value.bind(function(newval) {
-                responsive_dynamic_unit_padding('page_title_banner_padding', '.responsive-single-entry-banner');
+                responsive_dynamic_unit_padding('page_title_banner_padding', 'body .responsive-single-entry-banner');
             });
         });
     });
@@ -2607,7 +2607,7 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
     pageTitleBannerMarginSettings.forEach(function(setting) {
         api(setting, function(value) {
             value.bind(function(newval) {
-                responsive_dynamic_unit_margin('page_title_banner_margin', '.responsive-single-entry-banner');
+                responsive_dynamic_unit_margin('page_title_banner_margin', 'body .responsive-single-entry-banner');
             });
         });
     });
