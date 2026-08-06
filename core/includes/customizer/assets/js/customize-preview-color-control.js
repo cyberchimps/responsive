@@ -5116,7 +5116,7 @@
             jQuery('head').append(
                 '<style id="responsive_blog_banner_background_color">' +
                 '@media screen and (min-width: 993px) {' +
-                'body .responsive-archive-entry-banner, body .archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
+                'body .responsive-archive-entry-banner, body.archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
                 '}' +
                 '</style>'
             );
@@ -5130,7 +5130,7 @@
             jQuery('head').append(
                 '<style id="responsive_blog_banner_background_color-tablet">' +
                 '@media screen and (min-width: 577px) and (max-width: 992px) {' +
-                'body .responsive-archive-entry-banner, body .archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
+                'body .responsive-archive-entry-banner, body.archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
                 '}' +
                 '</style>'
             );
@@ -5144,7 +5144,7 @@
             jQuery('head').append(
                 '<style id="responsive_blog_banner_background_color-mobile">' +
                 '@media screen and (max-width: 576px) {' +
-                'body .responsive-archive-entry-banner, body .archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
+                'body .responsive-archive-entry-banner, body.archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
                 '}' +
                 '</style>'
             );
