@@ -8940,7 +8940,16 @@ function responsive_customizer_styles() {
 	// Single Blog - Page Tite
 	// check if enabled
 	$single_blog_post_title = get_theme_mod( 'responsive_single_blog_post_title', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_post_title' ) );
-	if( $single_blog_post_title ) {
+	if( !$single_blog_post_title ) {
+		$custom_css .= "
+			.responsive-blog-single-banner2, .single-post .entry-header, .single .responsive-single-post-featured-section {
+				display: none;
+			}
+		";
+
+		
+	}
+	else if( $single_blog_post_title ) {
 
 		// title color 
 		$single_blog_post_title_color = responsive_prepare_css_value( 'responsive_single_blog_post_title_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_title_color' ) );
@@ -9084,9 +9093,6 @@ function responsive_customizer_styles() {
 			
 		}
 		
-	}
-	else {
-		// hide the post title 
 	}
 
 	// Blog/Archive - Title
@@ -9292,7 +9298,7 @@ function responsive_customizer_styles() {
 	if( !$check_page_title )
 	{
 		$custom_css .= "
-			.responsive-single-entry-banner, .page .entry-header {
+			.responsive-single-entry-banner, .page .entry-header, .page .responsive-single-post-featured-section {
 				display: none;
 			}
 		";

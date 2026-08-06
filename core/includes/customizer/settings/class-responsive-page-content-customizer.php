@@ -133,7 +133,8 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 				'customize-control-responsive_page_title_area_meta_typography_group',
 				'customize-control-responsive_page_title_banner_padding_padding',
 				'customize-control-responsive_page_title_banner_margin_padding',
-				'customize-control-responsive_page_featured_image_overlay_color'
+				'customize-control-responsive_page_featured_image_overlay_color',
+				'customize-control-responsive_page_title_area_meta_typography_group_separator'
 			];
 
 			// Single Blog Post Title Tabs
@@ -297,6 +298,8 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			// Page Meta Font
 			$page_meta_typography_label = __( 'Meta Font', 'responsive' );
 			responsive_typography_group_control( $wp_customize, 'page_title_area_meta_typography_group', $page_meta_typography_label, 'responsive_page_title_area_layout', 45, 'page_title_area_meta_typography', true );
+
+			responsive_horizontal_separator_control( $wp_customize, 'page_title_area_meta_typography_group_separator', 1, 'responsive_page_title_area_layout',46, 1 );
 
 			// Padding
 			responsive_unit_padding_control( $wp_customize, 'page_title_banner_padding', 'responsive_page_title_area_layout', 50, 0, 0, null, __( 'Padding', 'responsive' ), 'postMessage','', '', '', '', 'px' );
