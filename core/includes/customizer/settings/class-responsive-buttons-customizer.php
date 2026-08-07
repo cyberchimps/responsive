@@ -222,7 +222,7 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 			responsive_color_control( $wp_customize, 'secondary_button_border', $button_border_color_label, 'responsive_button', 498, Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_border_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_border_color' ), 'secondary_button_hover_border' );
 
 			// Secondary Buttons Border Width.
-			responsive_borderwidth_control( $wp_customize, 'secondary_buttons_border_width', 'responsive_button', 500, 0, 0, null, $buttons_border_width_label, 'postMessage' );
+			responsive_borderwidth_control( $wp_customize, 'secondary_buttons_border_width', 'responsive_button', 500, 2, 2, null, $buttons_border_width_label, 'postMessage' );
 
 			// Secondary Buttons Radius.
 			responsive_radius_control( $wp_customize, 'secondary_buttons_radius', 'responsive_button', 510, 0, 0, null, $buttons_radius_label );

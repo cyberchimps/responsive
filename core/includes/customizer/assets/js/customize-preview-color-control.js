@@ -940,6 +940,94 @@
         } );
     } );
 
+    //Secondary Buttons border width
+    ['top_border', 'right_border', 'bottom_border', 'left_border'].forEach(function(border) {
+        api( 'responsive_secondary_buttons_border_width_' + border, function( value ) {
+            value.bind( function( newval ) {
+                var prop = 'border-' + border.replace('_border', '') + '-width';
+                var styleId = 'responsive-secondary-button-bw-' + border + '-preview';
+                jQuery('style#' + styleId).remove();
+                var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link';
+                var css = selectors + ' { ' + prop + ': ' + newval + 'px; }';
+                jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+            } );
+        } );
+    });
+
+    //Secondary Buttons radius
+    ['top_left_radius', 'top_right_radius', 'bottom_right_radius', 'bottom_left_radius'].forEach(function(radius) {
+        api( 'responsive_border_secondary_buttons_radius_' + radius, function( value ) {
+            value.bind( function() {
+                var styleId = 'responsive-secondary-button-radius-preview';
+                jQuery('style#' + styleId).remove();
+                var tl = api('responsive_border_secondary_buttons_radius_top_left_radius') ? api('responsive_border_secondary_buttons_radius_top_left_radius').get() : 0;
+                var tr = api('responsive_border_secondary_buttons_radius_top_right_radius') ? api('responsive_border_secondary_buttons_radius_top_right_radius').get() : 0;
+                var br = api('responsive_border_secondary_buttons_radius_bottom_right_radius') ? api('responsive_border_secondary_buttons_radius_bottom_right_radius').get() : 0;
+                var bl = api('responsive_border_secondary_buttons_radius_bottom_left_radius') ? api('responsive_border_secondary_buttons_radius_bottom_left_radius').get() : 0;
+                var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link';
+                var css = selectors + ' { border-radius: ' + tl + 'px ' + tr + 'px ' + br + 'px ' + bl + 'px; }';
+                jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+            } );
+        } );
+    });
+
+    //Secondary Buttons padding
+    ['top', 'right', 'bottom', 'left'].forEach(function(side) {
+        api( 'responsive_secondary_buttons_' + side + '_padding', function( value ) {
+            value.bind( function() {
+                var styleId = 'responsive-secondary-button-padding-preview';
+                jQuery('style#' + styleId).remove();
+                var top = api('responsive_secondary_buttons_top_padding') ? api('responsive_secondary_buttons_top_padding').get() : 10;
+                var right = api('responsive_secondary_buttons_right_padding') ? api('responsive_secondary_buttons_right_padding').get() : 10;
+                var bottom = api('responsive_secondary_buttons_bottom_padding') ? api('responsive_secondary_buttons_bottom_padding').get() : 10;
+                var left = api('responsive_secondary_buttons_left_padding') ? api('responsive_secondary_buttons_left_padding').get() : 10;
+                var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link';
+                var css = selectors + ' { padding: ' + top + 'px ' + right + 'px ' + bottom + 'px ' + left + 'px; }';
+                jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+            } );
+        } );
+    });
+
+    //Secondary Buttons shadow
+    ['x_axis', 'y_axis', 'blur', 'spread', 'inset', 'color'].forEach(function(param) {
+        api( 'responsive_secondary_button_shadow_' + param, function( value ) {
+            value.bind( function() {
+                var styleId = 'responsive-secondary-button-shadow-preview';
+                jQuery('style#' + styleId).remove();
+                var x = api('responsive_secondary_button_shadow_x_axis') ? api('responsive_secondary_button_shadow_x_axis').get() : 0;
+                var y = api('responsive_secondary_button_shadow_y_axis') ? api('responsive_secondary_button_shadow_y_axis').get() : 0;
+                var blur = api('responsive_secondary_button_shadow_blur') ? api('responsive_secondary_button_shadow_blur').get() : 0;
+                var spread = api('responsive_secondary_button_shadow_spread') ? api('responsive_secondary_button_shadow_spread').get() : 0;
+                var inset = api('responsive_secondary_button_shadow_inset') && api('responsive_secondary_button_shadow_inset').get() ? 'inset ' : '';
+                var color = api('responsive_secondary_button_shadow_color') ? api('responsive_secondary_button_shadow_color').get() : '#FFFFFF';
+                if( color && color.startsWith('palette') ) { color = `var(--responsive-global-${color})`; }
+                var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link';
+                var css = selectors + ' { box-shadow: ' + inset + x + 'px ' + y + 'px ' + blur + 'px ' + spread + 'px ' + color + '; }';
+                jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+            } );
+        } );
+    });
+
+    //Secondary Buttons hover shadow
+    ['x_axis', 'y_axis', 'blur', 'spread', 'inset', 'color'].forEach(function(param) {
+        api( 'responsive_secondary_button_hover_shadow_' + param, function( value ) {
+            value.bind( function() {
+                var styleId = 'responsive-secondary-button-hover-shadow-preview';
+                jQuery('style#' + styleId).remove();
+                var x = api('responsive_secondary_button_hover_shadow_x_axis') ? api('responsive_secondary_button_hover_shadow_x_axis').get() : 0;
+                var y = api('responsive_secondary_button_hover_shadow_y_axis') ? api('responsive_secondary_button_hover_shadow_y_axis').get() : 0;
+                var blur = api('responsive_secondary_button_hover_shadow_blur') ? api('responsive_secondary_button_hover_shadow_blur').get() : 0;
+                var spread = api('responsive_secondary_button_hover_shadow_spread') ? api('responsive_secondary_button_hover_shadow_spread').get() : 0;
+                var inset = api('responsive_secondary_button_hover_shadow_inset') && api('responsive_secondary_button_hover_shadow_inset').get() ? 'inset ' : '';
+                var color = api('responsive_secondary_button_hover_shadow_color') ? api('responsive_secondary_button_hover_shadow_color').get() : '#FFFFFF';
+                if( color && color.startsWith('palette') ) { color = `var(--responsive-global-${color})`; }
+                var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button:hover, .wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button:focus, .wp-block-button.is-style-outline > .wp-block-button__link:hover, .wp-block-button.is-style-outline > .wp-block-button__link:focus';
+                var css = selectors + ' { box-shadow: ' + inset + x + 'px ' + y + 'px ' + blur + 'px ' + spread + 'px ' + color + '; }';
+                jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+            } );
+        } );
+    });
+
     //Inputs color
     api( 'responsive_inputs_background_color', function( value ) {
         value.bind( function( newval ) {
