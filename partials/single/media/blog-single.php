@@ -42,7 +42,7 @@ if ( responsive_get_schema_markup( 'image' ) ) {
 }
 
 if ( $ratio_css ) {
-	$img_args['style'] = $ratio_css . ' object-fit: cover; width: 100%; height: 100%;';
+	$img_args['style'] = $ratio_css . ' object-fit: cover;';
 }
 
 // Caption.

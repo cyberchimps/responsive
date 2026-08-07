@@ -1261,7 +1261,7 @@ function defaults() {
 			'breadcrumb_alignment'                => 'center',
 			'read_more_text'                      => 'Read more →',
 			'blog_entry_elements_positioning'     => array( 'featured_image', 'categories', 'title', 'meta', 'content' ),
-			'blog_single_elements_positioning'    => array( 'title', 'meta', 'featured_image', 'content' ),
+			'blog_single_elements_positioning'    => array( 'categories', 'title', 'meta', 'featured_image', 'content' ),
 
 			// alignment.
 			'blog_entry_title_alignment'          => 'left',
