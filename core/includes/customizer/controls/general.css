@@ -1820,7 +1820,7 @@ div.customize-section-description{
 	width: 100%;
 	height: calc(100% - 41px);
 }
-.popup-vertical-group .responsive-builder-group-vertical .responsive-builder-area-popup{
+.popup-vertical-group .responsive-builder-group-vertical .responsive-builder-area-popup, #sub-accordion-section-responsive_page_title_area_layout{
 	height: 100%;
 }
 .responsive-builder-areas.popup-vertical-group .responsive-builder-area .responsive-hfb-builder-sortable-panel{

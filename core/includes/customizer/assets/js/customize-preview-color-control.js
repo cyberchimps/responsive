@@ -5063,7 +5063,7 @@
             if( newval && newval.includes('palette') ) {
                     newval = 'var(--responsive-global-' + newval + ')';
             }
-            $('.responsive-archive-entry-banner .container *, .archive:not(.woocommerce) .site-content-header *').css('color', newval);
+            $('.responsive-archive-entry-banner .container *:not(.page-title), .archive:not(.woocommerce) .site-content-header *:not(page-title, .blog:not(.woocommerce) .site-content-header *:not(page-title').css('color', newval);
         })
     });
 
@@ -5087,6 +5087,26 @@
         })
     });
 
+    // Single Post Link Color
+    api( 'responsive_single_blog_post_link_color', function(value) {
+        value.bind(function(newval) {
+             if( newval && newval.includes('palette') ) {
+                    newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.responsive-blog-single-banner2 .container a, .responsive-blog-single-banner2 .container a *, .single-post .entry-header a, .single-post .entry-header a *').css('color', newval);
+        })
+    });
+
+    // Single Post Link Hover Color
+    api( 'responsive_single_blog_post_link_hover_color', function(value) {
+        value.bind(function(newval) {
+             if( newval && newval.includes('palette') ) {
+                    newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.responsive-blog-single-banner2 .container a:hover, .responsive-blog-single-banner2 .container a:hover *, .single-post .entry-header a:hover, .single-post .entry-header a:hover *').css('color', newval);
+        })
+    });
+
     // Blog/Archive Link Hover Color
     api( 'responsive_blog_post_link_hover_color', function(value) {
         value.bind(function(newval) {
@@ -5106,6 +5126,7 @@
             }
         })
     });
+    
 
     // Blog/Archive Title Banner Background
     api('responsive_blog_banner_background_color', function(val) {
@@ -5157,7 +5178,7 @@
             if( newval && newval.includes('palette') ) {
                     newval = 'var(--responsive-global-' + newval + ')';
             }
-            $('.responsive-single-entry-banner .container *, .page .entry-header *').css('color', newval);
+            $('.responsive-single-entry-banner .container *:not(.entry-title), .page .entry-header *:not(.entry-title)').css('color', newval);
         })
     });
 

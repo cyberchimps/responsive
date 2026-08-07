@@ -222,31 +222,48 @@ add_action( 'responsive_wrapper_top', 'responsive_archive_blog_banner2' );
 
 function responsive_archive_blog_banner2() {
 	if ( ( is_home() || ( is_archive() && ! is_search() ) ) && get_theme_mod( 'responsive_blog_title_layout', 'post_title_layout1' ) === 'post_title_layout2' ) {
+		// For layout2:
+		// Show elements based on user's sorted order.
+		$elements = get_theme_mod( 'responsive_blog_title_elements_positioning', array( 'title', 'description', 'breadcrumb' ) );
+		if ( is_string( $elements ) ) {
+			$decoded = json_decode( $elements, true );
+			$elements = is_array( $decoded ) ? $decoded : explode( ',', $elements );
+		} else if ( ! is_array( $elements ) ) {
+			$elements = array();
+		}
+		
+		$responsive_page_title       = '';
+		$responsive_page_description = null;
+
+		if ( is_home() ) {
+			$responsive_page_title = responsive_free_get_option( 'blog_post_title_text', 'Blog Page' );
+			$responsive_page_description = get_theme_mod( 'responsive_blog_title_description', '' );
+		} elseif ( is_archive() ) {
+			$responsive_page_title       = get_the_archive_title();
+			$responsive_page_description = get_the_archive_description();
+		}
+		
+		$has_content = false;
+		foreach ( $elements as $element ) {
+			if ( 'title' === $element && $responsive_page_title ) {
+				$has_content = true;
+				break;
+			} elseif ( 'description' === $element && $responsive_page_description ) {
+				$has_content = true;
+				break;
+			} elseif ( 'breadcrumb' === $element ) {
+				$has_content = true;
+				break;
+			}
+		}
+
+		if ( ! $has_content ) {
+			return;
+		}
 		?>
 		<section class="responsive-archive-entry-banner">
 			<div class="container">
 				<?php
-				// For layout2:
-				// Show elements based on user's sorted order.
-				$elements = get_theme_mod( 'responsive_blog_title_elements_positioning', array( 'title', 'description', 'breadcrumb' ) );
-				if ( is_string( $elements ) ) {
-					$decoded = json_decode( $elements, true );
-					$elements = is_array( $decoded ) ? $decoded : explode( ',', $elements );
-				} else if ( ! is_array( $elements ) ) {
-					$elements = array();
-				}
-				
-				$responsive_page_title       = '';
-				$responsive_page_description = null;
-
-				if ( is_home() ) {
-					$responsive_page_title = responsive_free_get_option( 'blog_post_title_text', 'Blog Page' );
-					$responsive_page_description = get_theme_mod( 'responsive_blog_title_description', '' );
-				} elseif ( is_archive() ) {
-					$responsive_page_title       = get_the_archive_title();
-					$responsive_page_description = get_the_archive_description();
-				}
-				
 				foreach ( $elements as $element ) {
 					if ( 'title' === $element && $responsive_page_title ) {
 						echo '<h1 class="page-title">' . wp_kses_post( $responsive_page_title ) . '</h1>';

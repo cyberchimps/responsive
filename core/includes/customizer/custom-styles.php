@@ -4216,9 +4216,9 @@ function responsive_customizer_styles() {
 	}
 
 	$custom_css .= "
-	.search .hentry .post-meta > span::after,
-	.archive .hentry .post-meta > span::after,
-	.blog .hentry .post-meta > span::after {
+	.search .hentry .post-meta > span:not(:last-child)::after,
+	.archive .hentry .post-meta > span:not(:last-child)::after,
+	.blog .hentry .post-meta > span:not(:last-child)::after {
 	    content: '{$blog_entry_meta_separator}';
 	}";
 
@@ -4289,7 +4289,8 @@ function responsive_customizer_styles() {
 	}
 
 	$custom_css .= "
-	.single .hentry .post-meta > span::after {
+	.single .hentry .post-meta > span:not(:last-child)::after,
+	.single .responsive-blog-single-banner2 .post-meta > span:not(:last-child)::after {
 	    content: '{$single_blog_entry_meta_separator}';
 	}";
 
@@ -8959,15 +8960,16 @@ function responsive_customizer_styles() {
 		$single_blog_post_title_link_color = responsive_prepare_css_value( 'responsive_single_blog_post_link_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_color' ) );
 		// Link Hover Color
 		$single_blog_post_title_link_hover_color = responsive_prepare_css_value( 'responsive_single_blog_post_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_hover_color' ) );
-		$custom_css .= "
-			.single-post .entry-title {
-				color: {$single_blog_post_title_color};
-			}
-		";
+		
 		$custom_css .= "
 			.responsive-blog-single-banner2 .container *, .single-post .entry-header * {
 				color: {$single_blog_post_title_text_color};
 			} 
+		";
+		$custom_css .= "
+			.single-post .entry-title {
+				color: {$single_blog_post_title_color};
+			}
 		";
 		$custom_css .= "
 			.single-post .entry-header a, .single-post .entry-header a *, .responsive-blog-single-banner2 .container a, .responsive-blog-single-banner2 .container a * {
