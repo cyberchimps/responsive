@@ -213,13 +213,13 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 			responsive_separator_control( $wp_customize, 'responsive_secondary_buttons_separator', $general_buttons_label, 'responsive_button', 316 );
 
 			// Secondary Button Text Color.
-			responsive_color_control( $wp_customize, 'secondary_button_text', $button_text_color_label, 'responsive_button', 320, Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_text_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_text_color' ), 'secondary_button_hover_text' );
+			responsive_color_control( $wp_customize, 'secondary_button_text', $button_text_color_label, 'responsive_button', 320, Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_text_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_text_color' ), 'secondary_button_hover_text' );
 
 			// Secondary Button Color.
-			responsive_color_control( $wp_customize, 'secondary_button', $button_color_label, 'responsive_button', 322, Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'button_hover' ), 'secondary_button_hover' );
+			responsive_color_control( $wp_customize, 'secondary_button', $button_color_label, 'responsive_button', 322, Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_color' ), 'secondary_button_hover' );
 
 			// Secondary Button Border Color.
-			responsive_color_control( $wp_customize, 'secondary_button_border', $button_border_color_label, 'responsive_button', 498, Responsive\Core\get_responsive_customizer_defaults( 'button_border' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'button_hover_border' ), 'secondary_button_hover_border' );
+			responsive_color_control( $wp_customize, 'secondary_button_border', $button_border_color_label, 'responsive_button', 498, Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_border_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_border_color' ), 'secondary_button_hover_border' );
 
 			// Secondary Buttons Border Width.
 			responsive_borderwidth_control( $wp_customize, 'secondary_buttons_border_width', 'responsive_button', 500, 0, 0, null, $buttons_border_width_label, 'postMessage' );

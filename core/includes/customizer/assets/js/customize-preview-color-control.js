@@ -700,7 +700,7 @@
         'input[type=submit],' +
         'button:not(.responsive-header-button):not(.customize-partial-edit-shortcut-button),' +
         '.button:not(.responsive-header-button):not(.customize-partial-edit-shortcut-button),' +
-        '.wp-block-button__link,' +
+        '.wp-block-button:not(.is-style-outline) > .wp-block-button__link,' +
         'div.wpforms-container-full .wpforms-form input[type=submit],' +
         'body div.wpforms-container-full .wpforms-form button[type=submit],' +
         'div.wpforms-container-full .wpforms-form .wpforms-page-button';
@@ -714,7 +714,7 @@
         'input[type=submit]:hover,' +
         'button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button):not(.customize-partial-edit-shortcut-button),' +
         '.button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button):not(.customize-partial-edit-shortcut-button),' +
-        '.wp-block-button__link:hover,' +
+        '.wp-block-button:not(.is-style-outline) > .wp-block-button__link:hover,' +
         'div.wpforms-container-full .wpforms-form input[type=submit]:hover,' +
         'body div.wpforms-container-full .wpforms-form button[type=submit]:hover,' +
         'div.wpforms-container-full .wpforms-form .wpforms-page-button:hover';
@@ -845,14 +845,98 @@
             if( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
-            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').not('.footer-widget-area a').css('color', newval );
+            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').not('.footer-widget-area a').css('color', newval );
         } );
     } );
 
     //Buttons border color
     api( 'responsive_button_border_color', function( value ) {
         value.bind( function( newval ) {
-            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').css('border-color', newval );
+            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').css('border-color', newval );
+        } );
+    } );
+
+    //Secondary Buttons color
+    api( 'responsive_secondary_button_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            var styleId = 'responsive-secondary-button-color-preview';
+            jQuery('style#' + styleId).remove();
+            
+            var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link';
+            var css = selectors + ' { background-color: ' + newval + '; }';
+            
+            jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+        } );
+    } );
+
+    //Secondary Buttons hover color
+    api( 'responsive_secondary_button_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            var styleId = 'responsive-secondary-button-hover-color-preview';
+            jQuery('style#' + styleId).remove();
+            
+            var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button:hover, .wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button:focus, .wp-block-button.is-style-outline > .wp-block-button__link:hover, .wp-block-button.is-style-outline > .wp-block-button__link:focus';
+            var css = selectors + ' { background-color: ' + newval + '; }';
+            
+            jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+        } );
+    } );
+
+    //Secondary Buttons text Color
+    api( 'responsive_secondary_button_text_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            $('.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link').css('color', newval );
+        } );
+    } );
+
+    //Secondary Buttons hover text Color
+    api( 'responsive_secondary_button_hover_text_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            var styleId = 'responsive-secondary-button-hover-text-color-preview';
+            jQuery('style#' + styleId).remove();
+            
+            var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button:hover, .wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button:focus, .wp-block-button.is-style-outline > .wp-block-button__link:hover, .wp-block-button.is-style-outline > .wp-block-button__link:focus';
+            var css = selectors + ' { color: ' + newval + '; }';
+            
+            jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+        } );
+    } );
+
+    //Secondary Buttons border color
+    api( 'responsive_secondary_button_border_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            $('.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link').css('border-color', newval );
+        } );
+    } );
+
+    //Secondary Buttons hover border color
+    api( 'responsive_secondary_button_hover_border_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            var styleId = 'responsive-secondary-button-hover-border-color-preview';
+            jQuery('style#' + styleId).remove();
+            
+            var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button:hover, .wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button:focus, .wp-block-button.is-style-outline > .wp-block-button__link:hover, .wp-block-button.is-style-outline > .wp-block-button__link:focus';
+            var css = selectors + ' { border-color: ' + newval + '; }';
+            
+            jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
         } );
     } );
 
@@ -1872,7 +1956,7 @@
         }
     );
     //Buttons Hover Color
-    $(".page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button:not(.menu-toggle):not(.responsive-header-button), .button:not(.responsive-header-button), .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, .elementor-widget-rael-button .rael-button").hover(
+    $(".page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button:not(.menu-toggle):not(.responsive-header-button), .button:not(.responsive-header-button), .wp-block-button:not(.is-style-outline) > .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, .elementor-widget-rael-button .rael-button").hover(
         function() {
             $(this).css("background-color", resolveButtonBackgroundColor('responsive_button_hover_color'));
             $(this).css("color", processThemeSettingForCSS('responsive_button_hover_text_color'));
