@@ -125,6 +125,13 @@ function responsive_gutenberg_customizer_css() {
 	$button_border_color       = esc_html( responsive_prepare_css_value( 'responsive_button_border_color', '#10659C' ) );
 	$button_hover_border_color = esc_html( responsive_prepare_css_value( 'responsive_button_hover_border_color', '#0066CC' ) );
 
+	$secondary_button_color              = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_color' ) ) );
+	$secondary_button_hover_color        = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_color' ) ) );
+	$secondary_button_text_color         = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_text_color' ) ) );
+	$secondary_button_hover_text_color   = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_hover_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_text_color' ) ) );
+	$secondary_button_border_color       = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_border_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_border_color' ) ) );
+	$secondary_button_hover_border_color = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_hover_border_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_border_color' ) ) );
+
 	$button_preset              = get_theme_mod( 'responsive_button_presets', '' );
 	$button_background          = $button_color;
 	$button_hover_background    = $button_hover_color;
@@ -535,6 +542,21 @@ function responsive_gutenberg_customizer_css() {
 		color:' . $button_hover_text_color . ';
 		background-color:' . $button_hover_background . ';
 		border-color: ' . $button_hover_border_color . ';
+	}
+
+	.editor-styles-wrapper .wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button,
+	.editor-styles-wrapper .wp-block-button.is-style-outline > .wp-block-button__link {
+		background-color: ' . $secondary_button_color . ';
+		border-color: ' . $secondary_button_border_color . ';
+		color: ' . $secondary_button_text_color . ';
+	}
+	.editor-styles-wrapper .wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button:hover,
+	.editor-styles-wrapper .wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button:focus,
+	.editor-styles-wrapper .wp-block-button.is-style-outline > .wp-block-button__link:hover,
+	.editor-styles-wrapper .wp-block-button.is-style-outline > .wp-block-button__link:focus {
+		background-color: ' . $secondary_button_hover_color . ';
+		border-color: ' . $secondary_button_hover_border_color . ';
+		color: ' . $secondary_button_hover_text_color . ';
 	}
 
 	' . $block_editor_form_fields_css_selector . ' {
