@@ -5063,7 +5063,7 @@
             if( newval && newval.includes('palette') ) {
                     newval = 'var(--responsive-global-' + newval + ')';
             }
-            $('.responsive-archive-entry-banner .container *:not(.page-title), .archive:not(.woocommerce) .site-content-header *:not(page-title, .blog:not(.woocommerce) .site-content-header *:not(page-title').css('color', newval);
+            $('.responsive-archive-entry-banner .container *:not(.page-title, .page-title *):not(a, a *), .archive:not(.woocommerce) .site-content-header *:not(.page-title, .page-title *):not(a, a *), .blog:not(.woocommerce) .site-content-header *:not(.page-title, .page-title *):not(a, a *)').css('color', newval);
         })
     });
 
