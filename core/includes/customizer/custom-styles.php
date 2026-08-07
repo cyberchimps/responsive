@@ -9321,7 +9321,7 @@ function responsive_customizer_styles() {
 			}
 		";
 		$custom_css .= "
-			.responsive-single-entry-banner .container *, .page .entry-header * {
+			.responsive-single-entry-banner .container *:not(.entry-title, .entry-title *):not(a, a *), .page #page .entry-header *:not(.entry-title, .entry-title *):not(a, a *) {
 				color: {$page_title_text_color};
 			} 
 		";
