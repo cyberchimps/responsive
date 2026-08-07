@@ -8938,7 +8938,7 @@ function responsive_customizer_styles() {
 				return "{$top} {$right} {$bottom} {$left}";
 	};
 
-	// Single Blog - Page Tite
+	// Single Blog - Post Title
 	// check if enabled
 	$single_blog_post_title = get_theme_mod( 'responsive_single_blog_post_title', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_post_title' ) );
 	if( !$single_blog_post_title ) {
@@ -9038,10 +9038,7 @@ function responsive_customizer_styles() {
 					'left'   => get_theme_mod( 'responsive_single_blog_banner_margin_mobile_left_padding', '' ),
 				],
 			];
-			error_log( 'Desktop banner padding — Top: ' . $single_blog_banner_margin['desktop']['top']
-				. ', Right: ' . $single_blog_banner_margin['desktop']['right']
-				. ', Bottom: ' . $single_blog_banner_margin['desktop']['bottom']
-				. ', Left: ' . $single_blog_banner_margin['desktop']['left'] );
+			
 			$single_blog_banner_margin_desktop_unit = get_theme_mod('responsive_single_blog_banner_margin_desktop_unit', 'px');
 			$single_blog_banner_margin_tablet_unit  = get_theme_mod('responsive_single_blog_banner_margin_tablet_unit', 'px');
 			$single_blog_banner_margin_mobile_unit  = get_theme_mod('responsive_single_blog_banner_margin_mobile_unit', 'px');

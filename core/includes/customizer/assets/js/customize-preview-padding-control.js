@@ -82,19 +82,19 @@
         var dBottom = api('responsive_'+control+'_bottom_padding').get();
         var dLeft = api('responsive_'+control+'_left_padding').get();
         var dRight = api('responsive_'+control+'_right_padding').get();
-        var desktopMargin = (dTop === '' && dBottom === '' && dLeft === '' && dRight === '') ? 'margin: 0 auto;' : 'margin-top:'+ dTop+desktopUnit+'; '+'margin-bottom:'+ dBottom+desktopUnit+'; '+'margin-left:'+ dLeft+desktopUnit+'; '+'margin-right:'+ dRight+desktopUnit+';';
+        var desktopMargin = (dTop === '' && dBottom === '' && dLeft === '' && dRight === '') ? 'margin: 0 0;' : 'margin-top:'+ dTop+desktopUnit+'; '+'margin-bottom:'+ dBottom+desktopUnit+'; '+'margin-left:'+ dLeft+desktopUnit+'; '+'margin-right:'+ dRight+desktopUnit+';';
 
         var tTop = api('responsive_'+control+'_tablet_top_padding').get();
         var tBottom = api('responsive_'+control+'_tablet_bottom_padding').get();
         var tLeft = api('responsive_'+control+'_tablet_left_padding').get();
         var tRight = api('responsive_'+control+'_tablet_right_padding').get();
-        var tabletMargin = (tTop === '' && tBottom === '' && tLeft === '' && tRight === '') ? 'margin: 0 auto;' : 'margin-top:'+ tTop+tabletUnit+'; '+'margin-bottom:'+ tBottom+tabletUnit+'; '+'margin-left:'+ tLeft+tabletUnit+'; '+'margin-right:'+ tRight+tabletUnit+';';
+        var tabletMargin = (tTop === '' && tBottom === '' && tLeft === '' && tRight === '') ? 'margin: 0 0;' : 'margin-top:'+ tTop+tabletUnit+'; '+'margin-bottom:'+ tBottom+tabletUnit+'; '+'margin-left:'+ tLeft+tabletUnit+'; '+'margin-right:'+ tRight+tabletUnit+';';
 
         var mTop = api('responsive_'+control+'_mobile_top_padding').get();
         var mBottom = api('responsive_'+control+'_mobile_bottom_padding').get();
         var mLeft = api('responsive_'+control+'_mobile_left_padding').get();
         var mRight = api('responsive_'+control+'_mobile_right_padding').get();
-        var mobileMargin = (mTop === '' && mBottom === '' && mLeft === '' && mRight === '') ? 'margin: 0 auto;' : 'margin-top:'+ mTop+mobileUnit+'; '+'margin-bottom:'+ mBottom+mobileUnit+'; '+'margin-left:'+ mLeft+mobileUnit+'; '+'margin-right:'+ mRight+mobileUnit+';';
+        var mobileMargin = (mTop === '' && mBottom === '' && mLeft === '' && mRight === '') ? 'margin: 0 0;' : 'margin-top:'+ mTop+mobileUnit+'; '+'margin-bottom:'+ mBottom+mobileUnit+'; '+'margin-left:'+ mLeft+mobileUnit+'; '+'margin-right:'+ mRight+mobileUnit+';';
 
         jQuery( 'style#responsive-'+control+'-margin' ).remove();
         jQuery( 'head' ).append(
@@ -2472,7 +2472,7 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
     singleBlogBannerPaddingSettings.forEach(function(setting) {
         api(setting, function(value) {
             value.bind(function(newval) {
-                responsive_dynamic_unit_padding('single_blog_banner_padding', 'body .responsive-blog-single-banner2');
+                responsive_dynamic_unit_padding('single_blog_banner_padding', 'body .responsive-blog-single-banner2, .archive:not(.woocommerce) .site-content-header');
             });
         });
     });
@@ -2499,7 +2499,7 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
     singleBlogBannerMarginSettings.forEach(function(setting) {
         api(setting, function(value) {
             value.bind(function(newval) {
-                responsive_dynamic_unit_margin('single_blog_banner_margin', 'body .responsive-blog-single-banner2');
+                responsive_dynamic_unit_margin('single_blog_banner_margin', 'body .responsive-blog-single-banner2, .archive:not(.woocommerce) .site-content-header');
             });
         });
     });
@@ -2526,7 +2526,7 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
     blogBannerPaddingSettings.forEach(function(setting) {
         api(setting, function(value) {
             value.bind(function(newval) {
-                responsive_dynamic_unit_padding('blog_banner_padding', 'body .responsive-archive-entry-banner, body .archive:not(.woocommerce) .site-content-header');
+                responsive_dynamic_unit_padding('blog_banner_padding', 'body .responsive-archive-entry-banner, body.archive:not(.woocommerce) .site-content-header');
             });
         });
     });
@@ -2553,7 +2553,7 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
     blogBannerMarginSettings.forEach(function(setting) {
         api(setting, function(value) {
             value.bind(function(newval) {
-                responsive_dynamic_unit_margin('blog_banner_margin', 'body .responsive-archive-entry-banner, body .archive:not(.woocommerce) .site-content-header');
+                responsive_dynamic_unit_margin('blog_banner_margin', 'body .responsive-archive-entry-banner, body.archive:not(.woocommerce) .site-content-header');
             });
         });
     });
@@ -2580,7 +2580,7 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
     pageTitleBannerPaddingSettings.forEach(function(setting) {
         api(setting, function(value) {
             value.bind(function(newval) {
-                responsive_dynamic_unit_padding('page_title_banner_padding', 'body .responsive-single-entry-banner');
+                responsive_dynamic_unit_padding('page_title_banner_padding', 'body .responsive-single-entry-banner, article.page .entry-header');
             });
         });
     });
@@ -2607,7 +2607,7 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
     pageTitleBannerMarginSettings.forEach(function(setting) {
         api(setting, function(value) {
             value.bind(function(newval) {
-                responsive_dynamic_unit_margin('page_title_banner_margin', 'body .responsive-single-entry-banner');
+                responsive_dynamic_unit_margin('page_title_banner_margin', 'body .responsive-single-entry-banner, article.page .entry-header');
             });
         });
     });
