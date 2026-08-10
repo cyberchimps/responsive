@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 function responsive_gutenberg_color_palette() {
 
 	$body_typography      = get_theme_mod( 'body_typography' );
-	$body_text_color      = esc_html( responsive_prepare_css_value( 'responsive_body_text_color', '#333333' ) );
+	$body_text_color      = esc_html( responsive_prepare_css_value( 'responsive_body_text_color', '#404040' ) );
 	$box_background_color = esc_html( responsive_prepare_css_value( 'responsive_box_background_color', '#ffffff' ) );
 
 	$button_color            = esc_html( responsive_prepare_css_value( 'responsive_button_color', '#0066CC' ) );
@@ -152,20 +152,20 @@ function responsive_gutenberg_customizer_css() {
 	$box_background_color          = esc_html( get_theme_mod( 'responsive_box_background_color', '#ffffff' ) );
 
 	// Buttons border width new control.
-	$buttons_border_width_top 			= esc_html( get_theme_mod( 'responsive_buttons_border_width_top_border', 1 ) );
-	$buttons_border_width_right 		= esc_html( get_theme_mod( 'responsive_buttons_border_width_right_border', 1 ) );
-	$buttons_border_width_bottom 		= esc_html( get_theme_mod( 'responsive_buttons_border_width_bottom_border', 1 ) );
-	$buttons_border_width_left 			= esc_html( get_theme_mod( 'responsive_buttons_border_width_left_border', 1 ) );
+	$buttons_border_width_top 			= esc_html( get_theme_mod( 'responsive_buttons_border_width_top_border', 0 ) );
+	$buttons_border_width_right 		= esc_html( get_theme_mod( 'responsive_buttons_border_width_right_border', 0 ) );
+	$buttons_border_width_bottom 		= esc_html( get_theme_mod( 'responsive_buttons_border_width_bottom_border', 0 ) );
+	$buttons_border_width_left 			= esc_html( get_theme_mod( 'responsive_buttons_border_width_left_border', 0 ) );
 
-	$buttons_border_tablet_width_top    = esc_html( get_theme_mod( 'responsive_buttons_border_width_tablet_top_border', 1 ) );
-	$buttons_border_tablet_width_right  = esc_html( get_theme_mod( 'responsive_buttons_border_width_tablet_right_border', 1 ) );
-	$buttons_border_tablet_width_bottom = esc_html( get_theme_mod( 'responsive_buttons_border_width_tablet_bottom_border', 1 ) );
-	$buttons_border_tablet_width_left   = esc_html( get_theme_mod( 'responsive_buttons_border_width_tablet_left_border', 1 ) );
+	$buttons_border_tablet_width_top    = esc_html( get_theme_mod( 'responsive_buttons_border_width_tablet_top_border', 0 ) );
+	$buttons_border_tablet_width_right  = esc_html( get_theme_mod( 'responsive_buttons_border_width_tablet_right_border', 0 ) );
+	$buttons_border_tablet_width_bottom = esc_html( get_theme_mod( 'responsive_buttons_border_width_tablet_bottom_border', 0 ) );
+	$buttons_border_tablet_width_left   = esc_html( get_theme_mod( 'responsive_buttons_border_width_tablet_left_border', 0 ) );
 
-	$buttons_border_mobile_width_top    = esc_html( get_theme_mod( 'responsive_buttons_border_width_mobile_top_border', 1 ) );
-	$buttons_border_mobile_width_right  = esc_html( get_theme_mod( 'responsive_buttons_border_width_mobile_right_border', 1 ) );
-	$buttons_border_mobile_width_bottom = esc_html( get_theme_mod( 'responsive_buttons_border_width_mobile_bottom_border', 1 ) );
-	$buttons_border_mobile_width_left   = esc_html( get_theme_mod( 'responsive_buttons_border_width_mobile_left_border', 1 ) );
+	$buttons_border_mobile_width_top    = esc_html( get_theme_mod( 'responsive_buttons_border_width_mobile_top_border', 0 ) );
+	$buttons_border_mobile_width_right  = esc_html( get_theme_mod( 'responsive_buttons_border_width_mobile_right_border', 0 ) );
+	$buttons_border_mobile_width_bottom = esc_html( get_theme_mod( 'responsive_buttons_border_width_mobile_bottom_border', 0 ) );
+	$buttons_border_mobile_width_left   = esc_html( get_theme_mod( 'responsive_buttons_border_width_mobile_left_border', 0 ) );
 
 	// button desktop border radius
 	$button_top_left_radius            = esc_html( get_theme_mod( 'responsive_buttons_radius_top_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_buttons_radius' ) ) );
@@ -263,7 +263,12 @@ function responsive_gutenberg_customizer_css() {
 	$all_headings_typography           = get_theme_mod( 'headings_typography' );
 	$box_background_image              = get_theme_mod( 'responsive_box_background_image_toggle' ) ? esc_url( get_theme_mod( 'responsive_box_background_image' ) ) : null ;
 
-	$responsive_container_width        = get_theme_mod( 'responsive_container_width', 1140 );
+	$global_container_layout           = get_theme_mod( 'responsive_width', 'contained' );
+	if ( 'narrow' === $global_container_layout ) {
+		$responsive_container_width    = get_theme_mod( 'responsive_narrow_container_width', Responsive\Core\get_responsive_customizer_defaults( 'responsive_narrow_container_width' ) );
+	} else {
+		$responsive_container_width    = get_theme_mod( 'responsive_container_width', Responsive\Core\get_responsive_customizer_defaults( 'responsive_container_width' ) );
+	}
 	$responsive_page_content_width     = get_theme_mod( 'responsive_page_content_width', Responsive\Core\get_responsive_customizer_defaults( 'page_content_width' ) );
 	$global_sidebar_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
 	$page_sidebar_setting = get_theme_mod( 'responsive_page_sidebar_position' );

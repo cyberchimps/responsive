@@ -32,6 +32,7 @@ if ( ! function_exists( 'responsive_blog_entry_elements' ) ) {
 		$elements = apply_filters(
 			'responsive_blog_entry_elements',
 			array(
+				'categories'     => esc_html__( 'Categories', 'responsive' ),
 				'title'          => esc_html__( 'Title', 'responsive' ),
 				'featured_image' => esc_html__( 'Featured Image', 'responsive' ),
 				'meta'           => esc_html__( 'Meta', 'responsive' ),
@@ -55,7 +56,7 @@ if ( ! function_exists( 'responsive_blog_entry_elements_positioning' ) ) {
 	function responsive_blog_entry_elements_positioning() {
 
 		// Default sections.
-		$sections = array( 'title', 'meta', 'featured_image', 'content' );
+		$sections = array( 'featured_image', 'categories', 'title', 'meta', 'content' );
 
 		// Get sections from Customizer.
 		$sections = get_theme_mod( 'responsive_blog_entry_elements_positioning', $sections );
@@ -83,7 +84,7 @@ if ( ! function_exists( 'responsive_blog_entry_meta' ) ) {
 	function responsive_blog_entry_meta() {
 
 		// Default sections.
-		$sections = array( 'author', 'date', 'categories', 'tag' );
+		$sections = array( 'author', 'date', 'tag' );
 
 		// Get sections from Customizer.
 		$sections = get_theme_mod( 'responsive_blog_entry_meta', $sections );
@@ -114,6 +115,7 @@ if ( ! function_exists( 'responsive_blog_single_elements' ) ) {
 		$elements = apply_filters(
 			'responsive_blog_single_elements',
 			array(
+				'categories'     => esc_html__( 'Categories', 'responsive' ),
 				'title'          => esc_html__( 'Title', 'responsive' ),
 				'featured_image' => esc_html__( 'Featured Image', 'responsive' ),
 				'meta'           => esc_html__( 'Meta', 'responsive' ),
@@ -138,7 +140,7 @@ if ( ! function_exists( 'responsive_blog_single_elements_positioning' ) ) {
 	function responsive_blog_single_elements_positioning() {
 
 		// Default sections.
-		$sections = array( 'title', 'meta', 'featured_image', 'content' );
+		$sections = array( 'categories', 'title', 'meta', 'featured_image' );
 
 		// Get sections from Customizer.
 		$sections = get_theme_mod( 'responsive_blog_single_elements_positioning', $sections );
@@ -147,6 +149,9 @@ if ( ! function_exists( 'responsive_blog_single_elements_positioning' ) ) {
 		if ( $sections && ! is_array( $sections ) ) {
 			$sections = explode( ',', $sections );
 		}
+
+		// Ensure content is not in the array if an old setting has it.
+		$sections = array_diff( $sections, array( 'content' ) );
 
 		// Apply filters for easy modification.
 		$sections = apply_filters( 'responsive_blog_single_elements_positioning', $sections );
@@ -211,7 +216,7 @@ if ( ! function_exists( 'responsive_blog_single_meta' ) ) {
 	function responsive_blog_single_meta() {
 
 		/** Default sections */
-		$sections = array( 'author', 'date', 'categories', 'comments', 'tag' );
+		$sections = array( 'author', 'date', 'comments', 'tag' );
 
 		/** Get sections from Customizer */
 		$sections = get_theme_mod( 'responsive_blog_single_meta', $sections );
@@ -294,7 +299,9 @@ if ( ! function_exists( 'responsive_page_elements' ) ) {
 			array(
 				'title'          => esc_html__( 'Title', 'responsive' ),
 				'featured_image' => esc_html__( 'Featured Image', 'responsive' ),
-				'content'        => esc_html__( 'Content', 'responsive' ),
+				'breadcrumbs'    => esc_html__( 'Breadcrumbs', 'responsive' ),
+				'excerpt'        => esc_html__( 'Excerpt', 'responsive' ),
+				'meta'           => esc_html__( 'Meta', 'responsive' ),
 			)
 		);
 
@@ -834,7 +841,7 @@ if ( ! function_exists( 'responsive_schema_markup' ) ) {
  */
 function responsive_read_more_text( $text ) {
 
-	$read_more = get_theme_mod( 'responsive_blog_read_more_text', __( 'Read more &raquo;', 'responsive' ) );
+	$read_more = get_theme_mod( 'responsive_blog_read_more_text', __( 'Read more →', 'responsive' ) );
 	if ( '' !== $read_more ) {
 		$text = $read_more;
 	}
@@ -862,7 +869,7 @@ function responsive_custom_excerpt_length( $length ) {
  *
  * @since 3.17.2
  *
- * @return html
+ * @return string
  */
 if ( ! function_exists( 'responsive_post_link' ) ) {
 
@@ -870,11 +877,11 @@ if ( ! function_exists( 'responsive_post_link' ) ) {
 	 * Function to get Read More Link of Post
 	 *
 	 * @param  string $output_filter Filter string.
-	 * @return html                Markup.
+	 * @return string                Markup.
 	 */
 	function responsive_post_link( $output_filter = '' ) {
 
-		$read_more_text = apply_filters( 'responsive_post_read_more', __( 'Read More &raquo;', 'responsive' ) );
+		$read_more_text = apply_filters( 'responsive_post_read_more', __( 'Read more →', 'responsive' ) );
 
 		$post_link = sprintf(
 			esc_html( '%s' ),
@@ -892,11 +899,11 @@ if ( ! function_exists( 'responsive_modify_read_more_link' ) ) {
 	 * Function to get Read More Link of Post
 	 *
 	 * @since 3.17.2
-	 * @return html
+	 * @return string
 	 */
 	function responsive_modify_read_more_link() {
-		$read_more_text = apply_filters( 'responsive_post_read_more', __( 'Read More &raquo;', 'responsive' ) );
-		return '<a class="more-link" href="' . get_permalink() . '">' . $read_more_text . '</a>';
+		$read_more_text = apply_filters( 'responsive_post_read_more', __( 'Read more →', 'responsive' ) );
+		return '<p class="read-more"><a class="more-link" href="' . get_permalink() . '">' . $read_more_text . '</a></p>';
 	}
 }
 
@@ -927,6 +934,52 @@ if ( ! function_exists( 'responsive_spacing_css' ) ) {
 
 		// Return.
 		return $s_top . $s_right . $s_bottom . $s_left;
+	}
+}
+
+if ( ! function_exists( 'responsive_format_margin_css_with_container_width' ) ) {
+	/**
+	 * Return individual margin CSS rules handling custom width behavior.
+	 *
+	 * @param  array  $val             Spacing values array with top, right, bottom, left.
+	 * @param  string $unit            CSS unit (e.g., px, em).
+	 * @param  string $container_width Container width type ('custom' or 'full_width').
+	 * @return string CSS rules string.
+	 */
+	function responsive_format_margin_css_with_container_width( $val, $unit, $container_width = 'full_width' ) {
+		$t = isset( $val['top'] ) ? (string) $val['top'] : '';
+		$r = isset( $val['right'] ) ? (string) $val['right'] : '';
+		$b = isset( $val['bottom'] ) ? (string) $val['bottom'] : '';
+		$l = isset( $val['left'] ) ? (string) $val['left'] : '';
+
+		if ( $t === '' && $r === '' && $b === '' && $l === '' ) {
+			if ( $container_width === 'custom' ) {
+				return 'margin: 0 0;';
+			}
+			return '';
+		}
+		$css = '';
+		if ( $t !== '' ) {
+			$css .= "margin-top: {$t}{$unit}; ";
+		}
+
+		if ( $r !== '' ) {
+			$css .= "margin-right: {$r}{$unit}; ";
+		} else if ( $container_width === 'custom' ) {
+			$css .= "margin-right: 0; ";
+		}
+
+		if ( $b !== '' ) {
+			$css .= "margin-bottom: {$b}{$unit}; ";
+		}
+
+		if ( $l !== '' ) {
+			$css .= "margin-left: {$l}{$unit}; ";
+		} else if ( $container_width === 'custom' ) {
+			$css .= "margin-left: 0; ";
+		}
+
+		return trim( $css );
 	}
 }
 
@@ -1923,6 +1976,18 @@ function responsive_active_site_layout_contained() {
 }
 
 /**
+ * responsive_active_site_layout_narrow.
+ *
+ * @return bool
+ */
+function responsive_active_site_layout_narrow() {
+
+	$header_layout = get_theme_mod( 'responsive_width', 'contained' );
+
+	return ( 'narrow' === $header_layout ) ? true : false;
+}
+
+/**
  * [responsive_not_active_site_style_flat description]
  *
  * @return [type] [description]
@@ -1940,6 +2005,9 @@ function responsive_not_active_site_style_flat() {
  * @return [type] [description]
  */
 function responsive_active_single_blog_sidebar_position() {
+	if ( ! responsive_active_single_blog_sidebar_section() ) {
+		return false;
+	}
 	$position = get_theme_mod( 'responsive_single_blog_sidebar_position', 'global' );
 	if ( 'global' === $position ) {
 		$global_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
@@ -1954,6 +2022,9 @@ function responsive_active_single_blog_sidebar_position() {
  * @return [type] [description]
  */
 function responsive_active_blog_sidebar_position() {
+	if ( ! responsive_active_blog_sidebar_section() ) {
+		return false;
+	}
 	$position = get_theme_mod( 'responsive_blog_sidebar_position', 'global' );
 	if ( 'global' === $position ) {
 		$global_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
@@ -1966,6 +2037,43 @@ function responsive_active_default_sidebar_position() {
 	$position = get_theme_mod( 'responsive_default_sidebar_position', 'no'); 
 		return ( 'no' !== $position && 'global' !== $position ) ? true : false;
 }
+
+/**
+ * Check if the layout resolves to narrow container.
+ *
+ * @param string $container_layout The container layout setting value.
+ * @return bool
+ */
+function responsive_is_layout_narrow( $container_layout ) {
+	$global_container = get_theme_mod( 'responsive_width', 'contained' );
+	$global_resolved = ( 'full-width' === $global_container ) ? 'full-width' : ( ( 'narrow' === $global_container ) ? 'narrow' : 'normal' );
+	$resolved = ( 'default' === $container_layout || 'default_container' === $container_layout ) ? $global_resolved : $container_layout;
+	return 'narrow' === $resolved;
+}
+
+/**
+ * Active callbacks for sidebar sections when container layout is narrow.
+ */
+function responsive_active_page_sidebar_section() {
+	return ! responsive_is_layout_narrow( get_theme_mod( 'responsive_page_container_layout', 'default_container' ) );
+}
+
+function responsive_active_blog_sidebar_section() {
+	return ! responsive_is_layout_narrow( get_theme_mod( 'responsive_blog_container_layout', 'default_container' ) );
+}
+
+function responsive_active_single_blog_sidebar_section() {
+	return ! responsive_is_layout_narrow( get_theme_mod( 'responsive_single_blog_container_layout', 'default_container' ) );
+}
+
+function responsive_active_shop_sidebar_section() {
+	return ! responsive_is_layout_narrow( get_theme_mod( 'responsive_product_catalog_container_layout', 'default_container' ) );
+}
+
+function responsive_active_single_product_sidebar_section() {
+	return ! responsive_is_layout_narrow( get_theme_mod( 'responsive_single_product_container_layout', 'default_container' ) );
+}
+
 
 /**
  * [responsive_not_active_page_sidebar description]
@@ -2021,6 +2129,9 @@ function responsive_not_active_single_post_sidebar() {
  * @return [type] [description]
  */
 function responsive_active_page_sidebar_position() {
+	if ( ! responsive_active_page_sidebar_section() ) {
+		return false;
+	}
 	$position = get_theme_mod( 'responsive_page_sidebar_position', 'global' );
 	if ( 'global' === $position ) {
 		$global_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
@@ -2035,6 +2146,9 @@ function responsive_active_page_sidebar_position() {
  * @return [type] [description]
  */
 function responsive_active_shop_sidebar_position() {
+	if ( ! responsive_active_shop_sidebar_section() ) {
+		return false;
+	}
 	$position = get_theme_mod( 'responsive_shop_sidebar_position', 'global' );
 	if ( 'global' === $position ) {
 		$global_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
@@ -2049,6 +2163,9 @@ function responsive_active_shop_sidebar_position() {
  * @return [type] [description]
  */
 function responsive_active_single_product_sidebar_position() {
+	if ( ! responsive_active_single_product_sidebar_section() ) {
+		return false;
+	}
 	$position = get_theme_mod( 'responsive_single_product_sidebar_position', 'global' );
 	if ( 'global' === $position ) {
 		$global_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
@@ -2176,13 +2293,13 @@ function responsive_get_available_design_styles() {
 				'color_schemes' => array(
 					'default' => array(
 						'label'             => _x( 'Default', 'color palette name', 'responsive' ),
-						'accent'            => '#0066CC',
+						'accent'            => '#3B82F6',
 						'link_hover'		=> '#10659C',
-						'text'              => '#333333',
-						'header_text'       => '#333333',
+						'text'              => '#404040',
+						'header_text'       => '#404040',
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
-						'alt_background'    => '#eaeaea',
+						'alt_background'    => '#ffffff',
 						'subtle_background' => '#10659C'
 
 					),

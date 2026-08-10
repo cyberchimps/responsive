@@ -16,16 +16,6 @@ function responsive_standard_fonts()
 	return apply_filters(
 		'responsive_standard_fonts_array',
 		array(
-			'Open Sans'       => array(
-				array(
-					300,
-					400,
-					600,
-					700,
-					800,
-				),
-				'sans-serif',
-			),
 			'Times New Roman' => array(
 				array(
 					400,
@@ -77,14 +67,6 @@ function responsive_standard_fonts()
 			),
 			'Courier'        => array(
 				array(
-					400,
-					700,
-				),
-				'sans-serif',
-			),
-			'Libre Franklin'  => array(
-				array(
-					200,
 					400,
 					700,
 				),
