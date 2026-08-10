@@ -1251,7 +1251,7 @@ function defaults() {
 			'blog_title_layout'					  => 'post_title_layout1',
 			'page_title_layout'                   => 'post_title_layout1',
 			'page_title_inner_elements_spacing'   => 10,
-			'single_blog_post_title_color'        => 'palette3',
+			'single_blog_post_title_color'        => 'palette2',
 			'single_blog_post_text_color'		  => 'palette2',
 			'single_blog_post_link_color'		  => 'palette0',
 			'single_blog_post_link_hover_color'   => 'palette1',
