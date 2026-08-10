@@ -1130,6 +1130,7 @@ const TabsComponent = props => {
 		const bgColorElement = document.getElementById('customize-control-responsive_single_blog_banner_background_color');
 		const paddingElement = document.getElementById('customize-control-responsive_single_blog_banner_padding_padding');
 		const marginElement = document.getElementById('customize-control-responsive_single_blog_banner_margin_padding');
+		const separatorElement = document.getElementById('customize-control-responsive_single_blog_post_meta_typography_group_separator');
 
 		if (containerWidthElement) {
 			containerWidthElement.style.display = (layout === 'post_title_layout2' && tab === 'general') ? 'block' : 'none';
@@ -1145,6 +1146,9 @@ const TabsComponent = props => {
 		}
 		if (minHeightElement) {
 			minHeightElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
+		}
+		if(separatorElement) {
+			separatorElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
 		}
 		if (bgColorElement) {
 			bgColorElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
@@ -1170,7 +1174,6 @@ const TabsComponent = props => {
 		const containerWidthElement = document.getElementById('customize-control-responsive_blog_banner_container_width');
 		const customWidthElement = document.getElementById('customize-control-responsive_blog_banner_custom_width');
 		const minHeightElement = document.getElementById('customize-control-responsive_blog_banner_min_height');
-
 		const verticalAlignment = document.getElementById('customize-control-responsive_blog_post_title_vertical_alignment');
 		if (verticalAlignment) {
 			verticalAlignment.style.display = (layout === 'post_title_layout2' && tab === 'general') ? 'block' : 'none';
@@ -1212,6 +1215,7 @@ const TabsComponent = props => {
 		const bgColorElement = document.getElementById('customize-control-responsive_page_title_banner_background_color');
 		const paddingElement = document.getElementById('customize-control-responsive_page_title_banner_padding_padding');
 		const marginElement = document.getElementById('customize-control-responsive_page_title_banner_margin_padding');
+		const separator = document.getElementById('customize-control-responsive_page_title_area_meta_typography_group_separator');
 
 		if (containerWidthElement) {
 			containerWidthElement.style.display = (layout === 'post_title_layout2' && tab === 'general') ? 'block' : 'none';
@@ -1233,6 +1237,9 @@ const TabsComponent = props => {
 		}
 		if (marginElement) {
 			marginElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
+		}
+		if(separator) {
+			separator.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
 		}
 	};
 

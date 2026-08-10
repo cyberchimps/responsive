@@ -101,6 +101,11 @@ add_action( 'responsive_wrapper_top', 'responsive_single_blog_banner2' );
 
 function responsive_single_blog_banner2() {
 	if ( is_singular( 'post' ) && get_theme_mod( 'responsive_single_blog_post_title_layout', 'post_title_layout1' ) === 'post_title_layout2' ) {
+		$elements = responsive_blog_single_elements_positioning();
+		if ( empty( $elements ) ) {
+			return;
+		}
+
 		global $post;
 		setup_postdata( $post );
 		?>
@@ -134,7 +139,6 @@ function responsive_single_blog_banner2() {
 		<section class="responsive-blog-single-banner2"<?php echo $section_style; ?>>
 			<div class="container">
 				<?php
-				$elements = responsive_blog_single_elements_positioning();
 				foreach ( $elements as $element ) {
 					if ( 'content' === $element ) {
 						continue;
@@ -162,6 +166,11 @@ add_action( 'responsive_wrapper_top', 'responsive_single_page_banner2' );
 
 function responsive_single_page_banner2() {
 	if ( is_page() && get_theme_mod( 'responsive_page_title_layout', 'post_title_layout1' ) === 'post_title_layout2' ) {
+		$elements = responsive_page_single_elements_positioning();
+		if ( empty( $elements ) ) {
+			return;
+		}
+
 		global $post;
 		setup_postdata( $post );
 		?>
@@ -183,7 +192,7 @@ function responsive_single_page_banner2() {
 		}
 		
 		$section_style = '';
-		if ( 'background' === $page_featured_image_position && has_post_thumbnail() && ! post_password_required() ) {
+		if ( 'background' === $page_featured_image_position && has_post_thumbnail() && ! post_password_required() && in_array( 'featured_image', $elements, true ) ) {
 			$featured_image_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
 			if ( $featured_image_url ) {
 				$overlay_color = Responsive\Core\responsive_prepare_css_value( 'responsive_page_featured_image_overlay_color', '' );
@@ -195,7 +204,6 @@ function responsive_single_page_banner2() {
 		<section class="responsive-single-entry-banner" data-post-type="page" data-banner-layout="layout-2"<?php echo $section_style; ?>>
 			<div class="container">
 				<?php
-				$elements = responsive_page_single_elements_positioning();
 				foreach ( $elements as $element ) {
 					if ( 'content' === $element ) {
 						continue;
@@ -222,31 +230,48 @@ add_action( 'responsive_wrapper_top', 'responsive_archive_blog_banner2' );
 
 function responsive_archive_blog_banner2() {
 	if ( ( is_home() || ( is_archive() && ! is_search() ) ) && get_theme_mod( 'responsive_blog_title_layout', 'post_title_layout1' ) === 'post_title_layout2' ) {
+		// For layout2:
+		// Show elements based on user's sorted order.
+		$elements = get_theme_mod( 'responsive_blog_title_elements_positioning', array( 'title', 'description', 'breadcrumb' ) );
+		if ( is_string( $elements ) ) {
+			$decoded = json_decode( $elements, true );
+			$elements = is_array( $decoded ) ? $decoded : explode( ',', $elements );
+		} else if ( ! is_array( $elements ) ) {
+			$elements = array();
+		}
+		
+		$responsive_page_title       = '';
+		$responsive_page_description = null;
+
+		if ( is_home() ) {
+			$responsive_page_title = responsive_free_get_option( 'blog_post_title_text', 'Blog Page' );
+			$responsive_page_description = get_theme_mod( 'responsive_blog_title_description', '' );
+		} elseif ( is_archive() ) {
+			$responsive_page_title       = get_the_archive_title();
+			$responsive_page_description = get_the_archive_description();
+		}
+		
+		$has_content = false;
+		foreach ( $elements as $element ) {
+			if ( 'title' === $element && $responsive_page_title ) {
+				$has_content = true;
+				break;
+			} elseif ( 'description' === $element && $responsive_page_description ) {
+				$has_content = true;
+				break;
+			} elseif ( 'breadcrumb' === $element ) {
+				$has_content = true;
+				break;
+			}
+		}
+
+		if ( ! $has_content ) {
+			return;
+		}
 		?>
 		<section class="responsive-archive-entry-banner">
 			<div class="container">
 				<?php
-				// For layout2:
-				// Show elements based on user's sorted order.
-				$elements = get_theme_mod( 'responsive_blog_title_elements_positioning', array( 'title', 'description', 'breadcrumb' ) );
-				if ( is_string( $elements ) ) {
-					$decoded = json_decode( $elements, true );
-					$elements = is_array( $decoded ) ? $decoded : explode( ',', $elements );
-				} else if ( ! is_array( $elements ) ) {
-					$elements = array();
-				}
-				
-				$responsive_page_title       = '';
-				$responsive_page_description = null;
-
-				if ( is_home() ) {
-					$responsive_page_title = responsive_free_get_option( 'blog_post_title_text', 'Blog Page' );
-					$responsive_page_description = get_theme_mod( 'responsive_blog_title_description', '' );
-				} elseif ( is_archive() ) {
-					$responsive_page_title       = get_the_archive_title();
-					$responsive_page_description = get_the_archive_description();
-				}
-				
 				foreach ( $elements as $element ) {
 					if ( 'title' === $element && $responsive_page_title ) {
 						echo '<h1 class="page-title">' . wp_kses_post( $responsive_page_title ) . '</h1>';
