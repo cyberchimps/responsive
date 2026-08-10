@@ -24,44 +24,49 @@
 			"link": true,
 			"palette": [
 				{
-					"name": "Accent",
+					"name": "Primary Accent",
 					"slug": "responsive-global-palette0",
 					"color": "var(--responsive-global-palette0)"
 				},
 				{
-					"name": "Link Hover",
+					"name": "Secondary Accent",
 					"slug": "responsive-global-palette1",
 					"color": "var(--responsive-global-palette1)"
 				},
 				{
-					"name": "Text",
+					"name": "Primary Contrast",
 					"slug": "responsive-global-palette2",
 					"color": "var(--responsive-global-palette2)"
 				},
 				{
-					"name": "Headings",
+					"name": "Secondary Contrast",
 					"slug": "responsive-global-palette3",
 					"color": "var(--responsive-global-palette3)"
 				},
 				{
-					"name": "Background",
+					"name": "Primary Background",
 					"slug": "responsive-global-palette4",
 					"color": "var(--responsive-global-palette4)"
 				},
 				{
-					"name": "Site Background",
+					"name": "Secondary Background",
 					"slug": "responsive-global-palette5",
 					"color": "var(--responsive-global-palette5)"
 				},
 				{
-					"name": "Alt Background",
+					"name": "Alternate Background",
 					"slug": "responsive-global-palette6",
 					"color": "var(--responsive-global-palette6)"
 				},
 				{
-					"name": "Subtle Background",
+					"name": "Primary Neutral",
 					"slug": "responsive-global-palette7",
 					"color": "var(--responsive-global-palette7)"
+				},
+				{
+					"name": "Secondary Neutral",
+					"slug": "responsive-global-palette8",
+					"color": "var(--responsive-global-palette8)"
 				}
 			]
 		}

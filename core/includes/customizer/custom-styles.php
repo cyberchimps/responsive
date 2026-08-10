@@ -1490,7 +1490,7 @@ function responsive_customizer_styles() {
 	$input_border_mobile_left_width   = esc_html( get_theme_mod( 'responsive_inputs_border_width_mobile_left_border', 1 ) );
 
 	// New Border width control ends here.
-	$inputs_border_color     = esc_html( get_theme_mod( 'responsive_inputs_border_color', Responsive\Core\get_responsive_customizer_defaults( 'inputs_border' ) ) );
+	$inputs_border_color     = esc_html( responsive_prepare_css_value( 'responsive_inputs_border_color', Responsive\Core\get_responsive_customizer_defaults( 'inputs_border' ) ) );
 	$inputs_text_color       = esc_html( get_theme_mod( 'responsive_inputs_text_color', Responsive\Core\get_responsive_customizer_defaults( 'inputs_text' ) ) );
 	$inputs_background_color = esc_html( get_theme_mod( 'responsive_inputs_background_color', Responsive\Core\get_responsive_customizer_defaults( 'inputs_background' ) ) );
 
@@ -9052,7 +9052,7 @@ function responsive_customizer_styles() {
 				.responsive-blog-single-banner2 {
 					display: flex;
 					flex-direction: column;
-					justify-content: ${single_blog_post_title_layout2_vertical_alignment};
+					justify-content: {$single_blog_post_title_layout2_vertical_alignment};
 					min-height: {$single_blog_post_title_layout2_banner_height}px;
 					background-color: {$single_blog_banner_background_color};
 					padding: " . $format_spacing( $single_blog_banner_padding['desktop'], $single_blog_banner_padding_desktop_unit ) . ";
@@ -9266,7 +9266,7 @@ function responsive_customizer_styles() {
 			$custom_css .= "
 				.responsive-archive-entry-banner, .archive:not(.woocommerce) .site-content-header {
 					min-height: {$blog_title_layout2_banner_height}px;
-					justify-content: ${blog_post_title_layout2_vertical_alignment};	
+					justify-content: {$blog_post_title_layout2_vertical_alignment};	
 				}
 				@media screen and ( max-width: 992px ) {
 					.responsive-archive-entry-banner, .archive:not(.woocommerce) .site-content-header {
@@ -9440,7 +9440,7 @@ function responsive_customizer_styles() {
 				.responsive-single-entry-banner {
 					display: flex;
 					flex-direction: column;
-					justify-content: ${page_title_layout2_vertical_alignment};
+					justify-content: {$page_title_layout2_vertical_alignment};
 					min-height: {$page_title_layout2_banner_height}px;
 					background-color: {$page_banner_background_color};
 					padding: " . $format_spacing( $page_banner_padding['desktop'], $page_banner_padding_desktop_unit ) . ";

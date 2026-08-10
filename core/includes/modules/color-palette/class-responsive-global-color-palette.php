@@ -60,7 +60,7 @@ class Responsive_Global_Color_Palette {
 		if ( isset( $global_palette['palette'] ) ) {
 
 			// Define the correct order of palette keys to ensure proper mapping to CSS variables
-			$palette_key_order = array( 'accent', 'link_hover', 'text', 'header_text', 'content_background', 'site_background', 'alt_background', 'subtle_background' );
+			$palette_key_order = array( 'palette_1', 'palette_2', 'palette_3', 'palette_4', 'palette_5', 'palette_6', 'palette_7', 'palette_8', 'palette_9' );
 
 			foreach ( $palette_key_order as $index => $key ) {
 				if ( isset( $global_palette['palette'][ $key ] ) ) {
@@ -86,6 +86,7 @@ class Responsive_Global_Color_Palette {
 		$css .= "    --e-global-color-responsivepalette5: var(--responsive-global-palette5);\n";
 		$css .= "    --e-global-color-responsivepalette6: var(--responsive-global-palette6);\n";
 		$css .= "    --e-global-color-responsivepalette7: var(--responsive-global-palette7);\n";
+		$css .= "    --e-global-color-responsivepalette8: var(--responsive-global-palette8);\n";
 		$css .= "}\n";
 
 		$output_css .= $css;
@@ -108,6 +109,7 @@ class Responsive_Global_Color_Palette {
 			'responsive-palette5',
 			'responsive-palette6',
 			'responsive-palette7',
+			'responsive-palette8',
 		);
 	}
 
@@ -119,14 +121,15 @@ class Responsive_Global_Color_Palette {
 	 */
 	public static function get_palette_labels() {
 		return array(
-			__( 'Accent', 'responsive' ),
-			__( 'Link Hover', 'responsive' ),
-			__( 'Text', 'responsive' ),
-			__( 'Headings', 'responsive' ),
-			__( 'Background', 'responsive' ),
-			__( 'Site Background', 'responsive' ),
-			__( 'Alt Background', 'responsive' ),
-			__( 'Subtle Background', 'responsive' )
+			__( 'Primary Accent', 'responsive' ),
+			__( 'Secondary Accent', 'responsive' ),
+			__( 'Primary Contrast', 'responsive' ),
+			__( 'Secondary Contrast', 'responsive' ),
+			__( 'Primary Background', 'responsive' ),
+			__( 'Secondary Background', 'responsive' ),
+			__( 'Alternate Background', 'responsive' ),
+			__( 'Primary Neutral', 'responsive' ),
+			__( 'Secondary Neutral', 'responsive' ),
 		);
 	}
 
@@ -138,14 +141,15 @@ class Responsive_Global_Color_Palette {
 	 */
 	public static function get_palette_keys() {
 		return array(
-			'accent',
-			'link_hover',
-			'text',
-			'header_text',
-			'content_background',
-			'site_background',
-			'alt_background',
-			'subtle_background',
+			'palette_1',
+			'palette_2',
+			'palette_3',
+			'palette_4',
+			'palette_5',
+			'palette_6',
+			'palette_7',
+			'palette_8',
+			'palette_9',
 		);
 	}
 

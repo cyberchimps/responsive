@@ -233,7 +233,7 @@ const PaletteComponent = props => {
             else if(settingId === "responsive_global_color_palette_8"){
                 return "#10659C";
             }
-            else if(settifId == "responsive_global_color_palette_9") {
+            else if(settingId === "responsive_global_color_palette_9") {
                 return "#10659C";
             }
             return "#ffffff";
@@ -343,7 +343,7 @@ const PaletteComponent = props => {
                 <InlineThemeModColorPicker key={5} settingId={'responsive_global_color_palette_6'} labelText={'Secondary Background'} settingKey={'secondary_background'} selectedChoice={selectedChoice} />
                 <InlineThemeModColorPicker key={6} settingId={'responsive_global_color_palette_7'} labelText={'Alternate Background'} settingKey={'alternate_background'} selectedChoice={selectedChoice} />
                 <InlineThemeModColorPicker key={7} settingId={'responsive_global_color_palette_8'} labelText={'Primary Neutral'} settingKey={'primary_neutral'} selectedChoice={selectedChoice} />
-                <InlineThemeModColorPicker key={7} settingId={'responsive_global_color_palette_9'} labelText={'Secondary Neutral'} settingKey={'secondary_neutral'} selectedChoice={selectedChoice} />
+                <InlineThemeModColorPicker key={8} settingId={'responsive_global_color_palette_9'} labelText={'Secondary Neutral'} settingKey={'secondary_neutral'} selectedChoice={selectedChoice} />
             </div>
         </div>
     </div>

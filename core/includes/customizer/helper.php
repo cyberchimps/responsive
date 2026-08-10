@@ -2283,7 +2283,7 @@ function responsive_get_selected_palette_color_scheme ( $selected_design_style =
  *
  * @return array
  */
-function responsive_get_available_design_styles() {
+function responsive_get_available_design_styles() {	
 
 		$default_design_styles = array(
 			'playful'     => array(
@@ -2305,7 +2305,7 @@ function responsive_get_available_design_styles() {
 					),
 					'one'     => array(
 						'label'             => _x( 'Frolic', 'color palette name', 'responsive' ),
-						'palette_1'            => '#3f46ae',
+						'palette_1'            => '#62804D',
 						'palette_2'			   => '#313789',
 						'palette_3'            => '#ecb43d',
 						'palette_4'       	   => '#0F172A',
@@ -2317,7 +2317,7 @@ function responsive_get_available_design_styles() {
 					),
 					'two'     => array(
 						'label'             => _x( 'Coral', 'color palette name', 'responsive' ),
-						'palette_1'            => '#e06b6d',
+						'palette_1'            => '#CDB4DB',
 						'palette_2'		       => '#d74143',
 						'palette_3'            => '#40896e',
 						'palette_4'        	   => '#0F172A',
@@ -2329,7 +2329,7 @@ function responsive_get_available_design_styles() {
 					),
 					'three'   => array(
 						'label'             => _x( 'Organic', 'color palette name', 'responsive' ),
-						'palette_1'     => '#3c896d',
+						'palette_1'     => '#E79A3A',
 						'palette_2'		=> '#2c6651',
 						'palette_3'     => '#6b0369',
 						'palette_4'		=> '#0F172A',
@@ -2341,7 +2341,7 @@ function responsive_get_available_design_styles() {
 					),
 					'four' => array(
 						'label'     => _x( 'Berry', 'color palette name', 'responsive' ),
-						'palette_1' => '#117495',
+						'palette_1' => '#C13E27',
 						'palette_2' => '#0c5067',
 						'palette_3' => '#d691c1',
 						'palette_4' => '#0F172A',
@@ -2360,7 +2360,7 @@ function responsive_get_available_design_styles() {
 				'color_schemes' => array(
 					'one' => array(
 						'label'     => _x( 'Apricot', 'color palette name', 'responsive' ),
-						'palette_1' => '#c76919',
+						'palette_1' => '#473735',
 						'palette_2' => '#e5822e',
 						'palette_3' => '#122538',
 						'palette_4' => '#0F172A',
@@ -2373,7 +2373,7 @@ function responsive_get_available_design_styles() {
 
 					'two' => array(
 						'label'     => _x( 'Emerald', 'color palette name', 'responsive' ),
-						'palette_1' => '#165153',
+						'palette_1' => '#FF9D2E',
 						'palette_2' => '#21787b',
 						'palette_3' => '#212121',
 						'palette_4' => '#0F172A',
@@ -2386,7 +2386,7 @@ function responsive_get_available_design_styles() {
 
 					'three' => array(
 						'label'     => _x( 'Brick', 'color palette name', 'responsive' ),
-						'palette_1' => '#87200e',
+						'palette_1' => '#D0E0EB',
 						'palette_2' => '#b52b13',
 						'palette_3' => '#242611',
 						'palette_4' => '#0F172A',
@@ -2399,7 +2399,7 @@ function responsive_get_available_design_styles() {
 
 					'four' => array(
 						'label'     => _x( 'Bronze', 'color palette name', 'responsive' ),
-						'palette_1' => '#a88548',
+						'palette_1' => '#F7FFF7',
 						'palette_2' => '#846939',
 						'palette_3' => '#05212d',
 						'palette_4' => '#0F172A',
@@ -2418,7 +2418,7 @@ function responsive_get_available_design_styles() {
 				'color_schemes' => array(
 					'one' => array(
 						'label'     => _x( 'Shade', 'color palette name', 'responsive' ),
-						'palette_1' => '#000000',
+						'palette_1' => '#EDB92E',
 						'palette_2' => '#808080',
 						'palette_3' => '#455a64',
 						'palette_4' => '#0F172A',
@@ -2431,7 +2431,7 @@ function responsive_get_available_design_styles() {
 
 					'two' => array(
 						'label'     => _x( 'Blush', 'color palette name', 'responsive' ),
-						'palette_1' => '#c2185b',
+						'palette_1' => '#698528',
 						'palette_2' => '#951246',
 						'palette_3' => '#ec407a',
 						'palette_4' => '#0F172A',
@@ -2444,7 +2444,7 @@ function responsive_get_available_design_styles() {
 
 					'three' => array(
 						'label'     => _x( 'Pacific', 'color palette name', 'responsive' ),
-						'palette_1' => '#00796b',
+						'palette_1' => '#CAFF42',
 						'palette_2' => '#00463e',
 						'palette_3' => '#26a69a',
 						'palette_4' => '#0F172A',
@@ -2463,7 +2463,7 @@ function responsive_get_available_design_styles() {
 				'color_schemes' => array(
 					'one'   => array(
 						'label'                  => _x( 'Plum', 'color palette name', 'responsive' ),
-						'palette_1'         => '#000000',
+						'palette_1'         => '#7E44D7',
 						'palette_2'       => '#808080',
 						'palette_3'       => '#4d0859',
 						'palette_4'     => '#0F172A',
@@ -2482,7 +2482,7 @@ function responsive_get_available_design_styles() {
 				'color_schemes' => array(
 					'one'   => array(
 						'label'                  => _x( 'Forest', 'color palette name', 'responsive' ),
-						'palette_1'         => '#165144',
+						'palette_1'         => '#1B325F',
 						'palette_2'       => '#87dfcb',
 						'palette_3'       => '#01332e',
 						'palette_4'     => '#0F172A',
@@ -2495,7 +2495,7 @@ function responsive_get_available_design_styles() {
 
 					'two'   => array(
 						'label'                  => _x( 'Mocha', 'color palette name', 'responsive' ),
-						'palette_1'         => '#5b3f20',
+						'palette_1'         => '#251627',
 						'palette_2'       => '#ddbf9d',
 						'palette_3'       => '#3f2404',
 						'palette_4'     => '#0F172A',
@@ -2508,7 +2508,7 @@ function responsive_get_available_design_styles() {
 
 					'three' => array(
 						'label'                  => _x( 'Lavender', 'color palette name', 'responsive' ),
-						'palette_1'         => '#443a82',
+						'palette_1'         => '#E3AD40',
 						'palette_2'       => '#d4d1ea',
 						'palette_3'       => '#2b226b',
 						'palette_4'     => '#0F172A',

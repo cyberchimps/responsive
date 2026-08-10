@@ -2659,14 +2659,16 @@ if ( ! function_exists( 'responsive_theme_background_updater_global_palette_reva
 				$new_palette = array (
 					'style' => $old_palette_scheme,
 					'palette' => array (
-						'label'              => '',
-						'accent'             => get_theme_mod( 'responsive_global_color_palette_accent_color', '#3B82F6' ),
-						'link_hover'		 => get_theme_mod( 'responsive_global_color_palette_link_hover_color', '#10659C' ),
-						'text'               => get_theme_mod( 'responsive_global_color_palette_text_color', '#404040' ),
-						'header_text'        => get_theme_mod( 'responsive_global_color_palette_headings_color', '#404040' ),
-						'content_background' => get_theme_mod( 'responsive_global_color_palette_content_bg_color', '#ffffff' ),
-						'site_background'    => get_theme_mod( 'responsive_global_color_palette_site_background_color', '#f0f5fa' ),
-						'alt_background'     => get_theme_mod( 'responsive_global_color_palette_alt_background_color', '#eaeaea' ),
+						'label'      => '',
+						'palette_1'  => get_theme_mod( 'responsive_global_color_palette_accent_color', '#3B82F6' ),
+						'palette_2'	 => get_theme_mod( 'responsive_global_color_palette_link_hover_color', '#10659C' ),
+						'palette_3'  => get_theme_mod( 'responsive_global_color_palette_text_color', '#404040' ),
+						'palette_4'  => get_theme_mod( 'responsive_global_color_palette_headings_color', '#404040' ),
+						'palette_5'  => get_theme_mod( 'responsive_global_color_palette_content_bg_color', '#ffffff' ),
+						'palette_6'  => get_theme_mod( 'responsive_global_color_palette_site_background_color', '#f0f5fa' ),
+						'palette_7'  => get_theme_mod( 'responsive_global_color_palette_alt_background_color', '#eaeaea' ),
+						'palette_8'  => get_theme_mod( 'responsive_global_color_palette_subtle_background_color', '#10659C' ),
+						'palette_9'  => '#10659C',
 					)
 				);
 				set_theme_mod( 'responsive_global_color_palette', $new_palette );
@@ -3028,9 +3030,9 @@ if( !function_exists( 'responsive_theme_background_updater_blog_container_margin
 				'responsive_single_blog_content_width' => 66,
 				'responsive_header_primary_row_bottom_border_color' => '#0066CC',
 				'responsive_footer_below_row_border_color' => '#0066CC',
-				'responsive_global_color_palette_accent_color' => '#0066CC',
-				'responsive_global_color_palette_site_background_color' => '#F0F5FA',
-				'responsive_global_color_palette_alt_background_color' => '#EAEAEA',
+				'responsive_global_color_palette_1' => '#0066CC',
+				'responsive_global_color_palette_6' => '#F0F5FA',
+				'responsive_global_color_palette_7' => '#EAEAEA',
 				'responsive_blog_entry_featured_image_style' => 'default'
 			);
 
