@@ -35,6 +35,14 @@ if ( ! class_exists( 'Responsive_Customizer_Range_With_Switcher_Control' ) ) :
 	 */
 	public $devices = array( 'desktop', 'tablet', 'mobile' );
 
+	/**
+	 * Available units/dimensions for the control.
+	 *
+	 * @access public
+	 * @var array
+	 */
+	public $units = array();
+
 		/**
 		 * Enqueue control related scripts/styles.
 		 *
@@ -75,6 +83,7 @@ if ( ! class_exists( 'Responsive_Customizer_Range_With_Switcher_Control' ) ) :
 
 		// Pass active devices configuration to JavaScript
 		$this->json['devices'] = $this->devices;
+		$this->json['units']   = $this->units;
 
 		$this->json['inputAttrs'] = '';
 		foreach ( $this->input_attrs as $attr => $value ) {

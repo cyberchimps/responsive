@@ -102,11 +102,12 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 
 		const getColorPreviewValue = (value, wantRawValue = false) => {
 			let color = null;
-			if( value && value.includes('palette') ) {
-				color = 'var(--responsive-global-' + value + ')';
+			if( value && ( value.includes('palette') || value.includes('headings-color') || value === 'border-color' ) ) {
+				const varName = ( value === 'border-color' ) ? '--responsive-border-color' : '--responsive-global-' + value;
+				color = 'var(' + varName + ')';
 				if (wantRawValue) {
 					const raw = getComputedStyle(document.documentElement)
-						.getPropertyValue('--responsive-global-' + value)
+						.getPropertyValue(varName)
 						.trim();
 					return raw;
 				}

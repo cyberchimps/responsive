@@ -25,11 +25,12 @@ class ResponsiveColorStatesPickerControl extends Component {
 
 	resolveColorValue = (value, returnRaw = false) => {
 		let color = null;
-		if (value && (value.startsWith('palette') || value.includes('headings-color'))) {
-			color = 'var(--responsive-global-' + value + ')';
+		if (value && (value.startsWith('palette') || value.includes('headings-color') || value === 'border-color')) {
+			const varName = ( value === 'border-color' ) ? '--responsive-border-color' : '--responsive-global-' + value;
+			color = 'var(' + varName + ')';
 			if (returnRaw) {
 				const raw = getComputedStyle(document.documentElement)
-					.getPropertyValue('--responsive-global-' + value)
+					.getPropertyValue(varName)
 					.trim();
 				return raw;
 			}
