@@ -437,6 +437,9 @@
         if (typeof value === 'string' && value.startsWith('palette')) {
             return `var(--responsive-global-${value})`;
         }
+        if (typeof value === 'string' && value === 'border-color') {
+            return `var(--responsive-border-color)`;
+        }
         return value;
 	}
 
@@ -460,6 +463,7 @@
 					}
 				});
 				cssVars['--responsive-global-headings-color'] = processThemeSettingForCSS('responsive_all_heading_text_color');
+				cssVars['--responsive-border-color'] = processThemeSettingForCSS('responsive_border_color');
 
 				const root = document.documentElement;
 				Object.entries(cssVars).forEach(([varName, color]) => {
@@ -474,6 +478,42 @@
 
 			// Run whenever setting value changes
 			// value.bind(applyPalette);
+		});
+
+		wp.customize( 'responsive_border_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				document.documentElement.style.setProperty(
+					'--responsive-border-color',
+					newval
+				);
+			});
+		});
+
+		wp.customize( 'responsive_title_above_content_bg_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				document.documentElement.style.setProperty(
+					'--responsive-title-above-content-bg-color',
+					newval
+				);
+			});
+		});
+
+		wp.customize( 'responsive_title_above_content_overlay_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				document.documentElement.style.setProperty(
+					'--responsive-title-above-content-overlay-color',
+					newval
+				);
+			});
 		});
 
 		wp.customize( 'responsive_all_heading_text_color', function( value ) {

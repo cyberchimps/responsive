@@ -111,11 +111,6 @@
         border-radius: none !important;
     }
 
-    .entry-title {
-        margin-top:  $base-line-height-px / 2;
-        margin-bottom: $base-line-height-px / 2;
-    }
-
     .thumbnail {
         margin-top:  $base-line-height-px / 2;
         margin-bottom: $base-line-height-px / 2;
@@ -214,19 +209,19 @@
 .blog {
     &.featured-image-alignment {
         &-left {
-            .hentry .thumbnail {
+            .hentry .thumbnail, .responsive-single-entry-banner .container .thumbnail, .responsive-blog-single-banner2 .container .thumbnail {
                 text-align: left;
             }
         }
 
         &-right {
-            .hentry .thumbnail {
+            .hentry .thumbnail, .responsive-single-entry-banner .container .thumbnail, .responsive-blog-single-banner2 .container .thumbnail {
                 text-align: right;
             }
         }
 
         &-center {
-            .hentry .thumbnail {
+            .hentry .thumbnail, .responsive-single-entry-banner .container .thumbnail, .responsive-blog-single-banner2 .container .thumbnail {
                 text-align: center;
             }
         }
@@ -241,20 +236,64 @@
 .blog {
     &.title-alignment {
         &-left {
-            .hentry .entry-title {
+            .hentry .entry-title, .responsive-blog-single-banner2 .container .entry-title {
                 text-align: left;
             }
         }
 
         &-right {
-            .hentry .entry-title {
+            .hentry .entry-title, .responsive-blog-single-banner2 .container .entry-title {
                 text-align: right;
             }
         }
 
         &-center {
-            .hentry .entry-title {
+            .hentry .entry-title, .responsive-blog-single-banner2 .container .entry-title {
                 text-align: center;
+            }
+        }
+    }
+
+    @media (max-width: map-get($screens, lg)) {
+        &.title-alignment-tablet {
+            &-left {
+                .hentry .entry-title, .responsive-blog-single-banner2 .container .entry-title {
+                    text-align: left;
+                }
+            }
+
+            &-right {
+                .hentry .entry-title, .responsive-blog-single-banner2 .container .entry-title {
+                    text-align: right;
+                }
+            }
+
+            &-center {
+                .hentry .entry-title, .responsive-blog-single-banner2 .container .entry-title {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    @media (max-width: map-get($screens, sm)) {
+        &.title-alignment-mobile {
+            &-left {
+                .hentry .entry-title, .responsive-blog-single-banner2 .container .entry-title {
+                    text-align: left;
+                }
+            }
+
+            &-right {
+                .hentry .entry-title, .responsive-blog-single-banner2 .container .entry-title {
+                    text-align: right;
+                }
+            }
+
+            &-center {
+                .hentry .entry-title, .responsive-blog-single-banner2 .container .entry-title {
+                    text-align: center;
+                }
             }
         }
     }
@@ -302,7 +341,7 @@
 .blog {
     &.meta-alignment {
         &-left {
-            .hentry {
+            .hentry, .responsive-blog-single-banner2 .container {
                 .post-data,
                 .post-edit-link,
                 .post-meta {
@@ -312,7 +351,7 @@
         }
 
         &-right {
-            .hentry {
+            .hentry, .responsive-blog-single-banner2 .container {
                 .post-data,
                 .post-edit-link,
                 .post-meta {
@@ -322,11 +361,79 @@
         }
 
         &-center {
-            .hentry {
+            .hentry, .responsive-blog-single-banner2 .container {
                 .post-data,
                 .post-edit-link,
                 .post-meta {
                     text-align: center;
+                }
+            }
+        }
+    }
+
+    @media (max-width: map-get($screens, lg)) {
+        &.meta-alignment-tablet {
+            &-left {
+                .hentry, .responsive-blog-single-banner2 .container {
+                    .post-data,
+                    .post-edit-link,
+                    .post-meta {
+                        text-align: left;
+                    }
+                }
+            }
+
+            &-right {
+                .hentry, .responsive-blog-single-banner2 .container {
+                    .post-data,
+                    .post-edit-link,
+                    .post-meta {
+                        text-align: right;
+                    }
+                }
+            }
+
+            &-center, .responsive-blog-single-banner2 .container {
+                .hentry {
+                    .post-data,
+                    .post-edit-link,
+                    .post-meta {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: map-get($screens, sm)) {
+        &.meta-alignment-mobile {
+            &-left {
+                .hentry, .responsive-blog-single-banner2 .container {
+                    .post-data,
+                    .post-edit-link,
+                    .post-meta {
+                        text-align: left;
+                    }
+                }
+            }
+
+            &-right {
+                .hentry, .responsive-blog-single-banner2 .container {
+                    .post-data,
+                    .post-edit-link,
+                    .post-meta {
+                        text-align: right;
+                    }
+                }
+            }
+
+            &-center {
+                .hentry, .responsive-blog-single-banner2 .container {
+                    .post-data,
+                    .post-edit-link,
+                    .post-meta {
+                        text-align: center;
+                    }
                 }
             }
         }
