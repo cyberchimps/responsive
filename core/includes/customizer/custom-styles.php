@@ -9824,6 +9824,93 @@ function responsive_customizer_styles() {
 				margin: " . responsive_spacing_css( $comments_margin_top_mobile, $comments_margin_right_mobile, $comments_margin_bottom_mobile, $comments_margin_left_mobile ) . ";
 			}
 		}";
+		// Styling for Cover layout background color -> Blog/Archive
+		$blog_layout = get_theme_mod( 'responsive_blog_layout', 'grid' );
+
+		$blog_cover_background = get_theme_mod( 'responsive_blog_cover_background_color', '#f9f9f9' );
+		$transparent_overlay = false;
+		if ( false !== strpos( $blog_cover_background, ',0)' ) ) {
+			$transparent_overlay = true;
+			$blog_cover_background = '#f9f9f9';
+		}
+
+		if ( 'cover' === $blog_layout && ! empty( $blog_cover_background ) ) {
+			$custom_css .= "
+				.blog:not(.custom-home-page-active) .site-content .hentry,
+				.archive:not(.post-type-archive-product) .site-content .hentry {
+					background-color:  $blog_cover_background;
+					padding: 0;
+					border-radius: {$box_top_left_radius}px {$box_top_right_radius}px {$box_bottom_right_radius}px {$box_bottom_left_radius}px;
+				}
+				.blog:not(.custom-home-page-active) .site-content .hentry .entry-content p,
+				.archive:not(.post-type-archive-product) .site-content .hentry .entry-content p{
+					display: -webkit-box;
+					-webkit-box-orient: vertical;
+					-webkit-line-clamp: 2;
+					overflow: hidden;
+				}
+				.blog:not(.custom-home-page-active) .site-content .hentry,
+				.archive:not(.post-type-archive-product) .site-content .hentry{
+					height: 280px;   
+					display: flex;
+					flex-direction: column;
+				}
+				.blog:not(.custom-home-page-active) .site-content  .post-entry,	
+				.archive:not(.post-type-archive-product) .site-content  .post-entry {
+					position: relative;
+					overflow: hidden;
+					min-height: 280px;
+					padding: " . responsive_spacing_css( $box_padding_top, $box_padding_right, $box_padding_bottom, $box_padding_left ) . ";
+ 
+				}
+
+				/* Make image cover entire card */
+				.blog:not(.custom-home-page-active) .site-content  .thumbnail-cover,
+				.archive:not(.post-type-archive-product) .site-content  .thumbnail-cover {
+					position: absolute;
+					inset: 0;
+					margin: 0;
+					width: 100%;
+					height: 100%;
+				}
+				.blog:not(.custom-home-page-active) .site-content  .thumbnail-cover .thumbnail-link,
+				.archive:not(.post-type-archive-product) .site-content  .thumbnail-cover .thumbnail-link {
+					display: block;
+					width: 100%;
+					height: 100%;
+				}
+				.blog:not(.custom-home-page-active) .site-content  .responsive-cover-image,
+				.archive:not(.post-type-archive-product) .site-content  .responsive-cover-image {
+					width: 100%;
+					height: 100%;
+					background-size: cover;
+					background-position: center;
+					background-repeat: no-repeat;
+					border-radius: {$box_top_left_radius}px {$box_top_right_radius}px {$box_bottom_right_radius}px {$box_bottom_left_radius}px;
+				}
+
+				/* Overlay */
+				.blog:not(.post-type-archive-product) .site-content  .responsive-cover-image:before,
+				.archive:not(.post-type-archive-product) .site-content  .responsive-cover-image:before {
+					content: '';
+					position: absolute;
+					inset: 0;
+					background-color: {$blog_cover_background};
+					opacity: " . ( $transparent_overlay ? '0' : '1' ) . ";
+				}
+
+				/* Content above image */
+				.blog:not(.custom-home-page-active) .site-content  .post-entry > *:not(.thumbnail),
+				.archive:not(.post-type-archive-product) .site-content  .post-entry > *:not(.thumbnail) {
+					position: relative;
+					z-index: 2;
+				}
+				.blog:not(.custom-home-page-active) .site-content .has-post-thumbnail.hentry .post-meta,
+				.archive:not(.post-type-archive-product) .site-content .has-post-thumbnail.hentry .post-meta{
+					margin-top:0;
+				}
+			";
+		}
 	}
 
 	$format_spacing = function( $val, $unit, $is_margin = false ) {
