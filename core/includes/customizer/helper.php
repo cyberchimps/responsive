@@ -917,18 +917,19 @@ if ( ! function_exists( 'responsive_spacing_css' ) ) {
 	 * @param  integer $left   Left paddding/margin.
 	 * @return integer
 	 */
-	function responsive_spacing_css( $top, $right, $bottom, $left ) {
+	function responsive_spacing_css( $top, $right, $bottom, $left, $unit = 'px' ) {
 
-		// Add px and 0 if no value.
-		$s_top    = ( isset( $top ) && '' !== $top ) ? intval( $top ) . 'px ' : '0px ';
-		$s_right  = ( isset( $right ) && '' !== $right ) ? intval( $right ) . 'px ' : '0px ';
-		$s_bottom = ( isset( $bottom ) && '' !== $bottom ) ? intval( $bottom ) . 'px ' : '0px ';
-		$s_left   = ( isset( $left ) && '' !== $left ) ? intval( $left ) . 'px' : '0px';
+		$unit = ! empty( $unit ) ? $unit : 'px';
+
+		$s_top    = ( isset( $top ) && '' !== $top ) ? ( 'px' === $unit ? intval( $top ) : $top ) . $unit . ' ' : '0' . $unit . ' ';
+		$s_right  = ( isset( $right ) && '' !== $right ) ? ( 'px' === $unit ? intval( $right ) : $right ) . $unit . ' ' : '0' . $unit . ' ';
+		$s_bottom = ( isset( $bottom ) && '' !== $bottom ) ? ( 'px' === $unit ? intval( $bottom ) : $bottom ) . $unit . ' ' : '0' . $unit . ' ';
+		$s_left   = ( isset( $left ) && '' !== $left ) ? ( 'px' === $unit ? intval( $left ) : $left ) . $unit : '0' . $unit;
 
 		// Return one value if it is the same on every inputs.
-		if ( ( intval( $s_top ) === intval( $s_right ) )
-			&& ( intval( $s_right ) === intval( $s_bottom ) )
-			&& ( intval( $s_bottom ) === intval( $s_left ) ) ) {
+		if ( ( (string) $top === (string) $right )
+			&& ( (string) $right === (string) $bottom )
+			&& ( (string) $bottom === (string) $left ) ) {
 			return $s_left;
 		}
 
@@ -1098,8 +1099,35 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 			'default'           => isset( $default_mobile_values_x ) ? $default_mobile_values_x : $default_values_x,
 		)
 	);
+
+	// Unit settings
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_desktop_unit',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'           => 'px',
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_tablet_unit',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'           => 'px',
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_mobile_unit',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'           => 'px',
+		)
+	);
+
 	$wp_customize->add_control(
-		new Responsive_Customizer_Dimensions_Control(
+		new Responsive_Customizer_Unit_Dimensions_Control(
 			$wp_customize,
 			'responsive_' . $element . '_padding',
 			array(
@@ -1118,6 +1146,9 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 					'mobile_right'   => 'responsive_' . $element . '_mobile_right_padding',
 					'mobile_bottom'  => 'responsive_' . $element . '_mobile_bottom_padding',
 					'mobile_left'    => 'responsive_' . $element . '_mobile_left_padding',
+					'desktop_unit'   => 'responsive_' . $element . '_desktop_unit',
+					'tablet_unit'    => 'responsive_' . $element . '_tablet_unit',
+					'mobile_unit'    => 'responsive_' . $element . '_mobile_unit',
 				),
 				'priority'        => $priority,
 				'active_callback' => $active_call,
@@ -1411,8 +1442,35 @@ function responsive_borderwidth_control( $wp_customize, $element, $section, $pri
 			'default'           => $default_values_x,
 		)
 	);
+
+	// Unit settings
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_desktop_unit',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'           => 'px',
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_tablet_unit',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'           => 'px',
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_mobile_unit',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'           => 'px',
+		)
+	);
+
 	$wp_customize->add_control(
-		new Responsive_Customizer_Dimensions_Control(
+		new Responsive_Customizer_Unit_Dimensions_Control(
 			$wp_customize,
 			'responsive_' . $element . '_border',
 			array(
@@ -1431,6 +1489,9 @@ function responsive_borderwidth_control( $wp_customize, $element, $section, $pri
 					'mobile_right'   => 'responsive_' . $element . '_mobile_right_border',
 					'mobile_bottom'  => 'responsive_' . $element . '_mobile_bottom_border',
 					'mobile_left'    => 'responsive_' . $element . '_mobile_left_border',
+					'desktop_unit'   => 'responsive_' . $element . '_desktop_unit',
+					'tablet_unit'    => 'responsive_' . $element . '_tablet_unit',
+					'mobile_unit'    => 'responsive_' . $element . '_mobile_unit',
 				),
 				'priority'        => $priority,
 				'active_callback' => $active_call,
@@ -1770,7 +1831,7 @@ function responsive_drag_number_control( $wp_customize, $element, $label, $secti
  * @param  [type]  $step  [description].
  * @return void                [description].
  */
-function responsive_drag_number_control_with_switchers( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $max = 4096, $min = 1, $transport = 'refresh', $step = 1, $tablet_default = null, $mobile_default = null, $devices = array( 'desktop', 'tablet', 'mobile' ) ) {
+function responsive_drag_number_control_with_switchers( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $max = 4096, $min = 1, $transport = 'refresh', $step = 1, $tablet_default = null, $mobile_default = null, $devices = array( 'desktop', 'tablet', 'mobile' ), $units = array() ) {
 
 	// Conditionally register settings based on devices parameter
 	$settings = array();
@@ -1785,6 +1846,18 @@ function responsive_drag_number_control_with_switchers( $wp_customize, $element,
 			)
 		);
 		$settings['desktop'] = 'responsive_' . $element;
+
+		if ( ! empty( $units ) ) {
+			$wp_customize->add_setting(
+				'responsive_' . $element . '_unit',
+				array(
+					'transport'         => $transport,
+					'default'           => $units[0],
+					'sanitize_callback' => 'sanitize_text_field',
+				)
+			);
+			$settings['desktop_unit'] = 'responsive_' . $element . '_unit';
+		}
 	}
 
 	if ( in_array( 'tablet', $devices ) ) {
@@ -1797,6 +1870,18 @@ function responsive_drag_number_control_with_switchers( $wp_customize, $element,
 			)
 		);
 		$settings['tablet'] = 'responsive_' . $element . '_tablet';
+
+		if ( ! empty( $units ) ) {
+			$wp_customize->add_setting(
+				'responsive_' . $element . '_tablet_unit',
+				array(
+					'transport'         => $transport,
+					'default'           => $units[0],
+					'sanitize_callback' => 'sanitize_text_field',
+				)
+			);
+			$settings['tablet_unit'] = 'responsive_' . $element . '_tablet_unit';
+		}
 	}
 
 	if ( in_array( 'mobile', $devices ) ) {
@@ -1809,6 +1894,18 @@ function responsive_drag_number_control_with_switchers( $wp_customize, $element,
 			)
 		);
 		$settings['mobile'] = 'responsive_' . $element . '_mobile';
+
+		if ( ! empty( $units ) ) {
+			$wp_customize->add_setting(
+				'responsive_' . $element . '_mobile_unit',
+				array(
+					'transport'         => $transport,
+					'default'           => $units[0],
+					'sanitize_callback' => 'sanitize_text_field',
+				)
+			);
+			$settings['mobile_unit'] = 'responsive_' . $element . '_mobile_unit';
+		}
 	}
 
 	$wp_customize->add_control(
@@ -1820,6 +1917,7 @@ function responsive_drag_number_control_with_switchers( $wp_customize, $element,
 				'section'         => $section,
 				'settings'        => $settings,
 				'devices'         => $devices,
+				'units'           => $units,
 				'priority'        => $priority,
 				'active_callback' => $active_call,
 				'input_attrs'     => array(
@@ -2734,8 +2832,35 @@ function responsive_radius_control( $wp_customize, $element, $section, $priority
 			'default'           => $default_values_x,
 		)
 	);
+
+	// Unit settings
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_desktop_unit',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'           => 'px',
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_tablet_unit',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'           => 'px',
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_mobile_unit',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'           => 'px',
+		)
+	);
+
 	$wp_customize->add_control(
-		new Responsive_Customizer_Dimensions_Control(
+		new Responsive_Customizer_Unit_Dimensions_Control(
 			$wp_customize,
 			'responsive_border_' . $element,
 			array(
@@ -2754,6 +2879,9 @@ function responsive_radius_control( $wp_customize, $element, $section, $priority
 					'mobile_right'   => 'responsive_' . $element . '_mobile_top_right_radius',
 					'mobile_bottom'  => 'responsive_' . $element . '_mobile_bottom_right_radius',
 					'mobile_left'    => 'responsive_' . $element . '_mobile_bottom_left_radius',
+					'desktop_unit'   => 'responsive_' . $element . '_desktop_unit',
+					'tablet_unit'    => 'responsive_' . $element . '_tablet_unit',
+					'mobile_unit'    => 'responsive_' . $element . '_mobile_unit',
 				),
 				'priority'        => $priority,
 				'active_callback' => $active_call,

@@ -478,7 +478,9 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_related_posts_per_row_separator .responsive-horizontal-separator-control-wrapper,
 #customize-control-responsive_related_posts_taxonomy_separator .responsive-horizontal-separator-control-wrapper,
 #customize-control-responsive_related_post_structure_separator .responsive-horizontal-separator-control-wrapper,
-#customize-control-responsive_related_post_meta_elements_separator .responsive-horizontal-separator-control-wrapper {
+#customize-control-responsive_related_post_meta_elements_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_sidebar_link_style_after_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_sidebar_border_divider_separator .responsive-horizontal-separator-control-wrapper {
 	padding-top: 24px;
 	margin: 0;
 }
@@ -2052,6 +2054,10 @@ ul.control-panel-nav_menus .customize-help-toggle:before {
   .customize-section-title:has(.customize-section-description.open) 
   .customize-help-toggle::before {
   margin: -195px -10px !important;
+}
+
+#customize-control-responsive_sidebar_sticky .responsive-toggle-control-wrapper {
+    padding-top: 18px;
 }
 #customize-control-responsive_page_content_vertical .customize-control-responsive-selectbtn__button{
 	width: 36%;

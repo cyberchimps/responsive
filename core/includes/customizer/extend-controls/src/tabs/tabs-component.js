@@ -862,8 +862,8 @@ const TabsComponent = props => {
 
 		let isVisible = false;
 		if (control === 'global' || control === 'default') {
-			// For global sidebar: only hide when 'no'
-			isVisible = value !== 'no' && tab === 'general';
+			// For global sidebar style: show whenever on general tab
+			isVisible = tab === 'general';
 		} else {
 			// For page/blog: hide when 'no' or resolve 'global'
 			if (value === 'global') {
@@ -892,8 +892,8 @@ const TabsComponent = props => {
 
 			element.style.display = 'none';
 
-			// Show only if default sidebar position is not 'no' AND active tab is 'design'
-			const isVisible = value !== 'no' && tab === 'design';
+			// Show whenever active tab is 'design'
+			const isVisible = tab === 'design';
 			if (isVisible) {
 				element.style.display = 'block';
 			}

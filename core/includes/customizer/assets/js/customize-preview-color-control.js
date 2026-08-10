@@ -51,6 +51,9 @@
         if (typeof value === 'string' && value.startsWith('palette')) {
             return `var(--responsive-global-${value})`;
         }
+        if (typeof value === 'string' && value === 'border-color') {
+            return `var(--responsive-border-color)`;
+        }
         return value;
 	}
 
@@ -516,6 +519,45 @@
                 newval = `var(--responsive-global-${newval})`;
             }
             $('body, .wc-block-grid__product-title').css('color', newval );
+        } );
+    } );
+
+    //Global Border Color
+    api( 'responsive_border_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            document.documentElement.style.setProperty(
+                '--responsive-border-color',
+                newval
+            );
+        } );
+    } );
+
+    // Title Above Content Background Color
+    api( 'responsive_title_above_content_bg_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            document.documentElement.style.setProperty(
+                '--responsive-title-above-content-bg-color',
+                newval
+            );
+        } );
+    } );
+
+    // Title Above Content Overlay Color
+    api( 'responsive_title_above_content_overlay_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            document.documentElement.style.setProperty(
+                '--responsive-title-above-content-overlay-color',
+                newval
+            );
         } );
     } );
 
@@ -1818,7 +1860,7 @@
     //Hover Colors
 
     //Links Hover Color
-    $("a").not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.post-meta a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').hover(
+    $("a").not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.post-meta a').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
             $(this).css("color", linkHoverColor);
