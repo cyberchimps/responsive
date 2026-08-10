@@ -9063,7 +9063,6 @@ function responsive_customizer_styles() {
 					display: flex;
 					flex-direction: column;
 					justify-content: {$single_blog_post_title_layout2_vertical_alignment};
-					justify-content: {$single_blog_post_title_layout2_vertical_alignment};
 					min-height: {$single_blog_post_title_layout2_banner_height}px;
 					background-color: {$single_blog_banner_background_color};
 					padding: " . $format_spacing( $single_blog_banner_padding['desktop'], $single_blog_banner_padding_desktop_unit ) . ";
