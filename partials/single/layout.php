@@ -134,12 +134,14 @@ if ( in_array( $single_title_layout, array( 'post_title_layout1', 'post_title_la
 </article><!-- end of #post-<?php the_ID(); ?> -->
 <?php
 Responsive\responsive_entry_after();
-the_post_navigation(
-	array(
-		'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous', 'responsive' ) . '</span> <span class="nav-title">&larr; %title</span>',
-		'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next', 'responsive' ) . '</span> <span class="nav-title">%title &rarr;</span>',
-		'excluded_terms' => get_theme_mod( 'exclude_post_cat' ),
-	)
-);
+if ( 1 === (int) get_theme_mod( 'responsive_single_blog_navigation', 0 ) ) {
+	the_post_navigation(
+		array(
+			'prev_text' => '<span class="screen-reader-text">' . esc_html__( 'Previous Post is ', 'responsive' ) . ' </span>&#8249; %title',
+			'next_text' => '<span class="screen-reader-text">' . esc_html__( 'Next Post is', 'responsive' ) . ' </span>%title &#8250;',
+			'excluded_terms' => get_theme_mod( 'exclude_post_cat' ),
+		)
+	);
+}
 Responsive\responsive_single_blog_related_posts_entry();
 ?>

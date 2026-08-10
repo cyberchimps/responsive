@@ -464,9 +464,7 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_single_blog_featured_image_style {
 	padding-bottom: 24px;
 }
-#sub-accordion-section-responsive_single_blog_layout .customize-control-title {
-	margin-top: 24px;
-}
+
 #customize-control-responsive_disable_author_meta {
 	padding-bottom: 16px;
 }
@@ -2054,4 +2052,29 @@ ul.control-panel-nav_menus .customize-help-toggle:before {
   .customize-section-title:has(.customize-section-description.open) 
   .customize-help-toggle::before {
   margin: -195px -10px !important;
+}
+#customize-control-responsive_page_content_vertical .customize-control-responsive-selectbtn__button{
+	width: 36%;
+    margin: 5px;
+}
+#customize-control-responsive_page_content_vertical_separator .responsive-horizontal-separator-control-wrapper{
+	padding-bottom: 24px;
+}
+#customize-control-responsive_responsive_disable_author_meta_separator .responsive-horizontal-separator-control-wrapper{
+	padding-top: 20px;
+}
+#sub-accordion-section-responsive_single_blog_layout #customize-control-responsive_post_author_box_style .customize-control-title{
+	margin-top: 10px !important;
+}
+#customize-control-responsive_disable_author_meta{
+	padding-bottom: 0;
+}
+#customize-control-responsive_single_blog_navigation_before .responsive-horizontal-separator-control-wrapper{
+	margin: 20px 0;
+}
+#customize-control-responsive_rp_carousel_separator .responsive-horizontal-separator-control-wrapper{
+	margin: 0 0 25px;
+}
+#customize-control-responsive_rp_carousel_dots .responsive-toggle-control-wrapper{
+	padding-bottom: 25px;
 }
