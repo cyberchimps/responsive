@@ -5009,7 +5009,7 @@
     // Single Blog Post Text Color
     api( 'responsive_single_blog_post_text_color', function(value) {
         value.bind(function(newval) {
-            $('.responsive-blog-single-banner2 .container *:not(.entry-title, .entry-title *):not(a, a*), .single-post .entry-header *:not(.entry-title, .entry-title *):not(a, a*)').css('color', newval);
+            $('.responsive-blog-single-banner2 .container *:not(.entry-title, .entry-title *):not(a, a *), .single-post .entry-header *:not(.entry-title, .entry-title *):not(a, a *)').css('color', newval);
         })
     });
 
