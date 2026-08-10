@@ -125,7 +125,7 @@
                     '.woocommerce.responsive-site-style-content-boxed .products-wrapper,' +
                     '.woocommerce-page:not(.responsive-site-style-flat) .woocommerce-pagination,' +
                     '.woocommerce-page.single-product:not(.responsive-site-style-flat) div.product,' +
-                    '.woocommerce.single-product:not(.responsive-site-style-flat) div.product' + 
+                    '.woocommerce.single-product:not(.responsive-site-style-flat) div.product,' + 
                     '.elementor-element.elementor-products-grid ul.products li.product .responsive-shop-summary-wrap'
                 ).css({
                     'background': gradient,
@@ -186,7 +186,7 @@
                     '.woocommerce.responsive-site-style-content-boxed .products-wrapper,' +
                     '.woocommerce-page:not(.responsive-site-style-flat) .woocommerce-pagination,' +
                     '.woocommerce-page.single-product:not(.responsive-site-style-flat) div.product,' +
-                    '.woocommerce.single-product:not(.responsive-site-style-flat) div.product' + 
+                    '.woocommerce.single-product:not(.responsive-site-style-flat) div.product,' + 
                     '.elementor-element.elementor-products-grid ul.products li.product .responsive-shop-summary-wrap'
                 ).css({
                     'background': 'none',
@@ -5009,7 +5009,7 @@
     // Single Blog Post Text Color
     api( 'responsive_single_blog_post_text_color', function(value) {
         value.bind(function(newval) {
-            $('.responsive-blog-single-banner2 .container *, .single-post .entry-header *').css('color', newval);
+            $('.responsive-blog-single-banner2 .container *:not(.entry-title, .entry-title *):not(a, a*), .single-post .entry-header *:not(.entry-title, .entry-title *):not(a, a*)').css('color', newval);
         })
     });
 
@@ -5063,7 +5063,7 @@
             if( newval && newval.includes('palette') ) {
                     newval = 'var(--responsive-global-' + newval + ')';
             }
-            $('.responsive-archive-entry-banner .container *, .archive:not(.woocommerce) .site-content-header *').css('color', newval);
+            $('.responsive-archive-entry-banner .container *:not(.page-title, .page-title *):not(a, a *), .archive:not(.woocommerce) .site-content-header *:not(.page-title, .page-title *):not(a, a *), .blog:not(.woocommerce) .site-content-header *:not(.page-title, .page-title *):not(a, a *)').css('color', newval);
         })
     });
 
@@ -5087,6 +5087,26 @@
         })
     });
 
+    // Single Post Link Color
+    api( 'responsive_single_blog_post_link_color', function(value) {
+        value.bind(function(newval) {
+             if( newval && newval.includes('palette') ) {
+                    newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.responsive-blog-single-banner2 .container a, .responsive-blog-single-banner2 .container a *, .single-post .entry-header a, .single-post .entry-header a *').css('color', newval);
+        })
+    });
+
+    // Single Post Link Hover Color
+    api( 'responsive_single_blog_post_link_hover_color', function(value) {
+        value.bind(function(newval) {
+             if( newval && newval.includes('palette') ) {
+                    newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.responsive-blog-single-banner2 .container a:hover, .responsive-blog-single-banner2 .container a:hover *, .single-post .entry-header a:hover, .single-post .entry-header a:hover *').css('color', newval);
+        })
+    });
+
     // Blog/Archive Link Hover Color
     api( 'responsive_blog_post_link_hover_color', function(value) {
         value.bind(function(newval) {
@@ -5106,6 +5126,7 @@
             }
         })
     });
+    
 
     // Blog/Archive Title Banner Background
     api('responsive_blog_banner_background_color', function(val) {
@@ -5116,7 +5137,7 @@
             jQuery('head').append(
                 '<style id="responsive_blog_banner_background_color">' +
                 '@media screen and (min-width: 993px) {' +
-                ' .responsive-archive-entry-banner, .archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
+                'body .responsive-archive-entry-banner, body.archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
                 '}' +
                 '</style>'
             );
@@ -5130,7 +5151,7 @@
             jQuery('head').append(
                 '<style id="responsive_blog_banner_background_color-tablet">' +
                 '@media screen and (min-width: 577px) and (max-width: 992px) {' +
-                ' .responsive-archive-entry-banner, .archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
+                'body .responsive-archive-entry-banner, body.archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
                 '}' +
                 '</style>'
             );
@@ -5144,20 +5165,20 @@
             jQuery('head').append(
                 '<style id="responsive_blog_banner_background_color-mobile">' +
                 '@media screen and (max-width: 576px) {' +
-                ' .responsive-archive-entry-banner, .archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
+                'body .responsive-archive-entry-banner, body.archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
                 '}' +
                 '</style>'
             );
         });
     });
 
-    // Page Title Area Title
+    // Page Title Area Text
     api( 'responsive_page_title_area_text_color', function(value) {
         value.bind(function(newval) {
             if( newval && newval.includes('palette') ) {
                     newval = 'var(--responsive-global-' + newval + ')';
             }
-            $('.responsive-single-entry-banner .container *, .page .entry-header *').css('color', newval);
+            $('body .responsive-single-entry-banner .container *:not(.entry-title, .entry-title *):not(a, a *), .page #page .entry-header *:not(.entry-title, .entry-title *):not(a, a *)').css('color', newval);
         })
     });
 
@@ -5210,7 +5231,7 @@
             jQuery('head').append(
                 '<style id="responsive_page_title_banner_background_color">' +
                 '@media screen and (min-width: 993px) {' +
-                ' .responsive-single-entry-banner { background-color: ' + newval + '; }' +
+                'body .responsive-single-entry-banner { background-color: ' + newval + '; }' +
                 '}' +
                 '</style>'
             );
@@ -5224,7 +5245,7 @@
             jQuery('head').append(
                 '<style id="responsive-page-title-banner-background-color-tablet">' +
                 '@media screen and (min-width: 577px) and (max-width: 992px) {' +
-                ' .responsive-single-entry-banner { background-color: ' + newval + '; }' +
+                'body .responsive-single-entry-banner { background-color: ' + newval + '; }' +
                 '}' +
                 '</style>'
             );
@@ -5238,7 +5259,7 @@
             jQuery('head').append(
                 '<style id="responsive-page-title-banner-background-color-mobile">' +
                 '@media screen and (max-width: 576px) {' +
-                ' .responsive-single-entry-banner { background-color: ' + newval + '; }' +
+                'body .responsive-single-entry-banner { background-color: ' + newval + '; }' +
                 '}' +
                 '</style>'
             );
@@ -5249,7 +5270,7 @@
         value.bind(function() {
             var color = processThemeSettingForCSS('responsive_single_blog_featured_image_overlay_color');
             if ( !color ) color = 'transparent';
-            $('.responsive-blog-single-banner2, .responsive-single-post-featured-section.post-thumb, .entry-header').css('--overlay-color', color);
+            $('body .responsive-blog-single-banner2, body .responsive-single-post-featured-section.post-thumb, body .entry-header').css('--overlay-color', color);
         });
     });
 
@@ -5257,7 +5278,7 @@
         value.bind(function() {
             var color = processThemeSettingForCSS('responsive_page_featured_image_overlay_color');
             if ( !color ) color = 'transparent';
-            $('.responsive-single-entry-banner, .responsive-single-post-featured-section.post-thumb, .entry-header').css('--overlay-color', color);
+            $('body .responsive-single-entry-banner, body .responsive-single-post-featured-section.post-thumb, body .entry-header').css('--overlay-color', color);
         });
     });
 

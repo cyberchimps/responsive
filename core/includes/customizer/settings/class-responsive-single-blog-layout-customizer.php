@@ -230,7 +230,8 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'customize-control-responsive_single_blog_post_meta_typography_group',
 				'customize-control-responsive_single_blog_banner_padding_padding',
 				'customize-control-responsive_single_blog_banner_margin_padding',
-				'customize-control-responsive_single_blog_featured_image_overlay_color'
+				'customize-control-responsive_single_blog_featured_image_overlay_color',
+				'customize-control-responsive_single_blog_post_meta_typography_group_separator'
 			];
 
 			// Single Blog Post Title Tabs
@@ -285,10 +286,10 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 			responsive_horizontal_separator_control( $wp_customize, 'single_blog_post_title_inner_elements_spacing_separator', 1, 'responsive_single_blog_post_title_layout',6, 1 );
 
 			// Padding
-			responsive_unit_padding_control( $wp_customize, 'single_blog_banner_padding', 'responsive_single_blog_post_title_layout', 7, 0, 0, null, __( 'Padding', 'responsive' ), 'postMessage', 0, 0, 0, 0, 'px' );
+			responsive_unit_padding_control( $wp_customize, 'single_blog_banner_padding', 'responsive_single_blog_post_title_layout', 51, 0, 0, null, __( 'Padding', 'responsive' ), 'postMessage', 0, 0, 0, 0, 'px' );
 
 			// Margin
-			responsive_unit_padding_control( $wp_customize, 'single_blog_banner_margin', 'responsive_single_blog_post_title_layout', 8, 0, 0, null, __( 'Margin', 'responsive' ), 'postMessage', 0, 0, 0, 0, 'px' );
+			responsive_unit_padding_control( $wp_customize, 'single_blog_banner_margin', 'responsive_single_blog_post_title_layout', 52, 0, 0, null, __( 'Margin', 'responsive' ), 'postMessage', 0, 0, 0, 0, 'px' );
 
 			// Single Blog Post Title Color
 			$single_blog_post_title_color_label = __( 'Title Color', 'responsive' );
@@ -319,6 +320,8 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 			// Single Blog Post Meta Font
 			$single_blog_post_meta_typography_label = __( 'Meta Font', 'responsive' );
 			responsive_typography_group_control( $wp_customize, 'single_blog_post_meta_typography_group', $single_blog_post_meta_typography_label, 'responsive_single_blog_post_title_layout', 45, 'single_blog_post_meta_typography', true );
+
+			responsive_horizontal_separator_control( $wp_customize, 'single_blog_post_meta_typography_group_separator', 1, 'responsive_single_blog_post_title_layout',46, 1 );
 
 			// Main Content Width.
 			$single_blog_content_width_label = esc_html__( 'Main Content Width (%)', 'responsive' );

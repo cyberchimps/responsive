@@ -133,7 +133,8 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 				'customize-control-responsive_page_title_area_meta_typography_group',
 				'customize-control-responsive_page_title_banner_padding_padding',
 				'customize-control-responsive_page_title_banner_margin_padding',
-				'customize-control-responsive_page_featured_image_overlay_color'
+				'customize-control-responsive_page_featured_image_overlay_color',
+				'customize-control-responsive_page_title_area_meta_typography_group_separator'
 			];
 
 			// Single Blog Post Title Tabs
@@ -233,9 +234,7 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 								'author'     => esc_html__( 'Author', 'responsive' ),
 								'date'       => esc_html__( 'Date Published', 'responsive' ),
 								'updated'    => esc_html__( 'Last Updated', 'responsive' ),
-								'categories' => esc_html__( 'Categories', 'responsive' ),
 								'comments'   => esc_html__( 'Comments', 'responsive' ),
-								'tag'        => esc_html__( 'Tag', 'responsive' ),
 							)
 						),
 					)
@@ -300,6 +299,8 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			$page_meta_typography_label = __( 'Meta Font', 'responsive' );
 			responsive_typography_group_control( $wp_customize, 'page_title_area_meta_typography_group', $page_meta_typography_label, 'responsive_page_title_area_layout', 45, 'page_title_area_meta_typography', true );
 
+			responsive_horizontal_separator_control( $wp_customize, 'page_title_area_meta_typography_group_separator', 1, 'responsive_page_title_area_layout',46, 1 );
+
 			// Padding
 			responsive_unit_padding_control( $wp_customize, 'page_title_banner_padding', 'responsive_page_title_area_layout', 50, 0, 0, null, __( 'Padding', 'responsive' ), 'postMessage','', '', '', '', 'px' );
 
@@ -311,7 +312,7 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			$page_content_width_label = esc_html__( 'Main Content Width (%)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'page_content_width', $page_content_width_label, 'responsive_page', 10, Responsive\Core\get_responsive_customizer_defaults( 'page_content_width' ), null, 100, 1, 'postMessage' );
 
-			responsive_horizontal_separator_control($wp_customize, 'page_content_width_separator', 1, 'responsive_page', 12, 1, );
+			responsive_horizontal_separator_control($wp_customize, 'page_content_width_separator', 1, 'responsive_page', 9, 1, );
 
 			/**
 			 * Page Elements Positioning
