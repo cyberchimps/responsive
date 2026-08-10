@@ -4662,3 +4662,14 @@ function responsive_get_current_sidebar() {
 
 	return 'main-sidebar';
 }
+if ( ! function_exists( 'responsive_active_blog_layout_cover' ) ) :
+
+	/**
+	 * Determines whether active blog layout is list or grid.
+	 *
+	 * @return bool true if the active layout is grid, false otherwise.
+	 */
+	function responsive_active_blog_layout_cover() {
+		return get_theme_mod( 'responsive_blog_layout', 'grid' ) === 'cover';
+	}
+endif;

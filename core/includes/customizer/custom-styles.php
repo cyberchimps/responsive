@@ -9841,6 +9841,7 @@ function responsive_customizer_styles() {
 					background-color:  $blog_cover_background;
 					padding: 0;
 					border-radius: {$box_top_left_radius}px {$box_top_right_radius}px {$box_bottom_right_radius}px {$box_bottom_left_radius}px;
+					
 				}
 				.blog:not(.custom-home-page-active) .site-content .hentry .entry-content p,
 				.archive:not(.post-type-archive-product) .site-content .hentry .entry-content p{
@@ -9896,7 +9897,7 @@ function responsive_customizer_styles() {
 					position: absolute;
 					inset: 0;
 					background-color: {$blog_cover_background};
-					opacity: " . ( $transparent_overlay ? '0' : '1' ) . ";
+					opacity: " . ( $transparent_overlay ? '0' : '0.4' ) . ";
 				}
 
 				/* Content above image */

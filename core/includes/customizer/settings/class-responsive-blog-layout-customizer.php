@@ -376,11 +376,13 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
             $layout_choices = array(
                 'grid' => esc_html__('Grid', 'responsive'),
                 'list' => esc_html__('List', 'responsive'),
+				'cover' => esc_html__('Cover', 'responsive'),
             );
             if (is_rtl()) {
                 $layout_choices = array(
 					'list' => esc_html__('List', 'responsive'),
 					'grid' => esc_html__('Grid', 'responsive'),
+					'cover' => esc_html__('Cover', 'responsive'),
                 );
             }
             responsive_imageradio_button_control($wp_customize, 'blog_layout', $layout_label, 'responsive_blog_layout', 45, $layout_choices, 'grid', null, 'svg');
@@ -746,7 +748,26 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 			responsive_horizontal_separator_control($wp_customize, 'blog_exclude_post_cat_separator', 1, 'responsive_blog_layout', 225, 1, );
 			responsive_horizontal_separator_control($wp_customize, 'blog_pagination_separator', 1, 'responsive_blog_layout', 235, 1, );
 			responsive_horizontal_separator_control($wp_customize, 'blog_outside_container_separator', 1, 'responsive_blog_layout', 265, 1, );
-
+			// Cover Post cards Background Color — only visible when Cover layout is active.
+			$blog_cover_background_color_label = esc_html__( 'Cover Background Color', 'responsive' );
+			responsive_color_control(
+				$wp_customize,
+				'blog_cover_background',                 
+				$blog_cover_background_color_label,
+				'responsive_blog_layout',
+				272,
+				'',                                    
+				'responsive_active_blog_layout_cover_background', 
+				'',
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'color',
+				'refresh'                          
+			);
 		}
 
 	}
