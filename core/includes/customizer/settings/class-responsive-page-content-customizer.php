@@ -61,7 +61,6 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			$general_tab_ids        = array(
 				$general_tab_ids_prefix . 'content_width',
 				$general_tab_ids_prefix . 'elements_separator',
-				$general_tab_ids_prefix . 'single_elements_positioning',
 				$general_tab_ids_prefix . 'featured_image_separator',
 				$general_tab_ids_prefix . 'featured_image_width',
 				$general_tab_ids_prefix . 'featured_image_style',
@@ -84,6 +83,7 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 				$general_tab_ids_prefix . 'container_style',
 				$general_tab_ids_prefix . 'container_layout_separator',
 				$general_tab_ids_prefix . 'container_style_separator',
+				$general_tab_ids_prefix . 'title_area'
 
 			);
 			responsive_tabs_button_control( $wp_customize, 'page_tabs', $tabs_label, 'responsive_page', 5, '', 'responsive_page_content_general_tab', 'responsive_page_content_design_tab', $general_tab_ids, $design_tab_ids, null );
@@ -91,25 +91,36 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			// Page Title Area
 			responsive_section_toggle_control( $wp_customize, 'page_title_area', __( 'Page Title Area', 'responsive' ), 'responsive_page', 8, 'section', 'responsive_page_title_area_layout', true, null, 'refresh', 'Enable the toggle to customize page title title settings.');
 
-			// Single Blog Post Title Tabs
+			// Page Title Tabs
 			$page_title_general_tab_ids = [
 				'customize-control-responsive_page_title_layout',
 				'customize-control-responsive_page_title_horizontal_alignment',
-				'customize-control-responsive_single_blog_title_alignment',
-				'customize-control-responsive_disable_author_meta',
-				'customize-control-responsive_responsive_disable_author_meta_separator',
-				'customize-control-responsive_blog_single_meta',
-				'customize-control-responsive_responsive_blog_single_meta_separator',
-				'customize-control-responsive_single_blog_meta_separator_text',
-				'customize-control-responsive_responsive_single_blog_meta_separator_text_separator',
-				'customize-control-responsive_single_blog_meta_alignment',
-				'customize-control-responsive_single_blog_meta_control_separator',
-				'customize-control-responsive_single_blog_meta_alignment_separator',
-				'customize-control-responsive_blog_single_elements_positioning',
-
+				'customize-control-responsive_page_title_container_width',
+				'customize-control-responsive_page_title_custom_width',
+				'customize-control-responsive_page_title_vertical_alignment',
+				'customize-control-responsive_page_meta_control_separator',
+				'customize-control-responsive_page_single_meta',
+				'customize-control-responsive_page_single_meta_separator_text',
+				'customize-control-responsive_page_single_meta_separator_text_separator',
+				'customize-control-responsive_page_single_elements_positioning',
+				'customize-control-responsive_page_featured_image_separator',
+				'customize-control-responsive_page_featured_image_width',
+				'customize-control-responsive_page_featured_image_width_separator',
+				'customize-control-responsive_page_featured_image_style',
+				'customize-control-responsive_page_featured_image_style_separator',
+				'customize-control-responsive_page_featured_image_alignment',
+				'customize-control-responsive_page_featured_image_alignment_separator',
+				'customize-control-responsive_page_featured_image_position',
+				'customize-control-responsive_page_featured_image_ratio',
+				'customize-control-responsive_page_featured_image_predefined_ratio',
+				'customize-control-responsive_page_featured_image_custom_width',
+				'customize-control-responsive_page_featured_image_custom_height',
+				'customize-control-responsive_page_featured_image_size',
 			];
 
 			$page_title_design_tab_ids = [
+				'customize-control-responsive_page_title_banner_min_height',
+				'customize-control-responsive_page_title_banner_background_color',
 				'customize-control-responsive_page_title_inner_elements_spacing',
 				'customize-control-responsive_page_title_inner_elements_spacing_separator',
 				'customize-control-responsive_page_title_area_title_color',
@@ -119,7 +130,11 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 				'customize-control-responsive_page_title_area_link_hover_separator',
 				'customize-control-responsive_page_title_area_title_typography_group',
 				'customize-control-responsive_page_title_area_text_typography_group',
-				'customize-control-responsive_page_title_area_meta_typography_group'
+				'customize-control-responsive_page_title_area_meta_typography_group',
+				'customize-control-responsive_page_title_banner_padding_padding',
+				'customize-control-responsive_page_title_banner_margin_padding',
+				'customize-control-responsive_page_featured_image_overlay_color',
+				'customize-control-responsive_page_title_area_meta_typography_group_separator'
 			];
 
 			// Single Blog Post Title Tabs
@@ -153,6 +168,100 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 
 			// Page Title Horizontal Alignment
 			responsive_select_button_with_switchers_control( $wp_customize, 'page_title_horizontal_alignment', $page_title_horizontal_alignment_label, 'responsive_page_title_area_layout', 135, $page_title_horizontal_alignment_choices, 'left', null );
+
+			// Container Width.
+			$page_title_container_width_label   = esc_html__( 'Container Width', 'responsive' );
+			$page_title_container_width_choices = array(
+				'full_width' => esc_html__( 'Full Width', 'responsive' ),
+				'custom'     => esc_html__( 'Custom', 'responsive' ),
+			);
+			responsive_select_button_control( $wp_customize, 'page_title_container_width', $page_title_container_width_label, 'responsive_page_title_area_layout', 2, $page_title_container_width_choices, 'full_width', null, 'refresh' );
+
+			// Custom Width.
+			$page_title_custom_width_label = esc_html__( 'Custom Width', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'page_title_custom_width', $page_title_custom_width_label, 'responsive_page_title_area_layout', 3, 1200, null, 1920, 768, 'postMessage' );
+
+			// Vertical Alignment.
+			$page_title_vertical_alignment_label   = esc_html__( 'Vertical Alignment', 'responsive' );
+			$page_title_vertical_alignment_choices = array(
+				'flex-start'   => esc_html__( 'Top', 'responsive' ),
+				'center' => esc_html__( 'Middle', 'responsive' ),
+				'flex-end'  => esc_html__( 'Bottom', 'responsive' ),
+			);
+
+			// Banner Min Height
+			$page_title_banner_min_height_label = esc_html__( 'Banner Min Height', 'responsive' );
+			responsive_drag_number_control_with_switchers( $wp_customize, 'page_title_banner_min_height', $page_title_banner_min_height_label, 'responsive_page_title_area_layout', 4, 0, null, 1000, 0, 'postMessage' );
+
+			// Banner Background Color
+			$page_title_banner_background_color_label = __( 'Banner Background Color', 'responsive' );
+			responsive_color_control_with_device_switchers( $wp_customize, 'page_title_banner_background', $page_title_banner_background_color_label, 'responsive_page_title_area_layout', 4, '#ffffff' );
+
+
+			// Page Title Vertical Alignment
+			responsive_select_button_control( $wp_customize, 'page_title_vertical_alignment', $page_title_vertical_alignment_label, 'responsive_page_title_area_layout', 135, $page_title_vertical_alignment_choices, 'flex-start', null );
+
+			/**
+			* Entry meta.
+			*/
+			$page_meta_label = esc_html__( 'Meta', 'responsive' );
+			responsive_separator_control( $wp_customize, 'page_meta_control_separator', $page_meta_label, 'responsive_page_title_area_layout', 136 );
+
+			/**
+			 * Page Single Meta
+			 */
+			$wp_customize->add_setting(
+				'responsive_page_single_meta',
+				array(
+					'default'           => array( 'author', 'date', 'categories', 'comments', 'tag' ),
+					'sanitize_callback' => 'responsive_sanitize_multi_choices',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_control(
+				new Responsive_Customizer_Sortable_Control(
+					$wp_customize,
+					'responsive_page_single_meta',
+					array(
+						'label'    => esc_html__( 'Meta Elements', 'responsive' ),
+						'section'  => 'responsive_page_title_area_layout',
+						'settings' => 'responsive_page_single_meta',
+						'priority' => 137,
+						'choices'  => apply_filters(
+							'responsive_page_meta_choices',
+							array(
+								'author'     => esc_html__( 'Author', 'responsive' ),
+								'date'       => esc_html__( 'Date Published', 'responsive' ),
+								'updated'    => esc_html__( 'Last Updated', 'responsive' ),
+								'comments'   => esc_html__( 'Comments', 'responsive' ),
+							)
+						),
+					)
+				)
+			);
+
+			// Meta Separator Text.
+			$wp_customize->add_setting(
+				'responsive_page_single_meta_separator_text',
+				array(
+					'default'           => '•',
+					'sanitize_callback' => 'wp_check_invalid_utf8',
+					'type'              => 'theme_mod',
+					'transport'         => 'postMessage',
+				)
+			);
+			$wp_customize->add_control(
+				'responsive_page_single_meta_separator_text',
+				array(
+					'section'  => 'responsive_page_title_area_layout',
+					'settings' => 'responsive_page_single_meta_separator_text',
+					'priority' => 138,
+					'type'     => 'hidden',
+				)
+			);
+
+			responsive_horizontal_separator_control( $wp_customize, 'page_single_meta_separator_text_separator', 1, 'responsive_page_title_area_layout', 139, 1 );
 
 			// Inner Elements Spacing
 			$page_title_inner_elements_spacing_label = esc_html__( 'Inner Elements Spacing', 'responsive' );
@@ -190,12 +299,20 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			$page_meta_typography_label = __( 'Meta Font', 'responsive' );
 			responsive_typography_group_control( $wp_customize, 'page_title_area_meta_typography_group', $page_meta_typography_label, 'responsive_page_title_area_layout', 45, 'page_title_area_meta_typography', true );
 
+			responsive_horizontal_separator_control( $wp_customize, 'page_title_area_meta_typography_group_separator', 1, 'responsive_page_title_area_layout',46, 1 );
+
+			// Padding
+			responsive_unit_padding_control( $wp_customize, 'page_title_banner_padding', 'responsive_page_title_area_layout', 50, 0, 0, null, __( 'Padding', 'responsive' ), 'postMessage','', '', '', '', 'px' );
+
+			// Margin
+			responsive_unit_padding_control( $wp_customize, 'page_title_banner_margin', 'responsive_page_title_area_layout', 55, 0, 0, null, __( 'Margin', 'responsive' ), 'postMessage', '', '', '', '', 'px' );
+
 
 			// Main Content Width.
 			$page_content_width_label = esc_html__( 'Main Content Width (%)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'page_content_width', $page_content_width_label, 'responsive_page', 10, Responsive\Core\get_responsive_customizer_defaults( 'page_content_width' ), null, 100, 1, 'postMessage' );
 
-			responsive_horizontal_separator_control($wp_customize, 'page_content_width_separator', 1, 'responsive_page', 12, 1, );
+			responsive_horizontal_separator_control($wp_customize, 'page_content_width_separator', 1, 'responsive_page', 9, 1, );
 
 			/**
 			 * Page Elements Positioning
@@ -203,7 +320,7 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_page_single_elements_positioning',
 				array(
-					'default'           => array( 'title', 'featured_image', 'content' ),
+					'default'           => array( 'title', 'featured_image' ),
 					'sanitize_callback' => 'responsive_sanitize_multi_choices',
 					'transport'         => 'refresh',
 				)
@@ -215,9 +332,9 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 					'responsive_page_single_elements_positioning',
 					array(
 						'label'    => esc_html__( 'Page Elements', 'responsive' ),
-						'section'  => 'responsive_page',
+						'section'  => 'responsive_page_title_area_layout',
 						'settings' => 'responsive_page_single_elements_positioning',
-						'priority' => 14,
+						'priority' => 140,
 						'choices'  => responsive_page_elements(),
 					)
 				)
@@ -227,24 +344,8 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			 * Entry Elements.
 			 */
 			$page_featured_image_label = esc_html__( 'Page Featured Image', 'responsive' );
-			responsive_separator_control( $wp_customize, 'page_featured_image_separator', $page_featured_image_label, 'responsive_page', 30 );
-
-			// Featured Image Width.
-			$page_featured_image_width_label = esc_html__( 'Image Width Size (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'page_featured_image_width', $page_featured_image_width_label, 'responsive_page', 35, '', null, 4800 );
-
-			responsive_horizontal_separator_control($wp_customize, 'page_featured_image_width_separator', 1, 'responsive_page', 37, 1, );
+			responsive_separator_control( $wp_customize, 'page_featured_image_separator', $page_featured_image_label, 'responsive_page_title_area_layout', 145 );
 			
-			// Style.
-			$featured_image_style_label   = esc_html__( 'Image Style', 'responsive' );
-			$featured_image_style_choices = array(
-				'default'   => esc_html__( 'Default', 'responsive' ),
-				'stretched' => esc_html__( 'Stretched', 'responsive' ),
-			);
-			responsive_select_button_control( $wp_customize, 'page_featured_image_style', $featured_image_style_label, 'responsive_page', 40, $featured_image_style_choices, 'default', null, 'postMessage' );
-
-			responsive_horizontal_separator_control($wp_customize, 'page_featured_image_style_separator', 1, 'responsive_page', 42, 1, );
-
 			// Featured Image Alignment.
 			$featured_image_alignment_label   = esc_html__( 'Image Alignment', 'responsive' );
 			$featured_image_alignment_choices = array(
@@ -259,27 +360,61 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 					'right'  => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
 				);
 			}
-			responsive_select_button_control( $wp_customize, 'page_featured_image_alignment', $featured_image_alignment_label, 'responsive_page', 50, $featured_image_alignment_choices, 'left', null );
+			responsive_select_button_control( $wp_customize, 'page_featured_image_alignment', $featured_image_alignment_label, 'responsive_page_title_area_layout', 150, $featured_image_alignment_choices, 'left', null );
 
-			responsive_horizontal_separator_control($wp_customize, 'page_featured_image_alignment_separator', 2, 'responsive_page', 52, 1, );
-
-			// Alignment.
-			$page_title_alignment_label   = esc_html__( 'Page Title Alignment', 'responsive' );
-			$page_title_alignment_choices = array(
-				'left'   => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
-				'center' => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
-				'right'  => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
+			// Image Position.
+			$page_featured_image_position_label   = esc_html__( 'Image Position', 'responsive' );
+			$page_featured_image_position_choices = array(
+				'none'       => esc_html__( 'None', 'responsive' ),
+				'outside'      => esc_html__( 'Outside', 'responsive' ),
+				'background' => esc_html__( 'Background', 'responsive' ),
 			);
-			if ( is_rtl() ) {
-				$page_title_alignment_choices = array(
-					'left'   => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
-					'center' => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
-					'right'  => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
-				);
-			}
-			responsive_select_button_control( $wp_customize, 'page_title_alignment', $page_title_alignment_label, 'responsive_page', 70, $page_title_alignment_choices, 'left', null );
+			responsive_select_button_control( $wp_customize, 'page_featured_image_position', $page_featured_image_position_label, 'responsive_page_title_area_layout', 152, $page_featured_image_position_choices, 'none', null );
 
-			responsive_horizontal_separator_control($wp_customize, 'page_title_alignment_separator', 2, 'responsive_page', 72, 1, );
+			// Image Ratio.
+			$page_featured_image_ratio_label   = esc_html__( 'Image Ratio', 'responsive' );
+			$page_featured_image_ratio_choices = array(
+				'original'   => esc_html__( 'Original', 'responsive' ),
+				'predefined' => esc_html__( 'Predefined', 'responsive' ),
+				'custom'     => esc_html__( 'Custom', 'responsive' ),
+			);
+			responsive_select_button_control( $wp_customize, 'page_featured_image_ratio', $page_featured_image_ratio_label, 'responsive_page_title_area_layout', 153, $page_featured_image_ratio_choices, 'original', null );
+
+			// Predefined Ratio.
+			$page_featured_image_predefined_ratio_label   = esc_html__( 'Predefined Ratio', 'responsive' );
+			$page_featured_image_predefined_ratio_choices = array(
+				'1:1'  => esc_html__( '1:1', 'responsive' ),
+				'4:3'  => esc_html__( '4:3', 'responsive' ),
+				'16:9' => esc_html__( '16:9', 'responsive' ),
+				'2:1'  => esc_html__( '2:1', 'responsive' ),
+			);
+			responsive_select_button_control( $wp_customize, 'page_featured_image_predefined_ratio', $page_featured_image_predefined_ratio_label, 'responsive_page_title_area_layout', 154, $page_featured_image_predefined_ratio_choices, '1:1', null );
+
+			// Custom Width & Height.
+			$page_featured_image_custom_width_label = esc_html__( 'Custom Width', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'page_featured_image_custom_width', $page_featured_image_custom_width_label, 'responsive_page_title_area_layout', 155, '', null, 4800 );
+
+			$page_featured_image_custom_height_label = esc_html__( 'Custom Height', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'page_featured_image_custom_height', $page_featured_image_custom_height_label, 'responsive_page_title_area_layout', 156, '', null, 4800 );
+
+			// Image Size Dropdown.
+			$page_featured_image_size_label   = esc_html__( 'Image Size', 'responsive' );
+			$page_featured_image_size_choices = array(
+				'full'                          => esc_html__( 'Full Size', 'responsive' ),
+				'thumbnail'                     => esc_html__( 'Thumbnail', 'responsive' ),
+				'medium'                        => esc_html__( 'Medium', 'responsive' ),
+				'medium_large'                  => esc_html__( 'Medium Large', 'responsive' ),
+				'1536x1536'                     => esc_html__( '1536 x 1536', 'responsive' ),
+				'2048x2048'                     => esc_html__( '2048x2048', 'responsive' ),
+				'woocommerce_thumbnail'         => esc_html__( 'woocommerce_thumbnail', 'responsive' ),
+				'woocommerce_single'            => esc_html__( 'woocommerce_single', 'responsive' ),
+				'woocommerce_gallery_thumbnail' => esc_html__( 'woocommerce_gallery_thumbnail', 'responsive' ),
+			);
+			responsive_select_control( $wp_customize, 'page_featured_image_size', $page_featured_image_size_label, 'responsive_page_title_area_layout', 157, $page_featured_image_size_choices, 'full', null );
+
+			// Overlay Color.
+			$page_featured_image_overlay_color_label = esc_html__( 'Overlay Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'page_featured_image_overlay', $page_featured_image_overlay_color_label, 'responsive_page_title_area_layout', 158, '' );
 
 			// Content Alignment.
 			$page_content_alignment_label   = esc_html__( 'Page Content Alignment', 'responsive' );

@@ -591,6 +591,9 @@ body.rtl .customize-control .responsive-switchers li {
 #sub-accordion-section-responsive_blog_layout .responsive-horizontal-separator-control-wrapper {
 	padding-top: 24px;
 }
+#sub-accordion-section-responsive_single_blog_layout .responsive-horizontal-separator-control-wrapper {
+	padding-top: 24px;
+}
 #customize-control-responsive_blog_layout_options .customize-control-title {
 	margin-top: 9px;
 	margin-bottom: 0;
@@ -1104,7 +1107,7 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_footer_primary_height,
 #customize-control-responsive_footer_below_height {
 	padding-top: 22px;
-	border-top: 4px double #D0D0D0;
+	border-top: 4px solid #D0D0D0;
 	margin-top: 24px;
 }
 #customize-control-responsive_footer_above_width,
@@ -1343,7 +1346,7 @@ in both cases the footer builder is active */
 	margin-top: 24px;
 	margin-bottom: 24px;
 }
-#customize-control-responsive_header_html_link_style_separator {
+#customize-control-responsive_header_html_link_style_separator, #customize-control-responsive_width_separator, #customize-control-responsive_single_blog_post_title_typography_group, #customize-control-responsive_single_blog_post_text_typography_group, #customize-control-responsive_single_blog_post_meta_typography_group {
 	margin-top: 24px;
 }
 #customize-control-header_html_typography-color .responsive-color-control-main-wrap .wp-picker-holder {
@@ -1412,7 +1415,20 @@ in both cases the footer builder is active */
 #customize-control-responsive_page_title_inner_elements_spacing_separator,
 #customize-control-responsive_page_title_area_title_typography_group,
 #customize-control-responsive_page_title_area_text_typography_group,
-#customize-control-responsive_page_title_area_meta_typography_group {
+#customize-control-responsive_page_title_area_meta_typography_group,
+#customize-control-responsive_blog_title_area,
+#customize-control-responsive_blog_banner_background_color,
+#customize-control-responsive_blog_post_title_inner_elements_spacing,
+#responsive_blog_post_title_inner_elements_spacing_separator,
+#customize-control-responsive_blog_post_title_typography_group,
+#customize-control-responsive_blog_post_text_typography_group,
+#customize-control-responsive_blog_post_title_inner_elements_spacing_separator,
+#customize-control-res_blog_post_title_text,
+#customize-control-responsive_blog_post_title_toggle,
+#customize-control-responsive_single_blog_banner_background_color,
+#customize-control-responsive_single_blog_post_meta_typography_group_separator,
+#customize-control-responsive_blog_post_text_typography_group_separator,
+#customize-control-responsive_page_title_area_meta_typography_group_separator {
 	margin-top: 24px;
 }
 #customize-control-responsive_cart_icon_separator,
@@ -1806,7 +1822,7 @@ div.customize-section-description{
 	width: 100%;
 	height: calc(100% - 41px);
 }
-.popup-vertical-group .responsive-builder-group-vertical .responsive-builder-area-popup{
+.popup-vertical-group .responsive-builder-group-vertical .responsive-builder-area-popup, #sub-accordion-section-responsive_page_title_area_layout{
 	height: 100%;
 }
 .responsive-builder-areas.popup-vertical-group .responsive-builder-area .responsive-hfb-builder-sortable-panel{

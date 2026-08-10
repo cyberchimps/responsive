@@ -7,7 +7,7 @@
 }
 .customize-control-responsive-range-with-switchers input[type=range] {
     background-color: rgba(0, 0, 0, .1);
-    height: 5px;
+    height: 2px;
     width: 69%;
     padding: 0;
     cursor: pointer;

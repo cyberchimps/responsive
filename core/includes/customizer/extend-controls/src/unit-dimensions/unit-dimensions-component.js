@@ -27,8 +27,8 @@ const UnitDimensionsComponent = props => {
 		}
 	}, []);
 
-	const onConnectedClick = () => {
-		let parent = event.target.parentElement.parentElement.parentElement;
+	const onConnectedClick = (e) => {
+		let parent = e.target.parentElement.parentElement.parentElement;
 		let inputs = parent.querySelectorAll('.responsive-dimensions-input');
 
 		for (let i = 0; i < inputs.length; i++) {
@@ -36,12 +36,14 @@ const UnitDimensionsComponent = props => {
 			inputs[i].setAttribute('data-element-connect', '');
 		}
 
-		event.target.parentElement.classList.remove('unlinked');
+		e.target.parentElement.classList.remove('unlinked');
+		e.target.parentElement.style.backgroundColor = '';
+		e.target.parentElement.style.color = '';
 	};
 
-	const onDisconnectedClick = () => {
-		let elements = event.target.dataset.elementConnect;
-		let parent = event.target.parentElement.parentElement.parentElement;
+	const onDisconnectedClick = (e) => {
+		let elements = e.target.dataset.elementConnect;
+		let parent = e.target.parentElement.parentElement.parentElement;
 		let inputs = parent.querySelectorAll('.responsive-dimensions-input');
 
 		for (let i = 0; i < inputs.length; i++) {
@@ -49,10 +51,12 @@ const UnitDimensionsComponent = props => {
 			inputs[i].setAttribute('data-element-connect', elements);
 		}
 
-		event.target.parentElement.classList.add('unlinked');
+		e.target.parentElement.classList.add('unlinked');
+		e.target.parentElement.style.backgroundColor = '#13aff0';
+		e.target.parentElement.style.color = '#fff';
 	};
 
-	const onSpacingChange = (device, choiceID) => {
+	const onSpacingChange = (e, device, choiceID) => {
 		let updateState = {
 			...props_value
 		};
@@ -60,12 +64,12 @@ const UnitDimensionsComponent = props => {
 			...updateState[device]
 		};
 		
-		if (!event.target.classList.contains('linked')) {
-			deviceUpdateState[choiceID].value = event.target.value;
-			props.control.settings[choiceID].set(event.target.value);
+		if (!e.target.classList.contains('linked')) {
+			deviceUpdateState[choiceID].value = e.target.value;
+			props.control.settings[choiceID].set(e.target.value);
 		} else {
 			for (let cID in deviceUpdateState) {
-				let value = event.target.value;
+				let value = e.target.value;
 				deviceUpdateState[cID].value = value;
 				props.control.settings[cID].set(value);
 			}
@@ -113,7 +117,7 @@ const UnitDimensionsComponent = props => {
 		}
 
 		linkHtml = <li key={'connect-disconnect' + device} className="dimension-wrap">
-			<div className="link-dimensions unlinked">
+			<div className="link-dimensions unlinked" style={{backgroundColor: '#13aff0', color: '#fff'}}>
 				<span key={'connect' + device}
 					className="dashicons dashicons-admin-links responsive-linked"
 					onClick={(e) => {
@@ -155,7 +159,7 @@ const UnitDimensionsComponent = props => {
 				}
 				let html = <li key={props_value[device][choiceID].id}  className={`dimension-wrap ${choiceID}`}>
 					<input  type='number' {...attr} className={`dimensions-${choiceID} linked responsive-dimensions-input`} data-id={props_value[device][choiceID].id}
-						   value={props_value[device][choiceID].value} onChange={(e) => { event = e; onSpacingChange(device, choiceID); }}
+						   value={props_value[device][choiceID].value} onChange={(e) => onSpacingChange(e, device, choiceID)}
 						   data-element={dataElement}
 						   data-customize-setting-link = {link}
 						/>
