@@ -119,6 +119,8 @@ if ( ! function_exists( 'responsive_blog_single_elements' ) ) {
 				'title'          => esc_html__( 'Title', 'responsive' ),
 				'featured_image' => esc_html__( 'Featured Image', 'responsive' ),
 				'meta'           => esc_html__( 'Meta', 'responsive' ),
+				'content'        => esc_html__( 'Content', 'responsive' ),
+				'excerpt'        => esc_html__( 'Excerpt', 'responsive' ),
 			)
 		);
 
@@ -1160,7 +1162,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	);
 }
 
-function responsive_unit_padding_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Padding', $transport = 'postMessage', $default_tablet_values_y = null, $default_tablet_values_x = null, $default_mobile_values_y = null, $default_mobile_values_x = null, $default_unit = 'px', $default_bottom = null, $default_right = null, $default_tablet_bottom = null, $default_tablet_right = null, $default_mobile_bottom = null, $default_mobile_right = null ) {
+function responsive_unit_padding_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Padding', $transport = 'postMessage', $default_tablet_values_y = null, $default_tablet_values_x = null, $default_mobile_values_y = null, $default_mobile_values_x = null, $default_unit = 'px' ) {
 	/**
 	 *  Padding control.
 	 */
@@ -1186,7 +1188,7 @@ function responsive_unit_padding_control( $wp_customize, $element, $section, $pr
 		array(
 			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => isset( $default_bottom ) ? $default_bottom : $default_values_y,
+			'default'           => $default_values_y,
 		)
 	);
 	$wp_customize->add_setting(
@@ -1194,7 +1196,7 @@ function responsive_unit_padding_control( $wp_customize, $element, $section, $pr
 		array(
 			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => isset( $default_right ) ? $default_right : $default_values_x,
+			'default'           => $default_values_x,
 		)
 	);
 	$wp_customize->add_setting(
@@ -1210,7 +1212,7 @@ function responsive_unit_padding_control( $wp_customize, $element, $section, $pr
 		array(
 			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => isset( $default_tablet_right ) ? $default_tablet_right : ( isset( $default_tablet_values_x ) ? $default_tablet_values_x : $default_values_x ),
+			'default'           => isset( $default_tablet_values_x ) ? $default_tablet_values_x : $default_values_x,
 		)
 	);
 	$wp_customize->add_setting(
@@ -1218,7 +1220,7 @@ function responsive_unit_padding_control( $wp_customize, $element, $section, $pr
 		array(
 			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => isset( $default_tablet_bottom ) ? $default_tablet_bottom : ( isset( $default_tablet_values_y ) ? $default_tablet_values_y : $default_values_y ),
+			'default'           => isset( $default_tablet_values_y ) ? $default_tablet_values_y : $default_values_y,
 		)
 	);
 	$wp_customize->add_setting(
@@ -1243,7 +1245,7 @@ function responsive_unit_padding_control( $wp_customize, $element, $section, $pr
 		array(
 			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => isset( $default_mobile_right ) ? $default_mobile_right : ( isset( $default_mobile_values_x ) ? $default_mobile_values_x : $default_values_x ),
+			'default'           => isset( $default_mobile_values_x ) ? $default_mobile_values_x : $default_values_x,
 		)
 	);
 	$wp_customize->add_setting(
@@ -1251,7 +1253,7 @@ function responsive_unit_padding_control( $wp_customize, $element, $section, $pr
 		array(
 			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => isset( $default_mobile_bottom ) ? $default_mobile_bottom : ( isset( $default_mobile_values_y ) ? $default_mobile_values_y : $default_values_y ),
+			'default'           => isset( $default_mobile_values_y ) ? $default_mobile_values_y : $default_values_y,
 		)
 	);
 	$wp_customize->add_setting(
@@ -4620,4 +4622,15 @@ function responsive_section_toggle_control( $wp_customize, $element, $label, $se
 			)
 		)
 	);
+}
+
+if ( ! function_exists( 'responsive_show_post_author_box' ) ) {
+	/**
+	 * Determines whether the Author Box Style control should show.
+	 *
+	 * @return bool true if author box is NOT disabled, false otherwise.
+	 */
+	function responsive_show_post_author_box() {
+		return ! (bool) get_theme_mod( 'responsive_disable_author_meta', 0 );
+	}
 }
