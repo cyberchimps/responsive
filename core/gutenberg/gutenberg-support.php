@@ -139,10 +139,10 @@ function responsive_gutenberg_customizer_css() {
 	$secondary_buttons_padding_bottom = esc_html( get_theme_mod( 'responsive_secondary_buttons_bottom_padding', 10 ) );
 
 	// Secondary Button Radius.
-	$secondary_button_top_left_radius     = esc_html( get_theme_mod( 'responsive_border_secondary_buttons_radius_top_left_radius', 0 ) );
-	$secondary_button_top_right_radius    = esc_html( get_theme_mod( 'responsive_border_secondary_buttons_radius_top_right_radius', 0 ) );
-	$secondary_button_bottom_right_radius = esc_html( get_theme_mod( 'responsive_border_secondary_buttons_radius_bottom_right_radius', 0 ) );
-	$secondary_button_bottom_left_radius  = esc_html( get_theme_mod( 'responsive_border_secondary_buttons_radius_bottom_left_radius', 0 ) );
+	$secondary_button_top_left_radius     = esc_html( get_theme_mod( 'responsive_secondary_buttons_radius_top_left_radius', get_theme_mod( 'responsive_border_secondary_buttons_radius_top_left_radius', 0 ) ) );
+	$secondary_button_top_right_radius    = esc_html( get_theme_mod( 'responsive_secondary_buttons_radius_top_right_radius', get_theme_mod( 'responsive_border_secondary_buttons_radius_top_right_radius', 0 ) ) );
+	$secondary_button_bottom_right_radius = esc_html( get_theme_mod( 'responsive_secondary_buttons_radius_bottom_right_radius', get_theme_mod( 'responsive_border_secondary_buttons_radius_bottom_right_radius', 0 ) ) );
+	$secondary_button_bottom_left_radius  = esc_html( get_theme_mod( 'responsive_secondary_buttons_radius_bottom_left_radius', get_theme_mod( 'responsive_border_secondary_buttons_radius_bottom_left_radius', 0 ) ) );
 
 	// Secondary Border Width.
 	$secondary_buttons_border_width_top    = esc_html( get_theme_mod( 'responsive_secondary_buttons_border_width_top_border', 2 ) );

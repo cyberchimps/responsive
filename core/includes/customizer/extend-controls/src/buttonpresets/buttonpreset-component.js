@@ -23,6 +23,12 @@ const ButtonPresetComponent = ( props ) => {
 
 	const [selected, setSelected] = useState( () => props.control.setting.get() || '' );
 
+	const controlId = props.control.id || '';
+	const isSecondary = controlId.includes( 'secondary' );
+	const radiusPrefix = isSecondary ? 'responsive_secondary_buttons_radius_' : 'responsive_buttons_radius_';
+	const borderPrefix = isSecondary ? 'responsive_secondary_buttons_border_width_' : 'responsive_buttons_border_width_';
+	const defaultBorderWidth = isSecondary ? 2 : 0;
+
 	const applyPreset = ( presetKey ) => {
 		const choice = choices[ presetKey ];
 		if ( ! choice ) return;
@@ -31,12 +37,12 @@ const ButtonPresetComponent = ( props ) => {
 		setSelected( presetKey );
 
 		RADIUS_SIDES.forEach( ( side ) => {
-			const s = api( `responsive_buttons_radius_${ side }_radius` );
+			const s = api( `${ radiusPrefix }${ side }_radius` );
 			if ( s ) s.set( choice.radius );
 		} );
 
 		BORDER_SIDES.forEach( ( side ) => {
-			const s = api( `responsive_buttons_border_width_${ side }_border` );
+			const s = api( `${ borderPrefix }${ side }_border` );
 			if ( s ) s.set( choice.border_width );
 		} );
 	};
@@ -46,13 +52,13 @@ const ButtonPresetComponent = ( props ) => {
 		setSelected( '' );
 
 		RADIUS_SIDES.forEach( ( side ) => {
-			const s = api( `responsive_buttons_radius_${ side }_radius` );
+			const s = api( `${ radiusPrefix }${ side }_radius` );
 			if ( s ) s.set( 0 );
 		} );
 
 		BORDER_SIDES.forEach( ( side ) => {
-			const s = api( `responsive_buttons_border_width_${ side }_border` );
-			if ( s ) s.set( 0 );
+			const s = api( `${ borderPrefix }${ side }_border` );
+			if ( s ) s.set( defaultBorderWidth );
 		} );
 	};
 

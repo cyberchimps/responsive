@@ -956,18 +956,32 @@
 
     //Secondary Buttons radius
     ['top_left_radius', 'top_right_radius', 'bottom_right_radius', 'bottom_left_radius'].forEach(function(radius) {
+        function updateSecondaryRadius() {
+            var styleId = 'responsive-secondary-button-radius-preview';
+            jQuery('style#' + styleId).remove();
+            function getRadius(key) {
+                if (api('responsive_secondary_buttons_radius_' + key)) {
+                    return api('responsive_secondary_buttons_radius_' + key).get();
+                }
+                if (api('responsive_border_secondary_buttons_radius_' + key)) {
+                    return api('responsive_border_secondary_buttons_radius_' + key).get();
+                }
+                return 0;
+            }
+            var tl = getRadius('top_left_radius');
+            var tr = getRadius('top_right_radius');
+            var br = getRadius('bottom_right_radius');
+            var bl = getRadius('bottom_left_radius');
+            var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link';
+            var css = selectors + ' { border-radius: ' + tl + 'px ' + tr + 'px ' + br + 'px ' + bl + 'px; }';
+            jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+        }
+
+        api( 'responsive_secondary_buttons_radius_' + radius, function( value ) {
+            value.bind( updateSecondaryRadius );
+        } );
         api( 'responsive_border_secondary_buttons_radius_' + radius, function( value ) {
-            value.bind( function() {
-                var styleId = 'responsive-secondary-button-radius-preview';
-                jQuery('style#' + styleId).remove();
-                var tl = api('responsive_border_secondary_buttons_radius_top_left_radius') ? api('responsive_border_secondary_buttons_radius_top_left_radius').get() : 0;
-                var tr = api('responsive_border_secondary_buttons_radius_top_right_radius') ? api('responsive_border_secondary_buttons_radius_top_right_radius').get() : 0;
-                var br = api('responsive_border_secondary_buttons_radius_bottom_right_radius') ? api('responsive_border_secondary_buttons_radius_bottom_right_radius').get() : 0;
-                var bl = api('responsive_border_secondary_buttons_radius_bottom_left_radius') ? api('responsive_border_secondary_buttons_radius_bottom_left_radius').get() : 0;
-                var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link';
-                var css = selectors + ' { border-radius: ' + tl + 'px ' + tr + 'px ' + br + 'px ' + bl + 'px; }';
-                jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
-            } );
+            value.bind( updateSecondaryRadius );
         } );
     });
 
