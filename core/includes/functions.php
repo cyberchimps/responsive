@@ -1296,7 +1296,7 @@ function defaults() {
 			'header_site_title_hover'             => '#10659C',
 			'header_text'						  => 'palette2',
 
-			'responsive_header_site_title_color'       => 'palette3',
+			'responsive_header_site_title_color'       => 'palette2',
 			'responsive_header_site_title_hover_color' => 'palette1',
 			'responsive_sidebar_headings_color'   => 'palette3',
 			'responsive_header_text_color'        => 'palette2',
@@ -1319,7 +1319,7 @@ function defaults() {
 			'header_menu_link'                    => '#333333',
 			'header_menu_link_hover'              => 'pallete1',
 			'responsive_header_menu_link_hover_color' => 'palette1',
-			'responsive_header_menu_link_color'   => 'palette3',
+			'responsive_header_menu_link_color'   => 'palette2',
 			'header_sub_menu_background'          => '#ffffff',
 			'header_sub_menu_link'                => 'palette0',
 			'header_sub_menu_link_hover'          => 'palette1',
