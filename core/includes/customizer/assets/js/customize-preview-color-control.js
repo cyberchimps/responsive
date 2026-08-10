@@ -5129,5 +5129,14 @@
             ).css( 'background-color', newval );
         } );
     } );
+   // Blog/Archive Blog Layout - Cover background color
+    api( 'responsive_blog_cover_background_color', function( value ) {
+        value.bind( function( newval ) {
+            if ( newval && newval.includes( 'palette' ) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.blog:not(.custom-home-page-active) .site-content .hentry, .archive:not(.post-type-archive-product) .site-content .hentry ').css( 'background-color', newval );
+        } );
+    } );
 
 } )( jQuery );
