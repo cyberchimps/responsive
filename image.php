@@ -56,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						the_excerpt();
 					}
 					?>
-					<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
+					<?php the_content( __( 'Read more →', 'responsive' ) ); ?>
 					<?php
 					wp_link_pages(
 						array(

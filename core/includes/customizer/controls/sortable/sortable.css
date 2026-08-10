@@ -1,17 +1,22 @@
 .customize-control-responsive-sortable ul li { 
-    padding: 9px 8px;
-    line-height: 20px;
-    border: 1px solid #ccc;
     background: #fff;
     border: 1px solid #EAEAEA;
     box-shadow: 0px 0px 8px -3px #00000040;
     margin: 0;
     border-radius: 5px;
     display: flex;
+    flex-direction: column;
+}
+.customize-control-responsive-sortable ul li .responsive-sortable-item-header {
+    padding: 9px 8px;
+    line-height: 20px;
+    display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
 }
-.customize-control-responsive-sortable ul li .visibility { line-height: 0; float: right; }
+.customize-control-responsive-sortable ul li .visibility { line-height: 0; }
 .responsive-sortable-items-wrapper {
     padding: 18px;
     border: 1px solid #D2D2D2;
@@ -45,4 +50,38 @@
     font-weight: 400;
     line-height: 16px;
     color: #50575E;
+}
+
+/* Sub-controls styling */
+.responsive-sortable-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.responsive-sortable-chevron {
+    cursor: pointer;
+    line-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+.responsive-sortable-chevron.expanded {
+    transform: rotate(180deg);
+}
+li.invisible .responsive-sortable-chevron {
+    display: none;
+}
+.responsive-sortable-dropdown {
+    padding: 15px;
+    border-top: 1px solid #EAEAEA;
+    background: #F9F9F9;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.responsive-sortable-dropdown > .customize-control {
+    margin-bottom: 15px;
+}
+.responsive-sortable-dropdown > .customize-control:last-child {
+    margin-bottom: 0;
 }

@@ -41,14 +41,14 @@ const TypographyComponent = props => {
     if (id === 'responsive_font_family') {
 
         let familyDescriptionHtml = null;
-        let defaultValue = __( 'Arial, Helvetica, sans-serif', 'responsive' );
+        let defaultValue = resp_inherit || __( 'Default', 'responsive' );
         let stdFonts = standard_fonts;
         let googleFonts = google_fonts;
         let customFonts = custom_fonts;
         let optgrpOfStandardFonts = null;
         let optgrpOfCustomFonts = null;
         let optgrpOfGoogleFonts = null;
-        let optgrpOfStandardFontsLabel = __( 'Standard Fonts', 'responsive' );
+        let optgrpOfStandardFontsLabel = __( 'System Fonts', 'responsive' );
         let optgrpOfGoogleFontsLabel = __( 'Google Fonts', 'responsive' );
         let optgrpOfCustomFontsLabel = __( 'Custom Fonts', 'responsive' );
         let standardFontsOptionsHtml = null;
@@ -60,7 +60,8 @@ const TypographyComponent = props => {
         }
         if (stdFonts) {
             standardFontsOptionsHtml = Object.entries(stdFonts).map(font => {
-                let html = <option key={font[0]} value={`\'${font[0]}\', ${font[1][1]}`}>{font[0]}</option>;
+                let fontValue = font[0] === 'System Font' ? font[0] : `\'${font[0]}\', ${font[1][1]}`;
+                let html = <option key={font[0]} value={fontValue}>{font[0]}</option>;
 		        return html;
             });
         }

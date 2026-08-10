@@ -49,6 +49,9 @@ if ( ! class_exists( 'Responsive_Theme_Background_Updater' ) ) {
             ),
             '6.3.4' => array (
                 'responsive_theme_background_updater_footer_links_restyle'
+            ),
+            '6.4.1' => array (
+                'responsive_theme_background_updater_blog_container_margin_legacy'
             )
 		);
 

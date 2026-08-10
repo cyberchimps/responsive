@@ -132,7 +132,7 @@ function responsive_read_more() {
 	global $post;
 	if ( is_object( $post ) ) {
 		if ( 'product' !== $post->post_type ) {
-			return '<div class="read-more"><a href="' . get_permalink() . '">' . __( 'Read more &#8250;', 'responsive' ) . '</a></div><!-- end of .read-more -->';
+			return '<div class="read-more"><a class="more-link" href="' . get_permalink() . '">' . __( 'Read more →', 'responsive' ) . '</a></div><!-- end of .read-more -->';
 		}
 	}
 }

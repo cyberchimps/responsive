@@ -1,4 +1,30 @@
 /* Loader */
+.site-content .container {
+  margin: 52px auto;
+}
+
+body.responsive-blog-container-margin-legacy .site-content .container {
+  margin-top: unset;
+  margin-bottom: unset;
+}
+
+.blog .site-content article, .category .site-content article, .search .site-content article, .author .site-content article {
+  height: 100%;
+}
+
+.post-entry .wp-block-quote {
+  border-left: 1px solid #404040;
+}
+
+.blog.responsive-site-style-content-boxed .site-content #main-blog  {
+  padding: 30px;
+  row-gap: 24px;
+}
+
+.responsive-site-style-content-boxed .site-content .comments-area, .responsive-site-style-content-boxed .site-content .comment-respond {
+  background: none;
+}
+
 .responsive-loader {
     display: none;
     margin: 0 auto;

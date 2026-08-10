@@ -32,20 +32,19 @@ do_action( 'responsive_before_blog_entry_meta' );
 				<?php
 					printf(
 						/* translators: 1: byline, 2: author */
-						'<span class="%3$s">' . esc_html_e( 'By ', 'responsive' ) . '</span>%4$s',
+						'<span class="%3$s"></span>%4$s',
 						'meta-prep meta-prep-author posted',
 						sprintf(
 							'<a href="%1$s" aria-label="%2$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s">%4$s</time></a>',
 							esc_url( get_permalink() ),
 							esc_attr( get_the_title() ),
 							esc_html( get_the_date( 'c' ) ),
-							esc_html( get_the_date() )
+							esc_html( get_the_date( 'M j, Y' ) )
 						),
 						'byline',
 						sprintf(
 							'<span class="author vcard">
 								<a class="url fn n" href="%1$s" aria-label="%2$s" title="%2$s" itemprop="url">
-									<i class="icon-user"></i>
 									<span itemprop="name">%3$s</span>
 								</a>
 							</span>',
@@ -66,14 +65,14 @@ do_action( 'responsive_before_blog_entry_meta' );
 					<?php
 						printf(
 							/* translators: 1: class, 2: date */
-							'<i class="icon-calendar" aria-hidden="true"></i><span>' . esc_html_e( 'Posted on ', 'responsive' ) . '</span><span class="%1$s" itemprop="datePublished">%2$s</span>',
+							'<span class="%1$s" itemprop="datePublished">%2$s</span>',
 							'meta-prep meta-prep-author posted',
 							sprintf(
 								'<a href="%1$s" aria-label="%2$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s" itemprop="dateModified">%4$s</time></a>',
 								esc_url( get_permalink() ),
 								esc_attr( get_the_title() ),
 								esc_html( get_the_date( 'c' ) ),
-								esc_html( get_the_date() )
+								esc_html( get_the_date( 'M j, Y' ) )
 							)
 						);
 					?>
@@ -94,7 +93,7 @@ do_action( 'responsive_before_blog_entry_meta' );
 								esc_url( get_permalink() ),
 								esc_attr( get_the_title() ),
 								esc_html( get_the_modified_date( 'c' ) ),
-								esc_html( get_the_modified_date() )
+								esc_html( get_the_modified_date( 'M j, Y' ) )
 							)
 						);
 					?>
@@ -116,18 +115,7 @@ do_action( 'responsive_before_blog_entry_meta' );
 			<?php
 		}
 
-		if ( 'categories' === $section ) {
-			?>
-			<span class="entry-category">
-				<span class='posted-in'><i class="icon-folder-open" aria-hidden="true"></i>
-					<?php
-					/* translators: %s: category list */
-					printf( esc_html__( 'Posted in %s', 'responsive' ), wp_kses_post( get_the_category_list( __( ', ', 'responsive' ) ) ) );
-					?>
-				</span>
-			</span>
-			<?php
-		}
+
 		if ( 'tag' === $section ) {
 			?>
 			<?php if ( has_tag() ) { ?>

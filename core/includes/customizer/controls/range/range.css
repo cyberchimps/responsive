@@ -10,21 +10,26 @@
 }
 
 /* Container Width: show description (note) after slider UI */
-#customize-control-responsive_container_width > label {
+#customize-control-responsive_container_width > label,
+#customize-control-responsive_narrow_container_width > label {
     display: flex;
     flex-direction: column;
 }
-#customize-control-responsive_container_width > label > .responsive-range-control-label {
+#customize-control-responsive_container_width > label > .responsive-range-control-label,
+#customize-control-responsive_narrow_container_width > label > .responsive-range-control-label {
     order: 1;
 }
-#customize-control-responsive_container_width > label > .control-wrap {
+#customize-control-responsive_container_width > label > .control-wrap,
+#customize-control-responsive_narrow_container_width > label > .control-wrap {
     order: 2;
 }
-#customize-control-responsive_container_width > label > .customize-control-description {
+#customize-control-responsive_container_width > label > .customize-control-description,
+#customize-control-responsive_narrow_container_width > label > .customize-control-description {
     order: 3;
     padding-top: 5px;
 }
-#customize-control-responsive_container_width .customize-control-description {
+#customize-control-responsive_container_width .customize-control-description,
+#customize-control-responsive_narrow_container_width .customize-control-description {
 	font-size: 12px;
 	line-height: 18px;
 	color: #a4a4a4;
