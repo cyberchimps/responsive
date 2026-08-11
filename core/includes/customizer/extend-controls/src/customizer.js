@@ -437,8 +437,8 @@
         if (typeof value === 'string' && value.startsWith('palette')) {
             return `var(--responsive-global-${value})`;
         }
-        if (typeof value === 'string' && value === 'border-color') {
-            return `var(--responsive-border-color)`;
+        if (typeof value === 'string' && value.startsWith('title-above-content')) {
+            return `var(--responsive-${value})`;
         }
         return value;
 	}
