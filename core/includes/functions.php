@@ -1388,6 +1388,11 @@ function defaults() {
 			'inputs_border'                       => '#cccccc',
 			'responsive_title_above_content_bg_color'      => '',
 			'responsive_title_above_content_overlay_color' => '',
+			'responsive_blog_banner_background_color'       => 'title-above-content-bg-color',
+			'responsive_single_blog_banner_background_color' => 'title-above-content-bg-color',
+			'responsive_page_title_banner_background_color' => 'title-above-content-bg-color',
+			'responsive_single_blog_featured_image_overlay_color' => 'title-above-content-overlay-color',
+			'responsive_page_featured_image_overlay_color'  => 'title-above-content-overlay-color',
 			'responsive_link_style'               => 'standard',
 			'label'                               => '#404040',
 
