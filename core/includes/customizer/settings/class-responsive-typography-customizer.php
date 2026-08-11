@@ -625,7 +625,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					)
 				),
 				'blog_post_text' => array(
-					'label'	   => esc_html( 'Typography', 'responsive' ),
+					'label'	   => esc_html__( 'Typography', 'responsive' ),
 					'target'   => $selectorArray['blog_post_text'],
 					'section'  => 'responsive_blog_title_layout', 
 					'exclude'  => array( 'font-color' ),
@@ -727,6 +727,14 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'single_blog_breadcrumb' => '.single.single-post .breadcrumbs',
 				'single_blog_category'   => '.single.single-post .entry-category a',
 				'single_blog_meta'		 => '.single.single-post .hentry .post-meta .entry-author, .single.single-post .hentry .post-meta .entry-date',
+				'single_blog_post_text'      => '.single-post .entry-header *:not(.post-meta):not(.post-meta *):not(.post-title), .responsive-blog-single-banner2 .container *:not(.post-meta):not(.post-meta *):not(.post-title)',
+				'single_blog_post_title'     => '.single-post .site-content article .post-entry .post-title, .single-post .responsive-blog-single-banner2 .post-title',
+				'single_blog_post_meta'      => '.single-post .site-content article .post-entry .post-meta span, .single-post .site-content article .post-entry .post-meta i, .single-post .site-content article .post-entry .post-meta span a, .single-post .site-content article .post-entry .post-meta span a time, .single-post .site-content article .post-entry .entry-meta, .responsive-blog-single-banner2 .container .post-meta span, .responsive-blog-single-banner2 .container .post-meta i, .responsive-blog-single-banner2 .container .post-meta span a, .responsive-blog-single-banner2 .container .post-meta span a time, .responsive-blog-single-banner2 .container .entry-meta',
+				'page_title_area_text'		 => '.responsive-single-entry-banner .container, .page .entry-header',
+				'page_title_area_title'      => '.page #page .post-entry .post-title, .responsive-single-entry-banner .container .entry-title',
+				'page_title_area_meta' 		 => '.page .entry-header .post-meta, .page .entry-header .post-meta span, .page .entry-header .post-meta span time, .page .entry-header .post-meta span a, .page .entry-header .post-meta i, .responsive-single-entry-banner .container .post-meta, .responsive-single-entry-banner .container .post-meta span, .responsive-single-entry-banner .container .post-meta span a, .responsive-single-entry-banner .container .post-meta time, .responsive-single-entry-banner .container .post-meta i',	
+				'blog_post_title'			 => 'body .responsive-archive-entry-banner .page-title, body .responsive-archive-entry-banner .page-title *, body.archive:not(.woocommerce) .site-content-header .page-title, body.archive:not(.woocommerce) .site-content-header .page-title *',
+				'blog_post_text'			 => '.responsive-archive-entry-banner .container *, .archive:not(.woocommerce) .site-content-header *'
 			);
 
 			if ( $this->is_responsive_version_greater() ) {
