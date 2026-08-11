@@ -5138,5 +5138,266 @@
             $('.blog:not(.custom-home-page-active) .site-content .hentry, .archive:not(.post-type-archive-product) .site-content .hentry ').css( 'background-color', newval );
         } );
     } );
+     // Single Blog Post Title Color
+    api( 'responsive_single_blog_post_title_color', function(value) {
+        value.bind(function(newval) {
+            $('.single-post .entry-title').css('color', newval);
+        })
+    });
+
+    // Single Blog Post Text Color
+    api( 'responsive_single_blog_post_text_color', function(value) {
+        value.bind(function(newval) {
+            $('.responsive-blog-single-banner2 .container *, .single-post .entry-header *').css('color', newval);
+        })
+    });
+
+    // Single Blog Post Title Banner Background
+    api('responsive_single_blog_banner_background_color', function(val) {
+        val.bind(function(newval) {
+
+            jQuery('style#responsive-single-blog-banner-background-color').remove();
+
+            jQuery('head').append(
+                '<style id="responsive-single-blog-banner-background-color">' +
+                '@media screen and (min-width: 993px) {' +
+                ' .responsive-blog-single-banner2 { background-color: ' + newval + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+    api('responsive_single_blog_banner_background_color_tablet', function(val) {
+        val.bind(function(newval) {
+
+            jQuery('style#responsive-single-blog-banner-background-color-tablet').remove();
+
+            jQuery('head').append(
+                '<style id="responsive-single-blog-banner-background-color-tablet">' +
+                '@media screen and (min-width: 577px) and (max-width: 992px) {' +
+                ' .responsive-blog-single-banner2 { background-color: ' + newval + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+    api('responsive_single_blog_banner_background_color_mobile', function(val) {
+        val.bind(function(newval) {
+
+            jQuery('style#responsive-single-blog-banner-background-color-mobile').remove();
+
+            jQuery('head').append(
+                '<style id="responsive-single-blog-banner-background-color-mobile">' +
+                '@media screen and (max-width: 576px) {' +
+                ' .responsive-blog-single-banner2 { background-color: ' + newval + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+
+    // Blog/Archive Text Color
+    api( 'responsive_blog_post_text_color', function(value) {
+        value.bind(function(newval) {
+            if( newval && newval.includes('palette') ) {
+                    newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.responsive-archive-entry-banner .container *, .archive:not(.woocommerce) .site-content-header *').css('color', newval);
+        })
+    });
+
+    // Blog/Archive Title Color
+    api( 'responsive_blog_post_title_color', function(value) {
+        value.bind(function(newval) {
+             if( newval && newval.includes('palette') ) {
+                    newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.responsive-archive-entry-banner .page-title, .responsive-archive-entry-banner .page-title *, .archive:not(.woocommerce) .site-content-header .page-title, .archive:not(.woocommerce) .site-content-header .page-title *').css('color', newval);
+        })
+    });
+
+    // Blog/Archive Link Color
+    api( 'responsive_blog_post_link_color', function(value) {
+        value.bind(function(newval) {
+             if( newval && newval.includes('palette') ) {
+                    newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.responsive-archive-entry-banner .container a, .responsive-archive-entry-banner .container a *, .archive:not(.woocommerce) .site-content-header a, .archive:not(.woocommerce) .site-content-header a *').css('color', newval);
+        })
+    });
+
+    // Blog/Archive Link Hover Color
+    api( 'responsive_blog_post_link_hover_color', function(value) {
+        value.bind(function(newval) {
+             if( newval && newval.includes('palette') ) {
+                    newval = 'var(--responsive-global-' + newval + ')';
+            }
+            var styleId = 'responsive-blog-post-link-hover-color-preview';
+            $('#' + styleId).remove();
+            
+            if (newval) {
+                var selectors = '.responsive-archive-entry-banner .container a:hover *, .responsive-archive-entry-banner .container a:hover, .archive:not(.woocommerce) .site-content-header a:hover, .archive:not(.woocommerce) .site-content-header a:hover *';
+                jQuery('head').append(
+                    '<style id="' + styleId + '">' +
+                    selectors + ' { color: ' + newval + ' !important; }' +
+                    '</style>'
+                );
+            }
+        })
+    });
+
+    // Blog/Archive Title Banner Background
+    api('responsive_blog_banner_background_color', function(val) {
+        val.bind(function(newval) {
+
+            jQuery('style#responsive_blog_banner_background_color').remove();
+
+            jQuery('head').append(
+                '<style id="responsive_blog_banner_background_color">' +
+                '@media screen and (min-width: 993px) {' +
+                ' .responsive-archive-entry-banner, .archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+    api('responsive_blog_banner_background_color_tablet', function(val) {
+        val.bind(function(newval) {
+
+            jQuery('style#responsive-single-blog-banner-background-color-tablet').remove();
+
+            jQuery('head').append(
+                '<style id="responsive_blog_banner_background_color-tablet">' +
+                '@media screen and (min-width: 577px) and (max-width: 992px) {' +
+                ' .responsive-archive-entry-banner, .archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+    api('responsive_blog_banner_background_color_mobile', function(val) {
+        val.bind(function(newval) {
+
+            jQuery('style#responsive_blog_banner_background_color-mobile').remove();
+
+            jQuery('head').append(
+                '<style id="responsive_blog_banner_background_color-mobile">' +
+                '@media screen and (max-width: 576px) {' +
+                ' .responsive-archive-entry-banner, .archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+
+    // Page Title Area Title
+    api( 'responsive_page_title_area_text_color', function(value) {
+        value.bind(function(newval) {
+            if( newval && newval.includes('palette') ) {
+                    newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.responsive-single-entry-banner .container *, .page .entry-header *').css('color', newval);
+        })
+    });
+
+    // Page Title Area Title Color
+    api( 'responsive_page_title_area_title_color', function(value) {
+        value.bind(function(newval) {
+             if( newval && newval.includes('palette') ) {
+                    newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.responsive-single-entry-banner .container .entry-title, .page .entry-header .entry-title').css('color', newval);
+        })
+    });
+
+    // Page Title Area Link Color
+    api( 'responsive_page_title_area_link_color', function(value) {
+        value.bind(function(newval) {
+             if( newval && newval.includes('palette') ) {
+                    newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.page .entry-header a, .page .entry-header a *, .responsive-single-entry-banner .container a, .responsive-single-entry-banner .container a *').css('color', newval);
+        })
+    });
+
+    // Page Title Area Link Hover Color
+    api( 'responsive_page_title_area_link_hover_color', function(value) {
+        value.bind(function(newval) {
+             if( newval && newval.includes('palette') ) {
+                    newval = 'var(--responsive-global-' + newval + ')';
+            }
+            var styleId = 'responsive-page-title-area-link-hover-color-preview';
+            $('#' + styleId).remove();
+            
+            if (newval) {
+                var selectors = '.page .entry-header a:hover, .page .entry-header a:hover *, .responsive-single-entry-banner .container a:hover, .responsive-single-entry-banner .container a:hover *';
+                jQuery('head').append(
+                    '<style id="' + styleId + '">' +
+                    selectors + ' { color: ' + newval + ' !important; }' +
+                    '</style>'
+                );
+            }
+        })
+    });
+
+    // Page Title Area Banner Background
+    api('responsive_page_title_banner_background_color', function(val) {
+        val.bind(function(newval) {
+
+            jQuery('style#responsive_page_title_banner_background_color').remove();
+
+            jQuery('head').append(
+                '<style id="responsive_page_title_banner_background_color">' +
+                '@media screen and (min-width: 993px) {' +
+                ' .responsive-single-entry-banner { background-color: ' + newval + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+    api('responsive_page_title_banner_background_color_tablet', function(val) {
+        val.bind(function(newval) {
+
+            jQuery('style#responsive-page-title-banner-background-color-tablet').remove();
+
+            jQuery('head').append(
+                '<style id="responsive-page-title-banner-background-color-tablet">' +
+                '@media screen and (min-width: 577px) and (max-width: 992px) {' +
+                ' .responsive-single-entry-banner { background-color: ' + newval + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+    api('responsive_page_title_banner_background_color_mobile', function(val) {
+        val.bind(function(newval) {
+
+            jQuery('style#responsive-page-title-banner-background-color-mobile').remove();
+
+            jQuery('head').append(
+                '<style id="responsive-page-title-banner-background-color-mobile">' +
+                '@media screen and (max-width: 576px) {' +
+                ' .responsive-single-entry-banner { background-color: ' + newval + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+    // Featured Image Overlay Colors
+    api('responsive_single_blog_featured_image_overlay_color', function(value) {
+        value.bind(function() {
+            var color = processThemeSettingForCSS('responsive_single_blog_featured_image_overlay_color');
+            if ( !color ) color = 'transparent';
+            $('.responsive-blog-single-banner2, .responsive-single-post-featured-section.post-thumb, .entry-header').css('--overlay-color', color);
+        });
+    });
+
+    api('responsive_page_featured_image_overlay_color', function(value) {
+        value.bind(function() {
+            var color = processThemeSettingForCSS('responsive_page_featured_image_overlay_color');
+            if ( !color ) color = 'transparent';
+            $('.responsive-single-entry-banner, .responsive-single-post-featured-section.post-thumb, .entry-header').css('--overlay-color', color);
+        });
+    });
 
 } )( jQuery );
