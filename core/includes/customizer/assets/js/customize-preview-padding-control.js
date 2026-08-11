@@ -55,10 +55,19 @@
         var tabletUnit = api('responsive_'+control+'_tablet_unit') ? api('responsive_'+control+'_tablet_unit').get() : 'px';
         var mobileUnit = api('responsive_'+control+'_mobile_unit') ? api('responsive_'+control+'_mobile_unit').get() : 'px';
 
+        function formatPadding(t, b, l, r, unit) {
+            var css = '';
+            if (t !== '') css += 'padding-top:' + t + unit + '; ';
+            if (b !== '') css += 'padding-bottom:' + b + unit + '; ';
+            if (l !== '') css += 'padding-left:' + l + unit + '; ';
+            if (r !== '') css += 'padding-right:' + r + unit + '; ';
+            return css;
+        }
+
         jQuery( 'style#responsive-'+control+'-padding' ).remove();
-        var desktopPadding = 'padding-top:'+ api('responsive_'+control+'_top_padding').get()+desktopUnit+'; '+'padding-bottom:'+ api('responsive_'+control+'_bottom_padding').get()+desktopUnit+'; '+'padding-left:'+ api('responsive_'+control+'_left_padding').get()+desktopUnit+'; '+'padding-right:'+ api('responsive_'+control+'_right_padding').get()+desktopUnit+';';
-        var tabletPadding = 'padding-top:'+ api('responsive_'+control+'_tablet_top_padding').get()+tabletUnit+'; '+'padding-bottom:'+ api('responsive_'+control+'_tablet_bottom_padding').get()+tabletUnit+'; '+'padding-left:'+ api('responsive_'+control+'_tablet_left_padding').get()+tabletUnit+'; '+'padding-right:'+ api('responsive_'+control+'_tablet_right_padding').get()+tabletUnit+';';
-        var mobilePadding = 'padding-top:'+ api('responsive_'+control+'_mobile_top_padding').get()+mobileUnit+'; '+'padding-bottom:'+ api('responsive_'+control+'_mobile_bottom_padding').get()+mobileUnit+'; '+'padding-left:'+ api('responsive_'+control+'_mobile_left_padding').get()+mobileUnit+'; '+'padding-right:'+ api('responsive_'+control+'_mobile_right_padding').get()+mobileUnit+';';
+        var desktopPadding = formatPadding(api('responsive_'+control+'_top_padding').get(), api('responsive_'+control+'_bottom_padding').get(), api('responsive_'+control+'_left_padding').get(), api('responsive_'+control+'_right_padding').get(), desktopUnit);
+        var tabletPadding = formatPadding(api('responsive_'+control+'_tablet_top_padding').get(), api('responsive_'+control+'_tablet_bottom_padding').get(), api('responsive_'+control+'_tablet_left_padding').get(), api('responsive_'+control+'_tablet_right_padding').get(), tabletUnit);
+        var mobilePadding = formatPadding(api('responsive_'+control+'_mobile_top_padding').get(), api('responsive_'+control+'_mobile_bottom_padding').get(), api('responsive_'+control+'_mobile_left_padding').get(), api('responsive_'+control+'_mobile_right_padding').get(), mobileUnit);
         jQuery( 'head' ).append(
             '<style id="responsive-'+control+'-padding">'
             + selector + '	{ ' + desktopPadding +' }'
@@ -78,23 +87,28 @@
         var tabletUnit = api('responsive_'+control+'_tablet_unit') ? api('responsive_'+control+'_tablet_unit').get() : 'px';
         var mobileUnit = api('responsive_'+control+'_mobile_unit') ? api('responsive_'+control+'_mobile_unit').get() : 'px';
 
-        var dTop = api('responsive_'+control+'_top_padding').get();
-        var dBottom = api('responsive_'+control+'_bottom_padding').get();
-        var dLeft = api('responsive_'+control+'_left_padding').get();
-        var dRight = api('responsive_'+control+'_right_padding').get();
-        var desktopMargin = (dTop === '' && dBottom === '' && dLeft === '' && dRight === '') ? 'margin: 0 0;' : 'margin-top:'+ dTop+desktopUnit+'; '+'margin-bottom:'+ dBottom+desktopUnit+'; '+'margin-left:'+ dLeft+desktopUnit+'; '+'margin-right:'+ dRight+desktopUnit+';';
+        function formatMargin(t, b, l, r, unit) {
+            if (t === '' && b === '' && l === '' && r === '') {
+                return 'margin: 0 auto;';
+            }
+            var css = '';
+            if (t !== '') css += 'margin-top:' + t + unit + '; ';
+            if (b !== '') css += 'margin-bottom:' + b + unit + '; ';
+            
+            if (l !== '') {
+                css += 'margin-left:' + l + unit + '; ';
+            } 
+            
+            if (r !== '') {
+                css += 'margin-right:' + r + unit + '; ';
+            } 
+            
+            return css;
+        }
 
-        var tTop = api('responsive_'+control+'_tablet_top_padding').get();
-        var tBottom = api('responsive_'+control+'_tablet_bottom_padding').get();
-        var tLeft = api('responsive_'+control+'_tablet_left_padding').get();
-        var tRight = api('responsive_'+control+'_tablet_right_padding').get();
-        var tabletMargin = (tTop === '' && tBottom === '' && tLeft === '' && tRight === '') ? 'margin: 0 0;' : 'margin-top:'+ tTop+tabletUnit+'; '+'margin-bottom:'+ tBottom+tabletUnit+'; '+'margin-left:'+ tLeft+tabletUnit+'; '+'margin-right:'+ tRight+tabletUnit+';';
-
-        var mTop = api('responsive_'+control+'_mobile_top_padding').get();
-        var mBottom = api('responsive_'+control+'_mobile_bottom_padding').get();
-        var mLeft = api('responsive_'+control+'_mobile_left_padding').get();
-        var mRight = api('responsive_'+control+'_mobile_right_padding').get();
-        var mobileMargin = (mTop === '' && mBottom === '' && mLeft === '' && mRight === '') ? 'margin: 0 0;' : 'margin-top:'+ mTop+mobileUnit+'; '+'margin-bottom:'+ mBottom+mobileUnit+'; '+'margin-left:'+ mLeft+mobileUnit+'; '+'margin-right:'+ mRight+mobileUnit+';';
+        var desktopMargin = formatMargin(api('responsive_'+control+'_top_padding').get(), api('responsive_'+control+'_bottom_padding').get(), api('responsive_'+control+'_left_padding').get(), api('responsive_'+control+'_right_padding').get(), desktopUnit);
+        var tabletMargin = formatMargin(api('responsive_'+control+'_tablet_top_padding').get(), api('responsive_'+control+'_tablet_bottom_padding').get(), api('responsive_'+control+'_tablet_left_padding').get(), api('responsive_'+control+'_tablet_right_padding').get(), tabletUnit);
+        var mobileMargin = formatMargin(api('responsive_'+control+'_mobile_top_padding').get(), api('responsive_'+control+'_mobile_bottom_padding').get(), api('responsive_'+control+'_mobile_left_padding').get(), api('responsive_'+control+'_mobile_right_padding').get(), mobileUnit);
 
         jQuery( 'style#responsive-'+control+'-margin' ).remove();
         jQuery( 'head' ).append(

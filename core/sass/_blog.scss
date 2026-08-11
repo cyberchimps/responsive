@@ -3,6 +3,12 @@
   margin: 52px auto;
 }
 
+.responsive-blog-single-banner2 + #wrapper .content-outer.container, 
+.responsive-single-entry-banner + #wrapper .content-outer.container
+{
+    margin: 0 auto 52px;
+}
+
 body.responsive-blog-container-margin-legacy .site-content .container {
   margin-top: unset;
   margin-bottom: unset;
@@ -205,3 +211,34 @@ body.responsive-blog-container-margin-legacy .site-content .container {
     }
     @include blog-layout-medias();
   }
+
+.blog .hentry,
+.archive .hentry,
+.author .hentry,
+.search .hentry {
+  .post-entry {
+    > * {
+      margin-bottom: $inner-element-spacing;
+    }
+
+    > .entry-content {
+      margin-top: $inner-element-spacing * 2; // 20px
+    }
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+
+    // reset global h1-h6 spacing on the title
+    > .entry-title {
+      margin-top: 0;
+      margin-bottom: $inner-element-spacing;
+    }
+
+    // reset margin-top from .hentry .post-meta global rule
+    > .post-meta {
+      margin-top: 0;
+      margin-bottom: $inner-element-spacing;
+    }
+  }
+}

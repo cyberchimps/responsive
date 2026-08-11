@@ -952,7 +952,7 @@ if ( ! function_exists( 'responsive_format_margin_css_with_container_width' ) ) 
 
 		if ( $t === '' && $r === '' && $b === '' && $l === '' ) {
 			if ( $container_width === 'custom' ) {
-				return 'margin: 0 0;';
+				return 'margin: 0 auto;';
 			}
 			return '';
 		}
@@ -964,7 +964,7 @@ if ( ! function_exists( 'responsive_format_margin_css_with_container_width' ) ) 
 		if ( $r !== '' ) {
 			$css .= "margin-right: {$r}{$unit}; ";
 		} else if ( $container_width === 'custom' ) {
-			$css .= "margin-right: 0; ";
+			$css .= "margin-right: auto; ";
 		}
 
 		if ( $b !== '' ) {
@@ -974,7 +974,7 @@ if ( ! function_exists( 'responsive_format_margin_css_with_container_width' ) ) 
 		if ( $l !== '' ) {
 			$css .= "margin-left: {$l}{$unit}; ";
 		} else if ( $container_width === 'custom' ) {
-			$css .= "margin-left: 0; ";
+			$css .= "margin-left: auto; ";
 		}
 
 		return trim( $css );
@@ -994,142 +994,7 @@ if ( ! function_exists( 'responsive_format_margin_css_with_container_width' ) ) 
  * @param  string  $label [description].
  * @return void
  */
-function responsive_padding_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Padding (px)', $transport = 'postMessage', $default_tablet_values_y = null, $default_tablet_values_x = null, $default_mobile_values_y = null, $default_mobile_values_x = null  ) {
-	/**
-	 *  Padding control.
-	 */
-	$wp_customize->add_setting(
-		'responsive_' . $element . '_top_padding',
-		array(
-			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => $default_values_y,
-		)
-	);
-	$wp_customize->add_setting(
-		'responsive_' . $element . '_left_padding',
-		array(
-			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => $default_values_x,
-		)
-	);
-
-	$wp_customize->add_setting(
-		'responsive_' . $element . '_bottom_padding',
-		array(
-			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => $default_values_y,
-		)
-	);
-	$wp_customize->add_setting(
-		'responsive_' . $element . '_right_padding',
-		array(
-			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => $default_values_x,
-		)
-	);
-	$wp_customize->add_setting(
-		'responsive_' . $element . '_tablet_top_padding',
-		array(
-			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           =>  isset( $default_tablet_values_y ) ? $default_tablet_values_y : $default_values_y,
-		)
-	);
-	$wp_customize->add_setting(
-		'responsive_' . $element . '_tablet_right_padding',
-		array(
-			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => isset( $default_tablet_values_x ) ? $default_tablet_values_x : $default_values_x,
-		)
-	);
-	$wp_customize->add_setting(
-		'responsive_' . $element . '_tablet_bottom_padding',
-		array(
-			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => isset( $default_tablet_values_y ) ? $default_tablet_values_y : $default_values_y,
-		)
-	);
-	$wp_customize->add_setting(
-		'responsive_' . $element . '_tablet_left_padding',
-		array(
-			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => isset( $default_tablet_values_x ) ? $default_tablet_values_x : $default_values_x,
-		)
-	);
-
-	$wp_customize->add_setting(
-		'responsive_' . $element . '_mobile_top_padding',
-		array(
-			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => isset( $default_mobile_values_y ) ? $default_mobile_values_y : $default_values_y,
-		)
-	);
-	$wp_customize->add_setting(
-		'responsive_' . $element . '_mobile_right_padding',
-		array(
-			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => isset( $default_mobile_values_x ) ? $default_mobile_values_x : $default_values_x,
-		)
-	);
-	$wp_customize->add_setting(
-		'responsive_' . $element . '_mobile_bottom_padding',
-		array(
-			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => isset( $default_mobile_values_y ) ? $default_mobile_values_y : $default_values_y,
-		)
-	);
-	$wp_customize->add_setting(
-		'responsive_' . $element . '_mobile_left_padding',
-		array(
-			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => isset( $default_mobile_values_x ) ? $default_mobile_values_x : $default_values_x,
-		)
-	);
-	$wp_customize->add_control(
-		new Responsive_Customizer_Dimensions_Control(
-			$wp_customize,
-			'responsive_' . $element . '_padding',
-			array(
-				'label'           => $label,
-				'section'         => $section,
-				'settings'        => array(
-					'desktop_top'    => 'responsive_' . $element . '_top_padding',
-					'desktop_right'  => 'responsive_' . $element . '_right_padding',
-					'desktop_bottom' => 'responsive_' . $element . '_bottom_padding',
-					'desktop_left'   => 'responsive_' . $element . '_left_padding',
-					'tablet_top'     => 'responsive_' . $element . '_tablet_top_padding',
-					'tablet_right'   => 'responsive_' . $element . '_tablet_right_padding',
-					'tablet_bottom'  => 'responsive_' . $element . '_tablet_bottom_padding',
-					'tablet_left'    => 'responsive_' . $element . '_tablet_left_padding',
-					'mobile_top'     => 'responsive_' . $element . '_mobile_top_padding',
-					'mobile_right'   => 'responsive_' . $element . '_mobile_right_padding',
-					'mobile_bottom'  => 'responsive_' . $element . '_mobile_bottom_padding',
-					'mobile_left'    => 'responsive_' . $element . '_mobile_left_padding',
-				),
-				'priority'        => $priority,
-				'active_callback' => $active_call,
-				'input_attrs'     => array(
-					'min'  => 0,
-					'max'  => 100,
-					'step' => 1,
-				),
-			)
-		)
-	);
-}
-
-function responsive_unit_padding_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Padding', $transport = 'postMessage', $default_tablet_values_y = null, $default_tablet_values_x = null, $default_mobile_values_y = null, $default_mobile_values_x = null, $default_unit = 'px', $default_bottom = null, $default_right = null, $default_tablet_bottom = null, $default_tablet_right = null, $default_mobile_bottom = null, $default_mobile_right = null ) {
+function responsive_padding_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Padding (px)', $transport = 'postMessage', $default_tablet_values_y = null, $default_tablet_values_x = null, $default_mobile_values_y = null, $default_mobile_values_x = null, $default_bottom = null, $default_right = null, $default_tablet_bottom = null, $default_tablet_right = null, $default_mobile_bottom = null, $default_mobile_right = null ) {
 	/**
 	 *  Padding control.
 	 */
@@ -1228,6 +1093,141 @@ function responsive_unit_padding_control( $wp_customize, $element, $section, $pr
 		array(
 			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_sanitize_number',
+			'default'           => isset( $default_mobile_values_x ) ? $default_mobile_values_x : $default_values_x,
+		)
+	);
+	$wp_customize->add_control(
+		new Responsive_Customizer_Dimensions_Control(
+			$wp_customize,
+			'responsive_' . $element . '_padding',
+			array(
+				'label'           => $label,
+				'section'         => $section,
+				'settings'        => array(
+					'desktop_top'    => 'responsive_' . $element . '_top_padding',
+					'desktop_right'  => 'responsive_' . $element . '_right_padding',
+					'desktop_bottom' => 'responsive_' . $element . '_bottom_padding',
+					'desktop_left'   => 'responsive_' . $element . '_left_padding',
+					'tablet_top'     => 'responsive_' . $element . '_tablet_top_padding',
+					'tablet_right'   => 'responsive_' . $element . '_tablet_right_padding',
+					'tablet_bottom'  => 'responsive_' . $element . '_tablet_bottom_padding',
+					'tablet_left'    => 'responsive_' . $element . '_tablet_left_padding',
+					'mobile_top'     => 'responsive_' . $element . '_mobile_top_padding',
+					'mobile_right'   => 'responsive_' . $element . '_mobile_right_padding',
+					'mobile_bottom'  => 'responsive_' . $element . '_mobile_bottom_padding',
+					'mobile_left'    => 'responsive_' . $element . '_mobile_left_padding',
+				),
+				'priority'        => $priority,
+				'active_callback' => $active_call,
+				'input_attrs'     => array(
+					'min'  => 0,
+					'max'  => 100,
+					'step' => 1,
+				),
+			)
+		)
+	);
+}
+
+function responsive_unit_padding_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Padding', $transport = 'postMessage', $default_tablet_values_y = null, $default_tablet_values_x = null, $default_mobile_values_y = null, $default_mobile_values_x = null, $default_unit = 'px', $default_bottom = null, $default_right = null, $default_tablet_bottom = null, $default_tablet_right = null, $default_mobile_bottom = null, $default_mobile_right = null ) {
+	/**
+	 *  Padding control.
+	 */
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_top_padding',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_sanitize_number_blank',
+			'default'           => $default_values_y,
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_left_padding',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_sanitize_number_blank',
+			'default'           => $default_values_x,
+		)
+	);
+
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_bottom_padding',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_sanitize_number_blank',
+			'default'           => isset( $default_bottom ) ? $default_bottom : $default_values_y,
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_right_padding',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_sanitize_number_blank',
+			'default'           => isset( $default_right ) ? $default_right : $default_values_x,
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_tablet_top_padding',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_sanitize_number_blank',
+			'default'           =>  isset( $default_tablet_values_y ) ? $default_tablet_values_y : $default_values_y,
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_tablet_right_padding',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_sanitize_number_blank',
+			'default'           => isset( $default_tablet_right ) ? $default_tablet_right : ( isset( $default_tablet_values_x ) ? $default_tablet_values_x : $default_values_x ),
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_tablet_bottom_padding',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_sanitize_number_blank',
+			'default'           => isset( $default_tablet_bottom ) ? $default_tablet_bottom : ( isset( $default_tablet_values_y ) ? $default_tablet_values_y : $default_values_y ),
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_tablet_left_padding',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_sanitize_number_blank',
+			'default'           => isset( $default_tablet_values_x ) ? $default_tablet_values_x : $default_values_x,
+		)
+	);
+
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_mobile_top_padding',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_sanitize_number_blank',
+			'default'           => isset( $default_mobile_values_y ) ? $default_mobile_values_y : $default_values_y,
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_mobile_right_padding',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_sanitize_number_blank',
+			'default'           => isset( $default_mobile_right ) ? $default_mobile_right : ( isset( $default_mobile_values_x ) ? $default_mobile_values_x : $default_values_x ),
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_mobile_bottom_padding',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_sanitize_number_blank',
+			'default'           => isset( $default_mobile_bottom ) ? $default_mobile_bottom : ( isset( $default_mobile_values_y ) ? $default_mobile_values_y : $default_values_y ),
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_mobile_left_padding',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_sanitize_number_blank',
 			'default'           => isset( $default_mobile_values_x ) ? $default_mobile_values_x : $default_values_x,
 		)
 	);
