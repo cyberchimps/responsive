@@ -994,7 +994,7 @@ if ( ! function_exists( 'responsive_format_margin_css_with_container_width' ) ) 
  * @param  string  $label [description].
  * @return void
  */
-function responsive_padding_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Padding (px)', $transport = 'postMessage', $default_tablet_values_y = null, $default_tablet_values_x = null, $default_mobile_values_y = null, $default_mobile_values_x = null  ) {
+function responsive_padding_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Padding (px)', $transport = 'postMessage', $default_tablet_values_y = null, $default_tablet_values_x = null, $default_mobile_values_y = null, $default_mobile_values_x = null, $default_bottom = null, $default_right = null, $default_tablet_bottom = null, $default_tablet_right = null, $default_mobile_bottom = null, $default_mobile_right = null ) {
 	/**
 	 *  Padding control.
 	 */
@@ -1020,7 +1020,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => $default_values_y,
+			'default'           => isset( $default_bottom ) ? $default_bottom : $default_values_y,
 		)
 	);
 	$wp_customize->add_setting(
@@ -1028,7 +1028,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => $default_values_x,
+			'default'           => isset( $default_right ) ? $default_right : $default_values_x,
 		)
 	);
 	$wp_customize->add_setting(
@@ -1044,7 +1044,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => isset( $default_tablet_values_x ) ? $default_tablet_values_x : $default_values_x,
+			'default'           => isset( $default_tablet_right ) ? $default_tablet_right : ( isset( $default_tablet_values_x ) ? $default_tablet_values_x : $default_values_x ),
 		)
 	);
 	$wp_customize->add_setting(
@@ -1052,7 +1052,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => isset( $default_tablet_values_y ) ? $default_tablet_values_y : $default_values_y,
+			'default'           => isset( $default_tablet_bottom ) ? $default_tablet_bottom : ( isset( $default_tablet_values_y ) ? $default_tablet_values_y : $default_values_y ),
 		)
 	);
 	$wp_customize->add_setting(
@@ -1077,7 +1077,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => isset( $default_mobile_values_x ) ? $default_mobile_values_x : $default_values_x,
+			'default'           => isset( $default_mobile_right ) ? $default_mobile_right : ( isset( $default_mobile_values_x ) ? $default_mobile_values_x : $default_values_x ),
 		)
 	);
 	$wp_customize->add_setting(
@@ -1085,7 +1085,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => isset( $default_mobile_values_y ) ? $default_mobile_values_y : $default_values_y,
+			'default'           => isset( $default_mobile_bottom ) ? $default_mobile_bottom : ( isset( $default_mobile_values_y ) ? $default_mobile_values_y : $default_values_y ),
 		)
 	);
 	$wp_customize->add_setting(

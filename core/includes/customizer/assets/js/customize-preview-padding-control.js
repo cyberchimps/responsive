@@ -94,8 +94,15 @@
             var css = '';
             if (t !== '') css += 'margin-top:' + t + unit + '; ';
             if (b !== '') css += 'margin-bottom:' + b + unit + '; ';
-            if (l !== '') css += 'margin-left:' + l + unit + '; ';
-            if (r !== '') css += 'margin-right:' + r + unit + '; ';
+            
+            if (l !== '') {
+                css += 'margin-left:' + l + unit + '; ';
+            } 
+            
+            if (r !== '') {
+                css += 'margin-right:' + r + unit + '; ';
+            } 
+            
             return css;
         }
 
