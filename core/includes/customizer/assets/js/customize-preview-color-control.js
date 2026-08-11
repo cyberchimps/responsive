@@ -687,7 +687,7 @@
             if( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
-            $('a:hover').css('color', newval );
+            $('a:hover').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').css('color', newval );
         } );
     } );
 

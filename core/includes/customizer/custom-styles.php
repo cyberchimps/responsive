@@ -1725,6 +1725,42 @@ function responsive_customizer_styles() {
 	}
 
 	/* Content Link Styles */
+	.link-style-standard .entry-content p a,
+	.link-style-standard .entry-content strong>a,
+	.link-style-standard .entry-content em>a,
+	.link-style-standard .entry-content>ul a,
+	.link-style-standard .entry-content>ol a,
+	.link-style-color-underline .entry-content p a,
+	.link-style-color-underline .entry-content strong>a,
+	.link-style-color-underline .entry-content em>a,
+	.link-style-color-underline .entry-content>ul a,
+	.link-style-color-underline .entry-content>ol a,
+	.link-style-no-underline .entry-content p a,
+	.link-style-no-underline .entry-content strong>a,
+	.link-style-no-underline .entry-content em>a,
+	.link-style-no-underline .entry-content>ul a,
+	.link-style-no-underline .entry-content>ol a,
+	.link-style-hover-background .entry-content p a,
+	.link-style-hover-background .entry-content strong>a,
+	.link-style-hover-background .entry-content em>a,
+	.link-style-hover-background .entry-content>ul a,
+	.link-style-hover-background .entry-content>ol a {
+		color: {$link_color};
+	}
+
+	.link-style-standard .entry-content p a,
+	.link-style-standard .entry-content strong>a,
+	.link-style-standard .entry-content em>a,
+	.link-style-standard .entry-content>ul a,
+	.link-style-standard .entry-content>ol a,
+	.link-style-color-underline .entry-content p a,
+	.link-style-color-underline .entry-content strong>a,
+	.link-style-color-underline .entry-content em>a,
+	.link-style-color-underline .entry-content>ul a,
+	.link-style-color-underline .entry-content>ol a {
+		text-decoration: underline;
+	}
+
 	.link-style-color-underline .entry-content p a:hover,
 	.link-style-color-underline .entry-content strong>a:hover,
 	.link-style-color-underline .entry-content em>a:hover,
