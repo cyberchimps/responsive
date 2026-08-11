@@ -179,7 +179,7 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 
 			// Custom Width.
 			$page_title_custom_width_label = esc_html__( 'Custom Width', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'page_title_custom_width', $page_title_custom_width_label, 'responsive_page_title_area_layout', 3, 1200, null, 1920, 768, 'postMessage' );
+			responsive_drag_number_control( $wp_customize, 'page_title_custom_width', $page_title_custom_width_label, 'responsive_page_title_area_layout', 3, 1316, null, 1920, 768, 'postMessage' );
 
 			// Vertical Alignment.
 			$page_title_vertical_alignment_label   = esc_html__( 'Vertical Alignment', 'responsive' );
@@ -302,10 +302,10 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			responsive_horizontal_separator_control( $wp_customize, 'page_title_area_meta_typography_group_separator', 1, 'responsive_page_title_area_layout',46, 1 );
 
 			// Padding
-			responsive_unit_padding_control( $wp_customize, 'page_title_banner_padding', 'responsive_page_title_area_layout', 50, 0, 0, null, __( 'Padding', 'responsive' ), 'postMessage','', '', '', '', 'px' );
+			responsive_unit_padding_control( $wp_customize, 'page_title_banner_padding', 'responsive_page_title_area_layout', 50, 30, 30, null, __( 'Padding', 'responsive' ), 'postMessage', 30, 30, 30, 30, 'px' );
 
 			// Margin
-			responsive_unit_padding_control( $wp_customize, 'page_title_banner_margin', 'responsive_page_title_area_layout', 55, 0, 0, null, __( 'Margin', 'responsive' ), 'postMessage', '', '', '', '', 'px' );
+			responsive_unit_padding_control( $wp_customize, 'page_title_banner_margin', 'responsive_page_title_area_layout', 55, '', '', null, __( 'Margin', 'responsive' ), 'postMessage', '', '', '', '', 'px' );
 
 
 			// Main Content Width.

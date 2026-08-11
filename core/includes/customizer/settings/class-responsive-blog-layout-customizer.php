@@ -191,7 +191,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 
 			// Custom Width.
 			$blog_banner_custom_width_label = esc_html__( 'Custom Width', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'blog_banner_custom_width', $blog_banner_custom_width_label, 'responsive_blog_title_layout', 3, 1200, null, 1920, 768, 'postMessage' );
+			responsive_drag_number_control( $wp_customize, 'blog_banner_custom_width', $blog_banner_custom_width_label, 'responsive_blog_title_layout', 3, 1316, null, 1920, 768, 'postMessage' );
 
 			$wp_customize->add_setting(
 				'responsive_blog_title_elements_positioning',

@@ -952,7 +952,7 @@ if ( ! function_exists( 'responsive_format_margin_css_with_container_width' ) ) 
 
 		if ( $t === '' && $r === '' && $b === '' && $l === '' ) {
 			if ( $container_width === 'custom' ) {
-				return 'margin: 0 0;';
+				return 'margin: 0 auto;';
 			}
 			return '';
 		}
@@ -964,7 +964,7 @@ if ( ! function_exists( 'responsive_format_margin_css_with_container_width' ) ) 
 		if ( $r !== '' ) {
 			$css .= "margin-right: {$r}{$unit}; ";
 		} else if ( $container_width === 'custom' ) {
-			$css .= "margin-right: 0; ";
+			$css .= "margin-right: auto; ";
 		}
 
 		if ( $b !== '' ) {
@@ -974,7 +974,7 @@ if ( ! function_exists( 'responsive_format_margin_css_with_container_width' ) ) 
 		if ( $l !== '' ) {
 			$css .= "margin-left: {$l}{$unit}; ";
 		} else if ( $container_width === 'custom' ) {
-			$css .= "margin-left: 0; ";
+			$css .= "margin-left: auto; ";
 		}
 
 		return trim( $css );
@@ -1137,7 +1137,7 @@ function responsive_unit_padding_control( $wp_customize, $element, $section, $pr
 		'responsive_' . $element . '_top_padding',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => 'responsive_sanitize_number_blank',
 			'default'           => $default_values_y,
 		)
 	);
@@ -1145,7 +1145,7 @@ function responsive_unit_padding_control( $wp_customize, $element, $section, $pr
 		'responsive_' . $element . '_left_padding',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => 'responsive_sanitize_number_blank',
 			'default'           => $default_values_x,
 		)
 	);
@@ -1154,7 +1154,7 @@ function responsive_unit_padding_control( $wp_customize, $element, $section, $pr
 		'responsive_' . $element . '_bottom_padding',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => 'responsive_sanitize_number_blank',
 			'default'           => isset( $default_bottom ) ? $default_bottom : $default_values_y,
 		)
 	);
@@ -1162,7 +1162,7 @@ function responsive_unit_padding_control( $wp_customize, $element, $section, $pr
 		'responsive_' . $element . '_right_padding',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => 'responsive_sanitize_number_blank',
 			'default'           => isset( $default_right ) ? $default_right : $default_values_x,
 		)
 	);
@@ -1170,7 +1170,7 @@ function responsive_unit_padding_control( $wp_customize, $element, $section, $pr
 		'responsive_' . $element . '_tablet_top_padding',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => 'responsive_sanitize_number_blank',
 			'default'           =>  isset( $default_tablet_values_y ) ? $default_tablet_values_y : $default_values_y,
 		)
 	);
@@ -1178,7 +1178,7 @@ function responsive_unit_padding_control( $wp_customize, $element, $section, $pr
 		'responsive_' . $element . '_tablet_right_padding',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => 'responsive_sanitize_number_blank',
 			'default'           => isset( $default_tablet_right ) ? $default_tablet_right : ( isset( $default_tablet_values_x ) ? $default_tablet_values_x : $default_values_x ),
 		)
 	);
@@ -1186,7 +1186,7 @@ function responsive_unit_padding_control( $wp_customize, $element, $section, $pr
 		'responsive_' . $element . '_tablet_bottom_padding',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => 'responsive_sanitize_number_blank',
 			'default'           => isset( $default_tablet_bottom ) ? $default_tablet_bottom : ( isset( $default_tablet_values_y ) ? $default_tablet_values_y : $default_values_y ),
 		)
 	);
@@ -1194,7 +1194,7 @@ function responsive_unit_padding_control( $wp_customize, $element, $section, $pr
 		'responsive_' . $element . '_tablet_left_padding',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => 'responsive_sanitize_number_blank',
 			'default'           => isset( $default_tablet_values_x ) ? $default_tablet_values_x : $default_values_x,
 		)
 	);
@@ -1203,7 +1203,7 @@ function responsive_unit_padding_control( $wp_customize, $element, $section, $pr
 		'responsive_' . $element . '_mobile_top_padding',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => 'responsive_sanitize_number_blank',
 			'default'           => isset( $default_mobile_values_y ) ? $default_mobile_values_y : $default_values_y,
 		)
 	);
@@ -1211,7 +1211,7 @@ function responsive_unit_padding_control( $wp_customize, $element, $section, $pr
 		'responsive_' . $element . '_mobile_right_padding',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => 'responsive_sanitize_number_blank',
 			'default'           => isset( $default_mobile_right ) ? $default_mobile_right : ( isset( $default_mobile_values_x ) ? $default_mobile_values_x : $default_values_x ),
 		)
 	);
@@ -1219,7 +1219,7 @@ function responsive_unit_padding_control( $wp_customize, $element, $section, $pr
 		'responsive_' . $element . '_mobile_bottom_padding',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => 'responsive_sanitize_number_blank',
 			'default'           => isset( $default_mobile_bottom ) ? $default_mobile_bottom : ( isset( $default_mobile_values_y ) ? $default_mobile_values_y : $default_values_y ),
 		)
 	);
@@ -1227,7 +1227,7 @@ function responsive_unit_padding_control( $wp_customize, $element, $section, $pr
 		'responsive_' . $element . '_mobile_left_padding',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => 'responsive_sanitize_number_blank',
 			'default'           => isset( $default_mobile_values_x ) ? $default_mobile_values_x : $default_values_x,
 		)
 	);

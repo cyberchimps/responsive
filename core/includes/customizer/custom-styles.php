@@ -9013,7 +9013,7 @@ function responsive_customizer_styles() {
 			$single_blog_post_title_layout2_vertical_alignment = get_theme_mod( 'responsive_single_blog_post_title_vertical_alignment', 'flex-start');
 
 			// check banner padding and margin
-			$single_blog_banner_padding = get_responsive_spacing_values('responsive_single_blog_banner_padding', 0, 0, 0, 0);
+			$single_blog_banner_padding = get_responsive_spacing_values('responsive_single_blog_banner_padding', 30, 30, 30, 30);
 			$single_blog_banner_padding_desktop_unit = get_theme_mod('responsive_single_blog_banner_padding_desktop_unit', 'px');
 			$single_blog_banner_padding_tablet_unit  = get_theme_mod('responsive_single_blog_banner_padding_tablet_unit', 'px');
 			$single_blog_banner_padding_mobile_unit  = get_theme_mod('responsive_single_blog_banner_padding_mobile_unit', 'px');
@@ -9049,7 +9049,7 @@ function responsive_customizer_styles() {
 			if( $single_blog_post_title_container_width === 'custom' )
 			{
 				// checking custom width
-				$single_blog_post_title_custom_container_width = get_theme_mod( 'responsive_single_blog_banner_custom_width', 1200 );
+				$single_blog_post_title_custom_container_width = get_theme_mod( 'responsive_single_blog_banner_custom_width', 1316 );
 				$custom_css .= "
 					.responsive-blog-single-banner2 {
 						max-width: {$single_blog_post_title_custom_container_width}px;
@@ -9258,10 +9258,11 @@ function responsive_customizer_styles() {
 			if( $blog_post_title_container_width === 'custom' )
 			{
 				// checking custom width
-				$blog_post_title_custom_container_width = get_theme_mod( 'responsive_blog_banner_custom_width', 1200 );
+				$blog_post_title_custom_container_width = get_theme_mod( 'responsive_blog_banner_custom_width', 1316 );
 				$custom_css .= "
 					.responsive-archive-entry-banner {
 						max-width: {$blog_post_title_custom_container_width}px;
+						width: 100%;
 					}
 				";
 			}
@@ -9400,7 +9401,7 @@ function responsive_customizer_styles() {
 			$page_title_layout2_vertical_alignment = get_theme_mod( 'responsive_page_title_vertical_alignment', 'flex-start');
 
 			// check banner padding and margin
-			$page_banner_padding = get_responsive_spacing_values('responsive_page_title_banner_padding', 0, 0, 0, 0);
+			$page_banner_padding = get_responsive_spacing_values('responsive_page_title_banner_padding', 30, 30, 30, 30);
 			$page_banner_padding_desktop_unit = get_theme_mod('responsive_page_title_banner_padding_desktop_unit', 'px');
 			$page_banner_padding_tablet_unit  = get_theme_mod('responsive_page_title_banner_padding_tablet_unit', 'px');
 			$page_banner_padding_mobile_unit  = get_theme_mod('responsive_page_title_banner_padding_mobile_unit', 'px');
@@ -9436,7 +9437,7 @@ function responsive_customizer_styles() {
 			if( $page_title_container_width === 'custom' )
 			{
 				// checking custom width
-				$page_title_custom_container_width = get_theme_mod( 'responsive_page_title_custom_width', 1200 );
+				$page_title_custom_container_width = get_theme_mod( 'responsive_page_title_custom_width', 1316 );
 				$custom_css .= "
 					.responsive-single-entry-banner {
 						max-width: {$page_title_custom_container_width}px;
