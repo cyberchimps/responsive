@@ -565,24 +565,24 @@ function responsive_customizer_styles() {
 		$single_blog_container_style_setting = get_theme_mod( 'responsive_single_blog_container_style', 'default' );
 	$responsive_single_blog_container_style = ( 'default' === $single_blog_container_style_setting ) ? $global_container_style_key : $single_blog_container_style_setting;
 
+	// Single Post Boxed Border Radius.
+	$single_post_boxed_radius              = get_theme_mod( 'responsive_single_post_boxed_radius', '' );
+	$single_post_boxed_radius_unit         = get_theme_mod( 'responsive_single_post_boxed_radius_unit', 'px' );
+	$single_post_boxed_radius_tablet      = get_theme_mod( 'responsive_single_post_boxed_radius_tablet', '' );
+	$single_post_boxed_radius_tablet_unit = get_theme_mod( 'responsive_single_post_boxed_radius_tablet_unit', 'px' );
+	$single_post_boxed_radius_mobile      = get_theme_mod( 'responsive_single_post_boxed_radius_mobile', '' );
+	$single_post_boxed_radius_mobile_unit = get_theme_mod( 'responsive_single_post_boxed_radius_mobile_unit', 'px' );
+
+	// Single Post Boxed Shadow.
+	$single_post_boxed_shadow_x = get_theme_mod( 'responsive_single_post_boxed_shadow_x_axis', 0 );
+	$single_post_boxed_shadow_y = get_theme_mod( 'responsive_single_post_boxed_shadow_y_axis', 0 );
+	$single_post_boxed_shadow_blur = get_theme_mod( 'responsive_single_post_boxed_shadow_blur', 0 );
+	$single_post_boxed_shadow_spread = get_theme_mod( 'responsive_single_post_boxed_shadow_spread', 0 );
+	$single_post_boxed_shadow_inset = get_theme_mod( 'responsive_single_post_boxed_shadow_inset', false );
+	$single_post_boxed_shadow_color = esc_html( responsive_prepare_css_value( 'responsive_single_post_boxed_shadow_color', '#FFFFFF' ) );
+	$single_post_boxed_shadow_inset_style = $single_post_boxed_shadow_inset ? 'inset' : '';
+
 	if ( 'boxed' === $responsive_single_blog_container_style ) {
-		// Single Post Boxed Shadow.
-		$single_post_boxed_shadow_x = get_theme_mod( 'responsive_single_post_boxed_shadow_x_axis', 0 );
-		$single_post_boxed_shadow_y = get_theme_mod( 'responsive_single_post_boxed_shadow_y_axis', 0 );
-		$single_post_boxed_shadow_blur = get_theme_mod( 'responsive_single_post_boxed_shadow_blur', 0 );
-		$single_post_boxed_shadow_spread = get_theme_mod( 'responsive_single_post_boxed_shadow_spread', 0 );
-		$single_post_boxed_shadow_inset = get_theme_mod( 'responsive_single_post_boxed_shadow_inset', false );
-		$single_post_boxed_shadow_color = esc_html( responsive_prepare_css_value( 'responsive_single_post_boxed_shadow_color', '#FFFFFF' ) );
-		$single_post_boxed_shadow_inset_style = $single_post_boxed_shadow_inset ? 'inset' : '';
-
-		// Single Post Boxed Border Radius.
-		$single_post_boxed_radius              = get_theme_mod( 'responsive_single_post_boxed_radius', '' );
-		$single_post_boxed_radius_unit         = get_theme_mod( 'responsive_single_post_boxed_radius_unit', 'px' );
-		$single_post_boxed_radius_tablet      = get_theme_mod( 'responsive_single_post_boxed_radius_tablet', '' );
-		$single_post_boxed_radius_tablet_unit = get_theme_mod( 'responsive_single_post_boxed_radius_tablet_unit', 'px' );
-		$single_post_boxed_radius_mobile      = get_theme_mod( 'responsive_single_post_boxed_radius_mobile', '' );
-		$single_post_boxed_radius_mobile_unit = get_theme_mod( 'responsive_single_post_boxed_radius_mobile_unit', 'px' );
-
 		$single_boxed_background_css = ( 'gradient' === $box_background_color_type && ! empty( $box_background_gradient_color ) )
 			? "background: {$box_background_gradient_color};"
 			: "background-color: {$box_background_color};";
@@ -650,6 +650,47 @@ function responsive_customizer_styles() {
 			padding: " . responsive_spacing_css( $outside_container_padding_top, $outside_container_padding_right, $outside_container_padding_bottom, $outside_container_padding_left) . ";
 
 		}";
+	} elseif ( 'content-boxed' === $responsive_single_blog_container_style ) {
+		$custom_css .= "
+		.single:not(.single-product) .site-content .hentry {
+			box-shadow: {$single_post_boxed_shadow_inset_style} {$single_post_boxed_shadow_x}px {$single_post_boxed_shadow_y}px {$single_post_boxed_shadow_blur}px {$single_post_boxed_shadow_spread}px {$single_post_boxed_shadow_color};
+		}";
+		if ( '' !== $single_post_boxed_radius ) {
+			$custom_css .= "
+			.single:not(.single-product) .site-content .hentry {
+				border-radius: {$single_post_boxed_radius}{$single_post_boxed_radius_unit};
+			}";
+		}
+		if ( '' !== $single_post_boxed_radius_tablet ) {
+			$custom_css .= "
+			@media screen and ( max-width: 992px ) {
+				.single:not(.single-product) .site-content .hentry {
+					border-radius: {$single_post_boxed_radius_tablet}{$single_post_boxed_radius_tablet_unit};
+				}
+			}";
+		} elseif ( '' !== $single_post_boxed_radius ) {
+			$custom_css .= "
+			@media screen and ( max-width: 992px ) {
+				.single:not(.single-product) .site-content .hentry {
+					border-radius: {$single_post_boxed_radius}{$single_post_boxed_radius_unit};
+				}
+			}";
+		}
+		if ( '' !== $single_post_boxed_radius_mobile ) {
+			$custom_css .= "
+			@media screen and ( max-width: 576px ) {
+				.single:not(.single-product) .site-content .hentry {
+					border-radius: {$single_post_boxed_radius_mobile}{$single_post_boxed_radius_mobile_unit};
+				}
+			}";
+		} elseif ( '' !== $single_post_boxed_radius ) {
+			$custom_css .= "
+			@media screen and ( max-width: 576px ) {
+				.single:not(.single-product) .site-content .hentry {
+					border-radius: {$single_post_boxed_radius}{$single_post_boxed_radius_unit};
+				}
+			}";
+		}
 	}
 
 	// Product Catalog Container Style.
