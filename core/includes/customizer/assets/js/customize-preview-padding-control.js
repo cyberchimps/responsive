@@ -2616,7 +2616,7 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
         });
     });
 
-    // Page Title Banner Margin Settings.
+    // Page Margin Settings.
     const pageTitleBannerMarginSettings = [
         'responsive_page_title_banner_margin_top_padding',
         'responsive_page_title_banner_margin_left_padding',
@@ -2639,6 +2639,61 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
         api(setting, function(value) {
             value.bind(function(newval) {
                 responsive_dynamic_unit_margin('page_title_banner_margin', 'body .responsive-single-entry-banner, article.page .entry-header');
+            });
+        });
+    });
+    const pageMarginSettings = [
+        'responsive_page_margin_top_padding',
+        'responsive_page_margin_left_padding',
+        'responsive_page_margin_bottom_padding',
+        'responsive_page_margin_right_padding',
+        'responsive_page_margin_tablet_top_padding',
+        'responsive_page_margin_tablet_right_padding',
+        'responsive_page_margin_tablet_bottom_padding',
+        'responsive_page_margin_tablet_left_padding',
+        'responsive_page_margin_mobile_top_padding',
+        'responsive_page_margin_mobile_right_padding',
+        'responsive_page_margin_mobile_bottom_padding',
+        'responsive_page_margin_mobile_left_padding',
+        'responsive_page_margin_desktop_unit',
+        'responsive_page_margin_tablet_unit',
+        'responsive_page_margin_mobile_unit'
+    ];
+
+    pageMarginSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_unit_margin('page_margin', '.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry');
+            });
+        });
+    });
+
+    // Page Padding
+    const pagePaddingSettings = [
+        'responsive_page_padding_top_padding',
+        'responsive_page_padding_right_padding',
+        'responsive_page_padding_bottom_padding',
+        'responsive_page_padding_left_padding',
+        'responsive_page_padding_tablet_top_padding',
+        'responsive_page_padding_tablet_right_padding',
+        'responsive_page_padding_tablet_bottom_padding',
+        'responsive_page_padding_tablet_left_padding',
+        'responsive_page_padding_mobile_top_padding',
+        'responsive_page_padding_mobile_right_padding',
+        'responsive_page_padding_mobile_bottom_padding',
+        'responsive_page_padding_mobile_left_padding',
+        'responsive_page_padding_desktop_unit',
+        'responsive_page_padding_tablet_unit',
+        'responsive_page_padding_mobile_unit'
+    ];
+
+    pagePaddingSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_unit_padding(
+                    'page_padding',
+                    '.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry'
+                );
             });
         });
     });
