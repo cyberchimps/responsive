@@ -260,7 +260,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 				1,
 				null,
 				null,
-				array( 'desktop' ),
+				array( 'desktop', 'tablet', 'mobile' ),
 				array( 'px', 'em', 'rem' )
 			);
 
@@ -320,7 +320,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 				1,
 				null,
 				null,
-				array( 'desktop' ),
+				array( 'desktop', 'tablet', 'mobile' ),
 				array( 'px', 'em', 'rem' )
 			);
 
