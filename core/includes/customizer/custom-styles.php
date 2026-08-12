@@ -8255,30 +8255,39 @@ function responsive_customizer_styles() {
 		$blog_border_radius_top_right    = esc_html( get_theme_mod( 'responsive_blog_border_radius_top_right_radius', 8 ) );
 		$blog_border_radius_bottom_right = esc_html( get_theme_mod( 'responsive_blog_border_radius_bottom_right_radius', 8 ) );
 		$blog_border_radius_bottom_left  = esc_html( get_theme_mod( 'responsive_blog_border_radius_bottom_left_radius', 8 ) );
+		$blog_border_radius_unit    = esc_html( get_theme_mod( 'responsive_blog_border_radius_desktop_unit', 'px' ) );
 
 		$blog_border_radius_tablet_top_left     = esc_html( get_theme_mod( 'responsive_blog_border_radius_tablet_top_left_radius', 8 ) );
 		$blog_border_radius_tablet_top_right    = esc_html( get_theme_mod( 'responsive_blog_border_radius_tablet_top_right_radius', 8 ) );
 		$blog_border_radius_tablet_bottom_right = esc_html( get_theme_mod( 'responsive_blog_border_radius_tablet_bottom_right_radius', 8 ) );
 		$blog_border_radius_tablet_bottom_left  = esc_html( get_theme_mod( 'responsive_blog_border_radius_tablet_bottom_left_radius', 8 ) );
+		$blog_border_radius_tablet_unit    = esc_html( get_theme_mod( 'responsive_blog_border_radius_tablet_unit', 'px' ) );
 
 		$blog_border_radius_mobile_top_left     = esc_html( get_theme_mod( 'responsive_blog_border_radius_mobile_top_left_radius', 8 ) );
 		$blog_border_radius_mobile_top_right    = esc_html( get_theme_mod( 'responsive_blog_border_radius_mobile_top_right_radius', 8 ) );
 		$blog_border_radius_mobile_bottom_right = esc_html( get_theme_mod( 'responsive_blog_border_radius_mobile_bottom_right_radius', 8 ) );
 		$blog_border_radius_mobile_bottom_left  = esc_html( get_theme_mod( 'responsive_blog_border_radius_mobile_bottom_left_radius', 8 ) );
+		$blog_border_radius_mobile_unit    = esc_html( get_theme_mod( 'responsive_blog_border_radius_mobile_unit', 'px' ) );
 
 
-		$custom_css .= ".blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry{
+		$custom_css .= 
+			".blog.responsive-site-style-content-boxed .site-content .hentry, 
+			.blog.responsive-site-style-boxed .site-content .hentry, 
+			.archive.responsive-site-style-content-boxed .site-content .hentry, 
+			.archive.responsive-site-style-boxed .site-content .hentry,
+			.blog:not(.custom-home-page-active) .site-content .hentry,
+			.archive .site-content .hentry {
 		
-			border-radius: {$blog_border_radius_top_left}px {$blog_border_radius_top_right}px {$blog_border_radius_bottom_right}px {$blog_border_radius_bottom_left}px;
+			border-radius: {$blog_border_radius_top_left}{$blog_border_radius_unit} {$blog_border_radius_top_right}{$blog_border_radius_unit} {$blog_border_radius_bottom_right}{$blog_border_radius_unit} {$blog_border_radius_bottom_left}{$blog_border_radius_unit};
 			}
 			@media screen and ( max-width: 992px ) {
 				.blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry {
-					border-radius: {$blog_border_radius_tablet_top_left}px {$blog_border_radius_tablet_top_right}px {$blog_border_radius_tablet_bottom_right}px {$blog_border_radius_tablet_bottom_left}px;
+					border-radius: {$blog_border_radius_tablet_top_left}{$blog_border_radius_tablet_unit} {$blog_border_radius_tablet_top_right}{$blog_border_radius_tablet_unit} {$blog_border_radius_tablet_bottom_right}{$blog_border_radius_tablet_unit} {$blog_border_radius_tablet_bottom_left}{$blog_border_radius_tablet_unit};
 				}
 			}
 			@media screen and ( max-width: 576px ) {
 				.blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry {
-					border-radius: {$blog_border_radius_mobile_top_left}px {$blog_border_radius_mobile_top_right}px {$blog_border_radius_mobile_bottom_right}px {$blog_border_radius_mobile_bottom_left}px;
+					border-radius: {$blog_border_radius_mobile_top_left}{$blog_border_radius_mobile_unit} {$blog_border_radius_mobile_top_right}{$blog_border_radius_mobile_unit} {$blog_border_radius_mobile_bottom_right}{$blog_border_radius_mobile_unit} {$blog_border_radius_mobile_bottom_left}{$blog_border_radius_mobile_unit};
 				}
 			}";
 
@@ -8294,7 +8303,7 @@ function responsive_customizer_styles() {
 		.blog .hentry .post-meta span, .blog .hentry .post-meta span.entry-date .posted time, .archive .hentry .post-meta span, .archive .hentry .post-meta span.entry-date .posted time {
 			font-size: {$blog_meta_font_size}px;
 		}
-		.blog .hentry .entry-category a, .archive .hentry .entry-category a {
+		.blog .hentry .post-entry .entry-category .posted-in a, .archive .hentry .post-entry .entry-category .posted-in a {
 			font-size: {$blog_taxonomy_font_size}px;
 		}";
 
@@ -8330,14 +8339,14 @@ function responsive_customizer_styles() {
 		.responsive-blog-single-banner2 .post-meta .entry-date a{
 			color: {$blog_item_meta_color};
 		}
-		.search .hentry .post-meta .entry-author a:hover,
-		.archive .hentry .post-meta .entry-author a:hover,
-		.blog .hentry .post-meta .entry-author a:hover,
-		.search .hentry .post-meta .entry-date a:hover,
-		.archive .hentry .post-meta .entry-date a:hover,
-		.blog .hentry .post-meta .entry-date a:hover,
-		.responsive-blog-single-banner2 .post-meta .entry-author a,
-		.responsive-blog-single-banner2 .post-meta .entry-date a{
+		.search .hentry .post-meta .entry-author a:hover span,
+		.archive .hentry .post-meta .entry-author a:hover span,
+		.blog .hentry .post-entry .post-meta .entry-author a:hover span,
+		.search .hentry .post-meta .entry-date a:hover time,
+		.archive .hentry .post-meta .entry-date a:hover time,
+		.blog .hentry .post-meta .entry-date a:hover time,
+		.responsive-blog-single-banner2 .post-meta .entry-author a:hover span,
+		.responsive-blog-single-banner2 .post-meta .entry-date a:hover time{
 			color: {$blog_item_meta_hover_color};
 		}";
 
@@ -8642,7 +8651,7 @@ function responsive_customizer_styles() {
 		$single_blog_item_meta_hover_color = esc_html(
 			get_theme_mod(
 				'responsive_blog_item_meta_hover_color',
-				Responsive\Core\get_responsive_customizer_defaults( 'blog_item_meta_hover' )
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_blog_item_meta_hover_color' )
 			)
 		);
 

@@ -343,5 +343,24 @@
 			);
 		}
 	);
+	api(
+    'responsive_disable_author_meta',
+    function( $swipe ) {
+        $swipe.bind(
+            function( newval ) {
+                switch (newval) {
+                    case true:
+                    case 1:
+                        api.control( 'responsive_post_author_box_style' ).toggle( false );
+                        break;
+                    case false:
+                    case 0:
+                        api.control( 'responsive_post_author_box_style' ).toggle( true );
+                        break;
+                }
+            }
+        );
+    }
+);
 
 })( jQuery );

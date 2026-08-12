@@ -76,21 +76,21 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 				)
 			);
 			$blog_border_radius_label = esc_html__( 'Border Radius (px)', 'responsive' );
-			responsive_radius_control($wp_customize, 'blog_border_radius', 'responsive_blog_layout', 30, 6, 6, null, $blog_border_radius_label, 'postMessage',);
+			responsive_radius_control($wp_customize, 'blog_border_radius', 'responsive_blog_layout', 30, 6, 6, null, $blog_border_radius_label, 'refresh',);
 			/* End of Border radius setting */
 			responsive_horizontal_separator_control($wp_customize, 'blog_border_radius_separator', 1, 'responsive_blog_layout', 32, 1, null );
 
 			// Post Title Size.
 			$blog_post_title_size_label = esc_html__( 'Post Title Size', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'blog_post_title_size', $blog_post_title_size_label, 'responsive_blog_layout', 79, 20, null, 100, 8, 'postMessage', 1 );
+			responsive_drag_number_control( $wp_customize, 'blog_post_title_size', $blog_post_title_size_label, 'responsive_blog_layout', 79, 20, null, 100, 8, 'refresh', 1 );
 
 			// Meta Font Size.
 			$blog_meta_font_size_label = esc_html__( 'Meta Font Size', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'blog_meta_font_size', $blog_meta_font_size_label, 'responsive_blog_layout', 91, 14, null, 60, 8, 'postMessage', 1 );
+			responsive_drag_number_control( $wp_customize, 'blog_meta_font_size', $blog_meta_font_size_label, 'responsive_blog_layout', 91, 14, null, 60, 8, 'refresh', 1 );
 
 			// Taxonomy Font Size.
 			$blog_taxonomy_font_size_label = esc_html__( 'Taxonomy Font Size', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'blog_taxonomy_font_size', $blog_taxonomy_font_size_label, 'responsive_blog_layout', 93, 14, null, 60, 8, 'postMessage', 1 );
+			responsive_drag_number_control( $wp_customize, 'blog_taxonomy_font_size', $blog_taxonomy_font_size_label, 'responsive_blog_layout', 93, 14, null, 60, 8, 'refresh', 1 );
 
 			responsive_horizontal_separator_control($wp_customize, 'blog_taxonomy_font_separator', 1, 'responsive_blog_layout', 94, 1, null );
 

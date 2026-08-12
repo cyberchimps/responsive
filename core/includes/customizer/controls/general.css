@@ -2088,3 +2088,13 @@ ul.control-panel-nav_menus .customize-help-toggle:before {
 #customize-theme-controls .customize-pane-child.open#sub-accordion-section-responsive_blog_layout{
 	height: 100%;
 }
+#sub-accordion-section-responsive_single_blog_layout li .responsive-color-control-wrapper .wp-picker-container,
+#sub-accordion-section-responsive_single_blog_layout li .responsive-color-control-wrapper .responsive-color-reset-btn,
+#sub-accordion-section-responsive_page li .responsive-color-control-wrapper .wp-picker-container,
+#sub-accordion-section-responsive_page li .responsive-color-control-wrapper .responsive-color-reset-btn{
+	margin-top: 20px;
+}
+#customize-control-responsive_single_blog_breadcrumb_typography_group .responsive-typography-settings-group-icon,
+#customize-control-responsive_single_blog_excerpt_typography_group .responsive-typography-settings-group-icon{
+	margin-top: 10px;
+}
