@@ -121,7 +121,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 11,
 					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
-						'font-size'      => '20px',
+						'font-size'      => '24px',
 						'line-height'    => '1.25',
 						'text-transform' => 'inherit',
 					),
@@ -169,9 +169,81 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
 						'font-family'    => 'System Font',
-						'font-size'      => '12px',
+						'font-size'      => '14px',
 						'line-height'    => '1.75',
-						'text-transform' => 'uppercase',
+						'text-transform' => 'capitalize',
+					),
+				),
+				// Blog/Archive page Item Category font
+				'item_category'              => array(
+					'label'    => esc_html__( 'Item Category', 'responsive' ),
+					'target'   => $selectorArray['item_category'],
+					'section'  => 'responsive_blog_layout',
+					'priority' => 96,
+					'exclude'  => array( 'font-color','font-size' ),
+					'defaults' => array(
+						'font-size'   => '13px',
+						'line-height' => '1.5',
+					),
+				),
+				// Blog/Archive page Item Meta font
+				'item_meta'              => array(
+					'label'    => esc_html__( 'Item Meta Font', 'responsive' ),
+					'target'   => $selectorArray['item_meta'],
+					'section'  => 'responsive_blog_layout',
+					'priority' => 98,
+					'exclude'  => array( 'font-color','font-size' ),
+					'defaults' => array(
+						'font-size'   => '13px',
+						'line-height' => '1.5',
+					),
+				),
+				// Single Post — Excerpt Font.
+				'single_blog_excerpt'    => array(
+					'label'    => esc_html__( 'Excerpt Font', 'responsive' ),
+					'target'   => $selectorArray['single_blog_excerpt'],
+					'section'  => 'responsive_single_blog_layout',
+					'priority' => 111,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size'   => '16px',
+						'line-height' => '1.75',
+					),
+				),
+				// Single Post — Breadcrumb Font.
+				'single_blog_breadcrumb' => array(
+					'label'    => esc_html__( 'Breadcrumb Font', 'responsive' ),
+					'target'   => $selectorArray['single_blog_breadcrumb'],
+					'section'  => 'responsive_single_blog_layout',
+					'priority' => 109,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size'   => '13px',
+						'line-height' => '1.75',
+					),
+				),
+				// Single Post — Category Font.
+				'single_blog_category'   => array(
+					'label'    => esc_html__( 'Category Font', 'responsive' ),
+					'target'   => $selectorArray['single_blog_category'],
+					'section'  => 'responsive_single_blog_layout',
+					'priority' => 116,
+					'exclude'  => array( 'font-color', 'font-size' ),
+					'defaults' => array(
+						'font-size'   => '13px',
+						'line-height' => '1.5',
+					),
+				),
+				// Single Post -  Meta font
+				'single_blog_meta'              => array(
+					'label'    => esc_html__( 'Meta Font', 'responsive' ),
+					'target'   => $selectorArray['single_blog_meta'],
+					'section'  => 'responsive_single_blog_layout',
+					'priority' => 98,
+					'exclude'  => array( 'font-color','font-size' ),
+					'defaults' => array(
+						'font-size'   => '13px',
+						'line-height' => '1.5',
 					),
 				),
 				'button'                     => array(
@@ -183,6 +255,8 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'defaults' => array(
 						'font-size'   => '16px',
 						'line-height' => '1',
+						'text-transform' => 'capitalize',
+						'font-weight'    => '400',
 					),
 				),
 				'input'                      => array(
@@ -296,8 +370,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'section'  => 'responsive_content_header_layout',
 					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
-						'font-size'   => '33px',
+						'font-size'   => '32px',
 						'line-height' => '1.75',
+						'font-weight' => '600',
 					),
 				),
 				'content_header_description' => array(
@@ -380,7 +455,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'exclude'  => array( 'font-color' ),
 					'priority' => 80,
 					'defaults' => array(
-						'font-size'   => '13px',
+						'font-size'   => '16px',
 						'line-height' => '1.75',
 					),
 				),
@@ -471,7 +546,96 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'font-size'   => '16px',
 						'line-height' => '1.75',
 					),
+				),
+				'single_blog_post_title' => array(
+					'label'	   => esc_html( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['single_blog_post_title'],
+					'section'  => 'responsive_single_blog_post_title_layout', 
+					'exclude'  => array( 'font-color' ),
+					'priority' => 40,
+					'defaults' => array(
+						'font-size'   => '32px',
+						'line-height' => '1.75'
+					)
+				),
+				'single_blog_post_text' => array(
+					'label'	   => esc_html( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['single_blog_post_text'],
+					'section'  => 'responsive_single_blog_post_title_layout', 
+					'exclude'  => array( 'font-color' ),
+					'priority' => 45,
+					'defaults' => array(
+						'font-size'   => '16px',
+						'line-height' => '1.75'
+					)
+				),
+				'single_blog_post_meta' => array(
+					'label'	   => esc_html( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['single_blog_post_meta'],
+					'section'  => 'responsive_single_blog_post_title_layout', 
+					'exclude'  => array( 'font-color' ),
+					'priority' => 45,
+					'defaults' => array(
+						'font-size'   => '12px',
+						'line-height' => '1.75'
+					)
+				),
+				'page_title_area_title' => array(
+					'label'	   => esc_html( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['page_title_area_title'],
+					'section'  => 'responsive_page_title_area_layout', 
+					'exclude'  => array( 'font-color' ),
+					'priority' => 40,
+					'defaults' => array(
+						'font-size'   => '32px',
+						'line-height' => '1.75'
+					)
+				),
+				'page_title_area_text' => array(
+					'label'	   => esc_html( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['page_title_area_text'],
+					'section'  => 'responsive_page_title_area_layout', 
+					'exclude'  => array( 'font-color' ),
+					'priority' => 45,
+					'defaults' => array(
+						'font-size'   => '16px',
+						'line-height' => '1.75'
+					)
+				),
+				'page_title_area_meta' => array(
+					'label'	   => esc_html( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['page_title_area_meta'],
+					'section'  => 'responsive_page_title_area_layout', 
+					'exclude'  => array( 'font-color' ),
+					'priority' => 45,
+					'defaults' => array(
+						'font-size'   => '12px',
+						'line-height' => '1.75'
+					)
+				),
+				'blog_post_title' => array(
+					'label'	   => esc_html( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['blog_post_title'],
+					'section'  => 'responsive_blog_title_layout', 
+					'exclude'  => array( 'font-color' ),
+					'priority' => 45,
+					'defaults' => array(
+						'font-size'   => '32px',
+						'line-height' => '1.75'
+					)
+				),
+				'blog_post_text' => array(
+					'label'	   => esc_html( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['blog_post_text'],
+					'section'  => 'responsive_blog_title_layout', 
+					'exclude'  => array( 'font-color' ),
+					'priority' => 45,
+					'defaults' => array(
+						'font-size'   => '16px',
+						'line-height' => '1.75'
+					)
 				)
+
 			);
 
 			for( $i=1;$i<=6;$i++ ) {
@@ -557,6 +721,12 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'header_contact_info'        => '.site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list  .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-title, .site-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text',
 				'mobile_header_contact_info' => '.site-mobile-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list  .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-title, .site-mobile-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text',
 				'header_off_canvas_menu'     => '.responsive-off-canvas-menu-container .responsive-off-canvas-menu-wrapper .responsive-off-canvas-menu-inner-wrapper .responsive-off-canvas-menu .responsive-off-canvas-menu-items .responsive-off-canvas-menu-item a, .off-canvas-widget-area #off-canvas-menu li a, #off-canvas-site-navigation .menu li a',
+				'item_category'              => '.blog .hentry .post-meta .entry-category a, .archive .hentry .post-meta .entry-category a', 
+				'item_meta'             	 => '.blog .hentry .post-meta .entry-author, .blog .hentry .post-meta .entry-date, .archive .hentry .post-meta .entry-author, .archive .hentry .post-meta .entry-date', 
+				'single_blog_excerpt'    => '.single.single-post .entry-excerpt',
+				'single_blog_breadcrumb' => '.single.single-post .breadcrumbs',
+				'single_blog_category'   => '.single.single-post .entry-category a',
+				'single_blog_meta'		 => '.single.single-post .hentry .post-meta .entry-author, .single.single-post .hentry .post-meta .entry-date',
 			);
 
 			if ( $this->is_responsive_version_greater() ) {
@@ -798,7 +968,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								'type'              => 'theme_mod',
 								'sanitize_callback' => 'responsive_sanitize_select',
 								'transport'         => $transport,
-								'default'           => 'meta' === $element ? 'uppercase' : '',
+								'default'           => 'meta' === $element ? 'capitalize' : '',
 							)
 						);
 

@@ -46,6 +46,50 @@
         }
     );
 
+    // Link Style
+    api( 'responsive_link_style', function( $swipe ) {
+            $swipe.bind(
+                function( newval ) {
+                    $.fn.removeClassRegEx = function(regex) {
+                        var classes = $(this).attr('class');
+                        if (!classes || !regex) return false;
+                        var classArray = [];
+                        classes = classes.split(' ');
+                        for (var i = 0, len = classes.length; i < len; i++)
+                            if (!classes[i].match(regex)) classArray.push(classes[i]);
+                        $(this).attr('class', classArray.join(' '));
+                    };
+
+                    $('body').removeClassRegEx('link-style-');
+                    jQuery( 'body' ).addClass( 'link-style-'+ newval );
+                }
+            );
+        }
+    );
+
+    // Sidebar Link Style
+    api( 'responsive_sidebar_link_style', function( $swipe ) {
+            $swipe.bind(
+                function( newval ) {
+                    var styleId = 'responsive-sidebar-link-style-preview';
+                    var $style = $('#' + styleId);
+                    if (!$style.length) {
+                        $style = $('<style id="' + styleId + '"></style>').appendTo('head');
+                    }
+                    var css = '';
+                    if (newval === 'hover') {
+                        css = '.widget-area .widget-wrapper a { text-decoration: none !important; } .widget-area .widget-wrapper a:hover { text-decoration: underline !important; }';
+                    } else if (newval === 'underline') {
+                        css = '.widget-area .widget-wrapper a { text-decoration: underline !important; } .widget-area .widget-wrapper a:hover { text-decoration: underline !important; }';
+                    } else {
+                        css = '.widget-area .widget-wrapper a { text-decoration: none !important; } .widget-area .widget-wrapper a:hover { text-decoration: none !important; }';
+                    }
+                    $style.text(css);
+                }
+            );
+        }
+    );
+
     // Header -> Layout
     //Header Layout
     // api( 'responsive_header_layout', function( $swipe ) {

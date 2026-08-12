@@ -66,7 +66,7 @@ do_action( 'responsive_before_single_post_meta' );
 							esc_url( get_permalink() ),
 							esc_attr( get_the_title() ),
 							esc_html( get_the_date( 'c' ) ),
-							esc_html( get_the_date() )
+							esc_html( get_the_date( 'M j, Y' ) )
 						)
 					);
 					?>
@@ -87,7 +87,7 @@ do_action( 'responsive_before_single_post_meta' );
 								esc_url( get_permalink() ),
 								esc_attr( get_the_title() ),
 								esc_html( get_the_modified_date( 'c' ) ),
-								esc_html( get_the_modified_date() )
+								esc_html( get_the_modified_date( 'M j, Y' ) )
 							)
 						);
 					?>
@@ -109,8 +109,8 @@ do_action( 'responsive_before_single_post_meta' );
 		}
 
 		if ( 'tag' === $section ) {
+			if ( has_tag() ) {
 			?>
-			<?php if ( has_tag() ) { ?>
 				<span class="entry-tag">
 						<span class="post-data">
 							<?php
@@ -118,12 +118,9 @@ do_action( 'responsive_before_single_post_meta' );
 							printf( esc_html__( 'Tagged with %s', 'responsive' ), wp_kses_post( get_the_tag_list( '', __( ', ', 'responsive' ) ) ) );
 							?>
 						</span><!-- end of .post-data -->
-						<?php
-				}
-				?>
 				</span>
-			</span>
 			<?php
+			}
 		}
 	}
 	?>

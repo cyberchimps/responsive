@@ -360,7 +360,7 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 									esc_url(get_permalink()),
 									esc_attr(get_the_title()),
 									esc_html(get_the_date('c')),
-									esc_html(get_the_date())
+									esc_html(get_the_date('M j, Y'))
 								)
 							);
 							?>
