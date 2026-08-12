@@ -382,26 +382,13 @@ function responsive_customizer_styles() {
 		}";
 	}
 
-	// Content Left/Right Edge Spacing & Content Top/Bottom Spacing
+	// Content Left/Right Edge Spacing
 	$content_edge_spacing              = esc_html( get_theme_mod( 'responsive_content_edge_spacing', Responsive\Core\get_responsive_customizer_defaults( 'content_edge_spacing' ) ) );
 	$content_edge_spacing_unit         = esc_html( get_theme_mod( 'responsive_content_edge_spacing_unit', 'px' ) );
 	$content_edge_spacing_tablet       = esc_html( get_theme_mod( 'responsive_content_edge_spacing_tablet', '' ) );
 	$content_edge_spacing_tablet_unit  = esc_html( get_theme_mod( 'responsive_content_edge_spacing_tablet_unit', 'px' ) );
 	$content_edge_spacing_mobile       = esc_html( get_theme_mod( 'responsive_content_edge_spacing_mobile', '' ) );
 	$content_edge_spacing_mobile_unit  = esc_html( get_theme_mod( 'responsive_content_edge_spacing_mobile_unit', 'px' ) );
-
-	$content_top_bottom_spacing        = esc_html( get_theme_mod( 'responsive_content_top_bottom_spacing', Responsive\Core\get_responsive_customizer_defaults( 'content_top_bottom_spacing' ) ) );
-	$content_top_bottom_spacing_unit   = esc_html( get_theme_mod( 'responsive_content_top_bottom_spacing_unit', 'px' ) );
-	$content_top_bottom_spacing_tablet = esc_html( get_theme_mod( 'responsive_content_top_bottom_spacing_tablet', '' ) );
-	$content_top_bottom_spacing_tablet_unit = esc_html( get_theme_mod( 'responsive_content_top_bottom_spacing_tablet_unit', 'px' ) );
-	$content_top_bottom_spacing_mobile = esc_html( get_theme_mod( 'responsive_content_top_bottom_spacing_mobile', '' ) );
-	$content_top_bottom_spacing_mobile_unit = esc_html( get_theme_mod( 'responsive_content_top_bottom_spacing_mobile_unit', 'px' ) );
-
-	$custom_css .= "
-	.site-content {
-		padding-top: 0;
-		padding-bottom: 0;
-	}";
 
 	if ( '' !== $content_edge_spacing ) {
 		$custom_css .= "
@@ -411,53 +398,23 @@ function responsive_customizer_styles() {
 		}";
 	}
 
-	if ( '' !== $content_top_bottom_spacing ) {
+	if ( '' !== $content_edge_spacing_tablet ) {
 		$custom_css .= "
-		.site-content {
-			margin-top: {$content_top_bottom_spacing}{$content_top_bottom_spacing_unit};
-			margin-bottom: {$content_top_bottom_spacing}{$content_top_bottom_spacing_unit};
-		}";
-	}
-
-	if ( '' !== $content_edge_spacing_tablet || '' !== $content_top_bottom_spacing_tablet ) {
-		$custom_css .= "
-		@media screen and ( max-width: 992px ) {";
-		if ( '' !== $content_edge_spacing_tablet ) {
-			$custom_css .= "
+		@media screen and ( max-width: 992px ) {
 			.container {
 				padding-left: {$content_edge_spacing_tablet}{$content_edge_spacing_tablet_unit};
 				padding-right: {$content_edge_spacing_tablet}{$content_edge_spacing_tablet_unit};
-			}";
-		}
-		if ( '' !== $content_top_bottom_spacing_tablet ) {
-			$custom_css .= "
-			.site-content {
-				margin-top: {$content_top_bottom_spacing_tablet}{$content_top_bottom_spacing_tablet_unit};
-				margin-bottom: {$content_top_bottom_spacing_tablet}{$content_top_bottom_spacing_tablet_unit};
-			}";
-		}
-		$custom_css .= "
+			}
 		}";
 	}
 
-	if ( '' !== $content_edge_spacing_mobile || '' !== $content_top_bottom_spacing_mobile ) {
+	if ( '' !== $content_edge_spacing_mobile ) {
 		$custom_css .= "
-		@media screen and ( max-width: 576px ) {";
-		if ( '' !== $content_edge_spacing_mobile ) {
-			$custom_css .= "
+		@media screen and ( max-width: 576px ) {
 			.container {
 				padding-left: {$content_edge_spacing_mobile}{$content_edge_spacing_mobile_unit};
 				padding-right: {$content_edge_spacing_mobile}{$content_edge_spacing_mobile_unit};
-			}";
-		}
-		if ( '' !== $content_top_bottom_spacing_mobile ) {
-			$custom_css .= "
-			.site-content {
-				margin-top: {$content_top_bottom_spacing_mobile}{$content_top_bottom_spacing_mobile_unit};
-				margin-bottom: {$content_top_bottom_spacing_mobile}{$content_top_bottom_spacing_mobile_unit};
-			}";
-		}
-		$custom_css .= "
+			}
 		}";
 	}
 

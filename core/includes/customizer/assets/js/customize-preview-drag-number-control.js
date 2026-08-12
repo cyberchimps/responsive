@@ -1837,42 +1837,6 @@
         });
     });
 
-    function updateContentTopBottomSpacingCss() {
-        jQuery('style#responsive-content-top-bottom-spacing-css').remove();
-
-        var val = api('responsive_content_top_bottom_spacing') ? api('responsive_content_top_bottom_spacing').get() : 80;
-        var unit = api('responsive_content_top_bottom_spacing_unit') ? api('responsive_content_top_bottom_spacing_unit').get() : 'px';
-
-        var val_tablet = api('responsive_content_top_bottom_spacing_tablet') ? api('responsive_content_top_bottom_spacing_tablet').get() : '';
-        var unit_tablet = api('responsive_content_top_bottom_spacing_tablet_unit') ? api('responsive_content_top_bottom_spacing_tablet_unit').get() : 'px';
-
-        var val_mobile = api('responsive_content_top_bottom_spacing_mobile') ? api('responsive_content_top_bottom_spacing_mobile').get() : '';
-        var unit_mobile = api('responsive_content_top_bottom_spacing_mobile_unit') ? api('responsive_content_top_bottom_spacing_mobile_unit').get() : 'px';
-
-        var css = '.site-content { padding-top: 0; padding-bottom: 0; margin-top: ' + val + unit + '; margin-bottom: ' + val + unit + '; }';
-
-        if (val_tablet !== '') {
-            css += '@media screen and (max-width: 992px) { .site-content { margin-top: ' + val_tablet + unit_tablet + '; margin-bottom: ' + val_tablet + unit_tablet + '; } }';
-        }
-        if (val_mobile !== '') {
-            css += '@media screen and (max-width: 576px) { .site-content { margin-top: ' + val_mobile + unit_mobile + '; margin-bottom: ' + val_mobile + unit_mobile + '; } }';
-        }
-
-        jQuery('head').append('<style id="responsive-content-top-bottom-spacing-css">' + css + '</style>');
-    }
-
-    [
-        'responsive_content_top_bottom_spacing',
-        'responsive_content_top_bottom_spacing_unit',
-        'responsive_content_top_bottom_spacing_tablet',
-        'responsive_content_top_bottom_spacing_tablet_unit',
-        'responsive_content_top_bottom_spacing_mobile',
-        'responsive_content_top_bottom_spacing_mobile_unit'
-    ].forEach(function(settingId) {
-        api(settingId, function(value) {
-            value.bind(updateContentTopBottomSpacingCss);
-        });
-    });
 
 } )( jQuery );
 

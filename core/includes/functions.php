@@ -1272,8 +1272,6 @@ function defaults() {
 			'logo_padding'                        => 28,
 			'content_edge_spacing'                => 12,
 			'content_edge_spacing_unit'           => 'px',
-			'content_top_bottom_spacing'          => 80,
-			'content_top_bottom_spacing_unit'     => 'px',
 			// Colors.
 			'responsive_site_background_color'    => 'palette5',
 			'background_gradient_color'           => 'linear-gradient(135deg, #12c2e9 0%, #c471ed 50%, #f64f59 100%)',
