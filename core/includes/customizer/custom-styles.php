@@ -8880,17 +8880,17 @@ function responsive_customizer_styles() {
 
 		$comments_margin_top    = get_theme_mod( 'responsive_comments_margin_top_padding', $default_comments_margin_y );
 		$comments_margin_right  = get_theme_mod( 'responsive_comments_margin_right_padding', $default_comments_margin_x );
-		$comments_margin_bottom = get_theme_mod( 'responsive_comments_margin_bottom_padding', $default_comments_margin_y );
+		$comments_margin_bottom = get_theme_mod( 'responsive_comments_margin_bottom_padding', 0 );
 		$comments_margin_left   = get_theme_mod( 'responsive_comments_margin_left_padding', $default_comments_margin_x );
 
 		$comments_margin_top_tablet    = get_theme_mod( 'responsive_comments_margin_tablet_top_padding', $default_comments_margin_y );
 		$comments_margin_right_tablet  = get_theme_mod( 'responsive_comments_margin_tablet_right_padding', $default_comments_margin_x );
-		$comments_margin_bottom_tablet = get_theme_mod( 'responsive_comments_margin_tablet_bottom_padding', $default_comments_margin_y );
+		$comments_margin_bottom_tablet = get_theme_mod( 'responsive_comments_margin_tablet_bottom_padding', 0 );
 		$comments_margin_left_tablet   = get_theme_mod( 'responsive_comments_margin_tablet_left_padding', $default_comments_margin_x );
 
 		$comments_margin_top_mobile    = get_theme_mod( 'responsive_comments_margin_mobile_top_padding', $default_comments_margin_y );
 		$comments_margin_right_mobile  = get_theme_mod( 'responsive_comments_margin_mobile_right_padding', $default_comments_margin_x );
-		$comments_margin_bottom_mobile = get_theme_mod( 'responsive_comments_margin_mobile_bottom_padding', $default_comments_margin_y );
+		$comments_margin_bottom_mobile = get_theme_mod( 'responsive_comments_margin_mobile_bottom_padding', 0 );
 		$comments_margin_left_mobile   = get_theme_mod( 'responsive_comments_margin_mobile_left_padding', $default_comments_margin_x );
 
 		$custom_css .= "body .site .comments-area {
@@ -8996,6 +8996,7 @@ function responsive_customizer_styles() {
 			$custom_css .= "
 					.responsive-blog-single-banner2 .container {
 						width: 100%;
+						padding: 0px;
 					}
 			";
 
@@ -9054,6 +9055,13 @@ function responsive_customizer_styles() {
 					.responsive-blog-single-banner2 {
 						max-width: {$single_blog_post_title_custom_container_width}px;
 						width: 100%;
+					}
+				";
+			}
+			else {
+				$custom_css .= "
+					.responsive-blog-single-banner2 {
+						width: auto;
 					}
 				";
 			}
@@ -9230,7 +9238,11 @@ function responsive_customizer_styles() {
 			$custom_css .= "
 			.responsive-archive-entry-banner .container {
 				width: 100%;
-			}";
+			}
+			.archive .responsive-archive-entry-banner + #wrapper .content-outer.container {
+				margin: 0 auto 52px;
+			}	
+			";
 
 			// checking post title is enabled on blog page 
 			$blog_page_title_toggle = get_theme_mod( 'responsive_blog_post_title_toggle', 0 );
@@ -9240,6 +9252,14 @@ function responsive_customizer_styles() {
 				   .blog .responsive-archive-entry-banner {
 						display: none;	
 				   }
+				";
+			}
+			else
+			{
+				$custom_css .= "
+				.responsive-archive-entry-banner + #wrapper .content-outer.container {
+					margin: 0 auto 52px;	
+				}
 				";
 			}
 
@@ -9263,6 +9283,13 @@ function responsive_customizer_styles() {
 					.responsive-archive-entry-banner {
 						max-width: {$blog_post_title_custom_container_width}px;
 						width: 100%;
+					}
+				";
+			}
+			else {
+				$custom_css .= "
+					.responsive-archive-entry-banner {
+						width: ;
 					}
 				";
 			}
@@ -9384,6 +9411,7 @@ function responsive_customizer_styles() {
 			$custom_css .= "
 					.responsive-single-entry-banner .container {
 						width: 100%;
+						padding: 0px;
 					}
 			";
 
@@ -9445,6 +9473,13 @@ function responsive_customizer_styles() {
 					}
 				";
 			}
+			else {
+				$custom_css .= "
+					.responsive-single-entry-banner {
+						width: auto;
+					}
+				";
+			}
 
 			$custom_css .= "
 				.responsive-single-entry-banner {
@@ -9475,6 +9510,15 @@ function responsive_customizer_styles() {
 			";
 			
 			
+		}
+
+		else {
+
+			$custom_css .= "
+				.page .entry-header > *:last-child {
+					margin-bottom: 20px;
+				}
+			";
 		}
 		
 	}

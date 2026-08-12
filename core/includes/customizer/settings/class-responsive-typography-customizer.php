@@ -483,7 +483,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 40,
 					'defaults' => array(
 						'font-size'   => '32px',
-						'line-height' => '1.75'
+						'line-height' => '1.25'
 					)
 				),
 				'single_blog_post_text' => array(
@@ -504,7 +504,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'exclude'  => array( 'font-color' ),
 					'priority' => 45,
 					'defaults' => array(
-						'font-size'   => '12px',
+						'font-size'   => '14px',
 						'line-height' => '1.75'
 					)
 				),
@@ -516,7 +516,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 40,
 					'defaults' => array(
 						'font-size'   => '32px',
-						'line-height' => '1.75'
+						'line-height' => '1.25'
 					)
 				),
 				'page_title_area_text' => array(
@@ -537,7 +537,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'exclude'  => array( 'font-color' ),
 					'priority' => 45,
 					'defaults' => array(
-						'font-size'   => '12px',
+						'font-size'   => '14px',
 						'line-height' => '1.75'
 					)
 				),
@@ -549,7 +549,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 45,
 					'defaults' => array(
 						'font-size'   => '32px',
-						'line-height' => '1.75'
+						'line-height' => '1.25'
 					)
 				),
 				'blog_post_text' => array(
