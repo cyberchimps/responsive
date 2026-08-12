@@ -525,10 +525,6 @@ function responsive_customizer_styles() {
 		$archive_grid_boxed_shadow_color = esc_html( get_theme_mod( 'responsive_archive_grid_boxed_shadow_color', '#FFFFFF' ) );
 		$archive_grid_boxed_shadow_inset_style = $archive_grid_boxed_shadow_inset ? 'inset' : '';
 
-		// Archive Grid Boxed Border Radius.
-		$archive_grid_boxed_radius      = get_theme_mod( 'responsive_archive_grid_boxed_radius', '' );
-		$archive_grid_boxed_radius_unit = get_theme_mod( 'responsive_archive_grid_boxed_radius_unit', 'px' );
-
 		$custom_css .= "
 		.blog:not(.custom-home-page-active) .site-content .hentry,
 		.archive:not(.post-type-archive-product) .site-content .hentry {
@@ -537,13 +533,6 @@ function responsive_customizer_styles() {
 			padding: " . responsive_spacing_css( $blog_inside_container_padding_top, $blog_inside_container_padding_right, $blog_inside_container_padding_bottom, $blog_inside_container_padding_left ) . ";
 			box-shadow: {$archive_grid_boxed_shadow_inset_style} {$archive_grid_boxed_shadow_x}px {$archive_grid_boxed_shadow_y}px {$archive_grid_boxed_shadow_blur}px {$archive_grid_boxed_shadow_spread}px {$archive_grid_boxed_shadow_color};
 		}";
-		if ( '' !== $archive_grid_boxed_radius ) {
-			$custom_css .= "
-			.blog:not(.custom-home-page-active) .site-content .hentry,
-			.archive:not(.post-type-archive-product) .site-content .hentry {
-				border-radius: {$archive_grid_boxed_radius}{$archive_grid_boxed_radius_unit};
-			}";
-		}
 		$custom_css .= "
 		@media screen and ( max-width: 992px ) {
 			.blog:not(.custom-home-page-active) .site-content .hentry,
@@ -551,13 +540,6 @@ function responsive_customizer_styles() {
 				border-radius: {$box_tablet_top_left_radius}px {$box_tablet_top_right_radius}px {$box_tablet_bottom_right_radius}px {$box_tablet_bottom_left_radius}px;
 				padding: " . responsive_spacing_css( $blog_inside_container_tablet_padding_top, $blog_inside_container_tablet_padding_right, $blog_inside_container_tablet_padding_bottom, $blog_inside_container_tablet_padding_left ) . ";
 			}";
-		if ( '' !== $archive_grid_boxed_radius ) {
-			$custom_css .= "
-			.blog:not(.custom-home-page-active) .site-content .hentry,
-			.archive:not(.post-type-archive-product) .site-content .hentry {
-				border-radius: {$archive_grid_boxed_radius}{$archive_grid_boxed_radius_unit};
-			}";
-		}
 		$custom_css .= "
 		}
 		@media screen and ( max-width: 576px ) {
@@ -566,13 +548,6 @@ function responsive_customizer_styles() {
 				border-radius: {$box_mobile_top_left_radius}px {$box_mobile_top_right_radius}px {$box_mobile_bottom_right_radius}px {$box_mobile_bottom_left_radius}px;
 				padding: " . responsive_spacing_css( $blog_inside_container_mobile_padding_top, $blog_inside_container_mobile_padding_right, $blog_inside_container_mobile_padding_bottom, $blog_inside_container_mobile_padding_left ) . ";
 			}";
-		if ( '' !== $archive_grid_boxed_radius ) {
-			$custom_css .= "
-			.blog:not(.custom-home-page-active) .site-content .hentry,
-			.archive:not(.post-type-archive-product) .site-content .hentry {
-				border-radius: {$archive_grid_boxed_radius}{$archive_grid_boxed_radius_unit};
-			}";
-		}
 		$custom_css .= "
 		}";
 	} elseif ( 'unboxed' === $responsive_blog_container_style ) {
@@ -590,20 +565,24 @@ function responsive_customizer_styles() {
 		$single_blog_container_style_setting = get_theme_mod( 'responsive_single_blog_container_style', 'default' );
 	$responsive_single_blog_container_style = ( 'default' === $single_blog_container_style_setting ) ? $global_container_style_key : $single_blog_container_style_setting;
 
+	// Single Post Boxed Border Radius.
+	$single_post_boxed_radius              = get_theme_mod( 'responsive_single_post_boxed_radius', '' );
+	$single_post_boxed_radius_unit         = get_theme_mod( 'responsive_single_post_boxed_radius_unit', 'px' );
+	$single_post_boxed_radius_tablet      = get_theme_mod( 'responsive_single_post_boxed_radius_tablet', '' );
+	$single_post_boxed_radius_tablet_unit = get_theme_mod( 'responsive_single_post_boxed_radius_tablet_unit', 'px' );
+	$single_post_boxed_radius_mobile      = get_theme_mod( 'responsive_single_post_boxed_radius_mobile', '' );
+	$single_post_boxed_radius_mobile_unit = get_theme_mod( 'responsive_single_post_boxed_radius_mobile_unit', 'px' );
+
+	// Single Post Boxed Shadow.
+	$single_post_boxed_shadow_x = get_theme_mod( 'responsive_single_post_boxed_shadow_x_axis', 0 );
+	$single_post_boxed_shadow_y = get_theme_mod( 'responsive_single_post_boxed_shadow_y_axis', 0 );
+	$single_post_boxed_shadow_blur = get_theme_mod( 'responsive_single_post_boxed_shadow_blur', 0 );
+	$single_post_boxed_shadow_spread = get_theme_mod( 'responsive_single_post_boxed_shadow_spread', 0 );
+	$single_post_boxed_shadow_inset = get_theme_mod( 'responsive_single_post_boxed_shadow_inset', false );
+	$single_post_boxed_shadow_color = esc_html( responsive_prepare_css_value( 'responsive_single_post_boxed_shadow_color', '#FFFFFF' ) );
+	$single_post_boxed_shadow_inset_style = $single_post_boxed_shadow_inset ? 'inset' : '';
+
 	if ( 'boxed' === $responsive_single_blog_container_style ) {
-		// Single Post Boxed Shadow.
-		$single_post_boxed_shadow_x = get_theme_mod( 'responsive_single_post_boxed_shadow_x_axis', 0 );
-		$single_post_boxed_shadow_y = get_theme_mod( 'responsive_single_post_boxed_shadow_y_axis', 0 );
-		$single_post_boxed_shadow_blur = get_theme_mod( 'responsive_single_post_boxed_shadow_blur', 0 );
-		$single_post_boxed_shadow_spread = get_theme_mod( 'responsive_single_post_boxed_shadow_spread', 0 );
-		$single_post_boxed_shadow_inset = get_theme_mod( 'responsive_single_post_boxed_shadow_inset', false );
-		$single_post_boxed_shadow_color = esc_html( responsive_prepare_css_value( 'responsive_single_post_boxed_shadow_color', '#FFFFFF' ) );
-		$single_post_boxed_shadow_inset_style = $single_post_boxed_shadow_inset ? 'inset' : '';
-
-		// Single Post Boxed Border Radius.
-		$single_post_boxed_radius      = get_theme_mod( 'responsive_single_post_boxed_radius', '' );
-		$single_post_boxed_radius_unit = get_theme_mod( 'responsive_single_post_boxed_radius_unit', 'px' );
-
 		$single_boxed_background_css = ( 'gradient' === $box_background_color_type && ! empty( $box_background_gradient_color ) )
 			? "background: {$box_background_gradient_color};"
 			: "background-color: {$box_background_color};";
@@ -630,7 +609,12 @@ function responsive_customizer_styles() {
 				border-radius: {$box_tablet_top_left_radius}px {$box_tablet_top_right_radius}px {$box_tablet_bottom_right_radius}px {$box_tablet_bottom_left_radius}px;
 				padding: " . responsive_spacing_css( $box_tablet_padding_top, $box_tablet_padding_right, $box_tablet_padding_bottom, $box_tablet_padding_left ) . ";
 			}";
-		if ( '' !== $single_post_boxed_radius ) {
+		if ( '' !== $single_post_boxed_radius_tablet ) {
+			$custom_css .= "
+			.single:not(.single-product) .site-content .hentry {
+				border-radius: {$single_post_boxed_radius_tablet}{$single_post_boxed_radius_tablet_unit};
+			}";
+		} elseif ( '' !== $single_post_boxed_radius ) {
 			$custom_css .= "
 			.single:not(.single-product) .site-content .hentry {
 				border-radius: {$single_post_boxed_radius}{$single_post_boxed_radius_unit};
@@ -644,7 +628,12 @@ function responsive_customizer_styles() {
 				border-radius: {$box_mobile_top_left_radius}px {$box_mobile_top_right_radius}px {$box_mobile_bottom_right_radius}px {$box_mobile_bottom_left_radius}px;
 				padding: " . responsive_spacing_css( $box_mobile_padding_top, $box_mobile_padding_right, $box_mobile_padding_bottom, $box_mobile_padding_left ) . ";
 			}";
-		if ( '' !== $single_post_boxed_radius ) {
+		if ( '' !== $single_post_boxed_radius_mobile ) {
+			$custom_css .= "
+			.single:not(.single-product) .site-content .hentry {
+				border-radius: {$single_post_boxed_radius_mobile}{$single_post_boxed_radius_mobile_unit};
+			}";
+		} elseif ( '' !== $single_post_boxed_radius ) {
 			$custom_css .= "
 			.single:not(.single-product) .site-content .hentry {
 				border-radius: {$single_post_boxed_radius}{$single_post_boxed_radius_unit};
@@ -661,6 +650,47 @@ function responsive_customizer_styles() {
 			padding: " . responsive_spacing_css( $outside_container_padding_top, $outside_container_padding_right, $outside_container_padding_bottom, $outside_container_padding_left) . ";
 
 		}";
+	} elseif ( 'content-boxed' === $responsive_single_blog_container_style ) {
+		$custom_css .= "
+		.single:not(.single-product) .site-content .hentry {
+			box-shadow: {$single_post_boxed_shadow_inset_style} {$single_post_boxed_shadow_x}px {$single_post_boxed_shadow_y}px {$single_post_boxed_shadow_blur}px {$single_post_boxed_shadow_spread}px {$single_post_boxed_shadow_color};
+		}";
+		if ( '' !== $single_post_boxed_radius ) {
+			$custom_css .= "
+			.single:not(.single-product) .site-content .hentry {
+				border-radius: {$single_post_boxed_radius}{$single_post_boxed_radius_unit};
+			}";
+		}
+		if ( '' !== $single_post_boxed_radius_tablet ) {
+			$custom_css .= "
+			@media screen and ( max-width: 992px ) {
+				.single:not(.single-product) .site-content .hentry {
+					border-radius: {$single_post_boxed_radius_tablet}{$single_post_boxed_radius_tablet_unit};
+				}
+			}";
+		} elseif ( '' !== $single_post_boxed_radius ) {
+			$custom_css .= "
+			@media screen and ( max-width: 992px ) {
+				.single:not(.single-product) .site-content .hentry {
+					border-radius: {$single_post_boxed_radius}{$single_post_boxed_radius_unit};
+				}
+			}";
+		}
+		if ( '' !== $single_post_boxed_radius_mobile ) {
+			$custom_css .= "
+			@media screen and ( max-width: 576px ) {
+				.single:not(.single-product) .site-content .hentry {
+					border-radius: {$single_post_boxed_radius_mobile}{$single_post_boxed_radius_mobile_unit};
+				}
+			}";
+		} elseif ( '' !== $single_post_boxed_radius ) {
+			$custom_css .= "
+			@media screen and ( max-width: 576px ) {
+				.single:not(.single-product) .site-content .hentry {
+					border-radius: {$single_post_boxed_radius}{$single_post_boxed_radius_unit};
+				}
+			}";
+		}
 	}
 
 	// Product Catalog Container Style.
@@ -750,7 +780,6 @@ function responsive_customizer_styles() {
 	$custom_css .= '
 		:root {
 			--responsive-scrollbar-width: ' . $scrollbar_width . ';
-			--responsive-border-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_border_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_border_color' ) ) ) . ';
 			--responsive-title-above-content-bg-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_title_above_content_bg_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_title_above_content_bg_color' ) ) ) . ';
 			--responsive-title-above-content-overlay-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_title_above_content_overlay_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_title_above_content_overlay_color' ) ) ) . ';
 		}
@@ -1726,6 +1755,42 @@ function responsive_customizer_styles() {
 	}
 
 	/* Content Link Styles */
+	.link-style-standard .entry-content p a,
+	.link-style-standard .entry-content strong>a,
+	.link-style-standard .entry-content em>a,
+	.link-style-standard .entry-content>ul a,
+	.link-style-standard .entry-content>ol a,
+	.link-style-color-underline .entry-content p a,
+	.link-style-color-underline .entry-content strong>a,
+	.link-style-color-underline .entry-content em>a,
+	.link-style-color-underline .entry-content>ul a,
+	.link-style-color-underline .entry-content>ol a,
+	.link-style-no-underline .entry-content p a,
+	.link-style-no-underline .entry-content strong>a,
+	.link-style-no-underline .entry-content em>a,
+	.link-style-no-underline .entry-content>ul a,
+	.link-style-no-underline .entry-content>ol a,
+	.link-style-hover-background .entry-content p a,
+	.link-style-hover-background .entry-content strong>a,
+	.link-style-hover-background .entry-content em>a,
+	.link-style-hover-background .entry-content>ul a,
+	.link-style-hover-background .entry-content>ol a {
+		color: {$link_color};
+	}
+
+	.link-style-standard .entry-content p a,
+	.link-style-standard .entry-content strong>a,
+	.link-style-standard .entry-content em>a,
+	.link-style-standard .entry-content>ul a,
+	.link-style-standard .entry-content>ol a,
+	.link-style-color-underline .entry-content p a,
+	.link-style-color-underline .entry-content strong>a,
+	.link-style-color-underline .entry-content em>a,
+	.link-style-color-underline .entry-content>ul a,
+	.link-style-color-underline .entry-content>ol a {
+		text-decoration: underline;
+	}
+
 	.link-style-color-underline .entry-content p a:hover,
 	.link-style-color-underline .entry-content strong>a:hover,
 	.link-style-color-underline .entry-content em>a:hover,
@@ -9998,9 +10063,9 @@ function responsive_customizer_styles() {
 			$single_blog_post_title_layout2_banner_height_mobile = get_theme_mod( 'responsive_single_blog_banner_min_height_mobile', 0 );
 
 			// check banner background color
-			$single_blog_banner_background_color  = get_theme_mod( 'responsive_single_blog_banner_background_color', '#ffffff' );
-			$single_blog_banner_tablet_background_color = get_theme_mod( 'responsive_single_blog_banner_background_color_tablet',  '#ffffff' );
-			$single_blog_banner_mobile_background_color = get_theme_mod( 'responsive_single_blog_banner_background_color_mobile', '#ffffff' );
+			$single_blog_banner_background_color        = responsive_prepare_css_value( 'responsive_single_blog_banner_background_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_banner_background_color' ) );
+			$single_blog_banner_tablet_background_color = responsive_prepare_css_value( 'responsive_single_blog_banner_background_color_tablet', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_banner_background_color' ) );
+			$single_blog_banner_mobile_background_color = responsive_prepare_css_value( 'responsive_single_blog_banner_background_color_mobile', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_banner_background_color' ) );
 
 			// check vertical alignment
 			$single_blog_post_title_layout2_vertical_alignment = get_theme_mod( 'responsive_single_blog_post_title_vertical_alignment', 'flex-start');
@@ -10176,9 +10241,9 @@ function responsive_customizer_styles() {
 		";
 
 		// check banner background color
-		$blog_banner_background_color  = get_theme_mod( 'responsive_blog_banner_background_color', '#ffffff' );
-		$blog_banner_tablet_background_color = get_theme_mod( 'responsive_blog_banner_background_color_tablet',  '#ffffff' );
-		$blog_banner_mobile_background_color = get_theme_mod( 'responsive_blog_banner_background_color_mobile', '#ffffff' );
+		$blog_banner_background_color        = responsive_prepare_css_value( 'responsive_blog_banner_background_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_blog_banner_background_color' ) );
+		$blog_banner_tablet_background_color = responsive_prepare_css_value( 'responsive_blog_banner_background_color_tablet', Responsive\Core\get_responsive_customizer_defaults( 'responsive_blog_banner_background_color' ) );
+		$blog_banner_mobile_background_color = responsive_prepare_css_value( 'responsive_blog_banner_background_color_mobile', Responsive\Core\get_responsive_customizer_defaults( 'responsive_blog_banner_background_color' ) );
 
 		// check horizontal alignment
 		$blog_post_title_horizontal_alignment = get_theme_mod( 'responsive_blog_post_title_horizontal_alignment', 'center');
@@ -10385,9 +10450,9 @@ function responsive_customizer_styles() {
 			$page_title_layout2_banner_height_mobile = get_theme_mod( 'responsive_page_title_banner_min_height_mobile', 0 );
 
 			// check banner background color
-			$page_banner_background_color  = get_theme_mod( 'responsive_page_title_banner_background_color', '#ffffff' );
-			$page_banner_tablet_background_color = get_theme_mod( 'responsive_page_title_banner_background_color_tablet',  '#ffffff' );
-			$page_banner_mobile_background_color = get_theme_mod( 'responsive_page_title_banner_background_color_mobile', '#ffffff' );
+			$page_banner_background_color        = responsive_prepare_css_value( 'responsive_page_title_banner_background_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_title_banner_background_color' ) );
+			$page_banner_tablet_background_color = responsive_prepare_css_value( 'responsive_page_title_banner_background_color_tablet', Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_title_banner_background_color' ) );
+			$page_banner_mobile_background_color = responsive_prepare_css_value( 'responsive_page_title_banner_background_color_mobile', Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_title_banner_background_color' ) );
 
 			// check vertical alignment
 			$page_title_layout2_vertical_alignment = get_theme_mod( 'responsive_page_title_vertical_alignment', 'flex-start');

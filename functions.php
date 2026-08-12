@@ -3099,40 +3099,6 @@ add_filter( 'body_class', function( $classes ) {
 	return $classes;
 } );
 
-if ( ! function_exists( 'responsive_theme_background_updater_global_borders_color_6_4_3' ) ) {
-	/**
-	 * Migration to preserve legacy hex defaults for existing sites upgrading to 6.4.3.
-	 */
-	function responsive_theme_background_updater_global_borders_color_6_4_3() {
-		$responsive_options = get_option( 'responsive_theme_options' );
-		if ( empty( $responsive_options['global_borders_color_6_4_3_backward_done'] ) ) {
-			if ( false === get_theme_mod( 'responsive_inputs_border_color', false ) ) {
-				set_theme_mod( 'responsive_inputs_border_color', '#cccccc' );
-			}
-			if ( false === get_theme_mod( 'responsive_header_above_row_bottom_border_color', false ) ) {
-				set_theme_mod( 'responsive_header_above_row_bottom_border_color', '#007CBA' );
-			}
-			if ( false === get_theme_mod( 'responsive_header_primary_row_bottom_border_color', false ) ) {
-				set_theme_mod( 'responsive_header_primary_row_bottom_border_color', '#0066CC' );
-			}
-			if ( false === get_theme_mod( 'responsive_header_below_row_bottom_border_color', false ) ) {
-				set_theme_mod( 'responsive_header_below_row_bottom_border_color', '#007CBA' );
-			}
-			if ( false === get_theme_mod( 'responsive_footer_above_row_border_color', false ) ) {
-				set_theme_mod( 'responsive_footer_above_row_border_color', '#FFFFFF' );
-			}
-			if ( false === get_theme_mod( 'responsive_footer_primary_row_border_color', false ) ) {
-				set_theme_mod( 'responsive_footer_primary_row_border_color', '#aaaaaa' );
-			}
-			if ( false === get_theme_mod( 'responsive_footer_below_row_border_color', false ) ) {
-				set_theme_mod( 'responsive_footer_below_row_border_color', '#0066CC' );
-			}
-
-			$responsive_options['global_borders_color_6_4_3_backward_done'] = true;
-			update_option( 'responsive_theme_options', $responsive_options );
-		}
-	}
-}
 
 add_action( 'wp', 'responsive_header_button_border_none_legacy_migrate', 5 );
 add_action( 'admin_init', 'responsive_header_button_border_none_legacy_migrate', 5 );

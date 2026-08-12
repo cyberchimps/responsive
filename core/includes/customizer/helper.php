@@ -1538,7 +1538,7 @@ function responsive_color_control( $wp_customize, $element, $label, $section, $p
 				'default'           => $hover_default,
 				'type'              => 'theme_mod',
 				'sanitize_callback' => 'responsive_sanitize_background',
-				'transport'         => 'postMessage',
+				'transport'         => $transport,
 			)
 		);
 	}

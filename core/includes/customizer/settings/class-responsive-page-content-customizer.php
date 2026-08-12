@@ -209,7 +209,7 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 
 			// Banner Background Color
 			$page_title_banner_background_color_label = __( 'Banner Background Color', 'responsive' );
-			responsive_color_control_with_device_switchers( $wp_customize, 'page_title_banner_background', $page_title_banner_background_color_label, 'responsive_page_title_area_layout', 4, '#ffffff' );
+			responsive_color_control_with_device_switchers( $wp_customize, 'page_title_banner_background', $page_title_banner_background_color_label, 'responsive_page_title_area_layout', 4, Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_title_banner_background_color' ) );
 
 
 			// Page Title Vertical Alignment
@@ -428,7 +428,7 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 
 			// Overlay Color.
 			$page_featured_image_overlay_color_label = esc_html__( 'Overlay Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'page_featured_image_overlay', $page_featured_image_overlay_color_label, 'responsive_page_title_area_layout', 158, '' );
+			responsive_color_control( $wp_customize, 'page_featured_image_overlay', $page_featured_image_overlay_color_label, 'responsive_page_title_area_layout', 158, Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_featured_image_overlay_color' ) );
 
 			// Content Alignment.
 			$page_content_alignment_label   = esc_html__( 'Page Content Alignment', 'responsive' );

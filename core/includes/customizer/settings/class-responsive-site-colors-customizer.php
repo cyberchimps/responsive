@@ -66,7 +66,7 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 			// Link Color.
 			$link_color_label = __( 'Links', 'responsive' );
 
-			responsive_color_control( $wp_customize, 'link', $link_color_label, 'responsive_colors', 35, Responsive\Core\get_responsive_customizer_defaults( 'responsive_link_color' ),null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_link_hover_color' ), 'link_hover' );
+			responsive_color_control( $wp_customize, 'link', $link_color_label, 'responsive_colors', 35, Responsive\Core\get_responsive_customizer_defaults( 'responsive_link_color' ),null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_link_hover_color' ), 'link_hover', false, null, null, 'color', 'refresh' );
 
 			// Meta Color.
 			$meta_text_color_label = __( 'Meta Color', 'responsive' );
@@ -104,9 +104,6 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 
 			responsive_horizontal_separator_control( $wp_customize, 'h6_text_separator', 1, 'responsive_colors',85, 1 );
 
-			// Global Borders Color.
-			$border_color_label = __( 'Borders', 'responsive' );
-			responsive_color_control( $wp_customize, 'border', $border_color_label, 'responsive_colors', 87, Responsive\Core\get_responsive_customizer_defaults( 'responsive_border_color' ), null );
 
 			// Title Above Content Background.
 			$title_above_content_bg_color_label = __( 'Title Above Content Background', 'responsive' );
@@ -221,7 +218,7 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 				'hover-background'   => esc_html__( 'Background on hover', 'responsive' ),
 				'offset-background' => esc_html__( 'Offset Background', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'link_style', $link_style_label, 'responsive_colors', 125, $link_style_choices, 'standard', null, 'postMessage' );
+			responsive_select_control( $wp_customize, 'link_style', $link_style_label, 'responsive_colors', 125, $link_style_choices, 'standard', null, 'refresh' );
 
 			// Buttons.
 			// $general_buttons_label = esc_html__( 'Buttons', 'responsive' );

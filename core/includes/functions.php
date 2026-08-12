@@ -1385,10 +1385,14 @@ function defaults() {
 			'button_hover_border'                 => '#0066CC',
 			'inputs_background'                   => '#ffffff',
 			'inputs_text'                         => '#404040',
-			'inputs_border'                       => 'border-color',
-			'responsive_border_color'             => '#d1d5db',
+			'inputs_border'                       => '#cccccc',
 			'responsive_title_above_content_bg_color'      => '',
 			'responsive_title_above_content_overlay_color' => '',
+			'responsive_blog_banner_background_color'       => 'title-above-content-bg-color',
+			'responsive_single_blog_banner_background_color' => 'title-above-content-bg-color',
+			'responsive_page_title_banner_background_color' => 'title-above-content-bg-color',
+			'responsive_single_blog_featured_image_overlay_color' => 'title-above-content-overlay-color',
+			'responsive_page_featured_image_overlay_color'  => 'title-above-content-overlay-color',
 			'responsive_link_style'               => 'standard',
 			'label'                               => '#404040',
 
@@ -1513,34 +1517,22 @@ function defaults() {
 			),
 			'responsive_header_primary_row_bg_color'                  => '#FFFFFF',
 			'responsive_header_primary_row_bg_hover_color'            => '#FFFFFF',
-			'responsive_header_primary_row_bottom_border_color'       => 'border-color',
-			'responsive_header_primary_row_bottom_border_color_tablet'=> 'border-color',
-			'responsive_header_primary_row_bottom_border_color_mobile'=> 'border-color',
+			'responsive_header_primary_row_bottom_border_color'       => '#D4D4D4',
 			'responsive_header_primary_row_bottom_border_hover_color' => '#D4D4D4',
 			'responsive_header_above_row_bg_color'                    => '#FFFFFF',
 			'responsive_header_above_row_bg_hover_color'              => '#FFFFFF',
-			'responsive_header_above_row_bottom_border_color'         => 'border-color',
-			'responsive_header_above_row_bottom_border_color_tablet'  => 'border-color',
-			'responsive_header_above_row_bottom_border_color_mobile'  => 'border-color',
+			'responsive_header_above_row_bottom_border_color'         => '#007CBA',
 			'responsive_header_above_row_bottom_border_hover_color'   => '#D9D9D9',
 			'responsive_header_below_row_bg_color'                    => '#FFFFFF',
 			'responsive_header_below_row_bg_hover_color'              => '#FFFFFF',
-			'responsive_header_below_row_bottom_border_color'         => 'border-color',
-			'responsive_header_below_row_bottom_border_color_tablet'  => 'border-color',
-			'responsive_header_below_row_bottom_border_color_mobile'  => 'border-color',
+			'responsive_header_below_row_bottom_border_color'         => '#007CBA',
 			'responsive_header_below_row_bottom_border_hover_color'   => '#D9D9D9',
 			'responsive_footer_above_row_bg_color'                    => '#333333',
-			'responsive_footer_above_row_border_color'                => 'border-color',
-			'responsive_footer_above_row_border_color_tablet'         => 'border-color',
-			'responsive_footer_above_row_border_color_mobile'         => 'border-color',
+			'responsive_footer_above_row_border_color'                => '#FFFFFF',
 			'responsive_footer_primary_row_bg_color'                  => '#333333',
-			'responsive_footer_primary_row_border_color'              => 'border-color',
-			'responsive_footer_primary_row_border_color_tablet'       => 'border-color',
-			'responsive_footer_primary_row_border_color_mobile'       => 'border-color',
+			'responsive_footer_primary_row_border_color'              => '#aaaaaa',
 			'responsive_footer_below_row_bg_color'                    => '#FFFFFF',
-			'responsive_footer_below_row_border_color'                => 'border-color',
-			'responsive_footer_below_row_border_color_tablet'         => 'border-color',
-			'responsive_footer_below_row_border_color_mobile'         => 'border-color',
+			'responsive_footer_below_row_border_color'                => '#D4D4D4',
 			'responsive_header_button_label'                          => 'Button',
 			'responsive_header_toggle_button_menu_label'			  => '',
 			'responsive_header_toggle_button_icon'                    => 'hamburger_solid',
@@ -3005,10 +2997,6 @@ if( ! function_exists( 'responsive_prepare_css_value' ) ) {
 
 		if ( is_string( $value ) && ( preg_match( '/^palette\d+$/', $value ) || false !== strpos( $value, 'headings-color' ) ) ) {
 			return 'var(--responsive-global-' . $value . ')';
-		}
-
-		if ( 'border-color' === $value ) {
-			return 'var(--responsive-border-color)';
 		}
 
 		if ( 'title-above-content-bg-color' === $value ) {
