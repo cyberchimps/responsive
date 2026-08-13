@@ -53,9 +53,10 @@ if ( in_array( $single_title_layout, array( 'post_title_layout1', 'post_title_la
 		// Get posts format.
 		$format = get_post_format();
 
+		// Get elements.
+		$elements = responsive_blog_single_elements_positioning();
+
 		if ( get_theme_mod( 'responsive_single_blog_post_title_layout', 'post_title_layout1' ) === 'post_title_layout1' ) {
-			// Get elements.
-			$elements = responsive_blog_single_elements_positioning();
 			?>
 			<?php
 			$header_style = '';
@@ -98,7 +99,9 @@ if ( in_array( $single_title_layout, array( 'post_title_layout1', 'post_title_la
 			<?php
 		}
 
-		get_template_part( 'partials/single/content' );
+		if ( ! in_array( 'excerpt', $elements, true ) ) {
+			get_template_part( 'partials/single/content' );
+		}
 		?>
 
 		<?php if ( '' !== get_the_author_meta( 'description' ) && 0 === get_theme_mod( 'responsive_disable_author_meta', 0 ) ) : ?>
