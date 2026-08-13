@@ -1840,7 +1840,7 @@
     function updateContentTopBottomSpacingCss() {
         jQuery('style#responsive-content-top-bottom-spacing-css').remove();
 
-        var val = api('responsive_content_top_bottom_spacing') ? api('responsive_content_top_bottom_spacing').get() : 80;
+        var val = api('responsive_content_top_bottom_spacing') ? api('responsive_content_top_bottom_spacing').get() : 28;
         var unit = api('responsive_content_top_bottom_spacing_unit') ? api('responsive_content_top_bottom_spacing_unit').get() : 'px';
 
         var val_tablet = api('responsive_content_top_bottom_spacing_tablet') ? api('responsive_content_top_bottom_spacing_tablet').get() : '';
