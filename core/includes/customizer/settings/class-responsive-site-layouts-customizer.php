@@ -193,6 +193,26 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 				array( 'px', 'em', 'rem', 'vh' )
 			);
 
+			// Content Top and Bottom Spacing.
+			$content_top_bottom_spacing_label = __( 'Content Top and Bottom Spacing', 'responsive' );
+			responsive_drag_number_control_with_switchers(
+				$wp_customize,
+				'content_top_bottom_spacing',
+				$content_top_bottom_spacing_label,
+				'responsive_layout',
+				52,
+				Responsive\Core\get_responsive_customizer_defaults( 'content_top_bottom_spacing' ),
+				null,
+				100,
+				0,
+				'postMessage',
+				1,
+				null,
+				null,
+				array( 'desktop', 'tablet', 'mobile' ),
+				array( 'px', 'em', 'rem', 'vh' )
+			);
+
 			// responsive_number_control( $wp_customize, 'box_radius', $box_radius_label, 'responsive_layout', 50, 0, 'responsive_not_active_site_style_flat' );
 
 			// Redirect to site title and logo.
@@ -221,7 +241,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			responsive_separator_control(
 				$wp_customize,
 				'single_post_boxed_separator',
-				__( 'Single Post Boxed', 'responsive' ),
+				__( 'Single Post Layout Style', 'responsive' ),
 				'responsive_layout',
 				200
 			);
@@ -281,7 +301,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			responsive_separator_control(
 				$wp_customize,
 				'archive_grid_boxed_separator',
-				__( 'Archive Grid Boxed', 'responsive' ),
+				__( 'Blog/Archive Grid Layout Style', 'responsive' ),
 				'responsive_layout',
 				230
 			);
