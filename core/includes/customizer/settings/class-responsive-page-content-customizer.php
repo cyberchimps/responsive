@@ -486,11 +486,11 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			responsive_horizontal_separator_control($wp_customize, 'page_content_before_background_separator', 1, 'responsive_page', 101, 1, null );
 
 			// Page Site Background Color.
-			$page_site_background_color_label = __( 'Site Background', 'responsive' );
+			$page_site_background_color_label = __( 'Page Background', 'responsive' );
 			responsive_color_control( $wp_customize, 'page_site_background', $page_site_background_color_label, 'responsive_page', 102, Responsive\Core\get_responsive_customizer_defaults('responsive_page_site_background_color') );
 
 			// Page Content Background Color.
-			$page_content_background_color_label = __( 'Content Background', 'responsive' );
+			$page_content_background_color_label = __( 'Page Content Background', 'responsive' );
 			responsive_color_control( $wp_customize, 'page_content_background', $page_content_background_color_label, 'responsive_page', 103, Responsive\Core\get_responsive_customizer_defaults('responsive_page_content_background_color') );
 
 			responsive_horizontal_separator_control($wp_customize, 'page_content_background_separator', 1, 'responsive_page', 104, 1, null );

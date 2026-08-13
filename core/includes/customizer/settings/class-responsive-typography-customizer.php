@@ -198,18 +198,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'line-height' => '1.5',
 					),
 				),
-				// Single Post — Excerpt Font.
-				'single_blog_excerpt'    => array(
-					'label'    => esc_html__( 'Excerpt Font', 'responsive' ),
-					'target'   => $selectorArray['single_blog_excerpt'],
-					'section'  => 'responsive_single_blog_layout',
-					'priority' => 111,
-					'exclude'  => array( 'font-color' ),
-					'defaults' => array(
-						'font-size'   => '16px',
-						'line-height' => '1.75',
-					),
-				),
+				
 				// Single Post — Breadcrumb Font.
 				'single_blog_breadcrumb' => array(
 					'label'    => esc_html__( 'Breadcrumb Font', 'responsive' ),
@@ -700,8 +689,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'header_off_canvas_menu'     => '.responsive-off-canvas-menu-container .responsive-off-canvas-menu-wrapper .responsive-off-canvas-menu-inner-wrapper .responsive-off-canvas-menu .responsive-off-canvas-menu-items .responsive-off-canvas-menu-item a, .off-canvas-widget-area #off-canvas-menu li a, #off-canvas-site-navigation .menu li a',
 				'item_category'              => '.blog .hentry .entry-meta .entry-category a, .archive .hentry .entry-meta .entry-category a', 
 				'item_meta'             	 => '.blog .hentry .post-entry .post-meta .entry-author .author a span, .blog .hentry .post-meta .entry-date time, .archive .hentry .post-meta .entry-author .author a span, .archive .hentry .post-meta .entry-date time', 
-				'single_blog_excerpt'    => '.single.single-post .entry-excerpt',
-				'single_blog_breadcrumb' => '.single.single-post .breadcrumbs',
+				'single_blog_breadcrumb'     => '.single.single-post .breadcrumbs',
 				'single_blog_post_text'      => '.single-post .entry-header *:not(.post-meta):not(.post-meta *):not(.post-title), .responsive-blog-single-banner2 .container *:not(.post-meta):not(.post-meta *):not(.post-title)',
 				'single_blog_post_title'     => '.single-post .site-content article .post-entry .post-title, .single-post .responsive-blog-single-banner2 .post-title',
 				'single_blog_post_meta'      => '.single-post .site-content article .post-entry .post-meta span, .single-post .site-content article .post-entry .post-meta i, .single-post .site-content article .post-entry .post-meta span a, .single-post .site-content article .post-entry .post-meta span a time, .single-post .site-content article .post-entry .entry-meta, .responsive-blog-single-banner2 .container .post-meta span, .responsive-blog-single-banner2 .container .post-meta i, .responsive-blog-single-banner2 .container .post-meta span a, .responsive-blog-single-banner2 .container .post-meta span a time, .responsive-blog-single-banner2 .container .entry-meta',

@@ -37,21 +37,14 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 			$main_tabs_label            = esc_html__( 'Tabs', 'responsive' );
 			$main_design_tab_ids_prefix = 'customize-control-';
 			$main_design_tab_ids        = array(
-				$main_design_tab_ids_prefix . 'responsive_single_blog_item_meta_color',
 				$main_design_tab_ids_prefix . 'responsive_single_blog_breadcrumb_color',
 				$main_design_tab_ids_prefix . 'responsive_single_blog_breadcrumb_color',
 				$main_design_tab_ids_prefix . 'responsive_single_blog_breadcrumb_typography_group',
-				$main_design_tab_ids_prefix . 'responsive_single_blog_excerpt_color_color',
-				$main_design_tab_ids_prefix . 'responsive_single_blog_excerpt_typography_group',
 				$main_design_tab_ids_prefix . 'responsive_single_blog_site_background_color',
 				$main_design_tab_ids_prefix . 'responsive_single_blog_content_background_color',
-				$main_design_tab_ids_prefix . 'responsive_single_blog_category_color_color',
 				$main_design_tab_ids_prefix . 'responsive_single_blog_category_typography_group',
-				$main_design_tab_ids_prefix . 'responsive_single_blog_category_typography_separator',
 				$main_design_tab_ids_prefix . 'responsive_single_blog_meta_typography_group_separator',
-				$main_design_tab_ids_prefix . 'responsive_single_blog_breadcrumb_typography_group_separator',
-				$main_design_tab_ids_prefix . 'responsive_single_blog_excerpt_typography_separator',
-				
+				$main_design_tab_ids_prefix . 'responsive_single_blog_breadcrumb_typography_group_separator',				
 			);
 
 			$main_general_tab_ids_prefix = 'customize-control-responsive_single_blog_';
@@ -824,48 +817,6 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'normal',
 				'responsive_show_post_author_box',
 			);
-
-			// Category Color. 
-			$blog_category_color_label = __( 'Category Color', 'responsive' );
-			responsive_color_control(
-				$wp_customize,
-				'single_blog_category_color',
-				$blog_category_color_label,
-				'responsive_single_blog_layout',
-				107,
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_category_color' ),
-				null,   
-				'',     
-				false,  
-				null,   
-				null,   
-				false,  
-				null,   
-				null,   
-				'color',
-				'refresh'
-			);
-
-			
-			responsive_horizontal_separator_control( $wp_customize, 'single_blog_category_typography_separator', 1, 'responsive_single_blog_layout',109, 1, null );
-
-			// Meta Color.
-			$blog_item_meta_color_label = __( 'Meta Color', 'responsive' );
-			responsive_color_control(
-				$wp_customize,
-				'single_blog_item_meta',
-				$blog_item_meta_color_label,
-				'responsive_single_blog_layout',
-				110,
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_item_meta_color' ),
-				null,
-				'',
-				true,
-				Responsive\Core\get_responsive_customizer_defaults( 'blog_item_meta_hover' ),
-				'blog_item_meta_hover',
-				'refresh',
-			);
-
 			
 			responsive_horizontal_separator_control( $wp_customize, 'single_blog_meta_typography_group_separator', 1, 'responsive_single_blog_layout',112, 1, null );
 
@@ -902,37 +853,8 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 			);
 			responsive_horizontal_separator_control( $wp_customize, 'single_blog_breadcrumb_typography_group_separator', 1, 'responsive_single_blog_layout',115, 1, null );
 
-			// Excerpt Color
-			$blog_excerpt_color_label = __( 'Excerpt Color', 'responsive' );
-			responsive_color_control(
-				$wp_customize,
-				'single_blog_excerpt_color',
-				$blog_excerpt_color_label,
-				'responsive_single_blog_layout',
-				116,
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_excerpt_color' ),
-				null,
-				'',
-				true,
-				Responsive\Core\get_responsive_customizer_defaults( 'single_blog_excerpt_color_hover' ),
-				'single_blog_excerpt_color_hover',
-				'refresh',
-			);
-
-			// Excerpt Font
-			$blog_excerpt_typography_label = esc_html__( 'Excerpt Font', 'responsive' );
-			responsive_typography_group_control(
-				$wp_customize,
-				'single_blog_excerpt_typography_group',
-				$blog_excerpt_typography_label,
-				'responsive_single_blog_layout',
-				117,
-				'single_blog_excerpt_typography'
-			);
-			responsive_horizontal_separator_control( $wp_customize, 'single_blog_excerpt_typography_separator', 1, 'responsive_single_blog_layout',118, 1, null );
-
 			// Site Background Color.
-			$blog_site_background_color_label = __( 'Site Background Color', 'responsive' );
+			$blog_site_background_color_label = __( 'Single Post Background Color', 'responsive' );
 			responsive_color_control(
 				$wp_customize,
 				'single_blog_site_background',
@@ -953,7 +875,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 			);
 
 			// Content Background Color.
-			$blog_content_background_color_label = __( 'Content Background Color', 'responsive' );
+			$blog_content_background_color_label = __( 'Single Post Content Background Color', 'responsive' );
 			responsive_color_control(
 				$wp_customize,
 				'single_blog_content_background',
