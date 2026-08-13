@@ -390,6 +390,13 @@ function responsive_customizer_styles() {
 	$content_edge_spacing_mobile       = esc_html( get_theme_mod( 'responsive_content_edge_spacing_mobile', '' ) );
 	$content_edge_spacing_mobile_unit  = esc_html( get_theme_mod( 'responsive_content_edge_spacing_mobile_unit', 'px' ) );
 
+	$content_top_bottom_spacing        = esc_html( get_theme_mod( 'responsive_content_top_bottom_spacing', Responsive\Core\get_responsive_customizer_defaults( 'content_top_bottom_spacing' ) ) );
+	$content_top_bottom_spacing_unit   = esc_html( get_theme_mod( 'responsive_content_top_bottom_spacing_unit', 'px' ) );
+	$content_top_bottom_spacing_tablet = esc_html( get_theme_mod( 'responsive_content_top_bottom_spacing_tablet', '' ) );
+	$content_top_bottom_spacing_tablet_unit = esc_html( get_theme_mod( 'responsive_content_top_bottom_spacing_tablet_unit', 'px' ) );
+	$content_top_bottom_spacing_mobile = esc_html( get_theme_mod( 'responsive_content_top_bottom_spacing_mobile', '' ) );
+	$content_top_bottom_spacing_mobile_unit = esc_html( get_theme_mod( 'responsive_content_top_bottom_spacing_mobile_unit', 'px' ) );
+
 	if ( '' !== $content_edge_spacing ) {
 		$custom_css .= "
 		.container {
@@ -398,23 +405,65 @@ function responsive_customizer_styles() {
 		}";
 	}
 
-	if ( '' !== $content_edge_spacing_tablet ) {
+	if ( '' !== $content_top_bottom_spacing ) {
 		$custom_css .= "
-		@media screen and ( max-width: 992px ) {
-			.container {
-				padding-left: {$content_edge_spacing_tablet}{$content_edge_spacing_tablet_unit};
-				padding-right: {$content_edge_spacing_tablet}{$content_edge_spacing_tablet_unit};
-			}
+		.site-content,
+		.hentry,
+		article.product,
+		.navigation,
+		div.comments-area {
+			margin-top: {$content_top_bottom_spacing}{$content_top_bottom_spacing_unit};
+			margin-bottom: {$content_top_bottom_spacing}{$content_top_bottom_spacing_unit};
 		}";
 	}
 
-	if ( '' !== $content_edge_spacing_mobile ) {
+	if ( '' !== $content_edge_spacing_tablet || '' !== $content_top_bottom_spacing_tablet ) {
 		$custom_css .= "
-		@media screen and ( max-width: 576px ) {
+		@media screen and ( max-width: 992px ) {";
+		if ( '' !== $content_edge_spacing_tablet ) {
+			$custom_css .= "
+			.container {
+				padding-left: {$content_edge_spacing_tablet}{$content_edge_spacing_tablet_unit};
+				padding-right: {$content_edge_spacing_tablet}{$content_edge_spacing_tablet_unit};
+			}";
+		}
+		if ( '' !== $content_top_bottom_spacing_tablet ) {
+			$custom_css .= "
+			.site-content,
+			.hentry,
+			article.product,
+			.navigation,
+			div.comments-area {
+				margin-top: {$content_top_bottom_spacing_tablet}{$content_top_bottom_spacing_tablet_unit};
+				margin-bottom: {$content_top_bottom_spacing_tablet}{$content_top_bottom_spacing_tablet_unit};
+			}";
+		}
+		$custom_css .= "
+		}";
+	}
+
+	if ( '' !== $content_edge_spacing_mobile || '' !== $content_top_bottom_spacing_mobile ) {
+		$custom_css .= "
+		@media screen and ( max-width: 576px ) {";
+		if ( '' !== $content_edge_spacing_mobile ) {
+			$custom_css .= "
 			.container {
 				padding-left: {$content_edge_spacing_mobile}{$content_edge_spacing_mobile_unit};
 				padding-right: {$content_edge_spacing_mobile}{$content_edge_spacing_mobile_unit};
-			}
+			}";
+		}
+		if ( '' !== $content_top_bottom_spacing_mobile ) {
+			$custom_css .= "
+			.site-content,
+			.hentry,
+			article.product,
+			.navigation,
+			div.comments-area {
+				margin-top: {$content_top_bottom_spacing_mobile}{$content_top_bottom_spacing_mobile_unit};
+				margin-bottom: {$content_top_bottom_spacing_mobile}{$content_top_bottom_spacing_mobile_unit};
+			}";
+		}
+		$custom_css .= "
 		}";
 	}
 
