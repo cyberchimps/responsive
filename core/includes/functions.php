@@ -1455,6 +1455,8 @@ function defaults() {
 			'responsive_sidebar_link_hover_color' => 'palette1',
 			'responsive_shop_product_rating_color' => 'palette0',
 			'responsive_cart_checkout_button_color' => 'palette0',
+			'responsive_blog_item_meta_color'		=> '#3B82F6',
+			'responsive_blog_category_color'		=> '#3B82F6',
 			'responsive_link_hover_color'         => 'palette1',
 			'responsive_header_search_color'      => '#333333',
 			'responsive_header_search_hover_color'=> '#333333',

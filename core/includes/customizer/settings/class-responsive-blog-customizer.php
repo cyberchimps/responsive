@@ -128,7 +128,7 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 				$blog_meta_color_label,                                                            
 				'responsive_blog_layout',                                                              
 				96,                                                                                     
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_blog_item_meta_color' ), 
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_meta_text_color' ), 
 				null,                                                                                   
 				'',                                                                                     
 				true,                                                                                   
