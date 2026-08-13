@@ -60,6 +60,8 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
                 $design_tab_ids_prefix . 'responsive_sidebar_typography_separator',
                 $design_tab_ids_prefix . 'responsive_sidebar_link_style_before_separator',
                 $design_tab_ids_prefix . 'responsive_sidebar_link_style',
+                $design_tab_ids_prefix . 'responsive_sidebar_link_hover_bg_separator',
+                $design_tab_ids_prefix . 'responsive_sidebar_link_hover_bg_color',
                 $design_tab_ids_prefix . 'responsive_sidebar_link_style_after_separator',
                 $design_tab_ids_prefix . 'responsive_sidebar_spacing',
                 $design_tab_ids_prefix . 'responsive_sidebar_outside_container_padding', 
@@ -126,11 +128,13 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
 
             responsive_horizontal_separator_control($wp_customize, 'sidebar_link_style_before_separator', 1, 'responsive_sidebar', 61, 1);
 
-            $sidebar_link_style_label   = __( 'Link Style', 'responsive' );
+            $sidebar_link_style_label   = __( 'Sidebar Link Style', 'responsive' );
             $sidebar_link_style_choices = array(
-                'hover'     => esc_html__( 'Underline on Hover', 'responsive' ),
-                'underline' => esc_html__( 'Underline', 'responsive' ),
-                'none'      => esc_html__( 'No Underline', 'responsive' ),
+                'standard'           => esc_html__( 'Standard (underline)', 'responsive' ),
+                'color-underline'    => esc_html__( 'Highlight Underline', 'responsive' ),
+                'no-underline'       => esc_html__( 'No Underline', 'responsive' ),
+                'hover-background'   => esc_html__( 'Background on hover', 'responsive' ),
+                'offset-background'  => esc_html__( 'Offset Background', 'responsive' ),
             );
             responsive_select_control(
                 $wp_customize,
@@ -141,10 +145,34 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
                 $sidebar_link_style_choices,
                 Responsive\Core\get_responsive_customizer_defaults( 'responsive_sidebar_link_style' ),
                 null,
-                'postMessage'
+                'refresh'
             );
 
-            responsive_horizontal_separator_control($wp_customize, 'sidebar_link_style_after_separator', 1, 'responsive_sidebar', 63, 1);
+            // Separator for Sidebar Link Hover Background Color (only active when sidebar_link_style === 'hover-background')
+            responsive_horizontal_separator_control( $wp_customize, 'sidebar_link_hover_bg_separator', 1, 'responsive_sidebar', 62.5, 1, 'responsive_sidebar_link_style_is_hover_background' );
+
+            // Sidebar Link Hover Background Color
+            $sidebar_link_hover_bg_label = esc_html__( 'Hover Background Color', 'responsive' );
+            responsive_color_control(
+                $wp_customize,
+                'sidebar_link_hover_bg',
+                $sidebar_link_hover_bg_label,
+                'responsive_sidebar',
+                63,
+                Responsive\Core\get_responsive_customizer_defaults( 'responsive_sidebar_link_hover_bg_color' ),
+                'responsive_sidebar_link_style_is_hover_background',
+                '',
+                false,
+                null,
+                null,
+                false,
+                null,
+                null,
+                'color',
+                'refresh'
+            );
+
+            responsive_horizontal_separator_control($wp_customize, 'sidebar_link_style_after_separator', 1, 'responsive_sidebar', 64, 1);
 
             responsive_drag_number_control_with_switchers(
                 $wp_customize,

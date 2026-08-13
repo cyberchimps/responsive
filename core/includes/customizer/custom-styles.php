@@ -2527,20 +2527,24 @@ function responsive_customizer_styles() {
 		$off_canvas_menu_bg_active = esc_html( get_theme_mod( 'responsive_header_off_canvas_menu_bg_active_color', Responsive\Core\get_responsive_customizer_defaults( 'header_active_menu_background' ) ) );
 	}
 	// Sidebar Color.
-	$sidebar_headings_color   = esc_html( responsive_prepare_css_value( 'responsive_sidebar_headings_color' ) );
-	$sidebar_background_color = esc_html( responsive_prepare_css_value( 'responsive_sidebar_background_color' ) );
-	$sidebar_text_color       = esc_html( responsive_prepare_css_value( 'responsive_sidebar_text_color' ) );
-	$sidebar_link_color       = esc_html( responsive_prepare_css_value( 'responsive_sidebar_link_color' ) );
-	$sidebar_link_hover_color = esc_html( responsive_prepare_css_value('responsive_sidebar_link_hover_color') );
-	$sidebar_link_style       = get_theme_mod( 'responsive_sidebar_link_style', 'none' );
-	$sidebar_link_decoration  = 'none';
-	$sidebar_link_hover_deco  = 'none';
+	$sidebar_headings_color      = esc_html( responsive_prepare_css_value( 'responsive_sidebar_headings_color' ) );
+	$sidebar_background_color    = esc_html( responsive_prepare_css_value( 'responsive_sidebar_background_color' ) );
+	$sidebar_text_color          = esc_html( responsive_prepare_css_value( 'responsive_sidebar_text_color' ) );
+	$sidebar_link_color          = esc_html( responsive_prepare_css_value( 'responsive_sidebar_link_color' ) );
+	$sidebar_link_hover_color    = esc_html( responsive_prepare_css_value('responsive_sidebar_link_hover_color') );
+	$sidebar_link_hover_bg_color = esc_html( responsive_prepare_css_value( 'responsive_sidebar_link_hover_bg_color' ) );
+	$sidebar_link_style          = get_theme_mod( 'responsive_sidebar_link_style', 'none' );
+	$sidebar_link_decoration     = 'none';
+	$sidebar_link_hover_deco     = 'none';
 
-	if ( 'hover' === $sidebar_link_style ) {
-		$sidebar_link_decoration = 'none';
-		$sidebar_link_hover_deco = 'underline';
-	} elseif ( 'underline' === $sidebar_link_style ) {
+	if ( 'standard' === $sidebar_link_style || 'underline' === $sidebar_link_style ) {
 		$sidebar_link_decoration = 'underline';
+		$sidebar_link_hover_deco = 'underline';
+	} elseif ( 'color-underline' === $sidebar_link_style ) {
+		$sidebar_link_decoration = 'underline';
+		$sidebar_link_hover_deco = 'underline';
+	} elseif ( 'hover' === $sidebar_link_style ) {
+		$sidebar_link_decoration = 'none';
 		$sidebar_link_hover_deco = 'underline';
 	}
 
@@ -2556,16 +2560,63 @@ function responsive_customizer_styles() {
     .widget-area {
         color: {$sidebar_text_color};
     }
-    .widget-area .widget-wrapper a {
-        color: {$sidebar_link_color};
-        text-decoration: {$sidebar_link_decoration};
-    }
-
-    .widget-area .widget-wrapper a:hover {
-        color: {$sidebar_link_hover_color};
-        text-decoration: {$sidebar_link_hover_deco};
-    }
     ";
+
+	if ( 'offset-background' === $sidebar_link_style ) {
+		$custom_css .= "
+		.widget-area .widget-wrapper a {
+			color: inherit;
+			text-decoration: none;
+			background-image: linear-gradient(180deg, transparent 50%, {$sidebar_link_color} 0%);
+			background-repeat: no-repeat;
+			background-position: 0 bottom;
+			background-size: 100% 6px;
+		}
+		.widget-area .widget-wrapper a:hover {
+			color: inherit;
+			text-decoration: none;
+			background-image: linear-gradient(180deg, transparent 50%, {$sidebar_link_hover_color} 0%);
+			background-position: 0 bottom;
+			background-size: 100% 6px;
+		}
+		";
+	} elseif ( 'hover-background' === $sidebar_link_style ) {
+		$custom_css .= "
+		.widget-area .widget-wrapper a {
+			color: {$sidebar_link_color};
+			text-decoration: none;
+		}
+		.widget-area .widget-wrapper a:hover {
+			background-color: {$sidebar_link_hover_bg_color};
+			color: {$sidebar_link_hover_color};
+			text-decoration: none;
+		}
+		";
+	} elseif ( 'color-underline' === $sidebar_link_style ) {
+		$custom_css .= "
+		.widget-area .widget-wrapper a {
+			color: {$sidebar_link_color};
+			text-decoration: underline;
+			text-decoration-color: {$sidebar_link_color};
+		}
+		.widget-area .widget-wrapper a:hover {
+			color: {$sidebar_link_color} !important;
+			text-decoration: underline;
+			text-decoration-color: {$sidebar_link_hover_color};
+		}
+		";
+	} else {
+		$custom_css .= "
+		.widget-area .widget-wrapper a {
+			color: {$sidebar_link_color};
+			text-decoration: {$sidebar_link_decoration};
+		}
+		.widget-area .widget-wrapper a:hover {
+			color: {$sidebar_link_hover_color};
+			text-decoration: {$sidebar_link_hover_deco};
+		}
+		";
+	}
 
 	// Header Height.
 	// $header_height_size = get_theme_mod( 'responsive_header_height', 0 );

@@ -344,23 +344,40 @@
 		}
 	);
 	api(
-    'responsive_disable_author_meta',
-    function( $swipe ) {
-        $swipe.bind(
-            function( newval ) {
-                switch (newval) {
-                    case true:
-                    case 1:
-                        api.control( 'responsive_post_author_box_style' ).toggle( false );
-                        break;
-                    case false:
-                    case 0:
-                        api.control( 'responsive_post_author_box_style' ).toggle( true );
-                        break;
-                }
-            }
-        );
-    }
-);
+		'responsive_disable_author_meta',
+		function( $swipe ) {
+			$swipe.bind(
+				function( newval ) {
+					switch (newval) {
+						case true:
+						case 1:
+							api.control( 'responsive_post_author_box_style' ).toggle( false );
+							break;
+						case false:
+						case 0:
+							api.control( 'responsive_post_author_box_style' ).toggle( true );
+							break;
+					}
+				}
+			);
+		}
+	);
+
+	api(
+		'responsive_sidebar_link_style',
+		function( $swipe ) {
+			$swipe.bind(
+				function( newval ) {
+					var showHoverBg = ( 'hover-background' === newval );
+					if ( api.control( 'responsive_sidebar_link_hover_bg_color' ) ) {
+						api.control( 'responsive_sidebar_link_hover_bg_color' ).toggle( showHoverBg );
+					}
+					if ( api.control( 'responsive_sidebar_link_hover_bg_separator' ) ) {
+						api.control( 'responsive_sidebar_link_hover_bg_separator' ).toggle( showHoverBg );
+					}
+				}
+			);
+		}
+	);
 
 })( jQuery );

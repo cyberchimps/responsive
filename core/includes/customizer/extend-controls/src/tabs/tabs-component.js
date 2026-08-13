@@ -212,6 +212,18 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_footer_below_inner_column_spacing').style.display = 'none';
 		}
 		
+		if ( api('responsive_sidebar_link_style') ) {
+			const isHoverBg = api('responsive_sidebar_link_style').get() === 'hover-background';
+			const linkHoverBgColorEl = document.getElementById('customize-control-responsive_sidebar_link_hover_bg_color');
+			const linkHoverBgSepEl = document.getElementById('customize-control-responsive_sidebar_link_hover_bg_separator');
+			if (linkHoverBgColorEl) {
+				linkHoverBgColorEl.style.display = (isHoverBg && 'design' === tab) ? 'block' : 'none';
+			}
+			if (linkHoverBgSepEl) {
+				linkHoverBgSepEl.style.display = (isHoverBg && 'design' === tab) ? 'block' : 'none';
+			}
+		}
+
 		if( api('responsive_cart_style') ) {
             if( api('responsive_cart_style').get() !== 'outline' && 'design' === tab ) {
 				let cartBorderWidth = document.getElementById('customize-control-responsive_cart_border_width');
