@@ -852,7 +852,7 @@ const TabsComponent = props => {
 	}, [tab]);
 
 	const hideSidebarWidthControl = (value, control) => {
-    const controlId = `customize-control-responsive_${control}_sidebar_width`;
+    const controlId = (control === 'global' || control === 'default') ? 'customize-control-responsive_default_sidebar_width' : `customize-control-responsive_${control}_sidebar_width`;
     const controlElement = document.getElementById(controlId);
 
     if (!controlElement) return;
@@ -860,9 +860,9 @@ const TabsComponent = props => {
     controlElement.style.display = 'none';
 
     let isVisible = false;
-    if (control === 'global') {
-        // For global sidebar: only hide when 'no'
-        isVisible = value !== 'no' && tab === 'general';
+    if (control === 'global' || control === 'default') {
+        // For global sidebar: show whenever on general tab
+        isVisible = tab === 'general';
     } else {
         // For page/blog: hide when 'no' or resolve 'global'
         if (value === 'global') {
