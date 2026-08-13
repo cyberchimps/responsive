@@ -113,7 +113,6 @@ function responsive_customizer_styles() {
 	// Paragraph Margin Bottom.
 	$paragraph_margin_bottom = esc_html( get_theme_mod( 'responsive_paragraph_margin_bottom', '' ) );
 
-	$underline_content_links = esc_html( get_theme_mod( 'responsive_underline_content_links', false ) );
 	// Site custom styles.
 
 	$container_max_width = esc_html( get_theme_mod( 'responsive_container_width', Responsive\Core\get_responsive_customizer_defaults( 'responsive_container_width' ) ) );
@@ -990,27 +989,6 @@ function responsive_customizer_styles() {
 	}
 	";
 
-	if ( $underline_content_links === '1' || $underline_content_links === true ) {
-		$custom_css .= '
-			.entry-content a:not(li > a),
-			.comment-content a:not(.comment-edit-link):not(li > a),
-			.woocommerce div.product .woocommerce-product-details__short-description a:not(li > a) {
-				text-decoration: underline;
-			}
-			.woocommerce-MyAccount-content a {
-				text-decoration: unset !important;
-			}
-		';
-	} else {
-		$custom_css .= '
-			.entry-content a:not(li > a),
-			.comment-content a:not(.comment-edit-link):not(li > a),
-			.woocommerce div.product .woocommerce-product-details__short-description a:not(li > a) {
-				text-decoration: unset;
-			}
-		';
-	}
-	
 	$custom_css .= '.responsive-site-style-content-boxed .hentry,
 	.responsive-site-style-content-boxed .give-wrap .give_forms,
 	.responsive-site-style-content-boxed .navigation,

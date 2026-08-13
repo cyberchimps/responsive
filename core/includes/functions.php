@@ -1221,6 +1221,14 @@ if (
  */
 function get_responsive_customizer_defaults( $option ) {
 
+	if ( 'responsive_link_style' === $option ) {
+		$saved_underline = get_theme_mod( 'responsive_underline_content_links', false );
+		if ( $saved_underline === '1' || $saved_underline === true || $saved_underline === 'true' ) {
+			return 'standard';
+		}
+		return 'no-underline';
+	}
+
 	$theme_options = defaults();
 	$default_value = '';
 	if ( isset( $theme_options[ $option ] ) ) {
@@ -1393,7 +1401,7 @@ function defaults() {
 			'responsive_page_title_banner_background_color' => 'title-above-content-bg-color',
 			'responsive_single_blog_featured_image_overlay_color' => 'title-above-content-overlay-color',
 			'responsive_page_featured_image_overlay_color'  => 'title-above-content-overlay-color',
-			'responsive_link_style'               => 'standard',
+			'responsive_link_style'               => 'no-underline',
 			'label'                               => '#404040',
 
 			'responsive_style'                    => 'boxed',
