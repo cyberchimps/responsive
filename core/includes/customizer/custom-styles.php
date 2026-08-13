@@ -4470,6 +4470,8 @@ function responsive_customizer_styles() {
 	// Footer Colors.
 	$footer_text_color       = esc_html( get_theme_mod( 'responsive_footer_text_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_text' ) ) );
 	$footer_background_color = esc_html( get_theme_mod( 'responsive_footer_background_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_background' ) ) );
+	$footer_background_color_type = get_theme_mod( 'responsive_footer_background_color_type', 'color' );
+	$footer_background_gradient_color = get_theme_mod( 'responsive_footer_background_gradient_color' );
 	$footer_link_color       = esc_html( get_theme_mod( 'responsive_footer_links_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_links' ) ) );
 	$footer_link_hover_color = esc_html( get_theme_mod( 'responsive_footer_links_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_links_hover' ) ) );
 	// $footer_border_color     = esc_html( get_theme_mod( 'responsive_footer_border_color', '#aaaaaa' ) );
@@ -4478,8 +4480,26 @@ function responsive_customizer_styles() {
 	$custom_css .= "
 	.site-footer {
 		color:{$footer_text_color};
-		background-color:{$footer_background_color};
+	}";
+
+	if ( 'gradient' === $footer_background_color_type && ! empty( $footer_background_gradient_color ) ) {
+		// If gradient is active and has a value, use 'background'
+		$custom_css .= "
+		.site-footer {
+			background: " . esc_attr( $footer_background_gradient_color ) . ";
+			/* Ensure background-color is reset or not present to avoid conflict */
+			background-color: ''; /* Explicitly reset */
+		}";
+	} elseif ( 'color' === $footer_background_color_type && ! empty( $footer_background_color ) ) {
+		// If solid color is active and has a value, use 'background-color'
+		$custom_css .= "
+		.site-footer {
+			/* Ensure background is reset or not present to avoid conflict */
+			background: ''; /* Explicitly reset */
+			background-color:{$footer_background_color};
+		}";
 	}
+	$custom_css .= "
 	.site-footer h1,
 	.site-footer h2,
 	.site-footer h3,

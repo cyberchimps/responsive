@@ -1233,10 +1233,55 @@
 
 
     //Footer Color Section
-    //Background Color
+    function setFooterBackground( type ) {
+        if ( type === 'gradient' ) {
+            api( 'responsive_footer_background_gradient_color', function( value ) {
+                var gradient = value.get();
+                $('.site-footer').css({
+                    'background': gradient,
+                    'background-color': ''
+                });
+            });
+        } else {
+            api( 'responsive_footer_background_color', function( value ) {
+                var color = value.get();
+                if( color && color.includes('palette') ) {
+                    color = 'var(--responsive-global-' + color + ')';
+                }
+                $('.site-footer').css({
+                    'background': 'none',
+                    'background-color': color
+                });
+            });
+        }
+    }
+
+    // On color type change
+    api( 'responsive_footer_background_color_type', function( value ) {
+        value.bind( function( newType ) {
+            setFooterBackground( newType );
+        } );
+    } );
+
+    // On solid color change
     api( 'responsive_footer_background_color', function( value ) {
-        value.bind( function( newval ) {
-            $('.site-footer').css('background-color', newval );
+        value.bind( function( newColor ) {
+            api( 'responsive_footer_background_color_type', function( typeValue ) {
+                if ( typeValue.get() === 'color' ) {
+                    setFooterBackground( 'color' );
+                }
+            });
+        } );
+    } );
+
+    // On gradient change
+    api( 'responsive_footer_background_gradient_color', function( value ) {
+        value.bind( function( newGradient ) {
+            api( 'responsive_footer_background_color_type', function( typeValue ) {
+                if ( typeValue.get() === 'gradient' ) {
+                    setFooterBackground( 'gradient' );
+                }
+            });
         } );
     } );
 

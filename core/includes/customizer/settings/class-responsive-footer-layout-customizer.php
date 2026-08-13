@@ -294,7 +294,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			
 			// Background Color.
 			$footer_background_label = __( 'Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'footer_background', $footer_background_label, 'responsive_footer_layout', 10, Responsive\Core\get_responsive_customizer_defaults( 'footer_background' ) );
+			responsive_color_control( $wp_customize, 'footer_background', $footer_background_label, 'responsive_footer_layout', 10, Responsive\Core\get_responsive_customizer_defaults( 'footer_background' ),null,'',false, null, null, true, 'footer_background_gradient', Responsive\Core\get_responsive_customizer_defaults( 'background_gradient_color' ), 'color', );
 
 			// Text Color.
 			$footer_text_label = __( 'Text Color', 'responsive' );
