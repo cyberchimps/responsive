@@ -173,6 +173,46 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			$box_radius_label = __( 'Box Radius (px)', 'responsive' );
 			responsive_radius_control( $wp_customize, 'box', 'responsive_layout', 50, 4, 4, 'responsive_not_active_site_style_flat', $box_radius_label );
 
+			// Content Left/Right Edge Spacing.
+			$content_edge_spacing_label = __( 'Content Left/Right Edge Spacing', 'responsive' );
+			responsive_drag_number_control_with_switchers(
+				$wp_customize,
+				'content_edge_spacing',
+				$content_edge_spacing_label,
+				'responsive_layout',
+				51,
+				Responsive\Core\get_responsive_customizer_defaults( 'content_edge_spacing' ),
+				null,
+				100,
+				0,
+				'postMessage',
+				1,
+				null,
+				null,
+				array( 'desktop', 'tablet', 'mobile' ),
+				array( 'px', 'em', 'rem', 'vh' )
+			);
+
+			// Content Top and Bottom Spacing.
+			$content_top_bottom_spacing_label = __( 'Content Top and Bottom Spacing', 'responsive' );
+			responsive_drag_number_control_with_switchers(
+				$wp_customize,
+				'content_top_bottom_spacing',
+				$content_top_bottom_spacing_label,
+				'responsive_layout',
+				52,
+				Responsive\Core\get_responsive_customizer_defaults( 'content_top_bottom_spacing' ),
+				null,
+				100,
+				0,
+				'postMessage',
+				1,
+				null,
+				null,
+				array( 'desktop', 'tablet', 'mobile' ),
+				array( 'px', 'em', 'rem', 'vh' )
+			);
+
 			// responsive_number_control( $wp_customize, 'box_radius', $box_radius_label, 'responsive_layout', 50, 0, 'responsive_not_active_site_style_flat' );
 
 			// Redirect to site title and logo.
@@ -196,6 +236,108 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			// Site Tagline Visibility control
 			$site_tagline_visibility_label = __( 'Site Tagline Visibility', 'responsive' );
 			responsive_multi_select_button_control($wp_customize, 'site_tagline_visibility', $site_tagline_visibility_label, 'responsive_header_site_logo_title', 16, $site_tagline_visibility_choices, array('desktop','tablet','mobile'), null, 'refresh');
+
+			// Single Post Boxed Shadow controls.
+			responsive_separator_control(
+				$wp_customize,
+				'single_post_boxed_separator',
+				__( 'Single Post Layout Style', 'responsive' ),
+				'responsive_layout',
+				200
+			);
+
+			responsive_drag_number_control_with_switchers(
+				$wp_customize,
+				'single_post_boxed_radius',
+				__( 'Border Radius', 'responsive' ),
+				'responsive_layout',
+				205,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_post_boxed_radius' ),
+				null,
+				100,
+				0,
+				'refresh',
+				1,
+				null,
+				null,
+				array( 'desktop', 'tablet', 'mobile' ),
+				array( 'px', 'em', 'rem' )
+			);
+
+			responsive_shadow_control(
+				$wp_customize,
+				'single_post_boxed_shadow',
+				__( 'Box Shadow', 'responsive' ),
+				'responsive_layout',
+				210,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_post_boxed_shadow_x' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_post_boxed_shadow_y' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_post_boxed_shadow_blur' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_post_boxed_shadow_spread' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_post_boxed_shadow_inset' ),
+				null
+			);
+
+			responsive_color_control(
+				$wp_customize,
+				'single_post_boxed_shadow',
+				__( 'Box Shadow Color', 'responsive' ),
+				'responsive_layout',
+				220,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_post_boxed_shadow_color' ),
+				null,
+				'',
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'color',
+				'refresh'
+			);
+
+			// Archive Grid Boxed Shadow controls.
+			responsive_separator_control(
+				$wp_customize,
+				'archive_grid_boxed_separator',
+				__( 'Blog/Archive Grid Layout Style', 'responsive' ),
+				'responsive_layout',
+				230
+			);
+
+			responsive_shadow_control(
+				$wp_customize,
+				'archive_grid_boxed_shadow',
+				__( 'Box Shadow', 'responsive' ),
+				'responsive_layout',
+				240,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_archive_grid_boxed_shadow_x' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_archive_grid_boxed_shadow_y' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_archive_grid_boxed_shadow_blur' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_archive_grid_boxed_shadow_spread' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_archive_grid_boxed_shadow_inset' ),
+				null
+			);
+
+			responsive_color_control(
+				$wp_customize,
+				'archive_grid_boxed_shadow',
+				__( 'Box Shadow Color', 'responsive' ),
+				'responsive_layout',
+				250,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_archive_grid_boxed_shadow_color' ),
+				null,
+				'',
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'color',
+				'refresh'
+			);
 		}
 
 
