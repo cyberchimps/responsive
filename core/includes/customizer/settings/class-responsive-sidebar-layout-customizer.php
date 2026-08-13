@@ -40,8 +40,11 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
             $general_tab_ids = array(
                 $general_tab_ids_prefix . 'responsive_sidebar_separator', 
                 $general_tab_ids_prefix . 'responsive_default_sidebar_position',
+                $general_tab_ids_prefix . 'responsive_default_sidebar_position_separator',
                 $general_tab_ids_prefix . 'responsive_sidebar_style',
+                $general_tab_ids_prefix . 'responsive_sidebar_style_separator',
                 $general_tab_ids_prefix . 'responsive_default_sidebar_width',
+                $general_tab_ids_prefix . 'responsive_default_sidebar_width_separator',
                 $general_tab_ids_prefix . 'responsive_sidebar_sticky'
             ); 
 
@@ -96,6 +99,8 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
             
             responsive_imageradio_button_control( $wp_customize, 'default_sidebar_position', $default_sidebar_label, 'responsive_sidebar', 10, $default_sidebar_choices, 'no', null, 'svg');
 
+            responsive_horizontal_separator_control( $wp_customize, 'default_sidebar_position_separator', 1, 'responsive_sidebar', 12, 1 );
+
             $sidebar_style_label  = __( 'Sidebar Style', 'responsive' );
             $sidebar_style_choice = array(
                 'unboxed' => esc_html__( 'Unboxed', 'responsive' ),
@@ -103,8 +108,12 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
             );
             responsive_select_button_control( $wp_customize, 'sidebar_style', $sidebar_style_label, 'responsive_sidebar', 15, $sidebar_style_choice, Responsive\Core\get_responsive_customizer_defaults( 'responsive_sidebar_style' ), null, 'postMessage' );
 
+            responsive_horizontal_separator_control( $wp_customize, 'sidebar_style_separator', 1, 'responsive_sidebar', 20, 1 );
+
             $default_sidebar_width_label = esc_html__('Sidebar Width (%)', 'responsive');
             responsive_drag_number_control( $wp_customize, 'default_sidebar_width',$default_sidebar_width_label, 'responsive_sidebar', 45, 30, null , 50, 15,'postMessage');
+
+            responsive_horizontal_separator_control( $wp_customize, 'default_sidebar_width_separator', 1, 'responsive_sidebar', 46, 1 );
 
             responsive_toggle_control(
                 $wp_customize,
