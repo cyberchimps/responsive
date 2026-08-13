@@ -94,7 +94,7 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 
 			responsive_horizontal_separator_control($wp_customize, 'blog_taxonomy_font_separator', 1, 'responsive_blog_layout', 94, 1, null );
 
-			$blog_category_color_label = __( 'Item Category Color', 'responsive' );
+			$blog_category_color_label = __( 'Post Category Color', 'responsive' );
 			responsive_color_control(
 				$wp_customize,
 				'blog_category',                                                                      
@@ -110,7 +110,7 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 				'refresh',                                                                  
 			);
 
-			$item_category_typography_label = esc_html__( 'Item Category Font', 'responsive' );
+			$item_category_typography_label = esc_html__( 'Post Category Font', 'responsive' );
 
 			responsive_typography_group_control(
 				$wp_customize,
@@ -121,7 +121,7 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 				'item_category_typography'          
 			);
 			
-			$blog_meta_color_label = __( 'Item Meta Color', 'responsive' );
+			$blog_meta_color_label = __( 'Post Meta Color', 'responsive' );
 			responsive_color_control(
 				$wp_customize,
 				'blog_item_meta',                                                                      
@@ -137,7 +137,7 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 				'refresh',                                                                  
 			);
 
-			$item_meta_typography_label = esc_html__( 'Item Meta Font', 'responsive' );
+			$item_meta_typography_label = esc_html__( 'Post Meta Font', 'responsive' );
 
 			responsive_typography_group_control(
 				$wp_customize,
@@ -151,11 +151,11 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 			responsive_horizontal_separator_control($wp_customize, 'blog_item_meta_font_separator', 1, 'responsive_blog_layout', 98, 1, null );
 
 			// Blog/Archive Site Background Color.
-			$blog_site_background_color_label = __( 'Site Background', 'responsive' );
+			$blog_site_background_color_label = __( 'Blog/Archive Background', 'responsive' );
 			responsive_color_control( $wp_customize, 'blog_site_background', $blog_site_background_color_label, 'responsive_blog_layout', 99, Responsive\Core\get_responsive_customizer_defaults('responsive_blog_site_background_color') );
 
 			// Blog/Archive Content Background Color.
-			$blog_content_background_color_label = __( 'Content Background', 'responsive' );
+			$blog_content_background_color_label = __( 'Blog/Archive Content Background', 'responsive' );
 			responsive_color_control( $wp_customize, 'blog_content_background', $blog_content_background_color_label, 'responsive_blog_layout', 100, Responsive\Core\get_responsive_customizer_defaults('responsive_blog_content_background_color') );
 
 			responsive_horizontal_separator_control($wp_customize, 'blog_content_background_separator', 1, 'responsive_blog_layout', 101, 1, null );
