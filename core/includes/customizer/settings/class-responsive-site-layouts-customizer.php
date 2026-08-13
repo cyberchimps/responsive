@@ -241,7 +241,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			responsive_separator_control(
 				$wp_customize,
 				'single_post_boxed_separator',
-				__( 'Single Post Boxed', 'responsive' ),
+				__( 'Single Post Layout Style', 'responsive' ),
 				'responsive_layout',
 				200
 			);
@@ -301,7 +301,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			responsive_separator_control(
 				$wp_customize,
 				'archive_grid_boxed_separator',
-				__( 'Archive Grid Boxed', 'responsive' ),
+				__( 'Blog/Archive Grid Layout Style', 'responsive' ),
 				'responsive_layout',
 				230
 			);
