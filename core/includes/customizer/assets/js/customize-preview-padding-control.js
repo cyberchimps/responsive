@@ -338,6 +338,7 @@
     } );
 
     // Buttons Padding
+    // Buttons Padding
     api( 'responsive_buttons_top_padding', function( value ) {
         value.bind( function( newval ) {
             var selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,body div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],body div.wpforms-container-full .wpforms-form .wpforms-page-button';
@@ -345,7 +346,7 @@
                 selector += ', .elementor-button-wrapper .elementor-button';
             }
             selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button , .wp-block-search__button';
-            responsive_dynamic_padding('buttons', selector );
+            responsive_dynamic_unit_padding('buttons', selector );
         } );
     } );
     api( 'responsive_buttons_left_padding', function( value ) {
@@ -355,7 +356,7 @@
                 selector += ', .elementor-button-wrapper .elementor-button';
             }
             selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button , .wp-block-search__button';
-            responsive_dynamic_padding('buttons', selector );
+            responsive_dynamic_unit_padding('buttons', selector );
         } );
     } );
     api( 'responsive_buttons_bottom_padding', function( value ) {
@@ -365,7 +366,7 @@
                 selector += ', .elementor-button-wrapper .elementor-button';
             }
             selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button , .wp-block-search__button';
-            responsive_dynamic_padding('buttons', selector );
+            responsive_dynamic_unit_padding('buttons', selector );
         } );
     } );
     api( 'responsive_buttons_right_padding', function( value ) {
@@ -375,7 +376,37 @@
                 selector += ', .elementor-button-wrapper .elementor-button';
             }
             selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button , .wp-block-search__button';
-            responsive_dynamic_padding('buttons', selector );
+            responsive_dynamic_unit_padding('buttons', selector );
+        } );
+    } );
+    api( 'responsive_buttons_desktop_unit', function( value ) {
+        value.bind( function() {
+            var selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,body div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],body div.wpforms-container-full .wpforms-form .wpforms-page-button';
+            if ( responsiveSiteLocalOptions.isElementorVersion ) {
+                selector += ', .elementor-button-wrapper .elementor-button';
+            }
+            selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button , .wp-block-search__button';
+            responsive_dynamic_unit_padding('buttons', selector );
+        } );
+    } );
+    api( 'responsive_buttons_tablet_unit', function( value ) {
+        value.bind( function() {
+            var selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,body div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],body div.wpforms-container-full .wpforms-form .wpforms-page-button';
+            if ( responsiveSiteLocalOptions.isElementorVersion ) {
+                selector += ', .elementor-button-wrapper .elementor-button';
+            }
+            selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button , .wp-block-search__button';
+            responsive_dynamic_unit_padding('buttons', selector );
+        } );
+    } );
+    api( 'responsive_buttons_mobile_unit', function( value ) {
+        value.bind( function() {
+            var selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,body div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],body div.wpforms-container-full .wpforms-form .wpforms-page-button';
+            if ( responsiveSiteLocalOptions.isElementorVersion ) {
+                selector += ', .elementor-button-wrapper .elementor-button';
+            }
+            selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button , .wp-block-search__button';
+            responsive_dynamic_unit_padding('buttons', selector );
         } );
     } );
 
@@ -387,7 +418,7 @@
                 selector += ', .elementor-button-wrapper .elementor-button';
             }
             selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button , .wp-block-search__button';
-            responsive_dynamic_padding('buttons', selector );
+            responsive_dynamic_unit_padding('buttons', selector );
         } );
     } );
     api( 'responsive_buttons_tablet_left_padding', function( value ) {
@@ -397,7 +428,7 @@
                 selector += ', .elementor-button-wrapper .elementor-button';
             }
             selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button, .wp-block-search__button';
-            responsive_dynamic_padding('buttons', selector );
+            responsive_dynamic_unit_padding('buttons', selector );
         } );
     } );
     api( 'responsive_buttons_tablet_bottom_padding', function( value ) {
@@ -407,7 +438,7 @@
                 selector += ', .elementor-button-wrapper .elementor-button';
             }
             selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button, wp-block-search__button';
-            responsive_dynamic_padding('buttons', selector );
+            responsive_dynamic_unit_padding('buttons', selector );
         } );
     } );
     api( 'responsive_buttons_tablet_right_padding', function( value ) {
@@ -417,7 +448,7 @@
                 selector += ', .elementor-button-wrapper .elementor-button';
             }
             selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button , .wp-block-search__button';
-            responsive_dynamic_padding('buttons', selector );
+            responsive_dynamic_unit_padding('buttons', selector );
         } );
     } );
 
@@ -429,7 +460,7 @@
                 selector += ', .elementor-button-wrapper .elementor-button';
             }
             selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button , .wp-block-search__button';
-            responsive_dynamic_padding('buttons', selector );
+            responsive_dynamic_unit_padding('buttons', selector );
         } );
     } );
     api( 'responsive_buttons_mobile_left_padding', function( value ) {
@@ -439,7 +470,7 @@
                 selector += ', .elementor-button-wrapper .elementor-button';
             }
             selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button , .wp-block-search__button';
-            responsive_dynamic_padding('buttons', selector );
+            responsive_dynamic_unit_padding('buttons', selector );
         } );
     } );
     api( 'responsive_buttons_mobile_bottom_padding', function( value ) {
@@ -449,7 +480,7 @@
                 selector += ', .elementor-button-wrapper .elementor-button';
             }
             selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button , .wp-block-search__button';
-            responsive_dynamic_padding('buttons', selector );
+            responsive_dynamic_unit_padding('buttons', selector );
         } );
     } );
     api( 'responsive_buttons_mobile_right_padding', function( value ) {
@@ -459,7 +490,7 @@
                 selector += ', .elementor-button-wrapper .elementor-button';
             }
             selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button , .wp-block-search__button';
-            responsive_dynamic_padding('buttons', selector );
+            responsive_dynamic_unit_padding('buttons', selector );
         } );
     } );
 
@@ -2599,7 +2630,7 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
         });
     });
 
-    // Page Title Banner Margin Settings.
+    // Page Margin Settings.
     const pageTitleBannerMarginSettings = [
         'responsive_page_title_banner_margin_top_padding',
         'responsive_page_title_banner_margin_left_padding',
@@ -2622,6 +2653,61 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
         api(setting, function(value) {
             value.bind(function(newval) {
                 responsive_dynamic_unit_margin('page_title_banner_margin', 'body .responsive-single-entry-banner, article.page .entry-header');
+            });
+        });
+    });
+    const pageMarginSettings = [
+        'responsive_page_margin_top_padding',
+        'responsive_page_margin_left_padding',
+        'responsive_page_margin_bottom_padding',
+        'responsive_page_margin_right_padding',
+        'responsive_page_margin_tablet_top_padding',
+        'responsive_page_margin_tablet_right_padding',
+        'responsive_page_margin_tablet_bottom_padding',
+        'responsive_page_margin_tablet_left_padding',
+        'responsive_page_margin_mobile_top_padding',
+        'responsive_page_margin_mobile_right_padding',
+        'responsive_page_margin_mobile_bottom_padding',
+        'responsive_page_margin_mobile_left_padding',
+        'responsive_page_margin_desktop_unit',
+        'responsive_page_margin_tablet_unit',
+        'responsive_page_margin_mobile_unit'
+    ];
+
+    pageMarginSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_unit_margin('page_margin', '.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry');
+            });
+        });
+    });
+
+    // Page Padding
+    const pagePaddingSettings = [
+        'responsive_page_padding_top_padding',
+        'responsive_page_padding_right_padding',
+        'responsive_page_padding_bottom_padding',
+        'responsive_page_padding_left_padding',
+        'responsive_page_padding_tablet_top_padding',
+        'responsive_page_padding_tablet_right_padding',
+        'responsive_page_padding_tablet_bottom_padding',
+        'responsive_page_padding_tablet_left_padding',
+        'responsive_page_padding_mobile_top_padding',
+        'responsive_page_padding_mobile_right_padding',
+        'responsive_page_padding_mobile_bottom_padding',
+        'responsive_page_padding_mobile_left_padding',
+        'responsive_page_padding_desktop_unit',
+        'responsive_page_padding_tablet_unit',
+        'responsive_page_padding_mobile_unit'
+    ];
+
+    pagePaddingSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_unit_padding(
+                    'page_padding',
+                    '.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry'
+                );
             });
         });
     });

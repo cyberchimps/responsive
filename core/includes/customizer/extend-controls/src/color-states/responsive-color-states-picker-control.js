@@ -24,19 +24,16 @@ class ResponsiveColorStatesPickerControl extends Component {
     };
 
 	resolveColorValue = (value, returnRaw = false) => {
-		let color = null;
-		if (value && (value.startsWith('palette') || value.includes('headings-color'))) {
-			color = 'var(--responsive-global-' + value + ')';
+		if (value && (value.startsWith('palette') || value.includes('headings-color') || value.startsWith('title-above-content'))) {
+			const varName = value.startsWith('title-above-content') ? `--responsive-${value}` : `--responsive-global-${value}`;
 			if (returnRaw) {
-				const raw = getComputedStyle(document.documentElement)
-					.getPropertyValue('--responsive-global-' + value)
+				return getComputedStyle(document.documentElement)
+					.getPropertyValue(varName)
 					.trim();
-				return raw;
 			}
-		} else {
-			color = value;
+			return `var(${varName})`;
 		}
-		return color;
+		return value;
 	};
 
     onColorChange = (color) => {
