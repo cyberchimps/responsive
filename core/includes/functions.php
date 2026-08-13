@@ -1402,6 +1402,7 @@ function defaults() {
 			'responsive_single_blog_featured_image_overlay_color' => 'title-above-content-overlay-color',
 			'responsive_page_featured_image_overlay_color'  => 'title-above-content-overlay-color',
 			'responsive_link_style'               => 'no-underline',
+			'responsive_link_hover_bg_color'      => 'palette0',
 			'label'                               => '#404040',
 
 			'responsive_style'                    => 'boxed',

@@ -122,6 +122,30 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 				'offset-background' => esc_html__( 'Offset Background', 'responsive' ),
 			);
 			responsive_select_control( $wp_customize, 'link_style', $link_style_label, 'responsive_typography', 23, $link_style_choices, Responsive\Core\get_responsive_customizer_defaults( 'responsive_link_style' ), null, 'refresh' );
+
+			// Separator for Link Hover Background Color (only active when link_style === 'hover-background')
+			responsive_horizontal_separator_control( $wp_customize, 'link_hover_bg_separator', 1, 'responsive_typography', 23.5, 1, 'responsive_link_style_is_hover_background' );
+
+			// Link Hover Background Color
+			$link_hover_bg_label = esc_html__( 'Hover Background Color', 'responsive' );
+			responsive_color_control(
+				$wp_customize,
+				'link_hover_bg',
+				$link_hover_bg_label,
+				'responsive_typography',
+				24,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_link_hover_bg_color' ),
+				'responsive_link_style_is_hover_background',
+				'',
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'color',
+				'refresh'
+			);
 			
 		}
 

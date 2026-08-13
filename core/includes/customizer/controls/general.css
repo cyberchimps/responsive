@@ -1570,7 +1570,16 @@ in both cases the footer builder is active */
 }
 #customize-control-responsive_link_style_separator {
 	padding-top: 22px;
+	padding-bottom: 0;
+}
+#customize-control-responsive_link_hover_bg_separator {
+	padding-top: 22px;
 	padding-bottom: 22px;
+}
+#customize-control-responsive_link_style_separator hr,
+#customize-control-responsive_link_hover_bg_separator hr {
+	margin-left: -24px;
+	margin-right: -24px;
 }
 div.customize-section-description{
 	margin-bottom: 0;

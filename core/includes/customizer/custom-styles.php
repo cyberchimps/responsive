@@ -1542,8 +1542,9 @@ function responsive_customizer_styles() {
 	$box_background_color_type = get_theme_mod( 'responsive_box_background_color_type', 'color' );
 
 
-	$link_color       = esc_html( responsive_prepare_css_value( 'responsive_link_color' ) );
-	$link_hover_color = esc_html( responsive_prepare_css_value( 'responsive_link_hover_color' ) );
+	$link_color          = esc_html( responsive_prepare_css_value( 'responsive_link_color' ) );
+	$link_hover_color    = esc_html( responsive_prepare_css_value( 'responsive_link_hover_color' ) );
+	$link_hover_bg_color = esc_html( responsive_prepare_css_value( 'responsive_link_hover_bg_color' ) );
 
 	$button_color              = esc_html( responsive_prepare_css_value( 'responsive_button_color' ) );
 	$button_hover_color        = esc_html( responsive_prepare_css_value( 'responsive_button_hover_color' ) );
@@ -1802,7 +1803,7 @@ function responsive_customizer_styles() {
 	.link-style-hover-background .entry-content em>a:hover,
 	.link-style-hover-background .entry-content>ul a:hover,
 	.link-style-hover-background .entry-content>ol a:hover {
-		background-color: {$link_color};
+		background-color: {$link_hover_bg_color};
 		color: {$link_hover_color};
 		text-decoration: none;
 	}
