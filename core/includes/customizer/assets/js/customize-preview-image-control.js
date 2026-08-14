@@ -206,6 +206,38 @@
         } );
     } );
 
+	// secondary button background image toggle.
+	api( 'responsive_secondary_button_background_image_toggle', function( value ) {
+	    value.bind( function( newval ) {
+			if( newval ) {
+				const buttonBGColor = processThemeSettingForCSS('responsive_secondary_button_color');
+				if( api('responsive_secondary_button_background_image').get() ) {
+					$('.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link').css({'background-image': 'linear-gradient(to right,' + buttonBGColor + ',' + buttonBGColor + '),url(' + api('responsive_secondary_button_background_image').get() + ')', 'background-size': 'cover' });
+				}
+			} else {
+				$('.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link').css('background-image', 'none');
+			}
+		} );
+	});
+	// secondary button background image.
+	api( 'responsive_secondary_button_background_image', function( value ) {
+		value.bind( function( newval ) {
+			const buttonBGColor = processThemeSettingForCSS('responsive_secondary_button_color');
+            $('.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link').css({'background-image': 'linear-gradient(to right,' + buttonBGColor + ',' + buttonBGColor + '),url(' + newval + ')', 'background-size': 'cover' });
+        } );
+    } );
+	// secondary button color.
+    api( 'responsive_secondary_button_color', function( value ) {
+        value.bind( function( newval ) {
+			if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+			if( api('responsive_secondary_button_background_image').get() && api( 'responsive_secondary_button_background_image_toggle').get() ) {
+	            $('.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link').css('background-image', 'linear-gradient(to right,' + newval + ',' + newval + '),url(' + api('responsive_secondary_button_background_image').get() + ')' );
+			}
+        } );
+    } );
+
 	// Inputs color.
 	api( 'responsive_inputs_background_image_toggle', function( value ) {
 	    value.bind( function( newval ) {
