@@ -2113,6 +2113,9 @@ ul.control-panel-nav_menus .customize-help-toggle:before {
 #customize-control-responsive_single_blog_excerpt_typography_group .responsive-typography-settings-group-icon{
 	margin-top: 10px;
 }
-#customize-control-responsive_single_blog_content_background_color .responsive-color-control-main-wrap{
-	width: 78%;
+#sub-accordion-section-responsive_single_blog_layout #customize-control-responsive_single_blog_content_background_color .customize-control-title{
+	width: 80%;
+}
+#sub-accordion-section-responsive_single_blog_layout{
+	height: 100%;
 }
