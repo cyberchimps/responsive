@@ -79,6 +79,9 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_blog_site_background_color',
 				$design_tab_ids_prefix . 'responsive_blog_content_background_color',
 				$design_tab_ids_prefix . 'responsive_blog_cover_background_color',
+				$design_tab_ids_prefix . 'responsive_archive_grid_boxed_shadow_separator',
+				$design_tab_ids_prefix . 'responsive_archive_grid_boxed_shadow',
+				$design_tab_ids_prefix . 'responsive_archive_grid_boxed_shadow_color',
 			);
 
 			$general_tab_ids_prefix = 'customize-control-';
