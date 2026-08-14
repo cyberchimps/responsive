@@ -917,7 +917,6 @@ function responsive_customizer_styles() {
 		.responsive-site-style-content-boxed .site-content .hentry,
 		.responsive-site-style-content-boxed .give-wrap .give_forms,
 		.responsive-site-style-content-boxed .navigation,
-		.responsive-site-style-content-boxed .responsive-single-related-posts-container,
 		.responsive-site-style-content-boxed .comments-area,
 		.responsive-site-style-content-boxed .comment-respond,
 		.responsive-site-style-boxed .custom-home-about-section,
@@ -931,7 +930,6 @@ function responsive_customizer_styles() {
 		.responsive-site-style-boxed .site-content .hentry,
 		.responsive-site-style-boxed .give-wrap .give_forms,
 		.responsive-site-style-boxed .navigation,
-		.responsive-site-style-boxed .responsive-single-related-posts-container,
 		.responsive-site-style-boxed .comments-area,
 		.responsive-site-style-boxed .comment-respond,
 		.responsive-site-style-boxed .comment-respond,
@@ -991,12 +989,10 @@ function responsive_customizer_styles() {
 	$custom_css .= '.responsive-site-style-content-boxed .hentry,
 	.responsive-site-style-content-boxed .give-wrap .give_forms,
 	.responsive-site-style-content-boxed .navigation,
-	.responsive-site-style-content-boxed .responsive-single-related-posts-container,
 	.responsive-site-style-content-boxed .comments-area,
 	.responsive-site-style-boxed .give-wrap .give_forms,
 	.responsive-site-style-boxed .hentry,
 	.responsive-site-style-boxed .navigation,
-	.responsive-site-style-boxed .responsive-single-related-posts-container,
 	.responsive-site-style-boxed .comments-area,
 	.page.front-page.responsive-site-style-flat .widget-wrapper,
 	.blog.front-page.responsive-site-style-flat .widget-wrapper,
@@ -1015,7 +1011,6 @@ function responsive_customizer_styles() {
 		.responsive-site-style-boxed .hentry,
 		.responsive-site-style-boxed .give-wrap .give_forms,
 		.responsive-site-style-boxed .navigation,
-		.responsive-site-style-boxed .responsive-single-related-posts-container,
 		.responsive-site-style-boxed .comments-area,
 		.page.front-page.responsive-site-style-flat .widget-wrapper,
 		.blog.front-page.responsive-site-style-flat .widget-wrapper,
@@ -10521,6 +10516,61 @@ function responsive_customizer_styles() {
 		}
 		
 	}
+
+	// Related posts - Margin, Padding css
+	$rp_padding_top    = get_theme_mod( 'responsive_rp_padding_top_padding', $box_padding_top );
+	$rp_padding_right  = get_theme_mod( 'responsive_rp_padding_right_padding', $box_padding_right );
+	$rp_padding_bottom = get_theme_mod( 'responsive_rp_padding_bottom_padding', $box_padding_bottom );
+	$rp_padding_left   = get_theme_mod( 'responsive_rp_padding_left_padding', $box_padding_left );
+	$rp_padding_desktop_unit = get_theme_mod( 'responsive_rp_padding_desktop_unit', 'px' );
+
+	$rp_padding_tablet_top    = get_theme_mod( 'responsive_rp_padding_tablet_top_padding', $box_tablet_padding_top );
+	$rp_padding_tablet_right  = get_theme_mod( 'responsive_rp_padding_tablet_right_padding', $box_tablet_padding_right );
+	$rp_padding_tablet_bottom = get_theme_mod( 'responsive_rp_padding_tablet_bottom_padding', $box_tablet_padding_bottom );
+	$rp_padding_tablet_left   = get_theme_mod( 'responsive_rp_padding_tablet_left_padding', $box_tablet_padding_left );
+	$rp_padding_tablet_unit   = get_theme_mod( 'responsive_rp_padding_tablet_unit', 'px' );
+
+	$rp_padding_mobile_top    = get_theme_mod( 'responsive_rp_padding_mobile_top_padding', $box_mobile_padding_top );
+	$rp_padding_mobile_right  = get_theme_mod( 'responsive_rp_padding_mobile_right_padding', $box_mobile_padding_right );
+	$rp_padding_mobile_bottom = get_theme_mod( 'responsive_rp_padding_mobile_bottom_padding', $box_mobile_padding_bottom );
+	$rp_padding_mobile_left   = get_theme_mod( 'responsive_rp_padding_mobile_left_padding', $box_mobile_padding_left );
+	$rp_padding_mobile_unit   = get_theme_mod( 'responsive_rp_padding_mobile_unit', 'px' );
+
+	$rp_margin_top    = get_theme_mod( 'responsive_rp_margin_top_padding', 0 );
+	$rp_margin_right  = get_theme_mod( 'responsive_rp_margin_right_padding', 0 );
+	$rp_margin_bottom = get_theme_mod( 'responsive_rp_margin_bottom_padding', 0 );
+	$rp_margin_left   = get_theme_mod( 'responsive_rp_margin_left_padding', 0 );
+	$rp_margin_desktop_unit = get_theme_mod( 'responsive_rp_margin_desktop_unit', 'px' );
+
+	$rp_margin_tablet_top    = get_theme_mod( 'responsive_rp_margin_tablet_top_padding', 0 );
+	$rp_margin_tablet_right  = get_theme_mod( 'responsive_rp_margin_tablet_right_padding', 0 );
+	$rp_margin_tablet_bottom = get_theme_mod( 'responsive_rp_margin_tablet_bottom_padding', 0 );
+	$rp_margin_tablet_left   = get_theme_mod( 'responsive_rp_margin_tablet_left_padding', 0 );
+	$rp_margin_tablet_unit   = get_theme_mod( 'responsive_rp_margin_tablet_unit', 'px' );
+
+	$rp_margin_mobile_top    = get_theme_mod( 'responsive_rp_margin_mobile_top_padding', 0 );
+	$rp_margin_mobile_right  = get_theme_mod( 'responsive_rp_margin_mobile_right_padding', 0 );
+	$rp_margin_mobile_bottom = get_theme_mod( 'responsive_rp_margin_mobile_bottom_padding', 0 );
+	$rp_margin_mobile_left   = get_theme_mod( 'responsive_rp_margin_mobile_left_padding', 0 );
+	$rp_margin_mobile_unit   = get_theme_mod( 'responsive_rp_margin_mobile_unit', 'px' );
+
+	$custom_css .= "
+	.responsive-single-related-posts-container {
+		padding: " . responsive_spacing_css( $rp_padding_top, $rp_padding_right, $rp_padding_bottom, $rp_padding_left, $rp_padding_desktop_unit ) . ";
+		margin: " . responsive_spacing_css( $rp_margin_top, $rp_margin_right, $rp_margin_bottom, $rp_margin_left, $rp_margin_desktop_unit ) . ";
+	}
+	@media screen and ( max-width: 992px ) {
+		.responsive-single-related-posts-container {
+			padding: " . responsive_spacing_css( $rp_padding_tablet_top, $rp_padding_tablet_right, $rp_padding_tablet_bottom, $rp_padding_tablet_left, $rp_padding_tablet_unit ) . ";
+			margin: " . responsive_spacing_css( $rp_margin_tablet_top, $rp_margin_tablet_right, $rp_margin_tablet_bottom, $rp_margin_tablet_left, $rp_margin_tablet_unit ) . ";
+		}
+	}
+	@media screen and ( max-width: 576px ) {
+		.responsive-single-related-posts-container {
+			padding: " . responsive_spacing_css( $rp_padding_mobile_top, $rp_padding_mobile_right, $rp_padding_mobile_bottom, $rp_padding_mobile_left, $rp_padding_mobile_unit ) . ";
+			margin: " . responsive_spacing_css( $rp_margin_mobile_top, $rp_margin_mobile_right, $rp_margin_mobile_bottom, $rp_margin_mobile_left, $rp_margin_mobile_unit ) . ";
+		}
+	}";
 
 	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', responsive_minimize_css( $custom_css ) ) );
 	wp_add_inline_style('responsive-style', responsive_minimize_css( $font_preset_css));
