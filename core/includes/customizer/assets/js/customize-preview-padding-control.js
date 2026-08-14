@@ -2712,4 +2712,63 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
         });
     });
 
+    // Related Posts Padding
+    const relatedpostsPaddingSettings = [
+        'responsive_rp_padding_top_padding',
+        'responsive_rp_padding_right_padding',
+        'responsive_rp_padding_bottom_padding',
+        'responsive_rp_padding_left_padding',
+        'responsive_rp_padding_desktop_unit',
+        'responsive_rp_padding_tablet_top_padding',
+        'responsive_rp_padding_tablet_right_padding',
+        'responsive_rp_padding_tablet_bottom_padding',
+        'responsive_rp_padding_tablet_left_padding',
+        'responsive_rp_padding_tablet_unit',
+        'responsive_rp_padding_mobile_top_padding',
+        'responsive_rp_padding_mobile_right_padding',
+        'responsive_rp_padding_mobile_bottom_padding',
+        'responsive_rp_padding_mobile_left_padding',
+        'responsive_rp_padding_mobile_unit',
+    ];
+
+    relatedpostsPaddingSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_unit_padding(
+                    'rp_padding',
+                    '.responsive-single-related-posts-container'
+                );
+            });
+        });
+    });
+     // Related Posts Margin
+    const relatedpostsMarginSettings = [
+        'responsive_rp_margin_top_padding',
+        'responsive_rp_margin_right_padding',
+        'responsive_rp_margin_bottom_padding',
+        'responsive_rp_margin_left_padding',
+        'responsive_rp_margin_desktop_unit',
+        'responsive_rp_margin_tablet_top_padding',
+        'responsive_rp_margin_tablet_right_padding',
+        'responsive_rp_margin_tablet_bottom_padding',
+        'responsive_rp_margin_tablet_left_padding',
+        'responsive_rp_margin_tablet_unit',
+        'responsive_rp_margin_mobile_top_padding',
+        'responsive_rp_margin_mobile_right_padding',
+        'responsive_rp_margin_mobile_bottom_padding',
+        'responsive_rp_margin_mobile_left_padding',
+        'responsive_rp_margin_mobile_unit',
+    ];
+
+    relatedpostsMarginSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_unit_margin(
+                    'rp_margin',
+                    '.responsive-single-related-posts-container'
+                );
+            });
+        });
+    });
+
 } )( jQuery );
