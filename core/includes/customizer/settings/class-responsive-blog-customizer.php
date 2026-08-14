@@ -158,7 +158,40 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 			$blog_content_background_color_label = __( 'Blog/Archive Content Background', 'responsive' );
 			responsive_color_control( $wp_customize, 'blog_content_background', $blog_content_background_color_label, 'responsive_blog_layout', 100, Responsive\Core\get_responsive_customizer_defaults('responsive_blog_content_background_color') );
 
-			responsive_horizontal_separator_control($wp_customize, 'blog_content_background_separator', 1, 'responsive_blog_layout', 101, 1, null );
+			responsive_horizontal_separator_control( $wp_customize, 'archive_grid_boxed_shadow_separator', 1, 'responsive_blog_layout', 101, 1, null );
+
+			responsive_shadow_control(
+				$wp_customize,
+				'archive_grid_boxed_shadow',
+				__( 'Box Shadow', 'responsive' ),
+				'responsive_blog_layout',
+				102,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_archive_grid_boxed_shadow_x' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_archive_grid_boxed_shadow_y' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_archive_grid_boxed_shadow_blur' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_archive_grid_boxed_shadow_spread' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_archive_grid_boxed_shadow_inset' ),
+				null
+			);
+
+			responsive_color_control(
+				$wp_customize,
+				'archive_grid_boxed_shadow',
+				__( 'Box Shadow Color', 'responsive' ),
+				'responsive_blog_layout',
+				103,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_archive_grid_boxed_shadow_color' ),
+				null,
+				'',
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'color',
+				'refresh'
+			);
 
 			/* Date box setting */
 			$date_box_label = esc_html__( 'Enable Date Box', 'responsive' );
