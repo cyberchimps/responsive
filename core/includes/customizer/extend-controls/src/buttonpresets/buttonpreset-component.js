@@ -45,6 +45,54 @@ const ButtonPresetComponent = ( props ) => {
 			const s = api( `${ borderPrefix }${ side }_border` );
 			if ( s ) s.set( choice.border_width );
 		} );
+
+		if ( isSecondary ) {
+			const shape = SHAPE[ presetKey ];
+			if ( shape ) {
+				const secColorControl = api( 'responsive_secondary_button_color' );
+				const secTextColorControl = api( 'responsive_secondary_button_text_color' );
+				const secHoverColorControl = api( 'responsive_secondary_button_hover_color' );
+				const secHoverTextColorControl = api( 'responsive_secondary_button_hover_text_color' );
+
+				if ( shape.filled ) {
+					if ( secColorControl ) {
+						const currentColor = secColorControl.get();
+						if ( ! currentColor || currentColor === 'transparent' ) {
+							const primaryColor = api( 'responsive_button_color' )?.get() || '#0066cc';
+							secColorControl.set( primaryColor );
+						}
+					}
+					if ( secTextColorControl ) {
+						const primaryTextColor = api( 'responsive_button_text_color' )?.get() || '#ffffff';
+						secTextColorControl.set( primaryTextColor );
+					}
+					if ( secHoverColorControl ) {
+						const primaryHoverColor = api( 'responsive_button_hover_color' )?.get() || 'palette1';
+						secHoverColorControl.set( primaryHoverColor );
+					}
+					if ( secHoverTextColorControl ) {
+						const primaryHoverTextColor = api( 'responsive_button_hover_text_color' )?.get() || 'palette0';
+						secHoverTextColorControl.set( primaryHoverTextColor );
+					}
+				} else {
+					if ( secColorControl ) {
+						secColorControl.set( 'transparent' );
+					}
+					if ( secTextColorControl ) {
+						const defaultSecTextColor = api( 'responsive_button_color' )?.get() || 'palette0';
+						secTextColorControl.set( defaultSecTextColor );
+					}
+					if ( secHoverColorControl ) {
+						const defaultSecHoverColor = api( 'responsive_button_color' )?.get() || 'palette0';
+						secHoverColorControl.set( defaultSecHoverColor );
+					}
+					if ( secHoverTextColorControl ) {
+						const defaultSecHoverTextColor = api( 'responsive_button_hover_text_color' )?.get() || 'palette1';
+						secHoverTextColorControl.set( defaultSecHoverTextColor );
+					}
+				}
+			}
+		}
 	};
 
 	const onReset = () => {
@@ -60,6 +108,25 @@ const ButtonPresetComponent = ( props ) => {
 			const s = api( `${ borderPrefix }${ side }_border` );
 			if ( s ) s.set( defaultBorderWidth );
 		} );
+
+		if ( isSecondary ) {
+			const secColorControl = api( 'responsive_secondary_button_color' );
+			if ( secColorControl ) {
+				secColorControl.set( 'transparent' );
+			}
+			const secTextColorControl = api( 'responsive_secondary_button_text_color' );
+			if ( secTextColorControl ) {
+				secTextColorControl.set( 'palette0' );
+			}
+			const secHoverColorControl = api( 'responsive_secondary_button_hover_color' );
+			if ( secHoverColorControl ) {
+				secHoverColorControl.set( 'palette0' );
+			}
+			const secHoverTextColorControl = api( 'responsive_secondary_button_hover_text_color' );
+			if ( secHoverTextColorControl ) {
+				secHoverTextColorControl.set( 'palette1' );
+			}
+		}
 	};
 
 	return (
