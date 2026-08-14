@@ -1043,6 +1043,8 @@ function responsive_customizer_styles() {
 		.blog.front-page.responsive-site-style-flat .widget-wrapper,
 		.responsive-site-style-boxed .widget-wrapper,
 		.responsive-site-style-boxed .site-content article.product,
+		{
+			padding: ' . responsive_spacing_css( $box_mobile_padding_top, $box_mobile_padding_right, $box_mobile_padding_bottom, $box_mobile_padding_left ) . ';
 		}
 	}';
 	$custom_css .= '
