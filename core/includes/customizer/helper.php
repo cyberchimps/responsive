@@ -1125,6 +1125,9 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 			'default'           => 'px',
 		)
 	);
+	if ( ! class_exists( 'Responsive_Customizer_Unit_Dimensions_Control' ) ) {
+		require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/unit-dimensions/class-responsive-customizer-unit-dimensions-control.php';
+	}
 
 	$wp_customize->add_control(
 		new Responsive_Customizer_Unit_Dimensions_Control(
@@ -1290,6 +1293,9 @@ function responsive_unit_padding_control( $wp_customize, $element, $section, $pr
 			'default'           => $default_unit,
 		)
 	);
+	if ( ! class_exists( 'Responsive_Customizer_Unit_Dimensions_Control' ) ) {
+		require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/unit-dimensions/class-responsive-customizer-unit-dimensions-control.php';
+	}
 
 	$wp_customize->add_control(
 		new Responsive_Customizer_Unit_Dimensions_Control(
@@ -1468,6 +1474,9 @@ function responsive_borderwidth_control( $wp_customize, $element, $section, $pri
 			'default'           => 'px',
 		)
 	);
+	if ( ! class_exists( 'Responsive_Customizer_Unit_Dimensions_Control' ) ) {
+		require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/unit-dimensions/class-responsive-customizer-unit-dimensions-control.php';
+	}
 
 	$wp_customize->add_control(
 		new Responsive_Customizer_Unit_Dimensions_Control(
@@ -2858,6 +2867,9 @@ function responsive_radius_control( $wp_customize, $element, $section, $priority
 			'default'           => 'px',
 		)
 	);
+	if ( ! class_exists( 'Responsive_Customizer_Unit_Dimensions_Control' ) ) {
+		require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/unit-dimensions/class-responsive-customizer-unit-dimensions-control.php';
+	}
 
 	$wp_customize->add_control(
 		new Responsive_Customizer_Unit_Dimensions_Control(
