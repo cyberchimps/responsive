@@ -571,12 +571,27 @@ function responsive_customizer_styles() {
 	$responsive_single_blog_container_style = ( 'default' === $single_blog_container_style_setting ) ? $global_container_style_key : $single_blog_container_style_setting;
 
 	// Single Post Boxed Border Radius.
-	$single_post_boxed_radius              = get_theme_mod( 'responsive_single_post_boxed_radius', '' );
-	$single_post_boxed_radius_unit         = get_theme_mod( 'responsive_single_post_boxed_radius_unit', 'px' );
-	$single_post_boxed_radius_tablet      = get_theme_mod( 'responsive_single_post_boxed_radius_tablet', '' );
-	$single_post_boxed_radius_tablet_unit = get_theme_mod( 'responsive_single_post_boxed_radius_tablet_unit', 'px' );
-	$single_post_boxed_radius_mobile      = get_theme_mod( 'responsive_single_post_boxed_radius_mobile', '' );
-	$single_post_boxed_radius_mobile_unit = get_theme_mod( 'responsive_single_post_boxed_radius_mobile_unit', 'px' );
+	$single_post_boxed_radius_top_left     = get_theme_mod( 'responsive_single_post_boxed_radius_top_left_radius', get_theme_mod( 'responsive_single_post_boxed_radius', '' ) );
+	$single_post_boxed_radius_top_right    = get_theme_mod( 'responsive_single_post_boxed_radius_top_right_radius', get_theme_mod( 'responsive_single_post_boxed_radius', '' ) );
+	$single_post_boxed_radius_bottom_right = get_theme_mod( 'responsive_single_post_boxed_radius_bottom_right_radius', get_theme_mod( 'responsive_single_post_boxed_radius', '' ) );
+	$single_post_boxed_radius_bottom_left  = get_theme_mod( 'responsive_single_post_boxed_radius_bottom_left_radius', get_theme_mod( 'responsive_single_post_boxed_radius', '' ) );
+	$single_post_boxed_radius_desktop_unit = get_theme_mod( 'responsive_single_post_boxed_radius_desktop_unit', get_theme_mod( 'responsive_single_post_boxed_radius_unit', 'px' ) );
+
+	$single_post_boxed_radius_tablet_top_left     = get_theme_mod( 'responsive_single_post_boxed_radius_tablet_top_left_radius', get_theme_mod( 'responsive_single_post_boxed_radius_tablet', '' ) );
+	$single_post_boxed_radius_tablet_top_right    = get_theme_mod( 'responsive_single_post_boxed_radius_tablet_top_right_radius', get_theme_mod( 'responsive_single_post_boxed_radius_tablet', '' ) );
+	$single_post_boxed_radius_tablet_bottom_right = get_theme_mod( 'responsive_single_post_boxed_radius_tablet_bottom_right_radius', get_theme_mod( 'responsive_single_post_boxed_radius_tablet', '' ) );
+	$single_post_boxed_radius_tablet_bottom_left  = get_theme_mod( 'responsive_single_post_boxed_radius_tablet_bottom_left_radius', get_theme_mod( 'responsive_single_post_boxed_radius_tablet', '' ) );
+	$single_post_boxed_radius_tablet_unit         = get_theme_mod( 'responsive_single_post_boxed_radius_tablet_unit', get_theme_mod( 'responsive_single_post_boxed_radius_tablet_unit', 'px' ) );
+
+	$single_post_boxed_radius_mobile_top_left     = get_theme_mod( 'responsive_single_post_boxed_radius_mobile_top_left_radius', get_theme_mod( 'responsive_single_post_boxed_radius_mobile', '' ) );
+	$single_post_boxed_radius_mobile_top_right    = get_theme_mod( 'responsive_single_post_boxed_radius_mobile_top_right_radius', get_theme_mod( 'responsive_single_post_boxed_radius_mobile', '' ) );
+	$single_post_boxed_radius_mobile_bottom_right = get_theme_mod( 'responsive_single_post_boxed_radius_mobile_bottom_right_radius', get_theme_mod( 'responsive_single_post_boxed_radius_mobile', '' ) );
+	$single_post_boxed_radius_mobile_bottom_left  = get_theme_mod( 'responsive_single_post_boxed_radius_mobile_bottom_left_radius', get_theme_mod( 'responsive_single_post_boxed_radius_mobile', '' ) );
+	$single_post_boxed_radius_mobile_unit         = get_theme_mod( 'responsive_single_post_boxed_radius_mobile_unit', get_theme_mod( 'responsive_single_post_boxed_radius_mobile_unit', 'px' ) );
+
+	$has_single_post_boxed_radius        = ( '' !== $single_post_boxed_radius_top_left || '' !== $single_post_boxed_radius_top_right || '' !== $single_post_boxed_radius_bottom_right || '' !== $single_post_boxed_radius_bottom_left );
+	$has_single_post_boxed_radius_tablet = ( '' !== $single_post_boxed_radius_tablet_top_left || '' !== $single_post_boxed_radius_tablet_top_right || '' !== $single_post_boxed_radius_tablet_bottom_right || '' !== $single_post_boxed_radius_tablet_bottom_left );
+	$has_single_post_boxed_radius_mobile = ( '' !== $single_post_boxed_radius_mobile_top_left || '' !== $single_post_boxed_radius_mobile_top_right || '' !== $single_post_boxed_radius_mobile_bottom_right || '' !== $single_post_boxed_radius_mobile_bottom_left );
 
 	// Single Post Boxed Shadow.
 	$single_post_boxed_shadow_x = get_theme_mod( 'responsive_single_post_boxed_shadow_x_axis', 0 );
@@ -597,10 +612,10 @@ function responsive_customizer_styles() {
 			border-radius: {$box_top_left_radius}px {$box_top_right_radius}px {$box_bottom_right_radius}px {$box_bottom_left_radius}px;
 			padding: " . responsive_spacing_css( $box_padding_top, $box_padding_right, $box_padding_bottom, $box_padding_left ) . ";
 		}";
-		if ( '' !== $single_post_boxed_radius ) {
+		if ( $has_single_post_boxed_radius ) {
 			$custom_css .= "
 			.single:not(.single-product) .site-content .hentry {
-				border-radius: {$single_post_boxed_radius}{$single_post_boxed_radius_unit};
+				border-radius: " . responsive_spacing_css( $single_post_boxed_radius_top_left, $single_post_boxed_radius_top_right, $single_post_boxed_radius_bottom_right, $single_post_boxed_radius_bottom_left, $single_post_boxed_radius_desktop_unit ) . ";
 			}";
 		}
 		$custom_css .= "
@@ -613,15 +628,15 @@ function responsive_customizer_styles() {
 				border-radius: {$box_tablet_top_left_radius}px {$box_tablet_top_right_radius}px {$box_tablet_bottom_right_radius}px {$box_tablet_bottom_left_radius}px;
 				padding: " . responsive_spacing_css( $box_tablet_padding_top, $box_tablet_padding_right, $box_tablet_padding_bottom, $box_tablet_padding_left ) . ";
 			}";
-		if ( '' !== $single_post_boxed_radius_tablet ) {
+		if ( $has_single_post_boxed_radius_tablet ) {
 			$custom_css .= "
 			.single:not(.single-product) .site-content .hentry {
-				border-radius: {$single_post_boxed_radius_tablet}{$single_post_boxed_radius_tablet_unit};
+				border-radius: " . responsive_spacing_css( $single_post_boxed_radius_tablet_top_left, $single_post_boxed_radius_tablet_top_right, $single_post_boxed_radius_tablet_bottom_right, $single_post_boxed_radius_tablet_bottom_left, $single_post_boxed_radius_tablet_unit ) . ";
 			}";
-		} elseif ( '' !== $single_post_boxed_radius ) {
+		} elseif ( $has_single_post_boxed_radius ) {
 			$custom_css .= "
 			.single:not(.single-product) .site-content .hentry {
-				border-radius: {$single_post_boxed_radius}{$single_post_boxed_radius_unit};
+				border-radius: " . responsive_spacing_css( $single_post_boxed_radius_top_left, $single_post_boxed_radius_top_right, $single_post_boxed_radius_bottom_right, $single_post_boxed_radius_bottom_left, $single_post_boxed_radius_desktop_unit ) . ";
 			}";
 		}
 		$custom_css .= "
@@ -632,15 +647,15 @@ function responsive_customizer_styles() {
 				border-radius: {$box_mobile_top_left_radius}px {$box_mobile_top_right_radius}px {$box_mobile_bottom_right_radius}px {$box_mobile_bottom_left_radius}px;
 				padding: " . responsive_spacing_css( $box_mobile_padding_top, $box_mobile_padding_right, $box_mobile_padding_bottom, $box_mobile_padding_left ) . ";
 			}";
-		if ( '' !== $single_post_boxed_radius_mobile ) {
+		if ( $has_single_post_boxed_radius_mobile ) {
 			$custom_css .= "
 			.single:not(.single-product) .site-content .hentry {
-				border-radius: {$single_post_boxed_radius_mobile}{$single_post_boxed_radius_mobile_unit};
+				border-radius: " . responsive_spacing_css( $single_post_boxed_radius_mobile_top_left, $single_post_boxed_radius_mobile_top_right, $single_post_boxed_radius_mobile_bottom_right, $single_post_boxed_radius_mobile_bottom_left, $single_post_boxed_radius_mobile_unit ) . ";
 			}";
-		} elseif ( '' !== $single_post_boxed_radius ) {
+		} elseif ( $has_single_post_boxed_radius ) {
 			$custom_css .= "
 			.single:not(.single-product) .site-content .hentry {
-				border-radius: {$single_post_boxed_radius}{$single_post_boxed_radius_unit};
+				border-radius: " . responsive_spacing_css( $single_post_boxed_radius_top_left, $single_post_boxed_radius_top_right, $single_post_boxed_radius_bottom_right, $single_post_boxed_radius_bottom_left, $single_post_boxed_radius_desktop_unit ) . ";
 			}";
 		}
 		$custom_css .= "
@@ -659,39 +674,39 @@ function responsive_customizer_styles() {
 		.single:not(.single-product) .site-content .hentry {
 			box-shadow: {$single_post_boxed_shadow_inset_style} {$single_post_boxed_shadow_x}px {$single_post_boxed_shadow_y}px {$single_post_boxed_shadow_blur}px {$single_post_boxed_shadow_spread}px {$single_post_boxed_shadow_color};
 		}";
-		if ( '' !== $single_post_boxed_radius ) {
+		if ( $has_single_post_boxed_radius ) {
 			$custom_css .= "
 			.single:not(.single-product) .site-content .hentry {
-				border-radius: {$single_post_boxed_radius}{$single_post_boxed_radius_unit};
+				border-radius: " . responsive_spacing_css( $single_post_boxed_radius_top_left, $single_post_boxed_radius_top_right, $single_post_boxed_radius_bottom_right, $single_post_boxed_radius_bottom_left, $single_post_boxed_radius_desktop_unit ) . ";
 			}";
 		}
-		if ( '' !== $single_post_boxed_radius_tablet ) {
+		if ( $has_single_post_boxed_radius_tablet ) {
 			$custom_css .= "
 			@media screen and ( max-width: 992px ) {
 				.single:not(.single-product) .site-content .hentry {
-					border-radius: {$single_post_boxed_radius_tablet}{$single_post_boxed_radius_tablet_unit};
+					border-radius: " . responsive_spacing_css( $single_post_boxed_radius_tablet_top_left, $single_post_boxed_radius_tablet_top_right, $single_post_boxed_radius_tablet_bottom_right, $single_post_boxed_radius_tablet_bottom_left, $single_post_boxed_radius_tablet_unit ) . ";
 				}
 			}";
-		} elseif ( '' !== $single_post_boxed_radius ) {
+		} elseif ( $has_single_post_boxed_radius ) {
 			$custom_css .= "
 			@media screen and ( max-width: 992px ) {
 				.single:not(.single-product) .site-content .hentry {
-					border-radius: {$single_post_boxed_radius}{$single_post_boxed_radius_unit};
+					border-radius: " . responsive_spacing_css( $single_post_boxed_radius_top_left, $single_post_boxed_radius_top_right, $single_post_boxed_radius_bottom_right, $single_post_boxed_radius_bottom_left, $single_post_boxed_radius_desktop_unit ) . ";
 				}
 			}";
 		}
-		if ( '' !== $single_post_boxed_radius_mobile ) {
+		if ( $has_single_post_boxed_radius_mobile ) {
 			$custom_css .= "
 			@media screen and ( max-width: 576px ) {
 				.single:not(.single-product) .site-content .hentry {
-					border-radius: {$single_post_boxed_radius_mobile}{$single_post_boxed_radius_mobile_unit};
+					border-radius: " . responsive_spacing_css( $single_post_boxed_radius_mobile_top_left, $single_post_boxed_radius_mobile_top_right, $single_post_boxed_radius_mobile_bottom_right, $single_post_boxed_radius_mobile_bottom_left, $single_post_boxed_radius_mobile_unit ) . ";
 				}
 			}";
-		} elseif ( '' !== $single_post_boxed_radius ) {
+		} elseif ( $has_single_post_boxed_radius ) {
 			$custom_css .= "
 			@media screen and ( max-width: 576px ) {
 				.single:not(.single-product) .site-content .hentry {
-					border-radius: {$single_post_boxed_radius}{$single_post_boxed_radius_unit};
+					border-radius: " . responsive_spacing_css( $single_post_boxed_radius_top_left, $single_post_boxed_radius_top_right, $single_post_boxed_radius_bottom_right, $single_post_boxed_radius_bottom_left, $single_post_boxed_radius_desktop_unit ) . ";
 				}
 			}";
 		}
