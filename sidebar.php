@@ -119,9 +119,9 @@ elseif ( class_exists( 'LifterLMS' ) ) {
 	<?php
 
 	Responsive\responsive_widgets(); // above widgets hook.
-	if ( ! dynamic_sidebar( 'main-sidebar' ) ) :
-	endif; // End of main-sidebar.
-		Responsive\responsive_widgets_end(); // after widgets hook.
+	if ( ! dynamic_sidebar( responsive_get_current_sidebar() ) ) :
+    endif;
+	Responsive\responsive_widgets_end(); // after widgets hook.
 	?>
 
 	</aside><!-- end of #secondary -->

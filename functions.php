@@ -652,6 +652,27 @@ endif;
 add_action( 'pre_get_posts', 'responsive_exclude_post_cat', 10 );
 
 /**
+ * Set custom posts per page for blog and archive pages.
+ */
+if ( ! function_exists( 'responsive_blog_posts_per_page' ) ) :
+	/**
+	 * Set custom posts per page for blog and archive pages.
+	 *
+	 * @param object $query Query.
+	 */
+	function responsive_blog_posts_per_page( $query ) {
+		$per_page = get_theme_mod( 'responsive_blog_post_per_page', 10 );
+
+		if ( ! is_admin() && $query->is_main_query() ) {
+			if ( $query->is_home() || $query->is_archive() ) {
+				$query->set( 'posts_per_page', absint( $per_page ) );
+			}
+		}
+	}
+endif;
+add_action( 'pre_get_posts', 'responsive_blog_posts_per_page', 10 );
+
+/**
  * Enqueue customizer styling
  */
 function responsive_controls_style() {
@@ -3122,9 +3143,20 @@ add_filter( 'body_class', function( $classes ) {
 	return $classes;
 } );
 
+
 add_action( 'wp', 'responsive_header_button_border_none_legacy_migrate', 5 );
 add_action( 'admin_init', 'responsive_header_button_border_none_legacy_migrate', 5 );
 add_action( 'customize_save_responsive_header_button_border_style', 'responsive_header_button_border_none_clear_legacy_on_save' );
+
+/**
+ * Remove Category: prefix from category archive titles
+ */
+add_filter( 'get_the_archive_title', function( $title ) {
+	if ( is_category() ) {
+		$title = single_cat_title( '', false );
+	}
+	return $title;
+} );
 
 if ( ! function_exists( 'responsive_is_seo_plugin_active' ) ) {
 	/**

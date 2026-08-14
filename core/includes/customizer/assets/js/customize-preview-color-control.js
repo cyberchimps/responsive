@@ -51,6 +51,9 @@
         if (typeof value === 'string' && value.startsWith('palette')) {
             return `var(--responsive-global-${value})`;
         }
+        if (typeof value === 'string' && value === 'border-color') {
+            return `var(--responsive-border-color)`;
+        }
         return value;
 	}
 
@@ -525,6 +528,45 @@
         } );
     } );
 
+    //Global Border Color
+    api( 'responsive_border_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            document.documentElement.style.setProperty(
+                '--responsive-border-color',
+                newval
+            );
+        } );
+    } );
+
+    // Title Above Content Background Color
+    api( 'responsive_title_above_content_bg_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            document.documentElement.style.setProperty(
+                '--responsive-title-above-content-bg-color',
+                newval
+            );
+        } );
+    } );
+
+    // Title Above Content Overlay Color
+    api( 'responsive_title_above_content_overlay_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            document.documentElement.style.setProperty(
+                '--responsive-title-above-content-overlay-color',
+                newval
+            );
+        } );
+    } );
+
     //All Heading text Color
     api( 'responsive_all_heading_text_color', function( value ) {
         value.bind( function( newval ) {
@@ -651,7 +693,7 @@
             if( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
-            $('a:hover').css('color', newval );
+            $('a:hover').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').css('color', newval );
         } );
     } );
 
@@ -1839,7 +1881,7 @@
     //Hover Colors
 
     //Links Hover Color
-    $("a").not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.post-meta a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').hover(
+    $("a").not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.post-meta a').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
             $(this).css("color", linkHoverColor);
@@ -5115,7 +5157,104 @@
         });
     });
 
-    // Single Blog Post Title Color
+    // Blog/Archive Site Background Color
+    api( 'responsive_blog_site_background_color', function( value ) {
+        value.bind( function( newval ) {
+            if ( newval && newval.includes( 'palette' ) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $( 'body.blog, body.archive, body.search-results' ).css( 'background-color', newval );
+        } );
+    } );
+
+    // Blog/Archive Content Background Color
+    api( 'responsive_blog_content_background_color', function( value ) {
+        value.bind( function( newval ) {
+            if ( newval && newval.includes( 'palette' ) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $(
+                '.blog:not(.custom-home-page-active) .site-content .hentry,' +
+                '.archive:not(.post-type-archive-product) .site-content .hentry,' +
+                '.search-results .site-content article.hentry'
+            ).css( 'background-color', newval );
+        } );
+    } );
+
+    // Blog/Archive Item Category Color
+    api( 'responsive_blog_category_color', function( value ) {
+        value.bind( function( newval ) {
+            if ( newval && newval.includes( 'palette' ) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $( '.blog .hentry .post-meta .entry-category a, .archive .hentry .post-meta .entry-category a' ).css( 'color', newval );
+        } );
+    } );
+
+    // Blog/Archive Item Category Hover Color
+    api( 'responsive_blog_category_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            jQuery( 'style#responsive-blog-category-hover-color' ).remove();
+            jQuery( 'head' ).append(
+                '<style id="responsive-blog-category-hover-color">' +
+                '.blog .hentry .post-meta .entry-category a:hover, .archive .hentry .post-meta .entry-category a:hover { color: ' + newval + ' !important; }' +
+                '</style>'
+            );
+        } );
+    } );
+
+    // Blog/Archive Item Meta Color
+    api( 'responsive_blog_item_meta_color', function( value ) {
+        value.bind( function( newval ) {
+            if ( newval && newval.includes( 'palette' ) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $( '.blog .hentry .post-meta .entry-author a, .archive .hentry .post-meta .entry-author a, .blog .hentry .post-meta .entry-date a, .archive .hentry .post-meta .entry-date a' ).css( 'color', newval );
+        } );
+    } );
+
+    // Blog/Archive Item Meta Hover Color
+    api( 'responsive_blog_item_meta_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            jQuery( 'style#responsive-blog-item-meta-hover-color' ).remove();
+            jQuery( 'head' ).append(
+                '<style id="responsive-blog-item-meta-hover-color">' +
+                '.blog .hentry .post-meta .entry-author a:hover, .archive .hentry .post-meta .entry-author a:hover, .blog .hentry .post-meta .entry-date a:hover, .archive .hentry .post-meta .entry-date a:hover { color: ' + newval + ' !important; }' +
+                '</style>'
+            );
+        } );
+    } );
+     // Single Page Site Background Color
+    api( 'responsive_page_site_background_color', function( value ) {
+        value.bind( function( newval ) {
+            if ( newval && newval.includes( 'palette' ) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $( 'body.page' ).css( 'background-color', newval );
+        } );
+    } );
+
+    // Single Page Content Background Color
+    api( 'responsive_page_content_background_color', function( value ) {
+        value.bind( function( newval ) {
+            if ( newval && newval.includes( 'palette' ) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $(
+                '.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry'
+            ).css( 'background-color', newval );
+        } );
+    } );
+   // Blog/Archive Blog Layout - Cover background color
+    api( 'responsive_blog_cover_background_color', function( value ) {
+        value.bind( function( newval ) {
+            if ( newval && newval.includes( 'palette' ) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.blog:not(.custom-home-page-active) .site-content .hentry, .archive:not(.post-type-archive-product) .site-content .hentry ').css( 'background-color', newval );
+        } );
+    } );
+     // Single Blog Post Title Color
     api( 'responsive_single_blog_post_title_color', function(value) {
         value.bind(function(newval) {
             $('.single-post .entry-title').css('color', newval);
@@ -5179,7 +5318,7 @@
             if( newval && newval.includes('palette') ) {
                     newval = 'var(--responsive-global-' + newval + ')';
             }
-            $('.responsive-archive-entry-banner .container *:not(.page-title, .page-title *):not(a, a *), .archive:not(.woocommerce) .site-content-header *:not(.page-title, .page-title *):not(a, a *), .blog:not(.woocommerce) .site-content-header *:not(.page-title, .page-title *):not(a, a *)').css('color', newval);
+            $('.responsive-archive-entry-banner .container *, .archive:not(.woocommerce) .site-content-header *').css('color', newval);
         })
     });
 
@@ -5203,26 +5342,6 @@
         })
     });
 
-    // Single Post Link Color
-    api( 'responsive_single_blog_post_link_color', function(value) {
-        value.bind(function(newval) {
-             if( newval && newval.includes('palette') ) {
-                    newval = 'var(--responsive-global-' + newval + ')';
-            }
-            $('.responsive-blog-single-banner2 .container a, .responsive-blog-single-banner2 .container a *, .single-post .entry-header a, .single-post .entry-header a *').css('color', newval);
-        })
-    });
-
-    // Single Post Link Hover Color
-    api( 'responsive_single_blog_post_link_hover_color', function(value) {
-        value.bind(function(newval) {
-             if( newval && newval.includes('palette') ) {
-                    newval = 'var(--responsive-global-' + newval + ')';
-            }
-            $('.responsive-blog-single-banner2 .container a:hover, .responsive-blog-single-banner2 .container a:hover *, .single-post .entry-header a:hover, .single-post .entry-header a:hover *').css('color', newval);
-        })
-    });
-
     // Blog/Archive Link Hover Color
     api( 'responsive_blog_post_link_hover_color', function(value) {
         value.bind(function(newval) {
@@ -5242,7 +5361,6 @@
             }
         })
     });
-    
 
     // Blog/Archive Title Banner Background
     api('responsive_blog_banner_background_color', function(val) {
@@ -5253,7 +5371,7 @@
             jQuery('head').append(
                 '<style id="responsive_blog_banner_background_color">' +
                 '@media screen and (min-width: 993px) {' +
-                'body .responsive-archive-entry-banner, body.archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
+                ' .responsive-archive-entry-banner, .archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
                 '}' +
                 '</style>'
             );
@@ -5267,7 +5385,7 @@
             jQuery('head').append(
                 '<style id="responsive_blog_banner_background_color-tablet">' +
                 '@media screen and (min-width: 577px) and (max-width: 992px) {' +
-                'body .responsive-archive-entry-banner, body.archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
+                ' .responsive-archive-entry-banner, .archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
                 '}' +
                 '</style>'
             );
@@ -5281,20 +5399,20 @@
             jQuery('head').append(
                 '<style id="responsive_blog_banner_background_color-mobile">' +
                 '@media screen and (max-width: 576px) {' +
-                'body .responsive-archive-entry-banner, body.archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
+                ' .responsive-archive-entry-banner, .archive:not(.woocommerce) .site-content-header { background-color: ' + newval + '; }' +
                 '}' +
                 '</style>'
             );
         });
     });
 
-    // Page Title Area Text
+    // Page Title Area Title
     api( 'responsive_page_title_area_text_color', function(value) {
         value.bind(function(newval) {
             if( newval && newval.includes('palette') ) {
                     newval = 'var(--responsive-global-' + newval + ')';
             }
-            $('body .responsive-single-entry-banner .container *:not(.entry-title, .entry-title *):not(a, a *), .page #page .entry-header *:not(.entry-title, .entry-title *):not(a, a *)').css('color', newval);
+            $('.responsive-single-entry-banner .container *, .page .entry-header *').css('color', newval);
         })
     });
 
@@ -5347,7 +5465,7 @@
             jQuery('head').append(
                 '<style id="responsive_page_title_banner_background_color">' +
                 '@media screen and (min-width: 993px) {' +
-                'body .responsive-single-entry-banner { background-color: ' + newval + '; }' +
+                ' .responsive-single-entry-banner { background-color: ' + newval + '; }' +
                 '}' +
                 '</style>'
             );
@@ -5361,7 +5479,7 @@
             jQuery('head').append(
                 '<style id="responsive-page-title-banner-background-color-tablet">' +
                 '@media screen and (min-width: 577px) and (max-width: 992px) {' +
-                'body .responsive-single-entry-banner { background-color: ' + newval + '; }' +
+                ' .responsive-single-entry-banner { background-color: ' + newval + '; }' +
                 '}' +
                 '</style>'
             );
@@ -5375,7 +5493,7 @@
             jQuery('head').append(
                 '<style id="responsive-page-title-banner-background-color-mobile">' +
                 '@media screen and (max-width: 576px) {' +
-                'body .responsive-single-entry-banner { background-color: ' + newval + '; }' +
+                ' .responsive-single-entry-banner { background-color: ' + newval + '; }' +
                 '}' +
                 '</style>'
             );
@@ -5386,7 +5504,7 @@
         value.bind(function() {
             var color = processThemeSettingForCSS('responsive_single_blog_featured_image_overlay_color');
             if ( !color ) color = 'transparent';
-            $('body .responsive-blog-single-banner2, body .responsive-single-post-featured-section.post-thumb, body .entry-header').css('--overlay-color', color);
+            $('.responsive-blog-single-banner2, .responsive-single-post-featured-section.post-thumb, .entry-header').css('--overlay-color', color);
         });
     });
 
@@ -5394,7 +5512,7 @@
         value.bind(function() {
             var color = processThemeSettingForCSS('responsive_page_featured_image_overlay_color');
             if ( !color ) color = 'transparent';
-            $('body .responsive-single-entry-banner, body .responsive-single-post-featured-section.post-thumb, body .entry-header').css('--overlay-color', color);
+            $('.responsive-single-entry-banner, .responsive-single-post-featured-section.post-thumb, .entry-header').css('--overlay-color', color);
         });
     });
 

@@ -632,6 +632,7 @@ function responsive_add_custom_body_classes( $classes ) {
 	}
 
 	$classes[] = 'responsive-site-' . get_theme_mod( 'responsive_width', 'contained' );
+	$classes[] = 'link-style-' . get_theme_mod( 'responsive_link_style', 'standard' );
 
 	if ( is_page() ) {
 		$site_style = get_post_meta( get_the_ID(), 'responsive_page_meta_layout_style', true );
@@ -790,7 +791,7 @@ function responsive_add_custom_body_classes( $classes ) {
 			$classes[] = 'content-alignment-' . get_theme_mod( 'responsive_blog_entry_content_alignment', 'left' );
 			// Entry Blog Columns.
 			$masonry   = ( 1 === get_theme_mod( 'responsive_blog_entry_display_masonry', 0 ) ) ? '-masonry' : '';
-			if ( get_theme_mod( 'responsive_blog_layout', 'grid' ) === 'grid' ) {
+			if ( get_theme_mod( 'responsive_blog_layout', 'grid' ) === 'grid' ||  get_theme_mod( 'responsive_blog_layout', 'grid' ) === 'cover') {
 				$classes[] = 'blog-entry-columns-' . get_theme_mod( 'responsive_blog_entry_columns', get_responsive_customizer_defaults( 'entry_columns' ) ) . $masonry;
 			}
 			$get_sidebar_position = function( $context, $default = 'no' ) {
@@ -1220,6 +1221,14 @@ if (
  */
 function get_responsive_customizer_defaults( $option ) {
 
+	if ( 'responsive_link_style' === $option ) {
+		$saved_underline = get_theme_mod( 'responsive_underline_content_links', false );
+		if ( $saved_underline === '1' || $saved_underline === true || $saved_underline === 'true' ) {
+			return 'standard';
+		}
+		return 'no-underline';
+	}
+
 	$theme_options = defaults();
 	$default_value = '';
 	if ( isset( $theme_options[ $option ] ) ) {
@@ -1261,14 +1270,18 @@ function defaults() {
 			'breadcrumb_alignment'                => 'center',
 			'read_more_text'                      => 'Read more →',
 			'blog_entry_elements_positioning'     => array( 'featured_image', 'categories', 'title', 'meta', 'content' ),
-			'blog_single_elements_positioning'    => array( 'categories', 'title', 'meta', 'featured_image', 'content' ),
+			'blog_single_elements_positioning'    => array( 'categories', 'title', 'meta', 'featured_image' ),
 
 			// alignment.
 			'blog_entry_title_alignment'          => 'left',
 			'blog_entry_meta_alignment'           => 'left',
-			// Padding.
+			// Padding & Spacing.
 			'box_padding'                         => 30,
 			'logo_padding'                        => 28,
+			'content_edge_spacing'                => 12,
+			'content_edge_spacing_unit'           => 'px',
+			'content_top_bottom_spacing'          => 28,
+			'content_top_bottom_spacing_unit'     => 'px',
 			// Colors.
 			'responsive_site_background_color'    => 'palette5',
 			'background_gradient_color'           => 'linear-gradient(135deg, #12c2e9 0%, #c471ed 50%, #f64f59 100%)',
@@ -1381,15 +1394,41 @@ function defaults() {
 			'inputs_background'                   => '#ffffff',
 			'inputs_text'                         => '#404040',
 			'inputs_border'                       => 'palette8',
+			'responsive_title_above_content_bg_color'      => '',
+			'responsive_title_above_content_overlay_color' => '',
+			'responsive_blog_banner_background_color'       => 'title-above-content-bg-color',
+			'responsive_single_blog_banner_background_color' => 'title-above-content-bg-color',
+			'responsive_page_title_banner_background_color' => 'title-above-content-bg-color',
+			'responsive_single_blog_featured_image_overlay_color' => 'title-above-content-overlay-color',
+			'responsive_page_featured_image_overlay_color'  => 'title-above-content-overlay-color',
+			'responsive_link_style'               => 'no-underline',
+			'responsive_link_hover_bg_color'      => 'palette0',
 			'label'                               => '#404040',
 
 			'responsive_style'                    => 'boxed',
 			'responsive_sidebar_style'            => 'boxed',
+			'responsive_sidebar_link_style'       => 'none',
+			'responsive_sidebar_link_hover_bg_color' => 'palette0',
 			'responsive_page_sidebar_style'       => 'default',
 			'responsive_blog_sidebar_style'       => 'default',
 			'responsive_single_blog_sidebar_style'=> 'default',
 			'responsive_shop_sidebar_style'       => 'default',
 			'responsive_single_product_sidebar_style' => 'default',
+			'responsive_widget_bottom_spacing'    => 30,
+			'responsive_widget_bottom_spacing_unit' => 'px',
+			'responsive_widget_bottom_spacing_tablet' => '',
+			'responsive_widget_bottom_spacing_tablet_unit' => 'px',
+			'responsive_widget_bottom_spacing_mobile' => '',
+			'responsive_widget_bottom_spacing_mobile_unit' => 'px',
+			'responsive_sidebar_border_divider_style'    => 'none',
+			'responsive_sidebar_border_divider_width'    => 0,
+			'responsive_sidebar_border_divider_width_unit' => 'px',
+			'responsive_sidebar_border_divider_width_tablet' => '',
+			'responsive_sidebar_border_divider_width_tablet_unit' => 'px',
+			'responsive_sidebar_border_divider_width_mobile' => '',
+			'responsive_sidebar_border_divider_width_mobile_unit' => 'px',
+			'responsive_sidebar_border_divider_color'    => '#cccccc',
+			'responsive_sidebar_sticky'                  => 0,
 			// 'responsive_header_layout'            => 'horizontal',
 			// 'responsive_header_alignment'         => 'center',
 			'header_menu_full_width'              => 1,
@@ -1430,6 +1469,8 @@ function defaults() {
 			'responsive_sidebar_link_hover_color' => 'palette1',
 			'responsive_shop_product_rating_color' => 'palette0',
 			'responsive_cart_checkout_button_color' => 'palette0',
+			'responsive_blog_item_meta_color'		=> 'palette3',
+			'responsive_blog_category_color'		=> 'palette3',
 			'responsive_link_hover_color'         => 'palette1',
 			'responsive_header_search_color'      => '#333333',
 			'responsive_header_search_hover_color'=> '#333333',
@@ -1537,6 +1578,18 @@ function defaults() {
 			'responsive_header_button_shadow_blur'                    => 0,
 			'responsive_header_button_shadow_spread'                  => 0,
 			'responsive_header_button_shadow_inset'                   => false,
+			'responsive_button_shadow_color'                          => '#FFFFFF',
+			'responsive_button_shadow_x'                              => 0,
+			'responsive_button_shadow_y'                              => 0,
+			'responsive_button_shadow_blur'                           => 0,
+			'responsive_button_shadow_spread'                         => 0,
+			'responsive_button_shadow_inset'                          => false,
+			'responsive_button_hover_shadow_color'                    => '#FFFFFF',
+			'responsive_button_hover_shadow_x'                        => 0,
+			'responsive_button_hover_shadow_y'                        => 0,
+			'responsive_button_hover_shadow_blur'                     => 0,
+			'responsive_button_hover_shadow_spread'                   => 0,
+			'responsive_button_hover_shadow_inset'                    => false,
 			'responsive_header_button_padding_x'                      => 0,
 			'responsive_header_button_radius_y'                       => 0,
 			'responsive_header_button_radius_x'                       => 0,
@@ -1850,6 +1903,22 @@ function defaults() {
 		'responsive_comments_padding'           => 30,
 		'responsive_comments_margin_y'          => 28,
 		'responsive_comments_margin_x'          => 0,
+		'responsive_single_post_boxed_shadow_x' => 0,
+		'responsive_single_post_boxed_shadow_y' => 0,
+		'responsive_single_post_boxed_shadow_blur' => 0,
+		'responsive_single_post_boxed_shadow_spread' => 0,
+		'responsive_single_post_boxed_shadow_inset' => false,
+		'responsive_single_post_boxed_shadow_color' => '#FFFFFF',
+		'responsive_archive_grid_boxed_shadow_x' => 0,
+		'responsive_archive_grid_boxed_shadow_y' => 0,
+		'responsive_archive_grid_boxed_shadow_blur' => 0,
+		'responsive_archive_grid_boxed_shadow_spread' => 0,
+		'responsive_archive_grid_boxed_shadow_inset' => false,
+		'responsive_archive_grid_boxed_shadow_color' => '#FFFFFF',
+		'responsive_single_post_boxed_radius' => '',
+		'responsive_single_post_boxed_radius_unit' => 'px',
+		'responsive_archive_grid_boxed_radius' => '',
+		'responsive_archive_grid_boxed_radius_unit' => 'px',
 		),
 	);
 	return $theme_options;
@@ -2941,6 +3010,14 @@ if( ! function_exists( 'responsive_prepare_css_value' ) ) {
 
 		if ( is_string( $value ) && ( preg_match( '/^palette\d+$/', $value ) || false !== strpos( $value, 'headings-color' ) ) ) {
 			return 'var(--responsive-global-' . $value . ')';
+		}
+
+		if ( 'title-above-content-bg-color' === $value ) {
+			return 'var(--responsive-title-above-content-bg-color)';
+		}
+
+		if ( 'title-above-content-overlay-color' === $value ) {
+			return 'var(--responsive-title-above-content-overlay-color)';
 		}
 
 		return $value;

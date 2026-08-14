@@ -106,6 +106,7 @@ class ColorPickerControlWithDevices extends Component {
 	            htmlLink = splited_values[1].replace(/"/g, "");
 	        }
 	    }
+
 		return (
 			<>
 				
