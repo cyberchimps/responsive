@@ -3072,6 +3072,48 @@ if( !function_exists( 'responsive_theme_background_updater_blog_container_margin
 }
 }
 
+if ( ! function_exists( 'responsive_color_palette_updater_6_4_3' ) ) {
+	/**
+	 * Backward compatibility for color palette options introduced in 6.4.3
+	 *
+	 * @return void
+	 */
+	function responsive_color_palette_updater_6_4_3() {
+		$responsive_options = get_option( 'responsive_theme_options' );
+		if ( ! isset( $responsive_options['color_palette_6_4_3_backward_done'] ) || ! $responsive_options['color_palette_6_4_3_backward_done'] ) {
+			
+			$color_map = array(
+				'responsive_global_color_palette_accent_color'          => 'responsive_global_color_palette_1',
+				'responsive_global_color_palette_link_hover_color'      => 'responsive_global_color_palette_2',
+				'responsive_global_color_palette_text_color'            => 'responsive_global_color_palette_3',
+				'responsive_global_color_palette_accent_color'        => 'responsive_global_color_palette_4',
+				'responsive_global_color_palette_content_bg_color'      => 'responsive_global_color_palette_5',
+				'responsive_global_color_palette_site_background_color' => 'responsive_global_color_palette_6',
+				'responsive_global_color_palette_alt_background_color'  => 'responsive_global_color_palette_7',
+				'responsive_global_color_palette_subtle_background_color'  => 'responsive_global_color_palette_8'
+			);
+
+			$old_link_hover_color = get_theme_mod( 'responsive_links_color', false );
+			$old_subtle_background_color = get_theme_mod( 'responsive_subtle_background_color', false );
+
+			// if( $old_subtle_baclground_color != 'false' && $old_subtle_background_color!=$old_link_hover_color )
+			// {
+			// 	// manually setting the theme mods for button hover bg which were earlier affected by subtle background color
+			// }
+
+			foreach( $color_map as $old_mod => $new_mod ) {
+				$old_value = get_theme_mod( $old_mod, false );
+				if ( false !== $old_value ) {
+					set_theme_mod( $new_mod, $old_value );
+				}
+			}
+
+			$responsive_options['color_palette_6_4_3_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+
 add_filter( 'body_class', function( $classes ) {
 	$responsive_options = get_option( 'responsive_theme_options' );
 	if ( isset( $responsive_options['blog_container_margin_6_4_1_backward_legacy'] ) && $responsive_options['blog_container_margin_6_4_1_backward_legacy'] ) {
