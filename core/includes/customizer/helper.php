@@ -2298,8 +2298,8 @@ function responsive_get_available_design_styles() {
 						'palette_5'		=> '#ffffff',
 						'palette_6'		=> '#f0f5fa',
 						'palette_7'		=> '#ffffff',
-						'palette_8'		=> '#10659C',
-						'palette_9'		=> '#10659C',
+						'palette_8'		=> '#D4D4D4',
+						'palette_9'		=> '#AAAAAA',
 
 					),
 					'one'     => array(

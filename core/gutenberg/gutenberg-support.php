@@ -26,7 +26,7 @@ function responsive_gutenberg_color_palette() {
 	$button_color            = esc_html( responsive_prepare_css_value( 'responsive_button_color', 'palette0' ) );
 	$button_hover_color      = esc_html( responsive_prepare_css_value( 'responsive_button_hover_color', 'palette1' ) );
 	$button_text_color       = esc_html( responsive_prepare_css_value( 'responsive_button_text_color', 'palette4' ) );
-	$button_hover_text_color = esc_html( responsive_prepare_css_value( 'responsive_button_hover_text_color', 'palette4' ) );
+	$button_hover_text_color = esc_html( responsive_prepare_css_value( 'responsive_button_hover_text_color', '#ffffff' ) );
 
 	$responsive_gutenberg_color_options = array(
 
@@ -104,6 +104,8 @@ function responsive_gutenberg_colors( $responsive_gutenberg_color_options ) {
 	$css .= ':root .has-responsive-global-palette-6-background-color { background-color: var(--responsive-global-palette6); }';
 	$css .= ':root .has-responsive-global-palette-7-color { color: var(--responsive-global-palette7); }';
 	$css .= ':root .has-responsive-global-palette-7-background-color { background-color: var(--responsive-global-palette7); }';
+	$css .= ':root .has-responsive-global-palette-8-color { color: var(--responsive-global-palette8); }';
+	$css .= ':root .has-responsive-global-palette-8-background-color { background-color: var(--responsive-global-palette8); }';
 	return wp_strip_all_tags( $css );
 }
 

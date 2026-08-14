@@ -215,7 +215,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 
 			// Quantity input border color.
 			$floatingb_qty_input_border_label = esc_html__( 'Quantity Input Border: Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'floatingb_qty_input_border', $floatingb_qty_input_border_label, 'responsive_woocommerce_single_product_layout', 70, '#333333' );
+			responsive_color_control( $wp_customize, 'floatingb_qty_input_border', $floatingb_qty_input_border_label, 'responsive_woocommerce_single_product_layout', 70, Responsive\Core\get_responsive_customizer_defaults( 'floatingb_qty_input_border_color') );
 
 			// Add to cart background color.
 			$floatingb_addtocart_background_label = esc_html__( 'Add To Cart: Background', 'responsive' );

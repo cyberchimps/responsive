@@ -56,6 +56,10 @@ class ColorPickerControlWithDevices extends Component {
 			isVisible,
 		} = this.state
 
+		let displayColor = this.props.color;
+		if ( displayColor && typeof displayColor === 'string' && displayColor.startsWith('palette') ) {
+			displayColor = `var(--responsive-global-${displayColor})`;
+		}
 
 		const toggleVisible = () => {
 			if ( refresh === true ) {
@@ -109,14 +113,14 @@ class ColorPickerControlWithDevices extends Component {
 					{this.props.swatchTitle ? (
 						<div className="tooltip-container">
 							<Button className={ isVisible ? 'button wp-color-result wp-picker-open' : 'button wp-color-result ' } onClick={ () => { isVisible ? toggleClose() : toggleVisible() } }
-								aria-expanded='false' style={{backgroundColor:this.props.color}}
+								aria-expanded='false' style={{backgroundColor: displayColor}}
 							>
 							</Button>
 							<span className="tooltip-text">{this.props.swatchTitle}</span>
 						</div>
 					) : (
 						<Button className={ isVisible ? 'button wp-color-result wp-picker-open' : 'button wp-color-result ' } onClick={ () => { isVisible ? toggleClose() : toggleVisible() } }
-							aria-expanded='false' style={{backgroundColor:this.props.color}}
+							aria-expanded='false' style={{backgroundColor: displayColor}}
 						>
 						</Button>
 					)}
@@ -126,7 +130,7 @@ class ColorPickerControlWithDevices extends Component {
 									{ refresh && (
 										<>
 											<ColorPicker
-												color={ this.props.color }
+												color={ displayColor }
 												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 											/>
 										</>
@@ -134,7 +138,7 @@ class ColorPickerControlWithDevices extends Component {
 									{ ! refresh &&  (
 										<>
 											<ColorPicker
-												color={ this.props.color }
+												color={ displayColor }
 												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 											/>
 

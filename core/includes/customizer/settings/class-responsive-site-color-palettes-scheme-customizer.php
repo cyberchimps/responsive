@@ -59,8 +59,8 @@ if ( ! class_exists( 'Responsive_Site_Color_Palettes_Scheme_Customizer' ) ) :
 				'responsive_global_color_palette_5'        => '#ffffff',
 				'responsive_global_color_palette_6' 	   => '#f8fafc',
 				'responsive_global_color_palette_7'  	   => '#ffffff',
-				'responsive_global_color_palette_8'  	   => '#10659C',
-				'responsive_global_color_palette_9'  	   => '#10659C',
+				'responsive_global_color_palette_8'  	   => '#D4D4D4',
+				'responsive_global_color_palette_9'  	   => '#AAAAAA',
 			);
 
 			foreach ( $default_colors as $setting_id => $default ) {

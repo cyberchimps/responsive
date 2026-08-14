@@ -234,7 +234,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 				// Button Text.
 				$cart_button_text_label = __( 'Text Color', 'responsive' );
-				responsive_color_control( $wp_customize, 'mobile_header_cart_button_text', $cart_button_text_label, 'responsive_mobile_header_woo_cart', 190, '#ffffff', null, '', true, '#ffffff', 'mobile_header_cart_button_text_hover' );
+				responsive_color_control( $wp_customize, 'mobile_header_cart_button_text', $cart_button_text_label, 'responsive_mobile_header_woo_cart', 190, 'palette4', null, '', true, '#ffffff', 'mobile_header_cart_button_text_hover' );
 
 				// Checkout Button colors.
 				$cart_checkout_button_separator = esc_html__( 'Checkout Button', 'responsive' );

@@ -267,7 +267,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 
 			// Border Color.
 			$sub_menu_border_color_label = __( 'Container Border Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'sub_menu_border', $sub_menu_border_color_label, 'responsive_header_menu_layout', 195, '' );
+			responsive_color_control( $wp_customize, 'sub_menu_border', $sub_menu_border_color_label, 'responsive_header_menu_layout', 195, 'palette7' );
 
 			// Border Color.
 			$sub_menu_divider_color_label = __( 'Divider Color', 'responsive' );
