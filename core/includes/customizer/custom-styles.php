@@ -10572,6 +10572,78 @@ function responsive_customizer_styles() {
 		}
 	}";
 
+	// Related Posts Border Styling
+	$rp_border_color = esc_html( responsive_prepare_css_value( 'responsive_rp_border_color', Responsive\Core\get_responsive_customizer_defaults( 'rp_border' ) ) );
+
+	// Related Posts Buttons Border Width.
+	$rp_border_width_top    = esc_html( get_theme_mod( 'responsive_rp_border_width_top_border', 0 ) );
+	$rp_border_width_right  = esc_html( get_theme_mod( 'responsive_rp_border_width_right_border', 0 ) );
+	$rp_border_width_bottom = esc_html( get_theme_mod( 'responsive_rp_border_width_bottom_border', 0 ) );
+	$rp_border_width_left   = esc_html( get_theme_mod( 'responsive_rp_border_width_left_border', 0 ) );
+	$rp_border_width_desktop_unit = esc_html( get_theme_mod( 'responsive_rp_border_width_desktop_unit', 'px' ) );
+
+	$rp_border_width_tablet_top    = esc_html( get_theme_mod( 'responsive_rp_border_width_tablet_top_border', $rp_border_width_top ) );
+	$rp_border_width_tablet_right  = esc_html( get_theme_mod( 'responsive_rp_border_width_tablet_right_border', $rp_border_width_right ) );
+	$rp_border_width_tablet_bottom = esc_html( get_theme_mod( 'responsive_rp_border_width_tablet_bottom_border', $rp_border_width_bottom ) );
+	$rp_border_width_tablet_left   = esc_html( get_theme_mod( 'responsive_rp_border_width_tablet_left_border', $rp_border_width_left ) );
+	$rp_border_width_tablet_unit   = esc_html( get_theme_mod( 'responsive_rp_border_width_tablet_unit', 'px' ) );
+
+	$rp_border_width_mobile_top    = esc_html( get_theme_mod( 'responsive_rp_border_width_mobile_top_border', $rp_border_width_top ) );
+	$rp_border_width_mobile_right  = esc_html( get_theme_mod( 'responsive_rp_border_width_mobile_right_border', $rp_border_width_right ) );
+	$rp_border_width_mobile_bottom = esc_html( get_theme_mod( 'responsive_rp_border_width_mobile_bottom_border', $rp_border_width_bottom ) );
+	$rp_border_width_mobile_left   = esc_html( get_theme_mod( 'responsive_rp_border_width_mobile_left_border', $rp_border_width_left ) );
+	$rp_border_width_mobile_unit   = esc_html( get_theme_mod( 'responsive_rp_border_width_mobile_unit', 'px' ) );
+
+	// Related Posts Buttons Radius.
+	$rp_radius_top_left     = esc_html( get_theme_mod( 'responsive_rp_radius_top_left_radius', 0 ) );
+	$rp_radius_top_right    = esc_html( get_theme_mod( 'responsive_rp_radius_top_right_radius', 0 ) );
+	$rp_radius_bottom_right = esc_html( get_theme_mod( 'responsive_rp_radius_bottom_right_radius', 0 ) );
+	$rp_radius_bottom_left  = esc_html( get_theme_mod( 'responsive_rp_radius_bottom_left_radius', 0 ) );
+	$rp_radius_desktop_unit = esc_html( get_theme_mod( 'responsive_rp_radius_desktop_unit', 'px' ) );
+
+	$rp_radius_tablet_top_left     = esc_html( get_theme_mod( 'responsive_rp_radius_tablet_top_left_radius', $rp_radius_top_left ) );
+	$rp_radius_tablet_top_right    = esc_html( get_theme_mod( 'responsive_rp_radius_tablet_top_right_radius', $rp_radius_top_right ) );
+	$rp_radius_tablet_bottom_right = esc_html( get_theme_mod( 'responsive_rp_radius_tablet_bottom_right_radius', $rp_radius_bottom_right ) );
+	$rp_radius_tablet_bottom_left  = esc_html( get_theme_mod( 'responsive_rp_radius_tablet_bottom_left_radius', $rp_radius_bottom_left ) );
+	$rp_radius_tablet_unit         = esc_html( get_theme_mod( 'responsive_rp_radius_tablet_unit', 'px' ) );
+
+	$rp_radius_mobile_top_left     = esc_html( get_theme_mod( 'responsive_rp_radius_mobile_top_left_radius', $rp_radius_top_left ) );
+	$rp_radius_mobile_top_right    = esc_html( get_theme_mod( 'responsive_rp_radius_mobile_top_right_radius', $rp_radius_top_right ) );
+	$rp_radius_mobile_bottom_right = esc_html( get_theme_mod( 'responsive_rp_radius_mobile_bottom_right_radius', $rp_radius_bottom_right ) );
+	$rp_radius_mobile_bottom_left  = esc_html( get_theme_mod( 'responsive_rp_radius_mobile_bottom_left_radius', $rp_radius_bottom_left ) );
+	$rp_radius_mobile_unit         = esc_html( get_theme_mod( 'responsive_rp_radius_mobile_unit', 'px' ) );
+
+	$custom_css .= "
+	.responsive-single-related-posts-container {
+		border-style: solid;
+		border-color: {$rp_border_color};
+		border-top-width: {$rp_border_width_top}{$rp_border_width_desktop_unit};
+		border-right-width: {$rp_border_width_right}{$rp_border_width_desktop_unit};
+		border-bottom-width: {$rp_border_width_bottom}{$rp_border_width_desktop_unit};
+		border-left-width: {$rp_border_width_left}{$rp_border_width_desktop_unit};
+		border-radius: " . responsive_spacing_css( $rp_radius_top_left, $rp_radius_top_right, $rp_radius_bottom_right, $rp_radius_bottom_left, $rp_radius_desktop_unit ) . ";
+	}
+	@media screen and ( max-width: 992px ) {
+		.responsive-single-related-posts-container {
+			border-top-width: {$rp_border_width_tablet_top}{$rp_border_width_tablet_unit};
+			border-right-width: {$rp_border_width_tablet_right}{$rp_border_width_tablet_unit};
+			border-bottom-width: {$rp_border_width_tablet_bottom}{$rp_border_width_tablet_unit};
+			border-left-width: {$rp_border_width_tablet_left}{$rp_border_width_tablet_unit};
+			border-radius: " . responsive_spacing_css( $rp_radius_tablet_top_left, $rp_radius_tablet_top_right, $rp_radius_tablet_bottom_right, $rp_radius_tablet_bottom_left, $rp_radius_tablet_unit ) . ";
+		}
+	}
+	@media screen and ( max-width: 576px ) {
+		.responsive-single-related-posts-container {
+			border-top-width: {$rp_border_width_mobile_top}{$rp_border_width_mobile_unit};
+			border-right-width: {$rp_border_width_mobile_right}{$rp_border_width_mobile_unit};
+			border-bottom-width: {$rp_border_width_mobile_bottom}{$rp_border_width_mobile_unit};
+			border-left-width: {$rp_border_width_mobile_left}{$rp_border_width_mobile_unit};
+			border-radius: " . responsive_spacing_css( $rp_radius_mobile_top_left, $rp_radius_mobile_top_right, $rp_radius_mobile_bottom_right, $rp_radius_mobile_bottom_left, $rp_radius_mobile_unit ) . ";
+		}
+	}
+	";
+
+
 	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', responsive_minimize_css( $custom_css ) ) );
 	wp_add_inline_style('responsive-style', responsive_minimize_css( $font_preset_css));
 

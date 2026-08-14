@@ -176,6 +176,10 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'customize-control-responsive_rp_spacing_separator',
    				'customize-control-responsive_rp_padding_padding',
 			   	'customize-control-responsive_rp_margin_padding',
+				'customize-control-responsive_rp_border_separator',
+				'customize-control-responsive_rp_border_color',
+				'customize-control-responsive_rp_border_width_border',
+				'customize-control-responsive_rp_radius',
 			];
 
 			$tabs_label = esc_html__( 'Tabs', 'responsive' );
@@ -252,6 +256,19 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 			responsive_unit_padding_control( $wp_customize, 'rp_padding', 'responsive_rp_layout', 26, 30, 30, null, __( 'Padding', 'responsive' ), 'postMessage', 30, 30, 30, 30, 'px' );
 			responsive_unit_padding_control( $wp_customize, 'rp_margin', 'responsive_rp_layout', 27, 0, 0, null, __( 'Margin', 'responsive' ), 'postMessage', 0, 0, 0, 0, 'px' );
 
+			// Related Posts Button Border Color.
+			responsive_separator_control( $wp_customize, 'rp_border_separator', __( 'Border Controls', 'responsive' ), 'responsive_rp_layout', 28 );
+
+			$rp_border_color_label = __( 'Border Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'rp_border', $rp_border_color_label, 'responsive_rp_layout', 29, '#334155' );
+
+			// Related Posts Buttons Border Width.
+			$rp_border_width_label = __( 'Border Width', 'responsive' );
+			responsive_borderwidth_control( $wp_customize, 'rp_border_width', 'responsive_rp_layout', 30, 0, 0, null, $rp_border_width_label, 'postMessage' );
+
+			// Related Posts Buttons Radius.
+			$rp_radius_label = __( 'Border Radius', 'responsive' );
+			responsive_radius_control( $wp_customize, 'rp_radius', 'responsive_rp_layout', 31, 0, 0, null, $rp_radius_label );
 
 			// Single Blog Post Title
 			responsive_section_toggle_control( $wp_customize, 'single_blog_post_title', __( 'Post Title Area', 'responsive' ), 'responsive_single_blog_layout', 1, 'section', 'responsive_single_blog_post_title_layout', true, null, 'refresh', 'Enable the toggle to customize single blog post title settings.');
