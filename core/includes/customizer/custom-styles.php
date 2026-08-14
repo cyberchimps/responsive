@@ -1248,7 +1248,7 @@ function responsive_customizer_styles() {
 				input[type=submit],
 				button,
 				.button,
-				.wp-block-button__link,
+				.wp-block-button:not(.is-style-outline) > .wp-block-button__link,
 				body div.wpforms-container-full .wpforms-form input[type=submit],
 				body div.wpforms-container-full .wpforms-form button[type=submit],
 				body div.wpforms-container-full .wpforms-form .wpforms-page-button,
