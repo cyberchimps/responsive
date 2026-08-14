@@ -58,37 +58,30 @@ const ButtonPresetComponent = ( props ) => {
 					if ( secColorControl ) {
 						const currentColor = secColorControl.get();
 						if ( ! currentColor || currentColor === 'transparent' ) {
-							const primaryColor = api( 'responsive_button_color' )?.get() || '#0066cc';
-							secColorControl.set( primaryColor );
+							secColorControl.set( 'palette0' );
 						}
 					}
 					if ( secTextColorControl ) {
-						const primaryTextColor = api( 'responsive_button_text_color' )?.get() || '#ffffff';
-						secTextColorControl.set( primaryTextColor );
+						secTextColorControl.set( 'palette6' );
 					}
 					if ( secHoverColorControl ) {
-						const primaryHoverColor = api( 'responsive_button_hover_color' )?.get() || 'palette1';
-						secHoverColorControl.set( primaryHoverColor );
+						secHoverColorControl.set( 'palette7' );
 					}
 					if ( secHoverTextColorControl ) {
-						const primaryHoverTextColor = api( 'responsive_button_hover_text_color' )?.get() || 'palette0';
-						secHoverTextColorControl.set( primaryHoverTextColor );
+						secHoverTextColorControl.set( 'palette6' );
 					}
 				} else {
 					if ( secColorControl ) {
 						secColorControl.set( 'transparent' );
 					}
 					if ( secTextColorControl ) {
-						const defaultSecTextColor = api( 'responsive_button_color' )?.get() || 'palette0';
-						secTextColorControl.set( defaultSecTextColor );
+						secTextColorControl.set( 'palette0' );
 					}
 					if ( secHoverColorControl ) {
-						const defaultSecHoverColor = api( 'responsive_button_color' )?.get() || 'palette0';
-						secHoverColorControl.set( defaultSecHoverColor );
+						secHoverColorControl.set( 'palette0' );
 					}
 					if ( secHoverTextColorControl ) {
-						const defaultSecHoverTextColor = api( 'responsive_button_hover_text_color' )?.get() || 'palette1';
-						secHoverTextColorControl.set( defaultSecHoverTextColor );
+						secHoverTextColorControl.set( 'palette1' );
 					}
 				}
 			}
