@@ -13,6 +13,10 @@ textarea {
     -ms-word-wrap: break-word;
 }
 
+h1.entry-title.post-title, .page .post-entry .post-meta, .single .post-entry .post-meta, .archive .site-content-header .breadcrumbs { 
+    margin-top: 0px;
+}
+
 /**
  * Block elements styles
  * -----------------------------------------------------------------------------

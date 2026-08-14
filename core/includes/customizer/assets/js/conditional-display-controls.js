@@ -60,8 +60,6 @@
 				function( newval ) {
 					switch (newval) {
 						case 'full-width':
-							api.control( 'responsive_container_width' ).toggle( false );
-							api.control( 'responsive_narrow_container_width' ).toggle( false );
 							// api.control( 'responsive_footer_full_width' ).toggle( false );
 							api.control( 'responsive_header_full_width' ).toggle( false );
 							api.control( 'responsive_inline_logo_site_title' ).toggle( false );
@@ -70,15 +68,11 @@
 						 * The select was switched to »show«.
 						 */
 						case 'contained':
-							api.control( 'responsive_container_width' ).toggle( true );
-							api.control( 'responsive_narrow_container_width' ).toggle( false );
 							// api.control( 'responsive_footer_full_width' ).toggle( true );
 							api.control( 'responsive_header_full_width' ).toggle( true );
 							api.control( 'responsive_inline_logo_site_title' ).toggle( true );
 							break;
 						case 'narrow':
-							api.control( 'responsive_container_width' ).toggle( false );
-							api.control( 'responsive_narrow_container_width' ).toggle( true );
 							api.control( 'responsive_header_full_width' ).toggle( true );
 							api.control( 'responsive_inline_logo_site_title' ).toggle( true );
 							break;
@@ -344,6 +338,42 @@
 							api.control( 'responsive_blog_read_more_text' ).toggle( true );
 							api.control( 'responsive_blog_entry_read_more_type' ).toggle( true );
 							break;
+					}
+				}
+			);
+		}
+	);
+	api(
+		'responsive_disable_author_meta',
+		function( $swipe ) {
+			$swipe.bind(
+				function( newval ) {
+					switch (newval) {
+						case true:
+						case 1:
+							api.control( 'responsive_post_author_box_style' ).toggle( false );
+							break;
+						case false:
+						case 0:
+							api.control( 'responsive_post_author_box_style' ).toggle( true );
+							break;
+					}
+				}
+			);
+		}
+	);
+
+	api(
+		'responsive_sidebar_link_style',
+		function( $swipe ) {
+			$swipe.bind(
+				function( newval ) {
+					var showHoverBg = ( 'hover-background' === newval );
+					if ( api.control( 'responsive_sidebar_link_hover_bg_color' ) ) {
+						api.control( 'responsive_sidebar_link_hover_bg_color' ).toggle( showHoverBg );
+					}
+					if ( api.control( 'responsive_sidebar_link_hover_bg_separator' ) ) {
+						api.control( 'responsive_sidebar_link_hover_bg_separator' ).toggle( showHoverBg );
 					}
 				}
 			);

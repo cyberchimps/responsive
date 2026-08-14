@@ -1,6 +1,6 @@
 <?php
 /**
- * Post single meta
+ * Page single meta
  *
  * @package Responsive WordPress theme
  */
@@ -10,30 +10,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Get meta sections.
-$sections = responsive_blog_single_meta();
+$sections = get_theme_mod( 'responsive_page_single_meta', array( 'author', 'date', 'comments' ) );
+if ( $sections && ! is_array( $sections ) ) {
+	$sections = explode( ',', $sections );
+}
 
-// Return if sections are empty.
-if ( empty( $sections )
-	|| 'post' !== get_post_type() ) {
+if ( empty( $sections ) ) {
 	return;
 }
 
-// Return if quote format.
-if ( 'quote' == get_post_format() ) {
-	return;
-}
-
-do_action( 'responsive_before_single_post_meta' );
+do_action( 'responsive_before_single_page_meta' );
 
 ?>
 
-<div class="post-meta">
+<div class="post-meta entry-meta">
 	<?php
+	$separator_text = get_theme_mod( 'responsive_page_single_meta_separator_text', '•' );
+	if ( 'none' === strtolower( $separator_text ) ) {
+		$separator_text = '';
+	}
+	$separator_html = '<span class="meta-separator">' . esc_html( $separator_text ) . '</span>';
+	$meta_items = array();
+
 	// Loop through meta sections.
 	foreach ( $sections as $section ) {
 
 		if ( 'author' === $section ) {
+			ob_start();
 			?>
 			<span class="entry-author" <?php responsive_schema_markup( 'entry-author' ); ?>>
 				<?php
@@ -44,21 +47,21 @@ do_action( 'responsive_before_single_post_meta' );
 							</a>
 						</span>',
 						esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-						/* translators: %s view posts by */
 						esc_attr( sprintf( __( 'View all posts by %s', 'responsive' ), get_the_author() ) ),
 						esc_attr( wp_kses_post( get_the_author() ) )
 					);
 				?>
 			</span>
 			<?php
+			$meta_items[] = ob_get_clean();
 		}
 
 		if ( 'date' === $section ) {
+			ob_start();
 			?>
 				<span class="entry-date">
 					<?php
 					printf(
-						/* translators: 1: class, 2: date */
 						'<span class="%1$s" itemprop="datePublished">%2$s</span>',
 						'meta-prep meta-prep-author posted',
 						sprintf(
@@ -72,14 +75,15 @@ do_action( 'responsive_before_single_post_meta' );
 					?>
 				</span>
 			<?php
+			$meta_items[] = ob_get_clean();
 		}
 
 		if ( 'updated' === $section ) {
+			ob_start();
 			?>
 				<span class="entry-updated">
 					<?php
 						printf(
-							/* translators: 1: class, 2: date */
 							'<i class="icon-calendar" aria-hidden="true"></i><span>' . esc_html_e( 'Last updated on ', 'responsive' ) . '</span><span class="%1$s" itemprop="datePublished">%2$s</span>',
 							'meta-prep meta-prep-author posted',
 							sprintf(
@@ -93,9 +97,11 @@ do_action( 'responsive_before_single_post_meta' );
 					?>
 				</span>
 			<?php
+			$meta_items[] = ob_get_clean();
 		}
 
 		if ( 'comments' === $section && comments_open() && ! post_password_required() ) {
+			ob_start();
 			?>
 				<span class="entry-comment">
 					<?php if ( comments_open() ) : ?>
@@ -106,25 +112,43 @@ do_action( 'responsive_before_single_post_meta' );
 					<?php endif; ?>
 				</span>
 			<?php
+			$meta_items[] = ob_get_clean();
 		}
 
 		if ( 'tag' === $section ) {
 			if ( has_tag() ) {
-			?>
+				ob_start();
+				?>
 				<span class="entry-tag">
 						<span class="post-data">
 							<?php
-							/* translators: %s: tag list */
 							printf( esc_html__( 'Tagged with %s', 'responsive' ), wp_kses_post( get_the_tag_list( '', __( ', ', 'responsive' ) ) ) );
 							?>
-						</span><!-- end of .post-data -->
+						</span>
 				</span>
-			<?php
+				<?php
+				$meta_items[] = ob_get_clean();
+			}
+		}
+
+		if ( 'categories' === $section ) {
+			$categories = get_the_category_list( __( ', ', 'responsive' ) );
+			if ( $categories ) {
+				ob_start();
+				?>
+				<span class="entry-category">
+					<span class='posted-in'>
+						<?php echo wp_kses_post( $categories ); ?>
+					</span>
+				</span>
+				<?php
+				$meta_items[] = ob_get_clean();
 			}
 		}
 	}
+
+	$meta_output = implode( $separator_html, $meta_items );
+	echo $meta_output;
 	?>
-
-
 </div><!-- end of .post-meta -->
-<?php do_action( 'responsive_after_single_post_meta' ); ?>
+<?php do_action( 'responsive_after_single_page_meta' ); ?>

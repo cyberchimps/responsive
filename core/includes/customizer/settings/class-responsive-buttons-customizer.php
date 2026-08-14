@@ -169,7 +169,14 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_color' ),
 				null,
 				'',
-				false
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'color',
+				'refresh'
 			);
 
 			// Separator.
@@ -200,7 +207,14 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_color' ),
 				null,
 				'',
-				false
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'color',
+				'refresh'
 			);
 
 			// Secondary Button Presets.

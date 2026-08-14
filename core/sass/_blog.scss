@@ -1,9 +1,33 @@
 /* Loader */
 
-/* For Category page , title alignment - */
-body.category .page-header .page-title {
-    text-align: left;
+.responsive-blog-single-banner2 + #wrapper .content-outer.container, 
+.responsive-single-entry-banner + #wrapper .content-outer.container
+{
+    margin: 0 auto 52px;
 }
+
+body.responsive-blog-container-margin-legacy .site-content .container {
+  margin-top: unset;
+  margin-bottom: unset;
+}
+
+.blog .site-content article, .category .site-content article, .search .site-content article, .author .site-content article {
+  height: 100%;
+}
+
+.post-entry .wp-block-quote {
+  border-left: 1px solid #404040;
+}
+
+.blog.responsive-site-style-content-boxed .site-content #main-blog  {
+  padding: 30px;
+  row-gap: 24px;
+}
+
+.responsive-site-style-content-boxed .site-content .comments-area, .responsive-site-style-content-boxed .site-content .comment-respond {
+  background: none;
+}
+
 .responsive-loader {
     display: none;
     margin: 0 auto;
@@ -184,3 +208,34 @@ body.category .page-header .page-title {
     }
     @include blog-layout-medias();
   }
+
+.blog .hentry,
+.archive .hentry,
+.author .hentry,
+.search .hentry {
+  .post-entry {
+    > * {
+      margin-bottom: $inner-element-spacing;
+    }
+
+    > .entry-content {
+      margin-top: $inner-element-spacing * 2; // 20px
+    }
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+
+    // reset global h1-h6 spacing on the title
+    > .entry-title {
+      margin-top: 0;
+      margin-bottom: $inner-element-spacing;
+    }
+
+    // reset margin-top from .hentry .post-meta global rule
+    > .post-meta {
+      margin-top: 0;
+      margin-bottom: $inner-element-spacing;
+    }
+  }
+}

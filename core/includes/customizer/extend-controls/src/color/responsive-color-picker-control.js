@@ -123,21 +123,17 @@ class ResponsiveColorPickerControl extends Component {
 		} = this.state;
 
 		const getColorPreviewValue = (value, wantRawValue = false) => {
-			let color = null;
-			if( value && ( value.startsWith('palette') || value.includes('headings-color') || value === 'border-color' ) ) {
-				const varName = ( value === 'border-color' ) ? '--responsive-border-color' : '--responsive-global-' + value;
-				color = 'var(' + varName + ')';
+			if ( value && ( value.startsWith('palette') || value.includes('headings-color') || value.startsWith('title-above-content') ) ) {
+				const varName = value.startsWith('title-above-content') ? `--responsive-${value}` : `--responsive-global-${value}`;
 				if (wantRawValue) {
-					const raw = getComputedStyle(document.documentElement)
+					return getComputedStyle(document.documentElement)
 						.getPropertyValue(varName)
 						.trim();
-					return raw;
 				}
-			} else {
-				color = value;
+				return `var(${varName})`;
 			}
-			return color;
-		}
+			return value;
+		};
 
 		// Determine the background style based on activeTab
         const buttonBackgroundStyle = activeTab === 'gradient' && is_gradient_available

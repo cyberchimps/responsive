@@ -138,18 +138,19 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			);
 			responsive_imageradio_button_control( $wp_customize, 'width', $responsive_width_label, 'responsive_layout', 10, $responsive_width_choice, 'contained', null, 'svg', 'refresh' );
 
+			responsive_horizontal_separator_control( $wp_customize, 'width_separator', 1, 'responsive_layout', 20,  1 );
 				// responsive_select_control( $wp_customize, 'width', $responsive_width_label, 'responsive_layout', 10, $responsive_width_choice, 'contained', null, 'postMessage' );
 
 			// Container Width.
-			$container_width_label = __( 'Container Width (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'container_width', $container_width_label, 'responsive_layout', 20, 1340, 'responsive_active_site_layout_contained', 1500, 768, 'postMessage' );
+			$container_width_label = __( 'Wide Container Width (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'container_width', $container_width_label, 'responsive_layout', 8, 1340, null, 1500, 768, 'postMessage' );
 			if ( $wp_customize->get_control( 'responsive_container_width' ) ) {
 				$wp_customize->get_control( 'responsive_container_width' )->description = __( 'Note: This setting applies to Desktop devices only.', 'responsive' );
 			}
 
 			// Narrow Container Width.
-			$narrow_container_width_label = __( 'Narrow Container Width (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'narrow_container_width', $narrow_container_width_label, 'responsive_layout', 21, 750, 'responsive_active_site_layout_narrow', 1000, 400, 'postMessage' );
+			$narrow_container_width_label = __( 'Container Width (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'narrow_container_width', $narrow_container_width_label, 'responsive_layout', 9, 750, null, 1000, 400, 'postMessage' );
 			if ( $wp_customize->get_control( 'responsive_narrow_container_width' ) ) {
 				$wp_customize->get_control( 'responsive_narrow_container_width' )->description = __( 'Note: This setting applies to Desktop devices only.', 'responsive' );
 			}
@@ -160,7 +161,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 				'content-boxed' => esc_html__( 'Content Boxed', 'responsive' ),
 				'flat'          => esc_html__( 'Flat', 'responsive' ),
 			);
-			responsive_select_button_control( $wp_customize, 'style', $responsive_style_label, 'responsive_layout', 30, $responsive_style_choice, Responsive\Core\get_responsive_customizer_defaults( 'responsive_style' ), null, 'postMessage' );
+			responsive_select_button_control( $wp_customize, 'style', $responsive_style_label, 'responsive_layout', 30, $responsive_style_choice, Responsive\Core\get_responsive_customizer_defaults( 'responsive_style' ), null, 'refresh' );
 
 			// responsive_select_control( $wp_customize, 'style', $responsive_style_label, 'responsive_layout', 30, $responsive_style_choice, Responsive\Core\get_responsive_customizer_defaults( 'responsive_style' ), null, 'postMessage' );
 
@@ -240,7 +241,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			responsive_separator_control(
 				$wp_customize,
 				'single_post_boxed_separator',
-				__( 'Single Post Boxed', 'responsive' ),
+				__( 'Single Post Layout Style', 'responsive' ),
 				'responsive_layout',
 				200
 			);
@@ -259,7 +260,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 				1,
 				null,
 				null,
-				array( 'desktop' ),
+				array( 'desktop', 'tablet', 'mobile' ),
 				array( 'px', 'em', 'rem' )
 			);
 
@@ -300,27 +301,9 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			responsive_separator_control(
 				$wp_customize,
 				'archive_grid_boxed_separator',
-				__( 'Archive Grid Boxed', 'responsive' ),
+				__( 'Blog/Archive Grid Layout Style', 'responsive' ),
 				'responsive_layout',
 				230
-			);
-
-			responsive_drag_number_control_with_switchers(
-				$wp_customize,
-				'archive_grid_boxed_radius',
-				__( 'Border Radius', 'responsive' ),
-				'responsive_layout',
-				235,
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_archive_grid_boxed_radius' ),
-				null,
-				100,
-				0,
-				'refresh',
-				1,
-				null,
-				null,
-				array( 'desktop' ),
-				array( 'px', 'em', 'rem' )
 			);
 
 			responsive_shadow_control(
