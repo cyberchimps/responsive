@@ -975,6 +975,115 @@
         });
     });
     
+    //Header Above Row Top Border Size
+    //Header Above Row Top Border Size - Desktop
+    api('responsive_header_above_row_top_border_size', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-header-above-row-top-border-size').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-above-row-top-border-size">'
+                + '.responsive-site-above-header-wrap { border-top-width: ' + newval + 'px }'
+                + '</style>'
+            );
+        });
+    });
+
+    //Header Above Row Top Border Size - Tablet
+    api('responsive_header_above_row_top_border_size_tablet', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-header-above-row-top-border-size-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-above-row-top-border-size-tablet">'
+                + '@media screen and ( max-width: 992px ) { .responsive-site-above-mobile-header-wrap { border-top-width: ' + newval + 'px } }'
+                + '</style>'
+            );
+        });
+    });
+
+    //Header Above Row Top Border Size - Mobile
+    api('responsive_header_above_row_top_border_size_mobile', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-header-above-row-top-border-size-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-above-row-top-border-size-mobile">'
+                + '@media screen and ( max-width: 576px ) { .responsive-site-above-mobile-header-wrap { border-top-width: ' + newval + 'px } }'
+                + '</style>'
+            );
+        });
+    });
+
+    //Header Primary Row Top Border Size - Desktop
+    api('responsive_header_primary_row_top_border_size', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-header-primary-row-top-border-size').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-primary-row-top-border-size">'
+                + '.responsive-site-primary-header-wrap { border-top-width: ' + newval + 'px }'
+                + '</style>'
+            );
+        });
+    });
+
+    //Header Primary Row Top Border Size - Tablet
+    api('responsive_header_primary_row_top_border_size_tablet', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-header-primary-row-top-border-size-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-primary-row-top-border-size-tablet">'
+                + '@media screen and ( max-width: 992px ) { .responsive-site-primary-mobile-header-wrap { border-top-width: ' + newval + 'px } }'
+                + '</style>'
+            );
+        });
+    });
+
+    //Header Primary Row Top Border Size - Mobile
+    api('responsive_header_primary_row_top_border_size_mobile', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-header-primary-row-top-border-size-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-primary-row-top-border-size-mobile">'
+                + '@media screen and ( max-width: 576px ) { .responsive-site-primary-mobile-header-wrap { border-top-width: ' + newval + 'px } }'
+                + '</style>'
+            );
+        });
+    });
+
+    //Header Below Row Top Border Size - Desktop
+    api('responsive_header_below_row_top_border_size', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-header-below-row-top-border-size').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-below-row-top-border-size">'
+                + '.responsive-site-below-header-wrap { border-top-width: ' + newval + 'px }'
+                + '</style>'
+            );
+        });
+    });
+
+    //Header Below Row Top Border Size - Tablet
+    api('responsive_header_below_row_top_border_size_tablet', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-header-below-row-top-border-size-tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-below-row-top-border-size-tablet">'
+                + '@media screen and ( max-width: 992px ) { .responsive-site-below-mobile-header-wrap { border-top-width: ' + newval + 'px } }'
+                + '</style>'
+            );
+        });
+    });
+
+    //Header Below Row Top Border Size - Mobile
+    api('responsive_header_below_row_top_border_size_mobile', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-header-below-row-top-border-size-mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive-header-below-row-top-border-size-mobile">'
+                + '@media screen and ( max-width: 576px ) { .responsive-site-below-mobile-header-wrap { border-top-width: ' + newval + 'px } }'
+                + '</style>'
+            );
+        });
+    });
+
     //Header Above Row Bottom Border Size
     //Header Above Row Bottom Border Size - Desktop
     api('responsive_header_above_row_bottom_border_size', function(value) {
