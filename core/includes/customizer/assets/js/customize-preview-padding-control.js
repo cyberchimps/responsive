@@ -2712,4 +2712,34 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
         });
     });
 
+    // Header Builder Margin
+    const headerBuilderMarginSettings = [
+        'responsive_header_builder_margin_top_padding',
+        'responsive_header_builder_margin_right_padding',
+        'responsive_header_builder_margin_bottom_padding',
+        'responsive_header_builder_margin_left_padding',
+        'responsive_header_builder_margin_tablet_top_padding',
+        'responsive_header_builder_margin_tablet_right_padding',
+        'responsive_header_builder_margin_tablet_bottom_padding',
+        'responsive_header_builder_margin_tablet_left_padding',
+        'responsive_header_builder_margin_mobile_top_padding',
+        'responsive_header_builder_margin_mobile_right_padding',
+        'responsive_header_builder_margin_mobile_bottom_padding',
+        'responsive_header_builder_margin_mobile_left_padding',
+        'responsive_header_builder_margin_desktop_unit',
+        'responsive_header_builder_margin_tablet_unit',
+        'responsive_header_builder_margin_mobile_unit'
+    ];
+
+    headerBuilderMarginSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_unit_margin(
+                    'header_builder_margin',
+                    '.site-header'
+                );
+            });
+        });
+    });
+
 } )( jQuery );

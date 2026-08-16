@@ -135,6 +135,48 @@ function responsive_customizer_styles() {
 			width: 100%;
 		}";
 	}
+
+	// Header Builder Margin.
+	$header_builder_margin_top          = get_theme_mod( 'responsive_header_builder_margin_top_padding', '' );
+	$header_builder_margin_right        = get_theme_mod( 'responsive_header_builder_margin_right_padding', '' );
+	$header_builder_margin_bottom       = get_theme_mod( 'responsive_header_builder_margin_bottom_padding', '' );
+	$header_builder_margin_left         = get_theme_mod( 'responsive_header_builder_margin_left_padding', '' );
+	$header_builder_margin_unit         = get_theme_mod( 'responsive_header_builder_margin_desktop_unit', 'px' );
+
+	$header_builder_margin_tablet_top   = get_theme_mod( 'responsive_header_builder_margin_tablet_top_padding', '' );
+	$header_builder_margin_tablet_right = get_theme_mod( 'responsive_header_builder_margin_tablet_right_padding', '' );
+	$header_builder_margin_tablet_bottom= get_theme_mod( 'responsive_header_builder_margin_tablet_bottom_padding', '' );
+	$header_builder_margin_tablet_left  = get_theme_mod( 'responsive_header_builder_margin_tablet_left_padding', '' );
+	$header_builder_margin_tablet_unit  = get_theme_mod( 'responsive_header_builder_margin_tablet_unit', 'px' );
+
+	$header_builder_margin_mobile_top   = get_theme_mod( 'responsive_header_builder_margin_mobile_top_padding', '' );
+	$header_builder_margin_mobile_right = get_theme_mod( 'responsive_header_builder_margin_mobile_right_padding', '' );
+	$header_builder_margin_mobile_bottom= get_theme_mod( 'responsive_header_builder_margin_mobile_bottom_padding', '' );
+	$header_builder_margin_mobile_left  = get_theme_mod( 'responsive_header_builder_margin_mobile_left_padding', '' );
+	$header_builder_margin_mobile_unit  = get_theme_mod( 'responsive_header_builder_margin_mobile_unit', 'px' );
+
+	if ( '' !== $header_builder_margin_top || '' !== $header_builder_margin_right || '' !== $header_builder_margin_bottom || '' !== $header_builder_margin_left ) {
+		$custom_css .= "
+		.site-header {
+			margin: " . responsive_spacing_css( $header_builder_margin_top, $header_builder_margin_right, $header_builder_margin_bottom, $header_builder_margin_left, $header_builder_margin_unit ) . ";
+		}";
+	}
+	if ( '' !== $header_builder_margin_tablet_top || '' !== $header_builder_margin_tablet_right || '' !== $header_builder_margin_tablet_bottom || '' !== $header_builder_margin_tablet_left ) {
+		$custom_css .= "
+		@media screen and ( max-width: 992px ) {
+			.site-header {
+				margin: " . responsive_spacing_css( $header_builder_margin_tablet_top, $header_builder_margin_tablet_right, $header_builder_margin_tablet_bottom, $header_builder_margin_tablet_left, $header_builder_margin_tablet_unit ) . ";
+			}
+		}";
+	}
+	if ( '' !== $header_builder_margin_mobile_top || '' !== $header_builder_margin_mobile_right || '' !== $header_builder_margin_mobile_bottom || '' !== $header_builder_margin_mobile_left ) {
+		$custom_css .= "
+		@media screen and ( max-width: 576px ) {
+			.site-header {
+				margin: " . responsive_spacing_css( $header_builder_margin_mobile_top, $header_builder_margin_mobile_right, $header_builder_margin_mobile_bottom, $header_builder_margin_mobile_left, $header_builder_margin_mobile_unit ) . ";
+			}
+		}";
+	}
 	$narrow_container_max_width = esc_html( get_theme_mod( 'responsive_narrow_container_width', Responsive\Core\get_responsive_customizer_defaults( 'responsive_narrow_container_width' ) ) );
 	$logo_custom_width   = esc_html( get_theme_mod( 'responsive_logo_width' ) );
 	$logo_custom_width_tablet = esc_html( get_theme_mod( 'responsive_logo_width_tablet' ) );

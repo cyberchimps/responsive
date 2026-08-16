@@ -176,7 +176,7 @@ if ( ! class_exists( 'Responsive_Header_Builder_Section_Customizer' ) ) :
 			responsive_select_button_control( $wp_customize, 'header_builder_width', $header_width_label, 'responsive_header_builder_section', 20, $header_width_choices, 'contained', null, 'postMessage' );
 
 			// Margin.
-			$header_margin_label = esc_html__( 'Margin (px)', 'responsive' );
+			$header_margin_label = esc_html__( 'Margin', 'responsive' );
 			responsive_padding_control( $wp_customize, 'header_builder_margin', 'responsive_header_builder_section', 30, 0, 0, null, $header_margin_label );
 
 			// Screen Size to switch to mobile header (breakpoint).
