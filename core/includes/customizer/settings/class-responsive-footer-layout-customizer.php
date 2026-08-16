@@ -279,6 +279,9 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			// Bar Padding.
 			responsive_padding_control( $wp_customize, 'footer_bar', 'responsive_footer_layout', 50, 0, 0, null );
 
+			// Margin.
+			responsive_unit_padding_control( $wp_customize, 'footer_margin', 'responsive_footer_layout', 51, '', '', null, __( 'Margin', 'responsive' ), 'postMessage', '', '', '', '', 'px' );
+
 			// Bottom Border.
 
 			// $footer_border_label = __( 'Border Size', 'responsive' );

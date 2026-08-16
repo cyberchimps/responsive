@@ -4824,6 +4824,48 @@ function responsive_customizer_styles() {
 	    }
 	}';
 
+	// Footer Margin.
+	$footer_margin_right  = esc_html( get_theme_mod( 'responsive_footer_margin_right_padding', '' ) );
+	$footer_margin_left   = esc_html( get_theme_mod( 'responsive_footer_margin_left_padding', '' ) );
+	$footer_margin_top    = esc_html( get_theme_mod( 'responsive_footer_margin_top_padding', '' ) );
+	$footer_margin_bottom = esc_html( get_theme_mod( 'responsive_footer_margin_bottom_padding', '' ) );
+
+	$footer_margin_tablet_right  = esc_html( get_theme_mod( 'responsive_footer_margin_tablet_right_padding', '' ) );
+	$footer_margin_tablet_left   = esc_html( get_theme_mod( 'responsive_footer_margin_tablet_left_padding', '' ) );
+	$footer_margin_tablet_top    = esc_html( get_theme_mod( 'responsive_footer_margin_tablet_top_padding', '' ) );
+	$footer_margin_tablet_bottom = esc_html( get_theme_mod( 'responsive_footer_margin_tablet_bottom_padding', '' ) );
+
+	$footer_margin_mobile_right  = esc_html( get_theme_mod( 'responsive_footer_margin_mobile_right_padding', '' ) );
+	$footer_margin_mobile_left   = esc_html( get_theme_mod( 'responsive_footer_margin_mobile_left_padding', '' ) );
+	$footer_margin_mobile_top    = esc_html( get_theme_mod( 'responsive_footer_margin_mobile_top_padding', '' ) );
+	$footer_margin_mobile_bottom = esc_html( get_theme_mod( 'responsive_footer_margin_mobile_bottom_padding', '' ) );
+
+	$footer_margin_unit        = esc_html( get_theme_mod( 'responsive_footer_margin_desktop_unit', 'px' ) );
+	$footer_margin_tablet_unit = esc_html( get_theme_mod( 'responsive_footer_margin_tablet_unit', 'px' ) );
+	$footer_margin_mobile_unit = esc_html( get_theme_mod( 'responsive_footer_margin_mobile_unit', 'px' ) );
+
+	error_log("DEBUG FOOTER MARGIN: top=$footer_margin_top, right=$footer_margin_right, bottom=$footer_margin_bottom, left=$footer_margin_left, unit=$footer_margin_unit");
+
+	if ( '' !== $footer_margin_top || '' !== $footer_margin_right || '' !== $footer_margin_bottom || '' !== $footer_margin_left ) {
+		$custom_css .= '#footer {
+		    margin: ' . responsive_spacing_css( $footer_margin_top, $footer_margin_right, $footer_margin_bottom, $footer_margin_left, $footer_margin_unit ) . ';
+		}';
+	}
+	if ( '' !== $footer_margin_tablet_top || '' !== $footer_margin_tablet_right || '' !== $footer_margin_tablet_bottom || '' !== $footer_margin_tablet_left ) {
+		$custom_css .= '@media screen and ( max-width: 992px ) {
+		    #footer {
+		        margin: ' . responsive_spacing_css( $footer_margin_tablet_top, $footer_margin_tablet_right, $footer_margin_tablet_bottom, $footer_margin_tablet_left, $footer_margin_tablet_unit ) . ';
+		    }
+		}';
+	}
+	if ( '' !== $footer_margin_mobile_top || '' !== $footer_margin_mobile_right || '' !== $footer_margin_mobile_bottom || '' !== $footer_margin_mobile_left ) {
+		$custom_css .= '@media screen and ( max-width: 576px ) {
+		    #footer {
+		        margin: ' . responsive_spacing_css( $footer_margin_mobile_top, $footer_margin_mobile_right, $footer_margin_mobile_bottom, $footer_margin_mobile_left, $footer_margin_mobile_unit ) . ';
+		    }
+		}';
+	}
+
 	// Footer Colors.
 	$footer_text_color       = esc_html( get_theme_mod( 'responsive_footer_text_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_text' ) ) );
 	$footer_background_color = esc_html( get_theme_mod( 'responsive_footer_background_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_background' ) ) );

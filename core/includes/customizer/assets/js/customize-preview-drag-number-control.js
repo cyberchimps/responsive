@@ -1874,6 +1874,65 @@
             value.bind(updateContentTopBottomSpacingCss);
         });
     });
+    function updateFooterMarginCss() {
+        jQuery('style#responsive-footer-margin-css').remove();
+
+        var unit = api('responsive_footer_margin_desktop_unit') ? api('responsive_footer_margin_desktop_unit').get() : 'px';
+        var top = api('responsive_footer_margin_top_padding') ? api('responsive_footer_margin_top_padding').get() : '';
+        var right = api('responsive_footer_margin_right_padding') ? api('responsive_footer_margin_right_padding').get() : '';
+        var bottom = api('responsive_footer_margin_bottom_padding') ? api('responsive_footer_margin_bottom_padding').get() : '';
+        var left = api('responsive_footer_margin_left_padding') ? api('responsive_footer_margin_left_padding').get() : '';
+
+        var unit_tablet = api('responsive_footer_margin_tablet_unit') ? api('responsive_footer_margin_tablet_unit').get() : 'px';
+        var tablet_top = api('responsive_footer_margin_tablet_top_padding') ? api('responsive_footer_margin_tablet_top_padding').get() : '';
+        var tablet_right = api('responsive_footer_margin_tablet_right_padding') ? api('responsive_footer_margin_tablet_right_padding').get() : '';
+        var tablet_bottom = api('responsive_footer_margin_tablet_bottom_padding') ? api('responsive_footer_margin_tablet_bottom_padding').get() : '';
+        var tablet_left = api('responsive_footer_margin_tablet_left_padding') ? api('responsive_footer_margin_tablet_left_padding').get() : '';
+
+        var unit_mobile = api('responsive_footer_margin_mobile_unit') ? api('responsive_footer_margin_mobile_unit').get() : 'px';
+        var mobile_top = api('responsive_footer_margin_mobile_top_padding') ? api('responsive_footer_margin_mobile_top_padding').get() : '';
+        var mobile_right = api('responsive_footer_margin_mobile_right_padding') ? api('responsive_footer_margin_mobile_right_padding').get() : '';
+        var mobile_bottom = api('responsive_footer_margin_mobile_bottom_padding') ? api('responsive_footer_margin_mobile_bottom_padding').get() : '';
+        var mobile_left = api('responsive_footer_margin_mobile_left_padding') ? api('responsive_footer_margin_mobile_left_padding').get() : '';
+
+        var selectors = '#footer';
+        var css = '';
+        
+        if (top !== '' || right !== '' || bottom !== '' || left !== '') {
+            css += selectors + ' { margin: ' + (top !== '' ? top + unit : '0' + unit) + ' ' + (right !== '' ? right + unit : '0' + unit) + ' ' + (bottom !== '' ? bottom + unit : '0' + unit) + ' ' + (left !== '' ? left + unit : '0' + unit) + '; }';
+        }
+
+        if (tablet_top !== '' || tablet_right !== '' || tablet_bottom !== '' || tablet_left !== '') {
+            css += '@media screen and (max-width: 992px) { ' + selectors + ' { margin: ' + (tablet_top !== '' ? tablet_top + unit_tablet : '0' + unit_tablet) + ' ' + (tablet_right !== '' ? tablet_right + unit_tablet : '0' + unit_tablet) + ' ' + (tablet_bottom !== '' ? tablet_bottom + unit_tablet : '0' + unit_tablet) + ' ' + (tablet_left !== '' ? tablet_left + unit_tablet : '0' + unit_tablet) + '; } }';
+        }
+        
+        if (mobile_top !== '' || mobile_right !== '' || mobile_bottom !== '' || mobile_left !== '') {
+            css += '@media screen and (max-width: 576px) { ' + selectors + ' { margin: ' + (mobile_top !== '' ? mobile_top + unit_mobile : '0' + unit_mobile) + ' ' + (mobile_right !== '' ? mobile_right + unit_mobile : '0' + unit_mobile) + ' ' + (mobile_bottom !== '' ? mobile_bottom + unit_mobile : '0' + unit_mobile) + ' ' + (mobile_left !== '' ? mobile_left + unit_mobile : '0' + unit_mobile) + '; } }';
+        }
+        jQuery('head').append('<style id="responsive-footer-margin-css">' + css + '</style>');
+    }
+
+    [
+        'responsive_footer_margin_top_padding',
+        'responsive_footer_margin_right_padding',
+        'responsive_footer_margin_bottom_padding',
+        'responsive_footer_margin_left_padding',
+        'responsive_footer_margin_tablet_top_padding',
+        'responsive_footer_margin_tablet_right_padding',
+        'responsive_footer_margin_tablet_bottom_padding',
+        'responsive_footer_margin_tablet_left_padding',
+        'responsive_footer_margin_mobile_top_padding',
+        'responsive_footer_margin_mobile_right_padding',
+        'responsive_footer_margin_mobile_bottom_padding',
+        'responsive_footer_margin_mobile_left_padding',
+        'responsive_footer_margin_desktop_unit',
+        'responsive_footer_margin_tablet_unit',
+        'responsive_footer_margin_mobile_unit'
+    ].forEach(function(settingId) {
+        api(settingId, function(value) {
+            value.bind(updateFooterMarginCss);
+        });
+    });
 
 } )( jQuery );
 

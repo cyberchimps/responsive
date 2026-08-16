@@ -921,10 +921,10 @@ if ( ! function_exists( 'responsive_spacing_css' ) ) {
 
 		$unit = ! empty( $unit ) ? $unit : 'px';
 
-		$s_top    = ( isset( $top ) && '' !== $top ) ? ( 'px' === $unit ? intval( $top ) : $top ) . $unit . ' ' : '0' . $unit . ' ';
-		$s_right  = ( isset( $right ) && '' !== $right ) ? ( 'px' === $unit ? intval( $right ) : $right ) . $unit . ' ' : '0' . $unit . ' ';
-		$s_bottom = ( isset( $bottom ) && '' !== $bottom ) ? ( 'px' === $unit ? intval( $bottom ) : $bottom ) . $unit . ' ' : '0' . $unit . ' ';
-		$s_left   = ( isset( $left ) && '' !== $left ) ? ( 'px' === $unit ? intval( $left ) : $left ) . $unit : '0' . $unit;
+		$s_top    = ( isset( $top ) && '' !== $top ) ? ( 'px' === $unit ? intval( $top ) : trim( $top ) ) . $unit . ' ' : '0' . $unit . ' ';
+		$s_right  = ( isset( $right ) && '' !== $right ) ? ( 'px' === $unit ? intval( $right ) : trim( $right ) ) . $unit . ' ' : '0' . $unit . ' ';
+		$s_bottom = ( isset( $bottom ) && '' !== $bottom ) ? ( 'px' === $unit ? intval( $bottom ) : trim( $bottom ) ) . $unit . ' ' : '0' . $unit . ' ';
+		$s_left   = ( isset( $left ) && '' !== $left ) ? ( 'px' === $unit ? intval( $left ) : trim( $left ) ) . $unit : '0' . $unit;
 
 		// Return one value if it is the same on every inputs.
 		if ( ( (string) $top === (string) $right )
