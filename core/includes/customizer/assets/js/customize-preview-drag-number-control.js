@@ -12,6 +12,7 @@
     api( 'responsive_container_width', function( value ) {
         value.bind( function( newval ) {
             $('.container,[class*=\'__inner-container\'],.site-header-full-width-main-navigation:not(.responsive-site-full-width) .main-navigation-wrapper').css('max-width', newval+'px' );
+            $('.site-header.header-width-fullwidth .site-header-row-container-inner .container').css('max-width', '100%');
             jQuery('style#responsive-gutenberg-wide-size').remove();
             jQuery('head').append(
                 '<style id="responsive-gutenberg-wide-size">' +

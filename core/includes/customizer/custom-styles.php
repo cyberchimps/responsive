@@ -117,6 +117,24 @@ function responsive_customizer_styles() {
 	// Site custom styles.
 
 	$container_max_width = esc_html( get_theme_mod( 'responsive_container_width', Responsive\Core\get_responsive_customizer_defaults( 'responsive_container_width' ) ) );
+
+	// Header Builder Width (Full Width vs Contained).
+	$header_builder_width = get_theme_mod( 'responsive_header_builder_width', 'contained' );
+	if ( 'contained' === $header_builder_width ) {
+		$custom_css .= "
+		.site-header.header-width-contained .site-header-row-container-inner .container {
+			max-width: {$container_max_width}px;
+			width: 100%;
+			margin-left: auto;
+			margin-right: auto;
+		}";
+	} else {
+		$custom_css .= "
+		.site-header.header-width-fullwidth .site-header-row-container-inner .container {
+			max-width: 100%;
+			width: 100%;
+		}";
+	}
 	$narrow_container_max_width = esc_html( get_theme_mod( 'responsive_narrow_container_width', Responsive\Core\get_responsive_customizer_defaults( 'responsive_narrow_container_width' ) ) );
 	$logo_custom_width   = esc_html( get_theme_mod( 'responsive_logo_width' ) );
 	$logo_custom_width_tablet = esc_html( get_theme_mod( 'responsive_logo_width_tablet' ) );
