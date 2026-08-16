@@ -110,18 +110,41 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 			$paragraph_margin_label = esc_html__( 'Paragraph Margin Bottom', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'paragraph_margin_bottom', $paragraph_margin_label, 'responsive_typography', 21, 1.75, null, 5, 1, 'postMessage', 0.1 );
 
-			responsive_horizontal_separator_control($wp_customize, 'underline_content_links_separator', 1, 'responsive_typography', 22, 1, );
+			responsive_horizontal_separator_control( $wp_customize, 'link_style_separator', 1, 'responsive_typography', 22, 1 );
 
-			// Underline Content Links
-			responsive_toggle_control(
+			// Content Link Style
+			$link_style_label   = esc_html__( 'Content Link Style', 'responsive' );
+			$link_style_choices = array(
+				'standard'           => esc_html__( 'Standard (underline)', 'responsive' ),
+				'color-underline'    => esc_html__( 'Highlight Underline', 'responsive' ),
+				'no-underline'       => esc_html__( 'No Underline', 'responsive' ),
+				'hover-background'   => esc_html__( 'Background on hover', 'responsive' ),
+				'offset-background' => esc_html__( 'Offset Background', 'responsive' ),
+			);
+			responsive_select_control( $wp_customize, 'link_style', $link_style_label, 'responsive_typography', 23, $link_style_choices, Responsive\Core\get_responsive_customizer_defaults( 'responsive_link_style' ), null, 'refresh' );
+
+			// Separator for Link Hover Background Color (only active when link_style === 'hover-background')
+			responsive_horizontal_separator_control( $wp_customize, 'link_hover_bg_separator', 1, 'responsive_typography', 23.5, 1, 'responsive_link_style_is_hover_background' );
+
+			// Link Hover Background Color
+			$link_hover_bg_label = esc_html__( 'Hover Background Color', 'responsive' );
+			responsive_color_control(
 				$wp_customize,
-				'underline_content_links', 
-				esc_html__( 'Underline Content Links', 'responsive' ),
+				'link_hover_bg',
+				$link_hover_bg_label,
 				'responsive_typography',
-				32, 
-				false, 
+				24,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_link_hover_bg_color' ),
+				'responsive_link_style_is_hover_background',
 				'',
-				'refresh',
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'color',
+				'refresh'
 			);
 			
 		}

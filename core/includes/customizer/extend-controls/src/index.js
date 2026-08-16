@@ -28,6 +28,7 @@ import { responsiveTypographyGroup } from './typography_group/control';
 import { responsiveFontPreset } from './fontpresets/control';
 import { responsiveButtonPreset } from './buttonpresets/control';
 import './breadcrumb-toggle';
+import './author-box-toggle';
 import { responsiveBuilderControl } from './builder-layout/control';
 import { responsiveMultiSelectControl } from './multi-select/control';
 import { responsiveRangeWithSwitcher } from './range-with-switchers/control';
