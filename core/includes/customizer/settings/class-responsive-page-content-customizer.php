@@ -68,6 +68,7 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 
 			$general_tab_ids_prefix = 'customize-control-responsive_page_';
 			$general_tab_ids        = array(
+				$general_tab_ids_prefix . 'title_area',
 				$general_tab_ids_prefix . 'content_width',
 				$general_tab_ids_prefix . 'elements_separator',
 				$general_tab_ids_prefix . 'featured_image_separator',

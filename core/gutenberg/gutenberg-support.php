@@ -23,10 +23,10 @@ function responsive_gutenberg_color_palette() {
 	$body_text_color      = esc_html( responsive_prepare_css_value( 'responsive_body_text_color', '#404040' ) );
 	$box_background_color = esc_html( responsive_prepare_css_value( 'responsive_box_background_color', '#ffffff' ) );
 
-	$button_color            = esc_html( responsive_prepare_css_value( 'responsive_button_color', '#0066CC' ) );
-	$button_hover_color      = esc_html( responsive_prepare_css_value( 'responsive_button_hover_color' ) );
-	$button_text_color       = esc_html( responsive_prepare_css_value( 'responsive_button_text_color', '#FFFFFF' ) );
-	$button_hover_text_color = esc_html( responsive_prepare_css_value( 'responsive_button_hover_text_color', '#FFFFFF' ) );
+	$button_color            = esc_html( responsive_prepare_css_value( 'responsive_button_color', 'palette0' ) );
+	$button_hover_color      = esc_html( responsive_prepare_css_value( 'responsive_button_hover_color', 'palette1' ) );
+	$button_text_color       = esc_html( responsive_prepare_css_value( 'responsive_button_text_color', 'palette4' ) );
+	$button_hover_text_color = esc_html( responsive_prepare_css_value( 'responsive_button_hover_text_color', '#ffffff' ) );
 
 	$responsive_gutenberg_color_options = array(
 
@@ -104,6 +104,8 @@ function responsive_gutenberg_colors( $responsive_gutenberg_color_options ) {
 	$css .= ':root .has-responsive-global-palette-6-background-color { background-color: var(--responsive-global-palette6); }';
 	$css .= ':root .has-responsive-global-palette-7-color { color: var(--responsive-global-palette7); }';
 	$css .= ':root .has-responsive-global-palette-7-background-color { background-color: var(--responsive-global-palette7); }';
+	$css .= ':root .has-responsive-global-palette-8-color { color: var(--responsive-global-palette8); }';
+	$css .= ':root .has-responsive-global-palette-8-background-color { background-color: var(--responsive-global-palette8); }';
 	return wp_strip_all_tags( $css );
 }
 
@@ -201,7 +203,7 @@ function responsive_gutenberg_customizer_css() {
 	$button_tablet_typography          = get_theme_mod( 'button_tablet_typography' );
 	$button_mobile_typography          = get_theme_mod( 'button_mobile_typography' );
 
-	$inputs_border_color               = esc_html( get_theme_mod( 'responsive_inputs_border_color', Responsive\Core\get_responsive_customizer_defaults( 'inputs_border' ) ) );
+	$inputs_border_color               = esc_html( responsive_prepare_css_value( 'responsive_inputs_border_color', Responsive\Core\get_responsive_customizer_defaults( 'inputs_border' ) ) );
 	$inputs_text_color                 = esc_html( get_theme_mod( 'responsive_inputs_text_color', Responsive\Core\get_responsive_customizer_defaults( 'inputs_text' ) ) );
 	$inputs_background_color           = esc_html( get_theme_mod( 'responsive_inputs_background_color', Responsive\Core\get_responsive_customizer_defaults( 'inputs_background' ) ) );
 

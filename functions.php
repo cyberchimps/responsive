@@ -2680,14 +2680,16 @@ if ( ! function_exists( 'responsive_theme_background_updater_global_palette_reva
 				$new_palette = array (
 					'style' => $old_palette_scheme,
 					'palette' => array (
-						'label'              => '',
-						'accent'             => get_theme_mod( 'responsive_global_color_palette_accent_color', '#3B82F6' ),
-						'link_hover'		 => get_theme_mod( 'responsive_global_color_palette_link_hover_color', '#10659C' ),
-						'text'               => get_theme_mod( 'responsive_global_color_palette_text_color', '#404040' ),
-						'header_text'        => get_theme_mod( 'responsive_global_color_palette_headings_color', '#404040' ),
-						'content_background' => get_theme_mod( 'responsive_global_color_palette_content_bg_color', '#ffffff' ),
-						'site_background'    => get_theme_mod( 'responsive_global_color_palette_site_background_color', '#f0f5fa' ),
-						'alt_background'     => get_theme_mod( 'responsive_global_color_palette_alt_background_color', '#eaeaea' ),
+						'label'      => '',
+						'palette_1'  => get_theme_mod( 'responsive_global_color_palette_accent_color', '#3B82F6' ),
+						'palette_2'	 => get_theme_mod( 'responsive_global_color_palette_link_hover_color', '#10659C' ),
+						'palette_3'  => get_theme_mod( 'responsive_global_color_palette_text_color', '#404040' ),
+						'palette_4'  => get_theme_mod( 'responsive_global_color_palette_headings_color', '#404040' ),
+						'palette_5'  => get_theme_mod( 'responsive_global_color_palette_content_bg_color', '#ffffff' ),
+						'palette_6'  => get_theme_mod( 'responsive_global_color_palette_site_background_color', '#f0f5fa' ),
+						'palette_7'  => get_theme_mod( 'responsive_global_color_palette_alt_background_color', '#eaeaea' ),
+						'palette_8'  => get_theme_mod( 'responsive_global_color_palette_subtle_background_color', '#10659C' ),
+						'palette_9'  => '#10659C',
 					)
 				);
 				set_theme_mod( 'responsive_global_color_palette', $new_palette );
@@ -3049,9 +3051,9 @@ if( !function_exists( 'responsive_theme_background_updater_blog_container_margin
 				'responsive_single_blog_content_width' => 66,
 				'responsive_header_primary_row_bottom_border_color' => '#0066CC',
 				'responsive_footer_below_row_border_color' => '#0066CC',
-				'responsive_global_color_palette_accent_color' => '#0066CC',
-				'responsive_global_color_palette_site_background_color' => '#F0F5FA',
-				'responsive_global_color_palette_alt_background_color' => '#EAEAEA',
+				'responsive_global_color_palette_1' => '#0066CC',
+				'responsive_global_color_palette_6' => '#F0F5FA',
+				'responsive_global_color_palette_7' => '#EAEAEA',
 				'responsive_blog_entry_featured_image_style' => 'default'
 			);
 
@@ -3089,6 +3091,48 @@ if( !function_exists( 'responsive_theme_background_updater_blog_container_margin
 			update_option( 'responsive_theme_options', $responsive_options );
 		}
 }
+}
+
+if ( ! function_exists( 'responsive_color_palette_updater_6_4_3' ) ) {
+	/**
+	 * Backward compatibility for color palette options introduced in 6.4.3
+	 *
+	 * @return void
+	 */
+	function responsive_color_palette_updater_6_4_3() {
+		$responsive_options = get_option( 'responsive_theme_options' );
+		if ( ! isset( $responsive_options['color_palette_6_4_3_backward_done'] ) || ! $responsive_options['color_palette_6_4_3_backward_done'] ) {
+			
+			$color_map = array(
+				'responsive_global_color_palette_accent_color'          => 'responsive_global_color_palette_1',
+				'responsive_global_color_palette_link_hover_color'      => 'responsive_global_color_palette_2',
+				'responsive_global_color_palette_text_color'            => 'responsive_global_color_palette_3',
+				'responsive_global_color_palette_accent_color'        => 'responsive_global_color_palette_4',
+				'responsive_global_color_palette_content_bg_color'      => 'responsive_global_color_palette_5',
+				'responsive_global_color_palette_site_background_color' => 'responsive_global_color_palette_6',
+				'responsive_global_color_palette_alt_background_color'  => 'responsive_global_color_palette_7',
+				'responsive_global_color_palette_subtle_background_color'  => 'responsive_global_color_palette_8'
+			);
+
+			$old_link_hover_color = get_theme_mod( 'responsive_links_color', false );
+			$old_subtle_background_color = get_theme_mod( 'responsive_subtle_background_color', false );
+
+			// if( $old_subtle_baclground_color != 'false' && $old_subtle_background_color!=$old_link_hover_color )
+			// {
+			// 	// manually setting the theme mods for button hover bg which were earlier affected by subtle background color
+			// }
+
+			foreach( $color_map as $old_mod => $new_mod ) {
+				$old_value = get_theme_mod( $old_mod, false );
+				if ( false !== $old_value ) {
+					set_theme_mod( $new_mod, $old_value );
+				}
+			}
+
+			$responsive_options['color_palette_6_4_3_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
 }
 
 add_filter( 'body_class', function( $classes ) {

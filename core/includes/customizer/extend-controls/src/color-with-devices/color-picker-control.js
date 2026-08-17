@@ -56,6 +56,10 @@ class ColorPickerControlWithDevices extends Component {
 			isVisible,
 		} = this.state
 
+		let displayColor = this.props.color;
+		if ( displayColor && typeof displayColor === 'string' && displayColor.startsWith('palette') ) {
+			displayColor = `var(--responsive-global-${displayColor})`;
+		}
 
 		const toggleVisible = () => {
 			if ( refresh === true ) {
@@ -102,18 +106,6 @@ class ColorPickerControlWithDevices extends Component {
 	            htmlLink = splited_values[1].replace(/"/g, "");
 	        }
 	    }
-		const getColorPreviewValue = (value, wantRawValue = false) => {
-			if ( value && ( value.startsWith('palette') || value.includes('headings-color') || value.startsWith('title-above-content') ) ) {
-				const varName = value.startsWith('title-above-content') ? `--responsive-${value}` : `--responsive-global-${value}`;
-				if (wantRawValue) {
-					return getComputedStyle(document.documentElement)
-						.getPropertyValue(varName)
-						.trim();
-				}
-				return `var(${varName})`;
-			}
-			return value;
-		};
 
 		return (
 			<>
@@ -122,14 +114,14 @@ class ColorPickerControlWithDevices extends Component {
 					{this.props.swatchTitle ? (
 						<div className="tooltip-container">
 							<Button className={ isVisible ? 'button wp-color-result wp-picker-open' : 'button wp-color-result ' } onClick={ () => { isVisible ? toggleClose() : toggleVisible() } }
-								aria-expanded='false' style={{backgroundColor: getColorPreviewValue(this.props.color)}}
+								aria-expanded='false' style={{backgroundColor: displayColor}}
 							>
 							</Button>
 							<span className="tooltip-text">{this.props.swatchTitle}</span>
 						</div>
 					) : (
 						<Button className={ isVisible ? 'button wp-color-result wp-picker-open' : 'button wp-color-result ' } onClick={ () => { isVisible ? toggleClose() : toggleVisible() } }
-							aria-expanded='false' style={{backgroundColor: getColorPreviewValue(this.props.color)}}
+							aria-expanded='false' style={{backgroundColor: displayColor}}
 						>
 						</Button>
 					)}
@@ -139,7 +131,7 @@ class ColorPickerControlWithDevices extends Component {
 									{ refresh && (
 										<>
 											<ColorPicker
-												color={ getColorPreviewValue(this.props.color, true) }
+												color={ displayColor }
 												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 											/>
 										</>
@@ -147,7 +139,7 @@ class ColorPickerControlWithDevices extends Component {
 									{ ! refresh &&  (
 										<>
 											<ColorPicker
-												color={ getColorPreviewValue(this.props.color, true) }
+												color={ displayColor }
 												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 											/>
 

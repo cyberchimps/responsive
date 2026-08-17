@@ -53,6 +53,9 @@ if ( ! class_exists( 'Responsive_Theme_Background_Updater' ) ) {
             '6.4.1' => array (
                 'responsive_theme_background_updater_blog_container_margin_legacy'
             ),
+            '6.4.3' => array (
+                'responsive_color_palette_updater_6_4_3'
+            )
 		);
 
         /**

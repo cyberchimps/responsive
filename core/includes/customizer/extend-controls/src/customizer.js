@@ -452,7 +452,7 @@
 				const palette = newval.palette;
 
 				// Define the correct order of palette keys to ensure proper mapping to CSS variables
-				const paletteKeyOrder = ['accent', 'link_hover', 'text', 'header_text', 'content_background', 'site_background', 'alt_background'];
+				const paletteKeyOrder = [ 'palette_1', 'palette_2', 'palette_3', 'palette_4', 'palette_5', 'palette_6', 'palette_7', 'palette_8', 'palette_9' ];
 				
 				let cssVars = {};
 
@@ -531,14 +531,15 @@
 		// Individual listeners for global color palette settings to update correct CSS variables
 		// Mapping: setting ID -> CSS variable index
 		const globalPaletteMapping = {
-			'responsive_global_color_palette_accent_color': 0,
-			'responsive_global_color_palette_link_hover_color': 1,
-			'responsive_global_color_palette_text_color': 2,
-			'responsive_global_color_palette_headings_color': 3,
-			'responsive_global_color_palette_content_bg_color': 4,
-			'responsive_global_color_palette_site_background_color': 5,
-			'responsive_global_color_palette_alt_background_color': 6,
-			'responsive_global_color_palette_subtle_background_color': 7
+			'responsive_global_color_palette_1': 0,
+			'responsive_global_color_palette_2': 1,
+			'responsive_global_color_palette_3': 2,
+			'responsive_global_color_palette_4': 3,
+			'responsive_global_color_palette_5': 4,
+			'responsive_global_color_palette_6': 5,
+			'responsive_global_color_palette_7': 6,
+			'responsive_global_color_palette_8': 7,
+			'responsive_global_color_palette_9': 8
 		};
 
 		Object.entries(globalPaletteMapping).forEach(function([settingId, index]) {
