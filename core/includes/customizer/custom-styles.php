@@ -8402,9 +8402,13 @@ function responsive_customizer_styles() {
 		.blog .hentry .entry-title, .archive .hentry .entry-title {
 			font-size: {$blog_post_title_size}px;
 		}
-		.blog .hentry .post-meta span, .blog .hentry .post-meta span.entry-date .posted time, .archive .hentry .post-meta span, .archive .hentry .post-meta span.entry-date .posted time {
+		
+		.blog .hentry .post-meta span, .blog .hentry .post-meta span.entry-date .posted time, 
+		.archive .hentry .post-meta span, .archive .hentry .post-meta span.entry-date .posted time,
+		.blog .container .hentry .post-entry .post-meta .entry-author .author a span {
 			font-size: {$blog_meta_font_size}px;
 		}
+		
 		.blog .hentry .post-entry .entry-category .posted-in a, .archive .hentry .post-entry .entry-category .posted-in a {
 			font-size: {$blog_taxonomy_font_size}px;
 		}";
