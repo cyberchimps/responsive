@@ -73,6 +73,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_footer_bar_padding',
 				$design_tab_ids_prefix . 'responsive_footer_typography_group',
 				$design_tab_ids_prefix . 'responsive_footer_copyright_typography_group',
+				$design_tab_ids_prefix . 'responsive_footer_margin_padding',
 			);
 
 		$general_tab_ids_prefix = 'customize-control-';
