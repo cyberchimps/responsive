@@ -1100,37 +1100,8 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		)
 	);
 
-	// Unit settings
-	$wp_customize->add_setting(
-		'responsive_' . $element . '_desktop_unit',
-		array(
-			'transport'         => $transport,
-			'sanitize_callback' => 'sanitize_text_field',
-			'default'           => 'px',
-		)
-	);
-	$wp_customize->add_setting(
-		'responsive_' . $element . '_tablet_unit',
-		array(
-			'transport'         => $transport,
-			'sanitize_callback' => 'sanitize_text_field',
-			'default'           => 'px',
-		)
-	);
-	$wp_customize->add_setting(
-		'responsive_' . $element . '_mobile_unit',
-		array(
-			'transport'         => $transport,
-			'sanitize_callback' => 'sanitize_text_field',
-			'default'           => 'px',
-		)
-	);
-	if ( ! class_exists( 'Responsive_Customizer_Unit_Dimensions_Control' ) ) {
-		require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/unit-dimensions/class-responsive-customizer-unit-dimensions-control.php';
-	}
-
 	$wp_customize->add_control(
-		new Responsive_Customizer_Unit_Dimensions_Control(
+		new Responsive_Customizer_Dimensions_Control(
 			$wp_customize,
 			'responsive_' . $element . '_padding',
 			array(
@@ -1149,9 +1120,6 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 					'mobile_right'   => 'responsive_' . $element . '_mobile_right_padding',
 					'mobile_bottom'  => 'responsive_' . $element . '_mobile_bottom_padding',
 					'mobile_left'    => 'responsive_' . $element . '_mobile_left_padding',
-					'desktop_unit'   => 'responsive_' . $element . '_desktop_unit',
-					'tablet_unit'    => 'responsive_' . $element . '_tablet_unit',
-					'mobile_unit'    => 'responsive_' . $element . '_mobile_unit',
 				),
 				'priority'        => $priority,
 				'active_callback' => $active_call,
@@ -1346,7 +1314,7 @@ function responsive_unit_padding_control( $wp_customize, $element, $section, $pr
  * @param  string  $label [description].
  * @return void
  */
-function responsive_borderwidth_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Padding (px)', $transport = 'postMessage', $unit_choices = array( 'px', 'em' ) ) {
+function responsive_borderwidth_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Padding (px)', $transport = 'postMessage' ) {
 	/**
 	 *  Padding control.
 	 */
@@ -1449,37 +1417,8 @@ function responsive_borderwidth_control( $wp_customize, $element, $section, $pri
 		)
 	);
 
-	// Unit settings
-	$wp_customize->add_setting(
-		'responsive_' . $element . '_desktop_unit',
-		array(
-			'transport'         => $transport,
-			'sanitize_callback' => 'sanitize_text_field',
-			'default'           => 'px',
-		)
-	);
-	$wp_customize->add_setting(
-		'responsive_' . $element . '_tablet_unit',
-		array(
-			'transport'         => $transport,
-			'sanitize_callback' => 'sanitize_text_field',
-			'default'           => 'px',
-		)
-	);
-	$wp_customize->add_setting(
-		'responsive_' . $element . '_mobile_unit',
-		array(
-			'transport'         => $transport,
-			'sanitize_callback' => 'sanitize_text_field',
-			'default'           => 'px',
-		)
-	);
-	if ( ! class_exists( 'Responsive_Customizer_Unit_Dimensions_Control' ) ) {
-		require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/unit-dimensions/class-responsive-customizer-unit-dimensions-control.php';
-	}
-
 	$wp_customize->add_control(
-		new Responsive_Customizer_Unit_Dimensions_Control(
+		new Responsive_Customizer_Dimensions_Control(
 			$wp_customize,
 			'responsive_' . $element . '_border',
 			array(
@@ -1498,12 +1437,8 @@ function responsive_borderwidth_control( $wp_customize, $element, $section, $pri
 					'mobile_right'   => 'responsive_' . $element . '_mobile_right_border',
 					'mobile_bottom'  => 'responsive_' . $element . '_mobile_bottom_border',
 					'mobile_left'    => 'responsive_' . $element . '_mobile_left_border',
-					'desktop_unit'   => 'responsive_' . $element . '_desktop_unit',
-					'tablet_unit'    => 'responsive_' . $element . '_tablet_unit',
-					'mobile_unit'    => 'responsive_' . $element . '_mobile_unit',
 				),
 				'priority'        => $priority,
-				'unit_choices'    => $unit_choices,
 				'active_callback' => $active_call,
 				'input_attrs'     => array(
 					'min'  => 0,
@@ -2843,37 +2778,8 @@ function responsive_radius_control( $wp_customize, $element, $section, $priority
 		)
 	);
 
-	// Unit settings
-	$wp_customize->add_setting(
-		'responsive_' . $element . '_desktop_unit',
-		array(
-			'transport'         => $transport,
-			'sanitize_callback' => 'sanitize_text_field',
-			'default'           => 'px',
-		)
-	);
-	$wp_customize->add_setting(
-		'responsive_' . $element . '_tablet_unit',
-		array(
-			'transport'         => $transport,
-			'sanitize_callback' => 'sanitize_text_field',
-			'default'           => 'px',
-		)
-	);
-	$wp_customize->add_setting(
-		'responsive_' . $element . '_mobile_unit',
-		array(
-			'transport'         => $transport,
-			'sanitize_callback' => 'sanitize_text_field',
-			'default'           => 'px',
-		)
-	);
-	if ( ! class_exists( 'Responsive_Customizer_Unit_Dimensions_Control' ) ) {
-		require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/unit-dimensions/class-responsive-customizer-unit-dimensions-control.php';
-	}
-
 	$wp_customize->add_control(
-		new Responsive_Customizer_Unit_Dimensions_Control(
+		new Responsive_Customizer_Dimensions_Control(
 			$wp_customize,
 			'responsive_border_' . $element,
 			array(
@@ -2892,9 +2798,6 @@ function responsive_radius_control( $wp_customize, $element, $section, $priority
 					'mobile_right'   => 'responsive_' . $element . '_mobile_top_right_radius',
 					'mobile_bottom'  => 'responsive_' . $element . '_mobile_bottom_right_radius',
 					'mobile_left'    => 'responsive_' . $element . '_mobile_bottom_left_radius',
-					'desktop_unit'   => 'responsive_' . $element . '_desktop_unit',
-					'tablet_unit'    => 'responsive_' . $element . '_tablet_unit',
-					'mobile_unit'    => 'responsive_' . $element . '_mobile_unit',
 				),
 				'priority'        => $priority,
 				'active_callback' => $active_call,
