@@ -81,7 +81,7 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 
 			// Buttons Padding.
 			$buttons_padding_label = __( 'Padding', 'responsive' );
-			responsive_padding_control( $wp_customize, 'buttons', 'responsive_button', 240, 10, 10, null, $buttons_padding_label );
+			responsive_unit_padding_control( $wp_customize, 'buttons', 'responsive_button', 240, 10, 10, null, $buttons_padding_label );
 
 			// Separator.
 			responsive_horizontal_separator_control( $wp_customize, 'button_shadow_separator', 1, 'responsive_button', 245, 1 );
