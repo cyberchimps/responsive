@@ -101,6 +101,18 @@ if( ! class_exists( 'Responsive_HFB_Footer_Primary_Row' ) ) {
 			);
 			responsive_select_button_with_switchers_control( $wp_customize, 'footer_primary_vertical_alignment', $vertical_alignment_label, 'responsive_footer_primary_row', 70, $vertical_alignment_choices, 'center', null, 'refresh' );
 
+			// Visibility
+			responsive_horizontal_separator_control($wp_customize, 'footer_primary_visibility_separator', 1, 'responsive_footer_primary_row', 75, 1, );
+
+            // Style.
+			$footer_primary_row_visiblity_label   = esc_html__( 'Visibility', 'responsive' );
+			$footer_primary_row_visiblity_choices = array(
+				'desktop'   => esc_html__( 'dashicons-desktop', 'responsive' ),
+				'tablet'    => esc_html__( 'dashicons-tablet', 'responsive' ),
+				'mobile'    => esc_html__( 'dashicons-smartphone', 'responsive' ),
+			);
+			responsive_multi_select_button_control( $wp_customize, 'footer_primary_visibility', $footer_primary_row_visiblity_label, 'responsive_footer_primary_row', 76, $footer_primary_row_visiblity_choices, array( 'desktop', 'tablet', 'mobile' ) , null );
+
             
             // Background Color.
 			$footer_primary_row_color_label = __( 'Background Color', 'responsive' );
@@ -164,6 +176,8 @@ if( ! class_exists( 'Responsive_HFB_Footer_Primary_Row' ) ) {
                 $tab_ids_prefix . 'responsive_footer_primary_separator_3',
                 $tab_ids_prefix . 'responsive_footer_primary_separator_5',
                 $tab_ids_prefix . 'responsive_footer_primary_layout',
+				$tab_ids_prefix . 'responsive_footer_primary_visibility_separator',
+				$tab_ids_prefix . 'responsive_footer_primary_visibility',
 			);
 			responsive_tabs_button_control( $wp_customize, 'footer_primary_row_tabs', $tabs_label, 'responsive_footer_primary_row', 5, '', 'responsive_footer_primary_row_general_tab', 'responsive_footer_primary_row_design_tab', $general_tab_ids, $design_tab_ids, null );
         }

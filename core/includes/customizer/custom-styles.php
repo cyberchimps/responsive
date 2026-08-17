@@ -5859,6 +5859,29 @@ function responsive_customizer_styles() {
 	$above_footer_top_border_color     = esc_html( responsive_prepare_css_value( 'responsive_footer_above_row_border_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_above_row_border_color' ) ) );
 	$above_footer_top_border_color_tablet = get_theme_mod( 'responsive_footer_above_row_border_color_tablet', $above_footer_top_border_color );
 	$above_footer_top_border_color_mobile = get_theme_mod( 'responsive_footer_above_row_border_color_mobile', $above_footer_top_border_color );
+	$above_footer_visibility = get_theme_mod( 'responsive_footer_above_visibility', array( 'desktop', 'tablet', 'mobile' ) );
+	if( ! in_array( 'desktop', $above_footer_visibility ) ) {
+		$custom_css .= "@media screen and ( min-width: 993px ) {
+			.rspv-site-above-footer-wrap {
+				display: none;
+			}
+		}";
+	}
+	if( ! in_array( 'tablet', $above_footer_visibility ) ) {
+		$custom_css .= "@media screen and ( min-width: 577px ) and ( max-width: 992px ) {
+			.rspv-site-above-footer-wrap {
+					display: none;
+			}
+		}";
+	}
+	if( ! in_array( 'mobile', $above_footer_visibility ) ) {
+		$custom_css .= "@media screen and ( max-width: 576px ) {
+			.rspv-site-above-footer-wrap {
+					display: none;
+			}
+		}";
+	}
+
 
 	$custom_css .= "
 		.rspv-site-above-footer-inner-wrap {
@@ -5962,6 +5985,28 @@ function responsive_customizer_styles() {
 	$primary_footer_top_border_color            = esc_html( responsive_prepare_css_value( 'responsive_footer_primary_row_border_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_primary_row_border_color' ) ) );
 	$primary_footer_top_border_color_tablet     = get_theme_mod( 'responsive_footer_primary_row_border_color_tablet', $primary_footer_top_border_color );
 	$primary_footer_top_border_color_mobile     = get_theme_mod( 'responsive_footer_primary_row_border_color_mobile', $primary_footer_top_border_color );
+	$primary_footer_visibility 					= get_theme_mod( 'responsive_footer_primary_visibility', array( 'desktop', 'tablet', 'mobile' ) );
+	if( ! in_array( 'desktop', $primary_footer_visibility ) ) {
+		$custom_css .= "@media screen and ( min-width: 993px ) {
+			.rspv-site-primary-footer-wrap {
+				display: none;
+			}
+		}";
+	} 
+	if( ! in_array( 'tablet', $primary_footer_visibility ) ) {
+		$custom_css .= "@media screen and ( min-width: 577px ) and ( max-width: 992px ) {
+			.rspv-site-primary-footer-wrap {
+					display: none;
+			}
+		}";
+	} 
+	if( ! in_array( 'mobile', $primary_footer_visibility ) ) {
+		$custom_css .= "@media screen and ( max-width: 576px ) {
+			.rspv-site-primary-footer-wrap {
+					display: none;
+			}
+		}";
+	} 
 
 	$custom_css .= "
 		.rspv-site-primary-footer-inner-wrap {
@@ -6055,7 +6100,28 @@ function responsive_customizer_styles() {
 	$below_footer_top_border_color     = esc_html( responsive_prepare_css_value( 'responsive_footer_below_row_border_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_below_row_border_color' ) ) );
 	$below_footer_top_border_color_tablet = get_theme_mod( 'responsive_footer_below_row_border_color_tablet', $below_footer_top_border_color );
 	$below_footer_top_border_color_mobile = get_theme_mod( 'responsive_footer_below_row_border_color_mobile', $below_footer_top_border_color );
-	
+	$below_footer_visibility 					= get_theme_mod( 'responsive_footer_below_visibility', array( 'desktop', 'tablet', 'mobile' ) );
+	if( ! in_array( 'desktop', $below_footer_visibility ) ) {
+		$custom_css .= "@media screen and ( min-width: 993px ) {
+			.rspv-site-below-footer-wrap {
+				display: none;
+			}
+		}";
+	} 
+	if( ! in_array( 'tablet', $below_footer_visibility ) ) {
+		$custom_css .= "@media screen and ( min-width: 577px ) and ( max-width: 992px ) {
+			.rspv-site-below-footer-wrap {
+					display: none;
+			}
+		}";
+	} 
+	if( ! in_array( 'mobile', $below_footer_visibility ) ) {
+		$custom_css .= "@media screen and ( max-width: 576px ) {
+			.rspv-site-below-footer-wrap {
+					display: none;
+			}
+		}";
+	} 
 
 	$custom_css .= "
 		.rspv-site-below-footer-inner-wrap {

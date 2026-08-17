@@ -101,7 +101,18 @@ if( ! class_exists( 'Responsive_HFB_Footer_Below_Row' ) ) {
 			);
 			responsive_select_button_with_switchers_control( $wp_customize, 'footer_below_vertical_alignment', $vertical_alignment_label, 'responsive_footer_below_row', 70, $vertical_alignment_choices, 'flex-start', null, 'refresh' );
 
-            
+        	// Visibility
+			responsive_horizontal_separator_control($wp_customize, 'footer_below_visibility_separator', 1, 'responsive_footer_below_row', 75, 1, );
+
+            // Style.
+			$footer_below_row_visiblity_label   = esc_html__( 'Visibility', 'responsive' );
+			$footer_below_row_visiblity_choices = array(
+				'desktop'   => esc_html__( 'dashicons-desktop', 'responsive' ),
+				'tablet'    => esc_html__( 'dashicons-tablet', 'responsive' ),
+				'mobile'    => esc_html__( 'dashicons-smartphone', 'responsive' ),
+			);
+			responsive_multi_select_button_control( $wp_customize, 'footer_below_visibility', $footer_below_row_visiblity_label, 'responsive_footer_below_row', 76, $footer_below_row_visiblity_choices, array( 'desktop', 'tablet', 'mobile' ) , null );
+
             // Background Color.
 			$footer_below_row_color_label = __( 'Background Color', 'responsive' );
 			responsive_color_control_with_device_switchers( $wp_customize, 'footer_below_row_bg', $footer_below_row_color_label, 'responsive_footer_below_row', 80, Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_below_row_bg_color' ), null, '' );
@@ -165,6 +176,8 @@ if( ! class_exists( 'Responsive_HFB_Footer_Below_Row' ) ) {
                 $tab_ids_prefix . 'responsive_footer_below_separator_3',
                 $tab_ids_prefix . 'responsive_footer_below_separator_5',
                 $tab_ids_prefix . 'responsive_footer_below_layout',
+				$tab_ids_prefix . 'responsive_footer_below_visibility_separator',
+				$tab_ids_prefix . 'responsive_footer_below_visibility',
 			);
 			responsive_tabs_button_control( $wp_customize, 'footer_below_row_tabs', $tabs_label, 'responsive_footer_below_row', 5, '', 'responsive_footer_below_row_general_tab', 'responsive_footer_below_row_design_tab', $general_tab_ids, $design_tab_ids, null );
         }
