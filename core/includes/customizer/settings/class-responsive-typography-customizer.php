@@ -194,7 +194,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 98,
 					'exclude'  => array( 'font-color','font-size' ),
 					'defaults' => array(
-						'font-size'   => '13px',
 						'line-height' => '1.5',
 					),
 				),
@@ -688,7 +687,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'mobile_header_contact_info' => '.site-mobile-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list  .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-title, .site-mobile-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text',
 				'header_off_canvas_menu'     => '.responsive-off-canvas-menu-container .responsive-off-canvas-menu-wrapper .responsive-off-canvas-menu-inner-wrapper .responsive-off-canvas-menu .responsive-off-canvas-menu-items .responsive-off-canvas-menu-item a, .off-canvas-widget-area #off-canvas-menu li a, #off-canvas-site-navigation .menu li a',
 				'item_category'              => '.blog .hentry .entry-meta .entry-category a, .archive .hentry .entry-meta .entry-category a', 
-				'item_meta'             	 => '.blog .hentry .post-entry .post-meta .entry-author .author a span, .blog .hentry .post-meta .entry-date time, .archive .hentry .post-meta .entry-author .author a span, .archive .hentry .post-meta .entry-date time', 
+				'item_meta'             	 => '.blog .container .hentry .post-entry .post-meta .entry-author .author a span, .blog .hentry .post-meta .entry-date time, .archive .hentry .post-meta .entry-author .author a span, .archive .hentry .post-meta .entry-date time', 
 				'single_blog_breadcrumb'     => '.single.single-post .breadcrumbs',
 				'single_blog_post_text'      => '.single-post .entry-header *:not(.post-meta):not(.post-meta *):not(.post-title), .responsive-blog-single-banner2 .container *:not(.post-meta):not(.post-meta *):not(.post-title)',
 				'single_blog_post_title'     => '.single-post .site-content article .post-entry .post-title, .single-post .responsive-blog-single-banner2 .post-title',

@@ -307,8 +307,8 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
                     'type'            => 'select',
                     'choices'         => array(
                         'main-sidebar' => __( 'Main Sidebar', 'responsive' ),
-                        'sidebar-1'    => __( 'Sidebar 1', 'responsive' ),
-                        'sidebar-2'    => __( 'Sidebar 2', 'responsive' ),
+                        'responsive-custom-sidebar-1'    => __( 'Sidebar 1', 'responsive' ),
+                        'responsive-custom-sidebar-2'    => __( 'Sidebar 2', 'responsive' ),
                     ),
                     'priority'        => 24,
                     'active_callback' => 'responsive_active_page_sidebar_section',
