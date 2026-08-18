@@ -8409,7 +8409,7 @@ function responsive_customizer_styles() {
 			}";
 
 		// Styling for Post Title Size, Meta font size and Taxonomy font size in Blog/Archive 
-		$blog_post_title_size = esc_html( get_theme_mod( 'responsive_blog_post_title_size', 20 ) );
+		$blog_post_title_size = esc_html( get_theme_mod( 'responsive_blog_post_title_size', 30 ) );
 		$blog_meta_font_size   = esc_html( get_theme_mod( 'responsive_blog_meta_font_size', 14 ) );
 		$blog_taxonomy_font_size = esc_html( get_theme_mod( 'responsive_blog_taxonomy_font_size', 14 ) );
 
