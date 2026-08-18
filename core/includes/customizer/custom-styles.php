@@ -8429,8 +8429,8 @@ function responsive_customizer_styles() {
 		}";
 
 		// Styling Blog Category Color.
-		$blog_category_color       = esc_html( get_theme_mod( 'responsive_blog_category_color', 'var(--responsive-global-' . Responsive\Core\get_responsive_customizer_defaults( 'responsive_meta_text_color' ) .')' ) );
-		$blog_category_hover_color = esc_html( get_theme_mod( 'responsive_blog_category_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'blog_category_hover' ) ) );
+		$blog_category_color       = esc_html( responsive_prepare_css_value( 'responsive_blog_category_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_meta_text_color' ) ) );
+		$blog_category_hover_color = esc_html( responsive_prepare_css_value( 'responsive_blog_category_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'blog_category_hover' ) ) );
 
 		$custom_css .= "
 		.search .entry-category a,
@@ -8446,8 +8446,8 @@ function responsive_customizer_styles() {
 			color: {$blog_category_hover_color};
 		}";
 		// Styling Blog Item Meta Color.
-		$blog_item_meta_color       = esc_html( get_theme_mod( 'responsive_blog_item_meta_color', 'var(--responsive-global-' . Responsive\Core\get_responsive_customizer_defaults( 'responsive_meta_text_color' ) .')' ) );
-		$blog_item_meta_hover_color = esc_html( get_theme_mod( 'responsive_blog_item_meta_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'blog_item_meta_hover' ) ) );
+		$blog_item_meta_color       = esc_html( responsive_prepare_css_value( 'responsive_blog_item_meta_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_meta_text_color' ) ) );
+		$blog_item_meta_hover_color = esc_html( responsive_prepare_css_value( 'responsive_blog_item_meta_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'blog_item_meta_hover' ) ) );
 
 		$custom_css .= "
 		.search .hentry .post-meta .entry-author a,
