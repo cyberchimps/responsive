@@ -82,7 +82,7 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 
 			// Post Title Size.
 			$blog_post_title_size_label = esc_html__( 'Post Title Size (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'blog_post_title_size', $blog_post_title_size_label, 'responsive_blog_layout', 79, 20, null, 100, 8, 'refresh', 1 );
+			responsive_drag_number_control( $wp_customize, 'blog_post_title_size', $blog_post_title_size_label, 'responsive_blog_layout', 79, 30, null, 100, 8, 'refresh', 1 );
 
 			// Meta Font Size.
 			$blog_meta_font_size_label = esc_html__( 'Meta Font Size (px)', 'responsive' );

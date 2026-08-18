@@ -1284,6 +1284,11 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						// Sanitize.
 						$val = str_replace( '"', '', $val );
 
+						// If value is Default, skip it to allow inheritance.
+						if ( 'Default' === $val || 'default' === $val ) {
+							continue;
+						}
+
 						// Add px if font size or letter spacing.
 						$px = '';
 						if ( ( 'font-size' === $attribute

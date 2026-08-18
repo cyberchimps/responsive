@@ -4582,7 +4582,8 @@ function responsive_customizer_styles() {
 	}
 
 	// Entry Blog Meta Separator.
-	$blog_entry_meta_separator = esc_html( get_theme_mod( 'responsive_blog_entry_meta_separator_text', '•' ) );
+	$blog_entry_meta_separator = sanitize_text_field( get_theme_mod( 'responsive_blog_entry_meta_separator_text', '•' ) );
+	$blog_entry_meta_separator = str_replace( array( '\\', "'" ), array( '\\\\', "\'" ), $blog_entry_meta_separator );
 	if ( 'none' === strtolower( $blog_entry_meta_separator ) ) {
 		$blog_entry_meta_separator = '';
 	}
@@ -4655,7 +4656,8 @@ function responsive_customizer_styles() {
 	}
 
 	// Entry Blog Meta Separator.
-	$single_blog_entry_meta_separator = esc_html( get_theme_mod( 'responsive_single_blog_meta_separator_text', '•' ) );
+	$single_blog_entry_meta_separator = sanitize_text_field( get_theme_mod( 'responsive_single_blog_meta_separator_text', '•' ) );
+	$single_blog_entry_meta_separator = str_replace( array( '\\', "'" ), array( '\\\\', "\'" ), $single_blog_entry_meta_separator );
 	if ( 'none' === strtolower( $single_blog_entry_meta_separator ) ) {
 		$single_blog_entry_meta_separator = '';
 	}
@@ -8409,7 +8411,7 @@ function responsive_customizer_styles() {
 			}";
 
 		// Styling for Post Title Size, Meta font size and Taxonomy font size in Blog/Archive 
-		$blog_post_title_size = esc_html( get_theme_mod( 'responsive_blog_post_title_size', 20 ) );
+		$blog_post_title_size = esc_html( get_theme_mod( 'responsive_blog_post_title_size', 30 ) );
 		$blog_meta_font_size   = esc_html( get_theme_mod( 'responsive_blog_meta_font_size', 14 ) );
 		$blog_taxonomy_font_size = esc_html( get_theme_mod( 'responsive_blog_taxonomy_font_size', 14 ) );
 
@@ -8429,8 +8431,8 @@ function responsive_customizer_styles() {
 		}";
 
 		// Styling Blog Category Color.
-		$blog_category_color       = esc_html( get_theme_mod( 'responsive_blog_category_color', 'var(--responsive-global-' . Responsive\Core\get_responsive_customizer_defaults( 'responsive_meta_text_color' ) .')' ) );
-		$blog_category_hover_color = esc_html( get_theme_mod( 'responsive_blog_category_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'blog_category_hover' ) ) );
+		$blog_category_color       = esc_html( responsive_prepare_css_value( 'responsive_blog_category_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_meta_text_color' ) ) );
+		$blog_category_hover_color = esc_html( responsive_prepare_css_value( 'responsive_blog_category_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'blog_category_hover' ) ) );
 
 		$custom_css .= "
 		.search .entry-category a,
@@ -8446,8 +8448,8 @@ function responsive_customizer_styles() {
 			color: {$blog_category_hover_color};
 		}";
 		// Styling Blog Item Meta Color.
-		$blog_item_meta_color       = esc_html( get_theme_mod( 'responsive_blog_item_meta_color', 'var(--responsive-global-' . Responsive\Core\get_responsive_customizer_defaults( 'responsive_meta_text_color' ) .')' ) );
-		$blog_item_meta_hover_color = esc_html( get_theme_mod( 'responsive_blog_item_meta_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'blog_item_meta_hover' ) ) );
+		$blog_item_meta_color       = esc_html( responsive_prepare_css_value( 'responsive_blog_item_meta_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_meta_text_color' ) ) );
+		$blog_item_meta_hover_color = esc_html( responsive_prepare_css_value( 'responsive_blog_item_meta_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'blog_item_meta_hover' ) ) );
 
 		$custom_css .= "
 		.search .hentry .post-meta .entry-author a,
@@ -8591,6 +8593,7 @@ function responsive_customizer_styles() {
 
 		switch ( $page_content_vertical ) {
 			case 'enable':
+			case 'default':
 				$page_content_vertical_margin_top    = $page_content_top_bottom_spacing . 'px';
 				$page_content_vertical_margin_bottom = $page_content_top_bottom_spacing . 'px';
 				break;
@@ -8603,7 +8606,6 @@ function responsive_customizer_styles() {
 				$page_content_vertical_margin_bottom = $page_content_top_bottom_spacing . 'px';
 				break;
 			case 'disable':
-			default:
 				$page_content_vertical_margin_top    = '0';
 				$page_content_vertical_margin_bottom = '0';
 				break;
