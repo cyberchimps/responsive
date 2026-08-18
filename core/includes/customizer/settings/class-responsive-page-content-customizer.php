@@ -97,7 +97,8 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 				$general_tab_ids_prefix . 'show_comments',
 				$general_tab_ids_prefix . 'content_vertical_separator',
 				$general_tab_ids_prefix . 'default_sidebar_before_separator',
-                		$general_tab_ids_prefix . 'default_sidebar',
+                $general_tab_ids_prefix . 'default_sidebar',
+				$general_tab_ids_prefix . 'title_area',
 
 			);
 			responsive_tabs_button_control( $wp_customize, 'page_tabs', $tabs_label, 'responsive_page', 5, '', 'responsive_page_content_general_tab', 'responsive_page_content_design_tab', $general_tab_ids, $design_tab_ids, null );
