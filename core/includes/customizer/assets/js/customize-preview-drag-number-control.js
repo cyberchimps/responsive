@@ -1875,5 +1875,37 @@
         });
     });
 
+    api( 'responsive_page_content_top_bottom_spacing', function( value ) {
+        value.bind( function( newval ) {
+            var verticalSetting = api( 'responsive_page_content_vertical' ) ? api( 'responsive_page_content_vertical' ).get() : 'enable';
+            if ( ! verticalSetting || verticalSetting === 'default' ) {
+                verticalSetting = 'enable';
+            }
+            
+            var marginTop = '0px';
+            var marginBottom = '0px';
+            
+            if ( verticalSetting === 'enable' ) {
+                marginTop = newval + 'px';
+                marginBottom = newval + 'px';
+            } else if ( verticalSetting === 'top_only' ) {
+                marginTop = newval + 'px';
+            } else if ( verticalSetting === 'bottom_only' ) {
+                marginBottom = newval + 'px';
+            }
+            
+            var styleId = 'responsive-page-content-top-bottom-spacing-css';
+            jQuery( '#' + styleId ).remove();
+            jQuery( 'head' ).append(
+                '<style id="' + styleId + '">' +
+                '.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) #primary.content-area { ' +
+                'margin-top: ' + marginTop + ' !important; ' +
+                'margin-bottom: ' + marginBottom + ' !important; ' +
+                '}' +
+                '</style>'
+            );
+        } );
+    } );
+
 } )( jQuery );
 

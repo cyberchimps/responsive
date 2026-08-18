@@ -8593,6 +8593,7 @@ function responsive_customizer_styles() {
 
 		switch ( $page_content_vertical ) {
 			case 'enable':
+			case 'default':
 				$page_content_vertical_margin_top    = $page_content_top_bottom_spacing . 'px';
 				$page_content_vertical_margin_bottom = $page_content_top_bottom_spacing . 'px';
 				break;
@@ -8605,7 +8606,6 @@ function responsive_customizer_styles() {
 				$page_content_vertical_margin_bottom = $page_content_top_bottom_spacing . 'px';
 				break;
 			case 'disable':
-			default:
 				$page_content_vertical_margin_top    = '0';
 				$page_content_vertical_margin_bottom = '0';
 				break;

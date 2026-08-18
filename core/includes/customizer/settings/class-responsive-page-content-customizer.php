@@ -449,11 +449,11 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			}
 			responsive_select_button_control( $wp_customize, 'page_content_alignment', $page_content_alignment_label, 'responsive_page', 90, $page_content_alignment_choices, 'left', null );
 
-			responsive_horizontal_separator_control($wp_customize, 'page_content_alignment_separator', 2, 'responsive_page', 91, 1, );
+			responsive_horizontal_separator_control($wp_customize, 'page_content_alignment_separator', 1, 'responsive_page', 91, 1, );
 
 			// Content Top and Bottom Spacing
 			$page_content_top_bottom_spacing_label = esc_html__( 'Content Top and Bottom Spacing (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'page_content_top_bottom_spacing', $page_content_top_bottom_spacing_label, 'responsive_page', 92, 10, null, 4800 );
+			responsive_drag_number_control( $wp_customize, 'page_content_top_bottom_spacing', $page_content_top_bottom_spacing_label, 'responsive_page', 92, 10, null, 4800, 1, 'postMessage' );
 
 			// Typography
 			$typography_label = __( 'Title Font', 'responsive' );
@@ -476,7 +476,7 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 				'bottom_only' => esc_html__( 'Bottom Only', 'responsive' ),
 			);
 			
-			responsive_select_button_control( $wp_customize, 'page_content_vertical', $page_content_vertical_label, 'responsive_page', 98, $page_content_vertical_choices, 'default', null, 'refresh' );
+			responsive_select_button_control( $wp_customize, 'page_content_vertical', $page_content_vertical_label, 'responsive_page', 98, $page_content_vertical_choices, 'enable', null, 'refresh' );
 			
 			responsive_horizontal_separator_control($wp_customize, 'page_content_vertical_separator', 1, 'responsive_page', 99, 1, );
 
