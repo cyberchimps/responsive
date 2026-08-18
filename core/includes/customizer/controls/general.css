@@ -2100,7 +2100,7 @@ ul.control-panel-nav_menus .customize-help-toggle:before {
 #customize-control-responsive_rp_carousel_dots .responsive-toggle-control-wrapper{
 	padding-bottom: 25px;
 }
-#customize-theme-controls .customize-pane-child.open#sub-accordion-section-responsive_blog_layout{
+#customize-theme-controls .customize-pane-child.open#sub-accordion-section-responsive_blog_layout, #customize-theme-controls ul#sub-accordion-section-responsive_page_title_area_layout, #customize-theme-controls ul#sub-accordion-section-responsive_breadcrumb, #customize-theme-controls ul#sub-accordion-section-responsive_page, #customize-theme-controls ul#sub-accordion-section-responsive_single_blog_layout  {
 	height: 100%;
 }
 #sub-accordion-section-responsive_single_blog_layout li .responsive-color-control-wrapper .wp-picker-container,
