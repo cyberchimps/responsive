@@ -614,12 +614,13 @@ function responsive_customizer_styles() {
 		}";
 		if ( $has_single_post_boxed_radius ) {
 			$custom_css .= "
-			.single:not(.single-product) .site-content .hentry {
+			.single:not(.single-product) .site-content .hentry,
+			.single:not(.single-product) .comments-area {
 				border-radius: " . responsive_spacing_css( $single_post_boxed_radius_top_left, $single_post_boxed_radius_top_right, $single_post_boxed_radius_bottom_right, $single_post_boxed_radius_bottom_left, $single_post_boxed_radius_desktop_unit ) . ";
 			}";
 		}
 		$custom_css .= "
-		.single:not(.single-product) .site-content .hentry {
+		.single:not(.single-product) .site-content .hentry,.single:not(.single-product) .comments-area{
 			box-shadow: {$single_post_boxed_shadow_inset_style} {$single_post_boxed_shadow_x}px {$single_post_boxed_shadow_y}px {$single_post_boxed_shadow_blur}px {$single_post_boxed_shadow_spread}px {$single_post_boxed_shadow_color};
 		}
 		@media screen and ( max-width: 992px ) {
@@ -630,12 +631,12 @@ function responsive_customizer_styles() {
 			}";
 		if ( $has_single_post_boxed_radius_tablet ) {
 			$custom_css .= "
-			.single:not(.single-product) .site-content .hentry {
+			.single:not(.single-product) .site-content .hentry, .single:not(.single-product) .comments-area {
 				border-radius: " . responsive_spacing_css( $single_post_boxed_radius_tablet_top_left, $single_post_boxed_radius_tablet_top_right, $single_post_boxed_radius_tablet_bottom_right, $single_post_boxed_radius_tablet_bottom_left, $single_post_boxed_radius_tablet_unit ) . ";
 			}";
 		} elseif ( $has_single_post_boxed_radius ) {
 			$custom_css .= "
-			.single:not(.single-product) .site-content .hentry {
+			.single:not(.single-product) .site-content .hentry, .single:not(.single-product) .comments-area {
 				border-radius: " . responsive_spacing_css( $single_post_boxed_radius_top_left, $single_post_boxed_radius_top_right, $single_post_boxed_radius_bottom_right, $single_post_boxed_radius_bottom_left, $single_post_boxed_radius_desktop_unit ) . ";
 			}";
 		}
@@ -649,12 +650,12 @@ function responsive_customizer_styles() {
 			}";
 		if ( $has_single_post_boxed_radius_mobile ) {
 			$custom_css .= "
-			.single:not(.single-product) .site-content .hentry {
+			.single:not(.single-product) .site-content .hentry, .single:not(.single-product) .comments-area {
 				border-radius: " . responsive_spacing_css( $single_post_boxed_radius_mobile_top_left, $single_post_boxed_radius_mobile_top_right, $single_post_boxed_radius_mobile_bottom_right, $single_post_boxed_radius_mobile_bottom_left, $single_post_boxed_radius_mobile_unit ) . ";
 			}";
 		} elseif ( $has_single_post_boxed_radius ) {
 			$custom_css .= "
-			.single:not(.single-product) .site-content .hentry {
+			.single:not(.single-product) .site-content .hentry, .single:not(.single-product) .comments-area {
 				border-radius: " . responsive_spacing_css( $single_post_boxed_radius_top_left, $single_post_boxed_radius_top_right, $single_post_boxed_radius_bottom_right, $single_post_boxed_radius_bottom_left, $single_post_boxed_radius_desktop_unit ) . ";
 			}";
 		}
@@ -671,26 +672,26 @@ function responsive_customizer_styles() {
 		}";
 	} elseif ( 'content-boxed' === $responsive_single_blog_container_style ) {
 		$custom_css .= "
-		.single:not(.single-product) .site-content .hentry {
+		.single:not(.single-product) .site-content .hentry, .single:not(.single-product) .comments-area {
 			box-shadow: {$single_post_boxed_shadow_inset_style} {$single_post_boxed_shadow_x}px {$single_post_boxed_shadow_y}px {$single_post_boxed_shadow_blur}px {$single_post_boxed_shadow_spread}px {$single_post_boxed_shadow_color};
 		}";
 		if ( $has_single_post_boxed_radius ) {
 			$custom_css .= "
-			.single:not(.single-product) .site-content .hentry {
+			.single:not(.single-product) .site-content .hentry, .single:not(.single-product) .comments-area {
 				border-radius: " . responsive_spacing_css( $single_post_boxed_radius_top_left, $single_post_boxed_radius_top_right, $single_post_boxed_radius_bottom_right, $single_post_boxed_radius_bottom_left, $single_post_boxed_radius_desktop_unit ) . ";
 			}";
 		}
 		if ( $has_single_post_boxed_radius_tablet ) {
 			$custom_css .= "
 			@media screen and ( max-width: 992px ) {
-				.single:not(.single-product) .site-content .hentry {
+				.single:not(.single-product) .site-content .hentry, .single:not(.single-product) .comments-area {
 					border-radius: " . responsive_spacing_css( $single_post_boxed_radius_tablet_top_left, $single_post_boxed_radius_tablet_top_right, $single_post_boxed_radius_tablet_bottom_right, $single_post_boxed_radius_tablet_bottom_left, $single_post_boxed_radius_tablet_unit ) . ";
 				}
 			}";
 		} elseif ( $has_single_post_boxed_radius ) {
 			$custom_css .= "
 			@media screen and ( max-width: 992px ) {
-				.single:not(.single-product) .site-content .hentry {
+				.single:not(.single-product) .site-content .hentry, .single:not(.single-product) .comments-area {
 					border-radius: " . responsive_spacing_css( $single_post_boxed_radius_top_left, $single_post_boxed_radius_top_right, $single_post_boxed_radius_bottom_right, $single_post_boxed_radius_bottom_left, $single_post_boxed_radius_desktop_unit ) . ";
 				}
 			}";
@@ -698,14 +699,14 @@ function responsive_customizer_styles() {
 		if ( $has_single_post_boxed_radius_mobile ) {
 			$custom_css .= "
 			@media screen and ( max-width: 576px ) {
-				.single:not(.single-product) .site-content .hentry {
+				.single:not(.single-product) .site-content .hentry, .single:not(.single-product) .comments-area {
 					border-radius: " . responsive_spacing_css( $single_post_boxed_radius_mobile_top_left, $single_post_boxed_radius_mobile_top_right, $single_post_boxed_radius_mobile_bottom_right, $single_post_boxed_radius_mobile_bottom_left, $single_post_boxed_radius_mobile_unit ) . ";
 				}
 			}";
 		} elseif ( $has_single_post_boxed_radius ) {
 			$custom_css .= "
 			@media screen and ( max-width: 576px ) {
-				.single:not(.single-product) .site-content .hentry {
+				.single:not(.single-product) .site-content .hentry, .single:not(.single-product) .comments-area {
 					border-radius: " . responsive_spacing_css( $single_post_boxed_radius_top_left, $single_post_boxed_radius_top_right, $single_post_boxed_radius_bottom_right, $single_post_boxed_radius_bottom_left, $single_post_boxed_radius_desktop_unit ) . ";
 				}
 			}";
@@ -1751,9 +1752,7 @@ function responsive_customizer_styles() {
 		color:{$link_color} !important;
 		border-color:{$link_color};
 	}
-	a:hover:not(:where(h1, h2, h3, h4, h5, h6) a) {
-    	color: {$link_hover_color};
-	}
+	
 
 	/* Content Link Styles */
 	.link-style-standard .entry-content p a,
@@ -5093,12 +5092,12 @@ function responsive_customizer_styles() {
 	}";
 	$related_single_posts_per_row_count = absint( get_theme_mod( 'responsive_single_blog_related_posts_per_row', 2 ) );
 	$section_background_color           = get_theme_mod( 'responsive_rp_section_bg_color', get_theme_mod( 'responsive_box_background_color', Responsive\Core\get_responsive_customizer_defaults( 'rp_section_bg' ) ) );
-	$section_title_color 				= get_theme_mod( 'responsive_rp_section_title_color', '#333333' );
+	$section_title_color 				= get_theme_mod( 'responsive_rp_section_title_color', Responsive\Core\get_responsive_customizer_defaults('responsive-global-palette3') );
 	$custom_css                        .= "
 	.responsive-single-related-posts-container, .responsive-single-related-posts-container .responsive-related-single-posts-wrapper .responsive-related-single-post {
 		background: {$section_background_color};
 	}
-	.responsive-related-single-posts-title {
+	.single-post .responsive-related-single-posts-title.entry-title{
 		color: {$section_title_color};
 	}
 	.responsive-single-related-posts-container .responsive-related-single-posts-wrapper {
@@ -9981,8 +9980,7 @@ function responsive_customizer_styles() {
 		// Link Color
 		$single_blog_post_title_link_color = responsive_prepare_css_value( 'responsive_single_blog_post_link_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_color' ) );
 		// Link Hover Color
-		$single_blog_post_title_link_hover_color = responsive_prepare_css_value( 'responsive_single_blog_post_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_hover_color' ) );
-		
+		$single_blog_post_title_link_hover_color = responsive_prepare_css_value( 'responsive_single_blog_post_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_hover_color' ) );		
 		$custom_css .= "
 			.responsive-blog-single-banner2 .container *, .single-post .entry-header * {
 				color: {$single_blog_post_title_text_color};
@@ -9994,12 +9992,14 @@ function responsive_customizer_styles() {
 			}
 		";
 		$custom_css .= "
-			.single-post .entry-header a, .single-post .entry-header a *, .responsive-blog-single-banner2 .container a, .responsive-blog-single-banner2 .container a * {
+			.single-post .entry-header a, .single-post .entry-header a *, .responsive-blog-single-banner2 .container a, .responsive-blog-single-banner2 .container a *
+			{
 				color: {$single_blog_post_title_link_color};
 			}
 		";
 		$custom_css .= "
-			.single-post .entry-header a:hover, .single-post .entry-header a:hover *, .responsive-blog-single-banner2 .container a:hover, .responsive-blog-single-banner2 .container a:hover * {
+			.single-post .entry-header a:hover, .single-post .entry-header a:hover *, .responsive-blog-single-banner2 .container a:hover, .responsive-blog-single-banner2 .container a:hover *
+			{
 				color: {$single_blog_post_title_link_hover_color};
 			}
 		";
