@@ -1394,7 +1394,7 @@ function defaults() {
 			'inputs_background'                   => '#ffffff',
 			'inputs_text'                         => '#404040',
 			'inputs_border'                       => '#cccccc',
-			'responsive_title_above_content_bg_color'      => '',
+			'responsive_title_above_content_bg_color'      => '#ffffff',
 			'responsive_title_above_content_overlay_color' => '',
 			'responsive_blog_banner_background_color'       => 'title-above-content-bg-color',
 			'responsive_single_blog_banner_background_color' => 'title-above-content-bg-color',
