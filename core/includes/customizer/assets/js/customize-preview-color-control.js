@@ -9,19 +9,25 @@
     var api = wp.customize;
     
     function setBackground( type ) {
-		if ( type === 'gradient' ) {
-			api( 'responsive_site_background_gradient_color', function( value ) {
-				var gradient = value.get();
-				$('body').addClass( 'custom-background' ).css({
-					'background': gradient,
-					'background-color': '',
-                    'background-position': api('responsive_site_background_img_position').get().replace( '-', ' ' ),
-                    'background-attachment': api('responsive_site_background_image_attachment').get(),
-                    'background-repeat': api('responsive_site_background_image_repeat').get(),
-                    'background-size': api('responsive_site_background_image_size').get(),
-				});
-			});
-		} else {
+
+        //For removing conflict between the individual page title color and global title h1 color
+        jQuery( 'style#responsive-site-background-color' ).remove();
+
+		
+            if ( type === 'gradient' ) {
+                api( 'responsive_site_background_gradient_color', function( value ) {
+                    var gradient = value.get();
+                    $('body').addClass( 'custom-background' );
+                    var css = 'body {' +
+                        'background: ' + gradient + ';' +
+                        'background-position: ' + api('responsive_site_background_img_position').get().replace( '-', ' ' ) + ';' +
+                        'background-attachment: ' + api('responsive_site_background_image_attachment').get() + ';' +
+                        'background-repeat: ' + api('responsive_site_background_image_repeat').get() + ';' +
+                        'background-size: ' + api('responsive_site_background_image_size').get() + ';' +
+                    '}';
+                    jQuery( 'head' ).append( '<style id="responsive-site-background-color">' + css + '</style>' );
+                });
+            }  else {
 			api( 'responsive_site_background_color', function( value ) {
 				var color = value.get();
                 if( color && color.includes('palette') ) {
@@ -571,30 +577,43 @@
                 newval
             );
 
-            $('h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6').not('.woocommerce-products-header .woocommerce-products-header__title.page-title').css('color', newval );
-            
+            var contentHeaderColor = processThemeSettingForCSS('responsive_content_header_heading_color') || 'inherit';
+
+            jQuery( 'style#responsive-all-heading-text-color' ).remove();
+            jQuery( 'head' ).append(
+                '<style id="responsive-all-heading-text-color">' +
+                'h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 { color: ' + newval + '; }' +
+                '.woocommerce-products-header .woocommerce-products-header__title.page-title { color: ' + contentHeaderColor + '; }' +
+                '</style>'
+            );
         } );
     } );
 
     //H1 text Color
     api( 'responsive_h1_text_color', function( value ) {
         value.bind( function( newval ) {
-            $('h1').not('.woocommerce-products-header .woocommerce-products-header__title.page-title').css('color', newval );
+        $( 'style#responsive-h1-text-color' ).remove();
+        $( 'head' ).append(
+                '<style id="responsive-h1-text-color">' +
+                'h1 { color: ' + newval + '; }' +
+                '.woocommerce-products-header .woocommerce-products-header__title.page-title { color: inherit; }' +
+                '</style>'
+            );
         } );
     } );
 
     //H2 text Color
     api('responsive_h2_text_color', function(value) {
-        value.bind(function(newval) {
-            $('h2').each(function() {
-                // Check if the <h2> is not inside an ancestor with the class "widget-area" or "site-title"
-                $isNotWidgetArea = $(this).closest('.widget-area').length === 0;
-                $isNotSiteTitle = $(this).closest('.site-title').length === 0
-                if ( $isNotSiteTitle && $isNotWidgetArea ) {
-                    $(this).css('color', newval);
-                }
-            });
-        });
+        value.bind( function( newval ) {
+            var contentHeaderColor = processThemeSettingForCSS('responsive_content_header_heading_color') || 'inherit';
+            jQuery( 'style#responsive-h1-text-color' ).remove();
+            jQuery( 'head' ).append(
+                '<style id="responsive-h1-text-color">' +
+                'h1 { color: ' + newval + '; }' +
+                '.woocommerce-products-header .woocommerce-products-header__title.page-title { color: ' + contentHeaderColor + '; }' +
+                '</style>'
+            );
+        } );
     });
 
     //H3 text Color
@@ -5308,21 +5327,31 @@
 
     // Page Title Area Title
     api( 'responsive_page_title_area_text_color', function(value) {
-        value.bind(function(newval) {
+         value.bind(function(newval) {
             if( newval && newval.includes('palette') ) {
                     newval = 'var(--responsive-global-' + newval + ')';
             }
-            $('.responsive-single-entry-banner .container *, .page .entry-header *').css('color', newval);
+            jQuery( 'style#responsive-page-title-area-text-color' ).remove();
+            jQuery( 'head' ).append(
+                '<style id="responsive-page-title-area-text-color">' +
+                '.responsive-single-entry-banner .container *, .page .entry-header * { color: ' + newval + '; }' +
+                '</style>'
+            );
         })
     });
 
     // Page Title Area Title Color
     api( 'responsive_page_title_area_title_color', function(value) {
         value.bind(function(newval) {
-             if( newval && newval.includes('palette') ) {
-                    newval = 'var(--responsive-global-' + newval + ')';
-            }
-            $('.responsive-single-entry-banner .container .entry-title, .page .entry-header .entry-title').css('color', newval);
+        if( newval && newval.includes('palette') ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+        }
+        jQuery( 'style#responsive-page-title-area-title-color' ).remove();
+        jQuery( 'head' ).append(
+            '<style id="responsive-page-title-area-title-color">' +
+            '.responsive-single-entry-banner .container .entry-title, .page .entry-header .entry-title { color: ' + newval + '; }' +
+            '</style>'
+        );
         })
     });
 
