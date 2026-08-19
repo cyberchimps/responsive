@@ -54,7 +54,6 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			$design_tab_ids_prefix = 'customize-control-';
 			$design_tab_ids        = array(
 				$design_tab_ids_prefix . 'responsive_page_typography_title_separator',
-				$design_tab_ids_prefix . 'responsive_page_title_typography_group',
 				$design_tab_ids_prefix . 'responsive_page_padding_padding',
 				$design_tab_ids_prefix . 'responsive_page_margin_padding',
 				$design_tab_ids_prefix . 'responsive_page_content_vertical',
@@ -454,12 +453,6 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			// Content Top and Bottom Spacing
 			$page_content_top_bottom_spacing_label = esc_html__( 'Content Top and Bottom Spacing (px)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'page_content_top_bottom_spacing', $page_content_top_bottom_spacing_label, 'responsive_page', 92, 10, null, 4800, 1, 'postMessage' );
-
-			// Typography
-			$typography_label = __( 'Title Font', 'responsive' );
-			responsive_typography_group_control( $wp_customize, 'page_title_typography_group', $typography_label, 'responsive_page', 93, 'page_title_typography' );
-
-			responsive_horizontal_separator_control($wp_customize, 'page_title_typography_group_separator', 1, 'responsive_page', 94, 1, );
 
 			responsive_unit_padding_control( $wp_customize, 'page_padding', 'responsive_page', 95, 30, 30, null, __( 'Padding', 'responsive' ), 'postMessage', 30, 30, 30, 30, 'px' );
 

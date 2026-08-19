@@ -3210,3 +3210,57 @@ function responsive_custom_comment_reply_link( $link, $args, $comment, $post ) {
 	}
 	return $link;
 }
+
+/* Added for backward compatibility for Title Font removal from Page->Design( as Title font is already there in new Page Title area ) */
+if ( ! function_exists( 'responsive_theme_background_updater_page_title_typography_6_4_3' ) ) {
+	/**
+	 * Handle backward compatibility for the removed Page > Design "Title Font" control.
+	 *
+	 * Migrates old page_title_typography theme mod values to the new
+	 * page_title_area_title_typography control now living under
+	 * Page Title Area > Design, since the old control has been removed.
+	 *
+	 * @since 6.4.3
+	 * @return void
+	 */
+	function responsive_theme_background_updater_page_title_typography_6_4_3() {
+		$responsive_options = Responsive\Core\responsive_get_options();
+
+		if ( ! isset( $responsive_options['page_title_typography_backward_done'] ) ) {
+
+			// Typography group (desktop/tablet/mobile).
+			$theme_mod_mapping = array(
+				'page_title_typography'                       => 'page_title_area_title_typography',
+				'page_title_tablet_typography'                => 'page_title_area_title_tablet_typography',
+				'page_title_mobile_typography'                => 'page_title_area_title_mobile_typography',
+				'page_title_typography_font_size_value'        => 'page_title_area_title_typography_font_size_value',
+				'page_title_tablet_typography_font_size_value' => 'page_title_area_title_tablet_typography_font_size_value',
+				'page_title_mobile_typography_font_size_value' => 'page_title_area_title_mobile_typography_font_size_value',
+				'page_title_typography_font_size_unit'         => 'page_title_area_title_typography_font_size_unit',
+				'page_title_tablet_typography_font_size_unit'  => 'page_title_area_title_tablet_typography_font_size_unit',
+				'page_title_mobile_typography_font_size_unit'  => 'page_title_area_title_mobile_typography_font_size_unit',
+			);
+
+			foreach ( $theme_mod_mapping as $old_mod => $new_mod ) {
+				$old_value = get_theme_mod( $old_mod, false );
+				$new_value = get_theme_mod( $new_mod, false );
+
+				if ( false !== $old_value && false === $new_value ) {
+					set_theme_mod( $new_mod, $old_value );
+				}
+			}
+
+			// Color lived on a separate dedicated control, not inside the typography array.
+			$old_typography = get_theme_mod( 'page_title_typography', false );
+			if ( is_array( $old_typography ) && ! empty( $old_typography['color'] ) ) {
+				$new_color = get_theme_mod( 'responsive_page_title_area_title_color', false );
+				if ( false === $new_color ) {
+					set_theme_mod( 'responsive_page_title_area_title_color', $old_typography['color'] );
+				}
+			}
+
+			$responsive_options['page_title_typography_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
