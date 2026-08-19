@@ -8568,16 +8568,16 @@ function responsive_customizer_styles() {
 		$page_margin_mobile_unit    = esc_html( get_theme_mod( 'responsive_page_margin_mobile_unit', 'px' ) );
 
 		$custom_css .= "
-			.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry {
+			.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #primary {
 				margin: {$page_margin_top}{$page_margin_unit} {$page_margin_right}{$page_margin_unit} {$page_margin_bottom}{$page_margin_unit} {$page_margin_left}{$page_margin_unit};
 			}
 			@media screen and ( min-width: 577px ) and ( max-width: {$mobile_menu_breakpoint}px ) {
-				.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry {
+				.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #primary {
 					margin: {$page_margin_tablet_top}{$page_margin_tablet_unit} {$page_margin_tablet_right}{$page_margin_tablet_unit} {$page_margin_tablet_bottom}{$page_margin_tablet_unit} {$page_margin_tablet_left}{$page_margin_tablet_unit};
 				}
 			}
 			@media screen and ( max-width: 576px ) {
-				.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry {
+				.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #primary {
 					margin: {$page_margin_mobile_top}{$page_margin_mobile_unit} {$page_margin_mobile_right}{$page_margin_mobile_unit} {$page_margin_mobile_bottom}{$page_margin_mobile_unit} {$page_margin_mobile_left}{$page_margin_mobile_unit};
 				}
 			}
