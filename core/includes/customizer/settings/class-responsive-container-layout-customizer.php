@@ -83,13 +83,30 @@ if ( ! class_exists( 'Responsive_Container_Layout_Customizer' ) ) :
 			responsive_horizontal_separator_control( $wp_customize, 'page_container_style_separator', 1, 'responsive_page', 16, 1 );
 
 			// Page Container Style.
-			$page_container_style_label   = esc_html__( 'Container Style', 'responsive' );
-			$page_container_style_choices = array(
-				'default' => esc_html__( 'Default', 'responsive' ),
-				'boxed'   => esc_html__( 'Boxed', 'responsive' ),
-				'flat' => esc_html__( 'Flat', 'responsive' ),
-			);
-			responsive_select_button_control( $wp_customize, 'page_container_style', $page_container_style_label, 'responsive_page', 17, $page_container_style_choices, 'default', null, 'refresh' );
+			$wp_customize->add_setting(
+                'responsive_page_container_style',
+                array(
+                    'default'           => 'default',
+                    'sanitize_callback' => 'sanitize_text_field',
+                )
+            );
+
+            $wp_customize->add_control(
+                'responsive_page_container_style',
+                array(
+                    'label'           => __( 'Container Style', 'responsive' ),
+                    'section'         => 'responsive_page',
+                    'type'            => 'select',
+                    'choices'         => array(
+                        'default' => __( 'Default', 'responsive' ),
+						'boxed' => __( 'Boxed', 'responsive' ),
+                        'content-boxed'    => __( 'Content Boxed', 'responsive' ),
+                        'flat'    => __( 'Flat', 'responsive' ),
+                    ),
+                    'priority'        => 17,
+                    'active_callback' => '',
+                )
+            );
 
 			// Blog/Archive Container Layout.
 			$blog_container_layout_label = esc_html__( 'Container Layout', 'responsive' );

@@ -379,5 +379,45 @@
 			);
 		}
 	);
-
+	// Page > General > Container Style: hide "Page Content Background" (Design tab)
+	// when the resolved style (Page setting, falling back to the global Container
+	// Style when set to "Default") is "flat" — mirrors how the global Container
+	// Style hides "Content Background" globally.
+	function responsivePageResolvedContainerStyle() {
+		var pageStyle = api( 'responsive_page_container_style' ) ? api( 'responsive_page_container_style' ).get() : 'default';
+		if ( 'default' === pageStyle ) {
+			return api( 'responsive_style' ) ? api( 'responsive_style' ).get() : 'boxed';
+		}
+		return pageStyle;
+	}
+	function togglePageContentBackgroundByStyle() {
+		var show = ( 'flat' !== responsivePageResolvedContainerStyle() );
+		var ctrl = api.control( 'responsive_page_content_background_color' );
+		if ( ctrl ) {
+			ctrl.toggle( show );
+		}
+	}
+	api.bind( 'ready', function() {
+		// Slight delay: on initial load the tabs component's own mount effect
+		// also sets inline display styles; run after it settles.
+		setTimeout( togglePageContentBackgroundByStyle, 100 );
+	} );
+	api( 'responsive_page_container_style', function( setting ) {
+		setting.bind( function() {
+			togglePageContentBackgroundByStyle();
+		} );
+	} );
+	api( 'responsive_style', function( setting ) {
+		setting.bind( function() {
+			togglePageContentBackgroundByStyle();
+		} );
+	} );
+ 
+	// The Page section's General/Design tab switcher force-resets every control's
+	// inline display style when you switch tabs. Re-apply our toggle just after it,
+	// once the Design tab (where "Page Content Background" lives) becomes visible again.
+	$( document ).on( 'click', '#responsive_page_content_design_tab', function() {
+		setTimeout( togglePageContentBackgroundByStyle, 50 );
+	} );
+ 
 })( jQuery );

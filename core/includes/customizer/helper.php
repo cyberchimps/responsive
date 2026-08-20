@@ -2297,7 +2297,6 @@ function responsive_active_single_product_sidebar_section() {
 	return ! responsive_is_layout_narrow( get_theme_mod( 'responsive_single_product_container_layout', 'default_container' ) );
 }
 
-
 /**
  * [responsive_not_active_page_sidebar description]
  *
@@ -4975,3 +4974,22 @@ if ( ! function_exists( 'responsive_sidebar_link_style_is_hover_background' ) ) 
 		return 'hover-background' === $link_style;
 	}
 endif;
+
+if ( ! function_exists( 'responsive_show_page_content_background' ) ) {
+	/**
+	 * Determines whether the Page Content Background setting should show.
+	 *
+	 * Resolves the same cascade custom-styles.php uses: if the Page's own
+	 * Container Style is "Default", fall back to the global Container Style
+	 * before deciding.
+	 *
+	 * @return bool true if the resolved Container Style is NOT flat, false otherwise.
+	 */
+	function responsive_show_page_content_background() {
+		$page_setting = get_theme_mod( 'responsive_page_container_style', 'default' );
+		if ( 'default' === $page_setting ) {
+			$page_setting = get_theme_mod( 'responsive_style', 'boxed' );
+		}
+		return 'flat' !== $page_setting;
+	}
+}

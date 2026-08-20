@@ -488,6 +488,8 @@ function responsive_customizer_styles() {
 	}
 	$responsive_page_container_style = ( 'default' === $page_container_style_setting ) ? $global_container_style_key : $page_container_style_setting;
 
+	error_log('responsive_page_container_style=='.$responsive_page_container_style);
+
 	// Individual page's own background color (also used by "flat" below and by body.page further down).
 	$page_site_background_color = esc_html(
 		get_theme_mod(
@@ -8540,7 +8542,6 @@ function responsive_customizer_styles() {
 		$page_padding_mobile_left    = esc_html( get_theme_mod( 'responsive_page_padding_mobile_left_padding', 30 ) );
 		$page_padding_mobile_unit    = esc_html( get_theme_mod( 'responsive_page_padding_mobile_unit', 'px' ) );
 
-		// Don't fight the "flat" container style's own spacing/border-radius.
 		if ( 'flat' !== $responsive_page_container_style ) {
 			$custom_css .= "
 				.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry {
@@ -8596,39 +8597,6 @@ function responsive_customizer_styles() {
 			";
 		}
 
-		// Styling Vertical Content Spacing - Single Page
-		$page_content_top_bottom_spacing = esc_html( get_theme_mod( 'responsive_page_content_top_bottom_spacing', '10' ) );
-		$page_content_vertical            = esc_html( get_theme_mod( 'responsive_page_content_vertical', 'enable' ) );
-
-		$page_content_vertical_margin_top    = '0';
-		$page_content_vertical_margin_bottom = '0';
-
-		switch ( $page_content_vertical ) {
-			case 'enable':
-			case 'default':
-				$page_content_vertical_margin_top    = $page_content_top_bottom_spacing . 'px';
-				$page_content_vertical_margin_bottom = $page_content_top_bottom_spacing . 'px';
-				break;
-			case 'top_only':
-				$page_content_vertical_margin_top    = $page_content_top_bottom_spacing . 'px';
-				$page_content_vertical_margin_bottom = '0';
-				break;
-			case 'bottom_only':
-				$page_content_vertical_margin_top    = '0';
-				$page_content_vertical_margin_bottom = $page_content_top_bottom_spacing . 'px';
-				break;
-			case 'disable':
-				$page_content_vertical_margin_top    = '0';
-				$page_content_vertical_margin_bottom = '0';
-				break;
-		}
-
-		$custom_css .= "
-			.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) #primary.content-area {
-				margin-top: {$page_content_vertical_margin_top};
-				margin-bottom: {$page_content_vertical_margin_bottom};
-			}
-		";
 		// Styling Site background - Single Page
 		$page_site_background_color = esc_html(
 		get_theme_mod(
