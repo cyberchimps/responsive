@@ -2075,11 +2075,7 @@ ul.control-panel-nav_menus .customize-help-toggle:before {
 #customize-control-responsive_sidebar_sticky .responsive-toggle-control-wrapper {
     padding-top: 18px;
 }
-#customize-control-responsive_page_content_vertical .customize-control-responsive-selectbtn__button{
-	width: 36%;
-    margin: 5px;
-}
-#customize-control-responsive_page_content_vertical_separator .responsive-horizontal-separator-control-wrapper{
+#customize-control-responsive_page_content_alignment_separator .responsive-horizontal-separator-control-wrapper{
 	padding-bottom: 24px;
 }
 #customize-control-responsive_responsive_disable_author_meta_separator .responsive-horizontal-separator-control-wrapper{
