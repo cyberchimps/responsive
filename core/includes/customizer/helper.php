@@ -4993,3 +4993,41 @@ if ( ! function_exists( 'responsive_show_page_content_background' ) ) {
 		return 'flat' !== $page_setting;
 	}
 }
+
+if ( ! function_exists( 'responsive_show_blog_content_background' ) ) {
+	/**
+	 * Determines whether the Page Content Background setting should show.
+	 *
+	 * Resolves the same cascade custom-styles.php uses: if the Page's own
+	 * Container Style is "Default", fall back to the global Container Style
+	 * before deciding.
+	 *
+	 * @return bool true if the resolved Container Style is NOT flat, false otherwise.
+	 */
+	function responsive_show_blog_content_background() {
+		$blog_setting = get_theme_mod( 'responsive_blog_container_style', 'default' );
+		if ( 'default' === $blog_setting ) {
+			$blog_setting = get_theme_mod( 'responsive_style', 'boxed' );
+		}
+		return 'flat' !== $blog_setting;
+	}
+}
+
+if ( ! function_exists( 'responsive_show_single_blog_content_background' ) ) {
+	/**
+	 * Determines whether the Single blog Content Background setting should show.
+	 *
+	 * Resolves the same cascade custom-styles.php uses: if the Page's own
+	 * Container Style is "Default", fall back to the global Container Style
+	 * before deciding.
+	 *
+	 * @return bool true if the resolved Container Style is NOT flat, false otherwise.
+	 */
+	function responsive_show_single_blog_content_background() {
+		$single_blog_setting = get_theme_mod( 'responsive_single_blog_container_style', 'default' );
+		if ( 'default' === $single_blog_setting ) {
+			$single_blog_setting = get_theme_mod( 'responsive_style', 'boxed' );
+		}
+		return 'flat' !== $single_blog_setting;
+	}
+}

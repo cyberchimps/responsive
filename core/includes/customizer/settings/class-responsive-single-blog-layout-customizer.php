@@ -885,16 +885,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'responsive_single_blog_layout',
 				120,
 				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_content_background_color' ),
-				null,   
-				'',     
-				false,  
-				null,   
-				null,   
-				false,  
-				null,   
-				null,   
-				'color',
-				'refresh'
+				'responsive_show_single_blog_content_background',
 			);
 
 			responsive_horizontal_separator_control( $wp_customize, 'single_post_boxed_separator', 1, 'responsive_single_blog_layout', 121, 1, null );
