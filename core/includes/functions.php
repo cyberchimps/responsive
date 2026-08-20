@@ -1401,6 +1401,8 @@ function defaults() {
 			'responsive_page_title_banner_background_color' => 'title-above-content-bg-color',
 			'responsive_single_blog_featured_image_overlay_color' => 'title-above-content-overlay-color',
 			'responsive_page_featured_image_overlay_color'  => 'title-above-content-overlay-color',
+			'responsive_page_site_background_color' => 'site-background',
+			'responsive_page_content_background_color' => 'box-background',
 			'responsive_link_style'               => 'no-underline',
 			'responsive_link_hover_bg_color'      => 'palette0',
 			'label'                               => '#404040',
@@ -3007,7 +3009,7 @@ if( ! function_exists( 'responsive_prepare_css_value' ) ) {
 
 		$value = trim( $value );
 
-		if ( is_string( $value ) && ( preg_match( '/^palette\d+$/', $value ) || false !== strpos( $value, 'headings-color' ) ) ) {
+		if ( is_string( $value ) && ( preg_match( '/^palette\d+$/', $value ) || false !== strpos( $value, 'headings-color' ) || false !== strpos( $value, 'site-background' ) || false !== strpos( $value, 'box-background' ) ) ) {
 			return 'var(--responsive-global-' . $value . ')';
 		}
 

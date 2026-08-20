@@ -199,7 +199,7 @@ function responsive_customizer_styles() {
 	$box_background_color_type = get_theme_mod( 'responsive_box_background_color_type', 'color' );
 
 	$alt_background_color  = esc_html( responsive_prepare_css_value( 'responsive_alt_background_color' ) );
-	$site_background_color = esc_html( responsive_prepare_css_value( 'responsive_site_background_color' ) );
+	$site_background_color = esc_html( responsive_prepare_css_value( 'responsive_site_background_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_site_background_color' ) ) );
 	$site_background_gradient_color = get_theme_mod( 'responsive_site_background_gradient_color' );
 	$site_background_color_type = get_theme_mod( 'responsive_site_background_color_type', 'color' );
 
@@ -518,7 +518,7 @@ function responsive_customizer_styles() {
 	} elseif ( 'flat' === $responsive_page_container_style ) {
 		$custom_css .= "
 		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry {
-			background-color: {$page_site_background_color};
+			background-color: var(--responsive-global-site-background);
 			border-radius: 0;
 
 		}";
@@ -567,7 +567,7 @@ function responsive_customizer_styles() {
 		$custom_css .= "
 		.blog:not(.custom-home-page-active) .site-content .hentry,
 		.archive:not(.post-type-archive-product) .site-content .hentry {
-			background-color: {$site_background_color};
+			background-color: var(--responsive-global-site-background);
 			border-radius: 0;
 			padding: " . responsive_spacing_css( $blog_outside_container_padding_top, $blog_outside_container_padding_right, $blog_outside_container_padding_bottom, $blog_outside_container_padding_left ) . ";
 
@@ -673,7 +673,7 @@ function responsive_customizer_styles() {
 		$custom_css .= "
 		.single:not(.single-product) .site-content .hentry,
 		.single:not(.single-product) .comments-area {
-			background-color: {$site_background_color};
+			background-color: var(--responsive-global-site-background);
 			border-radius: 0;		
 			padding: " . responsive_spacing_css( $outside_container_padding_top, $outside_container_padding_right, $outside_container_padding_bottom, $outside_container_padding_left) . ";
 
@@ -750,7 +750,7 @@ function responsive_customizer_styles() {
 		$custom_css .= "
 		.woocommerce.archive:not(.single-product) ul.products li.product,
 		.woocommerce-page.archive:not(.single-product) ul.products li.product {
-			background-color: {$site_background_color};
+			background-color: var(--responsive-global-site-background);
 			border-radius: 0;
 			padding: " . responsive_spacing_css( $product_card_outside_container_padding_top, $product_card_outside_container_padding_right, $product_card_outside_container_padding_bottom, $product_card_outside_container_padding_left ) . ";
 		}";
@@ -782,7 +782,7 @@ function responsive_customizer_styles() {
 	} elseif ( 'unboxed' === $responsive_single_product_container_style ) {
 		$custom_css .= "
 		.single-product div.product {
-			background-color: {$site_background_color};
+			background-color: var(--responsive-global-site-background);
 			border-radius: 0;
 			padding: " . responsive_spacing_css( $outside_container_padding_top, $outside_container_padding_right, $outside_container_padding_bottom, $outside_container_padding_left ) . ";
 		}";
@@ -808,6 +808,8 @@ function responsive_customizer_styles() {
 	$custom_css .= '
 		:root {
 			--responsive-scrollbar-width: ' . $scrollbar_width . ';
+			--responsive-global-site-background: ' . esc_attr( responsive_prepare_css_value( 'responsive_site_background_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_site_background_color' ) ) ) . ';
+			--responsive-global-box-background: ' . esc_attr( responsive_prepare_css_value( 'responsive_box_background_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_background_color' ) ) ) . ';
 			--responsive-title-above-content-bg-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_title_above_content_bg_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_title_above_content_bg_color' ) ) ) . ';
 			--responsive-title-above-content-overlay-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_title_above_content_overlay_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_title_above_content_overlay_color' ) ) ) . ';
 		}
@@ -1477,11 +1479,11 @@ function responsive_customizer_styles() {
 			}";
 		} elseif ( 'color' === $site_background_color_type && ! empty( $site_background_color ) ) {
 			// If solid color is active and has a value, use 'background-color'
-			$custom_css .= "body.custom-background {
-				/* Ensure background is reset or not present to avoid conflict */
-				background: ''; /* Explicitly reset */
-				background-color: " . esc_attr( $site_background_color ) . ";
-			}";
+			$custom_css .= "
+			body.custom-background {
+				background-color: var(--responsive-global-site-background);
+			}
+			";
 		}
 	}
 
@@ -8483,9 +8485,9 @@ function responsive_customizer_styles() {
 		// Styling Blog Site Background
 
 		$blog_site_background_color = esc_html(
-			get_theme_mod(
+			responsive_prepare_css_value(
 				'responsive_blog_site_background_color',
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_blog_site_background_color' )
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_site_background_color' )
 			)
 		);
 
@@ -8501,9 +8503,9 @@ function responsive_customizer_styles() {
 		// Styling Blog/Archive Content Background Color.
 
 		$blog_content_background_color = esc_html(
-			get_theme_mod(
+			responsive_prepare_css_value(
 				'responsive_blog_content_background_color',
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_blog_content_background_color' )
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_content_background_color' )
 			)
 		);
 
@@ -8578,23 +8580,21 @@ function responsive_customizer_styles() {
 		$page_margin_mobile_left    = esc_html( get_theme_mod( 'responsive_page_margin_mobile_left_padding', 0 ) );
 		$page_margin_mobile_unit    = esc_html( get_theme_mod( 'responsive_page_margin_mobile_unit', 'px' ) );
 
-		if ( 'flat' !== $responsive_page_container_style ) {
-			$custom_css .= "
-				.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry {
-					margin: {$page_margin_top}{$page_margin_unit} {$page_margin_right}{$page_margin_unit} {$page_margin_bottom}{$page_margin_unit} {$page_margin_left}{$page_margin_unit};
+		$custom_css .= "
+			.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #primary {
+				margin: {$page_margin_top}{$page_margin_unit} {$page_margin_right}{$page_margin_unit} {$page_margin_bottom}{$page_margin_unit} {$page_margin_left}{$page_margin_unit};
+			}
+			@media screen and ( min-width: 577px ) and ( max-width: {$mobile_menu_breakpoint}px ) {
+				.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #primary {
+					margin: {$page_margin_tablet_top}{$page_margin_tablet_unit} {$page_margin_tablet_right}{$page_margin_tablet_unit} {$page_margin_tablet_bottom}{$page_margin_tablet_unit} {$page_margin_tablet_left}{$page_margin_tablet_unit};
 				}
-				@media screen and ( min-width: 577px ) and ( max-width: {$mobile_menu_breakpoint}px ) {
-					.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry {
-						margin: {$page_margin_tablet_top}{$page_margin_tablet_unit} {$page_margin_tablet_right}{$page_margin_tablet_unit} {$page_margin_tablet_bottom}{$page_margin_tablet_unit} {$page_margin_tablet_left}{$page_margin_tablet_unit};
-					}
+			}
+			@media screen and ( max-width: 576px ) {
+				.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #primary {
+					margin: {$page_margin_mobile_top}{$page_margin_mobile_unit} {$page_margin_mobile_right}{$page_margin_mobile_unit} {$page_margin_mobile_bottom}{$page_margin_mobile_unit} {$page_margin_mobile_left}{$page_margin_mobile_unit};
 				}
-				@media screen and ( max-width: 576px ) {
-					.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry {
-						margin: {$page_margin_mobile_top}{$page_margin_mobile_unit} {$page_margin_mobile_right}{$page_margin_mobile_unit} {$page_margin_mobile_bottom}{$page_margin_mobile_unit} {$page_margin_mobile_left}{$page_margin_mobile_unit};
-					}
-				}
-			";
-		}
+			}
+		";
 
 		// Styling Vertical Content Spacing - Single Page
 		$page_content_top_bottom_spacing = esc_html( get_theme_mod( 'responsive_page_content_top_bottom_spacing', '10' ) );
@@ -8631,7 +8631,7 @@ function responsive_customizer_styles() {
 		";
 		// Styling Site background - Single Page
 		$page_site_background_color = esc_html(
-		get_theme_mod(
+		responsive_prepare_css_value(
 				'responsive_page_site_background_color',
 				Responsive\Core\get_responsive_customizer_defaults( 'responsive-global-palette5' )
 			)
@@ -8803,9 +8803,9 @@ function responsive_customizer_styles() {
 
 		// Single Post — Site Background Color.
 		$single_blog_site_background_color = esc_html(
-			get_theme_mod(
+			responsive_prepare_css_value(
 				'responsive_single_blog_site_background_color',
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_site_background_color' )
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_site_background_color' )
 			)
 		);
 
@@ -8818,15 +8818,15 @@ function responsive_customizer_styles() {
 
 		// Single Post — Content Background Color.
 		$single_blog_content_background_color = esc_html(
-			get_theme_mod(
+			responsive_prepare_css_value(
 				'responsive_single_blog_content_background_color',
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_content_background_color' )
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_content_background_color' )
 			)
 		);
 
 		if ( ! empty( $single_blog_content_background_color ) ) {
 			$custom_css .= "
-			.single.single-post .site-content .hentry {
+			.single.single-post .site-content .hentry,.single.single-post .site-content #comments,.single.single-post .site-content #comments .comment-respond {
 				background-color: {$single_blog_content_background_color};
 			}";
 		}
