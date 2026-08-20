@@ -123,7 +123,7 @@ class ResponsiveColorPickerControl extends Component {
 		} = this.state;
 
 		const getColorPreviewValue = (value, wantRawValue = false) => {
-			if ( value && ( value.startsWith('palette') || value.includes('headings-color') || value.startsWith('title-above-content') ) ) {
+			if ( value && ( value.startsWith('palette') || value.includes('headings-color') || value.startsWith('title-above-content') || value.startsWith('site-background')  || value.startsWith('box-background')) ) {
 				const varName = value.startsWith('title-above-content') ? `--responsive-${value}` : `--responsive-global-${value}`;
 				if (wantRawValue) {
 					return getComputedStyle(document.documentElement)

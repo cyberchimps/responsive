@@ -33,9 +33,11 @@
                 if( color && color.includes('palette') ) {
                     color = 'var(--responsive-global-' + color + ')';
                 }
-				$('body').addClass( 'custom-background' );
-				var css = 'body { background: none; background-color: ' + color + '; }';
-				jQuery( 'head' ).append( '<style id="responsive-site-background-color">' + css + '</style>' );
+                document.documentElement.style.setProperty('--responsive-global-site-background', color);
+				$('body').not('.page').not('body.blog, body.archive, body.search-results').not('body.single.single-post').addClass( 'custom-background' ).css({
+					'background': 'none',
+					'background-color': 'var(--responsive-global-site-background)'
+				});
 			});
 		}
 	}
@@ -157,6 +159,7 @@
                 if( color && color.includes('palette') ) {
                     color = 'var(--responsive-global-' + color + ')';
                 }
+                document.documentElement.style.setProperty('--responsive-global-box-background', color);
                 $(
                     '.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,' +
                     '.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,' +
@@ -196,7 +199,7 @@
                     '.woocommerce-page.single-product:not(.responsive-site-style-flat) div.product,' +
                     '.woocommerce.single-product:not(.responsive-site-style-flat) div.product,' + 
                     '.elementor-element.elementor-products-grid ul.products li.product .responsive-shop-summary-wrap'
-                ).css({
+                ).not('.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry').not('.single.single-post .site-content .hentry,.single.single-post .site-content #comments,.single.single-post .site-content #comments .comment-respond').not('.blog:not(.custom-home-page-active) .site-content .hentry, .archive:not(.post-type-archive-product) .site-content .hentry , .search-results .site-content article.hentry').css({
                     'background': 'none',
                     'background-color': color
                 });
@@ -5053,7 +5056,7 @@
     // Blog/Archive Site Background Color
     api( 'responsive_blog_site_background_color', function( value ) {
         value.bind( function( newval ) {
-            if ( newval && newval.includes( 'palette' ) ) {
+            if ( newval && ( newval.includes( 'palette' ) || newval.includes( 'site-background' ) )) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $( 'body.blog, body.archive, body.search-results' ).css( 'background-color', newval );
@@ -5065,6 +5068,9 @@
         value.bind( function( newval ) {
             if ( newval && newval.includes( 'palette' ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
+            }
+            if ( newval && newval.startsWith('box-background') ) {
+                newval = `var(--responsive-global-${newval})`;
             }
             $(
                 '.blog:not(.custom-home-page-active) .site-content .hentry,' +
@@ -5123,12 +5129,23 @@
             if ( newval && newval.includes( 'palette' ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
-            jQuery( 'style#responsive-page-site-background-color' ).remove();
-            jQuery( 'head' ).append(
-                '<style id="responsive-page-site-background-color">' +
-                'body.page { background-color: ' + newval + '; }' +
-                '</style>'
-            );
+            if ( newval && newval.startsWith('site-background') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            $( 'body.page' ).css( 'background-color', newval );
+        } );
+    } );
+
+    // Single Post Site Background Color
+    api( 'responsive_single_blog_site_background_color', function( value ) {
+        value.bind( function( newval ) {
+            if ( newval && newval.includes( 'palette' ) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            if ( newval && newval.startsWith('site-background') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            $( 'body.single-post' ).css( 'background-color', newval );
         } );
     } );
 
@@ -5138,11 +5155,30 @@
             if ( newval && newval.includes( 'palette' ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
+             if ( newval && newval.startsWith('box-background') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $(
                 '.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry'
             ).css( 'background-color', newval );
         } );
     } );
+
+    // Single Post Content Background Color
+    api( 'responsive_single_blog_content_background_color', function( value ) {
+        value.bind( function( newval ) {
+            if ( newval && newval.includes( 'palette' ) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+             if ( newval && newval.startsWith('box-background') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            $(
+                '.single.single-post .site-content .hentry,.single.single-post .site-content #comments, .single.single-post .site-content #comments .comment-respond'
+            ).css( 'background-color', newval );
+        } );
+    } );
+
    // Blog/Archive Blog Layout - Cover background color
     api( 'responsive_blog_cover_background_color', function( value ) {
         value.bind( function( newval ) {

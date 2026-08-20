@@ -2677,7 +2677,7 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
     pageMarginSettings.forEach(function(setting) {
         api(setting, function(value) {
             value.bind(function(newval) {
-                responsive_dynamic_unit_margin('page_margin', '.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry');
+                responsive_dynamic_unit_margin('page_margin', '.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #primary');
             });
         });
     });

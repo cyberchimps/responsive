@@ -824,24 +824,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 
 			// Breadcrumb Color
 			$blog_breadcrumb_color_label = __( 'Breadcrumb Color', 'responsive' );
-			responsive_color_control(
-				$wp_customize,
-				'single_blog_breadcrumb',
-				$blog_breadcrumb_color_label,
-				'responsive_single_blog_layout',
-				113,
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_breadcrumb_color' ),
-				null,   
-				'',     
-				false,  
-				null,   
-				null,   
-				false,  
-				null,   
-				null,   
-				'color',
-				'refresh'
-			);
+			responsive_color_control( $wp_customize, 'single_blog_breadcrumb', $blog_breadcrumb_color_label, 'responsive_single_blog_layout', 113, Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_breadcrumb_color' ), null, '', false, null, null, false, null, null, 'color', 'refresh' );
 
 			// Breadcrumb Font
 			$blog_breadcrumb_typography_label = esc_html__( 'Breadcrumb Font', 'responsive' );
@@ -857,24 +840,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 
 			// Site Background Color.
 			$blog_site_background_color_label = __( 'Single Post Background Color', 'responsive' );
-			responsive_color_control(
-				$wp_customize,
-				'single_blog_site_background',
-				$blog_site_background_color_label,
-				'responsive_single_blog_layout',
-				119,
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_site_background_color' ),
-				null,   
-				'',     
-				false,  
-				null,   
-				null,   
-				false,  
-				null,   
-				null,   
-				'color',
-				'refresh'
-			);
+			responsive_color_control( $wp_customize, 'single_blog_site_background', $blog_site_background_color_label, 'responsive_single_blog_layout', 119, Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_site_background_color' ), null, '', false, null, null, false, null, null, 'color', 'postMessage' );
 
 			// Content Background Color.
 			$blog_content_background_color_label = __( 'Single Post Content Background Color', 'responsive' );
@@ -887,6 +853,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_content_background_color' ),
 				'responsive_show_single_blog_content_background',
 			);
+		
 
 			responsive_horizontal_separator_control( $wp_customize, 'single_post_boxed_separator', 1, 'responsive_single_blog_layout', 121, 1, null );
 
