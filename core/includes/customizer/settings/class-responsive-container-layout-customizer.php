@@ -87,7 +87,7 @@ if ( ! class_exists( 'Responsive_Container_Layout_Customizer' ) ) :
 			$page_container_style_choices = array(
 				'default' => esc_html__( 'Default', 'responsive' ),
 				'boxed'   => esc_html__( 'Boxed', 'responsive' ),
-				'unboxed' => esc_html__( 'Unboxed', 'responsive' ),
+				'flat' => esc_html__( 'Flat', 'responsive' ),
 			);
 			responsive_select_button_control( $wp_customize, 'page_container_style', $page_container_style_label, 'responsive_page', 17, $page_container_style_choices, 'default', null, 'refresh' );
 
@@ -105,7 +105,7 @@ if ( ! class_exists( 'Responsive_Container_Layout_Customizer' ) ) :
 			$blog_container_style_choices = array(
 				'default' => esc_html__( 'Default', 'responsive' ),
 				'boxed'   => esc_html__( 'Boxed', 'responsive' ),
-				'unboxed' => esc_html__( 'Unboxed', 'responsive' ),
+				'flat' => esc_html__( 'Flat', 'responsive' ),
 			);
 			responsive_select_button_control( $wp_customize, 'blog_container_style', $blog_container_style_label, 'responsive_blog_layout', 12, $blog_container_style_choices, 'default', null, 'refresh' );
 
@@ -122,7 +122,7 @@ if ( ! class_exists( 'Responsive_Container_Layout_Customizer' ) ) :
 			$single_blog_container_style_choices = array(
 				'default' => esc_html__( 'Default', 'responsive' ),
 				'boxed'   => esc_html__( 'Boxed', 'responsive' ),
-				'unboxed' => esc_html__( 'Unboxed', 'responsive' ),
+				'flat' => esc_html__( 'Flat', 'responsive' ),
 			);
 			responsive_select_button_control( $wp_customize, 'single_blog_container_style', $single_blog_container_style_label, 'responsive_single_blog_layout', 8, $single_blog_container_style_choices, 'default', null, 'refresh' );
 

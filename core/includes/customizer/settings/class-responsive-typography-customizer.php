@@ -401,18 +401,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'line-height' => '1.75',
 					),
 				),
-				'page_title'                 => array(
-					'label'    => esc_html__( 'Page Title', 'responsive' ),
-					'target'   => $selectorArray['page'],
-					'section'  => 'responsive_page_typography',
-					'exclude'  => array( '' ),
-					'priority' => 10,
-					'defaults' => array(
-						'color'       => '#333333',
-						'font-size'   => '32px',
-						'line-height' => '1.4',
-					),
-				),
 				'footer_copyright' => array(
 					'label'    => esc_html__( 'Typography', 'responsive' ),
 					'target'   => $selectorArray['footer_copyright'],
@@ -617,21 +605,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'section'  => 'responsive_footer_sidebar-widgets-footer-widget-' . $i,
 					'exclude'  => array( 'font-color' ),
 					'priority' => 90,
-				);
-			}
-
-			if ( $this->is_responsive_version_greater() ) {
-				$responsive_theme_typography_settings['page_title'] = array(
-					'label'    => esc_html__( 'Page Title', 'responsive' ),
-					'target'   => $selectorArray['page'],
-					'section'  => 'responsive_page',
-					'exclude'  => array( '' ),
-					'priority' => 10,
-					'defaults' => array(
-						'color'       => '#333333',
-						'font-size'   => '32px',
-						'line-height' => '1.4',
-					),
 				);
 			}
 
