@@ -675,11 +675,6 @@ div.comments-area {
         border-bottom: 1px solid map-get($colors, light-gray);
     }
 
-    .responsive-site-style-flat & {
-        padding: 0 !important;
-        background-color: transparent;
-    }
-
     ol.commentlist {
         margin: 0;
         list-style: none;
