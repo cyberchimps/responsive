@@ -10325,7 +10325,7 @@ function responsive_customizer_styles() {
 			else {
 				$custom_css .= "
 					.responsive-archive-entry-banner {
-						width: ;
+						width: auto;
 					}
 				";
 			}

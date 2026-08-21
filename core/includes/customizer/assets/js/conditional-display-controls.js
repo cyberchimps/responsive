@@ -380,4 +380,32 @@
 		}
 	);
 
+	// Button presets
+	function toggleButtonBackgroundColor( presetVal ) {
+		var showBgColor = !( presetVal && presetVal.indexOf( 'outline' ) === 0 );
+		if ( api.control( 'responsive_button_color' ) ) {
+			api.control( 'responsive_button_color' ).toggle( showBgColor );
+		}
+		if ( api.control( 'responsive_button_background_image' ) ) {
+			api.control( 'responsive_button_background_image' ).toggle( showBgColor );
+		}
+	}
+
+	api.bind( 'ready', function() {
+		if ( api( 'responsive_button_presets' ) ) {
+			toggleButtonBackgroundColor( api( 'responsive_button_presets' ).get() );
+		}
+	} );
+
+	api(
+		'responsive_button_presets',
+		function( $swipe ) {
+			$swipe.bind(
+				function( newval ) {
+					toggleButtonBackgroundColor( newval );
+				}
+			);
+		}
+	);
+
 })( jQuery );

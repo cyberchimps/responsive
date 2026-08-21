@@ -16,18 +16,19 @@
         var mobileUnit  = api.has('responsive_' + control + '_radius_mobile_unit') ? (api('responsive_' + control + '_radius_mobile_unit').get() || 'px') : (api.has('responsive_' + control + '_mobile_unit') ? (api('responsive_' + control + '_mobile_unit').get() || 'px') : 'px');
 
         jQuery('style#responsive-' + control + '-radius').remove();
-        var desktopRadius = 'border-top-left-radius:' + api('responsive_' + control + '_radius_top_left_radius').get() + desktopUnit + '; ' +
-                            'border-top-right-radius:' + api('responsive_' + control + '_radius_top_right_radius').get() + desktopUnit + '; ' +
-                            'border-bottom-left-radius:' + api('responsive_' + control + '_radius_bottom_left_radius').get() + desktopUnit + '; ' +
-                            'border-bottom-right-radius:' + api('responsive_' + control + '_radius_bottom_right_radius').get() + desktopUnit + ';';
-        var tabletRadius  = 'border-top-left-radius:' + api('responsive_' + control + '_radius_tablet_top_left_radius').get() + tabletUnit + '; ' +
-                            'border-top-right-radius:' + api('responsive_' + control + '_radius_tablet_top_right_radius').get() + tabletUnit + '; ' +
-                            'border-bottom-left-radius:' + api('responsive_' + control + '_radius_tablet_bottom_left_radius').get() + tabletUnit + '; ' +
-                            'border-bottom-right-radius:' + api('responsive_' + control + '_radius_tablet_bottom_right_radius').get() + tabletUnit + ';';
-        var mobileRadius  = 'border-top-left-radius:' + api('responsive_' + control + '_radius_mobile_top_left_radius').get() + mobileUnit + '; ' +
-                            'border-top-right-radius:' + api('responsive_' + control + '_radius_mobile_top_right_radius').get() + mobileUnit + '; ' +
-                            'border-bottom-left-radius:' + api('responsive_' + control + '_radius_mobile_bottom_left_radius').get() + mobileUnit + '; ' +
-                            'border-bottom-right-radius:' + api('responsive_' + control + '_radius_mobile_bottom_right_radius').get() + mobileUnit + ';';
+
+        var desktopRadius = 'border-top-left-radius:' + api('responsive_' + control + '_radius_top_left_radius').get() + desktopUnit + ' !important; ' +
+                            'border-top-right-radius:' + api('responsive_' + control + '_radius_top_right_radius').get() + desktopUnit + ' !important; ' +
+                            'border-bottom-left-radius:' + api('responsive_' + control + '_radius_bottom_left_radius').get() + desktopUnit + ' !important; ' +
+                            'border-bottom-right-radius:' + api('responsive_' + control + '_radius_bottom_right_radius').get() + desktopUnit + ' !important;';
+        var tabletRadius  = 'border-top-left-radius:' + api('responsive_' + control + '_radius_tablet_top_left_radius').get() + tabletUnit + ' !important; ' +
+                            'border-top-right-radius:' + api('responsive_' + control + '_radius_tablet_top_right_radius').get() + tabletUnit + ' !important; ' +
+                            'border-bottom-left-radius:' + api('responsive_' + control + '_radius_tablet_bottom_left_radius').get() + tabletUnit + ' !important; ' +
+                            'border-bottom-right-radius:' + api('responsive_' + control + '_radius_tablet_bottom_right_radius').get() + tabletUnit + ' !important;';
+        var mobileRadius  = 'border-top-left-radius:' + api('responsive_' + control + '_radius_mobile_top_left_radius').get() + mobileUnit + ' !important; ' +
+                            'border-top-right-radius:' + api('responsive_' + control + '_radius_mobile_top_right_radius').get() + mobileUnit + ' !important; ' +
+                            'border-bottom-left-radius:' + api('responsive_' + control + '_radius_mobile_bottom_left_radius').get() + mobileUnit + ' !important; ' +
+                            'border-bottom-right-radius:' + api('responsive_' + control + '_radius_mobile_bottom_right_radius').get() + mobileUnit + ' !important;';
 
         jQuery('head').append(
             '<style id="responsive-' + control + '-radius">' +
