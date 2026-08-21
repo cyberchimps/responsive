@@ -1796,7 +1796,7 @@ function responsive_customizer_styles() {
 	if ( $body_typography ) {
 		foreach ( $body_typography as $key => $value ) {
 			if ( 'font-family' === $key ) {
-				$custom_css .= '.has-body-font-family{' . $key . ':' . $value . '; }';
+				$custom_css .= '.has-body-font-family, .main-navigation .menu > li > a{' . $key . ':' . $value . '; }';
 			}
 		}
 	}
