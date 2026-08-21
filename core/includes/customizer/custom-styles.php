@@ -1946,7 +1946,7 @@ function responsive_customizer_styles() {
 	label,
 	div.wpforms-container-full .wpforms-form .wpforms-field-label,
 	.wp-core-ui div.wpforms-container-full .wpforms-form .wpforms-field-label {
-		color:{$label_color} !important;
+		color:{$label_color};
 	}
 	";
 
