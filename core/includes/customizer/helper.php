@@ -119,7 +119,6 @@ if ( ! function_exists( 'responsive_blog_single_elements' ) ) {
 				'title'          => esc_html__( 'Title', 'responsive' ),
 				'featured_image' => esc_html__( 'Featured Image', 'responsive' ),
 				'meta'           => esc_html__( 'Meta', 'responsive' ),
-				'content'        => esc_html__( 'Content', 'responsive' ),
 				'excerpt'        => esc_html__( 'Excerpt', 'responsive' ),
 			)
 		);

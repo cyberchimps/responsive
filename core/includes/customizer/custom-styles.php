@@ -1081,7 +1081,7 @@ function responsive_customizer_styles() {
 	address, blockquote, pre, code, kbd, tt, var {
 		background-color:{$alt_background_color};
 	}
-	p, .entry-content p {
+	p, .entry-content p:not(.single-post .entry-excerpt p) {
 		margin-bottom:{$paragraph_margin_bottom}em;
 	}
 	";
@@ -8679,7 +8679,7 @@ function responsive_customizer_styles() {
 		// Styling Content Background Color - Single Page
 
 		$page_content_background_color = esc_html(
-			get_theme_mod(
+			responsive_prepare_css_value(
 				'responsive_page_content_background_color',
 				Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_content_background_color' )
 			)
@@ -8687,9 +8687,10 @@ function responsive_customizer_styles() {
 
 		if ( ! empty( $page_content_background_color ) && 'flat' !== $responsive_page_container_style ) {
 			$custom_css .= "
-			.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry {
+			.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry, .page .site-content #comments,.page .site-content #comments .comment-respond {
 				background-color: {$page_content_background_color};
-			}";
+			}
+			";
 		}
 
 		
