@@ -892,7 +892,7 @@
     //Labels Text Color
     api( 'responsive_label_color', function( value ) {
         value.bind( function( newval ) {
-            $('label').css('color', newval );
+            $('label, div.wpforms-container-full .wpforms-form .wpforms-field-label, .wp-core-ui div.wpforms-container-full .wpforms-form .wpforms-field-label').css('color', newval );
         } );
     } );
 
