@@ -1796,7 +1796,20 @@ function responsive_customizer_styles() {
 	if ( $body_typography ) {
 		foreach ( $body_typography as $key => $value ) {
 			if ( 'font-family' === $key ) {
-				$custom_css .= '.has-body-font-family, .main-navigation .menu > li > a{' . $key . ':' . $value . '; }';
+				$custom_css .= '.has-body-font-family{' . $key . ':' . $value . '; }';
+			}
+		}
+	}
+	// Header Menu Font — always emitted with an explicit default so .main-navigation a
+	
+	$header_menu_typography = get_theme_mod( 'header_menu_typography', array() );
+	if ( empty( $header_menu_typography['font-family'] ) ) {
+		$header_menu_typography['font-family'] = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif';
+	}
+	if ( $header_menu_typography ) {
+		foreach ( $header_menu_typography as $key => $value ) {
+			if ( '' !== $value ) {
+				$custom_css .= '.main-navigation a{' . $key . ':' . $value . '; }';
 			}
 		}
 	}
@@ -9460,7 +9473,6 @@ function responsive_customizer_styles() {
 	$off_canvas_menu_items_divider_color = esc_html( get_theme_mod( 'responsive_header_off_canvas_menu_item_divider_color_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_off_canvas_menu_item_divider_color_color' ) ) );//get_theme_mod( 'responsive_header_off_canvas_menu_item_divider_color_color');
 	// Get typography settings
 	$off_canvas_menu_typography = get_theme_mod( 'header_off_canvas_menu_typography' );
-	$header_menu_typography = get_theme_mod( 'header_menu_typography' );
 	// Get spacing (padding) settings
 	$off_canvas_menu_spacing_top = get_theme_mod( 'responsive_header_off_canvas_menu_spacing_top_padding', 0 );
 	$off_canvas_menu_spacing_right = get_theme_mod( 'responsive_header_off_canvas_menu_spacing_right_padding', 0 );
