@@ -3017,10 +3017,6 @@ if( ! function_exists( 'responsive_prepare_css_value' ) ) {
 			return 'var(--responsive-title-above-content-bg-color)';
 		}
 
-		if ( 'title-above-content-overlay-color' === $value ) {
-			return 'var(--responsive-title-above-content-overlay-color)';
-		}
-
 		return $value;
 	}
 	/**
