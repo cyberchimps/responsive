@@ -992,11 +992,11 @@ function responsive_customizer_styles() {
 		--wp--style--global--wide-size: {$default_container_max_width}px;
 	}
 	
-	html body.page-template-gutenberg-fullwidth .wp-block-group.wp-block-group.wp-block-group-is-layout-constrained > :where(:not(.alignwide):not(.alignfull)) {
+	html body.page-template-gutenberg-fullwidth:not(.customize-support) .wp-block-group.wp-block-group.wp-block-group-is-layout-constrained > :where(:not(.alignwide):not(.alignfull)) {
 		max-width: 720px;
 	}
 
-	html body.page-template-gutenberg-fullwidth .wp-block-group.wp-block-group.wp-block-group-is-layout-constrained > .alignwide {
+	html body.page-template-gutenberg-fullwidth:not(.customize-support) .wp-block-group.wp-block-group.wp-block-group-is-layout-constrained > .alignwide {
 		max-width: var(--wp--style--global--wide-size);
 	}
 	
@@ -1800,6 +1800,19 @@ function responsive_customizer_styles() {
 			}
 		}
 	}
+	// Header Menu Font — always emitted with an explicit default so .main-navigation a
+	
+	$header_menu_typography = get_theme_mod( 'header_menu_typography', array() );
+	if ( empty( $header_menu_typography['font-family'] ) ) {
+		$header_menu_typography['font-family'] = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif';
+	}
+	if ( $header_menu_typography ) {
+		foreach ( $header_menu_typography as $key => $value ) {
+			if ( '' !== $value ) {
+				$custom_css .= '.main-navigation a{' . $key . ':' . $value . '; }';
+			}
+		}
+	}
 	for ( $i = 1; $i < 7; $i++ ) {
 		if ( get_theme_mod( 'heading_h' . $i . '_typography' ) ) {
 			foreach ( get_theme_mod( 'heading_h' . $i . '_typography' ) as $key => $value ) {
@@ -1933,7 +1946,7 @@ function responsive_customizer_styles() {
 	label,
 	div.wpforms-container-full .wpforms-form .wpforms-field-label,
 	.wp-core-ui div.wpforms-container-full .wpforms-form .wpforms-field-label {
-		color:{$label_color} !important;
+		color:{$label_color};
 	}
 	";
 
@@ -2178,13 +2191,13 @@ function responsive_customizer_styles() {
 	.wp-block-file__button:hover,
 	.read-more-button .hentry .read-more .more-link:hover,
 	.read-more-button .hentry .read-more .more-link:focus,
-	input[type=button]:hover,
+	input[type=button]:hover:not(.customize-partial-edit-shortcut-button),
 	input[type=submit]:hover,
-	input[type=button]:focus,
+	input[type=button]:focus:not(.customize-partial-edit-shortcut-button),
 	input[type=submit]:focus,
-	button:hover,
-	button:focus,
-	.button:hover,
+	button:hover:not(.customize-partial-edit-shortcut-button),
+	button:focus:not(.customize-partial-edit-shortcut-button),
+	.button:hover:not(.customize-partial-edit-shortcut-button),
 	.button:focus,
 	body div.wpforms-container-full .wpforms-form input[type=submit]:hover,
 	body div.wpforms-container-full .wpforms-form input[type=submit]:focus,
@@ -9460,7 +9473,6 @@ function responsive_customizer_styles() {
 	$off_canvas_menu_items_divider_color = esc_html( get_theme_mod( 'responsive_header_off_canvas_menu_item_divider_color_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_off_canvas_menu_item_divider_color_color' ) ) );//get_theme_mod( 'responsive_header_off_canvas_menu_item_divider_color_color');
 	// Get typography settings
 	$off_canvas_menu_typography = get_theme_mod( 'header_off_canvas_menu_typography' );
-	$header_menu_typography = get_theme_mod( 'header_menu_typography' );
 	// Get spacing (padding) settings
 	$off_canvas_menu_spacing_top = get_theme_mod( 'responsive_header_off_canvas_menu_spacing_top_padding', 0 );
 	$off_canvas_menu_spacing_right = get_theme_mod( 'responsive_header_off_canvas_menu_spacing_right_padding', 0 );

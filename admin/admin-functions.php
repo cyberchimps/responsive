@@ -121,12 +121,6 @@ function responsive_enqueue_command_palette_scripts() {
 			'url'         => admin_url( 'customize.php?autofocus[section]=title_tagline' ),
 		),
 		array(
-			'name'        => 'responsive/customizer-general',
-			'label'       => __( 'Customizer: General', 'responsive' ),
-			'searchLabel' => __( 'General, Breadcrumb, Sidebar, Performance, Customizer', 'responsive' ),
-			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_general' ),
-		),
-		array(
 			'name'        => 'responsive/customizer-post-types',
 			'label'       => __( 'Customizer: Post Types', 'responsive' ),
 			'searchLabel' => __( 'Post Types, Post, Page, Blog/Archive, Single Post, Customizer', 'responsive' ),
