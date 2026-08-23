@@ -2705,6 +2705,8 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
             });
         });
     });
+
+    // page margin is actually a Padding which is applied to the <main> tag - it is labelled as Outside Container Padding
     const pageMarginSettings = [
         'responsive_page_margin_top_padding',
         'responsive_page_margin_left_padding',
@@ -2726,7 +2728,7 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
     pageMarginSettings.forEach(function(setting) {
         api(setting, function(value) {
             value.bind(function(newval) {
-                responsive_dynamic_unit_margin('page_margin', '.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #primary');
+                responsive_dynamic_unit_padding('page_margin', '.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #primary');
             });
         });
     });

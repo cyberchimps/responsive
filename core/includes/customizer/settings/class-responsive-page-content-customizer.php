@@ -56,7 +56,6 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_page_typography_title_separator',
 				$design_tab_ids_prefix . 'responsive_page_padding_padding',
 				$design_tab_ids_prefix . 'responsive_page_margin_padding',
-				$design_tab_ids_prefix . 'responsive_page_content_vertical',
 				$design_tab_ids_prefix . 'responsive_page_title_typography_group_separator',
 				$design_tab_ids_prefix . 'responsive_page_margin_separator',
 				$design_tab_ids_prefix . 'responsive_page_site_background_color',
@@ -91,7 +90,6 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 				$general_tab_ids_prefix . 'container_style',
 				$general_tab_ids_prefix . 'container_layout_separator',
 				$general_tab_ids_prefix . 'container_style_separator',
-				$general_tab_ids_prefix . 'content_top_bottom_spacing',
 				$general_tab_ids_prefix . 'content_alignment_separator',
 				$general_tab_ids_prefix . 'show_comments',
 				$general_tab_ids_prefix . 'content_vertical_separator',
@@ -450,34 +448,15 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 
 			responsive_horizontal_separator_control($wp_customize, 'page_content_alignment_separator', 1, 'responsive_page', 91, 1, );
 
-			// Content Top and Bottom Spacing
-			$page_content_top_bottom_spacing_label = esc_html__( 'Content Top and Bottom Spacing (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'page_content_top_bottom_spacing', $page_content_top_bottom_spacing_label, 'responsive_page', 92, 10, null, 4800, 1, 'postMessage' );
+			responsive_unit_padding_control( $wp_customize, 'page_padding', 'responsive_page', 96, 30, 30, null, __( 'Inside Container Padding', 'responsive' ), 'postMessage', 30, 30, 30, 30, 'px' );
 
-			responsive_unit_padding_control( $wp_customize, 'page_padding', 'responsive_page', 95, 30, 30, null, __( 'Padding', 'responsive' ), 'postMessage', 30, 30, 30, 30, 'px' );
-
-			responsive_unit_padding_control( $wp_customize, 'page_margin', 'responsive_page', 96, 0, 0, null, __( 'Margin', 'responsive' ), 'postMessage', 0, 0, 0, 0, 'px' );
+			responsive_unit_padding_control( $wp_customize, 'page_margin', 'responsive_page', 95, 0, 0, null, __( 'Outside Container Padding', 'responsive' ), 'postMessage', 0, 0, 0, 0, 'px' );
 
 			responsive_horizontal_separator_control($wp_customize, 'page_margin_separator', 1, 'responsive_page', 97, 1, );
-
-			// Content Vertical Spacing
-			$page_content_vertical_label   = esc_html__( 'Content Vertical Spacing', 'responsive' );
-			$page_content_vertical_choices = array(
-				'enable' => esc_html__( 'Enable', 'responsive' ),
-				'disable'   => esc_html__( 'Disable', 'responsive' ),
-				'top_only' => esc_html__( 'Top Only', 'responsive' ),
-				'bottom_only' => esc_html__( 'Bottom Only', 'responsive' ),
-			);
-			
-			responsive_select_button_control( $wp_customize, 'page_content_vertical', $page_content_vertical_label, 'responsive_page', 98, $page_content_vertical_choices, 'enable', null, 'refresh' );
-			
-			responsive_horizontal_separator_control($wp_customize, 'page_content_vertical_separator', 1, 'responsive_page', 99, 1, );
 
 			// Show Comments
 			$page_show_comments_label = esc_html__( 'Show Comments', 'responsive' );
 			responsive_toggle_control( $wp_customize, 'page_show_comments', $page_show_comments_label, 'responsive_page', 100, false, null, 'refresh' );
-
-			responsive_horizontal_separator_control($wp_customize, 'page_content_before_background_separator', 1, 'responsive_page', 101, 1, null );
 
 			// Page Site Background Color.
 			$page_site_background_color_label = __( 'Page Background', 'responsive' );
@@ -486,8 +465,6 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			// Page Content Background Color.
 			$page_content_background_color_label = __( 'Page Content Background', 'responsive' );
 			responsive_color_control( $wp_customize, 'page_content_background', $page_content_background_color_label, 'responsive_page', 103, Responsive\Core\get_responsive_customizer_defaults('responsive_page_content_background_color') );
-
-			responsive_horizontal_separator_control($wp_customize, 'page_content_background_separator', 1, 'responsive_page', 104, 1, null );
 
 		}
 
