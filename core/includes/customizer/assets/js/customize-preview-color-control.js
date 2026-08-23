@@ -1328,7 +1328,7 @@
     //Breadcrumb Color
     api( 'responsive_breadcrumb_color', function( value ) {
         value.bind( function( newval ) {
-            $('.site-content-header .breadcrumb-list,.site-content-header .breadcrumb-list a, .woocommerce .woocommerce-breadcrumb,.woocommerce .woocommerce-breadcrumb a').css('color', newval );
+            $('#wrapper .site-content-header .breadcrumbs .breadcrumb-list, #wrapper .site-content-header .breadcrumbs .breadcrumb-list a, #wrapper .site-content-header .breadcrumbs .breadcrumb-list a span, .woocommerce .woocommerce-breadcrumb,.woocommerce .woocommerce-breadcrumb a').css('color', newval );
         } );
     } );
 
