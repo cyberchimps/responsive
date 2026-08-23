@@ -55,7 +55,7 @@ if ( ! class_exists( 'Responsive_Container_Spacing_Customizer' ) ) :
 			responsive_unit_padding_control( $wp_customize, 'single_blog_outside_container', 'responsive_single_blog_layout', 260, 15, 15, 'responsive_not_active_site_style_flat', __( 'Outside Container', 'responsive' ), 'postMessage', 3, 3, 3, 3, 'px' );
 
 			// Single Post Inside Container.
-			responsive_unit_padding_control( $wp_customize, 'single_blog_inside_container', 'responsive_single_blog_layout', 270, 15, 15, 'responsive_not_active_site_style_flat', __( 'Inside Container', 'responsive' ), 'postMessage', 3, 3, 3, 3, 'px' );
+			responsive_unit_padding_control( $wp_customize, 'single_blog_inside_container', 'responsive_single_blog_layout', 270, 30, 30, 'responsive_not_active_site_style_flat', __( 'Inside Container', 'responsive' ), 'postMessage', 30, 30, 30, 30, 'px' );
 
 			$sidebar_spacing_label = esc_html__( 'Spacing', 'responsive' );
 			responsive_separator_control( $wp_customize, 'sidebar_spacing', $sidebar_spacing_label, 'responsive_sidebar', 70 );

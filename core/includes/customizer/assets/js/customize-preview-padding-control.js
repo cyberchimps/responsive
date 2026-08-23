@@ -10,12 +10,39 @@
         if( 0 == api( 'responsive_disable_mobile_menu').get()) {
             mobile_menu_breakpoint = 0;
         }
+        var style = '<style id="responsive-blog-box-padding">';
 
+        var topBlogSelector = '.search.responsive-site-style-boxed article.product .post-entry > .thumbnail:first-child,.search.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,.search.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child,.archive.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,.archive.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child,.blog.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,.blog.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child';
+        var leftRightBlogSelector = '.search.responsive-site-style-boxed .site-content article.product .post-entry .thumbnail,.search.responsive-site-style-content-boxed .hentry .thumbnail,.search.responsive-site-style-boxed .hentry .thumbnail,.archive.responsive-site-style-content-boxed .hentry .thumbnail,.archive.responsive-site-style-boxed .hentry .thumbnail,.blog.responsive-site-style-content-boxed .hentry .thumbnail,.blog.responsive-site-style-boxed .hentry .thumbnail';
+        var blogDesktopTopMargin = 'margin-top: -'+ api('responsive_blog_inside_container_top_padding').get()+'px;';
+        console.log("blog desktop top margin : " , blogDesktopTopMargin);
+        var blogTabletTopMargin = 'margin-top: -'+ api('responsive_blog_inside_container_tablet_top_padding').get()+'px;';
+        var blogMobileTopMargin = 'margin-top: -'+ api('responsive_blog_inside_container_tablet_bottom_padding').get()+'px;';
+        var blogDesktopLeftRightMargin = 'margin-left: -'+ api('responsive_blog_inside_container_left_padding').get()+'px; margin-right: -'+ api('responsive_blog_inside_container_right_padding').get() +'px';
+        var blogTabletLeftRightMargin = 'margin-left: -'+ api('responsive_blog_inside_container_tablet_left_padding').get()+'px; margin-right: -'+ api('responsive_blog_inside_container_tablet_right_padding').get() +'px';
+        var blogMobileLeftRightMargin = 'margin-left: -'+ api('responsive_blog_inside_container_mobile_left_padding').get()+'px; margin-right: -'+ api('responsive_blog_inside_container_mobile_right_padding').get() +'px';
+
+        if('stretched' === api( 'responsive_blog_entry_featured_image_style' ).get()) {
+            style += topBlogSelector + '{ ' + blogDesktopTopMargin + ' }'
+            + leftRightBlogSelector + '{ ' + blogDesktopLeftRightMargin + ' }'
+            + '@media (max-width: ' + mobile_menu_breakpoint +'px) {'
+            + topBlogSelector + '	{ ' + blogTabletTopMargin + ' }' +
+            + leftRightBlogSelector + '{ ' + blogTabletLeftRightMargin + ' }' +
+            ' }'+
+            '@media (max-width: 544px) {'
+            + topBlogSelector + '	{ ' + blogMobileTopMargin + ' }' +
+            + leftRightBlogSelector + '{ ' + blogMobileLeftRightMargin +' }' +
+            ' }';
+        }
+        style += '</style>';
+
+        jQuery( 'style#responsive-blog-box-padding' ).remove();
         jQuery( 'style#responsive-'+control+'-padding' ).remove();
         var desktopPadding = 'padding-top:'+ api('responsive_'+control+'_top_padding').get()+'px; '+'padding-bottom:'+ api('responsive_'+control+'_bottom_padding').get()+'px; '+'padding-left:'+ api('responsive_'+control+'_left_padding').get()+'px; '+'padding-right:'+ api('responsive_'+control+'_right_padding').get()+'px;';
         var tabletPadding = 'padding-top:'+ api('responsive_'+control+'_tablet_top_padding').get()+'px; '+'padding-bottom:'+ api('responsive_'+control+'_tablet_bottom_padding').get()+'px; '+'padding-left:'+ api('responsive_'+control+'_tablet_left_padding').get()+'px; '+'padding-right:'+ api('responsive_'+control+'_tablet_right_padding').get()+'px;';
         var mobilePadding = 'padding-top:'+ api('responsive_'+control+'_mobile_top_padding').get()+'px; '+'padding-bottom:'+ api('responsive_'+control+'_mobile_bottom_padding').get()+'px; '+'padding-left:'+ api('responsive_'+control+'_mobile_left_padding').get()+'px; '+'padding-right:'+ api('responsive_'+control+'_mobile_right_padding').get()+'px;';
         jQuery( 'head' ).append(
+            style +
             '<style id="responsive-'+control+'-padding">'
             + selector + '	{ ' + desktopPadding +' }'
             + '@media (max-width: ' + mobile_menu_breakpoint +'px) {' + selector + '	{ ' + tabletPadding + ' } }'
@@ -145,16 +172,25 @@
         var desktopLeftRightMargin = 'margin-left: -'+ api('responsive_box_left_padding').get()+'px; margin-right: -'+ api('responsive_box_right_padding').get() +'px';
         var tabletLeftRightMargin = 'margin-left: -'+ api('responsive_box_tablet_left_padding').get()+'px; margin-right: -'+ api('responsive_box_tablet_right_padding').get() +'px';
         var mobileLeftRightMargin = 'margin-left: -'+ api('responsive_box_mobile_left_padding').get()+'px; margin-right: -'+ api('responsive_box_mobile_right_padding').get() +'px';
+        
+        var blogDesktopTopMargin = 'margin-top: -'+ api('responsive_blog_inside_container_top_padding').get()+'px;';
+        console.log("blog desktop top margin : " , blogDesktopTopMargin);
+        var blogTabletTopMargin = 'margin-top: -'+ api('responsive_blog_inside_container_tablet_top_padding').get()+'px;';
+        var blogMobileTopMargin = 'margin-top: -'+ api('responsive_blog_inside_container_tablet_bottom_padding').get()+'px;';
+        var blogDesktopLeftRightMargin = 'margin-left: -'+ api('responsive_blog_inside_container_left_padding').get()+'px; margin-right: -'+ api('responsive_blog_inside_container_right_padding').get() +'px';
+        var blogTabletLeftRightMargin = 'margin-left: -'+ api('responsive_blog_inside_container_tablet_left_padding').get()+'px; margin-right: -'+ api('responsive_blog_inside_container_tablet_right_padding').get() +'px';
+        var blogMobileLeftRightMargin = 'margin-left: -'+ api('responsive_blog_inside_container_mobile_left_padding').get()+'px; margin-right: -'+ api('responsive_blog_inside_container_mobile_right_padding').get() +'px';
+
         if('stretched' === api( 'responsive_blog_entry_featured_image_style' ).get()) {
-            style += topBlogSelector + '{ ' + desktopTopMargin + ' }'
-                + leftRightBlogSelector + '{ ' + desktopLeftRightMargin + ' }'
+            style += topBlogSelector + '{ ' + blogDesktopTopMargin + ' }'
+                + leftRightBlogSelector + '{ ' + blogDesktopLeftRightMargin + ' }'
                 + '@media (max-width: ' + mobile_menu_breakpoint +'px) {'
-                + topBlogSelector + '	{ ' + tabletTopMargin + ' }' +
-                + leftRightBlogSelector + '{ ' + tabletLeftRightMargin + ' }' +
+                + topBlogSelector + '	{ ' + blogTabletTopMargin + ' }' +
+                + leftRightBlogSelector + '{ ' + blogTabletLeftRightMargin + ' }' +
                 ' }'+
                 '@media (max-width: 544px) {'
-                + topBlogSelector + '	{ ' + mobileTopMargin + ' }' +
-                + leftRightBlogSelector + '{ ' + mobileLeftRightMargin +' }' +
+                + topBlogSelector + '	{ ' + blogMobileTopMargin + ' }' +
+                + leftRightBlogSelector + '{ ' + blogMobileLeftRightMargin +' }' +
                 ' }';
         }
 
