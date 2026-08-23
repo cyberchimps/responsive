@@ -1749,6 +1749,7 @@
         } );
     } ), api( "header_menu_typography[font-family]", function( $swipe ) {
         $swipe.bind( function( pair ) {
+            pair = sanitizeFontFamily( pair );
             if ( pair ) {
                 /** @type {string} */
                 var fontName = pair.split(",")[0];

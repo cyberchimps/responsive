@@ -92,7 +92,6 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 				$general_tab_ids_prefix . 'container_style_separator',
 				$general_tab_ids_prefix . 'content_alignment_separator',
 				$general_tab_ids_prefix . 'show_comments',
-				$general_tab_ids_prefix . 'content_vertical_separator',
 				$general_tab_ids_prefix . 'default_sidebar_before_separator',
                 $general_tab_ids_prefix . 'default_sidebar',
 				$general_tab_ids_prefix . 'title_area',

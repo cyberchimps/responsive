@@ -652,7 +652,7 @@ function responsive_add_custom_body_classes( $classes ) {
 		$blog_container_style = get_theme_mod( 'responsive_blog_container_style', 'default' );
 		if ( 'default' !== $blog_container_style ) {
 			$classes   = array_diff( $classes, array( 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' ) ) );
-			$classes[] = 'responsive-site-style-' . ( 'unboxed' === $blog_container_style ? 'flat' : 'boxed' );
+			$classes[] = 'responsive-site-style-' . $blog_container_style;
 		}
 	}
 
@@ -3015,10 +3015,6 @@ if( ! function_exists( 'responsive_prepare_css_value' ) ) {
 
 		if ( 'title-above-content-bg-color' === $value ) {
 			return 'var(--responsive-title-above-content-bg-color)';
-		}
-
-		if ( 'title-above-content-overlay-color' === $value ) {
-			return 'var(--responsive-title-above-content-overlay-color)';
 		}
 
 		return $value;

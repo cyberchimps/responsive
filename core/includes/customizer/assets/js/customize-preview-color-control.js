@@ -556,19 +556,6 @@
         } );
     } );
 
-    // Title Above Content Overlay Color
-    api( 'responsive_title_above_content_overlay_color', function( value ) {
-        value.bind( function( newval ) {
-            if( newval && newval.startsWith('palette') ) {
-                newval = `var(--responsive-global-${newval})`;
-            }
-            document.documentElement.style.setProperty(
-                '--responsive-title-above-content-overlay-color',
-                newval
-            );
-        } );
-    } );
-
     //All Heading text Color
     api( 'responsive_all_heading_text_color', function( value ) {
         value.bind( function( newval ) {
@@ -864,7 +851,7 @@
     //Buttons border color
     api( 'responsive_button_border_color', function( value ) {
         value.bind( function( newval ) {
-            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').css('border-color', newval );
+            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button]:not(.customize-partial-edit-shortcut-button),input[type=submit],button:(.customize-partial-edit-shortcut-button),.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').css('border-color', newval );
         } );
     } );
 
@@ -892,7 +879,7 @@
     //Labels Text Color
     api( 'responsive_label_color', function( value ) {
         value.bind( function( newval ) {
-            $('label').css('color', newval );
+            $('label, div.wpforms-container-full .wpforms-form .wpforms-field-label, .wp-core-ui div.wpforms-container-full .wpforms-form .wpforms-field-label').css('color', newval );
         } );
     } );
 
@@ -1341,7 +1328,7 @@
     //Breadcrumb Color
     api( 'responsive_breadcrumb_color', function( value ) {
         value.bind( function( newval ) {
-            $('.site-content-header .breadcrumb-list,.site-content-header .breadcrumb-list a, .woocommerce .woocommerce-breadcrumb,.woocommerce .woocommerce-breadcrumb a').css('color', newval );
+            $('#wrapper .site-content-header .breadcrumbs .breadcrumb-list, #wrapper .site-content-header .breadcrumbs .breadcrumb-list a, #wrapper .site-content-header .breadcrumbs .breadcrumb-list a span, .woocommerce .woocommerce-breadcrumb,.woocommerce .woocommerce-breadcrumb a').css('color', newval );
         } );
     } );
 
@@ -1884,7 +1871,7 @@
         }
     );
     //Buttons Hover Color
-    $(".page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button:not(.menu-toggle):not(.responsive-header-button), .button:not(.responsive-header-button), .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, .elementor-widget-rael-button .rael-button").hover(
+    $(".page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button]:not(.customize-partial-edit-shortcut-button), input[type=submit], button:not(.menu-toggle):not(.responsive-header-button):not(.customize-partial-edit-shortcut-button), .button:not(.responsive-header-button), .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, .elementor-widget-rael-button .rael-button").hover(
         function() {
             $(this).css("background-color", resolveButtonBackgroundColor('responsive_button_hover_color'));
             $(this).css("color", processThemeSettingForCSS('responsive_button_hover_text_color'));

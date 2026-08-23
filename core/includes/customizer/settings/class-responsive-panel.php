@@ -56,8 +56,8 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'    => __( 'Breadcrumb', 'responsive' ),
 					'description' => '<div class="responsive-section-description"><p><b>' . __( 'Helpful Information', 'responsive' ) . '</b></p><p><a href="https://cyberchimps.com/docs/responsive-theme/responsive-theme-walkthrough/how-to-add-breadcrumbs-using-responsive-theme/" target="_blank">' . __( 'Breadcrumb Overview »', 'responsive' ) . '</a></p></div>',
-					'priority' => 9,
-					'panel'    => 'responsive_general',
+					'priority' => 101,
+					'panel'    => 'responsive_site',
 				)
 			);
 
@@ -108,22 +108,13 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				)
 			);
 
-			$wp_customize->add_panel(
-				'responsive_general',
-				array(
-					'title'       => __( 'General', 'responsive' ),
-					'description' => __( 'General Options', 'responsive' ),
-					'priority'    => 12,
-				)
-			);
-
 			$wp_customize->add_section(
 				'responsive_sidebar',
 				array(
 					'title'    => __( 'Sidebar', 'responsive' ),
 					'description' => '<div class="responsive-section-description"><p><b>' . __( 'Helpful Information', 'responsive' ) . '</b></p><p><a href="https://cyberchimps.com/docs/responsive-theme/responsive-theme-walkthrough/how-to-add-sidebar-in-responsive-theme/" target="_blank">' . __( 'Sidebar Overview »', 'responsive' ) . '</a></p></div>',
-					'priority' => 10,
-					'panel'    => 'responsive_general',
+					'priority' => 102,
+					'panel'    => 'responsive_site',
 				)
 			);
 
