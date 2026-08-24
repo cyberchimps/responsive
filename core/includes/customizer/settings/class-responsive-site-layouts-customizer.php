@@ -149,10 +149,10 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			}
 
 			// Narrow Container Width.
-			$narrow_container_width_label = __( 'Container Width (px)', 'responsive' );
+			$narrow_container_width_label = __( 'Narrow Container Width (px)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'narrow_container_width', $narrow_container_width_label, 'responsive_layout', 9, 750, null, 1000, 400, 'postMessage' );
 			if ( $wp_customize->get_control( 'responsive_narrow_container_width' ) ) {
-				$wp_customize->get_control( 'responsive_narrow_container_width' )->description = __( 'Note: This setting applies to Desktop devices only.', 'responsive' );
+				$wp_customize->get_control( 'responsive_narrow_container_width' )->description = __( 'Note: This setting applies to Desktop devices when Narrow Layout is selected.', 'responsive' );
 			}
 			// Header Allignment.
 			$responsive_style_label  = __( 'Container Style', 'responsive' );
@@ -171,7 +171,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 
 			// Box Radius.
 			$box_radius_label = __( 'Box Radius (px)', 'responsive' );
-			responsive_radius_control( $wp_customize, 'box', 'responsive_layout', 50, 4, 4, 'responsive_not_active_site_style_flat', $box_radius_label );
+			responsive_radius_control( $wp_customize, 'box', 'responsive_layout', 50, 4, 4, 'responsive_not_active_site_style_flat', $box_radius_label, 'refresh' );
 
 			// Content Left/Right Edge Spacing.
 			$content_edge_spacing_label = __( 'Content Left/Right Edge Spacing', 'responsive' );

@@ -90,7 +90,6 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 				$general_tab_ids_prefix . 'container_style',
 				$general_tab_ids_prefix . 'container_layout_separator',
 				$general_tab_ids_prefix . 'container_style_separator',
-				$general_tab_ids_prefix . 'content_top_bottom_spacing',
 				$general_tab_ids_prefix . 'content_alignment_separator',
 				$general_tab_ids_prefix . 'show_comments',
 				$general_tab_ids_prefix . 'default_sidebar_before_separator',
@@ -448,9 +447,9 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 
 			responsive_horizontal_separator_control($wp_customize, 'page_content_alignment_separator', 1, 'responsive_page', 91, 1, );
 
-			responsive_unit_padding_control( $wp_customize, 'page_padding', 'responsive_page', 95, 30, 30, null, __( 'Padding', 'responsive' ), 'postMessage', 30, 30, 30, 30, 'px' );
+			responsive_unit_padding_control( $wp_customize, 'page_padding', 'responsive_page', 96, 30, 30, null, __( 'Inside Container Padding', 'responsive' ), 'postMessage', 30, 30, 30, 30, 'px' );
 
-			responsive_unit_padding_control( $wp_customize, 'page_margin', 'responsive_page', 96, 0, 0, null, __( 'Margin', 'responsive' ), 'postMessage', 0, 0, 0, 0, 'px' );
+			responsive_unit_padding_control( $wp_customize, 'page_margin', 'responsive_page', 95, 0, 0, null, __( 'Outside Container Padding', 'responsive' ), 'postMessage', 0, 0, 0, 0, 'px' );
 
 			responsive_horizontal_separator_control($wp_customize, 'page_margin_separator', 1, 'responsive_page', 97, 1, );
 
@@ -464,9 +463,7 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 
 			// Page Content Background Color.
 			$page_content_background_color_label = __( 'Page Content Background', 'responsive' );
-			responsive_color_control( $wp_customize, 'page_content_background', $page_content_background_color_label, 'responsive_page', 103, Responsive\Core\get_responsive_customizer_defaults('responsive_page_content_background_color'),'responsive_show_page_content_background' );
-
-			responsive_horizontal_separator_control($wp_customize, 'page_content_background_separator', 1, 'responsive_page', 104, 1, null );
+			responsive_color_control( $wp_customize, 'page_content_background', $page_content_background_color_label, 'responsive_page', 103, Responsive\Core\get_responsive_customizer_defaults('responsive_page_content_background_color') );
 
 		}
 
