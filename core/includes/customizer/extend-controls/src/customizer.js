@@ -437,6 +437,9 @@
         if (typeof value === 'string' && value.startsWith('palette')) {
             return `var(--responsive-global-${value})`;
         }
+		if (typeof value === 'string' && value.includes('headings-color')) {
+			return `var(--responsive-global-${value})`;
+		}
         if (typeof value === 'string' && value.startsWith('title-above-content')) {
             return `var(--responsive-${value})`;
         }
@@ -466,7 +469,7 @@
 				cssVars['--responsive-border-color'] = processThemeSettingForCSS('responsive_border_color');
 				cssVars['--responsive-global-site-background'] = processThemeSettingForCSS('responsive_site_background_color');
 				cssVars['--responsive-global-box-background'] = processThemeSettingForCSS('responsive_box_background_color');
-
+				cssVars['--responsive-global-h1-color'] = processThemeSettingForCSS('responsive_h1_text_color');
 				const root = document.documentElement;
 				Object.entries(cssVars).forEach(([varName, color]) => {
 					root.style.setProperty(varName, color);
@@ -549,6 +552,21 @@
 				}
 				document.documentElement.style.setProperty(
 					'--responsive-global-box-background',
+					newval
+				);
+			});
+		});
+
+		wp.customize( 'responsive_h1_text_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				if( newval && newval.startsWith('headings-color') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				document.documentElement.style.setProperty(
+					'--responsive-global-h1-color',
 					newval
 				);
 			});

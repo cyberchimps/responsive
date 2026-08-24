@@ -582,8 +582,15 @@
     //H1 text Color
     api( 'responsive_h1_text_color', function( value ) {
         value.bind( function( newval ) {
-        $( 'style#responsive-h1-text-color' ).remove();
-        $( 'head' ).append(
+            if( newval && newval.startsWith('palette')) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            if( newval && newval.startsWith('headings-color') ) {
+					newval = `var(--responsive-global-${newval})`;
+			}
+            document.documentElement.style.setProperty('--responsive-global-h1-color', newval);
+            $( 'style#responsive-h1-text-color' ).remove();
+            $( 'head' ).append(
                 '<style id="responsive-h1-text-color">' +
                 'h1 { color: ' + newval + '; }' +
                 '.woocommerce-products-header .woocommerce-products-header__title.page-title { color: inherit; }' +
@@ -595,20 +602,19 @@
     //H2 text Color
     api('responsive_h2_text_color', function(value) {
         value.bind( function( newval ) {
-            var contentHeaderColor = processThemeSettingForCSS('responsive_content_header_heading_color') || 'inherit';
-            jQuery( 'style#responsive-h1-text-color' ).remove();
-            jQuery( 'head' ).append(
-                '<style id="responsive-h1-text-color">' +
-                'h1 { color: ' + newval + '; }' +
-                '.woocommerce-products-header .woocommerce-products-header__title.page-title { color: ' + contentHeaderColor + '; }' +
-                '</style>'
-            );
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            $('h2').css('color', newval );
         } );
     });
 
     //H3 text Color
     api( 'responsive_h3_text_color', function( value ) {
         value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('h3').css('color', newval );
         } );
     } );
@@ -616,6 +622,9 @@
     //H4 text Color
     api( 'responsive_h4_text_color', function( value ) {
         value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('h4').css('color', newval );
         } );
     } );
@@ -623,6 +632,9 @@
     //H5 text Color
     api( 'responsive_h5_text_color', function( value ) {
         value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('h5').css('color', newval );
         } );
     } );
@@ -630,6 +642,9 @@
     //H6 text Color
     api( 'responsive_h6_text_color', function( value ) {
         value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('h6').css('color', newval );
         } );
     } );
@@ -5178,6 +5193,9 @@
      // Single Blog Post Title Color
     api( 'responsive_single_blog_post_title_color', function(value) {
         value.bind(function(newval) {
+            if ( newval && newval.includes( 'h1-color' ) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
             $('.single-post .entry-title').css('color', newval);
         })
     });

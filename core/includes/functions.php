@@ -1260,7 +1260,7 @@ function defaults() {
 			'blog_title_layout'					  => 'post_title_layout1',
 			'page_title_layout'                   => 'post_title_layout1',
 			'page_title_inner_elements_spacing'   => 10,
-			'single_blog_post_title_color'        => 'palette3',
+			'single_blog_post_title_color'        => 'h1-color',
 			'single_blog_post_text_color'		  => 'palette2',
 			'single_blog_post_link_color'		  => 'palette0',
 			'single_blog_post_link_hover_color'   => 'palette1',
@@ -3009,7 +3009,7 @@ if( ! function_exists( 'responsive_prepare_css_value' ) ) {
 
 		$value = trim( $value );
 
-		if ( is_string( $value ) && ( preg_match( '/^palette\d+$/', $value ) || false !== strpos( $value, 'headings-color' ) || false !== strpos( $value, 'site-background' ) || false !== strpos( $value, 'box-background' ) ) ) {
+		if ( is_string( $value ) && ( preg_match( '/^palette\d+$/', $value ) || false !== strpos( $value, 'headings-color' ) || false !== strpos( $value, 'site-background' ) || false !== strpos( $value, 'box-background' ) || false !== strpos( $value, 'h1-color' ) ) ) {
 			return 'var(--responsive-global-' . $value . ')';
 		}
 

@@ -902,6 +902,7 @@ function responsive_customizer_styles() {
 			--responsive-scrollbar-width: ' . $scrollbar_width . ';
 			--responsive-global-site-background: ' . esc_attr( responsive_prepare_css_value( 'responsive_site_background_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_site_background_color' ) ) ) . ';
 			--responsive-global-box-background: ' . esc_attr( responsive_prepare_css_value( 'responsive_box_background_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_background_color' ) ) ) . ';
+			--responsive-global-h1-color: ' .esc_attr( responsive_prepare_css_value( 'responsive_h1_text_color', '#FFFFFF' ) ) .';
 			--responsive-title-above-content-bg-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_title_above_content_bg_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_title_above_content_bg_color' ) ) ) . ';
 			--responsive-title-above-content-overlay-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_title_above_content_overlay_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_title_above_content_overlay_color' ) ) ) . ';
 			--responsive-global-box-radius-top-left: ' . $box_top_left_radius . 'px;
