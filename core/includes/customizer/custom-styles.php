@@ -10195,7 +10195,17 @@ function responsive_customizer_styles() {
 			else {
 				$custom_css .= "
 					.responsive-blog-single-banner2 {
-						width: auto;
+						width: " . responsive_get_banner_calc_width( $single_blog_banner_margin['desktop'], $single_blog_banner_margin_desktop_unit ) . ";
+					}
+					@media screen and ( max-width: 992px ) {
+						.responsive-blog-single-banner2 {
+							width: " . responsive_get_banner_calc_width( $single_blog_banner_margin['tablet'], $single_blog_banner_margin_tablet_unit ) . ";
+						}
+					}
+					@media screen and ( max-width: 576px ) {
+						.responsive-blog-single-banner2 {
+							width: " . responsive_get_banner_calc_width( $single_blog_banner_margin['mobile'], $single_blog_banner_margin_mobile_unit ) . ";
+						}
 					}
 				";
 			}
@@ -10423,7 +10433,17 @@ function responsive_customizer_styles() {
 			else {
 				$custom_css .= "
 					.responsive-archive-entry-banner {
-						width: auto;
+						width: " . responsive_get_banner_calc_width( $blog_banner_margin['desktop'], $blog_banner_margin_desktop_unit ) . ";
+					}
+					@media screen and ( max-width: 992px ) {
+						.responsive-archive-entry-banner {
+							width: " . responsive_get_banner_calc_width( $blog_banner_margin['tablet'], $blog_banner_margin_tablet_unit ) . ";
+						}
+					}
+					@media screen and ( max-width: 576px ) {
+						.responsive-archive-entry-banner {
+							width: " . responsive_get_banner_calc_width( $blog_banner_margin['mobile'], $blog_banner_margin_mobile_unit ) . ";
+						}
 					}
 				";
 			}
@@ -10610,7 +10630,17 @@ function responsive_customizer_styles() {
 			else {
 				$custom_css .= "
 					.responsive-single-entry-banner {
-						width: auto;
+						width: " . responsive_get_banner_calc_width( $page_banner_margin['desktop'], $page_banner_margin_desktop_unit ) . ";
+					}
+					@media screen and ( max-width: 992px ) {
+						.responsive-single-entry-banner {
+							width: " . responsive_get_banner_calc_width( $page_banner_margin['tablet'], $page_banner_margin_tablet_unit ) . ";
+						}
+					}
+					@media screen and ( max-width: 576px ) {
+						.responsive-single-entry-banner {
+							width: " . responsive_get_banner_calc_width( $page_banner_margin['mobile'], $page_banner_margin_mobile_unit ) . ";
+						}
 					}
 				";
 			}
