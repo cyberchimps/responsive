@@ -1812,13 +1812,13 @@
         var val_mobile = api('responsive_content_edge_spacing_mobile') ? api('responsive_content_edge_spacing_mobile').get() : '';
         var unit_mobile = api('responsive_content_edge_spacing_mobile_unit') ? api('responsive_content_edge_spacing_mobile_unit').get() : 'px';
 
-        var css = '.container { padding-left: ' + val + unit + '; padding-right: ' + val + unit + '; }';
+        var css = '.container:not(.site-header .container) { padding-left: ' + val + unit + '; padding-right: ' + val + unit + '; }';
 
         if (val_tablet !== '') {
-            css += '@media screen and (max-width: 992px) { .container { padding-left: ' + val_tablet + unit_tablet + '; padding-right: ' + val_tablet + unit_tablet + '; } }';
+            css += '@media screen and (max-width: 992px) { .container:not(.site-header .container) { padding-left: ' + val_tablet + unit_tablet + '; padding-right: ' + val_tablet + unit_tablet + '; } }';
         }
         if (val_mobile !== '') {
-            css += '@media screen and (max-width: 576px) { .container { padding-left: ' + val_mobile + unit_mobile + '; padding-right: ' + val_mobile + unit_mobile + '; } }';
+            css += '@media screen and (max-width: 576px) { .container:not(.site-header .container) { padding-left: ' + val_mobile + unit_mobile + '; padding-right: ' + val_mobile + unit_mobile + '; } }';
         }
 
         jQuery('head').append('<style id="responsive-content-edge-spacing-css">' + css + '</style>');
