@@ -1883,7 +1883,7 @@ function responsive_customizer_styles() {
 		color:{$body_text_color};
 	}
 	
-	a {
+	a, .single-post div.comments-area ol.commentlist .reply a {
 		color:{$link_color};
 	}
 	:where(h1, h2, h3, h4, h5, h6) a {
@@ -1962,6 +1962,9 @@ function responsive_customizer_styles() {
 		background-color: {$link_hover_bg_color};
 		color: {$link_hover_color};
 		text-decoration: none;
+	}
+	.single-post div.comments-area ol.commentlist .reply a:hover {
+		color: {$link_hover_color};
 	}
 
 	.link-style-offset-background .entry-content p a,

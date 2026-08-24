@@ -697,11 +697,6 @@ div.comments-area {
 
         .comment-metadata {
             font-size: 14px;
-            color: #737373;
-        }
-
-        .comment-metadata a {
-            color: #737373;
         }
 
         .comment-author a {
@@ -719,7 +714,6 @@ div.comments-area {
         .comment-reply-link {
             display: inline-block;
             margin-right: 30px;
-            color: #737373;
 
             &:before {
                 margin-right: $base-line-height-px / 5;
@@ -731,7 +725,6 @@ div.comments-area {
         .comment-edit-link {
             display: inline-block;
             margin-right: 15px;
-            color: #737373;
 
             &:before {
                 margin-right: $base-line-height-px / 5;
