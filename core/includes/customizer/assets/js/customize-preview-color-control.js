@@ -5213,12 +5213,12 @@
              if( newval && newval.includes('palette') ) {
                     newval = 'var(--responsive-global-' + newval + ')';
             }
-            $('.single-post .entry-header a, .single-post .entry-header a *, .responsive-blog-single-banner2 .container a, .responsive-blog-single-banner2 .container a *,.single-post div.comments-area ol.commentlist .reply a').css('color', newval);
+            $('.single-post .entry-header a, .single-post .entry-header a *, .responsive-blog-single-banner2 .container a, .responsive-blog-single-banner2 .container a *').css('color', newval);
         })
     });
 
     // Single Post Link Hover Color
-    $('.single-post .entry-header a, .single-post .entry-header a *, .responsive-blog-single-banner2 .container a, .responsive-blog-single-banner2 .container a *, .single-post div.comments-area ol.commentlist .reply a').hover(
+    $('.single-post .entry-header a, .single-post .entry-header a *, .responsive-blog-single-banner2 .container a, .responsive-blog-single-banner2 .container a *').hover(
         function() {
             const hoverColor = processThemeSettingForCSS('responsive_single_blog_post_link_hover_color');
             if (hoverColor) $(this).css('color', hoverColor);

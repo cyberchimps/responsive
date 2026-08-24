@@ -68,7 +68,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 2,
 					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
-						'font-family'    => 'System Font',
 						'font-size'      => '16px',
 						'font-weight'    => '400',
 						'line-height'    => '1.75',
