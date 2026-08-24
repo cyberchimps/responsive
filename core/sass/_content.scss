@@ -88,20 +88,9 @@
  * Hentry Area styles
  * -----------------------------------------------------------------------------
  */
-.hentry,
-article.product,
-.navigation,
-div.comments-area {
-    &:first-child {
-        margin-top: 0;
-    }
+.hentry {  
+    @include make-block-element();
 
-    &:last-child {
-        margin-bottom: 0;
-    }
-}
-
-.hentry {
     .responsive-site-style-content-boxed &,
     .responsive-site-style-boxed & {
         padding: $base-line-height-px;
@@ -594,6 +583,7 @@ div.comments-area {
  */
 .navigation {
     @extend .row;
+    @include make-block-element();
     justify-content: space-between;
     margin-right: 0;
     margin-left: 0;
@@ -667,6 +657,7 @@ div.comments-area {
 }
 
 div.comments-area {
+    @include make-block-element();
     padding: $base-line-height-px;
     background-color: map-get($colors, white);
 
