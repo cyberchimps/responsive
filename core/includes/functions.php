@@ -632,7 +632,7 @@ function responsive_add_custom_body_classes( $classes ) {
 	}
 
 	$classes[] = 'responsive-site-' . get_theme_mod( 'responsive_width', 'contained' );
-	$classes[] = 'link-style-' . get_theme_mod( 'responsive_link_style', 'standard' );
+	$classes[] = 'link-style-' . get_theme_mod( 'responsive_link_style', get_responsive_customizer_defaults( 'responsive_link_style' ) );
 
 	if ( is_page() ) {
 		$page_container_style = get_theme_mod( 'responsive_page_container_style', 'default' );
