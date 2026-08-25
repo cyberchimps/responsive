@@ -447,6 +447,20 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 
 			responsive_horizontal_separator_control($wp_customize, 'page_content_alignment_separator', 1, 'responsive_page', 91, 1, );
 
+
+			// Border Radius
+			$wp_customize->add_setting(
+				'blog_border_radius',
+				array(
+					'default'           => 'default',
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_select',
+				)
+			);
+			$page_border_radius_label = esc_html__( 'Border Radius (px)', 'responsive' );
+			responsive_radius_control($wp_customize, 'page_border_radius', 'responsive_page', 94, '', '', null, $page_border_radius_label, 'refresh');
+
+
 			responsive_unit_padding_control( $wp_customize, 'page_padding', 'responsive_page', 96, 30, 30, null, __( 'Inside Container Padding', 'responsive' ), 'postMessage', 30, 30, 30, 30, 'px' );
 
 			responsive_unit_padding_control( $wp_customize, 'page_margin', 'responsive_page', 95, 0, 0, null, __( 'Outside Container Padding', 'responsive' ), 'postMessage', 0, 0, 0, 0, 'px' );

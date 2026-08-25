@@ -635,9 +635,11 @@ function responsive_add_custom_body_classes( $classes ) {
 	$classes[] = 'link-style-' . get_theme_mod( 'responsive_link_style', 'standard' );
 
 	if ( is_page() ) {
-		$site_style = get_post_meta( get_the_ID(), 'responsive_page_meta_layout_style', true );
-		$site_style = $site_style ? $site_style : get_theme_mod( 'responsive_style', 'boxed' );
-		$classes[]  = 'responsive-site-style-' . $site_style;
+		$page_container_style = get_theme_mod( 'responsive_page_container_style', 'default' );
+		if ( 'default' !== $page_container_style ) {
+			$classes    = array_diff( $classes, array( 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' ) ) );
+			$classes[]  = 'responsive-site-style-' . $page_container_style;
+		}
 
 	} else {
 		$classes[] = 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' );
