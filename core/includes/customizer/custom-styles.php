@@ -8537,7 +8537,7 @@ function responsive_customizer_styles() {
 		$blog_site_background_color = esc_html(
 			responsive_prepare_css_value(
 				'responsive_blog_site_background_color',
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_site_background_color' )
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive-global-palette5' )
 			)
 		);
 
