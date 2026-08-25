@@ -210,6 +210,10 @@
             if (r !== '') {
                 css += 'margin-right:' + r + unit + '; ';
             } 
+
+            var leftVal = (l !== '' ? l + unit : '0px');
+            var rightVal = (r !== '' ? r + unit : '0px');
+            css += 'width: calc(100% - ' + leftVal + ' - ' + rightVal + '); ';
             
             return css;
         }

@@ -848,20 +848,41 @@ function responsive_read_more_text( $text ) {
 	return $text;
 }
 
-/**
- * Returns excerpt length
- *
- * @param  integer $length Length of excerpt.
- * @return integer         Length of excerpt.
- */
-function responsive_custom_excerpt_length( $length ) {
 
+/**
+ * Trims the excerpt by characters instead of words.
+ *
+ * @param string $text        The trimmed text.
+ * @param string $raw_excerpt The text prior to trimming.
+ * @return string
+ */
+function responsive_custom_trim_excerpt_by_characters( $text, $raw_excerpt ) {
 	$excerpt_length = get_theme_mod( 'responsive_excerpt_length' );
-	if ( ! empty( $excerpt_length ) ) {
-		$length = $excerpt_length;
+	if ( empty( $excerpt_length ) || ! is_numeric( $excerpt_length ) ) {
+		return $text;
 	}
 
-	return $length;
+	$excerpt_more = apply_filters( 'excerpt_more', ' ' . '[&hellip;]' );
+
+	if ( $raw_excerpt ) {
+		$content = wp_strip_all_tags( $raw_excerpt );
+	} else {
+		$post = get_post();
+		$content = get_the_content( '', false, $post );
+		$content = strip_shortcodes( $content );
+		$content = excerpt_remove_blocks( $content );
+		$content = apply_filters( 'the_content', $content );
+		$content = str_replace( ']]>', ']]&gt;', $content );
+		$content = wp_strip_all_tags( $content );
+	}
+
+	if ( mb_strlen( $content ) > $excerpt_length ) {
+		$text = mb_substr( $content, 0, $excerpt_length ) . $excerpt_more;
+	} else {
+		$text = $content;
+	}
+
+	return $text;
 }
 /**
  * Function to get Read More Link of Post
@@ -934,6 +955,21 @@ if ( ! function_exists( 'responsive_spacing_css' ) ) {
 
 		// Return.
 		return $s_top . $s_right . $s_bottom . $s_left;
+	}
+}
+
+if ( ! function_exists( 'responsive_get_banner_calc_width' ) ) {
+	/**
+	 * Return width calc rule subtracting left and right margins.
+	 *
+	 * @param  array  $val  Spacing values array with left, right.
+	 * @param  string $unit CSS unit (e.g., px, em).
+	 * @return string CSS width calc string.
+	 */
+	function responsive_get_banner_calc_width( $val, $unit ) {
+		$l = ( isset( $val['left'] ) && '' !== (string) $val['left'] ) ? $val['left'] . $unit : '0px';
+		$r = ( isset( $val['right'] ) && '' !== (string) $val['right'] ) ? $val['right'] . $unit : '0px';
+		return "calc(100% - {$l} - {$r})";
 	}
 }
 

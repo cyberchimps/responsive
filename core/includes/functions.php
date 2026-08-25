@@ -635,9 +635,11 @@ function responsive_add_custom_body_classes( $classes ) {
 	$classes[] = 'link-style-' . get_theme_mod( 'responsive_link_style', 'standard' );
 
 	if ( is_page() ) {
-		$site_style = get_post_meta( get_the_ID(), 'responsive_page_meta_layout_style', true );
-		$site_style = $site_style ? $site_style : get_theme_mod( 'responsive_style', 'boxed' );
-		$classes[]  = 'responsive-site-style-' . $site_style;
+		$page_container_style = get_theme_mod( 'responsive_page_container_style', 'default' );
+		if ( 'default' !== $page_container_style ) {
+			$classes    = array_diff( $classes, array( 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' ) ) );
+			$classes[]  = 'responsive-site-style-' . $page_container_style;
+		}
 
 	} else {
 		$classes[] = 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' );
@@ -1278,10 +1280,6 @@ function defaults() {
 			// Padding & Spacing.
 			'box_padding'                         => 30,
 			'logo_padding'                        => 28,
-			'content_edge_spacing'                => 12,
-			'content_edge_spacing_unit'           => 'px',
-			'content_top_bottom_spacing'          => 28,
-			'content_top_bottom_spacing_unit'     => 'px',
 			// Colors.
 			'responsive_site_background_color'    => 'palette5',
 			'background_gradient_color'           => 'linear-gradient(135deg, #12c2e9 0%, #c471ed 50%, #f64f59 100%)',

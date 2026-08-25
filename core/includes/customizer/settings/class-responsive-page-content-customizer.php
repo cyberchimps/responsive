@@ -53,6 +53,7 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			$tabs_label            = esc_html__( 'Tabs', 'responsive' );
 			$design_tab_ids_prefix = 'customize-control-';
 			$design_tab_ids        = array(
+				$design_tab_ids_prefix . 'responsive_border_page_border_radius',
 				$design_tab_ids_prefix . 'responsive_page_typography_title_separator',
 				$design_tab_ids_prefix . 'responsive_page_title_typography_group_separator',
 				$design_tab_ids_prefix . 'responsive_page_site_background_color',
@@ -449,6 +450,18 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 
 			$container_spacing_label = esc_html__( 'Spacing', 'responsive' );
 			responsive_separator_control( $wp_customize, 'page_container_spacing', $container_spacing_label, 'responsive_page', 104 );
+
+			// Border Radius
+			$wp_customize->add_setting(
+				'blog_border_radius',
+				array(
+					'default'           => 'default',
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_select',
+				)
+			);
+			$page_border_radius_label = esc_html__( 'Border Radius (px)', 'responsive' );
+			responsive_radius_control($wp_customize, 'page_border_radius', 'responsive_page', 94, '', '', null, $page_border_radius_label, 'refresh');
 
 			responsive_unit_padding_control( $wp_customize, 'page_outside_container', 'responsive_page', 105, '', '', null, __( 'Outside Container Padding', 'responsive' ), 'postMessage', '', '', '', '', 'px' );
 
