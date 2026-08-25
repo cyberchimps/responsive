@@ -8574,53 +8574,55 @@ function responsive_customizer_styles() {
 		$date_box_calculated_color_value = required_font_color_value( $date_box_background_color );
  
 		// Styling Page - Border radius
-		$get_radius = function( $mod_name, $box_val ) use ( $box_radius ) {
+		$get_page_radius = function( $mod_name, $box_val ) use ( $box_radius ) {
 			$val = get_theme_mod( $mod_name );
-			if ( $val !== false && $val !== '' ) return esc_html( $val );
+			if ( $val !== false && $val !== '' && (float) $val !== 0.0 ) {
+				return esc_html( $val );
+			}
 			return esc_html( $box_val !== '' ? $box_val : $box_radius );
 		};
-		$page_border_radius_top_left     = $get_radius( 'responsive_page_border_radius_top_left_radius', $box_top_left_radius );
-		$page_border_radius_top_right    = $get_radius( 'responsive_page_border_radius_top_right_radius', $box_top_right_radius );
-		$page_border_radius_bottom_right = $get_radius( 'responsive_page_border_radius_bottom_right_radius', $box_bottom_right_radius );
-		$page_border_radius_bottom_left  = $get_radius( 'responsive_page_border_radius_bottom_left_radius', $box_bottom_left_radius );
+		$page_border_radius_top_left     = $get_page_radius( 'responsive_page_border_radius_top_left_radius', $box_top_left_radius );
+		$page_border_radius_top_right    = $get_page_radius( 'responsive_page_border_radius_top_right_radius', $box_top_right_radius );
+		$page_border_radius_bottom_right = $get_page_radius( 'responsive_page_border_radius_bottom_right_radius', $box_bottom_right_radius );
+		$page_border_radius_bottom_left  = $get_page_radius( 'responsive_page_border_radius_bottom_left_radius', $box_bottom_left_radius );
 		$page_border_radius_unit         = esc_html( get_theme_mod( 'responsive_page_border_radius_desktop_unit', 'px' ) );
 
-		$page_border_radius_tablet_top_left     = $get_radius( 'responsive_page_border_radius_tablet_top_left_radius', $box_tablet_top_left_radius );
-		$page_border_radius_tablet_top_right    = $get_radius( 'responsive_page_border_radius_tablet_top_right_radius', $box_tablet_top_right_radius );
-		$page_border_radius_tablet_bottom_right = $get_radius( 'responsive_page_border_radius_tablet_bottom_right_radius', $box_tablet_bottom_right_radius );
-		$page_border_radius_tablet_bottom_left  = $get_radius( 'responsive_page_border_radius_tablet_bottom_left_radius', $box_tablet_bottom_left_radius );
+		$page_border_radius_tablet_top_left     = $get_page_radius( 'responsive_page_border_radius_tablet_top_left_radius', $box_tablet_top_left_radius );
+		$page_border_radius_tablet_top_right    = $get_page_radius( 'responsive_page_border_radius_tablet_top_right_radius', $box_tablet_top_right_radius );
+		$page_border_radius_tablet_bottom_right = $get_page_radius( 'responsive_page_border_radius_tablet_bottom_right_radius', $box_tablet_bottom_right_radius );
+		$page_border_radius_tablet_bottom_left  = $get_page_radius( 'responsive_page_border_radius_tablet_bottom_left_radius', $box_tablet_bottom_left_radius );
 		$page_border_radius_tablet_unit         = esc_html( get_theme_mod( 'responsive_page_border_radius_tablet_unit', 'px' ) );
 
-		$page_border_radius_mobile_top_left     = $get_radius( 'responsive_page_border_radius_mobile_top_left_radius', $box_mobile_top_left_radius );
-		$page_border_radius_mobile_top_right    = $get_radius( 'responsive_page_border_radius_mobile_top_right_radius', $box_mobile_top_right_radius );
-		$page_border_radius_mobile_bottom_right = $get_radius( 'responsive_page_border_radius_mobile_bottom_right_radius', $box_mobile_bottom_right_radius );
-		$page_border_radius_mobile_bottom_left  = $get_radius( 'responsive_page_border_radius_mobile_bottom_left_radius', $box_mobile_bottom_left_radius );
+		$page_border_radius_mobile_top_left     = $get_page_radius( 'responsive_page_border_radius_mobile_top_left_radius', $box_mobile_top_left_radius );
+		$page_border_radius_mobile_top_right    = $get_page_radius( 'responsive_page_border_radius_mobile_top_right_radius', $box_mobile_top_right_radius );
+		$page_border_radius_mobile_bottom_right = $get_page_radius( 'responsive_page_border_radius_mobile_bottom_right_radius', $box_mobile_bottom_right_radius );
+		$page_border_radius_mobile_bottom_left  = $get_page_radius( 'responsive_page_border_radius_mobile_bottom_left_radius', $box_mobile_bottom_left_radius );
 		$page_border_radius_mobile_unit         = esc_html( get_theme_mod( 'responsive_page_border_radius_mobile_unit', 'px' ) );
 		
 		$custom_css .= 
-	".page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth).responsive-site-style-content-boxed .site-content .hentry,
-	.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth).responsive-site-style-boxed .site-content .hentry,
-	.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #comments,
-	.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #comments .comment-respond {
+			".page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry,
+			.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry,
+			.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #comments,
+			.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #comments .comment-respond {
 
-	border-radius: {$page_border_radius_top_left}{$page_border_radius_unit} {$page_border_radius_top_right}{$page_border_radius_unit} {$page_border_radius_bottom_right}{$page_border_radius_unit} {$page_border_radius_bottom_left}{$page_border_radius_unit};
-	}
-	@media screen and ( max-width: 992px ) {
-		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth).responsive-site-style-content-boxed .site-content .hentry,
-		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth).responsive-site-style-boxed .site-content .hentry,
-		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #comments,
-		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #comments .comment-respond {
-			border-radius: {$page_border_radius_tablet_top_left}{$page_border_radius_tablet_unit} {$page_border_radius_tablet_top_right}{$page_border_radius_tablet_unit} {$page_border_radius_tablet_bottom_right}{$page_border_radius_tablet_unit} {$page_border_radius_tablet_bottom_left}{$page_border_radius_tablet_unit};
-		}
-	}
-	@media screen and ( max-width: 576px ) {
-		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth).responsive-site-style-content-boxed .site-content .hentry,
-		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth).responsive-site-style-boxed .site-content .hentry,
-		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #comments,
-		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #comments .comment-respond {
-			border-radius: {$page_border_radius_mobile_top_left}{$page_border_radius_mobile_unit} {$page_border_radius_mobile_top_right}{$page_border_radius_mobile_unit} {$page_border_radius_mobile_bottom_right}{$page_border_radius_mobile_unit} {$page_border_radius_mobile_bottom_left}{$page_border_radius_mobile_unit};
-		}
-	}";
+			border-radius: {$page_border_radius_top_left}{$page_border_radius_unit} {$page_border_radius_top_right}{$page_border_radius_unit} {$page_border_radius_bottom_right}{$page_border_radius_unit} {$page_border_radius_bottom_left}{$page_border_radius_unit};
+			}
+			@media screen and ( max-width: 992px ) {
+				.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry,
+				.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry,
+				.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #comments,
+				.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #comments .comment-respond {
+					border-radius: {$page_border_radius_tablet_top_left}{$page_border_radius_tablet_unit} {$page_border_radius_tablet_top_right}{$page_border_radius_tablet_unit} {$page_border_radius_tablet_bottom_right}{$page_border_radius_tablet_unit} {$page_border_radius_tablet_bottom_left}{$page_border_radius_tablet_unit};
+				}
+			}
+			@media screen and ( max-width: 576px ) {
+				.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry,
+				.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry,
+				.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #comments,
+				.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #comments .comment-respond {
+					border-radius: {$page_border_radius_mobile_top_left}{$page_border_radius_mobile_unit} {$page_border_radius_mobile_top_right}{$page_border_radius_mobile_unit} {$page_border_radius_mobile_bottom_right}{$page_border_radius_mobile_unit} {$page_border_radius_mobile_bottom_left}{$page_border_radius_mobile_unit};
+				}
+			}";
 
 		//Styling Page parity - Padding
 		$page_padding_top     = esc_html( get_theme_mod( 'responsive_page_padding_top_padding', 30 ) );
