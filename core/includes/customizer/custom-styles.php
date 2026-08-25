@@ -1869,6 +1869,19 @@ function responsive_customizer_styles() {
 		text-decoration: none;
 	}
 
+	.link-style-standard .entry-content p a:hover,
+	.link-style-standard .entry-content strong>a:hover,
+	.link-style-standard .entry-content em>a:hover,
+	.link-style-standard .entry-content>ul a:hover,
+	.link-style-standard .entry-content>ol a:hover,
+	.link-style-no-underline .entry-content p a:hover,
+	.link-style-no-underline .entry-content strong>a:hover,
+	.link-style-no-underline .entry-content em>a:hover,
+	.link-style-no-underline .entry-content>ul a:hover,
+	.link-style-no-underline .entry-content>ol a:hover {
+		color: {$link_hover_color};
+	}
+
 	.link-style-hover-background .entry-content p a:hover,
 	.link-style-hover-background .entry-content strong>a:hover,
 	.link-style-hover-background .entry-content em>a:hover,
