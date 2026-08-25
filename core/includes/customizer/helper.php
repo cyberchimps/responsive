@@ -862,6 +862,9 @@ function responsive_custom_trim_excerpt_by_characters( $text, $raw_excerpt ) {
 		return $text;
 	}
 
+	// Prevent the default manual excerpt 'read more' from duplicating ours
+	remove_filter( 'get_the_excerpt', 'Responsive\Extra\responsive_custom_excerpt_more' );
+
 	$excerpt_more = apply_filters( 'excerpt_more', ' ' . '[&hellip;]' );
 
 	if ( $raw_excerpt ) {
@@ -879,7 +882,7 @@ function responsive_custom_trim_excerpt_by_characters( $text, $raw_excerpt ) {
 	if ( mb_strlen( $content ) > $excerpt_length ) {
 		$text = mb_substr( $content, 0, $excerpt_length ) . $excerpt_more;
 	} else {
-		$text = $content;
+		$text = $content . $excerpt_more;
 	}
 
 	return $text;

@@ -15,7 +15,7 @@ $format = get_post_format();
 
 $responsive_blog_entry_content_type = get_theme_mod( 'responsive_blog_entry_content_type', 'excerpt' );
 if ( 'excerpt' === $responsive_blog_entry_content_type ) {
-	add_filter( 'excerpt_length', 'responsive_custom_excerpt_length' );
+	add_filter( 'wp_trim_excerpt', 'responsive_custom_trim_excerpt_by_characters', 10, 2 );
 	add_filter( 'responsive_post_read_more', 'responsive_read_more_text' );
 } elseif ( 'content' === $responsive_blog_entry_content_type ) {
 	add_filter( 'responsive_post_read_more', 'responsive_read_more_text' );
