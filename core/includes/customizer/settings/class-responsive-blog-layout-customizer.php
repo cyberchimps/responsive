@@ -728,7 +728,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 
 			// Excerpt Length.
 			$blog_entry_excerpt_length_label = esc_html__( 'Excerpt Length', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'excerpt_length', $blog_entry_excerpt_length_label, 'responsive_blog_layout', 200, 40, null, 500 );
+			responsive_drag_number_control( $wp_customize, 'excerpt_length', $blog_entry_excerpt_length_label, 'responsive_blog_layout', 200, 90, null, 500 );
 
 			responsive_horizontal_separator_control($wp_customize, 'excerpt_length_separator', 1, 'responsive_blog_layout', 202, 1, null );
 

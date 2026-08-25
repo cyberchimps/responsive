@@ -850,7 +850,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				$blog_content_background_color_label,
 				'responsive_single_blog_layout',
 				120,
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_content_background_color' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_content_background_color' ),
 				'responsive_show_single_blog_content_background',
 			);
 		

@@ -857,8 +857,8 @@ function responsive_read_more_text( $text ) {
  * @return string
  */
 function responsive_custom_trim_excerpt_by_characters( $text, $raw_excerpt ) {
-	$excerpt_length = get_theme_mod( 'responsive_excerpt_length' );
-	if ( empty( $excerpt_length ) || ! is_numeric( $excerpt_length ) ) {
+	$excerpt_length = get_theme_mod( 'responsive_excerpt_length', 90 );
+	if ( ! is_numeric( $excerpt_length ) ) {
 		return $text;
 	}
 
@@ -882,7 +882,7 @@ function responsive_custom_trim_excerpt_by_characters( $text, $raw_excerpt ) {
 	if ( mb_strlen( $content ) > $excerpt_length ) {
 		$text = mb_substr( $content, 0, $excerpt_length ) . $excerpt_more;
 	} else {
-		$text = $content . $excerpt_more;
+		$text = $content;
 	}
 
 	return $text;

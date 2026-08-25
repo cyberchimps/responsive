@@ -498,7 +498,7 @@ function responsive_customizer_styles() {
 	$blog_site_background_color = esc_html(
 		responsive_prepare_css_value(
 				'responsive_blog_site_background_color',
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_site_background_color' )
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_site_background_color' )
 			)
 		);
 	$responsive_blog_container_style = ( 'default' === $blog_container_style_setting ) ? $global_container_style_key : $blog_container_style_setting;
@@ -594,7 +594,7 @@ function responsive_customizer_styles() {
 	$single_blog_site_background_color = esc_html(
 			responsive_prepare_css_value(
 				'responsive_single_blog_site_background_color',
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_site_background_color' )
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_site_background_color' )
 			)
 		);
 		
@@ -8577,7 +8577,7 @@ function responsive_customizer_styles() {
 		$blog_site_background_color = esc_html(
 			responsive_prepare_css_value(
 				'responsive_blog_site_background_color',
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_site_background_color' )
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_site_background_color' )
 			)
 		);
 
@@ -8740,7 +8740,7 @@ function responsive_customizer_styles() {
 		$page_site_background_color = esc_html(
 		responsive_prepare_css_value(
 				'responsive_page_site_background_color',
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive-global-palette5' )
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_site_background_color' )
 			)
 		);
 
@@ -8913,7 +8913,7 @@ function responsive_customizer_styles() {
 		$single_blog_site_background_color = esc_html(
 			responsive_prepare_css_value(
 				'responsive_single_blog_site_background_color',
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_site_background_color' )
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_site_background_color' )
 			)
 		);
 
