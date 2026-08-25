@@ -48,6 +48,7 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 			$single_blog_related_posts_title = get_theme_mod('responsive_single_blog_related_posts_title', 'Related Posts');
 			$exclude_ids = apply_filters('responsive_single_blog_related_posts_exclude_post_ids', array($post_id), $post_id);
 			$related_single_posts_total_count = absint(get_theme_mod('responsive_single_blog_related_posts_count', 2));
+			$related_posts_section_placement = get_theme_mod( 'responsive_single_blog_related_posts_section_placement', 'default' );
 
 			// Get related posts by WP_Query.
 			$query_posts = $this->responsive_single_blog_get_related_posts_by_query($post_id);
@@ -108,7 +109,11 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 						</style>';
 
 						if (false === $related_single_posts_section_loaded) {
-							echo '<div class="responsive-single-related-posts-container">';
+							$related_posts_container_class = 'responsive-single-related-posts-container';
+							if ( 'separated' === $related_posts_section_placement ) {
+								$related_posts_container_class .= ' responsive-related-posts-separated';
+							}
+							echo '<div class="' . esc_attr( $related_posts_container_class ) . '">';
 
 							if ('' !== $single_blog_related_posts_title) {
 								echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

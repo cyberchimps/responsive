@@ -24,6 +24,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
 $is_comments_enabled = get_theme_mod( 'responsive_single_blog_comments', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_comments' ) );
+$related_posts_section_placement = get_theme_mod( 'responsive_single_blog_related_posts_section_placement', 'default' );
+$related_posts_location = get_theme_mod( 'responsive_single_blog_related_posts_location', 'default' );
+
 
 // Exit early if password protected, comments disabled, or no comments and comments are closed.
 if ( post_password_required() || ! $is_comments_enabled || ( ! have_comments() && ! comments_open() ) ) {
@@ -33,7 +36,11 @@ if ( post_password_required() || ! $is_comments_enabled || ( ! have_comments() &
 <?php Responsive\responsive_comments_before(); ?>
 
 <div id="comments" class="comments-area">
-
+<?php 
+	if($related_posts_section_placement == 'contained' && $related_posts_location == 'above_comments'){
+		Responsive\responsive_single_blog_related_posts_entry();
+	}
+?>
 	<?php
 	function responsive_render_comment_form() {
 		$commenter = wp_get_current_commenter();
@@ -123,7 +130,13 @@ if ( post_password_required() || ! $is_comments_enabled || ( ! have_comments() &
 
 	<?php if ( 'below' === $comments_form_position ) {
 		responsive_render_comment_form();
-	} ?>
+	} 
+	 
+	if($related_posts_section_placement == 'contained' && $related_posts_location == 'below_comments'){
+		Responsive\responsive_single_blog_related_posts_entry();
+	}
+
+	?>
 
 </div><!-- #comments -->
 

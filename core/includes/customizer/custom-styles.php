@@ -10643,6 +10643,11 @@ function responsive_customizer_styles() {
 	}
 	";
 
+	// Related Posts - Separated Location styling
+	$custom_css .=" 
+		.responsive-related-posts-separated{
+			margin: 0;
+		}";
 
 	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', responsive_minimize_css( $custom_css ) ) );
 	wp_add_inline_style('responsive-style', responsive_minimize_css( $font_preset_css));
