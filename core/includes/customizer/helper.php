@@ -848,20 +848,44 @@ function responsive_read_more_text( $text ) {
 	return $text;
 }
 
-/**
- * Returns excerpt length
- *
- * @param  integer $length Length of excerpt.
- * @return integer         Length of excerpt.
- */
-function responsive_custom_excerpt_length( $length ) {
 
+/**
+ * Trims the excerpt by characters instead of words.
+ *
+ * @param string $text        The trimmed text.
+ * @param string $raw_excerpt The text prior to trimming.
+ * @return string
+ */
+function responsive_custom_trim_excerpt_by_characters( $text, $raw_excerpt ) {
 	$excerpt_length = get_theme_mod( 'responsive_excerpt_length' );
-	if ( ! empty( $excerpt_length ) ) {
-		$length = $excerpt_length;
+	if ( empty( $excerpt_length ) || ! is_numeric( $excerpt_length ) ) {
+		return $text;
 	}
 
-	return $length;
+	// Prevent the default manual excerpt 'read more' from duplicating ours
+	remove_filter( 'get_the_excerpt', 'Responsive\Extra\responsive_custom_excerpt_more' );
+
+	$excerpt_more = apply_filters( 'excerpt_more', ' ' . '[&hellip;]' );
+
+	if ( $raw_excerpt ) {
+		$content = wp_strip_all_tags( $raw_excerpt );
+	} else {
+		$post = get_post();
+		$content = get_the_content( '', false, $post );
+		$content = strip_shortcodes( $content );
+		$content = excerpt_remove_blocks( $content );
+		$content = apply_filters( 'the_content', $content );
+		$content = str_replace( ']]>', ']]&gt;', $content );
+		$content = wp_strip_all_tags( $content );
+	}
+
+	if ( mb_strlen( $content ) > $excerpt_length ) {
+		$text = mb_substr( $content, 0, $excerpt_length ) . $excerpt_more;
+	} else {
+		$text = $content . $excerpt_more;
+	}
+
+	return $text;
 }
 /**
  * Function to get Read More Link of Post
@@ -1147,7 +1171,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	);
 }
 
-function responsive_unit_padding_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Padding', $transport = 'postMessage', $default_tablet_values_y = null, $default_tablet_values_x = null, $default_mobile_values_y = null, $default_mobile_values_x = null, $default_unit = 'px' ) {
+function responsive_unit_padding_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Padding', $transport = 'postMessage', $default_tablet_values_y = null, $default_tablet_values_x = null, $default_mobile_values_y = null, $default_mobile_values_x = null, $default_unit = 'px', $default_bottom = null, $default_right = null, $default_tablet_bottom = null, $default_tablet_right = null, $default_mobile_bottom = null, $default_mobile_right = null ) {
 	/**
 	 *  Padding control.
 	 */
@@ -1275,9 +1299,6 @@ function responsive_unit_padding_control( $wp_customize, $element, $section, $pr
 			'default'           => $default_unit,
 		)
 	);
-	if ( ! class_exists( 'Responsive_Customizer_Unit_Dimensions_Control' ) ) {
-		require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/unit-dimensions/class-responsive-customizer-unit-dimensions-control.php';
-	}
 
 	$wp_customize->add_control(
 		new Responsive_Customizer_Unit_Dimensions_Control(
