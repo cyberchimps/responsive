@@ -59,7 +59,7 @@ if ( ! class_exists( 'Responsive_Container_Spacing_Customizer' ) ) :
 
 			// Outside Container.
 			$outside_container_label = __( 'Outside Container (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'sidebar_outside_container', 'responsive_sidebar', 80, 0, 12, '', $outside_container_label );
+			responsive_padding_control( $wp_customize, 'sidebar_outside_container', 'responsive_sidebar', 80, 28, 12, '', $outside_container_label );
 
 			// Inside Container.
 			$inside_container_label = __( 'Inside Container (px)', 'responsive' );
