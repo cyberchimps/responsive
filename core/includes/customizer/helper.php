@@ -937,6 +937,21 @@ if ( ! function_exists( 'responsive_spacing_css' ) ) {
 	}
 }
 
+if ( ! function_exists( 'responsive_get_banner_calc_width' ) ) {
+	/**
+	 * Return width calc rule subtracting left and right margins.
+	 *
+	 * @param  array  $val  Spacing values array with left, right.
+	 * @param  string $unit CSS unit (e.g., px, em).
+	 * @return string CSS width calc string.
+	 */
+	function responsive_get_banner_calc_width( $val, $unit ) {
+		$l = ( isset( $val['left'] ) && '' !== (string) $val['left'] ) ? $val['left'] . $unit : '0px';
+		$r = ( isset( $val['right'] ) && '' !== (string) $val['right'] ) ? $val['right'] . $unit : '0px';
+		return "calc(100% - {$l} - {$r})";
+	}
+}
+
 if ( ! function_exists( 'responsive_format_margin_css_with_container_width' ) ) {
 	/**
 	 * Return individual margin CSS rules handling custom width behavior.

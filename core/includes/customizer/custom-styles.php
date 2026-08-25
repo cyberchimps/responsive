@@ -389,91 +389,6 @@ function responsive_customizer_styles() {
 		}";
 	}
 
-	// Content Left/Right Edge Spacing
-	$content_edge_spacing              = esc_html( get_theme_mod( 'responsive_content_edge_spacing', Responsive\Core\get_responsive_customizer_defaults( 'content_edge_spacing' ) ) );
-	$content_edge_spacing_unit         = esc_html( get_theme_mod( 'responsive_content_edge_spacing_unit', 'px' ) );
-	$content_edge_spacing_tablet       = esc_html( get_theme_mod( 'responsive_content_edge_spacing_tablet', '' ) );
-	$content_edge_spacing_tablet_unit  = esc_html( get_theme_mod( 'responsive_content_edge_spacing_tablet_unit', 'px' ) );
-	$content_edge_spacing_mobile       = esc_html( get_theme_mod( 'responsive_content_edge_spacing_mobile', '' ) );
-	$content_edge_spacing_mobile_unit  = esc_html( get_theme_mod( 'responsive_content_edge_spacing_mobile_unit', 'px' ) );
-
-	$content_top_bottom_spacing        = esc_html( get_theme_mod( 'responsive_content_top_bottom_spacing', Responsive\Core\get_responsive_customizer_defaults( 'content_top_bottom_spacing' ) ) );
-	$content_top_bottom_spacing_unit   = esc_html( get_theme_mod( 'responsive_content_top_bottom_spacing_unit', 'px' ) );
-	$content_top_bottom_spacing_tablet = esc_html( get_theme_mod( 'responsive_content_top_bottom_spacing_tablet', '' ) );
-	$content_top_bottom_spacing_tablet_unit = esc_html( get_theme_mod( 'responsive_content_top_bottom_spacing_tablet_unit', 'px' ) );
-	$content_top_bottom_spacing_mobile = esc_html( get_theme_mod( 'responsive_content_top_bottom_spacing_mobile', '' ) );
-	$content_top_bottom_spacing_mobile_unit = esc_html( get_theme_mod( 'responsive_content_top_bottom_spacing_mobile_unit', 'px' ) );
-
-	if ( '' !== $content_edge_spacing ) {
-		$custom_css .= "
-		.container:not(.site-header .container) {
-			padding-left: {$content_edge_spacing}{$content_edge_spacing_unit};
-			padding-right: {$content_edge_spacing}{$content_edge_spacing_unit};
-		}";
-	}
-
-	if ( '' !== $content_top_bottom_spacing ) {
-		$custom_css .= "
-		.site-content,
-		.hentry,
-		article.product,
-		.navigation,
-		div.comments-area {
-			margin-top: {$content_top_bottom_spacing}{$content_top_bottom_spacing_unit};
-			margin-bottom: {$content_top_bottom_spacing}{$content_top_bottom_spacing_unit};
-		}";
-	}
-
-	if ( '' !== $content_edge_spacing_tablet || '' !== $content_top_bottom_spacing_tablet ) {
-		$custom_css .= "
-		@media screen and ( max-width: 992px ) {";
-		if ( '' !== $content_edge_spacing_tablet ) {
-			$custom_css .= "
-			.container {
-				padding-left: {$content_edge_spacing_tablet}{$content_edge_spacing_tablet_unit};
-				padding-right: {$content_edge_spacing_tablet}{$content_edge_spacing_tablet_unit};
-			}";
-		}
-		if ( '' !== $content_top_bottom_spacing_tablet ) {
-			$custom_css .= "
-			.site-content,
-			.hentry,
-			article.product,
-			.navigation,
-			div.comments-area {
-				margin-top: {$content_top_bottom_spacing_tablet}{$content_top_bottom_spacing_tablet_unit};
-				margin-bottom: {$content_top_bottom_spacing_tablet}{$content_top_bottom_spacing_tablet_unit};
-			}";
-		}
-		$custom_css .= "
-		}";
-	}
-
-	if ( '' !== $content_edge_spacing_mobile || '' !== $content_top_bottom_spacing_mobile ) {
-		$custom_css .= "
-		@media screen and ( max-width: 576px ) {";
-		if ( '' !== $content_edge_spacing_mobile ) {
-			$custom_css .= "
-			.container {
-				padding-left: {$content_edge_spacing_mobile}{$content_edge_spacing_mobile_unit};
-				padding-right: {$content_edge_spacing_mobile}{$content_edge_spacing_mobile_unit};
-			}";
-		}
-		if ( '' !== $content_top_bottom_spacing_mobile ) {
-			$custom_css .= "
-			.site-content,
-			.hentry,
-			article.product,
-			.navigation,
-			div.comments-area {
-				margin-top: {$content_top_bottom_spacing_mobile}{$content_top_bottom_spacing_mobile_unit};
-				margin-bottom: {$content_top_bottom_spacing_mobile}{$content_top_bottom_spacing_mobile_unit};
-			}";
-		}
-		$custom_css .= "
-		}";
-	}
-
 	// Container Style (Default / Boxed / Unboxed)
 	$global_container_style     = get_theme_mod( 'responsive_style', 'boxed' );
 	if ( 'flat' === $global_container_style ) {
@@ -10246,7 +10161,17 @@ function responsive_customizer_styles() {
 			else {
 				$custom_css .= "
 					.responsive-blog-single-banner2 {
-						width: auto;
+						width: " . responsive_get_banner_calc_width( $single_blog_banner_margin['desktop'], $single_blog_banner_margin_desktop_unit ) . ";
+					}
+					@media screen and ( max-width: 992px ) {
+						.responsive-blog-single-banner2 {
+							width: " . responsive_get_banner_calc_width( $single_blog_banner_margin['tablet'], $single_blog_banner_margin_tablet_unit ) . ";
+						}
+					}
+					@media screen and ( max-width: 576px ) {
+						.responsive-blog-single-banner2 {
+							width: " . responsive_get_banner_calc_width( $single_blog_banner_margin['mobile'], $single_blog_banner_margin_mobile_unit ) . ";
+						}
 					}
 				";
 			}
@@ -10474,7 +10399,17 @@ function responsive_customizer_styles() {
 			else {
 				$custom_css .= "
 					.responsive-archive-entry-banner {
-						width: auto;
+						width: " . responsive_get_banner_calc_width( $blog_banner_margin['desktop'], $blog_banner_margin_desktop_unit ) . ";
+					}
+					@media screen and ( max-width: 992px ) {
+						.responsive-archive-entry-banner {
+							width: " . responsive_get_banner_calc_width( $blog_banner_margin['tablet'], $blog_banner_margin_tablet_unit ) . ";
+						}
+					}
+					@media screen and ( max-width: 576px ) {
+						.responsive-archive-entry-banner {
+							width: " . responsive_get_banner_calc_width( $blog_banner_margin['mobile'], $blog_banner_margin_mobile_unit ) . ";
+						}
 					}
 				";
 			}
@@ -10661,7 +10596,17 @@ function responsive_customizer_styles() {
 			else {
 				$custom_css .= "
 					.responsive-single-entry-banner {
-						width: auto;
+						width: " . responsive_get_banner_calc_width( $page_banner_margin['desktop'], $page_banner_margin_desktop_unit ) . ";
+					}
+					@media screen and ( max-width: 992px ) {
+						.responsive-single-entry-banner {
+							width: " . responsive_get_banner_calc_width( $page_banner_margin['tablet'], $page_banner_margin_tablet_unit ) . ";
+						}
+					}
+					@media screen and ( max-width: 576px ) {
+						.responsive-single-entry-banner {
+							width: " . responsive_get_banner_calc_width( $page_banner_margin['mobile'], $page_banner_margin_mobile_unit ) . ";
+						}
 					}
 				";
 			}
