@@ -181,6 +181,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				$tab_ids_prefix . 'responsive_inline_logo_site_title',
 				$tab_ids_prefix . 'responsive_site_title_visibility',
 				$tab_ids_prefix . 'responsive_site_tagline_visibility',
+				$tab_ids_prefix . 'responsive_redirect_to_site_icon',
 			);
 			
 			if( ! get_theme_mod( 'custom_logo' ) ) {
