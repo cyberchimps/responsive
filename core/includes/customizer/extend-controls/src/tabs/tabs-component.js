@@ -582,6 +582,20 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_mobile_header_button_border_color').style.display = 'none';
 		}
 
+		// Sidebar Divider Style Controls
+		if( api('responsive_sidebar_border_divider_style') ) {
+			toggleSidebarDividerStyleControls( api('responsive_sidebar_border_divider_style').get() );
+		}
+
+		// Listen for changes to responsive_sidebar_border_divider_style
+		if( api('responsive_sidebar_border_divider_style') ) {
+			api('responsive_sidebar_border_divider_style', function( value ) {
+				value.bind( function( newval ) {
+					toggleSidebarDividerStyleControls( newval );
+				} );
+			} );
+		}
+
 		// Footer Social Border Controls
 		if( api('responsive_footer_social_item_border_style') ) {
 			toggleFooterSocialBorderControls( api('responsive_footer_social_item_border_style').get() );
@@ -1042,6 +1056,22 @@ const TabsComponent = props => {
 		if (isVisible) {
 			controlElement.style.display = 'block';
 		}
+	};
+
+	const toggleSidebarDividerStyleControls = (borderStyle) => {
+		const controlIds = [
+			'customize-control-responsive_sidebar_border_divider_width',
+			'customize-control-responsive_sidebar_border_divider_color',
+		];
+
+		const shouldShow = 'none' !== borderStyle && 'design' === tab;
+
+		controlIds.forEach(controlId => {
+			const controlElement = document.getElementById(controlId);
+			if (controlElement) {
+				controlElement.style.display = shouldShow ? 'block' : 'none';
+			}
+		});
 	};
 
 	const toggleFooterSocialBorderControls = (borderStyle) => {

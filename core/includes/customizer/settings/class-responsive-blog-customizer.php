@@ -76,20 +76,20 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 				)
 			);
 			$blog_border_radius_label = esc_html__( 'Border Radius (px)', 'responsive' );
-			responsive_radius_control($wp_customize, 'blog_border_radius', 'responsive_blog_layout', 30, 6, 6, null, $blog_border_radius_label, 'refresh',);
+			responsive_radius_control($wp_customize, 'blog_border_radius', 'responsive_blog_layout', 30, '', '', null, $blog_border_radius_label, 'refresh',);
 			/* End of Border radius setting */
 			responsive_horizontal_separator_control($wp_customize, 'blog_border_radius_separator', 1, 'responsive_blog_layout', 32, 1, null );
 
 			// Post Title Size.
-			$blog_post_title_size_label = esc_html__( 'Post Title Size', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'blog_post_title_size', $blog_post_title_size_label, 'responsive_blog_layout', 79, 20, null, 100, 8, 'refresh', 1 );
+			$blog_post_title_size_label = esc_html__( 'Post Title Size (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'blog_post_title_size', $blog_post_title_size_label, 'responsive_blog_layout', 79, 30, null, 100, 8, 'refresh', 1 );
 
 			// Meta Font Size.
-			$blog_meta_font_size_label = esc_html__( 'Meta Font Size', 'responsive' );
+			$blog_meta_font_size_label = esc_html__( 'Meta Font Size (px)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'blog_meta_font_size', $blog_meta_font_size_label, 'responsive_blog_layout', 91, 14, null, 60, 8, 'refresh', 1 );
 
 			// Taxonomy Font Size.
-			$blog_taxonomy_font_size_label = esc_html__( 'Taxonomy Font Size', 'responsive' );
+			$blog_taxonomy_font_size_label = esc_html__( 'Taxonomy Font Size (px)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'blog_taxonomy_font_size', $blog_taxonomy_font_size_label, 'responsive_blog_layout', 93, 14, null, 60, 8, 'refresh', 1 );
 
 			responsive_horizontal_separator_control($wp_customize, 'blog_taxonomy_font_separator', 1, 'responsive_blog_layout', 94, 1, null );
@@ -152,11 +152,12 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 
 			// Blog/Archive Site Background Color.
 			$blog_site_background_color_label = __( 'Blog/Archive Background', 'responsive' );
-			responsive_color_control( $wp_customize, 'blog_site_background', $blog_site_background_color_label, 'responsive_blog_layout', 99, Responsive\Core\get_responsive_customizer_defaults('responsive_blog_site_background_color') );
+			responsive_color_control( $wp_customize, 'blog_site_background', $blog_site_background_color_label, 'responsive_blog_layout', 99, Responsive\Core\get_responsive_customizer_defaults('responsive_page_site_background_color') );
 
 			// Blog/Archive Content Background Color.
 			$blog_content_background_color_label = __( 'Blog/Archive Content Background', 'responsive' );
-			responsive_color_control( $wp_customize, 'blog_content_background', $blog_content_background_color_label, 'responsive_blog_layout', 100, Responsive\Core\get_responsive_customizer_defaults('responsive_blog_content_background_color') );
+			responsive_color_control( $wp_customize, 'blog_content_background', $blog_content_background_color_label, 'responsive_blog_layout', 100, Responsive\Core\get_responsive_customizer_defaults('responsive_blog_content_background_color'),'responsive_show_blog_content_background' );
+
 
 			responsive_horizontal_separator_control( $wp_customize, 'archive_grid_boxed_shadow_separator', 1, 'responsive_blog_layout', 101, 1, null );
 

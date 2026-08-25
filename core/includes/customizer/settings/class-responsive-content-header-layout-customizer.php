@@ -64,7 +64,7 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 				)
 			);
 
-			responsive_horizontal_separator_control( $wp_customize, 'breadcrumb_enable_separator', 2, 'responsive_breadcrumb',15, 1, 'responsive_active_breadcrumb' );
+			responsive_horizontal_separator_control( $wp_customize, 'breadcrumb_enable_separator', 1, 'responsive_breadcrumb',15, 1, 'responsive_active_breadcrumb' );
 
 			// Breadcrumb Position.
 			$breadcrumb_position_label   = esc_html__( 'Breadcrumb Position', 'responsive' );

@@ -635,9 +635,11 @@ function responsive_add_custom_body_classes( $classes ) {
 	$classes[] = 'link-style-' . get_theme_mod( 'responsive_link_style', 'standard' );
 
 	if ( is_page() ) {
-		$site_style = get_post_meta( get_the_ID(), 'responsive_page_meta_layout_style', true );
-		$site_style = $site_style ? $site_style : get_theme_mod( 'responsive_style', 'boxed' );
-		$classes[]  = 'responsive-site-style-' . $site_style;
+		$page_container_style = get_theme_mod( 'responsive_page_container_style', 'default' );
+		if ( 'default' !== $page_container_style ) {
+			$classes    = array_diff( $classes, array( 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' ) ) );
+			$classes[]  = 'responsive-site-style-' . $page_container_style;
+		}
 
 	} else {
 		$classes[] = 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' );
@@ -652,7 +654,7 @@ function responsive_add_custom_body_classes( $classes ) {
 		$blog_container_style = get_theme_mod( 'responsive_blog_container_style', 'default' );
 		if ( 'default' !== $blog_container_style ) {
 			$classes   = array_diff( $classes, array( 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' ) ) );
-			$classes[] = 'responsive-site-style-' . ( 'unboxed' === $blog_container_style ? 'flat' : 'boxed' );
+			$classes[] = 'responsive-site-style-' . $blog_container_style;
 		}
 	}
 
@@ -1260,7 +1262,7 @@ function defaults() {
 			'blog_title_layout'					  => 'post_title_layout1',
 			'page_title_layout'                   => 'post_title_layout1',
 			'page_title_inner_elements_spacing'   => 10,
-			'single_blog_post_title_color'        => 'palette3',
+			'single_blog_post_title_color'        => 'h1-color',
 			'single_blog_post_text_color'		  => 'palette2',
 			'single_blog_post_link_color'		  => 'palette0',
 			'single_blog_post_link_hover_color'   => 'palette1',
@@ -1278,10 +1280,6 @@ function defaults() {
 			// Padding & Spacing.
 			'box_padding'                         => 30,
 			'logo_padding'                        => 28,
-			'content_edge_spacing'                => 12,
-			'content_edge_spacing_unit'           => 'px',
-			'content_top_bottom_spacing'          => 28,
-			'content_top_bottom_spacing_unit'     => 'px',
 			// Colors.
 			'responsive_site_background_color'    => 'palette5',
 			'background_gradient_color'           => 'linear-gradient(135deg, #12c2e9 0%, #c471ed 50%, #f64f59 100%)',
@@ -1394,13 +1392,15 @@ function defaults() {
 			'inputs_background'                   => '#ffffff',
 			'inputs_text'                         => '#404040',
 			'inputs_border'                       => '#cccccc',
-			'responsive_title_above_content_bg_color'      => '',
+			'responsive_title_above_content_bg_color'      => '#ffffff',
 			'responsive_title_above_content_overlay_color' => '',
 			'responsive_blog_banner_background_color'       => 'title-above-content-bg-color',
 			'responsive_single_blog_banner_background_color' => 'title-above-content-bg-color',
 			'responsive_page_title_banner_background_color' => 'title-above-content-bg-color',
 			'responsive_single_blog_featured_image_overlay_color' => 'title-above-content-overlay-color',
 			'responsive_page_featured_image_overlay_color'  => 'title-above-content-overlay-color',
+			'responsive_page_site_background_color' => 'site-background',
+			'responsive_page_content_background_color' => 'box-background',
 			'responsive_link_style'               => 'no-underline',
 			'responsive_link_hover_bg_color'      => 'palette0',
 			'label'                               => '#404040',
@@ -1469,8 +1469,8 @@ function defaults() {
 			'responsive_sidebar_link_hover_color' => 'palette1',
 			'responsive_shop_product_rating_color' => 'palette0',
 			'responsive_cart_checkout_button_color' => 'palette0',
-			'responsive_blog_item_meta_color'		=> '#3B82F6',
-			'responsive_blog_category_color'		=> '#3B82F6',
+			'responsive_blog_item_meta_color'		=> 'palette0',
+			'responsive_blog_category_color'		=> 'palette0',
 			'responsive_link_hover_color'         => 'palette1',
 			'responsive_header_search_color'      => '#333333',
 			'responsive_header_search_hover_color'=> '#333333',
@@ -3007,16 +3007,12 @@ if( ! function_exists( 'responsive_prepare_css_value' ) ) {
 
 		$value = trim( $value );
 
-		if ( is_string( $value ) && ( preg_match( '/^palette\d+$/', $value ) || false !== strpos( $value, 'headings-color' ) ) ) {
+		if ( is_string( $value ) && ( preg_match( '/^palette\d+$/', $value ) || false !== strpos( $value, 'headings-color' ) || false !== strpos( $value, 'site-background' ) || false !== strpos( $value, 'box-background' ) || false !== strpos( $value, 'h1-color' ) ) ) {
 			return 'var(--responsive-global-' . $value . ')';
 		}
 
 		if ( 'title-above-content-bg-color' === $value ) {
 			return 'var(--responsive-title-above-content-bg-color)';
-		}
-
-		if ( 'title-above-content-overlay-color' === $value ) {
-			return 'var(--responsive-title-above-content-overlay-color)';
 		}
 
 		return $value;

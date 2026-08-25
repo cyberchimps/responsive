@@ -149,10 +149,10 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			}
 
 			// Narrow Container Width.
-			$narrow_container_width_label = __( 'Container Width (px)', 'responsive' );
+			$narrow_container_width_label = __( 'Narrow Container Width (px)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'narrow_container_width', $narrow_container_width_label, 'responsive_layout', 9, 750, null, 1000, 400, 'postMessage' );
 			if ( $wp_customize->get_control( 'responsive_narrow_container_width' ) ) {
-				$wp_customize->get_control( 'responsive_narrow_container_width' )->description = __( 'Note: This setting applies to Desktop devices only.', 'responsive' );
+				$wp_customize->get_control( 'responsive_narrow_container_width' )->description = __( 'Note: This setting applies to Desktop devices when Narrow Layout is selected.', 'responsive' );
 			}
 			// Header Allignment.
 			$responsive_style_label  = __( 'Container Style', 'responsive' );
@@ -167,51 +167,11 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 
 			// Box Padding (px).
 			$box_padding_label = __( 'Inside Container (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'box', 'responsive_layout', 80, Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ), Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ), 'responsive_not_active_site_style_flat', $box_padding_label );
+			responsive_unit_padding_control( $wp_customize, 'box', 'responsive_layout', 80, Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ), Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ), 'responsive_not_active_site_style_flat', $box_padding_label );
 
 			// Box Radius.
 			$box_radius_label = __( 'Box Radius (px)', 'responsive' );
-			responsive_radius_control( $wp_customize, 'box', 'responsive_layout', 50, 4, 4, 'responsive_not_active_site_style_flat', $box_radius_label );
-
-			// Content Left/Right Edge Spacing.
-			$content_edge_spacing_label = __( 'Content Left/Right Edge Spacing', 'responsive' );
-			responsive_drag_number_control_with_switchers(
-				$wp_customize,
-				'content_edge_spacing',
-				$content_edge_spacing_label,
-				'responsive_layout',
-				51,
-				Responsive\Core\get_responsive_customizer_defaults( 'content_edge_spacing' ),
-				null,
-				100,
-				0,
-				'postMessage',
-				1,
-				null,
-				null,
-				array( 'desktop', 'tablet', 'mobile' ),
-				array( 'px', 'em', 'rem', 'vh' )
-			);
-
-			// Content Top and Bottom Spacing.
-			$content_top_bottom_spacing_label = __( 'Content Top and Bottom Spacing', 'responsive' );
-			responsive_drag_number_control_with_switchers(
-				$wp_customize,
-				'content_top_bottom_spacing',
-				$content_top_bottom_spacing_label,
-				'responsive_layout',
-				52,
-				Responsive\Core\get_responsive_customizer_defaults( 'content_top_bottom_spacing' ),
-				null,
-				100,
-				0,
-				'postMessage',
-				1,
-				null,
-				null,
-				array( 'desktop', 'tablet', 'mobile' ),
-				array( 'px', 'em', 'rem', 'vh' )
-			);
+			responsive_radius_control( $wp_customize, 'box', 'responsive_layout', 50, 4, 4, 'responsive_not_active_site_style_flat', $box_radius_label, 'refresh' );
 
 			// responsive_number_control( $wp_customize, 'box_radius', $box_radius_label, 'responsive_layout', 50, 0, 'responsive_not_active_site_style_flat' );
 
