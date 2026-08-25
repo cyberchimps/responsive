@@ -952,11 +952,11 @@ function responsive_customizer_styles() {
 		--wp--style--global--wide-size: {$default_container_max_width}px;
 	}
 	
-	html body.page-template-gutenberg-fullwidth:not(.customize-support) .wp-block-group.wp-block-group.wp-block-group-is-layout-constrained > :where(:not(.alignwide):not(.alignfull)) {
+	html body.page-template-gutenberg-fullwidth:not(.customize-support):not(.custom-background) .wp-block-group.wp-block-group.wp-block-group-is-layout-constrained > :where(:not(.alignwide):not(.alignfull)){
 		max-width: 720px;
 	}
 
-	html body.page-template-gutenberg-fullwidth:not(.customize-support) .wp-block-group.wp-block-group.wp-block-group-is-layout-constrained > .alignwide {
+	html body.page-template-gutenberg-fullwidth:not(.customize-support):not(.custom-background) .wp-block-group.wp-block-group.wp-block-group-is-layout-constrained > .alignwide{
 		max-width: var(--wp--style--global--wide-size);
 	}
 	
