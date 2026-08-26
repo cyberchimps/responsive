@@ -1946,7 +1946,123 @@
             value.bind(updateContentEdgeSpacingCss);
         });
     });
+    function updatePrimaryMenuMenuPaddingCss() {
+        jQuery('style#responsive-primary-menu-menu-padding-css').remove();
 
+        var top = api('responsive_primary_menu_menu_top_padding') ? api('responsive_primary_menu_menu_top_padding').get() : '';
+        var right = api('responsive_primary_menu_menu_right_padding') ? api('responsive_primary_menu_menu_right_padding').get() : '';
+        var bottom = api('responsive_primary_menu_menu_bottom_padding') ? api('responsive_primary_menu_menu_bottom_padding').get() : '';
+        var left = api('responsive_primary_menu_menu_left_padding') ? api('responsive_primary_menu_menu_left_padding').get() : '';
+        var unit = api('responsive_primary_menu_menu_desktop_unit') ? api('responsive_primary_menu_menu_desktop_unit').get() : 'px';
+
+        var t_top = api('responsive_primary_menu_menu_tablet_top_padding') ? api('responsive_primary_menu_menu_tablet_top_padding').get() : '';
+        var t_right = api('responsive_primary_menu_menu_tablet_right_padding') ? api('responsive_primary_menu_menu_tablet_right_padding').get() : '';
+        var t_bottom = api('responsive_primary_menu_menu_tablet_bottom_padding') ? api('responsive_primary_menu_menu_tablet_bottom_padding').get() : '';
+        var t_left = api('responsive_primary_menu_menu_tablet_left_padding') ? api('responsive_primary_menu_menu_tablet_left_padding').get() : '';
+        var t_unit = api('responsive_primary_menu_menu_tablet_unit') ? api('responsive_primary_menu_menu_tablet_unit').get() : 'px';
+
+        var m_top = api('responsive_primary_menu_menu_mobile_top_padding') ? api('responsive_primary_menu_menu_mobile_top_padding').get() : '';
+        var m_right = api('responsive_primary_menu_menu_mobile_right_padding') ? api('responsive_primary_menu_menu_mobile_right_padding').get() : '';
+        var m_bottom = api('responsive_primary_menu_menu_mobile_bottom_padding') ? api('responsive_primary_menu_menu_mobile_bottom_padding').get() : '';
+        var m_left = api('responsive_primary_menu_menu_mobile_left_padding') ? api('responsive_primary_menu_menu_mobile_left_padding').get() : '';
+        var m_unit = api('responsive_primary_menu_menu_mobile_unit') ? api('responsive_primary_menu_menu_mobile_unit').get() : 'px';
+
+        var css = '';
+        if (top !== '' || right !== '' || bottom !== '' || left !== '') {
+            css += '.main-navigation .menu > li > a { padding-top: ' + (top || 0) + unit + '; padding-right: ' + (right || 0) + unit + '; padding-bottom: ' + (bottom || 0) + unit + '; padding-left: ' + (left || 0) + unit + '; }';
+        }
+        if (t_top !== '' || t_right !== '' || t_bottom !== '' || t_left !== '') {
+            css += '@media screen and (max-width: 992px) { .main-navigation .menu > li > a { padding-top: ' + (t_top || 0) + t_unit + '; padding-right: ' + (t_right || 0) + t_unit + '; padding-bottom: ' + (t_bottom || 0) + t_unit + '; padding-left: ' + (t_left || 0) + t_unit + '; } }';
+        }
+        if (m_top !== '' || m_right !== '' || m_bottom !== '' || m_left !== '') {
+            css += '@media screen and (max-width: 576px) { .main-navigation .menu > li > a { padding-top: ' + (m_top || 0) + m_unit + '; padding-right: ' + (m_right || 0) + m_unit + '; padding-bottom: ' + (m_bottom || 0) + m_unit + '; padding-left: ' + (m_left || 0) + m_unit + '; } }';
+        }
+
+        if (css !== '') {
+            jQuery('head').append('<style id="responsive-primary-menu-menu-padding-css">' + css + '</style>');
+        }
+    }
+
+    [
+        'responsive_primary_menu_menu_top_padding',
+        'responsive_primary_menu_menu_right_padding',
+        'responsive_primary_menu_menu_bottom_padding',
+        'responsive_primary_menu_menu_left_padding',
+        'responsive_primary_menu_menu_desktop_unit',
+        'responsive_primary_menu_menu_tablet_top_padding',
+        'responsive_primary_menu_menu_tablet_right_padding',
+        'responsive_primary_menu_menu_tablet_bottom_padding',
+        'responsive_primary_menu_menu_tablet_left_padding',
+        'responsive_primary_menu_menu_tablet_unit',
+        'responsive_primary_menu_menu_mobile_top_padding',
+        'responsive_primary_menu_menu_mobile_right_padding',
+        'responsive_primary_menu_menu_mobile_bottom_padding',
+        'responsive_primary_menu_menu_mobile_left_padding',
+        'responsive_primary_menu_menu_mobile_unit'
+    ].forEach(function(settingId) {
+        api(settingId, function(value) {
+            value.bind(updatePrimaryMenuMenuPaddingCss);
+        });
+    });
+
+    function updatePrimaryMenuMarginCss() {
+        jQuery('style#responsive-primary-menu-margin-css').remove();
+
+        var top = api('responsive_primary_menu_margin_top_padding') ? api('responsive_primary_menu_margin_top_padding').get() : '';
+        var right = api('responsive_primary_menu_margin_right_padding') ? api('responsive_primary_menu_margin_right_padding').get() : '';
+        var bottom = api('responsive_primary_menu_margin_bottom_padding') ? api('responsive_primary_menu_margin_bottom_padding').get() : '';
+        var left = api('responsive_primary_menu_margin_left_padding') ? api('responsive_primary_menu_margin_left_padding').get() : '';
+        var unit = api('responsive_primary_menu_margin_desktop_unit') ? api('responsive_primary_menu_margin_desktop_unit').get() : 'px';
+
+        var t_top = api('responsive_primary_menu_margin_tablet_top_padding') ? api('responsive_primary_menu_margin_tablet_top_padding').get() : '';
+        var t_right = api('responsive_primary_menu_margin_tablet_right_padding') ? api('responsive_primary_menu_margin_tablet_right_padding').get() : '';
+        var t_bottom = api('responsive_primary_menu_margin_tablet_bottom_padding') ? api('responsive_primary_menu_margin_tablet_bottom_padding').get() : '';
+        var t_left = api('responsive_primary_menu_margin_tablet_left_padding') ? api('responsive_primary_menu_margin_tablet_left_padding').get() : '';
+        var t_unit = api('responsive_primary_menu_margin_tablet_unit') ? api('responsive_primary_menu_margin_tablet_unit').get() : 'px';
+
+        var m_top = api('responsive_primary_menu_margin_mobile_top_padding') ? api('responsive_primary_menu_margin_mobile_top_padding').get() : '';
+        var m_right = api('responsive_primary_menu_margin_mobile_right_padding') ? api('responsive_primary_menu_margin_mobile_right_padding').get() : '';
+        var m_bottom = api('responsive_primary_menu_margin_mobile_bottom_padding') ? api('responsive_primary_menu_margin_mobile_bottom_padding').get() : '';
+        var m_left = api('responsive_primary_menu_margin_mobile_left_padding') ? api('responsive_primary_menu_margin_mobile_left_padding').get() : '';
+        var m_unit = api('responsive_primary_menu_margin_mobile_unit') ? api('responsive_primary_menu_margin_mobile_unit').get() : 'px';
+
+        var css = '';
+        if (top !== '' || right !== '' || bottom !== '' || left !== '') {
+            css += '.main-navigation .menu { margin-top: ' + (top || 0) + unit + '; margin-right: ' + (right || 0) + unit + '; margin-bottom: ' + (bottom || 0) + unit + '; margin-left: ' + (left || 0) + unit + '; }';
+        }
+        if (t_top !== '' || t_right !== '' || t_bottom !== '' || t_left !== '') {
+            css += '@media screen and (max-width: 992px) { .main-navigation .menu { margin-top: ' + (t_top || 0) + t_unit + '; margin-right: ' + (t_right || 0) + t_unit + '; margin-bottom: ' + (t_bottom || 0) + t_unit + '; margin-left: ' + (t_left || 0) + t_unit + '; } }';
+        }
+        if (m_top !== '' || m_right !== '' || m_bottom !== '' || m_left !== '') {
+            css += '@media screen and (max-width: 576px) { .main-navigation .menu { margin-top: ' + (m_top || 0) + m_unit + '; margin-right: ' + (m_right || 0) + m_unit + '; margin-bottom: ' + (m_bottom || 0) + m_unit + '; margin-left: ' + (m_left || 0) + m_unit + '; } }';
+        }
+
+        if (css !== '') {
+            jQuery('head').append('<style id="responsive-primary-menu-margin-css">' + css + '</style>');
+        }
+    }
+
+    [
+        'responsive_primary_menu_margin_top_padding',
+        'responsive_primary_menu_margin_right_padding',
+        'responsive_primary_menu_margin_bottom_padding',
+        'responsive_primary_menu_margin_left_padding',
+        'responsive_primary_menu_margin_desktop_unit',
+        'responsive_primary_menu_margin_tablet_top_padding',
+        'responsive_primary_menu_margin_tablet_right_padding',
+        'responsive_primary_menu_margin_tablet_bottom_padding',
+        'responsive_primary_menu_margin_tablet_left_padding',
+        'responsive_primary_menu_margin_tablet_unit',
+        'responsive_primary_menu_margin_mobile_top_padding',
+        'responsive_primary_menu_margin_mobile_right_padding',
+        'responsive_primary_menu_margin_mobile_bottom_padding',
+        'responsive_primary_menu_margin_mobile_left_padding',
+        'responsive_primary_menu_margin_mobile_unit'
+    ].forEach(function(settingId) {
+        api(settingId, function(value) {
+            value.bind(updatePrimaryMenuMarginCss);
+        });
+    });
 
 } )( jQuery );
 

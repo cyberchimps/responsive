@@ -67,6 +67,9 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				$tab_ids_prefix . 'responsive_sub_menu_divider_color',
 				$tab_ids_prefix . 'responsive_header_sub_menu_background_color_states',
 				$tab_ids_prefix . 'responsive_header_sub_menu_link_color_states',
+				$tab_ids_prefix . 'responsive_primary_menu_spacing_separator',
+				$tab_ids_prefix . 'responsive_primary_menu_menu_padding',
+				$tab_ids_prefix . 'responsive_primary_menu_margin_padding',
 			);
 
 			$primary_menu_general_tab_ids = array(
@@ -326,8 +329,15 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				'header_active_sub_menu_background'
 			);
 
+			// Spacing Separator
+			$primary_menu_spacing_separator_label = __( 'Spacing', 'responsive' );
+			responsive_separator_control( $wp_customize, 'primary_menu_spacing_separator', $primary_menu_spacing_separator_label, 'responsive_header_menu_layout', 230 );
 
-			
+			// Menu Padding
+			responsive_unit_padding_control( $wp_customize, 'primary_menu_menu', 'responsive_header_menu_layout', 240, '', '', 'responsive_disabled_main_menu', __( 'Menu', 'responsive' ), 'postMessage', '', '', '', '', 'px' );
+
+			// Margin
+			responsive_unit_padding_control( $wp_customize, 'primary_menu_margin', 'responsive_header_menu_layout', 250, '', '', 'responsive_disabled_main_menu', __( 'Margin', 'responsive' ), 'postMessage', '', '', '', '', 'px' );
 
 		}
 

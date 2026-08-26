@@ -2661,6 +2661,64 @@ function responsive_customizer_styles() {
 	if ( 0 === $disable_mobile_menu ) {
 		$mobile_menu_breakpoint = 0;
 	}
+
+	// Primary Menu Padding (Menu)
+	$primary_menu_menu_top    = get_theme_mod( 'responsive_primary_menu_menu_top_padding', '' );
+	$primary_menu_menu_right  = get_theme_mod( 'responsive_primary_menu_menu_right_padding', '' );
+	$primary_menu_menu_bottom = get_theme_mod( 'responsive_primary_menu_menu_bottom_padding', '' );
+	$primary_menu_menu_left   = get_theme_mod( 'responsive_primary_menu_menu_left_padding', '' );
+	$primary_menu_menu_unit   = get_theme_mod( 'responsive_primary_menu_menu_desktop_unit', 'px' );
+
+	$primary_menu_menu_tablet_top    = get_theme_mod( 'responsive_primary_menu_menu_tablet_top_padding', '' );
+	$primary_menu_menu_tablet_right  = get_theme_mod( 'responsive_primary_menu_menu_tablet_right_padding', '' );
+	$primary_menu_menu_tablet_bottom = get_theme_mod( 'responsive_primary_menu_menu_tablet_bottom_padding', '' );
+	$primary_menu_menu_tablet_left   = get_theme_mod( 'responsive_primary_menu_menu_tablet_left_padding', '' );
+	$primary_menu_menu_tablet_unit   = get_theme_mod( 'responsive_primary_menu_menu_tablet_unit', 'px' );
+
+	$primary_menu_menu_mobile_top    = get_theme_mod( 'responsive_primary_menu_menu_mobile_top_padding', '' );
+	$primary_menu_menu_mobile_right  = get_theme_mod( 'responsive_primary_menu_menu_mobile_right_padding', '' );
+	$primary_menu_menu_mobile_bottom = get_theme_mod( 'responsive_primary_menu_menu_mobile_bottom_padding', '' );
+	$primary_menu_menu_mobile_left   = get_theme_mod( 'responsive_primary_menu_menu_mobile_left_padding', '' );
+	$primary_menu_menu_mobile_unit   = get_theme_mod( 'responsive_primary_menu_menu_mobile_unit', 'px' );
+
+	if ( '' !== $primary_menu_menu_top || '' !== $primary_menu_menu_right || '' !== $primary_menu_menu_bottom || '' !== $primary_menu_menu_left ) {
+		$custom_css .= ".main-navigation .menu > li > a { padding: " . responsive_spacing_css( $primary_menu_menu_top, $primary_menu_menu_right, $primary_menu_menu_bottom, $primary_menu_menu_left, $primary_menu_menu_unit ) . "; }";
+	}
+	if ( '' !== $primary_menu_menu_tablet_top || '' !== $primary_menu_menu_tablet_right || '' !== $primary_menu_menu_tablet_bottom || '' !== $primary_menu_menu_tablet_left ) {
+		$custom_css .= "@media (max-width: 992px) { .main-navigation .menu > li > a { padding: " . responsive_spacing_css( $primary_menu_menu_tablet_top, $primary_menu_menu_tablet_right, $primary_menu_menu_tablet_bottom, $primary_menu_menu_tablet_left, $primary_menu_menu_tablet_unit ) . "; } }";
+	}
+	if ( '' !== $primary_menu_menu_mobile_top || '' !== $primary_menu_menu_mobile_right || '' !== $primary_menu_menu_mobile_bottom || '' !== $primary_menu_menu_mobile_left ) {
+		$custom_css .= "@media (max-width: 576px) { .main-navigation .menu > li > a { padding: " . responsive_spacing_css( $primary_menu_menu_mobile_top, $primary_menu_menu_mobile_right, $primary_menu_menu_mobile_bottom, $primary_menu_menu_mobile_left, $primary_menu_menu_mobile_unit ) . "; } }";
+	}
+
+	// Primary Menu Margin
+	$primary_menu_margin_top    = get_theme_mod( 'responsive_primary_menu_margin_top_padding', '' );
+	$primary_menu_margin_right  = get_theme_mod( 'responsive_primary_menu_margin_right_padding', '' );
+	$primary_menu_margin_bottom = get_theme_mod( 'responsive_primary_menu_margin_bottom_padding', '' );
+	$primary_menu_margin_left   = get_theme_mod( 'responsive_primary_menu_margin_left_padding', '' );
+	$primary_menu_margin_unit   = get_theme_mod( 'responsive_primary_menu_margin_desktop_unit', 'px' );
+
+	$primary_menu_margin_tablet_top    = get_theme_mod( 'responsive_primary_menu_margin_tablet_top_padding', '' );
+	$primary_menu_margin_tablet_right  = get_theme_mod( 'responsive_primary_menu_margin_tablet_right_padding', '' );
+	$primary_menu_margin_tablet_bottom = get_theme_mod( 'responsive_primary_menu_margin_tablet_bottom_padding', '' );
+	$primary_menu_margin_tablet_left   = get_theme_mod( 'responsive_primary_menu_margin_tablet_left_padding', '' );
+	$primary_menu_margin_tablet_unit   = get_theme_mod( 'responsive_primary_menu_margin_tablet_unit', 'px' );
+
+	$primary_menu_margin_mobile_top    = get_theme_mod( 'responsive_primary_menu_margin_mobile_top_padding', '' );
+	$primary_menu_margin_mobile_right  = get_theme_mod( 'responsive_primary_menu_margin_mobile_right_padding', '' );
+	$primary_menu_margin_mobile_bottom = get_theme_mod( 'responsive_primary_menu_margin_mobile_bottom_padding', '' );
+	$primary_menu_margin_mobile_left   = get_theme_mod( 'responsive_primary_menu_margin_mobile_left_padding', '' );
+	$primary_menu_margin_mobile_unit   = get_theme_mod( 'responsive_primary_menu_margin_mobile_unit', 'px' );
+
+	if ( '' !== $primary_menu_margin_top || '' !== $primary_menu_margin_right || '' !== $primary_menu_margin_bottom || '' !== $primary_menu_margin_left ) {
+		$custom_css .= ".main-navigation .menu { margin: " . responsive_spacing_css( $primary_menu_margin_top, $primary_menu_margin_right, $primary_menu_margin_bottom, $primary_menu_margin_left, $primary_menu_margin_unit ) . "; }";
+	}
+	if ( '' !== $primary_menu_margin_tablet_top || '' !== $primary_menu_margin_tablet_right || '' !== $primary_menu_margin_tablet_bottom || '' !== $primary_menu_margin_tablet_left ) {
+		$custom_css .= "@media (max-width: 992px) { .main-navigation .menu { margin: " . responsive_spacing_css( $primary_menu_margin_tablet_top, $primary_menu_margin_tablet_right, $primary_menu_margin_tablet_bottom, $primary_menu_margin_tablet_left, $primary_menu_margin_tablet_unit ) . "; } }";
+	}
+	if ( '' !== $primary_menu_margin_mobile_top || '' !== $primary_menu_margin_mobile_right || '' !== $primary_menu_margin_mobile_bottom || '' !== $primary_menu_margin_mobile_left ) {
+		$custom_css .= "@media (max-width: 576px) { .main-navigation .menu { margin: " . responsive_spacing_css( $primary_menu_margin_mobile_top, $primary_menu_margin_mobile_right, $primary_menu_margin_mobile_bottom, $primary_menu_margin_mobile_left, $primary_menu_margin_mobile_unit ) . "; } }";
+	}
 	// adding custom css when the menu is going out of the screen
 	$custom_css .= "
 		.main-navigation .children > li.focus > .children, .main-navigation .children > li.focus > .sub-menu-edge, .main-navigation .children > li:hover > .children, .main-navigation .children > li:hover > .sub-menu-edge,
