@@ -824,7 +824,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 
 			// Breadcrumb Color
 			$blog_breadcrumb_color_label = __( 'Breadcrumb Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'single_blog_breadcrumb', $blog_breadcrumb_color_label, 'responsive_single_blog_layout', 113, Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_breadcrumb_color' ), null, '', false, null, null, false, null, null, 'color', 'refresh' );
+			responsive_color_control( $wp_customize, 'single_blog_breadcrumb', $blog_breadcrumb_color_label, 'responsive_single_blog_layout', 113, Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb' ), null, '', false, null, null, false, null, null, 'color', 'refresh' );
 
 			// Breadcrumb Font
 			$blog_breadcrumb_typography_label = esc_html__( 'Breadcrumb Font', 'responsive' );
