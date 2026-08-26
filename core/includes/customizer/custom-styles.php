@@ -1944,6 +1944,19 @@ function responsive_customizer_styles() {
 		text-decoration: none;
 	}
 
+	.link-style-standard .entry-content p a:hover,
+	.link-style-standard .entry-content strong>a:hover,
+	.link-style-standard .entry-content em>a:hover,
+	.link-style-standard .entry-content>ul a:hover,
+	.link-style-standard .entry-content>ol a:hover,
+	.link-style-no-underline .entry-content p a:hover,
+	.link-style-no-underline .entry-content strong>a:hover,
+	.link-style-no-underline .entry-content em>a:hover,
+	.link-style-no-underline .entry-content>ul a:hover,
+	.link-style-no-underline .entry-content>ol a:hover {
+		color: {$link_hover_color};
+	}
+
 	.link-style-hover-background .entry-content p a:hover,
 	.link-style-hover-background .entry-content strong>a:hover,
 	.link-style-hover-background .entry-content em>a:hover,
@@ -4620,12 +4633,12 @@ function responsive_customizer_styles() {
 
 	$custom_css .= "
 	@media (min-width:992px) {
-		.search:not(.post-type-archive-product) .content-area,
+		
 		.archive:not(.post-type-archive-product):not(.post-type-archive-course) .content-area,
 		.blog:not(.custom-home-page-active) .content-area {
 			width:{$blog_content_width}%;
 		}
-		.search:not(.post-type-archive-product) aside.widget-area,
+		
 		.archive:not(.post-type-archive-product) aside.widget-area,
 		.blog:not(.custom-home-page-active) aside.widget-area {
 			width: calc(100% - {$blog_content_width}%);
