@@ -1800,80 +1800,38 @@
         value.bind(updateSidebarStickyCss);
     });
 
-    function updateContentEdgeSpacingCss() {
-        jQuery('style#responsive-content-edge-spacing-css').remove();
 
-        var val = api('responsive_content_edge_spacing') ? api('responsive_content_edge_spacing').get() : 12;
-        var unit = api('responsive_content_edge_spacing_unit') ? api('responsive_content_edge_spacing_unit').get() : 'px';
-
-        var val_tablet = api('responsive_content_edge_spacing_tablet') ? api('responsive_content_edge_spacing_tablet').get() : '';
-        var unit_tablet = api('responsive_content_edge_spacing_tablet_unit') ? api('responsive_content_edge_spacing_tablet_unit').get() : 'px';
-
-        var val_mobile = api('responsive_content_edge_spacing_mobile') ? api('responsive_content_edge_spacing_mobile').get() : '';
-        var unit_mobile = api('responsive_content_edge_spacing_mobile_unit') ? api('responsive_content_edge_spacing_mobile_unit').get() : 'px';
-
-        var css = '.container { padding-left: ' + val + unit + '; padding-right: ' + val + unit + '; }';
-
-        if (val_tablet !== '') {
-            css += '@media screen and (max-width: 992px) { .container { padding-left: ' + val_tablet + unit_tablet + '; padding-right: ' + val_tablet + unit_tablet + '; } }';
-        }
-        if (val_mobile !== '') {
-            css += '@media screen and (max-width: 576px) { .container { padding-left: ' + val_mobile + unit_mobile + '; padding-right: ' + val_mobile + unit_mobile + '; } }';
-        }
-
-        jQuery('head').append('<style id="responsive-content-edge-spacing-css">' + css + '</style>');
-    }
-
-    [
-        'responsive_content_edge_spacing',
-        'responsive_content_edge_spacing_unit',
-        'responsive_content_edge_spacing_tablet',
-        'responsive_content_edge_spacing_tablet_unit',
-        'responsive_content_edge_spacing_mobile',
-        'responsive_content_edge_spacing_mobile_unit'
-    ].forEach(function(settingId) {
-        api(settingId, function(value) {
-            value.bind(updateContentEdgeSpacingCss);
-        });
-    });
-
-    function updateContentTopBottomSpacingCss() {
-        jQuery('style#responsive-content-top-bottom-spacing-css').remove();
-
-        var val = api('responsive_content_top_bottom_spacing') ? api('responsive_content_top_bottom_spacing').get() : 28;
-        var unit = api('responsive_content_top_bottom_spacing_unit') ? api('responsive_content_top_bottom_spacing_unit').get() : 'px';
-
-        var val_tablet = api('responsive_content_top_bottom_spacing_tablet') ? api('responsive_content_top_bottom_spacing_tablet').get() : '';
-        var unit_tablet = api('responsive_content_top_bottom_spacing_tablet_unit') ? api('responsive_content_top_bottom_spacing_tablet_unit').get() : 'px';
-
-        var val_mobile = api('responsive_content_top_bottom_spacing_mobile') ? api('responsive_content_top_bottom_spacing_mobile').get() : '';
-        var unit_mobile = api('responsive_content_top_bottom_spacing_mobile_unit') ? api('responsive_content_top_bottom_spacing_mobile_unit').get() : 'px';
-
-        var selectors = '.site-content, .hentry, article.product, .navigation, div.comments-area';
-        var css = selectors + ' { margin-top: ' + val + unit + '; margin-bottom: ' + val + unit + '; }';
-
-        if (val_tablet !== '') {
-            css += '@media screen and (max-width: 992px) { ' + selectors + ' { margin-top: ' + val_tablet + unit_tablet + '; margin-bottom: ' + val_tablet + unit_tablet + '; } }';
-        }
-        if (val_mobile !== '') {
-            css += '@media screen and (max-width: 576px) { ' + selectors + ' { margin-top: ' + val_mobile + unit_mobile + '; margin-bottom: ' + val_mobile + unit_mobile + '; } }';
-        }
-
-        jQuery('head').append('<style id="responsive-content-top-bottom-spacing-css">' + css + '</style>');
-    }
-
-    [
-        'responsive_content_top_bottom_spacing',
-        'responsive_content_top_bottom_spacing_unit',
-        'responsive_content_top_bottom_spacing_tablet',
-        'responsive_content_top_bottom_spacing_tablet_unit',
-        'responsive_content_top_bottom_spacing_mobile',
-        'responsive_content_top_bottom_spacing_mobile_unit'
-    ].forEach(function(settingId) {
-        api(settingId, function(value) {
-            value.bind(updateContentTopBottomSpacingCss);
-        });
-    });
+    api( 'responsive_page_content_top_bottom_spacing', function( value ) {
+        value.bind( function( newval ) {
+            var verticalSetting = api( 'responsive_page_content_vertical' ) ? api( 'responsive_page_content_vertical' ).get() : 'enable';
+            if ( ! verticalSetting || verticalSetting === 'default' ) {
+                verticalSetting = 'enable';
+            }
+            
+            var marginTop = '0px';
+            var marginBottom = '0px';
+            
+            if ( verticalSetting === 'enable' ) {
+                marginTop = newval + 'px';
+                marginBottom = newval + 'px';
+            } else if ( verticalSetting === 'top_only' ) {
+                marginTop = newval + 'px';
+            } else if ( verticalSetting === 'bottom_only' ) {
+                marginBottom = newval + 'px';
+            }
+            
+            var styleId = 'responsive-page-content-top-bottom-spacing-css';
+            jQuery( '#' + styleId ).remove();
+            jQuery( 'head' ).append(
+                '<style id="' + styleId + '">' +
+                '.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) #primary.content-area { ' +
+                'margin-top: ' + marginTop + ' !important; ' +
+                'margin-bottom: ' + marginBottom + ' !important; ' +
+                '}' +
+                '</style>'
+            );
+        } );
+    } );
 
 } )( jQuery );
 

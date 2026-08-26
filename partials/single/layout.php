@@ -101,9 +101,7 @@ if ( in_array( $single_title_layout, array( 'post_title_layout1', 'post_title_la
 			<?php
 		}
 
-		if ( ! in_array( 'excerpt', $elements, true ) ) {
-			get_template_part( 'partials/single/content' );
-		}
+		get_template_part( 'partials/single/content' );
 		?>
 
 		<?php if ( '' !== get_the_author_meta( 'description' ) && 0 === get_theme_mod( 'responsive_disable_author_meta', 0 ) ) : ?>
