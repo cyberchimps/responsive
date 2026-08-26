@@ -1296,7 +1296,7 @@ function defaults() {
 			'shop_product_price'                  => '#333333',
 			'content_header_heading'              => '#404040',
 			'content_header_description'          => '#999999',
-			'breadcrumb'                          => '#1e73be',
+			'breadcrumb'                          => 'palette0',
 			'footer_background'                   => '#333333',
 			'footer_text'                         => '#ffffff',
 			'footer_links'                        => '#0066CC',
