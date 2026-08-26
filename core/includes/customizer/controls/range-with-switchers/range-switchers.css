@@ -7,12 +7,35 @@
 }
 .customize-control-responsive-range-with-switchers input[type=range] {
     background-color: rgba(0, 0, 0, .1);
-    height: 2px;
+    height: 3px;
     width: 69%;
     padding: 0;
     cursor: pointer;
     transition: background .5s;
     -webkit-appearance: none;
+}
+.customize-control-responsive-range-with-switchers input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border: none;
+    border-radius: 15px;
+    background-color: #2e86b9;
+}
+.customize-control-responsive-range-with-switchers input[type=range]::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border: none;
+    border-radius: 15px;
+    background-color: #2e86b9;
+}
+.customize-control-responsive-range-with-switchers input[type=range]::-ms-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    border: 0;
+    background-color: #2e86b9;
 }
 .customize-control-responsive-range-with-switchers input.responsive-range-switchers-input {
     width: 21%;
