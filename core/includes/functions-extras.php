@@ -122,7 +122,7 @@ function responsive_comment_list_pings( $comment ) {
  * @param  integer $length Length of excerpt.
  */
 function responsive_excerpt_length( $length ) {
-	return 40;
+	return 90;
 }
 
 /**
