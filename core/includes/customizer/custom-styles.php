@@ -2682,13 +2682,13 @@ function responsive_customizer_styles() {
 	$primary_menu_menu_mobile_unit   = get_theme_mod( 'responsive_primary_menu_menu_mobile_unit', 'px' );
 
 	if ( '' !== $primary_menu_menu_top || '' !== $primary_menu_menu_right || '' !== $primary_menu_menu_bottom || '' !== $primary_menu_menu_left ) {
-		$custom_css .= ".main-navigation .menu > li > a { padding: " . responsive_spacing_css( $primary_menu_menu_top, $primary_menu_menu_right, $primary_menu_menu_bottom, $primary_menu_menu_left, $primary_menu_menu_unit ) . "; }";
+		$custom_css .= ".main-navigation .menu li a { padding: " . responsive_spacing_css( $primary_menu_menu_top, $primary_menu_menu_right, $primary_menu_menu_bottom, $primary_menu_menu_left, $primary_menu_menu_unit ) . "; }";
 	}
 	if ( '' !== $primary_menu_menu_tablet_top || '' !== $primary_menu_menu_tablet_right || '' !== $primary_menu_menu_tablet_bottom || '' !== $primary_menu_menu_tablet_left ) {
-		$custom_css .= "@media (max-width: 992px) { .main-navigation .menu > li > a { padding: " . responsive_spacing_css( $primary_menu_menu_tablet_top, $primary_menu_menu_tablet_right, $primary_menu_menu_tablet_bottom, $primary_menu_menu_tablet_left, $primary_menu_menu_tablet_unit ) . "; } }";
+		$custom_css .= "@media (max-width: 992px) { .main-navigation .menu li a { padding: " . responsive_spacing_css( $primary_menu_menu_tablet_top, $primary_menu_menu_tablet_right, $primary_menu_menu_tablet_bottom, $primary_menu_menu_tablet_left, $primary_menu_menu_tablet_unit ) . "; } }";
 	}
 	if ( '' !== $primary_menu_menu_mobile_top || '' !== $primary_menu_menu_mobile_right || '' !== $primary_menu_menu_mobile_bottom || '' !== $primary_menu_menu_mobile_left ) {
-		$custom_css .= "@media (max-width: 576px) { .main-navigation .menu > li > a { padding: " . responsive_spacing_css( $primary_menu_menu_mobile_top, $primary_menu_menu_mobile_right, $primary_menu_menu_mobile_bottom, $primary_menu_menu_mobile_left, $primary_menu_menu_mobile_unit ) . "; } }";
+		$custom_css .= "@media (max-width: 576px) { .main-navigation .menu li a { padding: " . responsive_spacing_css( $primary_menu_menu_mobile_top, $primary_menu_menu_mobile_right, $primary_menu_menu_mobile_bottom, $primary_menu_menu_mobile_left, $primary_menu_menu_mobile_unit ) . "; } }";
 	}
 
 	// Primary Menu Margin

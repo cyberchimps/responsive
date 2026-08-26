@@ -1969,13 +1969,13 @@
 
         var css = '';
         if (top !== '' || right !== '' || bottom !== '' || left !== '') {
-            css += '.main-navigation .menu > li > a { padding-top: ' + (top || 0) + unit + '; padding-right: ' + (right || 0) + unit + '; padding-bottom: ' + (bottom || 0) + unit + '; padding-left: ' + (left || 0) + unit + '; }';
+            css += '.main-navigation .menu li a { padding-top: ' + (top || 0) + unit + '; padding-right: ' + (right || 0) + unit + '; padding-bottom: ' + (bottom || 0) + unit + '; padding-left: ' + (left || 0) + unit + '; }';
         }
         if (t_top !== '' || t_right !== '' || t_bottom !== '' || t_left !== '') {
-            css += '@media screen and (max-width: 992px) { .main-navigation .menu > li > a { padding-top: ' + (t_top || 0) + t_unit + '; padding-right: ' + (t_right || 0) + t_unit + '; padding-bottom: ' + (t_bottom || 0) + t_unit + '; padding-left: ' + (t_left || 0) + t_unit + '; } }';
+            css += '@media screen and (max-width: 992px) { .main-navigation .menu li a { padding-top: ' + (t_top || 0) + t_unit + '; padding-right: ' + (t_right || 0) + t_unit + '; padding-bottom: ' + (t_bottom || 0) + t_unit + '; padding-left: ' + (t_left || 0) + t_unit + '; } }';
         }
         if (m_top !== '' || m_right !== '' || m_bottom !== '' || m_left !== '') {
-            css += '@media screen and (max-width: 576px) { .main-navigation .menu > li > a { padding-top: ' + (m_top || 0) + m_unit + '; padding-right: ' + (m_right || 0) + m_unit + '; padding-bottom: ' + (m_bottom || 0) + m_unit + '; padding-left: ' + (m_left || 0) + m_unit + '; } }';
+            css += '@media screen and (max-width: 576px) { .main-navigation .menu li a { padding-top: ' + (m_top || 0) + m_unit + '; padding-right: ' + (m_right || 0) + m_unit + '; padding-bottom: ' + (m_bottom || 0) + m_unit + '; padding-left: ' + (m_left || 0) + m_unit + '; } }';
         }
 
         if (css !== '') {
