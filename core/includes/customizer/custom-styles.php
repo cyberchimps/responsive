@@ -498,7 +498,7 @@ function responsive_customizer_styles() {
 	$blog_site_background_color = esc_html(
 		responsive_prepare_css_value(
 				'responsive_blog_site_background_color',
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_site_background_color' )
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_site_background_color' )
 			)
 		);
 	$responsive_blog_container_style = ( 'default' === $blog_container_style_setting ) ? $global_container_style_key : $blog_container_style_setting;
@@ -594,7 +594,7 @@ function responsive_customizer_styles() {
 	$single_blog_site_background_color = esc_html(
 			responsive_prepare_css_value(
 				'responsive_single_blog_site_background_color',
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_site_background_color' )
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_site_background_color' )
 			)
 		);
 		
@@ -1028,11 +1028,11 @@ function responsive_customizer_styles() {
 		--wp--style--global--wide-size: {$default_container_max_width}px;
 	}
 	
-	html body.page-template-gutenberg-fullwidth:not(.customize-support) .wp-block-group.wp-block-group.wp-block-group-is-layout-constrained > :where(:not(.alignwide):not(.alignfull)) {
+	html body.page-template-gutenberg-fullwidth:not(.customize-support):not(.custom-background) .wp-block-group.wp-block-group.wp-block-group-is-layout-constrained > :where(:not(.alignwide):not(.alignfull)){
 		max-width: 720px;
 	}
 
-	html body.page-template-gutenberg-fullwidth:not(.customize-support) .wp-block-group.wp-block-group.wp-block-group-is-layout-constrained > .alignwide {
+	html body.page-template-gutenberg-fullwidth:not(.customize-support):not(.custom-background) .wp-block-group.wp-block-group.wp-block-group-is-layout-constrained > .alignwide{
 		max-width: var(--wp--style--global--wide-size);
 	}
 	
@@ -1942,6 +1942,19 @@ function responsive_customizer_styles() {
 	.link-style-no-underline .entry-content>ul a:hover,
 	.link-style-no-underline .entry-content>ol a:hover {
 		text-decoration: none;
+	}
+
+	.link-style-standard .entry-content p a:hover,
+	.link-style-standard .entry-content strong>a:hover,
+	.link-style-standard .entry-content em>a:hover,
+	.link-style-standard .entry-content>ul a:hover,
+	.link-style-standard .entry-content>ol a:hover,
+	.link-style-no-underline .entry-content p a:hover,
+	.link-style-no-underline .entry-content strong>a:hover,
+	.link-style-no-underline .entry-content em>a:hover,
+	.link-style-no-underline .entry-content>ul a:hover,
+	.link-style-no-underline .entry-content>ol a:hover {
+		color: {$link_hover_color};
 	}
 
 	.link-style-hover-background .entry-content p a:hover,
@@ -4620,12 +4633,12 @@ function responsive_customizer_styles() {
 
 	$custom_css .= "
 	@media (min-width:992px) {
-		.search:not(.post-type-archive-product) .content-area,
+		
 		.archive:not(.post-type-archive-product):not(.post-type-archive-course) .content-area,
 		.blog:not(.custom-home-page-active) .content-area {
 			width:{$blog_content_width}%;
 		}
-		.search:not(.post-type-archive-product) aside.widget-area,
+		
 		.archive:not(.post-type-archive-product) aside.widget-area,
 		.blog:not(.custom-home-page-active) aside.widget-area {
 			width: calc(100% - {$blog_content_width}%);
@@ -8705,7 +8718,7 @@ function responsive_customizer_styles() {
 		$blog_site_background_color = esc_html(
 			responsive_prepare_css_value(
 				'responsive_blog_site_background_color',
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_site_background_color' )
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_site_background_color' )
 			)
 		);
 
@@ -8742,53 +8755,55 @@ function responsive_customizer_styles() {
 		$date_box_calculated_color_value = required_font_color_value( $date_box_background_color );
  
 		// Styling Page - Border radius
-		$get_radius = function( $mod_name, $box_val ) use ( $box_radius ) {
+		$get_page_radius = function( $mod_name, $box_val ) use ( $box_radius ) {
 			$val = get_theme_mod( $mod_name );
-			if ( $val !== false && $val !== '' ) return esc_html( $val );
+			if ( $val !== false && $val !== '' && (float) $val !== 0.0 ) {
+				return esc_html( $val );
+			}
 			return esc_html( $box_val !== '' ? $box_val : $box_radius );
 		};
-		$page_border_radius_top_left     = $get_radius( 'responsive_page_border_radius_top_left_radius', $box_top_left_radius );
-		$page_border_radius_top_right    = $get_radius( 'responsive_page_border_radius_top_right_radius', $box_top_right_radius );
-		$page_border_radius_bottom_right = $get_radius( 'responsive_page_border_radius_bottom_right_radius', $box_bottom_right_radius );
-		$page_border_radius_bottom_left  = $get_radius( 'responsive_page_border_radius_bottom_left_radius', $box_bottom_left_radius );
+		$page_border_radius_top_left     = $get_page_radius( 'responsive_page_border_radius_top_left_radius', $box_top_left_radius );
+		$page_border_radius_top_right    = $get_page_radius( 'responsive_page_border_radius_top_right_radius', $box_top_right_radius );
+		$page_border_radius_bottom_right = $get_page_radius( 'responsive_page_border_radius_bottom_right_radius', $box_bottom_right_radius );
+		$page_border_radius_bottom_left  = $get_page_radius( 'responsive_page_border_radius_bottom_left_radius', $box_bottom_left_radius );
 		$page_border_radius_unit         = esc_html( get_theme_mod( 'responsive_page_border_radius_desktop_unit', 'px' ) );
 
-		$page_border_radius_tablet_top_left     = $get_radius( 'responsive_page_border_radius_tablet_top_left_radius', $box_tablet_top_left_radius );
-		$page_border_radius_tablet_top_right    = $get_radius( 'responsive_page_border_radius_tablet_top_right_radius', $box_tablet_top_right_radius );
-		$page_border_radius_tablet_bottom_right = $get_radius( 'responsive_page_border_radius_tablet_bottom_right_radius', $box_tablet_bottom_right_radius );
-		$page_border_radius_tablet_bottom_left  = $get_radius( 'responsive_page_border_radius_tablet_bottom_left_radius', $box_tablet_bottom_left_radius );
+		$page_border_radius_tablet_top_left     = $get_page_radius( 'responsive_page_border_radius_tablet_top_left_radius', $box_tablet_top_left_radius );
+		$page_border_radius_tablet_top_right    = $get_page_radius( 'responsive_page_border_radius_tablet_top_right_radius', $box_tablet_top_right_radius );
+		$page_border_radius_tablet_bottom_right = $get_page_radius( 'responsive_page_border_radius_tablet_bottom_right_radius', $box_tablet_bottom_right_radius );
+		$page_border_radius_tablet_bottom_left  = $get_page_radius( 'responsive_page_border_radius_tablet_bottom_left_radius', $box_tablet_bottom_left_radius );
 		$page_border_radius_tablet_unit         = esc_html( get_theme_mod( 'responsive_page_border_radius_tablet_unit', 'px' ) );
 
-		$page_border_radius_mobile_top_left     = $get_radius( 'responsive_page_border_radius_mobile_top_left_radius', $box_mobile_top_left_radius );
-		$page_border_radius_mobile_top_right    = $get_radius( 'responsive_page_border_radius_mobile_top_right_radius', $box_mobile_top_right_radius );
-		$page_border_radius_mobile_bottom_right = $get_radius( 'responsive_page_border_radius_mobile_bottom_right_radius', $box_mobile_bottom_right_radius );
-		$page_border_radius_mobile_bottom_left  = $get_radius( 'responsive_page_border_radius_mobile_bottom_left_radius', $box_mobile_bottom_left_radius );
+		$page_border_radius_mobile_top_left     = $get_page_radius( 'responsive_page_border_radius_mobile_top_left_radius', $box_mobile_top_left_radius );
+		$page_border_radius_mobile_top_right    = $get_page_radius( 'responsive_page_border_radius_mobile_top_right_radius', $box_mobile_top_right_radius );
+		$page_border_radius_mobile_bottom_right = $get_page_radius( 'responsive_page_border_radius_mobile_bottom_right_radius', $box_mobile_bottom_right_radius );
+		$page_border_radius_mobile_bottom_left  = $get_page_radius( 'responsive_page_border_radius_mobile_bottom_left_radius', $box_mobile_bottom_left_radius );
 		$page_border_radius_mobile_unit         = esc_html( get_theme_mod( 'responsive_page_border_radius_mobile_unit', 'px' ) );
 		
 		$custom_css .= 
-	".page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth).responsive-site-style-content-boxed .site-content .hentry,
-	.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth).responsive-site-style-boxed .site-content .hentry,
-	.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #comments,
-	.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #comments .comment-respond {
+			".page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry,
+			.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry,
+			.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #comments,
+			.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #comments .comment-respond {
 
-	border-radius: {$page_border_radius_top_left}{$page_border_radius_unit} {$page_border_radius_top_right}{$page_border_radius_unit} {$page_border_radius_bottom_right}{$page_border_radius_unit} {$page_border_radius_bottom_left}{$page_border_radius_unit};
-	}
-	@media screen and ( max-width: 992px ) {
-		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth).responsive-site-style-content-boxed .site-content .hentry,
-		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth).responsive-site-style-boxed .site-content .hentry,
-		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #comments,
-		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #comments .comment-respond {
-			border-radius: {$page_border_radius_tablet_top_left}{$page_border_radius_tablet_unit} {$page_border_radius_tablet_top_right}{$page_border_radius_tablet_unit} {$page_border_radius_tablet_bottom_right}{$page_border_radius_tablet_unit} {$page_border_radius_tablet_bottom_left}{$page_border_radius_tablet_unit};
-		}
-	}
-	@media screen and ( max-width: 576px ) {
-		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth).responsive-site-style-content-boxed .site-content .hentry,
-		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth).responsive-site-style-boxed .site-content .hentry,
-		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #comments,
-		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #comments .comment-respond {
-			border-radius: {$page_border_radius_mobile_top_left}{$page_border_radius_mobile_unit} {$page_border_radius_mobile_top_right}{$page_border_radius_mobile_unit} {$page_border_radius_mobile_bottom_right}{$page_border_radius_mobile_unit} {$page_border_radius_mobile_bottom_left}{$page_border_radius_mobile_unit};
-		}
-	}";
+			border-radius: {$page_border_radius_top_left}{$page_border_radius_unit} {$page_border_radius_top_right}{$page_border_radius_unit} {$page_border_radius_bottom_right}{$page_border_radius_unit} {$page_border_radius_bottom_left}{$page_border_radius_unit};
+			}
+			@media screen and ( max-width: 992px ) {
+				.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry,
+				.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry,
+				.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #comments,
+				.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #comments .comment-respond {
+					border-radius: {$page_border_radius_tablet_top_left}{$page_border_radius_tablet_unit} {$page_border_radius_tablet_top_right}{$page_border_radius_tablet_unit} {$page_border_radius_tablet_bottom_right}{$page_border_radius_tablet_unit} {$page_border_radius_tablet_bottom_left}{$page_border_radius_tablet_unit};
+				}
+			}
+			@media screen and ( max-width: 576px ) {
+				.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry,
+				.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry,
+				.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #comments,
+				.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #comments .comment-respond {
+					border-radius: {$page_border_radius_mobile_top_left}{$page_border_radius_mobile_unit} {$page_border_radius_mobile_top_right}{$page_border_radius_mobile_unit} {$page_border_radius_mobile_bottom_right}{$page_border_radius_mobile_unit} {$page_border_radius_mobile_bottom_left}{$page_border_radius_mobile_unit};
+				}
+			}";
 
 		//Styling Page parity - Padding
 		$page_inside_container_padding_top     = esc_html( responsive_get_padding_fallback( 'responsive_page_inside_container_top_padding', $box_padding_top ) );
@@ -8866,7 +8881,7 @@ function responsive_customizer_styles() {
 		$page_site_background_color = esc_html(
 		responsive_prepare_css_value(
 				'responsive_page_site_background_color',
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive-global-palette5' )
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_site_background_color' )
 			)
 		);
 
@@ -9039,7 +9054,7 @@ function responsive_customizer_styles() {
 		$single_blog_site_background_color = esc_html(
 			responsive_prepare_css_value(
 				'responsive_single_blog_site_background_color',
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_site_background_color' )
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_site_background_color' )
 			)
 		);
 

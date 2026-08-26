@@ -166,7 +166,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 19,
 					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
-						'font-family'    => 'System Font',
 						'font-size'      => '14px',
 						'line-height'    => '1.75',
 						'text-transform' => 'capitalize',
