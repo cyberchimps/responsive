@@ -4581,7 +4581,7 @@ function responsive_customizer_styles() {
 	// Content_Header colors.
 	$content_header_heading_color     = esc_html( get_theme_mod( 'responsive_content_header_heading_color', Responsive\Core\get_responsive_customizer_defaults( 'content_header_heading' ) ) );
 	$content_header_description_color = esc_html( get_theme_mod( 'responsive_content_header_description_color', Responsive\Core\get_responsive_customizer_defaults( 'content_header_heading' ) ) );
-	$breadcrumb_color                 = esc_html( get_theme_mod( 'responsive_breadcrumb_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive-global-palette0' ) ) );
+	$breadcrumb_color                 = esc_html( responsive_prepare_css_value( 'responsive_breadcrumb_color', Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb' ) ) );
 
 	// Content Header Padding.
 	$content_header_padding_right  = esc_html( get_theme_mod( 'responsive_content_header_right_padding', 30 ) );
@@ -8876,13 +8876,13 @@ function responsive_customizer_styles() {
 		$single_blog_breadcrumb_color = esc_html(
 			get_theme_mod(
 				'responsive_single_blog_breadcrumb_color',
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_breadcrumb_color' )
+				Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb' )
 			)
 		);
 
 		$custom_css .= "
-		.single.single-post .breadcrumbs,
-		.single.single-post .breadcrumbs a {
+		.single.single-post #wrapper .site-content-header .breadcrumbs .breadcrumb-list a span,
+		.single.single-post #wrapper .site-content-header .breadcrumbs .breadcrumb-list span{
 			color: {$single_blog_breadcrumb_color};
 		}";
 
