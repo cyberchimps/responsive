@@ -119,7 +119,6 @@ if ( ! function_exists( 'responsive_blog_single_elements' ) ) {
 				'title'          => esc_html__( 'Title', 'responsive' ),
 				'featured_image' => esc_html__( 'Featured Image', 'responsive' ),
 				'meta'           => esc_html__( 'Meta', 'responsive' ),
-				'content'        => esc_html__( 'Content', 'responsive' ),
 				'excerpt'        => esc_html__( 'Excerpt', 'responsive' ),
 			)
 		);
@@ -849,20 +848,44 @@ function responsive_read_more_text( $text ) {
 	return $text;
 }
 
-/**
- * Returns excerpt length
- *
- * @param  integer $length Length of excerpt.
- * @return integer         Length of excerpt.
- */
-function responsive_custom_excerpt_length( $length ) {
 
-	$excerpt_length = get_theme_mod( 'responsive_excerpt_length' );
-	if ( ! empty( $excerpt_length ) ) {
-		$length = $excerpt_length;
+/**
+ * Trims the excerpt by characters instead of words.
+ *
+ * @param string $text        The trimmed text.
+ * @param string $raw_excerpt The text prior to trimming.
+ * @return string
+ */
+function responsive_custom_trim_excerpt_by_characters( $text, $raw_excerpt ) {
+	$excerpt_length = get_theme_mod( 'responsive_excerpt_length', 90 );
+	if ( ! is_numeric( $excerpt_length ) ) {
+		return $text;
 	}
 
-	return $length;
+	// Prevent the default manual excerpt 'read more' from duplicating ours
+	remove_filter( 'get_the_excerpt', 'Responsive\Extra\responsive_custom_excerpt_more' );
+
+	$excerpt_more = apply_filters( 'excerpt_more', ' ' . '[&hellip;]' );
+
+	if ( $raw_excerpt ) {
+		$content = wp_strip_all_tags( $raw_excerpt );
+	} else {
+		$post = get_post();
+		$content = get_the_content( '', false, $post );
+		$content = strip_shortcodes( $content );
+		$content = excerpt_remove_blocks( $content );
+		$content = apply_filters( 'the_content', $content );
+		$content = str_replace( ']]>', ']]&gt;', $content );
+		$content = wp_strip_all_tags( $content );
+	}
+
+	if ( mb_strlen( $content ) > $excerpt_length ) {
+		$text = mb_substr( $content, 0, $excerpt_length ) . $excerpt_more;
+	} else {
+		$text = $content;
+	}
+
+	return $text;
 }
 /**
  * Function to get Read More Link of Post
@@ -935,6 +958,21 @@ if ( ! function_exists( 'responsive_spacing_css' ) ) {
 
 		// Return.
 		return $s_top . $s_right . $s_bottom . $s_left;
+	}
+}
+
+if ( ! function_exists( 'responsive_get_banner_calc_width' ) ) {
+	/**
+	 * Return width calc rule subtracting left and right margins.
+	 *
+	 * @param  array  $val  Spacing values array with left, right.
+	 * @param  string $unit CSS unit (e.g., px, em).
+	 * @return string CSS width calc string.
+	 */
+	function responsive_get_banner_calc_width( $val, $unit ) {
+		$l = ( isset( $val['left'] ) && '' !== (string) $val['left'] ) ? $val['left'] . $unit : '0px';
+		$r = ( isset( $val['right'] ) && '' !== (string) $val['right'] ) ? $val['right'] . $unit : '0px';
+		return "calc(100% - {$l} - {$r})";
 	}
 }
 
@@ -1133,7 +1171,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	);
 }
 
-function responsive_unit_padding_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Padding', $transport = 'postMessage', $default_tablet_values_y = null, $default_tablet_values_x = null, $default_mobile_values_y = null, $default_mobile_values_x = null, $default_unit = 'px' ) {
+function responsive_unit_padding_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Padding', $transport = 'postMessage', $default_tablet_values_y = null, $default_tablet_values_x = null, $default_mobile_values_y = null, $default_mobile_values_x = null, $default_unit = 'px', $default_bottom = null, $default_right = null, $default_tablet_bottom = null, $default_tablet_right = null, $default_mobile_bottom = null, $default_mobile_right = null ) {
 	/**
 	 *  Padding control.
 	 */
@@ -1261,9 +1299,6 @@ function responsive_unit_padding_control( $wp_customize, $element, $section, $pr
 			'default'           => $default_unit,
 		)
 	);
-	if ( ! class_exists( 'Responsive_Customizer_Unit_Dimensions_Control' ) ) {
-		require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/unit-dimensions/class-responsive-customizer-unit-dimensions-control.php';
-	}
 
 	$wp_customize->add_control(
 		new Responsive_Customizer_Unit_Dimensions_Control(
@@ -2296,7 +2331,6 @@ function responsive_active_shop_sidebar_section() {
 function responsive_active_single_product_sidebar_section() {
 	return ! responsive_is_layout_narrow( get_theme_mod( 'responsive_single_product_container_layout', 'default_container' ) );
 }
-
 
 /**
  * [responsive_not_active_page_sidebar description]
@@ -4975,3 +5009,60 @@ if ( ! function_exists( 'responsive_sidebar_link_style_is_hover_background' ) ) 
 		return 'hover-background' === $link_style;
 	}
 endif;
+
+if ( ! function_exists( 'responsive_show_page_content_background' ) ) {
+	/**
+	 * Determines whether the Page Content Background setting should show.
+	 *
+	 * Resolves the same cascade custom-styles.php uses: if the Page's own
+	 * Container Style is "Default", fall back to the global Container Style
+	 * before deciding.
+	 *
+	 * @return bool true if the resolved Container Style is NOT flat, false otherwise.
+	 */
+	function responsive_show_page_content_background() {
+		$page_setting = get_theme_mod( 'responsive_page_container_style', 'default' );
+		if ( 'default' === $page_setting ) {
+			$page_setting = get_theme_mod( 'responsive_style', 'boxed' );
+		}
+		return 'flat' !== $page_setting;
+	}
+}
+
+if ( ! function_exists( 'responsive_show_blog_content_background' ) ) {
+	/**
+	 * Determines whether the Page Content Background setting should show.
+	 *
+	 * Resolves the same cascade custom-styles.php uses: if the Page's own
+	 * Container Style is "Default", fall back to the global Container Style
+	 * before deciding.
+	 *
+	 * @return bool true if the resolved Container Style is NOT flat, false otherwise.
+	 */
+	function responsive_show_blog_content_background() {
+		$blog_setting = get_theme_mod( 'responsive_blog_container_style', 'default' );
+		if ( 'default' === $blog_setting ) {
+			$blog_setting = get_theme_mod( 'responsive_style', 'boxed' );
+		}
+		return 'flat' !== $blog_setting;
+	}
+}
+
+if ( ! function_exists( 'responsive_show_single_blog_content_background' ) ) {
+	/**
+	 * Determines whether the Single blog Content Background setting should show.
+	 *
+	 * Resolves the same cascade custom-styles.php uses: if the Page's own
+	 * Container Style is "Default", fall back to the global Container Style
+	 * before deciding.
+	 *
+	 * @return bool true if the resolved Container Style is NOT flat, false otherwise.
+	 */
+	function responsive_show_single_blog_content_background() {
+		$single_blog_setting = get_theme_mod( 'responsive_single_blog_container_style', 'default' );
+		if ( 'default' === $single_blog_setting ) {
+			$single_blog_setting = get_theme_mod( 'responsive_style', 'boxed' );
+		}
+		return 'flat' !== $single_blog_setting;
+	}
+}

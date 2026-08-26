@@ -43,7 +43,6 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				$main_design_tab_ids_prefix . 'responsive_single_blog_site_background_color',
 				$main_design_tab_ids_prefix . 'responsive_single_blog_content_background_color',
 				$main_design_tab_ids_prefix . 'responsive_single_blog_category_typography_group',
-				$main_design_tab_ids_prefix . 'responsive_single_blog_meta_typography_group_separator',
 				$main_design_tab_ids_prefix . 'responsive_single_blog_breadcrumb_typography_group_separator',
 				$main_design_tab_ids_prefix . 'responsive_single_post_boxed_separator',
 				$main_design_tab_ids_prefix . 'responsive_border_single_post_boxed_radius',
@@ -53,6 +52,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 
 			$main_general_tab_ids_prefix = 'customize-control-responsive_single_blog_';
 			$main_general_tab_ids        = array(
+				$main_general_tab_ids_prefix . 'post_title',
 				$main_general_tab_ids_prefix . 'container_layout_separator',
 				$main_general_tab_ids_prefix . 'container_layout',
 				$main_general_tab_ids_prefix . 'container_style_separator',
@@ -93,6 +93,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'customize-control-responsive_responsive_single_blog_meta_separator_text_separator',
 				'customize-control-responsive_blog_single_elements_positioning',
 				'customize-control-responsive_blog_single_meta',
+				
 				
 			);
 			responsive_tabs_button_control( $wp_customize, 'single_blog_tabs', $main_tabs_label, 'responsive_single_blog_layout', 1, '', 'responsive_single_blog_layout_general_tab', 'responsive_single_blog_layout_design_tab', $main_general_tab_ids, $main_design_tab_ids, null );
@@ -820,28 +821,10 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'responsive_show_post_author_box',
 			);
 			
-			responsive_horizontal_separator_control( $wp_customize, 'single_blog_meta_typography_group_separator', 1, 'responsive_single_blog_layout',112, 1, null );
 
 			// Breadcrumb Color
 			$blog_breadcrumb_color_label = __( 'Breadcrumb Color', 'responsive' );
-			responsive_color_control(
-				$wp_customize,
-				'single_blog_breadcrumb',
-				$blog_breadcrumb_color_label,
-				'responsive_single_blog_layout',
-				113,
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_breadcrumb_color' ),
-				null,   
-				'',     
-				false,  
-				null,   
-				null,   
-				false,  
-				null,   
-				null,   
-				'color',
-				'refresh'
-			);
+			responsive_color_control( $wp_customize, 'single_blog_breadcrumb', $blog_breadcrumb_color_label, 'responsive_single_blog_layout', 113, Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_breadcrumb_color' ), null, '', false, null, null, false, null, null, 'color', 'refresh' );
 
 			// Breadcrumb Font
 			$blog_breadcrumb_typography_label = esc_html__( 'Breadcrumb Font', 'responsive' );
@@ -857,24 +840,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 
 			// Site Background Color.
 			$blog_site_background_color_label = __( 'Single Post Background Color', 'responsive' );
-			responsive_color_control(
-				$wp_customize,
-				'single_blog_site_background',
-				$blog_site_background_color_label,
-				'responsive_single_blog_layout',
-				119,
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_site_background_color' ),
-				null,   
-				'',     
-				false,  
-				null,   
-				null,   
-				false,  
-				null,   
-				null,   
-				'color',
-				'refresh'
-			);
+			responsive_color_control( $wp_customize, 'single_blog_site_background', $blog_site_background_color_label, 'responsive_single_blog_layout', 119, Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_site_background_color' ), null, '', false, null, null, false, null, null, 'color', 'postMessage' );
 
 			// Content Background Color.
 			$blog_content_background_color_label = __( 'Single Post Content Background Color', 'responsive' );
@@ -884,18 +850,10 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				$blog_content_background_color_label,
 				'responsive_single_blog_layout',
 				120,
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_content_background_color' ),
-				null,   
-				'',     
-				false,  
-				null,   
-				null,   
-				false,  
-				null,   
-				null,   
-				'color',
-				'refresh'
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_content_background_color' ),
+				'responsive_show_single_blog_content_background',
 			);
+		
 
 			responsive_horizontal_separator_control( $wp_customize, 'single_post_boxed_separator', 1, 'responsive_single_blog_layout', 121, 1, null );
 

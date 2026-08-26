@@ -68,7 +68,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 2,
 					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
-						'font-family'    => 'System Font',
 						'font-size'      => '16px',
 						'font-weight'    => '400',
 						'line-height'    => '1.75',
@@ -107,7 +106,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 9,
 					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
-						'font-family'    => 'System Font',
 						'font-size'      => '30px',
 						'font-weight'    => '600',
 						'line-height'    => '1.25',
@@ -168,7 +166,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 19,
 					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
-						'font-family'    => 'System Font',
 						'font-size'      => '14px',
 						'line-height'    => '1.75',
 						'text-transform' => 'capitalize',
@@ -401,18 +398,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'line-height' => '1.75',
 					),
 				),
-				'page_title'                 => array(
-					'label'    => esc_html__( 'Page Title', 'responsive' ),
-					'target'   => $selectorArray['page'],
-					'section'  => 'responsive_page_typography',
-					'exclude'  => array( '' ),
-					'priority' => 10,
-					'defaults' => array(
-						'color'       => '#333333',
-						'font-size'   => '32px',
-						'line-height' => '1.4',
-					),
-				),
 				'footer_copyright' => array(
 					'label'    => esc_html__( 'Typography', 'responsive' ),
 					'target'   => $selectorArray['footer_copyright'],
@@ -620,21 +605,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				);
 			}
 
-			if ( $this->is_responsive_version_greater() ) {
-				$responsive_theme_typography_settings['page_title'] = array(
-					'label'    => esc_html__( 'Page Title', 'responsive' ),
-					'target'   => $selectorArray['page'],
-					'section'  => 'responsive_page',
-					'exclude'  => array( '' ),
-					'priority' => 10,
-					'defaults' => array(
-						'color'       => '#333333',
-						'font-size'   => '32px',
-						'line-height' => '1.4',
-					),
-				);
-			}
-
 			// Return settings.
 			return apply_filters(
 				'responsive_typography_settings',
@@ -648,7 +618,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 		public function getSelectorArray() {
 
 			$responsive_typography_selectors = array(
-				'body'                       => 'body',
+				'body'                       => 'body:not(.post-meta)',
 				'headings'                   => 'h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6',
 				'heading_h1'                 => 'h1',
 				'heading_h2'                 => 'h2',
@@ -1283,6 +1253,11 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 
 						// Sanitize.
 						$val = str_replace( '"', '', $val );
+
+						// If value is Default, skip it to allow inheritance.
+						if ( 'Default' === $val || 'default' === $val ) {
+							continue;
+						}
 
 						// Add px if font size or letter spacing.
 						$px = '';

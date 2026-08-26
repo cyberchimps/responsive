@@ -122,7 +122,7 @@ function responsive_comment_list_pings( $comment ) {
  * @param  integer $length Length of excerpt.
  */
 function responsive_excerpt_length( $length ) {
-	return 40;
+	return 90;
 }
 
 /**
@@ -132,7 +132,8 @@ function responsive_read_more() {
 	global $post;
 	if ( is_object( $post ) ) {
 		if ( 'product' !== $post->post_type ) {
-			return '<div class="read-more"><a class="more-link" href="' . get_permalink() . '">' . __( 'Read more →', 'responsive' ) . '</a></div><!-- end of .read-more -->';
+			$read_more = apply_filters( 'responsive_post_read_more', __( 'Read more →', 'responsive' ) );
+			return '<div class="read-more"><a class="more-link" href="' . get_permalink() . '">' . $read_more . '</a></div><!-- end of .read-more -->';
 		}
 	}
 }
@@ -152,7 +153,8 @@ function responsive_auto_excerpt_more( $more = 0 ) {
  * @param string $output Append read more text.
  */
 function responsive_custom_excerpt_more( $output ) {
-	if ( has_excerpt() && ! is_attachment() ) {
+	// Only append the fallback read-more if one hasn't already been added.
+	if ( has_excerpt() && ! is_attachment() && false === strpos( $output, 'class="read-more"' ) ) {
 		$output .= responsive_read_more();
 	}
 	return $output;

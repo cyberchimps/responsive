@@ -88,20 +88,9 @@
  * Hentry Area styles
  * -----------------------------------------------------------------------------
  */
-.hentry,
-article.product,
-.navigation,
-div.comments-area {
-    &:first-child {
-        margin-top: 0;
-    }
+.hentry {  
+    @include make-block-element();
 
-    &:last-child {
-        margin-bottom: 0;
-    }
-}
-
-.hentry {
     .responsive-site-style-content-boxed &,
     .responsive-site-style-boxed & {
         padding: $base-line-height-px;
@@ -475,7 +464,6 @@ div.comments-area {
         }
 
         .archive.blog-entry-columns-3 &,
-        .search.blog-entry-columns-3 &,
         .blog.blog-entry-columns-3 & {
             @extend .col-md-4;
         }
@@ -516,7 +504,6 @@ div.comments-area {
         }
 
         .archive.blog-entry-columns-3 &,
-        .search.blog-entry-columns-3 &,
         .blog.blog-entry-columns-3 & {
             @extend .col-md-4;
         }
@@ -594,6 +581,7 @@ div.comments-area {
  */
 .navigation {
     @extend .row;
+    @include make-block-element();
     justify-content: space-between;
     margin-right: 0;
     margin-left: 0;
@@ -667,17 +655,13 @@ div.comments-area {
 }
 
 div.comments-area {
+    @include make-block-element();
     padding: $base-line-height-px;
     background-color: map-get($colors, white);
 
     .responsive-site-style-content-boxed & {
         margin: 0;
         border-bottom: 1px solid map-get($colors, light-gray);
-    }
-
-    .responsive-site-style-flat & {
-        padding: 0 !important;
-        background-color: transparent;
     }
 
     ol.commentlist {
@@ -702,11 +686,6 @@ div.comments-area {
 
         .comment-metadata {
             font-size: 14px;
-            color: #737373;
-        }
-
-        .comment-metadata a {
-            color: #737373;
         }
 
         .comment-author a {
@@ -724,7 +703,6 @@ div.comments-area {
         .comment-reply-link {
             display: inline-block;
             margin-right: 30px;
-            color: #737373;
 
             &:before {
                 margin-right: $base-line-height-px / 5;
@@ -736,7 +714,6 @@ div.comments-area {
         .comment-edit-link {
             display: inline-block;
             margin-right: 15px;
-            color: #737373;
 
             &:before {
                 margin-right: $base-line-height-px / 5;
