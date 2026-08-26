@@ -3992,6 +3992,17 @@ function responsive_customizer_styles() {
 			}
 		}";
 	}
+
+	// Primary Sub Menu Width
+	$sub_menu_width = esc_html( get_theme_mod( 'responsive_sub_menu_width', 0 ) );
+	if ( $sub_menu_width ) {
+		$custom_css .= "@media (min-width:{$mobile_menu_breakpoint}px) {
+			.main-navigation .sub-menu {
+				width: {$sub_menu_width}vw;
+			}
+		}";
+	}
+
 	if(Responsive\Core\responsive_check_element_present_in_hfb('secondary_navigation', 'header'))
 	{
 

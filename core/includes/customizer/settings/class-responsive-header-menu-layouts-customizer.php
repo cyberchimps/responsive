@@ -60,6 +60,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				$tab_ids_prefix . 'responsive_header_off_canvas_menu_layout',
 				$tab_ids_prefix . 'responsive_header_toggle_button',
 				$tab_ids_prefix . 'responsive_sub_menu_container_top_offset',
+				$tab_ids_prefix . 'responsive_sub_menu_width',
 				$tab_ids_prefix . 'responsive_sub_menu_divider',
 				$tab_ids_prefix . 'responsive_sub_menu_colors_separator',
 				$tab_ids_prefix . 'responsive_sub_menu_border_color',
@@ -261,6 +262,10 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			// Sub-menu Container Top Offset.
 			$sub_menu_container_top_offset_label = esc_html__( 'Container Top Offset', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'sub_menu_container_top_offset', $sub_menu_container_top_offset_label, 'responsive_header_menu_layout', 180, 0, null, 200, 0, 'postMessage' );
+
+			// Sub Menu Width (%).
+			$sub_menu_width_label = esc_html__( 'Sub Menu Width (vw)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'sub_menu_width', $sub_menu_width_label, 'responsive_header_menu_layout', 181, 0, 'responsive_disabled_main_menu', 100, 0, 'refresh' );
 
 			// Enable Sub Menu Divider.
 			$sub_menu_divider_label = __( 'Item Divider', 'responsive' );
