@@ -70,6 +70,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 
 			$primary_menu_general_tab_ids = array(
 				$tab_ids_prefix . 'responsive_main_menu_separator',
+				$tab_ids_prefix . 'responsive_redirect_to_primary_menu_set_location',
 				$tab_ids_prefix . 'responsive_disable_menu',
 				$tab_ids_prefix . 'responsive_mobile_menu_separator',
 				$tab_ids_prefix . 'responsive_disable_mobile_menu',
@@ -86,6 +87,10 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			// Main Menu Settings.
 			$main_menu_separator_label = __( 'Main Menu Settings', 'responsive' );
 			responsive_separator_control( $wp_customize, 'main_menu_separator', $main_menu_separator_label, 'responsive_header_menu_layout', 10 );
+
+			// Redirect to Primary Menu set location.
+			$configure_primary_menu_redirect_label = __( 'Configure Primary Menu', 'responsive' );
+			responsive_redirect_control( $wp_customize, 'redirect_to_primary_menu_set_location', $configure_primary_menu_redirect_label, 'responsive_header_menu_layout', 12, 'control', 'nav_menu_locations[header-menu]' );
 
 			// Disable Menu.
 			$disable_menu_label = __( 'Disable Main Menu', 'responsive' );
