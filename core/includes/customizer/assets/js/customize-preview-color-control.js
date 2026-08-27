@@ -452,7 +452,7 @@
             if ( newval && newval.startsWith('box-background') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
-            $('.responsive-single-related-posts-container, .responsive-single-related-posts-container .responsive-related-single-posts-wrapper .responsive-related-single-post').css('background', newval);
+            $('body:not(.responsive-site-style-flat) .responsive-single-related-posts-container, body:not(.responsive-site-style-flat) .responsive-single-related-posts-container .responsive-related-single-posts-wrapper .responsive-related-single-post').css('background', newval);
 		});
 	});
 
