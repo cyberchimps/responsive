@@ -77,6 +77,11 @@ if ( ! class_exists( 'Responsive_Header_Html_Customizer' ) ) :
 
 			responsive_toggle_control( $wp_customize, 'header_html_auto_add_paragraph', esc_html__( 'Automatically add paragraphs', 'responsive' ), 'responsive_header_html', 10, Responsive\Core\get_responsive_customizer_defaults( 'header_html_auto_add_paragraph' ), null );
 
+			$html_font_label = esc_html__( 'Font', 'responsive' );
+			responsive_typography_group_control( $wp_customize, 'html_font_typography_group', $html_font_label, 'responsive_header_html', 10, 'html_font_typography' );
+			
+			responsive_horizontal_separator_control( $wp_customize, 'html_typography_separator', 1, 'responsive_header_html', 10, 1 );
+
 			$header_html_link_style_choices = array(
 				'underline' => esc_html__( 'Underline', 'responsive' ),
 				'none'      => esc_html__( 'No Underline', 'responsive' ),
