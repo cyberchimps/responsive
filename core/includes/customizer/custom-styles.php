@@ -2761,6 +2761,39 @@ function responsive_customizer_styles() {
 			}";
 		}
 	}
+
+	// Primary Navigation Visibility
+	$header_primary_navigation_visibility = get_theme_mod( 'responsive_header_primary_navigation_visibility', null );
+	if ( null === $header_primary_navigation_visibility ) {
+		$disable_menu                          = get_theme_mod( 'responsive_disable_menu', 0 );
+		$header_primary_navigation_visibility = ( 1 === (int) $disable_menu ) ? array() : array( 'desktop', 'tablet', 'mobile' );
+	}
+	if ( is_array( $header_primary_navigation_visibility ) ) {
+		if ( ! in_array( 'desktop', $header_primary_navigation_visibility, true ) ) {
+			$custom_css .= "
+			@media screen and (min-width: 993px) {
+				.site-header .site-header-item-main-navigation {
+					display: none;
+				}
+			}";
+		}
+		if ( ! in_array( 'tablet', $header_primary_navigation_visibility, true ) ) {
+			$custom_css .= "
+			@media screen and (min-width: 577px) and (max-width: 992px) {
+				.site-header .site-header-item-main-navigation {
+					display: none;
+				}
+			}";
+		}
+		if ( ! in_array( 'mobile', $header_primary_navigation_visibility, true ) ) {
+			$custom_css .= "
+			@media screen and (max-width: 576px) {
+				.site-header .site-header-item-main-navigation {
+					display: none;
+				}
+			}";
+		}
+	}
 	// adding custom css when the menu is going out of the screen
 	$custom_css .= "
 		.main-navigation .children > li.focus > .children, .main-navigation .children > li.focus > .sub-menu-edge, .main-navigation .children > li:hover > .children, .main-navigation .children > li:hover > .sub-menu-edge,
