@@ -8513,7 +8513,6 @@ function responsive_customizer_styles() {
 
 		// Styling for Post Title Size, Meta font size and Taxonomy font size in Blog/Archive 
 		$blog_post_title_size = esc_html( get_theme_mod( 'responsive_blog_post_title_size', 30 ) );
-		$blog_meta_font_size   = esc_html( get_theme_mod( 'responsive_blog_meta_font_size', 14 ) );
 		$blog_taxonomy_font_size = esc_html( get_theme_mod( 'responsive_blog_taxonomy_font_size', 14 ) );
 
 		$custom_css .= "
@@ -8521,11 +8520,6 @@ function responsive_customizer_styles() {
 			font-size: {$blog_post_title_size}px;
 		}
 		
-		.blog .hentry .post-meta .entry-tag span, .blog .hentry .post-meta .entry-tag span a, .blog .hentry .post-meta span.entry-date .posted time, 
-		.archive .hentry .post-meta span, .archive .hentry .post-meta span.entry-date .posted time,
-		.blog .container .hentry .post-entry .post-meta .entry-author .author a span {
-			font-size: {$blog_meta_font_size}px;
-		}
 		
 		.blog .hentry .post-entry .entry-category .posted-in a, .archive .hentry .post-entry .entry-category .posted-in a {
 			font-size: {$blog_taxonomy_font_size}px;
