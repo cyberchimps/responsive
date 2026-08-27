@@ -8519,7 +8519,7 @@ function responsive_customizer_styles() {
 			font-size: {$blog_post_title_size}px;
 		}
 		
-		.blog .hentry .post-meta span, .blog .hentry .post-meta span.entry-date .posted time, 
+		.blog .hentry .post-meta .entry-tag span, .blog .hentry .post-meta .entry-tag span a, .blog .hentry .post-meta span.entry-date .posted time, 
 		.archive .hentry .post-meta span, .archive .hentry .post-meta span.entry-date .posted time,
 		.blog .container .hentry .post-entry .post-meta .entry-author .author a span {
 			font-size: {$blog_meta_font_size}px;
@@ -9995,22 +9995,32 @@ function responsive_customizer_styles() {
 				.archive:not(.post-type-archive-product) .site-content .hentry .entry-content p{
 					display: -webkit-box;
 					-webkit-box-orient: vertical;
-					-webkit-line-clamp: 2;
-					overflow: hidden;
 				}
-				.blog:not(.custom-home-page-active) .site-content .hentry,
-				.archive:not(.post-type-archive-product) .site-content .hentry{
-					height: 280px;   
-					display: flex;
-					flex-direction: column;
-				}
+				
 				.blog:not(.custom-home-page-active) .site-content  .post-entry,	
 				.archive:not(.post-type-archive-product) .site-content  .post-entry {
 					position: relative;
-					overflow: hidden;
-					min-height: 280px;
+					flex: 1 1 auto;
+					display: flex;
+					flex-direction: column;
+					box-sizing: border-box;
+					min-height: 0;
 					padding: " . responsive_spacing_css( $box_padding_top, $box_padding_right, $box_padding_bottom, $box_padding_left ) . ";
  
+				}
+
+				/* Only the excerpt clips/shrinks if space runs out — title, meta, and Read More stay intact */
+				.blog:not(.custom-home-page-active) .site-content .post-entry .entry-content,
+				.archive:not(.post-type-archive-product) .site-content .post-entry .entry-content {
+					flex: 0 1 auto;
+					min-height: 0;
+					overflow: hidden;
+				}
+
+				.blog:not(.custom-home-page-active) .site-content .hentry .read-more,
+				.archive:not(.post-type-archive-product) .site-content .hentry .read-more {
+					flex-shrink: 0;
+					margin-top: 8px;
 				}
 
 				/* Make image cover entire card */
@@ -10021,6 +10031,7 @@ function responsive_customizer_styles() {
 					margin: 0;
 					width: 100%;
 					height: 100%;
+					overflow: hidden;
 				}
 				.blog:not(.custom-home-page-active) .site-content  .thumbnail-cover .thumbnail-link,
 				.archive:not(.post-type-archive-product) .site-content  .thumbnail-cover .thumbnail-link {
