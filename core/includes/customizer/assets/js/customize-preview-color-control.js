@@ -199,7 +199,7 @@
                     '.woocommerce-page.single-product:not(.responsive-site-style-flat) div.product,' +
                     '.woocommerce.single-product:not(.responsive-site-style-flat) div.product,' + 
                     '.elementor-element.elementor-products-grid ul.products li.product .responsive-shop-summary-wrap'
-                ).not('.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry, .page .site-content #comments,.page .site-content #comments .comment-respond').not('.single.single-post .site-content .hentry,.single.single-post .site-content #comments,.single.single-post .site-content #comments .comment-respond').not('.blog:not(.custom-home-page-active) .site-content .hentry, .archive:not(.post-type-archive-product) .site-content .hentry , .search-results .site-content article.hentry').css({
+                ).not('.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry, .page .site-content #comments,.page .site-content #comments .comment-respond').not('.single.single-post .site-content .hentry,.single.single-post .site-content #comments,.single.single-post .site-content #comments .comment-respond').not('.responsive-single-related-posts-container, .responsive-single-related-posts-container .responsive-related-single-posts-wrapper .responsive-related-single-post').not('.blog:not(.custom-home-page-active) .site-content .hentry, .archive:not(.post-type-archive-product) .site-content .hentry , .search-results .site-content article.hentry').css({
                     'background': 'none',
                     'background-color': color
                 });
@@ -446,6 +446,12 @@
 	});
     api( 'responsive_rp_section_bg_color', ( value ) => {
         value.bind( ( newval ) => {
+            if ( newval && newval.includes( 'palette' ) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            if ( newval && newval.startsWith('box-background') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('.responsive-single-related-posts-container, .responsive-single-related-posts-container .responsive-related-single-posts-wrapper .responsive-related-single-post').css('background', newval);
 		});
 	});
@@ -5179,7 +5185,7 @@
                 newval = `var(--responsive-global-${newval})`;
             }
             $(
-                '.single.single-post .site-content .hentry,.single.single-post .site-content #comments, .single.single-post .site-content #comments .comment-respond'
+                '.single.single-post .site-content .hentry:not(.responsive-related-single-post),.single.single-post .site-content #comments, .single.single-post .site-content #comments .comment-respond'
             ).css( 'background-color', newval );
         } );
     } );
