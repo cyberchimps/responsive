@@ -3160,7 +3160,21 @@ function responsive_customizer_styles() {
 	.main-navigation .menu > li.current-menu-item > a {
 		color: {$menu_active_link_color};
 		background-color: {$header_active_menu_background_color};
+	}";
+
+	$primary_menu_active_parent = get_theme_mod( 'responsive_primary_menu_active_parent', 0 );
+	if ( 1 === (int) $primary_menu_active_parent ) {
+		$custom_css .= "
+		.main-navigation .menu > li.current-menu-ancestor > a,
+		.main-navigation .menu > li.current-menu-parent > a,
+		.main-navigation .menu > li.current_page_ancestor > a,
+		.main-navigation .menu > li.current_page_parent > a {
+			color: {$menu_active_link_color};
+			background-color: {$header_active_menu_background_color};
+		}";
 	}
+
+	$custom_css .= "
 	.main-navigation .menu > li.current-menu-item > .res-iconify {
 		color: {$menu_active_link_color};
 	}
