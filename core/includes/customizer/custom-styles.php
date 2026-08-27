@@ -2719,6 +2719,48 @@ function responsive_customizer_styles() {
 	if ( '' !== $primary_menu_margin_mobile_top || '' !== $primary_menu_margin_mobile_right || '' !== $primary_menu_margin_mobile_bottom || '' !== $primary_menu_margin_mobile_left ) {
 		$custom_css .= "@media (max-width: 576px) { .main-navigation .menu { margin: " . responsive_spacing_css( $primary_menu_margin_mobile_top, $primary_menu_margin_mobile_right, $primary_menu_margin_mobile_bottom, $primary_menu_margin_mobile_left, $primary_menu_margin_mobile_unit ) . "; } }";
 	}
+
+	// Primary Navigation Stretch & Fill Menu Items
+	$primary_navigation_stretch      = get_theme_mod( 'responsive_primary_navigation_stretch', 0 );
+	$primary_navigation_fill_stretch = get_theme_mod( 'responsive_primary_navigation_fill_stretch', 0 );
+
+	if ( 1 === (int) $primary_navigation_stretch ) {
+		$custom_css .= "
+		.site-header-item-main-navigation,
+		.site-header-item-main-navigation .main-navigation,
+		.site-header-item-main-navigation .main-navigation-wrapper {
+			flex-grow: 1;
+			width: 100%;
+		}
+		.site-header-item-main-navigation .main-navigation .menu {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+		}
+		.site-header-item-main-navigation .main-navigation .menu > li {
+			float: none;
+		}";
+
+		if ( 1 === (int) $primary_navigation_fill_stretch ) {
+			$custom_css .= "
+			.site-header-item-main-navigation .main-navigation .menu > li {
+				flex: 1 1 0;
+				text-align: center;
+			}
+			.site-header-item-main-navigation .main-navigation .menu > li > a {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+			}
+			.site-header-item-main-navigation .main-navigation .menu > li > a > .res-iconify-inner {
+				position: static;
+				margin-left: 5px;
+			}";
+		}
+	}
 	// adding custom css when the menu is going out of the screen
 	$custom_css .= "
 		.main-navigation .children > li.focus > .children, .main-navigation .children > li.focus > .sub-menu-edge, .main-navigation .children > li:hover > .children, .main-navigation .children > li:hover > .sub-menu-edge,

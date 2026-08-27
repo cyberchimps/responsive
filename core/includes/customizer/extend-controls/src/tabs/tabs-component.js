@@ -265,6 +265,12 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_mobile_header_button_bg_color_separator').style.display = 'none';
 		}
 
+		if( api('responsive_primary_navigation_stretch') && api('responsive_primary_navigation_stretch').get() == 1 && 'general' === tab ) {
+			document.getElementById('customize-control-responsive_primary_navigation_fill_stretch').style.display = 'block';
+		} else {
+			document.getElementById('customize-control-responsive_primary_navigation_fill_stretch').style.display = 'none';
+		}
+
 		// Toggle Button Style - Hide controls based on style
 		if( api('responsive_mobile_menu_toggle_style') ) {
 			const allToggleButtonElementIds = [

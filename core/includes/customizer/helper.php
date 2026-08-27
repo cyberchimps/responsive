@@ -4673,3 +4673,15 @@ if ( ! function_exists( 'responsive_active_blog_layout_cover' ) ) :
 		return get_theme_mod( 'responsive_blog_layout', 'grid' ) === 'cover';
 	}
 endif;
+
+if ( ! function_exists( 'responsive_primary_navigation_stretch_active' ) ) :
+	/**
+	 * Determines whether stretch menu is enabled for primary navigation.
+	 *
+	 * @return bool
+	 */
+	function responsive_primary_navigation_stretch_active() {
+		return ( 1 === (int) get_theme_mod( 'responsive_primary_navigation_stretch', 0 ) && 0 === (int) get_theme_mod( 'responsive_disable_menu', 0 ) );
+	}
+endif;
+

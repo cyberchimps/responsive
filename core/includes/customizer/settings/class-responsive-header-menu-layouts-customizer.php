@@ -77,6 +77,8 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			$primary_menu_general_tab_ids = array(
 				$tab_ids_prefix . 'responsive_main_menu_separator',
 				$tab_ids_prefix . 'responsive_redirect_to_primary_menu_set_location',
+				$tab_ids_prefix . 'responsive_primary_navigation_stretch',
+				$tab_ids_prefix . 'responsive_primary_navigation_fill_stretch',
 				$tab_ids_prefix . 'responsive_disable_menu',
 				$tab_ids_prefix . 'responsive_mobile_menu_separator',
 				$tab_ids_prefix . 'responsive_disable_mobile_menu',
@@ -97,6 +99,14 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			// Redirect to Primary Menu set location.
 			$configure_primary_menu_redirect_label = __( 'Configure Primary Menu', 'responsive' );
 			responsive_redirect_control( $wp_customize, 'redirect_to_primary_menu_set_location', $configure_primary_menu_redirect_label, 'responsive_header_menu_layout', 12, 'control', 'nav_menu_locations[header-menu]' );
+
+			// Stretch Menu.
+			$primary_navigation_stretch_label = __( 'Stretch Menu', 'responsive' );
+			responsive_toggle_control( $wp_customize, 'primary_navigation_stretch', $primary_navigation_stretch_label, 'responsive_header_menu_layout', 13, 0, 'responsive_disabled_main_menu' );
+
+			// Fill and Center Menu Items.
+			$primary_navigation_fill_stretch_label = __( 'Fill and Center Menu Items', 'responsive' );
+			responsive_toggle_control( $wp_customize, 'primary_navigation_fill_stretch', $primary_navigation_fill_stretch_label, 'responsive_header_menu_layout', 14, 0, 'responsive_primary_navigation_stretch_active' );
 
 			// Disable Menu.
 			$disable_menu_label = __( 'Disable Main Menu', 'responsive' );
