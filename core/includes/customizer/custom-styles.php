@@ -8464,8 +8464,10 @@ function responsive_customizer_styles() {
 
 		// Styling for Blog/Archive Border radius
 		$get_radius = function( $mod_name, $box_val ) use ( $box_radius ) {
-			$val = get_theme_mod( $mod_name );
-			if ( $val !== false && $val !== '' ) return esc_html( $val );
+			 $val = get_theme_mod( $mod_name );
+			if ( $val !== false && $val !== '' && (float) $val !== 0.0 ) {
+				return esc_html( $val );
+			}
 			return esc_html( $box_val !== '' ? $box_val : $box_radius );
 		};
 
@@ -8511,7 +8513,6 @@ function responsive_customizer_styles() {
 
 		// Styling for Post Title Size, Meta font size and Taxonomy font size in Blog/Archive 
 		$blog_post_title_size = esc_html( get_theme_mod( 'responsive_blog_post_title_size', 30 ) );
-		$blog_meta_font_size   = esc_html( get_theme_mod( 'responsive_blog_meta_font_size', 14 ) );
 		$blog_taxonomy_font_size = esc_html( get_theme_mod( 'responsive_blog_taxonomy_font_size', 14 ) );
 
 		$custom_css .= "
@@ -8519,11 +8520,6 @@ function responsive_customizer_styles() {
 			font-size: {$blog_post_title_size}px;
 		}
 		
-		.blog .hentry .post-meta .entry-tag span, .blog .hentry .post-meta .entry-tag span a, .blog .hentry .post-meta span.entry-date .posted time, 
-		.archive .hentry .post-meta span, .archive .hentry .post-meta span.entry-date .posted time,
-		.blog .container .hentry .post-entry .post-meta .entry-author .author a span {
-			font-size: {$blog_meta_font_size}px;
-		}
 		
 		.blog .hentry .post-entry .entry-category .posted-in a, .archive .hentry .post-entry .entry-category .posted-in a {
 			font-size: {$blog_taxonomy_font_size}px;
@@ -9975,7 +9971,7 @@ function responsive_customizer_styles() {
 		// Styling for Cover layout background color -> Blog/Archive
 		$blog_layout = get_theme_mod( 'responsive_blog_layout', 'grid' );
 
-		$blog_cover_background = get_theme_mod( 'responsive_blog_cover_background_color', '#f9f9f9' );
+		$blog_cover_background = get_theme_mod( 'responsive_blog_content_background_color', '#f9f9f9' );
 		$transparent_overlay = false;
 		if ( false !== strpos( $blog_cover_background, ',0)' ) ) {
 			$transparent_overlay = true;
@@ -9988,8 +9984,23 @@ function responsive_customizer_styles() {
 				.archive:not(.post-type-archive-product) .site-content .hentry {
 					background-color:  $blog_cover_background;
 					padding: 0;
-					border-radius: {$box_top_left_radius}px {$box_top_right_radius}px {$box_bottom_right_radius}px {$box_bottom_left_radius}px;
-					
+					border-radius: {$blog_border_radius_top_left}{$blog_border_radius_unit} {$blog_border_radius_top_right}{$blog_border_radius_unit} {$blog_border_radius_bottom_right}{$blog_border_radius_unit} {$blog_border_radius_bottom_left}{$blog_border_radius_unit};
+				}
+				@media screen and ( max-width: 992px ) {
+					.blog:not(.custom-home-page-active) .site-content .hentry,
+					.archive:not(.post-type-archive-product) .site-content .hentry {
+						background-color:  $blog_cover_background;
+						padding: 0;
+						border-radius: {$blog_border_radius_tablet_top_left}{$blog_border_radius_tablet_unit} {$blog_border_radius_tablet_top_right}{$blog_border_radius_tablet_unit} {$blog_border_radius_tablet_bottom_right}{$blog_border_radius_tablet_unit} {$blog_border_radius_tablet_bottom_left}{$blog_border_radius_tablet_unit};
+					}
+				}
+				@media screen and ( max-width: 576px ) {
+					.blog:not(.custom-home-page-active) .site-content .hentry,
+					.archive:not(.post-type-archive-product) .site-content .hentry {
+						background-color:  $blog_cover_background;
+						padding: 0;
+						border-radius: {$blog_border_radius_mobile_top_left}{$blog_border_radius_mobile_unit} {$blog_border_radius_mobile_top_right}{$blog_border_radius_mobile_unit} {$blog_border_radius_mobile_bottom_right}{$blog_border_radius_mobile_unit} {$blog_border_radius_mobile_bottom_left}{$blog_border_radius_mobile_unit};				
+					}
 				}
 				.blog:not(.custom-home-page-active) .site-content .hentry .entry-content p,
 				.archive:not(.post-type-archive-product) .site-content .hentry .entry-content p{

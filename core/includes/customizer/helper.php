@@ -4944,18 +4944,6 @@ if ( ! function_exists( 'responsive_show_post_author_box' ) ) {
 		return ! (bool) get_theme_mod( 'responsive_disable_author_meta', 0 );
 	}
 }
-/* For Blog/Archive section -> Blog layout cover option */
-if ( ! function_exists( 'responsive_active_blog_layout_cover_background' ) ) :
-
-	/**
-	 * Determines whether active blog layout is cover.
-	 *
-	 * @return bool true if the active layout is cover, false otherwise.
-	 */
-	function responsive_active_blog_layout_cover_background() {
-		return get_theme_mod( 'responsive_blog_layout', 'grid' ) === 'cover';
-	}
-endif;
 
 function responsive_get_page_sidebar_choices() {
 	return array(
