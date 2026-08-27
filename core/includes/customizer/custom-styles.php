@@ -3267,6 +3267,92 @@ function responsive_customizer_styles() {
 	if ( '' !== $sub_menu_border_radius_mobile_top || '' !== $sub_menu_border_radius_mobile_right || '' !== $sub_menu_border_radius_mobile_bottom || '' !== $sub_menu_border_radius_mobile_left ) {
 		$custom_css .= "@media (max-width: 576px) { .main-navigation .children, .main-navigation .sub-menu { border-radius: " . responsive_spacing_css( $sub_menu_border_radius_mobile_top, $sub_menu_border_radius_mobile_right, $sub_menu_border_radius_mobile_bottom, $sub_menu_border_radius_mobile_left, $sub_menu_border_radius_mobile_unit ) . "; } }";
 	}
+
+	$header_menu_submenu_animation = get_theme_mod( 'responsive_header_menu_submenu_animation', 'none' );
+
+	if ( 'slide-up' === $header_menu_submenu_animation ) {
+		$custom_css .= "
+		.main-navigation .menu-item-has-children:hover > .sub-menu,
+		.main-navigation .page_item_has_children:hover > .children {
+			display: block;
+		}
+		.main-navigation .sub-menu,
+		.main-navigation .children {
+			display: none;
+			animation: growUp 300ms ease-in-out forwards;
+			transform-origin: bottom center;
+		}
+		.main-navigation .sub-menu li,
+		.main-navigation .children li {
+			display: block;
+			opacity: 1;
+		}
+		@keyframes growUp {
+			0% {
+				transform: scaleY(0);
+			}
+			80% {
+				transform: scaleY(1.1);
+			}
+			100% {
+				transform: scaleY(1);
+			}
+		}";
+	} elseif ( 'slide-down' === $header_menu_submenu_animation ) {
+		$custom_css .= "
+		.main-navigation .menu-item-has-children:hover > .sub-menu,
+		.main-navigation .page_item_has_children:hover > .children {
+			display: block;
+		}
+		.main-navigation .sub-menu,
+		.main-navigation .children {
+			display: none;
+			animation: growDown 300ms ease-in-out forwards;
+			transform-origin: top center;
+		}
+		.main-navigation .sub-menu li,
+		.main-navigation .children li {
+			display: block;
+			opacity: 1;
+		}
+		@keyframes growDown {
+			0% {
+				transform: scaleY(0);
+			}
+			80% {
+				transform: scaleY(1.1);
+			}
+			100% {
+				transform: scaleY(1);
+			}
+		}";
+	} elseif ( 'fade' === $header_menu_submenu_animation ) {
+		$custom_css .= "
+		.main-navigation .menu-item-has-children:hover > .sub-menu,
+		.main-navigation .page_item_has_children:hover > .children {
+			display: block;
+		}
+		.main-navigation .sub-menu,
+		.main-navigation .children {
+			display: none;
+			animation: fadeIn 0.5s ease-in forwards;
+			opacity: 0;
+		}
+		.main-navigation .sub-menu li,
+		.main-navigation .children li {
+			display: block;
+			opacity: 1;
+		}
+		@keyframes fadeIn {
+			0% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}";
+	}
+
 	if ( "1" === $sub_menu_divider ) {
 		$custom_css .= "
 	.main-navigation .children li, .main-navigation .sub-menu li {

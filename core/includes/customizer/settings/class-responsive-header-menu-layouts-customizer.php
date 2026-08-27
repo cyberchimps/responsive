@@ -63,6 +63,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				$tab_ids_prefix . 'responsive_sub_menu_container_top_offset',
 				$tab_ids_prefix . 'responsive_sub_menu_width',
 				$tab_ids_prefix . 'responsive_sub_menu_divider',
+				$tab_ids_prefix . 'responsive_header_menu_submenu_animation',
 				$tab_ids_prefix . 'responsive_sub_menu_colors_separator',
 				$tab_ids_prefix . 'responsive_sub_menu_border_color',
 				$tab_ids_prefix . 'responsive_sub_menu_divider_color',
@@ -278,6 +279,16 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			// Enable Sub Menu Divider.
 			$sub_menu_divider_label = __( 'Item Divider', 'responsive' );
 			responsive_toggle_control( $wp_customize, 'sub_menu_divider', $sub_menu_divider_label, 'responsive_header_menu_layout', 185, 0, null );
+
+			// Submenu Animation.
+			$header_menu_submenu_animation_label   = __( 'Submenu Animation', 'responsive' );
+			$header_menu_submenu_animation_choices = array(
+				'none'       => esc_html__( 'None', 'responsive' ),
+				'slide-up'   => esc_html__( 'Slide Up', 'responsive' ),
+				'fade'       => esc_html__( 'Fade', 'responsive' ),
+				'slide-down' => esc_html__( 'Slide Down', 'responsive' ),
+			);
+			responsive_select_control( $wp_customize, 'header_menu_submenu_animation', $header_menu_submenu_animation_label, 'responsive_header_menu_layout', 186, $header_menu_submenu_animation_choices, 'none', null );
 
 			// Sub Menu Colors.
 			$sub_menu_colors_separator_label = esc_html__( 'Sub Menu Colors', 'responsive' );
