@@ -29,7 +29,8 @@
     padding-top: 5px;
 }
 #customize-control-responsive_container_width .customize-control-description,
-#customize-control-responsive_narrow_container_width .customize-control-description {
+#customize-control-responsive_narrow_container_width .customize-control-description,
+#customize-control-responsive_blog_title_elements_positioning .customize-control-description {
 	font-size: 12px;
 	line-height: 18px;
 	color: #a4a4a4;

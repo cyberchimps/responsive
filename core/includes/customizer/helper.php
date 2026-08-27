@@ -857,7 +857,7 @@ function responsive_read_more_text( $text ) {
  * @return string
  */
 function responsive_custom_trim_excerpt_by_characters( $text, $raw_excerpt ) {
-	$excerpt_length = get_theme_mod( 'responsive_excerpt_length', 90 );
+	$excerpt_length = get_theme_mod( 'responsive_excerpt_length', 25 );
 	if ( ! is_numeric( $excerpt_length ) ) {
 		return $text;
 	}
