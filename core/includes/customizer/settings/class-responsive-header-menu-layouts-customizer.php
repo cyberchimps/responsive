@@ -57,6 +57,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				$tab_ids_prefix . 'responsive_header_menu_link_color_states',
 				$tab_ids_prefix . 'responsive_sub_menu_separator',
 				$tab_ids_prefix . 'responsive_sub_menu_border_padding',
+				$tab_ids_prefix . 'responsive_sub_menu_border_radius_padding',
 				$tab_ids_prefix . 'responsive_header_off_canvas_menu_layout',
 				$tab_ids_prefix . 'responsive_header_toggle_button',
 				$tab_ids_prefix . 'responsive_sub_menu_container_top_offset',
@@ -261,6 +262,10 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			// Sub Menu Container Border.
 			$sub_menu_border = esc_html__( 'Container Border', 'responsive' );
 			responsive_padding_control( $wp_customize, 'sub_menu_border', 'responsive_header_menu_layout', 175, 0, 0, null, $sub_menu_border );
+
+			// Sub Menu Border Radius.
+			$sub_menu_border_radius = esc_html__( 'Border Radius', 'responsive' );
+			responsive_unit_padding_control( $wp_customize, 'sub_menu_border_radius', 'responsive_header_menu_layout', 176, '', '', null, $sub_menu_border_radius, 'postMessage', '', '', '', '', 'px' );
 
 			// Sub-menu Container Top Offset.
 			$sub_menu_container_top_offset_label = esc_html__( 'Container Top Offset', 'responsive' );
