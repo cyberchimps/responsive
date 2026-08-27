@@ -1315,6 +1315,7 @@ function defaults() {
 			'hamburger_menu_padding'              => 15,
 			'primary_navigation_stretch'          => 0,
 			'primary_navigation_fill_stretch'     => 0,
+			'header_primary_navigation_visibility' => array( 'desktop', 'tablet', 'mobile' ),
 			'secondary_menu_padding'              => 0,
 			'secondary_menu_margin'               => 0,
 			'header_menu_background'              => 'transparent',

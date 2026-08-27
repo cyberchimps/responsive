@@ -79,7 +79,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				$tab_ids_prefix . 'responsive_redirect_to_primary_menu_set_location',
 				$tab_ids_prefix . 'responsive_primary_navigation_stretch',
 				$tab_ids_prefix . 'responsive_primary_navigation_fill_stretch',
-				$tab_ids_prefix . 'responsive_disable_menu',
+				$tab_ids_prefix . 'responsive_header_primary_navigation_visibility',
 				$tab_ids_prefix . 'responsive_mobile_menu_separator',
 				$tab_ids_prefix . 'responsive_disable_mobile_menu',
 				$tab_ids_prefix . 'responsive_stacked_mobile_menu',
@@ -108,9 +108,14 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			$primary_navigation_fill_stretch_label = __( 'Fill and Center Menu Items', 'responsive' );
 			responsive_toggle_control( $wp_customize, 'primary_navigation_fill_stretch', $primary_navigation_fill_stretch_label, 'responsive_header_menu_layout', 14, 0, 'responsive_primary_navigation_stretch_active' );
 
-			// Disable Menu.
-			$disable_menu_label = __( 'Disable Main Menu', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'disable_menu', $disable_menu_label, 'responsive_header_menu_layout', 15, 0, null );
+			// Visibility - General Tab.
+			$primary_navigation_visibility_label   = __( 'Visibility', 'responsive' );
+			$primary_navigation_visibility_choices = array(
+				'desktop' => esc_html__( 'dashicons-desktop', 'responsive' ),
+				'tablet'  => esc_html__( 'dashicons-tablet', 'responsive' ),
+				'mobile'  => esc_html__( 'dashicons-smartphone', 'responsive' ),
+			);
+			responsive_multi_select_button_control( $wp_customize, 'header_primary_navigation_visibility', $primary_navigation_visibility_label, 'responsive_header_menu_layout', 15, $primary_navigation_visibility_choices, array( 'desktop', 'tablet', 'mobile' ), null, 'refresh' );
 
 			// Full Width Menu.
 			// $header_menu_full_width_label = __( 'Full Width Main Navigation', 'responsive' );
