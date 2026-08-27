@@ -283,9 +283,9 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 							'responsive_disable_author_meta',
 							array(
 								'label'    => __( ' Disable Author Profile Box ?', 'responsive' ),
-								'section'  => 'responsive_single_blog_post_title_layout',
+								'section'  => 'responsive_single_blog_layout',
 								'settings' => 'responsive_disable_author_meta',
-								'priority' => 105,
+								'priority' => 108,
 							)
 						)
 					);

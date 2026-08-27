@@ -98,6 +98,17 @@ const TabsComponent = props => {
 		hideRetinaLogoUploadControl( api( 'responsive_retina_logo').get());
 		hideMobileLogoUploadControl( api( 'responsive_mobile_logo_option').get());
 
+		if ( api( 'responsive_disable_author_meta' ) && api( 'responsive_disable_author_meta' ).get() ) {
+			const authorBoxEl = document.getElementById( 'customize-control-responsive_post_author_box_style' );
+			const authorBoxSep = document.getElementById( 'customize-control-responsive_responsive_disable_author_meta_separator' );
+			if ( authorBoxEl ) {
+				authorBoxEl.style.display = 'none';
+			}
+			if ( authorBoxSep ) {
+				authorBoxSep.style.display = 'none';
+			}
+		}
+
 		api('responsive_page_sidebar_position', function( value ) {
 			value.bind( function( newval ) {
 				if ( newval ) {

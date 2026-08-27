@@ -86,15 +86,14 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				$main_general_tab_ids_prefix . 'inside_container_padding',
 				$main_general_tab_ids_prefix . 'navigation',
 				$main_general_tab_ids_prefix . 'navigation_before',
-				'customize-control-responsive_disable_author_meta',
 				'customize-control-responsive_post_author_box_style',
 				'customize-control-responsive_responsive_disable_author_meta_separator',
+				'customize-control-responsive_disable_author_meta',
+				'customize-control-responsive_disable_author_meta_after_separator',
 				'customize-control-responsive_responsive_blog_single_meta_separator',
 				'customize-control-responsive_responsive_single_blog_meta_separator_text_separator',
 				'customize-control-responsive_blog_single_elements_positioning',
 				'customize-control-responsive_blog_single_meta',
-				
-				
 			);
 			responsive_tabs_button_control( $wp_customize, 'single_blog_tabs', $main_tabs_label, 'responsive_single_blog_layout', 1, '', 'responsive_single_blog_layout_general_tab', 'responsive_single_blog_layout_design_tab', $main_general_tab_ids, $main_design_tab_ids, null );
 
@@ -260,8 +259,6 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'customize-control-responsive_single_blog_banner_custom_width',
 				'customize-control-responsive_single_blog_post_title_horizontal_alignment',
 				'customize-control-responsive_single_blog_title_alignment',
-				'customize-control-responsive_disable_author_meta',
-				'customize-control-responsive_responsive_disable_author_meta_separator',
 				'customize-control-responsive_blog_single_meta',
 				'customize-control-responsive_single_blog_meta_separator_text',
 				'customize-control-responsive_responsive_single_blog_meta_separator_text_separator',
@@ -520,7 +517,8 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 			$single_blog_meta_label = esc_html__( 'Meta', 'responsive' );
 			responsive_separator_control( $wp_customize, 'single_blog_meta_control_separator', $single_blog_meta_label, 'responsive_single_blog_post_title_layout', 100 );
 
-			responsive_horizontal_separator_control( $wp_customize, 'responsive_disable_author_meta_separator', 1, 'responsive_single_blog_layout',107, 1 );
+			responsive_horizontal_separator_control( $wp_customize, 'responsive_disable_author_meta_separator', 1, 'responsive_single_blog_layout', 107, 1, 'responsive_show_post_author_box' );
+			responsive_horizontal_separator_control( $wp_customize, 'disable_author_meta_after_separator', 1, 'responsive_single_blog_layout', 109, 1 );
 
 			/**
 			 * Blog Single Meta
