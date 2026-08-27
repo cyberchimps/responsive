@@ -4538,7 +4538,48 @@ function responsive_customizer_styles() {
 			}
 		}";
 
-		
+		// Secondary Navigation Stretch & Fill Menu Items
+		$secondary_navigation_stretch      = get_theme_mod( 'responsive_secondary_navigation_stretch', 0 );
+		$secondary_navigation_fill_stretch = get_theme_mod( 'responsive_secondary_navigation_fill_stretch', 0 );
+
+		if ( 1 === (int) $secondary_navigation_stretch ) {
+			$custom_css .= "
+			.site-header-item-secondary-navigation,
+			.site-header-item-secondary-navigation .secondary-navigation,
+			.site-header-item-secondary-navigation .secondary-navigation-wrapper {
+				flex-grow: 1;
+				width: 100%;
+			}
+			.site-header-item-secondary-navigation .secondary-navigation .menu {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+				width: 100%;
+			}
+			.site-header-item-secondary-navigation .secondary-navigation .menu > li {
+				float: none;
+			}";
+
+			if ( 1 === (int) $secondary_navigation_fill_stretch ) {
+				$custom_css .= "
+				.site-header-item-secondary-navigation .secondary-navigation .menu > li {
+					flex: 1 1 0;
+					text-align: center;
+				}
+				.site-header-item-secondary-navigation .secondary-navigation .menu > li > a {
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					width: 100%;
+				}
+				.site-header-item-secondary-navigation .secondary-navigation .menu > li > a > .res-iconify-inner {
+					position: static;
+					margin-left: 5px;
+				}";
+			}
+		}
+
 		// Secondary Menu colors
 
 

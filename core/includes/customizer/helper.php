@@ -4685,3 +4685,14 @@ if ( ! function_exists( 'responsive_primary_navigation_stretch_active' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'responsive_secondary_navigation_stretch_active' ) ) :
+	/**
+	 * Determines whether stretch menu is enabled for secondary navigation.
+	 *
+	 * @return bool
+	 */
+	function responsive_secondary_navigation_stretch_active() {
+		return ( 1 === (int) get_theme_mod( 'responsive_secondary_navigation_stretch', 0 ) );
+	}
+endif;
+

@@ -61,6 +61,8 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 			 $general_tab_ids_prefix = 'customize-control-';
 			 $general_tab_ids        = array(
 				 $general_tab_ids_prefix . 'responsive_redirect_to_secondary_menu_set_location',
+				 $general_tab_ids_prefix . 'responsive_secondary_navigation_stretch',
+				 $general_tab_ids_prefix . 'responsive_secondary_navigation_fill_stretch',
 				 $general_tab_ids_prefix . 'responsive_visibility_separator',
 				 $general_tab_ids_prefix . 'responsive_secondary_menu_desktop_visibility',
 				 $general_tab_ids_prefix . 'responsive_secondary_menu_tablet_visibility',
@@ -82,6 +84,14 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 			// Redirect to Secondary Menu set location.
 			$configure_secondary_menu_redirect_label = __( 'Configure Secondary Menu', 'responsive' );
 			responsive_redirect_control( $wp_customize, 'redirect_to_secondary_menu_set_location', $configure_secondary_menu_redirect_label, 'responsive_header_secondary_menu_layout', 40, 'control', 'nav_menu_locations[secondary-menu]');
+
+			// Stretch Menu.
+			$secondary_navigation_stretch_label = __( 'Stretch Menu', 'responsive' );
+			responsive_toggle_control( $wp_customize, 'secondary_navigation_stretch', $secondary_navigation_stretch_label, 'responsive_header_secondary_menu_layout', 42, 0, 'responsive_disabled_secondary_menu' );
+
+			// Fill and Center Menu Items.
+			$secondary_navigation_fill_stretch_label = __( 'Fill and Center Menu Items', 'responsive' );
+			responsive_toggle_control( $wp_customize, 'secondary_navigation_fill_stretch', $secondary_navigation_fill_stretch_label, 'responsive_header_secondary_menu_layout', 44, 0, 'responsive_secondary_navigation_stretch_active' );
 
 			// Menu Item Hover Style.
 			$secondary_menu_item_hover_style_label   = __( 'Menu Hover style', 'responsive' );
