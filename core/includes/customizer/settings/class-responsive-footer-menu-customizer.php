@@ -61,6 +61,7 @@ if ( ! class_exists( 'Responsive_Footer_Menu_Customizer' ) ) :
                 $general_tab_ids_prefix . 'responsive_footer_widget_desktop_visibility',
 				$general_tab_ids_prefix . 'responsive_footer_widget_tablet_visibility',
 				$general_tab_ids_prefix . 'responsive_footer_widget_mobile_visibility',
+				$general_tab_ids_prefix . 'responsive_footer_menu_typography_group',
 			);
 
 			responsive_tabs_button_control( $wp_customize, 'footer_menu_tabs', $tabs_label, 'responsive_footer_menu', 1, '', 'responsive_footer_menu_general_tab', 'responsive_footer_menu_design_tab', $general_tab_ids, $design_tab_ids, null );
@@ -117,9 +118,14 @@ if ( ! class_exists( 'Responsive_Footer_Menu_Customizer' ) ) :
 				Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_link_active' )
 			);
 
+			// Footer Menu Font.
+			$footer_menu_font_label = __( 'Font', 'responsive' );
+			responsive_typography_group_control( $wp_customize, 'footer_menu_typography_group', $footer_menu_font_label, 'responsive_footer_menu', 75, 'footer_menu_typography', true );
+
+
             // Padding.
 			$footer_menu_padding_label = __( 'Padding (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'footer_menu', 'responsive_footer_menu', 70, 15, 15, null, $footer_menu_padding_label );
+			responsive_padding_control( $wp_customize, 'footer_menu', 'responsive_footer_menu', 80, 15, 15, null, $footer_menu_padding_label );
 
 		}
 	}
