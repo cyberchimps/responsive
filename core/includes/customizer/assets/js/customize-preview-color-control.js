@@ -5500,6 +5500,14 @@
             $('.responsive-single-entry-banner, .responsive-single-post-featured-section.post-thumb, .entry-header').css('--overlay-color', color);
         });
     });
+    // Related Posts border color
+     api('responsive_rp_border_color', function(value) {
+        value.bind(function() {
+            var color = processThemeSettingForCSS('responsive_rp_border_color');
+            if ( !color ) color = 'transparent';
+            $('.responsive-single-related-posts-container').css('border-color', color);
+        });
+    });
 
 
 } )( jQuery );
