@@ -84,10 +84,6 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 			$blog_post_title_size_label = esc_html__( 'Post Title Size (px)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'blog_post_title_size', $blog_post_title_size_label, 'responsive_blog_layout', 79, 30, null, 60, 8, 'refresh', 1 );
 
-			// Meta Font Size.
-			$blog_meta_font_size_label = esc_html__( 'Meta Font Size (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'blog_meta_font_size', $blog_meta_font_size_label, 'responsive_blog_layout', 91, 14, null, 60, 8, 'refresh', 1 );
-
 			// Taxonomy Font Size.
 			$blog_taxonomy_font_size_label = esc_html__( 'Taxonomy Font Size (px)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'blog_taxonomy_font_size', $blog_taxonomy_font_size_label, 'responsive_blog_layout', 93, 14, null, 60, 8, 'refresh', 1 );
@@ -283,9 +279,9 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 							'responsive_disable_author_meta',
 							array(
 								'label'    => __( ' Disable Author Profile Box ?', 'responsive' ),
-								'section'  => 'responsive_single_blog_post_title_layout',
+								'section'  => 'responsive_single_blog_layout',
 								'settings' => 'responsive_disable_author_meta',
-								'priority' => 105,
+								'priority' => 108,
 							)
 						)
 					);

@@ -122,7 +122,11 @@ function responsive_comment_list_pings( $comment ) {
  * @param  integer $length Length of excerpt.
  */
 function responsive_excerpt_length( $length ) {
-	return 90;
+	$excerpt_length = get_theme_mod( 'responsive_excerpt_length', 16 );
+	if ( is_numeric( $excerpt_length ) ) {
+		return (int) $excerpt_length;
+	}
+	return 25;
 }
 
 /**
@@ -133,7 +137,7 @@ function responsive_read_more() {
 	if ( is_object( $post ) ) {
 		if ( 'product' !== $post->post_type ) {
 			$read_more = apply_filters( 'responsive_post_read_more', __( 'Read more →', 'responsive' ) );
-			return '<div class="read-more"><a class="more-link" href="' . get_permalink() . '">' . $read_more . '</a></div><!-- end of .read-more -->';
+			return '<p class="read-more"><a class="more-link" href="' . get_permalink() . '">' . $read_more . '</a></p><!-- end of .read-more -->';
 		}
 	}
 }
@@ -154,8 +158,13 @@ function responsive_auto_excerpt_more( $more = 0 ) {
  */
 function responsive_custom_excerpt_more( $output ) {
 	// Only append the fallback read-more if one hasn't already been added.
-	if ( has_excerpt() && ! is_attachment() && false === strpos( $output, 'class="read-more"' ) ) {
-		$output .= responsive_read_more();
+	if ( has_excerpt() && ! is_attachment() ) {
+		$excerpt_length = get_theme_mod( 'responsive_excerpt_length', 16 );
+		$output         = wp_trim_words( $output, $excerpt_length );
+
+		if ( false === strpos( $output, 'class="read-more"' ) ) {
+			$output .= responsive_read_more();
+		}
 	}
 	return $output;
 }
