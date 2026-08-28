@@ -199,7 +199,7 @@
                     '.woocommerce-page.single-product:not(.responsive-site-style-flat) div.product,' +
                     '.woocommerce.single-product:not(.responsive-site-style-flat) div.product,' + 
                     '.elementor-element.elementor-products-grid ul.products li.product .responsive-shop-summary-wrap'
-                ).not('.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry, .page .site-content #comments,.page .site-content #comments .comment-respond').not('.single.single-post .site-content .hentry,.single.single-post .site-content #comments,.single.single-post .site-content #comments .comment-respond').not('.blog:not(.custom-home-page-active) .site-content .hentry, .archive:not(.post-type-archive-product) .site-content .hentry , .search-results .site-content article.hentry').css({
+                ).not('.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry, .page .site-content #comments,.page .site-content #comments .comment-respond').not('.single.single-post .site-content .hentry,.single.single-post .site-content #comments,.single.single-post .site-content #comments .comment-respond').not('.responsive-single-related-posts-container, .responsive-single-related-posts-container .responsive-related-single-posts-wrapper .responsive-related-single-post').not('.blog:not(.custom-home-page-active) .site-content .hentry, .archive:not(.post-type-archive-product) .site-content .hentry , .search-results .site-content article.hentry').css({
                     'background': 'none',
                     'background-color': color
                 });
@@ -446,7 +446,13 @@
 	});
     api( 'responsive_rp_section_bg_color', ( value ) => {
         value.bind( ( newval ) => {
-            $('.responsive-single-related-posts-container, .responsive-single-related-posts-container .responsive-related-single-posts-wrapper .responsive-related-single-post').css('background', newval);
+            if ( newval && newval.includes( 'palette' ) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            if ( newval && newval.startsWith('box-background') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            $('body:not(.responsive-site-style-flat) .responsive-single-related-posts-container, body:not(.responsive-site-style-flat) .responsive-single-related-posts-container .responsive-related-single-posts-wrapper .responsive-related-single-post').css('background', newval);
 		});
 	});
 
@@ -1388,6 +1394,9 @@
     //Breadcrumb Color
     api( 'responsive_breadcrumb_color', function( value ) {
         value.bind( function( newval ) {
+            if ( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             $('#wrapper .site-content-header .breadcrumbs .breadcrumb-list, #wrapper .site-content-header .breadcrumbs .breadcrumb-list a, #wrapper .site-content-header .breadcrumbs .breadcrumb-list a span, .woocommerce .woocommerce-breadcrumb,.woocommerce .woocommerce-breadcrumb a').css('color', newval );
         } );
     } );
@@ -1919,7 +1928,7 @@
     //Hover Colors
 
     //Links Hover Color
-    $("a").not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.post-meta a').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.read-more .more-link').hover(
+    $("a").not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.post-meta a').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.read-more .more-link').not('footer.comment-meta a, .commentlist .comment-content a').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
             $(this).css("color", linkHoverColor);
@@ -5221,20 +5230,11 @@
                 newval = `var(--responsive-global-${newval})`;
             }
             $(
-                '.single.single-post .site-content .hentry,.single.single-post .site-content #comments, .single.single-post .site-content #comments .comment-respond'
+                '.single.single-post .site-content .hentry:not(.responsive-related-single-post),.single.single-post .site-content #comments, .single.single-post .site-content #comments .comment-respond'
             ).css( 'background-color', newval );
         } );
     } );
 
-   // Blog/Archive Blog Layout - Cover background color
-    api( 'responsive_blog_cover_background_color', function( value ) {
-        value.bind( function( newval ) {
-            if ( newval && newval.includes( 'palette' ) ) {
-                newval = 'var(--responsive-global-' + newval + ')';
-            }
-            $('.blog:not(.custom-home-page-active) .site-content .hentry, .archive:not(.post-type-archive-product) .site-content .hentry ').css( 'background-color', newval );
-        } );
-    } );
      // Single Blog Post Title Color
     api( 'responsive_single_blog_post_title_color', function(value) {
         value.bind(function(newval) {

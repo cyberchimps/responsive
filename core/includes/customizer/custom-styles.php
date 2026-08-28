@@ -657,7 +657,6 @@ function responsive_customizer_styles() {
 		.single:not(.single-product) .content-outer #primary .comments-area {
 			border-radius: {$box_top_left_radius}px {$box_top_right_radius}px {$box_bottom_right_radius}px {$box_bottom_left_radius}px;
 			padding: " . $single_blog_inside_container_padding_top . $single_blog_inside_container_unit . ' ' . $single_blog_inside_container_padding_right . $single_blog_inside_container_unit . ' ' . $single_blog_inside_container_padding_bottom . $single_blog_inside_container_unit . ' ' . $single_blog_inside_container_padding_left . $single_blog_inside_container_unit . ";
-			background-color: {$box_background_color};
 		}";
 		$custom_css .= "
 			@media screen and ( max-width: 992px ) {
@@ -679,7 +678,6 @@ function responsive_customizer_styles() {
 			.single:not(.single-product) .site-content .hentry,
 			.single:not(.single-product) .content-outer #primary .comments-area {
 				border-radius: " . responsive_spacing_css( $single_post_boxed_radius_top_left, $single_post_boxed_radius_top_right, $single_post_boxed_radius_bottom_right, $single_post_boxed_radius_bottom_left, $single_post_boxed_radius_desktop_unit ) . ";
-				background-color: {$box_background_color};
 				padding: " . responsive_spacing_css( $single_blog_inside_container_padding_top, $single_blog_inside_container_padding_right, $single_blog_inside_container_padding_bottom, $single_blog_inside_container_padding_left, $single_blog_inside_container_unit ) . ";
 
 				}";
@@ -695,19 +693,16 @@ function responsive_customizer_styles() {
 			.single:not(.single-product) .content-outer #primary .comments-area {
 				border-radius: {$box_tablet_top_left_radius}px {$box_tablet_top_right_radius}px {$box_tablet_bottom_right_radius}px {$box_tablet_bottom_left_radius}px;
 				padding: " . responsive_spacing_css( $box_tablet_padding_top, $box_tablet_padding_right, $box_tablet_padding_bottom, $box_tablet_padding_left ) . ";
-				background-color: {$single_blog_site_background_color};
 				}";
 		if ( $has_single_post_boxed_radius_tablet ) {
 			$custom_css .= "
 			.single:not(.single-product) .site-content .hentry, .single:not(.single-product) .content-outer #primary .comments-area {
 				border-radius: " . responsive_spacing_css( $single_post_boxed_radius_tablet_top_left, $single_post_boxed_radius_tablet_top_right, $single_post_boxed_radius_tablet_bottom_right, $single_post_boxed_radius_tablet_bottom_left, $single_post_boxed_radius_tablet_unit ) . ";
-				background-color: {$box_background_color};
 				}";
 		} elseif ( $has_single_post_boxed_radius ) {
 			$custom_css .= "
 			.single:not(.single-product) .site-content .hentry, .single:not(.single-product) .content-outer #primary .comments-area {
 				border-radius: " . responsive_spacing_css( $single_post_boxed_radius_top_left, $single_post_boxed_radius_top_right, $single_post_boxed_radius_bottom_right, $single_post_boxed_radius_bottom_left, $single_post_boxed_radius_desktop_unit ) . ";
-				background-color: {$box_background_color};
 				}";
 		}
 		$custom_css .= "
@@ -723,13 +718,11 @@ function responsive_customizer_styles() {
 				$custom_css .= "
 				.single:not(.single-product) .site-content .hentry, .single:not(.single-product) .content-outer #primary .comments-area {
 					border-radius: " . responsive_spacing_css( $single_post_boxed_radius_mobile_top_left, $single_post_boxed_radius_mobile_top_right, $single_post_boxed_radius_mobile_bottom_right, $single_post_boxed_radius_mobile_bottom_left, $single_post_boxed_radius_mobile_unit ) . ";
-					background-color: {$box_background_color};
 					}";
 			} elseif ( $has_single_post_boxed_radius ) {
 				$custom_css .= "
 				.single:not(.single-product) .site-content .hentry, .single:not(.single-product) .content-outer #primary .comments-area {
 					border-radius: " . responsive_spacing_css( $single_post_boxed_radius_top_left, $single_post_boxed_radius_top_right, $single_post_boxed_radius_bottom_right, $single_post_boxed_radius_bottom_left, $single_post_boxed_radius_desktop_unit ) . ";
-					background-color: {$box_background_color};
 					}";
 			}
 			$custom_css .= "
@@ -747,13 +740,11 @@ function responsive_customizer_styles() {
 		$custom_css .= "
 		.single:not(.single-product) .site-content .hentry, .single:not(.single-product) .content-outer #primary .comments-area {
 			box-shadow: {$single_post_boxed_shadow_inset_style} {$single_post_boxed_shadow_x}px {$single_post_boxed_shadow_y}px {$single_post_boxed_shadow_blur}px {$single_post_boxed_shadow_spread}px {$single_post_boxed_shadow_color};
-			background-color: {$box_background_color};
 			}";
 		if ( $has_single_post_boxed_radius ) {
 			$custom_css .= "
 			.single:not(.single-product) .site-content .hentry, .single:not(.single-product) .content-outer #primary .comments-area {
 				border-radius: " . responsive_spacing_css( $single_post_boxed_radius_top_left, $single_post_boxed_radius_top_right, $single_post_boxed_radius_bottom_right, $single_post_boxed_radius_bottom_left, $single_post_boxed_radius_desktop_unit ) . ";
-				background-color: {$box_background_color};
 				}";
 		}
 		if ( $has_single_post_boxed_radius_tablet ) {
@@ -761,7 +752,6 @@ function responsive_customizer_styles() {
 			@media screen and ( max-width: 992px ) {
 				.single:not(.single-product) .site-content .hentry, .single:not(.single-product) .content-outer #primary .comments-area {
 					border-radius: " . responsive_spacing_css( $single_post_boxed_radius_tablet_top_left, $single_post_boxed_radius_tablet_top_right, $single_post_boxed_radius_tablet_bottom_right, $single_post_boxed_radius_tablet_bottom_left, $single_post_boxed_radius_tablet_unit ) . ";
-					background-color: {$box_background_color};
 					}
 			}";
 		} elseif ( $has_single_post_boxed_radius ) {
@@ -769,7 +759,6 @@ function responsive_customizer_styles() {
 			@media screen and ( max-width: 992px ) {
 				.single:not(.single-product) .site-content .hentry, .single:not(.single-product) .content-outer #primary .comments-area {
 					border-radius: " . responsive_spacing_css( $single_post_boxed_radius_top_left, $single_post_boxed_radius_top_right, $single_post_boxed_radius_bottom_right, $single_post_boxed_radius_bottom_left, $single_post_boxed_radius_desktop_unit ) . ";
-					background-color: {$box_background_color};
 					}
 			}";
 		}
@@ -778,7 +767,6 @@ function responsive_customizer_styles() {
 			@media screen and ( max-width: 576px ) {
 				.single:not(.single-product) .site-content .hentry, .single:not(.single-product) .content-outer #primary .comments-area {
 					border-radius: " . responsive_spacing_css( $single_post_boxed_radius_mobile_top_left, $single_post_boxed_radius_mobile_top_right, $single_post_boxed_radius_mobile_bottom_right, $single_post_boxed_radius_mobile_bottom_left, $single_post_boxed_radius_mobile_unit ) . ";
-					background-color: {$box_background_color};
 					}
 			}";
 		} elseif ( $has_single_post_boxed_radius ) {
@@ -786,7 +774,6 @@ function responsive_customizer_styles() {
 			@media screen and ( max-width: 576px ) {
 				.single:not(.single-product) .site-content .hentry, .single:not(.single-product) .content-outer #primary .comments-area {
 					border-radius: " . responsive_spacing_css( $single_post_boxed_radius_top_left, $single_post_boxed_radius_top_right, $single_post_boxed_radius_bottom_right, $single_post_boxed_radius_bottom_left, $single_post_boxed_radius_desktop_unit ) . ";
-					background-color: {$box_background_color};
 					}
 			}";
 		}
@@ -4581,7 +4568,7 @@ function responsive_customizer_styles() {
 	// Content_Header colors.
 	$content_header_heading_color     = esc_html( get_theme_mod( 'responsive_content_header_heading_color', Responsive\Core\get_responsive_customizer_defaults( 'content_header_heading' ) ) );
 	$content_header_description_color = esc_html( get_theme_mod( 'responsive_content_header_description_color', Responsive\Core\get_responsive_customizer_defaults( 'content_header_heading' ) ) );
-	$breadcrumb_color                 = esc_html( get_theme_mod( 'responsive_breadcrumb_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive-global-palette0' ) ) );
+	$breadcrumb_color                 = esc_html( responsive_prepare_css_value( 'responsive_breadcrumb_color', Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb' ) ) );
 
 	// Content Header Padding.
 	$content_header_padding_right  = esc_html( get_theme_mod( 'responsive_content_header_right_padding', 30 ) );
@@ -5301,10 +5288,10 @@ function responsive_customizer_styles() {
 		text-align : $responsive_single_blog_related_posts_title_alignment;
 	}";
 	$related_single_posts_per_row_count = absint( get_theme_mod( 'responsive_single_blog_related_posts_per_row', 2 ) );
-	$section_background_color           = get_theme_mod( 'responsive_rp_section_bg_color', get_theme_mod( 'responsive_box_background_color', Responsive\Core\get_responsive_customizer_defaults( 'rp_section_bg' ) ) );
+	$section_background_color           = responsive_prepare_css_value( 'responsive_rp_section_bg_color', Responsive\Core\get_responsive_customizer_defaults( 'rp_section_bg' ) );
 	$section_title_color 				= get_theme_mod( 'responsive_rp_section_title_color', Responsive\Core\get_responsive_customizer_defaults('responsive-global-palette3') );
 	$custom_css                        .= "
-	.responsive-single-related-posts-container, .responsive-single-related-posts-container .responsive-related-single-posts-wrapper .responsive-related-single-post {
+	body:not(.responsive-site-style-flat).responsive-single-related-posts-container,body:not(.responsive-site-style-flat) .responsive-single-related-posts-container .responsive-related-single-posts-wrapper .responsive-related-single-post {
 		background: {$section_background_color};
 	}
 	.single-post .responsive-related-single-posts-title.entry-title{
@@ -8605,8 +8592,10 @@ function responsive_customizer_styles() {
 
 		// Styling for Blog/Archive Border radius
 		$get_radius = function( $mod_name, $box_val ) use ( $box_radius ) {
-			$val = get_theme_mod( $mod_name );
-			if ( $val !== false && $val !== '' ) return esc_html( $val );
+			 $val = get_theme_mod( $mod_name );
+			if ( $val !== false && $val !== '' && (float) $val !== 0.0 ) {
+				return esc_html( $val );
+			}
 			return esc_html( $box_val !== '' ? $box_val : $box_radius );
 		};
 
@@ -8652,7 +8641,6 @@ function responsive_customizer_styles() {
 
 		// Styling for Post Title Size, Meta font size and Taxonomy font size in Blog/Archive 
 		$blog_post_title_size = esc_html( get_theme_mod( 'responsive_blog_post_title_size', 30 ) );
-		$blog_meta_font_size   = esc_html( get_theme_mod( 'responsive_blog_meta_font_size', 14 ) );
 		$blog_taxonomy_font_size = esc_html( get_theme_mod( 'responsive_blog_taxonomy_font_size', 14 ) );
 
 		$custom_css .= "
@@ -8660,11 +8648,6 @@ function responsive_customizer_styles() {
 			font-size: {$blog_post_title_size}px;
 		}
 		
-		.blog .hentry .post-meta span, .blog .hentry .post-meta span.entry-date .posted time, 
-		.archive .hentry .post-meta span, .archive .hentry .post-meta span.entry-date .posted time,
-		.blog .container .hentry .post-entry .post-meta .entry-author .author a span {
-			font-size: {$blog_meta_font_size}px;
-		}
 		
 		.blog .hentry .post-entry .entry-category .posted-in a, .archive .hentry .post-entry .entry-category .posted-in a {
 			font-size: {$blog_taxonomy_font_size}px;
@@ -9004,13 +8987,13 @@ function responsive_customizer_styles() {
 		$single_blog_breadcrumb_color = esc_html(
 			get_theme_mod(
 				'responsive_single_blog_breadcrumb_color',
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_breadcrumb_color' )
+				Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb' )
 			)
 		);
 
 		$custom_css .= "
-		.single.single-post .breadcrumbs,
-		.single.single-post .breadcrumbs a {
+		.single.single-post #wrapper .site-content-header .breadcrumbs .breadcrumb-list a span,
+		.single.single-post #wrapper .site-content-header .breadcrumbs .breadcrumb-list span{
 			color: {$single_blog_breadcrumb_color};
 		}";
 
@@ -9075,7 +9058,7 @@ function responsive_customizer_styles() {
 
 		if ( ! empty( $single_blog_content_background_color ) && 'flat' !== $responsive_single_blog_container_style  ) {
 			$custom_css .= "
-			.single.single-post .site-content .hentry, .single:not(.single-product) .site-content .content-outer #primary #comments ,.single.single-post .site-content #comments .comment-respond {
+			.single.single-post .site-content .hentry:not(.responsive-related-single-post), .single:not(.single-product) .site-content .content-outer #primary #comments ,.single.single-post .site-content #comments .comment-respond {
 				background-color: {$single_blog_content_background_color};
 			}";
 		}
@@ -10116,7 +10099,7 @@ function responsive_customizer_styles() {
 		// Styling for Cover layout background color -> Blog/Archive
 		$blog_layout = get_theme_mod( 'responsive_blog_layout', 'grid' );
 
-		$blog_cover_background = get_theme_mod( 'responsive_blog_cover_background_color', '#f9f9f9' );
+		$blog_cover_background = get_theme_mod( 'responsive_blog_content_background_color', '#f9f9f9' );
 		$transparent_overlay = false;
 		if ( false !== strpos( $blog_cover_background, ',0)' ) ) {
 			$transparent_overlay = true;
@@ -10129,29 +10112,54 @@ function responsive_customizer_styles() {
 				.archive:not(.post-type-archive-product) .site-content .hentry {
 					background-color:  $blog_cover_background;
 					padding: 0;
-					border-radius: {$box_top_left_radius}px {$box_top_right_radius}px {$box_bottom_right_radius}px {$box_bottom_left_radius}px;
-					
+					border-radius: {$blog_border_radius_top_left}{$blog_border_radius_unit} {$blog_border_radius_top_right}{$blog_border_radius_unit} {$blog_border_radius_bottom_right}{$blog_border_radius_unit} {$blog_border_radius_bottom_left}{$blog_border_radius_unit};
+				}
+				@media screen and ( max-width: 992px ) {
+					.blog:not(.custom-home-page-active) .site-content .hentry,
+					.archive:not(.post-type-archive-product) .site-content .hentry {
+						background-color:  $blog_cover_background;
+						padding: 0;
+						border-radius: {$blog_border_radius_tablet_top_left}{$blog_border_radius_tablet_unit} {$blog_border_radius_tablet_top_right}{$blog_border_radius_tablet_unit} {$blog_border_radius_tablet_bottom_right}{$blog_border_radius_tablet_unit} {$blog_border_radius_tablet_bottom_left}{$blog_border_radius_tablet_unit};
+					}
+				}
+				@media screen and ( max-width: 576px ) {
+					.blog:not(.custom-home-page-active) .site-content .hentry,
+					.archive:not(.post-type-archive-product) .site-content .hentry {
+						background-color:  $blog_cover_background;
+						padding: 0;
+						border-radius: {$blog_border_radius_mobile_top_left}{$blog_border_radius_mobile_unit} {$blog_border_radius_mobile_top_right}{$blog_border_radius_mobile_unit} {$blog_border_radius_mobile_bottom_right}{$blog_border_radius_mobile_unit} {$blog_border_radius_mobile_bottom_left}{$blog_border_radius_mobile_unit};				
+					}
 				}
 				.blog:not(.custom-home-page-active) .site-content .hentry .entry-content p,
 				.archive:not(.post-type-archive-product) .site-content .hentry .entry-content p{
 					display: -webkit-box;
 					-webkit-box-orient: vertical;
-					-webkit-line-clamp: 2;
-					overflow: hidden;
 				}
-				.blog:not(.custom-home-page-active) .site-content .hentry,
-				.archive:not(.post-type-archive-product) .site-content .hentry{
-					height: 280px;   
-					display: flex;
-					flex-direction: column;
-				}
+				
 				.blog:not(.custom-home-page-active) .site-content  .post-entry,	
 				.archive:not(.post-type-archive-product) .site-content  .post-entry {
 					position: relative;
-					overflow: hidden;
-					min-height: 280px;
+					flex: 1 1 auto;
+					display: flex;
+					flex-direction: column;
+					box-sizing: border-box;
+					min-height: 0;
 					padding: " . responsive_spacing_css( $box_padding_top, $box_padding_right, $box_padding_bottom, $box_padding_left ) . ";
  
+				}
+
+				/* Only the excerpt clips/shrinks if space runs out — title, meta, and Read More stay intact */
+				.blog:not(.custom-home-page-active) .site-content .post-entry .entry-content,
+				.archive:not(.post-type-archive-product) .site-content .post-entry .entry-content {
+					flex: 0 1 auto;
+					min-height: 0;
+					overflow: hidden;
+				}
+
+				.blog:not(.custom-home-page-active) .site-content .hentry .read-more,
+				.archive:not(.post-type-archive-product) .site-content .hentry .read-more {
+					flex-shrink: 0;
+					margin-top: 8px;
 				}
 
 				/* Make image cover entire card */
@@ -10162,6 +10170,7 @@ function responsive_customizer_styles() {
 					margin: 0;
 					width: 100%;
 					height: 100%;
+					overflow: hidden;
 				}
 				.blog:not(.custom-home-page-active) .site-content  .thumbnail-cover .thumbnail-link,
 				.archive:not(.post-type-archive-product) .site-content  .thumbnail-cover .thumbnail-link {

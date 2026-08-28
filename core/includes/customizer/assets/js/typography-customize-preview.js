@@ -5386,6 +5386,19 @@
                 }
             } );
         } );
+        // === font-size ===
+        api(`${contentSettingBase}[font-size]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${contentSettingBase}-font-size`).remove();
+                if ( 'Default' !== val && 'default' !== val ) {
+                    jQuery('head').append(
+                        `<style class="customizer-typography-${contentSettingBase}-font-size">
+                            ${responsive.selectorArray[contentSelectorKey]} { font-size:${val}; }
+                        </style>`
+                    );
+                }
+            });
+        });
 
         // text-transform
         api( `${contentSettingBase}[text-transform]`, function ( $swipe ) {
