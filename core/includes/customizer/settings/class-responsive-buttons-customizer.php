@@ -47,6 +47,64 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 					'priority' => 10,
 				)
 			);
+			$tabs_label     = esc_html__( 'Tabs', 'responsive' );
+			$tab_ids_prefix = 'customize-control-';
+			$general_tab_ids = array(
+				$tab_ids_prefix . 'responsive_button_presets',
+				$tab_ids_prefix . 'responsive_button_typography_group',
+				$tab_ids_prefix . 'responsive_responsive_general_buttons_separator',
+				$tab_ids_prefix . 'responsive_button_text_color',
+				$tab_ids_prefix . 'responsive_button_color',
+				$tab_ids_prefix . 'responsive_button_background_image',
+				$tab_ids_prefix . 'responsive_button_border_color',
+				$tab_ids_prefix . 'responsive_buttons_border_width_border',
+				$tab_ids_prefix . 'responsive_border_buttons_radius',
+				$tab_ids_prefix . 'responsive_buttons_padding',
+				$tab_ids_prefix . 'responsive_button_shadow_separator',
+				$tab_ids_prefix . 'responsive_button_shadow',
+				$tab_ids_prefix . 'responsive_button_shadow_color',
+				$tab_ids_prefix . 'responsive_button_hover_shadow_separator',
+				$tab_ids_prefix . 'responsive_button_hover_shadow',
+				$tab_ids_prefix . 'responsive_button_hover_shadow_color',
+			);
+
+			$design_tab_ids = array(
+				$tab_ids_prefix . 'responsive_secondary_button_presets',
+				$tab_ids_prefix . 'responsive_secondary_button_typography_group',
+				$tab_ids_prefix . 'responsive_responsive_secondary_buttons_separator',
+				$tab_ids_prefix . 'responsive_secondary_button_text_color',
+				$tab_ids_prefix . 'responsive_secondary_button_color',
+				$tab_ids_prefix . 'responsive_secondary_button_background_image',
+				$tab_ids_prefix . 'responsive_secondary_button_border_color',
+				$tab_ids_prefix . 'responsive_secondary_buttons_border_width_border',
+				$tab_ids_prefix . 'responsive_border_secondary_buttons_radius',
+				$tab_ids_prefix . 'responsive_secondary_buttons_padding',
+				$tab_ids_prefix . 'responsive_secondary_button_shadow_separator',
+				$tab_ids_prefix . 'responsive_secondary_button_shadow',
+				$tab_ids_prefix . 'responsive_secondary_button_shadow_color',
+				$tab_ids_prefix . 'responsive_secondary_button_hover_shadow_separator',
+				$tab_ids_prefix . 'responsive_secondary_button_hover_shadow',
+				$tab_ids_prefix . 'responsive_secondary_button_hover_shadow_color',
+			);
+
+			responsive_tabs_button_control(
+				$wp_customize,
+				'responsive_buttons_tabs',
+				$tabs_label,
+				'responsive_button',
+				0,
+				'',
+				'responsive_buttons_primary_tab',
+				'responsive_buttons_secondary_tab',
+				$general_tab_ids,
+				$design_tab_ids,
+				null,
+				'refresh',
+				'',
+				__( 'Primary', 'responsive' ),
+				__( 'Secondary', 'responsive' )
+			);
+
 			// Button Presets.
 			$buttons_presets_label = esc_html__( 'Button Presets', 'responsive' );
 			responsive_button_presets_control( $wp_customize, 'button_presets', $buttons_presets_label, 'responsive_button', 1 );
@@ -157,6 +215,95 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 				null,
 				'color',
 				'refresh'
+			);
+
+			// Secondary Button Presets.
+			responsive_button_presets_control( $wp_customize, 'secondary_button_presets', $buttons_presets_label, 'responsive_button', 301 );
+
+			// Secondary Buttons Typography.
+			responsive_typography_group_control( $wp_customize, 'secondary_button_typography_group', $buttons_typography_label, 'responsive_button', 314, 'secondary_button_typography' );
+
+			// Secondary Buttons Separator.
+			responsive_separator_control( $wp_customize, 'responsive_secondary_buttons_separator', $general_buttons_label, 'responsive_button', 316 );
+
+			// Secondary Button Text Color.
+			responsive_color_control( $wp_customize, 'secondary_button_text', $button_text_color_label, 'responsive_button', 320, Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_text_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_text_color' ), 'secondary_button_hover_text' );
+
+			// Secondary Button Color.
+			responsive_color_control( $wp_customize, 'secondary_button', $button_color_label, 'responsive_button', 322, Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_color' ), 'secondary_button_hover' );
+
+			// Secondary Button Border Color.
+			responsive_color_control( $wp_customize, 'secondary_button_border', $button_border_color_label, 'responsive_button', 498, Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_border_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_border_color' ), 'secondary_button_hover_border' );
+
+			// Secondary Buttons Border Width.
+			responsive_borderwidth_control( $wp_customize, 'secondary_buttons_border_width', 'responsive_button', 500, 2, 2, null, $buttons_border_width_label, 'postMessage' );
+
+			// Secondary Buttons Radius.
+			responsive_radius_control( $wp_customize, 'secondary_buttons_radius', 'responsive_button', 510, 0, 0, null, $buttons_radius_label );
+
+			// Secondary Buttons Padding.
+			responsive_padding_control( $wp_customize, 'secondary_buttons', 'responsive_button', 540, 10, 10, null, $buttons_padding_label );
+
+			// Secondary Separator.
+			responsive_horizontal_separator_control( $wp_customize, 'secondary_button_shadow_separator', 1, 'responsive_button', 545, 1 );
+
+			// Secondary Button Shadow.
+			responsive_shadow_control(
+				$wp_customize,
+				'secondary_button_shadow',
+				__( 'Button Shadow', 'responsive' ),
+				'responsive_button',
+				550,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_x' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_y' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_blur' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_spread' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_inset' ),
+				null
+			);
+
+			// Secondary Button Shadow Color.
+			responsive_color_control(
+				$wp_customize,
+				'secondary_button_shadow',
+				__( 'Button Shadow Color', 'responsive' ),
+				'responsive_button',
+				552,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_color' ),
+				null,
+				'',
+				false
+			);
+
+			// Secondary Separator.
+			responsive_horizontal_separator_control( $wp_customize, 'secondary_button_hover_shadow_separator', 1, 'responsive_button', 555, 1 );
+
+			// Secondary Button Hover Shadow.
+			responsive_shadow_control(
+				$wp_customize,
+				'secondary_button_hover_shadow',
+				__( 'Button Hover Shadow', 'responsive' ),
+				'responsive_button',
+				560,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_x' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_y' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_blur' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_spread' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_inset' ),
+				null
+			);
+
+			// Secondary Button Hover Shadow Color.
+			responsive_color_control(
+				$wp_customize,
+				'secondary_button_hover_shadow',
+				__( 'Button Hover Shadow Color', 'responsive' ),
+				'responsive_button',
+				562,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_color' ),
+				null,
+				'',
+				false
 			);
 
 		}

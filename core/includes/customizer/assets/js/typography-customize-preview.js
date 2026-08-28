@@ -1307,6 +1307,116 @@
             );
 
         } );
+    } ), api( "secondary_button_typography[font-family]", function( $swipe ) {
+        $swipe.bind( function( pair ) {
+            if ( pair ) {
+                /** @type {string} */
+                var fontName = pair.split(",")[0];
+                fontName = fontName.replace(/'/g, '');
+                var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-secondary-button-font-family" );
+                var fontSize = fontName.replace( " ", "%20" );
+                fontSize = fontSize.replace( ",", "%2C" );
+                /** @type {string} */
+                fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+                if ( fontName in responsive.googleFonts ) {
+                    if ( $( "#" + idfirst ).length ) {
+                        $( "#" + idfirst ).attr( "href", fontSize );
+                    } else {
+                        $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+                    }
+                }
+            }
+            jQuery( 'style.customizer-typography-secondary-button-font-family' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-secondary-button-font-family">'
+                + responsive.selectorArray['secondary_button'] + '{ font-family:' + pair +';}'
+                + '</style>'
+            );
+
+        } );
+    } ), api( "secondary_button_typography[font-weight]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-secondary-button-font-weight' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-secondary-button-font-weight">'
+                + responsive.selectorArray['secondary_button'] + '{ font-weight:' + dataAndEvents +';}'
+                + '</style>'
+            );
+
+        } );
+    } ), api( "secondary_button_typography[font-style]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-secondary-button-font-style' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-secondary-button-font-style">'
+                + responsive.selectorArray['secondary_button'] + '{ font-style:' + dataAndEvents +';}'
+                + '</style>'
+            );
+
+        } );
+    } ), api( "secondary_button_typography[font-size]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-secondary-button-font-size' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-secondary-button-font-size">'
+                + responsive.selectorArray['secondary_button'] + '{ font-size:' + dataAndEvents +';}'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['secondary_button'] +'{ font-size:' + api( "secondary_button_tablet_typography[font-size]").get() +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['secondary_button'] +'{ font-size:' + api( "secondary_button_mobile_typography[font-size]").get() +';}}'
+                + '</style>'
+            );
+
+        } );
+    } ), api( "secondary_button_tablet_typography[font-size]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-secondary-button-tablet-font-size' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-secondary-button-tablet-font-size">'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['secondary_button'] +'{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['secondary_button'] +'{ font-size:' + api( "secondary_button_mobile_typography[font-size]").get() +';}}'
+                + '</style>'
+            );
+
+        } );
+    } ), api( "secondary_button_mobile_typography[font-size]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-secondary-button-mobile-font-size' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-secondary-button-mobile-font-size">'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['secondary_button'] + '{ font-size:' + dataAndEvents +';}}'
+                + '</style>'
+            );
+
+        } );
+    } ), api( "secondary_button_typography[line-height]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-secondary-button-line-height' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-secondary-button-line-height">'
+                + responsive.selectorArray['secondary_button'] + '{ line-height:' + dataAndEvents +';}'
+                + '</style>'
+            );
+
+        } );
+    } ), api( "secondary_button_typography[letter-spacing]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-secondary-button-letter-spacing' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-secondary-button-letter-spacing">'
+                + responsive.selectorArray['secondary_button'] + '{ letter-spacing:' + dataAndEvents +'px;}'
+                + '</style>'
+            );
+
+        } );
+    } ), api( "secondary_button_typography[text-transform]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-secondary-button-text-transform' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-secondary-button-text-transform">'
+                + responsive.selectorArray['secondary_button'] + '{ text-transform:' + dataAndEvents +';}'
+                + '</style>'
+            );
+
+        } );
     } ), api( "input_typography[font-family]", function( $swipe ) {
         $swipe.bind( function( pair ) {
             if ( pair ) {
