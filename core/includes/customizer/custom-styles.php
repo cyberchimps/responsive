@@ -8725,6 +8725,9 @@ function responsive_customizer_styles() {
 
 		if ( ! empty( $blog_content_background_color ) && 'flat' !== $responsive_blog_container_style ) {
 			$custom_css .= "
+			.responsive-site-style-content-boxed .content-area-wrapper{
+				background-color: {$blog_content_background_color};
+			}
 			.blog:not(.custom-home-page-active) .site-content .hentry,
 			.archive:not(.post-type-archive-product) .site-content .hentry ,
 			.search-results .site-content article.hentry {
