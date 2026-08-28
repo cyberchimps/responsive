@@ -64,6 +64,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				$main_general_tab_ids_prefix . 'sidebar_position',
 				$main_general_tab_ids_prefix . 'sidebar_style',
 				$main_general_tab_ids_prefix . 'sidebar_width',
+				$main_general_tab_ids_prefix . 'sidebar_width_separator',
 				$main_general_tab_ids_prefix . 'featured_image_separator',
 				$main_general_tab_ids_prefix . 'featured_image_width',
 				$main_general_tab_ids_prefix . 'featured_image_width_separator',
