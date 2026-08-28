@@ -39,6 +39,29 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 		}
 
 		/**
+		 * Render Related Single Post Category Badge (above title, no icon/prefix)
+		 *
+		 * @package Responsive WordPress theme
+		 *
+		 * @param int $current_post_id current post ID.
+		 */
+		public function responsive_get_related_single_post_category($current_post_id)
+		{
+			$categories = get_the_category($current_post_id);
+
+			if (empty($categories)) {
+				return;
+			}
+
+			$category = $categories[0];
+			?>
+			<span class="entry-category responsive-related-single-post-category">
+				<a href="<?php echo esc_url(get_category_link($category->term_id)); ?>"><?php echo esc_html($category->name); ?></a>
+			</span>
+			<?php
+		}
+
+		/**
 		 * Related Posts markup.
 		 */
 		public function responsive_single_blog_get_related_posts()
@@ -284,6 +307,12 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 
 			do_action('responsive_before_related_single_post_structure');
 
+			// Render category badge above the title, matching the blog listing layout.
+			$meta_sections = responsive_single_blog_related_post_meta_elements();
+			if (is_array($meta_sections) && in_array('categories', $meta_sections, true)) {
+				$this->responsive_get_related_single_post_category($current_post_id);
+			}
+
 			foreach ($sections as $section) {
 				if ('title' == $section) {
 					$this->responsive_get_related_single_post_title($current_post_id);
@@ -338,7 +367,6 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 							echo sprintf(
 								'<span class="author vcard">
 							<a class="url fn n" href="%1$s" aria-label="%2$s" title="%2$s" itemprop="url">
-								<i class="icon-user"></i>
 								<span itemprop="name">%3$s</span>
 							</a>
 						</span>',
@@ -382,18 +410,6 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 									<?php comments_popup_link(__('No Comments', 'responsive'), __('1 Comment', 'responsive'), __('% Comments', 'responsive')); ?>
 								</span>
 							<?php endif; ?>
-						</span>
-					<?php
-					}
-					if ('categories' === $section) {
-					?>
-						<span class="entry-category">
-							<span class='posted-in'><i class="icon-folder-open" aria-hidden="true"></i>
-								<?php
-								/* translators: %s: category list */
-								printf(esc_html__('Posted in %s', 'responsive'), wp_kses_post(get_the_category_list(__(', ', 'responsive'))));
-								?>
-							</span>
 						</span>
 					<?php
 					}

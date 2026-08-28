@@ -10704,41 +10704,41 @@ function responsive_customizer_styles() {
 	}
 
 	// Related posts - Margin, Padding css
-	$rp_padding_top    = get_theme_mod( 'responsive_rp_padding_top_padding', $box_padding_top );
-	$rp_padding_right  = get_theme_mod( 'responsive_rp_padding_right_padding', $box_padding_right );
-	$rp_padding_bottom = get_theme_mod( 'responsive_rp_padding_bottom_padding', $box_padding_bottom );
-	$rp_padding_left   = get_theme_mod( 'responsive_rp_padding_left_padding', $box_padding_left );
-	$rp_padding_desktop_unit = get_theme_mod( 'responsive_rp_padding_desktop_unit', 'px' );
+	$rp_padding_top    = responsive_get_padding_fallback( 'responsive_rp_padding_top_padding', $box_padding_top );
+	$rp_padding_right  = responsive_get_padding_fallback( 'responsive_rp_padding_right_padding', $box_padding_right );
+	$rp_padding_bottom = responsive_get_padding_fallback( 'responsive_rp_padding_bottom_padding', $box_padding_bottom );
+	$rp_padding_left   = responsive_get_padding_fallback( 'responsive_rp_padding_left_padding', $box_padding_left );
+	$rp_padding_desktop_unit = responsive_get_padding_fallback( 'responsive_rp_padding_desktop_unit', 'px' );
 
-	$rp_padding_tablet_top    = get_theme_mod( 'responsive_rp_padding_tablet_top_padding', $box_tablet_padding_top );
-	$rp_padding_tablet_right  = get_theme_mod( 'responsive_rp_padding_tablet_right_padding', $box_tablet_padding_right );
-	$rp_padding_tablet_bottom = get_theme_mod( 'responsive_rp_padding_tablet_bottom_padding', $box_tablet_padding_bottom );
-	$rp_padding_tablet_left   = get_theme_mod( 'responsive_rp_padding_tablet_left_padding', $box_tablet_padding_left );
-	$rp_padding_tablet_unit   = get_theme_mod( 'responsive_rp_padding_tablet_unit', 'px' );
+	$rp_padding_tablet_top    = responsive_get_padding_fallback( 'responsive_rp_padding_tablet_top_padding', $box_tablet_padding_top );
+	$rp_padding_tablet_right  = responsive_get_padding_fallback( 'responsive_rp_padding_tablet_right_padding', $box_tablet_padding_right );
+	$rp_padding_tablet_bottom = responsive_get_padding_fallback( 'responsive_rp_padding_tablet_bottom_padding', $box_tablet_padding_bottom );
+	$rp_padding_tablet_left   = responsive_get_padding_fallback( 'responsive_rp_padding_tablet_left_padding', $box_tablet_padding_left );
+	$rp_padding_tablet_unit   = responsive_get_padding_fallback( 'responsive_rp_padding_tablet_unit', 'px' );
 
-	$rp_padding_mobile_top    = get_theme_mod( 'responsive_rp_padding_mobile_top_padding', $box_mobile_padding_top );
-	$rp_padding_mobile_right  = get_theme_mod( 'responsive_rp_padding_mobile_right_padding', $box_mobile_padding_right );
-	$rp_padding_mobile_bottom = get_theme_mod( 'responsive_rp_padding_mobile_bottom_padding', $box_mobile_padding_bottom );
-	$rp_padding_mobile_left   = get_theme_mod( 'responsive_rp_padding_mobile_left_padding', $box_mobile_padding_left );
-	$rp_padding_mobile_unit   = get_theme_mod( 'responsive_rp_padding_mobile_unit', 'px' );
+	$rp_padding_mobile_top    = responsive_get_padding_fallback( 'responsive_rp_padding_mobile_top_padding', $box_mobile_padding_top );
+	$rp_padding_mobile_right  = responsive_get_padding_fallback( 'responsive_rp_padding_mobile_right_padding', $box_mobile_padding_right );
+	$rp_padding_mobile_bottom = responsive_get_padding_fallback( 'responsive_rp_padding_mobile_bottom_padding', $box_mobile_padding_bottom );
+	$rp_padding_mobile_left   = responsive_get_padding_fallback( 'responsive_rp_padding_mobile_left_padding', $box_mobile_padding_left );
+	$rp_padding_mobile_unit   = responsive_get_padding_fallback( 'responsive_rp_padding_mobile_unit', 'px' );
 
-	$rp_margin_top    = get_theme_mod( 'responsive_rp_margin_top_padding', 0 );
-	$rp_margin_right  = get_theme_mod( 'responsive_rp_margin_right_padding', 0 );
-	$rp_margin_bottom = get_theme_mod( 'responsive_rp_margin_bottom_padding', 0 );
-	$rp_margin_left   = get_theme_mod( 'responsive_rp_margin_left_padding', 0 );
-	$rp_margin_desktop_unit = get_theme_mod( 'responsive_rp_margin_desktop_unit', 'px' );
+	$rp_margin_top    = responsive_get_padding_fallback( 'responsive_rp_margin_top_padding', $outside_container_padding_top );
+	$rp_margin_right  = responsive_get_padding_fallback( 'responsive_rp_margin_right_padding', $outside_container_padding_right );
+	$rp_margin_bottom = responsive_get_padding_fallback( 'responsive_rp_margin_bottom_padding', $outside_container_padding_bottom );
+	$rp_margin_left   = responsive_get_padding_fallback( 'responsive_rp_margin_left_padding', $outside_container_padding_left );
+	$rp_margin_desktop_unit = responsive_get_padding_fallback( 'responsive_rp_margin_desktop_unit', 'px' );
 
-	$rp_margin_tablet_top    = get_theme_mod( 'responsive_rp_margin_tablet_top_padding', 0 );
-	$rp_margin_tablet_right  = get_theme_mod( 'responsive_rp_margin_tablet_right_padding', 0 );
-	$rp_margin_tablet_bottom = get_theme_mod( 'responsive_rp_margin_tablet_bottom_padding', 0 );
-	$rp_margin_tablet_left   = get_theme_mod( 'responsive_rp_margin_tablet_left_padding', 0 );
-	$rp_margin_tablet_unit   = get_theme_mod( 'responsive_rp_margin_tablet_unit', 'px' );
+	$rp_margin_tablet_top    = responsive_get_padding_fallback( 'responsive_rp_margin_tablet_top_padding', 0 );
+	$rp_margin_tablet_right  = responsive_get_padding_fallback( 'responsive_rp_margin_tablet_right_padding', 0 );
+	$rp_margin_tablet_bottom = responsive_get_padding_fallback( 'responsive_rp_margin_tablet_bottom_padding', 0 );
+	$rp_margin_tablet_left   = responsive_get_padding_fallback( 'responsive_rp_margin_tablet_left_padding', 0 );
+	$rp_margin_tablet_unit   = responsive_get_padding_fallback( 'responsive_rp_margin_tablet_unit', 'px' );
 
-	$rp_margin_mobile_top    = get_theme_mod( 'responsive_rp_margin_mobile_top_padding', 0 );
-	$rp_margin_mobile_right  = get_theme_mod( 'responsive_rp_margin_mobile_right_padding', 0 );
-	$rp_margin_mobile_bottom = get_theme_mod( 'responsive_rp_margin_mobile_bottom_padding', 0 );
-	$rp_margin_mobile_left   = get_theme_mod( 'responsive_rp_margin_mobile_left_padding', 0 );
-	$rp_margin_mobile_unit   = get_theme_mod( 'responsive_rp_margin_mobile_unit', 'px' );
+	$rp_margin_mobile_top    = responsive_get_padding_fallback( 'responsive_rp_margin_mobile_top_padding', 0 );
+	$rp_margin_mobile_right  = responsive_get_padding_fallback( 'responsive_rp_margin_mobile_right_padding', 0 );
+	$rp_margin_mobile_bottom = responsive_get_padding_fallback( 'responsive_rp_margin_mobile_bottom_padding', 0 );
+	$rp_margin_mobile_left   = responsive_get_padding_fallback( 'responsive_rp_margin_mobile_left_padding', 0 );
+	$rp_margin_mobile_unit   = responsive_get_padding_fallback( 'responsive_rp_margin_mobile_unit', 'px' );
 
 	$custom_css .= "
 	.responsive-single-related-posts-container {
