@@ -6553,6 +6553,18 @@ function responsive_customizer_styles() {
 	$footer_menu_link_color_mobile = get_theme_mod( 'responsive_footer_menu_link_color_mobile', get_theme_mod( 'responsive_footer_links_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_link' )) );
 	$footer_menu_link_hover_color_mobile = get_theme_mod( 'responsive_footer_menu_link_color_mobile_hover', get_theme_mod( 'responsive_footer_links_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_menu_link_hover' )) );
 	$footer_menu_link_active_color_mobile = get_theme_mod( 'responsive_footer_menu_link_color_mobile_active', $footer_menu_link_active_color );
+	$footer_menu_item_horizontal_spacing = get_theme_mod( 'responsive_footer_menu_item_horizontal_spacing', 12);
+	$footer_menu_item_horizontal_spacing_unit = get_theme_mod( 'responsive_footer_menu_item_horizontal_spacing_unit', 'px' );
+	$footer_menu_item_horizontal_spacing_tablet = get_theme_mod( 'responsive_footer_menu_item_horizontal_spacing_tablet', 12 );
+	$footer_menu_item_horizontal_spacing_tablet_unit = get_theme_mod( 'responsive_footer_menu_item_horizontal_spacing_tablet_unit', 'px' );
+	$footer_menu_item_horizontal_spacing_mobile = get_theme_mod( 'responsive_footer_menu_item_horizontal_spacing_mobile', 12);
+	$footer_menu_item_horizontal_spacing_mobile_unit = get_theme_mod( 'responsive_footer_menu_item_horizontal_spacing_mobile_unit', 'px' );
+	$footer_menu_item_top_bottom_spacing = get_theme_mod( 'responsive_footer_menu_item_top_bottom_spacing', 0 );
+	$footer_menu_item_top_bottom_spacing_unit = get_theme_mod( 'responsive_footer_menu_item_top_bottom_spacing_unit', 'px' );
+	$footer_menu_item_top_bottom_spacing_tablet = get_theme_mod( 'responsive_footer_menu_item_top_bottom_spacing_tablet', 0 );
+	$footer_menu_item_top_bottom_spacing_tablet_unit = get_theme_mod( 'responsive_footer_menu_item_top_bottom_spacing_tablet_unit', 'px' );
+	$footer_menu_item_top_bottom_spacing_mobile = get_theme_mod( 'responsive_footer_menu_item_top_bottom_spacing_mobile', 0 );
+	$footer_menu_item_top_bottom_spacing_mobile_unit = get_theme_mod( 'responsive_footer_menu_item_top_bottom_spacing_mobile_unit', 'px' );
 
 	if(Responsive\Core\responsive_check_element_present_in_hfb('footer_navigation', 'footer'))
 	{
@@ -6587,6 +6599,16 @@ function responsive_customizer_styles() {
 				color: {$footer_menu_link_active_color};
 			}
 		";
+
+		// For Footer Menu Horizontal Spacing
+		$custom_css .=
+		".footer-navigation #footer-menu ul > li > a {
+			padding-left: calc( {$footer_menu_item_horizontal_spacing}{$footer_menu_item_horizontal_spacing_unit} / 2);
+			padding-right: calc( {$footer_menu_item_horizontal_spacing}{$footer_menu_item_horizontal_spacing_unit} / 2);
+			padding-top: calc( {$footer_menu_item_top_bottom_spacing}{$footer_menu_item_top_bottom_spacing_unit} / 2);
+			padding-bottom: calc( {$footer_menu_item_top_bottom_spacing}{$footer_menu_item_top_bottom_spacing_unit} / 2);
+		}";
+		
 	}
 
 	if( Responsive\Core\responsive_check_element_in_mobile_tablet_items('footer_navigation', 'footer') )
@@ -6640,6 +6662,28 @@ function responsive_customizer_styles() {
 				}
 			}
 		";
+
+		// Tablet
+		$custom_css .=
+		"@media screen and (max-width: 992px) {
+			.footer-navigation #footer-menu ul > li > a {
+				padding-left: calc( {$footer_menu_item_horizontal_spacing_tablet}{$footer_menu_item_horizontal_spacing_tablet_unit} / 2);
+				padding-right: calc( {$footer_menu_item_horizontal_spacing_tablet}{$footer_menu_item_horizontal_spacing_tablet_unit} / 2);
+				padding-top: calc( {$footer_menu_item_top_bottom_spacing_tablet}{$footer_menu_item_top_bottom_spacing_tablet_unit} / 2);
+				padding-bottom: calc( {$footer_menu_item_top_bottom_spacing_tablet}{$footer_menu_item_top_bottom_spacing_tablet_unit} / 2);
+			}
+		}";
+
+		// Mobile
+		$custom_css .=
+		"@media screen and (max-width: 576px) {
+			.footer-navigation #footer-menu ul > li > a {
+				padding-left: calc( {$footer_menu_item_horizontal_spacing_mobile}{$footer_menu_item_horizontal_spacing_mobile_unit} / 2);
+				padding-right: calc( {$footer_menu_item_horizontal_spacing_mobile}{$footer_menu_item_horizontal_spacing_mobile_unit} / 2);
+				padding-top: calc( {$footer_menu_item_top_bottom_spacing_mobile}{$footer_menu_item_top_bottom_spacing_mobile_unit} / 2);
+				padding-bottom: calc( {$footer_menu_item_top_bottom_spacing_mobile}{$footer_menu_item_top_bottom_spacing_mobile_unit} / 2);
+			}
+		}";
 	}
 
 

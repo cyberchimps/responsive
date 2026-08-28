@@ -7,6 +7,55 @@
     var mobile_menu_breakpoint;
     var disable_mobile_menu_flag;
 
+    /**
+     * Generic preview binder for "drag number with unit switcher" controls,
+     * with responsive (desktop/tablet/mobile) variants.
+     *
+     * @param {string}   settingBase  Base setting name, e.g. 'responsive_footer_menu_item_horizontal_spacing'
+     *                                (expects _tablet, _mobile, and _unit, _tablet_unit, _mobile_unit variants to exist)
+     * @param {string}   styleIdBase  Base id used for the injected <style> tag, e.g. 'responsive-footer-menu-item-horizontal-spacing'
+     * @param {function} cssCallback  function( value, unit, device ) → returns CSS rule string (selector + properties)
+     *                                device is '', 'tablet', or 'mobile'
+     */
+    function responsiveDragControlWithDeviceAndUnits( settingBase, styleIdBase, cssCallback ) {
+
+        var devices = [
+            { suffix: '',        key: '',        media: null },
+            { suffix: '_tablet', key: 'tablet',  media: 'max-width: 992px' },
+            { suffix: '_mobile', key: 'mobile',  media: 'max-width: 576px' }
+        ];
+
+        devices.forEach( function( device ) {
+
+            var valueControlId = settingBase + device.suffix;
+            var unitControlId  = settingBase + device.suffix + '_unit';
+            var styleId         = styleIdBase + ( device.suffix ? device.suffix.replace( '_', '-' ) : '' );
+
+            function updateCSS() {
+                var value = api( valueControlId )();
+                var unit  = api( unitControlId )();
+                var css   = cssCallback( value, unit, device.key );
+
+                jQuery( 'style#' + styleId ).remove();
+
+                var styleContent = device.media
+                    ? '@media screen and (' + device.media + ') { ' + css + ' }'
+                    : css;
+
+                jQuery( 'head' ).append(
+                    '<style id="' + styleId + '">' + styleContent + '</style>'
+                );
+            }
+
+            api( valueControlId, function( value ) {
+                value.bind( updateCSS );
+            } );
+            api( unitControlId, function( value ) {
+                value.bind( updateCSS );
+            } );
+        } );
+    }
+
     //Theme Options Layout
     //Box Radius
     api( 'responsive_container_width', function( value ) {
@@ -1800,6 +1849,29 @@
         value.bind(updateSidebarStickyCss);
     });
 
+    responsiveDragControlWithDeviceAndUnits(
+        'responsive_footer_menu_item_horizontal_spacing',
+        'responsive-footer-menu-item-horizontal-spacing',
+        function( value, unit, device ) {
+            var important = device ? ' !important' : '';
+            return '.footer-navigation #footer-menu ul > li > a { '
+                + 'padding-left: calc( ' + value + unit + ' / 2)' + important + '; '
+                + 'padding-right: calc( ' + value + unit + ' / 2)' + important + '; '
+                + '}';
+        }
+    );
+
+    responsiveDragControlWithDeviceAndUnits(
+        'responsive_footer_menu_item_top_bottom_spacing',
+        'responsive-footer-menu-item-top-bottom-spacing',
+        function( value, unit, device ) {
+            var important = device ? ' !important' : '';
+            return '.footer-navigation #footer-menu ul > li > a { '
+                + 'padding-top: calc( ' + value + unit + ' / 2)' + important + '; '
+                + 'padding-bottom: calc( ' + value + unit + ' / 2)' + important + '; '
+                + '}';
+        }
+    );
 
     api( 'responsive_page_content_top_bottom_spacing', function( value ) {
         value.bind( function( newval ) {

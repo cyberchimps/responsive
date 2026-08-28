@@ -52,6 +52,9 @@ if ( ! class_exists( 'Responsive_Footer_Menu_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_footer_menu_separator_2',
 				$design_tab_ids_prefix . 'responsive_footer_menu_link_color',
 				$design_tab_ids_prefix . 'responsive_footer_menu_link_separator_2',
+				$design_tab_ids_prefix . 'responsive_footer_menu_typography_group',
+				$design_tab_ids_prefix . 'responsive_footer_menu_item_top_bottom_spacing',
+				$design_tab_ids_prefix . 'responsive_footer_menu_item_horizontal_spacing'
 			);
 
 			$general_tab_ids_prefix = 'customize-control-';
@@ -61,7 +64,6 @@ if ( ! class_exists( 'Responsive_Footer_Menu_Customizer' ) ) :
                 $general_tab_ids_prefix . 'responsive_footer_widget_desktop_visibility',
 				$general_tab_ids_prefix . 'responsive_footer_widget_tablet_visibility',
 				$general_tab_ids_prefix . 'responsive_footer_widget_mobile_visibility',
-				$general_tab_ids_prefix . 'responsive_footer_menu_typography_group',
 			);
 
 			responsive_tabs_button_control( $wp_customize, 'footer_menu_tabs', $tabs_label, 'responsive_footer_menu', 1, '', 'responsive_footer_menu_general_tab', 'responsive_footer_menu_design_tab', $general_tab_ids, $design_tab_ids, null );
@@ -122,6 +124,11 @@ if ( ! class_exists( 'Responsive_Footer_Menu_Customizer' ) ) :
 			$footer_menu_font_label = __( 'Font', 'responsive' );
 			responsive_typography_group_control( $wp_customize, 'footer_menu_typography_group', $footer_menu_font_label, 'responsive_footer_menu', 75, 'footer_menu_typography', true );
 
+			// Menu Item Horizontal Spacing
+			responsive_drag_number_control_with_switchers( $wp_customize, 'footer_menu_item_horizontal_spacing', 'Menu Item Horizontal Spacing', 'responsive_footer_menu', 76, 12, null, 100, 0, 'postMessage', 1, null, null, array('desktop', 'tablet', 'mobile'), array('px', 'em', 'rem', 'vw') );
+
+			// Menu Item Top and Bottom Spacing
+			responsive_drag_number_control_with_switchers( $wp_customize, 'footer_menu_item_top_bottom_spacing', 'Menu Item Top and Bottom Spacing', 'responsive_footer_menu', 77, 0, null, 100, 0, 'postMessage', 1, null, null, array('desktop', 'tablet', 'mobile'), array('px', 'em', 'rem', 'vw') );
 
             // Padding.
 			$footer_menu_padding_label = __( 'Padding (px)', 'responsive' );
