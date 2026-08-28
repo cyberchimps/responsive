@@ -98,6 +98,17 @@ const TabsComponent = props => {
 		hideRetinaLogoUploadControl( api( 'responsive_retina_logo').get());
 		hideMobileLogoUploadControl( api( 'responsive_mobile_logo_option').get());
 
+		if ( api( 'responsive_disable_author_meta' ) && api( 'responsive_disable_author_meta' ).get() ) {
+			const authorBoxEl = document.getElementById( 'customize-control-responsive_post_author_box_style' );
+			const authorBoxSep = document.getElementById( 'customize-control-responsive_responsive_disable_author_meta_separator' );
+			if ( authorBoxEl ) {
+				authorBoxEl.style.display = 'none';
+			}
+			if ( authorBoxSep ) {
+				authorBoxSep.style.display = 'none';
+			}
+		}
+
 		api('responsive_page_sidebar_position', function( value ) {
 			value.bind( function( newval ) {
 				if ( newval ) {
@@ -858,10 +869,15 @@ const TabsComponent = props => {
 	const hideSidebarWidthControl = (value, control) => {
     const controlId = (control === 'global' || control === 'default') ? 'customize-control-responsive_default_sidebar_width' : `customize-control-responsive_${control}_sidebar_width`;
     const controlElement = document.getElementById(controlId);
+    const separatorId = (control === 'global' || control === 'default') ? 'customize-control-responsive_default_sidebar_width_separator' : `customize-control-responsive_${control}_sidebar_width_separator`;
+    const separatorElement = document.getElementById(separatorId);
 
-    if (!controlElement) return;
-
-    controlElement.style.display = 'none';
+    if (controlElement) {
+        controlElement.style.display = 'none';
+    }
+    if (separatorElement) {
+        separatorElement.style.display = 'none';
+    }
 
     let isVisible = false;
     if (control === 'global' || control === 'default') {
@@ -877,8 +893,13 @@ const TabsComponent = props => {
         }
     }
 
-    if (isVisible && !isSidebarControlInactive(controlId)) {
-        controlElement.style.display = 'block';
+    if (isVisible) {
+        if (controlElement && !isSidebarControlInactive(controlId)) {
+            controlElement.style.display = 'block';
+        }
+        if (separatorElement && !isSidebarControlInactive(separatorId)) {
+            separatorElement.style.display = 'block';
+        }
     }
 };
 
