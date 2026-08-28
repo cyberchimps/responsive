@@ -1029,13 +1029,6 @@ body.mega-menu-header-menu button.menu-toggle {
     justify-content: space-between;
 }
 
-// Secondary menu hidden in mobile for the time being.
-@media (max-width: 700px) {
-    .site-header-item-secondary-navigation{
-        display: none !important;
-    }
-}
-
 .site-header {
     .site-header-item {
         .responsive-header-html {

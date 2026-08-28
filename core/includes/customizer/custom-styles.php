@@ -4426,8 +4426,8 @@ function responsive_customizer_styles() {
 		$secondary_menu_tablet_visibility = get_theme_mod( 'responsive_secondary_menu_tablet_visibility', 0 );
 		$secondary_menu_tablet_visibility = ( 1 === $secondary_menu_tablet_visibility ) ? 'none' : 'flex';
 
-		// $secondary_menu_mobile_visibility = get_theme_mod( 'responsive_secondary_menu_mobile_visibility', 0 );
-		// $secondary_menu_mobile_visibility = ( 1 === $secondary_menu_mobile_visibility ) ? 'none' : 'flex';
+		$secondary_menu_mobile_visibility = get_theme_mod( 'responsive_secondary_menu_mobile_visibility', 0 );
+		$secondary_menu_mobile_visibility = ( 1 === $secondary_menu_mobile_visibility ) ? 'none' : 'flex';
 
 		$custom_css .= ".secondary-navigation-wrapper {
 			display: {$secondary_menu_desktop_visibility};
@@ -4437,13 +4437,13 @@ function responsive_customizer_styles() {
 			.secondary-navigation-wrapper {
 				display: {$secondary_menu_tablet_visibility};
 			}
-		}";
+		}
 
-		// @media screen and ( max-width: 576px ) {
-		// 	.secondary-navigation-wrapper{
-		// 			display: {$secondary_menu_mobile_visibility};
-		// 	}
-		// ";
+		@media screen and ( max-width: 576px ) {
+			.secondary-navigation-wrapper{
+					display: {$secondary_menu_mobile_visibility};
+			}
+		}";
 
 		// Secondary Menu Top Offset.
 		$secondary_menu_top_offset_value = esc_html( get_theme_mod( 'responsive_secondary_menu_top_offset', 0 ) );
@@ -4635,6 +4635,7 @@ function responsive_customizer_styles() {
 		// Get the same secondary menu settings (shared between desktop and mobile)
 		$secondary_menu_desktop_visibility = get_theme_mod( 'responsive_secondary_menu_desktop_visibility', 0 );
 		$secondary_menu_tablet_visibility = get_theme_mod( 'responsive_secondary_menu_tablet_visibility', 0 );
+		$secondary_menu_mobile_visibility = get_theme_mod( 'responsive_secondary_menu_mobile_visibility', 0 );
 		
 		// Apply visibility settings for mobile header
 		$custom_css .= ".responsive-mobile-header-wrapper .site-header-item-secondary-navigation .secondary-navigation-wrapper {";
@@ -4644,6 +4645,12 @@ function responsive_customizer_styles() {
 		$custom_css .= "@media screen and (max-width: 992px) {";
 		$custom_css .= ".responsive-mobile-header-wrapper .site-header-item-secondary-navigation .secondary-navigation-wrapper {";
 		$custom_css .= "display: " . ( 1 === $secondary_menu_tablet_visibility ? 'none' : 'flex' ) . ";";
+		$custom_css .= "}";
+		$custom_css .= "}";
+		
+		$custom_css .= "@media screen and (max-width: 576px) {";
+		$custom_css .= ".responsive-mobile-header-wrapper .site-header-item-secondary-navigation .secondary-navigation-wrapper {";
+		$custom_css .= "display: " . ( 1 === $secondary_menu_mobile_visibility ? 'none' : 'flex' ) . ";";
 		$custom_css .= "}";
 		$custom_css .= "}";
 		
