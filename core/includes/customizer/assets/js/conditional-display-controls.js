@@ -343,25 +343,16 @@
 			);
 		}
 	);
-	api(
-		'responsive_disable_author_meta',
-		function( $swipe ) {
-			$swipe.bind(
-				function( newval ) {
-					switch (newval) {
-						case true:
-						case 1:
-							api.control( 'responsive_post_author_box_style' ).toggle( false );
-							break;
-						case false:
-						case 0:
-							api.control( 'responsive_post_author_box_style' ).toggle( true );
-							break;
-					}
-				}
-			);
-		}
-	);
+	api( 'responsive_disable_author_meta', function( setting ) {
+		setting.bind( function( disabled ) {
+			const show = ! disabled;
+			[ 'responsive_post_author_box_style', 'responsive_responsive_disable_author_meta_separator' ].forEach( function( id ) {
+				api.control( id, function( control ) {
+					control.toggle( show );
+				} );
+			} );
+		} );
+	} );
 
 	api(
 		'responsive_sidebar_link_style',
