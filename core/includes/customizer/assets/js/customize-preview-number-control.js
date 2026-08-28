@@ -16,18 +16,19 @@
         var mobileUnit  = api.has('responsive_' + control + '_radius_mobile_unit') ? (api('responsive_' + control + '_radius_mobile_unit').get() || 'px') : (api.has('responsive_' + control + '_mobile_unit') ? (api('responsive_' + control + '_mobile_unit').get() || 'px') : 'px');
 
         jQuery('style#responsive-' + control + '-radius').remove();
-        var desktopRadius = 'border-top-left-radius:' + api('responsive_' + control + '_radius_top_left_radius').get() + desktopUnit + '; ' +
-                            'border-top-right-radius:' + api('responsive_' + control + '_radius_top_right_radius').get() + desktopUnit + '; ' +
-                            'border-bottom-left-radius:' + api('responsive_' + control + '_radius_bottom_left_radius').get() + desktopUnit + '; ' +
-                            'border-bottom-right-radius:' + api('responsive_' + control + '_radius_bottom_right_radius').get() + desktopUnit + ';';
-        var tabletRadius  = 'border-top-left-radius:' + api('responsive_' + control + '_radius_tablet_top_left_radius').get() + tabletUnit + '; ' +
-                            'border-top-right-radius:' + api('responsive_' + control + '_radius_tablet_top_right_radius').get() + tabletUnit + '; ' +
-                            'border-bottom-left-radius:' + api('responsive_' + control + '_radius_tablet_bottom_left_radius').get() + tabletUnit + '; ' +
-                            'border-bottom-right-radius:' + api('responsive_' + control + '_radius_tablet_bottom_right_radius').get() + tabletUnit + ';';
-        var mobileRadius  = 'border-top-left-radius:' + api('responsive_' + control + '_radius_mobile_top_left_radius').get() + mobileUnit + '; ' +
-                            'border-top-right-radius:' + api('responsive_' + control + '_radius_mobile_top_right_radius').get() + mobileUnit + '; ' +
-                            'border-bottom-left-radius:' + api('responsive_' + control + '_radius_mobile_bottom_left_radius').get() + mobileUnit + '; ' +
-                            'border-bottom-right-radius:' + api('responsive_' + control + '_radius_mobile_bottom_right_radius').get() + mobileUnit + ';';
+
+        var desktopRadius = 'border-top-left-radius:' + api('responsive_' + control + '_radius_top_left_radius').get() + desktopUnit + ' !important; ' +
+                            'border-top-right-radius:' + api('responsive_' + control + '_radius_top_right_radius').get() + desktopUnit + ' !important; ' +
+                            'border-bottom-left-radius:' + api('responsive_' + control + '_radius_bottom_left_radius').get() + desktopUnit + ' !important; ' +
+                            'border-bottom-right-radius:' + api('responsive_' + control + '_radius_bottom_right_radius').get() + desktopUnit + ' !important;';
+        var tabletRadius  = 'border-top-left-radius:' + api('responsive_' + control + '_radius_tablet_top_left_radius').get() + tabletUnit + ' !important; ' +
+                            'border-top-right-radius:' + api('responsive_' + control + '_radius_tablet_top_right_radius').get() + tabletUnit + ' !important; ' +
+                            'border-bottom-left-radius:' + api('responsive_' + control + '_radius_tablet_bottom_left_radius').get() + tabletUnit + ' !important; ' +
+                            'border-bottom-right-radius:' + api('responsive_' + control + '_radius_tablet_bottom_right_radius').get() + tabletUnit + ' !important;';
+        var mobileRadius  = 'border-top-left-radius:' + api('responsive_' + control + '_radius_mobile_top_left_radius').get() + mobileUnit + ' !important; ' +
+                            'border-top-right-radius:' + api('responsive_' + control + '_radius_mobile_top_right_radius').get() + mobileUnit + ' !important; ' +
+                            'border-bottom-left-radius:' + api('responsive_' + control + '_radius_mobile_bottom_left_radius').get() + mobileUnit + ' !important; ' +
+                            'border-bottom-right-radius:' + api('responsive_' + control + '_radius_mobile_bottom_right_radius').get() + mobileUnit + ' !important;';
 
         jQuery('head').append(
             '<style id="responsive-' + control + '-radius">' +
@@ -180,13 +181,24 @@
         value.bind( function( newval ) {
             $('.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,.responsive-site-style-content-boxed .custom-home-about-section,.responsive-site-style-content-boxed .custom-home-feature-section,.responsive-site-style-content-boxed .custom-home-team-section,.responsive-site-style-content-boxed .custom-home-testimonial-section,.responsive-site-style-content-boxed .custom-home-contact-section,.responsive-site-style-content-boxed .custom-home-widget-section,.responsive-site-style-content-boxed .custom-home-featured-area,.responsive-site-style-content-boxed .site-content-header,.responsive-site-style-content-boxed .content-area-wrapper,.responsive-site-style-content-boxed .site-content .hentry,.responsive-site-style-content-boxed .navigation,.responsive-site-style-content-boxed .responsive-single-related-posts-container,.responsive-site-style-content-boxed .comments-area,.responsive-site-style-content-boxed .comment-respond,.responsive-site-style-boxed .custom-home-about-section,.responsive-site-style-boxed .custom-home-feature-section,.responsive-site-style-boxed .custom-home-team-section,.responsive-site-style-boxed .custom-home-testimonial-section,.responsive-site-style-boxed .custom-home-contact-section,.responsive-site-style-boxed .custom-home-widget-section,.responsive-site-style-boxed .custom-home-featured-area,.responsive-site-style-boxed .site-content-header,.responsive-site-style-boxed .site-content .hentry,.responsive-site-style-boxed .navigation,.responsive-site-style-boxed .responsive-single-related-posts-container,.responsive-site-style-boxed .comments-area,.responsive-site-style-boxed .comment-respond,.responsive-site-style-boxed .comment-respond,.responsive-site-style-boxed aside#secondary .widget-wrapper,.responsive-site-style-boxed .site-content article.product').css('border-radius', newval+'px' );
             $('.woocommerce.responsive-site-style-content-boxed .related-product-wrapper,.woocommerce-page.responsive-site-style-content-boxed .related-product-wrapper,.woocommerce-page.responsive-site-style-content-boxed .products-wrapper,.woocommerce.responsive-site-style-content-boxed .products-wrapper,.woocommerce-page:not(.responsive-site-style-flat) .woocommerce-pagination,.woocommerce-page.responsive-site-style-boxed ul.products li.product,.woocommerce.responsive-site-style-boxed ul.products li.product,.woocommerce-page.single-product:not(.responsive-site-style-flat) div.product,.woocommerce.single-product:not(.responsive-site-style-flat) div.product').css('border-radius', newval+'px' );
+            
+            // If individual blog border radius is not set, explicitly apply the global value to blog elements.
+            // If it is set, ensure the global inline style doesn't override it.
+            let blogTopLeft = api('responsive_blog_border_radius_top_left_radius') ? api('responsive_blog_border_radius_top_left_radius').get() : '';
+            let blogElements = '.blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry, .blog:not(.custom-home-page-active) .site-content .hentry, .archive .site-content .hentry';
+            if ( blogTopLeft === '' ) {
+                $('#responsive-border-box-blog-override').remove();
+                $('head').append('<style id="responsive-border-box-blog-override">' + blogElements + ' { border-radius: ' + newval + 'px !important; }</style>');
+            } else {
+                $('#responsive-border-box-blog-override').remove();
+            }
         } );
     } );
 
     //Buttons radius
     api( 'responsive_buttons_radius', function( value ) {
         value.bind( function( newval ) {
-            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').css('border-radius', newval+'px' );
+            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').css('border-radius', newval+'px' );
             $('.woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button').css('border-radius', newval+'px' );
             $('.edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button').css('border-radius', newval+'px' );
         } );
@@ -195,7 +207,7 @@
     function applyBorderRadius(controlName) {
         api(controlName, function(value) {
             value.bind( function( newval ) {
-                let selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button';
+                let selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button';
                 if ( responsiveSiteLocalOptions.isElementorVersion ) {
                     selector += ', .elementor-button-wrapper .elementor-button';
                 }
@@ -255,7 +267,7 @@
     function applyButtonsBorderWidth(controlName) {
         api( controlName, function( value ) {
             value.bind( function( newval ) {
-                let selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button';
+                let selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button';
                 selector += ', .wp-block-button__link:focus,.wp-block-button__link:hover,.read-more-button .hentry .read-more .more-link:hover,.read-more-button .hentry .read-more .more-link:focus,input[type=button]:hover,input[type=submit]:hover,input[type=button]:focus,input[type=submit]:focus,button:not(.customize-partial-edit-shortcut-button):hover,button:not(.customize-partial-edit-shortcut-button):focus,.button:not(.customize-partial-edit-shortcut-button):hover,.button:not(.customize-partial-edit-shortcut-button):focus,div.wpforms-container-full .wpforms-form input[type=submit]:hover,div.wpforms-container-full .wpforms-form input[type=submit]:focus,div.wpforms-container-full .wpforms-form input[type=submit]:active,div.wpforms-container-full .wpforms-form button[type=submit]:hover,div.wpforms-container-full .wpforms-form button[type=submit]:focus,div.wpforms-container-full .wpforms-form button[type=submit]:active,div.wpforms-container-full .wpforms-form .wpforms-page-button:hover,div.wpforms-container-full .wpforms-form .wpforms-page-button:active,div.wpforms-container-full .wpforms-form .wpforms-page-button:focus';
                 selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button';
                 selector += ', .edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button';
@@ -287,7 +299,7 @@
         if (api.has(settingId)) {
             api(settingId, function(setting) {
                 setting.bind(function() {
-                    let selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button';
+                    let selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button';
                     if ( responsiveSiteLocalOptions.isElementorVersion ) {
                         selector += ', .elementor-button-wrapper .elementor-button';
                     }
@@ -304,7 +316,7 @@
         if (api.has(settingId)) {
             api(settingId, function(setting) {
                 setting.bind(function() {
-                    let selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button';
+                    let selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button';
                     selector += ', .wp-block-button__link:focus,.wp-block-button__link:hover,.read-more-button .hentry .read-more .more-link:hover,.read-more-button .hentry .read-more .more-link:focus,input[type=button]:hover,input[type=submit]:hover,input[type=button]:focus,input[type=submit]:focus,button:not(.customize-partial-edit-shortcut-button):hover,button:not(.customize-partial-edit-shortcut-button):focus,.button:not(.customize-partial-edit-shortcut-button):hover,.button:not(.customize-partial-edit-shortcut-button):focus,div.wpforms-container-full .wpforms-form input[type=submit]:hover,div.wpforms-container-full .wpforms-form input[type=submit]:focus,div.wpforms-container-full .wpforms-form input[type=submit]:active,div.wpforms-container-full .wpforms-form button[type=submit]:hover,div.wpforms-container-full .wpforms-form button[type=submit]:focus,div.wpforms-container-full .wpforms-form button[type=submit]:active,div.wpforms-container-full .wpforms-form .wpforms-page-button:hover,div.wpforms-container-full .wpforms-form .wpforms-page-button:active,div.wpforms-container-full .wpforms-form .wpforms-page-button:focus';
                     selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button';
                     selector += ', .edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button';

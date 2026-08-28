@@ -1859,6 +1859,7 @@
         } );
     } ), api( "header_menu_typography[font-family]", function( $swipe ) {
         $swipe.bind( function( pair ) {
+            pair = sanitizeFontFamily( pair );
             if ( pair ) {
                 /** @type {string} */
                 var fontName = pair.split(",")[0];
@@ -5448,11 +5449,13 @@
                     }
                 }
                 jQuery( `style.customizer-typography-${contentSettingBase}-font-family` ).remove();
-                jQuery( 'head' ).append(
-                    `<style class="customizer-typography-${contentSettingBase}-font-family">
-                        ${responsive.selectorArray[contentSelectorKey]} { font-family:${val}; }
-                    </style>`
-                );
+                if ( 'Default' !== val && 'default' !== val ) {
+                    jQuery( 'head' ).append(
+                        `<style class="customizer-typography-${contentSettingBase}-font-family">
+                            ${responsive.selectorArray[contentSelectorKey]} { font-family:${val}; }
+                        </style>`
+                    );
+                }
             } );
         } );
 
@@ -5460,11 +5463,13 @@
         api( `${contentSettingBase}[font-weight]`, function ( $swipe ) {
             $swipe.bind( function ( val ) {
                 jQuery( `style.customizer-typography-${contentSettingBase}-font-weight` ).remove();
-                jQuery( 'head' ).append(
-                    `<style class="customizer-typography-${contentSettingBase}-font-weight">
-                        ${responsive.selectorArray[contentSelectorKey]} { font-weight:${val}; }
-                    </style>`
-                );
+                if ( 'Default' !== val && 'default' !== val ) {
+                    jQuery( 'head' ).append(
+                        `<style class="customizer-typography-${contentSettingBase}-font-weight">
+                            ${responsive.selectorArray[contentSelectorKey]} { font-weight:${val}; }
+                        </style>`
+                    );
+                }
             } );
         } );
 
@@ -5472,23 +5477,40 @@
         api( `${contentSettingBase}[font-style]`, function ( $swipe ) {
             $swipe.bind( function ( val ) {
                 jQuery( `style.customizer-typography-${contentSettingBase}-font-style` ).remove();
-                jQuery( 'head' ).append(
-                    `<style class="customizer-typography-${contentSettingBase}-font-style">
-                        ${responsive.selectorArray[contentSelectorKey]} { font-style:${val}; }
-                    </style>`
-                );
+                if ( 'Default' !== val && 'default' !== val ) {
+                    jQuery( 'head' ).append(
+                        `<style class="customizer-typography-${contentSettingBase}-font-style">
+                            ${responsive.selectorArray[contentSelectorKey]} { font-style:${val}; }
+                        </style>`
+                    );
+                }
             } );
         } );
+        // === font-size ===
+        api(`${contentSettingBase}[font-size]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${contentSettingBase}-font-size`).remove();
+                if ( 'Default' !== val && 'default' !== val ) {
+                    jQuery('head').append(
+                        `<style class="customizer-typography-${contentSettingBase}-font-size">
+                            ${responsive.selectorArray[contentSelectorKey]} { font-size:${val}; }
+                        </style>`
+                    );
+                }
+            });
+        });
 
         // text-transform
         api( `${contentSettingBase}[text-transform]`, function ( $swipe ) {
             $swipe.bind( function ( val ) {
                 jQuery( `style.customizer-typography-${contentSettingBase}-text-transform` ).remove();
-                jQuery( 'head' ).append(
-                    `<style class="customizer-typography-${contentSettingBase}-text-transform">
-                        ${responsive.selectorArray[contentSelectorKey]} { text-transform:${val}; }
-                    </style>`
-                );
+                if ( 'Default' !== val && 'default' !== val ) {
+                    jQuery( 'head' ).append(
+                        `<style class="customizer-typography-${contentSettingBase}-text-transform">
+                            ${responsive.selectorArray[contentSelectorKey]} { text-transform:${val}; }
+                        </style>`
+                    );
+                }
             } );
         } );
 

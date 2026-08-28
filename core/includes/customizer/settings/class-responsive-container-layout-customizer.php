@@ -83,13 +83,30 @@ if ( ! class_exists( 'Responsive_Container_Layout_Customizer' ) ) :
 			responsive_horizontal_separator_control( $wp_customize, 'page_container_style_separator', 1, 'responsive_page', 16, 1 );
 
 			// Page Container Style.
-			$page_container_style_label   = esc_html__( 'Container Style', 'responsive' );
-			$page_container_style_choices = array(
-				'default' => esc_html__( 'Default', 'responsive' ),
-				'boxed'   => esc_html__( 'Boxed', 'responsive' ),
-				'unboxed' => esc_html__( 'Unboxed', 'responsive' ),
-			);
-			responsive_select_button_control( $wp_customize, 'page_container_style', $page_container_style_label, 'responsive_page', 17, $page_container_style_choices, 'default', null, 'refresh' );
+			$wp_customize->add_setting(
+                'responsive_page_container_style',
+                array(
+                    'default'           => 'default',
+                    'sanitize_callback' => 'sanitize_text_field',
+                )
+            );
+
+            $wp_customize->add_control(
+                'responsive_page_container_style',
+                array(
+                    'label'           => __( 'Container Style', 'responsive' ),
+                    'section'         => 'responsive_page',
+                    'type'            => 'select',
+                    'choices'         => array(
+                        'default' => __( 'Default', 'responsive' ),
+						'boxed' => __( 'Boxed', 'responsive' ),
+                        'content-boxed'    => __( 'Content Boxed', 'responsive' ),
+                        'flat'    => __( 'Flat', 'responsive' ),
+                    ),
+                    'priority'        => 17,
+                    'active_callback' => '',
+                )
+            );
 
 			// Blog/Archive Container Layout.
 			$blog_container_layout_label = esc_html__( 'Container Layout', 'responsive' );
@@ -101,14 +118,31 @@ if ( ! class_exists( 'Responsive_Container_Layout_Customizer' ) ) :
 
 
 			// Blog/Archive Container Style.
-			$blog_container_style_label   = esc_html__( 'Container Style', 'responsive' );
-			$blog_container_style_choices = array(
-				'default' => esc_html__( 'Default', 'responsive' ),
-				'boxed'   => esc_html__( 'Boxed', 'responsive' ),
-				'unboxed' => esc_html__( 'Unboxed', 'responsive' ),
-			);
-			responsive_select_button_control( $wp_customize, 'blog_container_style', $blog_container_style_label, 'responsive_blog_layout', 12, $blog_container_style_choices, 'default', null, 'refresh' );
 
+			$wp_customize->add_setting(
+                'responsive_blog_container_style',
+                array(
+                    'default'           => 'default',
+                    'sanitize_callback' => 'sanitize_text_field',
+                )
+            );
+
+            $wp_customize->add_control(
+                'responsive_blog_container_style',
+                array(
+                    'label'           => __( 'Container Style', 'responsive' ),
+                    'section'         => 'responsive_blog_layout',
+                    'type'            => 'select',
+                    'choices'         => array(
+                        'default' => __( 'Default', 'responsive' ),
+						'boxed' => __( 'Boxed', 'responsive' ),
+                        'content-boxed'    => __( 'Content Boxed', 'responsive' ),
+                        'flat'    => __( 'Flat', 'responsive' ),
+                    ),
+                    'priority'        => 12,
+                    'active_callback' => '',
+                )
+            );
 			// Single Post Container Layout.
 			$single_blog_container_layout_label = esc_html__( 'Container Layout', 'responsive' );
 			responsive_separator_control( $wp_customize, 'single_blog_container_layout_separator', $single_blog_container_layout_label, 'responsive_single_blog_layout', 5 );
@@ -118,14 +152,30 @@ if ( ! class_exists( 'Responsive_Container_Layout_Customizer' ) ) :
 			responsive_horizontal_separator_control( $wp_customize, 'single_blog_container_style_separator', 1, 'responsive_single_blog_layout', 7, 1 );
 
 			// Single Post Container Style.
-			$single_blog_container_style_label   = esc_html__( 'Container Style', 'responsive' );
-			$single_blog_container_style_choices = array(
-				'default' => esc_html__( 'Default', 'responsive' ),
-				'boxed'   => esc_html__( 'Boxed', 'responsive' ),
-				'unboxed' => esc_html__( 'Unboxed', 'responsive' ),
-			);
-			responsive_select_button_control( $wp_customize, 'single_blog_container_style', $single_blog_container_style_label, 'responsive_single_blog_layout', 8, $single_blog_container_style_choices, 'default', null, 'refresh' );
+			$wp_customize->add_setting(
+                'responsive_single_blog_container_style',
+                array(
+                    'default'           => 'default',
+                    'sanitize_callback' => 'sanitize_text_field',
+                )
+            );
 
+            $wp_customize->add_control(
+                'responsive_single_blog_container_style',
+                array(
+                    'label'           => __( 'Container Style', 'responsive' ),
+                    'section'         => 'responsive_single_blog_layout',
+                    'type'            => 'select',
+                    'choices'         => array(
+                        'default' => __( 'Default', 'responsive' ),
+						'boxed' => __( 'Boxed', 'responsive' ),
+                        'content-boxed'    => __( 'Content Boxed', 'responsive' ),
+                        'flat'    => __( 'Flat', 'responsive' ),
+                    ),
+                    'priority'        => 8,
+                    'active_callback' => '',
+                )
+            );
 			// Woocommerce Single Product Container Layout.
 			$single_product_container_layout_label = esc_html__( 'Container Layout', 'responsive' );
 			responsive_separator_control( $wp_customize, 'single_product_container_layout_separator', $single_product_container_layout_label, 'responsive_woocommerce_single_product_layout', 6 );

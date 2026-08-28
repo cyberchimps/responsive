@@ -105,13 +105,9 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 			responsive_horizontal_separator_control( $wp_customize, 'h6_text_separator', 1, 'responsive_colors',85, 1 );
 
 
-			// Title Above Content Background.
-			$title_above_content_bg_color_label = __( 'Title Above Content Background', 'responsive' );
+			// Title Area Banner Background.
+			$title_above_content_bg_color_label = __( 'Title Area Banner Background', 'responsive' );
 			responsive_color_control( $wp_customize, 'title_above_content_bg', $title_above_content_bg_color_label, 'responsive_colors', 88, Responsive\Core\get_responsive_customizer_defaults( 'responsive_title_above_content_bg_color' ), null );
-
-			// Title Above Content Overlay Color.
-			$title_above_content_overlay_color_label = __( 'Title Above Content Overlay Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'title_above_content_overlay', $title_above_content_overlay_color_label, 'responsive_colors', 89, Responsive\Core\get_responsive_customizer_defaults( 'responsive_title_above_content_overlay_color' ), null );
 
 			// Site Background Color.
 			$site_background_color_label = __( 'Site Background', 'responsive' );

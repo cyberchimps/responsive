@@ -101,10 +101,10 @@ do_action( 'responsive_before_blog_entry_meta' );
 			<?php
 		}
 
-		if ( 'comments' === $section && comments_open() && ! post_password_required() ) {
+		if ( 'comments' === $section && ( comments_open() || get_comments_number() || is_customize_preview() ) && ! post_password_required() ) {
 			?>
 			<span class="entry-comment">
-				<?php if ( comments_open() ) : ?>
+				<?php if ( comments_open() || get_comments_number() || is_customize_preview() ) : ?>
 					<span class="comments-link">
 						<span class="mdash"><i class="icon-comments-o" aria-hidden="true"></i></span>
 						<?php comments_popup_link( __( 'No Comments', 'responsive' ), __( '1 Comment', 'responsive' ), __( '% Comments', 'responsive' ) ); ?>
