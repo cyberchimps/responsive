@@ -133,8 +133,14 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 
 						if (false === $related_single_posts_section_loaded) {
 							$related_posts_container_class = 'responsive-single-related-posts-container';
+
 							if ( 'separated' === $related_posts_section_placement ) {
 								$related_posts_container_class .= ' responsive-related-posts-separated';
+							} elseif ( 'contained' === $related_posts_section_placement ) {
+								$related_posts_container_class .= ' responsive-related-posts-contained';
+								$related_posts_container_class .= ( 'above_comments' === get_theme_mod( 'responsive_single_blog_related_posts_location', 'below_comments' ) ) ? ' responsive-related-posts-above-comments' : ' responsive-related-posts-below-comments';
+							} else {
+								$related_posts_container_class .= ' responsive-related-posts-default';
 							}
 							echo '<div class="' . esc_attr( $related_posts_container_class ) . '">';
 
