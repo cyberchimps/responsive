@@ -71,6 +71,29 @@ const TabsComponent = props => {
 		toggleLogoControl('customize-control-responsive_retina_logo', isCustomLogoPresent);
 		toggleLogoControl('customize-control-responsive_mobile_logo_option', isCustomLogoPresent);
 
+		const toggleContentBackground = () => {
+			const pageStyle = api('responsive_page_container_style') ? api('responsive_page_container_style').get() : 'default';
+			const resolvedPageStyle = pageStyle === 'default' ? (api('responsive_style') ? api('responsive_style').get() : 'boxed') : pageStyle;
+			const pageCtrl = document.getElementById('customize-control-responsive_page_content_background_color');
+			if (pageCtrl) {
+				pageCtrl.style.display = (resolvedPageStyle !== 'flat' && tab === 'design') ? 'block' : 'none';
+			}
+			
+			const blogStyle = api('responsive_blog_container_style') ? api('responsive_blog_container_style').get() : 'default';
+			const resolvedBlogStyle = blogStyle === 'default' ? (api('responsive_style') ? api('responsive_style').get() : 'boxed') : blogStyle;
+			const blogCtrl = document.getElementById('customize-control-responsive_blog_content_background_color');
+			if (blogCtrl) {
+				blogCtrl.style.display = (resolvedBlogStyle !== 'flat' && tab === 'design') ? 'block' : 'none';
+			}
+			
+			const singleblogStyle = api('responsive_single_blog_container_style') ? api('responsive_single_blog_container_style').get() : 'default';
+			const resolvedSingleBlogStyle = singleblogStyle === 'default' ? (api('responsive_style') ? api('responsive_style').get() : 'boxed') : singleblogStyle;
+			const singleblogCtrl = document.getElementById('customize-control-responsive_single_blog_content_background_color');
+			if (singleblogCtrl) {
+				singleblogCtrl.style.display = (resolvedSingleBlogStyle !== 'flat' && tab === 'design') ? 'block' : 'none';
+			}
+		};
+		toggleContentBackground();
 
 		hideSidebarWidthControl( api('responsive_page_sidebar_position').get(), 'page' );
 		hideSidebarStyleControl( api('responsive_page_sidebar_position').get(), 'page' );
@@ -155,6 +178,38 @@ const TabsComponent = props => {
 				}
 			})
 		});
+
+		if (api('responsive_page_container_style')) {
+			api('responsive_page_container_style', function( value ){
+				value.bind( function( newval ) {
+					toggleContentBackground();
+				})
+			});
+		}
+		
+		if (api('responsive_blog_container_style')) {
+			api('responsive_blog_container_style', function( value ){
+				value.bind( function( newval ) {
+					toggleContentBackground();
+				})
+			});
+		}
+		
+		if (api('responsive_single_blog_container_style')) {
+			api('responsive_single_blog_container_style', function( value ){
+				value.bind( function( newval ) {
+					toggleContentBackground();
+				})
+			});
+		}
+		
+		if (api('responsive_style')) {
+			api('responsive_style', function( value ){
+				value.bind( function( newval ) {
+					toggleContentBackground();
+				})
+			});
+		}
 
 		api('custom_logo', function(value) {
 		value.bind(function(newval) {
