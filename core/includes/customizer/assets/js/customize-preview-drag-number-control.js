@@ -89,6 +89,53 @@
         });
     });
 
+    // Transparent Header Logo Width
+    api('responsive_transparent_header_logo_width', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-transparent-header-logo-width').remove();
+
+            var widthValue = (newval.length !== 0) ? (newval + 'px') : '100%';
+
+            jQuery('head').append(
+                '<style id="responsive-transparent-header-logo-width">' +
+                    '.site-header .transparent-custom-logo img.custom-logo, .site-header .transparent-custom-logo img { width: ' + widthValue + '; }' +
+                '</style>'
+            );
+        });
+    });
+
+    api('responsive_transparent_header_logo_width_tablet', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-transparent-header-logo-width-tablet').remove();
+
+            var widthValue = (newval.length !== 0) ? (newval + 'px') : '100%';
+
+            jQuery('head').append(
+                '<style id="responsive-transparent-header-logo-width-tablet">' +
+                    '@media (max-width: 992px) {' +
+                        '.site-header .transparent-custom-logo img.custom-logo, .site-header .transparent-custom-logo img { width: ' + widthValue + '; }' +
+                    '}' +
+                '</style>'
+            );
+        });
+    });
+
+    api('responsive_transparent_header_logo_width_mobile', function(value) {
+        value.bind(function(newval) {
+            jQuery('style#responsive-transparent-header-logo-width-mobile').remove();
+
+            var widthValue = (newval.length !== 0) ? (newval + 'px') : '100%';
+
+            jQuery('head').append(
+                '<style id="responsive-transparent-header-logo-width-mobile">' +
+                    '@media screen and (max-width: 576px) {' +
+                        '.site-header .transparent-custom-logo img.custom-logo, .site-header .transparent-custom-logo img { width: ' + widthValue + '; }' +
+                    '}' +
+                '</style>'
+            );
+        });
+    });
+
     // Page Sidebar width
     api('responsive_page_sidebar_width', function(value) {
         value.bind(function(newval) {

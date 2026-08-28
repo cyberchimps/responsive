@@ -181,6 +181,9 @@ function responsive_customizer_styles() {
 	$logo_custom_width   = esc_html( get_theme_mod( 'responsive_logo_width' ) );
 	$logo_custom_width_tablet = esc_html( get_theme_mod( 'responsive_logo_width_tablet' ) );
 	$logo_custom_width_mobile = esc_html( get_theme_mod( 'responsive_logo_width_mobile') );
+	$transparent_header_logo_custom_width        = esc_html( get_theme_mod( 'responsive_transparent_header_logo_width' ) );
+	$transparent_header_logo_custom_width_tablet = esc_html( get_theme_mod( 'responsive_transparent_header_logo_width_tablet' ) );
+	$transparent_header_logo_custom_width_mobile = esc_html( get_theme_mod( 'responsive_transparent_header_logo_width_mobile' ) );
 
 	$global_sidebar_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
 	$page_sidebar_setting = get_theme_mod( 'responsive_page_sidebar_position', 'global' );
@@ -1115,6 +1118,28 @@ function responsive_customizer_styles() {
 		$custom_css .= "@media screen and ( max-width: 576px ) {
 			.site-header .custom-logo {
 				width: {$logo_custom_width_mobile}px;
+			}
+		}";
+	}
+
+	if ( $transparent_header_logo_custom_width ) {
+		$custom_css .= ".site-header .transparent-custom-logo img.custom-logo, .site-header .transparent-custom-logo img {
+			width: {$transparent_header_logo_custom_width}px;
+		}";
+	}
+
+	if ( $transparent_header_logo_custom_width_tablet ) {
+		$custom_css .= "@media screen and ( max-width: 992px ) {
+			.site-header .transparent-custom-logo img.custom-logo, .site-header .transparent-custom-logo img {
+				width: {$transparent_header_logo_custom_width_tablet}px;
+			}
+		}";
+	}
+
+	if ( $transparent_header_logo_custom_width_mobile ) {
+		$custom_css .= "@media screen and ( max-width: 576px ) {
+			.site-header .transparent-custom-logo img.custom-logo, .site-header .transparent-custom-logo img {
+				width: {$transparent_header_logo_custom_width_mobile}px;
 			}
 		}";
 	}

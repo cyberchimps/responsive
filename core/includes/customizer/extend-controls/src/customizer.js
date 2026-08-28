@@ -700,6 +700,7 @@
 		setting.bind( function( toggle ) {
 			if ( toggle ) {
 				$( '#customize-control-responsive_transparent_header_logo' ).fadeIn( 300 );
+				$( '#customize-control-responsive_transparent_header_logo_width' ).fadeIn( 300 );
 				$( '#customize-control-responsive_transparent_header_retina_logo_option' ).fadeIn( 300 );
 				if ( wp.customize( 'responsive_transparent_header_retina_logo_option' ) && wp.customize( 'responsive_transparent_header_retina_logo_option' ).get() ) {
 					$( '#customize-control-responsive_transparent_header_retina_logo' ).fadeIn( 300 );
@@ -708,6 +709,7 @@
 				}
 			} else {
 				$( '#customize-control-responsive_transparent_header_logo' ).fadeOut( 300 );
+				$( '#customize-control-responsive_transparent_header_logo_width' ).fadeOut( 300 );
 				$( '#customize-control-responsive_transparent_header_retina_logo_option' ).fadeOut( 300 );
 				$( '#customize-control-responsive_transparent_header_retina_logo' ).fadeOut( 300 );
 			}

@@ -695,6 +695,9 @@ const TabsComponent = props => {
 		}
 		if( ! api('responsive_transparent_header_logo_option').get() ) {
 			document.getElementById('customize-control-responsive_transparent_header_logo').style.display = 'none';
+			if ( document.getElementById('customize-control-responsive_transparent_header_logo_width') ) {
+				document.getElementById('customize-control-responsive_transparent_header_logo_width').style.display = 'none';
+			}
 			if ( document.getElementById('customize-control-responsive_transparent_header_retina_logo_option') ) {
 				document.getElementById('customize-control-responsive_transparent_header_retina_logo_option').style.display = 'none';
 			}
@@ -728,6 +731,9 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_disable_woo_products_transparent_header').style.display = 'none';
 			document.getElementById('customize-control-responsive_transparent_bottom_border').style.display = 'none';
 			document.getElementById('customize-control-responsive_transparent_header_logo').style.display = 'none';
+			if ( document.getElementById('customize-control-responsive_transparent_header_logo_width') ) {
+				document.getElementById('customize-control-responsive_transparent_header_logo_width').style.display = 'none';
+			}
 			if ( document.getElementById('customize-control-responsive_transparent_header_retina_logo_option') ) {
 				document.getElementById('customize-control-responsive_transparent_header_retina_logo_option').style.display = 'none';
 			}
