@@ -695,6 +695,17 @@ const TabsComponent = props => {
 		}
 		if( ! api('responsive_transparent_header_logo_option').get() ) {
 			document.getElementById('customize-control-responsive_transparent_header_logo').style.display = 'none';
+			if ( document.getElementById('customize-control-responsive_transparent_header_retina_logo_option') ) {
+				document.getElementById('customize-control-responsive_transparent_header_retina_logo_option').style.display = 'none';
+			}
+			if ( document.getElementById('customize-control-responsive_transparent_header_retina_logo') ) {
+				document.getElementById('customize-control-responsive_transparent_header_retina_logo').style.display = 'none';
+			}
+		}
+		if( api('responsive_transparent_header_retina_logo_option') && ! api('responsive_transparent_header_retina_logo_option').get() ) {
+			if ( document.getElementById('customize-control-responsive_transparent_header_retina_logo') ) {
+				document.getElementById('customize-control-responsive_transparent_header_retina_logo').style.display = 'none';
+			}
 		}
 		if( ! api('responsive_enable_transparent_header_bottom_border').get() ) {
 			document.getElementById('customize-control-responsive_transparent_bottom_border').style.display = 'none';
@@ -717,6 +728,12 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_disable_woo_products_transparent_header').style.display = 'none';
 			document.getElementById('customize-control-responsive_transparent_bottom_border').style.display = 'none';
 			document.getElementById('customize-control-responsive_transparent_header_logo').style.display = 'none';
+			if ( document.getElementById('customize-control-responsive_transparent_header_retina_logo_option') ) {
+				document.getElementById('customize-control-responsive_transparent_header_retina_logo_option').style.display = 'none';
+			}
+			if ( document.getElementById('customize-control-responsive_transparent_header_retina_logo') ) {
+				document.getElementById('customize-control-responsive_transparent_header_retina_logo').style.display = 'none';
+			}
 		}
 
 		// Show/hide Move Body control based on mobile menu style (only show when dropdown is selected)

@@ -696,6 +696,34 @@
 		$('#customize-control-responsive_site_background_image_size')[method](300);
 	};
 
+	wp.customize( 'responsive_transparent_header_logo_option', function( setting ) {
+		setting.bind( function( toggle ) {
+			if ( toggle ) {
+				$( '#customize-control-responsive_transparent_header_logo' ).fadeIn( 300 );
+				$( '#customize-control-responsive_transparent_header_retina_logo_option' ).fadeIn( 300 );
+				if ( wp.customize( 'responsive_transparent_header_retina_logo_option' ) && wp.customize( 'responsive_transparent_header_retina_logo_option' ).get() ) {
+					$( '#customize-control-responsive_transparent_header_retina_logo' ).fadeIn( 300 );
+				} else {
+					$( '#customize-control-responsive_transparent_header_retina_logo' ).hide();
+				}
+			} else {
+				$( '#customize-control-responsive_transparent_header_logo' ).fadeOut( 300 );
+				$( '#customize-control-responsive_transparent_header_retina_logo_option' ).fadeOut( 300 );
+				$( '#customize-control-responsive_transparent_header_retina_logo' ).fadeOut( 300 );
+			}
+		} );
+	} );
+
+	wp.customize( 'responsive_transparent_header_retina_logo_option', function( setting ) {
+		setting.bind( function( toggle ) {
+			if ( toggle && wp.customize( 'responsive_transparent_header_logo_option' ) && wp.customize( 'responsive_transparent_header_logo_option' ).get() ) {
+				$( '#customize-control-responsive_transparent_header_retina_logo' ).fadeIn( 300 );
+			} else {
+				$( '#customize-control-responsive_transparent_header_retina_logo' ).fadeOut( 300 );
+			}
+		} );
+	} );
+
 	wp.customize.section('responsive_rp_layout', function( section ) {
 		section.container.find('.customize-section-back').on('click', function(e) {
 			e.preventDefault(); // stop default back navigation

@@ -1622,13 +1622,16 @@ div.customize-section-description{
 .responsive-dragging-dropzones .responsive-builder-add-item {
 	display: none;
 }
-#customize-control-responsive_transparent_header_logo .customize-control-title {
+#customize-control-responsive_transparent_header_logo .customize-control-title,
+#customize-control-responsive_transparent_header_retina_logo .customize-control-title {
 	margin-top: 0;
 }
 #customize-control-responsive_transparent_bottom_border .customize-control-title {
 	margin-top: 0;
 }
-#customize-control-responsive_transparent_header_logo {
+#customize-control-responsive_transparent_header_logo,
+#customize-control-responsive_transparent_header_retina_logo {
+	margin-bottom: 0;
 	padding-bottom: 24px;
 }
 .responsive-hfb-builder-item .responsive-hfb-builder-item-icon:focus {

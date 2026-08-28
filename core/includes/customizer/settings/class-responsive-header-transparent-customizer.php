@@ -52,6 +52,8 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 				$general_tab_ids_prefix . 'responsive_transparent_header_logo_option',
 				$general_tab_ids_prefix . 'responsive_enable_transparent_header_bottom_border',
 				$general_tab_ids_prefix . 'responsive_transparent_header_logo',
+				$general_tab_ids_prefix . 'responsive_transparent_header_retina_logo_option',
+				$general_tab_ids_prefix . 'responsive_transparent_header_retina_logo',
 				$general_tab_ids_prefix . 'responsive_transparent_bottom_border',
 				$general_tab_ids_prefix . 'responsive_disable_archive_transparent_header',
 				$general_tab_ids_prefix . 'responsive_disable_blog_page_transparent_header',
@@ -106,10 +108,6 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			$transparent_header_logo_option_label = __( 'Different Logo For Transparent Header ', 'responsive' );
 			responsive_toggle_control( $wp_customize, 'transparent_header_logo_option', $transparent_header_logo_option_label, 'responsive_header_transparent', 25, 0, 'responsive_is_transparent_header_enabled' );
 
-			// Enable Header Bottom Border.
-			$enable_transparent_header_bottom_border_label = __( 'Enable Transparent Header Bottom Border', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'enable_transparent_header_bottom_border', $enable_transparent_header_bottom_border_label, 'responsive_header_transparent', 26, 0, 'responsive_is_transparent_header_enabled' );
-
 			$wp_customize->add_setting(
 				'responsive_transparent_header_logo',
 				array(
@@ -128,11 +126,51 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 						'flex_width'      => true,
 						'height'          => 100, // pixels.
 						'width'           => 300, // pixels.
-						'priority'        => 28,
+						'priority'        => 26,
 						'active_callback' => 'responsive_different_logo_transparent_header',
 					)
 				)
 			);
+
+			// Different Logo For Retina Devices.
+			$transparent_header_retina_logo_option_label = __( 'Different Logo for retina devices?', 'responsive' );
+			responsive_toggle_control(
+				$wp_customize,
+				'transparent_header_retina_logo_option',
+				$transparent_header_retina_logo_option_label,
+				'responsive_header_transparent',
+				27,
+				0,
+				function() {
+					return (bool) ( get_theme_mod( 'responsive_transparent_header_logo_option', 0 ) && responsive_is_transparent_header() );
+				}
+			);
+
+			$wp_customize->add_setting(
+				'responsive_transparent_header_retina_logo',
+				array(
+					'sanitize_callback' => 'esc_url_raw',
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Image_Control(
+					$wp_customize,
+					'responsive_transparent_header_retina_logo',
+					array(
+						'label'           => esc_html__( 'Retina Logo For Transparent Header', 'responsive' ),
+						'section'         => 'responsive_header_transparent',
+						'priority'        => 28,
+						'active_callback' => function() {
+							return (bool) ( get_theme_mod( 'responsive_transparent_header_logo_option', 0 ) && get_theme_mod( 'responsive_transparent_header_retina_logo_option', 0 ) && responsive_is_transparent_header() );
+						},
+					)
+				)
+			);
+
+			// Enable Header Bottom Border.
+			$enable_transparent_header_bottom_border_label = __( 'Enable Transparent Header Bottom Border', 'responsive' );
+			responsive_toggle_control( $wp_customize, 'enable_transparent_header_bottom_border', $enable_transparent_header_bottom_border_label, 'responsive_header_transparent', 29, 0, 'responsive_is_transparent_header_enabled' );
 
 			// Transparent Header Height.
 			// $transparent_header_height_label = __( 'Transparent Header Height', 'responsive' );

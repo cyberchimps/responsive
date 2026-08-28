@@ -1138,6 +1138,24 @@ function responsive_transparent_custom_logo( $html ) {
 
 		/* Replace transparent header logo and width */
 
+		$image_attr = array(
+			'alt'      => get_bloginfo( 'name' ),
+			'class'    => 'custom-logo',
+			'itemprop' => 'logo',
+			'size'     => '(max-width: 204px) 100vw, 204px',
+		);
+
+		$transparent_retina_logo_option = get_theme_mod( 'responsive_transparent_header_retina_logo_option', 0 );
+		$transparent_retina_logo        = get_theme_mod( 'responsive_transparent_header_retina_logo', '' );
+
+		if ( $transparent_retina_logo_option && $transparent_retina_logo ) {
+			$src = wp_get_attachment_image_url( $responsive_transparent_logo, 'full' );
+			if ( $src ) {
+				$image_attr['srcset']              = esc_url( $src ) . ' 1x, ' . esc_url( $transparent_retina_logo ) . ' 2x';
+				$image_attr['data-retina-enabled'] = 'true';
+			}
+		}
+
 		$html = sprintf(
 			'<a href="%1$s" class="custom-logo-link transparent-custom-logo" rel="home" itemprop="url">%2$s</a>',
 			esc_url( get_theme_mod( 'responsive_custom_logo_url', home_url( '/' ) ) ),
@@ -1145,12 +1163,7 @@ function responsive_transparent_custom_logo( $html ) {
 				$responsive_transparent_logo,
 				'full',
 				false,
-				array(
-					'alt'      => get_bloginfo( 'name' ),
-					'class'    => 'custom-logo',
-					'itemprop' => 'logo',
-					'size'     => '(max-width: 204px) 100vw, 204px',
-				)
+				$image_attr
 			)
 		);
 	}
