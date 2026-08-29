@@ -236,13 +236,13 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 			responsive_color_control( $wp_customize, 'secondary_button_border', $button_border_color_label, 'responsive_button', 498, Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_border_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_border_color' ), 'secondary_button_hover_border' );
 
 			// Secondary Buttons Border Width.
-			responsive_borderwidth_control( $wp_customize, 'secondary_buttons_border_width', 'responsive_button', 500, 2, 2, null, $buttons_border_width_label, 'postMessage' );
+			responsive_unit_borderwidth_control( $wp_customize, 'secondary_buttons_border_width', 'responsive_button', 500, 2, 2, null, $buttons_border_width_label, 'postMessage', array( 'px', 'em' ) );
 
 			// Secondary Buttons Radius.
-			responsive_radius_control( $wp_customize, 'secondary_buttons_radius', 'responsive_button', 510, 0, 0, null, $buttons_radius_label );
+			responsive_unit_radius_control( $wp_customize, 'secondary_buttons_radius', 'responsive_button', 510, 0, 0, null, $buttons_radius_label );
 
 			// Secondary Buttons Padding.
-			responsive_padding_control( $wp_customize, 'secondary_buttons', 'responsive_button', 540, 10, 10, null, $buttons_padding_label );
+			responsive_unit_padding_control( $wp_customize, 'secondary_buttons', 'responsive_button', 540, 10, 10, null, $buttons_padding_label );
 
 			// Secondary Separator.
 			responsive_horizontal_separator_control( $wp_customize, 'secondary_button_shadow_separator', 1, 'responsive_button', 545, 1 );
