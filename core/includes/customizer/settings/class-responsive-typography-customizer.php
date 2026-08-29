@@ -402,7 +402,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'footer_copyright' => array(
 					'label'    => esc_html__( 'Typography', 'responsive' ),
 					'target'   => $selectorArray['footer_copyright'],
-					'section'  => 'responsive_footer_layout',
+					'section'  => 'responsive_footer_copyright',
 					'exclude'  => array( 'font-color' ),
 					'priority' => 80,
 					'defaults' => array(

@@ -4995,8 +4995,6 @@ function responsive_customizer_styles() {
 	$footer_margin_tablet_unit = esc_html( get_theme_mod( 'responsive_footer_margin_tablet_unit', 'px' ) );
 	$footer_margin_mobile_unit = esc_html( get_theme_mod( 'responsive_footer_margin_mobile_unit', 'px' ) );
 
-	error_log("DEBUG FOOTER MARGIN: top=$footer_margin_top, right=$footer_margin_right, bottom=$footer_margin_bottom, left=$footer_margin_left, unit=$footer_margin_unit");
-
 	if ( '' !== $footer_margin_top || '' !== $footer_margin_right || '' !== $footer_margin_bottom || '' !== $footer_margin_left ) {
 		$custom_css .= '#footer {
 		    margin: ' . responsive_spacing_css( $footer_margin_top, $footer_margin_right, $footer_margin_bottom, $footer_margin_left, $footer_margin_unit ) . ';
@@ -5077,9 +5075,29 @@ function responsive_customizer_styles() {
 	$copyright_mobile_visibility = get_theme_mod( 'responsive_copyright_mobile', 0 );
 	$copyright_mobile_visibility = ( 1 === $copyright_mobile_visibility ) ? 'none' : 'block';
 
+	$footer_copyright_margin_right  = esc_html( get_theme_mod( 'responsive_footer_copyright_margin_right_padding', '' ) );
+	$footer_copyright_margin_left   = esc_html( get_theme_mod( 'responsive_footer_copyright_margin_left_padding', '' ) );
+	$footer_copyright_margin_top    = esc_html( get_theme_mod( 'responsive_footer_copyright_margin_top_padding', '' ) );
+	$footer_copyright_margin_bottom = esc_html( get_theme_mod( 'responsive_footer_copyright_margin_bottom_padding', '' ) );
+
+	$footer_copyright_margin_tablet_right  = esc_html( get_theme_mod( 'responsive_footer_copyright_margin_tablet_right_padding', '' ) );
+	$footer_copyright_margin_tablet_left   = esc_html( get_theme_mod( 'responsive_footer_copyright_margin_tablet_left_padding', '' ) );
+	$footer_copyright_margin_tablet_top    = esc_html( get_theme_mod( 'responsive_footer_copyright_margin_tablet_top_padding', '' ) );
+	$footer_copyright_margin_tablet_bottom = esc_html( get_theme_mod( 'responsive_footer_copyright_margin_tablet_bottom_padding', '' ) );
+
+	$footer_copyright_margin_mobile_right  = esc_html( get_theme_mod( 'responsive_footer_copyright_margin_mobile_right_padding', '' ) );
+	$footer_copyright_margin_mobile_left   = esc_html( get_theme_mod( 'responsive_footer_copyright_margin_mobile_left_padding', '' ) );
+	$footer_copyright_margin_mobile_top    = esc_html( get_theme_mod( 'responsive_footer_copyright_margin_mobile_top_padding', '' ) );
+	$footer_copyright_margin_mobile_bottom = esc_html( get_theme_mod( 'responsive_footer_copyright_margin_mobile_bottom_padding', '' ) );
+
+	$footer_copyright_margin_unit        = esc_html( get_theme_mod( 'responsive_footer_copyright_margin_desktop_unit', 'px' ) );
+	$footer_copyright_margin_tablet_unit = esc_html( get_theme_mod( 'responsive_footer_copyright_margin_tablet_unit', 'px' ) );
+	$footer_copyright_margin_mobile_unit = esc_html( get_theme_mod( 'responsive_footer_copyright_margin_mobile_unit', 'px' ) );
+
 	if(Responsive\Core\responsive_check_element_present_in_hfb('footer_copyright', 'footer')) {
 		$custom_css .= ".footer-layouts.copyright {
 			display: {$copyright_desktop_visibility};
+			margin: " . responsive_spacing_css( $footer_copyright_margin_top, $footer_copyright_margin_right, $footer_copyright_margin_bottom, $footer_copyright_margin_left, $footer_copyright_margin_unit ) . ";
 		}";
 	}
 
@@ -5088,11 +5106,15 @@ function responsive_customizer_styles() {
 		@media screen and ( max-width: 992px ) {
 			.footer-layouts.copyright {
 					display: {$copyright_tablet_visibility};
+					margin: ". responsive_spacing_css( $footer_copyright_margin_tablet_top, $footer_copyright_margin_tablet_right, $footer_copyright_margin_tablet_bottom, $footer_copyright_margin_tablet_left, $footer_copyright_margin_tablet_unit ) . ";
+
 			}
 		}
 		@media screen and ( max-width: 576px ) {
 			.footer-layouts.copyright {
 					display: {$copyright_mobile_visibility};
+					margin: " . responsive_spacing_css( $footer_copyright_margin_mobile_top, $footer_copyright_margin_mobile_right, $footer_copyright_margin_mobile_bottom, $footer_copyright_margin_mobile_left, $footer_copyright_margin_mobile_unit ) . ";
+
 			}
 		}";
 	}

@@ -130,7 +130,7 @@ if( ! class_exists( 'Responsive_HFB_Footer_Above_Row' ) ) {
 			$footer_above_row_border_color_label = __( 'Top Border Color', 'responsive' );
 			responsive_color_control_with_device_switchers( $wp_customize, 'footer_above_row_border', $footer_above_row_border_color_label, 'responsive_footer_above_row', 100, Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_above_row_border_color' ), null, '' );
 
-						// Top Border Type
+			// Top Border Type
 			$top_border_type_label = esc_html__( 'Top Border Type', 'responsive' );
 			$top_border_type_choices   = array(
 				'solid'     => esc_html__( 'Solid', 'responsive' ),

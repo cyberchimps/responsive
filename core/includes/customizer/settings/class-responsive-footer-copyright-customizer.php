@@ -48,6 +48,8 @@ if ( ! class_exists( 'Responsive_Footer_Copyright_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_footer_copyright_text_color',
 				$design_tab_ids_prefix . 'responsive_footer_copyright_links_color',
 				$design_tab_ids_prefix . 'responsive_footer_copyright_padding',
+				$design_tab_ids_prefix . 'responsive_footer_copyright_margin_padding',
+				$design_tab_ids_prefix . 'responsive_footer_copyright_typography_group',
 				$design_tab_ids_prefix . 'responsive_footer_copyright_separator_2',
 				$design_tab_ids_prefix . 'responsive_footer_copyright_separator_4',
 			);
@@ -162,13 +164,17 @@ if ( ! class_exists( 'Responsive_Footer_Copyright_Customizer' ) ) :
             
             // Typography
 			$footer_copyright_typography_label = __( 'Copyright Font', 'responsive' );
-			responsive_typography_group_control( $wp_customize, 'footer_copyright_typography_group', $footer_copyright_typography_label, 'responsive_footer_layout', 80, 'footer_copyright_typography' );
+			responsive_typography_group_control( $wp_customize, 'footer_copyright_typography_group', $footer_copyright_typography_label, 'responsive_footer_copyright', 80, 'footer_copyright_typography' );
 
-            responsive_horizontal_separator_control($wp_customize, 'footer_copyright_separator_4', 2, 'responsive_footer_copyright', 85, 1, );
+            responsive_horizontal_separator_control($wp_customize, 'footer_copyright_separator_4', 1, 'responsive_footer_copyright', 85, 1, );
 
             // Padding.
 			$footer_copyright_padding_label = __( 'Padding (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'footer_copyright', 'responsive_footer_copyright', 100, 15, 15, null, $footer_copyright_padding_label );
+			responsive_unit_padding_control( $wp_customize, 'footer_copyright', 'responsive_footer_copyright', 100, 15, 15, null, $footer_copyright_padding_label, 'postMessage', '', '', '', '', 'px', 15, 15, '','','','' );
+
+			// Margin
+			$footer_copyright_padding_label = __( 'Margin', 'responsive' );
+			responsive_unit_padding_control( $wp_customize, 'footer_copyright_margin', 'responsive_footer_copyright', 101, 0, 0, null, __( 'Margin', 'responsive' ), 'postMessage', '', '', '', '', 'px', 0, 0, '','','','' );
 
 		}
 	}
