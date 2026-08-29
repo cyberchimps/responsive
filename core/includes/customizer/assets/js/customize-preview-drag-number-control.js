@@ -1193,39 +1193,7 @@
             );
         });
     });
-    api( 'responsive_footer_primary_row_top_border_size', function(value){
-        value.bind(function(newval) {
-            jQuery('style#responsive-footer-primary-row-top-border-size').remove();
-            jQuery('head').append(
-                '<style id="responsive-footer-primary-row-top-border-size">'
-                + '@media screen and (min-width: 993px) {'
-                + '.rspv-site-primary-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_primary_row_border_color').get() + '; }'
-                + '} </style>'
-            );
-        });
-    });
-    api( 'responsive_footer_primary_row_top_border_size_tablet', function(value){
-        value.bind(function(newval) {
-            jQuery('style#responsive-footer-primary-row-top-border-size-tablet').remove();
-            jQuery('head').append(
-                '<style id="responsive-footer-primary-row-top-border-size-tablet">'
-                + '@media screen and (min-width: 577px) and (max-width: 992px) {'
-                + '.rspv-site-primary-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_primary_row_border_color_tablet').get() + '; }'
-                + '} </style>'
-            );
-        });
-    });
-    api( 'responsive_footer_primary_row_top_border_size_mobile', function(value){
-        value.bind(function(newval) {
-            jQuery('style#responsive-footer-primary-row-top-border-size-mobile').remove();
-            jQuery('head').append(
-                '<style id="responsive-footer-primary-row-top-border-size-mobile">'
-                + '@media screen and (max-width: 576px) {'
-                + '.rspv-site-primary-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_primary_row_border_color_mobile').get() + '; }'
-                + '} </style>'
-            );
-        });
-    });
+
     // Above footer
     api('responsive_footer_above_height', function(value) {
         value.bind(function(newval) {
@@ -1289,39 +1257,7 @@
             );
         });
     });
-    api( 'responsive_footer_above_row_top_border_size', function(value){
-        value.bind(function(newval) {
-            jQuery('style#responsive-footer-above-row-top-border-size').remove();
-            jQuery('head').append(
-                '<style id="responsive-footer-above-row-top-border-size">'
-                + '@media screen and (min-width: 993px) {'
-                + '.rspv-site-above-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_above_row_border_color').get() + '; }'
-                + '} </style>'
-            );
-        });
-    });
-    api( 'responsive_footer_above_row_top_border_size_tablet', function(value){
-        value.bind(function(newval) {
-            jQuery('style#responsive-footer-above-row-top-border-size-tablet').remove();
-            jQuery('head').append(
-                '<style id="responsive-footer-above-row-top-border-size-tablet">'
-                + '@media screen and (min-width: 577px) and (max-width: 992px) {'
-                + '.rspv-site-above-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_above_row_border_color_tablet').get() + '; }'
-                + '} </style>'
-            );
-        });
-    });
-    api( 'responsive_footer_above_row_top_border_size_mobile', function(value){
-        value.bind(function(newval) {
-            jQuery('style#responsive-footer-above-row-top-border-size-mobile').remove();
-            jQuery('head').append(
-                '<style id="responsive-footer-above-row-top-border-size-mobile">'
-                + '@media screen and (max-width: 576px) {'
-                + '.rspv-site-above-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_above_row_border_color_mobile').get() + '; }'
-                + '} </style>'
-            );
-        });
-    });
+
     // Below footer
     api('responsive_footer_below_height', function(value) {
         value.bind(function(newval) {
@@ -1385,39 +1321,7 @@
             );
         });
     });
-    api( 'responsive_footer_below_row_top_border_size', function(value){
-        value.bind(function(newval) {
-            jQuery('style#responsive-footer-below-row-top-border-size').remove();
-            jQuery('head').append(
-                '<style id="responsive-footer-below-row-top-border-size">'
-                + '@media screen and (min-width: 993px) {'
-                + '.rspv-site-below-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_below_row_border_color').get() + '; }'
-                + '} </style>'
-            );
-        });
-    });
-    api( 'responsive_footer_below_row_top_border_size_tablet', function(value){
-        value.bind(function(newval) {
-            jQuery('style#responsive-footer-below-row-top-border-size-tablet').remove();
-            jQuery('head').append(
-                '<style id="responsive-footer-below-row-top-border-size-tablet">'
-                + '@media screen and (min-width: 577px) and (max-width: 992px) {'
-                + '.rspv-site-below-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_below_row_border_color_tablet').get() + '; }'
-                + '} </style>'
-            );
-        });
-    });
-    api( 'responsive_footer_below_row_top_border_size_mobile', function(value){
-        value.bind(function(newval) {
-            jQuery('style#responsive-footer-below-row-top-border-size-mobile').remove();
-            jQuery('head').append(
-                '<style id="responsive-footer-below-row-top-border-size-mobile">'
-                + '@media screen and (max-width: 576px) {'
-                + '.rspv-site-below-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_below_row_border_color_mobile').get() + '; }'
-                + '} </style>'
-            );
-        });
-    });
+
     api( 'responsive_header_button_border_width', function(value) {
         value.bind(function(newval) {
             let header_button_border_style = api('responsive_header_button_border_style').get();

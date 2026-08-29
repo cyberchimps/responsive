@@ -3206,54 +3206,7 @@
             );
         })
     });
-    api('responsive_footer_primary_row_border_color', function(val) {
-        val.bind(function(newval) {
 
-            const borderSize = api('responsive_footer_primary_row_top_border_size').get();
-
-            jQuery('style#responsive-footer-primary-row-border-color').remove();
-
-            jQuery('head').append(
-                '<style id="responsive-footer-primary-row-border-color">' +
-                '@media screen and (min-width: 993px) {' +
-                ' .rspv-site-primary-footer-wrap { border-top: ' + borderSize + 'px solid ' + newval + '; }' +
-                '}' +
-                '</style>'
-            );
-        });
-    });
-    api('responsive_footer_primary_row_border_color_tablet', function(val) {
-        val.bind(function(newval) {
-
-            const borderSize = api('responsive_footer_primary_row_top_border_size_tablet').get();
-
-            jQuery('style#responsive-footer-primary-row-border-color-tablet').remove();
-
-            jQuery('head').append(
-                '<style id="responsive-footer-primary-row-border-color-tablet">' +
-                '@media screen and (min-width: 577px) and (max-width: 992px) {' +
-                ' .rspv-site-primary-footer-wrap { border-top: ' + borderSize + 'px solid ' + newval + '; }' +
-                '}' +
-                '</style>'
-            );
-        });
-    });
-    api('responsive_footer_primary_row_border_color_mobile', function(val) {
-        val.bind(function(newval) {
-
-            const borderSize = api('responsive_footer_primary_row_top_border_size_mobile').get();
-
-            jQuery('style#responsive-footer-primary-row-border-color-mobile').remove();
-
-            jQuery('head').append(
-                '<style id="responsive-footer-primary-row-border-color-mobile">' +
-                '@media screen and (max-width: 576px) {' +
-                ' .rspv-site-primary-footer-wrap { border-top: ' + borderSize + 'px solid ' + newval + '; }' +
-                '}' +
-                '</style>'
-            );
-        });
-    });
     // above footer
     api( 'responsive_footer_above_row_bg_color', function(val){
         val.bind(function(newval){
@@ -3287,54 +3240,7 @@
             );
         } );
     } );
-    api('responsive_footer_above_row_border_color', function(val) {
-        val.bind(function(newval) {
 
-            const borderSize = api('responsive_footer_above_row_top_border_size').get();
-
-            jQuery('style#responsive-footer-above-row-border-color').remove();
-
-            jQuery('head').append(
-                '<style id="responsive-footer-above-row-border-color">' +
-                '@media screen and (min-width: 993px) {' +
-                ' .rspv-site-above-footer-wrap { border-top: ' + borderSize + 'px solid ' + newval + '; }' +
-                '}' +
-                '</style>'
-            );
-        });
-    });
-    api('responsive_footer_above_row_border_color_tablet', function(val) {
-        val.bind(function(newval) {
-
-            const borderSize = api('responsive_footer_above_row_top_border_size_tablet').get();
-
-            jQuery('style#responsive-footer-above-row-border-color-tablet').remove();
-
-            jQuery('head').append(
-                '<style id="responsive-footer-above-row-border-color-tablet">' +
-                '@media screen and (min-width: 577px) and (max-width: 992px) {' +
-                ' .rspv-site-above-footer-wrap { border-top: ' + borderSize + 'px solid ' + newval + '; }' +
-                '}' +
-                '</style>'
-            );
-        });
-    });
-    api('responsive_footer_above_row_border_color_mobile', function(val) {
-        val.bind(function(newval) {
-
-            const borderSize = api('responsive_footer_above_row_top_border_size_mobile').get();
-
-            jQuery('style#responsive-footer-above-row-border-color-mobile').remove();
-
-            jQuery('head').append(
-                '<style id="responsive-footer-above-row-border-color-mobile">' +
-                '@media screen and (max-width: 576px) {' +
-                ' .rspv-site-above-footer-wrap { border-top: ' + borderSize + 'px solid ' + newval + '; }' +
-                '}' +
-                '</style>'
-            );
-        });
-    });
     // below footer
     api( 'responsive_footer_below_row_bg_color', function(val){
         val.bind(function(newval){
@@ -3368,53 +3274,62 @@
             );
         } );
     } );
-    api('responsive_footer_below_row_border_color', function(val) {
-        val.bind(function(newval) {
 
-            const borderSize = api('responsive_footer_below_row_top_border_size').get();
+    const footerBorderRows = [
+        { type: 'above',   selector: '.rspv-site-above-footer-wrap' },
+        { type: 'primary', selector: '.rspv-site-primary-footer-wrap' },
+        { type: 'below',   selector: '.rspv-site-below-footer-wrap' },
+    ];
 
-            jQuery('style#responsive-footer-below-row-border-color').remove();
+    const footerBorderBreakpoints = [
+        { device: 'desktop', suffix: '',        media: '@media screen and (min-width: 993px)' },
+        { device: 'tablet',  suffix: '_tablet', media: '@media screen and (min-width: 577px) and (max-width: 992px)' },
+        { device: 'mobile',  suffix: '_mobile', media: '@media screen and (max-width: 576px)' },
+    ];
 
-            jQuery('head').append(
-                '<style id="responsive-footer-below-row-border-color">' +
-                '@media screen and (min-width: 993px) {' +
-                ' .rspv-site-below-footer-wrap { border-top: ' + borderSize + 'px solid ' + newval + '; }' +
-                '}' +
-                '</style>'
-            );
+    function responsive_bind_footer_border(rowType, selector, side) {
+        // side: 'top' or 'bottom'
+
+        footerBorderBreakpoints.forEach(function (bp) {
+
+            const sizeId  = `responsive_footer_${rowType}_row_${side}_border_size${bp.suffix}`;
+            const typeId  = `responsive_footer_${rowType}_${side}_border_type${bp.suffix}`;
+            // top color setting has no "top"/side token; bottom does (per your PHP)
+            const colorId = side === 'top'
+                ? `responsive_footer_${rowType}_row_border_color${bp.suffix}`
+                : `responsive_footer_${rowType}_row_${side}_border_color${bp.suffix}`;
+
+            const styleId = `responsive-footer-${rowType}-row-${side}-border-${bp.device}`;
+
+            function update() {
+                const borderSize  = api(sizeId).get();
+                const borderType  = api(typeId) ? api(typeId).get() : 'solid';
+                const borderColor = api(colorId).get();
+
+                jQuery('style#' + styleId).remove();
+
+                jQuery('head').append(
+                    '<style id="' + styleId + '">' +
+                    bp.media + ' {' +
+                    ' ' + selector + ' { border-' + side + ': ' + borderSize + 'px ' + borderType + ' ' + borderColor + '; }' +
+                    '}' +
+                    '</style>'
+                );
+            }
+
+            // Any of the 3 controls (size/type/color) changing re-renders this row+side+breakpoint
+            api(sizeId, function (val) { val.bind(update); });
+            if (api(typeId)) {
+                api(typeId, function (val) { val.bind(update); });
+            }
+            api(colorId, function (val) { val.bind(update); });
         });
-    });
-    api('responsive_footer_below_row_border_color_tablet', function(val) {
-        val.bind(function(newval) {
+    }
 
-            const borderSize = api('responsive_footer_below_row_top_border_size_tablet').get();
-
-            jQuery('style#responsive-footer-below-row-border-color-tablet').remove();
-
-            jQuery('head').append(
-                '<style id="responsive-footer-below-row-border-color-tablet">' +
-                '@media screen and (min-width: 577px) and (max-width: 992px) {' +
-                ' .rspv-site-below-footer-wrap { border-top: ' + borderSize + 'px solid ' + newval + '; }' +
-                '}' +
-                '</style>'
-            );
-        });
-    });
-    api('responsive_footer_below_row_border_color_mobile', function(val) {
-        val.bind(function(newval) {
-
-            const borderSize = api('responsive_footer_below_row_top_border_size_mobile').get();
-
-            jQuery('style#responsive-footer-below-row-border-color-mobile').remove();
-
-            jQuery('head').append(
-                '<style id="responsive-footer-below-row-border-color-mobile">' +
-                '@media screen and (max-width: 576px) {' +
-                ' .rspv-site-below-footer-wrap { border-top: ' + borderSize + 'px solid ' + newval + '; }' +
-                '}' +
-                '</style>'
-            );
-        });
+    // Bind top and bottom border live-preview for every footer row
+    footerBorderRows.forEach(function (row) {
+        responsive_bind_footer_border(row.type, row.selector, 'top');
+        responsive_bind_footer_border(row.type, row.selector, 'bottom');
     });
 
     api( 'responsive_footer_menu_background_color', function(val){
