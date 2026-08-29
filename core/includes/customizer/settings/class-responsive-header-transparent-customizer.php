@@ -100,6 +100,10 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_transparent_header_widget_border_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_widget_link_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_widget_link_hover_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_button_color_separator',
+				$design_tab_ids_prefix . 'responsive_transparent_header_button_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_button_bg_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_button_border_color',
 			);
 
 			responsive_tabs_button_control( $wp_customize, 'header_transparent_tabs', $tabs_label, 'responsive_header_transparent', 1, '', 'responsive_header_transparent_general_tab', 'responsive_header_transparent_design_tab', $general_tab_ids, $design_tab_ids, null );
@@ -343,6 +347,24 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			// Link Hover Color.
 			$menu_link_hover_color_label = __( 'Links Hover Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'transparent_header_widget_link_hover', $menu_link_hover_color_label, 'responsive_header_transparent', 320, Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link_hover' ), null );
+
+			/**
+			 * Header Button Separator.
+			 */
+			$transparent_header_button_separator_label = esc_html__( 'Button Color', 'responsive' );
+			responsive_separator_control( $wp_customize, 'transparent_header_button_color_separator', $transparent_header_button_separator_label, 'responsive_header_transparent', 330, null );
+
+			// Text Color.
+			$button_text_color_label = __( 'Text', 'responsive' );
+			responsive_color_control( $wp_customize, 'transparent_header_button', $button_text_color_label, 'responsive_header_transparent', 340, '', null, '', true, '', 'transparent_header_button_hover' );
+
+			// Background Color.
+			$button_background_color_label = __( 'Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'transparent_header_button_bg', $button_background_color_label, 'responsive_header_transparent', 350, '', null, '', true, '', 'transparent_header_button_bg_hover' );
+
+			// Border Color.
+			$button_border_color_label = __( 'Border Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'transparent_header_button_border', $button_border_color_label, 'responsive_header_transparent', 360, '', null, '', true, '', 'transparent_header_button_border_hover' );
 
 		}
 	}
