@@ -69,6 +69,9 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			$design_tab_ids        = array(
 				$design_tab_ids_prefix . 'responsive_site_content_padding',
 				$design_tab_ids_prefix . 'responsive_tranparent_header_color_separator',
+				$design_tab_ids_prefix . 'responsive_transparent_header_above_header_bg_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_primary_header_bg_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_below_header_bg_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_border_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_site_title_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_site_title_hover_color',
@@ -223,6 +226,15 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			 */
 			$tranparent_header_color_separator_label = esc_html__( 'Transparent Header Colors', 'responsive' );
 			responsive_separator_control( $wp_customize, 'tranparent_header_color_separator', $tranparent_header_color_separator_label, 'responsive_header_transparent', 100, null );
+
+			$transparent_header_above_header_bg_color_label = __( 'Above Header Background', 'responsive' );
+			responsive_color_control_with_device_switchers( $wp_customize, 'transparent_header_above_header_bg', $transparent_header_above_header_bg_color_label, 'responsive_header_transparent', 105, '', null, '', 'postMessage', true );
+
+			$transparent_header_primary_header_bg_color_label = __( 'Primary Header Background', 'responsive' );
+			responsive_color_control_with_device_switchers( $wp_customize, 'transparent_header_primary_header_bg', $transparent_header_primary_header_bg_color_label, 'responsive_header_transparent', 110, '', null, '', 'postMessage', true );
+
+			$transparent_header_below_header_bg_color_label = __( 'Below Header Background', 'responsive' );
+			responsive_color_control_with_device_switchers( $wp_customize, 'transparent_header_below_header_bg', $transparent_header_below_header_bg_color_label, 'responsive_header_transparent', 115, '', null, '', 'postMessage', true );
 
 			$transparent_header_border_color_label = __( 'Border Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'transparent_header_border', $transparent_header_border_color_label, 'responsive_header_transparent', 120, Responsive\Core\get_responsive_customizer_defaults( 'header_border' ), null );

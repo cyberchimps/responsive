@@ -2533,6 +2533,120 @@ function responsive_customizer_styles() {
 				border-bottom-color: {$header_border_color};
 			}
 		";
+
+		// Row Background Colors.
+		$transparent_header_above_header_bg_color        = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_above_header_bg_color', '' ) );
+		$transparent_header_above_header_bg_color_tablet = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_above_header_bg_color_tablet', $transparent_header_above_header_bg_color ) );
+		$transparent_header_above_header_bg_color_mobile = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_above_header_bg_color_mobile', $transparent_header_above_header_bg_color ) );
+
+		$transparent_header_primary_header_bg_color        = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_primary_header_bg_color', '' ) );
+		$transparent_header_primary_header_bg_color_tablet = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_primary_header_bg_color_tablet', $transparent_header_primary_header_bg_color ) );
+		$transparent_header_primary_header_bg_color_mobile = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_primary_header_bg_color_mobile', $transparent_header_primary_header_bg_color ) );
+
+		$transparent_header_below_header_bg_color        = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_below_header_bg_color', '' ) );
+		$transparent_header_below_header_bg_color_tablet = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_below_header_bg_color_tablet', $transparent_header_below_header_bg_color ) );
+		$transparent_header_below_header_bg_color_mobile = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_below_header_bg_color_mobile', $transparent_header_below_header_bg_color ) );
+
+		if ( $transparent_header_above_header_bg_color ) {
+			$custom_css .= "
+				body.res-transparent-header .responsive-site-above-header-wrap,
+				body.res-transparent-header .responsive-site-above-mobile-header-wrap,
+				body.res-transparent-header .responsive-site-above-header-wrap:hover,
+				body.res-transparent-header .responsive-site-above-mobile-header-wrap:hover {
+					background-color: {$transparent_header_above_header_bg_color};
+				}
+			";
+		}
+		if ( $transparent_header_primary_header_bg_color ) {
+			$custom_css .= "
+				body.res-transparent-header .responsive-site-primary-header-wrap,
+				body.res-transparent-header .responsive-site-primary-mobile-header-wrap,
+				body.res-transparent-header .responsive-site-primary-header-wrap:hover,
+				body.res-transparent-header .responsive-site-primary-mobile-header-wrap:hover {
+					background-color: {$transparent_header_primary_header_bg_color};
+				}
+			";
+		}
+		if ( $transparent_header_below_header_bg_color ) {
+			$custom_css .= "
+				body.res-transparent-header .responsive-site-below-header-wrap,
+				body.res-transparent-header .responsive-site-below-mobile-header-wrap,
+				body.res-transparent-header .responsive-site-below-header-wrap:hover,
+				body.res-transparent-header .responsive-site-below-mobile-header-wrap:hover {
+					background-color: {$transparent_header_below_header_bg_color};
+				}
+			";
+		}
+
+		if ( $transparent_header_above_header_bg_color_tablet || $transparent_header_primary_header_bg_color_tablet || $transparent_header_below_header_bg_color_tablet ) {
+			$custom_css .= "@media screen and (max-width: 992px) {";
+			if ( $transparent_header_above_header_bg_color_tablet ) {
+				$custom_css .= "
+					body.res-transparent-header .responsive-site-above-header-wrap,
+					body.res-transparent-header .responsive-site-above-mobile-header-wrap,
+					body.res-transparent-header .responsive-site-above-header-wrap:hover,
+					body.res-transparent-header .responsive-site-above-mobile-header-wrap:hover {
+						background-color: {$transparent_header_above_header_bg_color_tablet};
+					}
+				";
+			}
+			if ( $transparent_header_primary_header_bg_color_tablet ) {
+				$custom_css .= "
+					body.res-transparent-header .responsive-site-primary-header-wrap,
+					body.res-transparent-header .responsive-site-primary-mobile-header-wrap,
+					body.res-transparent-header .responsive-site-primary-header-wrap:hover,
+					body.res-transparent-header .responsive-site-primary-mobile-header-wrap:hover {
+						background-color: {$transparent_header_primary_header_bg_color_tablet};
+					}
+				";
+			}
+			if ( $transparent_header_below_header_bg_color_tablet ) {
+				$custom_css .= "
+					body.res-transparent-header .responsive-site-below-header-wrap,
+					body.res-transparent-header .responsive-site-below-mobile-header-wrap,
+					body.res-transparent-header .responsive-site-below-header-wrap:hover,
+					body.res-transparent-header .responsive-site-below-mobile-header-wrap:hover {
+						background-color: {$transparent_header_below_header_bg_color_tablet};
+					}
+				";
+			}
+			$custom_css .= "}";
+		}
+
+		if ( $transparent_header_above_header_bg_color_mobile || $transparent_header_primary_header_bg_color_mobile || $transparent_header_below_header_bg_color_mobile ) {
+			$custom_css .= "@media screen and (max-width: 576px) {";
+			if ( $transparent_header_above_header_bg_color_mobile ) {
+				$custom_css .= "
+					body.res-transparent-header .responsive-site-above-header-wrap,
+					body.res-transparent-header .responsive-site-above-mobile-header-wrap,
+					body.res-transparent-header .responsive-site-above-header-wrap:hover,
+					body.res-transparent-header .responsive-site-above-mobile-header-wrap:hover {
+						background-color: {$transparent_header_above_header_bg_color_mobile};
+					}
+				";
+			}
+			if ( $transparent_header_primary_header_bg_color_mobile ) {
+				$custom_css .= "
+					body.res-transparent-header .responsive-site-primary-header-wrap,
+					body.res-transparent-header .responsive-site-primary-mobile-header-wrap,
+					body.res-transparent-header .responsive-site-primary-header-wrap:hover,
+					body.res-transparent-header .responsive-site-primary-mobile-header-wrap:hover {
+						background-color: {$transparent_header_primary_header_bg_color_mobile};
+					}
+				";
+			}
+			if ( $transparent_header_below_header_bg_color_mobile ) {
+				$custom_css .= "
+					body.res-transparent-header .responsive-site-below-header-wrap,
+					body.res-transparent-header .responsive-site-below-mobile-header-wrap,
+					body.res-transparent-header .responsive-site-below-header-wrap:hover,
+					body.res-transparent-header .responsive-site-below-mobile-header-wrap:hover {
+						background-color: {$transparent_header_below_header_bg_color_mobile};
+					}
+				";
+			}
+			$custom_css .= "}";
+		}
 	} else {
 
 		// Header colors.
