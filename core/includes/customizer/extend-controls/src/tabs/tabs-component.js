@@ -604,15 +604,10 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_blog_entry_columns').style.display = 'none';
 			document.getElementById('customize-control-responsive_blog_content_width_separator').style.display = 'none';
 			document.getElementById('customize-control-responsive_blog_entry_display_masonry').style.display = 'none';
-			document.getElementById('customize-control-responsive_blog_cover_background_color').style.display = 'none';
 		}
 		if( 'grid' === api('responsive_blog_layout').get() ) {
 			document.getElementById('customize-control-responsive_blog_image_positions_layout_separator').style.display = 'none';
 			document.getElementById('customize-control-responsive_blog_layout_options').style.display = 'none';
-			document.getElementById('customize-control-responsive_blog_cover_background_color').style.display = 'none';
-		}
-		if( 'grid' === api('responsive_blog_layout').get() ) {
-			document.getElementById('customize-control-responsive_blog_cover_background_color').style.display = 'block';
 		}
 		
 		if( api('responsive_blog_entry_columns').get() <= 1 ) {
