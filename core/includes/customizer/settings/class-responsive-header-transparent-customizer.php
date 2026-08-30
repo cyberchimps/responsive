@@ -110,6 +110,8 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_transparent_header_search_color_separator',
 				$design_tab_ids_prefix . 'responsive_transparent_header_search_icon_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_search_bg_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_html_color_separator',
+				$design_tab_ids_prefix . 'responsive_transparent_header_html_link_color',
 			);
 
 			responsive_tabs_button_control( $wp_customize, 'header_transparent_tabs', $tabs_label, 'responsive_header_transparent', 1, '', 'responsive_header_transparent_general_tab', 'responsive_header_transparent_design_tab', $general_tab_ids, $design_tab_ids, null );
@@ -399,6 +401,16 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			// Search Background Color.
 			$search_bg_color_label = __( 'Background Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'transparent_header_search_bg', $search_bg_color_label, 'responsive_header_transparent', 405, '', null, '', true, '', 'transparent_header_search_bg_hover' );
+
+			/**
+			 * Header HTML Separator.
+			 */
+			$transparent_header_html_separator_label = esc_html__( 'HTML Color', 'responsive' );
+			responsive_separator_control( $wp_customize, 'transparent_header_html_color_separator', $transparent_header_html_separator_label, 'responsive_header_transparent', 410, null );
+
+			// HTML Link Color.
+			$html_link_color_label = __( 'Link Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'transparent_header_html_link', $html_link_color_label, 'responsive_header_transparent', 415, '', null, '', true, '', 'transparent_header_html_link_hover' );
 
 		}
 	}

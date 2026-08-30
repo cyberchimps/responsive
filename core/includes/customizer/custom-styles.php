@@ -2718,6 +2718,27 @@ function responsive_customizer_styles() {
 			";
 		}
 
+		// Header HTML Color.
+		$transparent_header_html_link_color       = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_html_link_color', '' ) );
+		$transparent_header_html_link_hover_color = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_html_link_hover_color', '' ) );
+
+		if ( $transparent_header_html_link_color ) {
+			$custom_css .= "
+				body.res-transparent-header .site-header .responsive-header-html .responsive-header-html-inner a,
+				body.res-transparent-header .site-header-mobile .responsive-mobile-header-html .responsive-mobile-header-html-inner a {
+					color: {$transparent_header_html_link_color};
+				}
+			";
+		}
+		if ( $transparent_header_html_link_hover_color ) {
+			$custom_css .= "
+				body.res-transparent-header .site-header .responsive-header-html .responsive-header-html-inner a:hover,
+				body.res-transparent-header .site-header-mobile .responsive-mobile-header-html .responsive-mobile-header-html-inner a:hover {
+					color: {$transparent_header_html_link_hover_color};
+				}
+			";
+		}
+
 		// Row Background Colors.
 		$transparent_header_above_header_bg_color        = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_above_header_bg_color', '' ) );
 		$transparent_header_above_header_bg_color_tablet = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_above_header_bg_color_tablet', $transparent_header_above_header_bg_color ) );
