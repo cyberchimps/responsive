@@ -296,7 +296,8 @@ label.responsive_font_weight select option:checked {
 	padding-top: 0;
 	padding-bottom: 0;
 }
-#customize-control-responsive_button_typography_group {
+#customize-control-responsive_button_typography_group,
+#customize-control-responsive_secondary_button_typography_group {
 	padding-top: 20px;
 }
 #customize-control-responsive_input_typography_group {

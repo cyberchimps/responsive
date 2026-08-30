@@ -24,6 +24,7 @@ if ( ! class_exists( 'Responsive_Background_Image_Customizer' ) ) :
 			'transparent_header_widget_background' => 'Background Color',
 			'sidebar_background'                   => 'Background Color',
 			'button_background'                    => 'Button Color',
+			'secondary_button_background'          => 'Button Color',
 			'inputs_background'                    => 'Input Color',
 		);
 
@@ -118,6 +119,7 @@ if ( ! class_exists( 'Responsive_Background_Image_Customizer' ) ) :
 				$this->background_image_control( $wp_customize, 'sidebar_background', $background_label, 'responsive_sidebar', 45 );
 				$this->background_image_control( $wp_customize, 'box_background', $content_background_label, 'responsive_colors', 115 );
 				$this->background_image_control( $wp_customize, 'button_background', $background_label, 'responsive_button', 135 );
+				$this->background_image_control( $wp_customize, 'secondary_button_background', $background_label, 'responsive_button', 335 );
 				$this->background_image_control( $wp_customize, 'inputs_background', $background_label, 'responsive_form_fields', 205 );
 			}
 		}

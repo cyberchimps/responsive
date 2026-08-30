@@ -1119,7 +1119,7 @@
         'input[type=submit],' +
         'button:not(.responsive-header-button):not(.customize-partial-edit-shortcut-button),' +
         '.button:not(.responsive-header-button):not(.customize-partial-edit-shortcut-button),' +
-        '.wp-block-button__link,' +
+        '.wp-block-button:not(.is-style-outline) > .wp-block-button__link,' +
         'div.wpforms-container-full .wpforms-form input[type=submit],' +
         'body div.wpforms-container-full .wpforms-form button[type=submit],' +
         'div.wpforms-container-full .wpforms-form .wpforms-page-button';
@@ -1133,7 +1133,7 @@
         'input[type=submit]:hover,' +
         'button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button):not(.customize-partial-edit-shortcut-button),' +
         '.button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button):not(.customize-partial-edit-shortcut-button),' +
-        '.wp-block-button__link:hover,' +
+        '.wp-block-button:not(.is-style-outline) > .wp-block-button__link:hover,' +
         'div.wpforms-container-full .wpforms-form input[type=submit]:hover,' +
         'body div.wpforms-container-full .wpforms-form button[type=submit]:hover,' +
         'div.wpforms-container-full .wpforms-form .wpforms-page-button:hover';
@@ -1264,16 +1264,202 @@
             if( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
-            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button]:not(.customize-partial-edit-shortcut-button),input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button:not(.customize-partial-edit-shortcut-button),.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').not('.footer-widget-area a').css('color', newval );
+            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button]:not(.customize-partial-edit-shortcut-button),input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button:not(.customize-partial-edit-shortcut-button),.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').not('.footer-widget-area a').css('color', newval );
         } );
     } );
 
     //Buttons border color
     api( 'responsive_button_border_color', function( value ) {
         value.bind( function( newval ) {
-            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button]:not(.customize-partial-edit-shortcut-button),input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button:not(.customize-partial-edit-shortcut-button),.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').css('border-color', newval );
+            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button]:not(.customize-partial-edit-shortcut-button),input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button:not(.customize-partial-edit-shortcut-button),.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').css('border-color', newval );
         } );
     } );
+
+    //Secondary Buttons color
+    api( 'responsive_secondary_button_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            var styleId = 'responsive-secondary-button-color-preview';
+            jQuery('style#' + styleId).remove();
+            
+            var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link';
+            var css = selectors + ' { background-color: ' + newval + '; }';
+            
+            jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+        } );
+    } );
+
+    //Secondary Buttons hover color
+    api( 'responsive_secondary_button_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            var styleId = 'responsive-secondary-button-hover-color-preview';
+            jQuery('style#' + styleId).remove();
+            
+            var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button:hover, .wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button:focus, .wp-block-button.is-style-outline > .wp-block-button__link:hover, .wp-block-button.is-style-outline > .wp-block-button__link:focus';
+            var css = selectors + ' { background-color: ' + newval + '; }';
+            
+            jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+        } );
+    } );
+
+    //Secondary Buttons text Color
+    api( 'responsive_secondary_button_text_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            $('.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link').css('color', newval );
+        } );
+    } );
+
+    //Secondary Buttons hover text Color
+    api( 'responsive_secondary_button_hover_text_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            var styleId = 'responsive-secondary-button-hover-text-color-preview';
+            jQuery('style#' + styleId).remove();
+            
+            var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button:hover, .wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button:focus, .wp-block-button.is-style-outline > .wp-block-button__link:hover, .wp-block-button.is-style-outline > .wp-block-button__link:focus';
+            var css = selectors + ' { color: ' + newval + '; }';
+            
+            jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+        } );
+    } );
+
+    //Secondary Buttons border color
+    api( 'responsive_secondary_button_border_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            $('.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link').css('border-color', newval );
+        } );
+    } );
+
+    //Secondary Buttons hover border color
+    api( 'responsive_secondary_button_hover_border_color', function( value ) {
+        value.bind( function( newval ) {
+            if( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            var styleId = 'responsive-secondary-button-hover-border-color-preview';
+            jQuery('style#' + styleId).remove();
+            
+            var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button:hover, .wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button:focus, .wp-block-button.is-style-outline > .wp-block-button__link:hover, .wp-block-button.is-style-outline > .wp-block-button__link:focus';
+            var css = selectors + ' { border-color: ' + newval + '; }';
+            
+            jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+        } );
+    } );
+
+    //Secondary Buttons border width
+    ['top_border', 'right_border', 'bottom_border', 'left_border'].forEach(function(border) {
+        api( 'responsive_secondary_buttons_border_width_' + border, function( value ) {
+            value.bind( function( newval ) {
+                var prop = 'border-' + border.replace('_border', '') + '-width';
+                var styleId = 'responsive-secondary-button-bw-' + border + '-preview';
+                jQuery('style#' + styleId).remove();
+                var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link';
+                var css = selectors + ' { ' + prop + ': ' + newval + 'px; }';
+                jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+            } );
+        } );
+    });
+
+    //Secondary Buttons radius
+    ['top_left_radius', 'top_right_radius', 'bottom_right_radius', 'bottom_left_radius'].forEach(function(radius) {
+        function updateSecondaryRadius() {
+            var styleId = 'responsive-secondary-button-radius-preview';
+            jQuery('style#' + styleId).remove();
+            function getRadius(key) {
+                if (api('responsive_secondary_buttons_radius_' + key)) {
+                    return api('responsive_secondary_buttons_radius_' + key).get();
+                }
+                if (api('responsive_border_secondary_buttons_radius_' + key)) {
+                    return api('responsive_border_secondary_buttons_radius_' + key).get();
+                }
+                return 0;
+            }
+            var tl = getRadius('top_left_radius');
+            var tr = getRadius('top_right_radius');
+            var br = getRadius('bottom_right_radius');
+            var bl = getRadius('bottom_left_radius');
+            var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link';
+            var css = selectors + ' { border-radius: ' + tl + 'px ' + tr + 'px ' + br + 'px ' + bl + 'px; }';
+            jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+        }
+
+        api( 'responsive_secondary_buttons_radius_' + radius, function( value ) {
+            value.bind( updateSecondaryRadius );
+        } );
+        api( 'responsive_border_secondary_buttons_radius_' + radius, function( value ) {
+            value.bind( updateSecondaryRadius );
+        } );
+    });
+
+    //Secondary Buttons padding
+    ['top', 'right', 'bottom', 'left'].forEach(function(side) {
+        api( 'responsive_secondary_buttons_' + side + '_padding', function( value ) {
+            value.bind( function() {
+                var styleId = 'responsive-secondary-button-padding-preview';
+                jQuery('style#' + styleId).remove();
+                var top = api('responsive_secondary_buttons_top_padding') ? api('responsive_secondary_buttons_top_padding').get() : 10;
+                var right = api('responsive_secondary_buttons_right_padding') ? api('responsive_secondary_buttons_right_padding').get() : 10;
+                var bottom = api('responsive_secondary_buttons_bottom_padding') ? api('responsive_secondary_buttons_bottom_padding').get() : 10;
+                var left = api('responsive_secondary_buttons_left_padding') ? api('responsive_secondary_buttons_left_padding').get() : 10;
+                var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link';
+                var css = selectors + ' { padding: ' + top + 'px ' + right + 'px ' + bottom + 'px ' + left + 'px; }';
+                jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+            } );
+        } );
+    });
+
+    //Secondary Buttons shadow
+    ['x_axis', 'y_axis', 'blur', 'spread', 'inset', 'color'].forEach(function(param) {
+        api( 'responsive_secondary_button_shadow_' + param, function( value ) {
+            value.bind( function() {
+                var styleId = 'responsive-secondary-button-shadow-preview';
+                jQuery('style#' + styleId).remove();
+                var x = api('responsive_secondary_button_shadow_x_axis') ? api('responsive_secondary_button_shadow_x_axis').get() : 0;
+                var y = api('responsive_secondary_button_shadow_y_axis') ? api('responsive_secondary_button_shadow_y_axis').get() : 0;
+                var blur = api('responsive_secondary_button_shadow_blur') ? api('responsive_secondary_button_shadow_blur').get() : 0;
+                var spread = api('responsive_secondary_button_shadow_spread') ? api('responsive_secondary_button_shadow_spread').get() : 0;
+                var inset = api('responsive_secondary_button_shadow_inset') && api('responsive_secondary_button_shadow_inset').get() ? 'inset ' : '';
+                var color = api('responsive_secondary_button_shadow_color') ? api('responsive_secondary_button_shadow_color').get() : '#FFFFFF';
+                if( color && color.startsWith('palette') ) { color = `var(--responsive-global-${color})`; }
+                var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link';
+                var css = selectors + ' { box-shadow: ' + inset + x + 'px ' + y + 'px ' + blur + 'px ' + spread + 'px ' + color + '; }';
+                jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+            } );
+        } );
+    });
+
+    //Secondary Buttons hover shadow
+    ['x_axis', 'y_axis', 'blur', 'spread', 'inset', 'color'].forEach(function(param) {
+        api( 'responsive_secondary_button_hover_shadow_' + param, function( value ) {
+            value.bind( function() {
+                var styleId = 'responsive-secondary-button-hover-shadow-preview';
+                jQuery('style#' + styleId).remove();
+                var x = api('responsive_secondary_button_hover_shadow_x_axis') ? api('responsive_secondary_button_hover_shadow_x_axis').get() : 0;
+                var y = api('responsive_secondary_button_hover_shadow_y_axis') ? api('responsive_secondary_button_hover_shadow_y_axis').get() : 0;
+                var blur = api('responsive_secondary_button_hover_shadow_blur') ? api('responsive_secondary_button_hover_shadow_blur').get() : 0;
+                var spread = api('responsive_secondary_button_hover_shadow_spread') ? api('responsive_secondary_button_hover_shadow_spread').get() : 0;
+                var inset = api('responsive_secondary_button_hover_shadow_inset') && api('responsive_secondary_button_hover_shadow_inset').get() ? 'inset ' : '';
+                var color = api('responsive_secondary_button_hover_shadow_color') ? api('responsive_secondary_button_hover_shadow_color').get() : '#FFFFFF';
+                if( color && color.startsWith('palette') ) { color = `var(--responsive-global-${color})`; }
+                var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button:hover, .wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button:focus, .wp-block-button.is-style-outline > .wp-block-button__link:hover, .wp-block-button.is-style-outline > .wp-block-button__link:focus';
+                var css = selectors + ' { box-shadow: ' + inset + x + 'px ' + y + 'px ' + blur + 'px ' + spread + 'px ' + color + '; }';
+                jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+            } );
+        } );
+    });
 
     //Inputs color
     api( 'responsive_inputs_background_color', function( value ) {
@@ -2331,7 +2517,7 @@
         }
     );
     //Buttons Hover Color
-    $(".page.front-page .button, .blog.front-page .button, input[type=button]:not(.customize-partial-edit-shortcut-button), input[type=submit], button:not(.menu-toggle):not(.responsive-header-button):not(.customize-partial-edit-shortcut-button), .button:not(.responsive-header-button), .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, .elementor-widget-rael-button .rael-button").hover(
+    $(".page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button:not(.menu-toggle):not(.responsive-header-button), .button:not(.responsive-header-button), .wp-block-button:not(.is-style-outline) > .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, .elementor-widget-rael-button .rael-button").hover(
         function() {
             $(this).css("background-color", resolveButtonBackgroundColor('responsive_button_hover_color'));
             $(this).css("color", processThemeSettingForCSS('responsive_button_hover_text_color'));
@@ -6376,6 +6562,14 @@
             var color = processThemeSettingForCSS('responsive_page_featured_image_overlay_color');
             if ( !color ) color = 'transparent';
             $('.responsive-single-entry-banner, .responsive-single-post-featured-section.post-thumb, .entry-header').css('--overlay-color', color);
+        });
+    });
+    // Related Posts border color
+     api('responsive_rp_border_color', function(value) {
+        value.bind(function() {
+            var color = processThemeSettingForCSS('responsive_rp_border_color');
+            if ( !color ) color = 'transparent';
+            $('.responsive-single-related-posts-container').css('border-color', color);
         });
     });
 

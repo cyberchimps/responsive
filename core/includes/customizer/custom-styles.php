@@ -759,12 +759,12 @@ function responsive_customizer_styles() {
 				}";
 		if ( $has_single_post_boxed_radius_tablet ) {
 			$custom_css .= "
-			.single:not(.single-product) .site-content .hentry, .single:not(.single-product) .content-outer #primary .comments-area {
+			.single:not(.single-product) .site-content .hentry:not(.responsive-related-single-post), .single:not(.single-product) .content-outer #primary .comments-area {
 				border-radius: " . responsive_spacing_css( $single_post_boxed_radius_tablet_top_left, $single_post_boxed_radius_tablet_top_right, $single_post_boxed_radius_tablet_bottom_right, $single_post_boxed_radius_tablet_bottom_left, $single_post_boxed_radius_tablet_unit ) . ";
 				}";
 		} elseif ( $has_single_post_boxed_radius ) {
 			$custom_css .= "
-			.single:not(.single-product) .site-content .hentry, .single:not(.single-product) .content-outer #primary .comments-area {
+			.single:not(.single-product) .site-content .hentry:not(.responsive-related-single-post), .single:not(.single-product) .content-outer #primary .comments-area {
 				border-radius: " . responsive_spacing_css( $single_post_boxed_radius_top_left, $single_post_boxed_radius_top_right, $single_post_boxed_radius_bottom_right, $single_post_boxed_radius_bottom_left, $single_post_boxed_radius_desktop_unit ) . ";
 				}";
 		}
@@ -1101,7 +1101,6 @@ function responsive_customizer_styles() {
 		.responsive-site-style-content-boxed .site-content .hentry,
 		.responsive-site-style-content-boxed .give-wrap .give_forms,
 		.responsive-site-style-content-boxed .navigation,
-		.responsive-site-style-content-boxed .responsive-single-related-posts-container,
 		.responsive-site-style-content-boxed .comments-area,
 		.responsive-site-style-content-boxed .comment-respond,
 		.responsive-site-style-boxed .custom-home-about-section,
@@ -1115,7 +1114,6 @@ function responsive_customizer_styles() {
 		.responsive-site-style-boxed .site-content .hentry,
 		.responsive-site-style-boxed .give-wrap .give_forms,
 		.responsive-site-style-boxed .navigation,
-		.responsive-site-style-boxed .responsive-single-related-posts-container,
 		.responsive-site-style-boxed .comments-area,
 		.responsive-site-style-boxed .comment-respond,
 		.responsive-site-style-boxed .comment-respond,
@@ -1175,12 +1173,10 @@ function responsive_customizer_styles() {
 	$custom_css .= '.responsive-site-style-content-boxed .hentry,
 	.responsive-site-style-content-boxed .give-wrap .give_forms,
 	.responsive-site-style-content-boxed .navigation,
-	.responsive-site-style-content-boxed .responsive-single-related-posts-container,
 	.responsive-site-style-content-boxed .comments-area,
 	.responsive-site-style-boxed .give-wrap .give_forms,
 	.responsive-site-style-boxed .hentry,
 	.responsive-site-style-boxed .navigation,
-	.responsive-site-style-boxed .responsive-single-related-posts-container,
 	.responsive-site-style-boxed .comments-area,
 	.page.front-page.responsive-site-style-flat .widget-wrapper,
 	.blog.front-page.responsive-site-style-flat .widget-wrapper,
@@ -1199,7 +1195,6 @@ function responsive_customizer_styles() {
 		.responsive-site-style-boxed .hentry,
 		.responsive-site-style-boxed .give-wrap .give_forms,
 		.responsive-site-style-boxed .navigation,
-		.responsive-site-style-boxed .responsive-single-related-posts-container,
 		.responsive-site-style-boxed .comments-area,
 		.page.front-page.responsive-site-style-flat .widget-wrapper,
 		.blog.front-page.responsive-site-style-flat .widget-wrapper,
@@ -1354,6 +1349,7 @@ function responsive_customizer_styles() {
 		$sidebar_background_image                   = get_theme_mod( 'responsive_sidebar_background_image_toggle' ) ? esc_url( get_theme_mod( 'responsive_sidebar_background_image' ) ) : null ;
 		$box_background_image                       = get_theme_mod( 'responsive_box_background_image_toggle' ) ? esc_url( get_theme_mod( 'responsive_box_background_image' ) ) : null ;
 		$button_background_image                    = get_theme_mod( 'responsive_button_background_image_toggle' ) ? esc_url( get_theme_mod( 'responsive_button_background_image' ) ) : null ;
+		$secondary_button_background_image          = get_theme_mod( 'responsive_secondary_button_background_image_toggle' ) ? esc_url( get_theme_mod( 'responsive_secondary_button_background_image' ) ) : null ;
 		$inputs_background_image                    = get_theme_mod( 'responsive_inputs_background_image_toggle' ) ? esc_url( get_theme_mod( 'responsive_inputs_background_image' ) ) : null ;
 
 		if ( $box_background_image ) {
@@ -1455,7 +1451,7 @@ function responsive_customizer_styles() {
 				input[type=submit],
 				button:not(.customize-partial-edit-shortcut-button),
 				.button,
-				.wp-block-button__link,
+				.wp-block-button:not(.is-style-outline) > .wp-block-button__link,
 				body div.wpforms-container-full .wpforms-form input[type=submit],
 				body div.wpforms-container-full .wpforms-form button[type=submit],
 				body div.wpforms-container-full .wpforms-form .wpforms-page-button,
@@ -1464,6 +1460,19 @@ function responsive_customizer_styles() {
 				body div.wpforms-container-full .wpforms-form .wpforms-page-button:not(:hover):not(:active) {
 					background-color:{$button_background_color};
 					background-image: linear-gradient(to right, {$button_background_color}, {$button_background_color}), url({$button_background_image});
+					background-repeat: no-repeat;
+					background-size: cover;
+					background-attachment: scroll;
+				}";
+		}
+
+		$secondary_button_background_color = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_color', 'transparent' ) );
+		if ( $secondary_button_background_image ) {
+			$custom_css .= "
+				.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button,
+				.wp-block-button.is-style-outline > .wp-block-button__link {
+					background-color:{$secondary_button_background_color};
+					background-image: linear-gradient(to right, {$secondary_button_background_color}, {$secondary_button_background_color}), url({$secondary_button_background_image});
 					background-repeat: no-repeat;
 					background-size: cover;
 					background-attachment: scroll;
@@ -1759,6 +1768,79 @@ function responsive_customizer_styles() {
 	$button_hover_text_color   = esc_html( responsive_prepare_css_value( 'responsive_button_hover_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_text_color' ) ) );
 	$button_border_color       = esc_html( responsive_prepare_css_value( 'responsive_button_border_color', Responsive\Core\get_responsive_customizer_defaults( 'button_border' ) ) );
 	$button_hover_border_color = esc_html( responsive_prepare_css_value( 'responsive_button_hover_border_color', Responsive\Core\get_responsive_customizer_defaults( 'button_hover_border' ) ) );
+
+	$secondary_button_color              = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_color' ) ) );
+	$secondary_button_hover_color        = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_color' ) ) );
+	$secondary_button_text_color         = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_text_color' ) ) );
+	$secondary_button_hover_text_color   = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_hover_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_text_color' ) ) );
+	$secondary_button_border_color       = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_border_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_border_color' ) ) );
+	$secondary_button_hover_border_color = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_hover_border_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_border_color' ) ) );
+
+	// Secondary Buttons Padding.
+	$secondary_buttons_padding_right  = esc_html( get_theme_mod( 'responsive_secondary_buttons_right_padding', 10 ) );
+	$secondary_buttons_padding_left   = esc_html( get_theme_mod( 'responsive_secondary_buttons_left_padding', 10 ) );
+	$secondary_buttons_padding_top    = esc_html( get_theme_mod( 'responsive_secondary_buttons_top_padding', 10 ) );
+	$secondary_buttons_padding_bottom = esc_html( get_theme_mod( 'responsive_secondary_buttons_bottom_padding', 10 ) );
+
+	$secondary_buttons_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_secondary_buttons_tablet_right_padding', 10 ) );
+	$secondary_buttons_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_secondary_buttons_tablet_left_padding', 10 ) );
+	$secondary_buttons_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_secondary_buttons_tablet_top_padding', 10 ) );
+	$secondary_buttons_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_secondary_buttons_tablet_bottom_padding', 10 ) );
+
+	$secondary_buttons_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_secondary_buttons_mobile_right_padding', 10 ) );
+	$secondary_buttons_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_secondary_buttons_mobile_left_padding', 10 ) );
+	$secondary_buttons_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_secondary_buttons_mobile_top_padding', 10 ) );
+	$secondary_buttons_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_secondary_buttons_mobile_bottom_padding', 10 ) );
+
+	// Secondary Button Radius.
+	$secondary_button_top_left_radius     = esc_html( get_theme_mod( 'responsive_secondary_buttons_radius_top_left_radius', get_theme_mod( 'responsive_border_secondary_buttons_radius_top_left_radius', 0 ) ) );
+	$secondary_button_top_right_radius    = esc_html( get_theme_mod( 'responsive_secondary_buttons_radius_top_right_radius', get_theme_mod( 'responsive_border_secondary_buttons_radius_top_right_radius', 0 ) ) );
+	$secondary_button_bottom_right_radius = esc_html( get_theme_mod( 'responsive_secondary_buttons_radius_bottom_right_radius', get_theme_mod( 'responsive_border_secondary_buttons_radius_bottom_right_radius', 0 ) ) );
+	$secondary_button_bottom_left_radius  = esc_html( get_theme_mod( 'responsive_secondary_buttons_radius_bottom_left_radius', get_theme_mod( 'responsive_border_secondary_buttons_radius_bottom_left_radius', 0 ) ) );
+
+	$secondary_button_tablet_top_left_radius     = esc_html( get_theme_mod( 'responsive_secondary_buttons_radius_tablet_top_left_radius', get_theme_mod( 'responsive_border_secondary_buttons_radius_tablet_top_left_radius', 0 ) ) );
+	$secondary_button_tablet_top_right_radius    = esc_html( get_theme_mod( 'responsive_secondary_buttons_radius_tablet_top_right_radius', get_theme_mod( 'responsive_border_secondary_buttons_radius_tablet_top_right_radius', 0 ) ) );
+	$secondary_button_tablet_bottom_right_radius = esc_html( get_theme_mod( 'responsive_secondary_buttons_radius_tablet_bottom_right_radius', get_theme_mod( 'responsive_border_secondary_buttons_radius_tablet_bottom_right_radius', 0 ) ) );
+	$secondary_button_tablet_bottom_left_radius  = esc_html( get_theme_mod( 'responsive_secondary_buttons_radius_tablet_bottom_left_radius', get_theme_mod( 'responsive_border_secondary_buttons_radius_tablet_bottom_left_radius', 0 ) ) );
+
+	$secondary_button_mobile_top_left_radius     = esc_html( get_theme_mod( 'responsive_secondary_buttons_radius_mobile_top_left_radius', get_theme_mod( 'responsive_border_secondary_buttons_radius_mobile_top_left_radius', 0 ) ) );
+	$secondary_button_mobile_top_right_radius    = esc_html( get_theme_mod( 'responsive_secondary_buttons_radius_mobile_top_right_radius', get_theme_mod( 'responsive_border_secondary_buttons_radius_mobile_top_right_radius', 0 ) ) );
+	$secondary_button_mobile_bottom_right_radius = esc_html( get_theme_mod( 'responsive_secondary_buttons_radius_mobile_bottom_right_radius', get_theme_mod( 'responsive_border_secondary_buttons_radius_mobile_bottom_right_radius', 0 ) ) );
+	$secondary_button_mobile_bottom_left_radius  = esc_html( get_theme_mod( 'responsive_secondary_buttons_radius_mobile_bottom_left_radius', get_theme_mod( 'responsive_border_secondary_buttons_radius_mobile_bottom_left_radius', 0 ) ) );
+
+	// Secondary Border Width.
+	$secondary_buttons_border_width_top    = esc_html( get_theme_mod( 'responsive_secondary_buttons_border_width_top_border', 2 ) );
+	$secondary_buttons_border_width_right  = esc_html( get_theme_mod( 'responsive_secondary_buttons_border_width_right_border', 2 ) );
+	$secondary_buttons_border_width_bottom = esc_html( get_theme_mod( 'responsive_secondary_buttons_border_width_bottom_border', 2 ) );
+	$secondary_buttons_border_width_left   = esc_html( get_theme_mod( 'responsive_secondary_buttons_border_width_left_border', 2 ) );
+
+	$secondary_buttons_border_tablet_width_top    = esc_html( get_theme_mod( 'responsive_secondary_buttons_border_width_tablet_top_border', 2 ) );
+	$secondary_buttons_border_tablet_width_right  = esc_html( get_theme_mod( 'responsive_secondary_buttons_border_width_tablet_right_border', 2 ) );
+	$secondary_buttons_border_tablet_width_bottom = esc_html( get_theme_mod( 'responsive_secondary_buttons_border_width_tablet_bottom_border', 2 ) );
+	$secondary_buttons_border_tablet_width_left   = esc_html( get_theme_mod( 'responsive_secondary_buttons_border_width_tablet_left_border', 2 ) );
+
+	$secondary_buttons_border_mobile_width_top    = esc_html( get_theme_mod( 'responsive_secondary_buttons_border_width_mobile_top_border', 2 ) );
+	$secondary_buttons_border_mobile_width_right  = esc_html( get_theme_mod( 'responsive_secondary_buttons_border_width_mobile_right_border', 2 ) );
+	$secondary_buttons_border_mobile_width_bottom = esc_html( get_theme_mod( 'responsive_secondary_buttons_border_width_mobile_bottom_border', 2 ) );
+	$secondary_buttons_border_mobile_width_left   = esc_html( get_theme_mod( 'responsive_secondary_buttons_border_width_mobile_left_border', 2 ) );
+
+	// Secondary Button Shadow.
+	$secondary_button_shadow_x           = get_theme_mod( 'responsive_secondary_button_shadow_x_axis', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_shadow_x' ) );
+	$secondary_button_shadow_y           = get_theme_mod( 'responsive_secondary_button_shadow_y_axis', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_shadow_y' ) );
+	$secondary_button_shadow_blur        = get_theme_mod( 'responsive_secondary_button_shadow_blur', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_shadow_blur' ) );
+	$secondary_button_shadow_spread      = get_theme_mod( 'responsive_secondary_button_shadow_spread', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_shadow_spread' ) );
+	$secondary_button_shadow_inset       = get_theme_mod( 'responsive_secondary_button_shadow_inset', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_shadow_inset' ) );
+	$secondary_button_shadow_color       = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_shadow_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_shadow_color' ) ) );
+	$secondary_button_shadow_inset_style = $secondary_button_shadow_inset ? 'inset' : '';
+
+	// Secondary Button Hover Shadow.
+	$secondary_button_hover_shadow_x           = get_theme_mod( 'responsive_secondary_button_hover_shadow_x_axis', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_shadow_x' ) );
+	$secondary_button_hover_shadow_y           = get_theme_mod( 'responsive_secondary_button_hover_shadow_y_axis', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_shadow_y' ) );
+	$secondary_button_hover_shadow_blur        = get_theme_mod( 'responsive_secondary_button_hover_shadow_blur', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_shadow_blur' ) );
+	$secondary_button_hover_shadow_spread      = get_theme_mod( 'responsive_secondary_button_hover_shadow_spread', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_shadow_spread' ) );
+	$secondary_button_hover_shadow_inset       = get_theme_mod( 'responsive_secondary_button_hover_shadow_inset', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_shadow_inset' ) );
+	$secondary_button_hover_shadow_color       = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_hover_shadow_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_shadow_color' ) ) );
+	$secondary_button_hover_shadow_inset_style = $secondary_button_hover_shadow_inset ? 'inset' : '';
 
 	// Buttons Padding.
 	$buttons_padding_right  = esc_html( get_theme_mod( 'responsive_buttons_right_padding', 10 ) );
@@ -2193,6 +2275,22 @@ function responsive_customizer_styles() {
 		box-shadow: ' . $button_shadow_inset_style . ' ' . $button_shadow_x . 'px ' . $button_shadow_y . 'px ' . $button_shadow_blur . 'px ' . $button_shadow_spread . 'px ' . $button_shadow_color . ';
 	}';
 
+	$custom_css .= '
+	.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button,
+	.wp-block-button.is-style-outline > .wp-block-button__link {
+		background-color: ' . $secondary_button_color . ';
+		border-color: ' . $secondary_button_border_color . ';
+		color: ' . $secondary_button_text_color . ';
+		border-style: solid;
+		border-top-width: ' . $secondary_buttons_border_width_top . 'px;
+		border-right-width: ' . $secondary_buttons_border_width_right . 'px;
+		border-bottom-width: ' . $secondary_buttons_border_width_bottom . 'px;
+		border-left-width: ' . $secondary_buttons_border_width_left . 'px;
+		border-radius:' . responsive_spacing_css( $secondary_button_top_left_radius, $secondary_button_top_right_radius, $secondary_button_bottom_right_radius, $secondary_button_bottom_left_radius ) . ';
+		padding: ' . responsive_spacing_css( $secondary_buttons_padding_top, $secondary_buttons_padding_right, $secondary_buttons_padding_bottom, $secondary_buttons_padding_left ) . ';
+		box-shadow: ' . $secondary_button_shadow_inset_style . ' ' . $secondary_button_shadow_x . 'px ' . $secondary_button_shadow_y . 'px ' . $secondary_button_shadow_blur . 'px ' . $secondary_button_shadow_spread . 'px ' . $secondary_button_shadow_color . ';
+	}';
+
 	$button_preset              = get_theme_mod( 'responsive_button_presets', '' );
 	$button_hover_background    = $button_hover_color;
 	$is_outline_button_preset = ( $button_preset && 0 === strpos( $button_preset, 'outline' ) );
@@ -2254,6 +2352,16 @@ function responsive_customizer_styles() {
 			border-bottom-width: ' . $buttons_border_tablet_width_bottom . $buttons_border_width_tablet_unit . ';
 			border-left-width: ' . $buttons_border_tablet_width_left . $buttons_border_width_tablet_unit . ';
 		}
+
+		.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button,
+		.wp-block-button.is-style-outline > .wp-block-button__link {
+			padding: ' . responsive_spacing_css( $secondary_buttons_tablet_padding_top, $secondary_buttons_tablet_padding_right, $secondary_buttons_tablet_padding_bottom, $secondary_buttons_tablet_padding_left ) . ';
+			border-radius:' . responsive_spacing_css( $secondary_button_tablet_top_left_radius, $secondary_button_tablet_top_right_radius, $secondary_button_tablet_bottom_right_radius, $secondary_button_tablet_bottom_left_radius ) . ';
+			border-top-width: ' . $secondary_buttons_border_tablet_width_top . 'px;
+			border-right-width: ' . $secondary_buttons_border_tablet_width_right . 'px;
+			border-bottom-width: ' . $secondary_buttons_border_tablet_width_bottom . 'px;
+			border-left-width: ' . $secondary_buttons_border_tablet_width_left . 'px;
+		}
 	}
 
 	@media screen and ( max-width: 576px ) {
@@ -2292,6 +2400,16 @@ function responsive_customizer_styles() {
 		border-bottom-width: ' . $buttons_border_mobile_width_bottom . $buttons_border_width_mobile_unit . ';
 		border-left-width: ' . $buttons_border_mobile_width_left . $buttons_border_width_mobile_unit . ';
     	}
+
+		.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button,
+		.wp-block-button.is-style-outline > .wp-block-button__link {
+			padding: ' . responsive_spacing_css( $secondary_buttons_mobile_padding_top, $secondary_buttons_mobile_padding_right, $secondary_buttons_mobile_padding_bottom, $secondary_buttons_mobile_padding_left ) . ';
+			border-radius:' . responsive_spacing_css( $secondary_button_mobile_top_left_radius, $secondary_button_mobile_top_right_radius, $secondary_button_mobile_bottom_right_radius, $secondary_button_mobile_bottom_left_radius ) . ';
+			border-top-width: ' . $secondary_buttons_border_mobile_width_top . 'px;
+			border-right-width: ' . $secondary_buttons_border_mobile_width_right . 'px;
+			border-bottom-width: ' . $secondary_buttons_border_mobile_width_bottom . 'px;
+			border-left-width: ' . $secondary_buttons_border_mobile_width_left . 'px;
+		}
 	}
 
 	.page.front-page .button:focus,
@@ -2336,6 +2454,16 @@ function responsive_customizer_styles() {
 		border-color: ' . $button_hover_border_color . ';	
 		background-color:' . $button_hover_background . ';
 		box-shadow: ' . $button_hover_shadow_inset_style . ' ' . $button_hover_shadow_x . 'px ' . $button_hover_shadow_y . 'px ' . $button_hover_shadow_blur . 'px ' . $button_hover_shadow_spread . 'px ' . $button_hover_shadow_color . ';
+	}
+
+	.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button:hover,
+	.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button:focus,
+	.wp-block-button.is-style-outline > .wp-block-button__link:hover,
+	.wp-block-button.is-style-outline > .wp-block-button__link:focus {
+		color: ' . $secondary_button_hover_text_color . ';
+		border-color: ' . $secondary_button_hover_border_color . ';
+		background-color: ' . $secondary_button_hover_color . ';
+		box-shadow: ' . $secondary_button_hover_shadow_inset_style . ' ' . $secondary_button_hover_shadow_x . 'px ' . $secondary_button_hover_shadow_y . 'px ' . $secondary_button_hover_shadow_blur . 'px ' . $secondary_button_hover_shadow_spread . 'px ' . $secondary_button_hover_shadow_color . ';
 	}
 
 	select,
@@ -6167,11 +6295,16 @@ function responsive_customizer_styles() {
 	$related_single_posts_per_row_count = absint( get_theme_mod( 'responsive_single_blog_related_posts_per_row', 2 ) );
 	$section_background_color           = responsive_prepare_css_value( 'responsive_rp_section_bg_color', Responsive\Core\get_responsive_customizer_defaults( 'rp_section_bg' ) );
 	$section_title_color 				= get_theme_mod( 'responsive_rp_section_title_color', Responsive\Core\get_responsive_customizer_defaults('responsive-global-palette3') );
-	$custom_css                        .= "
-	body:not(.responsive-site-style-flat).responsive-single-related-posts-container,body:not(.responsive-site-style-flat) .responsive-single-related-posts-container .responsive-related-single-posts-wrapper .responsive-related-single-post {
-		background: {$section_background_color};
+	
+	error_log('	$responsive_single_blog_container_style ==='.	$responsive_single_blog_container_style );
+	if('flat' !== $responsive_single_blog_container_style){
+		$custom_css                        .= "
+		body:not(.responsive-site-style-flat) .responsive-single-related-posts-container,body:not(.responsive-site-style-flat) .responsive-single-related-posts-container .responsive-related-single-posts-wrapper .responsive-related-single-post {
+			background: {$section_background_color};
+		}";
 	}
-	.single-post .responsive-related-single-posts-title.entry-title{
+	$custom_css .=
+	".single-post .responsive-related-single-posts-title.entry-title{
 		color: {$section_title_color};
 	}
 	.responsive-single-related-posts-container .responsive-related-single-posts-wrapper {
@@ -11736,6 +11869,144 @@ function responsive_customizer_styles() {
 		}
 		
 	}
+
+	// Related posts - Margin, Padding css
+	$rp_padding_top    = responsive_get_padding_fallback( 'responsive_rp_padding_top_padding', $box_padding_top );
+	$rp_padding_right  = responsive_get_padding_fallback( 'responsive_rp_padding_right_padding', $box_padding_right );
+	$rp_padding_bottom = responsive_get_padding_fallback( 'responsive_rp_padding_bottom_padding', $box_padding_bottom );
+	$rp_padding_left   = responsive_get_padding_fallback( 'responsive_rp_padding_left_padding', $box_padding_left );
+	$rp_padding_desktop_unit = responsive_get_padding_fallback( 'responsive_rp_padding_desktop_unit', 'px' );
+
+	$rp_padding_tablet_top    = responsive_get_padding_fallback( 'responsive_rp_padding_tablet_top_padding', $box_tablet_padding_top );
+	$rp_padding_tablet_right  = responsive_get_padding_fallback( 'responsive_rp_padding_tablet_right_padding', $box_tablet_padding_right );
+	$rp_padding_tablet_bottom = responsive_get_padding_fallback( 'responsive_rp_padding_tablet_bottom_padding', $box_tablet_padding_bottom );
+	$rp_padding_tablet_left   = responsive_get_padding_fallback( 'responsive_rp_padding_tablet_left_padding', $box_tablet_padding_left );
+	$rp_padding_tablet_unit   = responsive_get_padding_fallback( 'responsive_rp_padding_tablet_unit', 'px' );
+
+	$rp_padding_mobile_top    = responsive_get_padding_fallback( 'responsive_rp_padding_mobile_top_padding', $box_mobile_padding_top );
+	$rp_padding_mobile_right  = responsive_get_padding_fallback( 'responsive_rp_padding_mobile_right_padding', $box_mobile_padding_right );
+	$rp_padding_mobile_bottom = responsive_get_padding_fallback( 'responsive_rp_padding_mobile_bottom_padding', $box_mobile_padding_bottom );
+	$rp_padding_mobile_left   = responsive_get_padding_fallback( 'responsive_rp_padding_mobile_left_padding', $box_mobile_padding_left );
+	$rp_padding_mobile_unit   = responsive_get_padding_fallback( 'responsive_rp_padding_mobile_unit', 'px' );
+
+	$rp_margin_top    = responsive_get_padding_fallback( 'responsive_rp_margin_top_padding', 0 );
+	$rp_margin_right  = responsive_get_padding_fallback( 'responsive_rp_margin_right_padding', 0 );
+	$rp_margin_bottom = responsive_get_padding_fallback( 'responsive_rp_margin_bottom_padding', 0 );
+	$rp_margin_left   = responsive_get_padding_fallback( 'responsive_rp_margin_left_padding', 0 );
+	$rp_margin_desktop_unit = responsive_get_padding_fallback( 'responsive_rp_margin_desktop_unit', 'px' );
+
+	$rp_margin_tablet_top    = responsive_get_padding_fallback( 'responsive_rp_margin_tablet_top_padding', 0 );
+	$rp_margin_tablet_right  = responsive_get_padding_fallback( 'responsive_rp_margin_tablet_right_padding', 0 );
+	$rp_margin_tablet_bottom = responsive_get_padding_fallback( 'responsive_rp_margin_tablet_bottom_padding', 0 );
+	$rp_margin_tablet_left   = responsive_get_padding_fallback( 'responsive_rp_margin_tablet_left_padding', 0 );
+	$rp_margin_tablet_unit   = responsive_get_padding_fallback( 'responsive_rp_margin_tablet_unit', 'px' );
+
+	$rp_margin_mobile_top    = responsive_get_padding_fallback( 'responsive_rp_margin_mobile_top_padding', 0 );
+	$rp_margin_mobile_right  = responsive_get_padding_fallback( 'responsive_rp_margin_mobile_right_padding', 0 );
+	$rp_margin_mobile_bottom = responsive_get_padding_fallback( 'responsive_rp_margin_mobile_bottom_padding', 0 );
+	$rp_margin_mobile_left   = responsive_get_padding_fallback( 'responsive_rp_margin_mobile_left_padding', 0 );
+	$rp_margin_mobile_unit   = responsive_get_padding_fallback( 'responsive_rp_margin_mobile_unit', 'px' );
+
+	$custom_css .= "
+	.single-post .responsive-related-posts-above-comments{
+		margin-bottom: 28px;
+	}
+	.single-post .responsive-related-posts-below-comments{
+		margin-top: 28px;
+	}
+	.responsive-single-related-posts-container {
+		padding: " . responsive_spacing_css( $rp_padding_top, $rp_padding_right, $rp_padding_bottom, $rp_padding_left, $rp_padding_desktop_unit ) . ";
+		margin: " . responsive_spacing_css( $rp_margin_top, $rp_margin_right, $rp_margin_bottom, $rp_margin_left, $rp_margin_desktop_unit ) . ";
+	}
+	@media screen and ( max-width: 992px ) {
+		.responsive-single-related-posts-container {
+			padding: " . responsive_spacing_css( $rp_padding_tablet_top, $rp_padding_tablet_right, $rp_padding_tablet_bottom, $rp_padding_tablet_left, $rp_padding_tablet_unit ) . ";
+			margin: " . responsive_spacing_css( $rp_margin_tablet_top, $rp_margin_tablet_right, $rp_margin_tablet_bottom, $rp_margin_tablet_left, $rp_margin_tablet_unit ) . ";
+		}
+	}
+	@media screen and ( max-width: 576px ) {
+		.responsive-single-related-posts-container {
+			padding: " . responsive_spacing_css( $rp_padding_mobile_top, $rp_padding_mobile_right, $rp_padding_mobile_bottom, $rp_padding_mobile_left, $rp_padding_mobile_unit ) . ";
+			margin: " . responsive_spacing_css( $rp_margin_mobile_top, $rp_margin_mobile_right, $rp_margin_mobile_bottom, $rp_margin_mobile_left, $rp_margin_mobile_unit ) . ";
+		}
+	}";
+
+	// Related Posts Border Styling
+	$rp_border_color = esc_html( responsive_prepare_css_value( 'responsive_rp_border_color', Responsive\Core\get_responsive_customizer_defaults( 'rp_border' ) ) );
+
+	// Related Posts Buttons Border Width.
+	$rp_border_width_top    = esc_html( get_theme_mod( 'responsive_rp_border_width_top_border', 0 ) );
+	$rp_border_width_right  = esc_html( get_theme_mod( 'responsive_rp_border_width_right_border', 0 ) );
+	$rp_border_width_bottom = esc_html( get_theme_mod( 'responsive_rp_border_width_bottom_border', 0 ) );
+	$rp_border_width_left   = esc_html( get_theme_mod( 'responsive_rp_border_width_left_border', 0 ) );
+	$rp_border_width_desktop_unit = esc_html( get_theme_mod( 'responsive_rp_border_width_desktop_unit', 'px' ) );
+
+	$rp_border_width_tablet_top    = esc_html( get_theme_mod( 'responsive_rp_border_width_tablet_top_border', $rp_border_width_top ) );
+	$rp_border_width_tablet_right  = esc_html( get_theme_mod( 'responsive_rp_border_width_tablet_right_border', $rp_border_width_right ) );
+	$rp_border_width_tablet_bottom = esc_html( get_theme_mod( 'responsive_rp_border_width_tablet_bottom_border', $rp_border_width_bottom ) );
+	$rp_border_width_tablet_left   = esc_html( get_theme_mod( 'responsive_rp_border_width_tablet_left_border', $rp_border_width_left ) );
+	$rp_border_width_tablet_unit   = esc_html( get_theme_mod( 'responsive_rp_border_width_tablet_unit', 'px' ) );
+
+	$rp_border_width_mobile_top    = esc_html( get_theme_mod( 'responsive_rp_border_width_mobile_top_border', $rp_border_width_top ) );
+	$rp_border_width_mobile_right  = esc_html( get_theme_mod( 'responsive_rp_border_width_mobile_right_border', $rp_border_width_right ) );
+	$rp_border_width_mobile_bottom = esc_html( get_theme_mod( 'responsive_rp_border_width_mobile_bottom_border', $rp_border_width_bottom ) );
+	$rp_border_width_mobile_left   = esc_html( get_theme_mod( 'responsive_rp_border_width_mobile_left_border', $rp_border_width_left ) );
+	$rp_border_width_mobile_unit   = esc_html( get_theme_mod( 'responsive_rp_border_width_mobile_unit', 'px' ) );
+
+	// Related Posts Buttons Radius.
+	$rp_radius_top_left     = esc_html( get_theme_mod( 'responsive_rp_radius_top_left_radius', 0 ) );
+	$rp_radius_top_right    = esc_html( get_theme_mod( 'responsive_rp_radius_top_right_radius', 0 ) );
+	$rp_radius_bottom_right = esc_html( get_theme_mod( 'responsive_rp_radius_bottom_right_radius', 0 ) );
+	$rp_radius_bottom_left  = esc_html( get_theme_mod( 'responsive_rp_radius_bottom_left_radius', 0 ) );
+	$rp_radius_desktop_unit = esc_html( get_theme_mod( 'responsive_rp_radius_desktop_unit', 'px' ) );
+
+	$rp_radius_tablet_top_left     = esc_html( get_theme_mod( 'responsive_rp_radius_tablet_top_left_radius', $rp_radius_top_left ) );
+	$rp_radius_tablet_top_right    = esc_html( get_theme_mod( 'responsive_rp_radius_tablet_top_right_radius', $rp_radius_top_right ) );
+	$rp_radius_tablet_bottom_right = esc_html( get_theme_mod( 'responsive_rp_radius_tablet_bottom_right_radius', $rp_radius_bottom_right ) );
+	$rp_radius_tablet_bottom_left  = esc_html( get_theme_mod( 'responsive_rp_radius_tablet_bottom_left_radius', $rp_radius_bottom_left ) );
+	$rp_radius_tablet_unit         = esc_html( get_theme_mod( 'responsive_rp_radius_tablet_unit', 'px' ) );
+
+	$rp_radius_mobile_top_left     = esc_html( get_theme_mod( 'responsive_rp_radius_mobile_top_left_radius', $rp_radius_top_left ) );
+	$rp_radius_mobile_top_right    = esc_html( get_theme_mod( 'responsive_rp_radius_mobile_top_right_radius', $rp_radius_top_right ) );
+	$rp_radius_mobile_bottom_right = esc_html( get_theme_mod( 'responsive_rp_radius_mobile_bottom_right_radius', $rp_radius_bottom_right ) );
+	$rp_radius_mobile_bottom_left  = esc_html( get_theme_mod( 'responsive_rp_radius_mobile_bottom_left_radius', $rp_radius_bottom_left ) );
+	$rp_radius_mobile_unit         = esc_html( get_theme_mod( 'responsive_rp_radius_mobile_unit', 'px' ) );
+
+	$custom_css .= "
+	.responsive-single-related-posts-container {
+		border-style: solid;
+		border-color: {$rp_border_color};
+		border-top-width: {$rp_border_width_top}{$rp_border_width_desktop_unit};
+		border-right-width: {$rp_border_width_right}{$rp_border_width_desktop_unit};
+		border-bottom-width: {$rp_border_width_bottom}{$rp_border_width_desktop_unit};
+		border-left-width: {$rp_border_width_left}{$rp_border_width_desktop_unit};
+		border-radius: " . responsive_spacing_css( $rp_radius_top_left, $rp_radius_top_right, $rp_radius_bottom_right, $rp_radius_bottom_left, $rp_radius_desktop_unit ) . ";
+	}
+	@media screen and ( max-width: 992px ) {
+		.responsive-single-related-posts-container {
+			border-top-width: {$rp_border_width_tablet_top}{$rp_border_width_tablet_unit};
+			border-right-width: {$rp_border_width_tablet_right}{$rp_border_width_tablet_unit};
+			border-bottom-width: {$rp_border_width_tablet_bottom}{$rp_border_width_tablet_unit};
+			border-left-width: {$rp_border_width_tablet_left}{$rp_border_width_tablet_unit};
+			border-radius: " . responsive_spacing_css( $rp_radius_tablet_top_left, $rp_radius_tablet_top_right, $rp_radius_tablet_bottom_right, $rp_radius_tablet_bottom_left, $rp_radius_tablet_unit ) . ";
+		}
+	}
+	@media screen and ( max-width: 576px ) {
+		.responsive-single-related-posts-container {
+			border-top-width: {$rp_border_width_mobile_top}{$rp_border_width_mobile_unit};
+			border-right-width: {$rp_border_width_mobile_right}{$rp_border_width_mobile_unit};
+			border-bottom-width: {$rp_border_width_mobile_bottom}{$rp_border_width_mobile_unit};
+			border-left-width: {$rp_border_width_mobile_left}{$rp_border_width_mobile_unit};
+			border-radius: " . responsive_spacing_css( $rp_radius_mobile_top_left, $rp_radius_mobile_top_right, $rp_radius_mobile_bottom_right, $rp_radius_mobile_bottom_left, $rp_radius_mobile_unit ) . ";
+		}
+	}
+	";
+
+	// Related Posts - Separated Location styling
+	$custom_css .=" 
+		.responsive-related-posts-separated{
+			margin: 0;
+		}";
 
 	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', responsive_minimize_css( $custom_css ) ) );
 	wp_add_inline_style('responsive-style', responsive_minimize_css( $font_preset_css));

@@ -21,6 +21,8 @@ const TabsComponent = props => {
 		general_id,
 		design_tab_ids,
 		general_tab_ids,
+		general_label,
+		design_label,
 	} = props.control.params;
 
 	const elementsToHide = {
@@ -1454,7 +1456,7 @@ const TabsComponent = props => {
 				id={general_id}
 				onClick={() => onTabClick('general')}
 				>
-					<span>{__( 'General', 'responsive' )}</span>
+					<span>{general_label || __( 'General', 'responsive' )}</span>
 			</a>
 			<a
 				type="#"
@@ -1462,7 +1464,7 @@ const TabsComponent = props => {
 				id={design_id}
 				onClick={() => onTabClick('design')}
 				>
-					<span>{ __('Design', 'responsive' )}</span>
+					<span>{design_label || __( 'Design', 'responsive' )}</span>
 			</a>
 		</div>
 	</>;
