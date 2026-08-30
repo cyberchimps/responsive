@@ -7477,25 +7477,32 @@ function responsive_customizer_styles() {
 		}
 		$header_social_item_style = get_theme_mod( 'responsive_header_social_item_style', 'filled' );
 		$header_use_brand_colors = get_theme_mod( 'responsive_header_social_item_use_brand_colors', 'no' );
-		if ( 'no' === $header_use_brand_colors ) {
+		if ( 'no' === $header_use_brand_colors || 'on-hover' === $header_use_brand_colors ) {
 			$header_social_item_color = get_theme_mod( 'responsive_header_social_item_color', Responsive\Core\get_responsive_customizer_defaults( 'header_social_item_color' ) );
+			$header_social_selector = 'on-hover' === $header_use_brand_colors ? '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:not(:hover)' : '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor';
 			if ( $header_social_item_color ) {
-				$custom_css .= '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { color: ' . $header_social_item_color . '; fill: ' . $header_social_item_color . '}';
+				$custom_css .= $header_social_selector . ' { color: ' . $header_social_item_color . '; fill: ' . $header_social_item_color . '}';
 			}
+			if ( 'filled' === $header_social_item_style ) {
+				$header_social_item_bg_color = get_theme_mod( 'responsive_header_social_item_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_social_item_bg_color' ) );
+				if ( $header_social_item_bg_color ) {
+					$custom_css .= $header_social_selector . ' { background-color: ' . $header_social_item_bg_color . '; }';
+				}
+			}
+		}
+		if ( 'no' === $header_use_brand_colors || 'until-hover' === $header_use_brand_colors ) {
 			$header_social_item_color_hover = get_theme_mod( 'responsive_header_social_item_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_social_item_hover_color' ) );
 			if ( $header_social_item_color_hover ) {
 				$custom_css .= '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { color: ' . $header_social_item_color_hover . '; fill: ' . $header_social_item_color_hover . '}';
 			}
 			if ( 'filled' === $header_social_item_style ) {
-				$header_social_item_bg_color = get_theme_mod( 'responsive_header_social_item_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_social_item_bg_color' ) );
-				if ( $header_social_item_bg_color ) {
-					$custom_css .= '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { background-color: ' . $header_social_item_bg_color . '; }';
-				}
 				$header_social_item_bg_color_hover = get_theme_mod( 'responsive_header_social_item_background_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_social_item_bg_hover_color' ) );
 				if ( $header_social_item_bg_color_hover ) {
-					$custom_css .= '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' . $header_social_item_bg_color_hover . '; }';
+					$custom_css .= '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' . $header_social_item_bg_color_hover . ' !important; }';
 				}
 			}
+		}
+		if ( 'yes' !== $header_use_brand_colors ) {
 			$header_social_item_border_style = get_theme_mod( 'responsive_header_social_item_border_style', 'none' );
 			if ( 'none' !== $header_social_item_border_style ) {
 				$header_social_item_border_width = get_theme_mod( 'responsive_header_social_item_border_width', 0 );
@@ -7578,30 +7585,35 @@ function responsive_customizer_styles() {
 		$mobile_header_social_item_style = get_theme_mod( 'responsive_mobile_header_social_item_style', 'filled' );
 		$mobile_header_use_brand_colors = get_theme_mod(
 			'responsive_mobile_header_social_item_use_brand_colors', 'no' );
-		if ( 'no' === $mobile_header_use_brand_colors ) {
+		if ( 'no' === $mobile_header_use_brand_colors || 'on-hover' === $mobile_header_use_brand_colors ) {
 			$mobile_header_social_item_color = get_theme_mod(
 				'responsive_mobile_header_social_item_color', 
 				Responsive\Core\get_responsive_customizer_defaults(
 					'header_social_item_color' ) );
+			$mobile_header_social_selector = 'on-hover' === $mobile_header_use_brand_colors ? '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:not(:hover)' : '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor';
 			if( $mobile_header_social_item_color ) {
-				$custom_css .= ".site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { color : " . $mobile_header_social_item_color . "; fill: " . $mobile_header_social_item_color . "}";
+				$custom_css .= $mobile_header_social_selector . " { color : " . $mobile_header_social_item_color . "; fill: " . $mobile_header_social_item_color . "}";
 			}
-
+			if ( 'filled' === $mobile_header_social_item_style ) {
+				$mobile_header_social_item_bg_color = get_theme_mod( 'responsive_mobile_header_social_item_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_social_item_bg_color' ) );
+				if ( $mobile_header_social_item_bg_color ) {
+					$custom_css .= $mobile_header_social_selector . ' { background-color: ' . $mobile_header_social_item_bg_color . '; }';
+				}
+			}
+		}
+		if ( 'no' === $mobile_header_use_brand_colors || 'until-hover' === $mobile_header_use_brand_colors ) {
 			$mobile_header_social_item_color_hover = get_theme_mod('responsive_mobile_header_social_item_hover_color', Responsive\Core\get_responsive_customizer_defaults('header_social_item_hover_color' ) );
 			if ( $mobile_header_social_item_color_hover ) {
 				$custom_css .= '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { color: ' . $mobile_header_social_item_color_hover . '; fill: ' . $mobile_header_social_item_color_hover . '}';
 			}
 			if ( 'filled' === $mobile_header_social_item_style ) {
-				$mobile_header_social_item_bg_color = get_theme_mod( 'responsive_mobile_header_social_item_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_social_item_bg_color' ) );
-				if ( $mobile_header_social_item_bg_color ) {
-					$custom_css .= '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { background-color: ' . $mobile_header_social_item_bg_color . '; }';
-				}
 				$mobile_header_social_item_bg_color_hover = get_theme_mod( 'responsive_mobile_header_social_item_background_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_social_item_bg_hover_color' ) );
 				if ( $mobile_header_social_item_bg_color_hover ) {
-					$custom_css .= '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' . $mobile_header_social_item_bg_color_hover . '; }';
+					$custom_css .= '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' . $mobile_header_social_item_bg_color_hover . ' !important; }';
 				}
 			}
-
+		}
+		if ( 'yes' !== $mobile_header_use_brand_colors ) {
 			$mobile_header_social_item_border_style = get_theme_mod( 'responsive_mobile_header_social_item_border_style', 'none' );
 			if ( 'none' !== $mobile_header_social_item_border_style ) {
 				$mobile_header_social_item_border_width = get_theme_mod( 'responsive_mobile_header_social_item_border_width', 0 );
