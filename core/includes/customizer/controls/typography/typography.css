@@ -161,7 +161,7 @@ label.responsive_font_weight select option:checked {
 }
 .customize-control-responsive-text input[type=range] {
 	background-color: rgba(0, 0, 0, 0.1);
-	height: 2px; 
+	height: 1px; 
 	width: 69%;
 	padding: 0;
 	cursor: pointer;
