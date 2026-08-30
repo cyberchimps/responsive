@@ -6667,7 +6667,7 @@ function responsive_customizer_styles() {
 	$custom_css .= responsive_build_responsive_spacing_css($below_footer_padding_values['mobile'], $below_footer_margin_values['mobile']);
 	$custom_css .= "}}";
 
-	$copyright_alignment         = get_theme_mod( 'responsive_footer_copyright_alignment', 'left' );
+	$copyright_alignment         = get_theme_mod( 'responsive_footer_copyright_alignment', 'center' );
 	$copyright_alignment_tablet  = get_theme_mod( 'responsive_footer_copyright_alignment_tablet', $copyright_alignment );
 	$copyright_alignment_mobile  = get_theme_mod( 'responsive_footer_copyright_alignment_mobile', $copyright_alignment );
 	
@@ -7836,6 +7836,33 @@ function responsive_customizer_styles() {
 		if ( $footer_social_item_spacing_mobile > 0 ) {
 			$custom_css .= "@media screen and ( max-width: 576px ) {
 				.footer-layouts.social-icon .social-icons { gap: " . $footer_social_item_spacing_mobile . "px }
+			}";
+		}
+
+		$social_alignment         = get_theme_mod( 'responsive_footer_social_alignment', 'center' );
+		$social_alignment_tablet  = get_theme_mod( 'responsive_footer_social_alignment_tablet', $social_alignment );
+		$social_alignment_mobile  = get_theme_mod( 'responsive_footer_social_alignment_mobile', $social_alignment );
+		
+		$social_justify = array(
+			'left'   => 'flex-start',
+			'center' => 'center',
+			'right'  => 'flex-end',
+		);
+
+		if ( $social_alignment ) {
+			$justify = isset( $social_justify[ $social_alignment ] ) ? $social_justify[ $social_alignment ] : 'center';
+			$custom_css .= ".footer-layouts.social-icon { text-align: {$social_alignment}; } .footer-layouts.social-icon .social-icons { justify-content: {$justify}; }";
+		}
+		if ( $social_alignment_tablet ) {
+			$justify_tablet = isset( $social_justify[ $social_alignment_tablet ] ) ? $social_justify[ $social_alignment_tablet ] : 'center';
+			$custom_css .= "@media screen and ( max-width: 992px ) {
+				.footer-layouts.social-icon { text-align: {$social_alignment_tablet}; } .footer-layouts.social-icon .social-icons { justify-content: {$justify_tablet}; }
+			}";
+		}
+		if ( $social_alignment_mobile ) {
+			$justify_mobile = isset( $social_justify[ $social_alignment_mobile ] ) ? $social_justify[ $social_alignment_mobile ] : 'center';
+			$custom_css .= "@media screen and ( max-width: 576px ) {
+				.footer-layouts.social-icon { text-align: {$social_alignment_mobile}; } .footer-layouts.social-icon .social-icons { justify-content: {$justify_mobile}; }
 			}";
 		}
 		

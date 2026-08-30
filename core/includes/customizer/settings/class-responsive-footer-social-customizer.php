@@ -64,6 +64,7 @@ if ( ! class_exists( 'Responsive_Footer_Social_Icons_Customizer' ) ) :
 			$general_tab_ids = array(
 				$tab_ids_prefix . 'responsive_footer_social_items',
 				$tab_ids_prefix . 'responsive_footer_social_show_label',
+				$tab_ids_prefix . 'responsive_footer_social_alignment',
 				$tab_ids_prefix . 'responsive_footer_social_item_spacing',
 			);
 
@@ -111,6 +112,22 @@ if ( ! class_exists( 'Responsive_Footer_Social_Icons_Customizer' ) ) :
 					)
 				)
 			);
+
+			// Social Alignment.
+			$social_alignment_label   = esc_html__( 'Alignment', 'responsive' );
+			$social_alignment_choices = array(
+				'left'   => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
+				'center' => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
+				'right'  => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
+			);
+			if ( is_rtl() ) {
+				$social_alignment_choices = array(
+					'left'   => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
+					'center' => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
+					'right'  => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
+				);
+			}
+			responsive_select_button_with_switchers_control( $wp_customize, 'footer_social_alignment', $social_alignment_label, 'responsive_footer_social', 52, $social_alignment_choices, 'center', null );
 
 			responsive_drag_number_control_with_switchers( $wp_customize, 'footer_social_item_spacing', __( 'Item Spacing (px)', 'responsive' ), 'responsive_footer_social', 55, 5, null, 50, 0, 'postMessage' );
 			
