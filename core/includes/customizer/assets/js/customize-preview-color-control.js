@@ -3332,6 +3332,53 @@
         responsive_bind_footer_border(row.type, row.selector, 'bottom');
     });
 
+        const footerColumnBorderBreakpoints = [
+        { device: 'desktop', suffix: '',        media: '@media screen and (min-width: 993px)' },
+        { device: 'tablet',  suffix: '_tablet', media: '@media screen and (min-width: 577px) and (max-width: 992px)' },
+        { device: 'mobile',  suffix: '_mobile', media: '@media screen and (max-width: 576px)' },
+    ];
+
+    function responsive_bind_footer_column_border(rowType, innerSelector) {
+
+        const selector = innerSelector + ' .site-footer-section:not(:last-child)';
+
+        footerColumnBorderBreakpoints.forEach(function (bp) {
+
+            const sizeId  = `responsive_footer_${rowType}_column_border_width${bp.suffix}`;
+            const typeId  = `responsive_footer_${rowType}_column_border_type${bp.suffix}`;
+            const colorId = `responsive_footer_${rowType}_column_border_color${bp.suffix}`;
+
+            const styleId = `responsive-footer-${rowType}-column-border-${bp.device}`;
+
+            function update() {
+                const borderSize  = api(sizeId) ? api(sizeId).get() : '';
+                const borderType  = api(typeId) ? api(typeId).get() : 'solid';
+                const borderColor = api(colorId) ? api(colorId).get() : '';
+
+                jQuery('style#' + styleId).remove();
+
+                if ( borderSize && borderSize > 0 ) {
+                    jQuery('head').append(
+                        '<style id="' + styleId + '">' +
+                        bp.media + ' {' +
+                        ' ' + selector + ' { border-right: ' + borderSize + 'px ' + borderType + ' ' + borderColor + '; }' +
+                        '}' +
+                        '</style>'
+                    );
+                }
+            }
+
+            api(sizeId, function (val) { val.bind(update); });
+            api(typeId, function (val) { val.bind(update); });
+            api(colorId, function (val) { val.bind(update); });
+        });
+    }
+
+    // Bind column border live-preview for 'below', 'primary', and 'above' footer rows
+    responsive_bind_footer_column_border('below', '.rspv-site-below-footer-inner-wrap');
+    responsive_bind_footer_column_border('primary', '.rspv-site-primary-footer-inner-wrap');
+    responsive_bind_footer_column_border('above', '.rspv-site-above-footer-inner-wrap');
+
     api( 'responsive_footer_menu_background_color', function(val){
         val.bind(function(newval){
             jQuery('style#responsive-footer-menu-background-color').remove();

@@ -64,6 +64,9 @@ if ( ! class_exists( 'Responsive_Footer_Menu_Customizer' ) ) :
                 $general_tab_ids_prefix . 'responsive_footer_widget_desktop_visibility',
 				$general_tab_ids_prefix . 'responsive_footer_widget_tablet_visibility',
 				$general_tab_ids_prefix . 'responsive_footer_widget_mobile_visibility',
+				$general_tab_ids_prefix . 'responsive_footer_menu_stretched',
+				$general_tab_ids_prefix . 'responsive_footer_menu_content_alignment',
+				$general_tab_ids_prefix . 'responsive_footer_menu_content_vertical_alignment'
 			);
 
 			responsive_tabs_button_control( $wp_customize, 'footer_menu_tabs', $tabs_label, 'responsive_footer_menu', 1, '', 'responsive_footer_menu_general_tab', 'responsive_footer_menu_design_tab', $general_tab_ids, $design_tab_ids, null );
@@ -133,6 +136,43 @@ if ( ! class_exists( 'Responsive_Footer_Menu_Customizer' ) ) :
             // Padding.
 			$footer_menu_padding_label = __( 'Padding (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'footer_menu', 'responsive_footer_menu', 80, 15, 15, null, $footer_menu_padding_label );
+
+			$wp_customize->add_setting(
+				'responsive_footer_menu_stretched',
+				array(
+					'sanitize_callback' => 'Responsive\Customizer\\responsive_sanitize_checkbox',
+					'type'              => 'theme_mod',
+					'default'           => 0,
+				)
+			);
+			$wp_customize->add_control(
+				new Responsive_Customizer_Toggle_Control(
+					$wp_customize,
+					'responsive_footer_menu_stretched',
+					array(
+						'label'    => __( 'Enable Streched Footer Menu', 'responsive' ),
+						'section'  => 'responsive_footer_menu',
+						'settings' => 'responsive_footer_menu_stretched',
+						'priority' => 10,
+					)
+				)
+			);
+
+			$footer_content_alignment_label   = esc_html__( 'Content Alignment', 'responsive' );
+			$footer_content_alignment_choices = array(
+				'left'   => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
+				'center' => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
+				'right'  => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
+			);
+			if ( is_rtl() ) {
+				$footer_content_alignment_choices = array(
+					'left'   => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
+					'center' => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
+					'right'  => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
+				);
+			}
+
+			responsive_select_button_with_switchers_control( $wp_customize, 'footer_menu_content_alignment', $footer_content_alignment_label, 'responsive_footer_menu', 15, $footer_content_alignment_choices, 'left', null );
 
 		}
 	}
