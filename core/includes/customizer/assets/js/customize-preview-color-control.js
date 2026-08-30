@@ -780,6 +780,43 @@
         } );
     } );
 
+    // Transparent Header WooCommerce Cart Count Colors
+    api( 'responsive_transparent_header_cart_count_color', function( value ) {
+        value.bind( function( newval ) {
+            jQuery( 'style#responsive-transparent-header-cart-count-color' ).remove();
+            if ( ! newval ) {
+                return;
+            }
+            if ( typeof newval === 'string' && newval.startsWith('palette') ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            jQuery( 'head' ).append(
+                '<style id="responsive-transparent-header-cart-count-color">'
+                + 'body.res-transparent-header .responsive-header-cart-total, '
+                + 'body.res-transparent-header .site-mobile-header-item .responsive-header-cart-total { color: ' + newval + '; }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    api( 'responsive_transparent_header_cart_count_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            jQuery( 'style#responsive-transparent-header-cart-count-hover-color' ).remove();
+            if ( ! newval ) {
+                return;
+            }
+            if ( typeof newval === 'string' && newval.startsWith('palette') ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            jQuery( 'head' ).append(
+                '<style id="responsive-transparent-header-cart-count-hover-color">'
+                + 'body.res-transparent-header .responsive-header-cart-total:hover, '
+                + 'body.res-transparent-header .site-mobile-header-item .responsive-header-cart-total:hover { color: ' + newval + '; }'
+                + '</style>'
+            );
+        } );
+    } );
+
     //Alternate Background Color
     api( 'responsive_alt_background_color', function( value ) {
         value.bind( function( newval ) {
@@ -4881,6 +4918,11 @@
     });
     api( 'responsive_cart_count_color', function(setting){
         setting.bind(function(color){
+            var isTransparentHeader = api.has('responsive_transparent_header') && api('responsive_transparent_header').get();
+            var transCartCountColor = api.has('responsive_transparent_header_cart_count_color') ? api('responsive_transparent_header_cart_count_color').get() : '';
+            if ( isTransparentHeader && transCartCountColor ) {
+                return;
+            }
             jQuery('style#responsive-cart-count-color').remove();
             jQuery('head').append(
                 '<style id="responsive-cart-count-color">'
@@ -4891,6 +4933,11 @@
     });
     api( 'responsive_cart_count_hover_color', function(setting){
         setting.bind(function(color){
+            var isTransparentHeader = api.has('responsive_transparent_header') && api('responsive_transparent_header').get();
+            var transCartCountHoverColor = api.has('responsive_transparent_header_cart_count_hover_color') ? api('responsive_transparent_header_cart_count_hover_color').get() : '';
+            if ( isTransparentHeader && transCartCountHoverColor ) {
+                return;
+            }
             jQuery('style#responsive-cart-count-hover-color').remove();
             jQuery('head').append(
                 '<style id="responsive-cart-count-hover-color">'
@@ -5090,6 +5137,11 @@
     });
     api('responsive_mobile_cart_count_color', function(setting){
         setting.bind(function(color){
+            var isTransparentHeader = api.has('responsive_transparent_header') && api('responsive_transparent_header').get();
+            var transCartCountColor = api.has('responsive_transparent_header_cart_count_color') ? api('responsive_transparent_header_cart_count_color').get() : '';
+            if ( isTransparentHeader && transCartCountColor ) {
+                return;
+            }
             jQuery('style#responsive-mobile-cart-count-color').remove();
             jQuery('head').append(
                 '<style id="responsive-mobile-cart-count-color">'
@@ -5100,6 +5152,11 @@
     });
     api('responsive_mobile_cart_count_hover_color', function(setting){
         setting.bind(function(color){
+            var isTransparentHeader = api.has('responsive_transparent_header') && api('responsive_transparent_header').get();
+            var transCartCountHoverColor = api.has('responsive_transparent_header_cart_count_hover_color') ? api('responsive_transparent_header_cart_count_hover_color').get() : '';
+            if ( isTransparentHeader && transCartCountHoverColor ) {
+                return;
+            }
             jQuery('style#responsive-mobile-cart-count-hover-color').remove();
             jQuery('head').append(
                 '<style id="responsive-mobile-cart-count-hover-color">'

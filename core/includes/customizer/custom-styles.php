@@ -2739,6 +2739,27 @@ function responsive_customizer_styles() {
 			";
 		}
 
+		// Header WooCommerce Cart Color.
+		$transparent_header_cart_count_color       = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_cart_count_color', '' ) );
+		$transparent_header_cart_count_hover_color = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_cart_count_hover_color', '' ) );
+
+		if ( $transparent_header_cart_count_color ) {
+			$custom_css .= "
+				body.res-transparent-header .responsive-header-cart-total,
+				body.res-transparent-header .site-mobile-header-item .responsive-header-cart-total {
+					color: {$transparent_header_cart_count_color};
+				}
+			";
+		}
+		if ( $transparent_header_cart_count_hover_color ) {
+			$custom_css .= "
+				body.res-transparent-header .responsive-header-cart-total:hover,
+				body.res-transparent-header .site-mobile-header-item .responsive-header-cart-total:hover {
+					color: {$transparent_header_cart_count_hover_color};
+				}
+			";
+		}
+
 		// Row Background Colors.
 		$transparent_header_above_header_bg_color        = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_above_header_bg_color', '' ) );
 		$transparent_header_above_header_bg_color_tablet = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_above_header_bg_color_tablet', $transparent_header_above_header_bg_color ) );
