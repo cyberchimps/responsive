@@ -47,6 +47,8 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 				 $design_tab_ids_prefix . 'responsive_header_secondary_menu_link_color_states',
 				 $design_tab_ids_prefix . 'responsive_header_secondary_menu_background_color_states',
 				 $design_tab_ids_prefix . 'responsive_secondary_sub_menu_separator',
+				 $design_tab_ids_prefix . 'responsive_secondary_sub_menu_border_padding',
+				 $design_tab_ids_prefix . 'responsive_border_secondary_sub_menu_border_radius',
 				 $design_tab_ids_prefix . 'responsive_secondary_menu_top_offset',
 				 $design_tab_ids_prefix . 'responsive_secondary_sub_menu_width',
 				 $design_tab_ids_prefix . 'responsive_secondary_sub_menu_divider',
@@ -137,6 +139,14 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 			// Sub Menu Settings
 			$secondary_sub_menu_separator_label = esc_html__( 'Sub Menu Settings', 'responsive' );
 			responsive_separator_control( $wp_customize, 'secondary_sub_menu_separator', $secondary_sub_menu_separator_label, 'responsive_header_secondary_menu_layout', 140 );
+
+			// Sub Menu Container Border.
+			$secondary_sub_menu_border = esc_html__( 'Container Border', 'responsive' );
+			responsive_padding_control( $wp_customize, 'secondary_sub_menu_border', 'responsive_header_secondary_menu_layout', 141, 0, 0, null, $secondary_sub_menu_border );
+
+			// Sub Menu Border Radius.
+			$secondary_sub_menu_border_radius = esc_html__( 'Border Radius', 'responsive' );
+			responsive_unit_radius_control( $wp_customize, 'secondary_sub_menu_border_radius', 'responsive_header_secondary_menu_layout', 142, '', '', null, $secondary_sub_menu_border_radius, 'postMessage', array( 'px', 'em' ) );
 
 			// Sub-menu Container Top Offset.
 			$secondary_menu_top_offset_label = esc_html__( 'Container Top Offset', 'responsive' );

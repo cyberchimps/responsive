@@ -2049,5 +2049,64 @@
         });
     });
 
+    function updateSecondarySubMenuBorderRadiusCss() {
+        jQuery('style#responsive-secondary-sub-menu-border-radius-css').remove();
+
+        var top = api('responsive_secondary_sub_menu_border_radius_top_left_radius') ? api('responsive_secondary_sub_menu_border_radius_top_left_radius').get() : '';
+        var right = api('responsive_secondary_sub_menu_border_radius_top_right_radius') ? api('responsive_secondary_sub_menu_border_radius_top_right_radius').get() : '';
+        var bottom = api('responsive_secondary_sub_menu_border_radius_bottom_right_radius') ? api('responsive_secondary_sub_menu_border_radius_bottom_right_radius').get() : '';
+        var left = api('responsive_secondary_sub_menu_border_radius_bottom_left_radius') ? api('responsive_secondary_sub_menu_border_radius_bottom_left_radius').get() : '';
+        var unit = api('responsive_secondary_sub_menu_border_radius_desktop_unit') ? api('responsive_secondary_sub_menu_border_radius_desktop_unit').get() : 'px';
+
+        var t_top = api('responsive_secondary_sub_menu_border_radius_tablet_top_left_radius') ? api('responsive_secondary_sub_menu_border_radius_tablet_top_left_radius').get() : '';
+        var t_right = api('responsive_secondary_sub_menu_border_radius_tablet_top_right_radius') ? api('responsive_secondary_sub_menu_border_radius_tablet_top_right_radius').get() : '';
+        var t_bottom = api('responsive_secondary_sub_menu_border_radius_tablet_bottom_right_radius') ? api('responsive_secondary_sub_menu_border_radius_tablet_bottom_right_radius').get() : '';
+        var t_left = api('responsive_secondary_sub_menu_border_radius_tablet_bottom_left_radius') ? api('responsive_secondary_sub_menu_border_radius_tablet_bottom_left_radius').get() : '';
+        var t_unit = api('responsive_secondary_sub_menu_border_radius_tablet_unit') ? api('responsive_secondary_sub_menu_border_radius_tablet_unit').get() : 'px';
+
+        var m_top = api('responsive_secondary_sub_menu_border_radius_mobile_top_left_radius') ? api('responsive_secondary_sub_menu_border_radius_mobile_top_left_radius').get() : '';
+        var m_right = api('responsive_secondary_sub_menu_border_radius_mobile_top_right_radius') ? api('responsive_secondary_sub_menu_border_radius_mobile_top_right_radius').get() : '';
+        var m_bottom = api('responsive_secondary_sub_menu_border_radius_mobile_bottom_right_radius') ? api('responsive_secondary_sub_menu_border_radius_mobile_bottom_right_radius').get() : '';
+        var m_left = api('responsive_secondary_sub_menu_border_radius_mobile_bottom_left_radius') ? api('responsive_secondary_sub_menu_border_radius_mobile_bottom_left_radius').get() : '';
+        var m_unit = api('responsive_secondary_sub_menu_border_radius_mobile_unit') ? api('responsive_secondary_sub_menu_border_radius_mobile_unit').get() : 'px';
+
+        var css = '';
+        if (top !== '' || right !== '' || bottom !== '' || left !== '') {
+            css += '.secondary-navigation .children, .secondary-navigation .sub-menu { border-top-left-radius: ' + (top || 0) + unit + '; border-top-right-radius: ' + (right || 0) + unit + '; border-bottom-right-radius: ' + (bottom || 0) + unit + '; border-bottom-left-radius: ' + (left || 0) + unit + '; }';
+        }
+        if (t_top !== '' || t_right !== '' || t_bottom !== '' || t_left !== '') {
+            css += '@media screen and (max-width: 992px) { .secondary-navigation .children, .secondary-navigation .sub-menu { border-top-left-radius: ' + (t_top || 0) + t_unit + '; border-top-right-radius: ' + (t_right || 0) + t_unit + '; border-bottom-right-radius: ' + (t_bottom || 0) + t_unit + '; border-bottom-left-radius: ' + (t_left || 0) + t_unit + '; } }';
+        }
+        if (m_top !== '' || m_right !== '' || m_bottom !== '' || m_left !== '') {
+            css += '@media screen and (max-width: 576px) { .secondary-navigation .children, .secondary-navigation .sub-menu { border-top-left-radius: ' + (m_top || 0) + m_unit + '; border-top-right-radius: ' + (m_right || 0) + m_unit + '; border-bottom-right-radius: ' + (m_bottom || 0) + m_unit + '; border-bottom-left-radius: ' + (m_left || 0) + m_unit + '; } }';
+        }
+
+        if (css !== '') {
+            jQuery('head').append('<style id="responsive-secondary-sub-menu-border-radius-css">' + css + '</style>');
+        }
+    }
+
+    [
+        'responsive_secondary_sub_menu_border_radius_top_left_radius',
+        'responsive_secondary_sub_menu_border_radius_top_right_radius',
+        'responsive_secondary_sub_menu_border_radius_bottom_right_radius',
+        'responsive_secondary_sub_menu_border_radius_bottom_left_radius',
+        'responsive_secondary_sub_menu_border_radius_desktop_unit',
+        'responsive_secondary_sub_menu_border_radius_tablet_top_left_radius',
+        'responsive_secondary_sub_menu_border_radius_tablet_top_right_radius',
+        'responsive_secondary_sub_menu_border_radius_tablet_bottom_right_radius',
+        'responsive_secondary_sub_menu_border_radius_tablet_bottom_left_radius',
+        'responsive_secondary_sub_menu_border_radius_tablet_unit',
+        'responsive_secondary_sub_menu_border_radius_mobile_top_left_radius',
+        'responsive_secondary_sub_menu_border_radius_mobile_top_right_radius',
+        'responsive_secondary_sub_menu_border_radius_mobile_bottom_right_radius',
+        'responsive_secondary_sub_menu_border_radius_mobile_bottom_left_radius',
+        'responsive_secondary_sub_menu_border_radius_mobile_unit'
+    ].forEach(function(settingId) {
+        api(settingId, function(value) {
+            value.bind(updateSecondarySubMenuBorderRadiusCss);
+        });
+    });
+
 } )( jQuery );
 

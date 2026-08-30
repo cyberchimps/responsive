@@ -1216,6 +1216,30 @@
         } );
     } );
 
+    // Secondary Sub Menu Border
+    const secondarySubMenuBorderSettings = [
+        'responsive_secondary_sub_menu_border_top_padding',
+        'responsive_secondary_sub_menu_border_left_padding',
+        'responsive_secondary_sub_menu_border_bottom_padding',
+        'responsive_secondary_sub_menu_border_right_padding',
+        'responsive_secondary_sub_menu_border_tablet_top_padding',
+        'responsive_secondary_sub_menu_border_tablet_bottom_padding',
+        'responsive_secondary_sub_menu_border_tablet_left_padding',
+        'responsive_secondary_sub_menu_border_tablet_right_padding',
+        'responsive_secondary_sub_menu_border_mobile_top_padding',
+        'responsive_secondary_sub_menu_border_mobile_bottom_padding',
+        'responsive_secondary_sub_menu_border_mobile_left_padding',
+        'responsive_secondary_sub_menu_border_mobile_right_padding'
+    ];
+
+    secondarySubMenuBorderSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function() {
+                responsive_dynamic_border('secondary_sub_menu_border', '.secondary-navigation .children, .secondary-navigation .sub-menu');
+            });
+        });
+    });
+
     const headerSocialMargin = [
         'responsive_header_social_item_margin_top_padding',
         'responsive_header_social_item_margin_right_padding',
