@@ -5230,6 +5230,22 @@ function responsive_customizer_styles() {
 				$custom_css .= "background-color: {$header_active_secondary_menu_background_color};";
 			}
 			$custom_css .= "}";
+
+			$secondary_menu_active_parent = get_theme_mod( 'responsive_secondary_menu_active_parent', 0 );
+			if ( 1 === (int) $secondary_menu_active_parent ) {
+				$custom_css .= "
+				.secondary-navigation .menu > li.current-menu-ancestor > a,
+				.secondary-navigation .menu > li.current-menu-parent > a,
+				.secondary-navigation .menu > li.current_page_ancestor > a,
+				.secondary-navigation .menu > li.current_page_parent > a {";
+				if ( ! empty( $secondary_menu_active_link_color ) ) {
+					$custom_css .= "color: {$secondary_menu_active_link_color};";
+				}
+				if ( ! empty( $header_active_secondary_menu_background_color ) ) {
+					$custom_css .= "background-color: {$header_active_secondary_menu_background_color};";
+				}
+				$custom_css .= "}";
+			}
 		}
 
 		$custom_css .= "		
