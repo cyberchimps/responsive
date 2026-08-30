@@ -1548,12 +1548,18 @@ function responsive_customizer_styles() {
 		$footer_background_color = esc_html( get_theme_mod( 'responsive_footer_background_color', '#333333' ) );
 
 		if ( $footer_background_image ) {
+			$footer_bg_left       = absint( get_theme_mod( 'responsive_footer_bg_left', 0 ) );
+			$footer_bg_top        = absint( get_theme_mod( 'responsive_footer_bg_top', 0 ) );
+			$footer_bg_repeat     = esc_attr( get_theme_mod( 'responsive_footer_bg_repeat', 'no-repeat' ) );
+			$footer_bg_size       = esc_attr( get_theme_mod( 'responsive_footer_bg_size', 'auto' ) );
+			$footer_bg_attachment = esc_attr( get_theme_mod( 'responsive_footer_bg_attachment', 'scroll' ) );
+
 			$custom_css .= ".site-footer {
-				background-color: ' . $footer_background_color . ';
 				background-image: linear-gradient(to right, {$footer_background_color}, {$footer_background_color}), url({$footer_background_image});
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-attachment: scroll;
+				background-position: {$footer_bg_left}% {$footer_bg_top}%;
+				background-repeat: {$footer_bg_repeat};
+				background-size: {$footer_bg_size};
+				background-attachment: {$footer_bg_attachment};
 			}";
 		}
 		if ( $site_background_image ) {

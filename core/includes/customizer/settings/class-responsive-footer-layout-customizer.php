@@ -70,6 +70,11 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_footer_links_hover_color',
 				// $design_tab_ids_prefix . 'responsive_footer_border_color',
 				$design_tab_ids_prefix . 'responsive_footer_background_image',
+				$design_tab_ids_prefix . 'responsive_footer_bg_left',
+				$design_tab_ids_prefix . 'responsive_footer_bg_top',
+				$design_tab_ids_prefix . 'responsive_footer_bg_repeat',
+				$design_tab_ids_prefix . 'responsive_footer_bg_size',
+				$design_tab_ids_prefix . 'responsive_footer_bg_attachment',
 				$design_tab_ids_prefix . 'responsive_footer_bar_padding',
 				$design_tab_ids_prefix . 'responsive_footer_typography_group',
 				$design_tab_ids_prefix . 'responsive_footer_copyright_typography_group',
@@ -277,7 +282,91 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			// );
 			// responsive_select_control( $wp_customize, 'footer_bar_layout', $footer_bar_layout_label, 'responsive_footer_layout', 130, $footer_layout_choices, 'horizontal', null, 'postMessage' );
 
-			// Bar Padding.
+			// Background Position Left
+			$wp_customize->add_setting(
+				'responsive_footer_bg_left',
+				array( 'default' => 0, 'type' => 'theme_mod', 'transport' => 'postMessage', 'sanitize_callback' => 'absint' )
+			);
+			$wp_customize->add_control(
+				'responsive_footer_bg_left',
+				array(
+					'label'    => __( 'Left (%)', 'responsive' ),
+					'section'  => 'responsive_footer_layout',
+					'type'     => 'number',
+					'priority' => 16,
+				)
+			);
+
+			// Background Position Top
+			$wp_customize->add_setting(
+				'responsive_footer_bg_top',
+				array( 'default' => 0, 'type' => 'theme_mod', 'transport' => 'postMessage', 'sanitize_callback' => 'absint' )
+			);
+			$wp_customize->add_control(
+				'responsive_footer_bg_top',
+				array(
+					'label'    => __( 'Top (%)', 'responsive' ),
+					'section'  => 'responsive_footer_layout',
+					'type'     => 'number',
+					'priority' => 17,
+				)
+			);
+
+			// Background Repeat
+			responsive_select_control(
+				$wp_customize,
+				'footer_bg_repeat',
+				__( 'Background Repeat', 'responsive' ),
+				'responsive_footer_layout',
+				18,
+				array(
+					'no-repeat' => __( 'No Repeat', 'responsive' ),
+					'repeat'    => __( 'Repeat', 'responsive' ),
+					'repeat-x'  => __( 'Repeat X', 'responsive' ),
+					'repeat-y'  => __( 'Repeat Y', 'responsive' ),
+				),
+				'no-repeat',
+				null,
+				'postMessage'
+			);
+
+			// Background Size
+			responsive_select_control(
+				$wp_customize,
+				'footer_bg_size',
+				__( 'Background Size', 'responsive' ),
+				'responsive_footer_layout',
+				19,
+				array(
+					'auto'    => __( 'Auto', 'responsive' ),
+					'cover'   => __( 'Cover', 'responsive' ),
+					'contain' => __( 'Contain', 'responsive' ),
+				),
+				'auto',
+				null,
+				'postMessage'
+			);
+
+			// Background Attachment
+			responsive_select_control(
+				$wp_customize,
+				'footer_bg_attachment',
+				__( 'Background Attachment', 'responsive' ),
+				'responsive_footer_layout',
+				20,
+				array(
+					'scroll' => __( 'Scroll', 'responsive' ),
+					'fixed'  => __( 'Fixed', 'responsive' ),
+				),
+				'scroll',
+				null,
+				'postMessage'
+			);
+
+			// Separator
+			responsive_separator_control( $wp_customize, 'footer_layout_separator_2', '', 'responsive_footer_layout', 21, null );
+
+			// Padding.
 			responsive_unit_padding_control( $wp_customize, 'footer_bar', 'responsive_footer_layout', 50, 0, 0, null, __( 'Padding', 'responsive' ), 'postMessage', '', '', '', '', 'px' );
 
 			// Margin.
