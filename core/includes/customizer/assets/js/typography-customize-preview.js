@@ -4829,6 +4829,62 @@
             ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
         ),
 
+        generateTypographyPreview(
+            'footer_above_row_widget_heading_typography',
+            'footer_above_row_widget_heading_tablet_typography',
+            'footer_above_row_widget_heading_mobile_typography',
+            'footer_above_row_widget_heading',
+            'customizer-typography-footer_above_row_widget_heading_typography',
+            ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
+        ),
+
+        generateTypographyPreview(
+            'footer_above_row_widget_content_typography',
+            'footer_above_row_widget_content_tablet_typography',
+            'footer_above_row_widget_content_mobile_typography',
+            'footer_above_row_widget_content',
+            'customizer-typography-footer_above_row_widget_content_typography',
+            ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
+        ),
+
+        generateTypographyPreview(
+            'footer_primary_row_widget_heading_typography',
+            'footer_primary_row_widget_heading_tablet_typography',
+            'footer_primary_row_widget_heading_mobile_typography',
+            'footer_primary_row_widget_heading',
+            'customizer-typography-footer_primary_row_widget_heading_typography',
+            ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
+        ),
+
+        generateTypographyPreview(
+            'footer_primary_row_widget_content_typography',
+            'footer_primary_row_widget_content_tablet_typography',
+            'footer_primary_row_widget_content_mobile_typography',
+            'footer_primary_row_widget_content',
+            'customizer-typography-footer_primary_row_widget_content_typography',
+            ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
+        ),
+
+        generateTypographyPreview(
+            'footer_below_row_widget_heading_typography',
+            'footer_below_row_widget_heading_tablet_typography',
+            'footer_below_row_widget_heading_mobile_typography',
+            'footer_below_row_widget_heading',
+            'customizer-typography-footer_below_row_widget_heading_typography',
+            ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
+        ),
+
+        generateTypographyPreview(
+            'footer_below_row_widget_content_typography',
+            'footer_below_row_widget_content_tablet_typography',
+            'footer_below_row_widget_content_mobile_typography',
+            'footer_below_row_widget_content',
+            'customizer-typography-footer_below_row_widget_content_typography',
+            ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
+        ),
+
+
+
         api( "page_title_area_text_typography[text-transform]", function( $swipe ) {
             $swipe.bind( function( dataAndEvents ) {
                 jQuery( 'style.customizer-typography-page_title_area_text_typography-text-transform' ).remove();

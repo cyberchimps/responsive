@@ -55,7 +55,7 @@
         if (!value) return null;
 	
 		// Detect palette var format
-        if (typeof value === 'string' && value.startsWith('palette')) {
+        if (typeof value === 'string' && (value.startsWith('palette') || value.startsWith('footer-text-color') || value.startsWith('footer-links-color') || value.startsWith('footer-links-hover-color'))) {
             return `var(--responsive-global-${value})`;
         }
         if (typeof value === 'string' && value === 'border-color') {
@@ -1350,7 +1350,8 @@
     //Text Color
     api( 'responsive_footer_text_color', function( value ) {
         value.bind( function( newval ) {
-            $('.site-footer, .site-footer h1,.site-footer h2,.site-footer h3,.site-footer h4,.site-footer h5,.site-footer h6').css('color', newval );
+             document.documentElement.style.setProperty('--responsive-global-footer-text-color', newval);
+            $('.site-footer, .site-footer h1,.site-footer h2,.site-footer h3,.site-footer h4,.site-footer h5,.site-footer h6').not('.rspv-site-primary-footer-wrap .footer-widgets .wp-block-heading', '.rspv-site-above-footer-wrap .footer-widgets .wp-block-heading', '.rspv-site-below-footer-wrap .footer-widgets .wp-block-heading').css('color', newval );
         } );
     } );
 
@@ -3440,6 +3441,17 @@
         })
     });
 
+    api( 'responsive_footer_above_row_widget_heading', function( val){
+        val.bind( function(newval){
+            jQuery('style#responsive-footer-above-row-widget-heading').remove();
+            jQuery('head').append(
+                '<style id="responsive-footer-above-row-widget-heading">'
+                + '@media screen and ( max-width: 576px ) { .footer-navigation:hover { background-color: ' + newval + '; } }'
+                + '</style>'
+            );
+        })
+    });
+
     // Footer Menu Link Color - Desktop
     api( 'responsive_footer_menu_link_color', function( val ){
         val.bind( function( newval ){
@@ -5505,5 +5517,68 @@
         });
     });
 
+    const footerWidgetRows = [
+        { type: 'above',   selector: '.rspv-site-above-footer-wrap' },
+        { type: 'primary', selector: '.rspv-site-primary-footer-wrap' },
+        { type: 'below',   selector: '.rspv-site-below-footer-wrap' },
+    ];
+
+    function responsive_bind_footer_widget_colors(rowType, selector) {
+        if (typeof footerBorderBreakpoints === 'undefined') return;
+        footerBorderBreakpoints.forEach(function (bp) {
+            // Heading color
+            const headingColorId = `responsive_footer_${rowType}_row_widget_heading_color${bp.suffix}`;
+            const headingStyleId = `responsive-footer-${rowType}-row-widget-heading-color-${bp.device}`;
+            
+            api(headingColorId, function (val) {
+                val.bind(function (newval) {
+                    newval = processThemeSettingForCSS(headingColorId) || newval;
+                    jQuery('style#' + headingStyleId).remove();
+                    jQuery('head').append(
+                        '<style id="' + headingStyleId + '">' +
+                        bp.media + ' {' +
+                        ' ' + selector + ' .footer-widget-area h1, ' +
+                        ' ' + selector + ' .footer-widget-area h2, ' +
+                        ' ' + selector + ' .footer-widget-area h3, ' +
+                        ' ' + selector + ' .footer-widget-area h4, ' +
+                        ' ' + selector + ' .footer-widget-area h5, ' +
+                        ' ' + selector + ' .footer-widget-area h6 { color: ' + newval + '; }' +
+                        '}' +
+                        '</style>'
+                    );
+                });
+            });
+
+            // Content color
+            const contentColorId = `responsive_footer_${rowType}_row_widget_content_color${bp.suffix}`;
+            const contentStyleId = `responsive-footer-${rowType}-row-widget-content-color-${bp.device}`;
+            
+            api(contentColorId, function (val) {
+                val.bind(function (newval) {
+                    newval = processThemeSettingForCSS(contentColorId) || newval;
+                    jQuery('style#' + contentStyleId).remove();
+                    jQuery('head').append(
+                        '<style id="' + contentStyleId + '">' +
+                        bp.media + ' {' +
+                        ' ' + selector + ' .footer-widget-area, ' +
+                        ' ' + selector + ' .footer-widget-area p { color: ' + newval + '; }' +
+                        '}' +
+                        '</style>'
+                    );
+                });
+            });
+        });
+    }
+
+    // Bind widget colors live-preview for every footer row
+    if ( typeof footerWidgetRows !== 'undefined' ) {
+        footerWidgetRows.forEach(function (row) {
+            responsive_bind_footer_widget_colors(row.type, row.selector);
+        });
+    } else if ( typeof footerBorderRows !== 'undefined' ) {
+        footerBorderRows.forEach(function (row) {
+            responsive_bind_footer_widget_colors(row.type, row.selector);
+        });
+    }
 
 } )( jQuery );

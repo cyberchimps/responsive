@@ -79,6 +79,11 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_footer_typography_group',
 				$design_tab_ids_prefix . 'responsive_footer_copyright_typography_group',
 				$design_tab_ids_prefix . 'responsive_footer_margin_padding',
+				$design_tab_ids_prefix . 'responsive_footer_widgets_separator',
+                $design_tab_ids_prefix . 'responsive_footer_widget_desktop_visibility',
+				$design_tab_ids_prefix . 'responsive_footer_widget_tablet_visibility',
+				$design_tab_ids_prefix . 'responsive_footer_widget_mobile_visibility',
+
 			);
 
 		$general_tab_ids_prefix = 'customize-control-';

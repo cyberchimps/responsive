@@ -213,6 +213,26 @@ if( ! class_exists( 'Responsive_HFB_Footer_Below_Row' ) ) {
 			$footer_below_row_items_padding_label = __( 'Padding (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'footer_below_row_item_padding', 'responsive_footer_below_row', 160, 0, 0, null, $footer_below_row_items_padding_label );
 
+			// Widgets
+			$widget_separator_label = __( 'Widgets', 'responsive' );
+			responsive_separator_control( $wp_customize, 'footer_below_items_widgets_separator', $widget_separator_label, 'responsive_footer_below_row', 165 );
+
+			// Widget Heading Font
+			$widget_title_font_label = __( 'Heading Font', 'responsive' );
+			responsive_typography_group_control( $wp_customize, 'footer_below_row_widget_heading_typography_group', $widget_title_font_label, 'responsive_footer_below_row', 170, 'footer_below_row_widget_heading_typography', true );
+
+			// Widget Heading Color
+			$footer_below_row_widget_heading_color_label = __( 'Heading Color', 'responsive' );
+			responsive_color_control_with_device_switchers( $wp_customize, 'footer_below_row_widget_heading', $footer_below_row_widget_heading_color_label, 'responsive_footer_below_row', 175, 'footer-text-color', null, '', 'refresh' );
+
+			// Widget Content Font
+			$widget_content_font_label = __( 'Content Font', 'responsive' );
+			responsive_typography_group_control( $wp_customize, 'footer_below_row_widget_content_typography_group', $widget_content_font_label, 'responsive_footer_below_row', 180, 'footer_below_row_widget_content_typography', true );
+
+			// Widget Content Color
+			$widget_content_color_label  = __('Content Color', 'responsive' );
+			responsive_color_control_with_device_switchers( $wp_customize, 'footer_below_row_widget_content', $widget_content_color_label, 'responsive_footer_below_row', 185, 'footer-text-color' , null, '', 'refresh' );
+
             $tabs_label     = esc_html__( 'Tabs', 'responsive' );
 			$tab_ids_prefix = 'customize-control-';
 			$design_tab_ids = array(
@@ -240,6 +260,12 @@ if( ! class_exists( 'Responsive_HFB_Footer_Below_Row' ) ) {
 				$tab_ids_prefix . 'responsive_footer_below_separator_11',
 				$tab_ids_prefix . 'responsive_footer_below_separator_12',
 				$tab_ids_prefix . 'responsive_footer_below_separator_13',
+				$tab_ids_prefix . 'responsive_footer_below_items_widgets_separator',
+				$tab_ids_prefix . 'responsive_footer_below_row_widget_heading_typography_group',
+				$tab_ids_prefix . 'responsive_footer_below_row_widget_heading_color',
+				$tab_ids_prefix . 'responsive_footer_below_row_widget_content_color',
+				$tab_ids_prefix . 'responsive_footer_below_row_widget_content_typography_group'
+
 			);
             
 			$general_tab_ids = array(

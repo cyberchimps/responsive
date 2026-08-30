@@ -60,10 +60,6 @@ if ( ! class_exists( 'Responsive_Footer_Menu_Customizer' ) ) :
 			$general_tab_ids_prefix = 'customize-control-';
 			$general_tab_ids        = array(
 				$general_tab_ids_prefix . 'responsive_redirect_to_footer_menu_set_location',
-				$general_tab_ids_prefix . 'responsive_footer_widgets_separator',
-                $general_tab_ids_prefix . 'responsive_footer_widget_desktop_visibility',
-				$general_tab_ids_prefix . 'responsive_footer_widget_tablet_visibility',
-				$general_tab_ids_prefix . 'responsive_footer_widget_mobile_visibility',
 				$general_tab_ids_prefix . 'responsive_footer_menu_stretched',
 				$general_tab_ids_prefix . 'responsive_footer_menu_content_alignment',
 				$general_tab_ids_prefix . 'responsive_footer_menu_content_vertical_alignment'
@@ -79,19 +75,19 @@ if ( ! class_exists( 'Responsive_Footer_Menu_Customizer' ) ) :
 			 * Footer Widget Separator.
 			 */
 			$footer_widgets_separator_label = esc_html__( 'Footer Widgets', 'responsive' );
-			responsive_separator_control( $wp_customize, 'footer_widgets_separator', $footer_widgets_separator_label, 'responsive_footer_menu', 20 );
+			responsive_separator_control( $wp_customize, 'footer_widgets_separator', $footer_widgets_separator_label, 'responsive_footer_layout', 100 );
 
 			// // Hide on Desktop.
 			$footer_widget_desktop_visibility = __( 'Hide on Desktop', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'footer_widget_desktop_visibility', $footer_widget_desktop_visibility, 'responsive_footer_menu', 30, 0, null );
+			responsive_toggle_control( $wp_customize, 'footer_widget_desktop_visibility', $footer_widget_desktop_visibility, 'responsive_footer_layout', 105, 0, null );
 
 			// Hide on Tablet.
 			$footer_widget_tablet_visibility = __( 'Hide on Tablet', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'footer_widget_tablet_visibility', $footer_widget_tablet_visibility, 'responsive_footer_menu', 40, 0, null );
+			responsive_toggle_control( $wp_customize, 'footer_widget_tablet_visibility', $footer_widget_tablet_visibility, 'responsive_footer_layout', 110, 0, null );
 
 			// Hide on Mobile.
 			$footer_widget_mobile_visibility = __( 'Hide on Mobile', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'footer_widget_mobile_visibility', $footer_widget_mobile_visibility, 'responsive_footer_menu', 50, 0, null );
+			responsive_toggle_control( $wp_customize, 'footer_widget_mobile_visibility', $footer_widget_mobile_visibility, 'responsive_footer_layout', 115, 0, null );
 			
 			/*
 			------------------------------------------------------------------

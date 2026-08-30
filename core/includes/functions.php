@@ -3009,7 +3009,7 @@ if( ! function_exists( 'responsive_prepare_css_value' ) ) {
 
 		$value = trim( $value );
 
-		if ( is_string( $value ) && ( preg_match( '/^palette\d+$/', $value ) || false !== strpos( $value, 'headings-color' ) || false !== strpos( $value, 'site-background' ) || false !== strpos( $value, 'box-background' ) || false !== strpos( $value, 'h1-color' ) ) ) {
+		if ( is_string( $value ) && ( preg_match( '/^palette\d+$/', $value ) || false !== strpos( $value, 'headings-color' ) || false !== strpos( $value, 'site-background' ) || false !== strpos( $value, 'box-background' ) || false !== strpos( $value, 'h1-color' ) || false !== strpos( $value, 'footer-text-color' ) || false !== strpos( $value, 'footer-links-color' ) || false !== strpos( $value, 'footer-links-hover-color' ) ) ) {
 			return 'var(--responsive-global-' . $value . ')';
 		}
 

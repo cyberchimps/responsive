@@ -71,13 +71,13 @@ if ( ! class_exists( 'Responsive_Footer_Widgets_Settings_Customizer' ) ) :
 
                 // Heading Color.
                 $heading_color_label = __( 'Heading Color', 'responsive' );
-                responsive_color_control_with_device_switchers( $wp_customize, 'footer_widget'. $i .'_title', $heading_color_label, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 50, Responsive\Core\get_responsive_customizer_defaults( 'footer_widget_title_color' ), null, '' );
+                responsive_color_control_with_device_switchers( $wp_customize, 'footer_widget'. $i .'_title', $heading_color_label, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 50, '', null, '' );
 
                 responsive_horizontal_separator_control($wp_customize, 'footer_widget'.$i.'_cc_separator', 1, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 55, 1 );
 
                 // Content Color.
                 $content_color_label = __( 'Content Color', 'responsive' );
-                responsive_color_control_with_device_switchers( $wp_customize, 'footer_widget'. $i .'_content', $content_color_label, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 60, Responsive\Core\get_responsive_customizer_defaults( 'footer_widget_content_color' ), null, '' );
+                responsive_color_control_with_device_switchers( $wp_customize, 'footer_widget'. $i .'_content', $content_color_label, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 60, '', null, '' );
 
                 responsive_horizontal_separator_control($wp_customize, 'footer_widget'.$i.'_lc_separator', 1, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 65, 1 );
 

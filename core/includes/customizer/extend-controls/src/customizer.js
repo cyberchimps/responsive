@@ -470,6 +470,9 @@
 				cssVars['--responsive-global-site-background'] = processThemeSettingForCSS('responsive_site_background_color');
 				cssVars['--responsive-global-box-background'] = processThemeSettingForCSS('responsive_box_background_color');
 				cssVars['--responsive-global-h1-color'] = processThemeSettingForCSS('responsive_h1_text_color');
+				cssVars['--responsive-global-footer-text-color'] = processThemeSettingForCSS('responsive_footer_text_color');
+				cssVars['--responsive-global-footer-links-color'] = processThemeSettingForCSS('responsive_footer_links_color');
+				cssVars['--responsive-global-footer-links-hover-color'] = processThemeSettingForCSS('responsive_footer_links_hover_color');
 				const root = document.documentElement;
 				Object.entries(cssVars).forEach(([varName, color]) => {
 					root.style.setProperty(varName, color);
@@ -567,6 +570,42 @@
 				}
 				document.documentElement.style.setProperty(
 					'--responsive-global-h1-color',
+					newval
+				);
+			});
+		});
+
+		wp.customize( 'responsive_footer_text_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				document.documentElement.style.setProperty(
+					'--responsive-global-footer-text-color',
+					newval
+				);
+			});
+		});
+
+		wp.customize( 'responsive_footer_links_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				document.documentElement.style.setProperty(
+					'--responsive-global-footer-links-color',
+					newval
+				);
+			});
+		});
+
+		wp.customize( 'responsive_footer_text_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				document.documentElement.style.setProperty(
+					'--responsive-global-footer-links-hover-color',
 					newval
 				);
 			});
