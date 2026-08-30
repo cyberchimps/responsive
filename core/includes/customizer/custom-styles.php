@@ -2585,6 +2585,92 @@ function responsive_customizer_styles() {
 			";
 		}
 
+		// Header Social Color.
+		$transparent_header_social_item_color          = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_social_item_color', '' ) );
+		$transparent_header_social_item_hover_color    = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_social_item_hover_color', '' ) );
+		$transparent_header_social_item_bg_color       = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_social_item_bg_color', '' ) );
+		$transparent_header_social_item_bg_hover_color = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_social_item_bg_hover_color', '' ) );
+
+		$header_social_use_brand_colors        = get_theme_mod( 'responsive_header_social_item_use_brand_colors', 'no' );
+		$mobile_header_social_use_brand_colors = get_theme_mod( 'responsive_mobile_header_social_item_use_brand_colors', 'no' );
+
+		$header_social_item_style        = get_theme_mod( 'responsive_header_social_item_style', 'filled' );
+		$mobile_header_social_item_style = get_theme_mod( 'responsive_mobile_header_social_item_style', 'filled' );
+
+		// Desktop Header Social
+		if ( 'no' === $header_social_use_brand_colors || 'on-hover' === $header_social_use_brand_colors ) {
+			$trans_header_social_selector = 'on-hover' === $header_social_use_brand_colors ? 'body.res-transparent-header .site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:not(:hover)' : 'body.res-transparent-header .site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor';
+			if ( $transparent_header_social_item_color ) {
+				$custom_css .= "
+					{$trans_header_social_selector} {
+						color: {$transparent_header_social_item_color};
+						fill: {$transparent_header_social_item_color};
+					}
+				";
+			}
+			if ( 'filled' === $header_social_item_style && $transparent_header_social_item_bg_color ) {
+				$custom_css .= "
+					{$trans_header_social_selector} {
+						background-color: {$transparent_header_social_item_bg_color};
+					}
+				";
+			}
+		}
+		if ( 'no' === $header_social_use_brand_colors || 'until-hover' === $header_social_use_brand_colors ) {
+			if ( $transparent_header_social_item_hover_color ) {
+				$custom_css .= "
+					body.res-transparent-header .site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover {
+						color: {$transparent_header_social_item_hover_color};
+						fill: {$transparent_header_social_item_hover_color};
+					}
+				";
+			}
+			if ( 'filled' === $header_social_item_style && $transparent_header_social_item_bg_hover_color ) {
+				$custom_css .= "
+					body.res-transparent-header .site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover {
+						background-color: {$transparent_header_social_item_bg_hover_color} !important;
+					}
+				";
+			}
+		}
+
+		// Mobile Header Social
+		if ( 'no' === $mobile_header_social_use_brand_colors || 'on-hover' === $mobile_header_social_use_brand_colors ) {
+			$trans_mobile_social_selector = 'on-hover' === $mobile_header_social_use_brand_colors ? 'body.res-transparent-header .site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:not(:hover)' : 'body.res-transparent-header .site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor';
+			if ( $transparent_header_social_item_color ) {
+				$custom_css .= "
+					{$trans_mobile_social_selector} {
+						color: {$transparent_header_social_item_color};
+						fill: {$transparent_header_social_item_color};
+					}
+				";
+			}
+			if ( 'filled' === $mobile_header_social_item_style && $transparent_header_social_item_bg_color ) {
+				$custom_css .= "
+					{$trans_mobile_social_selector} {
+						background-color: {$transparent_header_social_item_bg_color};
+					}
+				";
+			}
+		}
+		if ( 'no' === $mobile_header_social_use_brand_colors || 'until-hover' === $mobile_header_social_use_brand_colors ) {
+			if ( $transparent_header_social_item_hover_color ) {
+				$custom_css .= "
+					body.res-transparent-header .site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover {
+						color: {$transparent_header_social_item_hover_color};
+						fill: {$transparent_header_social_item_hover_color};
+					}
+				";
+			}
+			if ( 'filled' === $mobile_header_social_item_style && $transparent_header_social_item_bg_hover_color ) {
+				$custom_css .= "
+					body.res-transparent-header .site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover {
+						background-color: {$transparent_header_social_item_bg_hover_color} !important;
+					}
+				";
+			}
+		}
+
 		// Row Background Colors.
 		$transparent_header_above_header_bg_color        = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_above_header_bg_color', '' ) );
 		$transparent_header_above_header_bg_color_tablet = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_above_header_bg_color_tablet', $transparent_header_above_header_bg_color ) );

@@ -104,6 +104,9 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_transparent_header_button_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_button_bg_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_button_border_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_social_color_separator',
+				$design_tab_ids_prefix . 'responsive_transparent_header_social_item_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_social_item_bg_color',
 			);
 
 			responsive_tabs_button_control( $wp_customize, 'header_transparent_tabs', $tabs_label, 'responsive_header_transparent', 1, '', 'responsive_header_transparent_general_tab', 'responsive_header_transparent_design_tab', $general_tab_ids, $design_tab_ids, null );
@@ -365,6 +368,20 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			// Border Color.
 			$button_border_color_label = __( 'Border Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'transparent_header_button_border', $button_border_color_label, 'responsive_header_transparent', 360, '', null, '', true, '', 'transparent_header_button_border_hover' );
+
+			/**
+			 * Header Social Separator.
+			 */
+			$transparent_header_social_separator_label = esc_html__( 'Social Color', 'responsive' );
+			responsive_separator_control( $wp_customize, 'transparent_header_social_color_separator', $transparent_header_social_separator_label, 'responsive_header_transparent', 370, null );
+
+			// Icon Color.
+			$social_icon_color_label = __( 'Icon Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'transparent_header_social_item', $social_icon_color_label, 'responsive_header_transparent', 380, '', null, '', true, '', 'transparent_header_social_item_hover' );
+
+			// Background Color.
+			$social_background_color_label = __( 'Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'transparent_header_social_item_bg', $social_background_color_label, 'responsive_header_transparent', 390, '', null, '', true, '', 'transparent_header_social_item_bg_hover' );
 
 		}
 	}

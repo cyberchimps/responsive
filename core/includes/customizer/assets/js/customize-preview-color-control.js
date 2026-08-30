@@ -540,6 +540,128 @@
         } );
     } );
 
+    // Transparent Header Social Colors
+    function updateTransparentHeaderSocialStyle( styleId, selector, property, color, fallbackSettingId, brandColorsSettingId, isHoverState, socialStyleSettingId ) {
+        jQuery('style#' + styleId).remove();
+        var useBrandColors = brandColorsSettingId && api.has( brandColorsSettingId ) ? api( brandColorsSettingId ).get() : 'no';
+        if ( 'yes' === useBrandColors ) {
+            return;
+        }
+        if ( isHoverState && 'on-hover' === useBrandColors ) {
+            return;
+        }
+        if ( ! isHoverState && 'until-hover' === useBrandColors ) {
+            return;
+        }
+        if ( ( property === 'background-color' || ( Array.isArray( property ) && property.includes( 'background-color' ) ) ) && socialStyleSettingId && api.has( socialStyleSettingId ) ) {
+            var socialStyle = api( socialStyleSettingId ).get();
+            if ( 'outline' === socialStyle ) {
+                return;
+            }
+        }
+        if ( ! isHoverState && 'on-hover' === useBrandColors && ! selector.includes(':not(:hover)') ) {
+            selector += ':not(:hover)';
+        }
+        if ( ! color && fallbackSettingId && api.has( fallbackSettingId ) ) {
+            color = api( fallbackSettingId ).get();
+        }
+        if ( ! color ) {
+            return;
+        }
+        if ( typeof color === 'string' && color.startsWith('palette') ) {
+            color = 'var(--responsive-global-' + color + ')';
+        }
+        var cssProps = '';
+        var importantFlag = ( isHoverState && property === 'background-color' ) ? ' !important' : '';
+        if ( Array.isArray( property ) ) {
+            property.forEach( function( prop ) {
+                cssProps += prop + ': ' + color + importantFlag + '; ';
+            } );
+        } else {
+            cssProps = property + ': ' + color + importantFlag + ';';
+        }
+        var css = selector + ' { ' + cssProps + ' }';
+        jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+    }
+
+    api( 'responsive_transparent_header_social_item_color', function( value ) {
+        value.bind( function( newval ) {
+            $( '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor, .site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css('color', '').css('fill', '');
+            updateTransparentHeaderSocialStyle( 'responsive-transparent-header-social-item-color', 'body.res-transparent-header .site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor', ['color', 'fill'], newval, 'responsive_header_social_item_color', 'responsive_header_social_item_use_brand_colors', false );
+            updateTransparentHeaderSocialStyle( 'responsive-transparent-header-mobile-social-item-color', 'body.res-transparent-header .site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor', ['color', 'fill'], newval, 'responsive_mobile_header_social_item_color', 'responsive_mobile_header_social_item_use_brand_colors', false );
+        } );
+    } );
+
+    api( 'responsive_transparent_header_social_item_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            updateTransparentHeaderSocialStyle( 'responsive-transparent-header-social-item-hover-color', 'body.res-transparent-header .site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover', ['color', 'fill'], newval, 'responsive_header_social_item_hover_color', 'responsive_header_social_item_use_brand_colors', true );
+            updateTransparentHeaderSocialStyle( 'responsive-transparent-header-mobile-social-item-hover-color', 'body.res-transparent-header .site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover', ['color', 'fill'], newval, 'responsive_mobile_header_social_item_hover_color', 'responsive_mobile_header_social_item_use_brand_colors', true );
+        } );
+    } );
+
+    api( 'responsive_transparent_header_social_item_bg_color', function( value ) {
+        value.bind( function( newval ) {
+            $( '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor, .site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor' ).css('background-color', '');
+            updateTransparentHeaderSocialStyle( 'responsive-transparent-header-social-item-bg-color', 'body.res-transparent-header .site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor', 'background-color', newval, 'responsive_header_social_item_background_color', 'responsive_header_social_item_use_brand_colors', false, 'responsive_header_social_item_style' );
+            updateTransparentHeaderSocialStyle( 'responsive-transparent-header-mobile-social-item-bg-color', 'body.res-transparent-header .site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor', 'background-color', newval, 'responsive_mobile_header_social_item_background_color', 'responsive_mobile_header_social_item_use_brand_colors', false, 'responsive_mobile_header_social_item_style' );
+        } );
+    } );
+
+    api( 'responsive_transparent_header_social_item_bg_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            updateTransparentHeaderSocialStyle( 'responsive-transparent-header-social-item-bg-hover-color', 'body.res-transparent-header .site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover', 'background-color', newval, 'responsive_header_social_item_background_hover_color', 'responsive_header_social_item_use_brand_colors', true, 'responsive_header_social_item_style' );
+            updateTransparentHeaderSocialStyle( 'responsive-transparent-header-mobile-social-item-bg-hover-color', 'body.res-transparent-header .site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover', 'background-color', newval, 'responsive_mobile_header_social_item_background_hover_color', 'responsive_mobile_header_social_item_use_brand_colors', true, 'responsive_mobile_header_social_item_style' );
+        } );
+    } );
+
+    api( 'responsive_header_social_item_use_brand_colors', function( value ) {
+        value.bind( function() {
+            var transColor = api.has('responsive_transparent_header_social_item_color') ? api('responsive_transparent_header_social_item_color').get() : '';
+            var transHoverColor = api.has('responsive_transparent_header_social_item_hover_color') ? api('responsive_transparent_header_social_item_hover_color').get() : '';
+            var transBgColor = api.has('responsive_transparent_header_social_item_bg_color') ? api('responsive_transparent_header_social_item_bg_color').get() : '';
+            var transBgHoverColor = api.has('responsive_transparent_header_social_item_bg_hover_color') ? api('responsive_transparent_header_social_item_bg_hover_color').get() : '';
+
+            updateTransparentHeaderSocialStyle( 'responsive-transparent-header-social-item-color', 'body.res-transparent-header .site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor', ['color', 'fill'], transColor, 'responsive_header_social_item_color', 'responsive_header_social_item_use_brand_colors', false );
+            updateTransparentHeaderSocialStyle( 'responsive-transparent-header-social-item-hover-color', 'body.res-transparent-header .site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover', ['color', 'fill'], transHoverColor, 'responsive_header_social_item_hover_color', 'responsive_header_social_item_use_brand_colors', true );
+            updateTransparentHeaderSocialStyle( 'responsive-transparent-header-social-item-bg-color', 'body.res-transparent-header .site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor', 'background-color', transBgColor, 'responsive_header_social_item_background_color', 'responsive_header_social_item_use_brand_colors', false, 'responsive_header_social_item_style' );
+            updateTransparentHeaderSocialStyle( 'responsive-transparent-header-social-item-bg-hover-color', 'body.res-transparent-header .site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover', 'background-color', transBgHoverColor, 'responsive_header_social_item_background_hover_color', 'responsive_header_social_item_use_brand_colors', true, 'responsive_header_social_item_style' );
+        } );
+    } );
+
+    api( 'responsive_mobile_header_social_item_use_brand_colors', function( value ) {
+        value.bind( function() {
+            var transColor = api.has('responsive_transparent_header_social_item_color') ? api('responsive_transparent_header_social_item_color').get() : '';
+            var transHoverColor = api.has('responsive_transparent_header_social_item_hover_color') ? api('responsive_transparent_header_social_item_hover_color').get() : '';
+            var transBgColor = api.has('responsive_transparent_header_social_item_bg_color') ? api('responsive_transparent_header_social_item_bg_color').get() : '';
+            var transBgHoverColor = api.has('responsive_transparent_header_social_item_bg_hover_color') ? api('responsive_transparent_header_social_item_bg_hover_color').get() : '';
+
+            updateTransparentHeaderSocialStyle( 'responsive-transparent-header-mobile-social-item-color', 'body.res-transparent-header .site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor', ['color', 'fill'], transColor, 'responsive_mobile_header_social_item_color', 'responsive_mobile_header_social_item_use_brand_colors', false );
+            updateTransparentHeaderSocialStyle( 'responsive-transparent-header-mobile-social-item-hover-color', 'body.res-transparent-header .site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover', ['color', 'fill'], transHoverColor, 'responsive_mobile_header_social_item_hover_color', 'responsive_mobile_header_social_item_use_brand_colors', true );
+            updateTransparentHeaderSocialStyle( 'responsive-transparent-header-mobile-social-item-bg-color', 'body.res-transparent-header .site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor', 'background-color', transBgColor, 'responsive_mobile_header_social_item_background_color', 'responsive_mobile_header_social_item_use_brand_colors', false, 'responsive_mobile_header_social_item_style' );
+            updateTransparentHeaderSocialStyle( 'responsive-transparent-header-mobile-social-item-bg-hover-color', 'body.res-transparent-header .site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover', 'background-color', transBgHoverColor, 'responsive_mobile_header_social_item_background_hover_color', 'responsive_mobile_header_social_item_use_brand_colors', true, 'responsive_mobile_header_social_item_style' );
+        } );
+    } );
+
+    api( 'responsive_header_social_item_style', function( value ) {
+        value.bind( function() {
+            var transBgColor = api.has('responsive_transparent_header_social_item_bg_color') ? api('responsive_transparent_header_social_item_bg_color').get() : '';
+            var transBgHoverColor = api.has('responsive_transparent_header_social_item_bg_hover_color') ? api('responsive_transparent_header_social_item_bg_hover_color').get() : '';
+
+            updateTransparentHeaderSocialStyle( 'responsive-transparent-header-social-item-bg-color', 'body.res-transparent-header .site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor', 'background-color', transBgColor, 'responsive_header_social_item_background_color', 'responsive_header_social_item_use_brand_colors', false, 'responsive_header_social_item_style' );
+            updateTransparentHeaderSocialStyle( 'responsive-transparent-header-social-item-bg-hover-color', 'body.res-transparent-header .site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover', 'background-color', transBgHoverColor, 'responsive_header_social_item_background_hover_color', 'responsive_header_social_item_use_brand_colors', true, 'responsive_header_social_item_style' );
+        } );
+    } );
+
+    api( 'responsive_mobile_header_social_item_style', function( value ) {
+        value.bind( function() {
+            var transBgColor = api.has('responsive_transparent_header_social_item_bg_color') ? api('responsive_transparent_header_social_item_bg_color').get() : '';
+            var transBgHoverColor = api.has('responsive_transparent_header_social_item_bg_hover_color') ? api('responsive_transparent_header_social_item_bg_hover_color').get() : '';
+
+            updateTransparentHeaderSocialStyle( 'responsive-transparent-header-mobile-social-item-bg-color', 'body.res-transparent-header .site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor', 'background-color', transBgColor, 'responsive_mobile_header_social_item_background_color', 'responsive_mobile_header_social_item_use_brand_colors', false, 'responsive_mobile_header_social_item_style' );
+            updateTransparentHeaderSocialStyle( 'responsive-transparent-header-mobile-social-item-bg-hover-color', 'body.res-transparent-header .site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover', 'background-color', transBgHoverColor, 'responsive_mobile_header_social_item_background_hover_color', 'responsive_mobile_header_social_item_use_brand_colors', true, 'responsive_mobile_header_social_item_style' );
+        } );
+    } );
+
     //Alternate Background Color
     api( 'responsive_alt_background_color', function( value ) {
         value.bind( function( newval ) {
@@ -4203,6 +4325,9 @@
     });
     api( 'responsive_header_social_item_color', function(val){
         val.bind(function(newval){
+            if ( $('body').hasClass('res-transparent-header') && api.has('responsive_transparent_header_social_item_color') && api('responsive_transparent_header_social_item_color').get() ) {
+                return;
+            }
             var header_social_item_use_brand_colors = api('responsive_header_social_item_use_brand_colors').get();
             if ( 'no' === header_social_item_use_brand_colors || 'on-hover' === header_social_item_use_brand_colors ) {
                 var selector = 'on-hover' === header_social_item_use_brand_colors ? '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:not(:hover)' : '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor';
@@ -4217,6 +4342,9 @@
     });
     api( 'responsive_mobile_header_social_item_color', function(val){
         val.bind(function(newval){
+            if ( $('body').hasClass('res-transparent-header') && api.has('responsive_transparent_header_social_item_color') && api('responsive_transparent_header_social_item_color').get() ) {
+                return;
+            }
             var header_social_item_use_brand_colors = api('responsive_mobile_header_social_item_use_brand_colors').get();
             if ( 'no' === header_social_item_use_brand_colors || 'on-hover' === header_social_item_use_brand_colors ) {
                 var selector = 'on-hover' === header_social_item_use_brand_colors ? '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:not(:hover)' : '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor';
@@ -4276,6 +4404,9 @@
     });
     api( 'responsive_header_social_item_hover_color', function(val){
         val.bind(function(newval){
+            if ( $('body').hasClass('res-transparent-header') && api.has('responsive_transparent_header_social_item_hover_color') && api('responsive_transparent_header_social_item_hover_color').get() ) {
+                return;
+            }
             var header_social_item_use_brand_colors = api('responsive_header_social_item_use_brand_colors').get();
             if ( 'no' === header_social_item_use_brand_colors || 'until-hover' === header_social_item_use_brand_colors ) {
                 jQuery('style#responsive-header-social-item-hover-color').remove();
@@ -4289,6 +4420,9 @@
     });
     api( 'responsive_mobile_header_social_item_hover_color', function(val){
         val.bind(function(newval){
+            if ( $('body').hasClass('res-transparent-header') && api.has('responsive_transparent_header_social_item_hover_color') && api('responsive_transparent_header_social_item_hover_color').get() ) {
+                return;
+            }
             var header_social_item_use_brand_colors = api('responsive_mobile_header_social_item_use_brand_colors').get();
             if ( 'no' === header_social_item_use_brand_colors || 'until-hover' === header_social_item_use_brand_colors ) {
                 jQuery('style#responsive-mobile-header-social-item-hover-color').remove();
@@ -4347,6 +4481,9 @@
     });
     api( 'responsive_header_social_item_background_color', function(val){
         val.bind(function(newval){
+            if ( $('body').hasClass('res-transparent-header') && api.has('responsive_transparent_header_social_item_bg_color') && api('responsive_transparent_header_social_item_bg_color').get() ) {
+                return;
+            }
             var header_social_item_use_brand_colors = api('responsive_header_social_item_use_brand_colors').get();
             if ( 'no' === header_social_item_use_brand_colors || 'on-hover' === header_social_item_use_brand_colors ) {
                 var selector = 'on-hover' === header_social_item_use_brand_colors ? '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:not(:hover)' : '.site-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor';
@@ -4361,6 +4498,9 @@
     });
     api( 'responsive_mobile_header_social_item_background_color', function(val){
         val.bind(function(newval){
+            if ( $('body').hasClass('res-transparent-header') && api.has('responsive_transparent_header_social_item_bg_color') && api('responsive_transparent_header_social_item_bg_color').get() ) {
+                return;
+            }
             var header_social_item_use_brand_colors = api('responsive_mobile_header_social_item_use_brand_colors').get();
             var mobile_header_social_item_style = api('responsive_mobile_header_social_item_style').get();
             if ( ( 'no' === header_social_item_use_brand_colors || 'on-hover' === header_social_item_use_brand_colors ) && ( 'filled' === mobile_header_social_item_style || '' == mobile_header_social_item_style ) ) {
@@ -4423,6 +4563,9 @@
     });
     api( 'responsive_header_social_item_background_hover_color', function(val){
         val.bind(function(newval){
+            if ( $('body').hasClass('res-transparent-header') && api.has('responsive_transparent_header_social_item_bg_hover_color') && api('responsive_transparent_header_social_item_bg_hover_color').get() ) {
+                return;
+            }
             var header_social_item_use_brand_colors = api('responsive_header_social_item_use_brand_colors').get();
             if ( 'no' === header_social_item_use_brand_colors || 'until-hover' === header_social_item_use_brand_colors ) {
                 jQuery('style#responsive-header-social-item-background-hover-color').remove();
@@ -4436,6 +4579,9 @@
     });
     api( 'responsive_mobile_header_social_item_background_hover_color', function(val){
         val.bind(function(newval){
+            if ( $('body').hasClass('res-transparent-header') && api.has('responsive_transparent_header_social_item_bg_hover_color') && api('responsive_transparent_header_social_item_bg_hover_color').get() ) {
+                return;
+            }
             var header_social_item_use_brand_colors = api('responsive_mobile_header_social_item_use_brand_colors').get();
             var mobile_header_social_item_style = api('responsive_mobile_header_social_item_style').get();
             if ( ( 'no' === header_social_item_use_brand_colors || 'until-hover' === header_social_item_use_brand_colors ) && ( 'filled' === mobile_header_social_item_style || '' == mobile_header_social_item_style ) ) {
