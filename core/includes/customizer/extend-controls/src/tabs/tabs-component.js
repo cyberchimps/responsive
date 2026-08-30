@@ -721,6 +721,9 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_rp_read_more').style.display = 'none';
 		}
 		if( ! api('responsive_transparent_header').get() ) {
+			if ( document.getElementById('customize-control-responsive_transparent_header_enable_on') ) {
+				document.getElementById('customize-control-responsive_transparent_header_enable_on').style.display = 'none';
+			}
 			document.getElementById('customize-control-responsive_transparent_header_logo_option').style.display = 'none';
 			document.getElementById('customize-control-responsive_enable_transparent_header_bottom_border').style.display = 'none';
 			document.getElementById('customize-control-responsive_disable_archive_transparent_header').style.display = 'none';

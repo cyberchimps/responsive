@@ -1503,6 +1503,29 @@
         } );
     } );
     //Transparent Header Main Menu Colors Section
+
+    // Enable On — live class toggle in preview iframe
+    api( 'responsive_transparent_header_enable_on', function( value ) {
+        value.bind( function( enableOn ) {
+            var breakpoint = api.has( 'responsive_mobile_menu_breakpoint' )
+                ? parseInt( api( 'responsive_mobile_menu_breakpoint' ).get(), 10 )
+                : 767;
+            var body = document.body;
+            function applyTransparentHeader() {
+                var w = window.innerWidth;
+                if ( enableOn === 'desktop' && w <= breakpoint ) {
+                    body.classList.remove( 'res-transparent-header' );
+                } else if ( enableOn === 'mobile' && w > breakpoint ) {
+                    body.classList.remove( 'res-transparent-header' );
+                } else {
+                    body.classList.add( 'res-transparent-header' );
+                }
+            }
+            applyTransparentHeader();
+            jQuery( window ).off( 'resize.resTransparentHeaderDevice' ).on( 'resize.resTransparentHeaderDevice', applyTransparentHeader );
+        } );
+    } );
+
     //Background Color
     api( 'responsive_transparent_header_menu_background_color', function( value ) {
         value.bind( function( color ) {

@@ -49,6 +49,7 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			$general_tab_ids_prefix = 'customize-control-';
 			$general_tab_ids        = array(
 				$general_tab_ids_prefix . 'responsive_transparent_header',
+				$general_tab_ids_prefix . 'responsive_transparent_header_enable_on',
 				$general_tab_ids_prefix . 'responsive_transparent_header_logo_option',
 				$general_tab_ids_prefix . 'responsive_enable_transparent_header_bottom_border',
 				$general_tab_ids_prefix . 'responsive_transparent_header_logo',
@@ -122,6 +123,15 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			// Transperant Header.
 			$transparent_header_label = __( 'Enable on Complete Website', 'responsive' );
 			responsive_toggle_control( $wp_customize, 'transparent_header', $transparent_header_label, 'responsive_header_transparent', 20, 0, null );
+
+			// Enable On Device.
+			$transparent_header_enable_on_label   = __( 'Enable On', 'responsive' );
+			$transparent_header_enable_on_choices = array(
+				'all'     => __( 'Desktop + Mobile', 'responsive' ),
+				'desktop' => __( 'Desktop', 'responsive' ),
+				'mobile'  => __( 'Mobile', 'responsive' ),
+			);
+			responsive_select_button_control( $wp_customize, 'transparent_header_enable_on', $transparent_header_enable_on_label, 'responsive_header_transparent', 21, $transparent_header_enable_on_choices, 'all', 'responsive_is_transparent_header_enabled' );
 
 			// Different Logo For Transparent Header.
 			$transparent_header_logo_option_label = __( 'Different Logo For Transparent Header ', 'responsive' );

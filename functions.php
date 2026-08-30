@@ -1253,6 +1253,46 @@ function prevent_menu_icon_redirection() {
 
 add_action( 'wp_footer', 'responsive_pro_fixed_menu_onscroll' );
 
+/**
+ * Transparent Header Device Scope
+ *
+ * Outputs a synchronous inline script at wp_body_open (priority 1), right after
+ * the opening <body> tag. document.body is available immediately here, so the
+ * res-transparent-header class is removed before any header HTML is rendered —
+ */
+function responsive_transparent_header_device_scope() {
+	if ( ! Responsive\Core\responsive_is_transparent_header() ) {
+		return;
+	}
+	$enable_on = get_theme_mod( 'responsive_transparent_header_enable_on', 'all' );
+	if ( 'all' === $enable_on ) {
+		return; // Default: nothing to do, class stays on all devices.
+	}
+	$breakpoint = intval( get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
+	?>
+	<script>
+	(function() {
+		var enableOn   = <?php echo wp_json_encode( $enable_on ); ?>;
+		var breakpoint = <?php echo $breakpoint; ?>;
+		function applyTransparentHeader() {
+			var w    = window.innerWidth;
+			var body = document.body;
+			if ( enableOn === 'desktop' && w <= breakpoint ) {
+				body.classList.remove( 'res-transparent-header' );
+			} else if ( enableOn === 'mobile' && w > breakpoint ) {
+				body.classList.remove( 'res-transparent-header' );
+			} else {
+				body.classList.add( 'res-transparent-header' );
+			}
+		}
+		applyTransparentHeader();
+		window.addEventListener( 'resize', applyTransparentHeader );
+	})();
+	</script>
+	<?php
+}
+add_action( 'wp_body_open', 'responsive_transparent_header_device_scope', 1 );
+
 if ( ! function_exists( 'responsive_pro_fixed_menu_onscroll' ) ) {
 	/**
 	 * Shows fixed header on scroll if sticky-header is enabled
