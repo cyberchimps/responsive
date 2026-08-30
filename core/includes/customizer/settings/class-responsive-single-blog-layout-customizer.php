@@ -254,9 +254,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'below_comments'    => esc_html__( 'Below Comments', 'responsive' ),
 				'above_comments'  => esc_html__( 'Above Comments', 'responsive' ),
 			);
-			responsive_select_button_control( $wp_customize, 'single_blog_related_posts_location', $single_blog_related_posts_location_label, 'responsive_rp_layout', 123, $single_blog_related_posts_location_choices, 'below_comments', function() {
-				return 'contained' === get_theme_mod( 'responsive_single_blog_related_posts_section_placement', 'default' );
-			} );
+			responsive_select_button_control( $wp_customize, 'single_blog_related_posts_location', $single_blog_related_posts_location_label, 'responsive_rp_layout', 123, $single_blog_related_posts_location_choices, 'below_comments', 'responsive_show_related_posts_location' );
 
 			responsive_separator_control( $wp_customize, 'rp_color_separator', __( 'Color Controls', 'responsive' ), 'responsive_rp_layout', 8 );
 			responsive_color_control( $wp_customize, 'rp_section_title', __( 'Section Title', 'responsive' ), 'responsive_rp_layout', 9, Responsive\Core\get_responsive_customizer_defaults( 'footer_background' ) );

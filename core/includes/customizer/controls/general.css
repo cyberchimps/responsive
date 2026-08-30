@@ -2128,3 +2128,6 @@ ul.control-panel-nav_menus .customize-help-toggle:before {
 #sub-accordion-section-responsive_single_blog_layout{
 	height: 100%;
 }
+#customize-control-responsive_single_blog_related_posts_location {
+    display: none;
+}

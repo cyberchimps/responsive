@@ -5058,6 +5058,19 @@ if ( ! function_exists( 'responsive_show_single_blog_content_background' ) ) {
 	}
 }
 
+if ( ! function_exists( 'responsive_show_related_posts_location' ) ) {
+	/**
+	 * Determines whether the Related Posts Location control should show.
+	 *
+	 * Only relevant when Section Placement is set to "Contained".
+	 *
+	 * @return bool true if Section Placement is 'contained', false otherwise.
+	 */
+	function responsive_show_related_posts_location() {
+		return 'contained' === get_theme_mod( 'responsive_single_blog_related_posts_section_placement', 'default' );
+	}
+}
+
 if ( ! function_exists( 'responsive_primary_navigation_stretch_active' ) ) :
 	/**
 	 * Determines whether stretch menu is enabled for primary navigation.
@@ -5079,4 +5092,3 @@ if ( ! function_exists( 'responsive_secondary_navigation_stretch_active' ) ) :
 		return ( 1 === (int) get_theme_mod( 'responsive_secondary_navigation_stretch', 0 ) );
 	}
 endif;
-
