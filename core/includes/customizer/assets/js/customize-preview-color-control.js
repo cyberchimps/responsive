@@ -1488,8 +1488,12 @@
 
     api( 'responsive_mobile_menu_toggle_border_color', function( value ) {
         value.bind( function( newval ) {
-         $('.site-header-item-toggle-button .menu-toggle, #responsive-off-canvas-panel .responsive-off-canvas-panel-close').css({'border-color': newval});
-         $('.site-header-item-toggle-button .menu-toggle, #responsive-off-canvas-panel .responsive-off-canvas-panel-close').css({'border-color': newval} );
+            var isTransparentHeader = api.has('responsive_transparent_header') && api('responsive_transparent_header').get();
+            var transToggleBorderColor = api.has('responsive_transparent_header_menu_toggle_border_color') ? api('responsive_transparent_header_menu_toggle_border_color').get() : '';
+            if ( isTransparentHeader && transToggleBorderColor ) {
+                return;
+            }
+            $('.site-header-item-toggle-button .menu-toggle, #responsive-off-canvas-panel .responsive-off-canvas-panel-close').css({'border-color': newval});
         } );
     } );
     //Sub Menu divider
@@ -1646,6 +1650,16 @@
     api( 'responsive_transparent_header_menu_toggle_color', function( value ) {
         value.bind( function( newval ) {
             $('.res-transparent-header .main-navigation .menu-toggle').css('color', newval );
+        } );
+    } );
+
+    //Menu Toggle Border Color
+    api( 'responsive_transparent_header_menu_toggle_border_color', function( value ) {
+        value.bind( function( newval ) {
+            if ( newval && newval.startsWith('palette') ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.res-transparent-header .main-navigation .menu-toggle, .res-transparent-header #masthead-mobile .menu-toggle, .res-transparent-header .site-header-item-toggle-button .menu-toggle').css('border-color', newval );
         } );
     } );
 

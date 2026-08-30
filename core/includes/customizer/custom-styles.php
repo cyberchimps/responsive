@@ -2514,6 +2514,7 @@ function responsive_customizer_styles() {
 		// Toggle Button Color.
 		$header_menu_toggle_background_color = esc_html( get_theme_mod( 'responsive_transparent_header_menu_toggle_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_toggle_background' ) ) );
 		$header_menu_toggle_color            = esc_html( get_theme_mod( 'responsive_transparent_header_menu_toggle_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_toggle' ) ) );
+		$header_menu_toggle_border_color     = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_menu_toggle_border_color', '' ) );
 
 		// Header Widgets Color.
 		$header_widget_text_color       = esc_html( get_theme_mod( 'responsive_transparent_header_widget_text_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_text' ) ) );
@@ -2581,6 +2582,15 @@ function responsive_customizer_styles() {
 			$custom_css .= "
 				body.res-transparent-header .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover {
 					border-color: {$transparent_header_button_border_hover_color};
+				}
+			";
+		}
+		if ( $header_menu_toggle_border_color ) {
+			$custom_css .= "
+				body.res-transparent-header .site-header-item-toggle-button .menu-toggle,
+				body.res-transparent-header .main-navigation .menu-toggle,
+				body.res-transparent-header #masthead-mobile .menu-toggle {
+					border-color: {$header_menu_toggle_border_color};
 				}
 			";
 		}

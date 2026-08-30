@@ -93,6 +93,7 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_transparent_header_sub_menu_link_hover_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_menu_toggle_background_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_menu_toggle_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_menu_toggle_border_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_widget_color_separator',
 				$design_tab_ids_prefix . 'responsive_transparent_header_widget_text_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_widget_background_color',
@@ -330,6 +331,10 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			// Menu Toggle Color.
 			$menu_toggle_color_label = __( 'Menu Toggle Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'transparent_header_menu_toggle', $menu_toggle_color_label, 'responsive_header_transparent', 260, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_toggle' ), null );
+
+			// Menu Toggle Border Color.
+			$menu_toggle_border_color_label = __( 'Menu Toggle Border Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'transparent_header_menu_toggle_border', $menu_toggle_border_color_label, 'responsive_header_transparent', 265, '', null );
 
 			/**
 			 * Header Widget Separator.
