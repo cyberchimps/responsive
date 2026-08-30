@@ -1360,42 +1360,57 @@
     } );
 
     //Secondary Buttons border width
+    function updateSecondaryBorderWidth() {
+        var unit = api('responsive_secondary_buttons_border_width_desktop_unit') ? api('responsive_secondary_buttons_border_width_desktop_unit').get() : 'px';
+        ['top_border', 'right_border', 'bottom_border', 'left_border'].forEach(function(border) {
+            var prop = 'border-' + border.replace('_border', '') + '-width';
+            var val = api('responsive_secondary_buttons_border_width_' + border) ? api('responsive_secondary_buttons_border_width_' + border).get() : 2;
+            var styleId = 'responsive-secondary-button-bw-' + border + '-preview';
+            jQuery('style#' + styleId).remove();
+            var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link';
+            var css = selectors + ' { ' + prop + ': ' + val + unit + '; }';
+            jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+        });
+    }
+
     ['top_border', 'right_border', 'bottom_border', 'left_border'].forEach(function(border) {
         api( 'responsive_secondary_buttons_border_width_' + border, function( value ) {
-            value.bind( function( newval ) {
-                var prop = 'border-' + border.replace('_border', '') + '-width';
-                var styleId = 'responsive-secondary-button-bw-' + border + '-preview';
-                jQuery('style#' + styleId).remove();
-                var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link';
-                var css = selectors + ' { ' + prop + ': ' + newval + 'px; }';
-                jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
-            } );
+            value.bind( updateSecondaryBorderWidth );
         } );
     });
+    api( 'responsive_secondary_buttons_border_width_desktop_unit', function( value ) {
+        value.bind( updateSecondaryBorderWidth );
+    } );
 
     //Secondary Buttons radius
-    ['top_left_radius', 'top_right_radius', 'bottom_right_radius', 'bottom_left_radius'].forEach(function(radius) {
-        function updateSecondaryRadius() {
-            var styleId = 'responsive-secondary-button-radius-preview';
-            jQuery('style#' + styleId).remove();
-            function getRadius(key) {
-                if (api('responsive_secondary_buttons_radius_' + key)) {
-                    return api('responsive_secondary_buttons_radius_' + key).get();
-                }
-                if (api('responsive_border_secondary_buttons_radius_' + key)) {
-                    return api('responsive_border_secondary_buttons_radius_' + key).get();
-                }
-                return 0;
-            }
-            var tl = getRadius('top_left_radius');
-            var tr = getRadius('top_right_radius');
-            var br = getRadius('bottom_right_radius');
-            var bl = getRadius('bottom_left_radius');
-            var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link';
-            var css = selectors + ' { border-radius: ' + tl + 'px ' + tr + 'px ' + br + 'px ' + bl + 'px; }';
-            jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+    function updateSecondaryRadius() {
+        var styleId = 'responsive-secondary-button-radius-preview';
+        jQuery('style#' + styleId).remove();
+        var unit = 'px';
+        if (api('responsive_secondary_buttons_radius_desktop_unit')) {
+            unit = api('responsive_secondary_buttons_radius_desktop_unit').get();
+        } else if (api('responsive_border_secondary_buttons_radius_desktop_unit')) {
+            unit = api('responsive_border_secondary_buttons_radius_desktop_unit').get();
         }
+        function getRadius(key) {
+            if (api('responsive_secondary_buttons_radius_' + key)) {
+                return api('responsive_secondary_buttons_radius_' + key).get();
+            }
+            if (api('responsive_border_secondary_buttons_radius_' + key)) {
+                return api('responsive_border_secondary_buttons_radius_' + key).get();
+            }
+            return 0;
+        }
+        var tl = getRadius('top_left_radius');
+        var tr = getRadius('top_right_radius');
+        var br = getRadius('bottom_right_radius');
+        var bl = getRadius('bottom_left_radius');
+        var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link';
+        var css = selectors + ' { border-radius: ' + tl + unit + ' ' + tr + unit + ' ' + br + unit + ' ' + bl + unit + '; }';
+        jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+    }
 
+    ['top_left_radius', 'top_right_radius', 'bottom_right_radius', 'bottom_left_radius'].forEach(function(radius) {
         api( 'responsive_secondary_buttons_radius_' + radius, function( value ) {
             value.bind( updateSecondaryRadius );
         } );
@@ -1403,23 +1418,35 @@
             value.bind( updateSecondaryRadius );
         } );
     });
+    api( 'responsive_secondary_buttons_radius_desktop_unit', function( value ) {
+        value.bind( updateSecondaryRadius );
+    } );
+    api( 'responsive_border_secondary_buttons_radius_desktop_unit', function( value ) {
+        value.bind( updateSecondaryRadius );
+    } );
 
     //Secondary Buttons padding
+    function updateSecondaryPadding() {
+        var styleId = 'responsive-secondary-button-padding-preview';
+        jQuery('style#' + styleId).remove();
+        var unit = api('responsive_secondary_buttons_desktop_unit') ? api('responsive_secondary_buttons_desktop_unit').get() : 'px';
+        var top = api('responsive_secondary_buttons_top_padding') ? api('responsive_secondary_buttons_top_padding').get() : 10;
+        var right = api('responsive_secondary_buttons_right_padding') ? api('responsive_secondary_buttons_right_padding').get() : 10;
+        var bottom = api('responsive_secondary_buttons_bottom_padding') ? api('responsive_secondary_buttons_bottom_padding').get() : 10;
+        var left = api('responsive_secondary_buttons_left_padding') ? api('responsive_secondary_buttons_left_padding').get() : 10;
+        var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link';
+        var css = selectors + ' { padding: ' + top + unit + ' ' + right + unit + ' ' + bottom + unit + ' ' + left + unit + '; }';
+        jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+    }
+
     ['top', 'right', 'bottom', 'left'].forEach(function(side) {
         api( 'responsive_secondary_buttons_' + side + '_padding', function( value ) {
-            value.bind( function() {
-                var styleId = 'responsive-secondary-button-padding-preview';
-                jQuery('style#' + styleId).remove();
-                var top = api('responsive_secondary_buttons_top_padding') ? api('responsive_secondary_buttons_top_padding').get() : 10;
-                var right = api('responsive_secondary_buttons_right_padding') ? api('responsive_secondary_buttons_right_padding').get() : 10;
-                var bottom = api('responsive_secondary_buttons_bottom_padding') ? api('responsive_secondary_buttons_bottom_padding').get() : 10;
-                var left = api('responsive_secondary_buttons_left_padding') ? api('responsive_secondary_buttons_left_padding').get() : 10;
-                var selectors = '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link';
-                var css = selectors + ' { padding: ' + top + 'px ' + right + 'px ' + bottom + 'px ' + left + 'px; }';
-                jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
-            } );
+            value.bind( updateSecondaryPadding );
         } );
     });
+    api( 'responsive_secondary_buttons_desktop_unit', function( value ) {
+        value.bind( updateSecondaryPadding );
+    } );
 
     //Secondary Buttons shadow
     ['x_axis', 'y_axis', 'blur', 'spread', 'inset', 'color'].forEach(function(param) {
