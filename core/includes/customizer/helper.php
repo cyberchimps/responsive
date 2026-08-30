@@ -5056,3 +5056,15 @@ if ( ! function_exists( 'responsive_show_single_blog_content_background' ) ) {
 		return 'flat' !== $single_blog_setting;
 	}
 }
+if ( ! function_exists( 'responsive_show_related_posts_location' ) ) {
+	/**
+	 * Determines whether the Related Posts Location control should show.
+	 *
+	 * Only relevant when Section Placement is set to "Contained".
+	 *
+	 * @return bool true if Section Placement is 'contained', false otherwise.
+	 */
+	function responsive_show_related_posts_location() {
+		return 'contained' === get_theme_mod( 'responsive_single_blog_related_posts_section_placement', 'default' );
+	}
+}

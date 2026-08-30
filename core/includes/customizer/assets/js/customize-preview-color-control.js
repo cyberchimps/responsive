@@ -510,14 +510,14 @@
 
     api( 'responsive_rp_meta_color', ( value ) => {
         value.bind( ( newval ) => {
-            document.querySelectorAll('.responsive-single-related-posts-container .post-meta span, .responsive-single-related-posts-container .post-meta span i, .responsive-single-related-posts-container .post-meta span a, .responsive-single-related-posts-container .post-meta span a time, .responsive-single-related-posts-container .entry-meta')
+            document.querySelectorAll('.responsive-single-related-posts-container .post-meta span, .responsive-single-related-posts-container .post-meta span i, .responsive-single-related-posts-container .post-meta span a, .responsive-single-related-posts-container .post-meta span a time, .responsive-single-related-posts-container .entry-meta, .single-post .responsive-related-single-post-content .entry-category a')
                 .forEach(el => el.style.color = newval);
         });
     });
 
     api( 'responsive_rp_meta_hover_color', ( value ) => {
         value.bind( ( newval ) => {
-            document.querySelectorAll('.responsive-single-related-posts-container .post-meta span, .responsive-single-related-posts-container .post-meta span i, .responsive-single-related-posts-container .post-meta span a, .responsive-single-related-posts-container .post-meta span a time, .responsive-single-related-posts-container .entry-meta')
+            document.querySelectorAll('.responsive-single-related-posts-container .post-meta span, .responsive-single-related-posts-container .post-meta span i, .responsive-single-related-posts-container .post-meta span a, .responsive-single-related-posts-container .post-meta span a time, .responsive-single-related-posts-container .entry-meta, .single-post .responsive-related-single-post-content .entry-category a')
                 .forEach(el => {
                     el.addEventListener('mouseenter', () => el.style.color = newval);
                     el.addEventListener('mouseleave', () => el.style.color = api( 'responsive_rp_meta_color' )());
