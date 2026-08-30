@@ -4752,7 +4752,18 @@ function responsive_customizer_styles() {
 		}
 
 		$header_secondary_menu_background_color        = esc_html( get_theme_mod( 'responsive_header_secondary_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_secondary_menu_background' ) ) );
+		$header_hover_secondary_menu_background_color  = esc_html( get_theme_mod( 'responsive_header_hover_secondary_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_secondary_menu_background' ) ) );
+		$header_active_secondary_menu_background_color = esc_html( get_theme_mod( 'responsive_header_active_secondary_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_secondary_menu_background' ) ) );
+
 		$header_secondary_menu_link_color              = esc_html( responsive_prepare_css_value( 'responsive_header_secondary_menu_link_color' ) );
+		$header_secondary_menu_link_hover_color        = esc_html( responsive_prepare_css_value( 'responsive_header_secondary_menu_link_hover_color' ) );
+		if ( empty( $header_secondary_menu_link_hover_color ) ) {
+			$header_secondary_menu_link_hover_color = $header_secondary_menu_link_color;
+		}
+		$secondary_menu_active_link_color              = esc_html( responsive_prepare_css_value( 'responsive_header_active_secondary_menu_link_color' ) );
+		if ( empty( $secondary_menu_active_link_color ) ) {
+			$secondary_menu_active_link_color = $header_secondary_menu_link_color;
+		}
 		
 		// Secondary menu item hover style
 		$secondary_menu_item_hover_style_selected                  = get_theme_mod( 'responsive_secondary_menu_item_hover_style', 'none' );
@@ -4971,16 +4982,27 @@ function responsive_customizer_styles() {
 		}
 
 		// Secondary Menu colors
-
-
 		$custom_css .= 	"	
 			.secondary-navigation a {
-				color: {$header_secondary_menu_link_color} ; 
+				color: {$header_secondary_menu_link_color}; 
 			}
 			.secondary-navigation a:hover {
-				color: {$header_secondary_menu_link_color} ; 
+				color: {$header_secondary_menu_link_hover_color}; 
+				background-color: {$header_hover_secondary_menu_background_color};
 			}";
 
+		if ( ! empty( $secondary_menu_active_link_color ) || ! empty( $header_active_secondary_menu_background_color ) ) {
+			$custom_css .= "
+				.secondary-navigation .menu > li.current-menu-item > a,
+				.secondary-navigation .menu > li.current_page_item > a {";
+			if ( ! empty( $secondary_menu_active_link_color ) ) {
+				$custom_css .= "color: {$secondary_menu_active_link_color};";
+			}
+			if ( ! empty( $header_active_secondary_menu_background_color ) ) {
+				$custom_css .= "background-color: {$header_active_secondary_menu_background_color};";
+			}
+			$custom_css .= "}";
+		}
 
 		$custom_css .= "		
 			.secondary-navigation {

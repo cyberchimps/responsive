@@ -44,8 +44,8 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 			 $design_tab_ids        = array(
 				 $design_tab_ids_prefix . 'responsive_secondary_menu_item_hover_style',
 				 $design_tab_ids_prefix . 'responsive_header_secondary_menu_color_separator',
-				 $design_tab_ids_prefix . 'responsive_header_secondary_menu_background_color',
-				 $design_tab_ids_prefix . 'responsive_header_secondary_menu_link_color',
+				 $design_tab_ids_prefix . 'responsive_header_secondary_menu_link_color_states',
+				 $design_tab_ids_prefix . 'responsive_header_secondary_menu_background_color_states',
 				 $design_tab_ids_prefix . 'responsive_secondary_sub_menu_separator',
 				 $design_tab_ids_prefix . 'responsive_secondary_menu_top_offset',
 				 $design_tab_ids_prefix . 'responsive_secondary_sub_menu_width',
@@ -100,17 +100,39 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 			);
 			responsive_select_control( $wp_customize, 'secondary_menu_item_hover_style', $secondary_menu_item_hover_style_label, 'responsive_header_secondary_menu_layout', 100, $secondary_menu_item_hover_style_choices, 'none', 'responsive_disabled_secondary_menu' );
 
-			// Colors
-			$header_secondary_menu_color_separator_label = __( 'Colors', 'responsive' );
+			// Secondary Menu Colors
+			$header_secondary_menu_color_separator_label = __( 'Secondary Menu Colors', 'responsive' );
 			responsive_separator_control( $wp_customize, 'header_secondary_menu_color_separator', $header_secondary_menu_color_separator_label, 'responsive_header_secondary_menu_layout', 120, 'responsive_disabled_secondary_menu' );
 			
-			// Background Color.
-			$secondary_menu_background_color_label = __( 'Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_secondary_menu_background', $secondary_menu_background_color_label, 'responsive_header_secondary_menu_layout', 125, Responsive\Core\get_responsive_customizer_defaults( 'header_secondary_menu_background' ), 'responsive_disabled_secondary_menu' );
-			
 			// Link Color.
-			$secondary_menu_link_color_label = __( 'Link Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_secondary_menu_link', $secondary_menu_link_color_label, 'responsive_header_secondary_menu_layout', 130, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_secondary_menu_link_color' ), 'responsive_disabled_secondary_menu' );
+			$secondary_menu_link_color_label = __( 'Menu Item Link', 'responsive' );
+			responsive_color_control_with_states(
+				$wp_customize,
+				'header_secondary_menu_link',
+				$secondary_menu_link_color_label,
+				'responsive_header_secondary_menu_layout',
+				125,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_secondary_menu_link_color' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_secondary_menu_link_color' ),
+				'header_secondary_menu_link_hover',
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_secondary_menu_link_color' ),
+				'header_active_secondary_menu_link'
+			);
+
+			// Background Color.
+			$secondary_menu_background_color_label = __( 'Background', 'responsive' );
+			responsive_color_control_with_states(
+				$wp_customize,
+				'header_secondary_menu_background',
+				$secondary_menu_background_color_label,
+				'responsive_header_secondary_menu_layout',
+				130,
+				Responsive\Core\get_responsive_customizer_defaults( 'header_secondary_menu_background' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'header_secondary_menu_background' ),
+				'header_hover_secondary_menu_background',
+				Responsive\Core\get_responsive_customizer_defaults( 'header_secondary_menu_background' ),
+				'header_active_secondary_menu_background'
+			);
 			
 			// Sub Menu Settings
 			$secondary_sub_menu_separator_label = esc_html__( 'Sub Menu Settings', 'responsive' );
