@@ -3422,7 +3422,7 @@ function responsive_customizer_styles() {
 		}
 	}
 	
-	.site-description {
+	.res-transparent-header .site-description {
 		color: {$header_text_color};
 	}
 
@@ -3501,7 +3501,7 @@ function responsive_customizer_styles() {
 	.site-header-layout-vertical.site-header-full-width-main-navigation.site-header-main-navigation-site-branding .main-navigation {
 		border-bottom: 1px solid {$header_menu_border_color};
 	}
-	.main-navigation .menu > li > a {
+	.res-transparent-header .main-navigation .menu > li > a {
 		color: {$header_menu_link_color};
 	}
 	.responsive-llms-dash-wrap .llms-sd-item .llms-sd-link {
@@ -3852,10 +3852,10 @@ function responsive_customizer_styles() {
 				padding: " . responsive_spacing_css( $header_mobile_padding_top, $header_mobile_padding_right, $header_mobile_padding_bottom, $header_mobile_padding_left ) . ";
 			}
 		}
-		.site-title a {
+		.res-transparent-header .site-title a {
 			color: {$header_site_title_color};
 		}
-		.site-title a:hover {
+		.res-transparent-header .site-title a:hover {
 			color: {$header_site_title_hover_color};
 		}
 		.site-branding-wrapper.site-branding-inline {
