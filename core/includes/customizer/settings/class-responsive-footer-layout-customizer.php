@@ -400,11 +400,11 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 
 			// Links Color.
 			$footer_links_color_label = __( 'Links Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'footer_links', $footer_links_color_label, 'responsive_footer_layout', 30, Responsive\Core\get_responsive_customizer_defaults( 'footer_links' ) );
+			responsive_color_control( $wp_customize, 'footer_links', $footer_links_color_label, 'responsive_footer_layout', 30, Responsive\Core\get_responsive_customizer_defaults( 'footer_links' ), null, '', false, null, null, false, null, null, 'color', 'refresh' );
 
 			// Links Hover Color .
 			$footer_links_hover_color_label = __( 'Links Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'footer_links_hover', $footer_links_hover_color_label, 'responsive_footer_layout', 40, Responsive\Core\get_responsive_customizer_defaults( 'footer_links_hover' ) );
+			responsive_color_control( $wp_customize, 'footer_links_hover', $footer_links_hover_color_label, 'responsive_footer_layout', 40, Responsive\Core\get_responsive_customizer_defaults( 'footer_links_hover' ), null, '', false, null, null, false, null, null, 'color', 'refresh' );
 
 			// Links Color.
 			// $footer_border_color_label = __( 'Border Color', 'responsive' );

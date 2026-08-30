@@ -234,6 +234,39 @@ if( ! class_exists( 'Responsive_HFB_Footer_Primary_Row' ) ) {
 			$widget_content_color_label  = __('Content Color', 'responsive' );
 			responsive_color_control_with_device_switchers( $wp_customize, 'footer_primary_row_widget_content', $widget_content_color_label, 'responsive_footer_primary_row', 185, 'footer-text-color', null, '', 'refresh' );
 
+			responsive_horizontal_separator_control($wp_customize, 'footer_primary_row_separator_widgets_1', 1, 'responsive_footer_primary_row', 186, 1, );
+
+            // Link Style
+			$footer_primary_row_link_style_label   = esc_html__( 'Link Style', 'responsive' );
+			$footer_primary_row_link_style_choices = array(
+				'standard'           => esc_html__( 'Standard (underline)', 'responsive' ),
+				'color-underline'    => esc_html__( 'Highlight Underline', 'responsive' ),
+				'no-underline'       => esc_html__( 'No Underline', 'responsive' ),
+				'hover-background'   => esc_html__( 'Background on hover', 'responsive' ),
+				'offset-background' => esc_html__( 'Offset Background', 'responsive' ),
+			);
+			responsive_select_control( $wp_customize, 'footer_primary_link_style', $footer_primary_row_link_style_label, 'responsive_footer_primary_row', 187, $footer_primary_row_link_style_choices, Responsive\Core\get_responsive_customizer_defaults( 'footer_primary_link_style' ), null, 'refresh' );
+
+			// Link Hover Background Color
+			$footer_primary_row_link_hover_bg_label = esc_html__( 'Hover Background Color', 'responsive' );
+			responsive_color_control(
+				$wp_customize,
+				'footer_primary_link_hover_bg',
+				$footer_primary_row_link_hover_bg_label,
+				'responsive_footer_primary_row',
+				188,
+				Responsive\Core\get_responsive_customizer_defaults( 'footer_primary_link_hover_bg' ),
+				'responsive_footer_primary_row_link_style_is_hover_background',
+				'',
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'refresh'
+			);
+
             $tabs_label     = esc_html__( 'Tabs', 'responsive' );
 			$tab_ids_prefix = 'customize-control-';
 			$design_tab_ids = array(
@@ -264,7 +297,10 @@ if( ! class_exists( 'Responsive_HFB_Footer_Primary_Row' ) ) {
 				$tab_ids_prefix . 'responsive_footer_primary_row_widget_heading_typography_group',
 				$tab_ids_prefix . 'responsive_footer_primary_row_widget_heading_color',
 				$tab_ids_prefix . 'responsive_footer_primary_row_widget_content_color',
-				$tab_ids_prefix . 'responsive_footer_primary_row_widget_content_typography_group'
+				$tab_ids_prefix . 'responsive_footer_primary_row_widget_content_typography_group',
+				$tab_ids_prefix . 'responsive_footer_primary_row_separator_widgets_1',
+				$tab_ids_prefix . 'responsive_footer_primary_link_style',
+				$tab_ids_prefix . 'responsive_footer_primary_link_hover_bg_color'
 
 			);
             

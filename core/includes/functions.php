@@ -1669,6 +1669,12 @@ function defaults() {
 			'footer_copyright_links_hover'                              => '#0066CC',
 			'footer_copyright_link_style'                               => 'standard',
 			'footer_copyright_link_hover_bg'                            => 'palette0',
+			'footer_above_link_style'                                   => 'standard',
+			'footer_above_link_hover_bg'                                => 'palette0',
+			'footer_primary_link_style'                                 => 'standard',
+			'footer_primary_link_hover_bg'                              => 'palette0',
+			'footer_below_link_style'                                   => 'standard',
+			'footer_below_link_hover_bg'                                => 'palette0',
 			'footer_menu_background'                                    => '#333333',
 			'footer_menu_background_hover'                              => '#333333',
 			'responsive_footer_builder_choices'      				    => array(

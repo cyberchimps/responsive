@@ -83,7 +83,7 @@ if ( ! class_exists( 'Responsive_Footer_Widgets_Settings_Customizer' ) ) :
 
                 // Links Color.
                 $link_color_label = __( 'Link Color', 'responsive' );
-                responsive_color_control_with_device_switchers_and_hover( $wp_customize, 'footer_widget'. $i .'_link', $link_color_label, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 70, Responsive\Core\get_responsive_customizer_defaults( 'footer_widget_link_color' ), Responsive\Core\get_responsive_customizer_defaults( 'footer_widget_link_hover_color' ), null, '', 'postMessage' );
+                responsive_color_control_with_device_switchers_and_hover( $wp_customize, 'footer_widget'. $i .'_link', $link_color_label, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 70, 'footer-links-color', 'footer-links-hover-color', null, '', 'postMessage' );
 
                 responsive_horizontal_separator_control($wp_customize, 'footer_widget'.$i.'_tf_separator', 1, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 75, 1 );
 

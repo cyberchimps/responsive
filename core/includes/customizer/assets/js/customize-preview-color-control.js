@@ -2272,6 +2272,7 @@
     //Footer Links Hover Color
     $(".site-footer a").not('.footer-navigation a').not('.footer-widget-area .footer-widget-wrapper a').hover(
         function() {
+            document.documentElement.style.setProperty('--responsive-global-footer-links-hover-color', color);
             $(this).css("color", processThemeSettingForCSS('responsive_footer_links_hover_color'));
         },
 
@@ -4979,7 +4980,7 @@
                         const selector = type.getSelector(i);
                         
                         // Handle palette colors
-                        if (newValue && newValue.startsWith('palette')) {
+                        if (newValue && (newValue.startsWith('palette') || newValue.startsWith('footer-links-color') || newValue.startsWith('footer-links-hover-color'))) {
                             newValue = `var(--responsive-global-${newValue})`;
                         }
 

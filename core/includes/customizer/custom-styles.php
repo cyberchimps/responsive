@@ -9870,6 +9870,59 @@ function responsive_customizer_styles() {
                 }
             ";
         }
+        
+        $row_link_style = get_theme_mod( "responsive_footer_{$row_name}_link_style", Responsive\Core\get_responsive_customizer_defaults( "footer_{$row_name}_link_style" ) );
+        $row_link_hover_bg = esc_html( responsive_prepare_css_value( "responsive_footer_{$row_name}_link_hover_bg_color", Responsive\Core\get_responsive_customizer_defaults( "footer_{$row_name}_link_hover_bg" ) ) );
+        
+        $global_link_color = get_theme_mod( 'responsive_footer_links_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_widget_link_color' ) );
+        $global_link_hover_color = get_theme_mod( 'responsive_footer_links_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_widget_link_hover_color' ) );
+
+        if ( 'standard' === $row_link_style ) {
+            $custom_css .= "
+                .rspv-site-{$row_name}-footer-wrap a {
+                    text-decoration: underline;
+                }
+            ";
+        } elseif ( 'color-underline' === $row_link_style ) {
+            $custom_css .= "
+                .rspv-site-{$row_name}-footer-wrap a {
+                    text-decoration: underline;
+                }
+                .rspv-site-{$row_name}-footer-wrap a:hover {
+                    text-decoration-color: {$global_link_hover_color};
+                }
+            ";
+        } elseif ( 'no-underline' === $row_link_style ) {
+            $custom_css .= "
+                .rspv-site-{$row_name}-footer-wrap a {
+                    text-decoration: none;
+                }
+                .rspv-site-{$row_name}-footer-wrap a:hover {
+                    text-decoration: none;
+                }
+            ";
+        } elseif ( 'hover-background' === $row_link_style ) {
+            $custom_css .= "
+                .rspv-site-{$row_name}-footer-wrap a:hover {
+                    background-color: {$row_link_hover_bg};
+                    text-decoration: none;
+                }
+            ";
+        } elseif ( 'offset-background' === $row_link_style ) {
+            $custom_css .= "
+                .rspv-site-{$row_name}-footer-wrap a {
+                    text-decoration: none;
+                    background-image: linear-gradient(180deg, transparent 60%, {$global_link_color} 0%);
+                    background-repeat: no-repeat;
+                    background-position: 0 bottom;
+                    background-size: 100% 10px;
+                }
+                .rspv-site-{$row_name}-footer-wrap a:hover {
+                    text-decoration: none;
+                    background-image: linear-gradient(180deg, transparent 60%, {$global_link_hover_color} 0%);
+                }
+            ";
+        }
 	}
 
 	// Footer Builder Widget Elements alignments.
@@ -9894,12 +9947,12 @@ function responsive_customizer_styles() {
 			$widget_content_color_tablet = get_theme_mod( "responsive_footer_widget{$i}_content_color_tablet", $widget_content_color );
 			$widget_content_color_mobile = get_theme_mod( "responsive_footer_widget{$i}_content_color_mobile", $widget_content_color_tablet );
 			// Link Colors
-			$widget_link_color       = get_theme_mod( "responsive_footer_widget{$i}_link_color", get_theme_mod( 'responsive_footer_links_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_widget_link_color' ) ) );
-			$widget_link_color_tablet = get_theme_mod( "responsive_footer_widget{$i}_link_color_tablet", $widget_link_color );
-			$widget_link_color_mobile = get_theme_mod( "responsive_footer_widget{$i}_link_color_mobile", $widget_link_color );
-			$widget_link_hover_color = get_theme_mod( "responsive_footer_widget{$i}_link_color_hover", get_theme_mod( 'responsive_footer_links_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_widget_link_hover_color' ) ) );
-			$widget_link_hover_color_tablet = get_theme_mod( "responsive_footer_widget{$i}_link_color_tablet_hover", $widget_link_hover_color );
-			$widget_link_hover_color_mobile = get_theme_mod( "responsive_footer_widget{$i}_link_color_mobile_hover", $widget_link_hover_color );
+			$widget_link_color       = responsive_prepare_css_value( "responsive_footer_widget{$i}_link_color", get_theme_mod( 'responsive_footer_links_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_widget_link_color' ) ) );
+			$widget_link_color_tablet = responsive_prepare_css_value( "responsive_footer_widget{$i}_link_color_tablet", $widget_link_color );
+			$widget_link_color_mobile = responsive_prepare_css_value( "responsive_footer_widget{$i}_link_color_mobile", $widget_link_color );
+			$widget_link_hover_color = responsive_prepare_css_value( "responsive_footer_widget{$i}_link_color_hover", get_theme_mod( 'responsive_footer_links_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_widget_link_hover_color' ) ) );
+			$widget_link_hover_color_tablet = responsive_prepare_css_value( "responsive_footer_widget{$i}_link_color_tablet_hover", $widget_link_hover_color );
+			$widget_link_hover_color_mobile = responsive_prepare_css_value( "responsive_footer_widget{$i}_link_color_mobile_hover", $widget_link_hover_color );
 
 
 			$custom_css .= "
