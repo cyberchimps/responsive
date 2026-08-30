@@ -1216,6 +1216,30 @@
         } );
     } );
 
+    // Secondary Sub Menu Border
+    const secondarySubMenuBorderSettings = [
+        'responsive_secondary_sub_menu_border_top_padding',
+        'responsive_secondary_sub_menu_border_left_padding',
+        'responsive_secondary_sub_menu_border_bottom_padding',
+        'responsive_secondary_sub_menu_border_right_padding',
+        'responsive_secondary_sub_menu_border_tablet_top_padding',
+        'responsive_secondary_sub_menu_border_tablet_bottom_padding',
+        'responsive_secondary_sub_menu_border_tablet_left_padding',
+        'responsive_secondary_sub_menu_border_tablet_right_padding',
+        'responsive_secondary_sub_menu_border_mobile_top_padding',
+        'responsive_secondary_sub_menu_border_mobile_bottom_padding',
+        'responsive_secondary_sub_menu_border_mobile_left_padding',
+        'responsive_secondary_sub_menu_border_mobile_right_padding'
+    ];
+
+    secondarySubMenuBorderSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function() {
+                responsive_dynamic_border('secondary_sub_menu_border', '.secondary-navigation .children, .secondary-navigation .sub-menu');
+            });
+        });
+    });
+
     const headerSocialMargin = [
         'responsive_header_social_item_margin_top_padding',
         'responsive_header_social_item_margin_right_padding',
@@ -2826,6 +2850,36 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
                 responsive_dynamic_unit_margin(
                     'rp_margin',
                     '.responsive-single-related-posts-container'
+                );
+            });
+        });
+    });
+
+    // Header Builder Margin
+    const headerBuilderMarginSettings = [
+        'responsive_header_builder_margin_top_padding',
+        'responsive_header_builder_margin_right_padding',
+        'responsive_header_builder_margin_bottom_padding',
+        'responsive_header_builder_margin_left_padding',
+        'responsive_header_builder_margin_tablet_top_padding',
+        'responsive_header_builder_margin_tablet_right_padding',
+        'responsive_header_builder_margin_tablet_bottom_padding',
+        'responsive_header_builder_margin_tablet_left_padding',
+        'responsive_header_builder_margin_mobile_top_padding',
+        'responsive_header_builder_margin_mobile_right_padding',
+        'responsive_header_builder_margin_mobile_bottom_padding',
+        'responsive_header_builder_margin_mobile_left_padding',
+        'responsive_header_builder_margin_desktop_unit',
+        'responsive_header_builder_margin_tablet_unit',
+        'responsive_header_builder_margin_mobile_unit'
+    ];
+
+    headerBuilderMarginSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_unit_margin(
+                    'header_builder_margin',
+                    '.site-header'
                 );
             });
         });
