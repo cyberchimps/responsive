@@ -278,7 +278,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			// responsive_select_control( $wp_customize, 'footer_bar_layout', $footer_bar_layout_label, 'responsive_footer_layout', 130, $footer_layout_choices, 'horizontal', null, 'postMessage' );
 
 			// Bar Padding.
-			responsive_padding_control( $wp_customize, 'footer_bar', 'responsive_footer_layout', 50, 0, 0, null );
+			responsive_unit_padding_control( $wp_customize, 'footer_bar', 'responsive_footer_layout', 50, 0, 0, null, __( 'Padding', 'responsive' ), 'postMessage', '', '', '', '', 'px' );
 
 			// Margin.
 			responsive_unit_padding_control( $wp_customize, 'footer_margin', 'responsive_footer_layout', 51, '', '', null, __( 'Margin', 'responsive' ), 'postMessage', '', '', '', '', 'px' );

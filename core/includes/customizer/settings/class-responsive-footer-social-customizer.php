@@ -62,6 +62,7 @@ if ( ! class_exists( 'Responsive_Footer_Social_Icons_Customizer' ) ) :
 			);
 
 			$general_tab_ids = array(
+				$tab_ids_prefix . 'responsive_footer_social_title',
 				$tab_ids_prefix . 'responsive_footer_social_items',
 				$tab_ids_prefix . 'responsive_footer_social_show_label',
 				$tab_ids_prefix . 'responsive_footer_social_alignment',
@@ -69,6 +70,26 @@ if ( ! class_exists( 'Responsive_Footer_Social_Icons_Customizer' ) ) :
 			);
 
 			responsive_tabs_button_control( $wp_customize, 'footer_social_tabs', $tabs_label, 'responsive_footer_social', 1, '', 'responsive_social_general_tab', 'responsive_social_design_tab', $general_tab_ids, $design_tab_ids, null );
+
+			$wp_customize->add_setting(
+				'responsive_footer_social_title',
+				array(
+					'sanitize_callback' => 'sanitize_text_field',
+					'type'              => 'theme_mod',
+					'default'           => '',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_control(
+				'responsive_footer_social_title',
+				array(
+					'label'    => esc_html__( 'Title', 'responsive' ),
+					'section'  => 'responsive_footer_social',
+					'type'     => 'text',
+					'priority' => 20,
+				)
+			);
 
 			$wp_customize->add_setting(
 				'responsive_footer_social_items',

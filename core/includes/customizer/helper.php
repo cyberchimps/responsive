@@ -4985,6 +4985,19 @@ if ( ! function_exists( 'responsive_link_style_is_hover_background' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'responsive_footer_copyright_link_style_is_hover_background' ) ) :
+
+	/**
+	 * Determines whether active footer copyright link style is hover-background.
+	 *
+	 * @return bool true if active footer copyright link style is hover-background.
+	 */
+	function responsive_footer_copyright_link_style_is_hover_background() {
+		$link_style = get_theme_mod( 'responsive_footer_copyright_link_style', Responsive\Core\get_responsive_customizer_defaults( 'footer_copyright_link_style' ) );
+		return 'hover-background' === $link_style;
+	}
+endif;
+
 if ( ! function_exists( 'responsive_sidebar_link_style_is_hover_background' ) ) :
 
 	/**

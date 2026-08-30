@@ -959,72 +959,6 @@
         } );
     } );
 
-    // Footer Bar Padding
-    api( 'responsive_footer_bar_top_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('footer_bar', '.footer-bar');
-        } );
-    } );
-    api( 'responsive_footer_bar_left_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('footer_bar', '.footer-bar');
-        } );
-    } );
-    api( 'responsive_footer_bar_bottom_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('footer_bar', '.footer-bar');
-        } );
-    } );
-    api( 'responsive_footer_bar_right_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('footer_bar', '.footer-bar');
-        } );
-    } );
-
-    // Footer Bar Tablet Padding
-    api( 'responsive_footer_bar_tablet_top_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('footer_bar', '.footer-bar');
-        } );
-    } );
-    api( 'responsive_footer_bar_tablet_left_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('footer_bar', '.footer-bar');
-        } );
-    } );
-    api( 'responsive_footer_bar_tablet_bottom_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('footer_bar', '.footer-bar');
-        } );
-    } );
-    api( 'responsive_footer_bar_tablet_right_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('footer_bar', '.footer-bar');
-        } );
-    } );
-
-    // Footer Bar Mobile Padding
-    api( 'responsive_footer_bar_mobile_top_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('footer_bar', '.footer-bar');
-        } );
-    } );
-    api( 'responsive_footer_bar_mobile_left_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('footer_bar', '.footer-bar');
-        } );
-    } );
-    api( 'responsive_footer_bar_mobile_bottom_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('footer_bar', '.footer-bar');
-        } );
-    } );
-    api( 'responsive_footer_bar_mobile_right_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('footer_bar', '.footer-bar');
-        } );
-    } );
-
     // Transparent site content Padding
     api( 'responsive_site_content_top_padding', function( value ) {
         value.bind( function( newval ) {
@@ -2816,6 +2750,32 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
                     'footer_copyright_margin',
                     '.footer-layouts.copyright'
                 );
+            });
+        });
+    });
+
+    const footerPaddingSettings = [
+        'responsive_footer_bar_top_padding',
+        'responsive_footer_bar_left_padding',
+        'responsive_footer_bar_bottom_padding',
+        'responsive_footer_bar_right_padding',
+        'responsive_footer_bar_tablet_top_padding',
+        'responsive_footer_bar_tablet_right_padding',
+        'responsive_footer_bar_tablet_bottom_padding',
+        'responsive_footer_bar_tablet_left_padding',
+        'responsive_footer_bar_mobile_top_padding',
+        'responsive_footer_bar_mobile_right_padding',
+        'responsive_footer_bar_mobile_bottom_padding',
+        'responsive_footer_bar_mobile_left_padding',
+        'responsive_footer_bar_desktop_unit',
+        'responsive_footer_bar_tablet_unit',
+        'responsive_footer_bar_mobile_unit'
+    ];
+
+    footerPaddingSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_unit_padding('footer_bar', '.footer-bar');
             });
         });
     });

@@ -168,6 +168,38 @@ if ( ! class_exists( 'Responsive_Footer_Copyright_Customizer' ) ) :
 
             responsive_horizontal_separator_control($wp_customize, 'footer_copyright_separator_4', 1, 'responsive_footer_copyright', 85, 1, );
 
+            // Link Style
+			$footer_copyright_link_style_label   = esc_html__( 'Link Style', 'responsive' );
+			$footer_copyright_link_style_choices = array(
+				'standard'           => esc_html__( 'Standard (underline)', 'responsive' ),
+				'color-underline'    => esc_html__( 'Highlight Underline', 'responsive' ),
+				'no-underline'       => esc_html__( 'No Underline', 'responsive' ),
+				'hover-background'   => esc_html__( 'Background on hover', 'responsive' ),
+				'offset-background' => esc_html__( 'Offset Background', 'responsive' ),
+			);
+			responsive_select_control( $wp_customize, 'footer_copyright_link_style', $footer_copyright_link_style_label, 'responsive_footer_copyright', 90, $footer_copyright_link_style_choices, Responsive\Core\get_responsive_customizer_defaults( 'footer_copyright_link_style' ), null, 'refresh' );
+
+			// Link Hover Background Color
+			$footer_copyright_link_hover_bg_label = esc_html__( 'Hover Background Color', 'responsive' );
+			responsive_color_control(
+				$wp_customize,
+				'footer_copyright_link_hover_bg',
+				$footer_copyright_link_hover_bg_label,
+				'responsive_footer_copyright',
+				95,
+				Responsive\Core\get_responsive_customizer_defaults( 'footer_copyright_link_hover_bg' ),
+				'responsive_footer_copyright_link_style_is_hover_background',
+				'',
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'refresh'
+			);
+
+
             // Padding.
 			$footer_copyright_padding_label = __( 'Padding (px)', 'responsive' );
 			responsive_unit_padding_control( $wp_customize, 'footer_copyright', 'responsive_footer_copyright', 100, 15, 15, null, $footer_copyright_padding_label, 'postMessage', '', '', '', '', 'px', 15, 15, '','','','' );

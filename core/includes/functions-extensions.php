@@ -488,6 +488,14 @@ function responsive_get_social_icons( $area ) {
 			require get_template_directory() . '/core/includes/responsive-icon-library.php'
 			?>
 			<div class="<?php echo ( '_header' === $area || '_mobile_header' === $area ) ? 'header' : 'footer'?>-layouts social-icon">
+				<?php
+				if ( '_footer' === $area ) {
+					$social_title = get_theme_mod( 'responsive_footer_social_title' );
+					if ( ! empty( $social_title ) ) {
+						echo '<h2 class="widget-title">' . esc_html( $social_title ) . '</h2>';
+					}
+				}
+				?>
 				<ul class="social-icons">
 					<?php
 					if ( '_mobile_header' === $area ) {

@@ -1667,6 +1667,8 @@ function defaults() {
 			'footer_copyright_text_hover'                         		=> '#333333',
 			'footer_copyright_links'                                    => '#0066CC',
 			'footer_copyright_links_hover'                              => '#0066CC',
+			'footer_copyright_link_style'                               => 'standard',
+			'footer_copyright_link_hover_bg'                            => 'palette0',
 			'footer_menu_background'                                    => '#333333',
 			'footer_menu_background_hover'                              => '#333333',
 			'responsive_footer_builder_choices'      				    => array(
