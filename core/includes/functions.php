@@ -1336,6 +1336,7 @@ function defaults() {
 			'secondary_menu_margin'               => 0,
 			'secondary_navigation_stretch'        => 0,
 			'secondary_navigation_fill_stretch'   => 0,
+			'header_secondary_navigation_visibility' => array( 'desktop', 'tablet' ),
 			'header_menu_background'              => 'transparent',
 			'header_mobile_menu_background'       => '#ffffff',
 			'header_menu_border'                  => '#eaeaea',

@@ -4795,30 +4795,45 @@ function responsive_customizer_styles() {
 		}
 		
 		// Hide secondary menu on selected Devices.
-		$secondary_menu_desktop_visibility = get_theme_mod( 'responsive_secondary_menu_desktop_visibility', 0 );
-		$secondary_menu_desktop_visibility = ( 1 === $secondary_menu_desktop_visibility ) ? 'none' : 'flex';
+		$header_secondary_navigation_visibility = get_theme_mod( 'responsive_header_secondary_navigation_visibility', null );
+		if ( null === $header_secondary_navigation_visibility ) {
+			$desktop_hidden = get_theme_mod( 'responsive_secondary_menu_desktop_visibility', 0 );
+			$tablet_hidden  = get_theme_mod( 'responsive_secondary_menu_tablet_visibility', 0 );
+			$mobile_hidden  = get_theme_mod( 'responsive_secondary_menu_mobile_visibility', 1 );
 
-		$secondary_menu_tablet_visibility = get_theme_mod( 'responsive_secondary_menu_tablet_visibility', 0 );
-		$secondary_menu_tablet_visibility = ( 1 === $secondary_menu_tablet_visibility ) ? 'none' : 'flex';
-
-		$secondary_menu_mobile_visibility = get_theme_mod( 'responsive_secondary_menu_mobile_visibility', 0 );
-		$secondary_menu_mobile_visibility = ( 1 === $secondary_menu_mobile_visibility ) ? 'none' : 'flex';
-
-		$custom_css .= ".secondary-navigation-wrapper {
-			display: {$secondary_menu_desktop_visibility};
-		}
-		
-		@media screen and ( max-width: 992px ) {
-			.secondary-navigation-wrapper {
-				display: {$secondary_menu_tablet_visibility};
+			$header_secondary_navigation_visibility = array();
+			if ( ! $desktop_hidden ) {
+				$header_secondary_navigation_visibility[] = 'desktop';
+			}
+			if ( ! $tablet_hidden ) {
+				$header_secondary_navigation_visibility[] = 'tablet';
+			}
+			if ( ! $mobile_hidden ) {
+				$header_secondary_navigation_visibility[] = 'mobile';
 			}
 		}
 
-		@media screen and ( max-width: 576px ) {
-			.secondary-navigation-wrapper{
-					display: {$secondary_menu_mobile_visibility};
+		if ( is_array( $header_secondary_navigation_visibility ) ) {
+			$secondary_menu_desktop_display = in_array( 'desktop', $header_secondary_navigation_visibility, true ) ? 'flex' : 'none';
+			$secondary_menu_tablet_display  = in_array( 'tablet', $header_secondary_navigation_visibility, true ) ? 'flex' : 'none';
+			$secondary_menu_mobile_display  = in_array( 'mobile', $header_secondary_navigation_visibility, true ) ? 'flex' : 'none';
+
+			$custom_css .= ".secondary-navigation-wrapper {
+				display: {$secondary_menu_desktop_display};
 			}
-		}";
+			
+			@media screen and ( max-width: 992px ) {
+				.secondary-navigation-wrapper {
+					display: {$secondary_menu_tablet_display};
+				}
+			}
+
+			@media screen and ( max-width: 576px ) {
+				.secondary-navigation-wrapper{
+					display: {$secondary_menu_mobile_display};
+				}
+			}";
+		}
 
 		// Secondary Menu Top Offset.
 		$secondary_menu_top_offset_value = esc_html( get_theme_mod( 'responsive_secondary_menu_top_offset', 0 ) );
@@ -5007,27 +5022,45 @@ function responsive_customizer_styles() {
 	// Mobile Header Secondary Menu Element CSS - Start
 	// Apply mobile-specific styles when secondary menu is in mobile header items
 	if ( Responsive\Core\responsive_check_element_in_mobile_tablet_items( 'secondary_navigation', 'header' ) ) {
-		// Get the same secondary menu settings (shared between desktop and mobile)
-		$secondary_menu_desktop_visibility = get_theme_mod( 'responsive_secondary_menu_desktop_visibility', 0 );
-		$secondary_menu_tablet_visibility = get_theme_mod( 'responsive_secondary_menu_tablet_visibility', 0 );
-		$secondary_menu_mobile_visibility = get_theme_mod( 'responsive_secondary_menu_mobile_visibility', 0 );
-		
-		// Apply visibility settings for mobile header
-		$custom_css .= ".responsive-mobile-header-wrapper .site-header-item-secondary-navigation .secondary-navigation-wrapper {";
-		$custom_css .= "display: " . ( 1 === $secondary_menu_desktop_visibility ? 'none' : 'flex' ) . ";";
-		$custom_css .= "}";
-		
-		$custom_css .= "@media screen and (max-width: 992px) {";
-		$custom_css .= ".responsive-mobile-header-wrapper .site-header-item-secondary-navigation .secondary-navigation-wrapper {";
-		$custom_css .= "display: " . ( 1 === $secondary_menu_tablet_visibility ? 'none' : 'flex' ) . ";";
-		$custom_css .= "}";
-		$custom_css .= "}";
-		
-		$custom_css .= "@media screen and (max-width: 576px) {";
-		$custom_css .= ".responsive-mobile-header-wrapper .site-header-item-secondary-navigation .secondary-navigation-wrapper {";
-		$custom_css .= "display: " . ( 1 === $secondary_menu_mobile_visibility ? 'none' : 'flex' ) . ";";
-		$custom_css .= "}";
-		$custom_css .= "}";
+		$header_secondary_navigation_visibility = get_theme_mod( 'responsive_header_secondary_navigation_visibility', null );
+		if ( null === $header_secondary_navigation_visibility ) {
+			$desktop_hidden = get_theme_mod( 'responsive_secondary_menu_desktop_visibility', 0 );
+			$tablet_hidden  = get_theme_mod( 'responsive_secondary_menu_tablet_visibility', 0 );
+			$mobile_hidden  = get_theme_mod( 'responsive_secondary_menu_mobile_visibility', 1 );
+
+			$header_secondary_navigation_visibility = array();
+			if ( ! $desktop_hidden ) {
+				$header_secondary_navigation_visibility[] = 'desktop';
+			}
+			if ( ! $tablet_hidden ) {
+				$header_secondary_navigation_visibility[] = 'tablet';
+			}
+			if ( ! $mobile_hidden ) {
+				$header_secondary_navigation_visibility[] = 'mobile';
+			}
+		}
+
+		if ( is_array( $header_secondary_navigation_visibility ) ) {
+			$sec_mobile_header_desktop = in_array( 'desktop', $header_secondary_navigation_visibility, true ) ? 'flex' : 'none';
+			$sec_mobile_header_tablet  = in_array( 'tablet', $header_secondary_navigation_visibility, true ) ? 'flex' : 'none';
+			$sec_mobile_header_mobile  = in_array( 'mobile', $header_secondary_navigation_visibility, true ) ? 'flex' : 'none';
+
+			$custom_css .= ".responsive-mobile-header-wrapper .site-header-item-secondary-navigation .secondary-navigation-wrapper {";
+			$custom_css .= "display: {$sec_mobile_header_desktop};";
+			$custom_css .= "}";
+			
+			$custom_css .= "@media screen and (max-width: 992px) {";
+			$custom_css .= ".responsive-mobile-header-wrapper .site-header-item-secondary-navigation .secondary-navigation-wrapper {";
+			$custom_css .= "display: {$sec_mobile_header_tablet};";
+			$custom_css .= "}";
+			$custom_css .= "}";
+			
+			$custom_css .= "@media screen and (max-width: 576px) {";
+			$custom_css .= ".responsive-mobile-header-wrapper .site-header-item-secondary-navigation .secondary-navigation-wrapper {";
+			$custom_css .= "display: {$sec_mobile_header_mobile};";
+			$custom_css .= "}";
+			$custom_css .= "}";
+		}
 		
 		// Apply the same styling from desktop secondary menu
 		$header_secondary_menu_background_color = esc_html( get_theme_mod( 'responsive_header_secondary_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_secondary_menu_background' ) ) );

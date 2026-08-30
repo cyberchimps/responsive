@@ -63,10 +63,7 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 				 $general_tab_ids_prefix . 'responsive_redirect_to_secondary_menu_set_location',
 				 $general_tab_ids_prefix . 'responsive_secondary_navigation_stretch',
 				 $general_tab_ids_prefix . 'responsive_secondary_navigation_fill_stretch',
-				 $general_tab_ids_prefix . 'responsive_visibility_separator',
-				 $general_tab_ids_prefix . 'responsive_secondary_menu_desktop_visibility',
-				 $general_tab_ids_prefix . 'responsive_secondary_menu_tablet_visibility',
-				 $general_tab_ids_prefix . 'responsive_secondary_menu_mobile_visibility',
+				 $general_tab_ids_prefix . 'responsive_header_secondary_navigation_visibility',
 			 );
  
 			responsive_tabs_button_control( $wp_customize, 'secondary_menu_tabs', $tabs_label, 'responsive_header_secondary_menu_layout', 1, '', 'responsive_secondadry_menu_general_tab', 'responsive_secondary_menu_design_tab', $general_tab_ids, $design_tab_ids, null );
@@ -156,23 +153,33 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 			$margin_spacing_label = esc_html__( 'Margin (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'secondary-menu-margin', 'responsive_header_secondary_menu_layout', 190, Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_margin' ), Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_margin' ), 'responsive_disabled_mobile_menu', $margin_spacing_label, 'refresh' );
 
-			// Visibiliy controls
-			
-			// Visibility seperator.
-			$visibility_separator_label = __( 'Visibility', 'responsive' );
-			responsive_separator_control( $wp_customize, 'visibility_separator', $visibility_separator_label, 'responsive_header_secondary_menu_layout', 65 );
-			
-			// Hide on Desktop.
-			$secondary_menu_desktop_visibility = __( 'Hide on Desktop', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'secondary_menu_desktop_visibility', $secondary_menu_desktop_visibility, 'responsive_header_secondary_menu_layout', 70, 0, null );
+			// Visibility - General Tab.
+			$secondary_navigation_visibility_label   = __( 'Visibility', 'responsive' );
+			$secondary_navigation_visibility_choices = array(
+				'desktop' => esc_html__( 'dashicons-desktop', 'responsive' ),
+				'tablet'  => esc_html__( 'dashicons-tablet', 'responsive' ),
+				'mobile'  => esc_html__( 'dashicons-smartphone', 'responsive' ),
+			);
 
-			// Hide on Tablet.
-			$secondary_menu_tablet_visibility = __( 'Hide on Tablet', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'secondary_menu_tablet_visibility', $secondary_menu_tablet_visibility, 'responsive_header_secondary_menu_layout', 80, 0, null );
+			$default_visibility = get_theme_mod( 'responsive_header_secondary_navigation_visibility', null );
+			if ( null === $default_visibility ) {
+				$desktop_hidden = get_theme_mod( 'responsive_secondary_menu_desktop_visibility', 0 );
+				$tablet_hidden  = get_theme_mod( 'responsive_secondary_menu_tablet_visibility', 0 );
+				$mobile_hidden  = get_theme_mod( 'responsive_secondary_menu_mobile_visibility', 1 );
 
-			// Hide on Mobile.
-			$secondary_menu_mobile_visibility = __( 'Hide on Mobile', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'secondary_menu_mobile_visibility', $secondary_menu_mobile_visibility, 'responsive_header_secondary_menu_layout', 90, 0, null );
+				$default_visibility = array();
+				if ( ! $desktop_hidden ) {
+					$default_visibility[] = 'desktop';
+				}
+				if ( ! $tablet_hidden ) {
+					$default_visibility[] = 'tablet';
+				}
+				if ( ! $mobile_hidden ) {
+					$default_visibility[] = 'mobile';
+				}
+			}
+
+			responsive_multi_select_button_control( $wp_customize, 'header_secondary_navigation_visibility', $secondary_navigation_visibility_label, 'responsive_header_secondary_menu_layout', 46, $secondary_navigation_visibility_choices, $default_visibility, null, 'refresh' );
 
 		}
 
