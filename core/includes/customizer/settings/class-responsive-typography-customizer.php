@@ -68,7 +68,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 2,
 					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
-						'font-family'    => 'System Font',
 						'font-size'      => '16px',
 						'font-weight'    => '400',
 						'line-height'    => '1.75',
@@ -107,7 +106,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 9,
 					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
-						'font-family'    => 'System Font',
 						'font-size'      => '30px',
 						'font-weight'    => '600',
 						'line-height'    => '1.25',
@@ -168,7 +166,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 19,
 					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
-						'font-family'    => 'System Font',
 						'font-size'      => '14px',
 						'line-height'    => '1.75',
 						'text-transform' => 'capitalize',
@@ -192,24 +189,13 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'target'   => $selectorArray['item_meta'],
 					'section'  => 'responsive_blog_layout',
 					'priority' => 98,
-					'exclude'  => array( 'font-color','font-size' ),
+					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
-						'font-size'   => '13px',
+						'font-size'   => '14px',
 						'line-height' => '1.5',
 					),
 				),
-				// Single Post — Excerpt Font.
-				'single_blog_excerpt'    => array(
-					'label'    => esc_html__( 'Excerpt Font', 'responsive' ),
-					'target'   => $selectorArray['single_blog_excerpt'],
-					'section'  => 'responsive_single_blog_layout',
-					'priority' => 111,
-					'exclude'  => array( 'font-color' ),
-					'defaults' => array(
-						'font-size'   => '16px',
-						'line-height' => '1.75',
-					),
-				),
+				
 				// Single Post — Breadcrumb Font.
 				'single_blog_breadcrumb' => array(
 					'label'    => esc_html__( 'Breadcrumb Font', 'responsive' ),
@@ -411,18 +397,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'defaults' => array(
 						'font-size'   => '13px',
 						'line-height' => '1.75',
-					),
-				),
-				'page_title'                 => array(
-					'label'    => esc_html__( 'Page Title', 'responsive' ),
-					'target'   => $selectorArray['page'],
-					'section'  => 'responsive_page_typography',
-					'exclude'  => array( '' ),
-					'priority' => 10,
-					'defaults' => array(
-						'color'       => '#333333',
-						'font-size'   => '32px',
-						'line-height' => '1.4',
 					),
 				),
 				'footer_copyright' => array(
@@ -632,21 +606,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				);
 			}
 
-			if ( $this->is_responsive_version_greater() ) {
-				$responsive_theme_typography_settings['page_title'] = array(
-					'label'    => esc_html__( 'Page Title', 'responsive' ),
-					'target'   => $selectorArray['page'],
-					'section'  => 'responsive_page',
-					'exclude'  => array( '' ),
-					'priority' => 10,
-					'defaults' => array(
-						'color'       => '#333333',
-						'font-size'   => '32px',
-						'line-height' => '1.4',
-					),
-				);
-			}
-
 			// Return settings.
 			return apply_filters(
 				'responsive_typography_settings',
@@ -660,7 +619,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 		public function getSelectorArray() {
 
 			$responsive_typography_selectors = array(
-				'body'                       => 'body',
+				'body'                       => 'body:not(.post-meta)',
 				'headings'                   => 'h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6',
 				'heading_h1'                 => 'h1',
 				'heading_h2'                 => 'h2',
@@ -699,9 +658,8 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'mobile_header_contact_info' => '.site-mobile-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list  .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-title, .site-mobile-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text',
 				'header_off_canvas_menu'     => '.responsive-off-canvas-menu-container .responsive-off-canvas-menu-wrapper .responsive-off-canvas-menu-inner-wrapper .responsive-off-canvas-menu .responsive-off-canvas-menu-items .responsive-off-canvas-menu-item a, .off-canvas-widget-area #off-canvas-menu li a, #off-canvas-site-navigation .menu li a',
 				'item_category'              => '.blog .hentry .entry-meta .entry-category a, .archive .hentry .entry-meta .entry-category a', 
-				'item_meta'             	 => '.blog .hentry .post-entry .post-meta .entry-author .author a span, .blog .hentry .post-meta .entry-date time, .archive .hentry .post-meta .entry-author .author a span, .archive .hentry .post-meta .entry-date time', 
-				'single_blog_excerpt'    => '.single.single-post .entry-excerpt',
-				'single_blog_breadcrumb' => '.single.single-post .breadcrumbs',
+				'item_meta'             	 => '.blog .hentry .post-meta .entry-tag span, .blog .hentry .post-meta .entry-tag span a, .blog .hentry .post-meta span.entry-date .posted time, .archive .hentry .post-meta span, .archive .hentry .post-meta span.entry-date .posted time, .blog .container .hentry .post-entry .post-meta .entry-author .author a span', 
+				'single_blog_breadcrumb'     => '.single.single-post .breadcrumbs .breadcrumb-list',
 				'single_blog_post_text'      => '.single-post .entry-header *:not(.post-meta):not(.post-meta *):not(.post-title), .responsive-blog-single-banner2 .container *:not(.post-meta):not(.post-meta *):not(.post-title)',
 				'single_blog_post_title'     => '.single-post .site-content article .post-entry .post-title, .single-post .responsive-blog-single-banner2 .post-title',
 				'single_blog_post_meta'      => '.single-post .site-content article .post-entry .post-meta span, .single-post .site-content article .post-entry .post-meta i, .single-post .site-content article .post-entry .post-meta span a, .single-post .site-content article .post-entry .post-meta span a time, .single-post .site-content article .post-entry .entry-meta, .responsive-blog-single-banner2 .container .post-meta span, .responsive-blog-single-banner2 .container .post-meta i, .responsive-blog-single-banner2 .container .post-meta span a, .responsive-blog-single-banner2 .container .post-meta span a time, .responsive-blog-single-banner2 .container .entry-meta',
@@ -1296,6 +1254,11 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 
 						// Sanitize.
 						$val = str_replace( '"', '', $val );
+
+						// If value is Default, skip it to allow inheritance.
+						if ( 'Default' === $val || 'default' === $val ) {
+							continue;
+						}
 
 						// Add px if font size or letter spacing.
 						$px = '';

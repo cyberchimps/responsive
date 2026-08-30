@@ -1957,218 +1957,38 @@
         value.bind(updateSidebarStickyCss);
     });
 
-    function updateContentEdgeSpacingCss() {
-        jQuery('style#responsive-content-edge-spacing-css').remove();
 
-        var val = api('responsive_content_edge_spacing') ? api('responsive_content_edge_spacing').get() : 12;
-        var unit = api('responsive_content_edge_spacing_unit') ? api('responsive_content_edge_spacing_unit').get() : 'px';
-
-        var val_tablet = api('responsive_content_edge_spacing_tablet') ? api('responsive_content_edge_spacing_tablet').get() : '';
-        var unit_tablet = api('responsive_content_edge_spacing_tablet_unit') ? api('responsive_content_edge_spacing_tablet_unit').get() : 'px';
-
-        var val_mobile = api('responsive_content_edge_spacing_mobile') ? api('responsive_content_edge_spacing_mobile').get() : '';
-        var unit_mobile = api('responsive_content_edge_spacing_mobile_unit') ? api('responsive_content_edge_spacing_mobile_unit').get() : 'px';
-
-        var css = '.container { padding-left: ' + val + unit + '; padding-right: ' + val + unit + '; }';
-
-        if (val_tablet !== '') {
-            css += '@media screen and (max-width: 992px) { .container { padding-left: ' + val_tablet + unit_tablet + '; padding-right: ' + val_tablet + unit_tablet + '; } }';
-        }
-        if (val_mobile !== '') {
-            css += '@media screen and (max-width: 576px) { .container { padding-left: ' + val_mobile + unit_mobile + '; padding-right: ' + val_mobile + unit_mobile + '; } }';
-        }
-
-        jQuery('head').append('<style id="responsive-content-edge-spacing-css">' + css + '</style>');
-    }
-
-    [
-        'responsive_content_edge_spacing',
-        'responsive_content_edge_spacing_unit',
-        'responsive_content_edge_spacing_tablet',
-        'responsive_content_edge_spacing_tablet_unit',
-        'responsive_content_edge_spacing_mobile',
-        'responsive_content_edge_spacing_mobile_unit'
-    ].forEach(function(settingId) {
-        api(settingId, function(value) {
-            value.bind(updateContentEdgeSpacingCss);
-        });
-    });
-    function updatePrimaryMenuMenuPaddingCss() {
-        jQuery('style#responsive-primary-menu-menu-padding-css').remove();
-
-        var top = api('responsive_primary_menu_menu_top_padding') ? api('responsive_primary_menu_menu_top_padding').get() : '';
-        var right = api('responsive_primary_menu_menu_right_padding') ? api('responsive_primary_menu_menu_right_padding').get() : '';
-        var bottom = api('responsive_primary_menu_menu_bottom_padding') ? api('responsive_primary_menu_menu_bottom_padding').get() : '';
-        var left = api('responsive_primary_menu_menu_left_padding') ? api('responsive_primary_menu_menu_left_padding').get() : '';
-        var unit = api('responsive_primary_menu_menu_desktop_unit') ? api('responsive_primary_menu_menu_desktop_unit').get() : 'px';
-
-        var t_top = api('responsive_primary_menu_menu_tablet_top_padding') ? api('responsive_primary_menu_menu_tablet_top_padding').get() : '';
-        var t_right = api('responsive_primary_menu_menu_tablet_right_padding') ? api('responsive_primary_menu_menu_tablet_right_padding').get() : '';
-        var t_bottom = api('responsive_primary_menu_menu_tablet_bottom_padding') ? api('responsive_primary_menu_menu_tablet_bottom_padding').get() : '';
-        var t_left = api('responsive_primary_menu_menu_tablet_left_padding') ? api('responsive_primary_menu_menu_tablet_left_padding').get() : '';
-        var t_unit = api('responsive_primary_menu_menu_tablet_unit') ? api('responsive_primary_menu_menu_tablet_unit').get() : 'px';
-
-        var m_top = api('responsive_primary_menu_menu_mobile_top_padding') ? api('responsive_primary_menu_menu_mobile_top_padding').get() : '';
-        var m_right = api('responsive_primary_menu_menu_mobile_right_padding') ? api('responsive_primary_menu_menu_mobile_right_padding').get() : '';
-        var m_bottom = api('responsive_primary_menu_menu_mobile_bottom_padding') ? api('responsive_primary_menu_menu_mobile_bottom_padding').get() : '';
-        var m_left = api('responsive_primary_menu_menu_mobile_left_padding') ? api('responsive_primary_menu_menu_mobile_left_padding').get() : '';
-        var m_unit = api('responsive_primary_menu_menu_mobile_unit') ? api('responsive_primary_menu_menu_mobile_unit').get() : 'px';
-
-        var css = '';
-        if (top !== '' || right !== '' || bottom !== '' || left !== '') {
-            css += '.main-navigation .menu li a { padding-top: ' + (top || 0) + unit + '; padding-right: ' + (right || 0) + unit + '; padding-bottom: ' + (bottom || 0) + unit + '; padding-left: ' + (left || 0) + unit + '; }';
-        }
-        if (t_top !== '' || t_right !== '' || t_bottom !== '' || t_left !== '') {
-            css += '@media screen and (max-width: 992px) { .main-navigation .menu li a { padding-top: ' + (t_top || 0) + t_unit + '; padding-right: ' + (t_right || 0) + t_unit + '; padding-bottom: ' + (t_bottom || 0) + t_unit + '; padding-left: ' + (t_left || 0) + t_unit + '; } }';
-        }
-        if (m_top !== '' || m_right !== '' || m_bottom !== '' || m_left !== '') {
-            css += '@media screen and (max-width: 576px) { .main-navigation .menu li a { padding-top: ' + (m_top || 0) + m_unit + '; padding-right: ' + (m_right || 0) + m_unit + '; padding-bottom: ' + (m_bottom || 0) + m_unit + '; padding-left: ' + (m_left || 0) + m_unit + '; } }';
-        }
-
-        if (css !== '') {
-            jQuery('head').append('<style id="responsive-primary-menu-menu-padding-css">' + css + '</style>');
-        }
-    }
-
-    [
-        'responsive_primary_menu_menu_top_padding',
-        'responsive_primary_menu_menu_right_padding',
-        'responsive_primary_menu_menu_bottom_padding',
-        'responsive_primary_menu_menu_left_padding',
-        'responsive_primary_menu_menu_desktop_unit',
-        'responsive_primary_menu_menu_tablet_top_padding',
-        'responsive_primary_menu_menu_tablet_right_padding',
-        'responsive_primary_menu_menu_tablet_bottom_padding',
-        'responsive_primary_menu_menu_tablet_left_padding',
-        'responsive_primary_menu_menu_tablet_unit',
-        'responsive_primary_menu_menu_mobile_top_padding',
-        'responsive_primary_menu_menu_mobile_right_padding',
-        'responsive_primary_menu_menu_mobile_bottom_padding',
-        'responsive_primary_menu_menu_mobile_left_padding',
-        'responsive_primary_menu_menu_mobile_unit'
-    ].forEach(function(settingId) {
-        api(settingId, function(value) {
-            value.bind(updatePrimaryMenuMenuPaddingCss);
-        });
-    });
-
-    function updatePrimaryMenuMarginCss() {
-        jQuery('style#responsive-primary-menu-margin-css').remove();
-
-        var top = api('responsive_primary_menu_margin_top_padding') ? api('responsive_primary_menu_margin_top_padding').get() : '';
-        var right = api('responsive_primary_menu_margin_right_padding') ? api('responsive_primary_menu_margin_right_padding').get() : '';
-        var bottom = api('responsive_primary_menu_margin_bottom_padding') ? api('responsive_primary_menu_margin_bottom_padding').get() : '';
-        var left = api('responsive_primary_menu_margin_left_padding') ? api('responsive_primary_menu_margin_left_padding').get() : '';
-        var unit = api('responsive_primary_menu_margin_desktop_unit') ? api('responsive_primary_menu_margin_desktop_unit').get() : 'px';
-
-        var t_top = api('responsive_primary_menu_margin_tablet_top_padding') ? api('responsive_primary_menu_margin_tablet_top_padding').get() : '';
-        var t_right = api('responsive_primary_menu_margin_tablet_right_padding') ? api('responsive_primary_menu_margin_tablet_right_padding').get() : '';
-        var t_bottom = api('responsive_primary_menu_margin_tablet_bottom_padding') ? api('responsive_primary_menu_margin_tablet_bottom_padding').get() : '';
-        var t_left = api('responsive_primary_menu_margin_tablet_left_padding') ? api('responsive_primary_menu_margin_tablet_left_padding').get() : '';
-        var t_unit = api('responsive_primary_menu_margin_tablet_unit') ? api('responsive_primary_menu_margin_tablet_unit').get() : 'px';
-
-        var m_top = api('responsive_primary_menu_margin_mobile_top_padding') ? api('responsive_primary_menu_margin_mobile_top_padding').get() : '';
-        var m_right = api('responsive_primary_menu_margin_mobile_right_padding') ? api('responsive_primary_menu_margin_mobile_right_padding').get() : '';
-        var m_bottom = api('responsive_primary_menu_margin_mobile_bottom_padding') ? api('responsive_primary_menu_margin_mobile_bottom_padding').get() : '';
-        var m_left = api('responsive_primary_menu_margin_mobile_left_padding') ? api('responsive_primary_menu_margin_mobile_left_padding').get() : '';
-        var m_unit = api('responsive_primary_menu_margin_mobile_unit') ? api('responsive_primary_menu_margin_mobile_unit').get() : 'px';
-
-        var css = '';
-        if (top !== '' || right !== '' || bottom !== '' || left !== '') {
-            css += '.main-navigation .menu { margin-top: ' + (top || 0) + unit + '; margin-right: ' + (right || 0) + unit + '; margin-bottom: ' + (bottom || 0) + unit + '; margin-left: ' + (left || 0) + unit + '; }';
-        }
-        if (t_top !== '' || t_right !== '' || t_bottom !== '' || t_left !== '') {
-            css += '@media screen and (max-width: 992px) { .main-navigation .menu { margin-top: ' + (t_top || 0) + t_unit + '; margin-right: ' + (t_right || 0) + t_unit + '; margin-bottom: ' + (t_bottom || 0) + t_unit + '; margin-left: ' + (t_left || 0) + t_unit + '; } }';
-        }
-        if (m_top !== '' || m_right !== '' || m_bottom !== '' || m_left !== '') {
-            css += '@media screen and (max-width: 576px) { .main-navigation .menu { margin-top: ' + (m_top || 0) + m_unit + '; margin-right: ' + (m_right || 0) + m_unit + '; margin-bottom: ' + (m_bottom || 0) + m_unit + '; margin-left: ' + (m_left || 0) + m_unit + '; } }';
-        }
-
-        if (css !== '') {
-            jQuery('head').append('<style id="responsive-primary-menu-margin-css">' + css + '</style>');
-        }
-    }
-
-    [
-        'responsive_primary_menu_margin_top_padding',
-        'responsive_primary_menu_margin_right_padding',
-        'responsive_primary_menu_margin_bottom_padding',
-        'responsive_primary_menu_margin_left_padding',
-        'responsive_primary_menu_margin_desktop_unit',
-        'responsive_primary_menu_margin_tablet_top_padding',
-        'responsive_primary_menu_margin_tablet_right_padding',
-        'responsive_primary_menu_margin_tablet_bottom_padding',
-        'responsive_primary_menu_margin_tablet_left_padding',
-        'responsive_primary_menu_margin_tablet_unit',
-        'responsive_primary_menu_margin_mobile_top_padding',
-        'responsive_primary_menu_margin_mobile_right_padding',
-        'responsive_primary_menu_margin_mobile_bottom_padding',
-        'responsive_primary_menu_margin_mobile_left_padding',
-        'responsive_primary_menu_margin_mobile_unit'
-    ].forEach(function(settingId) {
-        api(settingId, function(value) {
-            value.bind(updatePrimaryMenuMarginCss);
-        });
-    });
-
-    function updateSubMenuBorderRadiusCss() {
-        jQuery('style#responsive-sub-menu-border-radius-css').remove();
-
-        var top = api('responsive_sub_menu_border_radius_top_padding') ? api('responsive_sub_menu_border_radius_top_padding').get() : '';
-        var right = api('responsive_sub_menu_border_radius_right_padding') ? api('responsive_sub_menu_border_radius_right_padding').get() : '';
-        var bottom = api('responsive_sub_menu_border_radius_bottom_padding') ? api('responsive_sub_menu_border_radius_bottom_padding').get() : '';
-        var left = api('responsive_sub_menu_border_radius_left_padding') ? api('responsive_sub_menu_border_radius_left_padding').get() : '';
-        var unit = api('responsive_sub_menu_border_radius_desktop_unit') ? api('responsive_sub_menu_border_radius_desktop_unit').get() : 'px';
-
-        var t_top = api('responsive_sub_menu_border_radius_tablet_top_padding') ? api('responsive_sub_menu_border_radius_tablet_top_padding').get() : '';
-        var t_right = api('responsive_sub_menu_border_radius_tablet_right_padding') ? api('responsive_sub_menu_border_radius_tablet_right_padding').get() : '';
-        var t_bottom = api('responsive_sub_menu_border_radius_tablet_bottom_padding') ? api('responsive_sub_menu_border_radius_tablet_bottom_padding').get() : '';
-        var t_left = api('responsive_sub_menu_border_radius_tablet_left_padding') ? api('responsive_sub_menu_border_radius_tablet_left_padding').get() : '';
-        var t_unit = api('responsive_sub_menu_border_radius_tablet_unit') ? api('responsive_sub_menu_border_radius_tablet_unit').get() : 'px';
-
-        var m_top = api('responsive_sub_menu_border_radius_mobile_top_padding') ? api('responsive_sub_menu_border_radius_mobile_top_padding').get() : '';
-        var m_right = api('responsive_sub_menu_border_radius_mobile_right_padding') ? api('responsive_sub_menu_border_radius_mobile_right_padding').get() : '';
-        var m_bottom = api('responsive_sub_menu_border_radius_mobile_bottom_padding') ? api('responsive_sub_menu_border_radius_mobile_bottom_padding').get() : '';
-        var m_left = api('responsive_sub_menu_border_radius_mobile_left_padding') ? api('responsive_sub_menu_border_radius_mobile_left_padding').get() : '';
-        var m_unit = api('responsive_sub_menu_border_radius_mobile_unit') ? api('responsive_sub_menu_border_radius_mobile_unit').get() : 'px';
-
-        var css = '';
-        if (top !== '' || right !== '' || bottom !== '' || left !== '') {
-            css += '.main-navigation .children, .main-navigation .sub-menu { border-top-left-radius: ' + (top || 0) + unit + '; border-top-right-radius: ' + (right || 0) + unit + '; border-bottom-right-radius: ' + (bottom || 0) + unit + '; border-bottom-left-radius: ' + (left || 0) + unit + '; }';
-        }
-        if (t_top !== '' || t_right !== '' || t_bottom !== '' || t_left !== '') {
-            css += '@media screen and (max-width: 992px) { .main-navigation .children, .main-navigation .sub-menu { border-top-left-radius: ' + (t_top || 0) + t_unit + '; border-top-right-radius: ' + (t_right || 0) + t_unit + '; border-bottom-right-radius: ' + (t_bottom || 0) + t_unit + '; border-bottom-left-radius: ' + (t_left || 0) + t_unit + '; } }';
-        }
-        if (m_top !== '' || m_right !== '' || m_bottom !== '' || m_left !== '') {
-            css += '@media screen and (max-width: 576px) { .main-navigation .children, .main-navigation .sub-menu { border-top-left-radius: ' + (m_top || 0) + m_unit + '; border-top-right-radius: ' + (m_right || 0) + m_unit + '; border-bottom-right-radius: ' + (m_bottom || 0) + m_unit + '; border-bottom-left-radius: ' + (m_left || 0) + m_unit + '; } }';
-        }
-
-        if (css !== '') {
-            jQuery('head').append('<style id="responsive-sub-menu-border-radius-css">' + css + '</style>');
-        }
-    }
-
-    [
-        'responsive_sub_menu_border_radius_top_padding',
-        'responsive_sub_menu_border_radius_right_padding',
-        'responsive_sub_menu_border_radius_bottom_padding',
-        'responsive_sub_menu_border_radius_left_padding',
-        'responsive_sub_menu_border_radius_desktop_unit',
-        'responsive_sub_menu_border_radius_tablet_top_padding',
-        'responsive_sub_menu_border_radius_tablet_right_padding',
-        'responsive_sub_menu_border_radius_tablet_bottom_padding',
-        'responsive_sub_menu_border_radius_tablet_left_padding',
-        'responsive_sub_menu_border_radius_tablet_unit',
-        'responsive_sub_menu_border_radius_mobile_top_padding',
-        'responsive_sub_menu_border_radius_mobile_right_padding',
-        'responsive_sub_menu_border_radius_mobile_bottom_padding',
-        'responsive_sub_menu_border_radius_mobile_left_padding',
-        'responsive_sub_menu_border_radius_mobile_unit'
-    ].forEach(function(settingId) {
-        api(settingId, function(value) {
-            value.bind(updateSubMenuBorderRadiusCss);
-        });
-    });
+    api( 'responsive_page_content_top_bottom_spacing', function( value ) {
+        value.bind( function( newval ) {
+            var verticalSetting = api( 'responsive_page_content_vertical' ) ? api( 'responsive_page_content_vertical' ).get() : 'enable';
+            if ( ! verticalSetting || verticalSetting === 'default' ) {
+                verticalSetting = 'enable';
+            }
+            
+            var marginTop = '0px';
+            var marginBottom = '0px';
+            
+            if ( verticalSetting === 'enable' ) {
+                marginTop = newval + 'px';
+                marginBottom = newval + 'px';
+            } else if ( verticalSetting === 'top_only' ) {
+                marginTop = newval + 'px';
+            } else if ( verticalSetting === 'bottom_only' ) {
+                marginBottom = newval + 'px';
+            }
+            
+            var styleId = 'responsive-page-content-top-bottom-spacing-css';
+            jQuery( '#' + styleId ).remove();
+            jQuery( 'head' ).append(
+                '<style id="' + styleId + '">' +
+                '.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) #primary.content-area { ' +
+                'margin-top: ' + marginTop + ' !important; ' +
+                'margin-bottom: ' + marginBottom + ' !important; ' +
+                '}' +
+                '</style>'
+            );
+        } );
+    } );
 
 } )( jQuery );
 

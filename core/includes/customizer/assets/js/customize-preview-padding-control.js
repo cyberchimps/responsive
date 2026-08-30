@@ -10,12 +10,46 @@
         if( 0 == api( 'responsive_disable_mobile_menu').get()) {
             mobile_menu_breakpoint = 0;
         }
+        var style = '<style id="responsive-blog-box-padding">';
 
+        var topBlogSelector = '.search.responsive-site-style-boxed article.product .post-entry > .thumbnail:first-child,.search.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,.search.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child,.archive.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,.archive.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child,.blog.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,.blog.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child';
+        var leftRightBlogSelector = '.search.responsive-site-style-boxed .site-content article.product .post-entry .thumbnail,.search.responsive-site-style-content-boxed .hentry .thumbnail,.search.responsive-site-style-boxed .hentry .thumbnail,.archive.responsive-site-style-content-boxed .hentry .thumbnail,.archive.responsive-site-style-boxed .hentry .thumbnail,.blog.responsive-site-style-content-boxed .hentry .thumbnail,.blog.responsive-site-style-boxed .hentry .thumbnail';
+        function formatNegativeMargin(l, r) {
+            var css = '';
+            if (l !== '' && l !== undefined) css += 'margin-left: -' + l + 'px; ';
+            if (r !== '' && r !== undefined) css += 'margin-right: -' + r + 'px; ';
+            return css;
+        }
+
+        var blogDesktopTopMargin = (api('responsive_blog_inside_container_top_padding').get() !== '') ? 'margin-top: -'+ api('responsive_blog_inside_container_top_padding').get()+'px;' : '';
+        var blogTabletTopMargin = (api('responsive_blog_inside_container_tablet_top_padding').get() !== '') ? 'margin-top: -'+ api('responsive_blog_inside_container_tablet_top_padding').get()+'px;' : '';
+        var blogMobileTopMargin = (api('responsive_blog_inside_container_mobile_top_padding').get() !== '') ? 'margin-top: -'+ api('responsive_blog_inside_container_mobile_top_padding').get()+'px;' : '';
+        
+        var blogDesktopLeftRightMargin = formatNegativeMargin(api('responsive_blog_inside_container_left_padding').get(), api('responsive_blog_inside_container_right_padding').get());
+        var blogTabletLeftRightMargin = formatNegativeMargin(api('responsive_blog_inside_container_tablet_left_padding').get(), api('responsive_blog_inside_container_tablet_right_padding').get());
+        var blogMobileLeftRightMargin = formatNegativeMargin(api('responsive_blog_inside_container_mobile_left_padding').get(), api('responsive_blog_inside_container_mobile_right_padding').get());
+
+        if('stretched' === api( 'responsive_blog_entry_featured_image_style' ).get()) {
+            style += topBlogSelector + '{ ' + blogDesktopTopMargin + ' }'
+            + leftRightBlogSelector + '{ ' + blogDesktopLeftRightMargin + ' }'
+            + '@media (max-width: ' + mobile_menu_breakpoint +'px) {'
+            + topBlogSelector + '	{ ' + blogTabletTopMargin + ' }'
+            + leftRightBlogSelector + '{ ' + blogTabletLeftRightMargin + ' }'
+            + ' }'
+            + '@media (max-width: 544px) {'
+            + topBlogSelector + '	{ ' + blogMobileTopMargin + ' }'
+            + leftRightBlogSelector + '{ ' + blogMobileLeftRightMargin +' }'
+            + ' }';
+        }
+        style += '</style>';
+
+        jQuery( 'style#responsive-blog-box-padding' ).remove();
         jQuery( 'style#responsive-'+control+'-padding' ).remove();
         var desktopPadding = 'padding-top:'+ api('responsive_'+control+'_top_padding').get()+'px; '+'padding-bottom:'+ api('responsive_'+control+'_bottom_padding').get()+'px; '+'padding-left:'+ api('responsive_'+control+'_left_padding').get()+'px; '+'padding-right:'+ api('responsive_'+control+'_right_padding').get()+'px;';
         var tabletPadding = 'padding-top:'+ api('responsive_'+control+'_tablet_top_padding').get()+'px; '+'padding-bottom:'+ api('responsive_'+control+'_tablet_bottom_padding').get()+'px; '+'padding-left:'+ api('responsive_'+control+'_tablet_left_padding').get()+'px; '+'padding-right:'+ api('responsive_'+control+'_tablet_right_padding').get()+'px;';
         var mobilePadding = 'padding-top:'+ api('responsive_'+control+'_mobile_top_padding').get()+'px; '+'padding-bottom:'+ api('responsive_'+control+'_mobile_bottom_padding').get()+'px; '+'padding-left:'+ api('responsive_'+control+'_mobile_left_padding').get()+'px; '+'padding-right:'+ api('responsive_'+control+'_mobile_right_padding').get()+'px;';
         jQuery( 'head' ).append(
+            style +
             '<style id="responsive-'+control+'-padding">'
             + selector + '	{ ' + desktopPadding +' }'
             + '@media (max-width: ' + mobile_menu_breakpoint +'px) {' + selector + '	{ ' + tabletPadding + ' } }'
@@ -51,23 +85,97 @@
             mobile_menu_breakpoint = 0;
         }
 
+        // fetching global outside container padding values
+        let globalOutsideContainerPaddingDesktopTop = api('responsive_outside_container_top_padding').get();
+        let globalOutsideContainerPaddingDesktopBottom = api('responsive_outside_container_bottom_padding').get();
+        let globalOutsideContainerPaddingDesktopLeft = api('responsive_outside_container_left_padding').get();
+        let globalOutsideContainerPaddingDesktopRight = api('responsive_outside_container_right_padding').get();
+        let globalOutsideContainerPaddingTabletTop = api('responsive_outside_container_tablet_top_padding').get();
+        let globalOutsideContainerPaddingTabletBottom = api('responsive_outside_container_tablet_bottom_padding').get();
+        let globalOutsideContainerPaddingTabletLeft = api('responsive_outside_container_tablet_left_padding').get();
+        let globalOutsideContainerPaddingTabletRight = api('responsive_outside_container_tablet_right_padding').get();
+        let globalOutsideContainerPaddingMobileTop = api('responsive_outside_container_mobile_top_padding').get();
+        let globalOutsideContainerPaddingMobileBottom = api('responsive_outside_container_mobile_bottom_padding').get();
+        let globalOutsideContainerPaddingMobileLeft = api('responsive_outside_container_mobile_left_padding').get();
+        let globalOutsideContainerPaddingMobileRight = api('responsive_outside_container_mobile_right_padding').get();
+        // units
+        let globalOutsideContainerDesktopUnit = api('responsive_outside_container_desktop_unit') ? api('responsive_outside_container_desktop_unit').get() : 'px';
+        let globalOutsideContainerTabletUnit = api('responsive_outside_container_tablet_unit') ? api('responsive_outside_container_tablet_unit').get() : 'px';
+        let globalOutsideContainerMobileUnit = api('responsive_outside_container_mobile_unit') ? api('responsive_outside_container_mobile_unit').get() : 'px';
+        // individual units
         var desktopUnit = api('responsive_'+control+'_desktop_unit') ? api('responsive_'+control+'_desktop_unit').get() : 'px';
         var tabletUnit = api('responsive_'+control+'_tablet_unit') ? api('responsive_'+control+'_tablet_unit').get() : 'px';
         var mobileUnit = api('responsive_'+control+'_mobile_unit') ? api('responsive_'+control+'_mobile_unit').get() : 'px';
 
-        function formatPadding(t, b, l, r, unit) {
+        function formatPadding(t, b, l, r, unit, device) {
             var css = '';
-            if (t !== '') css += 'padding-top:' + t + unit + '; ';
-            if (b !== '') css += 'padding-bottom:' + b + unit + '; ';
-            if (l !== '') css += 'padding-left:' + l + unit + '; ';
-            if (r !== '') css += 'padding-right:' + r + unit + '; ';
+
+            // pick the right global fallback values/unit for the given device
+            var globalTop, globalBottom, globalLeft, globalRight, globalUnit;
+
+            if (device === 'tablet') {
+                globalTop    = globalOutsideContainerPaddingTabletTop;
+                globalBottom = globalOutsideContainerPaddingTabletBottom;
+                globalLeft   = globalOutsideContainerPaddingTabletLeft;
+                globalRight  = globalOutsideContainerPaddingTabletRight;
+                globalUnit   = globalOutsideContainerTabletUnit;
+            } else if (device === 'mobile') {
+                globalTop    = globalOutsideContainerPaddingMobileTop;
+                globalBottom = globalOutsideContainerPaddingMobileBottom;
+                globalLeft   = globalOutsideContainerPaddingMobileLeft;
+                globalRight  = globalOutsideContainerPaddingMobileRight;
+                globalUnit   = globalOutsideContainerMobileUnit;
+            } else {
+                // default: desktop
+                globalTop    = globalOutsideContainerPaddingDesktopTop;
+                globalBottom = globalOutsideContainerPaddingDesktopBottom;
+                globalLeft   = globalOutsideContainerPaddingDesktopLeft;
+                globalRight  = globalOutsideContainerPaddingDesktopRight;
+                globalUnit   = globalOutsideContainerDesktopUnit;
+            }
+
+            if (t !== '') 
+            {
+                css += 'padding-top:' + t + unit + '; ';
+            }
+            else if(control === 'single_blog_outside_container' || control === 'blog_outside_container' || control === 'blog_outside' || control === 'page_outside_container' || control === 'page_outside')
+            {
+                css += 'padding-top:' + globalTop + globalUnit + '; ';
+            }
+            if (b !== '') 
+            {
+                css += 'padding-bottom:' + b + unit + '; ';
+            }
+            else if(control === 'single_blog_outside_container' || control === 'blog_outside_container' || control === 'blog_outside' || control === 'page_outside_container' || control === 'page_outside')
+            {
+                css += 'padding-bottom:' + globalBottom + globalUnit + '; ';
+            }
+            
+            if (l !== '') 
+            {
+                css += 'padding-left:' + l + unit + '; ';
+            }
+            else if(control === 'single_blog_outside_container' || control === 'blog_outside_container' || control === 'blog_outside' || control === 'page_outside_container' || control === 'page_outside')
+            {
+                css += 'padding-left:' + globalLeft + globalUnit + '; ';
+            }
+            
+            if (r !== '') 
+            {
+                css += 'padding-right:' + r + unit + '; ';
+            }
+            else if(control === 'single_blog_outside_container' || control === 'blog_outside_container' || control === 'blog_outside' || control === 'page_outside_container' || control === 'page_outside')
+            {
+                css += 'padding-right:' + globalRight + globalUnit + '; ';
+            }
+            
             return css;
         }
 
         jQuery( 'style#responsive-'+control+'-padding' ).remove();
-        var desktopPadding = formatPadding(api('responsive_'+control+'_top_padding').get(), api('responsive_'+control+'_bottom_padding').get(), api('responsive_'+control+'_left_padding').get(), api('responsive_'+control+'_right_padding').get(), desktopUnit);
-        var tabletPadding = formatPadding(api('responsive_'+control+'_tablet_top_padding').get(), api('responsive_'+control+'_tablet_bottom_padding').get(), api('responsive_'+control+'_tablet_left_padding').get(), api('responsive_'+control+'_tablet_right_padding').get(), tabletUnit);
-        var mobilePadding = formatPadding(api('responsive_'+control+'_mobile_top_padding').get(), api('responsive_'+control+'_mobile_bottom_padding').get(), api('responsive_'+control+'_mobile_left_padding').get(), api('responsive_'+control+'_mobile_right_padding').get(), mobileUnit);
+        var desktopPadding = formatPadding(api('responsive_'+control+'_top_padding').get(), api('responsive_'+control+'_bottom_padding').get(), api('responsive_'+control+'_left_padding').get(), api('responsive_'+control+'_right_padding').get(), desktopUnit, 'desktop');
+        var tabletPadding = formatPadding(api('responsive_'+control+'_tablet_top_padding').get(), api('responsive_'+control+'_tablet_bottom_padding').get(), api('responsive_'+control+'_tablet_left_padding').get(), api('responsive_'+control+'_tablet_right_padding').get(), tabletUnit, 'tablet');
+        var mobilePadding = formatPadding(api('responsive_'+control+'_mobile_top_padding').get(), api('responsive_'+control+'_mobile_bottom_padding').get(), api('responsive_'+control+'_mobile_left_padding').get(), api('responsive_'+control+'_mobile_right_padding').get(), mobileUnit, 'mobile');
         jQuery( 'head' ).append(
             '<style id="responsive-'+control+'-padding">'
             + selector + '	{ ' + desktopPadding +' }'
@@ -102,6 +210,10 @@
             if (r !== '') {
                 css += 'margin-right:' + r + unit + '; ';
             } 
+
+            var leftVal = (l !== '' ? l + unit : '0px');
+            var rightVal = (r !== '' ? r + unit : '0px');
+            css += 'width: calc(100% - ' + leftVal + ' - ' + rightVal + '); ';
             
             return css;
         }
@@ -126,6 +238,12 @@
             mobile_menu_breakpoint = 0;
         }
 
+        function safeGet(key, fallback) {
+            fallback = (fallback === undefined) ? '' : fallback;
+            var setting = api(key);
+            return setting ? setting.get() : fallback;
+        }
+
         var style = '<style id="responsive-box-padding">';
 
         var selector = '.responsive-site-style-content-boxed .hentry,.responsive-site-style-content-boxed .navigation,.responsive-site-style-content-boxed .site-content-header,.responsive-site-style-content-boxed .comments-area,.responsive-site-style-content-boxed .comment-respond,.responsive-site-style-boxed .hentry,.responsive-site-style-boxed .site-content-header,.responsive-site-style-boxed .navigation,.responsive-site-style-boxed .comments-area,.page.front-page.responsive-site-style-flat .widget-wrapper,.blog.front-page.responsive-site-style-flat .widget-wrapper,.responsive-site-style-boxed .widget-wrapper,.responsive-site-style-boxed .site-content article.product'
@@ -138,57 +256,95 @@
         var leftRightSingleBlogSelector = '.single.responsive-site-style-content-boxed .hentry .thumbnail,.single.responsive-site-style-boxed .hentry .thumbnail';
         var leftRightPageSelector = '.page.responsive-site-style-content-boxed .hentry .thumbnail,.page.responsive-site-style-boxed .hentry .thumbnail';
 
+        var desktopUnit = safeGet('responsive_box_desktop_unit', 'px');
+        var tabletUnit = safeGet('responsive_box_tablet_unit', 'px');
+        var mobileUnit = safeGet('responsive_box_mobile_unit', 'px');
 
-        var desktopTopMargin = 'margin-top: -'+ api('responsive_box_top_padding').get()+'px;';
-        var tabletTopMargin = 'margin-top: -'+ api('responsive_box_tablet_top_padding').get()+'px;';
-        var mobileTopMargin = 'margin-top: -'+ api('responsive_box_mobile_top_padding').get()+'px;';
-        var desktopLeftRightMargin = 'margin-left: -'+ api('responsive_box_left_padding').get()+'px; margin-right: -'+ api('responsive_box_right_padding').get() +'px';
-        var tabletLeftRightMargin = 'margin-left: -'+ api('responsive_box_tablet_left_padding').get()+'px; margin-right: -'+ api('responsive_box_tablet_right_padding').get() +'px';
-        var mobileLeftRightMargin = 'margin-left: -'+ api('responsive_box_mobile_left_padding').get()+'px; margin-right: -'+ api('responsive_box_mobile_right_padding').get() +'px';
-        if('stretched' === api( 'responsive_blog_entry_featured_image_style' ).get()) {
-            style += topBlogSelector + '{ ' + desktopTopMargin + ' }'
-                + leftRightBlogSelector + '{ ' + desktopLeftRightMargin + ' }'
-                + '@media (max-width: ' + mobile_menu_breakpoint +'px) {'
-                + topBlogSelector + '	{ ' + tabletTopMargin + ' }' +
-                + leftRightBlogSelector + '{ ' + tabletLeftRightMargin + ' }' +
-                ' }'+
-                '@media (max-width: 544px) {'
-                + topBlogSelector + '	{ ' + mobileTopMargin + ' }' +
-                + leftRightBlogSelector + '{ ' + mobileLeftRightMargin +' }' +
-                ' }';
+        function formatNegativeMargin(l, r, unit) {
+            var css = '';
+            unit = unit || 'px';
+            if (l !== '' && l !== undefined) css += 'margin-left: -' + l + unit + '; ';
+            if (r !== '' && r !== undefined) css += 'margin-right: -' + r + unit + '; ';
+            return css;
         }
 
-        if('stretched' === api( 'responsive_single_blog_featured_image_style' ).get()) {
+        var desktopTopMargin = (safeGet('responsive_box_top_padding') !== '') ? 'margin-top: -'+ safeGet('responsive_box_top_padding')+desktopUnit+';' : '';
+        var tabletTopMargin = (safeGet('responsive_box_tablet_top_padding') !== '') ? 'margin-top: -'+ safeGet('responsive_box_tablet_top_padding')+tabletUnit+';' : '';
+        var mobileTopMargin = (safeGet('responsive_box_mobile_top_padding') !== '') ? 'margin-top: -'+ safeGet('responsive_box_mobile_top_padding')+mobileUnit+';' : '';
+        var desktopLeftRightMargin = formatNegativeMargin(safeGet('responsive_box_left_padding'), safeGet('responsive_box_right_padding'), desktopUnit);
+        var tabletLeftRightMargin = formatNegativeMargin(safeGet('responsive_box_tablet_left_padding'), safeGet('responsive_box_tablet_right_padding'), tabletUnit);
+        var mobileLeftRightMargin = formatNegativeMargin(safeGet('responsive_box_mobile_left_padding'), safeGet('responsive_box_mobile_right_padding'), mobileUnit);
+
+        var blogDesktopTopMargin = (safeGet('responsive_blog_inside_container_top_padding') !== '')
+        ? 'margin-top: -' + safeGet('responsive_blog_inside_container_top_padding') + desktopUnit + ';'
+        : 'margin-top: -' + safeGet('responsive_box_top_padding') + desktopUnit + ';';
+
+        var blogTabletTopMargin = (safeGet('responsive_blog_inside_container_tablet_top_padding') !== '')
+            ? 'margin-top: -' + safeGet('responsive_blog_inside_container_tablet_top_padding') + tabletUnit + ';'
+            : 'margin-top: -' + safeGet('responsive_box_tablet_top_padding') + tabletUnit + ';';
+
+        var blogMobileTopMargin = (safeGet('responsive_blog_inside_container_mobile_top_padding') !== '')
+            ? 'margin-top: -' + safeGet('responsive_blog_inside_container_mobile_top_padding') + mobileUnit + ';'
+            : 'margin-top: -' + safeGet('responsive_box_mobile_top_padding') + mobileUnit + ';';
+
+        var blogDesktopLeftRightMargin = formatNegativeMargin(
+            (safeGet('responsive_blog_inside_container_left_padding') !== '') ? safeGet('responsive_blog_inside_container_left_padding') : safeGet('responsive_box_left_padding'),
+            (safeGet('responsive_blog_inside_container_right_padding') !== '') ? safeGet('responsive_blog_inside_container_right_padding') : safeGet('responsive_box_right_padding'),
+            desktopUnit
+        );
+        var blogTabletLeftRightMargin = formatNegativeMargin(
+            (safeGet('responsive_blog_inside_container_tablet_left_padding') !== '') ? safeGet('responsive_blog_inside_container_tablet_left_padding') : safeGet('responsive_box_tablet_left_padding'),
+            (safeGet('responsive_blog_inside_container_tablet_right_padding') !== '') ? safeGet('responsive_blog_inside_container_tablet_right_padding') : safeGet('responsive_box_tablet_right_padding'),
+            tabletUnit
+        );
+        var blogMobileLeftRightMargin = formatNegativeMargin(
+            (safeGet('responsive_blog_inside_container_mobile_left_padding') !== '') ? safeGet('responsive_blog_inside_container_mobile_left_padding') : safeGet('responsive_box_mobile_left_padding'),
+            (safeGet('responsive_blog_inside_container_mobile_right_padding') !== '') ? safeGet('responsive_blog_inside_container_mobile_right_padding') : safeGet('responsive_box_mobile_right_padding'),
+            mobileUnit
+        );
+        if('stretched' === safeGet('responsive_blog_entry_featured_image_style')) {
+            style += topBlogSelector + '{ ' + blogDesktopTopMargin + ' }'
+                + leftRightBlogSelector + '{ ' + blogDesktopLeftRightMargin + ' }'
+                + '@media (max-width: ' + mobile_menu_breakpoint +'px) {'
+                + topBlogSelector + '	{ ' + blogTabletTopMargin + ' }'
+                + leftRightBlogSelector + '{ ' + blogTabletLeftRightMargin + ' }'
+                + ' }'
+                + '@media (max-width: 544px) {'
+                + topBlogSelector + '	{ ' + blogMobileTopMargin + ' }'
+                + leftRightBlogSelector + '{ ' + blogMobileLeftRightMargin +' }'
+                + ' }';
+        }
+
+        if('stretched' === safeGet('responsive_single_blog_featured_image_style')) {
             style += topSingleBlogSelector + '{ ' + desktopTopMargin + ' }'
                 + leftRightSingleBlogSelector + '{ ' + desktopLeftRightMargin + ' }'
                 + '@media (max-width: ' + mobile_menu_breakpoint +'px) {'
-                + topSingleBlogSelector + '	{ ' + tabletTopMargin + ' }' +
-                + leftRightSingleBlogSelector + '{ ' + tabletLeftRightMargin + ' }' +
-                ' }'+
-                '@media (max-width: 544px) {'
-                + topSingleBlogSelector + '	{ ' + mobileTopMargin + ' }' +
-                + leftRightSingleBlogSelector + '{ ' + mobileLeftRightMargin +' }' +
-                ' }';
+                + topSingleBlogSelector + '	{ ' + tabletTopMargin + ' }'
+                + leftRightSingleBlogSelector + '{ ' + tabletLeftRightMargin + ' }'
+                + ' }'
+                + '@media (max-width: 544px) {'
+                + topSingleBlogSelector + '	{ ' + mobileTopMargin + ' }'
+                + leftRightSingleBlogSelector + '{ ' + mobileLeftRightMargin +' }'
+                + ' }';
         }
 
-        if('stretched' === api( 'responsive_page_featured_image_style' ).get()) {
+        if('stretched' === safeGet('responsive_page_featured_image_style')) {
             style += topPageSelector + '{ ' + desktopTopMargin + ' }'
                 + leftRightPageSelector + '{ ' + desktopLeftRightMargin + ' }'
                 + '@media (max-width: ' + mobile_menu_breakpoint +'px) {'
-                + topPageSelector + '	{ ' + tabletTopMargin + ' }' +
-                + leftRightPageSelector + '{ ' + tabletLeftRightMargin + ' }' +
-                ' }'+
-                '@media (max-width: 544px) {'
-                + topPageSelector + '	{ ' + mobileTopMargin + ' }' +
-                + leftRightPageSelector + '{ ' + mobileLeftRightMargin +' }' +
-                ' }';
+                + topPageSelector + '	{ ' + tabletTopMargin + ' }'
+                + leftRightPageSelector + '{ ' + tabletLeftRightMargin + ' }'
+                + ' }'
+                + '@media (max-width: 544px) {'
+                + topPageSelector + '	{ ' + mobileTopMargin + ' }'
+                + leftRightPageSelector + '{ ' + mobileLeftRightMargin +' }'
+                + ' }';
         }
 
-
         jQuery( 'style#responsive-box-padding' ).remove();
-        var desktopPadding = 'padding-top:'+ api('responsive_box_top_padding').get()+'px; '+'padding-bottom:'+ api('responsive_box_bottom_padding').get()+'px; '+'padding-left:'+ api('responsive_box_left_padding').get()+'px; '+'padding-right:'+ api('responsive_box_right_padding').get()+'px;';
-        var tabletPadding = 'padding-top:'+ api('responsive_box_tablet_top_padding').get()+'px; '+'padding-bottom:'+ api('responsive_box_tablet_bottom_padding').get()+'px; '+'padding-left:'+ api('responsive_box_tablet_left_padding').get()+'px; '+'padding-right:'+ api('responsive_box_tablet_right_padding').get()+'px;';
-        var mobilePadding = 'padding-top:'+ api('responsive_box_mobile_top_padding').get()+'px; '+'padding-bottom:'+ api('responsive_box_mobile_bottom_padding').get()+'px; '+'padding-left:'+ api('responsive_box_mobile_left_padding').get()+'px; '+'padding-right:'+ api('responsive_box_mobile_right_padding').get()+'px;';
+        var desktopPadding = 'padding-top:'+ safeGet('responsive_box_top_padding')+desktopUnit+'; '+'padding-bottom:'+ safeGet('responsive_box_bottom_padding')+desktopUnit+'; '+'padding-left:'+ safeGet('responsive_box_left_padding')+desktopUnit+'; '+'padding-right:'+ safeGet('responsive_box_right_padding')+desktopUnit+';';
+        var tabletPadding = 'padding-top:'+ safeGet('responsive_box_tablet_top_padding')+tabletUnit+'; '+'padding-bottom:'+ safeGet('responsive_box_tablet_bottom_padding')+tabletUnit+'; '+'padding-left:'+ safeGet('responsive_box_tablet_left_padding')+tabletUnit+'; '+'padding-right:'+ safeGet('responsive_box_tablet_right_padding')+tabletUnit+';';
+        var mobilePadding = 'padding-top:'+ safeGet('responsive_box_mobile_top_padding')+mobileUnit+'; '+'padding-bottom:'+ safeGet('responsive_box_mobile_bottom_padding')+mobileUnit+'; '+'padding-left:'+ safeGet('responsive_box_mobile_left_padding')+mobileUnit+'; '+'padding-right:'+ safeGet('responsive_box_mobile_right_padding')+mobileUnit+';';
         style += selector + '	{ ' + desktopPadding +' }'
             + '@media (max-width: ' + mobile_menu_breakpoint +'px) {' + selector+ extraSelector + '	{ ' + tabletPadding + ' } }'
             + '@media (max-width: 544px) {' + selector + extraSelector + '	{ ' + mobilePadding + ' } }'
@@ -197,6 +353,112 @@
             style
         );
 
+    }
+
+    function responsive_dynamic_unit_box_padding(control, selector) {
+        var mobile_menu_breakpoint = api( 'responsive_mobile_menu_breakpoint' ).get();
+        if( 0 == api( 'responsive_disable_mobile_menu').get()) {
+            mobile_menu_breakpoint = 0;
+        }
+
+        // fetching global inside container padding values
+        let globalInsideContainerPaddingDesktopTop = api('responsive_box_top_padding').get();
+        let globalInsideContainerPaddingDesktopBottom = api('responsive_box_bottom_padding').get();
+        let globalInsideContainerPaddingDesktopLeft = api('responsive_box_left_padding').get();
+        let globalInsideContainerPaddingDesktopRight = api('responsive_box_right_padding').get();
+        let globalInsideContainerPaddingTabletTop = api('responsive_box_tablet_top_padding').get();
+        let globalInsideContainerPaddingTabletBottom = api('responsive_box_tablet_bottom_padding').get();
+        let globalInsideContainerPaddingTabletLeft = api('responsive_box_tablet_left_padding').get();
+        let globalInsideContainerPaddingTabletRight = api('responsive_box_tablet_right_padding').get();
+        let globalInsideContainerPaddingMobileTop = api('responsive_box_mobile_top_padding').get();
+        let globalInsideContainerPaddingMobileBottom = api('responsive_box_mobile_bottom_padding').get();
+        let globalInsideContainerPaddingMobileLeft = api('responsive_box_mobile_left_padding').get();
+        let globalInsideContainerPaddingMobileRight = api('responsive_box_mobile_right_padding').get();
+        // units
+        let globalInsideContainerDesktopUnit = api('responsive_box_desktop_unit') ? api('responsive_box_desktop_unit').get() : 'px';
+        let globalInsideContainerTabletUnit = api('responsive_box_tablet_unit') ? api('responsive_box_tablet_unit').get() : 'px';
+        let globalInsideContainerMobileUnit = api('responsive_box_mobile_unit') ? api('responsive_box_mobile_unit').get() : 'px';
+        // individual units
+        var desktopUnit = api('responsive_'+control+'_desktop_unit') ? api('responsive_'+control+'_desktop_unit').get() : 'px';
+        var tabletUnit = api('responsive_'+control+'_tablet_unit') ? api('responsive_'+control+'_tablet_unit').get() : 'px';
+        var mobileUnit = api('responsive_'+control+'_mobile_unit') ? api('responsive_'+control+'_mobile_unit').get() : 'px';
+
+        function formatPadding(t, b, l, r, unit, device) {
+            var css = '';
+
+            // pick the right global fallback values/unit for the given device
+            var globalTop, globalBottom, globalLeft, globalRight, globalUnit;
+
+            if (device === 'tablet') {
+                globalTop    = globalInsideContainerPaddingTabletTop;
+                globalBottom = globalInsideContainerPaddingTabletBottom;
+                globalLeft   = globalInsideContainerPaddingTabletLeft;
+                globalRight  = globalInsideContainerPaddingTabletRight;
+                globalUnit   = globalInsideContainerTabletUnit;
+            } else if (device === 'mobile') {
+                globalTop    = globalInsideContainerPaddingMobileTop;
+                globalBottom = globalInsideContainerPaddingMobileBottom;
+                globalLeft   = globalInsideContainerPaddingMobileLeft;
+                globalRight  = globalInsideContainerPaddingMobileRight;
+                globalUnit   = globalInsideContainerMobileUnit;
+            } else {
+                // default: desktop
+                globalTop    = globalInsideContainerPaddingDesktopTop;
+                globalBottom = globalInsideContainerPaddingDesktopBottom;
+                globalLeft   = globalInsideContainerPaddingDesktopLeft;
+                globalRight  = globalInsideContainerPaddingDesktopRight;
+                globalUnit   = globalInsideContainerDesktopUnit;
+            }
+
+            if (t !== '') 
+            {
+                css += 'padding-top:' + t + unit + '; ';
+            }
+            else if(control === 'single_blog_inside_container' || control === 'blog_inside_container' || control === 'page_inside_container' )
+            {
+                css += 'padding-top:' + globalTop + globalUnit + '; ';
+            }
+            if (b !== '') 
+            {
+                css += 'padding-bottom:' + b + unit + '; ';
+            }
+            else if(control === 'single_blog_inside_container' || control === 'blog_inside_container' || control === 'page_inside_container' )
+            {
+                css += 'padding-bottom:' + globalBottom + globalUnit + '; ';
+            }
+            
+            if (l !== '') 
+            {
+                css += 'padding-left:' + l + unit + '; ';
+            }
+            else if(control === 'single_blog_inside_container' || control === 'blog_inside_container' || control === 'page_inside_container' )
+            {
+                css += 'padding-left:' + globalLeft + globalUnit + '; ';
+            }
+            
+            if (r !== '') 
+            {
+                css += 'padding-right:' + r + unit + '; ';
+            }
+            else if(control === 'single_blog_inside_container' || control === 'blog_inside_container' || control === 'page_inside_container' )
+            {
+                css += 'padding-right:' + globalRight + globalUnit + '; ';
+            }
+            
+            return css;
+        }
+
+        jQuery( 'style#responsive-'+control+'-padding' ).remove();
+        var desktopPadding = formatPadding(api('responsive_'+control+'_top_padding').get(), api('responsive_'+control+'_bottom_padding').get(), api('responsive_'+control+'_left_padding').get(), api('responsive_'+control+'_right_padding').get(), desktopUnit, 'desktop');
+        var tabletPadding = formatPadding(api('responsive_'+control+'_tablet_top_padding').get(), api('responsive_'+control+'_tablet_bottom_padding').get(), api('responsive_'+control+'_tablet_left_padding').get(), api('responsive_'+control+'_tablet_right_padding').get(), tabletUnit, 'tablet');
+        var mobilePadding = formatPadding(api('responsive_'+control+'_mobile_top_padding').get(), api('responsive_'+control+'_mobile_bottom_padding').get(), api('responsive_'+control+'_mobile_left_padding').get(), api('responsive_'+control+'_mobile_right_padding').get(), mobileUnit, 'mobile');
+        jQuery( 'head' ).append(
+            '<style id="responsive-'+control+'-padding">'
+            + selector + '	{ ' + desktopPadding +' }'
+            + '@media (max-width: ' + mobile_menu_breakpoint +'px) {' + selector + '	{ ' + tabletPadding + ' } }'
+            + '@media (max-width: 544px) {' + selector + '	{ ' + mobilePadding + ' } }'
+            + '</style>'
+        );
     }
 
 
@@ -271,28 +533,6 @@
         } );
     } );
     //Theme Options Layout
-    //Box Padding
-    api( 'responsive_box_top_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_box_padding( );
-        } );
-    } );
-    api( 'responsive_box_left_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_box_padding( );
-        } );
-    } );
-    api( 'responsive_box_bottom_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_box_padding( );
-        } );
-    } );
-    api( 'responsive_box_right_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_box_padding( );
-        } );
-    } );
-
     //Box Tablet Padding
     api( 'responsive_box_tablet_top_padding', function( value ) {
         value.bind( function( newval ) {
@@ -336,6 +576,36 @@
             responsive_dynamic_box_padding( );
         } );
     } );
+
+    // Global Inside Container Padding Settings.
+    const globalInsideContainerPaddingSettings = [
+        'responsive_box_top_padding',
+        'responsive_box_left_padding',
+        'responsive_box_bottom_padding',
+        'responsive_box_right_padding',
+        'responsive_box_tablet_top_padding',
+        'responsive_box_tablet_right_padding',
+        'responsive_box_tablet_bottom_padding',
+        'responsive_box_tablet_left_padding',
+        'responsive_box_mobile_top_padding',
+        'responsive_box_mobile_right_padding',
+        'responsive_box_mobile_bottom_padding',
+        'responsive_box_mobile_left_padding',
+        'responsive_box_desktop_unit',
+        'responsive_box_tablet_unit',
+        'responsive_box_mobile_unit'
+    ];
+
+    globalInsideContainerPaddingSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_box_padding( );
+                responsive_dynamic_unit_box_padding( 'page_inside_container', '.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry' );
+                responsive_dynamic_unit_box_padding( 'single_blog_inside_container', '.single.single-post.responsive-site-style-content-boxed .site-content .hentry, .single.single-post.responsive-site-style-boxed .site-content .hentry' );
+                responsive_dynamic_unit_box_padding('blog_inside_container', '.blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry' );
+            });
+        });
+    });
 
     // Buttons Padding
     // Buttons Padding
@@ -1155,145 +1425,62 @@
         } );
     } );
 
-    // Container Outside Padding
-    api( 'responsive_outside_container_top_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('outside_container', '.responsive-site-style-content-boxed #primary.content-area, .responsive-site-style-boxed #primary.content-area');
-        } );
-    } );
-    api( 'responsive_outside_container_left_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('outside_container', '.responsive-site-style-content-boxed #primary.content-area, .responsive-site-style-boxed #primary.content-area');
-        } );
-    } );
-    api( 'responsive_outside_container_bottom_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('outside_container', '.responsive-site-style-content-boxed #primary.content-area, .responsive-site-style-boxed #primary.content-area');
-        } );
-    } );
-    api( 'responsive_outside_container_right_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('outside_container', '.responsive-site-style-content-boxed #primary.content-area, .responsive-site-style-boxed #primary.content-area');
-        } );
-    } );
+    // Global Outside Container Padding Settings.
+    const globalOutsideContainerPaddingSettings = [
+        'responsive_outside_container_top_padding',
+        'responsive_outside_container_left_padding',
+        'responsive_outside_container_bottom_padding',
+        'responsive_outside_container_right_padding',
+        'responsive_outside_container_tablet_top_padding',
+        'responsive_outside_container_tablet_right_padding',
+        'responsive_outside_container_tablet_bottom_padding',
+        'responsive_outside_container_tablet_left_padding',
+        'responsive_outside_container_mobile_top_padding',
+        'responsive_outside_container_mobile_right_padding',
+        'responsive_outside_container_mobile_bottom_padding',
+        'responsive_outside_container_mobile_left_padding',
+        'responsive_outside_container_desktop_unit',
+        'responsive_outside_container_tablet_unit',
+        'responsive_outside_container_mobile_unit'
+    ];
 
-    api( 'responsive_outside_container_tablet_top_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('outside_container', '.responsive-site-style-content-boxed #primary.content-area, .responsive-site-style-boxed #primary.content-area');
-        } );
-    } );
+    globalOutsideContainerPaddingSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_unit_padding('outside_container', '.responsive-site-style-content-boxed #primary.content-area, .responsive-site-style-boxed #primary.content-area');
+                responsive_dynamic_unit_padding('single_blog_outside_container', '.single.single-post.responsive-site-style-content-boxed #primary.content-area, .single.single-post.responsive-site-style-boxed #primary.content-area');
+                responsive_dynamic_unit_padding('blog_outside_container', '.blog.responsive-site-style-content-boxed #primary.content-area, .blog.responsive-site-style-boxed #primary.content-area, .archive.responsive-site-style-content-boxed #primary.content-area, .archive.responsive-site-style-boxed #primary.content-area' );
+                responsive_dynamic_unit_padding('page_outside_container', '.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #primary');
+            });
+        });
+    });
 
-    api( 'responsive_outside_container_tablet_bottom_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('outside_container', '.responsive-site-style-content-boxed #primary.content-area, .responsive-site-style-boxed #primary.content-area');
-        } );
-    } );
+    // Blog Outside Container Padding Settings.
+    const blogOutsideContainerPaddingSettings = [
+        'responsive_blog_outside_container_top_padding',
+        'responsive_blog_outside_container_left_padding',
+        'responsive_blog_outside_container_bottom_padding',
+        'responsive_blog_outside_container_right_padding',
+        'responsive_blog_outside_container_tablet_top_padding',
+        'responsive_blog_outside_container_tablet_right_padding',
+        'responsive_blog_outside_container_tablet_bottom_padding',
+        'responsive_blog_outside_container_tablet_left_padding',
+        'responsive_blog_outside_container_mobile_top_padding',
+        'responsive_blog_outside_container_mobile_right_padding',
+        'responsive_blog_outside_container_mobile_bottom_padding',
+        'responsive_blog_outside_container_mobile_left_padding',
+        'responsive_blog_outside_container_desktop_unit',
+        'responsive_blog_outside_container_tablet_unit',
+        'responsive_blog_outside_container_mobile_unit'
+    ];
 
-    api( 'responsive_outside_container_tablet_left_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('outside_container', '.responsive-site-style-content-boxed #primary.content-area, .responsive-site-style-boxed #primary.content-area');
-        } );
-    } );
-
-    api( 'responsive_outside_container_tablet_right_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('outside_container', '.responsive-site-style-content-boxed #primary.content-area, .responsive-site-style-boxed #primary.content-area');
-        } );
-    } );
-
-    api( 'responsive_outside_container_mobile_top_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('outside_container', '.responsive-site-style-content-boxed #primary.content-area, .responsive-site-style-boxed #primary.content-area');
-        } );
-    } );
-
-    api( 'responsive_outside_container_mobile_bottom_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('outside_container', '.responsive-site-style-content-boxed #primary.content-area, .responsive-site-style-boxed #primary.content-area');
-        } );
-    } );
-
-    api( 'responsive_outside_container_mobile_left_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('outside_container', '.responsive-site-style-content-boxed #primary.content-area, .responsive-site-style-boxed #primary.content-area');
-        } );
-    } );
-
-    api( 'responsive_outside_container_mobile_right_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('outside_container', '.responsive-site-style-content-boxed #primary.content-area, .responsive-site-style-boxed #primary.content-area');
-        } );
-    } );
-
-    // Container Inside Padding
-    api( 'responsive_blog_outside_container_top_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('blog_outside_container', '.blog.responsive-site-style-content-boxed #primary.content-area, .blog.responsive-site-style-boxed #primary.content-area, .archive.responsive-site-style-content-boxed #primary.content-area, .archive.responsive-site-style-boxed #primary.content-area');
-        } );
-    } );
-    api( 'responsive_blog_outside_container_left_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('blog_outside_container', '.blog.responsive-site-style-content-boxed #primary.content-area, .blog.responsive-site-style-boxed #primary.content-area, .archive.responsive-site-style-content-boxed #primary.content-area, .archive.responsive-site-style-boxed #primary.content-area');
-        } );
-    } );
-    api( 'responsive_blog_outside_container_bottom_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('blog_outside_container', '.blog.responsive-site-style-content-boxed #primary.content-area, .blog.responsive-site-style-boxed #primary.content-area, .archive.responsive-site-style-content-boxed #primary.content-area, .archive.responsive-site-style-boxed #primary.content-area');
-        } );
-    } );
-    api( 'responsive_blog_outside_container_right_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('blog_outside_container', '.blog.responsive-site-style-content-boxed #primary.content-area, .blog.responsive-site-style-boxed #primary.content-area, .archive.responsive-site-style-content-boxed #primary.content-area, .archive.responsive-site-style-boxed #primary.content-area');
-        } );
-    } );
-
-    api( 'responsive_blog_outside_container_tablet_top_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('blog_outside_container', '.blog.responsive-site-style-content-boxed #primary.content-area, .blog.responsive-site-style-boxed #primary.content-area, .archive.responsive-site-style-content-boxed #primary.content-area, .archive.responsive-site-style-boxed #primary.content-area');
-        } );
-    } );
-
-    api( 'responsive_blog_outside_container_tablet_bottom_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('blog_outside_container', '.blog.responsive-site-style-content-boxed #primary.content-area, .blog.responsive-site-style-boxed #primary.content-area, .archive.responsive-site-style-content-boxed #primary.content-area, .archive.responsive-site-style-boxed #primary.content-area');
-        } );
-    } );
-
-    api( 'responsive_blog_outside_container_tablet_left_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('blog_outside_container', '.blog.responsive-site-style-content-boxed #primary.content-area, .blog.responsive-site-style-boxed #primary.content-area, .archive.responsive-site-style-content-boxed #primary.content-area, .archive.responsive-site-style-boxed #primary.content-area');
-        } );
-    } );
-
-    api( 'responsive_blog_outside_container_tablet_right_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('blog_outside_container', '.blog.responsive-site-style-content-boxed #primary.content-area, .blog.responsive-site-style-boxed #primary.content-area, .archive.responsive-site-style-content-boxed #primary.content-area, .archive.responsive-site-style-boxed #primary.content-area');
-        } );
-    } );
-
-    api( 'responsive_blog_outside_container_mobile_top_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('blog_outside_container', '.blog.responsive-site-style-content-boxed #primary.content-area, .blog.responsive-site-style-boxed #primary.content-area, .archive.responsive-site-style-content-boxed #primary.content-area, .archive.responsive-site-style-boxed #primary.content-area');
-        } );
-    } );
-
-    api( 'responsive_blog_outside_container_mobile_bottom_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('blog_outside_container', '.blog.responsive-site-style-content-boxed #primary.content-area, .blog.responsive-site-style-boxed #primary.content-area, .archive.responsive-site-style-content-boxed #primary.content-area, .archive.responsive-site-style-boxed #primary.content-area');
-        } );
-    } );
-
-    api( 'responsive_blog_outside_container_mobile_left_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('blog_outside_container', '.blog.responsive-site-style-content-boxed #primary.content-area, .blog.responsive-site-style-boxed #primary.content-area, .archive.responsive-site-style-content-boxed #primary.content-area, .archive.responsive-site-style-boxed #primary.content-area');
-        } );
-    } );
-
-    api( 'responsive_blog_outside_container_mobile_right_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('blog_outside_container', '.blog.responsive-site-style-content-boxed #primary.content-area, .blog.responsive-site-style-boxed #primary.content-area, .archive.responsive-site-style-content-boxed #primary.content-area, .archive.responsive-site-style-boxed #primary.content-area');
-        } );
-    } );
+    blogOutsideContainerPaddingSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_unit_padding('blog_outside_container', '.blog.responsive-site-style-content-boxed #primary.content-area, .blog.responsive-site-style-boxed #primary.content-area, .archive.responsive-site-style-content-boxed #primary.content-area, .archive.responsive-site-style-boxed #primary.content-area' );
+            });
+        });
+    });
 
     //product card padding
     api( 'responsive_product_card_outside_container_top_padding', function( value ) {
@@ -1428,216 +1615,87 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
     } );
 } );
 
+    // Blog Inside Container Padding Settings.
+    const blogInsideContainerPaddingSettings = [
+        'responsive_blog_inside_container_top_padding',
+        'responsive_blog_inside_container_left_padding',
+        'responsive_blog_inside_container_bottom_padding',
+        'responsive_blog_inside_container_right_padding',
+        'responsive_blog_inside_container_tablet_top_padding',
+        'responsive_blog_inside_container_tablet_right_padding',
+        'responsive_blog_inside_container_tablet_bottom_padding',
+        'responsive_blog_inside_container_tablet_left_padding',
+        'responsive_blog_inside_container_mobile_top_padding',
+        'responsive_blog_inside_container_mobile_right_padding',
+        'responsive_blog_inside_container_mobile_bottom_padding',
+        'responsive_blog_inside_container_mobile_left_padding',
+        'responsive_blog_inside_container_desktop_unit',
+        'responsive_blog_inside_container_tablet_unit',
+        'responsive_blog_inside_container_mobile_unit'
+    ];
 
-    //Blog Inside Padding
-    api( 'responsive_blog_inside_container_top_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('blog_inside_container', '.blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry');
-        } );
-    } );
-    api( 'responsive_blog_inside_container_left_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('blog_inside_container', '.blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry');
-        } );
-    } );
-    api( 'responsive_blog_inside_container_bottom_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('blog_inside_container', '.blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry');
-        } );
-    } );
-    api( 'responsive_blog_inside_container_right_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('blog_inside_container', '.blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry');
-        } );
-    } );
-
-    api( 'responsive_blog_inside_container_tablet_top_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('blog_inside_container', '.blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry');
-        } );
-    } );
-
-    api( 'responsive_blog_inside_container_tablet_bottom_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('blog_inside_container', '.blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry');
-        } );
-    } );
-
-    api( 'responsive_blog_inside_container_tablet_left_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('blog_inside_container', '.blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry');
-        } );
-    } );
-
-    api( 'responsive_blog_inside_container_tablet_right_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('blog_inside_container', '.blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry');
-        } );
-    } );
-
-    api( 'responsive_blog_inside_container_mobile_top_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('blog_inside_container', '.blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry');
-        } );
-    } );
-
-    api( 'responsive_blog_inside_container_mobile_bottom_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('blog_inside_container', '.blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry');
-        } );
-    } );
-
-    api( 'responsive_blog_inside_container_mobile_left_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('blog_inside_container', '.blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry');
-        } );
-    } );
-
-    api( 'responsive_blog_inside_container_mobile_right_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('blog_inside_container', '.blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry');
-        } );
-    } );
+    blogInsideContainerPaddingSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_unit_box_padding('blog_inside_container', '.blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry' );
+                responsive_dynamic_box_padding();
+            });
+        });
+    });
 
     // Single Blog Outside Padding
-    api( 'responsive_single_blog_outside_container_top_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('single_blog_outside_container', '.single.single-post.responsive-site-style-content-boxed #primary.content-area, .single.single-post.responsive-site-style-boxed #primary.content-area, .page.responsive-site-style-boxed #primary.content-area, .page.responsive-site-style-content-boxed #primary.content-area');
-        } );
-    } );
-    api( 'responsive_single_blog_outside_container_left_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('single_blog_outside_container', '.single.single-post.responsive-site-style-content-boxed #primary.content-area, .single.single-post.responsive-site-style-boxed #primary.content-area, .page.responsive-site-style-boxed #primary.content-area, .page.responsive-site-style-content-boxed #primary.content-area');
-        } );
-    } );
-    api( 'responsive_single_blog_outside_container_bottom_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('single_blog_outside_container', '.single.single-post.responsive-site-style-content-boxed #primary.content-area, .single.single-post.responsive-site-style-boxed #primary.content-area, .page.responsive-site-style-boxed #primary.content-area, .page.responsive-site-style-content-boxed #primary.content-area');
-        } );
-    } );
-    api( 'responsive_single_blog_outside_container_right_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('single_blog_outside_container', '.single.single-post.responsive-site-style-content-boxed #primary.content-area, .single.single-post.responsive-site-style-boxed #primary.content-area, .page.responsive-site-style-boxed #primary.content-area, .page.responsive-site-style-content-boxed #primary.content-area');
-        } );
-    } );
+    const singleBlogOutsidePaddingSettings = [
+        'responsive_single_blog_outside_container_top_padding',
+        'responsive_single_blog_outside_container_left_padding',
+        'responsive_single_blog_outside_container_bottom_padding',
+        'responsive_single_blog_outside_container_right_padding',
+        'responsive_single_blog_outside_container_tablet_top_padding',
+        'responsive_single_blog_outside_container_tablet_right_padding',
+        'responsive_single_blog_outside_container_tablet_bottom_padding',
+        'responsive_single_blog_outside_container_tablet_left_padding',
+        'responsive_single_blog_outside_container_mobile_top_padding',
+        'responsive_single_blog_outside_container_mobile_right_padding',
+        'responsive_single_blog_outside_container_mobile_bottom_padding',
+        'responsive_single_blog_outside_container_mobile_left_padding',
+        'responsive_single_blog_outside_container_desktop_unit',
+        'responsive_single_blog_outside_container_tablet_unit',
+        'responsive_single_blog_outside_container_mobile_unit'
+    ];
 
-    api( 'responsive_single_blog_outside_container_tablet_top_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('single_blog_outside_container', '.single.single-post.responsive-site-style-content-boxed #primary.content-area, .single.single-post.responsive-site-style-boxed #primary.content-area, .page.responsive-site-style-boxed #primary.content-area, .page.responsive-site-style-content-boxed #primary.content-area');
-        } );
-    } );
+    singleBlogOutsidePaddingSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_unit_padding('single_blog_outside_container', '.single.single-post.responsive-site-style-content-boxed #primary.content-area, .single.single-post.responsive-site-style-boxed #primary.content-area');
+            });
+        });
+    });
 
-    api( 'responsive_single_blog_outside_container_tablet_bottom_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('single_blog_outside_container', '.single.single-post.responsive-site-style-content-boxed #primary.content-area, .single.single-post.responsive-site-style-boxed #primary.content-area, .page.responsive-site-style-boxed #primary.content-area, .page.responsive-site-style-content-boxed #primary.content-area');
-        } );
-    } );
+    // Blog Inside Container Padding Settings.
+    const singleBlogInsideContainerPaddingSettings = [
+        'responsive_single_blog_inside_container_top_padding',
+        'responsive_single_blog_inside_container_left_padding',
+        'responsive_single_blog_inside_container_bottom_padding',
+        'responsive_single_blog_inside_container_right_padding',
+        'responsive_single_blog_inside_container_tablet_top_padding',
+        'responsive_single_blog_inside_container_tablet_right_padding',
+        'responsive_single_blog_inside_container_tablet_bottom_padding',
+        'responsive_single_blog_inside_container_tablet_left_padding',
+        'responsive_single_blog_inside_container_mobile_top_padding',
+        'responsive_single_blog_inside_container_mobile_right_padding',
+        'responsive_single_blog_inside_container_mobile_bottom_padding',
+        'responsive_single_blog_inside_container_mobile_left_padding',
+        'responsive_single_blog_inside_container_desktop_unit',
+        'responsive_single_blog_inside_container_tablet_unit',
+        'responsive_single_blog_inside_container_mobile_unit'
+    ];
 
-    api( 'responsive_single_blog_outside_container_tablet_left_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('single_blog_outside_container', '.single.single-post.responsive-site-style-content-boxed #primary.content-area, .single.single-post.responsive-site-style-boxed #primary.content-area, .page.responsive-site-style-boxed #primary.content-area, .page.responsive-site-style-content-boxed #primary.content-area');
-        } );
-    } );
-
-    api( 'responsive_single_blog_outside_container_tablet_right_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('single_blog_outside_container', '.single.single-post.responsive-site-style-content-boxed #primary.content-area, .single.single-post.responsive-site-style-boxed #primary.content-area, .page.responsive-site-style-boxed #primary.content-area, .page.responsive-site-style-content-boxed #primary.content-area');
-        } );
-    } );
-
-    api( 'responsive_single_blog_outside_container_mobile_top_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('single_blog_outside_container', '.single.single-post.responsive-site-style-content-boxed #primary.content-area, .single.single-post.responsive-site-style-boxed #primary.content-area, .page.responsive-site-style-boxed #primary.content-area, .page.responsive-site-style-content-boxed #primary.content-area');
-        } );
-    } );
-
-    api( 'responsive_single_blog_outside_container_mobile_bottom_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('single_blog_outside_container', '.single.single-post.responsive-site-style-content-boxed #primary.content-area, .single.single-post.responsive-site-style-boxed #primary.content-area, .page.responsive-site-style-boxed #primary.content-area, .page.responsive-site-style-content-boxed #primary.content-area');
-        } );
-    } );
-
-    api( 'responsive_single_blog_outside_container_mobile_left_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('single_blog_outside_container', '.single.single-post.responsive-site-style-content-boxed #primary.content-area, .single.single-post.responsive-site-style-boxed #primary.content-area, .page.responsive-site-style-boxed #primary.content-area, .page.responsive-site-style-content-boxed #primary.content-area');
-        } );
-    } );
-
-    api( 'responsive_single_blog_outside_container_mobile_right_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('single_blog_outside_container', '.single.single-post.responsive-site-style-content-boxed #primary.content-area, .single.single-post.responsive-site-style-boxed #primary.content-area, .page.responsive-site-style-boxed #primary.content-area, .page.responsive-site-style-content-boxed #primary.content-area');
-        } );
-    } );
-
-    // Single Blog Inside Padding
-    api( 'responsive_single_blog_inside_container_top_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('single_blog_inside_container', '.single.single-post.responsive-site-style-content-boxed .site-content .hentry, .single.single-post.responsive-site-style-boxed .site-content .hentry');
-        } );
-    } );
-    api( 'responsive_single_blog_inside_container_left_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('single_blog_inside_container', '.single.single-post.responsive-site-style-content-boxed .site-content .hentry, .single.single-post.responsive-site-style-boxed .site-content .hentry');
-        } );
-    } );
-    api( 'responsive_single_blog_inside_container_bottom_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('single_blog_inside_container', '.single.single-post.responsive-site-style-content-boxed .site-content .hentry, .single.single-post.responsive-site-style-boxed .site-content .hentry');
-        } );
-    } );
-    api( 'responsive_single_blog_inside_container_right_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('single_blog_inside_container', '.single.single-post.responsive-site-style-content-boxed .site-content .hentry, .single.single-post.responsive-site-style-boxed .site-content .hentry');
-        } );
-    } );
-
-    api( 'responsive_single_blog_inside_container_tablet_top_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('single_blog_inside_container', '.single.single-post.responsive-site-style-content-boxed .site-content .hentry, .single.single-post.responsive-site-style-boxed .site-content .hentry');
-        } );
-    } );
-
-    api( 'responsive_single_blog_inside_container_tablet_bottom_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('single_blog_inside_container', '.single.single-post.responsive-site-style-content-boxed .site-content .hentry, .single.single-post.responsive-site-style-boxed .site-content .hentry');
-        } );
-    } );
-
-    api( 'responsive_single_blog_inside_container_tablet_left_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('single_blog_inside_container', '.single.single-post.responsive-site-style-content-boxed .site-content .hentry, .single.single-post.responsive-site-style-boxed .site-content .hentry');
-        } );
-    } );
-
-    api( 'responsive_single_blog_inside_container_tablet_right_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('single_blog_inside_container', '.single.single-post.responsive-site-style-content-boxed .site-content .hentry, .single.single-post.responsive-site-style-boxed .site-content .hentry');
-        } );
-    } );
-
-    api( 'responsive_single_blog_inside_container_mobile_top_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('single_blog_inside_container', '.single.single-post.responsive-site-style-content-boxed .site-content .hentry, .single.single-post.responsive-site-style-boxed .site-content .hentry');
-        } );
-    } );
-
-    api( 'responsive_single_blog_inside_container_mobile_bottom_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('single_blog_inside_container', '.single.single-post.responsive-site-style-content-boxed .site-content .hentry, .single.single-post.responsive-site-style-boxed .site-content .hentry');
-        } );
-    } );
-
-    api( 'responsive_single_blog_inside_container_mobile_left_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('single_blog_inside_container', '.single.single-post.responsive-site-style-content-boxed .site-content .hentry, .single.single-post.responsive-site-style-boxed .site-content .hentry');
-        } );
-    } );
-
-    api( 'responsive_single_blog_inside_container_mobile_right_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('single_blog_inside_container', '.single.single-post.responsive-site-style-content-boxed .site-content .hentry, .single.single-post.responsive-site-style-boxed .site-content .hentry');
-        } );
-    } );
+    singleBlogInsideContainerPaddingSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_unit_box_padding('single_blog_inside_container', '.single.single-post.responsive-site-style-content-boxed .site-content .hentry, .single.single-post.responsive-site-style-boxed .site-content .hentry' );
+            });
+        });
+    });
 
     // Header Above Row Padding
     api( 'responsive_header_above_row_padding_right_padding', function( value ) {
@@ -2656,56 +2714,58 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
             });
         });
     });
-    const pageMarginSettings = [
-        'responsive_page_margin_top_padding',
-        'responsive_page_margin_left_padding',
-        'responsive_page_margin_bottom_padding',
-        'responsive_page_margin_right_padding',
-        'responsive_page_margin_tablet_top_padding',
-        'responsive_page_margin_tablet_right_padding',
-        'responsive_page_margin_tablet_bottom_padding',
-        'responsive_page_margin_tablet_left_padding',
-        'responsive_page_margin_mobile_top_padding',
-        'responsive_page_margin_mobile_right_padding',
-        'responsive_page_margin_mobile_bottom_padding',
-        'responsive_page_margin_mobile_left_padding',
-        'responsive_page_margin_desktop_unit',
-        'responsive_page_margin_tablet_unit',
-        'responsive_page_margin_mobile_unit'
+
+    // page margin is actually a Padding which is applied to the <main> tag - it is labelled as Outside Container Padding
+    const pageOutsideContainerPaddingSettings = [
+        'responsive_page_outside_container_top_padding',
+        'responsive_page_outside_container_left_padding',
+        'responsive_page_outside_container_bottom_padding',
+        'responsive_page_outside_container_right_padding',
+        'responsive_page_outside_container_tablet_top_padding',
+        'responsive_page_outside_container_tablet_right_padding',
+        'responsive_page_outside_container_tablet_bottom_padding',
+        'responsive_page_outside_container_tablet_left_padding',
+        'responsive_page_outside_container_mobile_top_padding',
+        'responsive_page_outside_container_mobile_right_padding',
+        'responsive_page_outside_container_mobile_bottom_padding',
+        'responsive_page_outside_container_mobile_left_padding',
+        'responsive_page_outside_container_desktop_unit',
+        'responsive_page_outside_container_tablet_unit',
+        'responsive_page_outside_container_mobile_unit'
     ];
 
-    pageMarginSettings.forEach(function(setting) {
+    pageOutsideContainerPaddingSettings.forEach(function(setting) {
         api(setting, function(value) {
             value.bind(function(newval) {
-                responsive_dynamic_unit_margin('page_margin', '.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry');
+                responsive_dynamic_unit_padding('page_outside_container', '.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content #primary');
             });
         });
     });
 
     // Page Padding
-    const pagePaddingSettings = [
-        'responsive_page_padding_top_padding',
-        'responsive_page_padding_right_padding',
-        'responsive_page_padding_bottom_padding',
-        'responsive_page_padding_left_padding',
-        'responsive_page_padding_tablet_top_padding',
-        'responsive_page_padding_tablet_right_padding',
-        'responsive_page_padding_tablet_bottom_padding',
-        'responsive_page_padding_tablet_left_padding',
-        'responsive_page_padding_mobile_top_padding',
-        'responsive_page_padding_mobile_right_padding',
-        'responsive_page_padding_mobile_bottom_padding',
-        'responsive_page_padding_mobile_left_padding',
-        'responsive_page_padding_desktop_unit',
-        'responsive_page_padding_tablet_unit',
-        'responsive_page_padding_mobile_unit'
+    const pageInsideContainerPaddingSettings = [
+        'responsive_page_inside_container_top_padding',
+        'responsive_page_inside_container_right_padding',
+        'responsive_page_inside_container_bottom_padding',
+        'responsive_page_inside_container_left_padding',
+        'responsive_page_inside_container_tablet_top_padding',
+        'responsive_page_inside_container_tablet_right_padding',
+        'responsive_page_inside_container_tablet_bottom_padding',
+        'responsive_page_inside_container_tablet_left_padding',
+        'responsive_page_inside_container_mobile_top_padding',
+        'responsive_page_inside_container_mobile_right_padding',
+        'responsive_page_inside_container_mobile_bottom_padding',
+        'responsive_page_inside_container_mobile_left_padding',
+        'responsive_page_inside_container_desktop_unit',
+        'responsive_page_inside_container_tablet_unit',
+        'responsive_page_inside_container_mobile_unit'
     ];
 
-    pagePaddingSettings.forEach(function(setting) {
+    pageInsideContainerPaddingSettings.forEach(function(setting) {
         api(setting, function(value) {
             value.bind(function(newval) {
-                responsive_dynamic_unit_padding(
-                    'page_padding',
+                responsive_dynamic_unit_box_padding(
+                    'page_inside_container',
                     '.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry'
                 );
             });

@@ -105,13 +105,9 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 			responsive_horizontal_separator_control( $wp_customize, 'h6_text_separator', 1, 'responsive_colors',85, 1 );
 
 
-			// Title Above Content Background.
-			$title_above_content_bg_color_label = __( 'Title Above Content Background', 'responsive' );
+			// Title Area Banner Background.
+			$title_above_content_bg_color_label = __( 'Title Area Banner Background', 'responsive' );
 			responsive_color_control( $wp_customize, 'title_above_content_bg', $title_above_content_bg_color_label, 'responsive_colors', 88, Responsive\Core\get_responsive_customizer_defaults( 'responsive_title_above_content_bg_color' ), null );
-
-			// Title Above Content Overlay Color.
-			$title_above_content_overlay_color_label = __( 'Title Above Content Overlay Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'title_above_content_overlay', $title_above_content_overlay_color_label, 'responsive_colors', 89, Responsive\Core\get_responsive_customizer_defaults( 'responsive_title_above_content_overlay_color' ), null );
 
 			// Site Background Color.
 			$site_background_color_label = __( 'Site Background', 'responsive' );
@@ -203,22 +199,7 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 			);
 			responsive_select_control( $wp_customize, 'site_background_image_size', $site_background_image_size, 'responsive_colors', 110, $site_background_image_size_choices, 'cover', 'responsive_site_background_image_present', 'postMessage' );
 
-			responsive_horizontal_separator_control( $wp_customize, 'content_bg_image_separator', 1, 'responsive_colors',112, 1 );
-
-			// Content Links Section.
-			$content_links_label = esc_html__( 'Content Links', 'responsive' );
-			responsive_separator_control( $wp_customize, 'content_links_heading', $content_links_label, 'responsive_colors', 120 );
-
-			// Link Style Control.
-			$link_style_label   = esc_html__( 'Link Style', 'responsive' );
-			$link_style_choices = array(
-				'standard'           => esc_html__( 'Standard (underline)', 'responsive' ),
-				'color-underline'    => esc_html__( 'Highlight Underline', 'responsive' ),
-				'no-underline'       => esc_html__( 'No Underline', 'responsive' ),
-				'hover-background'   => esc_html__( 'Background on hover', 'responsive' ),
-				'offset-background' => esc_html__( 'Offset Background', 'responsive' ),
-			);
-			responsive_select_control( $wp_customize, 'link_style', $link_style_label, 'responsive_colors', 125, $link_style_choices, 'standard', null, 'refresh' );
+			responsive_horizontal_separator_control( $wp_customize, 'content_bg_image_separator', 1, 'responsive_colors', 112, 1 );
 
 			// Buttons.
 			// $general_buttons_label = esc_html__( 'Buttons', 'responsive' );

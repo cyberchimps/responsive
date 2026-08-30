@@ -71,6 +71,29 @@ const TabsComponent = props => {
 		toggleLogoControl('customize-control-responsive_retina_logo', isCustomLogoPresent);
 		toggleLogoControl('customize-control-responsive_mobile_logo_option', isCustomLogoPresent);
 
+		const toggleContentBackground = () => {
+			const pageStyle = api('responsive_page_container_style') ? api('responsive_page_container_style').get() : 'default';
+			const resolvedPageStyle = pageStyle === 'default' ? (api('responsive_style') ? api('responsive_style').get() : 'boxed') : pageStyle;
+			const pageCtrl = document.getElementById('customize-control-responsive_page_content_background_color');
+			if (pageCtrl) {
+				pageCtrl.style.display = (resolvedPageStyle !== 'flat' && tab === 'design') ? 'block' : 'none';
+			}
+			
+			const blogStyle = api('responsive_blog_container_style') ? api('responsive_blog_container_style').get() : 'default';
+			const resolvedBlogStyle = blogStyle === 'default' ? (api('responsive_style') ? api('responsive_style').get() : 'boxed') : blogStyle;
+			const blogCtrl = document.getElementById('customize-control-responsive_blog_content_background_color');
+			if (blogCtrl) {
+				blogCtrl.style.display = (resolvedBlogStyle !== 'flat' && tab === 'design') ? 'block' : 'none';
+			}
+			
+			const singleblogStyle = api('responsive_single_blog_container_style') ? api('responsive_single_blog_container_style').get() : 'default';
+			const resolvedSingleBlogStyle = singleblogStyle === 'default' ? (api('responsive_style') ? api('responsive_style').get() : 'boxed') : singleblogStyle;
+			const singleblogCtrl = document.getElementById('customize-control-responsive_single_blog_content_background_color');
+			if (singleblogCtrl) {
+				singleblogCtrl.style.display = (resolvedSingleBlogStyle !== 'flat' && tab === 'design') ? 'block' : 'none';
+			}
+		};
+		toggleContentBackground();
 
 		hideSidebarWidthControl( api('responsive_page_sidebar_position').get(), 'page' );
 		hideSidebarStyleControl( api('responsive_page_sidebar_position').get(), 'page' );
@@ -97,6 +120,17 @@ const TabsComponent = props => {
 		}
 		hideRetinaLogoUploadControl( api( 'responsive_retina_logo').get());
 		hideMobileLogoUploadControl( api( 'responsive_mobile_logo_option').get());
+
+		if ( api( 'responsive_disable_author_meta' ) && api( 'responsive_disable_author_meta' ).get() ) {
+			const authorBoxEl = document.getElementById( 'customize-control-responsive_post_author_box_style' );
+			const authorBoxSep = document.getElementById( 'customize-control-responsive_responsive_disable_author_meta_separator' );
+			if ( authorBoxEl ) {
+				authorBoxEl.style.display = 'none';
+			}
+			if ( authorBoxSep ) {
+				authorBoxSep.style.display = 'none';
+			}
+		}
 
 		api('responsive_page_sidebar_position', function( value ) {
 			value.bind( function( newval ) {
@@ -156,6 +190,38 @@ const TabsComponent = props => {
 			})
 		});
 
+		if (api('responsive_page_container_style')) {
+			api('responsive_page_container_style', function( value ){
+				value.bind( function( newval ) {
+					toggleContentBackground();
+				})
+			});
+		}
+		
+		if (api('responsive_blog_container_style')) {
+			api('responsive_blog_container_style', function( value ){
+				value.bind( function( newval ) {
+					toggleContentBackground();
+				})
+			});
+		}
+		
+		if (api('responsive_single_blog_container_style')) {
+			api('responsive_single_blog_container_style', function( value ){
+				value.bind( function( newval ) {
+					toggleContentBackground();
+				})
+			});
+		}
+		
+		if (api('responsive_style')) {
+			api('responsive_style', function( value ){
+				value.bind( function( newval ) {
+					toggleContentBackground();
+				})
+			});
+		}
+
 		api('custom_logo', function(value) {
 		value.bind(function(newval) {
 			const hasLogo = !!newval; // WP gives attachment ID or false
@@ -212,6 +278,18 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_footer_below_inner_column_spacing').style.display = 'none';
 		}
 		
+		if ( api('responsive_sidebar_link_style') ) {
+			const isHoverBg = api('responsive_sidebar_link_style').get() === 'hover-background';
+			const linkHoverBgColorEl = document.getElementById('customize-control-responsive_sidebar_link_hover_bg_color');
+			const linkHoverBgSepEl = document.getElementById('customize-control-responsive_sidebar_link_hover_bg_separator');
+			if (linkHoverBgColorEl) {
+				linkHoverBgColorEl.style.display = (isHoverBg && 'design' === tab) ? 'block' : 'none';
+			}
+			if (linkHoverBgSepEl) {
+				linkHoverBgSepEl.style.display = (isHoverBg && 'design' === tab) ? 'block' : 'none';
+			}
+		}
+
 		if( api('responsive_cart_style') ) {
             if( api('responsive_cart_style').get() !== 'outline' && 'design' === tab ) {
 				let cartBorderWidth = document.getElementById('customize-control-responsive_cart_border_width');
@@ -536,27 +614,12 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_blog_entry_columns').style.display = 'none';
 			document.getElementById('customize-control-responsive_blog_content_width_separator').style.display = 'none';
 			document.getElementById('customize-control-responsive_blog_entry_display_masonry').style.display = 'none';
-			document.getElementById('customize-control-responsive_blog_cover_background_color').style.display = 'none';
 		}
 		if( 'grid' === api('responsive_blog_layout').get() ) {
 			document.getElementById('customize-control-responsive_blog_image_positions_layout_separator').style.display = 'none';
 			document.getElementById('customize-control-responsive_blog_layout_options').style.display = 'none';
-			document.getElementById('customize-control-responsive_blog_cover_background_color').style.display = 'none';
 		}
-		if( 'grid' === api('responsive_blog_layout').get() ) {
-			document.getElementById('customize-control-responsive_blog_cover_background_color').style.display = 'block';
-		}
-		// Cover Background Color
-		const coverBackgroundControl = document.getElementById(
-			'customize-control-responsive_blog_cover_background_color'
-		);
-
-		if (coverBackgroundControl) {
-			coverBackgroundControl.style.display =
-				'cover' === api('responsive_blog_layout').get() && 'design' === tab
-					? 'block'
-					: 'none';
-		}
+		
 		if( api('responsive_blog_entry_columns').get() <= 1 ) {
 			document.getElementById('customize-control-responsive_blog_content_width_separator').style.display = 'none';
 			document.getElementById('customize-control-responsive_blog_entry_display_masonry').style.display = 'none';
@@ -580,6 +643,20 @@ const TabsComponent = props => {
 		if( 'none' === api('responsive_mobile_header_button_border_style').get() ) {
 			document.getElementById('customize-control-responsive_mobile_header_button_border_width').style.display = 'none';
 			document.getElementById('customize-control-responsive_mobile_header_button_border_color').style.display = 'none';
+		}
+
+		// Sidebar Divider Style Controls
+		if( api('responsive_sidebar_border_divider_style') ) {
+			toggleSidebarDividerStyleControls( api('responsive_sidebar_border_divider_style').get() );
+		}
+
+		// Listen for changes to responsive_sidebar_border_divider_style
+		if( api('responsive_sidebar_border_divider_style') ) {
+			api('responsive_sidebar_border_divider_style', function( value ) {
+				value.bind( function( newval ) {
+					toggleSidebarDividerStyleControls( newval );
+				} );
+			} );
 		}
 
 		// Footer Social Border Controls
@@ -878,17 +955,22 @@ const TabsComponent = props => {
 	}, [tab]);
 
 	const hideSidebarWidthControl = (value, control) => {
-    const controlId = `customize-control-responsive_${control}_sidebar_width`;
+    const controlId = (control === 'global' || control === 'default') ? 'customize-control-responsive_default_sidebar_width' : `customize-control-responsive_${control}_sidebar_width`;
     const controlElement = document.getElementById(controlId);
+    const separatorId = (control === 'global' || control === 'default') ? 'customize-control-responsive_default_sidebar_width_separator' : `customize-control-responsive_${control}_sidebar_width_separator`;
+    const separatorElement = document.getElementById(separatorId);
 
-    if (!controlElement) return;
-
-    controlElement.style.display = 'none';
+    if (controlElement) {
+        controlElement.style.display = 'none';
+    }
+    if (separatorElement) {
+        separatorElement.style.display = 'none';
+    }
 
     let isVisible = false;
-    if (control === 'global') {
-        // For global sidebar: only hide when 'no'
-        isVisible = value !== 'no' && tab === 'general';
+    if (control === 'global' || control === 'default') {
+        // For global sidebar: show whenever on general tab
+        isVisible = tab === 'general';
     } else {
         // For page/blog: hide when 'no' or resolve 'global'
         if (value === 'global') {
@@ -899,8 +981,13 @@ const TabsComponent = props => {
         }
     }
 
-    if (isVisible && !isSidebarControlInactive(controlId)) {
-        controlElement.style.display = 'block';
+    if (isVisible) {
+        if (controlElement && !isSidebarControlInactive(controlId)) {
+            controlElement.style.display = 'block';
+        }
+        if (separatorElement && !isSidebarControlInactive(separatorId)) {
+            separatorElement.style.display = 'block';
+        }
     }
 };
 
@@ -1068,6 +1155,22 @@ const TabsComponent = props => {
 		if (isVisible) {
 			controlElement.style.display = 'block';
 		}
+	};
+
+	const toggleSidebarDividerStyleControls = (borderStyle) => {
+		const controlIds = [
+			'customize-control-responsive_sidebar_border_divider_width',
+			'customize-control-responsive_sidebar_border_divider_color',
+		];
+
+		const shouldShow = 'none' !== borderStyle && 'design' === tab;
+
+		controlIds.forEach(controlId => {
+			const controlElement = document.getElementById(controlId);
+			if (controlElement) {
+				controlElement.style.display = shouldShow ? 'block' : 'none';
+			}
+		});
 	};
 
 	const toggleFooterSocialBorderControls = (borderStyle) => {

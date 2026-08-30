@@ -1749,6 +1749,7 @@
         } );
     } ), api( "header_menu_typography[font-family]", function( $swipe ) {
         $swipe.bind( function( pair ) {
+            pair = sanitizeFontFamily( pair );
             if ( pair ) {
                 /** @type {string} */
                 var fontName = pair.split(",")[0];
@@ -5338,11 +5339,13 @@
                     }
                 }
                 jQuery( `style.customizer-typography-${contentSettingBase}-font-family` ).remove();
-                jQuery( 'head' ).append(
-                    `<style class="customizer-typography-${contentSettingBase}-font-family">
-                        ${responsive.selectorArray[contentSelectorKey]} { font-family:${val}; }
-                    </style>`
-                );
+                if ( 'Default' !== val && 'default' !== val ) {
+                    jQuery( 'head' ).append(
+                        `<style class="customizer-typography-${contentSettingBase}-font-family">
+                            ${responsive.selectorArray[contentSelectorKey]} { font-family:${val}; }
+                        </style>`
+                    );
+                }
             } );
         } );
 
@@ -5350,11 +5353,13 @@
         api( `${contentSettingBase}[font-weight]`, function ( $swipe ) {
             $swipe.bind( function ( val ) {
                 jQuery( `style.customizer-typography-${contentSettingBase}-font-weight` ).remove();
-                jQuery( 'head' ).append(
-                    `<style class="customizer-typography-${contentSettingBase}-font-weight">
-                        ${responsive.selectorArray[contentSelectorKey]} { font-weight:${val}; }
-                    </style>`
-                );
+                if ( 'Default' !== val && 'default' !== val ) {
+                    jQuery( 'head' ).append(
+                        `<style class="customizer-typography-${contentSettingBase}-font-weight">
+                            ${responsive.selectorArray[contentSelectorKey]} { font-weight:${val}; }
+                        </style>`
+                    );
+                }
             } );
         } );
 
@@ -5362,23 +5367,40 @@
         api( `${contentSettingBase}[font-style]`, function ( $swipe ) {
             $swipe.bind( function ( val ) {
                 jQuery( `style.customizer-typography-${contentSettingBase}-font-style` ).remove();
-                jQuery( 'head' ).append(
-                    `<style class="customizer-typography-${contentSettingBase}-font-style">
-                        ${responsive.selectorArray[contentSelectorKey]} { font-style:${val}; }
-                    </style>`
-                );
+                if ( 'Default' !== val && 'default' !== val ) {
+                    jQuery( 'head' ).append(
+                        `<style class="customizer-typography-${contentSettingBase}-font-style">
+                            ${responsive.selectorArray[contentSelectorKey]} { font-style:${val}; }
+                        </style>`
+                    );
+                }
             } );
         } );
+        // === font-size ===
+        api(`${contentSettingBase}[font-size]`, function ($swipe) {
+            $swipe.bind(function (val) {
+                jQuery(`style.customizer-typography-${contentSettingBase}-font-size`).remove();
+                if ( 'Default' !== val && 'default' !== val ) {
+                    jQuery('head').append(
+                        `<style class="customizer-typography-${contentSettingBase}-font-size">
+                            ${responsive.selectorArray[contentSelectorKey]} { font-size:${val}; }
+                        </style>`
+                    );
+                }
+            });
+        });
 
         // text-transform
         api( `${contentSettingBase}[text-transform]`, function ( $swipe ) {
             $swipe.bind( function ( val ) {
                 jQuery( `style.customizer-typography-${contentSettingBase}-text-transform` ).remove();
-                jQuery( 'head' ).append(
-                    `<style class="customizer-typography-${contentSettingBase}-text-transform">
-                        ${responsive.selectorArray[contentSelectorKey]} { text-transform:${val}; }
-                    </style>`
-                );
+                if ( 'Default' !== val && 'default' !== val ) {
+                    jQuery( 'head' ).append(
+                        `<style class="customizer-typography-${contentSettingBase}-text-transform">
+                            ${responsive.selectorArray[contentSelectorKey]} { text-transform:${val}; }
+                        </style>`
+                    );
+                }
             } );
         } );
 
@@ -5701,97 +5723,4 @@
     } );
     // Single Post - Excerpt & Breadcrumb Typography - End
 
-    // Single Post - Category & Meta Typography (no font-size control) - Start
-    // [
-    //     { settingBase: 'single_blog_category_typography', selectorKey: 'single_blog_category' },
-    //     { settingBase: 'single_blog_meta_typography',      selectorKey: 'single_blog_meta' }
-    // ].forEach( function( group ) {
-    //     var contentSettingBase = group.settingBase;
-    //     var contentSelectorKey = group.selectorKey;
-
-    //     // === font-family ===
-    //     api( `${contentSettingBase}[font-family]`, function ( $swipe ) {
-    //         $swipe.bind( function ( val ) {
-    //             if ( val ) {
-    //                 let fontName = val.split( "," )[0].replace( /'/g, '' ).trim();
-    //                 const id = `customize-control-${contentSettingBase}-font-family`;
-    //                 const fontUrl = `${responsive.googleFontsUrl}/css?family=${fontName.replace( / /g, "%20" ).replace( ",", "%2C" )}:${responsive.googleFontsWeight}`;
-    //                 if ( fontName in responsive.googleFonts ) {
-    //                     if ( jQuery( `#${id}` ).length ) {
-    //                         jQuery( `#${id}` ).attr( "href", fontUrl );
-    //                     } else {
-    //                         jQuery( 'head' ).append( `<link id="${id}" rel="stylesheet" type="text/css" href="${fontUrl}">` );
-    //                     }
-    //                 }
-    //             }
-    //             jQuery( `style.customizer-typography-${contentSettingBase}-font-family` ).remove();
-    //             jQuery( 'head' ).append(
-    //                 `<style class="customizer-typography-${contentSettingBase}-font-family">
-    //                     ${responsive.selectorArray[contentSelectorKey]} { font-family:${val}; }
-    //                 </style>`
-    //             );
-    //         } );
-    //     } );
-
-    //     // === font-weight ===
-    //     api( `${contentSettingBase}[font-weight]`, function ( $swipe ) {
-    //         $swipe.bind( function ( val ) {
-    //             jQuery( `style.customizer-typography-${contentSettingBase}-font-weight` ).remove();
-    //             jQuery( 'head' ).append(
-    //                 `<style class="customizer-typography-${contentSettingBase}-font-weight">
-    //                     ${responsive.selectorArray[contentSelectorKey]} { font-weight:${val}; }
-    //                 </style>`
-    //             );
-    //         } );
-    //     } );
-
-    //     // === font-style ===
-    //     api( `${contentSettingBase}[font-style]`, function ( $swipe ) {
-    //         $swipe.bind( function ( val ) {
-    //             jQuery( `style.customizer-typography-${contentSettingBase}-font-style` ).remove();
-    //             jQuery( 'head' ).append(
-    //                 `<style class="customizer-typography-${contentSettingBase}-font-style">
-    //                     ${responsive.selectorArray[contentSelectorKey]} { font-style:${val}; }
-    //                 </style>`
-    //             );
-    //         } );
-    //     } );
-
-    //     // === text-transform ===
-    //     api( `${contentSettingBase}[text-transform]`, function ( $swipe ) {
-    //         $swipe.bind( function ( val ) {
-    //             jQuery( `style.customizer-typography-${contentSettingBase}-text-transform` ).remove();
-    //             jQuery( 'head' ).append(
-    //                 `<style class="customizer-typography-${contentSettingBase}-text-transform">
-    //                     ${responsive.selectorArray[contentSelectorKey]} { text-transform:${val}; }
-    //                 </style>`
-    //             );
-    //         } );
-    //     } );
-
-    //     // === line-height ===
-    //     api( `${contentSettingBase}[line-height]`, function ( $swipe ) {
-    //         $swipe.bind( function ( val ) {
-    //             jQuery( `style.customizer-typography-${contentSettingBase}-line-height` ).remove();
-    //             jQuery( 'head' ).append(
-    //                 `<style class="customizer-typography-${contentSettingBase}-line-height">
-    //                     ${responsive.selectorArray[contentSelectorKey]} { line-height:${val}; }
-    //                 </style>`
-    //             );
-    //         } );
-    //     } );
-
-    //     // === letter-spacing ===
-    //     api( `${contentSettingBase}[letter-spacing]`, function ( $swipe ) {
-    //         $swipe.bind( function ( val ) {
-    //             jQuery( `style.customizer-typography-${contentSettingBase}-letter-spacing` ).remove();
-    //             jQuery( 'head' ).append(
-    //                 `<style class="customizer-typography-${contentSettingBase}-letter-spacing">
-    //                     ${responsive.selectorArray[contentSelectorKey]} { letter-spacing:${val}px; }
-    //                 </style>`
-    //             );
-    //         } );
-    //     } );
-    // } );
-    // Single Post - Category & Meta Typography - End
 } )( jQuery );

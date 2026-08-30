@@ -3,10 +3,6 @@
  * Content Header Area styles
  * -----------------------------------------------------------------------------
  */
-.site-content,
-.give-wrap {
-    padding: $base-line-height-px 0;
-}
 
 .site-content-header {
     @include make-block-element($grid-gutter-width);
@@ -92,7 +88,7 @@
  * Hentry Area styles
  * -----------------------------------------------------------------------------
  */
-.hentry {
+.hentry {  
     @include make-block-element();
 
     .responsive-site-style-content-boxed &,
@@ -468,7 +464,6 @@
         }
 
         .archive.blog-entry-columns-3 &,
-        .search.blog-entry-columns-3 &,
         .blog.blog-entry-columns-3 & {
             @extend .col-md-4;
         }
@@ -509,7 +504,6 @@
         }
 
         .archive.blog-entry-columns-3 &,
-        .search.blog-entry-columns-3 &,
         .blog.blog-entry-columns-3 & {
             @extend .col-md-4;
         }
@@ -670,11 +664,6 @@ div.comments-area {
         border-bottom: 1px solid map-get($colors, light-gray);
     }
 
-    .responsive-site-style-flat & {
-        padding: 0 !important;
-        background-color: transparent;
-    }
-
     ol.commentlist {
         margin: 0;
         list-style: none;
@@ -697,11 +686,6 @@ div.comments-area {
 
         .comment-metadata {
             font-size: 14px;
-            color: #737373;
-        }
-
-        .comment-metadata a {
-            color: #737373;
         }
 
         .comment-author a {
@@ -719,7 +703,6 @@ div.comments-area {
         .comment-reply-link {
             display: inline-block;
             margin-right: 30px;
-            color: #737373;
 
             &:before {
                 margin-right: $base-line-height-px / 5;
@@ -731,7 +714,6 @@ div.comments-area {
         .comment-edit-link {
             display: inline-block;
             margin-right: 15px;
-            color: #737373;
 
             &:before {
                 margin-right: $base-line-height-px / 5;
