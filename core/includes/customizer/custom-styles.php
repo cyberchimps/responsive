@@ -3897,22 +3897,22 @@ function responsive_customizer_styles() {
 
 	$sub_menu_border_color = esc_html( get_theme_mod( 'responsive_sub_menu_border_color', '' ) );
 
-	$sub_menu_border_radius_top    = get_theme_mod( 'responsive_sub_menu_border_radius_top_padding', '' );
-	$sub_menu_border_radius_right  = get_theme_mod( 'responsive_sub_menu_border_radius_right_padding', '' );
-	$sub_menu_border_radius_bottom = get_theme_mod( 'responsive_sub_menu_border_radius_bottom_padding', '' );
-	$sub_menu_border_radius_left   = get_theme_mod( 'responsive_sub_menu_border_radius_left_padding', '' );
+	$sub_menu_border_radius_top    = get_theme_mod( 'responsive_sub_menu_border_radius_top_left_radius', '' );
+	$sub_menu_border_radius_right  = get_theme_mod( 'responsive_sub_menu_border_radius_top_right_radius', '' );
+	$sub_menu_border_radius_bottom = get_theme_mod( 'responsive_sub_menu_border_radius_bottom_right_radius', '' );
+	$sub_menu_border_radius_left   = get_theme_mod( 'responsive_sub_menu_border_radius_bottom_left_radius', '' );
 	$sub_menu_border_radius_unit   = get_theme_mod( 'responsive_sub_menu_border_radius_desktop_unit', 'px' );
 
-	$sub_menu_border_radius_tablet_top    = get_theme_mod( 'responsive_sub_menu_border_radius_tablet_top_padding', '' );
-	$sub_menu_border_radius_tablet_right  = get_theme_mod( 'responsive_sub_menu_border_radius_tablet_right_padding', '' );
-	$sub_menu_border_radius_tablet_bottom = get_theme_mod( 'responsive_sub_menu_border_radius_tablet_bottom_padding', '' );
-	$sub_menu_border_radius_tablet_left   = get_theme_mod( 'responsive_sub_menu_border_radius_tablet_left_padding', '' );
+	$sub_menu_border_radius_tablet_top    = get_theme_mod( 'responsive_sub_menu_border_radius_tablet_top_left_radius', '' );
+	$sub_menu_border_radius_tablet_right  = get_theme_mod( 'responsive_sub_menu_border_radius_tablet_top_right_radius', '' );
+	$sub_menu_border_radius_tablet_bottom = get_theme_mod( 'responsive_sub_menu_border_radius_tablet_bottom_right_radius', '' );
+	$sub_menu_border_radius_tablet_left   = get_theme_mod( 'responsive_sub_menu_border_radius_tablet_bottom_left_radius', '' );
 	$sub_menu_border_radius_tablet_unit   = get_theme_mod( 'responsive_sub_menu_border_radius_tablet_unit', 'px' );
 
-	$sub_menu_border_radius_mobile_top    = get_theme_mod( 'responsive_sub_menu_border_radius_mobile_top_padding', '' );
-	$sub_menu_border_radius_mobile_right  = get_theme_mod( 'responsive_sub_menu_border_radius_mobile_right_padding', '' );
-	$sub_menu_border_radius_mobile_bottom = get_theme_mod( 'responsive_sub_menu_border_radius_mobile_bottom_padding', '' );
-	$sub_menu_border_radius_mobile_left   = get_theme_mod( 'responsive_sub_menu_border_radius_mobile_left_padding', '' );
+	$sub_menu_border_radius_mobile_top    = get_theme_mod( 'responsive_sub_menu_border_radius_mobile_top_left_radius', '' );
+	$sub_menu_border_radius_mobile_right  = get_theme_mod( 'responsive_sub_menu_border_radius_mobile_top_right_radius', '' );
+	$sub_menu_border_radius_mobile_bottom = get_theme_mod( 'responsive_sub_menu_border_radius_mobile_bottom_right_radius', '' );
+	$sub_menu_border_radius_mobile_left   = get_theme_mod( 'responsive_sub_menu_border_radius_mobile_bottom_left_radius', '' );
 	$sub_menu_border_radius_mobile_unit   = get_theme_mod( 'responsive_sub_menu_border_radius_mobile_unit', 'px' );
 
 	$sub_menu_divider       = esc_html( get_theme_mod( 'responsive_sub_menu_divider', 0 ) );
