@@ -21,6 +21,8 @@ const TabsComponent = props => {
 		general_id,
 		design_tab_ids,
 		general_tab_ids,
+		general_label,
+		design_label,
 	} = props.control.params;
 
 	const elementsToHide = {
@@ -341,6 +343,18 @@ const TabsComponent = props => {
 		} else {
 			document.getElementById('customize-control-responsive_mobile_header_button_bg_color').style.display = 'none';
 			document.getElementById('customize-control-responsive_mobile_header_button_bg_color_separator').style.display = 'none';
+		}
+
+		if( api('responsive_primary_navigation_stretch') && api('responsive_primary_navigation_stretch').get() == 1 && 'general' === tab ) {
+			document.getElementById('customize-control-responsive_primary_navigation_fill_stretch').style.display = 'block';
+		} else {
+			document.getElementById('customize-control-responsive_primary_navigation_fill_stretch').style.display = 'none';
+		}
+
+		if( api('responsive_secondary_navigation_stretch') && api('responsive_secondary_navigation_stretch').get() == 1 && 'general' === tab ) {
+			document.getElementById('customize-control-responsive_secondary_navigation_fill_stretch').style.display = 'block';
+		} else {
+			document.getElementById('customize-control-responsive_secondary_navigation_fill_stretch').style.display = 'none';
 		}
 
 		// Toggle Button Style - Hide controls based on style
@@ -786,6 +800,20 @@ const TabsComponent = props => {
 		}
 		if( ! api('responsive_transparent_header_logo_option').get() ) {
 			document.getElementById('customize-control-responsive_transparent_header_logo').style.display = 'none';
+			if ( document.getElementById('customize-control-responsive_transparent_header_logo_width') ) {
+				document.getElementById('customize-control-responsive_transparent_header_logo_width').style.display = 'none';
+			}
+			if ( document.getElementById('customize-control-responsive_transparent_header_retina_logo_option') ) {
+				document.getElementById('customize-control-responsive_transparent_header_retina_logo_option').style.display = 'none';
+			}
+			if ( document.getElementById('customize-control-responsive_transparent_header_retina_logo') ) {
+				document.getElementById('customize-control-responsive_transparent_header_retina_logo').style.display = 'none';
+			}
+		}
+		if( api('responsive_transparent_header_retina_logo_option') && ! api('responsive_transparent_header_retina_logo_option').get() ) {
+			if ( document.getElementById('customize-control-responsive_transparent_header_retina_logo') ) {
+				document.getElementById('customize-control-responsive_transparent_header_retina_logo').style.display = 'none';
+			}
 		}
 		if( ! api('responsive_enable_transparent_header_bottom_border').get() ) {
 			document.getElementById('customize-control-responsive_transparent_bottom_border').style.display = 'none';
@@ -798,6 +826,9 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_rp_read_more').style.display = 'none';
 		}
 		if( ! api('responsive_transparent_header').get() ) {
+			if ( document.getElementById('customize-control-responsive_transparent_header_enable_on') ) {
+				document.getElementById('customize-control-responsive_transparent_header_enable_on').style.display = 'none';
+			}
 			document.getElementById('customize-control-responsive_transparent_header_logo_option').style.display = 'none';
 			document.getElementById('customize-control-responsive_enable_transparent_header_bottom_border').style.display = 'none';
 			document.getElementById('customize-control-responsive_disable_archive_transparent_header').style.display = 'none';
@@ -808,6 +839,15 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_disable_woo_products_transparent_header').style.display = 'none';
 			document.getElementById('customize-control-responsive_transparent_bottom_border').style.display = 'none';
 			document.getElementById('customize-control-responsive_transparent_header_logo').style.display = 'none';
+			if ( document.getElementById('customize-control-responsive_transparent_header_logo_width') ) {
+				document.getElementById('customize-control-responsive_transparent_header_logo_width').style.display = 'none';
+			}
+			if ( document.getElementById('customize-control-responsive_transparent_header_retina_logo_option') ) {
+				document.getElementById('customize-control-responsive_transparent_header_retina_logo_option').style.display = 'none';
+			}
+			if ( document.getElementById('customize-control-responsive_transparent_header_retina_logo') ) {
+				document.getElementById('customize-control-responsive_transparent_header_retina_logo').style.display = 'none';
+			}
 		}
 
 		// Show/hide Move Body control based on mobile menu style (only show when dropdown is selected)
@@ -1442,7 +1482,7 @@ const TabsComponent = props => {
 				id={general_id}
 				onClick={() => onTabClick('general')}
 				>
-					<span>{__( 'General', 'responsive' )}</span>
+					<span>{general_label || __( 'General', 'responsive' )}</span>
 			</a>
 			<a
 				type="#"
@@ -1450,7 +1490,7 @@ const TabsComponent = props => {
 				id={design_id}
 				onClick={() => onTabClick('design')}
 				>
-					<span>{ __('Design', 'responsive' )}</span>
+					<span>{design_label || __( 'Design', 'responsive' )}</span>
 			</a>
 		</div>
 	</>;

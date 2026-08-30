@@ -1641,13 +1641,25 @@ div.customize-section-description{
 .responsive-dragging-dropzones .responsive-builder-add-item {
 	display: none;
 }
-#customize-control-responsive_transparent_header_logo .customize-control-title {
+#customize-control-responsive_transparent_header_logo .customize-control-title,
+#customize-control-responsive_transparent_header_retina_logo .customize-control-title {
 	margin-top: 0;
 }
 #customize-control-responsive_transparent_bottom_border .customize-control-title {
 	margin-top: 0;
 }
+#customize-control-responsive_transparent_header_enable_on {
+	margin-bottom: 24px;
+}
 #customize-control-responsive_transparent_header_logo {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+#customize-control-responsive_transparent_header_logo_width {
+	margin-bottom: 24px;
+}
+#customize-control-responsive_transparent_header_retina_logo {
+	margin-bottom: 0;
 	padding-bottom: 24px;
 }
 .responsive-hfb-builder-item .responsive-hfb-builder-item-icon:focus {
@@ -2119,4 +2131,7 @@ ul.control-panel-nav_menus .customize-help-toggle:before {
 }
 #sub-accordion-section-responsive_single_blog_layout{
 	height: 100%;
+}
+#customize-control-responsive_single_blog_related_posts_location {
+    display: none;
 }

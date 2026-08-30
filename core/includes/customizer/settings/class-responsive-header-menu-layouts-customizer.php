@@ -57,20 +57,30 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				$tab_ids_prefix . 'responsive_header_menu_link_color_states',
 				$tab_ids_prefix . 'responsive_sub_menu_separator',
 				$tab_ids_prefix . 'responsive_sub_menu_border_padding',
+				$tab_ids_prefix . 'responsive_border_sub_menu_border_radius',
 				$tab_ids_prefix . 'responsive_header_off_canvas_menu_layout',
 				$tab_ids_prefix . 'responsive_header_toggle_button',
 				$tab_ids_prefix . 'responsive_sub_menu_container_top_offset',
+				$tab_ids_prefix . 'responsive_sub_menu_width',
 				$tab_ids_prefix . 'responsive_sub_menu_divider',
+				$tab_ids_prefix . 'responsive_primary_menu_active_parent',
+				$tab_ids_prefix . 'responsive_header_menu_submenu_animation',
 				$tab_ids_prefix . 'responsive_sub_menu_colors_separator',
 				$tab_ids_prefix . 'responsive_sub_menu_border_color',
 				$tab_ids_prefix . 'responsive_sub_menu_divider_color',
 				$tab_ids_prefix . 'responsive_header_sub_menu_background_color_states',
 				$tab_ids_prefix . 'responsive_header_sub_menu_link_color_states',
+				$tab_ids_prefix . 'responsive_primary_menu_spacing_separator',
+				$tab_ids_prefix . 'responsive_primary_menu_menu_padding',
+				$tab_ids_prefix . 'responsive_primary_menu_margin_padding',
 			);
 
 			$primary_menu_general_tab_ids = array(
 				$tab_ids_prefix . 'responsive_main_menu_separator',
-				$tab_ids_prefix . 'responsive_disable_menu',
+				$tab_ids_prefix . 'responsive_redirect_to_primary_menu_set_location',
+				$tab_ids_prefix . 'responsive_primary_navigation_stretch',
+				$tab_ids_prefix . 'responsive_primary_navigation_fill_stretch',
+				$tab_ids_prefix . 'responsive_header_primary_navigation_visibility',
 				$tab_ids_prefix . 'responsive_mobile_menu_separator',
 				$tab_ids_prefix . 'responsive_disable_mobile_menu',
 				$tab_ids_prefix . 'responsive_stacked_mobile_menu',
@@ -87,9 +97,26 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			$main_menu_separator_label = __( 'Main Menu Settings', 'responsive' );
 			responsive_separator_control( $wp_customize, 'main_menu_separator', $main_menu_separator_label, 'responsive_header_menu_layout', 10 );
 
-			// Disable Menu.
-			$disable_menu_label = __( 'Disable Main Menu', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'disable_menu', $disable_menu_label, 'responsive_header_menu_layout', 15, 0, null );
+			// Redirect to Primary Menu set location.
+			$configure_primary_menu_redirect_label = __( 'Configure Primary Menu', 'responsive' );
+			responsive_redirect_control( $wp_customize, 'redirect_to_primary_menu_set_location', $configure_primary_menu_redirect_label, 'responsive_header_menu_layout', 12, 'control', 'nav_menu_locations[header-menu]' );
+
+			// Stretch Menu.
+			$primary_navigation_stretch_label = __( 'Stretch Menu', 'responsive' );
+			responsive_toggle_control( $wp_customize, 'primary_navigation_stretch', $primary_navigation_stretch_label, 'responsive_header_menu_layout', 13, 0, 'responsive_disabled_main_menu' );
+
+			// Fill and Center Menu Items.
+			$primary_navigation_fill_stretch_label = __( 'Fill and Center Menu Items', 'responsive' );
+			responsive_toggle_control( $wp_customize, 'primary_navigation_fill_stretch', $primary_navigation_fill_stretch_label, 'responsive_header_menu_layout', 14, 0, 'responsive_primary_navigation_stretch_active' );
+
+			// Visibility - General Tab.
+			$primary_navigation_visibility_label   = __( 'Visibility', 'responsive' );
+			$primary_navigation_visibility_choices = array(
+				'desktop' => esc_html__( 'dashicons-desktop', 'responsive' ),
+				'tablet'  => esc_html__( 'dashicons-tablet', 'responsive' ),
+				'mobile'  => esc_html__( 'dashicons-smartphone', 'responsive' ),
+			);
+			responsive_multi_select_button_control( $wp_customize, 'header_primary_navigation_visibility', $primary_navigation_visibility_label, 'responsive_header_menu_layout', 15, $primary_navigation_visibility_choices, array( 'desktop', 'tablet', 'mobile' ), null, 'refresh' );
 
 			// Full Width Menu.
 			// $header_menu_full_width_label = __( 'Full Width Main Navigation', 'responsive' );
@@ -253,13 +280,35 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			$sub_menu_border = esc_html__( 'Container Border', 'responsive' );
 			responsive_padding_control( $wp_customize, 'sub_menu_border', 'responsive_header_menu_layout', 175, 0, 0, null, $sub_menu_border );
 
+			// Sub Menu Border Radius.
+			$sub_menu_border_radius = esc_html__( 'Border Radius', 'responsive' );
+			responsive_unit_radius_control( $wp_customize, 'sub_menu_border_radius', 'responsive_header_menu_layout', 176, '', '', null, $sub_menu_border_radius, 'postMessage', array( 'px', 'em' ) );
+
 			// Sub-menu Container Top Offset.
 			$sub_menu_container_top_offset_label = esc_html__( 'Container Top Offset', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'sub_menu_container_top_offset', $sub_menu_container_top_offset_label, 'responsive_header_menu_layout', 180, 0, null, 200, 0, 'postMessage' );
 
+			// Sub Menu Width (%).
+			$sub_menu_width_label = esc_html__( 'Sub Menu Width (vw)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'sub_menu_width', $sub_menu_width_label, 'responsive_header_menu_layout', 181, 0, 'responsive_disabled_main_menu', 100, 0, 'refresh' );
+
 			// Enable Sub Menu Divider.
 			$sub_menu_divider_label = __( 'Item Divider', 'responsive' );
 			responsive_toggle_control( $wp_customize, 'sub_menu_divider', $sub_menu_divider_label, 'responsive_header_menu_layout', 185, 0, null );
+
+			// Make Parent of Current Menu Active.
+			$primary_menu_active_parent_label = __( 'Make Parent of Current Menu Active', 'responsive' );
+			responsive_toggle_control( $wp_customize, 'primary_menu_active_parent', $primary_menu_active_parent_label, 'responsive_header_menu_layout', 186, 0, null );
+
+			// Submenu Animation.
+			$header_menu_submenu_animation_label   = __( 'Submenu Animation', 'responsive' );
+			$header_menu_submenu_animation_choices = array(
+				'none'       => esc_html__( 'None', 'responsive' ),
+				'slide-up'   => esc_html__( 'Slide Up', 'responsive' ),
+				'fade'       => esc_html__( 'Fade', 'responsive' ),
+				'slide-down' => esc_html__( 'Slide Down', 'responsive' ),
+			);
+			responsive_select_control( $wp_customize, 'header_menu_submenu_animation', $header_menu_submenu_animation_label, 'responsive_header_menu_layout', 186, $header_menu_submenu_animation_choices, 'none', null );
 
 			// Sub Menu Colors.
 			$sub_menu_colors_separator_label = esc_html__( 'Sub Menu Colors', 'responsive' );
@@ -316,8 +365,15 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				'header_active_sub_menu_background'
 			);
 
+			// Spacing Separator
+			$primary_menu_spacing_separator_label = __( 'Spacing', 'responsive' );
+			responsive_separator_control( $wp_customize, 'primary_menu_spacing_separator', $primary_menu_spacing_separator_label, 'responsive_header_menu_layout', 230 );
 
-			
+			// Menu Padding
+			responsive_unit_padding_control( $wp_customize, 'primary_menu_menu', 'responsive_header_menu_layout', 240, '', '', 'responsive_disabled_main_menu', __( 'Menu', 'responsive' ), 'postMessage', '', '', '', '', 'px' );
+
+			// Margin
+			responsive_unit_padding_control( $wp_customize, 'primary_menu_margin', 'responsive_header_menu_layout', 250, '', '', 'responsive_disabled_main_menu', __( 'Margin', 'responsive' ), 'postMessage', '', '', '', '', 'px' );
 
 		}
 

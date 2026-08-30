@@ -400,4 +400,35 @@
 		}
 	);
 
+function toggleRelatedPostsLocation( placement ) {
+	var show = ( 'contained' === placement );
+	var styleId = 'responsive-rp-location-visibility';
+
+	jQuery( '#' + styleId ).remove();
+
+	if ( ! show ) {
+		jQuery( 'head' ).append(
+			'<style id="' + styleId + '">' +
+			'#customize-control-responsive_single_blog_related_posts_location { display: none !important; }' +
+			'</style>'
+		);
+	}
+}
+
+api.bind( 'ready', function() {
+	if ( api( 'responsive_single_blog_related_posts_section_placement' ) ) {
+		toggleRelatedPostsLocation( api( 'responsive_single_blog_related_posts_section_placement' ).get() );
+	}
+} );
+
+api(
+	'responsive_single_blog_related_posts_section_placement',
+	function( $swipe ) {
+		$swipe.bind( function( newval ) {
+			toggleRelatedPostsLocation( newval );
+		} );
+	}
+);
+
+
 })( jQuery );
