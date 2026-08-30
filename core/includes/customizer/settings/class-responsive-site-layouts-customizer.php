@@ -196,6 +196,9 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			// Site Tagline Visibility control
 			$site_tagline_visibility_label = __( 'Site Tagline Visibility', 'responsive' );
 			responsive_multi_select_button_control($wp_customize, 'site_tagline_visibility', $site_tagline_visibility_label, 'responsive_header_site_logo_title', 16, $site_tagline_visibility_choices, array('desktop','tablet','mobile'), null, 'refresh');
+			// Redirect to site icon.
+			$site_icon_redirect_label = __( 'Site Icon', 'responsive' );
+			responsive_redirect_control( $wp_customize, 'redirect_to_site_icon', $site_icon_redirect_label, 'responsive_header_site_logo_title', 18, 'control', 'site_icon' );
 		}
 
 
