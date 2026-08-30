@@ -107,6 +107,9 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_transparent_header_social_color_separator',
 				$design_tab_ids_prefix . 'responsive_transparent_header_social_item_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_social_item_bg_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_search_color_separator',
+				$design_tab_ids_prefix . 'responsive_transparent_header_search_icon_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_search_bg_color',
 			);
 
 			responsive_tabs_button_control( $wp_customize, 'header_transparent_tabs', $tabs_label, 'responsive_header_transparent', 1, '', 'responsive_header_transparent_general_tab', 'responsive_header_transparent_design_tab', $general_tab_ids, $design_tab_ids, null );
@@ -382,6 +385,20 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			// Background Color.
 			$social_background_color_label = __( 'Background Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'transparent_header_social_item_bg', $social_background_color_label, 'responsive_header_transparent', 390, '', null, '', true, '', 'transparent_header_social_item_bg_hover' );
+
+			/**
+			 * Header Search Separator.
+			 */
+			$transparent_header_search_separator_label = esc_html__( 'Search Color', 'responsive' );
+			responsive_separator_control( $wp_customize, 'transparent_header_search_color_separator', $transparent_header_search_separator_label, 'responsive_header_transparent', 395, null );
+
+			// Search Color.
+			$search_color_label = __( 'Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'transparent_header_search_icon', $search_color_label, 'responsive_header_transparent', 400, '', null, '', true, '', 'transparent_header_search_icon_hover' );
+
+			// Search Background Color.
+			$search_bg_color_label = __( 'Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'transparent_header_search_bg', $search_bg_color_label, 'responsive_header_transparent', 405, '', null, '', true, '', 'transparent_header_search_bg_hover' );
 
 		}
 	}

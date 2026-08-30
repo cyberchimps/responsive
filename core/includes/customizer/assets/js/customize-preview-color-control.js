@@ -662,6 +662,87 @@
         } );
     } );
 
+    // Transparent Header Search Colors
+    api( 'responsive_transparent_header_search_icon_color', function( value ) {
+        value.bind( function( newval ) {
+            jQuery( 'style#responsive-transparent-header-search-icon-color' ).remove();
+            if ( ! newval ) {
+                return;
+            }
+            if ( typeof newval === 'string' && newval.startsWith('palette') ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            jQuery( 'head' ).append(
+                '<style id="responsive-transparent-header-search-icon-color">'
+                + 'body.res-transparent-header .site-header-item .responsive-header-search-icon-wrap, '
+                + 'body.res-transparent-header .site-header-item .responsive-header-search input[type=search], '
+                + 'body.res-transparent-header .site-mobile-header-item .responsive-header-search-icon-wrap, '
+                + 'body.res-transparent-header .site-mobile-header-item .responsive-header-search input[type=search] { color: ' + newval + ' !important; }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    api( 'responsive_transparent_header_search_icon_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            jQuery( 'style#responsive-transparent-header-search-icon-hover-color' ).remove();
+            if ( ! newval ) {
+                return;
+            }
+            if ( typeof newval === 'string' && newval.startsWith('palette') ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            jQuery( 'head' ).append(
+                '<style id="responsive-transparent-header-search-icon-hover-color">'
+                + 'body.res-transparent-header .site-header-item .responsive-header-search-icon-wrap:hover, '
+                + 'body.res-transparent-header .site-header-item .responsive-header-search-icon-wrap:hover input[type=search], '
+                + 'body.res-transparent-header .site-mobile-header-item .responsive-header-search-icon-wrap:hover, '
+                + 'body.res-transparent-header .site-mobile-header-item .responsive-header-search-icon-wrap:hover input[type=search] { color: ' + newval + ' !important; }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    api( 'responsive_transparent_header_search_bg_color', function( value ) {
+        value.bind( function( newval ) {
+            jQuery( 'style#responsive-transparent-header-search-bg-color' ).remove();
+            if ( ! newval ) {
+                return;
+            }
+            if ( typeof newval === 'string' && newval.startsWith('palette') ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            jQuery( 'head' ).append(
+                '<style id="responsive-transparent-header-search-bg-color">'
+                + 'body.res-transparent-header .site-header-item .responsive-header-search-icon-wrap, '
+                + 'body.res-transparent-header .site-header-item .responsive-header-search input[type=search], '
+                + 'body.res-transparent-header .site-mobile-header-item .responsive-header-search-icon-wrap, '
+                + 'body.res-transparent-header .site-mobile-header-item .responsive-header-search input[type=search] { background-color: ' + newval + '; }'
+                + '</style>'
+            );
+        } );
+    } );
+
+    api( 'responsive_transparent_header_search_bg_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            jQuery( 'style#responsive-transparent-header-search-bg-hover-color' ).remove();
+            if ( ! newval ) {
+                return;
+            }
+            if ( typeof newval === 'string' && newval.startsWith('palette') ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            jQuery( 'head' ).append(
+                '<style id="responsive-transparent-header-search-bg-hover-color">'
+                + 'body.res-transparent-header .site-header-item .responsive-header-search-icon-wrap:hover, '
+                + 'body.res-transparent-header .site-header-item .responsive-header-search-icon-wrap:hover input[type=search], '
+                + 'body.res-transparent-header .site-mobile-header-item .responsive-header-search-icon-wrap:hover, '
+                + 'body.res-transparent-header .site-mobile-header-item .responsive-header-search-icon-wrap:hover input[type=search] { background-color: ' + newval + '; }'
+                + '</style>'
+            );
+        } );
+    } );
+
     //Alternate Background Color
     api( 'responsive_alt_background_color', function( value ) {
         value.bind( function( newval ) {
@@ -5286,6 +5367,11 @@
     api( 'responsive_header_search_color', function(setting){
         setting.bind(function(color){
             jQuery('style#responsive-header-search-color').remove();
+            var isTransparentHeader = api.has('responsive_transparent_header') && api('responsive_transparent_header').get();
+            var transSearchColor = api.has('responsive_transparent_header_search_icon_color') ? api('responsive_transparent_header_search_icon_color').get() : '';
+            if ( isTransparentHeader && transSearchColor ) {
+                return;
+            }
             jQuery('head').append(
                 '<style id="responsive-header-search-color">'
                 + '.responsive-header-search-icon-wrap { color: ' + color + '!important; }'
@@ -5297,6 +5383,11 @@
     api( 'responsive_header_search_hover_color', function(setting){
         setting.bind(function(color){
             jQuery('style#responsive-header-search-hover-color').remove();
+            var isTransparentHeader = api.has('responsive_transparent_header') && api('responsive_transparent_header').get();
+            var transSearchHoverColor = api.has('responsive_transparent_header_search_icon_hover_color') ? api('responsive_transparent_header_search_icon_hover_color').get() : '';
+            if ( isTransparentHeader && transSearchHoverColor ) {
+                return;
+            }
             jQuery('head').append(
                 '<style id="responsive-header-search-hover-color">'
                 + '.responsive-header-search-icon-wrap:hover { color: ' + color + '!important; }'
@@ -5308,6 +5399,11 @@
     api( 'responsive_header_search_background_color', function(setting){
         setting.bind(function(color){
             jQuery('style#responsive-header-search-background-color').remove();
+            var isTransparentHeader = api.has('responsive_transparent_header') && api('responsive_transparent_header').get();
+            var transSearchBgColor = api.has('responsive_transparent_header_search_bg_color') ? api('responsive_transparent_header_search_bg_color').get() : '';
+            if ( isTransparentHeader && transSearchBgColor ) {
+                return;
+            }
             jQuery('head').append(
                 '<style id="responsive-header-search-background-color">'
                 + '.responsive-header-search-icon-wrap, .responsive-header-search input[type=search] { background: ' + color + '!important; }'
@@ -5319,6 +5415,11 @@
     api( 'responsive_header_search_background_hover_color', function(setting){
         setting.bind(function(color){
             jQuery('style#responsive-header-search-background-hover-color').remove();
+            var isTransparentHeader = api.has('responsive_transparent_header') && api('responsive_transparent_header').get();
+            var transSearchBgHoverColor = api.has('responsive_transparent_header_search_bg_hover_color') ? api('responsive_transparent_header_search_bg_hover_color').get() : '';
+            if ( isTransparentHeader && transSearchBgHoverColor ) {
+                return;
+            }
             jQuery('head').append(
                 '<style id="responsive-header-search-background-hover-color">'
                 + '.responsive-header-search-icon-wrap:hover, .responsive-header-search-icon-wrap:hover input[type=search] { background: ' + color + '!important; }'

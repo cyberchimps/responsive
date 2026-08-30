@@ -2671,6 +2671,53 @@ function responsive_customizer_styles() {
 			}
 		}
 
+		// Header Search Color.
+		$transparent_header_search_icon_color       = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_search_icon_color', '' ) );
+		$transparent_header_search_icon_hover_color = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_search_icon_hover_color', '' ) );
+		$transparent_header_search_bg_color         = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_search_bg_color', '' ) );
+		$transparent_header_search_bg_hover_color   = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_search_bg_hover_color', '' ) );
+
+		if ( $transparent_header_search_icon_color ) {
+			$custom_css .= "
+				body.res-transparent-header .site-header-item .responsive-header-search-icon-wrap,
+				body.res-transparent-header .site-header-item .responsive-header-search input[type=search],
+				body.res-transparent-header .site-mobile-header-item .responsive-header-search-icon-wrap,
+				body.res-transparent-header .site-mobile-header-item .responsive-header-search input[type=search] {
+					color: {$transparent_header_search_icon_color};
+				}
+			";
+		}
+		if ( $transparent_header_search_icon_hover_color ) {
+			$custom_css .= "
+				body.res-transparent-header .site-header-item .responsive-header-search-icon-wrap:hover,
+				body.res-transparent-header .site-header-item .responsive-header-search-icon-wrap:hover input[type=search],
+				body.res-transparent-header .site-mobile-header-item .responsive-header-search-icon-wrap:hover,
+				body.res-transparent-header .site-mobile-header-item .responsive-header-search-icon-wrap:hover input[type=search] {
+					color: {$transparent_header_search_icon_hover_color};
+				}
+			";
+		}
+		if ( $transparent_header_search_bg_color ) {
+			$custom_css .= "
+				body.res-transparent-header .site-header-item .responsive-header-search-icon-wrap,
+				body.res-transparent-header .site-header-item .responsive-header-search input[type=search],
+				body.res-transparent-header .site-mobile-header-item .responsive-header-search-icon-wrap,
+				body.res-transparent-header .site-mobile-header-item .responsive-header-search input[type=search] {
+					background-color: {$transparent_header_search_bg_color};
+				}
+			";
+		}
+		if ( $transparent_header_search_bg_hover_color ) {
+			$custom_css .= "
+				body.res-transparent-header .site-header-item .responsive-header-search-icon-wrap:hover,
+				body.res-transparent-header .site-header-item .responsive-header-search-icon-wrap:hover input[type=search],
+				body.res-transparent-header .site-mobile-header-item .responsive-header-search-icon-wrap:hover,
+				body.res-transparent-header .site-mobile-header-item .responsive-header-search-icon-wrap:hover input[type=search] {
+					background-color: {$transparent_header_search_bg_hover_color};
+				}
+			";
+		}
+
 		// Row Background Colors.
 		$transparent_header_above_header_bg_color        = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_above_header_bg_color', '' ) );
 		$transparent_header_above_header_bg_color_tablet = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_above_header_bg_color_tablet', $transparent_header_above_header_bg_color ) );
