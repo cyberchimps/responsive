@@ -707,7 +707,8 @@ body.mega-menu-header-menu button.menu-toggle {
 }
 
 .site-header,.site-header-mobile {
-	.custom-logo-link.sticky-custom-logo {
+	.custom-logo-link.sticky-custom-logo,
+	.custom-logo-link.transparent-custom-logo {
 		display: none;
 	}
 
@@ -721,6 +722,17 @@ body.mega-menu-header-menu button.menu-toggle {
         }
 
     }
+}
+
+body.res-transparent-header {
+	.site-header, .site-header-mobile {
+		.custom-logo-link.transparent-custom-logo {
+			display: inline-block;
+		}
+		.custom-logo-link:not(.transparent-custom-logo):not(.sticky-custom-logo) {
+			display: none;
+		}
+	}
 }
 
 .res-search-wrapper {

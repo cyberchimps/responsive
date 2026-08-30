@@ -1156,7 +1156,7 @@ function responsive_transparent_custom_logo( $html ) {
 			}
 		}
 
-		$html = sprintf(
+		$transparent_logo_html = sprintf(
 			'<a href="%1$s" class="custom-logo-link transparent-custom-logo" rel="home" itemprop="url">%2$s</a>',
 			esc_url( get_theme_mod( 'responsive_custom_logo_url', home_url( '/' ) ) ),
 			wp_get_attachment_image(
@@ -1166,6 +1166,8 @@ function responsive_transparent_custom_logo( $html ) {
 				$image_attr
 			)
 		);
+
+		$html = $html . $transparent_logo_html;
 	}
 
 	return $html;
