@@ -55,6 +55,7 @@ if ( ! class_exists( 'Responsive_Theme_Background_Updater' ) ) {
             ),
             '6.4.3' => array (
                 'responsive_theme_background_updater_page_title_typography_6_4_3',
+                'responsive_theme_background_updater_site_content_padding_6_4_3',
             ),
 		);
 

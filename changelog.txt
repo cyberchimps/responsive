@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(31/08/2026) Version 6.4.3
+[*] = Improvement = Improved Global Controls and Post Types settings with enhanced customization options.
+
 (12/08/2026) Version 6.4.2
 [+] = New = Introducing the Post Title Area, Blog Title Area, and Page Title Area features for customizing the title areas of posts, blog/archives , and page layouts.
 [*] = Improvement = Improved mobile page performance and streamlined WooCommerce asset loading to reduce unnecessary resource usage.
