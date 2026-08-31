@@ -1723,6 +1723,14 @@ function defaults() {
 			'footer_copyright_text_hover'                         		=> '#333333',
 			'footer_copyright_links'                                    => '#0066CC',
 			'footer_copyright_links_hover'                              => '#0066CC',
+			'footer_copyright_link_style'                               => 'standard',
+			'footer_copyright_link_hover_bg'                            => 'palette0',
+			'footer_above_link_style'                                   => 'standard',
+			'footer_above_link_hover_bg'                                => 'palette0',
+			'footer_primary_link_style'                                 => 'standard',
+			'footer_primary_link_hover_bg'                              => 'palette0',
+			'footer_below_link_style'                                   => 'standard',
+			'footer_below_link_hover_bg'                                => 'palette0',
 			'footer_menu_background'                                    => '#333333',
 			'footer_menu_background_hover'                              => '#333333',
 			'responsive_footer_builder_choices'      				    => array(
@@ -3063,7 +3071,7 @@ if( ! function_exists( 'responsive_prepare_css_value' ) ) {
 
 		$value = trim( $value );
 
-		if ( is_string( $value ) && ( preg_match( '/^palette\d+$/', $value ) || false !== strpos( $value, 'headings-color' ) || false !== strpos( $value, 'site-background' ) || false !== strpos( $value, 'box-background' ) || false !== strpos( $value, 'h1-color' ) ) ) {
+		if ( is_string( $value ) && ( preg_match( '/^palette\d+$/', $value ) || false !== strpos( $value, 'headings-color' ) || false !== strpos( $value, 'site-background' ) || false !== strpos( $value, 'box-background' ) || false !== strpos( $value, 'h1-color' ) || false !== strpos( $value, 'footer-text-color' ) || false !== strpos( $value, 'footer-links-color' ) || false !== strpos( $value, 'footer-links-hover-color' ) ) ) {
 			return 'var(--responsive-global-' . $value . ')';
 		}
 

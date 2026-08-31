@@ -461,6 +461,39 @@
         );
     }
 
+    function responsive_dynamic_unit_box_margin(control, selector) {
+        var mobile_menu_breakpoint = api( 'responsive_mobile_menu_breakpoint' ).get();
+        if( 0 == api( 'responsive_disable_mobile_menu').get()) {
+            mobile_menu_breakpoint = 0;
+        }
+
+        // individual units
+        var desktopUnit = api('responsive_'+control+'_desktop_unit') ? api('responsive_'+control+'_desktop_unit').get() : 'px';
+        var tabletUnit = api('responsive_'+control+'_tablet_unit') ? api('responsive_'+control+'_tablet_unit').get() : 'px';
+        var mobileUnit = api('responsive_'+control+'_mobile_unit') ? api('responsive_'+control+'_mobile_unit').get() : 'px';
+
+        function formatMargin(t, b, l, r, unit) {
+            var css = '';
+            if (t !== '') css += 'margin-top:' + t + unit + '; ';
+            if (b !== '') css += 'margin-bottom:' + b + unit + '; ';
+            if (l !== '') css += 'margin-left:' + l + unit + '; ';
+            if (r !== '') css += 'margin-right:' + r + unit + '; ';
+            return css;
+        }
+
+        jQuery( 'style#responsive-'+control+'-margin' ).remove();
+        // mention padding instead of margin, since the control uses 'padding' field in api
+        var desktopMargin = formatMargin(api('responsive_'+control+'_top_padding').get(), api('responsive_'+control+'_bottom_padding').get(), api('responsive_'+control+'_left_padding').get(), api('responsive_'+control+'_right_padding').get(), desktopUnit, 'desktop');
+        var tabletMargin = formatMargin(api('responsive_'+control+'_tablet_top_padding').get(), api('responsive_'+control+'_tablet_bottom_padding').get(), api('responsive_'+control+'_tablet_left_padding').get(), api('responsive_'+control+'_tablet_right_padding').get(), tabletUnit, 'tablet');
+        var mobileMargin = formatMargin(api('responsive_'+control+'_mobile_top_padding').get(), api('responsive_'+control+'_mobile_bottom_padding').get(), api('responsive_'+control+'_mobile_left_padding').get(), api('responsive_'+control+'_mobile_right_padding').get(), mobileUnit, 'mobile');
+        jQuery( 'head' ).append(
+            '<style id="responsive-'+control+'-margin">'
+            + selector + '	{ ' + desktopMargin +' }'
+            + '@media (max-width: ' + mobile_menu_breakpoint +'px) {' + selector + '	{ ' + tabletMargin + ' } }'
+            + '@media (max-width: 544px) {' + selector + '	{ ' + mobileMargin + ' } }'
+            + '</style>'
+        );
+    }
 
     // Header Layout
     // Logo Padding
@@ -923,72 +956,6 @@
     api( 'responsive_footer_widgets_mobile_right_padding', function( value ) {
         value.bind( function( newval ) {
             responsive_dynamic_padding('footer_widgets', '.footer-widgets');
-        } );
-    } );
-
-    // Footer Bar Padding
-    api( 'responsive_footer_bar_top_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('footer_bar', '.footer-bar');
-        } );
-    } );
-    api( 'responsive_footer_bar_left_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('footer_bar', '.footer-bar');
-        } );
-    } );
-    api( 'responsive_footer_bar_bottom_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('footer_bar', '.footer-bar');
-        } );
-    } );
-    api( 'responsive_footer_bar_right_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('footer_bar', '.footer-bar');
-        } );
-    } );
-
-    // Footer Bar Tablet Padding
-    api( 'responsive_footer_bar_tablet_top_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('footer_bar', '.footer-bar');
-        } );
-    } );
-    api( 'responsive_footer_bar_tablet_left_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('footer_bar', '.footer-bar');
-        } );
-    } );
-    api( 'responsive_footer_bar_tablet_bottom_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('footer_bar', '.footer-bar');
-        } );
-    } );
-    api( 'responsive_footer_bar_tablet_right_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('footer_bar', '.footer-bar');
-        } );
-    } );
-
-    // Footer Bar Mobile Padding
-    api( 'responsive_footer_bar_mobile_top_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('footer_bar', '.footer-bar');
-        } );
-    } );
-    api( 'responsive_footer_bar_mobile_left_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('footer_bar', '.footer-bar');
-        } );
-    } );
-    api( 'responsive_footer_bar_mobile_bottom_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('footer_bar', '.footer-bar');
-        } );
-    } );
-    api( 'responsive_footer_bar_mobile_right_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('footer_bar', '.footer-bar');
         } );
     } );
 
@@ -2196,21 +2163,6 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
         });
     });
 
-    // copyright padding
-    suffixes.forEach(function (suffix) {
-        // Bind padding changes
-        responsive_bind_copyright_padding_changes(suffix, responsive_dynamic_padding);
-    });
-
-    function responsive_bind_copyright_padding_changes( suffix, callback) {
-        const setting_id = `responsive_footer_copyright_${suffix}`;
-        wp.customize(setting_id, function (value) {
-            value.bind(function () {
-                callback(`footer_copyright`, '.footer-layouts.copyright');
-            });
-        });
-    }
-
     // footer_menu padding
     suffixes.forEach(function (suffix) {
         // Bind padding changes
@@ -2792,6 +2744,62 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
                     'page_inside_container',
                     '.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry'
                 );
+            });
+        });
+    });
+
+    // Footer Copyright Margin
+    const footerCopyrightMarginSettings = [
+        'responsive_footer_copyright_margin_top_padding',
+        'responsive_footer_copyright_margin_right_padding',
+        'responsive_footer_copyright_margin_bottom_padding',
+        'responsive_footer_copyright_margin_left_padding',
+        'responsive_footer_copyright_margin_tablet_top_padding',
+        'responsive_footer_copyright_margin_tablet_right_padding',
+        'responsive_footer_copyright_margin_tablet_bottom_padding',
+        'responsive_footer_copyright_margin_tablet_left_padding',
+        'responsive_footer_copyright_margin_mobile_top_padding',
+        'responsive_footer_copyright_margin_mobile_right_padding',
+        'responsive_footer_copyright_margin_mobile_bottom_padding',
+        'responsive_footer_copyright_margin_mobile_left_padding',
+        'responsive_footer_copyright_margin_desktop_unit',
+        'responsive_footer_copyright_margin_tablet_unit',
+        'responsive_footer_copyright_margin_mobile_unit'
+    ];
+
+    footerCopyrightMarginSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_unit_box_margin(
+                    'footer_copyright_margin',
+                    '.footer-layouts.copyright'
+                );
+            });
+        });
+    });
+
+    const footerPaddingSettings = [
+        'responsive_footer_bar_top_padding',
+        'responsive_footer_bar_left_padding',
+        'responsive_footer_bar_bottom_padding',
+        'responsive_footer_bar_right_padding',
+        'responsive_footer_bar_tablet_top_padding',
+        'responsive_footer_bar_tablet_right_padding',
+        'responsive_footer_bar_tablet_bottom_padding',
+        'responsive_footer_bar_tablet_left_padding',
+        'responsive_footer_bar_mobile_top_padding',
+        'responsive_footer_bar_mobile_right_padding',
+        'responsive_footer_bar_mobile_bottom_padding',
+        'responsive_footer_bar_mobile_left_padding',
+        'responsive_footer_bar_desktop_unit',
+        'responsive_footer_bar_tablet_unit',
+        'responsive_footer_bar_mobile_unit'
+    ];
+
+    footerPaddingSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_unit_padding('footer_bar', '.footer-bar');
             });
         });
     });

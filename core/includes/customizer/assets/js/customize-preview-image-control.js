@@ -126,6 +126,35 @@
 	    } );
 	} );
 
+	// footer background properties
+	api( 'responsive_footer_bg_left', function( value ) {
+		value.bind( function( newval ) {
+			var top = api('responsive_footer_bg_top').get() || 0;
+			$('body:not(.res-transparent-footer) .site-footer').css('background-position', newval + '% ' + top + '%');
+		} );
+	} );
+	api( 'responsive_footer_bg_top', function( value ) {
+		value.bind( function( newval ) {
+			var left = api('responsive_footer_bg_left').get() || 0;
+			$('body:not(.res-transparent-footer) .site-footer').css('background-position', left + '% ' + newval + '%');
+		} );
+	} );
+	api( 'responsive_footer_bg_repeat', function( value ) {
+		value.bind( function( newval ) {
+			$('body:not(.res-transparent-footer) .site-footer').css('background-repeat', newval);
+		} );
+	} );
+	api( 'responsive_footer_bg_size', function( value ) {
+		value.bind( function( newval ) {
+			$('body:not(.res-transparent-footer) .site-footer').css('background-size', newval);
+		} );
+	} );
+	api( 'responsive_footer_bg_attachment', function( value ) {
+		value.bind( function( newval ) {
+			$('body:not(.res-transparent-footer) .site-footer').css('background-attachment', newval);
+		} );
+	} );
+
 	//Site Colors
 	//ox Background Toggle
 	api( 'responsive_box_background_image_toggle', function( value ) {

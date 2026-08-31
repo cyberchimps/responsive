@@ -7,6 +7,55 @@
     var mobile_menu_breakpoint;
     var disable_mobile_menu_flag;
 
+    /**
+     * Generic preview binder for "drag number with unit switcher" controls,
+     * with responsive (desktop/tablet/mobile) variants.
+     *
+     * @param {string}   settingBase  Base setting name, e.g. 'responsive_footer_menu_item_horizontal_spacing'
+     *                                (expects _tablet, _mobile, and _unit, _tablet_unit, _mobile_unit variants to exist)
+     * @param {string}   styleIdBase  Base id used for the injected <style> tag, e.g. 'responsive-footer-menu-item-horizontal-spacing'
+     * @param {function} cssCallback  function( value, unit, device ) → returns CSS rule string (selector + properties)
+     *                                device is '', 'tablet', or 'mobile'
+     */
+    function responsiveDragControlWithDeviceAndUnits( settingBase, styleIdBase, cssCallback ) {
+
+        var devices = [
+            { suffix: '',        key: '',        media: null },
+            { suffix: '_tablet', key: 'tablet',  media: 'max-width: 992px' },
+            { suffix: '_mobile', key: 'mobile',  media: 'max-width: 576px' }
+        ];
+
+        devices.forEach( function( device ) {
+
+            var valueControlId = settingBase + device.suffix;
+            var unitControlId  = settingBase + device.suffix + '_unit';
+            var styleId         = styleIdBase + ( device.suffix ? device.suffix.replace( '_', '-' ) : '' );
+
+            function updateCSS() {
+                var value = api( valueControlId )();
+                var unit  = api( unitControlId )();
+                var css   = cssCallback( value, unit, device.key );
+
+                jQuery( 'style#' + styleId ).remove();
+
+                var styleContent = device.media
+                    ? '@media screen and (' + device.media + ') { ' + css + ' }'
+                    : css;
+
+                jQuery( 'head' ).append(
+                    '<style id="' + styleId + '">' + styleContent + '</style>'
+                );
+            }
+
+            api( valueControlId, function( value ) {
+                value.bind( updateCSS );
+            } );
+            api( unitControlId, function( value ) {
+                value.bind( updateCSS );
+            } );
+        } );
+    }
+
     //Theme Options Layout
     //Box Radius
     api( 'responsive_container_width', function( value ) {
@@ -1301,39 +1350,7 @@
             );
         });
     });
-    api( 'responsive_footer_primary_row_top_border_size', function(value){
-        value.bind(function(newval) {
-            jQuery('style#responsive-footer-primary-row-top-border-size').remove();
-            jQuery('head').append(
-                '<style id="responsive-footer-primary-row-top-border-size">'
-                + '@media screen and (min-width: 993px) {'
-                + '.rspv-site-primary-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_primary_row_border_color').get() + '; }'
-                + '} </style>'
-            );
-        });
-    });
-    api( 'responsive_footer_primary_row_top_border_size_tablet', function(value){
-        value.bind(function(newval) {
-            jQuery('style#responsive-footer-primary-row-top-border-size-tablet').remove();
-            jQuery('head').append(
-                '<style id="responsive-footer-primary-row-top-border-size-tablet">'
-                + '@media screen and (min-width: 577px) and (max-width: 992px) {'
-                + '.rspv-site-primary-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_primary_row_border_color_tablet').get() + '; }'
-                + '} </style>'
-            );
-        });
-    });
-    api( 'responsive_footer_primary_row_top_border_size_mobile', function(value){
-        value.bind(function(newval) {
-            jQuery('style#responsive-footer-primary-row-top-border-size-mobile').remove();
-            jQuery('head').append(
-                '<style id="responsive-footer-primary-row-top-border-size-mobile">'
-                + '@media screen and (max-width: 576px) {'
-                + '.rspv-site-primary-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_primary_row_border_color_mobile').get() + '; }'
-                + '} </style>'
-            );
-        });
-    });
+
     // Above footer
     api('responsive_footer_above_height', function(value) {
         value.bind(function(newval) {
@@ -1397,39 +1414,7 @@
             );
         });
     });
-    api( 'responsive_footer_above_row_top_border_size', function(value){
-        value.bind(function(newval) {
-            jQuery('style#responsive-footer-above-row-top-border-size').remove();
-            jQuery('head').append(
-                '<style id="responsive-footer-above-row-top-border-size">'
-                + '@media screen and (min-width: 993px) {'
-                + '.rspv-site-above-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_above_row_border_color').get() + '; }'
-                + '} </style>'
-            );
-        });
-    });
-    api( 'responsive_footer_above_row_top_border_size_tablet', function(value){
-        value.bind(function(newval) {
-            jQuery('style#responsive-footer-above-row-top-border-size-tablet').remove();
-            jQuery('head').append(
-                '<style id="responsive-footer-above-row-top-border-size-tablet">'
-                + '@media screen and (min-width: 577px) and (max-width: 992px) {'
-                + '.rspv-site-above-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_above_row_border_color_tablet').get() + '; }'
-                + '} </style>'
-            );
-        });
-    });
-    api( 'responsive_footer_above_row_top_border_size_mobile', function(value){
-        value.bind(function(newval) {
-            jQuery('style#responsive-footer-above-row-top-border-size-mobile').remove();
-            jQuery('head').append(
-                '<style id="responsive-footer-above-row-top-border-size-mobile">'
-                + '@media screen and (max-width: 576px) {'
-                + '.rspv-site-above-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_above_row_border_color_mobile').get() + '; }'
-                + '} </style>'
-            );
-        });
-    });
+
     // Below footer
     api('responsive_footer_below_height', function(value) {
         value.bind(function(newval) {
@@ -1493,39 +1478,7 @@
             );
         });
     });
-    api( 'responsive_footer_below_row_top_border_size', function(value){
-        value.bind(function(newval) {
-            jQuery('style#responsive-footer-below-row-top-border-size').remove();
-            jQuery('head').append(
-                '<style id="responsive-footer-below-row-top-border-size">'
-                + '@media screen and (min-width: 993px) {'
-                + '.rspv-site-below-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_below_row_border_color').get() + '; }'
-                + '} </style>'
-            );
-        });
-    });
-    api( 'responsive_footer_below_row_top_border_size_tablet', function(value){
-        value.bind(function(newval) {
-            jQuery('style#responsive-footer-below-row-top-border-size-tablet').remove();
-            jQuery('head').append(
-                '<style id="responsive-footer-below-row-top-border-size-tablet">'
-                + '@media screen and (min-width: 577px) and (max-width: 992px) {'
-                + '.rspv-site-below-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_below_row_border_color_tablet').get() + '; }'
-                + '} </style>'
-            );
-        });
-    });
-    api( 'responsive_footer_below_row_top_border_size_mobile', function(value){
-        value.bind(function(newval) {
-            jQuery('style#responsive-footer-below-row-top-border-size-mobile').remove();
-            jQuery('head').append(
-                '<style id="responsive-footer-below-row-top-border-size-mobile">'
-                + '@media screen and (max-width: 576px) {'
-                + '.rspv-site-below-footer-wrap { border-top: ' + newval + 'px solid ' + api('responsive_footer_below_row_border_color_mobile').get() + '; }'
-                + '} </style>'
-            );
-        });
-    });
+
     api( 'responsive_header_button_border_width', function(value) {
         value.bind(function(newval) {
             let header_button_border_style = api('responsive_header_button_border_style').get();
@@ -1957,6 +1910,29 @@
         value.bind(updateSidebarStickyCss);
     });
 
+    responsiveDragControlWithDeviceAndUnits(
+        'responsive_footer_menu_item_horizontal_spacing',
+        'responsive-footer-menu-item-horizontal-spacing',
+        function( value, unit, device ) {
+            var important = device ? ' !important' : '';
+            return '.footer-navigation #footer-menu ul > li > a { '
+                + 'padding-left: calc( ' + value + unit + ' / 2)' + important + '; '
+                + 'padding-right: calc( ' + value + unit + ' / 2)' + important + '; '
+                + '}';
+        }
+    );
+
+    responsiveDragControlWithDeviceAndUnits(
+        'responsive_footer_menu_item_top_bottom_spacing',
+        'responsive-footer-menu-item-top-bottom-spacing',
+        function( value, unit, device ) {
+            var important = device ? ' !important' : '';
+            return '.footer-navigation #footer-menu ul > li > a { '
+                + 'padding-top: calc( ' + value + unit + ' / 2)' + important + '; '
+                + 'padding-bottom: calc( ' + value + unit + ' / 2)' + important + '; '
+                + '}';
+        }
+    );
 
     api( 'responsive_page_content_top_bottom_spacing', function( value ) {
         value.bind( function( newval ) {
@@ -1989,6 +1965,65 @@
             );
         } );
     } );
+    function updateFooterMarginCss() {
+        jQuery('style#responsive-footer-margin-css').remove();
+
+        var unit = api('responsive_footer_margin_desktop_unit') ? api('responsive_footer_margin_desktop_unit').get() : 'px';
+        var top = api('responsive_footer_margin_top_padding') ? api('responsive_footer_margin_top_padding').get() : '';
+        var right = api('responsive_footer_margin_right_padding') ? api('responsive_footer_margin_right_padding').get() : '';
+        var bottom = api('responsive_footer_margin_bottom_padding') ? api('responsive_footer_margin_bottom_padding').get() : '';
+        var left = api('responsive_footer_margin_left_padding') ? api('responsive_footer_margin_left_padding').get() : '';
+
+        var unit_tablet = api('responsive_footer_margin_tablet_unit') ? api('responsive_footer_margin_tablet_unit').get() : 'px';
+        var tablet_top = api('responsive_footer_margin_tablet_top_padding') ? api('responsive_footer_margin_tablet_top_padding').get() : '';
+        var tablet_right = api('responsive_footer_margin_tablet_right_padding') ? api('responsive_footer_margin_tablet_right_padding').get() : '';
+        var tablet_bottom = api('responsive_footer_margin_tablet_bottom_padding') ? api('responsive_footer_margin_tablet_bottom_padding').get() : '';
+        var tablet_left = api('responsive_footer_margin_tablet_left_padding') ? api('responsive_footer_margin_tablet_left_padding').get() : '';
+
+        var unit_mobile = api('responsive_footer_margin_mobile_unit') ? api('responsive_footer_margin_mobile_unit').get() : 'px';
+        var mobile_top = api('responsive_footer_margin_mobile_top_padding') ? api('responsive_footer_margin_mobile_top_padding').get() : '';
+        var mobile_right = api('responsive_footer_margin_mobile_right_padding') ? api('responsive_footer_margin_mobile_right_padding').get() : '';
+        var mobile_bottom = api('responsive_footer_margin_mobile_bottom_padding') ? api('responsive_footer_margin_mobile_bottom_padding').get() : '';
+        var mobile_left = api('responsive_footer_margin_mobile_left_padding') ? api('responsive_footer_margin_mobile_left_padding').get() : '';
+
+        var selectors = '#footer';
+        var css = '';
+        
+        if (top !== '' || right !== '' || bottom !== '' || left !== '') {
+            css += selectors + ' { margin: ' + (top !== '' ? top + unit : '0' + unit) + ' ' + (right !== '' ? right + unit : '0' + unit) + ' ' + (bottom !== '' ? bottom + unit : '0' + unit) + ' ' + (left !== '' ? left + unit : '0' + unit) + '; }';
+        }
+
+        if (tablet_top !== '' || tablet_right !== '' || tablet_bottom !== '' || tablet_left !== '') {
+            css += '@media screen and (max-width: 992px) { ' + selectors + ' { margin: ' + (tablet_top !== '' ? tablet_top + unit_tablet : '0' + unit_tablet) + ' ' + (tablet_right !== '' ? tablet_right + unit_tablet : '0' + unit_tablet) + ' ' + (tablet_bottom !== '' ? tablet_bottom + unit_tablet : '0' + unit_tablet) + ' ' + (tablet_left !== '' ? tablet_left + unit_tablet : '0' + unit_tablet) + '; } }';
+        }
+        
+        if (mobile_top !== '' || mobile_right !== '' || mobile_bottom !== '' || mobile_left !== '') {
+            css += '@media screen and (max-width: 576px) { ' + selectors + ' { margin: ' + (mobile_top !== '' ? mobile_top + unit_mobile : '0' + unit_mobile) + ' ' + (mobile_right !== '' ? mobile_right + unit_mobile : '0' + unit_mobile) + ' ' + (mobile_bottom !== '' ? mobile_bottom + unit_mobile : '0' + unit_mobile) + ' ' + (mobile_left !== '' ? mobile_left + unit_mobile : '0' + unit_mobile) + '; } }';
+        }
+        jQuery('head').append('<style id="responsive-footer-margin-css">' + css + '</style>');
+    }
+
+    [
+        'responsive_footer_margin_top_padding',
+        'responsive_footer_margin_right_padding',
+        'responsive_footer_margin_bottom_padding',
+        'responsive_footer_margin_left_padding',
+        'responsive_footer_margin_tablet_top_padding',
+        'responsive_footer_margin_tablet_right_padding',
+        'responsive_footer_margin_tablet_bottom_padding',
+        'responsive_footer_margin_tablet_left_padding',
+        'responsive_footer_margin_mobile_top_padding',
+        'responsive_footer_margin_mobile_right_padding',
+        'responsive_footer_margin_mobile_bottom_padding',
+        'responsive_footer_margin_mobile_left_padding',
+        'responsive_footer_margin_desktop_unit',
+        'responsive_footer_margin_tablet_unit',
+        'responsive_footer_margin_mobile_unit'
+    ].forEach(function(settingId) {
+        api(settingId, function(value) {
+            value.bind(updateFooterMarginCss);
+        });
+    });
 
     function updateSubMenuBorderRadiusCss() {
         jQuery('style#responsive-sub-menu-border-radius-css').remove();

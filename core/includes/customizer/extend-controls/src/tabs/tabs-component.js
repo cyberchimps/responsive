@@ -647,6 +647,32 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_mobile_header_button_border_color').style.display = 'none';
 		}
 
+		// Hide background image controls if disabled
+		const toggleFooterBgControls = () => {
+			const isBgImgEnabled = api('responsive_footer_background_image_toggle') ? api('responsive_footer_background_image_toggle').get() : false;
+			const display = (isBgImgEnabled && 'design' === tab) ? 'block' : 'none';
+			const elements = [
+				'customize-control-responsive_footer_bg_left',
+				'customize-control-responsive_footer_bg_top',
+				'customize-control-responsive_footer_bg_repeat',
+				'customize-control-responsive_footer_bg_size',
+				'customize-control-responsive_footer_bg_attachment'
+			];
+			elements.forEach(id => {
+				let el = document.getElementById(id);
+				if (el) el.style.display = display;
+			});
+		};
+		toggleFooterBgControls();
+
+		if (api('responsive_footer_background_image_toggle')) {
+			api('responsive_footer_background_image_toggle', function( value ) {
+				value.bind( function( newval ) {
+					toggleFooterBgControls();
+				});
+			});
+		}
+
 		// Sidebar Divider Style Controls
 		if( api('responsive_sidebar_border_divider_style') ) {
 			toggleSidebarDividerStyleControls( api('responsive_sidebar_border_divider_style').get() );
