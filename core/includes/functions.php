@@ -633,6 +633,7 @@ function responsive_add_custom_body_classes( $classes ) {
 
 	$classes[] = 'responsive-site-' . get_theme_mod( 'responsive_width', 'contained' );
 	$classes[] = 'link-style-' . get_theme_mod( 'responsive_link_style', get_responsive_customizer_defaults( 'responsive_link_style' ) );
+	$classes[] = 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' );
 
 	if ( is_page() ) {
 		$page_container_style = get_theme_mod( 'responsive_page_container_style', 'default' );
@@ -641,8 +642,6 @@ function responsive_add_custom_body_classes( $classes ) {
 			$classes[]  = 'responsive-site-style-' . $page_container_style;
 		}
 
-	} else {
-		$classes[] = 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' );
 	}
 
 	// Blog / Archive Container Style override (Blog / Archive > Container Style).
