@@ -80,34 +80,6 @@ if ( ! function_exists( 'responsive_js' ) ) {
 }
 
 /**
- * Function for team section options
- *
- * @deprecated use Responsive\Core\responsive_team_add_meta_box() instead
- */
-function responsive_team_add_meta_box() {
-	Responsive\Core\responsive_team_add_meta_box();
-}
-
-/**
- * Function for team meta box
- *
- * @deprecated use Responsive\Core\responsive_team_meta_box_cb() instead
- */
-function responsive_team_meta_box_cb() {
-	Responsive\Core\responsive_team_meta_box_cb();
-}
-
-/**
- * Save team member meta data
- *
- * @deprecated use Responsive\Core\responsive_team_meta_box_save() instead
- * @param int $post_id Post id.
- */
-function responsive_team_meta_box_save( $post_id ) {
-	Responsive\Core\responsive_team_meta_box_save( $post_id );
-}
-
-/**
  * A comment reply.
  *
  * @deprecated use Responsive\Core\responsive_enqueue_comment_reply() instead

@@ -66,7 +66,10 @@ const ContactInfoComponent = (props) => {
         }
     ];
 
-    const [selectedOptions, setSelectedOptions] = useState(props.control.setting.get() ? props.control.setting.get() : props.control.params.default);
+    const [selectedOptions, setSelectedOptions] = useState(() => {
+        const currentValue = props.control.setting.get();
+        return (currentValue && currentValue.length > 0) ? currentValue : props.control.params.default;
+    });
 
     const [open, setOpen] = useState(false);
 

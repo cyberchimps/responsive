@@ -10,9 +10,6 @@
     document.addEventListener("DOMContentLoaded", function () {
 
         const containers    = document.getElementsByClassName("responsive-header-search");
-        const search_link   = document.getElementById("res-search-link");
-        const search_style  = document.getElementById("full-screen-res-search-link");
-        const search_close  = document.getElementById("search-close");
         const searchSubmits = document.querySelectorAll('.search-submit');
 
         // Debounce function for the live search functionality.
@@ -24,34 +21,39 @@
             };
         }
 
-        if (search_link && containers.length > 0) {
-            let sibling;
-        
-            search_link.addEventListener("click", function () {
-                sibling = this.parentNode.querySelector(".search-type-responsive-slide");
-                if (sibling) {    
-                    Array.from(containers).forEach((container) => {
-                        let search_form = container.querySelector("#searchform");
+        // Handle slide search for each container
+        Array.from(containers).forEach(function(container) {
+            const search_link = container.querySelector('.res-search-link[data-search-link]');
+            
+            if (search_link) {
+                const sibling = container.querySelector(".search-type-responsive-slide");
+                
+                if (sibling) {
+                    search_link.addEventListener("click", function () {
+                        const search_form = container.querySelector("#searchform");
                         if (search_form) {
                             sibling.classList.add("search-active");
                             setTimeout(() => {
-                                search_form.querySelector("input[type='search']").focus();
+                                const search_input = search_form.querySelector("input[type='search']");
+                                if (search_input) {
+                                    search_input.focus();
+                                }
                             }, 50);
                         }
                     });
+                    
+                    // Hide search form if clicking outside this container
+                    document.addEventListener("click", function (event) {
+                        if (!container.contains(event.target)) {
+                            const search_form = container.querySelector("#searchform");
+                            if (search_form && sibling.classList.contains('search-active')) {
+                                sibling.classList.remove('search-active');
+                            }
+                        }
+                    });
                 }
-            });
-        
-            // Hide search form if clicking outside
-            document.addEventListener("click", function (event) {
-                Array.from(containers).forEach(function (container) {
-                    let search_form = container.querySelector("#searchform");
-                    if (search_form && sibling && !container.contains(event.target)) {
-                        sibling.classList.remove('search-active');
-                    }
-                });
-            });
-        }       
+            }
+        });       
 
         searchSubmits.forEach(searchSubmit => {
             searchSubmit.addEventListener('click', function(event) {
@@ -183,31 +185,52 @@
         }
         
     
-        if (search_style && containers.length > 0) {
-            let search_style_form = document.getElementById("full-screen-search-wrapper");
-            if (search_style_form) {
-                search_style.onclick = function () {
-                    search_style_form.style.display = "block";
-                    search_style_form.style.position = "fixed";
-                    Array.from(containers).forEach(function (container) {
-                        let search_form = container.getElementsByTagName("form")[0];
+        // Handle full-screen search for each container
+        Array.from(containers).forEach(function(container) {
+            const search_style_link = container.querySelector('.full-screen-res-search-link[data-search-link]');
+            const unique_id = search_style_link ? search_style_link.getAttribute('data-search-link') : null;
+            
+            if (search_style_link && unique_id) {
+                // Find the full-screen wrapper - it's in the container but may be positioned fixed
+                const search_style_form = container.querySelector(`[data-fullscreen-wrapper="${unique_id}"]`) || document.querySelector(`[data-fullscreen-wrapper="${unique_id}"]`);
+                // Find the close button - search in container first, then document
+                const search_close_btn = container.querySelector(`[data-search-close="${unique_id}"]`) || document.querySelector(`[data-search-close="${unique_id}"]`);
+                
+                if (search_style_form) {
+                    search_style_link.addEventListener("click", function () {
+                        search_style_form.style.display = "block";
+                        search_style_form.style.position = "fixed";
+                        const search_form = search_style_form.querySelector("form");
                         if (search_form) {
                             search_form.style.display = "block";
-                            search_form.querySelector("input[type='search']").focus();
+                            const search_input = search_form.querySelector("input[type='search']");
+                            if (search_input) {
+                                search_input.focus();
+                            }
                         }
                     });
-                };
-            }
-        }
-    
-        if (search_close) {
-            search_close.onclick = function () {
-                let search_style_form = document.getElementById("full-screen-search-wrapper");
-                if (search_style_form) {
-                    search_style_form.style.display = "none";
                 }
-            };
-        }
+                
+                // Handle close button for this specific full-screen search
+                // Use document-level listener since button might be positioned outside container
+                if (search_close_btn && search_style_form) {
+                    search_close_btn.addEventListener("click", function (e) {
+                        e.preventDefault();
+                        search_style_form.style.display = "none";
+                    });
+                    
+                    // Close full-screen search when clicking outside the wrapper
+                    document.addEventListener("click", function(event) {
+                        if (search_style_form.style.display === "block" && 
+                            !search_style_form.contains(event.target) && 
+                            event.target !== search_style_link &&
+                            !search_style_link.contains(event.target)) {
+                            search_style_form.style.display = "none";
+                        }
+                    });
+                }
+            }
+        });
 
         function buildApiUrl(path, params) {
             // If root already has a "?" (plain permalinks), append with &

@@ -5,6 +5,8 @@
  * @package Responsive WordPress theme
  */
 
+use function Responsive\Core\get_responsive_customizer_defaults;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -36,7 +38,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Colors_Customizer' ) ) :
 
 			// Rating Color.
 			$product_rating_color_label = __( 'Rating Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'shop_product_rating', $product_rating_color_label, 'responsive_woocommerce_shop', 10, '#0066CC' );
+			responsive_color_control( $wp_customize, 'shop_product_rating', $product_rating_color_label, 'responsive_woocommerce_shop', 10, get_responsive_customizer_defaults( 'responsive_shop_product_rating_color' ) );
 
 			// Price Color.
 			$shop_product_price_label = __( 'Price Color', 'responsive' );
@@ -52,15 +54,15 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Colors_Customizer' ) ) :
 
 			// Button Text.
 			$add_to_cart_button_text_label = __( 'Button Text', 'responsive' );
-			responsive_color_control( $wp_customize, 'add_to_cart_button_text', $add_to_cart_button_text_label, 'responsive_woocommerce_shop', 50, '#ffffff' );
+			responsive_color_control( $wp_customize, 'add_to_cart_button_text', $add_to_cart_button_text_label, 'responsive_woocommerce_shop', 50, get_responsive_customizer_defaults('responsive_add_to_cart_button_text_color') );
 
 			// Button Hover.
 			$add_to_cart_button_hover_label = __( 'Button Hover', 'responsive' );
-			responsive_color_control( $wp_customize, 'add_to_cart_button_hover', $add_to_cart_button_hover_label, 'responsive_woocommerce_shop', 60, '#10659C' );
+			responsive_color_control( $wp_customize, 'add_to_cart_button_hover', $add_to_cart_button_hover_label, 'responsive_woocommerce_shop', 60, Responsive\Core\get_responsive_customizer_defaults( 'responsive_add_to_cart_button_hover_color' ) );
 
 			// Button Hover Text.
 			$add_to_cart_button_hover_text_label = __( 'Button Hover Text', 'responsive' );
-			responsive_color_control( $wp_customize, 'add_to_cart_button_hover_text', $add_to_cart_button_hover_text_label, 'responsive_woocommerce_shop', 70, '#ffffff' );
+			responsive_color_control( $wp_customize, 'add_to_cart_button_hover_text', $add_to_cart_button_hover_text_label, 'responsive_woocommerce_shop', 70, get_responsive_customizer_defaults('responsive_add_to_cart_button_hover_text_color') );
 
 			// Product Sorting.
 			$shop_product_sorting_separator = esc_html__( 'Product Sorting', 'responsive' );

@@ -20,10 +20,11 @@
     //Meta Separator
     api( 'responsive_blog_entry_meta_separator_text', function( value ) {
         value.bind( function( newval ) {
+            var separator = ( 'none' === newval.toLowerCase() ) ? '' : newval;
             jQuery( 'style#responsive-blog-meta-seperator-content' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-blog-meta-seperator-content">'
-                + '.search .hentry .post-meta > span::after,.archive .hentry .post-meta > span::after,.blog .hentry .post-meta > span::after { content:"' + newval +'" }'
+                + '.search .hentry .post-meta > span:not(:last-child)::after,.archive .hentry .post-meta > span:not(:last-child)::after,.blog .hentry .post-meta > span:not(:last-child)::after { content:"' + separator +'" }'
                 + '</style>'
             );
         } );
@@ -32,10 +33,11 @@
     //Meta Separator
     api( 'responsive_single_blog_meta_separator_text', function( value ) {
         value.bind( function( newval ) {
+            var separator = ( 'none' === newval.toLowerCase() ) ? '' : newval;
             jQuery( 'style#responsive-single-blog-meta-seperator-content' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-single-blog-meta-seperator-content">'
-                + '.single .hentry .post-meta > span::after { content:"' + newval +'" }'
+                + '.single .hentry .post-meta > span:not(:last-child)::after, .single .responsive-blog-single-banner2 .post-meta > span:not(:last-child)::after { content:"' + separator +'" }'
                 + '</style>'
             );
         } );
@@ -45,10 +47,21 @@
             jQuery('.site-header .site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap a.responsive-header-button').text(newval);
         } );
     } );
+    api('responsive_mobile_header_button_label', function( value ) {
+        value.bind( function( newval ) {
+            jQuery( '.site-mobile-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap a.responsive-header-button').text(newval);
+        })
+    } );
+
     api( 'responsive_header_button_url', function( value ) {
         value.bind( function( newval ) {
             jQuery('.site-header .site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap a.responsive-header-button').prop('href', newval);
         } );
+    } );
+    api('responsive_mobile_header_button_url', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('.site-mobile-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap a.responsive-header-button').prop('href', newval);
+        })
     } );
 
     

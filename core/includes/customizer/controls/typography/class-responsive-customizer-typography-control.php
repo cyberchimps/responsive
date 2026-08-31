@@ -92,7 +92,7 @@ if ( ! class_exists( 'Responsive_Customizer_Typography_Control' ) ) :
 			if ( ! class_exists( 'Tribe__Events__Main' ) ) {
 				wp_enqueue_script( 'responsive-select2', RESPONSIVE_THEME_URI . 'core/includes/customizer/controls/select2.min.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
 				wp_enqueue_style( 'select2', RESPONSIVE_THEME_URI . 'core/includes/customizer/controls/select2.min.css', RESPONSIVE_THEME_VERSION, true );
-				wp_enqueue_script( 'responsive-typography-js', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/typography.min.js', array( 'jquery', 'select2' ), RESPONSIVE_THEME_VERSION, true );
+				wp_enqueue_script( 'responsive-typography-js', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/typography.min.js', array( 'jquery', 'responsive-select2' ), RESPONSIVE_THEME_VERSION, true );
 			}
 			wp_enqueue_style( 'responsive-typography', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/typography.min.css', RESPONSIVE_THEME_VERSION, true );
 
@@ -115,12 +115,12 @@ if ( ! class_exists( 'Responsive_Customizer_Typography_Control' ) ) :
 		 */
 		public function get_custom_fonts() {
 			if ( class_exists( 'Responsive_Addons_Pro' ) ) {
-				return Responsive_Pro_Custom_Fonts_Taxonomy::get_fonts();
+				return ResponsivePRO_Custom_Fonts_Taxonomy::get_fonts();
 			}
-			if ( class_exists( 'Responsive_Add_Ons' ) 
+			if (  class_exists( 'ResponsivePRO' ) 
 			&& 'on' === get_option( 'rplus_custom_fonts_enable' ) 
-			&& class_exists( 'Responsive_Add_Ons_Custom_Fonts_Taxonomy' ) ) {
-				return Responsive_Add_Ons_Custom_Fonts_Taxonomy::get_fonts();
+			&& class_exists( 'ResponsivePRO_Custom_Fonts_Taxonomy' ) ) {
+				return ResponsivePRO_Custom_Fonts_Taxonomy::get_fonts();
 			}
 			return null;
 		}

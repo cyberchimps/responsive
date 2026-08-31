@@ -75,7 +75,7 @@ class ColorPickerControlWithDevices extends Component {
 					this.setState( { isVisible: false } );
 				}
 				const currentElementID = this.state.inputattr.content.match(/id="([^"]*)"/)[1];
-				document.getElementById(currentElementID).style.paddingBottom ='0';
+				document.getElementById(currentElementID).style.paddingBottom ='';
 			}
 		};
 		let finalpaletteColors = [];
@@ -102,22 +102,44 @@ class ColorPickerControlWithDevices extends Component {
 	            htmlLink = splited_values[1].replace(/"/g, "");
 	        }
 	    }
+		const getColorPreviewValue = (value, wantRawValue = false) => {
+			if ( value && ( value.startsWith('palette') || value.includes('headings-color') || value.startsWith('title-above-content') ) ) {
+				const varName = value.startsWith('title-above-content') ? `--responsive-${value}` : `--responsive-global-${value}`;
+				if (wantRawValue) {
+					return getComputedStyle(document.documentElement)
+						.getPropertyValue(varName)
+						.trim();
+				}
+				return `var(${varName})`;
+			}
+			return value;
+		};
+
 		return (
 			<>
 				
 				<div className="wp-picker-container">
-					
-					<Button className={ isVisible ? 'button wp-color-result wp-picker-open' : 'button wp-color-result ' } onClick={ () => { isVisible ? toggleClose() : toggleVisible() } }
-						aria-expanded='false' style={{backgroundColor:this.props.color}}
-					>
-					</Button>
+					{this.props.swatchTitle ? (
+						<div className="tooltip-container">
+							<Button className={ isVisible ? 'button wp-color-result wp-picker-open' : 'button wp-color-result ' } onClick={ () => { isVisible ? toggleClose() : toggleVisible() } }
+								aria-expanded='false' style={{backgroundColor: getColorPreviewValue(this.props.color)}}
+							>
+							</Button>
+							<span className="tooltip-text">{this.props.swatchTitle}</span>
+						</div>
+					) : (
+						<Button className={ isVisible ? 'button wp-color-result wp-picker-open' : 'button wp-color-result ' } onClick={ () => { isVisible ? toggleClose() : toggleVisible() } }
+							aria-expanded='false' style={{backgroundColor: getColorPreviewValue(this.props.color)}}
+						>
+						</Button>
+					)}
 					<div className="wp-picker-holder">
 						{ isVisible && (
 							<>	
 									{ refresh && (
 										<>
 											<ColorPicker
-												color={ this.props.color }
+												color={ getColorPreviewValue(this.props.color, true) }
 												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 											/>
 										</>
@@ -125,7 +147,7 @@ class ColorPickerControlWithDevices extends Component {
 									{ ! refresh &&  (
 										<>
 											<ColorPicker
-												color={ this.props.color }
+												color={ getColorPreviewValue(this.props.color, true) }
 												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 											/>
 
@@ -207,7 +229,8 @@ ColorPickerControlWithDevices.propTypes = {
 	onChangeComplete: PropTypes.func,
 	onPaletteChangeComplete: PropTypes.func,
 	onChange: PropTypes.func,
-	customizer: PropTypes.object
+	customizer: PropTypes.object,
+	swatchTitle: PropTypes.string
 };
 
 export default ColorPickerControlWithDevices;

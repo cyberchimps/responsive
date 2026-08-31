@@ -122,10 +122,23 @@ class ResponsiveColorPickerControl extends Component {
 			color
 		} = this.state;
 
+		const getColorPreviewValue = (value, wantRawValue = false) => {
+			if ( value && ( value.startsWith('palette') || value.includes('headings-color') || value.startsWith('title-above-content') || value.startsWith('site-background')  || value.startsWith('box-background') || value.startsWith('h1-color')) ) {
+				const varName = value.startsWith('title-above-content') ? `--responsive-${value}` : `--responsive-global-${value}`;
+				if (wantRawValue) {
+					return getComputedStyle(document.documentElement)
+						.getPropertyValue(varName)
+						.trim();
+				}
+				return `var(${varName})`;
+			}
+			return value;
+		};
+
 		// Determine the background style based on activeTab
         const buttonBackgroundStyle = activeTab === 'gradient' && is_gradient_available
             ? { background: gradient } // Apply gradient string
-            : { backgroundColor: color }; // Apply solid color from state.color
+            : { backgroundColor: getColorPreviewValue(color) }; // Apply solid color from state.color
 
 		const toggleVisible = (desiredTab = this.state.activeTab) => {
 			if ( refresh === true ) {
@@ -218,7 +231,7 @@ class ResponsiveColorPickerControl extends Component {
 											<div className="responsive-color-picker-tab-content">
 												{tab.name === 'color' && (
 													<ColorPicker
-														color={color}
+														color={getColorPreviewValue(color, true)}
 														onChangeComplete={(currentColor) => {
 															this.setState({ color: currentColor })
 															this.onChangeComplete(currentColor, 'color')
@@ -262,7 +275,7 @@ class ResponsiveColorPickerControl extends Component {
 							) : (isVisible && !is_gradient_available) ? (
 								<>
 									<ColorPicker
-										color={this.props.color}
+										color={getColorPreviewValue(this.props.color, true)}
 										onChangeComplete={(color) => this.onChangeComplete(color, 'color')}
 									/>
 
@@ -297,7 +310,7 @@ class ResponsiveColorPickerControl extends Component {
 			this.setState({ opacityZero: true });
 		}
 		this.props.onChangeComplete( color, type );
-		wp.customize.previewer.refresh();
+		// wp.customize.previewer.refresh();
 	}
 
 	onChangeComplete( color, type='color' ) {

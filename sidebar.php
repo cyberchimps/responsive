@@ -18,6 +18,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+if ( Responsive\Core\responsive_is_narrow_container_layout() ) {
+	return;
+}
 
 Responsive\responsive_widgets_before(); // above widgets container hook.
 if ( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_checkout() ) ) {
@@ -25,19 +28,19 @@ if ( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_chec
     $get_sidebar_position = function( $context, $default = 'no' ) {
         $global = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
         $value  = get_theme_mod( "responsive_{$context}_sidebar_position", $default );
-        return ( $value === 'default' ) ? $global : $value;
+        return ( $value === 'global' || $value === 'default' ) ? $global : $value;
     };
 
     if ( is_product() ) {
-        $sidebar_position = $get_sidebar_position( 'single_product' );
+        $sidebar_position = $get_sidebar_position( 'single_product', 'global' );
     } elseif ( is_shop() ) {
-        $sidebar_position = $get_sidebar_position( 'shop' );
+        $sidebar_position = $get_sidebar_position( 'shop', 'global' );
     } elseif ( is_cart() ) {
         $sidebar_position = $get_sidebar_position( 'cart' );
     } elseif ( is_checkout() ) {
         $sidebar_position = $get_sidebar_position( 'checkout' );
     } else {
-        $sidebar_position = $get_sidebar_position( 'shop' ); // fallback
+        $sidebar_position = $get_sidebar_position( 'shop', 'global' ); // fallback
     }
 
     if ( $sidebar_position === 'no' ) {
@@ -64,18 +67,18 @@ elseif ( class_exists( 'LifterLMS' ) ) {
         $get_sidebar_position = function( $context, $default = 'no' ) {
             $global = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
             $value  = get_theme_mod( "responsive_{$context}_sidebar_position", $default );
-            return ( $value === 'default' ) ? $global : $value;
+            return ( $value === 'global' || $value === 'default' ) ? $global : $value;
         };
 
         if ( is_page() ) {
             $meta_value = get_post_meta( get_the_ID(), 'responsive_page_meta_sidebar_position', true );
-            $sidebar_position = $meta_value ? $meta_value : $get_sidebar_position( 'page' );
+            $sidebar_position = $meta_value ? $meta_value : $get_sidebar_position( 'page', 'global' );
         } elseif ( is_single() ) {
-            $sidebar_position = $get_sidebar_position( 'single_blog' );
+            $sidebar_position = $get_sidebar_position( 'single_blog', 'global' );
         } elseif ( is_home() || is_search() || is_archive() ) {
-            $sidebar_position = $get_sidebar_position( 'blog' );
+            $sidebar_position = $get_sidebar_position( 'blog', 'global' );
         } else {
-            $sidebar_position = $get_sidebar_position( 'blog' );
+            $sidebar_position = $get_sidebar_position( 'blog', 'global' );
         }
 
 		?>
@@ -99,13 +102,13 @@ elseif ( class_exists( 'LifterLMS' ) ) {
 	$get_sidebar_position = function( $context, $default = 'no' ) {
 		$global = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
 		$value  = get_theme_mod( "responsive_{$context}_sidebar_position", $default );
-		return ( $value === 'default' ) ? $global : $value;
+		return ( $value === 'global' || $value === 'default' ) ? $global : $value;
 	};
 
 	if (
-		( is_page() && 'no' === ( get_post_meta( get_the_ID(), 'responsive_page_meta_sidebar_position', true ) ?: $get_sidebar_position( 'page' ) ) ) ||
-		( is_single() && 'no' === $get_sidebar_position( 'single_blog' ) ) ||
-		( ( is_home() || is_search() || is_archive() ) && 'no' === $get_sidebar_position( 'blog' ) )
+		( is_page() && 'no' === ( get_post_meta( get_the_ID(), 'responsive_page_meta_sidebar_position', true ) ?: $get_sidebar_position( 'page', 'global' ) ) ) ||
+		( is_single() && 'no' === $get_sidebar_position( 'single_blog', 'global' ) ) ||
+		( ( is_home() || is_search() || is_archive() ) && 'no' === $get_sidebar_position( 'blog', 'global' ) )
 	) {
 		return;
 	}
@@ -116,9 +119,16 @@ elseif ( class_exists( 'LifterLMS' ) ) {
 	<?php
 
 	Responsive\responsive_widgets(); // above widgets hook.
-	if ( ! dynamic_sidebar( 'main-sidebar' ) ) :
-	endif; // End of main-sidebar.
-		Responsive\responsive_widgets_end(); // after widgets hook.
+	if ( ! dynamic_sidebar( responsive_get_current_sidebar() ) ) :
+        if ( is_user_logged_in() ) :
+		?>
+		<div class="widget-wrapper responsive-empty-sidebar-notice">
+			<?php esc_html_e( 'This sidebar is currently empty. Add widgets in Appearance > Widgets(Sidebar 1/Sidebar 2) to display content here.', 'responsive' ); ?>
+		</div>
+		<?php
+	endif;
+    endif;
+	Responsive\responsive_widgets_end(); // after widgets hook.
 	?>
 
 	</aside><!-- end of #secondary -->

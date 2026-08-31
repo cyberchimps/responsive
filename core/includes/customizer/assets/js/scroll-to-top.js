@@ -1,52 +1,69 @@
 document.addEventListener('DOMContentLoaded', function() {
 	var masthead = document.querySelector('.site-header');
-	var responsiveScrollTop = document.getElementById('scroll');
+	var scrollButtons = document.querySelectorAll('.responsive-scroll');
   
-	if (responsiveScrollTop) {
-	  var getNumericContent = function(element) {
-		return parseInt(getComputedStyle(element).getPropertyValue('content').replace(/[^0-9]/g, ''), 10);
-	  };
-  
-	  var handleScroll = function() {
-		var content = getNumericContent(responsiveScrollTop);
-		var device = responsiveScrollTop.getAttribute('data-on-devices');
-		var screenWidth = window.innerWidth;
-		var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-  
-		if (device === 'both' ||
-			(device === 'desktop' && screenWidth >= 769 && content === 769) ||
-			(device === 'mobile' && (screenWidth < 769 || content === ''))) {
-  
-		  if (masthead) {
-			if (scrollTop > masthead.offsetHeight + 100) {
-			  responsiveScrollTop.style.display = 'block';
+	if (scrollButtons.length > 0) {
+		var firstBtn = scrollButtons[0];
+		var device = firstBtn.getAttribute('data-on-devices');
+
+		var handleScroll = function() {
+			var screenWidth = window.innerWidth;
+			var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+
+			// Determine if scrolling is far enough to show the button
+			var passedThreshold = false;
+			if (masthead) {
+				passedThreshold = scrollTop > masthead.offsetHeight + 100;
 			} else {
-			  responsiveScrollTop.style.display = 'none';
+				passedThreshold = scrollTop > 300;
 			}
-		  } else {
-			if (scrollTop > 300) {
-			  responsiveScrollTop.style.display = 'block';
-			} else {
-			  responsiveScrollTop.style.display = 'none';
-			}
-		  }
-		} else {
-		  responsiveScrollTop.style.display = 'none';
-		}
-	  };
-  
-	  handleScroll();
-  
-	  window.addEventListener('scroll', handleScroll);
-  
-	  responsiveScrollTop.addEventListener('click', function(event) {
-		event.preventDefault();
-		window.scrollTo({
-		  top: 0,
-		  behavior: 'smooth'
+
+			// Iterate through all scroll buttons
+			scrollButtons.forEach(function(btn) {
+				// Hide by default
+				btn.style.display = 'none';
+
+				if (!passedThreshold) return;
+
+				var isMobileBtn = btn.closest('.footer-mobile-items');
+				
+				// Device Visibility Logic
+				if (device === 'desktop') {
+					// Show only desktop button (not in mobile items)
+					if (!isMobileBtn && screenWidth >= 769) {
+						btn.style.display = 'block';
+					}
+
+				} else if (device === 'mobile') {
+					// Show only mobile button
+					if (isMobileBtn && screenWidth < 769) {
+						btn.style.display = 'block';
+					}
+
+				} else if (device === 'both') {
+					// Desktop above breakpoint, mobile below
+					if (!isMobileBtn && screenWidth >= 769) {
+						btn.style.display = 'block';
+					}
+					if (isMobileBtn && screenWidth < 769) {
+						btn.style.display = 'block';
+					}
+				}
+			});
+		};	
+
+		handleScroll();
+		  
+		window.addEventListener('scroll', handleScroll);
+		  
+		scrollButtons.forEach(function(btn) {
+			btn.addEventListener('click', function(event) {
+				event.preventDefault();
+				window.scrollTo({
+					top: 0,
+					behavior: 'smooth'
+				});
+			});
 		});
-	  });
 	}
-  });
-  
-  
+});

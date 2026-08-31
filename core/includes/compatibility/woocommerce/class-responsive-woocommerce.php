@@ -383,17 +383,23 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		public function add_body_class( $classes ) {
 
 
-			if ( is_woocommerce() && is_product() ) {
-				// Single Product Page
-				$classes[] = 'sidebar-position-' . get_theme_mod( 'responsive_single_product_sidebar_position', 'no' );
-				$classes[] = 'product-gallery-layout-' . get_theme_mod( 'responsive_single_product_gallery_layout', 'horizontal' );
-			}
+		if ( is_woocommerce() && is_product() ) {
+			// Single Product Page
+			$global_sidebar_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
+			$single_product_setting = get_theme_mod( 'responsive_single_product_sidebar_position', 'global' );
+			$single_product_sidebar_position = ( $single_product_setting === 'global' || $single_product_setting === 'default' ) ? $global_sidebar_position : $single_product_setting;
+			$classes[] = 'sidebar-position-' . $single_product_sidebar_position;
+			$classes[] = 'product-gallery-layout-' . get_theme_mod( 'responsive_single_product_gallery_layout', 'horizontal' );
+		}
 
-			if ( ( is_woocommerce() && is_shop() ) || is_cart() || is_checkout() || is_product_category() ) {
-				// Shop / Catalog Pages
-				$classes[] = 'sidebar-position-' . get_theme_mod( 'responsive_shop_sidebar_position', 'no' );
-				$classes[] = 'responsive-catalog-view-' . get_theme_mod( 'responsive_woocommerce_catalog_view', 'grid' );
-			}
+		if ( ( is_woocommerce() && is_shop() ) || is_cart() || is_checkout() || is_product_category() ) {
+			// Shop / Catalog Pages
+			$global_sidebar_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
+			$shop_setting = get_theme_mod( 'responsive_shop_sidebar_position', 'global' );
+			$shop_sidebar_position = ( $shop_setting === 'global' || $shop_setting === 'default' ) ? $global_sidebar_position : $shop_setting;
+			$classes[] = 'sidebar-position-' . $shop_sidebar_position;
+			$classes[] = 'responsive-catalog-view-' . get_theme_mod( 'responsive_woocommerce_catalog_view', 'grid' );
+		}
 
 			// Global WooCommerce styling
 			$classes[] = 'product-sale-style-' . get_theme_mod( 'responsive_product_sale_style', 'circle' );

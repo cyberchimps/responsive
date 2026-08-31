@@ -7,7 +7,6 @@ import Icons from '../icons';
 const BuilderAddBlockComponent = (props) => {
     const [isPopoverVisible, setIsPopoverVisible] = useState(false);
     const [anyItemAvailable, setAnyItemAvailable] = useState(true);
-
     useEffect(() => {
         let anyAvailable = false;
         Object.keys(props.choices).forEach((item) => {
@@ -40,6 +39,10 @@ const BuilderAddBlockComponent = (props) => {
     }
     if ('header_desktop_items' === props.controlParams.group && 'right_center' === props.location) {
         classForAdd += ' left-center-on-left';
+    }
+
+    if('mobile_tablet_items' === props.controlParams.group && props.location === 'popup') {
+        classForAdd += ' popup-column'
     }
 
     const addItem = (item) => {
@@ -93,7 +96,7 @@ const BuilderAddBlockComponent = (props) => {
             {isPopoverVisible && anyItemAvailable && (
                 <Popover
                     position="top"
-                    inline={true}
+                    inline={props.location === 'popup' ? false : true}
                     className="responsive-hfb-popover-add-builder"
                     onClose={() => setIsPopoverVisible(false)}
                 >

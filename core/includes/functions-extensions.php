@@ -464,7 +464,14 @@ function responsive_get_social_icons( $area ) {
         ),
     );
 	
-	$social = '_header' === $area ? get_theme_mod( 'responsive_header_social_items' ) : get_theme_mod( 'responsive_footer_social_items' ) ;
+	// Check for mobile header social items
+	if ( '_mobile_header' === $area ) {
+		$social = get_theme_mod( 'responsive_mobile_header_social_items' );
+	} elseif ( '_header' === $area ) {
+		$social = get_theme_mod( 'responsive_header_social_items' );
+	} else {
+		$social = get_theme_mod( 'responsive_footer_social_items' );
+	}
 
 	if ( empty( $social ) ) {
 		$social = $default_social_icons;
@@ -480,11 +487,19 @@ function responsive_get_social_icons( $area ) {
 
 			require get_template_directory() . '/core/includes/responsive-icon-library.php'
 			?>
-			<div class="<?php echo '_header' === $area ? 'header' : 'footer'?>-layouts social-icon">
+			<div class="<?php echo ( '_header' === $area || '_mobile_header' === $area ) ? 'header' : 'footer'?>-layouts social-icon">
 				<ul class="social-icons">
 					<?php
-					$target_social_link = '_header' === $area ? get_theme_mod( 'responsive_social_link_new_tab', '_self' ) : get_theme_mod( 'responsive_footer_social_link_new_tab', '_self' ) ;
-					$is_show_label = get_theme_mod( 'responsive' . $area . '_social_show_label' );
+					if ( '_mobile_header' === $area ) {
+						$target_social_link = get_theme_mod( 'responsive_social_link_new_tab', '_self' );
+						$is_show_label = get_theme_mod( 'responsive_mobile_header_social_show_label' );
+					} elseif ( '_header' === $area ) {
+						$target_social_link = get_theme_mod( 'responsive_social_link_new_tab', '_self' );
+						$is_show_label = get_theme_mod( 'responsive_header_social_show_label' );
+					} else {
+						$target_social_link = get_theme_mod( 'responsive_footer_social_link_new_tab', '_self' );
+						$is_show_label = get_theme_mod( 'responsive_footer_social_show_label' );
+					}
 					foreach ( $social_icons_sequence as $key ) {
 						$icon_source = 'icon';
 						$icon_url = '';
@@ -505,7 +520,13 @@ function responsive_get_social_icons( $area ) {
 							}
 						}
 
-							$use_brand_colors = get_theme_mod( 'responsive' . $area . '_social_item_use_brand_colors', 'no' );
+							if ( '_mobile_header' === $area ) {
+								$use_brand_colors = get_theme_mod( 'responsive_mobile_header_social_item_use_brand_colors', 'no' );
+							} elseif ( '_header' === $area ) {
+								$use_brand_colors = get_theme_mod( 'responsive_header_social_item_use_brand_colors', 'no' );
+							} else {
+								$use_brand_colors = get_theme_mod( 'responsive_footer_social_item_use_brand_colors', 'no' );
+							}
 							$brand_color = '';
 							$brand_svg = '';
 							if ( 'yes' === $use_brand_colors ) {

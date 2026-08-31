@@ -13,6 +13,10 @@ textarea {
     -ms-word-wrap: break-word;
 }
 
+h1.entry-title.post-title, .page .post-entry .post-meta, .single .post-entry .post-meta, .archive .site-content-header .breadcrumbs { 
+    margin-top: 0px;
+}
+
 /**
  * Block elements styles
  * -----------------------------------------------------------------------------
@@ -151,8 +155,13 @@ table {
  * Inline elements styles
  * -----------------------------------------------------------------------------
  */
+a:not(:where(h1, h2, h3, h4, h5, h6) a) {
+    @include make-link(map-get($colors, dark-blue), map-get($colors, gray));
+}
+:where(h1, h2, h3, h4, h5, h6) a {
+    color: inherit;
+}
 a {
-    @include make-link(map-get($colors, dark-blue),  map-get($colors, gray));
     text-decoration: none;
 }
 

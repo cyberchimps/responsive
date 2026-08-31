@@ -23,8 +23,11 @@ if ( 'search2' === $search_icon ) {
 
 $search_id = ( $search_style === 'search' ) ? 'res-search-link' : ( ( $search_style === 'full-screen' ) ? 'full-screen-res-search-link' : 'responsive-inline-search-link' );
 
+// Generate unique IDs using uniqid to avoid duplicates
+$unique_id = uniqid( 'search-' );
+
 ?>
-<div class="site-header-item site-header-focus-item responsive-header-search" data-section="responsive_customizer_header_search">
+<div class="site-header-item site-header-focus-item responsive-header-search" data-section="responsive_customizer_header_search" data-search-unique-id="<?php echo esc_attr( $unique_id ); ?>">
 	<?php
 	/**
 	 * Responsive Header Search
@@ -37,7 +40,7 @@ $search_id = ( $search_style === 'search' ) ? 'res-search-link' : ( ( $search_st
                     <div class="res-search-wrapper responsive-header-search-icon-wrap">
                         <input type="search" class="search-field" name="s" id="s" placeholder="<?php esc_attr_e( 'Search &hellip;', 'responsive' ); ?>" autocomplete="off" />
                         <div class="live-search-results"></div>
-                        <button type="submit" class="search-submit" value="Search">
+                        <button type="submit" class="search-submit" value="Search" aria-label="<?php esc_attr_e( 'Search', 'responsive' ); ?>">
                             <span class="responsive-header-search-icon">
                                 <?php echo $search_icon_svg; ?>
                             </span>
@@ -54,7 +57,7 @@ $search_id = ( $search_style === 'search' ) ? 'res-search-link' : ( ( $search_st
                 <div class="res-search-wrapper responsive-header-search-icon-wrap">
                     <input type="search" class="search-field" name="s" id="s" placeholder="<?php esc_attr_e( 'Search &hellip;', 'responsive' ); ?>" autocomplete="off" />
                     <div class="live-search-results"></div>
-                    <button type="submit" class="search-submit responsive-header-slide-search" value="Search">
+                    <button type="submit" class="search-submit responsive-header-slide-search" value="Search" aria-label="<?php esc_attr_e( 'Search', 'responsive' ); ?>">
                         <span class="responsive-header-search-icon">
                             <?php echo $search_icon_svg; ?>
                         </span>
@@ -62,7 +65,7 @@ $search_id = ( $search_style === 'search' ) ? 'res-search-link' : ( ( $search_st
                 </div>
             </form>
         </div>
-        <div class="responsive-header-search-link" id="<?php echo esc_attr( $search_id ); ?>">
+        <div class="responsive-header-search-link res-search-link" id="<?php echo esc_attr( $search_id . '-' . $unique_id ); ?>" data-search-link="<?php echo esc_attr( $unique_id ); ?>">
             <div class="res-search-icon" aria-label="Search icon link">
                 <div class="responsive-header-search-icon-wrap">
                     <span class="responsive-header-search-icon"><?php echo $search_icon_svg; ?></span>
@@ -72,8 +75,8 @@ $search_id = ( $search_style === 'search' ) ? 'res-search-link' : ( ( $search_st
     <?php
     } else {
     ?>
-        <div class="full-screen-search-wrapper" id="full-screen-search-wrapper">
-            <span id="search-close" class="search-close"></span>
+        <div class="full-screen-search-wrapper" id="full-screen-search-wrapper-<?php echo esc_attr( $unique_id ); ?>" data-fullscreen-wrapper="<?php echo esc_attr( $unique_id ); ?>">
+            <span id="search-close-<?php echo esc_attr( $unique_id ); ?>" class="search-close" data-search-close="<?php echo esc_attr( $unique_id ); ?>"></span>
             <div class="full-screen-search-container">
                 <div class="container">
                 <form method="get" id="searchform" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -81,7 +84,7 @@ $search_id = ( $search_style === 'search' ) ? 'res-search-link' : ( ( $search_st
                     <div class="res-search-wrapper">
                         <input type="search" class="field" name="s" id="s" placeholder="<?php esc_attr_e( 'Search here &hellip;', 'responsive' ); ?>" autocomplete="off" />
                         <div class="live-search-results" style="display:none;"></div>
-                        <button type="submit" class="search-submit" value="Search">
+                        <button type="submit" class="search-submit" value="Search" aria-label="<?php esc_attr_e( 'Search', 'responsive' ); ?>">
                             <span class="responsive-header-search-icon">
                                 <?php echo $search_icon_svg; ?>
                             </span>
@@ -91,7 +94,7 @@ $search_id = ( $search_style === 'search' ) ? 'res-search-link' : ( ( $search_st
                     </div>
             </div>
         </div>
-        <div class="responsive-header-search-link" id="<?php echo esc_attr( $search_id ); ?>">
+        <div class="responsive-header-search-link full-screen-res-search-link" id="<?php echo esc_attr( $search_id . '-' . $unique_id ); ?>" data-search-link="<?php echo esc_attr( $unique_id ); ?>">
             <div class="res-search-icon" aria-label="Search icon link">
                 <div class="responsive-header-search-icon-wrap">
                     <span class="responsive-header-search-label"><?php echo $search_label; ?></span>

@@ -204,6 +204,7 @@ select {
 
 .customize-control .responsive-switchers {
 	margin-left: 5px;
+	margin-bottom: 0px;
 	width: auto
 }
 
@@ -217,14 +218,19 @@ select {
 
 .customize-control .responsive-switchers li {
 	float: left;
-	margin: 0
+	margin: 0;
+	margin-top: 1px; 
+}
+
+#customize-control-responsive_menu_item_hover_style {
+	padding: 5px 0px 22px;
 }
 
 .customize-control .responsive-switchers li button {
 	display: inline-block;
 	height: 20px;
 	width: 20px;
-	background-color: #a4afb7;
+	background-color: #ffffff;
 	position: relative;
 	margin-left: 5px;
 	color: #fff;
@@ -474,7 +480,12 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_related_posts_per_row_separator .responsive-horizontal-separator-control-wrapper,
 #customize-control-responsive_related_posts_taxonomy_separator .responsive-horizontal-separator-control-wrapper,
 #customize-control-responsive_related_post_structure_separator .responsive-horizontal-separator-control-wrapper,
-#customize-control-responsive_related_post_meta_elements_separator .responsive-horizontal-separator-control-wrapper {
+#customize-control-responsive_related_post_meta_elements_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_default_sidebar_position_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_sidebar_style_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_default_sidebar_width_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_sidebar_link_style_after_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_sidebar_border_divider_separator .responsive-horizontal-separator-control-wrapper {
 	padding-top: 24px;
 	margin: 0;
 }
@@ -491,8 +502,16 @@ body.rtl .customize-control .responsive-switchers li {
 	margin-top: 10px;
 }
 
-#accordion-section-responsive_rp_layout {
+#accordion-section-responsive_rp_layout,
+#accordion-section-responsive_comments_layout,
+#accordion-section-responsive_page_title_area_layout,
+#accordion-section-responsive_blog_title_layout,
+#accordion-section-responsive_single_blog_post_title_layout {
 	display: none !important;
+}
+
+#customize-theme-controls .customize-pane-child#sub-accordion-section-responsive_comments_layout {
+	height: stretch;
 }
 
 #_customize-input-responsive_single_blog_related_posts_title {
@@ -553,7 +572,7 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_single_blog_sidebar_width {
 	padding-bottom: 12px;
 }
-#sub-accordion-section-responsive_page .customize-control-title {
+#sub-accordion-section-responsive_page .customize-control-title, #customize-control-responsive_single_blog_post_title, #customize-control-responsive_single_blog_post_title_inner_elements_spacing_separator, #customize-control-responsive_single_blog_post_title_color, #customize-control-responsive_single_blog_post_link_hover_separator, li#customize-control-responsive_single_blog_post_title_inner_elements_spacing, #customize-control-responsive_page_title {
 	margin-top: 24px;
 }
 #sub-accordion-section-responsive_page .responsive-horizontal-separator-control-wrapper {
@@ -573,6 +592,9 @@ body.rtl .customize-control .responsive-switchers li {
 	padding-bottom: 12px;
 }
 #sub-accordion-section-responsive_blog_layout .responsive-horizontal-separator-control-wrapper {
+	padding-top: 24px;
+}
+#sub-accordion-section-responsive_single_blog_layout .responsive-horizontal-separator-control-wrapper {
 	padding-top: 24px;
 }
 #customize-control-responsive_blog_layout_options .customize-control-title {
@@ -625,9 +647,6 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_cart_cart_button_separator .responsive-customizer-heading,
 #customize-control-responsive_cart_checkout_button_separator .responsive-customizer-heading {
 	margin-bottom: 24px;
-}
-#customize-control-responsive_cart_checkout_button_text_color .responsive-color-control-main-wrap {
-	padding-bottom: 12px;
 }
 #customize-control-responsive_cart_checkout_button_text_color .res-control-tooltip{
 	display: none;
@@ -759,6 +778,9 @@ body.rtl .customize-control .responsive-switchers li {
     font-size: 16px;
 	border: 1px dashed #8F8F8F;
 	border-right: none;
+}
+.responsive-builder-items-with-popup .popup-vertical-group button.components-button.responsive-row-actions {
+	border-bottom-left-radius: 0px;
 }
 .responsive-builder-areas button.components-button.responsive-row-actions .dashicon {
     width: 20px;
@@ -1061,11 +1083,11 @@ body.rtl .customize-control .responsive-switchers li {
 .responsive-builder-areas:hover .components-button.responsive-row-actions {
     background: #FFF;
 }
-.responsive-header-builder-is-active .preview-desktop #customize-preview, .responsive-header-builder-is-active .preview-tablet #customize-preview, .responsive-header-builder-is-active .preview-mobile #customize-preview {
+.responsive-header-builder-is-active .preview-desktop #customize-preview, .responsive-header-builder-is-active .preview-tablet #customize-preview {
 	height: auto;
 }
 /* Footer Builder */
-.responsive-footer-builder-is-active .preview-desktop #customize-preview, .responsive-footer-builder-is-active .preview-tablet #customize-preview, .responsive-footer-builder-is-active .preview-mobile #customize-preview {
+.responsive-footer-builder-is-active .preview-desktop #customize-preview, .responsive-footer-builder-is-active .preview-tablet #customize-preview {
 	height: auto;
 }
 .responsive-hfb-mode-footer .responsive-builder-area {
@@ -1088,7 +1110,7 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_footer_primary_height,
 #customize-control-responsive_footer_below_height {
 	padding-top: 22px;
-	border-top: 4px double #D0D0D0;
+	border-top: 4px solid #D0D0D0;
 	margin-top: 24px;
 }
 #customize-control-responsive_footer_above_width,
@@ -1230,7 +1252,9 @@ body.rtl .customize-control .responsive-switchers li {
 .responsive-footer-builder-is-active .in-sub-panel:not(.section-open) #sub-accordion-panel-responsive_footer .accordion-section.control-section {
 	display: none !important;
 }
-.responsive-footer-builder-is-active .in-sub-panel:not( .section-open ) ul#sub-accordion-section-responsive_footer_layout {
+/* Here the styling is applied via a sibling because we want to prevent the footer_layout customizer to appear when the user goes from footer customizer > edit general settings of footer widget in Widgets>Footer because
+in both cases the footer builder is active */
+.responsive-footer-builder-is-active .in-sub-panel:not( .section-open ) #sub-accordion-panel-responsive_footer.current-panel ~ ul#sub-accordion-section-responsive_footer_layout {
     transform: none;
     height: auto;
     visibility: visible;
@@ -1325,7 +1349,7 @@ body.rtl .customize-control .responsive-switchers li {
 	margin-top: 24px;
 	margin-bottom: 24px;
 }
-#customize-control-responsive_header_html_link_style_separator {
+#customize-control-responsive_header_html_link_style_separator, #customize-control-responsive_width_separator, #customize-control-responsive_single_blog_post_title_typography_group, #customize-control-responsive_single_blog_post_text_typography_group, #customize-control-responsive_single_blog_post_meta_typography_group {
 	margin-top: 24px;
 }
 #customize-control-header_html_typography-color .responsive-color-control-main-wrap .wp-picker-holder {
@@ -1336,7 +1360,13 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_header_button_url_text_separator,
 #customize-control-responsive_header_button_button_style_separator,
 #customize-control-responsive_header_button_border_separator,
-#customize-control-responsive_header_button_typography_separator {
+#customize-control-responsive_mobile_header_button_typography_separator,
+#customize-control-responsive_mobile_header_button_label_text_separator,
+#customize-control-responsive_mobile_header_button_url_text_separator,
+#customize-control-responsive_mobile_header_button_url_text_separator,
+#customize-control-responsive_mobile_header_button_button_style_separator,
+#customize-control-responsive_mobile_header_button_border_separator,
+#customize-control-responsive_mobile_header_button_typography_separator  {
 	margin-top: 12px;
 }
 
@@ -1344,7 +1374,12 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_header_button_open_new_tab_separator,
 #customize-control-responsive_header_button_set_nofollow_separator,
 #customize-control-responsive_header_button_set_sponsored_separator,
-#customize-control-responsive_header_button_border_separator {
+#customize-control-responsive_mobile_header_button_border_separator,
+#customize-control-responsive_mobile_header_button_url_text_separator,
+#customize-control-responsive_mobile_header_button_open_new_tab_separator,
+#customize-control-responsive_mobile_header_button_set_nofollow_separator,
+#customize-control-responsive_mobile_header_button_set_sponsored_separator,
+#customize-control-responsive_mobile_header_button_border_separator  {
 	margin-bottom: 12px;
 }
 #customize-control-responsive_header_button_visibility .customize-control-responsive-selectbtn .customize-control-responsive-selectbtn__button {
@@ -1357,15 +1392,56 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_header_button_url #_customize-input-responsive_header_button_url {
 	border: 1px solid #A5A5A5;
 }
+#customize-control-responsive_mobile_header_button_visibility .customize-control-responsive-selectbtn .customize-control-responsive-selectbtn__button {
+	padding: 8px 0;
+}
+#customize-control-responsive_mobile_header_button_border_style .customize-control-responsive-selectbtn .customize-control-responsive-selectbtn__button {
+	padding: 8px 5px;
+}
+#customize-control-responsive_mobile_header_button_label #_customize-input-responsive_header_button_label,
+#customize-control-responsive_mobile_header_button_url #_customize-input-responsive_header_button_url {
+	border: 1px solid #A5A5A5;
+}
+#customize-control-responsive_mobile_cart_label_separator,
+#customize-control-responsive_mobile_header_woo_cart_button_separator,
+#customize-control-responsive_mobile_header_cart_checkout_button_separator,
+#customize-control-responsive_mobile_cart_spacing_separator,
+#customize-control-responsive_mobile_header_cart_tray_separator,
 #customize-control-responsive_cart_label_separator,
 #customize-control-responsive_header_woo_cart_button_separator,
 #customize-control-responsive_header_cart_checkout_button_separator,
 #customize-control-responsive_cart_spacing_separator,
-#customize-control-responsive_header_cart_tray_separator {
+#customize-control-responsive_header_cart_tray_separator,
+#customize-control-responsive_header_site_title_tagline_color_separator,
+#customize-control-responsive_page_title_area,
+#customize-control-responsive_page_title_inner_elements_spacing,
+#customize-control-responsive_page_title_inner_elements_spacing_separator,
+#customize-control-responsive_page_title_area_title_typography_group,
+#customize-control-responsive_page_title_area_text_typography_group,
+#customize-control-responsive_page_title_area_meta_typography_group,
+#customize-control-responsive_blog_title_area,
+#customize-control-responsive_blog_banner_background_color,
+#customize-control-responsive_blog_post_title_inner_elements_spacing,
+#responsive_blog_post_title_inner_elements_spacing_separator,
+#customize-control-responsive_blog_post_title_typography_group,
+#customize-control-responsive_blog_post_text_typography_group,
+#customize-control-responsive_blog_post_title_inner_elements_spacing_separator,
+#customize-control-res_blog_post_title_text,
+#customize-control-responsive_blog_post_title_toggle,
+#customize-control-responsive_single_blog_banner_background_color,
+#customize-control-responsive_single_blog_post_meta_typography_group_separator,
+#customize-control-responsive_blog_post_text_typography_group_separator,
+#customize-control-responsive_page_title_area_meta_typography_group_separator,
+#customize-control-responsive_page_single_meta_separator_text_separator,
+#customize-control-responsive_page_show_comments {
 	margin-top: 24px;
 }
 #customize-control-responsive_cart_icon_separator,
 #customize-control-responsive_cart_icon_color_separator {
+	margin-top: 0;
+}
+#customize-control-responsive_mobile_cart_icon_separator,
+#customize-control-responsive_mobilecart_icon_color_separator {
 	margin-top: 0;
 }
 .responsive-input-with-dropdown-inputs-wrap {
@@ -1497,9 +1573,23 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_site_background_image_size {
 	padding-bottom: 12px;
 }
-#customize-control-responsive_underline_content_links_separator {
+#customize-control-responsive_link_style_separator,
+#customize-control-responsive_sidebar_link_style_before_separator,
+#customize-control-responsive_sidebar_link_hover_bg_separator {
+	padding-top: 22px;
+	padding-bottom: 0;
+}
+#customize-control-responsive_link_hover_bg_separator {
 	padding-top: 22px;
 	padding-bottom: 22px;
+}
+#customize-control-responsive_link_style_separator hr,
+#customize-control-responsive_link_hover_bg_separator hr {
+	margin-left: -24px;
+	margin-right: -24px;
+}
+div.customize-section-description{
+	margin-bottom: 0;
 }
 
 .customize-control.highlighted {
@@ -1556,9 +1646,6 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_transparent_header_logo {
 	padding-bottom: 24px;
 }
-#accordion-section-responsive_docs_section .accordion-section-title::after {
-	display: none;
-}
 .responsive-hfb-builder-item .responsive-hfb-builder-item-icon:focus {
 	box-shadow: none;
 }
@@ -1607,20 +1694,20 @@ body.rtl .customize-control .responsive-switchers li {
 .customize-widgets__sidebar-section .customize-section-description-container {
 	margin-bottom: 15px;
 }
-.responsive-palette-edit-icon {
+.responsive-palette-edit-icon,.responsive-typography-settings-group-icon {
 	transition: color 0.2s ease;
 }
 
-.responsive-palette-edit-icon:hover {
+.responsive-palette-edit-icon:hover,.responsive-typography-settings-group-icon:hover {
 	color: #0073aa;
 }
 
-.responsive-palette-edit-icon:hover svg path {
+.responsive-palette-edit-icon:hover svg path,.responsive-typography-settings-group-icon:hover svg path {
 	stroke: #0073aa;
 }
 
 /* Reset button for color controls */
-.responsive-color-reset-btn {
+.responsive-color-reset-btn, .responsive-slider-reset-btn {
 	background: none;
 	border: none;
 	cursor: pointer;
@@ -1633,15 +1720,15 @@ body.rtl .customize-control .responsive-switchers li {
 	justify-content: center;
 }
 
-.responsive-color-reset-btn:hover {
+.responsive-color-reset-btn:hover, .responsive-slider-reset-btn:hover {
 	background-color: #f0f0f1;
 }
 
-.responsive-color-reset-btn:hover svg path {
+.responsive-color-reset-btn:hover svg path, .responsive-slider-reset-btn:hover svg path {
 	fill: #0073aa;
 }
 
-.responsive-color-reset-btn:focus {
+.responsive-color-reset-btn:focus, .responsive-slider-reset-btn:focus {
 	outline: 1px solid #0073aa;
 	outline-offset: 2px;
 }
@@ -1692,4 +1779,340 @@ body.rtl .customize-control .responsive-switchers li {
 }
 #customize-control-responsive_inline_logo_site_title{
 	margin-top : 25px;
+}
+
+/* For Mobile Builder */
+.responsive-control-field.responsive-builder-items.responsive-builder-items-with-popup{
+	display: flex;
+	gap: 30px;
+}
+.responsive-builder-areas.popup-vertical-group {
+	width: 229px;
+	max-height: 240px; 
+	border-radius: 5px;
+	padding-left : 0px;
+	box-shadow: 0px 0px 7.9px 0px #00000033;
+	overflow-y: auto;
+	padding-left : 0px;
+}
+.responsive-builder-areas.popup-vertical-group::-webkit-scrollbar {
+	display: none;
+}
+#customize-control-responsive_header_mobile_tablet_items .responsive-builder-row-items {
+	width : calc(100% - 229px);
+}
+
+.popup-vertical-group button.components-button.responsive-row-actions {
+	position : absolute;
+	padding : 10px 20px 10px 20px; 
+	text-transform: uppercase;
+	width: 229px;
+	height: 41px;
+	font-family: Inter;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 100%;
+	letter-spacing: 1%;
+	vertical-align: middle;
+	/* background : #2271B1; 
+	color : #FFFFFF; */
+}
+/* .popup-vertical-group button.components-button.responsive-row-actions:hover{
+	background : #2271B1; 
+	color : #FFFFFF;
+} */
+.popup-vertical-group button.components-button.responsive-row-actions .dashicons-admin-generic{
+	font-size : 13px;
+}
+/* .responsive-builder-items-with-popup .responsive-builder-areas:hover .components-button.responsive-row-actions {
+    background: #2271B1;
+	color: #FFFFFF;
+} */
+.responsive-builder-areas.popup-vertical-group .responsive-builder-area{
+	flex: auto; 
+	flex-direction: column;
+}
+.popup-vertical-group .responsive-builder-group-vertical {
+	position : absolute; 
+	top : 41px;
+	width: 100%;
+	height: calc(100% - 41px);
+}
+.popup-vertical-group .responsive-builder-group-vertical .responsive-builder-area-popup, #sub-accordion-section-responsive_page_title_area_layout{
+	height: 100%;
+}
+.responsive-builder-areas.popup-vertical-group .responsive-builder-area .responsive-hfb-builder-sortable-panel{
+	max-width : 229px; 
+	max-height : 207px;
+	padding : 14px 10px 23px 10px; 
+	display : flex; 
+	flex-direction: column;
+	gap : 10px;
+}	
+.responsive-builder-drop-popup .responsive-hfb-builder-item {
+	width: 209px;
+	padding: 10px;
+	height: 37px;
+	box-sizing: border-box;
+	border-radius: 4px;
+	display: flex;
+	justify-content: space-between;
+	gap: 65px;
+}
+.responsive-builder-drop-popup .responsive-hfb-builder-item-text {
+	width: 85px;
+}
+
+/* For Off Canvas and Off Canvas Menu Customizer */
+#customize-theme-controls #sub-accordion-section-responsive_header_mobile_off_canvas, #sub-accordion-section-responsive_header_off_canvas_menu_layout,#customize-theme-controls #sub-accordion-section-responsive_footer_menu, #sub-accordion-section-responsive_single_blog_post_title_layout {
+	height : 100%;
+}
+#customize-control-responsive_header_mobile_off_canvas_header_type, #customize-control-responsive_header_mobile_off_canvas_move_body, #customize-control-responsive_header_mobile_off_canvas_bg_color, #customize-control-responsive_redirect_to_off_canvas_menu_set_location, #customize-control-responsive_header_off_canvas_menu_items_divider, #customize-control-responsive_header_off_canvas_menu_visibility, #customize-control-responsive_header_off_canvas_menu_typography_group, #customize-control-responsive_mobile_header_html_content_separator, #customize-control-responsive_mobile_header_html_link_style_separator {
+	padding-top: 24px;
+}
+#customize-control-responsive_header_mobile_off_canvas_move_body .responsive-toggle-control-wrapper, #customize-control-responsive_header_off_canvas_menu_items_divider .responsive-toggle-control-wrapper, #customize-control-responsive_mobile_header_html_content_separator {
+	padding-bottom: 24px;
+}
+#customize-control-responsive_header_mobile_off_canvas_header_type_horizontal_separator, #customize-control-responsive_header_mobile_off_canvas_dropdown_target_horizontal_separator {
+	margin-top: 24px;
+}
+#customize-control-responsive_header_off_canvas_menu_color_separator {
+	margin-top : -1px;
+}
+
+/* For Toggle Button */
+#customize-control-responsive_header_toggle_button_icon, #customize-control-responsive_header_toggle_button_style_separator,#customize-control-responsive_mobile_header_contact_info_icon_shape_separator, #customize-control-responsive_mobile_header_contact_info_icon_style_separator, #customize-control-responsive_mobile_header_contact_info_icon_size_separator, #customize-control-responsive_mobile_header_contact_info_separator{
+	padding-top: 24px;
+}
+#customize-control-responsive_mobile_header_contact_info_icons_color, #customize-control-responsive_mobile_header_contact_info_background_color, #customize-control-responsive_mobile_header_contact_info_font_color, #customize-control-responsive_mobile_header_contact_info_typography_group {
+	padding-top: 24px;
+	padding-bottom: 24px;
+}
+
+#customize-theme-controls ul#sub-accordion-section-responsive_header_toggle_button, #customize-theme-controls ul#sub-accordion-section-responsive_mobile_header_widget, #customize-theme-controls ul#sub-accordion-section-responsive_mobile_header_social, #customize-theme-controls ul#sub-accordion-section-responsive_header_off_canvas_menu_layout, #customize-theme-controls ul#sub-accordion-section-responsive_mobile_header_html, #customize-theme-controls ul#sub-accordion-section-responsive_single_blog_post_title_layout{
+	height: 100%;
+}
+
+.responsive-builder-items-with-popup button.components-button.responsive-row-actions.has-text.has-icon {
+	border-style: none;
+	color: #434343;
+}
+
+.responsive-builder-type-label {
+    position: absolute;
+    top: 0;
+    padding: 9px 15px;
+    width: auto;
+    background-color: #EAEAEA;
+    font-size: 14px;
+    font-family: 'Inter';
+	border-radius: 4px;
+	font-weight: 600;
+}
+/* The following style is added to fix spacing issue in customizer when Starter Templates plugin is installed */
+/* any change below might cause the issue to appear again - WP-11315 */
+.customize-control-responsive-color-with-devices-and-hover label, .customize-control-alpha-color label, .customize-control-responsive-palette label {
+	box-sizing: initial;
+}
+
+#customize-control-responsive_header_menu_color_separator{ 
+	margin-top:0; 
+}
+.responsive-typography-inline-container {
+	width: 100%;
+	height: 32px;
+	justify-content: space-between;
+	margin-bottom: 0px;
+}
+.responsive-typography-settings-group .responsive-typography-inline-container .responsive-selectbtn-control-wrapper .customize-control-responsive-selectbtn {
+	gap: 0px;
+}
+.responsive-typography-settings-group .customize-control-responsive-range {
+    border-bottom: .5px solid #d0d0d060;
+}
+.responsive-typography-settings-group .responsive-typography-inline-container li[id$="text-transform"] {
+	width: 150px;
+	background: none;
+	padding-top: 0;
+	padding-bottom: 0;
+	box-shadow: none;
+	margin-top: 0;
+}
+.responsive-typography-settings-group .responsive-typography-inline-container li[id$="text-transform"] button.selectbtn-text {
+	width: 30px;
+	height: 30px;
+	border-radius: 0px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	padding: 0px;
+}
+.responsive-typography-settings-group .responsive-typography-inline-container li[id$="font-style"] button.selectbtn-text {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+    border-radius: 0px;
+    border-width: 1px 0px 1px 1px;
+    border-style: solid;
+    border-color: #E2E2E2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.responsive-typography-settings-group 
+.responsive-typography-inline-container 
+li[id$="text-transform"] 
+button.selectbtn-text:first-child {
+	width: 54px;
+}
+.responsive-typography-settings-group .responsive-typography-inline-container .responsive-selectbtn-control-wrapper .customize-control-responsive-selectbtn {
+	flex-wrap: nowrap;
+}
+.responsive-typography-settings-group .responsive-typography-inline-container li[id$="font-style"] {
+	width: 64px;
+	background: none;
+	padding-top: 0;
+	padding-bottom: 0;
+	box-shadow: none;
+}
+
+.responsive-section-description {
+    display: none;
+    background: #fff;
+    padding: 20px;
+	border-bottom: 1px solid #D0D0D0;
+}
+#sub-accordion-panel-responsive_header .responsive-section-description, #sub-accordion-panel-responsive_footer .responsive-section-description, #sub-accordion-panel-widgets .responsive-section-description {
+	padding: 10px 20px 10px 20px; 
+	border-bottom: none;
+}
+#sub-accordion-section-responsive_blog_layout .responsive-section-description, #sub-accordion-section-responsive_form_fields .responsive-section-description, #sub-accordion-section-responsive_page .responsive-section-description, #sub-accordion-section-responsive_header_site_logo_title .responsive-section-description, #sub-accordion-section-responsive_breadcrumb .responsive-section-description, #sub-accordion-section-responsive_sidebar .responsive-section-description {
+	border-bottom: none;
+}
+
+.description.open .responsive-section-description {
+    display: block;
+}
+
+.responsive-section-description p {
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.responsive-section-description p:last-child {
+    margin-bottom: 0;
+}
+
+.responsive-section-description b {
+    font-weight: 600;
+    color: #333;
+}
+
+.responsive-section-description a {
+    color: #0073aa;
+    text-decoration: none;
+}
+
+.responsive-section-description a:hover {
+    text-decoration: underline;
+}
+
+.customize-help-toggle {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    width: 20px !important;
+    height: 20px !important;
+    line-height: 20px !important;
+    cursor: pointer !important;
+    color: #5f6368 !important;
+    position: absolute !important;
+    right: 15px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    display: inline-block !important;
+}
+
+.customize-help-toggle:before {
+    font-size: 20px !important;
+}
+
+.customize-help-toggle:hover {
+    color: #1a73e8 !important;
+}
+
+.customize-help-toggle:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    background: none !important;
+}
+
+.customize-section-description-container .customize-section-title {
+	position: relative;
+}
+/* .customize-section-title,
+.customize-panel-title {
+    position: relative !important;
+} */
+
+div.customize-section-description {
+	margin-top: 0px;
+}
+.wp-core-ui #accordion-section-responsive_upsell_section .accordion-section-title {
+	cursor: pointer;
+}
+#customize-controls .customize-info .customize-help-toggle:before {
+	margin: -9px -10px;
+}
+ul.control-panel-nav_menus .customize-help-toggle:before {
+	margin: -18px -6px !important;
+}
+#sub-accordion-section-custom_css.open 
+  .customize-section-title:has(.customize-section-description.open) 
+  .customize-help-toggle::before {
+  margin: -195px -10px !important;
+}
+#customize-control-responsive_sidebar_sticky .responsive-toggle-control-wrapper {
+    padding-top: 18px;
+}
+#customize-control-responsive_page_content_alignment_separator .responsive-horizontal-separator-control-wrapper{
+	padding-bottom: 24px;
+}
+#customize-control-responsive_responsive_disable_author_meta_separator .responsive-horizontal-separator-control-wrapper{
+	padding-top: 20px;
+}
+#sub-accordion-section-responsive_single_blog_layout #customize-control-responsive_post_author_box_style .customize-control-title{
+	margin-top: 10px !important;
+}
+#customize-control-responsive_disable_author_meta{
+	padding-bottom: 0;
+}
+#customize-control-responsive_single_blog_navigation_before .responsive-horizontal-separator-control-wrapper{
+	margin: 20px 0;
+}
+#customize-control-responsive_rp_carousel_separator .responsive-horizontal-separator-control-wrapper{
+	margin: 0 0 25px;
+}
+#customize-control-responsive_rp_carousel_dots .responsive-toggle-control-wrapper{
+	padding-bottom: 25px;
+}
+#customize-theme-controls .customize-pane-child.open#sub-accordion-section-responsive_blog_layout, #customize-theme-controls ul#sub-accordion-section-responsive_page_title_area_layout, #customize-theme-controls ul#sub-accordion-section-responsive_breadcrumb, #customize-theme-controls ul#sub-accordion-section-responsive_page, #customize-theme-controls ul#sub-accordion-section-responsive_single_blog_layout  {
+	height: 100%;
+}
+#sub-accordion-section-responsive_single_blog_layout li .responsive-color-control-wrapper .wp-picker-container,
+#sub-accordion-section-responsive_single_blog_layout li .responsive-color-control-wrapper .responsive-color-reset-btn,
+#sub-accordion-section-responsive_page li .responsive-color-control-wrapper .wp-picker-container,
+#sub-accordion-section-responsive_page li .responsive-color-control-wrapper .responsive-color-reset-btn{
+	margin-top: 20px;
+}
+#customize-control-responsive_single_blog_breadcrumb_typography_group .responsive-typography-settings-group-icon,
+#customize-control-responsive_single_blog_excerpt_typography_group .responsive-typography-settings-group-icon{
+	margin-top: 10px;
+}
+#sub-accordion-section-responsive_single_blog_layout #customize-control-responsive_single_blog_content_background_color .customize-control-title{
+	width: 80%;
+}
+#sub-accordion-section-responsive_single_blog_layout{
+	height: 100%;
 }

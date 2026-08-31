@@ -84,19 +84,28 @@ if ( ! function_exists( 'check_is_responsive_addons_greater' ) ) {
 			if ( ! has_action( 'responsive_custom_header' ) ) {
 
 				/**
-					 * Responsive before header hook.
-					 */
-					do_action( 'responsive_before_header' );
+				 * Responsive before header hook.
+				 */
+				do_action( 'responsive_before_header' );
 
-					/**
-					 * Responsive header hook.
-					 */
-					Responsive\responsive_header();
+				/**
+				 * Desktop Header - Visible on screens wider than 992px
+				 */
+				echo '<div class="responsive-desktop-header-wrapper">';
+				Responsive\responsive_header();
+				echo '</div>';
 
-					/**
-					 * Responsive after header hook.
-					 */
-					do_action( 'responsive_after_header' );
+				/**
+				 * Mobile/Tablet Header - Visible on screens 992px and below
+				 */
+				echo '<div class="responsive-mobile-header-wrapper">';
+				do_action( 'responsive_mobile_header' );
+				echo '</div>';
+
+				/**
+				 * Responsive after header hook.
+				 */
+				do_action( 'responsive_after_header' );
 
 				?>
 				<?php

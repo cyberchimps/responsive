@@ -40,7 +40,6 @@ do_action( 'responsive_before_single_post_meta' );
 					echo sprintf(
 						'<span class="author vcard">
 							<a class="url fn n" href="%1$s" aria-label="%2$s" title="%2$s" itemprop="url">
-								<i class="icon-user"></i>
 								<span itemprop="name">%3$s</span>
 							</a>
 						</span>',
@@ -60,14 +59,14 @@ do_action( 'responsive_before_single_post_meta' );
 					<?php
 					printf(
 						/* translators: 1: class, 2: date */
-						'<i class="icon-calendar" aria-hidden="true"></i><span>' . esc_html__( 'Posted on ', 'responsive' ) . '</span><span class="%1$s" itemprop="datePublished">%2$s</span>',
+						'<span class="%1$s" itemprop="datePublished">%2$s</span>',
 						'meta-prep meta-prep-author posted',
 						sprintf(
 							'<a href="%1$s" aria-label="%2$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s" itemprop="dateModified">%4$s</time></a>',
 							esc_url( get_permalink() ),
 							esc_attr( get_the_title() ),
 							esc_html( get_the_date( 'c' ) ),
-							esc_html( get_the_date() )
+							esc_html( get_the_date( 'M j, Y' ) )
 						)
 					);
 					?>
@@ -88,7 +87,7 @@ do_action( 'responsive_before_single_post_meta' );
 								esc_url( get_permalink() ),
 								esc_attr( get_the_title() ),
 								esc_html( get_the_modified_date( 'c' ) ),
-								esc_html( get_the_modified_date() )
+								esc_html( get_the_modified_date( 'M j, Y' ) )
 							)
 						);
 					?>
@@ -96,10 +95,10 @@ do_action( 'responsive_before_single_post_meta' );
 			<?php
 		}
 
-		if ( 'comments' === $section && comments_open() && ! post_password_required() ) {
+		if ( 'comments' === $section && ( comments_open() || get_comments_number() || is_customize_preview() ) && ! post_password_required() ) {
 			?>
 				<span class="entry-comment">
-					<?php if ( comments_open() ) : ?>
+					<?php if ( comments_open() || get_comments_number() || is_customize_preview() ) : ?>
 						<span class="comments-link">
 						<span class="mdash"><i class="icon-comments-o" aria-hidden="true"></i></span>
 							<?php comments_popup_link( __( 'No Comments', 'responsive' ), __( '1 Comment', 'responsive' ), __( '% Comments', 'responsive' ) ); ?>
@@ -108,21 +107,10 @@ do_action( 'responsive_before_single_post_meta' );
 				</span>
 			<?php
 		}
-		if ( 'categories' === $section ) {
-			?>
-			<span class="entry-category">
-				<span class='posted-in'><i class="icon-folder-open" aria-hidden="true"></i>
-					<?php
-					/* translators: %s: category list */
-					printf( esc_html__( 'Posted in %s', 'responsive' ), wp_kses_post( get_the_category_list( __( ', ', 'responsive' ) ) ) );
-					?>
-				</span>
-			</span>
-			<?php
-		}
+
 		if ( 'tag' === $section ) {
+			if ( has_tag() ) {
 			?>
-			<?php if ( has_tag() ) { ?>
 				<span class="entry-tag">
 						<span class="post-data">
 							<?php
@@ -130,12 +118,9 @@ do_action( 'responsive_before_single_post_meta' );
 							printf( esc_html__( 'Tagged with %s', 'responsive' ), wp_kses_post( get_the_tag_list( '', __( ', ', 'responsive' ) ) ) );
 							?>
 						</span><!-- end of .post-data -->
-						<?php
-				}
-				?>
 				</span>
-			</span>
 			<?php
+			}
 		}
 	}
 	?>

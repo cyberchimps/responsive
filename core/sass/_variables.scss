@@ -21,7 +21,8 @@ $containers: (
     xxxl: 4640px,
 );
 
-$grid-gutter-width: 30px;
+$inner-element-spacing: 10px; 
+$grid-gutter-width: 24px;
 
 $grid-columns: 12;
 
@@ -29,9 +30,9 @@ $grid-columns: 12;
 // Typography variables
 // -----------------------------------------------------------------------------
 $code-font: monospace;
-$heading-font: Arial, Helvetica, sans-serif;
+$heading-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 $icon-font: icomoon;
-$text-font: Arial, Helvetica, sans-serif;
+$text-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
 $base-font-size: 16px;
 $base-line-height: 1.75;
@@ -40,7 +41,7 @@ $heading-line-height: 1.25;
 
 $font-sizes: (
     small:       13px,
-    normal:      16px,
+    normal:      18px,
     medium:      20px,
     large:       26px,
     extra-large: 33px,

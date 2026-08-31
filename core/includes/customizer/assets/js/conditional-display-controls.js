@@ -60,7 +60,6 @@
 				function( newval ) {
 					switch (newval) {
 						case 'full-width':
-							api.control( 'responsive_container_width' ).toggle( false );
 							// api.control( 'responsive_footer_full_width' ).toggle( false );
 							api.control( 'responsive_header_full_width' ).toggle( false );
 							api.control( 'responsive_inline_logo_site_title' ).toggle( false );
@@ -69,8 +68,11 @@
 						 * The select was switched to »show«.
 						 */
 						case 'contained':
-							api.control( 'responsive_container_width' ).toggle( true );
 							// api.control( 'responsive_footer_full_width' ).toggle( true );
+							api.control( 'responsive_header_full_width' ).toggle( true );
+							api.control( 'responsive_inline_logo_site_title' ).toggle( true );
+							break;
+						case 'narrow':
 							api.control( 'responsive_header_full_width' ).toggle( true );
 							api.control( 'responsive_inline_logo_site_title' ).toggle( true );
 							break;
@@ -233,6 +235,90 @@
 		}
 	);
 
+	// Blog / Archive: Main Content Width only when resolved layout has no sidebar (matches responsive_not_active_blog_archive_sidebar() in PHP).
+	function responsiveBlogArchiveResolvedSidebar() {
+		var blog = api( 'responsive_blog_sidebar_position' ).get();
+		var globalPos = api( 'responsive_default_sidebar_position' ).get();
+		if ( 'global' === blog || 'default' === blog ) {
+			return globalPos;
+		}
+		return blog;
+	}
+	function toggleBlogArchiveMainContentWidthBySidebar() {
+		var show = ( 'no' === responsiveBlogArchiveResolvedSidebar() );
+		[ 'responsive_blog_content_width', 'responsive_blog_entry_display_masonry_separator' ].forEach( function( controlId ) {
+			var ctrl = api.control( controlId );
+			if ( ctrl ) {
+				ctrl.toggle( show );
+			}
+		} );
+	}
+	api.bind( 'ready', function() {
+		toggleBlogArchiveMainContentWidthBySidebar();
+	} );
+	api( 'responsive_blog_sidebar_position', function( setting ) {
+		setting.bind( function() {
+			toggleBlogArchiveMainContentWidthBySidebar();
+		} );
+	} );
+	api( 'responsive_default_sidebar_position', function( setting ) {
+		setting.bind( function() {
+			toggleBlogArchiveMainContentWidthBySidebar();
+		} );
+	} );
+
+	// WooCommerce: Main Content Width only when resolved layout has no sidebar.
+	function responsiveWooResolvedSidebar( contextSettingId ) {
+		var pos = api( contextSettingId ) ? api( contextSettingId ).get() : 'global';
+		var globalPos = api( 'responsive_default_sidebar_position' ) ? api( 'responsive_default_sidebar_position' ).get() : 'no';
+		if ( 'global' === pos || 'default' === pos ) {
+			return globalPos;
+		}
+		return pos;
+	}
+	function toggleWooMainContentWidthBySidebar( contextSettingId, controlIds ) {
+		var show = ( 'no' === responsiveWooResolvedSidebar( contextSettingId ) );
+		( controlIds || [] ).forEach( function( controlId ) {
+			var ctrl = api.control( controlId );
+			if ( ctrl ) {
+				ctrl.toggle( show );
+			}
+		} );
+	}
+	function toggleWooShopMainContentWidthBySidebar() {
+		toggleWooMainContentWidthBySidebar( 'responsive_shop_sidebar_position', [
+			'responsive_shop_layout_elements_separator',
+			'responsive_shop_content_width',
+		] );
+	}
+	function toggleWooSingleProductMainContentWidthBySidebar() {
+		toggleWooMainContentWidthBySidebar( 'responsive_single_product_sidebar_position', [
+			'responsive_single_product_layout_elements_separator',
+			'responsive_single_product_content_width',
+		] );
+	}
+
+	api.bind( 'ready', function() {
+		toggleWooShopMainContentWidthBySidebar();
+		toggleWooSingleProductMainContentWidthBySidebar();
+	} );
+	api( 'responsive_shop_sidebar_position', function( setting ) {
+		setting.bind( function() {
+			toggleWooShopMainContentWidthBySidebar();
+		} );
+	} );
+	api( 'responsive_single_product_sidebar_position', function( setting ) {
+		setting.bind( function() {
+			toggleWooSingleProductMainContentWidthBySidebar();
+		} );
+	} );
+	api( 'responsive_default_sidebar_position', function( setting ) {
+		setting.bind( function() {
+			toggleWooShopMainContentWidthBySidebar();
+			toggleWooSingleProductMainContentWidthBySidebar();
+		} );
+	} );
+
 	api(
 		"responsive_blog_entry_content_type",
 		function( $swipe ) {
@@ -253,6 +339,62 @@
 							api.control( 'responsive_blog_entry_read_more_type' ).toggle( true );
 							break;
 					}
+				}
+			);
+		}
+	);
+	api( 'responsive_disable_author_meta', function( setting ) {
+		setting.bind( function( disabled ) {
+			const show = ! disabled;
+			[ 'responsive_post_author_box_style', 'responsive_responsive_disable_author_meta_separator' ].forEach( function( id ) {
+				api.control( id, function( control ) {
+					control.toggle( show );
+				} );
+			} );
+		} );
+	} );
+
+	api(
+		'responsive_sidebar_link_style',
+		function( $swipe ) {
+			$swipe.bind(
+				function( newval ) {
+					var showHoverBg = ( 'hover-background' === newval );
+					if ( api.control( 'responsive_sidebar_link_hover_bg_color' ) ) {
+						api.control( 'responsive_sidebar_link_hover_bg_color' ).toggle( showHoverBg );
+					}
+					if ( api.control( 'responsive_sidebar_link_hover_bg_separator' ) ) {
+						api.control( 'responsive_sidebar_link_hover_bg_separator' ).toggle( showHoverBg );
+					}
+				}
+			);
+		}
+	);
+
+ 
+	// Button presets
+	function toggleButtonBackgroundColor( presetVal ) {
+		var showBgColor = !( presetVal && presetVal.indexOf( 'outline' ) === 0 );
+		if ( api.control( 'responsive_button_color' ) ) {
+			api.control( 'responsive_button_color' ).toggle( showBgColor );
+		}
+		if ( api.control( 'responsive_button_background_image' ) ) {
+			api.control( 'responsive_button_background_image' ).toggle( showBgColor );
+		}
+	}
+
+	api.bind( 'ready', function() {
+		if ( api( 'responsive_button_presets' ) ) {
+			toggleButtonBackgroundColor( api( 'responsive_button_presets' ).get() );
+		}
+	} );
+
+	api(
+		'responsive_button_presets',
+		function( $swipe ) {
+			$swipe.bind(
+				function( newval ) {
+					toggleButtonBackgroundColor( newval );
 				}
 			);
 		}

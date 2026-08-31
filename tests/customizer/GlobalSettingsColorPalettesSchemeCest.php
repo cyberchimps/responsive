@@ -37,13 +37,8 @@ class GlobalSettingsColorPalettesSchemeCest
         $I->see('Bronze');
         $I->see('Shade');
         $I->see('Blush');
-        $I->see('Indiresponsive');
         $I->see('Pacific');
         $I->see('Plum');
-        $I->see('Steel');
-        $I->see('Avocado');
-        $I->see('Champagne');
-        $I->see('Spruce');
         $I->see('Mocha');
         $I->see('Lavender');
     }

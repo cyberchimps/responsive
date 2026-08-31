@@ -8,6 +8,9 @@
 	 */
 	wp.customize.bind( 'ready', function() {
 
+		// Track current device type.
+		let currentDevice = 'desktop';
+
 		var resizePreviewer = function() {
 			var $section = $('.control-section.responsive-builder-active');
 			var $footer = $('.control-section.responsive-footer-builder-active');
@@ -38,11 +41,159 @@
 		
 		// Bind events
 		$window.on('resize', resizePreviewer);
-		
-		wp.customize.previewedDevice.bind(function() {
+
+		/**
+		 * Toggles visibility of desktop vs mobile/tablet builder controls.
+		 * @param {string} device - The current device (desktop, tablet, mobile).
+		 */
+		var toggleHeaderBuilderControls = function( device ) {
+			var desktopControl = wp.customize.control( 'responsive_header_desktop_items' );
+			var mobileTabletControl = wp.customize.control( 'responsive_header_mobile_tablet_items' );
+			var desktopAvailableItemsControl = wp.customize.control( 'responsive_header_available_items' );
+			var mobileTabletAvailableItemsControl = wp.customize.control( 'responsive_header_mobile_tablet_available_items' );
+
+			// Check if the controls exist before proceeding.
+			if ( ! desktopControl || ! mobileTabletControl ) {
+				return;
+			}
+
+			if ( device === 'desktop' ) {
+				// Show Desktop control, Hide Mobile/Tablet control
+				desktopControl.container.show();
+				mobileTabletControl.container.hide();
+				// Toggle available items controls
+				if ( desktopAvailableItemsControl ) {
+					desktopAvailableItemsControl.container.show();
+				}
+				if ( mobileTabletAvailableItemsControl ) {
+					mobileTabletAvailableItemsControl.container.hide();
+				}
+			} else {
+				// Show Mobile/Tablet control, Hide Desktop control (for 'tablet' or 'mobile')
+				desktopControl.container.hide();
+				mobileTabletControl.container.show();
+				// Toggle available items controls
+				if ( desktopAvailableItemsControl ) {
+					desktopAvailableItemsControl.container.hide();
+				}
+				if ( mobileTabletAvailableItemsControl ) {
+					mobileTabletAvailableItemsControl.container.show();
+				}
+			}
+		};
+
+		/**
+		 * Toggles visibility of desktop vs mobile/tablet footer builder controls.
+		 * @param {string} device - The current device (desktop, tablet, mobile).
+		 */
+		var toggleFooterBuilderControls = function( device ) {
+			var desktopControl = wp.customize.control( 'responsive_footer_items' );
+			var mobileTabletControl = wp.customize.control( 'responsive_footer_mobile_items' );
+			var desktopAvailableItemsControl = wp.customize.control( 'responsive_footer_available_items' );
+			var mobileTabletAvailableItemsControl = wp.customize.control( 'responsive_footer_mobile_available_items' );
+
+			// Check if the controls exist before proceeding.
+			if ( ! desktopControl || ! mobileTabletControl ) {
+				return;
+			}
+
+			// Check if the general tab is active
+			var generalTab = $( '#responsive_footer_general_tab' );
+			var isGeneralTabActive = generalTab.length > 0 && generalTab.hasClass( 'nav-tab-active' );
+
+			if ( device === 'desktop' ) {
+				// Show Desktop control, Hide Mobile/Tablet control
+				desktopControl.container.show();
+				mobileTabletControl.container.hide();
+				// Toggle available items controls only if general tab is active
+				if ( isGeneralTabActive ) {
+					if ( desktopAvailableItemsControl ) {
+						desktopAvailableItemsControl.container.show();
+					}
+					if ( mobileTabletAvailableItemsControl ) {
+						mobileTabletAvailableItemsControl.container.hide();
+					}
+				} else {
+					// If design tab is active, hide both available items controls
+					if ( desktopAvailableItemsControl ) {
+						desktopAvailableItemsControl.container.hide();
+					}
+					if ( mobileTabletAvailableItemsControl ) {
+						mobileTabletAvailableItemsControl.container.hide();
+					}
+				}
+			} else {
+				// Show Mobile/Tablet control, Hide Desktop control (for 'tablet' or 'mobile')
+				desktopControl.container.hide();
+				mobileTabletControl.container.show();
+				// Toggle available items controls only if general tab is active
+				if ( isGeneralTabActive ) {
+					if ( desktopAvailableItemsControl ) {
+						desktopAvailableItemsControl.container.hide();
+					}
+					if ( mobileTabletAvailableItemsControl ) {
+						mobileTabletAvailableItemsControl.container.show();
+					}
+				} else {
+					// If design tab is active, hide both available items controls
+					if ( desktopAvailableItemsControl ) {
+						desktopAvailableItemsControl.container.hide();
+					}
+					if ( mobileTabletAvailableItemsControl ) {
+						mobileTabletAvailableItemsControl.container.hide();
+					}
+				}
+			}
+		};
+
+		wp.customize.previewedDevice.bind(function(device) {
+			currentDevice = device;
+			toggleHeaderBuilderControls( currentDevice );
+			toggleFooterBuilderControls( currentDevice );
 			setTimeout(resizePreviewer, 100);
 		});
-		
+
+	// Initialize on page load
+	setTimeout(function() {
+		currentDevice = wp.customize.previewedDevice.get();
+		toggleHeaderBuilderControls( currentDevice );
+		toggleFooterBuilderControls( currentDevice );
+	}, 100);
+
+	// Initialize when footer layout section is expanded
+	wp.customize.section( 'responsive_footer_layout', function( section ) {
+		section.expanded.bind( function( isExpanded ) {
+			if ( isExpanded ) {
+				// Using a longer timeout to ensure controls are fully rendered
+				setTimeout(function() {
+					currentDevice = wp.customize.previewedDevice.get();
+					toggleFooterBuilderControls( currentDevice );
+				}, 200);
+			}
+		});
+	});
+
+	// Initialize when footer builder section is expanded (in case it's opened first)
+	wp.customize.section( 'responsive_footer_builder', function( section ) {
+		section.expanded.bind( function( isExpanded ) {
+			if ( isExpanded ) {
+				// Use a longer timeout to ensure controls are fully rendered
+				setTimeout(function() {
+					currentDevice = wp.customize.previewedDevice.get();
+					toggleFooterBuilderControls( currentDevice );
+				}, 200);
+			}
+		});
+	});
+
+	// Listen for footer tab clicks to ensure correct device-specific controls are shown
+	$( document ).on( 'click', '#responsive_footer_general_tab, #responsive_footer_design_tab', function() {
+		// Use a small delay to allow the tab component to update the DOM first
+		setTimeout(function() {
+			currentDevice = wp.customize.previewedDevice.get();
+			toggleFooterBuilderControls( currentDevice );
+		}, 50);
+	});
 
 		/**
 		 * Init Header & Footer Builder
@@ -64,9 +215,10 @@
 						// Fire event after control is initialized.
 						control.container.trigger( 'init' );
 					});
-
+					
 					if ( isExpanded ) {
 						$body.addClass( 'responsive-header-builder-is-active' );
+						toggleHeaderBuilderControls( currentDevice );
 						$section.addClass( 'responsive-builder-active' );
 						$section.css('display', 'none').height();
 						$section.css('display', 'block');
@@ -120,6 +272,10 @@
 						$section.addClass( 'responsive-footer-builder-active' );
 						$section.css('display', 'none').height();
 						$section.css('display', 'block');
+						// Use a timeout to ensure controls are fully rendered before toggling
+						setTimeout(function() {
+							toggleFooterBuilderControls( currentDevice );
+						}, 200);
 					} else {
 						$body.removeClass( 'responsive-footer-builder-is-active' );
 						$section.removeClass( 'responsive-footer-builder-active' );
@@ -141,7 +297,46 @@
 					$section.toggleClass( 'responsive-hfb-builder-hide' );
 					resizePreviewer();
 				});
+
+
+				// This is for showing the footer builder when the footer widgets are edited via Widgets>Footer Widget
+				wp.customize.section.each(function(sec) {
+					
+					if (sec.id.startsWith('sidebar-widgets-footer-widget-')) {
+
+						sec.expanded.bind(function(isExpanded) {
+
+							if (isExpanded) {
+
+								$body.addClass('responsive-footer-builder-is-active');
+								$section.addClass('responsive-footer-builder-active');
+
+								_.each(sec.controls(), function(control) {
+									if ('resolved' !== control.deferred.embedded.state()) {
+										control.renderContent();
+										control.deferred.embedded.resolve();
+										control.container.trigger('init');
+									}
+								});
+
+								setTimeout(function() {
+									toggleFooterBuilderControls(currentDevice);
+								}, 200);
+
+								resizePreviewer();
+							}
+							else 
+							{
+								$body.removeClass( 'responsive-footer-builder-is-active' );
+								$section.removeClass( 'responsive-footer-builder-active' );
+							}
+						});
+					}
+				});
 			}
+
+			
+			
 
 		};
 		wp.customize.panel( 'responsive_footer', initFooterBuilderPanel );
@@ -226,90 +421,199 @@
 		} );
 	} );
 
-	wp.customize.bind('ready', function() {
-		wp.customize('responsive_color_scheme', function(value) {
-			value.bind(function(newval) {
+	function processThemeSettingForCSS ( setting ) {
+		// Ensure the setting exists
+        const settingObj = wp.customize(setting);
+        if (!settingObj) {
+            console.warn('Invalid setting:', setting);
+            return null;
+        }
+
+        // Get actual value
+        let value = settingObj.get();
+        if (!value) return null;
 	
-				// Extract design style and color palette.
-				let customizerColorSchemes = newval.split('-');
-				let designStyle = customizerColorSchemes[0];
-				let colorPalette = customizerColorSchemes[1];
-	
-				// Get available design styles.
-				let designStyles = localize.paletteDesignStyles;
-	
-				if (designStyles[designStyle] && designStyles[designStyle].color_schemes[colorPalette]) {
-					let responsiveColorSchemes = designStyles[designStyle].color_schemes[colorPalette];
-	
-					// List of theme mods to update dynamically.
-					let themeMods = {
-						'responsive_alt_background_color': responsiveColorSchemes.alt_background,
-						'responsive_box_background_color': responsiveColorSchemes.background,
-						'responsive_link_color': responsiveColorSchemes.accent,
-						'responsive_button_color': responsiveColorSchemes.accent,
-						'responsive_button_hover_color': responsiveColorSchemes.accent,
-						'responsive_sidebar_headings_color': responsiveColorSchemes.text,
-						'responsive_sidebar_background_color': responsiveColorSchemes.background,
-						'responsive_body_text_color': responsiveColorSchemes.text,
-						'responsive_meta_text_color': responsiveColorSchemes.accent,
-						'responsive_sidebar_text_color': responsiveColorSchemes.text,
-						'responsive_h1_text_color': responsiveColorSchemes.text,
-						'responsive_h2_text_color': responsiveColorSchemes.text,
-						'responsive_h3_text_color': responsiveColorSchemes.text,
-						'responsive_h4_text_color': responsiveColorSchemes.text,
-						'responsive_h5_text_color': responsiveColorSchemes.text,
-						'responsive_h6_text_color': responsiveColorSchemes.text,
-						'responsive_sidebar_link_color': responsiveColorSchemes.accent,
-						'responsive_shop_product_rating_color': responsiveColorSchemes.accent,
-						'responsive_add_to_cart_button_text_color': responsiveColorSchemes.background,
-						'responsive_add_to_cart_button_hover_text_color': responsiveColorSchemes.background,
-						'responsive_cart_buttons_text_color': responsiveColorSchemes.background,
-						'responsive_cart_buttons_hover_color': responsiveColorSchemes.accent,
-						'responsive_cart_buttons_hover_text_color': responsiveColorSchemes.background,
-						'responsive_cart_checkout_button_color': responsiveColorSchemes.accent,
-						'responsive_cart_checkout_button_text_color': responsiveColorSchemes.background,
-						'responsive_cart_checkout_button_hover_text_color': responsiveColorSchemes.background
-					};
-	
-					// Loop through theme mods and set values only if they exist.
-					Object.keys(themeMods).forEach(function(mod) {
-						if (wp.customize(mod)) {
-							wp.customize(mod).set(themeMods[mod]);
-						}
-					});
-	
-					// Handle header/footer separately with fallbacks.
-					let headerBackground = responsiveColorSchemes.header_background || '#ffffff';
-					let footerBackground = responsiveColorSchemes.footer_background || '#333333';
-					let headerText = responsiveColorSchemes.header_text || '#333333';
-					let footerText = responsiveColorSchemes.footer_text || '#ffffff';
-	
-					let additionalMods = {
-						'responsive_header_text_color': headerText,
-						'responsive_footer_text_color': footerText,
-						'responsive_footer_background_color': footerBackground,
-						'responsive_header_site_title_color': headerText,
-						'responsive_header_site_title_hover_color': headerText,
-						'responsive_header_menu_background_color': headerBackground,
-						'responsive_header_mobile_menu_background_color': headerBackground,
-						'responsive_header_menu_link_color': headerText,
-						'responsive_header_secondary_menu_background_color': headerBackground,
-						'responsive_header_secondary_menu_link_color': headerText
-					};
-	
-					// Apply additional mods safely.
-					Object.keys(additionalMods).forEach(function(mod) {
-						if (wp.customize(mod)) {
-							wp.customize(mod).set(additionalMods[mod]);
-						}
-					});
-	
-				} else {
-					console.error('Invalid color scheme or design style.');
+		// Detect palette var format
+        if (typeof value === 'string' && value.startsWith('palette')) {
+            return `var(--responsive-global-${value})`;
+        }
+		if (typeof value === 'string' && value.includes('headings-color')) {
+			return `var(--responsive-global-${value})`;
+		}
+        if (typeof value === 'string' && value.startsWith('title-above-content')) {
+            return `var(--responsive-${value})`;
+        }
+        return value;
+	}
+
+	wp.customize.bind('ready', function () {
+		wp.customize('responsive_global_color_palette', function (value) {
+			function applyPalette(newval) {
+				if (!newval || !newval.palette) return;
+
+				const prefix = '--responsive-global-palette';
+				const palette = newval.palette;
+
+				// Define the correct order of palette keys to ensure proper mapping to CSS variables
+				const paletteKeyOrder = ['accent', 'link_hover', 'text', 'header_text', 'content_background', 'site_background', 'alt_background'];
+				
+				let cssVars = {};
+
+				// Map palette keys to CSS variables in the correct order
+				paletteKeyOrder.forEach(function (key, index) {
+					if (palette[key] !== undefined) {
+						cssVars[`${prefix}${index}`] = palette[key];
+					}
+				});
+				cssVars['--responsive-global-headings-color'] = processThemeSettingForCSS('responsive_all_heading_text_color');
+				cssVars['--responsive-border-color'] = processThemeSettingForCSS('responsive_border_color');
+				cssVars['--responsive-global-site-background'] = processThemeSettingForCSS('responsive_site_background_color');
+				cssVars['--responsive-global-box-background'] = processThemeSettingForCSS('responsive_box_background_color');
+				cssVars['--responsive-global-h1-color'] = processThemeSettingForCSS('responsive_h1_text_color');
+				const root = document.documentElement;
+				Object.entries(cssVars).forEach(([varName, color]) => {
+					root.style.setProperty(varName, color);
+				});
+
+				applyToPreview(cssVars);
+			}
+
+			// Run once on initial load
+			applyPalette(value.get());
+
+			// Run whenever setting value changes
+			// value.bind(applyPalette);
+		});
+
+		wp.customize( 'responsive_border_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
 				}
+				document.documentElement.style.setProperty(
+					'--responsive-border-color',
+					newval
+				);
+			});
+		});
+
+		wp.customize( 'responsive_title_above_content_bg_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				document.documentElement.style.setProperty(
+					'--responsive-title-above-content-bg-color',
+					newval
+				);
+			});
+		});
+
+		wp.customize( 'responsive_title_above_content_overlay_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				document.documentElement.style.setProperty(
+					'--responsive-title-above-content-overlay-color',
+					newval
+				);
+			});
+		});
+
+		wp.customize( 'responsive_all_heading_text_color', function( value ) {
+				value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				document.documentElement.style.setProperty(
+					'--responsive-global-headings-color',
+					newval
+				);
+			});
+		});
+
+		wp.customize( 'responsive_site_background_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				document.documentElement.style.setProperty(
+					'--responsive-global-site-background',
+					newval
+				);
+			});
+		});
+
+		wp.customize( 'responsive_box_background_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				document.documentElement.style.setProperty(
+					'--responsive-global-box-background',
+					newval
+				);
+			});
+		});
+
+		wp.customize( 'responsive_h1_text_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				if( newval && newval.startsWith('headings-color') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				document.documentElement.style.setProperty(
+					'--responsive-global-h1-color',
+					newval
+				);
+			});
+		});
+
+		// Individual listeners for global color palette settings to update correct CSS variables
+		// Mapping: setting ID -> CSS variable index
+		const globalPaletteMapping = {
+			'responsive_global_color_palette_accent_color': 0,
+			'responsive_global_color_palette_link_hover_color': 1,
+			'responsive_global_color_palette_text_color': 2,
+			'responsive_global_color_palette_headings_color': 3,
+			'responsive_global_color_palette_content_bg_color': 4,
+			'responsive_global_color_palette_site_background_color': 5,
+			'responsive_global_color_palette_alt_background_color': 6,
+			'responsive_global_color_palette_subtle_background_color': 7
+		};
+
+		Object.entries(globalPaletteMapping).forEach(function([settingId, index]) {
+			wp.customize(settingId, function(value) {
+				value.bind(function(newval) {
+					const cssVar = `--responsive-global-palette${index}`;
+					document.documentElement.style.setProperty(cssVar, newval);
+					
+					// Also update preview iframe
+					const iframe = document.querySelector('#customize-preview iframe');
+					if (iframe && iframe.contentWindow && iframe.contentWindow.document) {
+						iframe.contentWindow.document.documentElement.style.setProperty(cssVar, newval);
+					}
+				});
 			});
 		});
 	});
+
+	function applyToPreview(cssVars) {
+
+		const iframe = document.querySelector('#customize-preview iframe');
+
+		if (iframe && iframe.contentWindow && iframe.contentWindow.document) {
+			const previewRoot = iframe.contentWindow.document.documentElement;
+
+			Object.entries(cssVars).forEach(([varName, color]) => {
+				previewRoot.style.setProperty(varName, color);
+			});
+			return;
+		}
+	}
 
 	wp.customize('responsive_header_search_label', function(setting) {
 		setting.bind(function(label) {
@@ -418,3 +722,5 @@
 
 	
 } )( jQuery, wp );
+
+export const Base = true;

@@ -45,6 +45,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
                 'responsive_header_builder',
                 array(
                     'title'    => esc_html__( 'Header Builder', 'responsive' ),
+                    'description' => '<div class="responsive-section-description"><p><b>' . __( 'Helpful Information', 'responsive' ) . '</b></p><p><a href="https://cyberchimps.com/docs/responsive-theme/responsive-theme-walkthrough/create-a-header-using-responsive-themes-header-builder/" target="_blank">' . __( 'Header Overview »', 'responsive' ) . '</a></p></div>',
                     'panel'    => 'responsive_header',
                     'priority' => 100,
 
@@ -53,9 +54,16 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 
 			$header_desktop_items   = Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_desktop_items' );
 			$header_desktop_choices = Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_builder_choices' );
+			$header_mobile_tablet_items = Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_mobile_tablet_items' );
+			$header_mobile_tablet_choices = Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_builder_mobile_tablet_choices' );
 
 			if ( class_exists( 'woocommerce' ) ) {
 				$header_desktop_choices['woo-cart'] = array(
+					'name'    => esc_html__( 'Cart', 'responsive' ),
+					'section' => 'responsive_header_woo_cart',
+					'icon'    => 'cart',
+				);
+				$header_mobile_tablet_choices['woo-cart'] = array(
 					'name'    => esc_html__( 'Cart', 'responsive' ),
 					'section' => 'responsive_header_woo_cart',
 					'icon'    => 'cart',
@@ -66,6 +74,15 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 				'responsive_header_desktop_items',
 				array(
 					'default'           => $header_desktop_items,
+					'sanitize_callback' => 'responsive_sanitize_builder',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_setting(
+				'responsive_header_mobile_tablet_items',
+				array(
+					'default'           => $header_mobile_tablet_items,
 					'sanitize_callback' => 'responsive_sanitize_builder',
 					'transport'         => 'refresh',
 				)
@@ -107,6 +124,49 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 							),
 						),
 						'builder_choices' => $header_desktop_choices,
+					)
+				)
+			);
+
+			$wp_customize->add_control(
+				new Responsive_Customizer_Layout_Builder_Control(
+					$wp_customize,
+					'responsive_header_mobile_tablet_items', 
+					array(
+						'section'  => 'responsive_header_builder',
+						'settings' => 'responsive_header_mobile_tablet_items',
+						'priority' => 30,
+						'input_attrs' => array(
+							'group' => 'header_mobile_tablet_items', 
+							'rows'  => array( 'popup', 'above' , 'primary', 'below' ),
+							'zones' => array(
+								'popup' => array(
+									'popup_content' => esc_html__( 'Popup Content', 'responsive' ),
+								),
+								'above' => array(
+									'above_left'         => is_rtl() ? esc_html__( 'Above - Right', 'responsive' ) : esc_html__( 'Above - Left', 'responsive' ),
+									'above_left_center'  => is_rtl() ? esc_html__( 'Above - Right Center', 'responsive' ) : esc_html__( 'Above - Left Center', 'responsive' ),
+									'above_center'       => esc_html__( 'Above - Center', 'responsive' ),
+									'above_right_center' => is_rtl() ? esc_html__( 'Above - Left Center', 'responsive' ) : esc_html__( 'Above - Right Center', 'responsive' ),
+									'above_right'        => is_rtl() ? esc_html__( 'Above - Left', 'responsive' ) : esc_html__( 'Above - Right', 'responsive' ),
+								),
+								'primary' => array(
+									'primary_left'         => is_rtl() ? esc_html__( 'Primary - Right', 'responsive' ) : esc_html__( 'Primary - Left', 'responsive' ),
+									'primary_left_center'  => is_rtl() ? esc_html__( 'Primary - Right Center', 'responsive' ) : esc_html__( 'Primary - Left Center', 'responsive' ),
+									'primary_center'       => esc_html__( 'Primary - Center', 'responsive' ),
+									'primary_right_center' => is_rtl() ? esc_html__( 'Primary - Left Center', 'responsive' ) : esc_html__( 'Primary - Right Center', 'responsive' ),
+									'primary_right'        => is_rtl() ? esc_html__( 'Primary - Left', 'responsive' ) : esc_html__( 'Primary - Right', 'responsive' ),
+								),
+								'below' => array(
+									'below_left'         => is_rtl() ? esc_html__( 'Below -Right', 'responsive' ) : esc_html__( 'Below - Left', 'responsive' ),
+									'below_left_center'  => is_rtl() ? esc_html__( 'Below - Right Center', 'responsive' ) : esc_html__( 'Below - Left Center', 'responsive' ),
+									'below_center'       => esc_html__( 'Below - Center', 'responsive' ),
+									'below_right_center' => is_rtl() ? esc_html__( 'Below - Left Center', 'responsive' ) : esc_html__( 'Below - Right Center', 'responsive' ),
+									'below_right'        => is_rtl() ? esc_html__( 'Below - Left', 'responsive' ) : esc_html__( 'Below - Right', 'responsive' ),
+								),
+							),
+						),
+						'builder_choices' => $header_mobile_tablet_choices,
 					)
 				)
 			);
@@ -156,6 +216,8 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 
 			$footer_items 			= Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_items' );
 			$footer_builder_choices = Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_builder_choices' );
+			$footer_mobile_items    = Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_mobile_items' );
+			$footer_mobile_choices  = Responsive\Core\get_responsive_customizer_defaults( 'responsive_footer_builder_mobile_choices' );
 
 			$wp_customize->add_setting(
 				'responsive_footer_items',
@@ -165,6 +227,15 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 					'transport'         => 'refresh',
 				)
 			);
+
+			$wp_customize->add_setting(
+				'responsive_footer_mobile_items',
+				array(
+					'default'			=> $footer_mobile_items,
+					'sanitize_callback'	=> 'responsive_sanitize_builder',
+					'transport' 		=> 'refresh'
+				)
+				);
 
 			$wp_customize->add_control(
 				new Responsive_Customizer_Layout_Builder_Control(
@@ -205,6 +276,49 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 							),
 						),
 						'builder_choices' => $footer_builder_choices,
+					)
+				)
+			);
+
+			$wp_customize->add_control(
+				new Responsive_Customizer_Layout_Builder_Control(
+					$wp_customize, 
+					'responsive_footer_mobile_items',
+					array(
+						'section' => 'responsive_footer_builder',
+						'settings'=> 'responsive_footer_mobile_items',
+						'priority'=> 30,
+						'input_attrs' => array(
+							'group'	=> 'footer_mobile_items',
+							'rows'  => array( 'above', 'primary', 'below' ),
+							'zones' => array(
+								'above' => array(
+									'above_1' => esc_html__( 'Above - 1', 'responsive' ),
+									'above_2' => esc_html__( 'Above - 2', 'responsive' ),
+									'above_3' => esc_html__( 'Above - 3', 'responsive' ),
+									'above_4' => esc_html__( 'Above - 4', 'responsive' ),
+									'above_5' => esc_html__( 'Above - 5', 'responsive' ),
+									'above_6' => esc_html__( 'Above - 6', 'responsive' ),
+								),
+								'primary' => array(
+									'primary_1' => esc_html__( 'Primary - 1', 'responsive' ),
+									'primary_2' => esc_html__( 'Primary - 2', 'responsive' ),
+									'primary_3' => esc_html__( 'Primary - 3', 'responsive' ),
+									'primary_4' => esc_html__( 'Primary - 4', 'responsive' ),
+									'primary_5' => esc_html__( 'Primary - 5', 'responsive' ),
+									'primary_6' => esc_html__( 'Primary - 6', 'responsive' ),
+								),
+								'below' => array(
+									'below_1' => esc_html__( 'Below - 1', 'responsive' ),
+									'below_2' => esc_html__( 'Below - 2', 'responsive' ),
+									'below_3' => esc_html__( 'Below - 3', 'responsive' ),
+									'below_4' => esc_html__( 'Below - 4', 'responsive' ),
+									'below_5' => esc_html__( 'Below - 5', 'responsive' ),
+									'below_6' => esc_html__( 'Below - 6', 'responsive' ),
+								),
+							)
+						),
+						'builder_choices' => $footer_mobile_choices
 					)
 				)
 			);

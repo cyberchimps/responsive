@@ -254,7 +254,7 @@
 }
 
 .last-item-spread-away {
-    .main-navigation .menu {
+    .main-navigation .menu, .off-canvas-navigation .menu {
         & > li.res-custom-text-menu,
         & > li.res-button-menu,
         & > li.res-cart-link,
@@ -460,7 +460,7 @@
 }
 
 // Header Widget Styles
-.header-widgets {
+.header-widgets,.mobile-header-widgets {
     border-bottom: 1px solid map-get($colors, light-gray);
     background-color: map-get($colors, #fff);
     font-size: map-get($font-sizes, small);
@@ -469,7 +469,7 @@
         background-color: transparent;
     }
 
-    .header-widgets-wrapper {
+    .header-widgets-wrapper,.mobile-header-widgets-wrapper {
         @extend .row;
         justify-content: space-between;
         .header-widget-alignment-left & {
@@ -503,7 +503,7 @@
         float: left;
         border: 0;
 
-        .header-widgets-wrapper {
+        .header-widgets-wrapper, .mobile-header-widgets-wrapper {
             flex-direction: row;
         }
 
@@ -587,7 +587,8 @@ body.mega-menu-header-menu button.menu-toggle {
     }
 }
 
-.res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead{
+.res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead,
+.res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead-mobile {
     position: absolute;
     right: 0;
     left: 0;
@@ -642,6 +643,7 @@ body.mega-menu-header-menu button.menu-toggle {
     background: rgba(255,255,255,.95);
     z-index: 9999;
 
+	.search-close,
 	#search-close{
 		position: absolute;
 	    top: 50px;
@@ -704,7 +706,7 @@ body.mega-menu-header-menu button.menu-toggle {
 	}
 }
 
-.site-header {
+.site-header,.site-header-mobile {
 	.custom-logo-link.sticky-custom-logo {
 		display: none;
 	}
@@ -1043,12 +1045,38 @@ body.mega-menu-header-menu button.menu-toggle {
                 }
             }
         }
+        .responsive-mobile-header-html {
+            .responsive-mobile-header-html-inner {
+                &.responsive-mobile-header-html-underline-link a {
+                    text-decoration: underline;
+                }
+            }
+        }
     }
 }
 
 .site-header-item {
     .responsive-header-button-wrap {
         .responsive-header-button-inner-wrap {
+            .responsive-header-button {
+                display: inline-block;
+                &.responsive-header-button-sm-size {
+                    padding: 4px 6px;
+                }
+                &.responsive-header-button-md-size {
+                    padding: 10px 16px;
+                }
+                &.responsive-header-button-lg-size {
+                    padding: 18px 26px;
+                }
+            }
+        }
+    }
+}
+
+.site-mobile-header-item {
+    .responsive-header-button-wrap {
+        .responsive-header-button-inner-wrap{
             .responsive-header-button {
                 display: inline-block;
                 &.responsive-header-button-sm-size {
@@ -1074,9 +1102,24 @@ body.mega-menu-header-menu button.menu-toggle {
        justify-content: flex-end;
    }
 }
+
+@media ( min-width: map-get( $screens, md )) {
+    .site-mobile-header-row {
+        display: grid; 
+        grid-template-columns: auto auto;
+    }
+    .site-mobile-header-section-right {
+        justify-content: flex-end;
+    }
+}
+
 .site-header-row.site-header-row-center-column {
     grid-template-columns: 1fr auto 1fr;
 }
+.site-mobile-header-row.site-mobile-header-row-center-column {
+    grid-template-columns: 1fr auto 1fr;
+}
+
 .site-header-section {
     display: flex;
     max-height: inherit;
@@ -1086,10 +1129,23 @@ body.mega-menu-header-menu button.menu-toggle {
         margin-right: 0;
     }
 }
+.site-mobile-header-section {
+    display: flex;
+    max-height: inherit; 
+    align-items: center;
+
+    & > .site-mobile-header-item:last-child {
+        margin-right: 0;
+    }
+}
+
 .site-header-section-center {
     justify-content: center;
 }
-.site-header-item {
+.site-mobile-header-section-center {
+    justify-content: center;
+}
+.site-header-item, .site-mobile-header-item  {
     display: flex;
     align-items: center;
     margin-right: 10px;
@@ -1218,16 +1274,35 @@ body.mega-menu-header-menu button.menu-toggle {
         justify-content: normal;
     }
 }
+.site-mobile-header-row {
+    margin-right: $grid-gutter-width/ -2; 
+    margin-left: $grid-gutter-width/ -2;
+
+    & > .site-mobile-header-section {
+        flex-wrap: nowrap;
+    }
+    &.site-mobile-header-row-only-center-column {
+        display: flex;
+        justify-content: center;
+    }
+}
 .site-header-section:has(.main-navigation.toggled) {
     display: block;
 }
 .res-transparent-header {
     & #masthead,
+    & #masthead-mobile,
     & .responsive-site-above-header-wrap,
     & .responsive-site-primary-header-wrap,
     & .responsive-site-below-header-wrap,
     & .responsive-site-below-header-wrap:hover,
     & .responsive-site-primary-header-wrap:hover,
+    & .responsive-site-above-mobile-header-wrap,
+    & .responsive-site-primary-mobile-header-wrap,
+    & .responsive-site-below-mobile-header-wrap,
+    & .responsive-site-above-mobile-header-wrap:hover,
+    & .responsive-site-primary-mobile-header-wrap:hover,
+    & .responsive-site-below-mobile-header-wrap:hover,
     & .responsive-site-above-header-wrap:hover {
         background: transparent;
     }
@@ -1239,7 +1314,7 @@ body.mega-menu-header-menu button.menu-toggle {
 }
 
 // Header Contact Element.
-.site-header-item {
+.site-header-item,.site-mobile-header-item {
     .responsive-header-contact-info {
         .responsive-header-contact-info-icons-types {
             display: flex;
@@ -1298,7 +1373,7 @@ body.mega-menu-header-menu button.menu-toggle {
            position: relative;
            top: 0;
            transition: all .3s ease;
-           z-index: 0;
+           z-index: 9999;
     
         }
     }
@@ -1331,6 +1406,21 @@ body.mega-menu-header-menu button.menu-toggle {
     .responsive-header-search {
         #searchform {
             left: 0;
+            right: auto;
+        }
+    }
+    .search-type-responsive-slide {
+        .res-search-wrapper {
+            flex-direction: row-reverse;
+            gap: 10px;
+        }
+    }
+}
+.site-mobile-header-section-left {
+    .responsive-header-search {
+        #searchform {
+            left: 0;
+            right: auto;
         }
     }
     .search-type-responsive-slide {
@@ -1379,5 +1469,52 @@ body.mega-menu-header-menu button.menu-toggle {
         color: #0066CC;
         font-size: 0.9em;
         padding: 10px 20px;
+    }
+}
+
+// Mobile header toggle button: Show cross icon when dropdown is open
+#masthead-mobile {
+    .site-header-item-toggle-button {
+        .menu-toggle {
+            position: relative;
+            
+            // When dropdown menu is open, hide the menu icon SVG and show cross icon
+            &[aria-expanded="true"] {
+                svg {
+                    opacity: 0;
+                    visibility: hidden;
+                    width: 0;
+                    height: 0;
+                    margin: 0;
+                }
+                
+                // Show cross icon using pseudo-element positioned where SVG was
+                &::before {
+                    content: "\f00d";
+                    font-family: $icon-font;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    opacity: 1;
+                    visibility: visible;
+                    font-size: inherit;
+                    line-height: 1;
+                    width: var(--menu-icon-size);
+                    height: var(--menu-icon-size);
+                }
+            }
+            
+            // When menu is closed, ensure cross icon is hidden and SVG is visible
+            &[aria-expanded="false"] {
+                &::before {
+                    display: none;
+                }
+                
+                svg {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
     }
 }

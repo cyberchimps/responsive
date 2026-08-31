@@ -143,11 +143,34 @@
     }
 }
 
-.rspv-hfb-footer-row-inline {
-    & .site-footer-section {
+#footer .rspv-hfb-footer-row-inline {
+    
+    .footer-desktop-items,
+    .footer-mobile-items {
         display: flex;
     }
+
+    // Desktop (≥ 993px)
+    @media (min-width: 993px) {
+        .footer-desktop-items {
+            display: flex !important;
+        }
+        .footer-mobile-items {
+            display: none;
+        }
+    }
+
+    // Mobile (< 993px)
+    @media (max-width: 992px) {
+        .footer-desktop-items {
+            display: none;
+        }
+        .footer-mobile-items {
+            display: flex !important;
+        }
+    }
 }
+
 .site-footer-section {
     max-height: inherit;
 }
@@ -198,6 +221,10 @@
     &.rspv-hfb-footer-row-layout-right-forty {
         grid-template-columns: 1fr 1fr 1fr 2fr;
     }
+}
+// Hide footer rows that don't have desktop items on desktop viewports
+.rspv-hfb-footer-no-desktop-items {
+    display: none;
 }
 @media ( max-width:map-get($screens, lg) ) and ( min-width:map-get($screens,sm) ) {
     .site-footer-wrap .rspv-site-footer-focus-item .site-footer-row.rspv-hfb-footer-row-tablet-layout-row {
@@ -261,6 +288,14 @@
             grid-template-columns: repeat( 6, 1fr );
         }
     }
+    // On tablet, show rows even if they don't have desktop items (override desktop rule)
+    .rspv-hfb-footer-no-desktop-items {
+        display: block;
+    }
+    // Hide footer rows that don't have mobile items on tablet devices
+    .rspv-hfb-footer-no-mobile-items {
+        display: none;
+    }
 }
 @media ( max-width:map-get($screens, sm) ) {
     .site-footer-wrap .rspv-site-footer-focus-item .site-footer-row.rspv-hfb-footer-row-mobile-layout-row {
@@ -323,6 +358,14 @@
         &.rspv-hfb-footer-row-mobile-layout-equal {
             grid-template-columns: repeat( 6, 1fr );
         }
+    }
+    // On mobile, show rows even if they don't have desktop items (override desktop rule)
+    .rspv-hfb-footer-no-desktop-items {
+        display: block;
+    }
+    // Hide footer rows that don't have mobile items on mobile devices
+    .rspv-hfb-footer-no-mobile-items {
+        display: none;
     }
 }
 
@@ -447,5 +490,26 @@
     }
     &.stt-on-left {
         left: 2px;
+    }
+}
+
+// Show/hide desktop vs mobile footer items based on screen size
+#footer .footer-desktop-items {
+    display: block;
+    width: 100%;
+    
+    // Hide on mobile and tablet (below lg breakpoint)
+    @media ( max-width: map-get( $screens, lg ) - 1px ) {
+        display: none !important;
+    }
+}
+
+#footer .footer-mobile-items {
+    display: none;
+    
+    // Show on mobile and tablet (below lg breakpoint)
+    @media ( max-width: map-get( $screens, lg ) - 1px ) {
+        display: block !important;
+        width: 100%;
     }
 }

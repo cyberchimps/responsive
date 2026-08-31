@@ -8,12 +8,12 @@ const TypographyGroupControlComponent = (props) => {
     // Suffixes for related controls
     const suffixes = [
         'font-family',
-        'font-size',
         'font-weight',
-        'text-transform',
-        'font-style',
+        'font-size',
         'line-height',
         'letter-spacing',
+        'text-transform',
+        'font-style',
         'color',
         'font-color'
     ];
@@ -23,36 +23,84 @@ const TypographyGroupControlComponent = (props) => {
     const typoGroupWrapperRef = useRef(null);
     const hasWrappedRef = useRef(false);
 
+    // active device state
+    const [activeDevice, setActiveDevice] = React.useState('desktop');
+
+	useEffect(() => {
+		if (window.wp && window.wp.customize && window.wp.customize.previewedDevice) {
+			const currentDevice = window.wp.customize.previewedDevice.get();
+            setActiveDevice(currentDevice);
+			
+			const handleDeviceChange = () => {
+				const device = window.wp.customize.previewedDevice.get();
+                setActiveDevice(device);
+			};
+			window.wp.customize.previewedDevice.bind(handleDeviceChange);
+			return () => {
+				window.wp.customize.previewedDevice.unbind(handleDeviceChange);
+			};
+		}
+	}, []);
+
     // Function to create or update the <ul> and wrap <li> elements
     const wrapLiElements = () => {
     
         // IDs of the <li> elements to be wrapped
         const liIds = [
             `customize-control-${connected_control}-font-family`,
-            `customize-control-${connected_control}-font-size`,
             `customize-control-${connected_control}-font-weight`,
-            `customize-control-${connected_control}-text-transform`,
-            `customize-control-${connected_control}-font-style`,
+            `customize-control-${connected_control}-font-size`,
             `customize-control-${connected_control}-line-height`,
             `customize-control-${connected_control}-letter-spacing`,
             `customize-control-${connected_control}-color`,
-            `customize-control-${connected_control}-font-color`
+            `customize-control-${connected_control}-font-color`,
+            `customize-control-${connected_control}-text-transform`,
+            `customize-control-${connected_control}-font-style`
         ];
     
         let ul = document.querySelector(`.responsive-typography-settings-group-${connected_control}`);
         if (!ul) {
             ul = document.createElement('ul');
-            ul.className = `responsive-typography-settings-group responsive-typography-settings-group-${connected_control}`;
+            ul.classList.add('responsive-typography-settings-group');
+            ul.classList.add(`responsive-typography-settings-group-${connected_control}`);
+            ul.classList.add(`control-device-${activeDevice}`);
+            typoGroupWrapperRef.current = ul;
+        } else {
+            ul.classList.remove('control-device-desktop', 'control-device-tablet', 'control-device-mobile');
+            ul.classList.add(`control-device-${activeDevice}`);
             typoGroupWrapperRef.current = ul;
         }
     
+        let inlineWrapper = ul.querySelector('.responsive-typography-inline-container');
+        if (!inlineWrapper) {
+            inlineWrapper = document.createElement('li');
+            inlineWrapper.className = 'responsive-typography-inline-container';
+        }
+
+        const isActive = ul.classList.contains('active');
+
         // Append <li> elements to the <ul>
         liIds.forEach(id => {
             const li = document.getElementById(id);
-            if (li && !ul.contains(li)) {
-                ul.appendChild(li);
+            if (li) {
+                if (isActive && window.getComputedStyle(li).display === 'none') {
+                    li.style.display = 'list-item';
+                }
+                if (id.endsWith('text-transform') || id.endsWith('font-style')) {
+                    if (!inlineWrapper.contains(li)) {
+                        inlineWrapper.appendChild(li);
+                    }
+                } else {
+                    if (!ul.contains(li)) {
+                        ul.appendChild(li);
+                    }
+                }
             }
         });
+
+        if (inlineWrapper.hasChildNodes() && ul.lastChild !== inlineWrapper) {
+            ul.appendChild(inlineWrapper);
+        }
     
         // Find the reference element
         const referenceElement = document.getElementById(`customize-control-responsive_${connected_control}_group`);
@@ -89,10 +137,16 @@ const TypographyGroupControlComponent = (props) => {
             clearTimeout(timeoutId);
             observer.disconnect();
         };
-    }, [connected_control]);
+    }, [connected_control, activeDevice]);
 
     // Event listener for clicks outside the typoGroupSelectRef and typoGroupWrapperRef
     const handleClickOutsideTypoGroupSelect = (event) => {
+        // If the event target was removed from the DOM (e.g., by a React re-render), 
+        // ignore the click to prevent falsely closing the dropdown.
+        if (!document.body.contains(event.target)) {
+            return;
+        }
+
         if (
             typoGroupSelectRef.current &&
             !typoGroupSelectRef.current.contains(event.target) &&
@@ -106,6 +160,15 @@ const TypographyGroupControlComponent = (props) => {
                     element.style.display = 'none';
                 }
             });
+
+            // Hide inline container
+            if (typoGroupWrapperRef.current) {
+                typoGroupWrapperRef.current.classList.remove('active');
+                const inlineWrapper = typoGroupWrapperRef.current.querySelector('.responsive-typography-inline-container');
+                if (inlineWrapper) {
+                    inlineWrapper.style.display = 'none';
+                }
+            }
         }
     };
 
@@ -119,21 +182,43 @@ const TypographyGroupControlComponent = (props) => {
 
     // Toggle visibility of related controls
     const toggleRelatedTypoControls = () => {
+        let hasVisibleChildren = false;
         const controlSuffixes = suffixes.map(suffix => `${connected_control}-${suffix}`);
         controlSuffixes.forEach(suffix => {
             const element = document.getElementById(`customize-control-${suffix}`);
             if (element) {
-                element.style.display = window.getComputedStyle(element).display === 'none' ? 'list-item' : 'none';
+                const isHidden = window.getComputedStyle(element).display === 'none';
+                if (isHidden) {
+                    element.style.display = 'list-item';
+                    hasVisibleChildren = true;
+                } else {
+                    element.style.display = 'none';
+                }
             }
         });
+
+        // Toggle inline container based on children visibility
+        if (typoGroupWrapperRef.current) {
+            if (hasVisibleChildren) {
+                typoGroupWrapperRef.current.classList.add('active');
+            } else {
+                typoGroupWrapperRef.current.classList.remove('active');
+            }
+
+            const inlineWrapper = typoGroupWrapperRef.current.querySelector('.responsive-typography-inline-container');
+            if (inlineWrapper) {
+                const hasVisibleInline = Array.from(inlineWrapper.children).some(child => window.getComputedStyle(child).display !== 'none');
+                inlineWrapper.style.display = hasVisibleInline ? 'flex' : 'none';
+            }
+        }
     };
 
     return (
         <div className="responsive-typography-settings-group-icon">
             <span className="customize-control-title">{label}</span>
             <svg ref={typoGroupSelectRef} className="responsive-select-typo-group" data-connected-control={connected_control} onClick={toggleRelatedTypoControls} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15.1882 5.42371C15.6125 5.46914 15.9506 5.66389 16.2195 5.86902C16.5038 6.08591 16.8085 6.39362 17.1218 6.70691L17.2937 6.87878L17.7488 7.3407C17.8919 7.49154 18.0231 7.63899 18.1316 7.78113C18.3661 8.0885 18.5867 8.48632 18.5867 8.99988C18.5867 9.51343 18.3661 9.91126 18.1316 10.2186C18.0231 10.3608 17.8919 10.5082 17.7488 10.6591L17.2937 11.121L10.0994 18.3153C9.9816 18.4331 9.83767 18.5838 9.66187 18.7147L9.47534 18.8378C9.34339 18.9125 9.20446 18.9653 9.07202 19.0067L8.70581 19.1044L6.09741 19.7557L6.09546 19.7567L6.05151 19.7675C5.90366 19.8044 5.68229 19.8627 5.48804 19.8817C5.30725 19.8994 4.93857 19.9072 4.60229 19.662L4.46069 19.5399C4.09192 19.1711 4.09868 18.7193 4.1189 18.5126C4.13792 18.3183 4.19619 18.097 4.23315 17.9491L4.89624 15.2948L4.9939 14.9286C5.03527 14.7962 5.08813 14.6572 5.16284 14.5253L5.28589 14.3387C5.41681 14.1629 5.56753 14.019 5.6853 13.9012L12.8796 6.70691L13.3416 6.25183C13.4924 6.10866 13.6398 5.97746 13.782 5.86902C14.0894 5.63454 14.4872 5.41394 15.0007 5.41394L15.1882 5.42371Z" stroke="#50575E" stroke-width="2"/>
-            <path d="M12.5007 7.49988L15.5007 5.49988L18.5007 8.49988L16.5007 11.4999L12.5007 7.49988Z" fill="#50575E"/>
+            <path d="M15 2.70711L18.0052 5.71231L7.32322 16.3943L3.41646 17.2959L4.31802 13.3891L15 2.70711Z" stroke="currentColor"></path>
+            <path d="M16.0282 8.24731L13.0583 5.27747" stroke="currentColor"></path>
             </svg>
         </div>
     );

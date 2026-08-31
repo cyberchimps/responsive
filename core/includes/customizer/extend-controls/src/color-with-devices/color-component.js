@@ -78,10 +78,10 @@ const ColorComponentWithDevices = props => {
     </>;
 
 	return <>
-		<label className='responsive-color-control-main-wrap'>
+		<div className='responsive-color-control-main-wrap'>
 			{labelHtml}
             {inputHtml}
-		</label>
+		</div>
         {htmlDescription}
 	</>;
 

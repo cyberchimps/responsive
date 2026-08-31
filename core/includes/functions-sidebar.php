@@ -109,6 +109,19 @@ function responsive_widgets_init() {
 
 	register_sidebar(
 		array(
+			'name'          => __( 'Mobile Header Widgets', 'responsive' ),
+			/* translators: Widgets area description. */
+			'description'   => __( 'Mobile-only area - Displays in the mobile header widgets section', 'responsive' ),
+			'id'            => 'mobile-header-widgets',
+			'before_title'  => '<div class="widget-title"><h4>',
+			'after_title'   => '</h4></div>',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+		)
+	);
+
+	register_sidebar(
+		array(
 			'name'          => __( 'Footer Widgets 1', 'responsive' ),
 			'description'   => __( 'Area 12 - sidebar-footer.php', 'responsive' ),
 			'id'            => 'footer-widget-1',
@@ -171,6 +184,29 @@ function responsive_widgets_init() {
 			'after_title'   => '</h4></div>',
 			'before_widget' => '<div id="%1$s" class="grid col %2$s"><div class="footer-widget-wrapper">',
 			'after_widget'  => '</div></div>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => __( 'Sidebar 1', 'responsive' ),
+			'id'            => 'responsive-custom-sidebar-1',
+			'description'   => __( 'Custom Responsive theme Sidebar 1', 'responsive' ),
+			'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<div class="widget-title"><h4>',
+			'after_title'   => '</h4></div>',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => __( 'Sidebar 2', 'responsive' ),
+			'id'            => 'responsive-custom-sidebar-2',
+			'description'   => __( 'Custom Responsive theme Sidebar 2', 'responsive' ),
+			'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<div class="widget-title"><h4>',
+			'after_title'   => '</h4></div>',
 		)
 	);
 }
