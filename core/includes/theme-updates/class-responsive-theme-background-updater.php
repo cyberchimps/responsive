@@ -49,7 +49,14 @@ if ( ! class_exists( 'Responsive_Theme_Background_Updater' ) ) {
             ),
             '6.3.4' => array (
                 'responsive_theme_background_updater_footer_links_restyle'
-            )
+            ),
+            '6.4.1' => array (
+                'responsive_theme_background_updater_blog_container_margin_legacy'
+            ),
+            '6.4.3' => array (
+                'responsive_theme_background_updater_page_title_typography_6_4_3',
+                'responsive_theme_background_updater_site_content_padding_6_4_3',
+            ),
 		);
 
         /**

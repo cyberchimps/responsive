@@ -28,12 +28,36 @@ const TabsComponent = props => {
 		general: design_tab_ids,
 	};
 
+	const isSidebarControlInactive = (elementId) => {
+		let posControlKey = null;
+		if (elementId.indexOf('responsive_page_sidebar') !== -1) {
+			posControlKey = 'responsive_page_sidebar_position';
+		} else if (elementId.indexOf('responsive_blog_sidebar') !== -1) {
+			posControlKey = 'responsive_blog_sidebar_position';
+		} else if (elementId.indexOf('responsive_shop_sidebar') !== -1) {
+			posControlKey = 'responsive_shop_sidebar_position';
+		} else if (elementId.indexOf('responsive_single_product_sidebar') !== -1) {
+			posControlKey = 'responsive_single_product_sidebar_position';
+		}
+		if (posControlKey) {
+			const posCtrl = api.control(posControlKey);
+			if (posCtrl && posCtrl.active && !posCtrl.active.get()) {
+				return true;
+			}
+		}
+		return false;
+	};
+
 	useEffect(() => {
 		const showElements = tab === 'general' ? 'design' : 'general';
 		elementsToHide[showElements].forEach(elementId => {
 			const element = document.getElementById(elementId);
 			if (element) {
-				element.style.display = 'block';
+				if (isSidebarControlInactive(elementId)) {
+					element.style.display = 'none';
+				} else {
+					element.style.display = 'block';
+				}
 			}
 		});
 		elementsToHide[tab].forEach(elementId => {
@@ -47,16 +71,45 @@ const TabsComponent = props => {
 		toggleLogoControl('customize-control-responsive_retina_logo', isCustomLogoPresent);
 		toggleLogoControl('customize-control-responsive_mobile_logo_option', isCustomLogoPresent);
 
+		const toggleContentBackground = () => {
+			const pageStyle = api('responsive_page_container_style') ? api('responsive_page_container_style').get() : 'default';
+			const resolvedPageStyle = pageStyle === 'default' ? (api('responsive_style') ? api('responsive_style').get() : 'boxed') : pageStyle;
+			const pageCtrl = document.getElementById('customize-control-responsive_page_content_background_color');
+			if (pageCtrl) {
+				pageCtrl.style.display = (resolvedPageStyle !== 'flat' && tab === 'design') ? 'block' : 'none';
+			}
+			
+			const blogStyle = api('responsive_blog_container_style') ? api('responsive_blog_container_style').get() : 'default';
+			const resolvedBlogStyle = blogStyle === 'default' ? (api('responsive_style') ? api('responsive_style').get() : 'boxed') : blogStyle;
+			const blogCtrl = document.getElementById('customize-control-responsive_blog_content_background_color');
+			if (blogCtrl) {
+				blogCtrl.style.display = (resolvedBlogStyle !== 'flat' && tab === 'design') ? 'block' : 'none';
+			}
+			
+			const singleblogStyle = api('responsive_single_blog_container_style') ? api('responsive_single_blog_container_style').get() : 'default';
+			const resolvedSingleBlogStyle = singleblogStyle === 'default' ? (api('responsive_style') ? api('responsive_style').get() : 'boxed') : singleblogStyle;
+			const singleblogCtrl = document.getElementById('customize-control-responsive_single_blog_content_background_color');
+			if (singleblogCtrl) {
+				singleblogCtrl.style.display = (resolvedSingleBlogStyle !== 'flat' && tab === 'design') ? 'block' : 'none';
+			}
+		};
+		toggleContentBackground();
 
 		hideSidebarWidthControl( api('responsive_page_sidebar_position').get(), 'page' );
+		hideSidebarStyleControl( api('responsive_page_sidebar_position').get(), 'page' );
 		hideSidebarWidthControl( api('responsive_blog_sidebar_position').get(), 'blog' );
+		hideSidebarStyleControl( api('responsive_blog_sidebar_position').get(), 'blog' );
 		hideSidebarWidthControl( api('responsive_default_sidebar_position').get(), 'default' );
+		hideSidebarStyleControl( api('responsive_default_sidebar_position').get(), 'default' );
+		hideSidebarSpacingControls( api('responsive_default_sidebar_position').get() );
 		if(api('responsive_shop_sidebar_position')){
 			hideWoocommerceSidebarWidthControl( api('responsive_shop_sidebar_position').get(), 'shop');
+			hideWoocommerceSidebarStyleControl( api('responsive_shop_sidebar_position').get(), 'shop');
 		}
 		if(api('responsive_single_product_sidebar_position'))
 		{
 			hideWoocommerceSidebarWidthControl( api('responsive_single_product_sidebar_position').get(), 'single_product');
+			hideWoocommerceSidebarStyleControl( api('responsive_single_product_sidebar_position').get(), 'single_product');
 		}
 		if(api('responsive_shop_sidebar_position')){
 			hideWoocommerceMainContentWidthControl( api('responsive_shop_sidebar_position').get(), 'shop');
@@ -68,10 +121,22 @@ const TabsComponent = props => {
 		hideRetinaLogoUploadControl( api( 'responsive_retina_logo').get());
 		hideMobileLogoUploadControl( api( 'responsive_mobile_logo_option').get());
 
+		if ( api( 'responsive_disable_author_meta' ) && api( 'responsive_disable_author_meta' ).get() ) {
+			const authorBoxEl = document.getElementById( 'customize-control-responsive_post_author_box_style' );
+			const authorBoxSep = document.getElementById( 'customize-control-responsive_responsive_disable_author_meta_separator' );
+			if ( authorBoxEl ) {
+				authorBoxEl.style.display = 'none';
+			}
+			if ( authorBoxSep ) {
+				authorBoxSep.style.display = 'none';
+			}
+		}
+
 		api('responsive_page_sidebar_position', function( value ) {
 			value.bind( function( newval ) {
 				if ( newval ) {
 					hideSidebarWidthControl(newval, 'page');
+					hideSidebarStyleControl(newval, 'page');
 				}
 			});
 		});
@@ -79,6 +144,7 @@ const TabsComponent = props => {
 			value.bind( function( newval ) {
 				if ( newval ) {
 					hideSidebarWidthControl(newval, 'blog');
+					hideSidebarStyleControl(newval, 'blog');
 				}
 			});
 		});
@@ -86,10 +152,20 @@ const TabsComponent = props => {
 			value.bind( function( newval ) {
 				if( newval ) {
 					hideSidebarWidthControl(newval, 'global');
+					hideSidebarStyleControl(newval, 'default');
+					hideSidebarSpacingControls(newval);
+					hideSidebarWidthControl(api('responsive_page_sidebar_position').get(), 'page');
+					hideSidebarStyleControl(api('responsive_page_sidebar_position').get(), 'page');
+					hideSidebarWidthControl(api('responsive_blog_sidebar_position').get(), 'blog');
+					hideSidebarStyleControl(api('responsive_blog_sidebar_position').get(), 'blog');
 					if(api('responsive_shop_sidebar_position')){
+						hideWoocommerceSidebarWidthControl(api('responsive_shop_sidebar_position').get(), 'shop');
+						hideWoocommerceSidebarStyleControl(api('responsive_shop_sidebar_position').get(), 'shop');
 						hideWoocommerceMainContentWidthControl(api('responsive_shop_sidebar_position').get(), 'shop');
 					}
 					if(api('responsive_single_product_sidebar_position')){
+						hideWoocommerceSidebarWidthControl(api('responsive_single_product_sidebar_position').get(), 'single_product');
+						hideWoocommerceSidebarStyleControl(api('responsive_single_product_sidebar_position').get(), 'single_product');
 						hideWoocommerceMainContentWidthControl(api('responsive_single_product_sidebar_position').get(), 'single_product');
 					}
 				}
@@ -99,6 +175,7 @@ const TabsComponent = props => {
 			value.bind( function( newval ) {
 				if( newval ) {
 					hideWoocommerceSidebarWidthControl(newval, 'shop');
+					hideWoocommerceSidebarStyleControl(newval, 'shop');
 					hideWoocommerceMainContentWidthControl(newval, 'shop');
 				}
 			})
@@ -107,10 +184,43 @@ const TabsComponent = props => {
 			value.bind( function( newval ) {
 				if( newval ) {
 					hideWoocommerceSidebarWidthControl(newval, 'single_product');
+					hideWoocommerceSidebarStyleControl(newval, 'single_product');
 					hideWoocommerceMainContentWidthControl(newval, 'single_product');
 				}
 			})
 		});
+
+		if (api('responsive_page_container_style')) {
+			api('responsive_page_container_style', function( value ){
+				value.bind( function( newval ) {
+					toggleContentBackground();
+				})
+			});
+		}
+		
+		if (api('responsive_blog_container_style')) {
+			api('responsive_blog_container_style', function( value ){
+				value.bind( function( newval ) {
+					toggleContentBackground();
+				})
+			});
+		}
+		
+		if (api('responsive_single_blog_container_style')) {
+			api('responsive_single_blog_container_style', function( value ){
+				value.bind( function( newval ) {
+					toggleContentBackground();
+				})
+			});
+		}
+		
+		if (api('responsive_style')) {
+			api('responsive_style', function( value ){
+				value.bind( function( newval ) {
+					toggleContentBackground();
+				})
+			});
+		}
 
 		api('custom_logo', function(value) {
 		value.bind(function(newval) {
@@ -168,6 +278,18 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_footer_below_inner_column_spacing').style.display = 'none';
 		}
 		
+		if ( api('responsive_sidebar_link_style') ) {
+			const isHoverBg = api('responsive_sidebar_link_style').get() === 'hover-background';
+			const linkHoverBgColorEl = document.getElementById('customize-control-responsive_sidebar_link_hover_bg_color');
+			const linkHoverBgSepEl = document.getElementById('customize-control-responsive_sidebar_link_hover_bg_separator');
+			if (linkHoverBgColorEl) {
+				linkHoverBgColorEl.style.display = (isHoverBg && 'design' === tab) ? 'block' : 'none';
+			}
+			if (linkHoverBgSepEl) {
+				linkHoverBgSepEl.style.display = (isHoverBg && 'design' === tab) ? 'block' : 'none';
+			}
+		}
+
 		if( api('responsive_cart_style') ) {
             if( api('responsive_cart_style').get() !== 'outline' && 'design' === tab ) {
 				let cartBorderWidth = document.getElementById('customize-control-responsive_cart_border_width');
@@ -473,15 +595,7 @@ const TabsComponent = props => {
 			}
 		}
 
-		if( ! api('responsive_blog_post_title_toggle').get() ) {
-			document.getElementById('customize-control-responsive_blog_post_title_toggle_separator').style.display = 'none';
-			document.getElementById('customize-control-res_blog_post_title_text').style.display = 'none';
-		} else {
-			if( 'general' === tab ) {
-				document.getElementById('customize-control-responsive_blog_post_title_toggle_separator').style.display = 'block';
-				document.getElementById('customize-control-res_blog_post_title_text').style.display = 'block';
-			}
-		}
+
 
 		if( 'list' === api('responsive_blog_layout').get() ) {
 			document.getElementById('customize-control-responsive_blog_layout_options_separator').style.display = 'none';
@@ -493,6 +607,7 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_blog_image_positions_layout_separator').style.display = 'none';
 			document.getElementById('customize-control-responsive_blog_layout_options').style.display = 'none';
 		}
+		
 		if( api('responsive_blog_entry_columns').get() <= 1 ) {
 			document.getElementById('customize-control-responsive_blog_content_width_separator').style.display = 'none';
 			document.getElementById('customize-control-responsive_blog_entry_display_masonry').style.display = 'none';
@@ -516,6 +631,20 @@ const TabsComponent = props => {
 		if( 'none' === api('responsive_mobile_header_button_border_style').get() ) {
 			document.getElementById('customize-control-responsive_mobile_header_button_border_width').style.display = 'none';
 			document.getElementById('customize-control-responsive_mobile_header_button_border_color').style.display = 'none';
+		}
+
+		// Sidebar Divider Style Controls
+		if( api('responsive_sidebar_border_divider_style') ) {
+			toggleSidebarDividerStyleControls( api('responsive_sidebar_border_divider_style').get() );
+		}
+
+		// Listen for changes to responsive_sidebar_border_divider_style
+		if( api('responsive_sidebar_border_divider_style') ) {
+			api('responsive_sidebar_border_divider_style', function( value ) {
+				value.bind( function( newval ) {
+					toggleSidebarDividerStyleControls( newval );
+				} );
+			} );
 		}
 
 		// Footer Social Border Controls
@@ -697,29 +826,182 @@ const TabsComponent = props => {
 				}
 			});
 		});
+
+		toggleBannerLayoutControls();
+		if (api('responsive_single_blog_post_title_layout')) {
+			api('responsive_single_blog_post_title_layout', function(value) {
+				value.bind(function() {
+					toggleBannerLayoutControls();
+				});
+			});
+		}
+		if (api('responsive_single_blog_banner_container_width')) {
+			api('responsive_single_blog_banner_container_width', function(value) {
+				value.bind(function() {
+					toggleBannerLayoutControls();
+				});
+			});
+		}
+
+		toggleBlogTitleLayoutControls();
+		if (api('responsive_blog_title_layout')) {
+			api('responsive_blog_title_layout', function(value) {
+				value.bind(function() {
+					toggleBlogTitleLayoutControls();
+				});
+			});
+		}
+		if (api('responsive_blog_banner_container_width')) {
+			api('responsive_blog_banner_container_width', function(value) {
+				value.bind(function() {
+					toggleBlogTitleLayoutControls();
+				});
+			});
+		}
+		if (api('responsive_blog_post_title_toggle')) {
+			api('responsive_blog_post_title_toggle', function(value) {
+				value.bind(function() {
+					toggleBlogTitleLayoutControls();
+				});
+			});
+		}
+
+		togglePageTitleLayoutControls();
+		if (api('responsive_page_title_layout')) {
+			api('responsive_page_title_layout', function(value) {
+				value.bind(function() {
+					togglePageTitleLayoutControls();
+				});
+			});
+		}
+		if (api('responsive_page_title_container_width')) {
+			api('responsive_page_title_container_width', function(value) {
+				value.bind(function() {
+					togglePageTitleLayoutControls();
+				});
+			});
+		}
+
+		togglePageFeaturedImageControls();
+		if (api('responsive_page_featured_image_ratio')) {
+			api('responsive_page_featured_image_ratio', function(value) {
+				value.bind(function() {
+					togglePageFeaturedImageControls();
+				});
+			});
+		}
+		if (api('responsive_page_featured_image_position')) {
+			api('responsive_page_featured_image_position', function(value) {
+				value.bind(function() {
+					togglePageFeaturedImageControls();
+				});
+			});
+		}
+
+		toggleSingleBlogFeaturedImageControls();
+		if (api('responsive_single_blog_featured_image_ratio')) {
+			api('responsive_single_blog_featured_image_ratio', function(value) {
+				value.bind(function() {
+					toggleSingleBlogFeaturedImageControls();
+				});
+			});
+		}
+		if (api('responsive_single_blog_featured_image_position')) {
+			api('responsive_single_blog_featured_image_position', function(value) {
+				value.bind(function() {
+					toggleSingleBlogFeaturedImageControls();
+				});
+			});
+		}
+
 	}, [tab]);
 
 	const hideSidebarWidthControl = (value, control) => {
-    const controlId = `customize-control-responsive_${control}_sidebar_width`;
+    const controlId = (control === 'global' || control === 'default') ? 'customize-control-responsive_default_sidebar_width' : `customize-control-responsive_${control}_sidebar_width`;
     const controlElement = document.getElementById(controlId);
+    const separatorId = (control === 'global' || control === 'default') ? 'customize-control-responsive_default_sidebar_width_separator' : `customize-control-responsive_${control}_sidebar_width_separator`;
+    const separatorElement = document.getElementById(separatorId);
 
-    if (!controlElement) return;
-
-    controlElement.style.display = 'none';
+    if (controlElement) {
+        controlElement.style.display = 'none';
+    }
+    if (separatorElement) {
+        separatorElement.style.display = 'none';
+    }
 
     let isVisible = false;
-    if (control === 'global') {
-        // For global sidebar: only hide when 'no'
-        isVisible = value !== 'no' && tab === 'general';
+    if (control === 'global' || control === 'default') {
+        // For global sidebar: show whenever on general tab
+        isVisible = tab === 'general';
     } else {
-        // For page/blog: hide when 'no' or 'global'
-        isVisible = value !== 'no' && value !== 'global' && tab === 'general';
+        // For page/blog: hide when 'no' or resolve 'global'
+        if (value === 'global') {
+            const globalValue = api('responsive_default_sidebar_position') ? api('responsive_default_sidebar_position').get() : 'no';
+            isVisible = globalValue !== 'no' && tab === 'general';
+        } else {
+            isVisible = value !== 'no' && tab === 'general';
+        }
     }
 
     if (isVisible) {
-        controlElement.style.display = 'block';
+        if (controlElement && !isSidebarControlInactive(controlId)) {
+            controlElement.style.display = 'block';
+        }
+        if (separatorElement && !isSidebarControlInactive(separatorId)) {
+            separatorElement.style.display = 'block';
+        }
     }
 };
+
+	const hideSidebarStyleControl = (value, control) => {
+		const controlId = (control === 'global' || control === 'default')
+			? 'customize-control-responsive_sidebar_style'
+			: `customize-control-responsive_${control}_sidebar_style`;
+		const controlElement = document.getElementById(controlId);
+
+		if (!controlElement) return;
+
+		controlElement.style.display = 'none';
+
+		let isVisible = false;
+		if (control === 'global' || control === 'default') {
+			// For global sidebar style: show whenever on general tab
+			isVisible = tab === 'general';
+		} else {
+			// For page/blog: hide when 'no' or resolve 'global'
+			if (value === 'global') {
+				const globalValue = api('responsive_default_sidebar_position') ? api('responsive_default_sidebar_position').get() : 'no';
+				isVisible = globalValue !== 'no' && tab === 'general';
+			} else {
+				isVisible = value !== 'no' && tab === 'general';
+			}
+		}
+
+		if (isVisible && !isSidebarControlInactive(controlId)) {
+			controlElement.style.display = 'block';
+		}
+	};
+
+	const hideSidebarSpacingControls = (value) => {
+		const spacingControls = [
+			'customize-control-responsive_sidebar_spacing',
+			'customize-control-responsive_sidebar_outside_container_padding',
+			'customize-control-responsive_sidebar_inside_container_padding'
+		];
+
+		spacingControls.forEach(controlId => {
+			const element = document.getElementById(controlId);
+			if (!element) return;
+
+			element.style.display = 'none';
+
+			// Show whenever active tab is 'design'
+			const isVisible = tab === 'design';
+			if (isVisible) {
+				element.style.display = 'block';
+			}
+		});
+	};
 
 	const hideWoocommerceSidebarWidthControl = (value,control) => {
 		const controlId = `customize-control-responsive_${control}_sidebar_width`;
@@ -727,13 +1009,37 @@ const TabsComponent = props => {
 		if (!controlElement) return;
 		controlElement.style.display = 'none';
 
-		// For shop/single product sidebar: hide when 'no' or 'global'
-		let isVisible = value !== 'no' && value !== 'global' && tab === 'general';
+		let isVisible = false;
+		if (value === 'global') {
+			const globalValue = api('responsive_default_sidebar_position') ? api('responsive_default_sidebar_position').get() : 'no';
+			isVisible = globalValue !== 'no' && tab === 'general';
+		} else {
+			isVisible = value !== 'no' && tab === 'general';
+		}
 
-		if (isVisible) {
+		if (isVisible && !isSidebarControlInactive(controlId)) {
 			controlElement.style.display = 'block';
 		}
-	}
+	};
+
+	const hideWoocommerceSidebarStyleControl = (value,control) => {
+		const controlId = `customize-control-responsive_${control}_sidebar_style`;
+		const controlElement = document.getElementById(controlId);
+		if (!controlElement) return;
+		controlElement.style.display = 'none';
+
+		let isVisible = false;
+		if (value === 'global') {
+			const globalValue = api('responsive_default_sidebar_position') ? api('responsive_default_sidebar_position').get() : 'no';
+			isVisible = globalValue !== 'no' && tab === 'general';
+		} else {
+			isVisible = value !== 'no' && tab === 'general';
+		}
+
+		if (isVisible && !isSidebarControlInactive(controlId)) {
+			controlElement.style.display = 'block';
+		}
+	};
 
 	const hideWoocommerceMainContentWidthControl = (value, control) => {
 		const controlId = `customize-control-responsive_${control}_content_width`;
@@ -811,6 +1117,22 @@ const TabsComponent = props => {
 		if (isVisible) {
 			controlElement.style.display = 'block';
 		}
+	};
+
+	const toggleSidebarDividerStyleControls = (borderStyle) => {
+		const controlIds = [
+			'customize-control-responsive_sidebar_border_divider_width',
+			'customize-control-responsive_sidebar_border_divider_color',
+		];
+
+		const shouldShow = 'none' !== borderStyle && 'design' === tab;
+
+		controlIds.forEach(controlId => {
+			const controlElement = document.getElementById(controlId);
+			if (controlElement) {
+				controlElement.style.display = shouldShow ? 'block' : 'none';
+			}
+		});
 	};
 
 	const toggleFooterSocialBorderControls = (borderStyle) => {
@@ -912,6 +1234,177 @@ const TabsComponent = props => {
 		const colorElement = document.getElementById('customize-control-responsive_footer_social_item_color');
 		if (colorElement) {
 			colorElement.style.display = (brandColors !== 'yes' && tab === 'design') ? 'block' : 'none';
+		}
+	};
+
+	const toggleBannerLayoutControls = () => {
+		const layout = api('responsive_single_blog_post_title_layout') ? api('responsive_single_blog_post_title_layout').get() : 'post_title_layout1';
+		const containerWidth = api('responsive_single_blog_banner_container_width') ? api('responsive_single_blog_banner_container_width').get() : 'full_width';
+
+		const containerWidthElement = document.getElementById('customize-control-responsive_single_blog_banner_container_width');
+		const metaAlignmentSeparator = document.getElementById('customize-control-responsive_single_blog_meta_alignment_separator');
+		const verticalAlignment = document.getElementById('customize-control-responsive_single_blog_post_title_vertical_alignment');
+		const customWidthElement = document.getElementById('customize-control-responsive_single_blog_banner_custom_width');
+		const minHeightElement = document.getElementById('customize-control-responsive_single_blog_banner_min_height');
+		const bgColorElement = document.getElementById('customize-control-responsive_single_blog_banner_background_color');
+		const paddingElement = document.getElementById('customize-control-responsive_single_blog_banner_padding_padding');
+		const marginElement = document.getElementById('customize-control-responsive_single_blog_banner_margin_padding');
+		const separatorElement = document.getElementById('customize-control-responsive_single_blog_post_meta_typography_group_separator');
+
+		if (containerWidthElement) {
+			containerWidthElement.style.display = (layout === 'post_title_layout2' && tab === 'general') ? 'block' : 'none';
+		}
+		if(metaAlignmentSeparator) {
+			metaAlignmentSeparator.style.display = (layout === 'post_title_layout2' && tab=== 'general') ? 'block' : 'none';
+		}
+		if (verticalAlignment) {
+			verticalAlignment.style.display = (layout === 'post_title_layout2' && tab === 'general') ? 'block' : 'none';
+		}
+		if (customWidthElement) {
+			customWidthElement.style.display = (layout === 'post_title_layout2' && containerWidth === 'custom' && tab === 'general') ? 'block' : 'none';
+		}
+		if (minHeightElement) {
+			minHeightElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
+		}
+		if(separatorElement) {
+			separatorElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
+		}
+		if (bgColorElement) {
+			bgColorElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
+		}
+		if (paddingElement) {
+			paddingElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
+		}
+		if (marginElement) {
+			marginElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
+		}
+	};
+
+	const toggleBlogTitleLayoutControls = () => {
+		const layout = api('responsive_blog_title_layout') ? api('responsive_blog_title_layout').get() : 'post_title_layout1';
+		const isToggleActive = api('responsive_blog_post_title_toggle') ? api('responsive_blog_post_title_toggle').get() : false;
+		
+		const descElement = document.getElementById('customize-control-responsive_blog_title_description');
+		const titleToggleElement = document.getElementById('customize-control-responsive_blog_post_title_toggle');
+		const titleTextElement = document.getElementById('customize-control-res_blog_post_title_text');
+		const titleToggleSeparator = document.getElementById('customize-control-responsive_blog_post_title_toggle_separator');
+		const containerWidth = api('responsive_blog_banner_container_width') ? api('responsive_blog_banner_container_width').get() : 'full_width';
+
+		const containerWidthElement = document.getElementById('customize-control-responsive_blog_banner_container_width');
+		const customWidthElement = document.getElementById('customize-control-responsive_blog_banner_custom_width');
+		const minHeightElement = document.getElementById('customize-control-responsive_blog_banner_min_height');
+		const verticalAlignment = document.getElementById('customize-control-responsive_blog_post_title_vertical_alignment');
+		if (verticalAlignment) {
+			verticalAlignment.style.display = (layout === 'post_title_layout2' && tab === 'general') ? 'block' : 'none';
+		}
+
+		if (containerWidthElement) {
+			containerWidthElement.style.display = (layout === 'post_title_layout2' && tab === 'general') ? 'block' : 'none';
+		}
+
+		if (descElement) {
+			descElement.style.display = (layout === 'post_title_layout2' && tab === 'general') ? 'block' : 'none';
+		}
+		if (titleToggleElement) {
+			titleToggleElement.style.display = (layout === 'post_title_layout2' && tab === 'general') ? 'block' : 'none';
+		}
+		if (titleTextElement) {
+			titleTextElement.style.display = (layout === 'post_title_layout2' && isToggleActive && tab === 'general') ? 'block' : 'none';
+		}
+		if (titleToggleSeparator) {
+			titleToggleSeparator.style.display = (layout === 'post_title_layout2' && isToggleActive && tab === 'general') ? 'block' : 'none';
+		}
+		if (customWidthElement) {
+			customWidthElement.style.display = (layout === 'post_title_layout2' && containerWidth === 'custom' && tab === 'general') ? 'block' : 'none';
+		}
+		if (minHeightElement) {
+			minHeightElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
+		}
+
+	};
+
+	const togglePageTitleLayoutControls = () => {
+		const layout = api('responsive_page_title_layout') ? api('responsive_page_title_layout').get() : 'post_title_layout1';
+		const containerWidth = api('responsive_page_title_container_width') ? api('responsive_page_title_container_width').get() : 'full_width';
+
+		const containerWidthElement = document.getElementById('customize-control-responsive_page_title_container_width');
+		const verticalAlignment = document.getElementById('customize-control-responsive_page_title_vertical_alignment');
+		const customWidthElement = document.getElementById('customize-control-responsive_page_title_custom_width');
+		const minHeightElement = document.getElementById('customize-control-responsive_page_title_banner_min_height');
+		const bgColorElement = document.getElementById('customize-control-responsive_page_title_banner_background_color');
+		const paddingElement = document.getElementById('customize-control-responsive_page_title_banner_padding_padding');
+		const marginElement = document.getElementById('customize-control-responsive_page_title_banner_margin_padding');
+		const separator = document.getElementById('customize-control-responsive_page_title_area_meta_typography_group_separator');
+
+		if (containerWidthElement) {
+			containerWidthElement.style.display = (layout === 'post_title_layout2' && tab === 'general') ? 'block' : 'none';
+		}
+		if (verticalAlignment) {
+			verticalAlignment.style.display = (layout === 'post_title_layout2' && tab === 'general') ? 'block' : 'none';
+		}
+		if (customWidthElement) {
+			customWidthElement.style.display = (layout === 'post_title_layout2' && containerWidth === 'custom' && tab === 'general') ? 'block' : 'none';
+		}
+		if (minHeightElement) {
+			minHeightElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
+		}
+		if (bgColorElement) {
+			bgColorElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
+		}
+		if (paddingElement) {
+			paddingElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
+		}
+		if (marginElement) {
+			marginElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
+		}
+		if(separator) {
+			separator.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
+		}
+	};
+
+	const togglePageFeaturedImageControls = () => {
+		const ratio = api('responsive_page_featured_image_ratio') ? api('responsive_page_featured_image_ratio').get() : 'original';
+		const position = api('responsive_page_featured_image_position') ? api('responsive_page_featured_image_position').get() : 'none';
+
+		const predefinedRatioElement = document.getElementById('customize-control-responsive_page_featured_image_predefined_ratio');
+		const customWidthElement = document.getElementById('customize-control-responsive_page_featured_image_custom_width');
+		const customHeightElement = document.getElementById('customize-control-responsive_page_featured_image_custom_height');
+		const overlayColorElement = document.getElementById('customize-control-responsive_page_featured_image_overlay_color');
+
+		if (predefinedRatioElement) {
+			predefinedRatioElement.style.display = (ratio === 'predefined' && tab === 'general') ? 'block' : 'none';
+		}
+		if (customWidthElement) {
+			customWidthElement.style.display = (ratio === 'custom' && tab === 'general') ? 'block' : 'none';
+		}
+		if (customHeightElement) {
+			customHeightElement.style.display = (ratio === 'custom' && tab === 'general') ? 'block' : 'none';
+		}
+		if (overlayColorElement) {
+			overlayColorElement.style.display = (position === 'background' && tab === 'design') ? 'block' : 'none';
+		}
+	};
+
+	const toggleSingleBlogFeaturedImageControls = () => {
+		const ratio = api('responsive_single_blog_featured_image_ratio') ? api('responsive_single_blog_featured_image_ratio').get() : 'original';
+		const position = api('responsive_single_blog_featured_image_position') ? api('responsive_single_blog_featured_image_position').get() : 'none';
+
+		const predefinedRatioElement = document.getElementById('customize-control-responsive_single_blog_featured_image_predefined_ratio');
+		const customWidthElement = document.getElementById('customize-control-responsive_single_blog_featured_image_custom_width');
+		const customHeightElement = document.getElementById('customize-control-responsive_single_blog_featured_image_custom_height');
+		const overlayColorElement = document.getElementById('customize-control-responsive_single_blog_featured_image_overlay_color');
+
+		if (predefinedRatioElement) {
+			predefinedRatioElement.style.display = (ratio === 'predefined' && tab === 'general') ? 'block' : 'none';
+		}
+		if (customWidthElement) {
+			customWidthElement.style.display = (ratio === 'custom' && tab === 'general') ? 'block' : 'none';
+		}
+		if (customHeightElement) {
+			customHeightElement.style.display = (ratio === 'custom' && tab === 'general') ? 'block' : 'none';
+		}
+		if (overlayColorElement) {
+			overlayColorElement.style.display = (position === 'background' && tab === 'design') ? 'block' : 'none';
 		}
 	};
 

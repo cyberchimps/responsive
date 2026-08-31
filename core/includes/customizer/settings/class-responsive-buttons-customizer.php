@@ -72,16 +72,92 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 			responsive_color_control( $wp_customize, 'button_border', $button_border_color_label, 'responsive_button', 198, Responsive\Core\get_responsive_customizer_defaults( 'button_border' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'button_hover_border' ), 'button_hover_border' );
 
 			// Buttons Border Width.
-			$buttons_border_width_label = __( 'Border Width (px)', 'responsive' );
-			responsive_borderwidth_control( $wp_customize, 'buttons_border_width', 'responsive_button', 200, 0, 0, null, $buttons_border_width_label, 'postMessage' );
+			$buttons_border_width_label = __( 'Border Width', 'responsive' );
+			responsive_unit_borderwidth_control( $wp_customize, 'buttons_border_width', 'responsive_button', 200, 0, 0, null, $buttons_border_width_label, 'postMessage', array( 'px', 'em' ) );
 
 			// Buttons Radius.
-			$buttons_radius_label = __( 'Radius (px)', 'responsive' );
-			responsive_radius_control( $wp_customize, 'buttons_radius', 'responsive_button', 210, 0, 0, null, $buttons_radius_label );
+			$buttons_radius_label = __( 'Radius', 'responsive' );
+			responsive_unit_radius_control( $wp_customize, 'buttons_radius', 'responsive_button', 210, 0, 0, null, $buttons_radius_label );
 
-			// Buttons Padding (px).
-			$buttons_padding_label = __( 'Padding (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'buttons', 'responsive_button', 240, 10, 10, null, $buttons_padding_label );
+			// Buttons Padding.
+			$buttons_padding_label = __( 'Padding', 'responsive' );
+			responsive_unit_padding_control( $wp_customize, 'buttons', 'responsive_button', 240, 10, 10, null, $buttons_padding_label );
+
+			// Separator.
+			responsive_horizontal_separator_control( $wp_customize, 'button_shadow_separator', 1, 'responsive_button', 245, 1 );
+
+			// Button Shadow.
+			responsive_shadow_control(
+				$wp_customize,
+				'button_shadow',
+				__( 'Button Shadow', 'responsive' ),
+				'responsive_button',
+				250,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_x' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_y' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_blur' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_spread' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_inset' ),
+				null
+			);
+
+			// Button Shadow Color.
+			responsive_color_control(
+				$wp_customize,
+				'button_shadow',
+				__( 'Button Shadow Color', 'responsive' ),
+				'responsive_button',
+				252,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_color' ),
+				null,
+				'',
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'color',
+				'refresh'
+			);
+
+			// Separator.
+			responsive_horizontal_separator_control( $wp_customize, 'button_hover_shadow_separator', 1, 'responsive_button', 255, 1 );
+
+			// Button Hover Shadow.
+			responsive_shadow_control(
+				$wp_customize,
+				'button_hover_shadow',
+				__( 'Button Hover Shadow', 'responsive' ),
+				'responsive_button',
+				260,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_x' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_y' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_blur' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_spread' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_inset' ),
+				null
+			);
+
+			// Button Hover Shadow Color.
+			responsive_color_control(
+				$wp_customize,
+				'button_hover_shadow',
+				__( 'Button Hover Shadow Color', 'responsive' ),
+				'responsive_button',
+				262,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_color' ),
+				null,
+				'',
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'color',
+				'refresh'
+			);
 
 		}
 

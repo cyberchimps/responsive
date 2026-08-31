@@ -186,5 +186,28 @@ function responsive_widgets_init() {
 			'after_widget'  => '</div></div>',
 		)
 	);
+	register_sidebar(
+		array(
+			'name'          => __( 'Sidebar 1', 'responsive' ),
+			'id'            => 'responsive-custom-sidebar-1',
+			'description'   => __( 'Custom Responsive theme Sidebar 1', 'responsive' ),
+			'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<div class="widget-title"><h4>',
+			'after_title'   => '</h4></div>',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => __( 'Sidebar 2', 'responsive' ),
+			'id'            => 'responsive-custom-sidebar-2',
+			'description'   => __( 'Custom Responsive theme Sidebar 2', 'responsive' ),
+			'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<div class="widget-title"><h4>',
+			'after_title'   => '</h4></div>',
+		)
+	);
 }
 add_action( 'widgets_init', 'responsive_widgets_init' );

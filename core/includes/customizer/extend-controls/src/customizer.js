@@ -437,6 +437,12 @@
         if (typeof value === 'string' && value.startsWith('palette')) {
             return `var(--responsive-global-${value})`;
         }
+		if (typeof value === 'string' && value.includes('headings-color')) {
+			return `var(--responsive-global-${value})`;
+		}
+        if (typeof value === 'string' && value.startsWith('title-above-content')) {
+            return `var(--responsive-${value})`;
+        }
         return value;
 	}
 
@@ -460,7 +466,10 @@
 					}
 				});
 				cssVars['--responsive-global-headings-color'] = processThemeSettingForCSS('responsive_all_heading_text_color');
-
+				cssVars['--responsive-border-color'] = processThemeSettingForCSS('responsive_border_color');
+				cssVars['--responsive-global-site-background'] = processThemeSettingForCSS('responsive_site_background_color');
+				cssVars['--responsive-global-box-background'] = processThemeSettingForCSS('responsive_box_background_color');
+				cssVars['--responsive-global-h1-color'] = processThemeSettingForCSS('responsive_h1_text_color');
 				const root = document.documentElement;
 				Object.entries(cssVars).forEach(([varName, color]) => {
 					root.style.setProperty(varName, color);
@@ -476,6 +485,42 @@
 			// value.bind(applyPalette);
 		});
 
+		wp.customize( 'responsive_border_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				document.documentElement.style.setProperty(
+					'--responsive-border-color',
+					newval
+				);
+			});
+		});
+
+		wp.customize( 'responsive_title_above_content_bg_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				document.documentElement.style.setProperty(
+					'--responsive-title-above-content-bg-color',
+					newval
+				);
+			});
+		});
+
+		wp.customize( 'responsive_title_above_content_overlay_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				document.documentElement.style.setProperty(
+					'--responsive-title-above-content-overlay-color',
+					newval
+				);
+			});
+		});
+
 		wp.customize( 'responsive_all_heading_text_color', function( value ) {
 				value.bind( function( newval ) {
 				if( newval && newval.startsWith('palette') ) {
@@ -483,6 +528,45 @@
 				}
 				document.documentElement.style.setProperty(
 					'--responsive-global-headings-color',
+					newval
+				);
+			});
+		});
+
+		wp.customize( 'responsive_site_background_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				document.documentElement.style.setProperty(
+					'--responsive-global-site-background',
+					newval
+				);
+			});
+		});
+
+		wp.customize( 'responsive_box_background_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				document.documentElement.style.setProperty(
+					'--responsive-global-box-background',
+					newval
+				);
+			});
+		});
+
+		wp.customize( 'responsive_h1_text_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				if( newval && newval.startsWith('headings-color') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				document.documentElement.style.setProperty(
+					'--responsive-global-h1-color',
 					newval
 				);
 			});

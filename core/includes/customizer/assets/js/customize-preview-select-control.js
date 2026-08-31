@@ -46,6 +46,50 @@
         }
     );
 
+    // Link Style
+    api( 'responsive_link_style', function( $swipe ) {
+            $swipe.bind(
+                function( newval ) {
+                    $.fn.removeClassRegEx = function(regex) {
+                        var classes = $(this).attr('class');
+                        if (!classes || !regex) return false;
+                        var classArray = [];
+                        classes = classes.split(' ');
+                        for (var i = 0, len = classes.length; i < len; i++)
+                            if (!classes[i].match(regex)) classArray.push(classes[i]);
+                        $(this).attr('class', classArray.join(' '));
+                    };
+
+                    $('body').removeClassRegEx('link-style-');
+                    jQuery( 'body' ).addClass( 'link-style-'+ newval );
+                }
+            );
+        }
+    );
+
+    // Sidebar Link Style
+    api( 'responsive_sidebar_link_style', function( $swipe ) {
+            $swipe.bind(
+                function( newval ) {
+                    var styleId = 'responsive-sidebar-link-style-preview';
+                    var $style = $('#' + styleId);
+                    if (!$style.length) {
+                        $style = $('<style id="' + styleId + '"></style>').appendTo('head');
+                    }
+                    var css = '';
+                    if (newval === 'hover') {
+                        css = '.widget-area .widget-wrapper a { text-decoration: none !important; } .widget-area .widget-wrapper a:hover { text-decoration: underline !important; }';
+                    } else if (newval === 'underline') {
+                        css = '.widget-area .widget-wrapper a { text-decoration: underline !important; } .widget-area .widget-wrapper a:hover { text-decoration: underline !important; }';
+                    } else {
+                        css = '.widget-area .widget-wrapper a { text-decoration: none !important; } .widget-area .widget-wrapper a:hover { text-decoration: none !important; }';
+                    }
+                    $style.text(css);
+                }
+            );
+        }
+    );
+
     // Header -> Layout
     //Header Layout
     // api( 'responsive_header_layout', function( $swipe ) {
@@ -1017,5 +1061,79 @@
         setting.bind( applyMainMenuHoverStyle );
         applyMainMenuHoverStyle( setting.get() );
     } );
+
+    // Sidebar style preview update helper
+    function updatePreviewSidebarStyle() {
+        var body = $('body');
+        var sidebar = $('#secondary');
+        if (!sidebar.length) return;
+
+        var globalStyle = api('responsive_sidebar_style').get() || 'boxed';
+        var style = globalStyle;
+
+        if (body.hasClass('single-product')) {
+            var prodSetting = api('responsive_single_product_sidebar_style');
+            var prodStyle = prodSetting ? prodSetting.get() : 'default';
+            style = (prodStyle === 'default') ? globalStyle : prodStyle;
+        } else if (body.hasClass('archive') && (body.hasClass('post-type-archive-product') || body.hasClass('tax-product_cat') || body.hasClass('tax-product_tag') || body.hasClass('woocommerce-page'))) {
+            var shopSetting = api('responsive_shop_sidebar_style');
+            var shopStyle = shopSetting ? shopSetting.get() : 'default';
+            style = (shopStyle === 'default') ? globalStyle : shopStyle;
+        } else if (body.hasClass('page')) {
+            var pageSetting = api('responsive_page_sidebar_style');
+            var pageStyle = pageSetting ? pageSetting.get() : 'default';
+            style = (pageStyle === 'default') ? globalStyle : pageStyle;
+        } else if (body.hasClass('single')) {
+            var singleSetting = api('responsive_single_blog_sidebar_style');
+            var singleStyle = singleSetting ? singleSetting.get() : 'default';
+            style = (singleStyle === 'default') ? globalStyle : singleStyle;
+        } else if (body.hasClass('home') || body.hasClass('archive') || body.hasClass('search')) {
+            var blogSetting = api('responsive_blog_sidebar_style');
+            var blogStyle = blogSetting ? blogSetting.get() : 'default';
+            style = (blogStyle === 'default') ? globalStyle : blogStyle;
+        }
+
+        // Remove old style classes
+        sidebar.removeClass('responsive-sidebar-style-default responsive-sidebar-style-boxed responsive-sidebar-style-unboxed');
+        // Add new style class
+        sidebar.addClass('responsive-sidebar-style-' + style);
+
+        if (style === 'boxed') {
+            var color = api('responsive_sidebar_background_color').get() || '';
+            if (color && color.startsWith('palette')) {
+                color = 'var(--responsive-global-' + color + ')';
+            }
+            var image = api('responsive_sidebar_background_image').get();
+            var img_toggle = api('responsive_sidebar_background_image_toggle').get();
+
+            var wrapper = $('.responsive-site-style-boxed aside#secondary .widget-wrapper');
+            wrapper.css('background-color', color);
+            if (image && img_toggle) {
+                wrapper.css('background-image', 'linear-gradient(to right,' + color + ',' + color + '),url(' + image + ')');
+            } else {
+                wrapper.css('background-image', 'linear-gradient(to right,' + color + ',' + color + ')');
+            }
+        } else {
+            $('.responsive-site-style-boxed aside#secondary .widget-wrapper').css({
+                'background-image': 'none',
+                'background-color': ''
+            });
+        }
+    }
+
+    var sidebarSettings = [
+        'responsive_sidebar_style',
+        'responsive_page_sidebar_style',
+        'responsive_blog_sidebar_style',
+        'responsive_single_blog_sidebar_style',
+        'responsive_shop_sidebar_style',
+        'responsive_single_product_sidebar_style'
+    ];
+
+    $.each(sidebarSettings, function(index, settingName) {
+        api(settingName, function(value) {
+            value.bind(updatePreviewSidebarStyle);
+        });
+    });
 
 } )( jQuery );

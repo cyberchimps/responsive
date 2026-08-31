@@ -25,8 +25,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $is_comments_enabled = get_theme_mod( 'responsive_single_blog_comments', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_comments' ) );
 
-// Exit early if password protected, comments disabled, or no comments and discussion is off.
-if ( post_password_required() || ! $is_comments_enabled || ( ! have_comments() && ! comments_open() && ! pings_open() ) ) {
+// Exit early if password protected, comments disabled, or no comments and comments are closed.
+if ( post_password_required() || ! $is_comments_enabled || ( ! have_comments() && ! comments_open() ) ) {
 	return;
 }
 ?>

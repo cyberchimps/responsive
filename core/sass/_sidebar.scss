@@ -24,10 +24,6 @@
         padding-bottom: 0;
     }
 
-    .responsive-site-style-boxed & {
-        padding: $base-line-height-px;
-    }
-
     // Sidebar widget Area
     .widget-area:not(.home-widgets) & {
         font-size: map-get($font-sizes, small);
@@ -142,4 +138,8 @@
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
+}
+
+#secondary.widget-area .widget-wrapper {
+    margin-top: 0;
 }

@@ -10,6 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+
 // Return if there isn't a thumbnail defined.
 if ( ! has_post_thumbnail() ) {
 	if (
@@ -54,7 +55,22 @@ if ( responsive_get_schema_markup( 'image' ) ) {
 
 // Caption.
 $caption = get_the_post_thumbnail_caption(); ?>
+<?php if ( responsive_active_blog_layout_cover() ) : ?>
 
+<div class="thumbnail thumbnail-cover">
+
+	<a href="<?php the_permalink(); ?>" class="thumbnail-link">
+
+		<div
+			class="responsive-cover-image"
+			style="background-image:url('<?php echo esc_url( get_the_post_thumbnail_url( get_the_ID(), 'full' ) ); ?>');">
+		</div>
+
+	</a>
+
+</div>
+
+<?php else : ?>
 <div class="thumbnail">
 
 	<?php
@@ -110,3 +126,4 @@ $caption = get_the_post_thumbnail_caption(); ?>
 	?>
 
 </div><!-- .thumbnail -->
+<?php endif; ?>

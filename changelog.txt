@@ -8,6 +8,28 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(31/08/2026) Version 6.4.3
+[*] = Improvement = Improved Global Controls and Post Types settings with enhanced customization options.
+
+(12/08/2026) Version 6.4.2
+[+] = New = Introducing the Post Title Area, Blog Title Area, and Page Title Area features for customizing the title areas of posts, blog/archives , and page layouts.
+[*] = Improvement = Improved mobile page performance and streamlined WooCommerce asset loading to reduce unnecessary resource usage.
+
+(03/08/2026) Version 6.4.1
+[+] = New = Introduced Narrow Container layout option in the Theme Customizer.
+[+] = New = Introduced native System Fonts in typography settings.
+[*] = Improvement = Optimized speed and overall theme performance.
+[*] = Improvement = Enhanced frontend UI elements across the theme.
+
+(23/07/2026) Version 6.4.0
+[+] = New = Introduced Sidebar Style settings in the Theme Customizer for enhanced sidebar customization.
+[+] = New = Introduced Container Layout and Container Style controls for Pages, Single Posts, Blog/Archive pages, WooCommerce Product Catalog, and Single Product pages to provide more flexible layout customization.
+[!] = Fix = Minor Bug Fixes and Improvements.
+
+(17/07/2026) Version 6.3.9
+[*] = Improvement = Updated dashboard UI and connection modules for full compatibility with Responsive Pro v5.0.0.
+[*] = Improvement = Improved overall performance and integration across Responsive ecosystem plugins.
+
 (10/06/2026) Version 6.3.8
 [+] = New = Introduced Button Presets in the Theme Customizer for faster and more consistent button styling across the website.
 [*] = Improvement = Added support for additional Block Editor style settings, providing more design customization options within the Styles panel in the Gutenberg editor.

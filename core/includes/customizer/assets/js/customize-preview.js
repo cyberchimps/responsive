@@ -773,8 +773,6 @@
 				$( '#woo-popup-wrap .popup-text' ).css( 'color', newval );
 	        }
 		});
-    });
-
-	
+    });	
 
 } )( jQuery );
