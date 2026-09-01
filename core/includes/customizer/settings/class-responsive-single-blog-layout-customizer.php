@@ -187,7 +187,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'customize-control-responsive_rp_border_separator',
 				'customize-control-responsive_rp_border_color',
 				'customize-control-responsive_rp_border_width_border',
-				'customize-control-responsive_rp_radius',
+				'customize-control-responsive_border_rp_radius',
 			];
 
 			$tabs_label = esc_html__( 'Tabs', 'responsive' );
