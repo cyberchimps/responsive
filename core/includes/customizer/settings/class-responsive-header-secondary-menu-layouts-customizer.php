@@ -53,13 +53,13 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 				 $design_tab_ids_prefix . 'responsive_secondary_sub_menu_width',
 				 $design_tab_ids_prefix . 'responsive_secondary_sub_menu_divider',
 				 $design_tab_ids_prefix . 'responsive_secondary_menu_active_parent',
+				 $design_tab_ids_prefix . 'responsive_submenu_animation_style',
+				 $design_tab_ids_prefix . 'responsive_header_secondary_menu_typography_group',
 				 $design_tab_ids_prefix . 'responsive_secondary_sub_menu_colors_separator',
 				 $design_tab_ids_prefix . 'responsive_secondary_sub_menu_border_color',
 				 $design_tab_ids_prefix . 'responsive_secondary_sub_menu_divider_color',
 				 $design_tab_ids_prefix . 'responsive_header_secondary_sub_menu_link_color_states',
 				 $design_tab_ids_prefix . 'responsive_header_secondary_sub_menu_background_color_states',
-				 $design_tab_ids_prefix . 'responsive_submenu_animation_style',
-				 $design_tab_ids_prefix . 'responsive_header_secondary_menu_typography_group',
 				 $design_tab_ids_prefix . 'responsive_spacing_separator',
 				 $design_tab_ids_prefix . 'responsive_secondary-menu-padding_padding',
 				 $design_tab_ids_prefix . 'responsive_secondary-menu-margin_padding',
@@ -147,7 +147,7 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 			responsive_separator_control( $wp_customize, 'secondary_sub_menu_separator', $secondary_sub_menu_separator_label, 'responsive_header_secondary_menu_layout', 140 );
 
 			// Sub Menu Container Border.
-			$secondary_sub_menu_border = esc_html__( 'Container Border', 'responsive' );
+			$secondary_sub_menu_border = esc_html__( 'Container Border (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'secondary_sub_menu_border', 'responsive_header_secondary_menu_layout', 141, 0, 0, null, $secondary_sub_menu_border );
 
 			// Sub Menu Border Radius.
@@ -169,6 +169,20 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 			// Make Parent of Current Menu Active.
 			$secondary_menu_active_parent_label = __( 'Make Parent of Current Menu Active', 'responsive' );
 			responsive_toggle_control( $wp_customize, 'secondary_menu_active_parent', $secondary_menu_active_parent_label, 'responsive_header_secondary_menu_layout', 156, 0, null );
+
+			// Submenu Animation.
+			$submenu_animation_style_label   = __( 'Submenu Animation', 'responsive' );
+			$submenu_animation_choices = array(
+				'none'       => esc_html__( 'None', 'responsive' ),
+				'slide-up'   => esc_html__( 'Slide Up', 'responsive' ),
+				'fade'       => esc_html__( 'Fade', 'responsive' ),
+				'slide-down' => esc_html__( 'Slide Down', 'responsive' ),
+			);
+			responsive_select_control( $wp_customize, 'submenu_animation_style', $submenu_animation_style_label, 'responsive_header_secondary_menu_layout', 156.5, $submenu_animation_choices, 'none', 'responsive_disabled_secondary_menu' );
+
+			// Typography
+			$typography_separator_label = __( 'Font', 'responsive' );
+			responsive_typography_group_control( $wp_customize, 'header_secondary_menu_typography_group', $typography_separator_label, 'responsive_header_secondary_menu_layout', 156.6, 'header_secondary_menu_typography' );
 
 			// Sub Menu Colors
 			$secondary_sub_menu_colors_separator_label = esc_html__( 'Sub Menu Colors', 'responsive' );
@@ -223,20 +237,6 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 				Responsive\Core\get_responsive_customizer_defaults( 'header_active_secondary_sub_menu_background' ),
 				'header_active_secondary_sub_menu_background'
 			);
-
-			// Submenu Animation.
-			$submenu_animation_style_label   = __( 'Submenu Animation', 'responsive' );
-			$submenu_animation_choices = array(
-				'none'       => esc_html__( 'None', 'responsive' ),
-				'slide-up'   => esc_html__( 'Slide Up', 'responsive' ),
-				'fade'       => esc_html__( 'Fade', 'responsive' ),
-				'slide-down' => esc_html__( 'Slide Down', 'responsive' ),
-			);
-			responsive_select_control( $wp_customize, 'submenu_animation_style', $submenu_animation_style_label, 'responsive_header_secondary_menu_layout', 160, $submenu_animation_choices, 'none', 'responsive_disabled_secondary_menu' );
-			
-			// Typography
-			$typography_separator_label = __( 'Font', 'responsive' );
-			responsive_typography_group_control( $wp_customize, 'header_secondary_menu_typography_group', $typography_separator_label, 'responsive_header_secondary_menu_layout', 170, 'header_secondary_menu_typography' );
 			
 			// Menu spacing.
 			$spacing_separator_label = __( 'Spacing', 'responsive' );

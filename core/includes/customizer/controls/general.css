@@ -1318,12 +1318,16 @@ in both cases the footer builder is active */
 .responsive-header-builder-is-active .in-sub-panel:not(.section-open) #sub-accordion-panel-responsive_header .accordion-section.control-section {
 	display: none !important;
 }
+#sub-accordion-section-responsive_header_builder_section {
+	padding-top: 0;
+}
 .responsive-header-builder-is-active .in-sub-panel:not( .section-open ) ul#sub-accordion-section-responsive_header_builder_section {
     transform: none;
     height: auto;
     visibility: visible;
 	overflow: visible;
     top: 73px;
+	padding-top: 0;
 }
 .responsive-header-builder-is-active .in-sub-panel:not( .section-open ) ul#sub-accordion-section-responsive_header_builder_section .customize-section-description-container.section-meta {
     display: none;
@@ -2134,4 +2138,9 @@ ul.control-panel-nav_menus .customize-help-toggle:before {
 }
 #customize-control-responsive_single_blog_related_posts_location {
     display: none;
+}
+#customize-control-responsive_sub_menu_divider .responsive-toggle-control-wrapper,
+#customize-control-responsive_secondary_sub_menu_divider .responsive-toggle-control-wrapper {
+	padding-top: 18px;
+	padding-bottom: 18px;
 }

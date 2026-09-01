@@ -124,7 +124,7 @@ function responsive_customizer_styles() {
 	$header_builder_width = get_theme_mod( 'responsive_header_builder_width', 'contained' );
 	if ( 'contained' === $header_builder_width ) {
 		$custom_css .= "
-		.site-header.header-width-contained .site-header-row-container-inner .container {
+		#masthead.header-width-contained .site-header-row-container-inner .container {
 			max-width: {$container_max_width}px;
 			width: 100%;
 			margin-left: auto;
@@ -132,7 +132,7 @@ function responsive_customizer_styles() {
 		}";
 	} else {
 		$custom_css .= "
-		.site-header.header-width-fullwidth .site-header-row-container-inner .container {
+		#masthead.header-width-fullwidth .site-header-row-container-inner .container {
 			max-width: 100%;
 			width: 100%;
 		}";
