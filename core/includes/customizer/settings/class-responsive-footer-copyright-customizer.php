@@ -62,6 +62,7 @@ if ( ! class_exists( 'Responsive_Footer_Copyright_Customizer' ) ) :
 				$general_tab_ids_prefix . 'responsive_copyright_mobile',
 				$general_tab_ids_prefix . 'responsive_footer_copyright_alignment',
 				$general_tab_ids_prefix . 'responsive_footer_copyright_separator_1',
+				$general_tab_ids_prefix . 'responsive_footer_copyright_link_style'
 			);
 
 			responsive_tabs_button_control( $wp_customize, 'footer_copyright_tabs', $tabs_label, 'responsive_footer_copyright', 1, '', 'responsive_footer_copyright_general_tab', 'responsive_footer_copyright_design_tab', $general_tab_ids, $design_tab_ids, null );
