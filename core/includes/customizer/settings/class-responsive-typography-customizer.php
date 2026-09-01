@@ -584,7 +584,18 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'font-size'   => '16px',
 						'line-height' => '1.75'
 					)
-				)
+				),
+				'html_font' => array(
+					'label'    => esc_html__( 'Font', 'responsive' ),
+					'target'   => $selectorArray['html_font'],
+					'section'  => 'responsive_header_html',
+					'priority' => 112,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size'   => '13px',
+						'line-height' => '1.75',
+					),
+				),
 
 			);
 
@@ -666,7 +677,8 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'page_title_area_title'      => '.page #page .post-entry .post-title, .responsive-single-entry-banner .container .entry-title',
 				'page_title_area_meta' 		 => '.page .entry-header .post-meta, .page .entry-header .post-meta span, .page .entry-header .post-meta span time, .page .entry-header .post-meta span a, .page .entry-header .post-meta i, .responsive-single-entry-banner .container .post-meta, .responsive-single-entry-banner .container .post-meta span, .responsive-single-entry-banner .container .post-meta span a, .responsive-single-entry-banner .container .post-meta time, .responsive-single-entry-banner .container .post-meta i',	
 				'blog_post_title'			 => 'body .responsive-archive-entry-banner .page-title, body .responsive-archive-entry-banner .page-title *, body.archive:not(.woocommerce) .site-content-header .page-title, body.archive:not(.woocommerce) .site-content-header .page-title *',
-				'blog_post_text'			 => '.responsive-archive-entry-banner .container *, .archive:not(.woocommerce) .site-content-header *'
+				'blog_post_text'			 => '.responsive-archive-entry-banner .container *, .archive:not(.woocommerce) .site-content-header *',
+				'html_font'			 => '.responsive-header-html p',
 			);
 
 			if ( $this->is_responsive_version_greater() ) {

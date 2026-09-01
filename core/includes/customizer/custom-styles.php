@@ -6924,6 +6924,19 @@ function responsive_customizer_styles() {
 		$custom_css .= '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button {
 			box-shadow: ' . $header_button_shadow_inset_style . ' ' . $header_button_shadow_x . 'px ' . $header_button_shadow_y . 'px ' . $header_button_shadow_blur . 'px ' . $header_button_shadow_spread . 'px ' . $header_button_shadow_color . ';
 		}';
+		// Header Button Hover Shadow.
+		$header_button_hover_shadow_x = get_theme_mod( 'responsive_header_button_hover_shadow_x_axis', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_x' ) );
+		$header_button_hover_shadow_y = get_theme_mod( 'responsive_header_button_hover_shadow_y_axis', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_y' ) );
+		$header_button_hover_shadow_blur = get_theme_mod( 'responsive_header_button_hover_shadow_blur', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_blur' ) );
+		$header_button_hover_shadow_spread = get_theme_mod( 'responsive_header_button_hover_shadow_spread', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_spread' ) );
+		$header_button_hover_shadow_inset = get_theme_mod( 'responsive_header_button_hover_shadow_inset', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_inset' ) );
+		$header_button_hover_shadow_color = get_theme_mod( 'responsive_header_button_hover_shadow_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_color' ) );
+
+		$header_button_hover_shadow_inset_style = $header_button_hover_shadow_inset ? 'inset' : '';
+
+		$custom_css .= '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover {
+			box-shadow: ' . $header_button_hover_shadow_inset_style . ' ' . $header_button_hover_shadow_x . 'px ' . $header_button_hover_shadow_y . 'px ' . $header_button_hover_shadow_blur . 'px ' . $header_button_hover_shadow_spread . 'px ' . $header_button_hover_shadow_color . ';
+		}';
 	}
 
 	// Mobile Header Button.
@@ -7072,6 +7085,19 @@ function responsive_customizer_styles() {
 
 		$custom_css .= '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button {
 			box-shadow: ' . $mobile_header_button_shadow_inset_style . ' ' . $mobile_header_button_shadow_x . 'px ' . $mobile_header_button_shadow_y . 'px ' . $mobile_header_button_shadow_blur . 'px ' . $mobile_header_button_shadow_spread . 'px ' . $mobile_header_button_shadow_color . ';
+		}';
+		// Mobile Header Button Hover Shadow.
+		$mobile_header_button_hover_shadow_x = get_theme_mod( 'responsive_mobile_header_button_hover_shadow_x_axis', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_x' ) );
+		$mobile_header_button_hover_shadow_y = get_theme_mod( 'responsive_mobile_header_button_hover_shadow_y_axis', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_y' ) );
+		$mobile_header_button_hover_shadow_blur = get_theme_mod( 'responsive_mobile_header_button_hover_shadow_blur', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_blur' ) );
+		$mobile_header_button_hover_shadow_spread = get_theme_mod( 'responsive_mobile_header_button_hover_shadow_spread', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_spread' ) );
+		$mobile_header_button_hover_shadow_inset = get_theme_mod( 'responsive_mobile_header_button_hover_shadow_inset', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_inset' ) );
+		$mobile_header_button_hover_shadow_color = get_theme_mod( 'responsive_mobile_header_button_hover_shadow_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_color' ) );
+
+		$mobile_header_button_hover_shadow_inset_style = $mobile_header_button_hover_shadow_inset ? 'inset' : '';
+
+		$custom_css .= '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover {
+			box-shadow: ' . $mobile_header_button_hover_shadow_inset_style . ' ' . $mobile_header_button_hover_shadow_x . 'px ' . $mobile_header_button_hover_shadow_y . 'px ' . $mobile_header_button_hover_shadow_blur . 'px ' . $mobile_header_button_hover_shadow_spread . 'px ' . $mobile_header_button_hover_shadow_color . ';
 		}';
 	}
   
