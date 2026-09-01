@@ -49,6 +49,8 @@ if ( ! class_exists( 'Responsive_Header_Html_Customizer' ) ) :
 				$tab_ids_prefix . 'responsive_header_html_link_color',
 				$tab_ids_prefix . 'responsive_header_html_link_colors_separator',
 				$tab_ids_prefix . 'responsive_header_html_margin_padding',
+				$tab_ids_prefix . 'responsive_html_font_typography_group',
+				$tab_ids_prefix . 'responsive_html_typography_separator',
 			);
 			responsive_tabs_button_control( $wp_customize, 'header_html_tabs', $tabs_label, 'responsive_header_html', 10, '', 'responsive_header_html_general_tab', 'responsive_header_html_design_tab', $general_tab_ids, $design_tab_ids, null );
 		
