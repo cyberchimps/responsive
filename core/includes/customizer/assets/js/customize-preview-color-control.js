@@ -4688,6 +4688,7 @@
             $( '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button' ).css( 'color', newval );
         });
     });
+    
     api( 'responsive_header_button_hover_color', function(val){
         val.bind(function(newval){
             if ( $('body').hasClass('res-transparent-header') && api.has('responsive_transparent_header_button_hover_color') && api('responsive_transparent_header_button_hover_color').get() ) {
@@ -4815,9 +4816,32 @@
             jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
         });
     });
+    api( 'responsive_header_button_shadow_color', function(val){
+        val.bind(function(newval){
+            $( '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button' ).css( 'box-shadow', function(i, value) {
+                return value.replace(/rgba?\([^)]+\)|#[0-9a-f]+/i, newval);
+            });
+        });
+    });
+    api( 'responsive_header_button_hover_shadow_color', function(val){
+        
+        val.bind( function( newval ) {
+			if ( newval && newval.startsWith('palette') ) {
+				newval = `var(--responsive-global-${newval})`;
+			}
+			$('.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover').css('color', newval );
+		} );
+    });
     api( 'responsive_mobile_header_button_shadow_color', function(val){
         val.bind(function(newval){
             $( '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button' ).css( 'box-shadow', function(i, value) {
+                return value.replace(/rgba?\([^)]+\)|#[0-9a-f]+/i, newval);
+            });
+        });
+    });
+    api( 'responsive_mobile_header_button_hover_shadow_color', function(val){
+        val.bind(function(newval){
+            $( '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover' ).css( 'box-shadow', function(i, value) {
                 return value.replace(/rgba?\([^)]+\)|#[0-9a-f]+/i, newval);
             });
         });
@@ -6611,6 +6635,28 @@
             $('.responsive-single-entry-banner, .responsive-single-post-featured-section.post-thumb, .entry-header').css('--overlay-color', color);
         });
     });
+function updateMobileHeaderButtonHoverShadow() {
+    var shadow_x      = api('responsive_mobile_header_button_hover_shadow_x_axis').get();
+    var shadow_y      = api('responsive_mobile_header_button_hover_shadow_y_axis').get();
+    var shadow_blur   = api('responsive_mobile_header_button_hover_shadow_blur').get();
+    var shadow_spread = api('responsive_mobile_header_button_hover_shadow_spread').get();
+    var shadow_inset  = api('responsive_mobile_header_button_hover_shadow_inset').get() ? 'inset' : '';
+    var shadow_color  = api('responsive_mobile_header_button_hover_shadow_color').get();
+
+    var styleId = 'responsive-mobile-header-button-hover-shadow-color-preview';
+    jQuery('style#' + styleId).remove();
+
+    var selectors = '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover';
+    var css = selectors + ' { box-shadow: ' + shadow_inset + ' ' + shadow_x + 'px ' + shadow_y + 'px ' + shadow_blur + 'px ' + shadow_spread + 'px ' + shadow_color + '; }';
+
+    jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+}
+api( 'responsive_mobile_header_button_hover_shadow_color', function(val){ val.bind( updateMobileHeaderButtonHoverShadow ); });
+api( 'responsive_mobile_header_button_hover_shadow_x_axis', function(val){ val.bind( updateMobileHeaderButtonHoverShadow ); });
+api( 'responsive_mobile_header_button_hover_shadow_y_axis', function(val){ val.bind( updateMobileHeaderButtonHoverShadow ); });
+api( 'responsive_mobile_header_button_hover_shadow_blur', function(val){ val.bind( updateMobileHeaderButtonHoverShadow ); });
+api( 'responsive_mobile_header_button_hover_shadow_spread', function(val){ val.bind( updateMobileHeaderButtonHoverShadow ); });
+api( 'responsive_mobile_header_button_hover_shadow_inset', function(val){ val.bind( updateMobileHeaderButtonHoverShadow ); });
     // Related Posts border color
      api('responsive_rp_border_color', function(value) {
         value.bind(function() {
