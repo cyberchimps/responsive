@@ -5975,11 +5975,11 @@ function responsive_customizer_styles() {
 			.header-widgets .widget-title h4 {
 				color: {$header_widget_text_color};
 			}
-			.header-widgets a {
+			.header-widgets a:not(.button):not(.wp-block-button__link) {
 				color: {$header_widget_link_color};
 			}
-			.header-widgets a:focus,
-			.header-widgets a:hover {
+			.header-widgets a:not(.button):not(.wp-block-button__link):focus,
+			.header-widgets a:not(.button):not(.wp-block-button__link):hover {
 				color: {$header_widget_link_hover_color};
 			}
 		";
@@ -11037,45 +11037,45 @@ function responsive_customizer_styles() {
 
         if ( 'standard' === $row_link_style ) {
             $custom_css .= "
-                .rspv-site-{$row_name}-footer-wrap a {
+                .rspv-site-{$row_name}-footer-wrap a:not(.button):not(.wp-block-button__link) {
                     text-decoration: underline;
                 }
             ";
         } elseif ( 'color-underline' === $row_link_style ) {
             $custom_css .= "
-                .rspv-site-{$row_name}-footer-wrap a {
+                .rspv-site-{$row_name}-footer-wrap a:not(.button):not(.wp-block-button__link) {
                     text-decoration: underline;
                 }
-                .rspv-site-{$row_name}-footer-wrap a:hover {
+                .rspv-site-{$row_name}-footer-wrap a:not(.button):not(.wp-block-button__link):hover {
                     text-decoration-color: {$global_link_hover_color};
                 }
             ";
         } elseif ( 'no-underline' === $row_link_style ) {
             $custom_css .= "
-                .rspv-site-{$row_name}-footer-wrap a {
+                .rspv-site-{$row_name}-footer-wrap a:not(.button):not(.wp-block-button__link) {
                     text-decoration: none;
                 }
-                .rspv-site-{$row_name}-footer-wrap a:hover {
+                .rspv-site-{$row_name}-footer-wrap a:not(.button):not(.wp-block-button__link):hover {
                     text-decoration: none;
                 }
             ";
         } elseif ( 'hover-background' === $row_link_style ) {
             $custom_css .= "
-                .rspv-site-{$row_name}-footer-wrap a:hover {
+                .rspv-site-{$row_name}-footer-wrap a:not(.button):not(.wp-block-button__link):hover {
                     background-color: {$row_link_hover_bg};
                     text-decoration: none;
                 }
             ";
         } elseif ( 'offset-background' === $row_link_style ) {
             $custom_css .= "
-                .rspv-site-{$row_name}-footer-wrap a {
+                .rspv-site-{$row_name}-footer-wrap a:not(.button):not(.wp-block-button__link) {
                     text-decoration: none;
                     background-image: linear-gradient(180deg, transparent 60%, {$global_link_color} 0%);
                     background-repeat: no-repeat;
                     background-position: 0 bottom;
                     background-size: 100% 10px;
                 }
-                .rspv-site-{$row_name}-footer-wrap a:hover {
+                .rspv-site-{$row_name}-footer-wrap a:not(.button):not(.wp-block-button__link):hover {
                     text-decoration: none;
                     background-image: linear-gradient(180deg, transparent 60%, {$global_link_hover_color} 0%);
                 }

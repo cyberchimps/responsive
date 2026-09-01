@@ -410,14 +410,14 @@
     //Update header widget link color...
     api( 'responsive_header_widget_link_color', function( value ) {
         value.bind( function( newval ) {
-            $('.header-widgets a').css('color', newval );
+            $('.header-widgets a').not('.button').not('.wp-block-button__link').css('color', newval );
         } );
     } );
 
     //Update header widget link hover color...
     api( 'responsive_header_widget_link_hover_color', function( value ) {
         value.bind( function( newval ) {
-            $('.header-widgets a:focus, .header-widgets a:hover').css('color', newval );
+            $('.header-widgets a:focus, .header-widgets a:hover').not('.button').not('.wp-block-button__link').css('color', newval );
         } );
     } );
 
@@ -2345,11 +2345,11 @@
             if( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
-            $('.widget-area .widget-wrapper a ').not('a.add_to_cart_button').not('a.product_type_grouped').not('.woocommerce-tabs .reviews_tab').css('color', newval );
+            $('.widget-area .widget-wrapper a ').not('a.add_to_cart_button').not('a.product_type_grouped').not('.woocommerce-tabs .reviews_tab').not('.button').not('.wp-block-button__link').css('color', newval );
         } );
     } );
 
-    $('.widget-area .widget-wrapper a').not('a.add_to_cart_button').not('a.product_type_grouped').not('.woocommerce-tabs .reviews_tab').hover(
+    $('.widget-area .widget-wrapper a').not('a.add_to_cart_button').not('a.product_type_grouped').not('.woocommerce-tabs .reviews_tab').not('.button').not('.wp-block-button__link').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_sidebar_link_hover_color');
             $(this).css("color", linkHoverColor);
@@ -2578,7 +2578,7 @@
     //Hover Colors
 
     //Links Hover Color
-    $("a").not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.post-meta a').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.read-more .more-link').not('footer.comment-meta a, .commentlist .comment-content a').hover(
+    $("a").not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.post-meta a').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.read-more .more-link').not('footer.comment-meta a, .commentlist .comment-content a').not('.button').not('.wp-block-button__link').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
             $(this).css("color", linkHoverColor);
@@ -2690,7 +2690,7 @@
     );
 
    //Header widget link hover color...
-    $(".header-widgets a").hover(
+    $(".header-widgets a").not('.button').not('.wp-block-button__link').hover(
         function() {
             $(this).css("color", processThemeSettingForCSS('responsive_header_widget_link_hover_color'));
         },
