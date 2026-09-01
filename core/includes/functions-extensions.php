@@ -414,7 +414,7 @@ function responsive_get_social_icons( $area ) {
 		'tiktok'        => __( 'Tiktok', 'responsive' ),
 		'vk'            => __( 'VK', 'responsive' ),
 		'whatsapp'      => __( 'Whatsapp', 'responsive' ),
-		'wordpress'     => __( 'Wordpress', 'responsive' ),
+		'WordPress'     => __( 'WordPress', 'responsive' ),
 		'custom1'       => __( 'Custom1', 'responsive' ),
 		'custom2'       => __( 'Custom2', 'responsive' ),
 		'custom3'       => __( 'Custom3', 'responsive' ),

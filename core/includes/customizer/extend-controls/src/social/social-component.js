@@ -94,7 +94,7 @@ const ResponsiveSocialComponent = props => {
             { value: 'threads', label: __('Threads', 'responsive') },
             { value: 'tiktok', label: __('TikTok', 'responsive') },
             { value: 'vk', label: __('VK', 'responsive') },
-            { value: 'wordpress', label: __('WordPress', 'responsive') },
+            { value: 'WordPress', label: __('WordPress', 'responsive') },
             { value: 'whatsapp', label: __('WhatsApp', 'responsive') },
             { value: 'custom1', label: __('Custom 1', 'responsive') },
             { value: 'custom2', label: __('Custom 2', 'responsive') },
