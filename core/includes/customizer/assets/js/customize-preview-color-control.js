@@ -935,19 +935,6 @@
         } );
     } );
 
-    //Global Border Color
-    api( 'responsive_border_color', function( value ) {
-        value.bind( function( newval ) {
-            if( newval && newval.startsWith('palette') ) {
-                newval = `var(--responsive-global-${newval})`;
-            }
-            document.documentElement.style.setProperty(
-                '--responsive-border-color',
-                newval
-            );
-        } );
-    } );
-
     // Title Above Content Background Color
     api( 'responsive_title_above_content_bg_color', function( value ) {
         value.bind( function( newval ) {
@@ -2921,7 +2908,8 @@
     //Footer Links Hover Color
     $(".site-footer a").not('.footer-navigation a').not('.footer-widget-area .footer-widget-wrapper a').hover(
         function() {
-            document.documentElement.style.setProperty('--responsive-global-footer-links-hover-color', color);
+            var hoverColor = processThemeSettingForCSS('responsive_footer_links_hover_color');
+            document.documentElement.style.setProperty('--responsive-global-footer-links-hover-color', hoverColor);
             $(this).css("color", processThemeSettingForCSS('responsive_footer_links_hover_color'));
         },
 
@@ -4414,7 +4402,7 @@
     // Footer Menu Link Color - Desktop
     api( 'responsive_footer_menu_link_color', function( val ){
         val.bind( function( newval ){
-            if( newval && newval.startsWith('palette') ) {
+            if( newval && (newval.startsWith('palette') || newval.startsWith('footer-links-color ') || newval.startsWith('footer-links-hover-color'))) {
                 newval = `var(--responsive-global-${newval})`;
             }
             jQuery( 'style#responsive-footer-menu-link-color' ).remove();
@@ -4429,7 +4417,7 @@
     // Footer Menu Link Hover Color - Desktop
     api( 'responsive_footer_menu_link_color_hover', function( val ){
         val.bind( function( newval ){
-            if( newval && newval.startsWith('palette') ) {
+            if( newval && (newval.startsWith('palette') || newval.startsWith('footer-links-color ') || newval.startsWith('footer-links-hover-color'))) {
                 newval = `var(--responsive-global-${newval})`;
             }
             jQuery( 'style#responsive-footer-menu-link-hover-color' ).remove();
@@ -4444,7 +4432,7 @@
     // Footer Menu Link Active Color - Desktop
     api( 'responsive_footer_menu_link_color_active', function( val ){
         val.bind( function( newval ){
-            if( newval && newval.startsWith('palette') ) {
+            if( newval && (newval.startsWith('palette') || newval.startsWith('footer-links-color ') || newval.startsWith('footer-links-hover-color'))) {
                 newval = `var(--responsive-global-${newval})`;
             }
             jQuery( 'style#responsive-footer-menu-link-active-color' ).remove();
@@ -4459,7 +4447,7 @@
     // Footer Menu Link Color - Tablet
     api( 'responsive_footer_menu_link_color_tablet', function( val ){
         val.bind( function( newval ){
-            if( newval && newval.startsWith('palette') ) {
+            if( newval && (newval.startsWith('palette') || newval.startsWith('footer-links-color ') || newval.startsWith('footer-links-hover-color'))) {
                 newval = `var(--responsive-global-${newval})`;
             }
             jQuery( 'style#responsive-footer-menu-link-color-tablet' ).remove();
@@ -4474,7 +4462,7 @@
     // Footer Menu Link Hover Color - Tablet
     api( 'responsive_footer_menu_link_color_tablet_hover', function( val ){
         val.bind( function( newval ){
-            if( newval && newval.startsWith('palette') ) {
+            if( newval && (newval.startsWith('palette') || newval.startsWith('footer-links-color ') || newval.startsWith('footer-links-hover-color'))) {
                 newval = `var(--responsive-global-${newval})`;
             }
             jQuery( 'style#responsive-footer-menu-link-hover-color-tablet' ).remove();
@@ -4489,7 +4477,7 @@
     // Footer Menu Link Active Color - Tablet
     api( 'responsive_footer_menu_link_color_tablet_active', function( val ){
         val.bind( function( newval ){
-            if( newval && newval.startsWith('palette') ) {
+            if( newval && (newval.startsWith('palette') || newval.startsWith('footer-links-color ') || newval.startsWith('footer-links-hover-color'))) {
                 newval = `var(--responsive-global-${newval})`;
             }
             jQuery( 'style#responsive-footer-menu-link-active-color-tablet' ).remove();
@@ -4504,7 +4492,7 @@
     // Footer Menu Link Color - Mobile
     api( 'responsive_footer_menu_link_color_mobile', function( val ){
         val.bind( function( newval ){
-            if( newval && newval.startsWith('palette') ) {
+            if( newval && (newval.startsWith('palette') || newval.startsWith('footer-links-color ') || newval.startsWith('footer-links-hover-color'))) {
                 newval = `var(--responsive-global-${newval})`;
             }
             jQuery( 'style#responsive-footer-menu-link-color-mobile' ).remove();
@@ -4519,7 +4507,7 @@
     // Footer Menu Link Hover Color - Mobile
     api( 'responsive_footer_menu_link_color_mobile_hover', function( val ){
         val.bind( function( newval ){
-            if( newval && newval.startsWith('palette') ) {
+            if( newval && (newval.startsWith('palette') || newval.startsWith('footer-links-color ') || newval.startsWith('footer-links-hover-color'))) {
                 newval = `var(--responsive-global-${newval})`;
             }
             jQuery( 'style#responsive-footer-menu-link-hover-color-mobile' ).remove();
@@ -4534,7 +4522,7 @@
     // Footer Menu Link Active Color - Mobile
     api( 'responsive_footer_menu_link_color_mobile_active', function( val ){
         val.bind( function( newval ){
-            if( newval && newval.startsWith('palette') ) {
+            if( newval && (newval.startsWith('palette') || newval.startsWith('footer-links-color ') || newval.startsWith('footer-links-hover-color'))) {
                 newval = `var(--responsive-global-${newval})`;
             }
             jQuery( 'style#responsive-footer-menu-link-active-color-mobile' ).remove();
@@ -4614,6 +4602,9 @@
     // Footer Copyright Links Color - Desktop
     api( 'responsive_footer_copyright_links_color', function(val){
         val.bind(function(newval){
+            if( newval && (newval.startsWith('palette') || newval.startsWith('footer-links-color ') || newval.startsWith('footer-links-hover-color'))) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             jQuery('style#responsive-footer-copyright-links-color').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-links-color">'
@@ -4625,6 +4616,9 @@
     // Footer Copyright Links Hover Color - Desktop
     api( 'responsive_footer_copyright_links_color_hover', function(val){
         val.bind(function(newval){
+            if( newval && (newval.startsWith('palette') || newval.startsWith('footer-links-color ') || newval.startsWith('footer-links-hover-color'))) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             jQuery('style#responsive-footer-copyright-links-hover-color').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-links-hover-color">'
@@ -4636,6 +4630,9 @@
     // Footer Copyright Links Color - Tablet
     api( 'responsive_footer_copyright_links_color_tablet', function(val){
         val.bind(function(newval){
+            if( newval && (newval.startsWith('palette') || newval.startsWith('footer-links-color ') || newval.startsWith('footer-links-hover-color'))) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             jQuery('style#responsive-footer-copyright-links-color-tablet').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-links-color-tablet">'
@@ -4647,6 +4644,9 @@
     // Footer Copyright Links Hover Color - Tablet
     api( 'responsive_footer_copyright_links_color_tablet_hover', function(val){
         val.bind(function(newval){
+            if( newval && (newval.startsWith('palette') || newval.startsWith('footer-links-color ') || newval.startsWith('footer-links-hover-color'))) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             jQuery('style#responsive-footer-copyright-links-hover-color-tablet').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-links-hover-color-tablet">'
@@ -4658,6 +4658,9 @@
     // Footer Copyright Links Color - Mobile
     api( 'responsive_footer_copyright_links_color_mobile', function(val){
         val.bind(function(newval){
+            if( newval && (newval.startsWith('palette') || newval.startsWith('footer-links-color ') || newval.startsWith('footer-links-hover-color'))) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             jQuery('style#responsive-footer-copyright-links-color-mobile').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-links-color-mobile">'
@@ -4669,6 +4672,9 @@
     // Footer Copyright Links Hover Color - Mobile
     api( 'responsive_footer_copyright_links_color_mobile_hover', function(val){
         val.bind(function(newval){
+            if( newval && (newval.startsWith('palette') || newval.startsWith('footer-links-color ') || newval.startsWith('footer-links-hover-color'))) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             jQuery('style#responsive-footer-copyright-links-hover-color-mobile').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-links-hover-color-mobile">'
