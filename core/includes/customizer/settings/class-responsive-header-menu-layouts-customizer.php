@@ -277,7 +277,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			responsive_separator_control( $wp_customize, 'sub_menu_separator', $sub_menu_separator_label, 'responsive_header_menu_layout', 170 );
 
 			// Sub Menu Container Border.
-			$sub_menu_border = esc_html__( 'Container Border', 'responsive' );
+			$sub_menu_border = esc_html__( 'Container Border (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'sub_menu_border', 'responsive_header_menu_layout', 175, 0, 0, null, $sub_menu_border );
 
 			// Sub Menu Border Radius.
