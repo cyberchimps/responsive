@@ -382,21 +382,12 @@ const TabsComponent = props => {
 				});
 			}
 		});
-		if( api('responsive_footer_primary_columns').get() > 1 && 'general' === tab ) {
-			document.getElementById('customize-control-responsive_footer_primary_inner_column_spacing').style.display = 'block';
-		} else {
-			document.getElementById('customize-control-responsive_footer_primary_inner_column_spacing').style.display = 'none';
-		}
-		if( api('responsive_footer_above_columns').get() > 1 && 'general' === tab ) {
-			document.getElementById('customize-control-responsive_footer_above_inner_column_spacing').style.display = 'block';
-		} else {
-			document.getElementById('customize-control-responsive_footer_above_inner_column_spacing').style.display = 'none';
-		}
-		if( api('responsive_footer_below_columns').get() > 1 && 'general' === tab ) {
-			document.getElementById('customize-control-responsive_footer_below_inner_column_spacing').style.display = 'block';
-		} else {
-			document.getElementById('customize-control-responsive_footer_below_inner_column_spacing').style.display = 'none';
-		}
+		['primary', 'above', 'below'].forEach(rowPrefix => {
+			const columnsSetting = api(`responsive_footer_${rowPrefix}_columns`);
+			const displayCondition = columnsSetting && columnsSetting.get() > 1 && 'general' === tab;
+			const el = document.getElementById(`customize-control-responsive_footer_${rowPrefix}_inner_column_spacing`);
+			if (el) el.style.display = displayCondition ? 'block' : 'none';
+		});
 		
 		if ( api('responsive_sidebar_link_style') ) {
 			const isHoverBg = api('responsive_sidebar_link_style').get() === 'hover-background';
