@@ -2319,6 +2319,7 @@ function responsive_customizer_styles() {
 	if ( $is_outline_button_preset ) {
 		$button_hover_background = 'transparent';
 		$custom_css           .= '
+	.read-more-button .hentry .read-more .more-link,
 	input[type=button],
 	input[type=submit],
 	button:not(.customize-partial-edit-shortcut-button),
