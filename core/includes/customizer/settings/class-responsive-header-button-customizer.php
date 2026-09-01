@@ -67,6 +67,7 @@ if ( ! class_exists( 'Responsive_Header_Button_Customizer' ) ) :
 				$tab_ids_prefix . 'responsive_header_button_border_width',
 				$tab_ids_prefix . 'responsive_header_button_border_color',
 				$tab_ids_prefix . 'responsive_border_header_button_radius',
+				$tab_ids_prefix . 'responsive_header_button_radius_separator',
 				$tab_ids_prefix . 'responsive_header_button_border_separator',
 				$tab_ids_prefix . 'responsive_header_button_typography_group',
 				$tab_ids_prefix . 'responsive_header_button_typography_separator',
@@ -76,6 +77,7 @@ if ( ! class_exists( 'Responsive_Header_Button_Customizer' ) ) :
 				$tab_ids_prefix . 'responsive_header_button_shadow_color',
 				$tab_ids_prefix . 'responsive_header_button_hover_shadow',
 				$tab_ids_prefix . 'responsive_header_button_hover_shadow_color',
+				$tab_ids_prefix . 'responsive_header_button_hover_shadow_separator',
 			);
 
 			responsive_tabs_button_control( $wp_customize, 'responsive_header_button', $tabs_label, 'responsive_header_button', 10, '', 'responsive_social_general_tab', 'responsive_social_design_tab', $general_tab_ids, $design_tab_ids, null );
