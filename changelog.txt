@@ -514,7 +514,7 @@ Changelog Legend:
 [*] = Fix = Submenu in mobile devices now open on arrow click
 
 (12/29/2020) = Fix - Version 4.5.2
-[*] = Fix = Improved theme preview on wordpress.org
+[*] = Fix = Improved theme preview on WordPress.org
 
 (12/29/2020) = Fix - Version 4.5.1
 [*] = Fix = Search icon in sidebar is not aligned when padding is applied from customizer
@@ -990,7 +990,7 @@ Changelog Legend:
 
 (07/17/15) - Improvements - Version 1.9.7.7
 
-[+] - Added options to customizer as per wordpress.org guidelines
+[+] - Added options to customizer as per WordPress.org guidelines
 [+] - Added new plugin suggestion.
 
 
@@ -1315,7 +1315,7 @@ http://cyberchimps.com/guide/update-1-9-3-6/
 
 [+] Themes page to appearance menu
 [!] Fixed support and forum links.
-[^] Moved plugin from theme to wordpress plugin repo.
+[^] Moved plugin from theme to WordPress plugin repo.
 [+] Added ability to add classes to options.
 [*] Allowed call to action update without home content.
 
