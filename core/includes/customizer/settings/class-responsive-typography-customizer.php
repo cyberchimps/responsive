@@ -189,8 +189,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'target'   => $selectorArray['item_meta'],
 					'section'  => 'responsive_blog_layout',
 					'priority' => 98,
-					'exclude'  => array( 'font-color','font-size' ),
+					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
+						'font-size'   => '14px',
 						'line-height' => '1.5',
 					),
 				),
@@ -219,6 +220,17 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'line-height' => '1',
 						'text-transform' => 'capitalize',
 						'font-weight'    => '400',
+					),
+				),
+				'secondary_button'           => array(
+					'label'    => esc_html__( 'Body', 'responsive' ),
+					'target'   => isset( $selectorArray['secondary_button'] ) ? $selectorArray['secondary_button'] : '.wp-block-button.is-style-outline > .wp-block-button__link',
+					'section'  => 'responsive_button',
+					'priority' => 314,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size'   => '16px',
+						'line-height' => '1',
 					),
 				),
 				'input'                      => array(
@@ -401,7 +413,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'footer_copyright' => array(
 					'label'    => esc_html__( 'Typography', 'responsive' ),
 					'target'   => $selectorArray['footer_copyright'],
-					'section'  => 'responsive_footer_layout',
+					'section'  => 'responsive_footer_copyright',
 					'exclude'  => array( 'font-color' ),
 					'priority' => 80,
 					'defaults' => array(
@@ -595,6 +607,89 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'font-size'   => '13px',
 						'line-height' => '1.75',
 					),
+				'footer_menu' => array(
+					'label' => esc_html__('Typography', 'responsive'),
+					'target' => $selectorArray['footer_menu'],
+					'section' => 'responsive_footer_menu',
+					'exclude' => array('font-color'),
+					'priority' => 45,
+					'defaults' => array(
+						'font-size' => '13px',
+						'font-weight' => '400',
+						'line-height' => '1.75'
+					)
+				),
+				'footer_above_row_widget_heading' => array(
+					'label' => esc_html__('Typography', 'responsive'),
+					'target' => $selectorArray['footer_above_row_widget_heading'],
+					'section' => 'responsive_footer_above_row',
+					'exclude' => array('font-color'),
+					'priority' => 45,
+					'defaults' => array(
+						'font-size' => '16px',
+						'font-weight' => '400',
+						'line-height' => '1.75'
+					)
+				),
+				'footer_above_row_widget_content' => array(
+					'label' => esc_html__('Typography', 'responsive'),
+					'target' => $selectorArray['footer_above_row_widget_content'],
+					'section' => 'responsive_footer_above_row',
+					'exclude' => array('font-color'),
+					'priority' => 45,
+					'defaults' => array(
+						'font-size' => '13px',
+						'font-weight' => '400',
+						'line-height' => '1.75'
+					)
+				),
+				'footer_primary_row_widget_heading' => array(
+					'label' => esc_html__('Typography', 'responsive'),
+					'target' => $selectorArray['footer_primary_row_widget_heading'],
+					'section' => 'responsive_footer_primary_row',
+					'exclude' => array('font-color'),
+					'priority' => 45,
+					'defaults' => array(
+						'font-size' => '16px',
+						'font-weight' => '400',
+						'line-height' => '1.75'
+					)
+				),
+				'footer_primary_row_widget_content' => array(
+					'label' => esc_html__('Typography', 'responsive'),
+					'target' => $selectorArray['footer_primary_row_widget_content'],
+					'section' => 'responsive_footer_primary_row',
+					'exclude' => array('font-color'),
+					'priority' => 45,
+					'defaults' => array(
+						'font-size' => '13px',
+						'font-weight' => '400',
+						'line-height' => '1.75'
+					)
+				),
+				'footer_below_row_widget_heading' => array(
+					'label' => esc_html__('Typography', 'responsive'),
+					'target' => $selectorArray['footer_below_row_widget_heading'],
+					'section' => 'responsive_footer_below_row',
+					'exclude' => array('font-color'),
+					'priority' => 45,
+					'defaults' => array(
+						'font-size' => '16px',
+						'font-weight' => '400',
+						'line-height' => '1.75'
+					)
+				),
+				'footer_below_row_widget_content' => array(
+					'label' => esc_html__('Typography', 'responsive'),
+					'target' => $selectorArray['footer_below_row_widget_content'],
+					'section' => 'responsive_footer_below_row',
+					'exclude' => array('font-color'),
+					'priority' => 45,
+					'defaults' => array(
+						'font-size' => '13px',
+						'font-weight' => '400',
+						'line-height' => '1.75'
+					)
 				),
 
 			);
@@ -639,6 +734,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'heading_h6'                 => 'h6',
 				'meta'                       => '.hentry .post-data,.post-meta *',
 				'button'                     => '.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, .entry-content div.wpforms-container-full .wpforms-form input[type=submit], body .entry-content div.wpforms-container-full .wpforms-form button[type=submit], .entry-content div.wpforms-container-full .wpforms-form .wpforms-page-button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,.entry-content div.wpforms-container-full .wpforms-form input[type=submit],.entry-content div.wpforms-container-full .wpforms-form button[type=submit],.entry-content div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link,body div.wpforms-container-full .wpforms-form button[type=submit], button,div.wpforms-container-full .wpforms-form .wpforms-submit-container,.elementor-widget-rael-button .rael-button .rael-text, .wp-block-file__button, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button',
+				'secondary_button'           => '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link',
 				'input'                      => 'select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],.entry-content div.wpforms-container-full .wpforms-form input[type=date],.entry-content div.wpforms-container-full .wpforms-form input[type=datetime],.entry-content div.wpforms-container-full .wpforms-form input[type=datetime-local],.entry-content div.wpforms-container-full .wpforms-form input[type=email],.entry-content div.wpforms-container-full .wpforms-form input[type=month],.entry-content div.wpforms-container-full .wpforms-form input[type=number],.entry-content div.wpforms-container-full .wpforms-form input[type=password],.entry-content div.wpforms-container-full .wpforms-form input[type=range],.entry-content div.wpforms-container-full .wpforms-form input[type=search],.entry-content div.wpforms-container-full .wpforms-form input[type=tel],.entry-content div.wpforms-container-full .wpforms-form input[type=text],.entry-content div.wpforms-container-full .wpforms-form input[type=time],.entry-content div.wpforms-container-full .wpforms-form input[type=url],.entry-content div.wpforms-container-full .wpforms-form input[type=week],.entry-content div.wpforms-container-full .wpforms-form select,.entry-content div.wpforms-container-full .wpforms-form textarea,body div.wpforms-container-full .wpforms-form input[type=text],body div.wpforms-container-full .wpforms-form input[type=email],body div.wpforms-container-full .wpforms-form textarea',
 				'header_site_title'          => '.site-title',
 				'header_site_title2'         => '.site-title a',
@@ -668,7 +764,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'mobile_header_contact_info' => '.site-mobile-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list  .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-title, .site-mobile-header-item .responsive-header-contact-info .responsive-header-contact-info-icons-types .responsive-header-contact-info-icons-list .responsive-header-contact-info-contact-info .responsive-header-contact-info-contact-text',
 				'header_off_canvas_menu'     => '.responsive-off-canvas-menu-container .responsive-off-canvas-menu-wrapper .responsive-off-canvas-menu-inner-wrapper .responsive-off-canvas-menu .responsive-off-canvas-menu-items .responsive-off-canvas-menu-item a, .off-canvas-widget-area #off-canvas-menu li a, #off-canvas-site-navigation .menu li a',
 				'item_category'              => '.blog .hentry .entry-meta .entry-category a, .archive .hentry .entry-meta .entry-category a', 
-				'item_meta'             	 => '.blog .container .hentry .post-entry .post-meta .entry-author .author a, .blog .container .hentry .post-entry .post-meta .entry-author .author a span, .blog .hentry .post-meta .entry-date time, .archive .hentry .post-meta .entry-author .author a span, .archive .hentry .post-meta .entry-date time', 
+				'item_meta'             	 => '.blog .hentry .post-meta .entry-tag span, .blog .hentry .post-meta .entry-tag span a, .blog .hentry .post-meta span.entry-date .posted time, .archive .hentry .post-meta span, .archive .hentry .post-meta span.entry-date .posted time, .blog .container .hentry .post-entry .post-meta .entry-author .author a span', 
 				'single_blog_breadcrumb'     => '.single.single-post .breadcrumbs .breadcrumb-list',
 				'single_blog_post_text'      => '.single-post .entry-header *:not(.post-meta):not(.post-meta *):not(.post-title), .responsive-blog-single-banner2 .container *:not(.post-meta):not(.post-meta *):not(.post-title)',
 				'single_blog_post_title'     => '.single-post .site-content article .post-entry .post-title, .single-post .responsive-blog-single-banner2 .post-title',
@@ -679,6 +775,14 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'blog_post_title'			 => 'body .responsive-archive-entry-banner .page-title, body .responsive-archive-entry-banner .page-title *, body.archive:not(.woocommerce) .site-content-header .page-title, body.archive:not(.woocommerce) .site-content-header .page-title *',
 				'blog_post_text'			 => '.responsive-archive-entry-banner .container *, .archive:not(.woocommerce) .site-content-header *',
 				'html_font'			 => '.responsive-header-html p',
+				'footer_menu'				 => '#footer .footer-navigation .menu li.page_item',
+				'footer_above_row_widget_heading' => '.rspv-site-above-footer-wrap .footer-widgets .wp-block-heading',
+				'footer_above_row_widget_content' => '.rspv-site-above-footer-wrap .footer-widgets',
+				'footer_primary_row_widget_heading' => '.rspv-site-primary-footer-wrap .footer-widgets .wp-block-heading',
+				'footer_primary_row_widget_content' => '.rspv-site-primary-footer-wrap .footer-widgets',
+				'footer_below_row_widget_heading' => '.rspv-site-below-footer-wrap .footer-widgets .wp-block-heading',
+				'footer_below_row_widget_content' => '.rspv-site-below-footer-wrap .footer-widgets'
+
 			);
 
 			if ( $this->is_responsive_version_greater() ) {
@@ -690,7 +794,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 			}
 
 			for( $i=1;$i<=6;$i++ ) {
-				$responsive_typography_selectors['footer_widget'. $i .'_title'] = ".footer-widget-area.footer-widget-{$i} h1,.footer-widget-area.footer-widget-{$i} h2,.footer-widget-area.footer-widget-{$i} h3,.footer-widget-area.footer-widget-{$i} h4,.footer-widget-area.footer-widget-{$i} h5,.footer-widget-area.footer-widget-{$i} h6";
+				$responsive_typography_selectors['footer_widget'. $i .'_title'] = "#footer .footer-widget-area.footer-widget-{$i} h1,#footer .footer-widget-area.footer-widget-{$i} h2,#footer .footer-widget-area.footer-widget-{$i} h3,#footer .footer-widget-area.footer-widget-{$i} h4,#footer .footer-widget-area.footer-widget-{$i} h5,#footer .footer-widget-area.footer-widget-{$i} h6";
 				$responsive_typography_selectors['footer_widget'. $i .'_content'] = ".footer-widget-area.footer-widget-{$i}.footer-widget-{$i}";
 			}
 

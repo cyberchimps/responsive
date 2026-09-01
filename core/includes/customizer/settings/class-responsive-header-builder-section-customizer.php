@@ -44,6 +44,39 @@ if ( ! class_exists( 'Responsive_Header_Builder_Section_Customizer' ) ) :
 				)
 			);
 
+			$tabs_label     = esc_html__( 'Tabs', 'responsive' );
+			$tab_ids_prefix = 'customize-control-';
+
+			$style_tab_ids = array(
+				$tab_ids_prefix . 'responsive_header_builder_width',
+				$tab_ids_prefix . 'responsive_header_builder_margin_padding',
+				$tab_ids_prefix . 'responsive_mobile_menu_breakpoint',
+			);
+
+			$general_tab_ids = array(
+				$tab_ids_prefix . 'responsive_header_available_items',
+				$tab_ids_prefix . 'responsive_header_mobile_tablet_available_items',
+				$tab_ids_prefix . 'responsive_header_redirects_separator',
+				$tab_ids_prefix . 'responsive_redirect_to_primary_header',
+				$tab_ids_prefix . 'responsive_redirect_to_content_header',
+				$tab_ids_prefix . 'responsive_redirect_to_sticky_header',
+				$tab_ids_prefix . 'responsive_redirect_to_transparent_header',
+			);
+
+			responsive_tabs_button_control(
+				$wp_customize,
+				'header_builder_section_tabs',
+				$tabs_label,
+				'responsive_header_builder_section',
+				1,
+				'',
+				'responsive_header_builder_general_tab',
+				'responsive_header_builder_style_tab',
+				$general_tab_ids,
+				$style_tab_ids,
+				null
+			);
+
 			$wp_customize->add_setting(
 				'responsive_header_available_items',
 				array(
@@ -133,6 +166,23 @@ if ( ! class_exists( 'Responsive_Header_Builder_Section_Customizer' ) ) :
 			$configure_footer_menu_redirect_label = __( 'Transparent Header', 'responsive' );
 			responsive_redirect_control( $wp_customize, 'redirect_to_transparent_header', $configure_footer_menu_redirect_label, 'responsive_header_builder_section', 10, 'section', 'responsive_header_transparent');
 
+			// Style Tab Controls.
+			// Header Width.
+			$header_width_label   = __( 'Header Width', 'responsive' );
+			$header_width_choices = array(
+				'fullwidth' => esc_html__( 'Full Width', 'responsive' ),
+				'contained' => esc_html__( 'Wide Container Width', 'responsive' ),
+			);
+			responsive_select_button_control( $wp_customize, 'header_builder_width', $header_width_label, 'responsive_header_builder_section', 20, $header_width_choices, 'contained', null, 'postMessage' );
+
+			// Margin.
+			$header_margin_label = esc_html__( 'Margin', 'responsive' );
+			responsive_padding_control( $wp_customize, 'header_builder_margin', 'responsive_header_builder_section', 30, 0, 0, null, $header_margin_label );
+
+			// Screen Size to switch to mobile header (breakpoint).
+			$mobile_breakpoint_label = __( 'Screen Size to switch to mobile header (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'mobile_menu_breakpoint', $mobile_breakpoint_label, 'responsive_header_builder_section', 50, 767, null, 4096, 1, 'postMessage' );
+
 		}
 
 	}
@@ -141,3 +191,4 @@ endif;
 
 // return null;
 return new Responsive_Header_Builder_Section_Customizer();
+

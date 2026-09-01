@@ -464,7 +464,7 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_single_blog_featured_image_style {
 	padding-bottom: 24px;
 }
-#sub-accordion-section-responsive_single_blog_layout .customize-control-title {
+#sub-accordion-section-responsive_single_blog_layout .customize-control-title, #customize-control-responsive_footer_menu_streched {
 	margin-top: 24px;
 }
 #customize-control-responsive_disable_author_meta {
@@ -1433,7 +1433,10 @@ in both cases the footer builder is active */
 #customize-control-responsive_blog_post_text_typography_group_separator,
 #customize-control-responsive_page_title_area_meta_typography_group_separator,
 #customize-control-responsive_page_single_meta_separator_text_separator,
-#customize-control-responsive_page_show_comments {
+#customize-control-responsive_page_show_comments,
+#customize-control-responsive_footer_menu_typography_group,
+#customize-control-responsive_footer_menu_item_horizontal_spacing,
+#customize-control-responsive_footer_menu_item_top_bottom_spacing {
 	margin-top: 24px;
 }
 #customize-control-responsive_cart_icon_separator,
@@ -1621,7 +1624,8 @@ div.customize-section-description{
 }
 #sub-accordion-section-responsive_footer_above_row .responsive-customizer-heading,
 #sub-accordion-section-responsive_footer_primary_row .responsive-customizer-heading,
-#sub-accordion-section-responsive_footer_below_row .responsive-customizer-heading {
+#sub-accordion-section-responsive_footer_below_row .responsive-customizer-heading,
+#customize-control-responsive_footer_bg_attachment {
 	margin-bottom: 24px;
 }
 .responsive-hfb-builder-item.sortable-ghost {
@@ -1637,13 +1641,25 @@ div.customize-section-description{
 .responsive-dragging-dropzones .responsive-builder-add-item {
 	display: none;
 }
-#customize-control-responsive_transparent_header_logo .customize-control-title {
+#customize-control-responsive_transparent_header_logo .customize-control-title,
+#customize-control-responsive_transparent_header_retina_logo .customize-control-title {
 	margin-top: 0;
 }
 #customize-control-responsive_transparent_bottom_border .customize-control-title {
 	margin-top: 0;
 }
+#customize-control-responsive_transparent_header_enable_on {
+	margin-bottom: 24px;
+}
 #customize-control-responsive_transparent_header_logo {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+#customize-control-responsive_transparent_header_logo_width {
+	margin-bottom: 24px;
+}
+#customize-control-responsive_transparent_header_retina_logo {
+	margin-bottom: 0;
 	padding-bottom: 24px;
 }
 .responsive-hfb-builder-item .responsive-hfb-builder-item-icon:focus {
@@ -2118,4 +2134,7 @@ ul.control-panel-nav_menus .customize-help-toggle:before {
 }
 #customize-control-responsive_html_font_typography_group{
 	margin: 10px 0;
+}
+#customize-control-responsive_single_blog_related_posts_location {
+    display: none;
 }

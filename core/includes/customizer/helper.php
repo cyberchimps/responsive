@@ -857,7 +857,7 @@ function responsive_read_more_text( $text ) {
  * @return string
  */
 function responsive_custom_trim_excerpt_by_characters( $text, $raw_excerpt ) {
-	$excerpt_length = get_theme_mod( 'responsive_excerpt_length', 90 );
+	$excerpt_length = get_theme_mod( 'responsive_excerpt_length', 25 );
 	if ( ! is_numeric( $excerpt_length ) ) {
 		return $text;
 	}
@@ -944,10 +944,10 @@ if ( ! function_exists( 'responsive_spacing_css' ) ) {
 
 		$unit = ! empty( $unit ) ? $unit : 'px';
 
-		$s_top    = ( isset( $top ) && '' !== $top ) ? ( 'px' === $unit ? intval( $top ) : $top ) . $unit . ' ' : '0' . $unit . ' ';
-		$s_right  = ( isset( $right ) && '' !== $right ) ? ( 'px' === $unit ? intval( $right ) : $right ) . $unit . ' ' : '0' . $unit . ' ';
-		$s_bottom = ( isset( $bottom ) && '' !== $bottom ) ? ( 'px' === $unit ? intval( $bottom ) : $bottom ) . $unit . ' ' : '0' . $unit . ' ';
-		$s_left   = ( isset( $left ) && '' !== $left ) ? ( 'px' === $unit ? intval( $left ) : $left ) . $unit : '0' . $unit;
+		$s_top    = ( isset( $top ) && '' !== $top ) ? ( 'px' === $unit ? intval( $top ) : trim( $top ) ) . $unit . ' ' : '0' . $unit . ' ';
+		$s_right  = ( isset( $right ) && '' !== $right ) ? ( 'px' === $unit ? intval( $right ) : trim( $right ) ) . $unit . ' ' : '0' . $unit . ' ';
+		$s_bottom = ( isset( $bottom ) && '' !== $bottom ) ? ( 'px' === $unit ? intval( $bottom ) : trim( $bottom ) ) . $unit . ' ' : '0' . $unit . ' ';
+		$s_left   = ( isset( $left ) && '' !== $left ) ? ( 'px' === $unit ? intval( $left ) : trim( $left ) ) . $unit : '0' . $unit;
 
 		// Return one value if it is the same on every inputs.
 		if ( ( (string) $top === (string) $right )
@@ -2198,7 +2198,7 @@ function responsive_has_custom_logo_callback() {
  */
 function responsive_active_sidebar_menu() {
 
-	return ( 0 === get_theme_mod( 'responsive_disable_menu', 0 ) && 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) && 'sidebar' === get_theme_mod( 'responsive_mobile_menu_style', 'dropdown' ) ) ? true : false;
+	return ( 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) && 'sidebar' === get_theme_mod( 'responsive_mobile_menu_style', 'dropdown' ) ) ? true : false;
 }
 
 /**
@@ -3566,7 +3566,7 @@ function responsive_is_user_pro() {
  *
  * @return void               [description].
  */
-function responsive_tabs_button_control( $wp_customize, $element, $label, $section, $priority, $default, $general_id, $design_id, $general_tab_ids, $design_tab_ids, $active_call, $transport = 'refresh', $description = '' ) {
+function responsive_tabs_button_control( $wp_customize, $element, $label, $section, $priority, $default, $general_id, $design_id, $general_tab_ids, $design_tab_ids, $active_call, $transport = 'refresh', $description = '', $general_label = '', $design_label = '' ) {
 
 	$wp_customize->add_setting(
 		'responsive_' . $element,
@@ -3591,6 +3591,8 @@ function responsive_tabs_button_control( $wp_customize, $element, $label, $secti
 				'design_id'       => $design_id,
 				'general_tab_ids' => $general_tab_ids,
 				'design_tab_ids'  => $design_tab_ids,
+				'general_label'   => $general_label,
+				'design_label'    => $design_label,
 			)
 		)
 	);
@@ -3691,7 +3693,7 @@ function responsive_active_blog_entry_columns_multi_column() {
  * @return [type] [description]
  */
 function responsive_disabled_main_menu() {
-	return ( 0 === get_theme_mod( 'responsive_disable_menu', 0 ) ) ? true : false;
+	return true;
 }
 
 /**
@@ -3709,7 +3711,7 @@ function responsive_disabled_secondary_menu() {
  * @return [type] [description]
  */
 function responsive_disabled_mobile_menu() {
-	return ( ( 0 === get_theme_mod( 'responsive_disable_menu', 0 ) ) && ( 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) ) ) ? true : false;
+	return ( 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) ) ? true : false;
 }
 /**
  * Toggle style if outline border color control.
@@ -3717,7 +3719,7 @@ function responsive_disabled_mobile_menu() {
  * @return mixed
  */
 function responsive_toggle_border_color() {
-	return ( 0 === get_theme_mod( 'responsive_disable_menu', 0 ) && 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) && 'outline' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) ) ? true : false;
+	return ( 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) && 'outline' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) ) ? true : false;
 }
 /**
  * Toggle style if outline & fill border radius control.
@@ -3725,7 +3727,7 @@ function responsive_toggle_border_color() {
  * @return mixed
  */
 function responsive_toggle_border_radius() {
-	return ( ( 'outline' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) || 'fill' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) ) && 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) && 0 === get_theme_mod( 'responsive_disable_menu', 0 ) ) ? true : false;
+	return ( ( 'outline' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) || 'fill' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) ) && 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) ) ? true : false;
 }
 
 /**
@@ -3745,7 +3747,7 @@ function responsive_custom_home_active() {
  * @return [type] [description]
  */
 function responsive_last_item_in_menu_active() {
-	return ( 'none' !== get_theme_mod( 'responsive_menu_last_item' ) && 0 === get_theme_mod( 'responsive_disable_menu', 0 ) ) ? true : false;
+	return ( 'none' !== get_theme_mod( 'responsive_menu_last_item' ) ) ? true : false;
 }
 
 /**
@@ -3763,7 +3765,7 @@ function responsive_last_item_in_secondary_menu_active() {
  * @return [type] [description]
  */
 function responsive_last_item_in_menu_and_mobile_menu_enabled() {
-	return ( 0 === get_theme_mod( 'responsive_disable_menu', 0 ) && 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) && 'none' !== get_theme_mod( 'responsive_menu_last_item' ) ) ? true : false;
+	return ( 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) && 'none' !== get_theme_mod( 'responsive_menu_last_item' ) ) ? true : false;
 }
 
 /**
@@ -4434,23 +4436,23 @@ if ( ! function_exists( 'responsive_show_mobile_social_background_colors' ) ) {
 
 if ( ! function_exists( 'responsive_show_header_social_custom_colors' ) ) {
 	/**
-	 * Show header social custom color controls only when brand colors are disabled.
+	 * Show header social custom color controls only when brand colors are not set to "Yes".
 	 *
-	 * @return bool True when "Use Brand Colors" is set to "No".
+	 * @return bool True when "Use Brand Colors" is not "Yes".
 	 */
 	function responsive_show_header_social_custom_colors() {
-		return 'no' === get_theme_mod( 'responsive_header_social_item_use_brand_colors', 'no' );
+		return 'yes' !== get_theme_mod( 'responsive_header_social_item_use_brand_colors', 'no' );
 	}
 }
 
 if ( ! function_exists( 'responsive_show_mobile_header_social_custom_colors' ) ) {
 	/**
-	 * Show mobile header social custom color controls only when brand colors are disabled.
+	 * Show mobile header social custom color controls only when brand colors are not set to "Yes".
 	 *
-	 * @return bool True when "Use Brand Colors" is set to "No".
+	 * @return bool True when "Use Brand Colors" is not "Yes".
 	 */
 	function responsive_show_mobile_header_social_custom_colors() {
-		return 'no' === get_theme_mod( 'responsive_mobile_header_social_item_use_brand_colors', 'no' );
+		return 'yes' !== get_theme_mod( 'responsive_mobile_header_social_item_use_brand_colors', 'no' );
 	}
 }
 
@@ -4568,7 +4570,7 @@ function responsive_button_presets_control( $wp_customize, $element, $label, $se
  * @param  [type]  $desc         [description].
  * @return void [description].
  */
-function responsive_color_control_with_device_switchers( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $desc='', $transport = 'postMessage' ) {
+function responsive_color_control_with_device_switchers( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $desc='', $transport = 'postMessage', $has_reset = false ) {
 
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_color',
@@ -4612,6 +4614,7 @@ function responsive_color_control_with_device_switchers( $wp_customize, $element
 				'priority'        => $priority,
 				'active_callback' => $active_call,
 				'description'     => $desc,
+				'has_reset'       => $has_reset,
 			)
 		)
 	);
@@ -4944,18 +4947,6 @@ if ( ! function_exists( 'responsive_show_post_author_box' ) ) {
 		return ! (bool) get_theme_mod( 'responsive_disable_author_meta', 0 );
 	}
 }
-/* For Blog/Archive section -> Blog layout cover option */
-if ( ! function_exists( 'responsive_active_blog_layout_cover_background' ) ) :
-
-	/**
-	 * Determines whether active blog layout is cover.
-	 *
-	 * @return bool true if the active layout is cover, false otherwise.
-	 */
-	function responsive_active_blog_layout_cover_background() {
-		return get_theme_mod( 'responsive_blog_layout', 'grid' ) === 'cover';
-	}
-endif;
 
 function responsive_get_page_sidebar_choices() {
 	return array(
@@ -4993,6 +4984,58 @@ if ( ! function_exists( 'responsive_link_style_is_hover_background' ) ) :
 	 */
 	function responsive_link_style_is_hover_background() {
 		$link_style = get_theme_mod( 'responsive_link_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_link_style' ) );
+		return 'hover-background' === $link_style;
+	}
+endif;
+
+if ( ! function_exists( 'responsive_footer_copyright_link_style_is_hover_background' ) ) :
+
+	/**
+	 * Determines whether active footer copyright link style is hover-background.
+	 *
+	 * @return bool true if active footer copyright link style is hover-background.
+	 */
+	function responsive_footer_copyright_link_style_is_hover_background() {
+		$link_style = get_theme_mod( 'responsive_footer_copyright_link_style', Responsive\Core\get_responsive_customizer_defaults( 'footer_copyright_link_style' ) );
+		return 'hover-background' === $link_style;
+	}
+endif;
+
+if ( ! function_exists( 'responsive_footer_above_row_link_style_is_hover_background' ) ) :
+
+	/**
+	 * Determines whether active footer above row link style is hover-background.
+	 *
+	 * @return bool true if active footer above row link style is hover-background.
+	 */
+	function responsive_footer_above_row_link_style_is_hover_background() {
+		$link_style = get_theme_mod( 'responsive_footer_above_link_style', Responsive\Core\get_responsive_customizer_defaults( 'footer_above_link_style' ) );
+		return 'hover-background' === $link_style;
+	}
+endif;
+
+if ( ! function_exists( 'responsive_footer_primary_row_link_style_is_hover_background' ) ) :
+
+	/**
+	 * Determines whether active footer primary row link style is hover-background.
+	 *
+	 * @return bool true if active footer primary row link style is hover-background.
+	 */
+	function responsive_footer_primary_row_link_style_is_hover_background() {
+		$link_style = get_theme_mod( 'responsive_footer_primary_link_style', Responsive\Core\get_responsive_customizer_defaults( 'footer_primary_link_style' ) );
+		return 'hover-background' === $link_style;
+	}
+endif;
+
+if ( ! function_exists( 'responsive_footer_below_row_link_style_is_hover_background' ) ) :
+
+	/**
+	 * Determines whether active footer below row link style is hover-background.
+	 *
+	 * @return bool true if active footer below row link style is hover-background.
+	 */
+	function responsive_footer_below_row_link_style_is_hover_background() {
+		$link_style = get_theme_mod( 'responsive_footer_below_link_style', Responsive\Core\get_responsive_customizer_defaults( 'footer_below_link_style' ) );
 		return 'hover-background' === $link_style;
 	}
 endif;
@@ -5066,3 +5109,38 @@ if ( ! function_exists( 'responsive_show_single_blog_content_background' ) ) {
 		return 'flat' !== $single_blog_setting;
 	}
 }
+
+if ( ! function_exists( 'responsive_show_related_posts_location' ) ) {
+	/**
+	 * Determines whether the Related Posts Location control should show.
+	 *
+	 * Only relevant when Section Placement is set to "Contained".
+	 *
+	 * @return bool true if Section Placement is 'contained', false otherwise.
+	 */
+	function responsive_show_related_posts_location() {
+		return 'contained' === get_theme_mod( 'responsive_single_blog_related_posts_section_placement', 'default' );
+	}
+}
+
+if ( ! function_exists( 'responsive_primary_navigation_stretch_active' ) ) :
+	/**
+	 * Determines whether stretch menu is enabled for primary navigation.
+	 *
+	 * @return bool
+	 */
+	function responsive_primary_navigation_stretch_active() {
+		return ( 1 === (int) get_theme_mod( 'responsive_primary_navigation_stretch', 0 ) );
+	}
+endif;
+
+if ( ! function_exists( 'responsive_secondary_navigation_stretch_active' ) ) :
+	/**
+	 * Determines whether stretch menu is enabled for secondary navigation.
+	 *
+	 * @return bool
+	 */
+	function responsive_secondary_navigation_stretch_active() {
+		return ( 1 === (int) get_theme_mod( 'responsive_secondary_navigation_stretch', 0 ) );
+	}
+endif;

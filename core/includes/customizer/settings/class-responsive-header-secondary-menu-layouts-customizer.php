@@ -43,27 +43,35 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 			 $design_tab_ids_prefix = 'customize-control-';
 			 $design_tab_ids        = array(
 				 $design_tab_ids_prefix . 'responsive_secondary_menu_item_hover_style',
+				 $design_tab_ids_prefix . 'responsive_header_secondary_menu_color_separator',
+				 $design_tab_ids_prefix . 'responsive_header_secondary_menu_link_color_states',
+				 $design_tab_ids_prefix . 'responsive_header_secondary_menu_background_color_states',
+				 $design_tab_ids_prefix . 'responsive_secondary_sub_menu_separator',
+				 $design_tab_ids_prefix . 'responsive_secondary_sub_menu_border_padding',
+				 $design_tab_ids_prefix . 'responsive_border_secondary_sub_menu_border_radius',
 				 $design_tab_ids_prefix . 'responsive_secondary_menu_top_offset',
+				 $design_tab_ids_prefix . 'responsive_secondary_sub_menu_width',
+				 $design_tab_ids_prefix . 'responsive_secondary_sub_menu_divider',
+				 $design_tab_ids_prefix . 'responsive_secondary_menu_active_parent',
+				 $design_tab_ids_prefix . 'responsive_secondary_sub_menu_colors_separator',
+				 $design_tab_ids_prefix . 'responsive_secondary_sub_menu_border_color',
+				 $design_tab_ids_prefix . 'responsive_secondary_sub_menu_divider_color',
+				 $design_tab_ids_prefix . 'responsive_header_secondary_sub_menu_link_color_states',
+				 $design_tab_ids_prefix . 'responsive_header_secondary_sub_menu_background_color_states',
 				 $design_tab_ids_prefix . 'responsive_submenu_animation_style',
+				 $design_tab_ids_prefix . 'responsive_header_secondary_menu_typography_group',
 				 $design_tab_ids_prefix . 'responsive_spacing_separator',
 				 $design_tab_ids_prefix . 'responsive_secondary-menu-padding_padding',
 				 $design_tab_ids_prefix . 'responsive_secondary-menu-margin_padding',
-				 $design_tab_ids_prefix . 'responsive_header_secondary_menu_typography_group',
-				 $design_tab_ids_prefix . 'responsive_header_secondary_menu_color_separator',
-				 $design_tab_ids_prefix . 'responsive_header_secondary_menu_background_color',
-				 $design_tab_ids_prefix . 'responsive_header_secondary_menu_link_color',
 			 );
 			
 			 
 			 $general_tab_ids_prefix = 'customize-control-';
 			 $general_tab_ids        = array(
 				 $general_tab_ids_prefix . 'responsive_redirect_to_secondary_menu_set_location',
-				 $general_tab_ids_prefix . 'responsive_secondary_sub_menu_width',
-				 $general_tab_ids_prefix . 'responsive_secondary_sub_menu_divider',
-				 $general_tab_ids_prefix . 'responsive_visibility_separator',
-				 $general_tab_ids_prefix . 'responsive_secondary_menu_desktop_visibility',
-				 $general_tab_ids_prefix . 'responsive_secondary_menu_tablet_visibility',
-				//  $general_tab_ids_prefix . 'responsive_secondary_menu_mobile_visibility',
+				 $general_tab_ids_prefix . 'responsive_secondary_navigation_stretch',
+				 $general_tab_ids_prefix . 'responsive_secondary_navigation_fill_stretch',
+				 $general_tab_ids_prefix . 'responsive_header_secondary_navigation_visibility',
 			 );
  
 			responsive_tabs_button_control( $wp_customize, 'secondary_menu_tabs', $tabs_label, 'responsive_header_secondary_menu_layout', 1, '', 'responsive_secondadry_menu_general_tab', 'responsive_secondary_menu_design_tab', $general_tab_ids, $design_tab_ids, null );
@@ -81,13 +89,14 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 			// Redirect to Secondary Menu set location.
 			$configure_secondary_menu_redirect_label = __( 'Configure Secondary Menu', 'responsive' );
 			responsive_redirect_control( $wp_customize, 'redirect_to_secondary_menu_set_location', $configure_secondary_menu_redirect_label, 'responsive_header_secondary_menu_layout', 40, 'control', 'nav_menu_locations[secondary-menu]');
-			
-			$secondary_sub_menu_width_label = esc_html__( 'Sub Menu Width (%)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'secondary_sub_menu_width', $secondary_sub_menu_width_label, 'responsive_header_secondary_menu_layout', 50, 30, 'responsive_disabled_secondary_menu', 100, 0, 'refresh' );
 
-			// Enable Item Divider
-			$secondary_sub_menu_divider_label = __( 'Item Divider', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'secondary_sub_menu_divider', $secondary_sub_menu_divider_label, 'responsive_header_secondary_menu_layout',60, 0, 'responsive_disabled_main_menu' );
+			// Stretch Menu.
+			$secondary_navigation_stretch_label = __( 'Stretch Menu', 'responsive' );
+			responsive_toggle_control( $wp_customize, 'secondary_navigation_stretch', $secondary_navigation_stretch_label, 'responsive_header_secondary_menu_layout', 42, 0, 'responsive_disabled_secondary_menu' );
+
+			// Fill and Center Menu Items.
+			$secondary_navigation_fill_stretch_label = __( 'Fill and Center Menu Items', 'responsive' );
+			responsive_toggle_control( $wp_customize, 'secondary_navigation_fill_stretch', $secondary_navigation_fill_stretch_label, 'responsive_header_secondary_menu_layout', 44, 0, 'responsive_secondary_navigation_stretch_active' );
 
 			// Menu Item Hover Style.
 			$secondary_menu_item_hover_style_label   = __( 'Menu Hover style', 'responsive' );
@@ -99,66 +108,174 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 			);
 			responsive_select_control( $wp_customize, 'secondary_menu_item_hover_style', $secondary_menu_item_hover_style_label, 'responsive_header_secondary_menu_layout', 100, $secondary_menu_item_hover_style_choices, 'none', 'responsive_disabled_secondary_menu' );
 
-			// Sub-menu Container Top Offset.
-			$secondary_menu_top_offset_label = esc_html__( 'Top Offset', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'secondary_menu_top_offset', $secondary_menu_top_offset_label, 'responsive_header_secondary_menu_layout', 105, 0, 'responsive_disabled_secondary_menu', 200, 0, 'refresh' );
-
-			// Colors
-			
-			$header_secondary_menu_color_separator_label = __( 'Colors', 'responsive' );
+			// Secondary Menu Colors
+			$header_secondary_menu_color_separator_label = __( 'Secondary Menu Colors', 'responsive' );
 			responsive_separator_control( $wp_customize, 'header_secondary_menu_color_separator', $header_secondary_menu_color_separator_label, 'responsive_header_secondary_menu_layout', 120, 'responsive_disabled_secondary_menu' );
 			
-			// Background Color.
-			$secondary_menu_background_color_label = __( 'Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_secondary_menu_background', $secondary_menu_background_color_label, 'responsive_header_secondary_menu_layout', 125, Responsive\Core\get_responsive_customizer_defaults( 'header_secondary_menu_background' ), 'responsive_disabled_secondary_menu' );
-			
-			
 			// Link Color.
-			$secondary_menu_link_color_label = __( 'Link Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_secondary_menu_link', $secondary_menu_link_color_label, 'responsive_header_secondary_menu_layout', 130, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_secondary_menu_link_color' ), 'responsive_disabled_secondary_menu' );
+			$secondary_menu_link_color_label = __( 'Menu Item Link', 'responsive' );
+			responsive_color_control_with_states(
+				$wp_customize,
+				'header_secondary_menu_link',
+				$secondary_menu_link_color_label,
+				'responsive_header_secondary_menu_layout',
+				125,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_secondary_menu_link_color' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_secondary_menu_link_color' ),
+				'header_secondary_menu_link_hover',
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_secondary_menu_link_color' ),
+				'header_active_secondary_menu_link'
+			);
+
+			// Background Color.
+			$secondary_menu_background_color_label = __( 'Background', 'responsive' );
+			responsive_color_control_with_states(
+				$wp_customize,
+				'header_secondary_menu_background',
+				$secondary_menu_background_color_label,
+				'responsive_header_secondary_menu_layout',
+				130,
+				Responsive\Core\get_responsive_customizer_defaults( 'header_secondary_menu_background' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'header_secondary_menu_background' ),
+				'header_hover_secondary_menu_background',
+				Responsive\Core\get_responsive_customizer_defaults( 'header_secondary_menu_background' ),
+				'header_active_secondary_menu_background'
+			);
 			
-			// Menu Item Hover Style.
+			// Sub Menu Settings
+			$secondary_sub_menu_separator_label = esc_html__( 'Sub Menu Settings', 'responsive' );
+			responsive_separator_control( $wp_customize, 'secondary_sub_menu_separator', $secondary_sub_menu_separator_label, 'responsive_header_secondary_menu_layout', 140 );
+
+			// Sub Menu Container Border.
+			$secondary_sub_menu_border = esc_html__( 'Container Border', 'responsive' );
+			responsive_padding_control( $wp_customize, 'secondary_sub_menu_border', 'responsive_header_secondary_menu_layout', 141, 0, 0, null, $secondary_sub_menu_border );
+
+			// Sub Menu Border Radius.
+			$secondary_sub_menu_border_radius = esc_html__( 'Border Radius', 'responsive' );
+			responsive_unit_radius_control( $wp_customize, 'secondary_sub_menu_border_radius', 'responsive_header_secondary_menu_layout', 142, '', '', null, $secondary_sub_menu_border_radius, 'postMessage', array( 'px', 'em' ) );
+
+			// Sub-menu Container Top Offset.
+			$secondary_menu_top_offset_label = esc_html__( 'Container Top Offset', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'secondary_menu_top_offset', $secondary_menu_top_offset_label, 'responsive_header_secondary_menu_layout', 145, 0, 'responsive_disabled_secondary_menu', 200, 0, 'refresh' );
+
+			// Sub Menu Width.
+			$secondary_sub_menu_width_label = esc_html__( 'Sub Menu Width (vw)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'secondary_sub_menu_width', $secondary_sub_menu_width_label, 'responsive_header_secondary_menu_layout', 150, 30, 'responsive_disabled_secondary_menu', 100, 0, 'refresh' );
+
+			// Enable Item Divider
+			$secondary_sub_menu_divider_label = __( 'Item Divider', 'responsive' );
+			responsive_toggle_control( $wp_customize, 'secondary_sub_menu_divider', $secondary_sub_menu_divider_label, 'responsive_header_secondary_menu_layout', 155, 0, null );
+
+			// Make Parent of Current Menu Active.
+			$secondary_menu_active_parent_label = __( 'Make Parent of Current Menu Active', 'responsive' );
+			responsive_toggle_control( $wp_customize, 'secondary_menu_active_parent', $secondary_menu_active_parent_label, 'responsive_header_secondary_menu_layout', 156, 0, null );
+
+			// Sub Menu Colors
+			$secondary_sub_menu_colors_separator_label = esc_html__( 'Sub Menu Colors', 'responsive' );
+			responsive_separator_control( $wp_customize, 'secondary_sub_menu_colors_separator', $secondary_sub_menu_colors_separator_label, 'responsive_header_secondary_menu_layout', 157 );
+
+			// Sub Menu Container Border Color.
+			$secondary_sub_menu_border_color_label = __( 'Container Border Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'secondary_sub_menu_border', $secondary_sub_menu_border_color_label, 'responsive_header_secondary_menu_layout', 158, '' );
+
+			// Sub Menu Divider Color.
+			$secondary_sub_menu_divider_color_label = __( 'Divider Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'secondary_sub_menu_divider', $secondary_sub_menu_divider_color_label, 'responsive_header_secondary_menu_layout', 159, '#eaeaea' );
+
+			// Sub Menu Item Link Color.
+			$secondary_sub_menu_link_color_label = __( 'Sub Menu Item Link', 'responsive' );
+			responsive_color_control_with_states(
+				$wp_customize,
+				'header_secondary_sub_menu_link',
+				$secondary_sub_menu_link_color_label,
+				'responsive_header_secondary_menu_layout',
+				159,
+
+				// Normal
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_secondary_sub_menu_link_color' ),
+
+				// Hover
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_secondary_sub_menu_link_hover_color' ),
+				'header_secondary_sub_menu_link_hover',
+
+				// Active
+				Responsive\Core\get_responsive_customizer_defaults( 'header_secondary_sub_menu_active_link' ),
+				'header_secondary_sub_menu_active_link'
+			);
+
+			// Sub Menu Background Color.
+			$secondary_sub_menu_background_color_label = __( 'Sub Menu Background', 'responsive' );
+			responsive_color_control_with_states(
+				$wp_customize,
+				'header_secondary_sub_menu_background',
+				$secondary_sub_menu_background_color_label,
+				'responsive_header_secondary_menu_layout',
+				159,
+
+				// Normal
+				Responsive\Core\get_responsive_customizer_defaults( 'header_secondary_sub_menu_background' ),
+
+				// Hover
+				Responsive\Core\get_responsive_customizer_defaults( 'header_hover_secondary_sub_menu_background' ),
+				'header_hover_secondary_sub_menu_background',
+
+				// Active
+				Responsive\Core\get_responsive_customizer_defaults( 'header_active_secondary_sub_menu_background' ),
+				'header_active_secondary_sub_menu_background'
+			);
+
+			// Submenu Animation.
 			$submenu_animation_style_label   = __( 'Submenu Animation', 'responsive' );
 			$submenu_animation_choices = array(
-				'none'      => esc_html__( 'None', 'responsive' ),
-				'slide-up'      => esc_html__( 'Slide Up', 'responsive' ),
-				'fade'  => esc_html__( 'Fade', 'responsive' ),
+				'none'       => esc_html__( 'None', 'responsive' ),
+				'slide-up'   => esc_html__( 'Slide Up', 'responsive' ),
+				'fade'       => esc_html__( 'Fade', 'responsive' ),
 				'slide-down' => esc_html__( 'Slide Down', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'submenu_animation_style', $submenu_animation_style_label, 'responsive_header_secondary_menu_layout', 110, $submenu_animation_choices, 'none', 'responsive_disabled_secondary_menu' );
+			responsive_select_control( $wp_customize, 'submenu_animation_style', $submenu_animation_style_label, 'responsive_header_secondary_menu_layout', 160, $submenu_animation_choices, 'none', 'responsive_disabled_secondary_menu' );
 			
 			// Typography
 			$typography_separator_label = __( 'Font', 'responsive' );
-			responsive_typography_group_control( $wp_customize, 'header_secondary_menu_typography_group', $typography_separator_label, 'responsive_header_secondary_menu_layout', 155, 'header_secondary_menu_typography' );
+			responsive_typography_group_control( $wp_customize, 'header_secondary_menu_typography_group', $typography_separator_label, 'responsive_header_secondary_menu_layout', 170, 'header_secondary_menu_typography' );
 			
 			// Menu spacing.
 			$spacing_separator_label = __( 'Spacing', 'responsive' );
-			responsive_separator_control( $wp_customize, 'spacing_separator', $spacing_separator_label, 'responsive_header_secondary_menu_layout', 170 );
+			responsive_separator_control( $wp_customize, 'spacing_separator', $spacing_separator_label, 'responsive_header_secondary_menu_layout', 180 );
 			
 			$menu_spacing_label = esc_html__( 'Padding (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'secondary-menu-padding', 'responsive_header_secondary_menu_layout', 175, Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding' ), Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding' ), 'responsive_disabled_mobile_menu', $menu_spacing_label, 'refresh' );
+			responsive_padding_control( $wp_customize, 'secondary-menu-padding', 'responsive_header_secondary_menu_layout', 185, Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding' ), Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding' ), 'responsive_disabled_mobile_menu', $menu_spacing_label, 'refresh' );
 
 			// Menu margin
 			$margin_spacing_label = esc_html__( 'Margin (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'secondary-menu-margin', 'responsive_header_secondary_menu_layout', 180, Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_margin' ), Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_margin' ), 'responsive_disabled_mobile_menu', $margin_spacing_label, 'refresh' );
+			responsive_padding_control( $wp_customize, 'secondary-menu-margin', 'responsive_header_secondary_menu_layout', 190, Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_margin' ), Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_margin' ), 'responsive_disabled_mobile_menu', $margin_spacing_label, 'refresh' );
 
-			// Visibiliy controls
-			
-			// Visibility seperator.
-			$visibility_separator_label = __( 'Visibility', 'responsive' );
-			responsive_separator_control( $wp_customize, 'visibility_separator', $visibility_separator_label, 'responsive_header_secondary_menu_layout', 65 );
-			
-			// Hide on Desktop.
-			$secondary_menu_desktop_visibility = __( 'Hide on Desktop', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'secondary_menu_desktop_visibility', $secondary_menu_desktop_visibility, 'responsive_header_secondary_menu_layout', 70, 0, null );
+			// Visibility - General Tab.
+			$secondary_navigation_visibility_label   = __( 'Visibility', 'responsive' );
+			$secondary_navigation_visibility_choices = array(
+				'desktop' => esc_html__( 'dashicons-desktop', 'responsive' ),
+				'tablet'  => esc_html__( 'dashicons-tablet', 'responsive' ),
+				'mobile'  => esc_html__( 'dashicons-smartphone', 'responsive' ),
+			);
 
-			// Hide on Tablet.
-			$secondary_menu_tablet_visibility = __( 'Hide on Tablet', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'secondary_menu_tablet_visibility', $secondary_menu_tablet_visibility, 'responsive_header_secondary_menu_layout', 80, 0, null );
+			$default_visibility = get_theme_mod( 'responsive_header_secondary_navigation_visibility', null );
+			if ( null === $default_visibility ) {
+				$desktop_hidden = get_theme_mod( 'responsive_secondary_menu_desktop_visibility', 0 );
+				$tablet_hidden  = get_theme_mod( 'responsive_secondary_menu_tablet_visibility', 0 );
+				$mobile_hidden  = get_theme_mod( 'responsive_secondary_menu_mobile_visibility', 1 );
 
-			// Hide on Mobile.
-			// $secondary_menu_mobile_visibility = __( 'Hide on Mobile', 'responsive' );
-			// responsive_checkbox_control( $wp_customize, 'secondary_menu_mobile_visibility', $secondary_menu_mobile_visibility, 'responsive_header_secondary_menu_layout', 90, 0, null );
+				$default_visibility = array();
+				if ( ! $desktop_hidden ) {
+					$default_visibility[] = 'desktop';
+				}
+				if ( ! $tablet_hidden ) {
+					$default_visibility[] = 'tablet';
+				}
+				if ( ! $mobile_hidden ) {
+					$default_visibility[] = 'mobile';
+				}
+			}
+
+			responsive_multi_select_button_control( $wp_customize, 'header_secondary_navigation_visibility', $secondary_navigation_visibility_label, 'responsive_header_secondary_menu_layout', 46, $secondary_navigation_visibility_choices, $default_visibility, null, 'refresh' );
 
 		}
 

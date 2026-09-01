@@ -57,27 +57,49 @@
 				return;
 			}
 
+			// Check if the general tab is active
+			var generalTab = $( '#responsive_header_builder_general_tab' );
+			var isGeneralTabActive = generalTab.length === 0 || generalTab.hasClass( 'nav-tab-active' );
+
 			if ( device === 'desktop' ) {
 				// Show Desktop control, Hide Mobile/Tablet control
 				desktopControl.container.show();
 				mobileTabletControl.container.hide();
-				// Toggle available items controls
-				if ( desktopAvailableItemsControl ) {
-					desktopAvailableItemsControl.container.show();
-				}
-				if ( mobileTabletAvailableItemsControl ) {
-					mobileTabletAvailableItemsControl.container.hide();
+				// Toggle available items controls only if general tab is active
+				if ( isGeneralTabActive ) {
+					if ( desktopAvailableItemsControl ) {
+						desktopAvailableItemsControl.container.show();
+					}
+					if ( mobileTabletAvailableItemsControl ) {
+						mobileTabletAvailableItemsControl.container.hide();
+					}
+				} else {
+					if ( desktopAvailableItemsControl ) {
+						desktopAvailableItemsControl.container.hide();
+					}
+					if ( mobileTabletAvailableItemsControl ) {
+						mobileTabletAvailableItemsControl.container.hide();
+					}
 				}
 			} else {
 				// Show Mobile/Tablet control, Hide Desktop control (for 'tablet' or 'mobile')
 				desktopControl.container.hide();
 				mobileTabletControl.container.show();
-				// Toggle available items controls
-				if ( desktopAvailableItemsControl ) {
-					desktopAvailableItemsControl.container.hide();
-				}
-				if ( mobileTabletAvailableItemsControl ) {
-					mobileTabletAvailableItemsControl.container.show();
+				// Toggle available items controls only if general tab is active
+				if ( isGeneralTabActive ) {
+					if ( desktopAvailableItemsControl ) {
+						desktopAvailableItemsControl.container.hide();
+					}
+					if ( mobileTabletAvailableItemsControl ) {
+						mobileTabletAvailableItemsControl.container.show();
+					}
+				} else {
+					if ( desktopAvailableItemsControl ) {
+						desktopAvailableItemsControl.container.hide();
+					}
+					if ( mobileTabletAvailableItemsControl ) {
+						mobileTabletAvailableItemsControl.container.hide();
+					}
 				}
 			}
 		};
@@ -186,7 +208,14 @@
 		});
 	});
 
-	// Listen for footer tab clicks to ensure correct device-specific controls are shown
+	// Listen for header & footer tab clicks to ensure correct device-specific controls are shown
+	$( document ).on( 'click', '#responsive_header_builder_general_tab, #responsive_header_builder_style_tab', function() {
+		setTimeout(function() {
+			currentDevice = wp.customize.previewedDevice.get();
+			toggleHeaderBuilderControls( currentDevice );
+		}, 50);
+	});
+
 	$( document ).on( 'click', '#responsive_footer_general_tab, #responsive_footer_design_tab', function() {
 		// Use a small delay to allow the tab component to update the DOM first
 		setTimeout(function() {
@@ -470,6 +499,9 @@
 				cssVars['--responsive-global-site-background'] = processThemeSettingForCSS('responsive_site_background_color');
 				cssVars['--responsive-global-box-background'] = processThemeSettingForCSS('responsive_box_background_color');
 				cssVars['--responsive-global-h1-color'] = processThemeSettingForCSS('responsive_h1_text_color');
+				cssVars['--responsive-global-footer-text-color'] = processThemeSettingForCSS('responsive_footer_text_color');
+				cssVars['--responsive-global-footer-links-color'] = processThemeSettingForCSS('responsive_footer_links_color');
+				cssVars['--responsive-global-footer-links-hover-color'] = processThemeSettingForCSS('responsive_footer_links_hover_color');
 				const root = document.documentElement;
 				Object.entries(cssVars).forEach(([varName, color]) => {
 					root.style.setProperty(varName, color);
@@ -567,6 +599,42 @@
 				}
 				document.documentElement.style.setProperty(
 					'--responsive-global-h1-color',
+					newval
+				);
+			});
+		});
+
+		wp.customize( 'responsive_footer_text_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				document.documentElement.style.setProperty(
+					'--responsive-global-footer-text-color',
+					newval
+				);
+			});
+		});
+
+		wp.customize( 'responsive_footer_links_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				document.documentElement.style.setProperty(
+					'--responsive-global-footer-links-color',
+					newval
+				);
+			});
+		});
+
+		wp.customize( 'responsive_footer_text_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				document.documentElement.style.setProperty(
+					'--responsive-global-footer-links-hover-color',
 					newval
 				);
 			});
@@ -710,6 +778,36 @@
 		$('#customize-control-responsive_site_background_image_repeat')[method](300);
 		$('#customize-control-responsive_site_background_image_size')[method](300);
 	};
+
+	wp.customize( 'responsive_transparent_header_logo_option', function( setting ) {
+		setting.bind( function( toggle ) {
+			if ( toggle ) {
+				$( '#customize-control-responsive_transparent_header_logo' ).fadeIn( 300 );
+				$( '#customize-control-responsive_transparent_header_logo_width' ).fadeIn( 300 );
+				$( '#customize-control-responsive_transparent_header_retina_logo_option' ).fadeIn( 300 );
+				if ( wp.customize( 'responsive_transparent_header_retina_logo_option' ) && wp.customize( 'responsive_transparent_header_retina_logo_option' ).get() ) {
+					$( '#customize-control-responsive_transparent_header_retina_logo' ).fadeIn( 300 );
+				} else {
+					$( '#customize-control-responsive_transparent_header_retina_logo' ).hide();
+				}
+			} else {
+				$( '#customize-control-responsive_transparent_header_logo' ).fadeOut( 300 );
+				$( '#customize-control-responsive_transparent_header_logo_width' ).fadeOut( 300 );
+				$( '#customize-control-responsive_transparent_header_retina_logo_option' ).fadeOut( 300 );
+				$( '#customize-control-responsive_transparent_header_retina_logo' ).fadeOut( 300 );
+			}
+		} );
+	} );
+
+	wp.customize( 'responsive_transparent_header_retina_logo_option', function( setting ) {
+		setting.bind( function( toggle ) {
+			if ( toggle && wp.customize( 'responsive_transparent_header_logo_option' ) && wp.customize( 'responsive_transparent_header_logo_option' ).get() ) {
+				$( '#customize-control-responsive_transparent_header_retina_logo' ).fadeIn( 300 );
+			} else {
+				$( '#customize-control-responsive_transparent_header_retina_logo' ).fadeOut( 300 );
+			}
+		} );
+	} );
 
 	wp.customize.section('responsive_rp_layout', function( section ) {
 		section.container.find('.customize-section-back').on('click', function(e) {
