@@ -17,7 +17,7 @@
         }
     }
 
-    a {
+    a:not(.button):not(.wp-block-button__link) {
         @include make-link(map-get($colors, dark-gray), map-get($colors, dark-blue));
         text-decoration: none;
     }

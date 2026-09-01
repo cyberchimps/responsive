@@ -410,14 +410,14 @@
     //Update header widget link color...
     api( 'responsive_header_widget_link_color', function( value ) {
         value.bind( function( newval ) {
-            $('.header-widgets a').css('color', newval );
+            $('.header-widgets a').not('.button').not('.wp-block-button__link').css('color', newval );
         } );
     } );
 
     //Update header widget link hover color...
     api( 'responsive_header_widget_link_hover_color', function( value ) {
         value.bind( function( newval ) {
-            $('.header-widgets a:focus, .header-widgets a:hover').css('color', newval );
+            $('.header-widgets a:focus, .header-widgets a:hover').not('.button').not('.wp-block-button__link').css('color', newval );
         } );
     } );
 
@@ -2332,11 +2332,11 @@
             if( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
-            $('.widget-area .widget-wrapper a ').not('a.add_to_cart_button').not('a.product_type_grouped').not('.woocommerce-tabs .reviews_tab').css('color', newval );
+            $('.widget-area .widget-wrapper a ').not('a.add_to_cart_button').not('a.product_type_grouped').not('.woocommerce-tabs .reviews_tab').not('.button').not('.wp-block-button__link').css('color', newval );
         } );
     } );
 
-    $('.widget-area .widget-wrapper a').not('a.add_to_cart_button').not('a.product_type_grouped').not('.woocommerce-tabs .reviews_tab').hover(
+    $('.widget-area .widget-wrapper a').not('a.add_to_cart_button').not('a.product_type_grouped').not('.woocommerce-tabs .reviews_tab').not('.button').not('.wp-block-button__link').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_sidebar_link_hover_color');
             $(this).css("color", linkHoverColor);
@@ -2565,7 +2565,7 @@
     //Hover Colors
 
     //Links Hover Color
-    $("a").not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.post-meta a').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.read-more .more-link').not('footer.comment-meta a, .commentlist .comment-content a').hover(
+    $("a").not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.post-meta a').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.read-more .more-link').not('footer.comment-meta a, .commentlist .comment-content a').not('.button').not('.wp-block-button__link').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
             $(this).css("color", linkHoverColor);
@@ -2677,7 +2677,7 @@
     );
 
    //Header widget link hover color...
-    $(".header-widgets a").hover(
+    $(".header-widgets a").not('.button').not('.wp-block-button__link').hover(
         function() {
             $(this).css("color", processThemeSettingForCSS('responsive_header_widget_link_hover_color'));
         },
@@ -4694,6 +4694,7 @@
             $( '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button' ).css( 'color', newval );
         });
     });
+    
     api( 'responsive_header_button_hover_color', function(val){
         val.bind(function(newval){
             if ( $('body').hasClass('res-transparent-header') && api.has('responsive_transparent_header_button_hover_color') && api('responsive_transparent_header_button_hover_color').get() ) {
@@ -4821,9 +4822,32 @@
             jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
         });
     });
+    api( 'responsive_header_button_shadow_color', function(val){
+        val.bind(function(newval){
+            $( '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button' ).css( 'box-shadow', function(i, value) {
+                return value.replace(/rgba?\([^)]+\)|#[0-9a-f]+/i, newval);
+            });
+        });
+    });
+    api( 'responsive_header_button_hover_shadow_color', function(val){
+        
+        val.bind( function( newval ) {
+			if ( newval && newval.startsWith('palette') ) {
+				newval = `var(--responsive-global-${newval})`;
+			}
+			$('.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover').css('color', newval );
+		} );
+    });
     api( 'responsive_mobile_header_button_shadow_color', function(val){
         val.bind(function(newval){
             $( '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button' ).css( 'box-shadow', function(i, value) {
+                return value.replace(/rgba?\([^)]+\)|#[0-9a-f]+/i, newval);
+            });
+        });
+    });
+    api( 'responsive_mobile_header_button_hover_shadow_color', function(val){
+        val.bind(function(newval){
+            $( '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover' ).css( 'box-shadow', function(i, value) {
                 return value.replace(/rgba?\([^)]+\)|#[0-9a-f]+/i, newval);
             });
         });
@@ -6617,6 +6641,28 @@
             $('.responsive-single-entry-banner, .responsive-single-post-featured-section.post-thumb, .entry-header').css('--overlay-color', color);
         });
     });
+function updateMobileHeaderButtonHoverShadow() {
+    var shadow_x      = api('responsive_mobile_header_button_hover_shadow_x_axis').get();
+    var shadow_y      = api('responsive_mobile_header_button_hover_shadow_y_axis').get();
+    var shadow_blur   = api('responsive_mobile_header_button_hover_shadow_blur').get();
+    var shadow_spread = api('responsive_mobile_header_button_hover_shadow_spread').get();
+    var shadow_inset  = api('responsive_mobile_header_button_hover_shadow_inset').get() ? 'inset' : '';
+    var shadow_color  = api('responsive_mobile_header_button_hover_shadow_color').get();
+
+    var styleId = 'responsive-mobile-header-button-hover-shadow-color-preview';
+    jQuery('style#' + styleId).remove();
+
+    var selectors = '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover';
+    var css = selectors + ' { box-shadow: ' + shadow_inset + ' ' + shadow_x + 'px ' + shadow_y + 'px ' + shadow_blur + 'px ' + shadow_spread + 'px ' + shadow_color + '; }';
+
+    jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+}
+api( 'responsive_mobile_header_button_hover_shadow_color', function(val){ val.bind( updateMobileHeaderButtonHoverShadow ); });
+api( 'responsive_mobile_header_button_hover_shadow_x_axis', function(val){ val.bind( updateMobileHeaderButtonHoverShadow ); });
+api( 'responsive_mobile_header_button_hover_shadow_y_axis', function(val){ val.bind( updateMobileHeaderButtonHoverShadow ); });
+api( 'responsive_mobile_header_button_hover_shadow_blur', function(val){ val.bind( updateMobileHeaderButtonHoverShadow ); });
+api( 'responsive_mobile_header_button_hover_shadow_spread', function(val){ val.bind( updateMobileHeaderButtonHoverShadow ); });
+api( 'responsive_mobile_header_button_hover_shadow_inset', function(val){ val.bind( updateMobileHeaderButtonHoverShadow ); });
     // Related Posts border color
      api('responsive_rp_border_color', function(value) {
         value.bind(function() {

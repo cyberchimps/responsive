@@ -5898,5 +5898,116 @@
         } );
     } );
     // Single Post - Excerpt & Breadcrumb Typography - End
-
+    // Header HTML Font Typography - Start
+    api( "html_font_typography[text-transform]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-html_font_typography-text-transform' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-html_font_typography-text-transform">'
+                +  responsive.selectorArray['html_font'] + '{ text-transform:' + dataAndEvents +';}'
+                + '</style>'
+            );
+        } );
+    } ),
+    api( "html_font_typography[font-family]", function( $swipe ) {
+        $swipe.bind( function( pair ) {
+            if ( pair ) {
+                /** @type {string} */
+                var fontName = pair.split(",")[0];
+                fontName = fontName.replace(/'/g, '');
+                var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customize-control-html_font_typography-font-family" );
+                var fontSize = fontName.replace( " ", "%20" );
+                fontSize = fontSize.replace( ",", "%2C" );
+                /** @type {string} */
+                fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+                if ( fontName in responsive.googleFonts ) {
+                    if ($("#" + idfirst).length) {
+                        $("#" + idfirst).attr("href", fontSize);
+                    } else {
+                        $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
+                    }
+                }
+            }
+            jQuery( 'style.customizer-typography-html_font_typography-font-family' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-html_font_typography-font-family">'
+                +  responsive.selectorArray['html_font'] + '{ font-family:' + pair +';}'
+                + '</style>'
+            );
+        } );
+    } ),
+    api( "html_font_typography[font-weight]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-html_font_typography-font-weight' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-html_font_typography-font-weight">'
+                +  responsive.selectorArray['html_font'] + '{ font-weight:' + dataAndEvents +';}'
+                + '</style>'
+            );
+        } );
+    } ),
+    api( "html_font_typography[font-size]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-html_font_typography-font-size' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-html_font_typography-font-size">'
+                + responsive.selectorArray['html_font'] + '{ font-size:' + dataAndEvents +';}'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['html_font'] +'{ font-size:' + api( "html_font_tablet_typography[font-size]").get() +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['html_font'] +'{ font-size:' + api( "html_font_mobile_typography[font-size]").get() +';}}'
+                + '</style>'
+            );
+        } );
+    } ), 
+    api( "html_font_tablet_typography[font-size]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-html_font_typography-tablet-font-size' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-html_font_typography-tablet-font-size">'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['html_font'] +'{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['html_font'] +'{ font-size:' + api( "html_font_mobile_typography[font-size]").get() +';}}'
+                + '</style>'
+            );
+        } );
+    } ),
+    api( "html_font_mobile_typography[font-size]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-html_font_typography-mobile-font-size' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-html_font_typography-mobile-font-size">'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['html_font'] + '{ font-size:' + dataAndEvents +';}}'
+                + '</style>'
+            );
+        } );
+    }),
+    api( "html_font_typography[line-height]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-html_font_typography-line-height' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-html_font_typography-line-height">'
+                +  responsive.selectorArray['html_font'] + '{ line-height:' + dataAndEvents +';}'
+                + '</style>'
+            );
+        } );
+    } ),
+    api( "html_font_typography[letter-spacing]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-html_font_typography-letter-spacing' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-html_font_typography-letter-spacing">'
+                +  responsive.selectorArray['html_font'] + '{ letter-spacing:' + dataAndEvents +'px;}'
+                + '</style>'
+            );
+        } );
+    } ),
+    api( "html_font_typography[font-style]", function( $swipe ) {
+        $swipe.bind( function( dataAndEvents ) {
+            jQuery( 'style.customizer-typography-html_font_typography-font-style' ).remove();
+            jQuery( 'head' ).append(
+                '<style class="customizer-typography-html_font_typography-font-style">'
+                +  responsive.selectorArray['html_font'] + '{ font-style:' + dataAndEvents +';}'
+                + '</style>'
+            );
+        } );
+    } )
+    // HTML Font Typography - End
 } )( jQuery );

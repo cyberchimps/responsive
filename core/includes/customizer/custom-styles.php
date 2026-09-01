@@ -124,7 +124,7 @@ function responsive_customizer_styles() {
 	$header_builder_width = get_theme_mod( 'responsive_header_builder_width', 'contained' );
 	if ( 'contained' === $header_builder_width ) {
 		$custom_css .= "
-		.site-header.header-width-contained .site-header-row-container-inner .container {
+		#masthead.header-width-contained .site-header-row-container-inner .container {
 			max-width: {$container_max_width}px;
 			width: 100%;
 			margin-left: auto;
@@ -132,7 +132,7 @@ function responsive_customizer_styles() {
 		}";
 	} else {
 		$custom_css .= "
-		.site-header.header-width-fullwidth .site-header-row-container-inner .container {
+		#masthead.header-width-fullwidth .site-header-row-container-inner .container {
 			max-width: 100%;
 			width: 100%;
 		}";
@@ -5976,11 +5976,11 @@ function responsive_customizer_styles() {
 			.header-widgets .widget-title h4 {
 				color: {$header_widget_text_color};
 			}
-			.header-widgets a {
+			.header-widgets a:not(.button):not(.wp-block-button__link) {
 				color: {$header_widget_link_color};
 			}
-			.header-widgets a:focus,
-			.header-widgets a:hover {
+			.header-widgets a:not(.button):not(.wp-block-button__link):focus,
+			.header-widgets a:not(.button):not(.wp-block-button__link):hover {
 				color: {$header_widget_link_hover_color};
 			}
 		";
@@ -8756,6 +8756,19 @@ function responsive_customizer_styles() {
 		$custom_css .= '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button {
 			box-shadow: ' . $header_button_shadow_inset_style . ' ' . $header_button_shadow_x . 'px ' . $header_button_shadow_y . 'px ' . $header_button_shadow_blur . 'px ' . $header_button_shadow_spread . 'px ' . $header_button_shadow_color . ';
 		}';
+		// Header Button Hover Shadow.
+		$header_button_hover_shadow_x = get_theme_mod( 'responsive_header_button_hover_shadow_x_axis', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_x' ) );
+		$header_button_hover_shadow_y = get_theme_mod( 'responsive_header_button_hover_shadow_y_axis', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_y' ) );
+		$header_button_hover_shadow_blur = get_theme_mod( 'responsive_header_button_hover_shadow_blur', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_blur' ) );
+		$header_button_hover_shadow_spread = get_theme_mod( 'responsive_header_button_hover_shadow_spread', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_spread' ) );
+		$header_button_hover_shadow_inset = get_theme_mod( 'responsive_header_button_hover_shadow_inset', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_inset' ) );
+		$header_button_hover_shadow_color = get_theme_mod( 'responsive_header_button_hover_shadow_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_color' ) );
+
+		$header_button_hover_shadow_inset_style = $header_button_hover_shadow_inset ? 'inset' : '';
+
+		$custom_css .= '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover {
+			box-shadow: ' . $header_button_hover_shadow_inset_style . ' ' . $header_button_hover_shadow_x . 'px ' . $header_button_hover_shadow_y . 'px ' . $header_button_hover_shadow_blur . 'px ' . $header_button_hover_shadow_spread . 'px ' . $header_button_hover_shadow_color . ';
+		}';
 	}
 
 	// Mobile Header Button.
@@ -8904,6 +8917,19 @@ function responsive_customizer_styles() {
 
 		$custom_css .= '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button {
 			box-shadow: ' . $mobile_header_button_shadow_inset_style . ' ' . $mobile_header_button_shadow_x . 'px ' . $mobile_header_button_shadow_y . 'px ' . $mobile_header_button_shadow_blur . 'px ' . $mobile_header_button_shadow_spread . 'px ' . $mobile_header_button_shadow_color . ';
+		}';
+		// Mobile Header Button Hover Shadow.
+		$mobile_header_button_hover_shadow_x = get_theme_mod( 'responsive_mobile_header_button_hover_shadow_x_axis', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_x' ) );
+		$mobile_header_button_hover_shadow_y = get_theme_mod( 'responsive_mobile_header_button_hover_shadow_y_axis', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_y' ) );
+		$mobile_header_button_hover_shadow_blur = get_theme_mod( 'responsive_mobile_header_button_hover_shadow_blur', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_blur' ) );
+		$mobile_header_button_hover_shadow_spread = get_theme_mod( 'responsive_mobile_header_button_hover_shadow_spread', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_spread' ) );
+		$mobile_header_button_hover_shadow_inset = get_theme_mod( 'responsive_mobile_header_button_hover_shadow_inset', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_inset' ) );
+		$mobile_header_button_hover_shadow_color = get_theme_mod( 'responsive_mobile_header_button_hover_shadow_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_color' ) );
+
+		$mobile_header_button_hover_shadow_inset_style = $mobile_header_button_hover_shadow_inset ? 'inset' : '';
+
+		$custom_css .= '.site-header-mobile .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover {
+			box-shadow: ' . $mobile_header_button_hover_shadow_inset_style . ' ' . $mobile_header_button_hover_shadow_x . 'px ' . $mobile_header_button_hover_shadow_y . 'px ' . $mobile_header_button_hover_shadow_blur . 'px ' . $mobile_header_button_hover_shadow_spread . 'px ' . $mobile_header_button_hover_shadow_color . ';
 		}';
 	}
   
@@ -11038,45 +11064,45 @@ function responsive_customizer_styles() {
 
         if ( 'standard' === $row_link_style ) {
             $custom_css .= "
-                .rspv-site-{$row_name}-footer-wrap a {
+                .rspv-site-{$row_name}-footer-wrap a:not(.button):not(.wp-block-button__link) {
                     text-decoration: underline;
                 }
             ";
         } elseif ( 'color-underline' === $row_link_style ) {
             $custom_css .= "
-                .rspv-site-{$row_name}-footer-wrap a {
+                .rspv-site-{$row_name}-footer-wrap a:not(.button):not(.wp-block-button__link) {
                     text-decoration: underline;
                 }
-                .rspv-site-{$row_name}-footer-wrap a:hover {
+                .rspv-site-{$row_name}-footer-wrap a:not(.button):not(.wp-block-button__link):hover {
                     text-decoration-color: {$global_link_hover_color};
                 }
             ";
         } elseif ( 'no-underline' === $row_link_style ) {
             $custom_css .= "
-                .rspv-site-{$row_name}-footer-wrap a {
+                .rspv-site-{$row_name}-footer-wrap a:not(.button):not(.wp-block-button__link) {
                     text-decoration: none;
                 }
-                .rspv-site-{$row_name}-footer-wrap a:hover {
+                .rspv-site-{$row_name}-footer-wrap a:not(.button):not(.wp-block-button__link):hover {
                     text-decoration: none;
                 }
             ";
         } elseif ( 'hover-background' === $row_link_style ) {
             $custom_css .= "
-                .rspv-site-{$row_name}-footer-wrap a:hover {
+                .rspv-site-{$row_name}-footer-wrap a:not(.button):not(.wp-block-button__link):hover {
                     background-color: {$row_link_hover_bg};
                     text-decoration: none;
                 }
             ";
         } elseif ( 'offset-background' === $row_link_style ) {
             $custom_css .= "
-                .rspv-site-{$row_name}-footer-wrap a {
+                .rspv-site-{$row_name}-footer-wrap a:not(.button):not(.wp-block-button__link) {
                     text-decoration: none;
                     background-image: linear-gradient(180deg, transparent 60%, {$global_link_color} 0%);
                     background-repeat: no-repeat;
                     background-position: 0 bottom;
                     background-size: 100% 10px;
                 }
-                .rspv-site-{$row_name}-footer-wrap a:hover {
+                .rspv-site-{$row_name}-footer-wrap a:not(.button):not(.wp-block-button__link):hover {
                     text-decoration: none;
                     background-image: linear-gradient(180deg, transparent 60%, {$global_link_hover_color} 0%);
                 }

@@ -597,6 +597,17 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'line-height' => '1.75'
 					)
 				),
+				'html_font' => array(
+					'label'    => esc_html__( 'Font', 'responsive' ),
+					'target'   => $selectorArray['html_font'],
+					'section'  => 'responsive_header_html',
+					'priority' => 112,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size'   => '13px',
+						'line-height' => '1.75',
+					),
+				),
 				'footer_menu' => array(
 					'label' => esc_html__('Typography', 'responsive'),
 					'target' => $selectorArray['footer_menu'],
@@ -681,7 +692,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'line-height' => '1.75'
 					)
 				),
-
+				
 			);
 
 			for( $i=1;$i<=6;$i++ ) {
@@ -741,7 +752,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'footer'                     => '.site-footer',
 				'rp_section_title'           => '.responsive-related-single-posts-title',
 				'rp_post_title'              => '.responsive-related-single-post-title',
-				'rp_meta'                    => '.responsive-single-related-posts-container .post-meta span, .responsive-single-related-posts-container .post-meta span i, .responsive-single-related-posts-container .post-meta span a , .responsive-single-related-posts-container .post-meta span a time, .responsive-single-related-posts-container .entry-meta ',
+				'rp_meta'                    => '.responsive-single-related-posts-container .entry-category a, .responsive-single-related-posts-container .post-meta span, .responsive-single-related-posts-container .post-meta span i, .responsive-single-related-posts-container .post-meta span a , .responsive-single-related-posts-container .post-meta span a time, .responsive-single-related-posts-container .entry-meta ',
 				'rp_content'                 => '.responsive-related-single-post-excerpt',
 				'page'                       => '.page .post-title, #main-blog h1',
 				'footer_copyright'           => '.footer-layouts.copyright',
@@ -764,6 +775,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'page_title_area_meta' 		 => '.page .entry-header .post-meta, .page .entry-header .post-meta span, .page .entry-header .post-meta span time, .page .entry-header .post-meta span a, .page .entry-header .post-meta i, .responsive-single-entry-banner .container .post-meta, .responsive-single-entry-banner .container .post-meta span, .responsive-single-entry-banner .container .post-meta span a, .responsive-single-entry-banner .container .post-meta time, .responsive-single-entry-banner .container .post-meta i',	
 				'blog_post_title'			 => 'body .responsive-archive-entry-banner .page-title, body .responsive-archive-entry-banner .page-title *, body.archive:not(.woocommerce) .site-content-header .page-title, body.archive:not(.woocommerce) .site-content-header .page-title *',
 				'blog_post_text'			 => '.responsive-archive-entry-banner .container *, .archive:not(.woocommerce) .site-content-header *',
+				'html_font'					 => '.responsive-header-html p',
 				'footer_menu'				 => '#footer .footer-navigation .menu li.page_item',
 				'footer_above_row_widget_heading' => '.rspv-site-above-footer-wrap .footer-widgets .wp-block-heading',
 				'footer_above_row_widget_content' => '.rspv-site-above-footer-wrap .footer-widgets',
