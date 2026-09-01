@@ -249,21 +249,139 @@ const TabsComponent = props => {
 			})
 		});
 
-		if( api('responsive_footer_primary_row_top_border_size').get() > 0 && 'design' === tab ) {
-			document.getElementById('customize-control-responsive_footer_primary_row_border_color').style.display = 'block';
-		} else {
-			document.getElementById('customize-control-responsive_footer_primary_row_border_color').style.display = 'none';
-		}
-		if( api('responsive_footer_above_row_top_border_size').get() > 0 && 'design' === tab ) {
-			document.getElementById('customize-control-responsive_footer_above_row_border_color').style.display = 'block';
-		} else {
-			document.getElementById('customize-control-responsive_footer_above_row_border_color').style.display = 'none';
-		}
-		if( api('responsive_footer_below_row_top_border_size').get() > 0 && 'design' === tab ) {
-			document.getElementById('customize-control-responsive_footer_below_row_border_color').style.display = 'block';
-		} else {
-			document.getElementById('customize-control-responsive_footer_below_row_border_color').style.display = 'none';
-		}
+		const toggleTopBorderControls = (rowPrefix) => {
+			const sizeSetting = api(`responsive_footer_${rowPrefix}_row_top_border_size`);
+			if (!sizeSetting) return;
+			const size = sizeSetting.get();
+			const display = (size > 0 && 'design' === tab) ? 'block' : 'none';
+			
+			const colorSuffix = rowPrefix === 'above' ? 'row_border_color' : 'row_border_color';
+			
+			const controlsToToggle = [
+				`customize-control-responsive_footer_${rowPrefix}_separator_8`,
+				`customize-control-responsive_footer_${rowPrefix}_${colorSuffix}`,
+				`customize-control-responsive_footer_${rowPrefix}_separator_9`,
+				`customize-control-responsive_footer_${rowPrefix}_top_border_type`
+			];
+			
+			controlsToToggle.forEach(id => {
+				const el = document.getElementById(id);
+				if (el) {
+					el.style.display = display;
+				}
+			});
+		};
+
+		const toggleBottomBorderControls = (rowPrefix) => {
+			const sizeSetting = api(`responsive_footer_${rowPrefix}_row_bottom_border_size`);
+			if (!sizeSetting) return;
+			const size = sizeSetting.get();
+			const display = (size > 0 && 'design' === tab) ? 'block' : 'none';
+			
+			const controlsToToggle = [
+				`customize-control-responsive_footer_${rowPrefix}_separator_11`,
+				`customize-control-responsive_footer_${rowPrefix}_row_bottom_border_color`,
+				`customize-control-responsive_footer_${rowPrefix}_separator_10`,
+				`customize-control-responsive_footer_${rowPrefix}_bottom_border_type`
+			];
+			
+			controlsToToggle.forEach(id => {
+				const el = document.getElementById(id);
+				if (el) {
+					el.style.display = display;
+				}
+			});
+		};
+
+		['above', 'primary', 'below'].forEach(rowPrefix => {
+			toggleTopBorderControls(rowPrefix);
+			toggleBottomBorderControls(rowPrefix);
+		});
+
+		['above', 'primary', 'below'].forEach(rowPrefix => {
+			const topSettingId = `responsive_footer_${rowPrefix}_row_top_border_size`;
+			if (api(topSettingId)) {
+				api(topSettingId, function(value) {
+					value.bind(function() {
+						toggleTopBorderControls(rowPrefix);
+					});
+				});
+			}
+
+			const bottomSettingId = `responsive_footer_${rowPrefix}_row_bottom_border_size`;
+			if (api(bottomSettingId)) {
+				api(bottomSettingId, function(value) {
+					value.bind(function() {
+						toggleBottomBorderControls(rowPrefix);
+					});
+				});
+			}
+		});
+
+		const toggleFooterLinkHoverBg = (rowPrefix) => {
+			const styleSetting = api(`responsive_footer_${rowPrefix}_link_style`);
+			if (!styleSetting) return;
+			const isHoverBg = styleSetting.get() === 'hover-background';
+			const display = (isHoverBg && 'design' === tab) ? 'block' : 'none';
+			
+			const controlsToToggle = [
+				`customize-control-responsive_footer_${rowPrefix}_link_hover_bg_color`
+			];
+			
+			controlsToToggle.forEach(id => {
+				const el = document.getElementById(id);
+				if (el) el.style.display = display;
+			});
+		};
+
+		['above', 'primary', 'below'].forEach(rowPrefix => {
+			toggleFooterLinkHoverBg(rowPrefix);
+			
+			const styleSettingId = `responsive_footer_${rowPrefix}_link_style`;
+			if (api(styleSettingId)) {
+				api(styleSettingId, function(value) {
+					value.bind(function() {
+						toggleFooterLinkHoverBg(rowPrefix);
+					});
+				});
+			}
+		});
+
+		const toggleColumnBorderControls = (rowPrefix) => {
+			const widthSetting = api(`responsive_footer_${rowPrefix}_column_border_width`);
+			if (!widthSetting) return;
+			const width = widthSetting.get();
+			const display = (width > 0 && 'design' === tab) ? 'block' : 'none';
+			
+			const controlsToToggle = [
+				`customize-control-responsive_footer_${rowPrefix}_separator_12`,
+				`customize-control-responsive_footer_${rowPrefix}_column_border_color`,
+				`customize-control-responsive_footer_${rowPrefix}_separator_13`,
+				`customize-control-responsive_footer_${rowPrefix}_column_border_type`
+			];
+			
+			controlsToToggle.forEach(id => {
+				const el = document.getElementById(id);
+				if (el) {
+					el.style.display = display;
+				}
+			});
+		};
+
+		toggleColumnBorderControls('above');
+		toggleColumnBorderControls('primary');
+		toggleColumnBorderControls('below');
+
+		['above', 'primary', 'below'].forEach(rowPrefix => {
+			const settingId = `responsive_footer_${rowPrefix}_column_border_width`;
+			if (api(settingId)) {
+				api(settingId, function(value) {
+					value.bind(function() {
+						toggleColumnBorderControls(rowPrefix);
+					});
+				});
+			}
+		});
 		if( api('responsive_footer_primary_columns').get() > 1 && 'general' === tab ) {
 			document.getElementById('customize-control-responsive_footer_primary_inner_column_spacing').style.display = 'block';
 		} else {
