@@ -1987,7 +1987,7 @@
     api( 'responsive_footer_text_color', function( value ) {
         value.bind( function( newval ) {
              document.documentElement.style.setProperty('--responsive-global-footer-text-color', newval);
-            $('.site-footer, .site-footer h1,.site-footer h2,.site-footer h3,.site-footer h4,.site-footer h5,.site-footer h6').not('.rspv-site-primary-footer-wrap .footer-widgets .wp-block-heading', '.rspv-site-above-footer-wrap .footer-widgets .wp-block-heading', '.rspv-site-below-footer-wrap .footer-widgets .wp-block-heading').css('color', newval );
+            $('.site-footer, .site-footer h1,.site-footer h2,.site-footer h3,.site-footer h4,.site-footer h5,.site-footer h6').not('.rspv-site-primary-footer-wrap .footer-widgets .wp-block-heading, .rspv-site-above-footer-wrap .footer-widgets .wp-block-heading, .rspv-site-below-footer-wrap .footer-widgets .wp-block-heading').css('color', newval );
         } );
     } );
 
