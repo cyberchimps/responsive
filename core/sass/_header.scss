@@ -887,7 +887,7 @@ body.res-transparent-header {
 }
 
 .secondary-navigation {
-    @extend .col-xs-12;
+    width: 100%;
     @include clear-floats();
 
     @media( min-width: map-get($screens, xxxl) ) {

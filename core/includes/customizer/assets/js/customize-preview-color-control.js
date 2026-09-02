@@ -2578,7 +2578,7 @@
     //Hover Colors
 
     //Links Hover Color
-    $("a").not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.post-meta a').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.read-more .more-link').not('footer.comment-meta a, .commentlist .comment-content a').not('.button').not('.wp-block-button__link').hover(
+    $("a").not('.secondary-navigation a').not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.post-meta a').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.read-more .more-link').not('footer.comment-meta a, .commentlist .comment-content a').not('.button').not('.wp-block-button__link').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
             $(this).css("color", linkHoverColor);
@@ -3857,7 +3857,12 @@
             if ( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
-            $('.secondary-navigation a:hover').css('background-color', newval );
+            jQuery('style#responsive-secondary-menu-hover-bg-color-preview').remove();
+            jQuery('head').append(
+                '<style id="responsive-secondary-menu-hover-bg-color-preview">'
+                + '.site-header .site-header-item-secondary-navigation .secondary-navigation .menu > li > a:hover { background-color: ' + newval + ' !important; }'
+                + '</style>'
+            );
         } );
     } );
     api( 'responsive_header_active_secondary_menu_background_color', function( value ) {
@@ -3883,7 +3888,12 @@
             if ( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
-            $('.secondary-navigation .menu li a:hover').css('color', newval );
+            jQuery('style#responsive-secondary-menu-hover-color-preview').remove();
+            jQuery('head').append(
+                '<style id="responsive-secondary-menu-hover-color-preview">'
+                + '.site-header .site-header-item-secondary-navigation .secondary-navigation .menu > li > a:hover { color: ' + newval + ' !important; }'
+                + '</style>'
+            );
         } );
     } );
     api( 'responsive_header_active_secondary_menu_link_color', function( value ) {
@@ -4001,17 +4011,7 @@
         },
         function() {
             $('style#secondary-menu-item-hover-style').remove();
-        },
-        $(".secondary-navigation-wrapper > ul > li a").hover(
-            function() {
-                const secondaryMenuLinkColor = processThemeSettingForCSS('responsive_header_secondary_menu_link_color');
-                $('.secondary-navigation .menu li a').css("color", secondaryMenuLinkColor);
-            },
-            function() {
-                const secondaryMenuLinkColor = processThemeSettingForCSS('responsive_header_secondary_menu_link_color');
-                $('.secondary-navigation .menu li a').css("color", secondaryMenuLinkColor);
-            }
-        ),
+        }
     );
     api( 'responsive_sticky_header_background_color', function( value ) {
         value.bind( function( newval ) {
