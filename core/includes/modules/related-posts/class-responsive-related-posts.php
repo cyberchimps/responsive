@@ -99,12 +99,6 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 						$meta_hover_color = get_theme_mod( 'responsive_rp_meta_hover_color', responsive_prepare_css_value( 'responsive_meta_text_color' ) );
 
 						echo '<style>
-						.responsive-related-single-post-content .entry-category{
-
-						}
-						.responsive-related-single-post-title{
-
-						}
 						.responsive-single-related-posts-container,
 						.responsive-single-related-posts-container p,
 						.responsive-single-related-posts-container .entry-content {
@@ -115,7 +109,8 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 						.responsive-single-related-posts-container .entry-content:hover {
 							color: ' . esc_attr( $text_hover_color ) . ';
 						}
-						 .responsive-single-related-posts-container .post-meta span a {
+						 .responsive-single-related-posts-container .post-meta span a,
+						 .responsive-related-single-post-title a {
 							color: ' . esc_attr( $link_color ) . ';
 						}
 						 .responsive-single-related-posts-container .post-meta span a:hover {
