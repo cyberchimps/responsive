@@ -391,6 +391,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'section'  => 'responsive_rp_layout',
 					'exclude'  => array( 'font-color' ),
 					'priority' => 33,
+					'defaults'        => array(
+						'font-size'   => '14px',
+					),
 				),
 				'rp_content'                     => array(
 					'label'    => esc_html__( 'Typography', 'responsive' ),
