@@ -4536,6 +4536,9 @@
     // Footer Copyright Text Color - Desktop
     api( 'responsive_footer_copyright_text_color', function(val){
         val.bind(function(newval){
+            if( newval && (newval.startsWith('palette') || newval.startsWith('footer-text-color') || newval.startsWith('footer-links-color ') || newval.startsWith('footer-links-hover-color'))) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             jQuery('style#responsive-footer-copyright-text-color').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-text-color">'
@@ -4547,6 +4550,9 @@
     // Footer Copyright Text Hover Color - Desktop
     api( 'responsive_footer_copyright_text_color_hover', function(val){
         val.bind(function(newval){
+            if( newval && (newval.startsWith('palette') || newval.startsWith('footer-text-color') || newval.startsWith('footer-links-color ') || newval.startsWith('footer-links-hover-color'))) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             jQuery('style#responsive-footer-copyright-text-hover-color').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-text-hover-color">'
@@ -4558,6 +4564,9 @@
     // Footer Copyright Text Color - Tablet
     api( 'responsive_footer_copyright_text_color_tablet', function(val){
         val.bind(function(newval){
+            if( newval && (newval.startsWith('palette') || newval.startsWith('footer-text-color') || newval.startsWith('footer-links-color ') || newval.startsWith('footer-links-hover-color'))) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             jQuery('style#responsive-footer-copyright-text-color-tablet').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-text-color-tablet">'
@@ -4580,6 +4589,9 @@
     // Footer Copyright Text Color - Mobile
     api( 'responsive_footer_copyright_text_color_mobile', function(val){
         val.bind(function(newval){
+            if( newval && (newval.startsWith('palette') || newval.startsWith('footer-text-color') || newval.startsWith('footer-links-color ') || newval.startsWith('footer-links-hover-color'))) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             jQuery('style#responsive-footer-copyright-text-color-mobile').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-text-color-mobile">'
@@ -4591,6 +4603,9 @@
     // Footer Copyright Text Hover Color - Mobile
     api( 'responsive_footer_copyright_text_color_mobile_hover', function(val){
         val.bind(function(newval){
+            if( newval && (newval.startsWith('palette') || newval.startsWith('footer-text-color') || newval.startsWith('footer-links-color ') || newval.startsWith('footer-links-hover-color'))) {
+                newval = `var(--responsive-global-${newval})`;
+            }
             jQuery('style#responsive-footer-copyright-text-hover-color-mobile').remove();
             jQuery('head').append(
                 '<style id="responsive-footer-copyright-text-hover-color-mobile">'
