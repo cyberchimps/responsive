@@ -615,7 +615,7 @@
 			});
 		});
 
-		wp.customize( 'responsive_footer_text_color', function( value ) {
+		wp.customize( 'responsive_footer_links_hover_color', function( value ) {
 			value.bind( function( newval ) {
 				if( newval && newval.startsWith('palette') ) {
 					newval = `var(--responsive-global-${newval})`;

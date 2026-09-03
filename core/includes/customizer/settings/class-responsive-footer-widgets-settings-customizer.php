@@ -87,8 +87,8 @@ if ( ! class_exists( 'Responsive_Footer_Widgets_Settings_Customizer' ) ) :
 
                 responsive_horizontal_separator_control($wp_customize, 'footer_widget'.$i.'_tf_separator', 1, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 75, 1 );
 
-                // Title Font
-                $widget_title_typography = __( 'Title Font', 'responsive' );
+                // Heading Font
+                $widget_title_typography = __( 'Heading Font', 'responsive' );
                 responsive_typography_group_control( $wp_customize, 'footer_widget'. $i .'_title_typography_group', $widget_title_typography, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 80, 'footer_widget'. $i .'_title_typography' );
 
                 responsive_horizontal_separator_control($wp_customize, 'footer_widget'.$i.'_cf_separator', 1, 'responsive_footer_sidebar-widgets-footer-widget-' . $i, 85, 1 );
