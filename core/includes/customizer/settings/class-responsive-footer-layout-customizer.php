@@ -413,7 +413,6 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			// Typography
 			$footer_typography_label = __( 'Footer Font', 'responsive' );
 			responsive_typography_group_control( $wp_customize, 'footer_typography_group', $footer_typography_label, 'responsive_footer_layout', 60, 'footer_typography' );
-
 		}
 	}
 
