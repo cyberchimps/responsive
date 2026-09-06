@@ -2578,7 +2578,7 @@
     //Hover Colors
 
     //Links Hover Color
-    $("a").not('.secondary-navigation a').not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.post-meta a').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.read-more .more-link').not('footer.comment-meta a, .commentlist .comment-content a').not('.button').not('.wp-block-button__link').hover(
+    $("a").not('.secondary-navigation a').not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.responsive-header-html a, .responsive-mobile-header-html a').not('.post-meta a').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.read-more .more-link').not('footer.comment-meta a, .commentlist .comment-content a').not('.button').not('.wp-block-button__link').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
             $(this).css("color", linkHoverColor);
@@ -5963,56 +5963,68 @@
     // HTML Element Link Color.
     api( 'responsive_header_html_link_color', function(val){
         val.bind(function(newval){
-            var isTransparentHeader = api.has('responsive_transparent_header') && api('responsive_transparent_header').get();
-            var transHtmlLinkColor = api.has('responsive_transparent_header_html_link_color') ? api('responsive_transparent_header_html_link_color').get() : '';
-            if ( isTransparentHeader && transHtmlLinkColor ) {
+            jQuery( 'style#responsive-header-html-link-color' ).remove();
+            if ( ! newval ) {
                 return;
             }
-            $( '.site-header .responsive-header-html .responsive-header-html-inner a' ).css( 'color', newval );
+            if ( typeof newval === 'string' && newval.startsWith('palette') ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            jQuery( 'head' ).append(
+                '<style id="responsive-header-html-link-color">'
+                + 'body:not(.res-transparent-header) .site-header .responsive-header-html .responsive-header-html-inner a { color: ' + newval + '; }'
+                + '</style>'
+            );
         });
     });
     api('responsive_header_html_link_hover_color', function(val) {
         val.bind(function(newval) {
-            var isTransparentHeader = api.has('responsive_transparent_header') && api('responsive_transparent_header').get();
-            var transHtmlLinkHoverColor = api.has('responsive_transparent_header_html_link_hover_color') ? api('responsive_transparent_header_html_link_hover_color').get() : '';
-            if ( isTransparentHeader && transHtmlLinkHoverColor ) {
+            jQuery( 'style#responsive-header-html-link-hover-color' ).remove();
+            if ( ! newval ) {
                 return;
             }
-            $('.site-header .responsive-header-html .responsive-header-html-inner a').off('mouseenter mouseleave');
-
-            $('.site-header .responsive-header-html .responsive-header-html-inner a').on('mouseenter', function() {
-                $(this).css('color', newval);
-            }).on('mouseleave', function() {
-                $(this).css('color', api('responsive_header_html_link_color').get());
-            });
+            if ( typeof newval === 'string' && newval.startsWith('palette') ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            jQuery( 'head' ).append(
+                '<style id="responsive-header-html-link-hover-color">'
+                + 'body:not(.res-transparent-header) .site-header .responsive-header-html .responsive-header-html-inner a:hover { color: ' + newval + '; }'
+                + '</style>'
+            );
         });
     });
 
     // Mobile Header HTML Element Link Color.
     api( 'responsive_mobile_header_html_link_color', function(val){
         val.bind(function(newval){
-            var isTransparentHeader = api.has('responsive_transparent_header') && api('responsive_transparent_header').get();
-            var transHtmlLinkColor = api.has('responsive_transparent_header_html_link_color') ? api('responsive_transparent_header_html_link_color').get() : '';
-            if ( isTransparentHeader && transHtmlLinkColor ) {
+            jQuery( 'style#responsive-mobile-header-html-link-color' ).remove();
+            if ( ! newval ) {
                 return;
             }
-            $( '.site-header-mobile .responsive-mobile-header-html .responsive-mobile-header-html-inner a' ).css( 'color', newval );
+            if ( typeof newval === 'string' && newval.startsWith('palette') ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            jQuery( 'head' ).append(
+                '<style id="responsive-mobile-header-html-link-color">'
+                + 'body:not(.res-transparent-header) .site-header-mobile .responsive-mobile-header-html .responsive-mobile-header-html-inner a { color: ' + newval + '; }'
+                + '</style>'
+            );
         });
     });
     api('responsive_mobile_header_html_link_hover_color', function(val) {
         val.bind(function(newval) {
-            var isTransparentHeader = api.has('responsive_transparent_header') && api('responsive_transparent_header').get();
-            var transHtmlLinkHoverColor = api.has('responsive_transparent_header_html_link_hover_color') ? api('responsive_transparent_header_html_link_hover_color').get() : '';
-            if ( isTransparentHeader && transHtmlLinkHoverColor ) {
+            jQuery( 'style#responsive-mobile-header-html-link-hover-color' ).remove();
+            if ( ! newval ) {
                 return;
             }
-            $('.site-header-mobile .responsive-mobile-header-html .responsive-mobile-header-html-inner a').off('mouseenter mouseleave');
-
-            $('.site-header-mobile .responsive-mobile-header-html .responsive-mobile-header-html-inner a').on('mouseenter', function() {
-                $(this).css('color', newval);
-            }).on('mouseleave', function() {
-                $(this).css('color', api('responsive_mobile_header_html_link_color').get());
-            });
+            if ( typeof newval === 'string' && newval.startsWith('palette') ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            jQuery( 'head' ).append(
+                '<style id="responsive-mobile-header-html-link-hover-color">'
+                + 'body:not(.res-transparent-header) .site-header-mobile .responsive-mobile-header-html .responsive-mobile-header-html-inner a:hover { color: ' + newval + '; }'
+                + '</style>'
+            );
         });
     });
 
