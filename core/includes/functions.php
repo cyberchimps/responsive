@@ -1342,6 +1342,8 @@ function defaults() {
 			'primary_menu_active_parent'          => 0,
 			'secondary_menu_active_parent'        => 0,
 			'secondary_menu_padding'              => 0,
+			'secondary_menu_padding_y'            => 10,
+			'secondary_menu_padding_x'            => 18,
 			'secondary_menu_margin'               => 0,
 			'secondary_navigation_stretch'        => 0,
 			'secondary_navigation_fill_stretch'   => 0,

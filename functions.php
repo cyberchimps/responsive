@@ -3304,3 +3304,46 @@ if ( ! function_exists( 'responsive_theme_background_updater_page_title_typograp
 		}
 	}
 }
+
+if ( ! function_exists( 'responsive_theme_background_updater_secondary_menu_padding_6_4_4' ) ) {
+	/**
+	 * Handle backward compatibility for secondary menu padding.
+	 *
+	 * If the user previously saved custom padding values, adds 10px to top/bottom
+	 * and 18px to left/right. If untouched, settings automatically fall back to the new defaults.
+	 *
+	 * @since 6.4.4
+	 * @return void
+	 */
+	function responsive_theme_background_updater_secondary_menu_padding_6_4_4() {
+		$responsive_options = Responsive\Core\responsive_get_options();
+
+		if ( ! isset( $responsive_options['secondary_menu_padding_6_4_4_backward_done'] ) ) {
+
+			$padding_mods = array(
+				'responsive_secondary-menu-padding_top_padding'           => 10,
+				'responsive_secondary-menu-padding_bottom_padding'        => 10,
+				'responsive_secondary-menu-padding_left_padding'          => 18,
+				'responsive_secondary-menu-padding_right_padding'         => 18,
+				'responsive_secondary-menu-padding_tablet_top_padding'    => 10,
+				'responsive_secondary-menu-padding_tablet_bottom_padding' => 10,
+				'responsive_secondary-menu-padding_tablet_left_padding'   => 18,
+				'responsive_secondary-menu-padding_tablet_right_padding'  => 18,
+				'responsive_secondary-menu-padding_mobile_top_padding'    => 10,
+				'responsive_secondary-menu-padding_mobile_bottom_padding' => 10,
+				'responsive_secondary-menu-padding_mobile_left_padding'   => 18,
+				'responsive_secondary-menu-padding_mobile_right_padding'  => 18,
+			);
+
+			foreach ( $padding_mods as $mod_name => $increment_val ) {
+				$val = get_theme_mod( $mod_name, false );
+				if ( false !== $val && '' !== $val ) {
+					set_theme_mod( $mod_name, intval( $val ) + $increment_val );
+				}
+			}
+
+			$responsive_options['secondary_menu_padding_6_4_4_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}

@@ -5270,20 +5270,20 @@ function responsive_customizer_styles() {
 		}
 		
 		// Secondary Menu items Padding 
-		$secondary_menu_padding_right  = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_right_padding', 0 ) );
-		$secondary_menu_padding_left   = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_left_padding', 0 ) );
-		$secondary_menu_padding_top    = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_top_padding', 0 ) );
-		$secondary_menu_padding_bottom = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_bottom_padding', 0 ) );
+		$secondary_menu_padding_right  = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding_x' ) ) );
+		$secondary_menu_padding_left   = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding_x' ) ) );
+		$secondary_menu_padding_top    = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding_y' ) ) );
+		$secondary_menu_padding_bottom = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding_y' ) ) );
 
-		$secondary_menu_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_tablet_right_padding', 0 ) );
-		$secondary_menu_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_tablet_left_padding', 0 ) );
-		$secondary_menu_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_tablet_top_padding', 0 ) );
-		$secondary_menu_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_tablet_bottom_padding', 0 ) );
+		$secondary_menu_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_tablet_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding_x' ) ) );
+		$secondary_menu_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_tablet_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding_x' ) ) );
+		$secondary_menu_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_tablet_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding_y' ) ) );
+		$secondary_menu_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_tablet_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding_y' ) ) );
 
-		$secondary_menu_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_mobile_right_padding', 0 ) );
-		$secondary_menu_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_mobile_left_padding', 0 ) );
-		$secondary_menu_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_mobile_top_padding', 0 ) );
-		$secondary_menu_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_mobile_bottom_padding', 0 ) );
+		$secondary_menu_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_mobile_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding_x' ) ) );
+		$secondary_menu_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_mobile_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding_x' ) ) );
+		$secondary_menu_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_mobile_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding_y' ) ) );
+		$secondary_menu_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_mobile_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding_y' ) ) );
 
 		$custom_css .= " #header-secondary-menu>li>a{
 			padding:  {$secondary_menu_padding_top}px {$secondary_menu_padding_right}px {$secondary_menu_padding_bottom}px {$secondary_menu_padding_left}px ; 
@@ -5605,15 +5605,15 @@ function responsive_customizer_styles() {
 		$custom_css .= "}";
 		
 		// Secondary Menu items Padding for mobile/tablet
-		$secondary_menu_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_tablet_right_padding', 0 ) );
-		$secondary_menu_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_tablet_left_padding', 0 ) );
-		$secondary_menu_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_tablet_top_padding', 0 ) );
-		$secondary_menu_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_tablet_bottom_padding', 0 ) );
+		$secondary_menu_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_tablet_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding_x' ) ) );
+		$secondary_menu_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_tablet_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding_x' ) ) );
+		$secondary_menu_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_tablet_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding_y' ) ) );
+		$secondary_menu_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_tablet_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding_y' ) ) );
 
-		$secondary_menu_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_mobile_right_padding', 0 ) );
-		$secondary_menu_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_mobile_left_padding', 0 ) );
-		$secondary_menu_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_mobile_top_padding', 0 ) );
-		$secondary_menu_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_mobile_bottom_padding', 0 ) );
+		$secondary_menu_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_mobile_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding_x' ) ) );
+		$secondary_menu_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_mobile_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding_x' ) ) );
+		$secondary_menu_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_mobile_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding_y' ) ) );
+		$secondary_menu_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_secondary-menu-padding_mobile_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding_y' ) ) );
 
 		$custom_css .= "@media screen and (max-width: 992px) {";
 		$custom_css .= ".responsive-mobile-header-wrapper .site-header-item-secondary-navigation #header-secondary-menu>li {";
