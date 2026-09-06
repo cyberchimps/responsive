@@ -683,9 +683,9 @@
             jQuery( 'head' ).append(
                 '<style id="responsive-transparent-header-search-icon-color">'
                 + 'body.res-transparent-header .site-header-item .responsive-header-search-icon-wrap, '
-                + 'body.res-transparent-header .site-header-item .responsive-header-search input[type=search], '
+                + 'body.res-transparent-header .responsive-header-search input[type=search], '
                 + 'body.res-transparent-header .site-mobile-header-item .responsive-header-search-icon-wrap, '
-                + 'body.res-transparent-header .site-mobile-header-item .responsive-header-search input[type=search] { color: ' + newval + ' !important; }'
+                + 'body.res-transparent-header .responsive-header-search input[type=search] { color: ' + newval + ' !important; }'
                 + '</style>'
             );
         } );
@@ -723,9 +723,9 @@
             jQuery( 'head' ).append(
                 '<style id="responsive-transparent-header-search-bg-color">'
                 + 'body.res-transparent-header .site-header-item .responsive-header-search-icon-wrap, '
-                + 'body.res-transparent-header .site-header-item .responsive-header-search input[type=search], '
+                + 'body.res-transparent-header .responsive-header-search input[type=search], '
                 + 'body.res-transparent-header .site-mobile-header-item .responsive-header-search-icon-wrap, '
-                + 'body.res-transparent-header .site-mobile-header-item .responsive-header-search input[type=search] { background-color: ' + newval + '; }'
+                + 'body.res-transparent-header .responsive-header-search input[type=search] { background-color: ' + newval + '; }'
                 + '</style>'
             );
         } );
@@ -1117,8 +1117,8 @@
         '.read-more-button .hentry .read-more .more-link,' +
         'input[type=button],' +
         'input[type=submit],' +
-        'button:not(.responsive-header-button):not(.customize-partial-edit-shortcut-button),' +
-        '.button:not(.responsive-header-button):not(.customize-partial-edit-shortcut-button),' +
+        'button:not(.responsive-header-button):not(.customize-partial-edit-shortcut-button):not(.search-submit),' +
+        '.button:not(.responsive-header-button):not(.customize-partial-edit-shortcut-button):not(.search-submit),' +
         '.wp-block-button:not(.is-style-outline) > .wp-block-button__link,' +
         'div.wpforms-container-full .wpforms-form input[type=submit],' +
         'body div.wpforms-container-full .wpforms-form button[type=submit],' +

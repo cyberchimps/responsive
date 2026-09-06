@@ -3016,9 +3016,9 @@ function responsive_customizer_styles() {
 		if ( $transparent_header_search_icon_color ) {
 			$custom_css .= "
 				body.res-transparent-header .site-header-item .responsive-header-search-icon-wrap,
-				body.res-transparent-header .site-header-item .responsive-header-search input[type=search],
+				body.res-transparent-header .responsive-header-search input[type=search],
 				body.res-transparent-header .site-mobile-header-item .responsive-header-search-icon-wrap,
-				body.res-transparent-header .site-mobile-header-item .responsive-header-search input[type=search] {
+				body.res-transparent-header .responsive-header-search input[type=search] {
 					color: {$transparent_header_search_icon_color};
 				}
 			";
@@ -3036,9 +3036,9 @@ function responsive_customizer_styles() {
 		if ( $transparent_header_search_bg_color ) {
 			$custom_css .= "
 				body.res-transparent-header .site-header-item .responsive-header-search-icon-wrap,
-				body.res-transparent-header .site-header-item .responsive-header-search input[type=search],
+				body.res-transparent-header .responsive-header-search input[type=search],
 				body.res-transparent-header .site-mobile-header-item .responsive-header-search-icon-wrap,
-				body.res-transparent-header .site-mobile-header-item .responsive-header-search input[type=search] {
+				body.res-transparent-header .responsive-header-search input[type=search] {
 					background-color: {$transparent_header_search_bg_color};
 				}
 			";
