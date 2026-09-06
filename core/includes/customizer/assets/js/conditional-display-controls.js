@@ -406,6 +406,148 @@ api(
 		} );
 	}
 );
+	api( 'responsive_breadcrumb_position', function( setting ) {
+		console.log("i am running");
+		setting.bind( function( newval ) {
+			var elementsSettings = [
+				'responsive_blog_title_elements_positioning',
+				'responsive_page_single_elements_positioning',
+				'responsive_blog_single_elements_positioning'
+			];
 
+			elementsSettings.forEach( function( settingId ) {
+				if ( api.has( settingId ) ) {
+					var settingControl = api( settingId );
+					var currentArr = settingControl.get();
+					
+					var ul = $( '#customize-control-' + settingId + ' ul.sortable' );
+					if ( ul.length ) {
+						var breadcrumbLi = ul.find( 'li[data-value="breadcrumb"]' );
+						if ( breadcrumbLi.length ) {
+							breadcrumbLi.detach();
+							if ( 'before' === newval ) {
+								ul.prepend( breadcrumbLi );
+							} else if ( 'after' === newval ) {
+								var titleLi = ul.find( 'li[data-value="title"]' );
+								if ( titleLi.length ) {
+									titleLi.after( breadcrumbLi );
+								} else {
+									ul.append( breadcrumbLi );
+								}
+							}
+							
+							var newArr = [];
+							ul.find('li').each(function() {
+								if (!$(this).is('.invisible')) {
+									newArr.push($(this).data('value'));
+								}
+							});
+							settingControl.set( newArr );
+						}
+					} else if ( Array.isArray( currentArr ) ) {
+						var newArr = currentArr.slice();
+						var breadcrumbIndex = newArr.indexOf( 'breadcrumb' );
+						
+						if ( breadcrumbIndex !== -1 ) {
+							newArr.splice( breadcrumbIndex, 1 );
+						}
+						
+						if ( 'before' === newval ) {
+							newArr.unshift( 'breadcrumb' );
+						} else if ( 'after' === newval ) {
+							var titleIndex = newArr.indexOf( 'title' );
+							if ( titleIndex !== -1 ) {
+								newArr.splice( titleIndex + 1, 0, 'breadcrumb' );
+							} else {
+								newArr.push( 'breadcrumb' );
+							}
+						}
+						
+						settingControl.set( newArr );
+					}
+				}
+			} );
+		} );
+	} );
+
+	api( 'responsive_theme_options[breadcrumb]', function( setting ) {
+		setting.bind( function( isEnabled ) {
+			console.log("responsive_theme_options[breadcrumb] running .... ");
+			var elementsSettings = [
+				'responsive_blog_title_elements_positioning',
+				'responsive_page_single_elements_positioning',
+				'responsive_blog_single_elements_positioning'
+			];
+
+			var position = api.has( 'responsive_breadcrumb_position' ) ? api( 'responsive_breadcrumb_position' ).get() : 'before';
+
+			elementsSettings.forEach( function( settingId ) {
+				if ( api.has( settingId ) ) {
+					var settingControl = api( settingId );
+					var currentArr = settingControl.get();
+					
+					var ul = $( '#customize-control-' + settingId + ' ul.sortable' );
+					if ( ul.length ) {
+						var breadcrumbLi = ul.find( 'li[data-value="breadcrumb"]' );
+						console.log("breadcrumb found for element : ", settingId);
+						if ( breadcrumbLi.length ) {
+							breadcrumbLi.detach();
+							var showBreadcrumb = ( isEnabled && '0' !== String(isEnabled) && 'false' !== String(isEnabled) );
+							if ( showBreadcrumb ) {
+								breadcrumbLi.removeClass( 'invisible' );
+								breadcrumbLi.find( '.visibility-icon' ).removeClass( 'dashicons-hidden' ).addClass( 'dashicons-visibility' );
+								
+								if ( 'before' === position ) {
+									ul.prepend( breadcrumbLi );
+								} else if ( 'after' === position ) {
+									var titleLi = ul.find( 'li[data-value="title"]' );
+									if ( titleLi.length ) {
+										titleLi.after( breadcrumbLi );
+									} else {
+										ul.append( breadcrumbLi );
+									}
+								}
+							} else {
+								breadcrumbLi.addClass( 'invisible' );
+								breadcrumbLi.find( '.visibility-icon' ).removeClass( 'dashicons-visibility' ).addClass( 'dashicons-hidden' );
+								ul.append( breadcrumbLi );
+							}
+							
+							var newArr = [];
+							ul.find('li').each(function() {
+								if (!$(this).is('.invisible')) {
+									newArr.push($(this).data('value'));
+								}
+							});
+							settingControl.set( newArr );
+						}
+					} else if ( Array.isArray( currentArr ) ) {
+						var newArr = currentArr.slice();
+						var breadcrumbIndex = newArr.indexOf( 'breadcrumb' );
+						
+						if ( breadcrumbIndex !== -1 ) {
+							newArr.splice( breadcrumbIndex, 1 );
+						}
+						
+						var showBreadcrumb = ( isEnabled && '0' !== String(isEnabled) && 'false' !== String(isEnabled) );
+						if ( showBreadcrumb ) {
+							if ( 'before' === position ) {
+								newArr.unshift( 'breadcrumb' );
+							} else if ( 'after' === position ) {
+								var titleIndex = newArr.indexOf( 'title' );
+								if ( titleIndex !== -1 ) {
+									newArr.splice( titleIndex + 1, 0, 'breadcrumb' );
+								} else {
+									newArr.push( 'breadcrumb' );
+								}
+							}
+						}
+						
+						settingControl.set( newArr );
+					}
+				}
+			} );
+		} );
+	} );
 
 })( jQuery );

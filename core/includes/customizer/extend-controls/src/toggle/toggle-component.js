@@ -1,15 +1,27 @@
 import PropTypes from "prop-types";
 
 import { __ } from '@wordpress/i18n';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const { ToggleControl } = wp.components;
 
 const ToggleComponent = props => {
     const [props_value, setPropsValue] = useState(props.control.setting.get());
 
-    const onToggleClick = (props_value) => {
-        setPropsValue(!props_value);
-        props.control.setting.set(!props_value);
+    useEffect(() => {
+        const handleSettingChange = (newVal) => {
+            let boolVal = (newVal === true || newVal === '1' || newVal === 1);
+            setPropsValue(boolVal);
+        };
+        props.control.setting.bind(handleSettingChange);
+        return () => {
+            props.control.setting.unbind(handleSettingChange);
+        };
+    }, [props.control.setting]);
+
+    const onToggleClick = (current_val) => {
+        let newVal = !current_val;
+        setPropsValue(newVal);
+        props.control.setting.set(newVal);
     };
 
     const {

@@ -178,7 +178,8 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 				'customize-control-responsive_blog_post_title_typography_group',
 				'customize-control-responsive_blog_post_text_typography_group',
 				'customize-control-responsive_blog_post_text_typography_group_separator',
-				'customize-control-responsive_blog_post_breadcrumb_background'
+				'customize-control-responsive_blog_post_breadcrumb_background_color',
+				'customize-control-responsive_blog_breadcrumb_typography_group'
 			];
 			
 			// Blog Title Area Toggle

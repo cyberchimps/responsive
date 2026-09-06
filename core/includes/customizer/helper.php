@@ -54,23 +54,32 @@ if ( ! function_exists( 'responsive_blog_entry_elements_positioning' ) ) {
 	 * @since 0.2
 	 */
 	function responsive_blog_entry_elements_positioning() {
-
 		// Default sections.
-		$sections = Responsive\Core\get_responsive_customizer_defaults( 'blog_entry_elements_positioning' );
+		$defaults = array( 'featured_image', 'categories', 'title', 'meta', 'content' );
+		if ( function_exists( 'Responsive\\Core\\get_responsive_customizer_defaults' ) ) {
+			$defaults = Responsive\Core\get_responsive_customizer_defaults( 'blog_entry_elements_positioning' );
+		}
 
 		// Get sections from Customizer.
-		$sections = get_theme_mod( 'responsive_blog_entry_elements_positioning', $sections );
-		// Turn into array if string.
-		if ( $sections && ! is_array( $sections ) ) {
-			$sections = explode( ',', $sections );
+		$sections = get_theme_mod( 'responsive_blog_entry_elements_positioning', $defaults );
+
+		if ( is_string( $sections ) ) {
+			$decoded = json_decode( $sections, true );
+			if ( is_array( $decoded ) ) {
+				$sections = $decoded;
+			} else {
+				$sections = array_filter( explode( ',', $sections ) );
+			}
+		}
+
+		if ( empty( $sections ) || ! is_array( $sections ) ) {
+			$sections = $defaults;
 		}
 
 		// Apply filters for easy modification.
 		$sections = apply_filters( 'responsive_blog_entry_elements_positioning', $sections );
 
-		// Return sections.
 		return $sections;
-
 	}
 }
 
@@ -153,8 +162,23 @@ if ( ! function_exists( 'responsive_blog_single_elements_positioning' ) ) {
 		// Ensure content is not in the array if an old setting has it.
 		$sections = array_diff( $sections, array( 'content' ) );
 
+		// Sync with global breadcrumb toggle.
+		$responsive_options = get_option( 'responsive_theme_options' );
+		$global_breadcrumb  = isset( $responsive_options['breadcrumb'] ) ? $responsive_options['breadcrumb'] : 0;
+		$enable_single = get_theme_mod( 'responsive_breadcrumb_enable_single_post', false );
+
+		if ( empty( $enable_single ) || empty( $global_breadcrumb ) ) {
+			if ( ( $key = array_search( 'breadcrumb', $sections, true ) ) !== false ) {
+				unset( $sections[ $key ] );
+			}
+		}
+
 		// Apply filters for easy modification.
 		$sections = apply_filters( 'responsive_blog_single_elements_positioning', $sections );
+
+		error_log( "DEBUG BREADCRUMB: " . print_r( $sections, true ) );
+		error_log( "DEBUG ENABLE SINGLE: " . var_export($enable_single, true) );
+		error_log( "DEBUG GLOBAL BREADCRUMB: " . var_export($global_breadcrumb, true) );
 
 		// Return sections.
 		return $sections;
@@ -467,6 +491,18 @@ if ( ! function_exists( 'responsive_page_single_elements_positioning' ) ) {
 		// Turn into array if string.
 		if ( $sections && ! is_array( $sections ) ) {
 			$sections = explode( ',', $sections );
+		}
+
+		// Sync with global breadcrumb toggle.
+		$enable_page = get_theme_mod( 'responsive_breadcrumb_enable_single_page', false );
+		if ( $enable_page || 1 == $enable_page ) {
+			if ( ! in_array( 'breadcrumb', $sections, true ) ) {
+				$sections[] = 'breadcrumb';
+			}
+		} else {
+			if ( ( $key = array_search( 'breadcrumb', $sections, true ) ) !== false ) {
+				unset( $sections[ $key ] );
+			}
 		}
 
 		// Apply filters for easy modification.

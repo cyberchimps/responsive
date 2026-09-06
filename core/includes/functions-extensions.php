@@ -24,34 +24,40 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function responsive_get_breadcrumb_lists() {
 	$responsive_options = get_option( 'responsive_theme_options' );
-	$yoast_options      = get_option( 'wpseo_titles' );
-	if ( 0 === $responsive_options['breadcrumb'] ) {
+	if ( isset( $responsive_options['breadcrumb'] ) && 0 === $responsive_options['breadcrumb'] ) {
 		return;
-	} elseif ( function_exists( 'bcn_display' ) ) {
-		echo '<span class="breadcrumb" typeof="v:Breadcrumb">';
-		bcn_display();
-		echo '</span>';
-	} elseif ( function_exists( 'breadcrumb_trail' ) ) {
-		breadcrumb_trail();
-	} elseif ( function_exists( 'yoast_breadcrumb' ) && true === $yoast_options['breadcrumbs-enable'] ) {
-		yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
-	} else {
-		responsive_breadcrumb_lists();
 	}
 
+	$source = get_theme_mod( 'breadcrumb_source', 'default' );
+
+	if ( 'yoast' === $source && function_exists( 'yoast_breadcrumb' ) ) {
+		yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
+	} elseif ( 'rankmath' === $source && function_exists( 'rank_math_the_breadcrumbs' ) ) {
+		rank_math_the_breadcrumbs();
+	} else {
+		if ( function_exists( 'bcn_display' ) ) {
+			echo '<span class="breadcrumb" typeof="v:Breadcrumb">';
+			bcn_display();
+			echo '</span>';
+		} elseif ( function_exists( 'breadcrumb_trail' ) ) {
+			breadcrumb_trail();
+		} else {
+			responsive_breadcrumb_lists();
+		}
+	}
 }
 
 /**
- * Checks if Yoast breadcrumbs are enabled.
+ * Checks if Yoast or RankMath breadcrumbs are enabled via customizer.
  *
- * Retrieves Yoast SEO options and verifies if breadcrumbs are enabled
- * and the `yoast_breadcrumb` function exists.
- *
- * @return bool True if Yoast breadcrumbs are enabled, false otherwise.
+ * @return bool True if custom SEO breadcrumbs are enabled, false otherwise.
  */
 function responsive_check_yoast_enabled_breadcrumbs() {
-	$yoast_options = get_option( 'wpseo_titles' );
-	if ( function_exists( 'yoast_breadcrumb' ) && true === $yoast_options['breadcrumbs-enable'] ) {
+	$source = get_theme_mod( 'breadcrumb_source', 'default' );
+	if ( 'yoast' === $source && function_exists( 'yoast_breadcrumb' ) ) {
+		return true;
+	}
+	if ( 'rankmath' === $source && function_exists( 'rank_math_the_breadcrumbs' ) ) {
 		return true;
 	}
 	return false;
@@ -70,6 +76,7 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 	 * Allows visitors to quickly navigate back to a previous section or the root page.
 	 */
 	function responsive_breadcrumb_lists() {
+        error_log( "DEBUG BREADCRUMB LISTS: Executing responsive_breadcrumb_lists()" );
 		/* === OPTIONS === */
 		$text['home'] = _x( 'Home', 'Text for Home link Breadcrumb', 'responsive' ); // text for the 'Home' link.
 		/* translators: %s: Categories */
@@ -117,6 +124,7 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 				$html_output .= '<div class="breadcrumb-list">' . sprintf( $link, $home_link, $text['home'] ) ;
 			}
 		} else {
+            error_log( "DEBUG BREADCRUMB LISTS: Not front page" );
 			$html_output .= '<div class="breadcrumb-list">' . sprintf( $link, $home_link, $text['home'] ) . $delimiter;
 
 			if ( is_home() ) {
@@ -162,6 +170,7 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 				$html_output .= $before . get_the_time( 'Y' ) . $after;
 
 			} elseif ( is_single() && ! is_attachment() ) {
+                error_log( "DEBUG BREADCRUMB LISTS: is_single() is TRUE" );
 				if ( 'post' !== get_post_type() ) {
 					$post_type    = get_post_type_object( get_post_type() );
 					$archive_link = get_post_type_archive_link( $post_type->name );
@@ -172,6 +181,7 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 				} else {
 					++$position;
 					$cat     = get_the_category();
+                    error_log( "DEBUG BREADCRUMB LISTS: Categories array: " . print_r($cat, true) );
 					$count   = $cat[0]->count;
 					$cats    = get_category_parents( $cat[0], true, $delimiter );
 					$term_id = $cat[0]->term_id;
