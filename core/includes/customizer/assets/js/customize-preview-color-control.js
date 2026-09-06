@@ -3914,8 +3914,15 @@
 
     api( 'responsive_header_hover_secondary_sub_menu_background_color', function( value ) {
         value.bind( function( newval ) {
-            if ( newval && newval.startsWith('palette') ) { newval = `var(--responsive-global-${newval})`; }
-            $('.secondary-navigation .children li a:hover, .secondary-navigation .sub-menu li a:hover').css('background-color', newval );
+            if ( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            jQuery('style#responsive-secondary-sub-menu-hover-background-color-preview').remove();
+            jQuery('head').append(
+                '<style id="responsive-secondary-sub-menu-hover-background-color-preview">'
+                + '.secondary-navigation .children li a:hover, .secondary-navigation .sub-menu li a:hover { background-color: ' + newval + ' }'
+                + '</style>'
+            );
         } );
     } );
 
@@ -3935,8 +3942,15 @@
 
     api( 'responsive_header_secondary_sub_menu_link_hover_color', function( value ) {
         value.bind( function( newval ) {
-            if ( newval && newval.startsWith('palette') ) { newval = `var(--responsive-global-${newval})`; }
-            $('.secondary-navigation .children li a:hover, .secondary-navigation .sub-menu li a:hover').css('color', newval );
+            if ( newval && newval.startsWith('palette') ) {
+                newval = `var(--responsive-global-${newval})`;
+            }
+            jQuery('style#responsive-secondary-sub-menu-link-hover-color-preview').remove();
+            jQuery('head').append(
+                '<style id="responsive-secondary-sub-menu-link-hover-color-preview">'
+                + '.secondary-navigation .children li a:hover, .secondary-navigation .sub-menu li a:hover { color: ' + newval + ' }'
+                + '</style>'
+            );
         } );
     } );
 
