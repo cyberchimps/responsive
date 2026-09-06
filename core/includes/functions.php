@@ -633,6 +633,7 @@ function responsive_add_custom_body_classes( $classes ) {
 
 	$classes[] = 'responsive-site-' . get_theme_mod( 'responsive_width', 'contained' );
 	$classes[] = 'link-style-' . get_theme_mod( 'responsive_link_style', get_responsive_customizer_defaults( 'responsive_link_style' ) );
+	$classes[] = 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' );
 
 	if ( is_page() ) {
 		$page_container_style = get_theme_mod( 'responsive_page_container_style', 'default' );
@@ -641,8 +642,6 @@ function responsive_add_custom_body_classes( $classes ) {
 			$classes[]  = 'responsive-site-style-' . $page_container_style;
 		}
 
-	} else {
-		$classes[] = 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' );
 	}
 
 	// Blog / Archive Container Style override (Blog / Archive > Container Style).
@@ -1749,37 +1748,30 @@ function defaults() {
 																			'widget-1' => array(
 																				'name'    => esc_html__( 'Widget 1', 'responsive' ),
 																				'section' => 'sidebar-widgets-footer-widget-1',
-																				'icon'    => 'wordpress',
 																			),
 																			'widget-2' => array(
 																				'name'    => esc_html__( 'Widget 2', 'responsive' ),
 																				'section' => 'sidebar-widgets-footer-widget-2',
-																				'icon'    => 'wordpress',
 																			),
 																			'widget-3' => array(
 																				'name'    => esc_html__( 'Widget 3', 'responsive' ),
 																				'section' => 'sidebar-widgets-footer-widget-3',
-																				'icon'    => 'wordpress',
 																			),
 																			'widget-4' => array(
 																				'name'    => esc_html__( 'Widget 4', 'responsive' ),
 																				'section' => 'sidebar-widgets-footer-widget-4',
-																				'icon'    => 'wordpress',
 																			),
 																			'widget-5' => array(
 																				'name'    => esc_html__( 'Widget 5', 'responsive' ),
 																				'section' => 'sidebar-widgets-footer-widget-5',
-																				'icon'    => 'wordpress',
 																			),
 																			'widget-6' => array(
 																				'name'    => esc_html__( 'Widget 6', 'responsive' ),
 																				'section' => 'sidebar-widgets-footer-widget-6',
-																				'icon'    => 'wordpress',
 																			),
 																			'colophon-widget' => array(
 																				'name'    => esc_html__( 'Colophon Widget', 'responsive' ),
 																				'section' => 'sidebar-widgets-colophon-widget',
-																				'icon'    => 'wordpress',
 																			),
 																			'scroll_to_top'          => array(
 																				'name'    => esc_html__( 'Scroll to Top', 'responsive' ),
@@ -1802,37 +1794,30 @@ function defaults() {
 																			'widget-1' => array(
 																				'name'    => esc_html__( 'Widget 1', 'responsive' ),
 																				'section' => 'sidebar-widgets-footer-widget-1',
-																				'icon'    => 'wordpress',
 																			),
 																			'widget-2' => array(
 																				'name'    => esc_html__( 'Widget 2', 'responsive' ),
 																				'section' => 'sidebar-widgets-footer-widget-2',
-																				'icon'    => 'wordpress',
 																			),
 																			'widget-3' => array(
 																				'name'    => esc_html__( 'Widget 3', 'responsive' ),
 																				'section' => 'sidebar-widgets-footer-widget-3',
-																				'icon'    => 'wordpress',
 																			),
 																			'widget-4' => array(
 																				'name'    => esc_html__( 'Widget 4', 'responsive' ),
 																				'section' => 'sidebar-widgets-footer-widget-4',
-																				'icon'    => 'wordpress',
 																			),
 																			'widget-5' => array(
 																				'name'    => esc_html__( 'Widget 5', 'responsive' ),
 																				'section' => 'sidebar-widgets-footer-widget-5',
-																				'icon'    => 'wordpress',
 																			),
 																			'widget-6' => array(
 																				'name'    => esc_html__( 'Widget 6', 'responsive' ),
 																				'section' => 'sidebar-widgets-footer-widget-6',
-																				'icon'    => 'wordpress',
 																			),
 																			'colophon-widget' => array(
 																				'name'    => esc_html__( 'Colophon Widget', 'responsive' ),
 																				'section' => 'sidebar-widgets-colophon-widget',
-																				'icon'    => 'wordpress',
 																			),
 																			'scroll_to_top'          => array(
 																				'name'    => esc_html__( 'Scroll to Top', 'responsive' ),
@@ -1873,7 +1858,6 @@ function defaults() {
 																			'header_widgets1'        => array(
 																				'name'    => esc_html__( 'Header Widgets', 'responsive' ),
 																				'section' => 'responsive_header_widget',
-																				'icon'    => 'wordpress',
 																			),
 																			'header_contact_info'  => array(
 																				'name'    => esc_html__( 'Contact Info', 'responsive' ),
@@ -1926,7 +1910,6 @@ function defaults() {
 																			'header_widgets1'        => array(
 																				'name'    => esc_html__( 'Header Widgets', 'responsive' ),
 																				'section' => 'responsive_mobile_header_widget',
-																				'icon'    => 'wordpress',
 																			),
 																			'header_contact_info'  => array(
 																				'name'    => esc_html__( 'Contact Info', 'responsive' ),

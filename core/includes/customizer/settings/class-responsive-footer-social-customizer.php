@@ -166,7 +166,7 @@ if ( ! class_exists( 'Responsive_Footer_Social_Icons_Customizer' ) ) :
 			);
 			responsive_select_button_control( $wp_customize, 'footer_social_item_use_brand_colors', __( 'Use Brand Colors', 'responsive' ), 'responsive_footer_social', 60, $social_item_use_brands_colors_choices, 'no', null );
 
-			responsive_color_control_with_device_switchers_and_hover( $wp_customize, 'footer_social_item', __( 'Colors', 'responsive' ), 'responsive_footer_social', 65, Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_color' ), Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_hover_color' ), null, '', 'postMessage' );
+			responsive_color_control_with_device_switchers_and_hover( $wp_customize, 'footer_social_item', __( 'Icon Colors', 'responsive' ), 'responsive_footer_social', 65, Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_color' ), Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_hover_color' ), null, '', 'postMessage' );
 			
 			responsive_color_control_with_device_switchers_and_hover( $wp_customize, 'footer_social_item_background', __( 'Background Colors', 'responsive' ), 'responsive_footer_social', 66, Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_bg_color' ), Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_bg_hover_color' ), 'responsive_show_social_background_colors', '', 'postMessage' );
 
