@@ -5014,6 +5014,7 @@ function responsive_customizer_styles() {
 	$sub_menu_width = esc_html( get_theme_mod( 'responsive_sub_menu_width', 0 ) );
 	if ( $sub_menu_width ) {
 		$custom_css .= "@media (min-width:{$mobile_menu_breakpoint}px) {
+			.main-navigation .children,
 			.main-navigation .sub-menu {
 				width: {$sub_menu_width}vw;
 			}
@@ -5266,7 +5267,8 @@ function responsive_customizer_styles() {
 		$secondary_sub_menu_width = esc_html( get_theme_mod( 'responsive_secondary_sub_menu_width', 0 ) );
 		if ( $secondary_sub_menu_width ) {
 			$custom_css .= "@media (min-width:{$mobile_menu_breakpoint}px) {
-				.secondary-navigation .sub-menu{
+				.secondary-navigation .children,
+				.secondary-navigation .sub-menu {
 					width: {$secondary_sub_menu_width}vw;
 				}
 			}";
