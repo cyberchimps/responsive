@@ -439,19 +439,19 @@ function responsive_customizer_styles() {
 
 	if ( 'full-width' === $responsive_product_catalog_container_layout ) {
 		$custom_css .= "
-		.woocommerce-shop .container,
+		.woocommerce-shop .container:where(:not(#masthead .container, .site-header .container)),
 		.woocommerce-shop [class*='__inner-container'] {
 			max-width: 100% !important;
 		}";
 	} elseif ( 'narrow' === $responsive_product_catalog_container_layout ) {
 		$custom_css .= "
-		.woocommerce-shop .container,
+		.woocommerce-shop .container:where(:not(#masthead .container, .site-header .container)),
 		.woocommerce-shop [class*='__inner-container'] {
 			max-width: {$narrow_container_max_width}px !important;
 		}";
 	} elseif ( 'normal' === $responsive_product_catalog_container_layout ) {
 		$custom_css .= "
-		.woocommerce-shop .container,
+		.woocommerce-shop .container:where(:not(#masthead .container, .site-header .container)),
 		.woocommerce-shop [class*='__inner-container'] {
 			max-width: {$container_max_width}px !important;
 		}";
@@ -463,19 +463,19 @@ function responsive_customizer_styles() {
 
 	if ( 'full-width' === $responsive_single_product_container_layout ) {
 		$custom_css .= "
-		.single-product .container,
+		.single-product .container:where(:not(#masthead .container, .site-header .container)),
 		.single-product [class*='__inner-container'] {
 			max-width: 100% !important;
 		}";
 	} elseif ( 'narrow' === $responsive_single_product_container_layout ) {
 		$custom_css .= "
-		.single-product .container,
+		.single-product .container:where(:not(#masthead .container, .site-header .container)),
 		.single-product [class*='__inner-container'] {
 			max-width: {$narrow_container_max_width}px !important;
 		}";
 	} elseif ( 'normal' === $responsive_single_product_container_layout ) {
 		$custom_css .= "
-		.single-product .container,
+		.single-product .container:where(:not(#masthead .container, .site-header .container)),
 		.single-product [class*='__inner-container'] {
 			max-width: {$container_max_width}px !important;
 		}";
