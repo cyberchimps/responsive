@@ -416,7 +416,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'footer_copyright' => array(
 					'label'    => esc_html__( 'Typography', 'responsive' ),
 					'target'   => $selectorArray['footer_copyright'],
-					'section'  => 'responsive_footer_copyright',
+					'section'  => 'responsive_footer_layout',
 					'exclude'  => array( 'font-color' ),
 					'priority' => 80,
 					'defaults' => array(
@@ -619,7 +619,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 45,
 					'defaults' => array(
 						'font-size' => '13px',
-						'font-weight' => '400',
 						'line-height' => '1.75'
 					)
 				),
@@ -631,7 +630,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 45,
 					'defaults' => array(
 						'font-size' => '16px',
-						'font-weight' => '400',
 						'line-height' => '1.75'
 					)
 				),
@@ -643,7 +641,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 45,
 					'defaults' => array(
 						'font-size' => '13px',
-						'font-weight' => '400',
 						'line-height' => '1.75'
 					)
 				),
@@ -655,7 +652,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 45,
 					'defaults' => array(
 						'font-size' => '16px',
-						'font-weight' => '400',
 						'line-height' => '1.75'
 					)
 				),
@@ -667,7 +663,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 45,
 					'defaults' => array(
 						'font-size' => '13px',
-						'font-weight' => '400',
 						'line-height' => '1.75'
 					)
 				),
@@ -679,7 +674,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 45,
 					'defaults' => array(
 						'font-size' => '16px',
-						'font-weight' => '400',
 						'line-height' => '1.75'
 					)
 				),
@@ -691,7 +685,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 45,
 					'defaults' => array(
 						'font-size' => '13px',
-						'font-weight' => '400',
 						'line-height' => '1.75'
 					)
 				),
@@ -780,11 +773,11 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'blog_post_text'			 => '.responsive-archive-entry-banner .container *, .archive:not(.woocommerce) .site-content-header *',
 				'html_font'					 => '.responsive-header-html p',
 				'footer_menu'				 => '#footer .footer-navigation .menu li.page_item',
-				'footer_above_row_widget_heading' => '.rspv-site-above-footer-wrap .footer-widgets .wp-block-heading',
+				'footer_above_row_widget_heading' => '.rspv-site-above-footer-wrap .footer-widgets .wp-block-heading, .rspv-site-above-footer-wrap .footer-social-icons .widget-title',
 				'footer_above_row_widget_content' => '.rspv-site-above-footer-wrap .footer-widgets',
-				'footer_primary_row_widget_heading' => '.rspv-site-primary-footer-wrap .footer-widgets .wp-block-heading',
+				'footer_primary_row_widget_heading' => '.rspv-site-primary-footer-wrap .footer-widgets .wp-block-heading, .rspv-site-primary-footer-wrap .footer-social-icons .widget-title',
 				'footer_primary_row_widget_content' => '.rspv-site-primary-footer-wrap .footer-widgets',
-				'footer_below_row_widget_heading' => '.rspv-site-below-footer-wrap .footer-widgets .wp-block-heading',
+				'footer_below_row_widget_heading' => '.rspv-site-below-footer-wrap .footer-widgets .wp-block-heading, .rspv-site-below-footer-wrap .footer-social-icons .widget-title',
 				'footer_below_row_widget_content' => '.rspv-site-below-footer-wrap .footer-widgets'
 
 			);

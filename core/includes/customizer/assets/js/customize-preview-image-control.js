@@ -104,7 +104,18 @@
 	    value.bind( function( newval ) {
 			if( newval ) {
 				if( api('responsive_footer_background_image').get() ) {
-					$('body:not(.res-transparent-footer) .site-footer').css('background-image', 'linear-gradient(to right,' + api( 'responsive_footer_background_color' ).get() + ',' + api( 'responsive_footer_background_color' ).get() + '),url(' + api('responsive_footer_background_image').get() + ')' );
+					var bgRepeat     = api('responsive_footer_bg_repeat') ? api('responsive_footer_bg_repeat').get() : 'no-repeat';
+					var bgSize       = api('responsive_footer_bg_size') ? api('responsive_footer_bg_size').get() : 'auto';
+					var bgAttachment = api('responsive_footer_bg_attachment') ? api('responsive_footer_bg_attachment').get() : 'scroll';
+					var bgLeft       = api('responsive_footer_bg_left') ? api('responsive_footer_bg_left').get() : 0;
+					var bgTop        = api('responsive_footer_bg_top') ? api('responsive_footer_bg_top').get() : 0;
+					$('body:not(.res-transparent-footer) .site-footer').css({
+						'background-image'     : 'linear-gradient(to right,' + api( 'responsive_footer_background_color' ).get() + ',' + api( 'responsive_footer_background_color' ).get() + '),url(' + api('responsive_footer_background_image').get() + ')',
+						'background-repeat'    : bgRepeat,
+						'background-size'      : bgSize,
+						'background-attachment': bgAttachment,
+						'background-position'  : bgLeft + '% ' + bgTop + '%'
+					});
 				}
 			} else {
 				$('body:not(.res-transparent-footer) .site-footer').css('background-image', 'none');
@@ -114,7 +125,18 @@
 	//footer color
 	api( 'responsive_footer_background_image', function( value ) {
 		value.bind( function( newval ) {
-			$('body:not(.res-transparent-footer) .site-footer').css('background-image', 'linear-gradient(to right,' + api('responsive_footer_background_color').get() + ',' + api('responsive_footer_background_color').get() + '),url(' + newval + ')' );
+			var bgRepeat     = api('responsive_footer_bg_repeat') ? api('responsive_footer_bg_repeat').get() : 'no-repeat';
+			var bgSize       = api('responsive_footer_bg_size') ? api('responsive_footer_bg_size').get() : 'auto';
+			var bgAttachment = api('responsive_footer_bg_attachment') ? api('responsive_footer_bg_attachment').get() : 'scroll';
+			var bgLeft       = api('responsive_footer_bg_left') ? api('responsive_footer_bg_left').get() : 0;
+			var bgTop        = api('responsive_footer_bg_top') ? api('responsive_footer_bg_top').get() : 0;
+			$('body:not(.res-transparent-footer) .site-footer').css({
+				'background-image'     : 'linear-gradient(to right,' + api('responsive_footer_background_color').get() + ',' + api('responsive_footer_background_color').get() + '),url(' + newval + ')',
+				'background-repeat'    : bgRepeat,
+				'background-size'      : bgSize,
+				'background-attachment': bgAttachment,
+				'background-position'  : bgLeft + '% ' + bgTop + '%'
+			});
 		} );
 	} );
 	//footer color

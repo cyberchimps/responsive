@@ -330,7 +330,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 					'repeat-x'  => __( 'Repeat X', 'responsive' ),
 					'repeat-y'  => __( 'Repeat Y', 'responsive' ),
 				),
-				'no-repeat',
+				'repeat',
 				null,
 				'postMessage'
 			);
@@ -396,7 +396,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 
 			// Text Color.
 			$footer_text_label = __( 'Text Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'footer_text', $footer_text_label, 'responsive_footer_layout', 20, Responsive\Core\get_responsive_customizer_defaults( 'footer_text' ) );
+			responsive_color_control( $wp_customize, 'footer_text', $footer_text_label, 'responsive_footer_layout', 20, Responsive\Core\get_responsive_customizer_defaults( 'footer_text' ), null, '', false, null, null, false, null, null, 'color', 'refresh' );
 
 			// Links Color.
 			$footer_links_color_label = __( 'Links Color', 'responsive' );
@@ -413,7 +413,6 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			// Typography
 			$footer_typography_label = __( 'Footer Font', 'responsive' );
 			responsive_typography_group_control( $wp_customize, 'footer_typography_group', $footer_typography_label, 'responsive_footer_layout', 60, 'footer_typography' );
-
 		}
 	}
 
