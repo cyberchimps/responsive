@@ -391,6 +391,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'section'  => 'responsive_rp_layout',
 					'exclude'  => array( 'font-color' ),
 					'priority' => 33,
+					'defaults'        => array(
+						'font-size'   => '14px',
+					),
 				),
 				'rp_content'                     => array(
 					'label'    => esc_html__( 'Typography', 'responsive' ),
@@ -1524,7 +1527,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 			if ( $live_preview_styles ) {
 				foreach ( $live_preview_styles as $key => $val ) {
 					if ( ! empty( $val ) ) {
-						echo '<style class="' . esc_attr( $key ) . '"> ' . esc_html( $val ) . '</style>';
+						echo '<style class="' . esc_attr( $key ) . '"> ' . wp_strip_all_tags( $val ) . '</style>';
 					}
 				}
 			}

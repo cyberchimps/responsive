@@ -132,7 +132,9 @@ if ( in_array( $single_title_layout, array( 'post_title_layout1', 'post_title_la
 	edit_post_link( __( '<span class="post-edit">Edit</span>', 'responsive' ) );
 
 	Responsive\responsive_entry_bottom();
-	
+	if($related_posts_section_placement == 'contained'){
+		Responsive\responsive_single_blog_related_posts_entry();
+	}
 	?>
 </article><!-- end of #post-<?php the_ID(); ?> -->
 <?php
