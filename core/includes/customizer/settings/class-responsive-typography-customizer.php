@@ -616,7 +616,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 45,
 					'defaults' => array(
 						'font-size' => '13px',
-						'font-weight' => '400',
 						'line-height' => '1.75'
 					)
 				),
@@ -628,7 +627,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 45,
 					'defaults' => array(
 						'font-size' => '16px',
-						'font-weight' => '400',
 						'line-height' => '1.75'
 					)
 				),
@@ -640,7 +638,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 45,
 					'defaults' => array(
 						'font-size' => '13px',
-						'font-weight' => '400',
 						'line-height' => '1.75'
 					)
 				),
@@ -652,7 +649,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 45,
 					'defaults' => array(
 						'font-size' => '16px',
-						'font-weight' => '400',
 						'line-height' => '1.75'
 					)
 				),
@@ -664,7 +660,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 45,
 					'defaults' => array(
 						'font-size' => '13px',
-						'font-weight' => '400',
 						'line-height' => '1.75'
 					)
 				),
@@ -676,7 +671,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 45,
 					'defaults' => array(
 						'font-size' => '16px',
-						'font-weight' => '400',
 						'line-height' => '1.75'
 					)
 				),
@@ -688,7 +682,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 45,
 					'defaults' => array(
 						'font-size' => '13px',
-						'font-weight' => '400',
 						'line-height' => '1.75'
 					)
 				),

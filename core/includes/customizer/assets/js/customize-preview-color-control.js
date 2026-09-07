@@ -6119,7 +6119,7 @@
                         const selector = type.getSelector(i);
                         
                         // Handle palette colors
-                        if (newValue && (newValue.startsWith('palette') || newValue.startsWith('footer-links-color') || newValue.startsWith('footer-links-hover-color'))) {
+                        if (newValue && (newValue.startsWith('palette') || newValue.startsWith('footer-text-color') || newValue.startsWith('footer-links-color') || newValue.startsWith('footer-links-hover-color'))) {
                             newValue = `var(--responsive-global-${newValue})`;
                         }
 

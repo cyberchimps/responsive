@@ -330,7 +330,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 					'repeat-x'  => __( 'Repeat X', 'responsive' ),
 					'repeat-y'  => __( 'Repeat Y', 'responsive' ),
 				),
-				'no-repeat',
+				'repeat',
 				null,
 				'postMessage'
 			);

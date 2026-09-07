@@ -188,7 +188,7 @@
 
 .site-footer-section {
     max-height: inherit;
-    height: 100%;
+    display: flex;
 }
 @media ( max-width: map-get( $screens, md ) ) {
     .site-footer-section {
