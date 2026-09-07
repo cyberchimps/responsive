@@ -4991,20 +4991,21 @@ function responsive_customizer_styles() {
 	// Sub-menu Container Top Offset.
 	$sub_menu_container_top_offset_value = esc_html( get_theme_mod( 'responsive_sub_menu_container_top_offset', 0 ) );
 	if ( $sub_menu_container_top_offset_value ) {
-		$custom_css .= "@media (min-width:{$mobile_menu_breakpoint}px) {
-			.main-navigation .menu.nav-menu > li:hover > ul,
-			.main-navigation .menu.nav-menu > li.focus > ul {
+		$bridge_height = intval( $sub_menu_container_top_offset_value ) + 5;
+		$custom_css   .= "@media (min-width:{$mobile_menu_breakpoint}px) {
+			.main-navigation .menu > li:hover > ul,
+			.main-navigation .menu > li.focus > ul {
 				margin-top: {$sub_menu_container_top_offset_value}px;
 			}
-			.main-navigation .menu.nav-menu > .menu-item-has-children:hover > ul::before,
-			.main-navigation .menu.nav-menu > .page_item_has_children:hover > ul::before {
+			.main-navigation .menu > .menu-item-has-children:hover > ul::before,
+			.main-navigation .menu > .page_item_has_children:hover > ul::before {
 				position: absolute;
 				content: '';
-				top: 0;
+				top: -{$bridge_height}px;
 				left: 0;
 				width: 100%;
-				transform: translateY(-100%);
-				height: {$sub_menu_container_top_offset_value}px;
+				height: {$bridge_height}px;
+				display: block;
 			}
 		}";
 	}
@@ -5242,7 +5243,8 @@ function responsive_customizer_styles() {
 		// Secondary Menu Top Offset.
 		$secondary_menu_top_offset_value = esc_html( get_theme_mod( 'responsive_secondary_menu_top_offset', 0 ) );
 		if ( $secondary_menu_top_offset_value ) {
-			$custom_css .= "@media (min-width:{$mobile_menu_breakpoint}px) {
+			$secondary_bridge_height = intval( $secondary_menu_top_offset_value ) + 5;
+			$custom_css             .= "@media (min-width:{$mobile_menu_breakpoint}px) {
 				.secondary-navigation li:hover > ul,
 				.secondary-navigation li.focus > ul {
 					margin-top: {$secondary_menu_top_offset_value}px;
@@ -5251,11 +5253,11 @@ function responsive_customizer_styles() {
 				.secondary-navigation .page_item_has_children:hover > ul::before {
 					position: absolute;
 					content: '';
-					top: 0;
+					top: -{$secondary_bridge_height}px;
 					left: 0;
 					width: 100%;
-					transform: translateY(-100%);
-					height: {$secondary_menu_top_offset_value}px;
+					height: {$secondary_bridge_height}px;
+					display: block;
 				}
 			}";
 		}
