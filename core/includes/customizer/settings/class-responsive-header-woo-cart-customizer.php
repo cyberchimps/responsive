@@ -147,7 +147,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 						)
 					)
 				);
-				responsive_horizontal_separator_control($wp_customize, 'header_woo_cart_separator_5', 2, 'responsive_header_woo_cart', 75, 1, );
+				responsive_horizontal_separator_control($wp_customize, 'header_woo_cart_separator_5', 1, 'responsive_header_woo_cart', 75, 1, );
 				$display_cart_count_label = esc_html__( 'Display Cart Count', 'responsive' );
 				responsive_toggle_control( $wp_customize, 'display_cart_count', $display_cart_count_label, 'responsive_header_woo_cart', 80, 0, null );
 				$hide_cart_total_label = esc_html__( 'Hide Cart Total Label', 'responsive' );

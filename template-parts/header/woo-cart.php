@@ -43,6 +43,7 @@ if ( class_exists( 'woocommerce' ) ) {
             $cart_title_markup = '<span class="res-woo-header-cart-title">' . __( 'Cart', 'responsive' ) . '</span>';
             $cart_title        = get_theme_mod( 'responsive_cart_title' );
             $cart_icon         = get_theme_mod( 'responsive_cart_icon', 'icon-opencart' );
+            error_log('$cart_icon=='.$cart_icon);
             $cart_total        = get_theme_mod( 'responsive_cart_count' );
             if ( 'icon-shopping-cart' === $cart_icon ) {
                 $cart_icon_svg ='<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><path d="M192 464c0 26.51-21.49 48-48 48s-48-21.49-48-48c0-26.51 21.49-48 48-48s48 21.49 48 48z"></path><path d="M512 464c0 26.51-21.49 48-48 48s-48-21.49-48-48c0-26.51 21.49-48 48-48s48 21.49 48 48z"></path><path d="M512 256v-192h-384c0-17.673-14.327-32-32-32h-96v32h64l24.037 206.027c-14.647 11.729-24.037 29.75-24.037 49.973 0 35.348 28.654 64 64 64h384v-32h-384c-17.673 0-32-14.327-32-32 0-0.109 0.007-0.218 0.008-0.328l415.992-63.672z"></path></svg>';

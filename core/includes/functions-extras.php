@@ -322,7 +322,7 @@ function responsive_search_icon( $menu, $args ) {
  */
 function responsive_mobile_header_template_path( $template, $item, $row, $column, $header = 'desktop' ) {
 	// Elements that have mobile-specific templates
-	$mobile_elements = array( 'header_html', 'header_html2', 'header_button', 'header_contact_info', 'header_widgets1', 'header_widgets2', 'social', 'footer_html', 'footer_html2',);
+	$mobile_elements = array( 'header_html', 'header_html2', 'header_button', 'header_contact_info', 'header_widgets1', 'header_widgets2', 'social', 'footer_html', 'footer_html2','woo-cart');
 
 	// If this is a mobile/tablet header and the element has a mobile template
 	if ( 'mobile_tablet' === $header && in_array( $item, $mobile_elements, true ) ) {
