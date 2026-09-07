@@ -1346,12 +1346,15 @@ in both cases the footer builder is active */
 	border-bottom: none;
 }
 #customize-control-responsive_header_html_content_separator,
-#customize-control-responsive_header_html2_content_separator {
+#customize-control-responsive_header_html2_content_separator,
+#customize-control-responsive_footer_html_content_separator,
+#customize-control-responsive_footer_html2_content_separator{
 	margin-top: 24px;
 	margin-bottom: 24px;
 }
 #customize-control-responsive_header_html_link_style_separator, #customize-control-responsive_width_separator, #customize-control-responsive_single_blog_post_title_typography_group, #customize-control-responsive_single_blog_post_text_typography_group, #customize-control-responsive_single_blog_post_meta_typography_group,
-#customize-control-responsive_header_html2_link_style_separator {
+#customize-control-responsive_header_html2_link_style_separator,
+#customize-control-responsive_footer_html2_link_style_separator, #customize-control-responsive_footer_html_link_style_separator {
 	margin-top: 24px;
 }
 #customize-control-header_html_typography-color .responsive-color-control-main-wrap .wp-picker-holder {

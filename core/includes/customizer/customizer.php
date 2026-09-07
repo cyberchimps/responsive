@@ -242,6 +242,8 @@ function responsive_register_options() {
 		'class-responsive-mobile-header-html-customizer',
 		'class-responsive-mobile-header-html2-customizer',
 		'class-responsive-footer-social-customizer',
+		'class-responsive-footer-html-customizer',
+		'class-responsive-footer-html2-customizer',
 		'class-responsive-performance-customizer',
 		'class-responsive-footer-widgets-settings-customizer',
 	);
