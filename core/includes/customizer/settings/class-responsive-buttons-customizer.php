@@ -259,7 +259,8 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_blur' ),
 				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_spread' ),
 				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_inset' ),
-				null
+				null,
+				'postMessage'
 			);
 
 			// Secondary Button Shadow Color.
@@ -290,7 +291,8 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_blur' ),
 				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_spread' ),
 				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_inset' ),
-				null
+				null,
+				'postMessage'
 			);
 
 			// Secondary Button Hover Shadow Color.

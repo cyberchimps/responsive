@@ -17,7 +17,7 @@
         }
     }
 
-    a:not(.button):not(.wp-block-button__link) {
+    a:where(:not(.button, .wp-block-button__link)) {
         @include make-link(map-get($colors, dark-gray), map-get($colors, dark-blue));
         text-decoration: none;
     }
@@ -887,7 +887,7 @@ body.res-transparent-header {
 }
 
 .secondary-navigation {
-    @extend .col-xs-12;
+    width: 100%;
     @include clear-floats();
 
     @media( min-width: map-get($screens, xxxl) ) {
