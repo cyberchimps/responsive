@@ -6517,8 +6517,8 @@ function responsive_customizer_styles() {
 		}
 
 		.site-header-row { /* for backward compatibility */
-			margin-right: -15px;
-			margin-left: -15px;
+			margin-right: -12px;
+			margin-left: -12px;
 		}
 
 		.site-header-row > .site-header-section {
