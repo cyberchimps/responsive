@@ -51,18 +51,22 @@ if ( ! class_exists( 'Responsive_Content_Header_Colors_Customizer' ) ) :
 
 			// Breadcrumb Link Color
 			$breadcrumb_link_color_label = __( 'Link Color', 'responsive' );
-			responsive_color_control_with_device_switchers( $wp_customize, 'breadcrumb_link', $breadcrumb_link_color_label, 'responsive_breadcrumb', 72, Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_link' ), null, '', 'postMessage', true );
+			responsive_color_control( $wp_customize, 'breadcrumb_link', $breadcrumb_link_color_label, 'responsive_breadcrumb', 72, Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_link' ) );
 
 			// Breadcrumb Link Hover Color
 			$breadcrumb_link_hover_color_label = __( 'Link Hover Color', 'responsive' );
-			responsive_color_control_with_device_switchers( $wp_customize, 'breadcrumb_link_hover', $breadcrumb_link_hover_color_label, 'responsive_breadcrumb', 73, Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_link_hover' ), null, '', 'postMessage', true );
+			responsive_color_control( $wp_customize, 'breadcrumb_link_hover', $breadcrumb_link_hover_color_label, 'responsive_breadcrumb', 73, Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_link_hover' ) );
 			
 			// Breadcrumb Background Color
 			$breadcrumb_background_color_label = __( 'Background Color', 'responsive' );
-			responsive_color_control_with_device_switchers( $wp_customize, 'breadcrumb_background', $breadcrumb_background_color_label, 'responsive_breadcrumb', 74, Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_background' ), null, '', 'postMessage', true );
+			responsive_color_control( $wp_customize, 'breadcrumb_background', $breadcrumb_background_color_label, 'responsive_breadcrumb', 74, Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_background' ) );
+
+			// Breadcrumb Separator Color
+			$breadcrumb_separator_color_label = __( 'Separator Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'breadcrumb_separator', $breadcrumb_separator_color_label, 'responsive_breadcrumb', 75, Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_separator_color' ) );
 
 			// Breadcrumb Background Separator
-			responsive_horizontal_separator_control($wp_customize, 'breadcrumb_background_separator', 1, 'responsive_breadcrumb', 75, 1, );			
+			responsive_horizontal_separator_control($wp_customize, 'breadcrumb_background_separator', 1, 'responsive_breadcrumb', 76, 1, );			
 		}
 
 

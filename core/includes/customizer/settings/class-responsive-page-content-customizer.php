@@ -342,7 +342,7 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_page_single_elements_positioning',
 				array(
-					'default'           => array( 'title', 'featured_image' ),
+					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'page_single_elements_positioning' ),
 					'sanitize_callback' => 'responsive_sanitize_multi_choices',
 					'transport'         => 'refresh',
 				)

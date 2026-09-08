@@ -321,7 +321,7 @@ if ( ! function_exists( 'responsive_page_elements' ) ) {
 		$elements = apply_filters(
 			'responsive_page_elements',
 			array(
-				'breadcrumbs'    => esc_html__( 'Breadcrumbs', 'responsive' ),
+				'breadcrumb'     => esc_html__( 'Breadcrumbs', 'responsive' ),
 				'title'          => esc_html__( 'Title', 'responsive' ),
 				'featured_image' => esc_html__( 'Featured Image', 'responsive' ),
 				'excerpt'        => esc_html__( 'Excerpt', 'responsive' ),
@@ -483,7 +483,7 @@ if ( ! function_exists( 'responsive_page_single_elements_positioning' ) ) {
 	function responsive_page_single_elements_positioning() {
 
 		// Default sections.
-		$sections = array( 'breadcrumb', 'title', 'featured_image', 'content' );
+		$sections = Responsive\Core\get_responsive_customizer_defaults( 'page_single_elements_positioning' );
 
 		// Get sections from Customizer.
 		$sections = get_theme_mod( 'responsive_page_single_elements_positioning', $sections );
@@ -494,12 +494,11 @@ if ( ! function_exists( 'responsive_page_single_elements_positioning' ) ) {
 		}
 
 		// Sync with global breadcrumb toggle.
+		$responsive_options = get_option( 'responsive_theme_options' );
+		$global_breadcrumb  = isset( $responsive_options['breadcrumb'] ) ? $responsive_options['breadcrumb'] : 0;
 		$enable_page = get_theme_mod( 'responsive_breadcrumb_enable_single_page', false );
-		if ( $enable_page || 1 == $enable_page ) {
-			if ( ! in_array( 'breadcrumb', $sections, true ) ) {
-				$sections[] = 'breadcrumb';
-			}
-		} else {
+
+		if ( empty( $enable_page ) || empty( $global_breadcrumb ) ) {
 			if ( ( $key = array_search( 'breadcrumb', $sections, true ) ) !== false ) {
 				unset( $sections[ $key ] );
 			}

@@ -69,6 +69,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				$tab_ids_prefix . 'responsive_breadcrumb_link_color',
 				$tab_ids_prefix . 'responsive_breadcrumb_link_hover_color',
 				$tab_ids_prefix . 'responsive_breadcrumb_background_color',
+				$tab_ids_prefix . 'responsive_breadcrumb_separator_color',
 				$tab_ids_prefix . 'responsive_breadcrumb_background_separator'
 			);
 			$general_tab_ids = array(

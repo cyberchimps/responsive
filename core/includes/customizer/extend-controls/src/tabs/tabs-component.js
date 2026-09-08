@@ -1089,6 +1089,15 @@ const TabsComponent = props => {
 			});
 		}
 
+		toggleBreadcrumbCustomIcon();
+		if (api('responsive_breadcrumb_separator')) {
+			api('responsive_breadcrumb_separator', function(value) {
+				value.bind(function() {
+					toggleBreadcrumbCustomIcon();
+				});
+			});
+		}
+
 	}, [tab]);
 
 	const hideSidebarWidthControl = (value, control) => {
@@ -1580,6 +1589,14 @@ const TabsComponent = props => {
 		}
 		if (overlayColorElement) {
 			overlayColorElement.style.display = (position === 'background' && tab === 'design') ? 'block' : 'none';
+		}
+	};
+
+	const toggleBreadcrumbCustomIcon = () => {
+		const separator = api('responsive_breadcrumb_separator') ? api('responsive_breadcrumb_separator').get() : 'rsaquo';
+		const customIconElement = document.getElementById('customize-control-responsive_breadcrumb_unicode');
+		if (customIconElement) {
+			customIconElement.style.display = (separator === 'unicode' && tab === 'general') ? 'block' : 'none';
 		}
 	};
 

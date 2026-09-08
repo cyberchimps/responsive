@@ -934,6 +934,11 @@ function responsive_customizer_styles() {
 			--responsive-global-footer-text-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_footer_text_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_text' ) ) ) . ';
 			--responsive-global-footer-links-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_footer_links_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_links' ) ) ) . ';
 			--responsive-global-footer-links-hover-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_footer_links_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_links_hover' ) ) ) . ';
+			--responsive-global-breadcrumb-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_breadcrumb_color', Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb' ) ) ) . ';
+			--responsive-global-breadcrumb-link-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_breadcrumb_link_color', Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_link' ) ) ) . ';
+			--responsive-global-breadcrumb-link-hover-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_breadcrumb_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_link_hover' ) ) ) . ';
+			--responsive-global-breadcrumb-background-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_breadcrumb_background_color', Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_background' ) ) ) . ';
+			--responsive-global-breadcrumb-separator-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_breadcrumb_separator_color', Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_separator_color' ) ) ) . ';
 			--responsive-global-h1-color: ' .esc_attr( responsive_prepare_css_value( 'responsive_h1_text_color', '#FFFFFF' ) ) .';
 			--responsive-title-above-content-bg-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_title_above_content_bg_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_title_above_content_bg_color' ) ) ) . ';
 			--responsive-title-above-content-overlay-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_title_above_content_overlay_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_title_above_content_overlay_color' ) ) ) . ';
@@ -5658,6 +5663,7 @@ function responsive_customizer_styles() {
 	$content_header_heading_color     = esc_html( get_theme_mod( 'responsive_content_header_heading_color', Responsive\Core\get_responsive_customizer_defaults( 'content_header_heading' ) ) );
 	$content_header_description_color = esc_html( get_theme_mod( 'responsive_content_header_description_color', Responsive\Core\get_responsive_customizer_defaults( 'content_header_heading' ) ) );
 	$breadcrumb_color                 = esc_html( responsive_prepare_css_value( 'responsive_breadcrumb_color', Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb' ) ) );
+	$breadcrumb_separator_color       = esc_html( responsive_prepare_css_value( 'responsive_breadcrumb_separator_color', Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_separator_color' ) ) );
 
 	$custom_css .= "
 	.site-content-header .page-header .page-title,
@@ -5668,10 +5674,22 @@ function responsive_customizer_styles() {
 	.site-content-header .page-description {
 		color: {$content_header_description_color};
 	}
+	#wrapper .site-content-header .breadcrumbs,
+	#wrapper .site-content-header .breadcrumbs .breadcrumb-list {
+		background-color: var(--responsive-global-breadcrumb-background-color);
+	}
 	#wrapper .site-content-header .breadcrumbs .breadcrumb-list,
-	#wrapper .site-content-header .breadcrumbs .breadcrumb-list a,
 	#wrapper .site-content-header .breadcrumbs .breadcrumb-list a span {
-		color: {$breadcrumb_color};
+		color: var(--responsive-global-breadcrumb-color);
+	}
+	#wrapper .site-content-header .breadcrumbs .breadcrumb-list a {
+		color: var(--responsive-global-breadcrumb-link-color);
+	}
+	#wrapper .site-content-header .breadcrumbs .breadcrumb-list a:hover {
+		color: var(--responsive-global-breadcrumb-link-hover-color);
+	}
+	#wrapper .site-content-header .breadcrumbs .breadcrumb-list .chevron {
+		color: var(--responsive-global-breadcrumb-separator-color);
 	}";
 
 	// Entry Blog Styles.
