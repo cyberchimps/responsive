@@ -1439,3 +1439,50 @@ li.product:hover {
         }
     }
 }
+
+/* Button Action Style: Bottom Slide Up */
+ul.wc-block-grid__products li.wc-block-grid__product.btn-action-bottom-slide-up,
+ul.products li.product.btn-action-bottom-slide-up,
+li.product.btn-action-bottom-slide-up {
+    position: relative;
+    overflow: hidden;
+
+    .responsive-shop-summary-wrap {
+        position: relative;
+        transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+        z-index: 2;
+
+        .responsive-product-action-wrap {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            width: 100%;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            text-align: inherit;
+            box-sizing: border-box;
+            background-color: inherit;
+            padding-top: 10px;
+
+            .button {
+                margin: 0;
+                display: inline-block;
+            }
+        }
+    }
+
+    &:hover {
+        .responsive-shop-summary-wrap {
+            transform: translateY(calc(-1 * var(--responsive-button-action-height, 50px)));
+
+            .responsive-product-action-wrap {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+            }
+        }
+    }
+}

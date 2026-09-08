@@ -87,6 +87,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				$general_tab_ids_prefix . 'responsive_show_archive_results_count',
 				$general_tab_ids_prefix . 'responsive_show_archive_sorting_dropdown',
 				$general_tab_ids_prefix . 'responsive_product_image_hover_switch',
+				$general_tab_ids_prefix . 'responsive_product_button_action_style',
 				$general_tab_ids_prefix . 'responsive_product_catalog_container_layout_separator',
 				$general_tab_ids_prefix . 'responsive_product_catalog_container_layout',
 				$general_tab_ids_prefix . 'responsive_product_catalog_container_style_separator',
@@ -279,6 +280,14 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'flip'  => esc_html__( 'Flip', 'responsive' ),
 			);
 			responsive_select_control( $wp_customize, 'product_image_hover_switch', $product_image_hover_switch_label, 'responsive_woocommerce_shop', 49, $product_image_hover_switch_choices, Responsive\Core\get_responsive_customizer_defaults( 'responsive_product_image_hover_switch' ), null, 'refresh' );
+
+			// Button Action Style.
+			$product_button_action_style_label   = esc_html__( 'Button Action Style', 'responsive' );
+			$product_button_action_style_choices = array(
+				'always'          => esc_html__( 'Always Visible', 'responsive' ),
+				'bottom_slide_up' => esc_html__( 'Bottom Slide Up', 'responsive' ),
+			);
+			responsive_select_button_control( $wp_customize, 'product_button_action_style', $product_button_action_style_label, 'responsive_woocommerce_shop', 49.5, $product_button_action_style_choices, Responsive\Core\get_responsive_customizer_defaults( 'responsive_product_button_action_style' ), null, 'refresh' );
 
 			$outside_container_label = __( 'Padding (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'product_card_outside_container', 'responsive_woocommerce_shop', 33, 15, 15, '', $outside_container_label );

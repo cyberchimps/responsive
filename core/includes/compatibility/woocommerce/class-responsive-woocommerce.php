@@ -106,6 +106,11 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 				remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
 				add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'responsive_woocommerce_template_loop_product_thumbnail' ), 10 );
 			}
+
+			$btn_action_style = get_theme_mod( 'responsive_product_button_action_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_product_button_action_style' ) );
+			if ( 'bottom_slide_up' === $btn_action_style ) {
+				add_filter( 'woocommerce_post_class', array( $this, 'responsive_woocommerce_loop_product_class' ), 10, 2 );
+			}
 		}
 		/**
 		 * Register Customizer sections and panel for woocommerce
@@ -212,7 +217,12 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			if ( ! $this->is_elementor_editor() ) {
 				$shop_structure = Responsive\WooCommerce\responsive_woocommerce_shop_elements_positioning();
 				if ( is_array( $shop_structure ) && ! empty( $shop_structure ) ) {
-					echo '<div class="responsive-shop-summary-wrap">';
+					$btn_action_style = get_theme_mod( 'responsive_product_button_action_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_product_button_action_style' ) );
+					$summary_classes  = 'responsive-shop-summary-wrap';
+					if ( 'bottom_slide_up' === $btn_action_style ) {
+						$summary_classes .= ' btn-action-bottom-slide-up';
+					}
+					echo '<div class="' . esc_attr( $summary_classes ) . '">';
 
 					foreach ( $shop_structure as $value ) {
 
@@ -271,7 +281,9 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 								/**
 								 * Add to cart button on shop page.
 								 */
+								echo '<div class="responsive-product-action-wrap">';
 								woocommerce_template_loop_add_to_cart();
+								echo '</div>';
 								break;
 							default:
 								break;
@@ -452,6 +464,10 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			}
 			if ( is_woocommerce() && is_singular( 'product' ) ) {
 				wp_enqueue_script( 'responsive-woo-floating-bar', get_template_directory_uri() . '/core/includes/compatibility/woocommerce/js/woo-floating-bar.js', array( 'customize-preview', 'jquery' ), RESPONSIVE_THEME_VERSION, true );
+			}
+
+			if ( 'bottom_slide_up' === get_theme_mod( 'responsive_product_button_action_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_product_button_action_style' ) ) ) {
+				wp_enqueue_script( 'responsive-woo-product-hover', get_template_directory_uri() . '/core/includes/compatibility/woocommerce/js/woo-product-hover.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
 			}
 		}
 
@@ -678,6 +694,21 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			} else {
 				woocommerce_template_loop_product_thumbnail();
 			}
+		}
+
+		/**
+		 * Add custom class to WooCommerce loop products for button action style.
+		 *
+		 * @param array $classes Array of post classes.
+		 * @param WC_Product|null $product Product object.
+		 * @return array
+		 */
+		public function responsive_woocommerce_loop_product_class( $classes, $product = null ) {
+			$btn_action_style = get_theme_mod( 'responsive_product_button_action_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_product_button_action_style' ) );
+			if ( 'bottom_slide_up' === $btn_action_style ) {
+				$classes[] = 'btn-action-bottom-slide-up';
+			}
+			return $classes;
 		}
 
 	}
