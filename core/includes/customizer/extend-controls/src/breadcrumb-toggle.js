@@ -156,7 +156,10 @@
 
         syncBreadcrumbSortable(['responsive_breadcrumb_enable_single_post'], 'responsive_blog_single_elements_positioning');
         syncBreadcrumbSortable(['responsive_breadcrumb_enable_single_page'], 'responsive_page_single_elements_positioning');
-        syncBreadcrumbSortable(['responsive_breadcrumb_enable_blog_posts_page', 'responsive_breadcrumb_enable_archive'], 'responsive_blog_entry_elements_positioning');
+        // Note: this targets the Blog/Archive Title Area (title/description/breadcrumb),
+        // not 'responsive_blog_entry_elements_positioning' - the latter is the per-post
+        // element set for entries *within* the blog listing loop and has no 'breadcrumb' choice.
+        syncBreadcrumbSortable(['responsive_breadcrumb_enable_blog_posts_page', 'responsive_breadcrumb_enable_archive'], 'responsive_blog_title_elements_positioning');
 
     });
 

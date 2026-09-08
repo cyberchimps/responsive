@@ -103,9 +103,9 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 				'sol' => esc_html__( '/', 'responsive' ),
 				'unicode' => esc_html('[/]','responsive'),
 			);
-			responsive_select_button_control( $wp_customize, 'breadcrumb_separator', $breadcrumb_separator_label, 'responsive_breadcrumb', 25, $breadcrumb_separator_choices, 'rsaquo', 'responsive_active_breadcrumb', 'refresh' );
+			responsive_select_button_control( $wp_customize, 'breadcrumb_separator', $breadcrumb_separator_label, 'responsive_breadcrumb', 25, $breadcrumb_separator_choices, 'rsaquo', 'responsive_active_breadcrumb_separator', 'refresh' );
 
-			responsive_horizontal_separator_control( $wp_customize, 'breadcrumb_separator_separator', 1, 'responsive_breadcrumb',25, 1, 'responsive_active_breadcrumb' );
+			responsive_horizontal_separator_control( $wp_customize, 'breadcrumb_separator_separator', 1, 'responsive_breadcrumb',25, 1, 'responsive_active_breadcrumb_separator' );
 
 			// Content Header Allignment.
 			$content_header_alignment_label   = esc_html__( 'Alignment', 'responsive' );

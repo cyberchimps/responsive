@@ -516,6 +516,75 @@ if ( ! function_exists( 'responsive_page_single_elements_positioning' ) ) {
 
 	}
 }
+
+if ( ! function_exists( 'responsive_blog_title_breadcrumb_enabled' ) ) {
+	/**
+	 * Whether breadcrumb should show in the Blog/Archive Title Area for the current
+	 * request, based on the global breadcrumb toggle and the context-appropriate
+	 * per-post-type toggle (Blog/Posts page uses a different toggle than Archive).
+	 *
+	 * @since 1.1.0
+	 */
+	function responsive_blog_title_breadcrumb_enabled() {
+		$responsive_options = get_option( 'responsive_theme_options' );
+		$global_breadcrumb  = isset( $responsive_options['breadcrumb'] ) ? $responsive_options['breadcrumb'] : 0;
+
+		if ( empty( $global_breadcrumb ) ) {
+			return false;
+		}
+
+		if ( is_home() ) {
+			$enable = get_theme_mod( 'responsive_breadcrumb_enable_blog_posts_page', false );
+		} elseif ( is_archive() ) {
+			$enable = get_theme_mod( 'responsive_breadcrumb_enable_archive', false );
+		} else {
+			return false;
+		}
+
+		// The control's registered default is 1 (enabled); get_theme_mod()'s fallback here only
+		// applies when the mod was never saved, so treat "never saved" (=== false) the same as
+		// explicitly enabled (1) - same convention already used in loop-header.php.
+		return ( false === $enable || 1 == $enable );
+	}
+}
+
+if ( ! function_exists( 'responsive_blog_title_elements_positioning' ) ) {
+	/**
+	 * Returns Blog/Archive Title Area elements positioning.
+	 *
+	 * @since 1.1.0
+	 */
+	function responsive_blog_title_elements_positioning() {
+
+		// Default sections - matches the Customizer control's registered default.
+		$defaults = array( 'title', 'description' );
+
+		// Get sections from Customizer.
+		$sections = get_theme_mod( 'responsive_blog_title_elements_positioning', $defaults );
+
+		// Turn into array if string.
+		if ( is_string( $sections ) ) {
+			$decoded  = json_decode( $sections, true );
+			$sections = is_array( $decoded ) ? $decoded : array_filter( explode( ',', $sections ) );
+		} elseif ( ! is_array( $sections ) ) {
+			$sections = $defaults;
+		}
+
+		// Sync with global breadcrumb toggle.
+		if ( ! responsive_blog_title_breadcrumb_enabled() ) {
+			if ( ( $key = array_search( 'breadcrumb', $sections, true ) ) !== false ) {
+				unset( $sections[ $key ] );
+			}
+		}
+
+		// Apply filters for easy modification.
+		$sections = apply_filters( 'responsive_blog_title_elements_positioning', $sections );
+
+		// Return sections.
+		return $sections;
+
+	}
+}
 /**
 * Returns post video HTML
 *
@@ -2490,7 +2559,60 @@ function responsive_active_breadcrumb() {
  */
 function responsive_breadcrumb_separator_unicode() {
 	$responsive_breadcrumb_separator = get_theme_mod( 'responsive_breadcrumb_separator', 'rsaquo' );
-	return ( responsive_active_breadcrumb() && 'unicode' === $responsive_breadcrumb_separator ) ? true : false;
+	return ( responsive_active_breadcrumb_separator() && 'unicode' === $responsive_breadcrumb_separator ) ? true : false;
+}
+
+if ( ! function_exists( 'responsive_breadcrumb_source_uses_plugin' ) ) {
+	/**
+	 * Whether the selected Breadcrumb Source is a third-party SEO plugin
+	 * (Yoast SEO / RankMath) that is actually active. When true, that plugin
+	 * renders its own markup and its own separator - our separator controls
+	 * have nothing to affect and should be hidden.
+	 *
+	 * @since 1.1.0
+	 */
+	function responsive_breadcrumb_source_uses_plugin() {
+		$source = get_theme_mod( 'responsive_breadcrumb_source', 'default' );
+
+		if ( 'yoast' === $source && function_exists( 'yoast_breadcrumb' ) ) {
+			return true;
+		}
+
+		if ( 'rankmath' === $source && function_exists( 'rank_math_the_breadcrumbs' ) ) {
+			return true;
+		}
+
+		return false;
+	}
+}
+
+if ( ! function_exists( 'responsive_active_breadcrumb_separator' ) ) {
+	/**
+	 * Active callback for the global breadcrumb separator controls (character
+	 * choice + color). Hidden when the global breadcrumb section is inactive,
+	 * or when the selected source is an active SEO plugin.
+	 *
+	 * @since 1.1.0
+	 */
+	function responsive_active_breadcrumb_separator() {
+		return responsive_active_breadcrumb() && ! responsive_breadcrumb_source_uses_plugin();
+	}
+}
+
+if ( ! function_exists( 'responsive_active_breadcrumb_separator_area' ) ) {
+	/**
+	 * Active callback for the per-area (Page / Single Post / Blog-Archive
+	 * Title Area) breadcrumb separator color controls. These aren't gated on
+	 * the global breadcrumb section like their global counterpart - matching
+	 * their sibling "Breadcrumb Background Color" controls, which are always
+	 * shown regardless of the global toggle - so only the plugin-source check
+	 * applies here.
+	 *
+	 * @since 1.1.0
+	 */
+	function responsive_active_breadcrumb_separator_area() {
+		return ! responsive_breadcrumb_source_uses_plugin();
+	}
 }
 
 /**

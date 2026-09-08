@@ -119,13 +119,7 @@ if ( $is_blog_archive ) {
 		return;
 	}
 
-	$elements = get_theme_mod( 'responsive_blog_title_elements_positioning', array( 'title', 'description', 'breadcrumb' ) );
-	if ( is_string( $elements ) ) {
-		$decoded = json_decode( $elements, true );
-		$elements = is_array( $decoded ) ? $decoded : explode( ',', $elements );
-	} else if ( ! is_array( $elements ) ) {
-		$elements = array();
-	}
+	$elements = responsive_blog_title_elements_positioning();
 
 	// For layout1:
 	// Hide everything on the blog page.
@@ -135,21 +129,16 @@ if ( $is_blog_archive ) {
 		$responsive_show_breadcrumbs = false;
 	} else {
 		// For archive pages, conditionally show elements based on their presence in the control.
-		if ( ! in_array( 'breadcrumb', $elements, true ) ) {
-			$responsive_show_breadcrumbs = false;
-		} else {
-			$responsive_show_breadcrumbs = true;
-		}
+		// responsive_blog_title_elements_positioning() has already stripped 'breadcrumb' from
+		// $elements if it isn't enabled (global toggle + per-post-type toggle), so membership
+		// in the array is authoritative here - no separate enable check needed.
+		$responsive_show_breadcrumbs = in_array( 'breadcrumb', $elements, true );
 		if ( ! in_array( 'title', $elements, true ) ) {
 			$responsive_page_title = '';
 		}
 		if ( ! in_array( 'description', $elements, true ) ) {
 			$responsive_page_description = '';
 		}
-	}
-
-	if ( ! is_404() && ! is_search() && ! is_author() ) {
-		$responsive_show_breadcrumbs = false;
 	}
 
 	if ( ! $responsive_page_title && ! $responsive_page_description && ! $responsive_show_breadcrumbs ) {

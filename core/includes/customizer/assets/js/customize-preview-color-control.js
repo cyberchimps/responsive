@@ -1061,7 +1061,7 @@
                 newval = `var(--responsive-global-${newval})`;
             }
 
-            $('a, .woocommerce a.remove:hover').not('nav a').not('a.add_to_cart_button').not('.site-title-tagline a').not('.widget-area .widget-wrapper a').not('a.product_type_grouped').not('.woocommerce-tabs .description_tab').not('.woocommerce-tabs .reviews_tab').not('.post-meta a').not('.post-meta a:hover').not('.responsive-single-related-posts-container a').not('.responsive-single-related-posts-container a:hover').not('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a').not('.breadcrumbs a').not('.comments-area .reply a').css('color', newval );
+            $('a, .woocommerce a.remove:hover').not('nav a').not('a.add_to_cart_button').not('.site-title-tagline a').not('.widget-area .widget-wrapper a').not('a.product_type_grouped').not('.woocommerce-tabs .description_tab').not('.woocommerce-tabs .reviews_tab').not('.post-meta a').not('.post-meta a:hover').not('.responsive-single-related-posts-container a').not('.responsive-single-related-posts-container a:hover').not('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.breadcrumb a').css('color', newval );
         } );
     } );
 
@@ -2565,7 +2565,7 @@
     //Hover Colors
 
     //Links Hover Color
-    $("a").not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.post-meta a').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.read-more .more-link').not('footer.comment-meta a, .commentlist .comment-content a').not('.button').not('.wp-block-button__link').hover(
+    $("a").not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.post-meta a').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.read-more .more-link').not('footer.comment-meta a, .commentlist .comment-content a').not('.button').not('.wp-block-button__link').not('.breadcrumb a').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
             $(this).css("color", linkHoverColor);
@@ -6373,6 +6373,26 @@
         }
     );
 
+    // Single Blog Post Breadcrumb Background Color
+    api( 'responsive_single_blog_post_breadcrumb_background_color', function(value) {
+        value.bind(function(newval) {
+            if( newval && newval.includes('palette') ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.single-post .entry-header .breadcrumbs, .single-post .entry-header .breadcrumb-list, .responsive-blog-single-banner2 .breadcrumbs, .responsive-blog-single-banner2 .breadcrumb-list').css('background-color', newval);
+        })
+    });
+
+    // Single Blog Post Breadcrumb Separator Color
+    api( 'responsive_single_blog_post_breadcrumb_separator_color', function(value) {
+        value.bind(function(newval) {
+            if( newval && newval.includes('palette') ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.single-post .entry-header .breadcrumb-list .chevron, .responsive-blog-single-banner2 .breadcrumb-list .chevron').css('color', newval);
+        })
+    });
+
     // Single Blog Post Title Banner Background
     api('responsive_single_blog_banner_background_color', function(val) {
         val.bind(function(newval) {
@@ -6464,6 +6484,26 @@
                     '</style>'
                 );
             }
+        })
+    });
+
+    // Blog/Archive Breadcrumb Background Color
+    api( 'responsive_blog_post_breadcrumb_background_color', function(value) {
+        value.bind(function(newval) {
+            if( newval && newval.includes('palette') ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.responsive-archive-entry-banner .breadcrumbs, .responsive-archive-entry-banner .breadcrumb-list, .archive:not(.woocommerce) .site-content-header .breadcrumbs, .archive:not(.woocommerce) .site-content-header .breadcrumb-list').css('background-color', newval);
+        })
+    });
+
+    // Blog/Archive Breadcrumb Separator Color
+    api( 'responsive_blog_post_breadcrumb_separator_color', function(value) {
+        value.bind(function(newval) {
+            if( newval && newval.includes('palette') ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.responsive-archive-entry-banner .breadcrumb-list .chevron, .archive:not(.woocommerce) .site-content-header .breadcrumb-list .chevron').css('color', newval);
         })
     });
 
@@ -6579,6 +6619,26 @@
                     '</style>'
                 );
             }
+        })
+    });
+
+    // Page Title Area Breadcrumb Background Color
+    api( 'responsive_page_title_area_breadcrumb_background_color', function(value) {
+        value.bind(function(newval) {
+            if( newval && newval.includes('palette') ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.page .entry-header .breadcrumbs, .page .entry-header .breadcrumb-list, .responsive-single-entry-banner .breadcrumbs, .responsive-single-entry-banner .breadcrumb-list').css('background-color', newval);
+        })
+    });
+
+    // Page Title Area Breadcrumb Separator Color
+    api( 'responsive_page_title_area_breadcrumb_separator_color', function(value) {
+        value.bind(function(newval) {
+            if( newval && newval.includes('palette') ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.page .entry-header .breadcrumb-list .chevron, .responsive-single-entry-banner .breadcrumb-list .chevron').css('color', newval);
         })
     });
 
