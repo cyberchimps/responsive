@@ -97,7 +97,7 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 						$link_hover_color = get_theme_mod( 'responsive_rp_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_link_hover_color' ) );
 						$meta_color       = get_theme_mod( 'responsive_rp_meta_color', responsive_prepare_css_value( 'responsive_meta_text_color' ) );
 						$meta_hover_color = get_theme_mod( 'responsive_rp_meta_hover_color', responsive_prepare_css_value( 'responsive_meta_text_color' ) );
-
+						$meta_color       = get_theme_mod( 'responsive_rp_meta_color', responsive_prepare_css_value( 'responsive_meta_text_color' ) );
 						echo '<style>
 						.responsive-single-related-posts-container,
 						.responsive-single-related-posts-container p,
@@ -113,7 +113,8 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 						 .responsive-related-single-post-title a {
 							color: ' . esc_attr( $link_color ) . ';
 						}
-						 .responsive-single-related-posts-container .post-meta span a:hover {
+						.responsive-single-related-posts-container .post-meta span a:hover,
+						.responsive-single-related-posts-container .responsive-related-single-post-title a:hover {
 							color: ' . esc_attr( $link_hover_color ) . ';
 						}
 						.responsive-single-related-posts-container .post-meta span,
@@ -141,7 +142,6 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 								$related_posts_container_class .= ' responsive-related-posts-separated';
 							} elseif ( 'contained' === $related_posts_section_placement ) {
 								$related_posts_container_class .= ' responsive-related-posts-contained';
-								$related_posts_container_class .= ( 'above_comments' === get_theme_mod( 'responsive_single_blog_related_posts_location', 'below_comments' ) ) ? ' responsive-related-posts-above-comments' : ' responsive-related-posts-below-comments';
 							} else {
 								$related_posts_container_class .= ' responsive-related-posts-default';
 							}
@@ -318,7 +318,7 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 
 			// Render category badge above the title, matching the blog listing layout.
 			$meta_sections = responsive_single_blog_related_post_meta_elements();
-			if (is_array($meta_sections) && in_array('categories', $meta_sections, true)) {
+			if (in_array( 'meta', $sections, true ) && is_array($meta_sections) && in_array('categories', $meta_sections, true)) {
 				$this->responsive_get_related_single_post_category($current_post_id);
 			}
 
