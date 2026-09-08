@@ -4657,7 +4657,7 @@
     // Footer Copyright Links Hover Color - Desktop
     api( 'responsive_footer_copyright_links_color_hover', function(val){
         val.bind(function(newval){
-            if( newval && (newval.startsWith('palette') || newval.startsWith('footer-links-color ') || newval.startsWith('footer-links-hover-color'))) {
+            if( newval && (newval.startsWith('palette') || newval.startsWith('footer-links-color') || newval.startsWith('footer-links-hover-color'))) {
                 newval = `var(--responsive-global-${newval})`;
             }
             jQuery('style#responsive-footer-copyright-links-hover-color').remove();
