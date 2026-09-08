@@ -879,7 +879,8 @@
                 .forEach(el => {
                     if (
                         !el.closest('.post-meta') &&
-                        !el.closest('.entry-meta')
+                        !el.closest('.entry-meta') &&
+                        !el.closest('.entry-category')
                     ) {
                         el.style.color = newval;
                     }
