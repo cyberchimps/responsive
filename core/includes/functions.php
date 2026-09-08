@@ -2683,37 +2683,37 @@ function responsive_woo_cart_label_markup(){
  * @since 1.0.0
  */
 function responsive_mobile_woo_cart_label_markup(){
-    $cart_title             = apply_filters( 'responsive_header_cart_title', __( 'Cart', 'responsive' ) );
-    $cart_title_markup      = '<span class="responsive-woo-header-cart-title">' . esc_html( $cart_title ) . '</span>';
-    $cart_total_markup      = '';
-    $cart_total_only_markup = '';
-    $cart_check_total = get_theme_mod( 'responsive_mobile_hide_cart_total_label' ) && null !== WC()->cart ? intval( WC()->cart->get_cart_contents_total() ) > 0 : true;
+    $mobile_cart_title             = apply_filters( 'responsive_mobile_header_cart_title', __( 'Cart', 'responsive' ) );
+    $mobile_cart_title_markup      = '<span class="responsive-mobile-woo-header-cart-title">' . esc_html( $mobile_cart_title ) . '</span>';
+    $mobile_cart_total_markup      = '';
+    $mobile_cart_total_only_markup = '';
+    $mobile_cart_check_total = get_theme_mod( 'responsive_mobile_hide_cart_total_label' ) && null !== WC()->cart ? intval( WC()->cart->get_cart_contents_total() ) > 0 : true;
     if ( null !== WC()->cart ) {
-        if ( $cart_check_total ) {
-            $cart_total_markup      = '<span class="responsive-woo-header-cart-total">' . WC()->cart->get_cart_subtotal() . '</span>';
-            $cart_total_only_markup = '<span class="responsive-woo-header-cart-total-only">' . WC()->cart->get_cart_contents_total() . '</span>';
+        if ( $mobile_cart_check_total ) {
+            $mobile_cart_total_markup      = '<span class="responsive-mobile-woo-header-cart-total">' . WC()->cart->get_cart_subtotal() . '</span>';
+            $mobile_cart_total_only_markup = '<span class="responsive-mobile-woo-header-cart-total-only">' . WC()->cart->get_cart_contents_total() . '</span>';
         }
     }
     $cart_cur_name_markup = '';
-    if ( function_exists( 'get_woocommerce_currency' ) && $cart_check_total ) {
+    if ( function_exists( 'get_woocommerce_currency' ) && $mobile_cart_check_total ) {
         $cart_cur_name_markup = '<span class="responsive-woo-header-cart-cur-name">' . get_woocommerce_currency() . '</span>';
     }
     $cart_cur_sym_markup = '';
-    if ( function_exists( 'get_woocommerce_currency_symbol' ) && $cart_check_total ) {
-        $cart_cur_sym_markup = '<span class="responsive-woo-header-cart-cur-symbol">' . get_woocommerce_currency_symbol() . '</span>';
+    if ( function_exists( 'get_woocommerce_currency_symbol' ) && $mobile_cart_check_total ) {
+        $cart_cur_sym_markup = '<span class="responsive-mobile-woo-header-cart-cur-symbol">' . get_woocommerce_currency_symbol() . '</span>';
     }
-    $woo_cart_label_val = get_theme_mod( 'responsive_mobile_woo_cart_label', '' );
+    $mobile_woo_cart_label_val = get_theme_mod( 'responsive_mobile_woo_cart_label', '' );
     $shortcode_label       = array( '{cart_total_currency_symbol}', '{cart_title}', '{cart_total}', '{cart_currency_name}', '{cart_currency_symbol}' );
-    $shortcode_label_value = array( $cart_total_markup, $cart_title_markup, $cart_total_only_markup, $cart_cur_name_markup, $cart_cur_sym_markup );
-    $cart_label_markup = '';
-    $cart_label_markup = str_replace( $shortcode_label, $shortcode_label_value, $woo_cart_label_val );
-    $cart_info_markup = sprintf(
-        '<span class="responsive-woo-header-cart-info-wrap">
+    $shortcode_label_value = array( $mobile_cart_total_markup, $mobile_cart_title_markup, $mobile_cart_total_only_markup, $cart_cur_name_markup, $cart_cur_sym_markup );
+    $mobile_cart_label_markup = '';
+    $mobile_cart_label_markup = str_replace( $shortcode_label, $shortcode_label_value, $mobile_woo_cart_label_val );
+    $mobile_cart_info_markup = sprintf(
+        '<span class="responsive-mobile-woo-header-cart-info-wrap">
                 %1$s
             </span>',
-        $cart_label_markup
+        $mobile_cart_label_markup
     );
-    echo $cart_info_markup;
+    echo $mobile_cart_label_markup;
 }
 /**
  * Make Old Woo Cart compatible with new header builder woo cart

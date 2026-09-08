@@ -11963,6 +11963,16 @@ function responsive_customizer_styles() {
 		}
 
 		// Mobile Header Woo Cart
+		$mobile_cart_style                   = get_theme_mod( 'responsive_mobile_cart_style', 'outline' );
+			$mobile_cart_color                   = get_theme_mod( 'responsive_mobile_cart_color', '#000000' );
+			$mobile_cart_hover_color             = get_theme_mod( 'responsive_mobile_cart_hover_color', '#000000' );
+			$mobile_header_woo_cart_border_width = get_theme_mod( 'responsive_mobile_cart_border_width', 1 );
+			$mobile_cart_top_left_radius         = absint( get_theme_mod( 'responsive_mobile_cart_radius_top_left_radius', 0 ) );
+			$mobile_cart_top_right_radius        = absint( get_theme_mod( 'responsive_mobile_cart_radius_top_right_radius', 0 ) );
+			$mobile_cart_bottom_right_radius     = absint( get_theme_mod( 'responsive_mobile_cart_radius_bottom_right_radius', 0 ) );
+			$mobile_cart_bottom_left_radius      = absint( get_theme_mod( 'responsive_mobile_cart_radius_bottom_left_radius', 0 ) );
+
+
 		$mobile_cart_count_color               			  = get_theme_mod( 'responsive_mobile_cart_count_color', '#000' );
 		$mobile_cart_count_hover_color         			  = get_theme_mod( 'responsive_mobile_cart_count_hover_color', '#000' );
 		$mobile_cart_color                      			  = get_theme_mod( 'responsive_mobile_cart_color', '#333333' );
@@ -11984,6 +11994,56 @@ function responsive_customizer_styles() {
 
 		if(Responsive\Core\responsive_check_element_in_mobile_tablet_items('woo-cart', 'header'))
 		{
+			if ( 'outline' === $mobile_cart_style ) {
+				$woocommerce_custom_css .= "
+				.res-addon-cart-wrap {
+					border: {$mobile_header_woo_cart_border_width}px solid {$mobile_cart_color};
+					color: {$mobile_cart_color};
+				}
+				.res-addon-cart-wrap svg path {
+					fill: {$mobile_cart_color};
+				}
+				.res-addon-cart-wrap:hover {
+					border: {$mobile_header_woo_cart_border_width}px solid {$mobile_cart_hover_color};
+					color: {$mobile_cart_hover_color};
+				}
+				.res-addon-cart-wrap:hover svg path {
+					fill: {$mobile_cart_hover_color};
+				}
+			";
+			}
+			if ( 'fill' === $mobile_cart_style ) {
+				$woocommerce_custom_css .= "
+				.res-addon-cart-wrap {
+					background-color: {$mobile_cart_color};
+				}
+				.res-addon-cart-wrap:hover {
+					background-color: {$mobile_cart_hover_color};
+				}
+			";
+			}
+			if ( 'none' === $mobile_cart_style ) {
+				$woocommerce_custom_css .= "
+				.res-addon-cart-wrap {
+					color: {$mobile_cart_color};
+				}
+				.res-addon-cart-wrap svg path {
+					fill: {$mobile_cart_color};
+				}
+				.res-addon-cart-wrap:hover {
+					color: {$mobile_cart_hover_color};
+				}
+				.res-addon-cart-wrap:hover svg path {
+					fill: {$mobile_cart_hover_color};
+				}
+			";
+			}
+			$woocommerce_custom_css .= '
+				.res-addon-cart-wrap {
+					border-radius: ' . responsive_spacing_css( $mobile_cart_top_left_radius, $mobile_cart_top_right_radius, $mobile_cart_bottom_right_radius, $mobile_cart_bottom_left_radius ) . ';
+				}
+			';
+
 			$woocommerce_custom_css .= "
 			.site-mobile-header-item .responsive-header-cart .res-cart-icon svg {
 				width: {$mobile_cart_icon_size}px;

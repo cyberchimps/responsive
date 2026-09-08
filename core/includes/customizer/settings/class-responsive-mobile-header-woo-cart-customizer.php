@@ -73,7 +73,8 @@ if ( class_exists( 'WooCommerce' ) ) {
 					$general_tab_ids_prefix . 'responsive_mobile_cart_style',
 					$general_tab_ids_prefix . 'responsive_mobile_cart_icon_size',
 					$general_tab_ids_prefix . 'responsive_mobile_header_woo_cart_separator_1',
-					$general_tab_ids_prefix . 'responsive_mobile_header_woo_cart_separator_2',
+					$general_tab_ids_prefix . 'responsive_mobile_header_woo_cart_addon_separator_1',
+					$general_tab_ids_prefix . 'responsive_mobile_header_woo_cart_addon_separator_2',
 					$general_tab_ids_prefix . 'responsive_mobile_cart_label_separator',
 					$general_tab_ids_prefix . 'responsive_mobile_woo_cart_label',
 					$general_tab_ids_prefix . 'responsive_mobile_header_woo_cart_separator_4',
@@ -86,7 +87,6 @@ if ( class_exists( 'WooCommerce' ) ) {
 				);
 				$design_tab_ids_prefix   = 'customize-control-';
 				$design_tab_ids          = array(
-					$design_tab_ids_prefix . 'responsive_mobile_cart_icon_color_separator',
 					$design_tab_ids_prefix . 'responsive_mobile_cart_color',
 					$design_tab_ids_prefix . 'responsive_mobile_cart_hover_color',
 					$design_tab_ids_prefix . 'responsive_mobile_cart_count_color',
@@ -115,41 +115,6 @@ if ( class_exists( 'WooCommerce' ) ) {
 				);
 
 				responsive_tabs_button_control( $wp_customize, 'mobile_header_woo_cart_tabs', $tabs_label, 'responsive_mobile_header_woo_cart', 1, '', 'responsive_mobile_header_woo_cart_general_tab', 'responsive_mobile_header_woo_cart_design_tab', $general_tab_ids, $design_tab_ids, null );
-
-
-				if ( class_exists( 'Responsive_Addons_Pro' ) || check_is_responsive_addons_greater() ) {
-					// Cart Icon Heading.
-					$cart_icon_separator = __( 'Cart Icon', 'responsive' );
-					responsive_separator_control( $wp_customize, 'mobile_cart_icon_separator', $cart_icon_separator, 'responsive_mobile_header_woo_cart', 50 );
-
-					// Cart Icon.
-					$cart_icon_label = __( 'Icons', 'responsive' );
-					$cart_icon_choices = array(
-						'icon-opencart'      => esc_html__( 'OpenCart', 'responsive' ),
-						'icon-shopping-cart' => esc_html__( 'Shopping Cart', 'responsive' ),
-						'icon-shopping-bag'   => esc_html__( 'Shopping Bag', 'responsive' ),
-						'icon-shopping-basket' => esc_html__( 'Shopping Basket', 'responsive' ),
-					);
-					responsive_icon_radio_button_control( $wp_customize, 'mobile_cart_icon', $cart_icon_label, 'responsive_mobile_header_woo_cart', 51, $cart_icon_choices, 'icon-opencart', null, 'svg' );
-
-					// Cart Style.
-					$cart_style_label = __( 'Cart Style', 'responsive' );
-					$cart_style_choices = array(
-						'fill'    => esc_html__( 'Fill', 'responsive' ),
-						'outline' => esc_html__( 'Outline', 'responsive' ),
-						'minimal' => esc_html__( 'Minimal', 'responsive' ),
-					);
-					responsive_select_button_control( $wp_customize, 'mobile_cart_style', $cart_style_label, 'responsive_mobile_header_woo_cart', 52, $cart_style_choices, 'fill', null );
-
-					// Cart Icon Size.
-					$cart_icon_size_label = __( 'Icon Size', 'responsive' );
-					responsive_drag_number_control( $wp_customize, 'mobile_cart_icon_size', $cart_icon_size_label, 'responsive_mobile_header_woo_cart', 53, 24, null, 100, 0, 'refresh' );
-				
-
-					responsive_horizontal_separator_control( $wp_customize, 'mobile_header_woo_cart_separator_1', 1, 'responsive_mobile_header_woo_cart', 54, 1, );
-					responsive_horizontal_separator_control( $wp_customize, 'mobile_header_woo_cart_separator_2', 1, 'responsive_mobile_header_woo_cart', 55, 1, );
-
-				}
 
 				// Cart Label Heading.
 				$cart_label_separator = __( 'Cart Label', 'responsive' );
@@ -233,11 +198,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 					'redirect' => esc_html__( 'Cart Page', 'responsive' ),
 				);
 				responsive_select_button_control( $wp_customize, 'mobile_header_woo_cart_click_action', $cart_click_action_label, 'responsive_mobile_header_woo_cart', 100, $cart_click_action_choices, 'dropdown', null, 'refresh' );
-
-				// Cart Icon.
-				$cart_icon_color_separator = __( 'Cart Icon', 'responsive' );
-				responsive_separator_control( $wp_customize, 'mobile_cart_icon_color_separator', $cart_icon_color_separator, 'responsive_mobile_header_woo_cart', 110 );
-
+				
 				// Cart Icon Color.
 				$cart_color_label = __( 'Icon Color', 'responsive' );
 				responsive_color_control( $wp_customize, 'mobile_cart', $cart_color_label, 'responsive_mobile_header_woo_cart', 120, '#333333', null, '', true, '#333333', 'mobile_cart_hover' );
