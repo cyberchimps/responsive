@@ -127,6 +127,15 @@
                     }
 
                     wp.customize(targetSortableSetting).set(elementsArray);
+
+                    // The sortable control's React list renders lazily, once, the first
+                    // time its section is expanded - reading control.params.value (a
+                    // snapshot PHP sent at page load), not the live wp.customize value.
+                    // Keep that snapshot in sync so a later first-render doesn't show
+                    // breadcrumb as hidden despite the underlying value already having it.
+                    if (wp.customize.control(targetSortableSetting)) {
+                        wp.customize.control(targetSortableSetting).params.value = elementsArray;
+                    }
                 }
             }
 
