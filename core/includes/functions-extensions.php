@@ -28,7 +28,7 @@ function responsive_get_breadcrumb_lists() {
 		return;
 	}
 
-	$source = get_theme_mod( 'breadcrumb_source', 'default' );
+	$source = get_theme_mod( 'responsive_breadcrumb_source', 'default' );
 
 	if ( 'yoast' === $source && function_exists( 'yoast_breadcrumb' ) ) {
 		yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
@@ -53,7 +53,7 @@ function responsive_get_breadcrumb_lists() {
  * @return bool True if custom SEO breadcrumbs are enabled, false otherwise.
  */
 function responsive_check_yoast_enabled_breadcrumbs() {
-	$source = get_theme_mod( 'breadcrumb_source', 'default' );
+	$source = get_theme_mod( 'responsive_breadcrumb_source', 'default' );
 	if ( 'yoast' === $source && function_exists( 'yoast_breadcrumb' ) ) {
 		return true;
 	}

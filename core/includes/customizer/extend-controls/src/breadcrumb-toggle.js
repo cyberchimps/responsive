@@ -48,83 +48,85 @@
         function syncBreadcrumbSortable(toggleSettings, targetSortableSetting) {
             function updateSortable() {
                 if (!wp.customize(targetSortableSetting)) return;
-                
+
                 let isGlobalEnabled = wp.customize('responsive_theme_options[breadcrumb]') && (wp.customize('responsive_theme_options[breadcrumb]').get() == true || wp.customize('responsive_theme_options[breadcrumb]').get() == '1');
-                
+
                 let isEnabled = toggleSettings.some(function(setting) {
                     return wp.customize(setting) && (wp.customize(setting).get() == true || wp.customize(setting).get() == '1');
                 });
-                
+
                 isEnabled = isEnabled && isGlobalEnabled;
-                
-                let currentElements = wp.customize(targetSortableSetting).get();
-                if (typeof currentElements === 'string' && currentElements.length > 0) {
-                    currentElements = currentElements.split(',');
-                }
-                let elementsArray = Array.isArray(currentElements) ? currentElements.slice() : [];
-                let hasBreadcrumb = elementsArray.includes('breadcrumb');
-                
+
+                let breadcrumbPos = wp.customize('responsive_breadcrumb_position') ? wp.customize('responsive_breadcrumb_position').get() : 'before';
+
                 let $li = $('#customize-control-' + targetSortableSetting + ' li[data-value="breadcrumb"]');
-                let isCurrentlyInvisible = $li.length ? $li.hasClass('invisible') : true;
-                
-                if (isEnabled && !hasBreadcrumb) {
-                    let breadcrumbPos = wp.customize('responsive_breadcrumb_position') ? wp.customize('responsive_breadcrumb_position').get() : 'before';
-                    
-                    if (breadcrumbPos === 'after') {
-                        let titleIndex = elementsArray.indexOf('title');
-                        if (titleIndex !== -1) {
-                            elementsArray.splice(titleIndex + 1, 0, 'breadcrumb');
-                        } else {
-                            elementsArray.push('breadcrumb');
-                        }
-                    } else {
-                        elementsArray.unshift('breadcrumb');
-                    }
-                    
-                    wp.customize(targetSortableSetting).set(elementsArray);
-                    if (wp.customize.control(targetSortableSetting)) {
-                        wp.customize.control(targetSortableSetting).params.value = elementsArray;
-                    }
-                    
-                    if (!$li.length) return; // Skip DOM manipulation if not rendered
-                    
-                    if (isCurrentlyInvisible) {
+
+                if ($li.length) {
+                    // The control is rendered, so the DOM is the source of truth here -
+                    // reposition breadcrumb's <li> and then save via the control's own
+                    // updateValue(), the exact mechanism a manual drag-and-drop uses.
+                    // This way a global position change and a manual reorder both write
+                    // through the same path, so whichever happened last is what sticks -
+                    // there's no separate JS-computed array that can drift from the DOM.
+                    let $ul = $li.parent();
+                    let $eyeIcons = $li.find('.responsive-sortable-eye-icon');
+
+                    if (isEnabled) {
                         $li.removeClass('invisible');
                         $li.find('span.visibility').removeClass('dashicons-visibility-faint');
-                        $li.find('.responsive-sortable-eye-icon').toggleClass('active');
-                    }
-                    
-                    // Move DOM element to correct position visually
-                    let $ul = $li.parent();
-                    if (breadcrumbPos === 'after') {
-                        let $titleLi = $ul.find('li[data-value="title"]');
-                        if ($titleLi.length) {
-                            $li.insertAfter($titleLi);
+                        $eyeIcons.removeClass('active').first().addClass('active');
+
+                        $li.detach();
+                        if (breadcrumbPos === 'after') {
+                            let $titleLi = $ul.find('li[data-value="title"]');
+                            if ($titleLi.length) {
+                                $li.insertAfter($titleLi);
+                            } else {
+                                $ul.append($li);
+                            }
                         } else {
-                            $ul.append($li);
+                            $ul.prepend($li);
                         }
                     } else {
-                        $ul.prepend($li);
-                    }
-                    
-                } else if (!isEnabled && hasBreadcrumb) {
-                    elementsArray = elementsArray.filter(function(e) { return e !== 'breadcrumb'; });
-                    
-                    wp.customize(targetSortableSetting).set(elementsArray);
-                    if (wp.customize.control(targetSortableSetting)) {
-                        wp.customize.control(targetSortableSetting).params.value = elementsArray;
-                    }
-                    
-                    if (!$li.length) return; // Skip DOM manipulation if not rendered
-                    
-                    if (!isCurrentlyInvisible) {
                         $li.addClass('invisible');
                         $li.find('span.visibility').addClass('dashicons-visibility-faint');
-                        $li.find('.responsive-sortable-eye-icon').toggleClass('active');
+                        $eyeIcons.removeClass('active').last().addClass('active');
+
+                        $li.detach();
+                        $ul.append($li);
                     }
-                    // Move DOM element to end of invisible list (optional, but standard behavior)
-                    let $ul = $li.parent();
-                    $ul.append($li);
+
+                    if (wp.customize.control(targetSortableSetting)) {
+                        wp.customize.control(targetSortableSetting).updateValue();
+                    }
+                } else {
+                    // Control isn't rendered yet (its section was never expanded), so
+                    // there's no DOM to derive the order from - compute the array directly.
+                    let currentElements = wp.customize(targetSortableSetting).get();
+                    if (typeof currentElements === 'string' && currentElements.length > 0) {
+                        currentElements = currentElements.split(',');
+                    }
+                    let elementsArray = Array.isArray(currentElements) ? currentElements.slice() : [];
+
+                    let breadcrumbIndex = elementsArray.indexOf('breadcrumb');
+                    if (breadcrumbIndex !== -1) {
+                        elementsArray.splice(breadcrumbIndex, 1);
+                    }
+
+                    if (isEnabled) {
+                        if (breadcrumbPos === 'after') {
+                            let titleIndex = elementsArray.indexOf('title');
+                            if (titleIndex !== -1) {
+                                elementsArray.splice(titleIndex + 1, 0, 'breadcrumb');
+                            } else {
+                                elementsArray.push('breadcrumb');
+                            }
+                        } else {
+                            elementsArray.unshift('breadcrumb');
+                        }
+                    }
+
+                    wp.customize(targetSortableSetting).set(elementsArray);
                 }
             }
 
@@ -133,9 +135,13 @@
                     wp.customize(setting).bind(updateSortable);
                 }
             });
-            
+
             if (wp.customize('responsive_theme_options[breadcrumb]')) {
                 wp.customize('responsive_theme_options[breadcrumb]').bind(updateSortable);
+            }
+
+            if (wp.customize('responsive_breadcrumb_position')) {
+                wp.customize('responsive_breadcrumb_position').bind(updateSortable);
             }
         }
 
@@ -166,27 +172,16 @@
     }
 
     function isBreadcrumbEnable() {
-        console.log( '[isBreadcrumbEnable] wp.customize available?', typeof wp !== 'undefined' && !!wp.customize );
-
         if ( typeof wp !== 'undefined' && wp.customize && wp.customize('responsive_theme_options[breadcrumb]') ) {
             let val = wp.customize('responsive_theme_options[breadcrumb]').get();
-            let result = (val === true || val === 1 || val === '1');
-            console.log( '[isBreadcrumbEnable] wp.customize raw value:', val, '(type:', typeof val, ') -> resolved:', result );
-            return result;
+            return (val === true || val === 1 || val === '1');
         }
-
-        console.log( '[isBreadcrumbEnable] wp.customize setting not available, falling back to DOM checkbox' );
 
         let toggleControl = $('#customize-control-res_breadcrumb input[type="checkbox"]');
-        console.log( '[isBreadcrumbEnable] toggleControl matched elements:', toggleControl.length );
-
         if (toggleControl.length) {
-            let result = toggleControl.is(':checked');
-            console.log( '[isBreadcrumbEnable] checkbox checked state -> resolved:', result );
-            return result;
+            return toggleControl.is(':checked');
         }
 
-        console.log( '[isBreadcrumbEnable] no source available -> defaulting to false' );
         return false;
     }
 

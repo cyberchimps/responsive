@@ -407,11 +407,12 @@ api(
 	}
 );
 	api( 'responsive_breadcrumb_position', function( setting ) {
-		console.log("i am running");
 		setting.bind( function( newval ) {
+			// Note: 'responsive_page_single_elements_positioning' is intentionally excluded here -
+			// it is owned by syncBreadcrumbSortable() in breadcrumb-toggle.js, which also
+			// respects the per-post-type "Enable on Single Page" toggle (this listener does not).
 			var elementsSettings = [
 				'responsive_blog_title_elements_positioning',
-				'responsive_page_single_elements_positioning',
 				'responsive_blog_single_elements_positioning'
 			];
 
@@ -472,10 +473,11 @@ api(
 
 	api( 'responsive_theme_options[breadcrumb]', function( setting ) {
 		setting.bind( function( isEnabled ) {
-			console.log("responsive_theme_options[breadcrumb] running .... ");
+			// Note: 'responsive_page_single_elements_positioning' is intentionally excluded here -
+			// it is owned by syncBreadcrumbSortable() in breadcrumb-toggle.js, which also
+			// respects the per-post-type "Enable on Single Page" toggle (this listener does not).
 			var elementsSettings = [
 				'responsive_blog_title_elements_positioning',
-				'responsive_page_single_elements_positioning',
 				'responsive_blog_single_elements_positioning'
 			];
 
@@ -489,7 +491,6 @@ api(
 					var ul = $( '#customize-control-' + settingId + ' ul.sortable' );
 					if ( ul.length ) {
 						var breadcrumbLi = ul.find( 'li[data-value="breadcrumb"]' );
-						console.log("breadcrumb found for element : ", settingId);
 						if ( breadcrumbLi.length ) {
 							breadcrumbLi.detach();
 							var showBreadcrumb = ( isEnabled && '0' !== String(isEnabled) && 'false' !== String(isEnabled) );

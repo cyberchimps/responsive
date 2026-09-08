@@ -165,9 +165,13 @@ if ( ! function_exists( 'responsive_blog_single_elements_positioning' ) ) {
 		// Sync with global breadcrumb toggle.
 		$responsive_options = get_option( 'responsive_theme_options' );
 		$global_breadcrumb  = isset( $responsive_options['breadcrumb'] ) ? $responsive_options['breadcrumb'] : 0;
-		$enable_single = get_theme_mod( 'responsive_breadcrumb_enable_single_post', false );
+		$enable_single      = get_theme_mod( 'responsive_breadcrumb_enable_single_post', false );
+		// The control's registered default is 1 (enabled); get_theme_mod()'s fallback here only
+		// applies when the mod was never saved, so treat "never saved" (=== false) the same as
+		// explicitly enabled (1) - same convention already used in loop-header.php.
+		$enable_single      = ( false === $enable_single || 1 == $enable_single );
 
-		if ( empty( $enable_single ) || empty( $global_breadcrumb ) ) {
+		if ( ! $enable_single || empty( $global_breadcrumb ) ) {
 			if ( ( $key = array_search( 'breadcrumb', $sections, true ) ) !== false ) {
 				unset( $sections[ $key ] );
 			}
@@ -175,10 +179,6 @@ if ( ! function_exists( 'responsive_blog_single_elements_positioning' ) ) {
 
 		// Apply filters for easy modification.
 		$sections = apply_filters( 'responsive_blog_single_elements_positioning', $sections );
-
-		error_log( "DEBUG BREADCRUMB: " . print_r( $sections, true ) );
-		error_log( "DEBUG ENABLE SINGLE: " . var_export($enable_single, true) );
-		error_log( "DEBUG GLOBAL BREADCRUMB: " . var_export($global_breadcrumb, true) );
 
 		// Return sections.
 		return $sections;
@@ -496,9 +496,13 @@ if ( ! function_exists( 'responsive_page_single_elements_positioning' ) ) {
 		// Sync with global breadcrumb toggle.
 		$responsive_options = get_option( 'responsive_theme_options' );
 		$global_breadcrumb  = isset( $responsive_options['breadcrumb'] ) ? $responsive_options['breadcrumb'] : 0;
-		$enable_page = get_theme_mod( 'responsive_breadcrumb_enable_single_page', false );
+		$enable_page        = get_theme_mod( 'responsive_breadcrumb_enable_single_page', false );
+		// The control's registered default is 1 (enabled); get_theme_mod()'s fallback here only
+		// applies when the mod was never saved, so treat "never saved" (=== false) the same as
+		// explicitly enabled (1) - same convention already used in loop-header.php.
+		$enable_page        = ( false === $enable_page || 1 == $enable_page );
 
-		if ( empty( $enable_page ) || empty( $global_breadcrumb ) ) {
+		if ( ! $enable_page || empty( $global_breadcrumb ) ) {
 			if ( ( $key = array_search( 'breadcrumb', $sections, true ) ) !== false ) {
 				unset( $sections[ $key ] );
 			}
