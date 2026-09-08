@@ -158,6 +158,8 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				$tab_ids_prefix . 'responsive_header_text_color',
 				$tab_ids_prefix . 'responsive_header_site_tagline_separator',
 				$tab_ids_prefix . 'responsive_header_site_tagline_typography_group',
+				$tab_ids_prefix . 'responsive_header_site_logo_spacing_separator',
+				$tab_ids_prefix . 'responsive_header_padding',
 			);
 			$logo_general_tab_ids = array(
 				$tab_ids_prefix . 'custom_logo',

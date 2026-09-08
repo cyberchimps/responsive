@@ -908,13 +908,17 @@
         value.bind( function( newval ) {
             var mobileMenuBreakpointValue = api( 'responsive_mobile_menu_breakpoint' ).get();
             if ( $(window).width() > mobileMenuBreakpointValue ) {
+                var offset = parseInt( newval, 10 ) || 0;
+                var bridgeHeight = offset + 5;
                 jQuery( 'style#responsive-sub-menu-container-top-offset' ).remove();
-                jQuery( 'head' ).append(
-                    '<style id="responsive-sub-menu-container-top-offset">'
-                    + '.main-navigation .menu.nav-menu > .menu-item-has-children:hover > ul::before, .main-navigation .menu.nav-menu > .page_item_has_children:hover > ul::before {position: absolute, content: "", top: 0, left: 0, width: 100%, transform: translateY(-100%), height: '+newval+'}'
-                    + '.main-navigation .menu.nav-menu > li:hover > ul, .main-navigation .menu.nav-menu > li.focus > ul {margin-top: '+newval+'px}'
-                    + '</style>'
-                );
+                if ( offset > 0 ) {
+                    jQuery( 'head' ).append(
+                        '<style id="responsive-sub-menu-container-top-offset">'
+                        + '.main-navigation .menu > .menu-item-has-children:hover > ul::before, .main-navigation .menu > .page_item_has_children:hover > ul::before { position: absolute; content: ""; top: -' + bridgeHeight + 'px; left: 0; width: 100%; height: ' + bridgeHeight + 'px; display: block; }'
+                        + '.main-navigation .menu > li:hover > ul, .main-navigation .menu > li.focus > ul { margin-top: ' + offset + 'px; }'
+                        + '</style>'
+                    );
+                }
             }
         } );
     } );
