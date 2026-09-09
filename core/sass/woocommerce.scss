@@ -1486,3 +1486,39 @@ li.product.btn-action-bottom-slide-up {
         }
     }
 }
+/* Button Style: Text with Arrow */
+ul.wc-block-grid__products li.wc-block-grid__product.btn-style-text-with-arrow,
+ul.products li.product.btn-style-text-with-arrow,
+li.product.btn-style-text-with-arrow {
+
+    .responsive-product-action-wrap a.button,
+    .responsive-product-action-wrap button.button {
+        background: none;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+        border-radius: 0;
+        height: auto;
+        min-height: 0;
+        line-height: 1.4;
+        font-size: inherit;
+        font-weight: 500;
+        color: inherit;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+
+        .responsive-btn-arrow {
+            flex-shrink: 0;
+            display: block;
+        }
+
+        &:hover {
+            background: none;
+            color: inherit;
+        }
+    }
+}

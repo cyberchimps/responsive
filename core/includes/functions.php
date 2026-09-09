@@ -1450,6 +1450,7 @@ function defaults() {
 			'responsive_show_archive_sorting_dropdown' => 1,
 			'responsive_product_image_hover_switch' => 'none',
 			'responsive_product_button_action_style' => 'always',
+			'responsive_product_button_style'        => 'button',
 			'responsive_single_product_sidebar_style' => 'default',
 			'responsive_widget_bottom_spacing'    => 30,
 			'responsive_widget_bottom_spacing_unit' => 'px',

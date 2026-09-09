@@ -108,8 +108,14 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			}
 
 			$btn_action_style = get_theme_mod( 'responsive_product_button_action_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_product_button_action_style' ) );
-			if ( 'bottom_slide_up' === $btn_action_style ) {
+			$btn_style        = get_theme_mod( 'responsive_product_button_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_product_button_style' ) );
+
+			if ( 'bottom_slide_up' === $btn_action_style || 'text_with_arrow' === $btn_style ) {
 				add_filter( 'woocommerce_post_class', array( $this, 'responsive_woocommerce_loop_product_class' ), 10, 2 );
+			}
+
+			if ( 'text_with_arrow' === $btn_style ) {
+				add_filter( 'woocommerce_loop_add_to_cart_link', array( $this, 'responsive_woocommerce_loop_add_to_cart_arrow' ), 10, 3 );
 			}
 		}
 		/**
@@ -697,7 +703,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		}
 
 		/**
-		 * Add custom class to WooCommerce loop products for button action style.
+		 * Add custom classes to WooCommerce loop products for button action and button style.
 		 *
 		 * @param array $classes Array of post classes.
 		 * @param WC_Product|null $product Product object.
@@ -708,7 +714,29 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			if ( 'bottom_slide_up' === $btn_action_style ) {
 				$classes[] = 'btn-action-bottom-slide-up';
 			}
+
+			$btn_style = get_theme_mod( 'responsive_product_button_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_product_button_style' ) );
+			if ( 'text_with_arrow' === $btn_style ) {
+				$classes[] = 'btn-style-text-with-arrow';
+			}
+
 			return $classes;
+		}
+
+		/**
+		 * Inject an inline SVG arrow into the Add to Cart button link when
+		 * Button Style is set to 'Text with Arrow'. The SVG uses currentColor
+		 * so it inherits the surrounding text colour automatically.
+		 *
+		 * @param string     $link    Full <a> tag HTML for the Add to Cart button.
+		 * @param WC_Product $product Product object.
+		 * @param array      $args    Arguments passed to woocommerce_loop_add_to_cart_link.
+		 * @return string
+		 */
+		public function responsive_woocommerce_loop_add_to_cart_arrow( $link, $product, $args ) {
+			$arrow_svg = '<svg class="responsive-btn-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
+			$link      = str_replace( '</a>', $arrow_svg . '</a>', $link );
+			return $link;
 		}
 
 	}
