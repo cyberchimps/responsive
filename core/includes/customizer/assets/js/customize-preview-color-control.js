@@ -6376,7 +6376,7 @@
     // Single Blog Post Breadcrumb Background Color
     api( 'responsive_single_blog_post_breadcrumb_background_color', function(value) {
         value.bind(function(newval) {
-            if( newval && newval.includes('palette') ) {
+            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-background-color')) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $('.single-post .entry-header .breadcrumbs, .single-post .entry-header .breadcrumb-list, .responsive-blog-single-banner2 .breadcrumbs, .responsive-blog-single-banner2 .breadcrumb-list').css('background-color', newval);
@@ -6386,7 +6386,7 @@
     // Single Blog Post Breadcrumb Separator Color
     api( 'responsive_single_blog_post_breadcrumb_separator_color', function(value) {
         value.bind(function(newval) {
-            if( newval && newval.includes('palette') ) {
+            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-separator-color')) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $('.single-post .entry-header .breadcrumb-list .chevron, .responsive-blog-single-banner2 .breadcrumb-list .chevron, .single-post .entry-header .rank-math-breadcrumb .separator, .responsive-blog-single-banner2 .rank-math-breadcrumb .separator').css('color', newval);
@@ -6490,7 +6490,7 @@
     // Blog/Archive Breadcrumb Background Color
     api( 'responsive_blog_post_breadcrumb_background_color', function(value) {
         value.bind(function(newval) {
-            if( newval && newval.includes('palette') ) {
+            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-background-color')) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $('.responsive-archive-entry-banner .breadcrumbs, .responsive-archive-entry-banner .breadcrumb-list, .archive:not(.woocommerce) .site-content-header .breadcrumbs, .archive:not(.woocommerce) .site-content-header .breadcrumb-list').css('background-color', newval);
@@ -6500,7 +6500,7 @@
     // Blog/Archive Breadcrumb Separator Color
     api( 'responsive_blog_post_breadcrumb_separator_color', function(value) {
         value.bind(function(newval) {
-            if( newval && newval.includes('palette') ) {
+            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-separator-color')) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $('.responsive-archive-entry-banner .breadcrumb-list .chevron, .archive:not(.woocommerce) .site-content-header .breadcrumb-list .chevron, .responsive-archive-entry-banner .rank-math-breadcrumb .separator, .archive:not(.woocommerce) .site-content-header .rank-math-breadcrumb .separator').css('color', newval);
@@ -6560,7 +6560,7 @@
             jQuery( 'style#responsive-page-title-area-text-color' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-page-title-area-text-color">' +
-                'body .responsive-single-entry-banner .container *:not(.entry-title, .entry-title *):not(a, a *), .page #page .entry-header *:not(.entry-title, .entry-title *):not(a, a *) { color: ' + newval + '; }' +
+                'body .responsive-single-entry-banner .container *:not(.entry-title, .entry-title *):not(a, a *), .page #page .entry-header *:not(.entry-title, .entry-title *):not(a, a *):not(.page .entry-header .breadcrumbs .breadcrumb-list .chevron):not(.responsive-single-entry-banner .breadcrumbs .breadcrumb-list .chevron):not(.page .entry-header .breadcrumbs .rank-math-breadcrumb .separator):not(.responsive-single-entry-banner .breadcrumbs .rank-math-breadcrumb .separator) { color: ' + newval + '; }' +
                 '</style>'
             );
 
@@ -6625,7 +6625,7 @@
     // Page Title Area Breadcrumb Background Color
     api( 'responsive_page_title_area_breadcrumb_background_color', function(value) {
         value.bind(function(newval) {
-            if( newval && newval.includes('palette') ) {
+            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-background-color')) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $('.page .entry-header .breadcrumbs, .page .entry-header .breadcrumb-list, .responsive-single-entry-banner .breadcrumbs, .responsive-single-entry-banner .breadcrumb-list').css('background-color', newval);
@@ -6635,7 +6635,7 @@
     // Page Title Area Breadcrumb Separator Color
     api( 'responsive_page_title_area_breadcrumb_separator_color', function(value) {
         value.bind(function(newval) {
-            if( newval && newval.includes('palette') ) {
+            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-separator-color')) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $('.page .entry-header .breadcrumb-list .chevron, .responsive-single-entry-banner .breadcrumb-list .chevron, .page .entry-header .rank-math-breadcrumb .separator, .responsive-single-entry-banner .rank-math-breadcrumb .separator').css('color', newval);

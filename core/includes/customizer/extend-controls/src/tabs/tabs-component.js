@@ -1098,6 +1098,35 @@ const TabsComponent = props => {
 			});
 		}
 
+		// Yoast SEO / RankMath render their own separator - our character
+		// choice and its color have nothing to affect when either is the
+		// selected source, so hide them reactively as the source changes
+		// (the PHP active_callback only sets the initial state on page load).
+		toggleBreadcrumbSeparatorControls();
+		if (api('responsive_breadcrumb_source')) {
+			api('responsive_breadcrumb_source', function(value) {
+				value.bind(function() {
+					toggleBreadcrumbCustomIcon();
+					toggleBreadcrumbSeparatorControls();
+				});
+			});
+		}
+
+		// responsive_breadcrumb_separator_color is the only Design-tab control in
+		// this section with a real active_callback (the others just use null,
+		// i.e. always active). WP Core only animates a control's container in/out
+		// when its "active" Value actually transitions - and since this one's
+		// active state gets evaluated (and typically resolves true) on load, WP's
+		// own slideDown() fires asynchronously and sets display:block *after* our
+		// synchronous tab sweep above already hid it (it's in design_tab_ids), so
+		// it wins the race and stays visible on the General tab. Re-apply our tab
+		// rule every time WP's own active-state animation completes.
+		toggleBreadcrumbSeparatorColorTab();
+		const breadcrumbSeparatorColorCtrl = api.control('responsive_breadcrumb_separator_color');
+		if (breadcrumbSeparatorColorCtrl && breadcrumbSeparatorColorCtrl.active) {
+			breadcrumbSeparatorColorCtrl.active.bind(toggleBreadcrumbSeparatorColorTab);
+		}
+
 	}, [tab]);
 
 	const hideSidebarWidthControl = (value, control) => {
@@ -1592,11 +1621,42 @@ const TabsComponent = props => {
 		}
 	};
 
+	const isBreadcrumbPluginSource = () => {
+		const source = api('responsive_breadcrumb_source') ? api('responsive_breadcrumb_source').get() : 'default';
+		return ( 'yoast' === source || 'rankmath' === source );
+	};
+
 	const toggleBreadcrumbCustomIcon = () => {
 		const separator = api('responsive_breadcrumb_separator') ? api('responsive_breadcrumb_separator').get() : 'rsaquo';
 		const customIconElement = document.getElementById('customize-control-responsive_breadcrumb_unicode');
 		if (customIconElement) {
-			customIconElement.style.display = (separator === 'unicode' && tab === 'general') ? 'block' : 'none';
+			customIconElement.style.display = (separator === 'unicode' && !isBreadcrumbPluginSource() && tab === 'general') ? 'block' : 'none';
+		}
+	};
+
+	const toggleBreadcrumbSeparatorControls = () => {
+		// Both controls only ever belong on the General tab (see general_tab_ids
+		// in class-responsive-panel.php) - showing them here must still respect
+		// that, or switching to the Design tab would never hide them again.
+		const show = !isBreadcrumbPluginSource() && tab === 'general';
+		const separatorEl = document.getElementById('customize-control-responsive_breadcrumb_separator');
+		const separatorDividerEl = document.getElementById('customize-control-responsive_breadcrumb_separator_separator');
+		if (separatorEl) {
+			separatorEl.style.display = show ? 'block' : 'none';
+		}
+		if (separatorDividerEl) {
+			separatorDividerEl.style.display = show ? 'block' : 'none';
+		}
+	};
+
+	// "Separator Color" is a Design-tab-only control (see design_tab_ids in
+	// class-responsive-panel.php) - this only handles which tab it belongs to,
+	// not the Yoast/RankMath plugin-source hiding (that stays PHP-only, since
+	// unlike the character-choice control this one stays visible for RankMath).
+	const toggleBreadcrumbSeparatorColorTab = () => {
+		const el = document.getElementById('customize-control-responsive_breadcrumb_separator_color');
+		if (el) {
+			el.style.display = (tab === 'design') ? 'block' : 'none';
 		}
 	};
 

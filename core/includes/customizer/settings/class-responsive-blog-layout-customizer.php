@@ -347,7 +347,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 
 			// Blog Post Breadcrumb Separator Color
 			$blog_post_breadcrumb_separator_color_label = __( 'Breadcrumb Separator Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'blog_post_breadcrumb_separator', $blog_post_breadcrumb_separator_color_label, 'responsive_blog_title_layout', 32, Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_separator_color' ), 'responsive_active_breadcrumb_separator_area' );
+			responsive_color_control( $wp_customize, 'blog_post_breadcrumb_separator', $blog_post_breadcrumb_separator_color_label, 'responsive_blog_title_layout', 32, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_separator_color' ), 'responsive_active_breadcrumb_separator_area' );
 
 			responsive_horizontal_separator_control( $wp_customize, 'blog_post_link_hover_separator', 1, 'responsive_blog_title_layout',33, 1 );
 
