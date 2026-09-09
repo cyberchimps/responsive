@@ -288,9 +288,9 @@ if ( class_exists( 'WooCommerce' ) ) {
 				);
 				responsive_select_button_control( $wp_customize, 'mobile_header_woo_cart_click_action', $cart_click_action_label, 'responsive_mobile_header_woo_cart', 100, $cart_click_action_choices, 'dropdown', null, 'refresh' );
 				
-				// Cart Icon Color.
-				$cart_color_label = __( 'Icon Color', 'responsive' );
-				responsive_color_control( $wp_customize, 'mobile_cart', $cart_color_label, 'responsive_mobile_header_woo_cart', 120, '#333333', null, '', true, '#333333', 'mobile_cart_hover' );
+				// // Cart Icon Color.
+				// $cart_color_label = __( 'Cart Color', 'responsive' );
+				// responsive_color_control( $wp_customize, 'mobile_cart', $cart_color_label, 'responsive_mobile_header_woo_cart', 120, '#333333', null, '', true, '#333333', 'mobile_cart_hover' );
 
 				// Count color.
 				$count_color_label = __( 'Count Color', 'responsive' );

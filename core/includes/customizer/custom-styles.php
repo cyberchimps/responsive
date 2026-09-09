@@ -7947,15 +7947,15 @@ function responsive_customizer_styles() {
 	$mobile_header_woo_cart_margin_values  = get_responsive_spacing_values('responsive_mobile_header_woo_cart_margin');
 	if(Responsive\Core\responsive_check_element_in_mobile_tablet_items('woo-cart', 'header'))
 	{
-		$custom_css .= ".site-mobile-header-item .responsive-header-cart .res-addon-cart-wrap {";
+		$custom_css .= ".responsive-mobile-header-cart .res-addon-mobile-cart-wrap {";
 		$custom_css .= responsive_build_responsive_spacing_css($mobile_header_woo_cart_padding_values['desktop'], $mobile_header_woo_cart_margin_values['desktop']);
 		$custom_css .= "}";
 		$custom_css .= "@media screen and (max-width: 992px) {";
-		$custom_css .= ".site-mobile-header-item .responsive-header-cart .res-addon-cart-wrap {";
+		$custom_css .= ".responsive-mobile-header-cart .res-addon-mobile-cart-wrap {";
 		$custom_css .= responsive_build_responsive_spacing_css($mobile_header_woo_cart_padding_values['tablet'], $mobile_header_woo_cart_margin_values['tablet']);
 		$custom_css .= "}}";
 		$custom_css .= "@media screen and (max-width: 576px) {";
-		$custom_css .= ".site-mobile-header-item .responsive-header-cart .res-addon-cart-wrap {";
+		$custom_css .= ".responsive-mobile-header-cart .res-addon-mobile-cart-wrap {";
 		$custom_css .= responsive_build_responsive_spacing_css($mobile_header_woo_cart_padding_values['mobile'], $mobile_header_woo_cart_margin_values['mobile']);
 		$custom_css .= "}}";
 	}
@@ -11887,6 +11887,9 @@ function responsive_customizer_styles() {
 		 }
 		";
 		// Header Woo Cart
+		$cart_style                   = get_theme_mod( 'responsive_cart_style', 'outline' );
+		$cart_color                   = get_theme_mod( 'responsive_cart_color', '#000000' );
+		$cart_hover_color             = get_theme_mod( 'responsive_cart_hover_color', '#000000' );
 		$cart_count_color               			  = get_theme_mod( 'responsive_cart_count_color', '#000' );
 		$cart_count_hover_color         			  = get_theme_mod( 'responsive_cart_count_hover_color', '#000' );
 		$header_cart_button_color       			  = get_theme_mod( 'responsive_header_cart_button_color', '#10659C' );
@@ -11903,9 +11906,86 @@ function responsive_customizer_styles() {
 		$header_cart_tray_link_color                  = get_theme_mod( 'responsive_header_cart_tray_link_color', '#333333' );
 		$header_cart_tray_link_hover_color            = get_theme_mod( 'responsive_header_cart_tray_link_hover_color', '#333333' );
 		$header_cart_tray_separator_color             = get_theme_mod( 'responsive_header_cart_tray_separator_color', '#D1D5DB' );
+		$header_woo_cart_border_width = get_theme_mod( 'responsive_cart_border_width', 1 );
+
+		$cart_top_left_radius         = absint( get_theme_mod( 'responsive_cart_radius_top_left_radius', 0 ) );
+		$cart_top_right_radius        = absint( get_theme_mod( 'responsive_cart_radius_top_right_radius', 0 ) );
+		$cart_bottom_right_radius     = absint( get_theme_mod( 'responsive_cart_radius_bottom_right_radius', 0 ) );
+		$cart_bottom_left_radius      = absint( get_theme_mod( 'responsive_cart_radius_bottom_left_radius', 0 ) );
+
+		// Tablet cart.
+		$cart_tablet_top_left_radius     = absint( get_theme_mod( 'responsive_cart_radius_tablet_top_left_radius', 0 ) );
+		$cart_tablet_top_right_radius    = absint( get_theme_mod( 'responsive_cart_radius_tablet_top_right_radius', 0 ) );
+		$cart_tablet_bottom_right_radius = absint( get_theme_mod( 'responsive_cart_radius_tablet_bottom_right_radius', 0 ) );
+		$cart_tablet_bottom_left_radius  = absint( get_theme_mod( 'responsive_cart_radius_tablet_bottom_left_radius', 0 ) );
+
+		// Mobile cart.
+		$cart_mobile_top_left_radius     = absint( get_theme_mod( 'responsive_cart_radius_mobile_top_left_radius', 0 ) );
+		$cart_mobile_top_right_radius    = absint( get_theme_mod( 'responsive_cart_radius_mobile_top_right_radius', 0 ) );
+		$cart_mobile_bottom_right_radius = absint( get_theme_mod( 'responsive_cart_radius_mobile_bottom_right_radius', 0 ) );
+		$cart_mobile_bottom_left_radius  = absint( get_theme_mod( 'responsive_cart_radius_mobile_bottom_left_radius', 0 ) );
 
 		if(Responsive\Core\responsive_check_element_present_in_hfb('woo-cart', 'header'))
 		{
+			if ( 'outline' === $cart_style ) {
+				$woocommerce_custom_css .= "
+				.res-addon-cart-wrap {
+					border: {$header_woo_cart_border_width}px solid {$cart_color};
+					color: {$cart_color};
+				}
+				.res-addon-cart-wrap svg path {
+					fill: {$cart_color};
+				}
+				.res-addon-cart-wrap:hover {
+					border: {$header_woo_cart_border_width}px solid {$cart_hover_color};
+					color: {$cart_hover_color};
+				}
+				.res-addon-cart-wrap:hover svg path {
+					fill: {$cart_hover_color};
+				}
+			";
+			}
+			if ( 'fill' === $cart_style ) {
+				$woocommerce_custom_css .= "
+				.res-addon-cart-wrap {
+					background-color: {$cart_color};
+				}
+				.res-addon-cart-wrap:hover {
+					background-color: {$cart_hover_color};
+				}
+			";
+			}
+			if ( 'none' === $cart_style ) {
+				$woocommerce_custom_css .= "
+				.res-addon-cart-wrap {
+					color: {$cart_color};
+				}
+				.res-addon-cart-wrap svg path {
+					fill: {$cart_color};
+				}
+				.res-addon-cart-wrap:hover {
+					color: {$cart_hover_color};
+				}
+				.res-addon-cart-wrap:hover svg path {
+					fill: {$cart_hover_color};
+				}
+			";
+			}
+			$woocommerce_custom_css .= '
+				.res-addon-cart-wrap {
+					border-radius: ' . responsive_spacing_css( $cart_top_left_radius, $cart_top_right_radius, $cart_bottom_right_radius, $cart_bottom_left_radius ) . ';
+				}
+				@media screen and ( max-width: 992px ) {
+					.res-addon-cart-wrap {
+						border-radius: ' . responsive_spacing_css( $cart_tablet_top_left_radius, $cart_tablet_top_right_radius, $cart_tablet_bottom_right_radius, $cart_tablet_bottom_left_radius ) . ';
+					}
+				}
+				@media screen and ( max-width: 576px ) {
+					.res-addon-cart-wrap {
+						border-radius: ' . responsive_spacing_css( $cart_mobile_top_left_radius, $cart_mobile_top_right_radius, $cart_mobile_bottom_right_radius, $cart_mobile_bottom_left_radius ) . ';
+					}
+				}
+			';
 			$woocommerce_custom_css .= "
 			.responsive-header-cart-total {
 				color: {$cart_count_color};
@@ -11967,10 +12047,10 @@ function responsive_customizer_styles() {
 			$mobile_cart_color                   = get_theme_mod( 'responsive_mobile_cart_color', '#000000' );
 			$mobile_cart_hover_color             = get_theme_mod( 'responsive_mobile_cart_hover_color', '#000000' );
 			$mobile_header_woo_cart_border_width = get_theme_mod( 'responsive_mobile_cart_border_width', 1 );
-			$mobile_cart_top_left_radius         = absint( get_theme_mod( 'responsive_mobile_cart_radius_top_left_radius', 0 ) );
-			$mobile_cart_top_right_radius        = absint( get_theme_mod( 'responsive_mobile_cart_radius_top_right_radius', 0 ) );
-			$mobile_cart_bottom_right_radius     = absint( get_theme_mod( 'responsive_mobile_cart_radius_bottom_right_radius', 0 ) );
-			$mobile_cart_bottom_left_radius      = absint( get_theme_mod( 'responsive_mobile_cart_radius_bottom_left_radius', 0 ) );
+			$mobile_cart_top_left_radius         = absint( get_theme_mod( 'responsive_mobile_cart_radius_mobile_top_left_radius', 0 ) );
+			$mobile_cart_top_right_radius        = absint( get_theme_mod( 'responsive_mobile_cart_radius_mobile_top_right_radius', 0 ) );
+			$mobile_cart_bottom_right_radius     = absint( get_theme_mod( 'responsive_mobile_cart_radius_mobile_bottom_right_radius', 0 ) );
+			$mobile_cart_bottom_left_radius      = absint( get_theme_mod( 'responsive_mobile_cart_radius_mobile_bottom_left_radius', 0 ) );
 
 
 		$mobile_cart_count_color               			  = get_theme_mod( 'responsive_mobile_cart_count_color', '#000' );

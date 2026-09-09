@@ -2126,3 +2126,6 @@ ul.control-panel-nav_menus .customize-help-toggle:before {
 .responsive-hfb-builder-item[data-id="header_widgets2"] .rhfb-setting-icon {
     display: none !important;
 }
+#customize-control-responsive_mobile_cart_icon_addon_separator {
+	margin-top: 0;
+}
