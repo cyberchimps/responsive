@@ -2132,7 +2132,7 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_tablet_items_
 											case 'woo-cart':
 												// WooCommerce cart stays in same position
 												if ( class_exists( 'WooCommerce' ) ) {
-													$mobile_element = 'mobile_woo-cart';
+													$mobile_element = 'woo-cart';
 												}
 												break;
 										}

@@ -66,7 +66,7 @@ add_action( 'responsive_below_mobile_header', 'below_mobile_header' );
 add_action( 'responsive_render_mobile_header_column', 'mobile_header_column', 10, 2 );
 
 // Load Cart Flyout Markup on Footer.
-add_action( 'responsive_footer_before', 'responsive_header_woo_cart_slide_in' );
+add_action( 'responsive_footer_before', 'responsive_header_woo_cart_slide_in_router' );
 
 // Load Off-Canvas Panel if toggle button is present in mobile/tablet header.
 // This is rendered inside the mobile header wrapper, not after header.

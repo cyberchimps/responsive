@@ -1491,7 +1491,8 @@ in both cases the footer builder is active */
 .responsive-customize-control-desc .note {
 	font-weight: 600;
 }
-#customize-control-responsive_display_cart_count .responsive-toggle-control-wrapper{
+#customize-control-responsive_display_cart_count .responsive-toggle-control-wrapper,
+#customize-control-responsive_mobile_display_cart_count .responsive-toggle-control-wrapper{
 	padding-top: 24px;
 	padding-bottom: 24px;
 }

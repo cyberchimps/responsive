@@ -515,7 +515,7 @@ div.product div.images .flex-control-thumbs {
 	margin-right: 10px;
 }
 
-span.res-header-cart-info-wrap, .res-addon-cart-wrap{
+span.res-header-cart-info-wrap, .res-addon-cart-wrap, .res-addon-mobile-cart-wrap{
     display: flex;
     align-items: center;
     gap: 6px;
@@ -1076,7 +1076,8 @@ span.res-header-cart-info-wrap, .res-addon-cart-wrap{
     position: relative;
     display: flex;
 }
-.responsive-header-cart span.res-cart-icon {
+.responsive-header-cart span.res-cart-icon,
+.responsive-mobile-header-cart span.res-cart-icon {
     display: inline-block;
 }
 .responsive-header-cart-total {
@@ -1097,17 +1098,17 @@ span.res-header-cart-info-wrap, .res-addon-cart-wrap{
     text-align: center;
     z-index: 3;
 }
-.res-cart-label-position-right {
+.res-cart-label-position-right, .res-mobile-cart-label-position-right  {
     flex-direction: row-reverse;
 }
-.res-cart-label-position-bottom {
+.res-cart-label-position-bottom, .res-mobile-cart-label-position-bottom {
     flex-direction: column;
     & .responsive-woo-header-cart-info-wrap {
         order: 2;
     }
 }
 // header cart click action
-.responsive-header-cart {
+.responsive-header-cart, .responsive-mobile-header-cart {
     position: relative;
     cursor: pointer;
     &:focus, &:hover {
@@ -1166,7 +1167,7 @@ span.res-header-cart-info-wrap, .res-addon-cart-wrap{
         }
     }
 }
-.rspv-header-cart-drawer {
+.rspv-header-cart-drawer, .rspv-mobile-header-cart-drawer {
     position: fixed;
     display: block;
     visibility: hidden;
@@ -1201,7 +1202,7 @@ span.res-header-cart-info-wrap, .res-addon-cart-wrap{
         z-index: 1;
         max-height: 3.5em;
     }
-    & .rspv-header-cart-drawer-close {
+    & .rspv-header-cart-drawer-close, .rspv-mobile-header-cart-drawer-close {
         position: absolute;
         top: 0.5em;
         right: 0;
@@ -1211,7 +1212,7 @@ span.res-header-cart-info-wrap, .res-addon-cart-wrap{
         color: #1E293B;
         background-color: transparent;
     }
-    & .rspv-cart-drawer-content {
+    & .rspv-cart-drawer-content, .rspv-mobile-cart-drawer-content {
         padding-top: 56px;
     }
     & .widget_shopping_cart {
@@ -1269,7 +1270,8 @@ span.res-header-cart-info-wrap, .res-addon-cart-wrap{
         z-index: 999;
     }
 }
-.rspv-cart-drawer-content {
+.rspv-cart-drawer-content,
+.rspv-mobile-cart-drawer-content {
     & .woocommerce-mini-cart__empty-message {
         text-align: center;
         padding: 20px;
