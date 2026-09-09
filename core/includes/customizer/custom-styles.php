@@ -13728,6 +13728,52 @@ function responsive_customizer_styles() {
 				}
 			}";
 		}
+
+		$mobile_columns = get_theme_mod( 'responsive_product_mobile_columns', '1' );
+		if ( ! empty( $mobile_columns ) ) {
+			if ( '1' === (string) $mobile_columns ) {
+				$woocommerce_custom_css .= '
+				@media screen and ( max-width: 576px ) {
+					body.woocommerce-page ul.products li.product,
+					body.woocommerce ul.products li.product,
+					body.woocommerce-page ul.products[class*="columns-"] li.product,
+					body.woocommerce ul.products[class*="columns-"] li.product {
+						width: 100%;
+						float: none;
+						margin-right: 0;
+						clear: both;
+					}
+				}';
+			} elseif ( '2' === (string) $mobile_columns ) {
+				$woocommerce_custom_css .= '
+				@media screen and ( max-width: 576px ) {
+					body.woocommerce-page ul.products li.product,
+					body.woocommerce ul.products li.product,
+					body.woocommerce-page ul.products[class*="columns-"] li.product,
+					body.woocommerce ul.products[class*="columns-"] li.product {
+						width: calc( 50% - 12px );
+						margin-right: 24px;
+						float: left;
+						clear: none;
+					}
+					body.woocommerce-page ul.products li.product:nth-child(2n),
+					body.woocommerce ul.products li.product:nth-child(2n),
+					body.woocommerce-page ul.products[class*="columns-"] li.product:nth-child(2n),
+					body.woocommerce ul.products[class*="columns-"] li.product:nth-child(2n) {
+						margin-right: 0;
+						float: right;
+						clear: none;
+					}
+					body.woocommerce-page ul.products li.product:nth-child(2n+1),
+					body.woocommerce ul.products li.product:nth-child(2n+1),
+					body.woocommerce-page ul.products[class*="columns-"] li.product:nth-child(2n+1),
+					body.woocommerce ul.products[class*="columns-"] li.product:nth-child(2n+1) {
+						clear: both;
+					}
+				}';
+			}
+		}
+
 		$sorting_option_text       = esc_html( get_theme_mod( 'responsive_sorting_option_text_color', '#333333' ) );
 		$sorting_option_background = esc_html( get_theme_mod( 'responsive_sorting_option_background_color', '#ffffff' ) );
 		$woocommerce_custom_css   .= "

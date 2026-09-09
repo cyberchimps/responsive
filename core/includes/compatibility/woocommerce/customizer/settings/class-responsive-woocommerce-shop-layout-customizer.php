@@ -90,6 +90,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				$general_tab_ids_prefix . 'responsive_product_button_action_style',
 				$general_tab_ids_prefix . 'responsive_product_button_style',
 				$general_tab_ids_prefix . 'responsive_product_align_button_bottom',
+				$general_tab_ids_prefix . 'responsive_product_mobile_columns',
 				$general_tab_ids_prefix . 'responsive_product_catalog_container_layout_separator',
 				$general_tab_ids_prefix . 'responsive_product_catalog_container_layout',
 				$general_tab_ids_prefix . 'responsive_product_catalog_container_style_separator',
@@ -301,6 +302,14 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 
 			// Align Button at Bottom.
 			responsive_toggle_control( $wp_customize, 'product_align_button_bottom', esc_html__( 'Align Button at Bottom', 'responsive' ), 'responsive_woocommerce_shop', 49.9, Responsive\Core\get_responsive_customizer_defaults( 'responsive_product_align_button_bottom' ), null, 'refresh' );
+
+			// Mobile Columns Layout.
+			$product_mobile_columns_label   = esc_html__( 'Mobile Columns Layout', 'responsive' );
+			$product_mobile_columns_choices = array(
+				'1' => esc_html__( 'One Column', 'responsive' ),
+				'2' => esc_html__( 'Two Column', 'responsive' ),
+			);
+			responsive_select_button_control( $wp_customize, 'product_mobile_columns', $product_mobile_columns_label, 'responsive_woocommerce_shop', 49.95, $product_mobile_columns_choices, Responsive\Core\get_responsive_customizer_defaults( 'responsive_product_mobile_columns' ), null, 'refresh' );
 
 			$outside_container_label = __( 'Padding (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'product_card_outside_container', 'responsive_woocommerce_shop', 33, 15, 15, '', $outside_container_label );

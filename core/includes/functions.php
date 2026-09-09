@@ -1452,6 +1452,7 @@ function defaults() {
 			'responsive_product_button_action_style' => 'always',
 			'responsive_product_button_style'        => 'button',
 			'responsive_product_align_button_bottom' => 0,
+			'responsive_product_mobile_columns'      => '1',
 			'responsive_single_product_sidebar_style' => 'default',
 			'responsive_widget_bottom_spacing'    => 30,
 			'responsive_widget_bottom_spacing_unit' => 'px',
