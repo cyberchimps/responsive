@@ -2597,6 +2597,49 @@ function responsive_check_for_element($component, $haystack) {
 	return false;
 }
 /**
+ * When WooCommerce isn't active, strip any 'woo-cart' entries out of the
+ * saved header builder layouts on read. This covers the case where Cart was
+ * placed in a header zone while WooCommerce was active and the plugin gets
+ * deactivated afterwards - without this, the builder choice metadata for
+ * 'woo-cart' disappears (it's only added when WooCommerce is active) but the
+ * saved layout still references it, leaving a blank/unlabelled box in the
+ * Header Builder. Filtering the theme mod itself removes it everywhere that
+ * reads it (builder UI, display_header_row(), has_side_columns(), etc.), and
+ * because the Customizer control reads its value the same way, saving from
+ * the Customizer afterwards persists the removal.
+ *
+ * @param mixed $items The saved header items array (rows > columns > element slugs).
+ * @return mixed The items array with 'woo-cart' removed from every column.
+ */
+function responsive_strip_woo_cart_from_header_items( $items ) {
+	if ( ! is_array( $items ) ) {
+		return $items;
+	}
+	foreach ( $items as $row => $columns ) {
+		if ( ! is_array( $columns ) ) {
+			continue;
+		}
+		foreach ( $columns as $column => $elements ) {
+			if ( is_array( $elements ) ) {
+				$items[ $row ][ $column ] = array_values(
+					array_filter(
+						$elements,
+						function( $element ) {
+							return 'woo-cart' !== $element;
+						}
+					)
+				);
+			}
+		}
+	}
+	return $items;
+}
+if ( ! class_exists( 'WooCommerce' ) ) {
+	add_filter( 'theme_mod_responsive_header_desktop_items', __NAMESPACE__ . '\\responsive_strip_woo_cart_from_header_items' );
+	add_filter( 'theme_mod_responsive_header_mobile_tablet_items', __NAMESPACE__ . '\\responsive_strip_woo_cart_from_header_items' );
+}
+
+/**
  * Check if toggle_button is present in mobile_tablet_items.
  *
  * @return bool True if toggle_button is present in mobile_tablet_items, false otherwise.
