@@ -791,7 +791,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'footer_primary_row_widget_content' => '.rspv-site-primary-footer-wrap .footer-widgets',
 				'footer_below_row_widget_heading' => '.rspv-site-below-footer-wrap .footer-widgets .wp-block-heading, .rspv-site-below-footer-wrap .footer-social-icons .widget-title',
 				'footer_below_row_widget_content' => '.rspv-site-below-footer-wrap .footer-widgets',
-				'add_to_cart_button'         => '.woocommerce ul.products li.product .button, .woocommerce ul.products li.product a.button, .woocommerce div.product form.cart .button, .woocommerce #respond input#submit, .woocommerce button.button, .woocommerce a.button, .woocommerce button.button.alt, .woocommerce a.button.alt, .wp-block-button__link.add_to_cart_button'
+				'add_to_cart_button'         => '.woocommerce ul.products li.product .button, .woocommerce ul.products li.product .add_to_cart_button'
 			);
 
 			if ( $this->is_responsive_version_greater() ) {
