@@ -117,6 +117,10 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			if ( 'text_with_arrow' === $btn_style ) {
 				add_filter( 'woocommerce_loop_add_to_cart_link', array( $this, 'responsive_woocommerce_loop_add_to_cart_arrow' ), 10, 3 );
 			}
+
+			if ( 1 === (int) get_theme_mod( 'responsive_product_align_button_bottom', Responsive\Core\get_responsive_customizer_defaults( 'responsive_product_align_button_bottom' ) ) ) {
+				add_filter( 'body_class', array( $this, 'responsive_woocommerce_align_button_bottom_body_class' ) );
+			}
 		}
 		/**
 		 * Register Customizer sections and panel for woocommerce
@@ -737,6 +741,21 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			$arrow_svg = '<svg class="responsive-btn-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
 			$link      = str_replace( '</a>', $arrow_svg . '</a>', $link );
 			return $link;
+		}
+
+		/**
+		 * Add body class when Align Button at Bottom is enabled.
+		 * CSS uses this class to push the Add to Cart button to the
+		 * bottom of each product card via flex column + margin-top: auto.
+		 *
+		 * @param array $classes Array of body class strings.
+		 * @return array
+		 */
+		public function responsive_woocommerce_align_button_bottom_body_class( $classes ) {
+			if ( is_shop() || is_product_taxonomy() ) {
+				$classes[] = 'responsive-align-btn-bottom';
+			}
+			return $classes;
 		}
 
 	}

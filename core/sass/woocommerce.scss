@@ -1522,3 +1522,37 @@ li.product.btn-style-text-with-arrow {
         }
     }
 }
+
+/* Align Button at Bottom */
+body.responsive-align-btn-bottom {
+
+    // Step 1: Force the product grid to be a flex row so that all cards
+    // in a row stretch to the same height (align-items: stretch is the default
+    // but we declare it explicitly to override any other value).
+    ul.products,
+    ul.wc-block-grid__products {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+    }
+
+    ul.products li.product,
+    ul.wc-block-grid__products li.wc-block-grid__product {
+
+        // Step 2: Card becomes a flex column so its children can fill its height.
+        display: flex;
+        flex-direction: column;
+
+        .responsive-shop-summary-wrap {
+            // Step 3: Summary wrap grows to fill all remaining space after the image.
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .responsive-product-action-wrap {
+            // Step 4: Button is pushed to the absolute bottom of every card.
+            margin-top: auto;
+        }
+    }
+}
