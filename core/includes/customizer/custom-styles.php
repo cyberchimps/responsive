@@ -5697,6 +5697,33 @@ function responsive_customizer_styles() {
 		color: var(--responsive-global-breadcrumb-separator-color);
 	}";
 
+	// Breadcrumb Alignment.
+	// .breadcrumbs is nested at varying depths across contexts (direct flex child
+	// in the archive Layout 1 / .site-content-header case, but wrapped inside
+	// .responsive-breadcrumbs-wrapper > .breadcrumbs-inner for page/post, and inside
+	// a non-flex .container for every Layout 2 banner) so align-self on an ancestor
+	// alone isn't reliable everywhere. Making .breadcrumbs itself a flex row and
+	// justifying its own content works regardless of nesting depth or box width;
+	// align-self on the wrapper is added on top for the contexts where it IS a
+	// direct flex child, so the whole block (not just its text) shifts position.
+	$breadcrumb_alignment    = get_theme_mod( 'responsive_content_header_alignment', Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_alignment' ) );
+	$breadcrumb_flex_align_map = array(
+		'left'   => 'flex-start',
+		'center' => 'center',
+		'right'  => 'flex-end',
+	);
+	$breadcrumb_flex_align = isset( $breadcrumb_flex_align_map[ $breadcrumb_alignment ] ) ? $breadcrumb_flex_align_map[ $breadcrumb_alignment ] : 'center';
+
+	$custom_css .= "
+	.breadcrumbs {
+		display: flex;
+		justify-content: {$breadcrumb_flex_align};
+		text-align: {$breadcrumb_alignment};
+	}
+	.responsive-breadcrumbs-wrapper {
+		align-self: {$breadcrumb_flex_align};
+	}";
+
 	// Entry Blog Styles.
 	$blog_content_width = esc_html( get_theme_mod( 'responsive_blog_content_width', Responsive\Core\get_responsive_customizer_defaults( 'blog_content_width' ) ) );
 

@@ -204,7 +204,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 109,
 					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
-						'font-size'   => '13px',
 						'line-height' => '1.75',
 					),
 				),
@@ -217,7 +216,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 132,
 					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
-						'font-size'   => '13px',
 						'line-height' => '1.75',
 					),
 				),
@@ -230,7 +228,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 47,
 					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
-						'font-size'   => '13px',
 						'line-height' => '1.75',
 					),
 				),
@@ -393,7 +390,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'section'         => 'responsive_breadcrumb',
 					'exclude'         => array( 'font-color' ),
 					'defaults'        => array(
-						'font-size'   => '13px',
+						'font-size'   => '16px',
 						'line-height' => '1.75',
 					),
 				),
@@ -774,7 +771,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'sidebar'                    => '.site-content .widget-area:not(.home-widgets) .widget-wrapper',
 				'content_header_heading'     => '.site-content-header .page-header .page-title,.site-content-header .page-title',
 				'content_header_description' => '.site-content-header .page-header .page-description',
-				'breadcrumb'                 => '.site-content-header .breadcrumb-list,.woocommerce .woocommerce-breadcrumb',
+				'breadcrumb'                 => '.breadcrumb-list',
 				'footer'                     => '.site-footer',
 				'rp_section_title'           => '.responsive-related-single-posts-title',
 				'rp_post_title'              => '.responsive-related-single-post-title',
@@ -795,7 +792,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'single_blog_breadcrumb'     => '.single.single-post .breadcrumbs .breadcrumb-list',
 				'blog_breadcrumb' 			 => '.blog .breadcrumbs .breadcrumb-list',
 				'page_breadcrumb'            => '.page .breadcrumbs .breadcrumb-list',
-				'single_blog_post_text'      => '.single-post .entry-header *:not(.post-meta):not(.post-meta *):not(.post-title), .responsive-blog-single-banner2 .container *:not(.post-meta):not(.post-meta *):not(.post-title)',
+				'single_blog_post_text'      => '.single-post .entry-header *:not(.post-meta):not(.post-meta *):not(.post-title):not(.breadcrumbs *), .responsive-blog-single-banner2 .container *:not(.post-meta):not(.post-meta *):not(.post-title):not(.breadcrumbs *)',
 				'single_blog_post_title'     => '.single-post .site-content article .post-entry .post-title, .single-post .responsive-blog-single-banner2 .post-title',
 				'single_blog_post_meta'      => '.single-post .site-content article .post-entry .post-meta span, .single-post .site-content article .post-entry .post-meta i, .single-post .site-content article .post-entry .post-meta span a, .single-post .site-content article .post-entry .post-meta span a time, .single-post .site-content article .post-entry .entry-meta, .responsive-blog-single-banner2 .container .post-meta span, .responsive-blog-single-banner2 .container .post-meta i, .responsive-blog-single-banner2 .container .post-meta span a, .responsive-blog-single-banner2 .container .post-meta span a time, .responsive-blog-single-banner2 .container .entry-meta',
 				'page_title_area_text'		 => '.responsive-single-entry-banner .container, .page .entry-header',

@@ -122,7 +122,7 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 					'right'  => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
 				);
 			}
-			responsive_select_button_control( $wp_customize, 'content_header_alignment', $content_header_alignment_label, 'responsive_breadcrumb', 30, $content_header_alignment_choices, Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_alignment' ), 'responsive_active_breadcrumb', 'postMessage' );
+			responsive_select_button_control( $wp_customize, 'content_header_alignment', $content_header_alignment_label, 'responsive_breadcrumb', 30, $content_header_alignment_choices, Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_alignment' ), 'responsive_active_breadcrumb', 'refresh' );
 
 			// Breadcrumb Separator Text.
 			$wp_customize->add_setting(
