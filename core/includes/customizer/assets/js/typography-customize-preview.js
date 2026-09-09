@@ -6008,6 +6008,18 @@
                 + '</style>'
             );
         } );
-    } )
+    } ),
     // HTML Font Typography - End
+
+    // Add To Cart Button Typography - Start
+    generateTypographyPreview(
+        'add_to_cart_button_typography',
+        'add_to_cart_button_tablet_typography',
+        'add_to_cart_button_mobile_typography',
+        'add_to_cart_button',
+        'customizer-typography-add_to_cart_button_typography',
+        ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
+    )
+    // Add To Cart Button Typography - End
 } )( jQuery );
+

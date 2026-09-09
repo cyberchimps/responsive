@@ -129,6 +129,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_add_to_cart_button_text_color',
 				$design_tab_ids_prefix . 'responsive_add_to_cart_button_hover_color',
 				$design_tab_ids_prefix . 'responsive_add_to_cart_button_hover_text_color',
+				$design_tab_ids_prefix . 'responsive_add_to_cart_button_typography_group',
 				$design_tab_ids_prefix . 'responsive_shop_product_sorting_separator',
 				$design_tab_ids_prefix . 'responsive_sorting_option_text_color',
 				$design_tab_ids_prefix . 'responsive_sorting_option_background_color',

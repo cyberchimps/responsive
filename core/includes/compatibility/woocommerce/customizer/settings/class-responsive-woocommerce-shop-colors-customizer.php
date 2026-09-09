@@ -64,6 +64,10 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Colors_Customizer' ) ) :
 			$add_to_cart_button_hover_text_label = __( 'Button Hover Text', 'responsive' );
 			responsive_color_control( $wp_customize, 'add_to_cart_button_hover_text', $add_to_cart_button_hover_text_label, 'responsive_woocommerce_shop', 70, get_responsive_customizer_defaults('responsive_add_to_cart_button_hover_text_color') );
 
+			// Button Font.
+			$add_to_cart_button_typography_label = esc_html__( 'Font', 'responsive' );
+			responsive_typography_group_control( $wp_customize, 'add_to_cart_button_typography_group', $add_to_cart_button_typography_label, 'responsive_woocommerce_shop', 74, 'add_to_cart_button_typography' );
+
 			// Product Sorting.
 			$shop_product_sorting_separator = esc_html__( 'Product Sorting', 'responsive' );
 			responsive_separator_control( $wp_customize, 'shop_product_sorting_separator', $shop_product_sorting_separator, 'responsive_woocommerce_shop', 75 );
