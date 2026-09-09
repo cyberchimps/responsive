@@ -208,6 +208,7 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'yoast-seo-breadcrumbs' );
+		add_theme_support( 'rank-math-breadcrumbs' );
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
