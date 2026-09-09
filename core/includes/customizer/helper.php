@@ -2599,19 +2599,50 @@ if ( ! function_exists( 'responsive_active_breadcrumb_separator' ) ) {
 	}
 }
 
+if ( ! function_exists( 'responsive_breadcrumb_source_separator_unstylable' ) ) {
+	/**
+	 * Whether the selected Breadcrumb Source renders its separator in a way
+	 * that no CSS selector can target - true only for Yoast, which
+	 * concatenates its separator as plain text directly between crumbs with
+	 * no wrapping element at all. RankMath, by contrast, wraps its separator
+	 * in <span class="separator">, so its color CAN be styled and this
+	 * returns false for it - only the character-choice control (which picks
+	 * a literal glyph neither plugin ever uses) stays hidden for RankMath too.
+	 *
+	 * @since 1.1.0
+	 */
+	function responsive_breadcrumb_source_separator_unstylable() {
+		$source = get_theme_mod( 'responsive_breadcrumb_source', 'default' );
+		return ( 'yoast' === $source && function_exists( 'yoast_breadcrumb' ) );
+	}
+}
+
+if ( ! function_exists( 'responsive_active_breadcrumb_separator_color' ) ) {
+	/**
+	 * Active callback for the global breadcrumb separator COLOR control.
+	 * Stays visible for RankMath (whose separator is stylable) but hidden
+	 * for Yoast (whose separator has no addressable element).
+	 *
+	 * @since 1.1.0
+	 */
+	function responsive_active_breadcrumb_separator_color() {
+		return responsive_active_breadcrumb() && ! responsive_breadcrumb_source_separator_unstylable();
+	}
+}
+
 if ( ! function_exists( 'responsive_active_breadcrumb_separator_area' ) ) {
 	/**
 	 * Active callback for the per-area (Page / Single Post / Blog-Archive
 	 * Title Area) breadcrumb separator color controls. These aren't gated on
 	 * the global breadcrumb section like their global counterpart - matching
 	 * their sibling "Breadcrumb Background Color" controls, which are always
-	 * shown regardless of the global toggle - so only the plugin-source check
+	 * shown regardless of the global toggle - so only the stylability check
 	 * applies here.
 	 *
 	 * @since 1.1.0
 	 */
 	function responsive_active_breadcrumb_separator_area() {
-		return ! responsive_breadcrumb_source_uses_plugin();
+		return ! responsive_breadcrumb_source_separator_unstylable();
 	}
 }
 

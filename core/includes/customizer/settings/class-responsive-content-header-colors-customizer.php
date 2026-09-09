@@ -63,7 +63,7 @@ if ( ! class_exists( 'Responsive_Content_Header_Colors_Customizer' ) ) :
 
 			// Breadcrumb Separator Color
 			$breadcrumb_separator_color_label = __( 'Separator Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'breadcrumb_separator', $breadcrumb_separator_color_label, 'responsive_breadcrumb', 75, Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_separator_color' ), 'responsive_active_breadcrumb_separator', '', false, null, null, false, null, null, 'color', 'refresh' );
+			responsive_color_control( $wp_customize, 'breadcrumb_separator', $breadcrumb_separator_color_label, 'responsive_breadcrumb', 75, Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_separator_color' ), 'responsive_active_breadcrumb_separator_color', '', false, null, null, false, null, null, 'color', 'refresh' );
 
 			// Breadcrumb Background Separator
 			responsive_horizontal_separator_control($wp_customize, 'breadcrumb_background_separator', 1, 'responsive_breadcrumb', 76, 1, );			

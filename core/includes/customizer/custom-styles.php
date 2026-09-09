@@ -5693,7 +5693,8 @@ function responsive_customizer_styles() {
 	.breadcrumbs .rank-math-breadcrumb a:hover {
 		color: var(--responsive-global-breadcrumb-link-hover-color);
 	}
-	.breadcrumbs .breadcrumb-list .chevron {
+	.breadcrumbs .breadcrumb-list .chevron,
+	.breadcrumbs .rank-math-breadcrumb .separator {
 		color: var(--responsive-global-breadcrumb-separator-color);
 	}";
 
@@ -12218,7 +12219,9 @@ function responsive_customizer_styles() {
 		$single_blog_post_title_breadcrumb_separator_color = responsive_prepare_css_value( 'responsive_single_blog_post_breadcrumb_separator_color', Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_separator_color' ) );
 		$custom_css .= "
 		.single-post .entry-header .breadcrumbs .breadcrumb-list .chevron,
-		.responsive-blog-single-banner2 .breadcrumbs .breadcrumb-list .chevron {
+		.responsive-blog-single-banner2 .breadcrumbs .breadcrumb-list .chevron,
+		.single-post .entry-header .breadcrumbs .rank-math-breadcrumb .separator,
+		.responsive-blog-single-banner2 .breadcrumbs .rank-math-breadcrumb .separator {
 			color: {$single_blog_post_title_breadcrumb_separator_color};
 		}
 		";
@@ -12439,7 +12442,9 @@ function responsive_customizer_styles() {
 		$blog_post_title_breadcrumb_separator_color = responsive_prepare_css_value( 'responsive_blog_post_breadcrumb_separator_color', Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_separator_color' ) );
 		$custom_css .= "
 		.responsive-archive-entry-banner .breadcrumbs .breadcrumb-list .chevron,
-		.archive:not(.woocommerce) .site-content-header .breadcrumbs .breadcrumb-list .chevron {
+		.archive:not(.woocommerce) .site-content-header .breadcrumbs .breadcrumb-list .chevron,
+		.responsive-archive-entry-banner .breadcrumbs .rank-math-breadcrumb .separator,
+		.archive:not(.woocommerce) .site-content-header .breadcrumbs .rank-math-breadcrumb .separator {
 			color: {$blog_post_title_breadcrumb_separator_color};
 		}
 		";
@@ -12681,7 +12686,9 @@ function responsive_customizer_styles() {
 		{
 			$custom_css .= "
 			.page .entry-header .breadcrumbs .breadcrumb-list .chevron,
-			.responsive-single-entry-banner .breadcrumbs .breadcrumb-list .chevron {
+			.responsive-single-entry-banner .breadcrumbs .breadcrumb-list .chevron,
+			.page .entry-header .breadcrumbs .rank-math-breadcrumb .separator,
+			.responsive-single-entry-banner .breadcrumbs .rank-math-breadcrumb .separator {
 				color: {$page_title_area_breadcrumb_separator_color};
 			}
 			";
