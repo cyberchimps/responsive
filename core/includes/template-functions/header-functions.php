@@ -195,3 +195,18 @@ function responsive_header_woo_cart_slide_in() {
 		}
 	}
 }
+
+/**
+ * Prints whichever slide-in drawer matches the current request.
+ * Only one drawer instance may exist in the DOM at a time — the JS
+ * (slide-in-cart.js) looks it up by a single #rspv-slide-cart-drawer id.
+ * The mobile counterpart, responsive_mobile_header_woo_cart_slide_in(),
+ * is defined in mobile-header-functions.php.
+ */
+function responsive_header_woo_cart_slide_in_router() {
+	if ( wp_is_mobile() ) {
+		responsive_mobile_header_woo_cart_slide_in();
+	} else {
+		responsive_header_woo_cart_slide_in();
+	}
+}

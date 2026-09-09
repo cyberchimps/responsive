@@ -109,10 +109,35 @@ function responsive_widgets_init() {
 
 	register_sidebar(
 		array(
+			'name'          => __( 'Header Widgets 2', 'responsive' ),
+			'description'   => __( 'Area 12 - sidebar-header.php - Displays on the right of the header', 'responsive' ),
+			'id'            => 'header-widgets2',
+			'before_title'  => '<div class="widget-title"><h4>',
+			'after_title'   => '</h4></div>',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+		)
+	);
+
+	register_sidebar(
+		array(
 			'name'          => __( 'Mobile Header Widgets', 'responsive' ),
 			/* translators: Widgets area description. */
 			'description'   => __( 'Mobile-only area - Displays in the mobile header widgets section', 'responsive' ),
 			'id'            => 'mobile-header-widgets',
+			'before_title'  => '<div class="widget-title"><h4>',
+			'after_title'   => '</h4></div>',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => __( 'Mobile Header Widgets 2', 'responsive' ),
+			/* translators: Widgets area description. */
+			'description'   => __( 'Mobile-only area - Displays in the mobile header widgets 2 section', 'responsive' ),
+			'id'            => 'mobile-header-widgets2',
 			'before_title'  => '<div class="widget-title"><h4>',
 			'after_title'   => '</h4></div>',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',

@@ -827,4 +827,67 @@
         api(id, function(value){ value.bind(shopPageCardRadius); });
     });
 
+    // Header cart widget styling
+     api(
+		'responsive_cart_icon_size',
+		function ( value ) {
+			value.bind(
+				function ( newval ) {
+					if ( newval ) {
+							$( '.responsive-shopping-cart-svg svg' ).css( 'height', newval + 'px' );
+							$( '.responsive-shopping-cart-svg svg' ).css( 'width', newval + 'px' );
+							$( '.responsive-shopping-cart-svg' ).css( 'height', newval + 'px' );
+							$( '.responsive-shopping-cart-svg' ).css( 'width', newval + 'px' );
+					}
+				}
+			);
+		}
+	);
+    api(
+		'responsive_cart_border_width',
+		function (setting) {
+			setting.bind(
+				function (width) {
+					jQuery( 'style#responsive-cart-border-width' ).remove();
+					jQuery( 'head' ).append(
+						'<style id="responsive-cart-border-width">'
+						+ '.res-addon-cart-wrap, .res-addon-cart-wrap:hover { border-width: ' + width + 'px !important; }'
+						+ '</style>'
+					);
+				}
+			);
+		}
+	);
+    // Mobile header cart widget styling
+    api(
+		'responsive_mobile_cart_border_width',
+		function (setting) {
+			setting.bind(
+				function (width) {
+					jQuery( 'style#responsive-mobile-cart-border-width' ).remove();
+					jQuery( 'head' ).append(
+						'<style id="responsive-mobile-cart-border-width">'
+						+ '.res-addon-mobile-cart-wrap, .res-addon-mobile-cart-wrap:hover { border-width: ' + width + 'px !important; }'
+						+ '</style>'
+					);
+				}
+			);
+		}
+	);
+       	api(
+		'responsive_mobile_cart_icon_size',
+		function ( value ) {
+			value.bind(
+				function ( newval ) {
+					if ( newval ) {
+							$( '.responsive-shopping-cart-svg svg' ).css( 'height', newval + 'px' );
+							$( '.responsive-shopping-cart-svg svg' ).css( 'width', newval + 'px' );
+							$( '.responsive-shopping-cart-svg' ).css( 'height', newval + 'px' );
+							$( '.responsive-shopping-cart-svg' ).css( 'width', newval + 'px' );
+					}
+				}
+			);
+		}
+	);
+
 } )( jQuery );

@@ -14,7 +14,8 @@
 #customize-control-responsive_content_header_alignment_separator hr {
     margin-top: 24px;
 }
-#sub-accordion-section-responsive_header_woo_cart .responsive-horizontal-separator-control-wrapper {
+#sub-accordion-section-responsive_header_woo_cart .responsive-horizontal-separator-control-wrapper,
+#sub-accordion-section-responsive_mobile_header_woo_cart .responsive-horizontal-separator-control-wrapper{
 	padding-top: 24px;
 }
 #customize-control-responsive_header_woo_cart_separator_1 .responsive-horizontal-separator-control-wrapper,

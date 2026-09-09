@@ -55,14 +55,14 @@
 			}
 		});
         if( 'slide-in' == rspv_cart_click_action || 'dropdown' == rspv_cart_click_action && responsive_woo_cart.isMobile ) {
-            var header_woo_cart = document.querySelectorAll( '.responsive-site-header-wrap .rspv-header-cart-slide-in, .responsive-header-cart.rspv-header-cart-dropdown' ); // Remove .responsive-header-cart.rspv-header-cart-dropdown in future if we have mobile header builder and also the second if condition above.
+            var header_woo_cart = document.querySelectorAll( '.responsive-site-header-wrap .rspv-header-cart-slide-in, .responsive-header-cart.rspv-header-cart-dropdown, .responsive-mobile-header-cart.rspv-header-cart-slide-in, .responsive-mobile-header-cart.rspv-header-cart-dropdown' ); // Remove .responsive-header-cart.rspv-header-cart-dropdown / .responsive-mobile-header-cart.* in future if we have mobile header builder and also the second if condition above.
             if( 0 < header_woo_cart.length ) {
                 header_woo_cart.forEach(function(element) {
 					element.addEventListener('click', cartFlyoutOpen, false);
 				});
             }
         }
-		let slide_in_cart_close = document.querySelector('.rspv-header-cart-drawer-close');
+		let slide_in_cart_close = document.querySelector('.rspv-header-cart-drawer-close, .rspv-mobile-header-cart-drawer-close');
 		if (undefined !== slide_in_cart_close && '' !== slide_in_cart_close && null !== slide_in_cart_close) {
 			slide_in_cart_close.addEventListener("click", cartFlyoutClose, false);
 		}

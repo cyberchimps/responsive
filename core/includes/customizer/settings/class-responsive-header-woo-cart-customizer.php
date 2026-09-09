@@ -91,6 +91,93 @@ if ( class_exists( 'WooCommerce' ) ) {
 				);
 			
 				responsive_tabs_button_control( $wp_customize, 'header_woo_cart_tabs', $tabs_label, 'responsive_header_woo_cart', 1, '', 'responsive_header_woo_cart_general_tab', 'responsive_header_woo_cart_design_tab', $general_tab_ids, $design_tab_ids, null );
+				// Cart Icon Heading.
+				$spacing_separator_label = __( 'Cart Icon', 'responsive-add-ons' );
+				responsive_separator_control( $wp_customize, 'cart_icon_separator', $spacing_separator_label, 'responsive_header_woo_cart', 20 );
+
+				$wp_customize->add_setting(
+					'responsive_cart_icon',
+					array(
+						'default'           => 'icon-opencart',
+						'transport'         => 'refresh',
+						'sanitize_callback' => 'responsive_sanitize_select',
+					)
+				);
+				$wp_customize->add_control(
+					new Responsive_Customizer_Select_Button_Control(
+						$wp_customize,
+						'responsive_cart_icon',
+						array(
+							'label'    => __( 'Cart Icon', 'responsive-add-ons' ),
+							'section'  => 'responsive_header_woo_cart',
+							'settings' => 'responsive_cart_icon',
+							'priority' => 30,
+							'choices'  => array(
+								'icon-opencart'        => esc_html__( 'icon-opencart', 'responsive-add-ons' ),
+								'icon-shopping-cart'   => esc_html__( 'icon-shopping-cart', 'responsive-add-ons' ),
+								'icon-shopping-bag'    => esc_html__( 'icon-shopping-bag', 'responsive-add-ons' ),
+								'icon-shopping-basket' => esc_html__( 'icon-shopping-basket', 'responsive-add-ons' ),
+							),
+						)
+					)
+				);
+
+				responsive_horizontal_separator_control( $wp_customize, 'header_woo_cart_separator_1', 1, 'responsive_header_woo_cart', 35, 1, );
+
+				/*
+				------------------------------------------------------------------
+					// Header Cart Style
+				-------------------------------------------------------------------
+				*/
+
+				$wp_customize->add_setting(
+					'responsive_cart_style',
+					array(
+						'default'           => 'outline',
+						'transport'         => 'refresh',
+						'sanitize_callback' => 'responsive_sanitize_select',
+					)
+				);
+				$wp_customize->add_control(
+					new Responsive_Customizer_Select_Button_Control(
+						$wp_customize,
+						'responsive_cart_style',
+						array(
+							'label'    => __( 'Icon Style', 'responsive' ),
+							'section'  => 'responsive_header_woo_cart',
+							'settings' => 'responsive_cart_style',
+							'priority' => 40,
+							'choices'  => array(
+								'none'    => esc_html__( 'None', 'responsive' ),
+								'outline' => esc_html__( 'Outline', 'responsive' ),
+								'fill'    => esc_html__( 'Fill', 'responsive' ),
+							),
+						)
+					)
+				);
+
+				responsive_horizontal_separator_control( $wp_customize, 'header_woo_cart_separator_2', 1, 'responsive_header_woo_cart', 45, 1, );
+
+				// Icon Size.
+				$icon_size_label = esc_html__( 'Icon Size (px)', 'responsive' );
+				responsive_drag_number_control( $wp_customize, 'cart_icon_size', $icon_size_label, 'responsive_header_woo_cart', 50, 20, null, 100, 0, 'postMessage' );
+
+				$cart_color_label = __( 'Cart Color', 'responsive' );
+				responsive_color_control( $wp_customize, 'cart', $cart_color_label, 'responsive_header_woo_cart', 120, '#000000', null, '', true, '#000000', 'cart_hover' );
+
+				responsive_horizontal_separator_control( $wp_customize, 'header_woo_cart_separator_6', 1, 'responsive_header_woo_cart', 125, 1, );
+
+				// Border Heading.
+				$border_heading = __( 'Border', 'responsive' );
+				responsive_separator_control( $wp_customize, 'cart_border_separator', $border_heading, 'responsive_header_woo_cart', 140 );
+
+				// Cart Border Width.
+				$buttons_border_width_label = __( 'Border Width (px)', 'responsive' );
+				responsive_drag_number_control( $wp_customize, 'cart_border_width', $buttons_border_width_label, 'responsive_header_woo_cart', 150, 1, null, 20, 0, 'postMessage' );
+
+				// Cart Radius.
+				$cart_radius_label = __( 'Radius (px)', 'responsive' );
+				responsive_radius_control( $wp_customize, 'cart_radius', 'responsive_header_woo_cart', 160, 0, 0, null, $cart_radius_label );
 				// Cart Label Heading.
 				$cart_label_separator = __( 'Cart Label', 'responsive' );
 				responsive_separator_control( $wp_customize, 'cart_label_separator', $cart_label_separator, 'responsive_header_woo_cart', 57 );
@@ -147,7 +234,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 						)
 					)
 				);
-				responsive_horizontal_separator_control($wp_customize, 'header_woo_cart_separator_5', 2, 'responsive_header_woo_cart', 75, 1, );
+				responsive_horizontal_separator_control($wp_customize, 'header_woo_cart_separator_5', 1, 'responsive_header_woo_cart', 75, 1, );
 				$display_cart_count_label = esc_html__( 'Display Cart Count', 'responsive' );
 				responsive_toggle_control( $wp_customize, 'display_cart_count', $display_cart_count_label, 'responsive_header_woo_cart', 80, 0, null );
 				$hide_cart_total_label = esc_html__( 'Hide Cart Total Label', 'responsive' );

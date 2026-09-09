@@ -311,6 +311,29 @@ const TabsComponent = props => {
 				});
             }
         }
+
+		if( api('responsive_mobile_cart_style') ) {
+            if( api('responsive_mobile_cart_style').get() !== 'outline' && 'design' === tab ) {
+				let cartBorderWidth = document.getElementById('customize-control-responsive_mobile_cart_border_width');
+				if (cartBorderWidth) {
+					cartBorderWidth.style.display = 'none';
+				}
+            }
+            if( api('responsive_mobile_cart_style').get() === 'none' && 'design' === tab ) {
+				let cartElementIds = [
+					'customize-control-responsive_mobile_cart_border_separator',
+					'customize-control-responsive_mobile_border_cart_radius',
+				];
+		
+				cartElementIds.forEach(id => {
+					let el = document.getElementById(id);
+					if (el) {
+						el.style.display = 'none';
+					}
+				});
+            }
+        }
+
 		if( api('responsive_header_button_size').get() === 'custom' && 'design' === tab ) {
 			document.getElementById('customize-control-responsive_header_button_padding').style.display = 'block';
 			document.getElementById('customize-control-responsive_header_button_size_separator').style.display = 'block';

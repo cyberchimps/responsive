@@ -965,6 +965,16 @@
             }
         });
     });
+     api( 'responsive_mobile_cart_label_position', function (setting) {
+        setting.bind(function (position) {
+            const cartSelector = '.responsive-mobile-header-cart';
+            if($(cartSelector).find('.res-addon-mobile-cart-wrap').length){
+                const iconCart = $(document).find('.res-addon-mobile-cart-wrap');
+                iconCart.removeClass( 'res-mobile-cart-label-position-left res-mobile-cart-label-position-right res-mobile-cart-label-position-bottom' );
+                iconCart.addClass('res-mobile-cart-label-position-' + position );
+            }
+        });
+    });
     // Header Search Style Design
     api( 'responsive_header_search_style_design', function (style){
         style.bind(function (design) {

@@ -69,6 +69,7 @@ if ( ! class_exists( 'Responsive_Mobile_Header_Html_Customizer' ) ) :
 						'label' => __('HTML Editor', 'responsive'),
 						'section' => 'responsive_mobile_header_html',
 						'priority'    => 10,
+						'input_attrs' => array( 'id' => 'mobile_header_html' ),
 					)
 				)
 			);

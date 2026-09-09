@@ -2098,6 +2098,16 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_tablet_items_
 												// HTML stays in same position
 												$mobile_element = 'header_html';
 												break;
+
+											case 'header_html2':
+												// HTML 2 stays in same position
+												$mobile_element = 'header_html2';
+												break;
+
+											case 'header_widgets2':
+												// Widgets 2 stay in same position
+												$mobile_element = 'header_widgets2';
+												break;
 												
 											case 'header_button':
 												// Button stays in same position

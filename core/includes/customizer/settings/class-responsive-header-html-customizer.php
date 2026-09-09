@@ -31,7 +31,7 @@ if ( ! class_exists( 'Responsive_Header_Html_Customizer' ) ) :
 			$wp_customize->add_section(
 				'responsive_header_html',
 				array(
-					'title'    => __( 'Header HTML', 'responsive' ),
+					'title'    => __( 'Header HTML 1', 'responsive' ),
 					'panel'    => 'responsive_header',
 					'priority' => 10, 
 				)
