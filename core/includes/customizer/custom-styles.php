@@ -12674,8 +12674,8 @@ function responsive_customizer_styles() {
 		if( $page_title_area_breadcrumb_background_color !== '')
 		{
 			$custom_css .= "
-			.page .entry-header .breadcrumbs, .page .entry-header .breadcrumb-list,
-			.responsive-single-entry-banner .breadcrumbs, .responsive-single-entry-banner .breadcrumb-list {
+			.page .entry-header .breadcrumbs,
+			.responsive-single-entry-banner .breadcrumbs {
 				background-color: {$page_title_area_breadcrumb_background_color};
 			}
 			";	
