@@ -628,10 +628,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'section' => 'responsive_footer_above_row',
 					'exclude' => array('font-color'),
 					'priority' => 45,
-					'defaults' => array(
-						'font-size' => '16px',
-						'line-height' => '1.75'
-					)
 				),
 				'footer_above_row_widget_content' => array(
 					'label' => esc_html__('Typography', 'responsive'),
@@ -639,10 +635,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'section' => 'responsive_footer_above_row',
 					'exclude' => array('font-color'),
 					'priority' => 45,
-					'defaults' => array(
-						'font-size' => '13px',
-						'line-height' => '1.75'
-					)
 				),
 				'footer_primary_row_widget_heading' => array(
 					'label' => esc_html__('Typography', 'responsive'),
@@ -650,10 +642,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'section' => 'responsive_footer_primary_row',
 					'exclude' => array('font-color'),
 					'priority' => 45,
-					'defaults' => array(
-						'font-size' => '16px',
-						'line-height' => '1.75'
-					)
 				),
 				'footer_primary_row_widget_content' => array(
 					'label' => esc_html__('Typography', 'responsive'),
@@ -661,10 +649,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'section' => 'responsive_footer_primary_row',
 					'exclude' => array('font-color'),
 					'priority' => 45,
-					'defaults' => array(
-						'font-size' => '13px',
-						'line-height' => '1.75'
-					)
 				),
 				'footer_below_row_widget_heading' => array(
 					'label' => esc_html__('Typography', 'responsive'),
@@ -672,10 +656,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'section' => 'responsive_footer_below_row',
 					'exclude' => array('font-color'),
 					'priority' => 45,
-					'defaults' => array(
-						'font-size' => '16px',
-						'line-height' => '1.75'
-					)
 				),
 				'footer_below_row_widget_content' => array(
 					'label' => esc_html__('Typography', 'responsive'),
@@ -683,10 +663,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'section' => 'responsive_footer_below_row',
 					'exclude' => array('font-color'),
 					'priority' => 45,
-					'defaults' => array(
-						'font-size' => '13px',
-						'line-height' => '1.75'
-					)
 				),
 				
 			);
