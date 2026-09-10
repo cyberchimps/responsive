@@ -243,7 +243,7 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 			responsive_separator_control( $wp_customize, 'spacing_separator', $spacing_separator_label, 'responsive_header_secondary_menu_layout', 180 );
 			
 			$menu_spacing_label = esc_html__( 'Padding (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'secondary-menu-padding', 'responsive_header_secondary_menu_layout', 185, Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding' ), Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding' ), 'responsive_disabled_mobile_menu', $menu_spacing_label, 'refresh' );
+			responsive_padding_control( $wp_customize, 'secondary-menu-padding', 'responsive_header_secondary_menu_layout', 185, Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding_y' ), Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding_x' ), 'responsive_disabled_mobile_menu', $menu_spacing_label, 'refresh' );
 
 			// Menu margin
 			$margin_spacing_label = esc_html__( 'Margin (px)', 'responsive' );

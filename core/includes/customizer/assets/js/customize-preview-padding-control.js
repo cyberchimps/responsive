@@ -2708,6 +2708,36 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
         });
     });
 
+    // Footer Copyright Padding
+    const footerCopyrightPaddingSettings = [
+        'responsive_footer_copyright_top_padding',
+        'responsive_footer_copyright_right_padding',
+        'responsive_footer_copyright_bottom_padding',
+        'responsive_footer_copyright_left_padding',
+        'responsive_footer_copyright_tablet_top_padding',
+        'responsive_footer_copyright_tablet_right_padding',
+        'responsive_footer_copyright_tablet_bottom_padding',
+        'responsive_footer_copyright_tablet_left_padding',
+        'responsive_footer_copyright_mobile_top_padding',
+        'responsive_footer_copyright_mobile_right_padding',
+        'responsive_footer_copyright_mobile_bottom_padding',
+        'responsive_footer_copyright_mobile_left_padding',
+        'responsive_footer_copyright_desktop_unit',
+        'responsive_footer_copyright_tablet_unit',
+        'responsive_footer_copyright_mobile_unit'
+    ];
+
+    footerCopyrightPaddingSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_unit_padding(
+                    'footer_copyright',
+                    '.footer-layouts.copyright'
+                );
+            });
+        });
+    });
+
     const footerPaddingSettings = [
         'responsive_footer_bar_top_padding',
         'responsive_footer_bar_left_padding',
@@ -2818,6 +2848,66 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
                 responsive_dynamic_unit_margin(
                     'header_builder_margin',
                     '.site-header'
+                );
+            });
+        });
+    });
+
+    // Primary Menu Padding Settings
+    const primaryMenuPaddingSettings = [
+        'responsive_primary_menu_menu_top_padding',
+        'responsive_primary_menu_menu_left_padding',
+        'responsive_primary_menu_menu_bottom_padding',
+        'responsive_primary_menu_menu_right_padding',
+        'responsive_primary_menu_menu_tablet_top_padding',
+        'responsive_primary_menu_menu_tablet_right_padding',
+        'responsive_primary_menu_menu_tablet_bottom_padding',
+        'responsive_primary_menu_menu_tablet_left_padding',
+        'responsive_primary_menu_menu_mobile_top_padding',
+        'responsive_primary_menu_menu_mobile_right_padding',
+        'responsive_primary_menu_menu_mobile_bottom_padding',
+        'responsive_primary_menu_menu_mobile_left_padding',
+        'responsive_primary_menu_menu_desktop_unit',
+        'responsive_primary_menu_menu_tablet_unit',
+        'responsive_primary_menu_menu_mobile_unit'
+    ];
+
+    primaryMenuPaddingSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_unit_padding(
+                    'primary_menu_menu',
+                    '.main-navigation .menu li a'
+                );
+            });
+        });
+    });
+
+    // Primary Menu Margin Settings
+    const primaryMenuMarginSettings = [
+        'responsive_primary_menu_margin_top_padding',
+        'responsive_primary_menu_margin_left_padding',
+        'responsive_primary_menu_margin_bottom_padding',
+        'responsive_primary_menu_margin_right_padding',
+        'responsive_primary_menu_margin_tablet_top_padding',
+        'responsive_primary_menu_margin_tablet_right_padding',
+        'responsive_primary_menu_margin_tablet_bottom_padding',
+        'responsive_primary_menu_margin_tablet_left_padding',
+        'responsive_primary_menu_margin_mobile_top_padding',
+        'responsive_primary_menu_margin_mobile_right_padding',
+        'responsive_primary_menu_margin_mobile_bottom_padding',
+        'responsive_primary_menu_margin_mobile_left_padding',
+        'responsive_primary_menu_margin_desktop_unit',
+        'responsive_primary_menu_margin_tablet_unit',
+        'responsive_primary_menu_margin_mobile_unit'
+    ];
+
+    primaryMenuMarginSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_unit_box_margin(
+                    'primary_menu_margin',
+                    '.main-navigation'
                 );
             });
         });

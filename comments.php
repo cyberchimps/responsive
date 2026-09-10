@@ -36,11 +36,7 @@ if ( post_password_required() || ! $is_comments_enabled || ( ! have_comments() &
 <?php Responsive\responsive_comments_before(); ?>
 
 <div id="comments" class="comments-area">
-<?php 
-	if($related_posts_section_placement == 'contained' && $related_posts_location == 'above_comments'){
-		Responsive\responsive_single_blog_related_posts_entry();
-	}
-?>
+
 	<?php
 	function responsive_render_comment_form() {
 		$commenter = wp_get_current_commenter();
@@ -132,10 +128,6 @@ if ( post_password_required() || ! $is_comments_enabled || ( ! have_comments() &
 		responsive_render_comment_form();
 	} 
 	 
-	if($related_posts_section_placement == 'contained' && $related_posts_location == 'below_comments'){
-		Responsive\responsive_single_blog_related_posts_entry();
-	}
-
 	?>
 
 </div><!-- #comments -->
