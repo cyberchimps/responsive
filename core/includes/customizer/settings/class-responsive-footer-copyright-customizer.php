@@ -196,6 +196,7 @@ if ( ! class_exists( 'Responsive_Footer_Copyright_Customizer' ) ) :
 				false,
 				null,
 				null,
+				'color',
 				'refresh'
 			);
 
