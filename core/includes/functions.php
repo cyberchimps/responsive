@@ -669,6 +669,9 @@ function responsive_add_custom_body_classes( $classes ) {
 	// Transparent Header.
 	if ( responsive_is_transparent_header() ) {
 		$classes[] = 'res-transparent-header';
+		if ( get_theme_mod( 'responsive_transparent_header_logo_option', 0 ) && get_theme_mod( 'responsive_transparent_header_logo' ) ) {
+			$classes[] = 'res-has-transparent-logo';
+		}
 	}
 	// Header Element layout class.
 	// $classes[] = 'site-header-layout-' . get_theme_mod( 'responsive_header_layout', get_responsive_customizer_defaults( 'responsive_header_layout' ) );
