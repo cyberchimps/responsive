@@ -198,21 +198,21 @@
     //Buttons radius
     api( 'responsive_buttons_radius', function( value ) {
         value.bind( function( newval ) {
-            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').css('border-radius', newval+'px' );
+            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button,.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').css('border-radius', newval+'px' );
             $('.woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button').css('border-radius', newval+'px' );
-            $('.edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button').css('border-radius', newval+'px' );
+            $('.edit-post-visual-editor.editor-styles-wrapper .wp-block-button:not(.is-style-outline) > .wp-block-button__link,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button').css('border-radius', newval+'px' );
         } );
     } );
 
     function applyBorderRadius(controlName) {
         api(controlName, function(value) {
             value.bind( function( newval ) {
-                let selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button';
+                let selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button,.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button';
                 if ( responsiveSiteLocalOptions.isElementorVersion ) {
                     selector += ', .elementor-button-wrapper .elementor-button';
                 }
                 selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button';
-                selector += ', .edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button';
+                selector += ', .edit-post-visual-editor.editor-styles-wrapper .wp-block-button:not(.is-style-outline) > .wp-block-button__link,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button';
     
                 responsive_dynamic_radius('buttons', selector);
             } );
@@ -299,12 +299,12 @@
         if (api.has(settingId)) {
             api(settingId, function(setting) {
                 setting.bind(function() {
-                    let selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button';
+                    let selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button,.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button';
                     if ( responsiveSiteLocalOptions.isElementorVersion ) {
                         selector += ', .elementor-button-wrapper .elementor-button';
                     }
                     selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button';
-                    selector += ', .edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button';
+                    selector += ', .edit-post-visual-editor.editor-styles-wrapper .wp-block-button:not(.is-style-outline) > .wp-block-button__link,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button';
         
                     responsive_dynamic_radius('buttons', selector);
                 });
@@ -825,6 +825,79 @@
         'responsive_shop_product_mobile_bottom_left_radius'
     ].forEach(function(id){
         api(id, function(value){ value.bind(shopPageCardRadius); });
+    });
+
+    // Related Posts Buttons Border Width.
+    function applyRpBorderWidth(controlName) {
+        api(controlName, function(value) {
+            value.bind( function( newval ) {
+                let selector = '.responsive-single-related-posts-container';
+                responsive_dynamic_border_width('rp_border_width', selector, 'solid');
+            } );
+        });
+    }
+    applyRpBorderWidth('responsive_rp_border_width_top_border');
+    applyRpBorderWidth('responsive_rp_border_width_right_border');
+    applyRpBorderWidth('responsive_rp_border_width_bottom_border');
+    applyRpBorderWidth('responsive_rp_border_width_left_border');
+
+    applyRpBorderWidth('responsive_rp_border_width_tablet_top_border');
+    applyRpBorderWidth('responsive_rp_border_width_tablet_right_border');
+    applyRpBorderWidth('responsive_rp_border_width_tablet_bottom_border');
+    applyRpBorderWidth('responsive_rp_border_width_tablet_left_border');
+
+    applyRpBorderWidth('responsive_rp_border_width_mobile_top_border');
+    applyRpBorderWidth('responsive_rp_border_width_mobile_right_border');
+    applyRpBorderWidth('responsive_rp_border_width_mobile_bottom_border');
+    applyRpBorderWidth('responsive_rp_border_width_mobile_left_border');
+
+    // Also refresh on unit changes.
+    ['responsive_rp_border_width_desktop_unit', 'responsive_rp_border_width_tablet_unit', 'responsive_rp_border_width_mobile_unit'].forEach(function(settingId) {
+        if (api.has(settingId)) {
+            api(settingId, function(setting) {
+                setting.bind(function() {
+                    let selector = '.responsive-single-related-posts-container';
+                    responsive_dynamic_border_width('rp_border_width', selector, 'solid');
+                });
+            });
+        }
+    });
+
+    // Related Posts Buttons Radius.
+    function applyRpRadius(controlName) {
+        api(controlName, function(value) {
+            value.bind( function( newval ) {
+                let selector = '.responsive-single-related-posts-container';
+                responsive_dynamic_radius('rp', selector);
+            } );
+        });
+    }
+
+    applyRpRadius('responsive_rp_radius_top_left_radius');
+    applyRpRadius('responsive_rp_radius_top_right_radius');
+    applyRpRadius('responsive_rp_radius_bottom_left_radius');
+    applyRpRadius('responsive_rp_radius_bottom_right_radius');
+
+    applyRpRadius('responsive_rp_radius_tablet_top_left_radius');
+    applyRpRadius('responsive_rp_radius_tablet_top_right_radius');
+    applyRpRadius('responsive_rp_radius_tablet_bottom_left_radius');
+    applyRpRadius('responsive_rp_radius_tablet_bottom_right_radius');
+
+    applyRpRadius('responsive_rp_radius_mobile_top_left_radius');
+    applyRpRadius('responsive_rp_radius_mobile_top_right_radius');
+    applyRpRadius('responsive_rp_radius_mobile_bottom_left_radius');
+    applyRpRadius('responsive_rp_radius_mobile_bottom_right_radius');
+
+    // Also refresh on unit changes.
+    ['responsive_rp_radius_desktop_unit', 'responsive_rp_radius_tablet_unit', 'responsive_rp_radius_mobile_unit'].forEach(function(settingId) {
+        if (api.has(settingId)) {
+            api(settingId, function(setting) {
+                setting.bind(function() {
+                    let selector = '.responsive-single-related-posts-container';
+                    responsive_dynamic_radius('rp', selector);
+                });
+            });
+        }
     });
 
 } )( jQuery );

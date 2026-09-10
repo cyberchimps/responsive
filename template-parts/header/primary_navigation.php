@@ -64,21 +64,17 @@ $nav_class_string = implode( ' ', $nav_classes );
 			<button class="menu-toggle" aria-controls="header-menu" aria-expanded="false"><?php echo $svg_markup; ?><span class="hamburger-menu-label"><?php printf( esc_html( $hamburger_menu_label ) ); ?></span><span class="screen-reader-text"><?php esc_html_e( 'Menu', 'responsive' ); ?></span></button>
 			<?php } ?>
 			<?php
-			$disable_menu = get_theme_mod( 'responsive_disable_menu', 0 );
-
-			if ( 0 === $disable_menu ) {
-				wp_nav_menu(
-					apply_filters(
-						'responsive_nav_menu_arg',
-						array(
-							'container'      => false,
-							'menu_id'        => 'header-menu',
-							'fallback_cb'    => 'responsive_fallback_menu',
-							'theme_location' => 'header-menu',
-						)
+			wp_nav_menu(
+				apply_filters(
+					'responsive_nav_menu_arg',
+					array(
+						'container'      => false,
+						'menu_id'        => 'header-menu',
+						'fallback_cb'    => 'responsive_fallback_menu',
+						'theme_location' => 'header-menu',
 					)
-				);
-			}
+				)
+			);
 			?>
 		</div>
 	</nav>

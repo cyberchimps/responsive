@@ -20,6 +20,7 @@ require get_template_directory() . '/core/includes/builder/class-responsive-buil
  * @see Responsive\header_markup();
  */
 add_action( 'responsive_header', 'header_markup' );
+add_filter( 'responsive_header_class', 'responsive_header_builder_width_class' );
 
 /**
  * Responsive Header Rows

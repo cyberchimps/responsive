@@ -209,6 +209,9 @@ if ( ! class_exists( 'Responsive_Mobile_Header_Button_Customizer' ) ) :
 
 			responsive_color_control( $wp_customize, 'mobile_header_button_shadow', __( 'Button Shadow Color', 'responsive' ), 'responsive_mobile_header_button', 70, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_shadow_color' ), null, '', false );
 
+			responsive_shadow_control( $wp_customize, 'mobile_header_button_hover_shadow', 'Button Hover Shadow', 'responsive_mobile_header_button', 71, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_x' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_y' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_blur' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_spread' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_inset' ), null );
+
+			responsive_color_control( $wp_customize, 'mobile_header_button_hover_shadow', __( 'Button Hover Shadow Color', 'responsive' ), 'responsive_mobile_header_button', 72, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_color' ), null, '', false );
 		}
 
 	}

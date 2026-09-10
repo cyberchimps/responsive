@@ -1253,6 +1253,46 @@ function prevent_menu_icon_redirection() {
 
 add_action( 'wp_footer', 'responsive_pro_fixed_menu_onscroll' );
 
+/**
+ * Transparent Header Device Scope
+ *
+ * Outputs a synchronous inline script at wp_body_open (priority 1), right after
+ * the opening <body> tag. document.body is available immediately here, so the
+ * res-transparent-header class is removed before any header HTML is rendered —
+ */
+function responsive_transparent_header_device_scope() {
+	if ( ! Responsive\Core\responsive_is_transparent_header() ) {
+		return;
+	}
+	$enable_on = get_theme_mod( 'responsive_transparent_header_enable_on', 'all' );
+	if ( 'all' === $enable_on ) {
+		return; // Default: nothing to do, class stays on all devices.
+	}
+	$breakpoint = intval( get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
+	?>
+	<script>
+	(function() {
+		var enableOn   = <?php echo wp_json_encode( $enable_on ); ?>;
+		var breakpoint = <?php echo $breakpoint; ?>;
+		function applyTransparentHeader() {
+			var w    = window.innerWidth;
+			var body = document.body;
+			if ( enableOn === 'desktop' && w <= breakpoint ) {
+				body.classList.remove( 'res-transparent-header' );
+			} else if ( enableOn === 'mobile' && w > breakpoint ) {
+				body.classList.remove( 'res-transparent-header' );
+			} else {
+				body.classList.add( 'res-transparent-header' );
+			}
+		}
+		applyTransparentHeader();
+		window.addEventListener( 'resize', applyTransparentHeader );
+	})();
+	</script>
+	<?php
+}
+add_action( 'wp_body_open', 'responsive_transparent_header_device_scope', 1 );
+
 if ( ! function_exists( 'responsive_pro_fixed_menu_onscroll' ) ) {
 	/**
 	 * Shows fixed header on scroll if sticky-header is enabled
@@ -3332,6 +3372,49 @@ if ( ! function_exists( 'responsive_theme_background_updater_site_content_paddin
 
 			// Mark backward compatibility update as done.
 			$responsive_options['site_content_padding_6_4_3_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+
+if ( ! function_exists( 'responsive_theme_background_updater_secondary_menu_padding_6_4_4' ) ) {
+	/**
+	 * Handle backward compatibility for secondary menu padding.
+	 *
+	 * If the user previously saved custom padding values, adds 10px to top/bottom
+	 * and 18px to left/right. If untouched, settings automatically fall back to the new defaults.
+	 *
+	 * @since 6.4.4
+	 * @return void
+	 */
+	function responsive_theme_background_updater_secondary_menu_padding_6_4_4() {
+		$responsive_options = Responsive\Core\responsive_get_options();
+
+		if ( ! isset( $responsive_options['secondary_menu_padding_6_4_4_backward_done'] ) ) {
+
+			$padding_mods = array(
+				'responsive_secondary-menu-padding_top_padding'           => 10,
+				'responsive_secondary-menu-padding_bottom_padding'        => 10,
+				'responsive_secondary-menu-padding_left_padding'          => 18,
+				'responsive_secondary-menu-padding_right_padding'         => 18,
+				'responsive_secondary-menu-padding_tablet_top_padding'    => 10,
+				'responsive_secondary-menu-padding_tablet_bottom_padding' => 10,
+				'responsive_secondary-menu-padding_tablet_left_padding'   => 18,
+				'responsive_secondary-menu-padding_tablet_right_padding'  => 18,
+				'responsive_secondary-menu-padding_mobile_top_padding'    => 10,
+				'responsive_secondary-menu-padding_mobile_bottom_padding' => 10,
+				'responsive_secondary-menu-padding_mobile_left_padding'   => 18,
+				'responsive_secondary-menu-padding_mobile_right_padding'  => 18,
+			);
+
+			foreach ( $padding_mods as $mod_name => $increment_val ) {
+				$val = get_theme_mod( $mod_name, false );
+				if ( false !== $val && '' !== $val ) {
+					set_theme_mod( $mod_name, intval( $val ) + $increment_val );
+				}
+			}
+
+			$responsive_options['secondary_menu_padding_6_4_4_backward_done'] = true;
 			update_option( 'responsive_theme_options', $responsive_options );
 		}
 	}

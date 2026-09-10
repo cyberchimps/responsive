@@ -45,6 +45,13 @@ if ( ! class_exists( 'Responsive_Customizer_Color_With_Devices_Control' ) ) :
 		public $show_opacity;
 
 		/**
+		 * Whether reset button is enabled.
+		 *
+		 * @var bool
+		 */
+		public $has_reset = false;
+
+		/**
 		 * Enqueue control related scripts/styles.
 		 *
 		 * @access public
@@ -82,6 +89,7 @@ if ( ! class_exists( 'Responsive_Customizer_Color_With_Devices_Control' ) ) :
 			$this->json['value']         = $this->value();
 			$this->json['link']          = $this->get_link();
 			$this->json['id']            = $this->id;
+			$this->json['has_reset']     = $this->has_reset;
 			$this->json['colorPalettes'] = responsive_default_color_palettes();
 
 			foreach ( $this->settings as $setting_key => $setting ) {
