@@ -68,6 +68,37 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Colors_Customizer' ) ) :
 			$add_to_cart_button_typography_label = esc_html__( 'Font', 'responsive' );
 			responsive_typography_group_control( $wp_customize, 'add_to_cart_button_typography_group', $add_to_cart_button_typography_label, 'responsive_woocommerce_shop', 74, 'add_to_cart_button_typography' );
 
+			// Button Border Width.
+			$add_to_cart_button_border_width_label = esc_html__( 'Border Width', 'responsive' );
+			responsive_unit_borderwidth_control( $wp_customize, 'add_to_cart_button_border_width', 'responsive_woocommerce_shop', 74.2, 0, 0, null, $add_to_cart_button_border_width_label, 'postMessage', array( 'px', 'em' ) );
+
+			// Button Border Style.
+			$add_to_cart_button_border_styles = array(
+				'solid'  => esc_html__( 'Solid', 'responsive' ),
+				'dashed' => esc_html__( 'Dashed', 'responsive' ),
+				'dotted' => esc_html__( 'Dotted', 'responsive' ),
+				'double' => esc_html__( 'Double', 'responsive' ),
+			);
+			responsive_select_button_control(
+				$wp_customize,
+				'add_to_cart_button_border_style',
+				esc_html__( 'Border Style', 'responsive' ),
+				'responsive_woocommerce_shop',
+				74.4,
+				$add_to_cart_button_border_styles,
+				'solid',
+				null,
+				'postMessage'
+			);
+
+			// Button Border Color.
+			$add_to_cart_button_border_color_label = esc_html__( 'Border Color', 'responsive' );
+			responsive_color_control_with_device_switchers_and_hover( $wp_customize, 'add_to_cart_button_border', $add_to_cart_button_border_color_label, 'responsive_woocommerce_shop', 74.6, '', '', null, '', 'postMessage' );
+
+			// Button Border Radius.
+			$add_to_cart_button_radius_label = esc_html__( 'Border Radius', 'responsive' );
+			responsive_unit_radius_control( $wp_customize, 'add_to_cart_button_radius', 'responsive_woocommerce_shop', 74.8, 0, 0, null, $add_to_cart_button_radius_label, 'postMessage', array( 'px', 'em', 'rem' ) );
+
 			// Product Sorting.
 			$shop_product_sorting_separator = esc_html__( 'Product Sorting', 'responsive' );
 			responsive_separator_control( $wp_customize, 'shop_product_sorting_separator', $shop_product_sorting_separator, 'responsive_woocommerce_shop', 75 );

@@ -1100,6 +1100,37 @@ const TabsComponent = props => {
 			});
 		}
 
+		toggleAddToCartButtonBorderControls();
+		if (api('responsive_product_button_style')) {
+			api('responsive_product_button_style', function(value) {
+				value.bind(function() {
+					toggleAddToCartButtonBorderControls();
+				});
+			});
+		}
+		[
+			'responsive_add_to_cart_button_border_width_top_border',
+			'responsive_add_to_cart_button_border_width_right_border',
+			'responsive_add_to_cart_button_border_width_bottom_border',
+			'responsive_add_to_cart_button_border_width_left_border',
+			'responsive_add_to_cart_button_border_width_tablet_top_border',
+			'responsive_add_to_cart_button_border_width_tablet_right_border',
+			'responsive_add_to_cart_button_border_width_tablet_bottom_border',
+			'responsive_add_to_cart_button_border_width_tablet_left_border',
+			'responsive_add_to_cart_button_border_width_mobile_top_border',
+			'responsive_add_to_cart_button_border_width_mobile_right_border',
+			'responsive_add_to_cart_button_border_width_mobile_bottom_border',
+			'responsive_add_to_cart_button_border_width_mobile_left_border',
+		].forEach(function(key) {
+			if (api(key)) {
+				api(key, function(value) {
+					value.bind(function() {
+						toggleAddToCartButtonBorderControls();
+					});
+				});
+			}
+		});
+
 	}, [tab]);
 
 	const hideSidebarWidthControl = (value, control) => {
@@ -1610,6 +1641,54 @@ const TabsComponent = props => {
 		const elements = positioningSetting ? positioningSetting.get() : [];
 		const isAddToCartVisible = Array.isArray(elements) ? elements.includes('add_cart') : (typeof elements === 'string' && elements.split(',').includes('add_cart'));
 		addToCartActionEl.style.display = (isAddToCartVisible && tab === 'general') ? 'block' : 'none';
+	};
+
+	const toggleAddToCartButtonBorderControls = () => {
+		const borderWidthEl = document.getElementById('customize-control-responsive_add_to_cart_button_border_width_border');
+		const borderStyleEl = document.getElementById('customize-control-responsive_add_to_cart_button_border_style');
+		const borderColorEl = document.getElementById('customize-control-responsive_add_to_cart_button_border_color');
+		const borderRadiusEl = document.getElementById('customize-control-responsive_border_add_to_cart_button_radius');
+
+		const buttonStyleSetting = api('responsive_product_button_style');
+		const buttonStyle = buttonStyleSetting ? buttonStyleSetting.get() : 'button';
+		const isButton = buttonStyle !== 'text_with_arrow';
+		const shouldShow = isButton && tab === 'design';
+
+		if (borderWidthEl) {
+			borderWidthEl.style.display = shouldShow ? 'block' : 'none';
+		}
+		if (borderColorEl) {
+			borderColorEl.style.display = shouldShow ? 'block' : 'none';
+		}
+		if (borderRadiusEl) {
+			borderRadiusEl.style.display = shouldShow ? 'block' : 'none';
+		}
+
+		if (borderStyleEl) {
+			if (!shouldShow) {
+				borderStyleEl.style.display = 'none';
+			} else {
+				const widthKeys = [
+					'responsive_add_to_cart_button_border_width_top_border',
+					'responsive_add_to_cart_button_border_width_right_border',
+					'responsive_add_to_cart_button_border_width_bottom_border',
+					'responsive_add_to_cart_button_border_width_left_border',
+					'responsive_add_to_cart_button_border_width_tablet_top_border',
+					'responsive_add_to_cart_button_border_width_tablet_right_border',
+					'responsive_add_to_cart_button_border_width_tablet_bottom_border',
+					'responsive_add_to_cart_button_border_width_tablet_left_border',
+					'responsive_add_to_cart_button_border_width_mobile_top_border',
+					'responsive_add_to_cart_button_border_width_mobile_right_border',
+					'responsive_add_to_cart_button_border_width_mobile_bottom_border',
+					'responsive_add_to_cart_button_border_width_mobile_left_border',
+				];
+				const hasWidth = widthKeys.some(function(key) {
+					const s = api(key);
+					return s && parseFloat(s.get()) > 0;
+				});
+				borderStyleEl.style.display = hasWidth ? 'block' : 'none';
+			}
+		}
 	};
 
 	return <>
