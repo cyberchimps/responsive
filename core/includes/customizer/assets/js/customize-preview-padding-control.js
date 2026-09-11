@@ -2868,47 +2868,59 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
         });
     });
 
-    api( 'responsive_mobile_header_woo_cart_padding_top_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('mobile_header_woo_cart_padding', '.res-addon-mobile-cart-wrap');
-        } );
-    } );
-    api( 'responsive_mobile_header_woo_cart_padding_right_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('mobile_header_woo_cart_padding', '.res-addon-mobile-cart-wrap');
-        } );
-    } );
-    api( 'responsive_mobile_header_woo_cart_padding_bottom_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('mobile_header_woo_cart_padding', '.res-addon-mobile-cart-wrap');
-        } );
-    } );
-    api( 'responsive_mobile_header_woo_cart_padding_left_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_padding('mobile_header_woo_cart_padding', '.res-addon-mobile-cart-wrap');
-        } );
-    } );
+    // Mobile Header WooCommerce Cart — Padding
+const mobileHeaderWooCartPaddingSettings = [
+    'responsive_mobile_header_woo_cart_padding_top_padding',
+    'responsive_mobile_header_woo_cart_padding_left_padding',
+    'responsive_mobile_header_woo_cart_padding_bottom_padding',
+    'responsive_mobile_header_woo_cart_padding_right_padding',
+    'responsive_mobile_header_woo_cart_padding_tablet_top_padding',
+    'responsive_mobile_header_woo_cart_padding_tablet_right_padding',
+    'responsive_mobile_header_woo_cart_padding_tablet_bottom_padding',
+    'responsive_mobile_header_woo_cart_padding_tablet_left_padding',
+    'responsive_mobile_header_woo_cart_padding_mobile_top_padding',
+    'responsive_mobile_header_woo_cart_padding_mobile_right_padding',
+    'responsive_mobile_header_woo_cart_padding_mobile_bottom_padding',
+    'responsive_mobile_header_woo_cart_padding_mobile_left_padding',
+    'responsive_mobile_header_woo_cart_padding_desktop_unit',
+    'responsive_mobile_header_woo_cart_padding_tablet_unit',
+    'responsive_mobile_header_woo_cart_padding_mobile_unit'
+];
 
-    // Mobile Woo Cart Margin
-    api( 'responsive_mobile_header_woo_cart_margin_top_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_margin('mobile_header_woo_cart_margin', '.res-addon-mobile-cart-wrap');
-        } );
-    } );
-    api( 'responsive_mobile_header_woo_cart_margin_right_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_margin('mobile_header_woo_cart_margin', '.res-addon-mobile-cart-wrap');
-        } );
-    } );
-    api( 'responsive_mobile_header_woo_cart_margin_bottom_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_margin('mobile_header_woo_cart_margin', '.res-addon-mobile-cart-wrap');
-        } );
-    } );
-    api( 'responsive_mobile_header_woo_cart_margin_left_padding', function( value ) {
-        value.bind( function( newval ) {
-            responsive_dynamic_margin('mobile_header_woo_cart_margin', '.res-addon-mobile-cart-wrap');
-        } );
-    } );
+mobileHeaderWooCartPaddingSettings.forEach(function(setting) {
+    api(setting, function(value) {
+        value.bind(function(newval) {
+            responsive_dynamic_unit_padding('mobile_header_woo_cart_padding', '.responsive-mobile-header-cart .res-addon-mobile-cart-wrap');
+        });
+    });
+});
+
+// Mobile Header WooCommerce Cart — Margin
+const mobileHeaderWooCartMarginSettings = [
+    'responsive_mobile_header_woo_cart_margin_top_padding',
+    'responsive_mobile_header_woo_cart_margin_left_padding',
+    'responsive_mobile_header_woo_cart_margin_bottom_padding',
+    'responsive_mobile_header_woo_cart_margin_right_padding',
+    'responsive_mobile_header_woo_cart_margin_tablet_top_padding',
+    'responsive_mobile_header_woo_cart_margin_tablet_right_padding',
+    'responsive_mobile_header_woo_cart_margin_tablet_bottom_padding',
+    'responsive_mobile_header_woo_cart_margin_tablet_left_padding',
+    'responsive_mobile_header_woo_cart_margin_mobile_top_padding',
+    'responsive_mobile_header_woo_cart_margin_mobile_right_padding',
+    'responsive_mobile_header_woo_cart_margin_mobile_bottom_padding',
+    'responsive_mobile_header_woo_cart_margin_mobile_left_padding',
+    'responsive_mobile_header_woo_cart_margin_desktop_unit',
+    'responsive_mobile_header_woo_cart_margin_tablet_unit',
+    'responsive_mobile_header_woo_cart_margin_mobile_unit'
+];
+
+mobileHeaderWooCartMarginSettings.forEach(function(setting) {
+    api(setting, function(value) {
+        value.bind(function(newval) {
+            responsive_dynamic_unit_padding('mobile_header_woo_cart_margin', '.responsive-mobile-header-cart .res-addon-mobile-cart-wrap');
+        });
+    });
+});
+
 
 } )( jQuery );
