@@ -1276,6 +1276,7 @@ function defaults() {
 			'blog_title_layout'					  => 'post_title_layout1',
 			'page_title_layout'                   => 'post_title_layout1',
 			'shop_title_layout'                   => 'post_title_layout1',
+			'shop_title_elements_positioning'     => array( 'title', 'description', 'breadcrumb' ),
 			'page_title_inner_elements_spacing'   => 10,
 			'single_blog_post_title_color'        => 'h1-color',
 			'single_blog_post_text_color'		  => 'palette2',
@@ -2957,7 +2958,18 @@ add_action( 'init', function() {
 add_action( 'woocommerce_before_main_content', function() {
     // Shop / catalog pages.
     if ( get_theme_mod( 'breadcrumbs_options', 1 ) && ( is_shop() || is_product_taxonomy() ) ) {
-        woocommerce_breadcrumb();
+        if ( get_theme_mod( 'responsive_shop_title_area', true ) && 'post_title_layout2' !== get_theme_mod( 'responsive_shop_title_layout', 'post_title_layout1' ) ) {
+            $elements = get_theme_mod( 'responsive_shop_title_elements_positioning', array( 'title', 'description', 'breadcrumb' ) );
+            if ( is_string( $elements ) ) {
+                $decoded  = json_decode( $elements, true );
+                $elements = is_array( $decoded ) ? $decoded : explode( ',', $elements );
+            } elseif ( ! is_array( $elements ) ) {
+                $elements = array();
+            }
+            if ( in_array( 'breadcrumb', $elements, true ) ) {
+                woocommerce_breadcrumb();
+            }
+        }
     }
 
     // Single product pages.
@@ -2972,7 +2984,9 @@ add_filter( 'body_class', function( $classes ) {
 		return $classes;
 	}
     if ( is_shop() || is_product_taxonomy() ) {
-        $classes[] = 'shop-has-site-header';
+        if ( get_theme_mod( 'responsive_shop_title_area', true ) && 'post_title_layout2' !== get_theme_mod( 'responsive_shop_title_layout', 'post_title_layout1' ) ) {
+            $classes[] = 'shop-has-site-header';
+        }
     } elseif ( is_product() ) {
         $classes[] = 'single-product-has-site-header';
     }

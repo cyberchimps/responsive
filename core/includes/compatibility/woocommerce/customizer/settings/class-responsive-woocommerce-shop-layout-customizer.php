@@ -199,7 +199,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'shop_title_area',
 				__( 'Products Title Area', 'responsive' ),
 				'responsive_woocommerce_shop',
-				5,
+				2,
 				'section',
 				'responsive_shop_title_layout',
 				true,
@@ -221,6 +221,9 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			// Products Title Tabs.
 			$shop_title_area_general_tab_ids = array(
 				'customize-control-responsive_shop_title_layout',
+				'customize-control-responsive_shop_title_elements_positioning',
+				'customize-control-responsive_shop_archive_title',
+				'customize-control-responsive_shop_archive_description',
 			);
 
 			$shop_title_area_design_tab_ids = array();
@@ -258,6 +261,76 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				null,
 				'svg',
 				'refresh'
+			);
+
+			// Structure (Sortable control).
+			$wp_customize->add_setting(
+				'responsive_shop_title_elements_positioning',
+				array(
+					'default'           => array( 'title', 'description', 'breadcrumb' ),
+					'sanitize_callback' => 'responsive_sanitize_multi_choices',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_control(
+				new Responsive_Customizer_Sortable_Control(
+					$wp_customize,
+					'responsive_shop_title_elements_positioning',
+					array(
+						'label'    => esc_html__( 'Structure', 'responsive' ),
+						'section'  => 'responsive_shop_title_layout',
+						'settings' => 'responsive_shop_title_elements_positioning',
+						'priority' => 2,
+						'choices'  => array(
+							'title'       => esc_html__( 'Title', 'responsive' ),
+							'description' => esc_html__( 'Description', 'responsive' ),
+							'breadcrumb'  => esc_html__( 'Breadcrumb', 'responsive' ),
+						),
+					)
+				)
+			);
+
+			// Archive Title.
+			$wp_customize->add_setting(
+				'responsive_shop_archive_title',
+				array(
+					'default'           => '',
+					'sanitize_callback' => 'sanitize_text_field',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_control(
+				'responsive_shop_archive_title',
+				array(
+					'label'    => esc_html__( 'Archive Title', 'responsive' ),
+					'section'  => 'responsive_shop_title_layout',
+					'settings' => 'responsive_shop_archive_title',
+					'type'     => 'text',
+					'priority' => 3,
+				)
+			);
+
+			// Archive Description.
+			$wp_customize->add_setting(
+				'responsive_shop_archive_description',
+				array(
+					'default'           => '',
+					'sanitize_callback' => 'wp_kses_post',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_control(
+				'responsive_shop_archive_description',
+				array(
+					'label'    => esc_html__( 'Archive Description', 'responsive' ),
+					'section'  => 'responsive_shop_title_layout',
+					'settings' => 'responsive_shop_archive_description',
+					'type'     => 'textarea',
+					'priority' => 4,
+				)
 			);
 
 			// Layouts.

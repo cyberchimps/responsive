@@ -12353,7 +12353,7 @@ function responsive_customizer_styles() {
 	$check_blog_title = get_theme_mod( 'responsive_blog_title_area', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_post_title' ));
 	if( !$check_blog_title ) {
 		$custom_css .= "
-			.blog .responsive-archive-entry-banner, .archive .responsive-archive-entry-banner, .archive .site-content-header {
+			.blog .responsive-archive-entry-banner, .archive:not(.woocommerce) .responsive-archive-entry-banner, .archive:not(.woocommerce) .site-content-header {
 				display: none;
 			}
 		";
@@ -13280,6 +13280,88 @@ function responsive_customizer_styles() {
 				width: calc(100% - {$shop_content_width}%);
 			}
 		}";
+		}
+
+		$check_shop_title  = get_theme_mod( 'responsive_shop_title_area', true );
+		$shop_title_layout = get_theme_mod( 'responsive_shop_title_layout', 'post_title_layout1' );
+		if ( ! $check_shop_title ) {
+			$woocommerce_custom_css .= "
+			.woocommerce.archive .site-content-header,
+			.woocommerce-shop .site-content-header,
+			.woocommerce.archive .responsive-archive-entry-banner,
+			.woocommerce-shop .responsive-archive-entry-banner {
+				display: none;
+			}";
+		} elseif ( 'post_title_layout2' === $shop_title_layout ) {
+			$woocommerce_custom_css .= "
+			.woocommerce.archive .site-content-header,
+			.woocommerce-shop .site-content-header {
+				display: none;
+			}
+			.woocommerce.archive .responsive-archive-entry-banner,
+			.woocommerce-shop .responsive-archive-entry-banner {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				text-align: center;
+				padding: 30px 0;
+				background-color: #f5f5f5;
+				width: 100%;
+			}
+			.woocommerce.archive .responsive-archive-entry-banner .container,
+			.woocommerce-shop .responsive-archive-entry-banner .container {
+				width: 100%;
+			}
+			.woocommerce.archive .responsive-archive-entry-banner + #wrapper .content-outer.container,
+			.woocommerce-shop .responsive-archive-entry-banner + #wrapper .content-outer.container {
+				margin: 0 auto 52px;
+			}";
+		}
+
+		if ( $check_shop_title && 'post_title_layout1' === $shop_title_layout ) {
+			$elements = get_theme_mod( 'responsive_shop_title_elements_positioning', array( 'title', 'description', 'breadcrumb' ) );
+			if ( is_string( $elements ) ) {
+				$decoded  = json_decode( $elements, true );
+				$elements = is_array( $decoded ) ? $decoded : explode( ',', $elements );
+			} elseif ( ! is_array( $elements ) ) {
+				$elements = array();
+			}
+
+			if ( empty( $elements ) ) {
+				$woocommerce_custom_css .= "
+				.woocommerce.archive .site-content-header,
+				.woocommerce-shop .site-content-header {
+					display: none;
+				}";
+			} else {
+				$woocommerce_custom_css .= "
+				.woocommerce.archive .site-content-header,
+				.woocommerce-shop .site-content-header {
+					display: flex;
+					flex-direction: column;
+				}
+				.woocommerce.archive .site-content-header .woocommerce-products-header,
+				.woocommerce-shop .site-content-header .woocommerce-products-header {
+					display: contents;
+				}";
+
+				$order_map = array(
+					'breadcrumb'  => '.woocommerce.archive .site-content-header .woocommerce-breadcrumb, .woocommerce-shop .site-content-header .woocommerce-breadcrumb',
+					'title'       => '.woocommerce.archive .site-content-header .page-title, .woocommerce-shop .site-content-header .page-title',
+					'description' => '.woocommerce.archive .site-content-header .term-description, .woocommerce-shop .site-content-header .term-description, .woocommerce.archive .site-content-header .page-description, .woocommerce-shop .site-content-header .page-description',
+				);
+
+				$idx = 1;
+				foreach ( $elements as $elem ) {
+					if ( isset( $order_map[ $elem ] ) ) {
+						$woocommerce_custom_css .= "
+						{$order_map[ $elem ]} {
+							order: {$idx};
+						}";
+						$idx++;
+					}
+				}
+			}
 		}
 
 		$woocommerce_custom_css .= "
