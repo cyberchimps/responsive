@@ -227,7 +227,9 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'customize-control-responsive_shop_title_horizontal_alignment',
 			);
 
-			$shop_title_area_design_tab_ids = array();
+			$shop_title_area_design_tab_ids = array(
+				'customize-control-responsive_shop_title_inner_elements_spacing',
+			);
 
 			// Products Title Area Tabs.
 			responsive_tabs_button_control(
@@ -359,6 +361,21 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				$shop_title_horizontal_alignment_choices,
 				'center',
 				null
+			);
+
+			// Inner Elements Spacing.
+			$shop_title_inner_elements_spacing_label = esc_html__( 'Inner Elements Spacing (px)', 'responsive' );
+			responsive_drag_number_control(
+				$wp_customize,
+				'shop_title_inner_elements_spacing',
+				$shop_title_inner_elements_spacing_label,
+				'responsive_shop_title_layout',
+				10,
+				Responsive\Core\get_responsive_customizer_defaults( 'shop_title_inner_elements_spacing' ),
+				null,
+				100,
+				1,
+				'postMessage'
 			);
 
 			// Layouts.

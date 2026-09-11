@@ -539,6 +539,13 @@
         })
     });
 
+    api( 'responsive_shop_title_inner_elements_spacing', function( value ) {
+        value.bind( function( newval ) {
+            $('body.woocommerce.archive .responsive-archive-entry-banner .container > *:not(:last-child), body.woocommerce-shop .responsive-archive-entry-banner .container > *:not(:last-child)').css('margin-bottom', newval+'px');
+            $('.woocommerce.archive .site-content-header, .woocommerce-shop .site-content-header').css('row-gap', newval+'px');
+        });
+    });
+
     // Page Title Area
     api( 'responsive_page_title_custom_width', function( value ) {
         value.bind( function( newval )  {

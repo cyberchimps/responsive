@@ -13402,6 +13402,33 @@ function responsive_customizer_styles() {
 					text-align: {$shop_title_horizontal_alignment_mobile};
 				}
 			}";
+
+			// Inner elements spacing.
+			$shop_title_inner_elements_spacing = get_theme_mod( 'responsive_shop_title_inner_elements_spacing', Responsive\Core\get_responsive_customizer_defaults( 'shop_title_inner_elements_spacing' ) );
+
+			$woocommerce_custom_css .= "
+			.woocommerce.archive .responsive-archive-entry-banner .container > *:not(:last-child),
+			.woocommerce-shop .responsive-archive-entry-banner .container > *:not(:last-child) {
+				margin-bottom: {$shop_title_inner_elements_spacing}px;
+			}
+			.woocommerce.archive .responsive-archive-entry-banner .page-title,
+			.woocommerce-shop .responsive-archive-entry-banner .page-title {
+				margin-top: 0;
+			}
+			.woocommerce.archive .site-content-header,
+			.woocommerce-shop .site-content-header {
+				row-gap: {$shop_title_inner_elements_spacing}px;
+			}
+			.woocommerce.archive .site-content-header .page-title,
+			.woocommerce-shop .site-content-header .page-title,
+			.woocommerce.archive .site-content-header .term-description,
+			.woocommerce-shop .site-content-header .term-description,
+			.woocommerce.archive .site-content-header .page-description,
+			.woocommerce-shop .site-content-header .page-description,
+			.woocommerce.archive .site-content-header .woocommerce-breadcrumb,
+			.woocommerce-shop .site-content-header .woocommerce-breadcrumb {
+				margin-bottom: 0;
+			}";
 		}
 
 		$woocommerce_custom_css .= "

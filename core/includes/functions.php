@@ -1278,6 +1278,7 @@ function defaults() {
 			'shop_title_layout'                   => 'post_title_layout1',
 			'shop_title_elements_positioning'     => array( 'title', 'description', 'breadcrumb' ),
 			'shop_title_horizontal_alignment'     => 'center',
+			'shop_title_inner_elements_spacing'   => 10,
 			'page_title_inner_elements_spacing'   => 10,
 			'single_blog_post_title_color'        => 'h1-color',
 			'single_blog_post_text_color'		  => 'palette2',
