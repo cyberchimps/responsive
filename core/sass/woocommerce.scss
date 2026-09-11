@@ -1101,8 +1101,14 @@ span.res-header-cart-info-wrap, .res-addon-cart-wrap, .res-addon-mobile-cart-wra
 .res-cart-label-position-right, .res-mobile-cart-label-position-right  {
     flex-direction: row-reverse;
 }
-.res-cart-label-position-bottom, .res-mobile-cart-label-position-bottom {
+.res-cart-label-position-bottom{
     flex-direction: column;
+    & .responsive-woo-header-cart-info-wrap {
+        order: 2;
+    }
+}
+.res-mobile-cart-label-position-bottom {
+    flex-direction: column-reverse;
     & .responsive-woo-header-cart-info-wrap {
         order: 2;
     }

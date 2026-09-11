@@ -4950,11 +4950,22 @@ function responsive_customizer_styles() {
 	if(Responsive\Core\responsive_check_element_present_in_hfb('header_widgets1', 'header'))
 	{
 		$custom_css .= "
+			#main-header .header-widgets p, 
+			#main-header .header-widgets h1,
+			#main-header .header-widgets h2,
+			#main-header .header-widgets h3,
+			#main-header .header-widgets h4,
+			#main-header .header-widgets h5,
+			#main-header .header-widgets h6{
+				margin-top: 0;
+			}
+				
 			.header-widgets {
 				background-color: {$header_widget_background_color};
 				color: {$header_widget_text_color};
 				border-color: {$header_widget_border_color};
 			}
+			
 			.header-widgets h1,
 			.header-widgets h2,
 			.header-widgets h3,
@@ -4979,6 +4990,15 @@ function responsive_customizer_styles() {
 	if(Responsive\Core\responsive_check_element_present_in_hfb('header_widgets2', 'header'))
 	{
 		$custom_css .= "
+			#main-header .header-widgets2 p, 
+			#main-header .header-widgets2 h1,
+			#main-header .header-widgets2 h2,
+			#main-header .header-widgets2 h3,
+			#main-header .header-widgets2 h4,
+			#main-header .header-widgets2 h5,
+			#main-header .header-widgets2 h6{
+				margin-top: 0;
+			}
 			.header-widgets2 {
 				background-color: {$header_widget2_background_color};
 				color: {$header_widget2_text_color};
@@ -6806,7 +6826,7 @@ function responsive_customizer_styles() {
 		// Add underline link style CSS
 		$mobile_header_html2_link_style = get_theme_mod( 'responsive_mobile_header_html2_link_style', Responsive\Core\get_responsive_customizer_defaults('responsive_mobile_header_html2_link_style') );
 
-		$custom_css .= ".site-header-mobile .responsive-mobile-header-html2 .responsive-mobile-header-html2-inner.responsive-mobile-header-html-underline-link a { text-decoration: " .$mobile_header_html2_link_style. " }";
+		$custom_css .= ".site-header-mobile .responsive-mobile-header-html2 .responsive-mobile-header-html2-inner.responsive-mobile-header-html2-underline-link a { text-decoration: " .$mobile_header_html2_link_style. " }";
 		
 		$mobile_header_html2_link_color       = get_theme_mod( 'responsive_mobile_header_html2_link_color', Responsive\Core\get_responsive_customizer_defaults( 'mobile_header_html2_link_color' ) );
 		$mobile_header_html2_link_color_hover = get_theme_mod( 'responsive_mobile_header_html2_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'mobile_header_html2_link_color_hover' ) );
@@ -11888,7 +11908,7 @@ function responsive_customizer_styles() {
 		";
 		// Header Woo Cart
 		$cart_style                   = get_theme_mod( 'responsive_cart_style', 'outline' );
-		$cart_color                   = get_theme_mod( 'responsive_cart_color', '#000000' );
+		$cart_color                   = get_theme_mod( 'responsive_cart_color', '#ffffff' );
 		$cart_hover_color             = get_theme_mod( 'responsive_cart_hover_color', '#000000' );
 		$cart_count_color               			  = get_theme_mod( 'responsive_cart_count_color', '#000' );
 		$cart_count_hover_color         			  = get_theme_mod( 'responsive_cart_count_hover_color', '#000' );
@@ -11953,6 +11973,13 @@ function responsive_customizer_styles() {
 				.res-addon-cart-wrap:hover {
 					background-color: {$cart_hover_color};
 				}
+				
+				.res-addon-cart-wrap .res-cart-icon svg path{
+					fill: #ffffff;
+				}
+				.res-addon-cart-wrap .responsive-header-cart-total{
+					color: #ffffff;
+				}
 			";
 			}
 			if ( 'none' === $cart_style ) {
@@ -11971,6 +11998,7 @@ function responsive_customizer_styles() {
 				}
 			";
 			}
+
 			$woocommerce_custom_css .= '
 				.res-addon-cart-wrap {
 					border-radius: ' . responsive_spacing_css( $cart_top_left_radius, $cart_top_right_radius, $cart_bottom_right_radius, $cart_bottom_left_radius ) . ';
@@ -12040,6 +12068,7 @@ function responsive_customizer_styles() {
 				border-bottom-color: {$header_cart_tray_separator_color};
 			}
 			";
+			
 		}
 
 		// Mobile Header Woo Cart
@@ -12099,6 +12128,12 @@ function responsive_customizer_styles() {
 				}
 				.res-addon-mobile-cart-wrap:hover {
 					background-color: {$mobile_cart_hover_color};
+				}
+				.res-addon-mobile-cart-wrap .res-cart-icon svg path{
+					fill: #ffffff;
+				}
+				.res-addon-mobile-cart-wrap .responsive-header-cart-total{
+					color: #ffffff;
 				}
 			";
 			}

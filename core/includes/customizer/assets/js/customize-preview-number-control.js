@@ -889,5 +889,49 @@
 			);
 		}
 	);
+    	
+    function applyCartRadius(controlName, radiusControl, selector) {
+    api(controlName, function(value) {
+        value.bind( function( newval ) {
+            responsive_dynamic_radius(radiusControl, selector);
+        } );
+    });
+}
+
+    // Desktop cart
+    var cartRadiusSelector = '.res-addon-cart-wrap';
+
+    applyCartRadius( 'responsive_cart_radius_top_left_radius', 'cart', cartRadiusSelector );
+    applyCartRadius( 'responsive_cart_radius_top_right_radius', 'cart', cartRadiusSelector );
+    applyCartRadius( 'responsive_cart_radius_bottom_left_radius', 'cart', cartRadiusSelector );
+    applyCartRadius( 'responsive_cart_radius_bottom_right_radius', 'cart', cartRadiusSelector );
+
+    applyCartRadius( 'responsive_cart_radius_tablet_top_left_radius', 'cart', cartRadiusSelector );
+    applyCartRadius( 'responsive_cart_radius_tablet_top_right_radius', 'cart', cartRadiusSelector );
+    applyCartRadius( 'responsive_cart_radius_tablet_bottom_left_radius', 'cart', cartRadiusSelector );
+    applyCartRadius( 'responsive_cart_radius_tablet_bottom_right_radius', 'cart', cartRadiusSelector );
+
+    applyCartRadius( 'responsive_cart_radius_mobile_top_left_radius', 'cart', cartRadiusSelector );
+    applyCartRadius( 'responsive_cart_radius_mobile_top_right_radius', 'cart', cartRadiusSelector );
+    applyCartRadius( 'responsive_cart_radius_mobile_bottom_left_radius', 'cart', cartRadiusSelector );
+    applyCartRadius( 'responsive_cart_radius_mobile_bottom_right_radius', 'cart', cartRadiusSelector );
+
+    // Mobile header cart
+    var mobileCartRadiusSelector = '.res-addon-mobile-cart-wrap';
+
+    applyCartRadius( 'responsive_mobile_cart_radius_top_left_radius', 'mobile_cart', mobileCartRadiusSelector );
+    applyCartRadius( 'responsive_mobile_cart_radius_top_right_radius', 'mobile_cart', mobileCartRadiusSelector );
+    applyCartRadius( 'responsive_mobile_cart_radius_bottom_left_radius', 'mobile_cart', mobileCartRadiusSelector );
+    applyCartRadius( 'responsive_mobile_cart_radius_bottom_right_radius', 'mobile_cart', mobileCartRadiusSelector );
+
+    applyCartRadius( 'responsive_mobile_cart_radius_tablet_top_left_radius', 'mobile_cart', mobileCartRadiusSelector );
+    applyCartRadius( 'responsive_mobile_cart_radius_tablet_top_right_radius', 'mobile_cart', mobileCartRadiusSelector );
+    applyCartRadius( 'responsive_mobile_cart_radius_tablet_bottom_left_radius', 'mobile_cart', mobileCartRadiusSelector );
+    applyCartRadius( 'responsive_mobile_cart_radius_tablet_bottom_right_radius', 'mobile_cart', mobileCartRadiusSelector );
+
+    applyCartRadius( 'responsive_mobile_cart_radius_mobile_top_left_radius', 'mobile_cart', mobileCartRadiusSelector );
+    applyCartRadius( 'responsive_mobile_cart_radius_mobile_top_right_radius', 'mobile_cart', mobileCartRadiusSelector );
+    applyCartRadius( 'responsive_mobile_cart_radius_mobile_bottom_left_radius', 'mobile_cart', mobileCartRadiusSelector );
+    applyCartRadius( 'responsive_mobile_cart_radius_mobile_bottom_right_radius', 'mobile_cart', mobileCartRadiusSelector );
 
 } )( jQuery );

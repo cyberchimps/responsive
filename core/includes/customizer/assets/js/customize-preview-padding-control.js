@@ -2868,4 +2868,47 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
         });
     });
 
+    api( 'responsive_mobile_header_woo_cart_padding_top_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('mobile_header_woo_cart_padding', '.res-addon-mobile-cart-wrap');
+        } );
+    } );
+    api( 'responsive_mobile_header_woo_cart_padding_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('mobile_header_woo_cart_padding', '.res-addon-mobile-cart-wrap');
+        } );
+    } );
+    api( 'responsive_mobile_header_woo_cart_padding_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('mobile_header_woo_cart_padding', '.res-addon-mobile-cart-wrap');
+        } );
+    } );
+    api( 'responsive_mobile_header_woo_cart_padding_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('mobile_header_woo_cart_padding', '.res-addon-mobile-cart-wrap');
+        } );
+    } );
+
+    // Mobile Woo Cart Margin
+    api( 'responsive_mobile_header_woo_cart_margin_top_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('mobile_header_woo_cart_margin', '.res-addon-mobile-cart-wrap');
+        } );
+    } );
+    api( 'responsive_mobile_header_woo_cart_margin_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('mobile_header_woo_cart_margin', '.res-addon-mobile-cart-wrap');
+        } );
+    } );
+    api( 'responsive_mobile_header_woo_cart_margin_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('mobile_header_woo_cart_margin', '.res-addon-mobile-cart-wrap');
+        } );
+    } );
+    api( 'responsive_mobile_header_woo_cart_margin_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('mobile_header_woo_cart_margin', '.res-addon-mobile-cart-wrap');
+        } );
+    } );
+
 } )( jQuery );
