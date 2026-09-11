@@ -224,6 +224,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'customize-control-responsive_shop_title_elements_positioning',
 				'customize-control-responsive_shop_archive_title',
 				'customize-control-responsive_shop_archive_description',
+				'customize-control-responsive_shop_title_horizontal_alignment',
 			);
 
 			$shop_title_area_design_tab_ids = array();
@@ -331,6 +332,33 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 					'type'     => 'textarea',
 					'priority' => 4,
 				)
+			);
+
+			// Horizontal Alignment.
+			$shop_title_horizontal_alignment_label   = esc_html__( 'Horizontal Alignment', 'responsive' );
+			$shop_title_horizontal_alignment_choices = array(
+				'left'   => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
+				'center' => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
+				'right'  => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
+			);
+			if ( is_rtl() ) {
+				$shop_title_horizontal_alignment_choices = array(
+					'left'   => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
+					'center' => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
+					'right'  => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
+				);
+			}
+
+			// Shop Title Horizontal Alignment.
+			responsive_select_button_with_switchers_control(
+				$wp_customize,
+				'shop_title_horizontal_alignment',
+				$shop_title_horizontal_alignment_label,
+				'responsive_shop_title_layout',
+				5,
+				$shop_title_horizontal_alignment_choices,
+				'center',
+				null
 			);
 
 			// Layouts.

@@ -13302,8 +13302,6 @@ function responsive_customizer_styles() {
 			.woocommerce-shop .responsive-archive-entry-banner {
 				display: flex;
 				flex-direction: column;
-				align-items: center;
-				text-align: center;
 				padding: 30px 0;
 				background-color: #f5f5f5;
 				width: 100%;
@@ -13362,6 +13360,48 @@ function responsive_customizer_styles() {
 					}
 				}
 			}
+		}
+
+		if ( $check_shop_title ) {
+			$shop_title_horizontal_alignment        = get_theme_mod( 'responsive_shop_title_horizontal_alignment', 'center' );
+			$shop_title_horizontal_alignment_tablet = get_theme_mod( 'responsive_shop_title_horizontal_alignment_tablet', 'center' );
+			$shop_title_horizontal_alignment_mobile = get_theme_mod( 'responsive_shop_title_horizontal_alignment_mobile', 'center' );
+
+			$map_align = array(
+				'left'   => 'flex-start',
+				'center' => 'center',
+				'right'  => 'flex-end',
+			);
+			$align_desktop = isset( $map_align[ $shop_title_horizontal_alignment ] ) ? $map_align[ $shop_title_horizontal_alignment ] : 'center';
+			$align_tablet  = isset( $map_align[ $shop_title_horizontal_alignment_tablet ] ) ? $map_align[ $shop_title_horizontal_alignment_tablet ] : 'center';
+			$align_mobile  = isset( $map_align[ $shop_title_horizontal_alignment_mobile ] ) ? $map_align[ $shop_title_horizontal_alignment_mobile ] : 'center';
+
+			$woocommerce_custom_css .= "
+			.woocommerce.archive .responsive-archive-entry-banner,
+			.woocommerce-shop .responsive-archive-entry-banner,
+			.woocommerce.archive .site-content-header,
+			.woocommerce-shop .site-content-header {
+				align-items: {$align_desktop};
+				text-align: {$shop_title_horizontal_alignment};
+			}
+			@media screen and ( max-width: 992px ) {
+				.woocommerce.archive .responsive-archive-entry-banner,
+				.woocommerce-shop .responsive-archive-entry-banner,
+				.woocommerce.archive .site-content-header,
+				.woocommerce-shop .site-content-header {
+					align-items: {$align_tablet};
+					text-align: {$shop_title_horizontal_alignment_tablet};
+				}
+			}
+			@media screen and ( max-width: 576px ) {
+				.woocommerce.archive .responsive-archive-entry-banner,
+				.woocommerce-shop .responsive-archive-entry-banner,
+				.woocommerce.archive .site-content-header,
+				.woocommerce-shop .site-content-header {
+					align-items: {$align_mobile};
+					text-align: {$shop_title_horizontal_alignment_mobile};
+				}
+			}";
 		}
 
 		$woocommerce_custom_css .= "
