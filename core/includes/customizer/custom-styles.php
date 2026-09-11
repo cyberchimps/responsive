@@ -12218,6 +12218,58 @@ function responsive_customizer_styles() {
 			}
 			";
 		}
+		// Breadcrumb Text Color
+		$single_blog_post_title_breadcrumb_color = responsive_prepare_css_value( 'responsive_single_blog_post_breadcrumb_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_color' ) );
+		$custom_css .= "
+		.single-post .entry-header .breadcrumbs .breadcrumb-list .breadcrumb-current,
+		.single-post .entry-header .breadcrumbs #breadcrumbs,
+		.single-post .entry-header .breadcrumbs #breadcrumbs *,
+		.single-post .entry-header .breadcrumbs .rank-math-breadcrumb,
+		.single-post .entry-header .breadcrumbs .rank-math-breadcrumb *,
+		.responsive-blog-single-banner2 .breadcrumbs .breadcrumb-list .breadcrumb-current,
+		.responsive-blog-single-banner2 .breadcrumbs #breadcrumbs,
+		.responsive-blog-single-banner2 .breadcrumbs #breadcrumbs *,
+		.responsive-blog-single-banner2 .breadcrumbs .rank-math-breadcrumb,
+		.responsive-blog-single-banner2 .breadcrumbs .rank-math-breadcrumb * {
+			color: {$single_blog_post_title_breadcrumb_color};
+		}
+		";
+		// Breadcrumb Link Color
+		$single_blog_post_title_breadcrumb_link_color = responsive_prepare_css_value( 'responsive_single_blog_post_breadcrumb_link_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_link_color' ) );
+		$custom_css .= "
+		.single-post .entry-header .breadcrumbs .breadcrumb-list .breadcrumb a,
+		.single-post .entry-header .breadcrumbs .breadcrumb-list .breadcrumb a *,
+		.single-post .entry-header .breadcrumbs #breadcrumbs a,
+		.single-post .entry-header .breadcrumbs #breadcrumbs a *,
+		.single-post .entry-header .breadcrumbs .rank-math-breadcrumb a,
+		.single-post .entry-header .breadcrumbs .rank-math-breadcrumb a *,
+		.responsive-blog-single-banner2 .breadcrumbs .breadcrumb-list .breadcrumb a,
+		.responsive-blog-single-banner2 .breadcrumbs .breadcrumb-list .breadcrumb a *,
+		.responsive-blog-single-banner2 .breadcrumbs #breadcrumbs a,
+		.responsive-blog-single-banner2 .breadcrumbs #breadcrumbs a *,
+		.responsive-blog-single-banner2 .breadcrumbs .rank-math-breadcrumb a,
+		.responsive-blog-single-banner2 .breadcrumbs .rank-math-breadcrumb a * {
+			color: {$single_blog_post_title_breadcrumb_link_color};
+		}
+		";
+		// Breadcrumb Link Hover Color
+		$single_blog_post_title_breadcrumb_link_hover_color = responsive_prepare_css_value( 'responsive_single_blog_post_breadcrumb_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_link_hover_color' ) );
+		$custom_css .= "
+		.single-post .entry-header .breadcrumbs .breadcrumb-list .breadcrumb a:hover,
+		.single-post .entry-header .breadcrumbs .breadcrumb-list .breadcrumb a:hover *,
+		.single-post .entry-header .breadcrumbs #breadcrumbs a:hover,
+		.single-post .entry-header .breadcrumbs #breadcrumbs a:hover *,
+		.single-post .entry-header .breadcrumbs .rank-math-breadcrumb a:hover,
+		.single-post .entry-header .breadcrumbs .rank-math-breadcrumb a:hover *,
+		.responsive-blog-single-banner2 .breadcrumbs .breadcrumb-list .breadcrumb a:hover,
+		.responsive-blog-single-banner2 .breadcrumbs .breadcrumb-list .breadcrumb a:hover *,
+		.responsive-blog-single-banner2 .breadcrumbs #breadcrumbs a:hover,
+		.responsive-blog-single-banner2 .breadcrumbs #breadcrumbs a:hover *,
+		.responsive-blog-single-banner2 .breadcrumbs .rank-math-breadcrumb a:hover,
+		.responsive-blog-single-banner2 .breadcrumbs .rank-math-breadcrumb a:hover * {
+			color: {$single_blog_post_title_breadcrumb_link_hover_color};
+		}
+		";
 		// Breadcrumb Separator Color
 		$single_blog_post_title_breadcrumb_separator_color = responsive_prepare_css_value( 'responsive_single_blog_post_breadcrumb_separator_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_separator_color' ) );
 		$custom_css .= "
@@ -12240,13 +12292,13 @@ function responsive_customizer_styles() {
 			}
 		";
 		$custom_css .= "
-			.single-post .entry-header a, .single-post .entry-header a *, .responsive-blog-single-banner2 .container a, .responsive-blog-single-banner2 .container a *
+			.single-post .entry-header a:not(.breadcrumbs *), .single-post .entry-header a *:not(.breadcrumbs *), .responsive-blog-single-banner2 .container a:not(.breadcrumbs *), .responsive-blog-single-banner2 .container a *:not(.breadcrumbs *)
 			{
 				color: {$single_blog_post_title_link_color};
 			}
 		";
 		$custom_css .= "
-			.single-post .entry-header a:hover, .single-post .entry-header a:hover *, .responsive-blog-single-banner2 .container a:hover, .responsive-blog-single-banner2 .container a:hover *
+			.single-post .entry-header a:hover:not(.breadcrumbs *), .single-post .entry-header a:hover *:not(.breadcrumbs *), .responsive-blog-single-banner2 .container a:hover:not(.breadcrumbs *), .responsive-blog-single-banner2 .container a:hover *:not(.breadcrumbs *)
 			{
 				color: {$single_blog_post_title_link_hover_color};
 			}
@@ -12422,12 +12474,12 @@ function responsive_customizer_styles() {
 		";
 		
 		$custom_css .= "
-				.responsive-archive-entry-banner .container a, .responsive-archive-entry-banner .container a *, .archive:not(.woocommerce) .site-content-header a, .archive:not(.woocommerce) .site-content-header a *{
+				.responsive-archive-entry-banner .container a:not(.breadcrumbs *), .responsive-archive-entry-banner .container a *:not(.breadcrumbs *), .archive:not(.woocommerce) .site-content-header a:not(.breadcrumbs *), .archive:not(.woocommerce) .site-content-header a *:not(.breadcrumbs *){
 				color: {$blog_post_title_link_color};
 			}
 		";
 		$custom_css .= "
-			.responsive-archive-entry-banner .container a:hover *, .responsive-archive-entry-banner .container a:hover, .archive:not(.woocommerce) .site-content-header a:hover, .archive:not(.woocommerce) .site-content-header a:hover * {
+			.responsive-archive-entry-banner .container a:hover *:not(.breadcrumbs *), .responsive-archive-entry-banner .container a:hover:not(.breadcrumbs *), .archive:not(.woocommerce) .site-content-header a:hover:not(.breadcrumbs *), .archive:not(.woocommerce) .site-content-header a:hover *:not(.breadcrumbs *) {
 				color: {$blog_post_title_link_hover_color};
 			}
 		";
@@ -12441,6 +12493,58 @@ function responsive_customizer_styles() {
 		}
 		";
 		
+		// Breadcrumb Text Color
+		$blog_post_title_breadcrumb_color = responsive_prepare_css_value( 'responsive_blog_post_breadcrumb_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_color' ) );
+		$custom_css .= "
+		.responsive-archive-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb-current,
+		.responsive-archive-entry-banner .breadcrumbs #breadcrumbs,
+		.responsive-archive-entry-banner .breadcrumbs #breadcrumbs *,
+		.responsive-archive-entry-banner .breadcrumbs .rank-math-breadcrumb,
+		.responsive-archive-entry-banner .breadcrumbs .rank-math-breadcrumb *,
+		.archive:not(.woocommerce) .site-content-header .breadcrumbs .breadcrumb-list .breadcrumb-current,
+		.archive:not(.woocommerce) .site-content-header .breadcrumbs #breadcrumbs,
+		.archive:not(.woocommerce) .site-content-header .breadcrumbs #breadcrumbs *,
+		.archive:not(.woocommerce) .site-content-header .breadcrumbs .rank-math-breadcrumb,
+		.archive:not(.woocommerce) .site-content-header .breadcrumbs .rank-math-breadcrumb * {
+			color: {$blog_post_title_breadcrumb_color};
+		}
+		";
+		// Breadcrumb Link Color
+		$blog_post_title_breadcrumb_link_color = responsive_prepare_css_value( 'responsive_blog_post_breadcrumb_link_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_link_color' ) );
+		$custom_css .= "
+		.responsive-archive-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb a,
+		.responsive-archive-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb a *,
+		.responsive-archive-entry-banner .breadcrumbs #breadcrumbs a,
+		.responsive-archive-entry-banner .breadcrumbs #breadcrumbs a *,
+		.responsive-archive-entry-banner .breadcrumbs .rank-math-breadcrumb a,
+		.responsive-archive-entry-banner .breadcrumbs .rank-math-breadcrumb a *,
+		.archive:not(.woocommerce) .site-content-header .breadcrumbs .breadcrumb-list .breadcrumb a,
+		.archive:not(.woocommerce) .site-content-header .breadcrumbs .breadcrumb-list .breadcrumb a *,
+		.archive:not(.woocommerce) .site-content-header .breadcrumbs #breadcrumbs a,
+		.archive:not(.woocommerce) .site-content-header .breadcrumbs #breadcrumbs a *,
+		.archive:not(.woocommerce) .site-content-header .breadcrumbs .rank-math-breadcrumb a,
+		.archive:not(.woocommerce) .site-content-header .breadcrumbs .rank-math-breadcrumb a * {
+			color: {$blog_post_title_breadcrumb_link_color};
+		}
+		";
+		// Breadcrumb Link Hover Color
+		$blog_post_title_breadcrumb_link_hover_color = responsive_prepare_css_value( 'responsive_blog_post_breadcrumb_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_link_hover_color' ) );
+		$custom_css .= "
+		.responsive-archive-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb a:hover,
+		.responsive-archive-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb a:hover *,
+		.responsive-archive-entry-banner .breadcrumbs #breadcrumbs a:hover,
+		.responsive-archive-entry-banner .breadcrumbs #breadcrumbs a:hover *,
+		.responsive-archive-entry-banner .breadcrumbs .rank-math-breadcrumb a:hover,
+		.responsive-archive-entry-banner .breadcrumbs .rank-math-breadcrumb a:hover *,
+		.archive:not(.woocommerce) .site-content-header .breadcrumbs .breadcrumb-list .breadcrumb a:hover,
+		.archive:not(.woocommerce) .site-content-header .breadcrumbs .breadcrumb-list .breadcrumb a:hover *,
+		.archive:not(.woocommerce) .site-content-header .breadcrumbs #breadcrumbs a:hover,
+		.archive:not(.woocommerce) .site-content-header .breadcrumbs #breadcrumbs a:hover *,
+		.archive:not(.woocommerce) .site-content-header .breadcrumbs .rank-math-breadcrumb a:hover,
+		.archive:not(.woocommerce) .site-content-header .breadcrumbs .rank-math-breadcrumb a:hover * {
+			color: {$blog_post_title_breadcrumb_link_hover_color};
+		}
+		";
 		// Breadcrumb Separator Color
 		$blog_post_title_breadcrumb_separator_color = responsive_prepare_css_value( 'responsive_blog_post_breadcrumb_separator_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_separator_color' ) );
 		$custom_css .= "
@@ -12657,21 +12761,82 @@ function responsive_customizer_styles() {
 			}
 		";
 		$custom_css .= "
-			.responsive-single-entry-banner .container *:not(.entry-title, .entry-title *):not(a, a *), .page #page .entry-header *:not(.entry-title, .entry-title *):not(a, a *):not(.page .entry-header .breadcrumbs .breadcrumb-list .chevron):not(.responsive-single-entry-banner .breadcrumbs .breadcrumb-list .chevron):not(.page .entry-header .breadcrumbs .rank-math-breadcrumb .separator):not(.responsive-single-entry-banner .breadcrumbs .rank-math-breadcrumb .separator) {
+			.responsive-single-entry-banner .container *:not(.entry-title, .entry-title *):not(a, a *):not(.breadcrumbs):not(.breadcrumbs *), .page #page .entry-header *:not(.entry-title, .entry-title *):not(a, a *):not(.breadcrumbs):not(.breadcrumbs *) {
 				color: {$page_title_text_color};
-			} 
+			}
 		";
 		$custom_css .= "
-			.page .entry-header a, .page .entry-header a *, .responsive-single-entry-banner .container a, .responsive-single-entry-banner .container a * {
+			.page .entry-header a:not(.breadcrumbs *), .page .entry-header a *:not(.breadcrumbs *), .responsive-single-entry-banner .container a:not(.breadcrumbs *), .responsive-single-entry-banner .container a *:not(.breadcrumbs *) {
 				color: {$page_title_link_color};
 			}
 		";
 		$custom_css .= "
-			.page .entry-header a:hover, .page .entry-header a:hover *, .responsive-single-entry-banner .container a:hover, .responsive-single-entry-banner .container a:hover * {
+			.page .entry-header a:hover:not(.breadcrumbs *), .page .entry-header a:hover *:not(.breadcrumbs *), .responsive-single-entry-banner .container a:hover:not(.breadcrumbs *), .responsive-single-entry-banner .container a:hover *:not(.breadcrumbs *) {
 				color: {$page_title_link_hover_color};
 			}
 		";
 
+		// Breadcrumb Text Color
+		$page_title_area_breadcrumb_color = responsive_prepare_css_value( 'responsive_page_title_area_breadcrumb_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_color' ) );
+		if( $page_title_area_breadcrumb_color !== '')
+		{
+			$custom_css .= "
+			.page .entry-header .breadcrumbs .breadcrumb-list .breadcrumb-current,
+			.responsive-single-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb-current,
+			.page .entry-header .breadcrumbs #breadcrumbs,
+			.page .entry-header .breadcrumbs #breadcrumbs *,
+			.responsive-single-entry-banner .breadcrumbs #breadcrumbs,
+			.responsive-single-entry-banner .breadcrumbs #breadcrumbs *,
+			.page .entry-header .breadcrumbs .rank-math-breadcrumb,
+			.page .entry-header .breadcrumbs .rank-math-breadcrumb *,
+			.responsive-single-entry-banner .breadcrumbs .rank-math-breadcrumb,
+			.responsive-single-entry-banner .breadcrumbs .rank-math-breadcrumb * {
+				color: {$page_title_area_breadcrumb_color};
+			}
+			";
+		}
+		// Breadcrumb Link Color
+		$page_title_area_breadcrumb_link_color = responsive_prepare_css_value( 'responsive_page_title_area_breadcrumb_link_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_link_color' ) );
+		if( $page_title_area_breadcrumb_link_color !== '')
+		{
+			$custom_css .= "
+			.page .entry-header .breadcrumbs .breadcrumb-list .breadcrumb a,
+			.page .entry-header .breadcrumbs .breadcrumb-list .breadcrumb a *,
+			.responsive-single-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb a,
+			.responsive-single-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb a *,
+			.page .entry-header .breadcrumbs #breadcrumbs a,
+			.page .entry-header .breadcrumbs #breadcrumbs a *,
+			.responsive-single-entry-banner .breadcrumbs #breadcrumbs a,
+			.responsive-single-entry-banner .breadcrumbs #breadcrumbs a *,
+			.page .entry-header .breadcrumbs .rank-math-breadcrumb a,
+			.page .entry-header .breadcrumbs .rank-math-breadcrumb a *,
+			.responsive-single-entry-banner .breadcrumbs .rank-math-breadcrumb a,
+			.responsive-single-entry-banner .breadcrumbs .rank-math-breadcrumb a * {
+				color: {$page_title_area_breadcrumb_link_color};
+			}
+			";
+		}
+		// Breadcrumb Link Hover Color
+		$page_title_area_breadcrumb_link_hover_color = responsive_prepare_css_value( 'responsive_page_title_area_breadcrumb_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_link_hover_color' ) );
+		if( $page_title_area_breadcrumb_link_hover_color !== '')
+		{
+			$custom_css .= "
+			.page .entry-header .breadcrumbs .breadcrumb-list .breadcrumb a:hover,
+			.page .entry-header .breadcrumbs .breadcrumb-list .breadcrumb a:hover *,
+			.responsive-single-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb a:hover,
+			.responsive-single-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb a:hover *,
+			.page .entry-header .breadcrumbs #breadcrumbs a:hover,
+			.page .entry-header .breadcrumbs #breadcrumbs a:hover *,
+			.responsive-single-entry-banner .breadcrumbs #breadcrumbs a:hover,
+			.responsive-single-entry-banner .breadcrumbs #breadcrumbs a:hover *,
+			.page .entry-header .breadcrumbs .rank-math-breadcrumb a:hover,
+			.page .entry-header .breadcrumbs .rank-math-breadcrumb a:hover *,
+			.responsive-single-entry-banner .breadcrumbs .rank-math-breadcrumb a:hover,
+			.responsive-single-entry-banner .breadcrumbs .rank-math-breadcrumb a:hover * {
+				color: {$page_title_area_breadcrumb_link_hover_color};
+			}
+			";
+		}
 		// Breadcrumb Background Color
 		$page_title_area_breadcrumb_background_color = responsive_prepare_css_value( 'responsive_page_title_area_breadcrumb_background_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_background_color' ) );
 		if( $page_title_area_breadcrumb_background_color !== '')

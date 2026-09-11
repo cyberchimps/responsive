@@ -101,7 +101,7 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 		const { inputattr } = this.state;
 
 		const getColorPreviewValue = (value, wantRawValue = false) => {
-			if ( value && ( value.includes('palette') || value.includes('headings-color') || value.includes('title-above-content') ) ) {
+			if ( value && ( value.includes('palette') || value.includes('headings-color') || value.includes('title-above-content') || value.includes('breadcrumb') ) ) {
 				const varName = value.includes('title-above-content') ? `--responsive-${value}` : `--responsive-global-${value}`;
 				if (wantRawValue) {
 					return getComputedStyle(document.documentElement)

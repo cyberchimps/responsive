@@ -319,8 +319,9 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'customize-control-responsive_single_blog_post_title_color',
 				'customize-control-responsive_single_blog_post_text_color',
 				'customize-control-responsive_single_blog_post_link_color',
-				'customize-control-responsive_single_blog_post_link_hover_color',
 				'customize-control-responsive_single_blog_post_link_hover_separator',
+				'customize-control-responsive_single_blog_post_breadcrumb_color',
+				'customize-control-responsive_single_blog_post_breadcrumb_link_color',
 				'customize-control-responsive_single_blog_post_breadcrumb_background_color',
 				'customize-control-responsive_single_blog_post_breadcrumb_separator_color',
 				'customize-control-responsive_single_blog_post_title_typography_group',
@@ -398,21 +399,25 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 			$single_blog_post_text_color_label = __( 'Text Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'single_blog_post_text', $single_blog_post_text_color_label, 'responsive_single_blog_post_title_layout', 15, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_text_color' ) );
 
-			// Single Blog Post Link Color
+			// Single Blog Post Link Color (with Hover)
 			$single_blog_post_link_color_label = __( 'Link Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'single_blog_post_link', $single_blog_post_link_color_label, 'responsive_single_blog_post_title_layout', 20, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_color' ) );
+			responsive_color_control( $wp_customize, 'single_blog_post_link', $single_blog_post_link_color_label, 'responsive_single_blog_post_title_layout', 20, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_hover_color' ), 'single_blog_post_link_hover' );
 
-			// Single Blog Post Link Hover Color
-			$single_blog_post_link_hover_color_label = __( 'Link Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'single_blog_post_link_hover', $single_blog_post_link_hover_color_label, 'responsive_single_blog_post_title_layout', 25, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_hover_color' ) );
+			// Single blog Post Breadcrumb Text Color
+			$single_blog_post_breadcrumb_color_label = __( 'Breadcrumb Text Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'single_blog_post_breadcrumb', $single_blog_post_breadcrumb_color_label, 'responsive_single_blog_post_title_layout', 26, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_color' ) );
+
+			// Single blog Post Breadcrumb Link Color (with Hover)
+			$single_blog_post_breadcrumb_link_color_label = __( 'Breadcrumb Link Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'single_blog_post_breadcrumb_link', $single_blog_post_breadcrumb_link_color_label, 'responsive_single_blog_post_title_layout', 27, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_link_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_link_hover_color' ), 'single_blog_post_breadcrumb_link_hover' );
 
 			// Single blog Post Breadcrumb Background Color
 			$single_blog_post_breadcrumb_background_color_label = __( 'Breadcrumb Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'single_blog_post_breadcrumb_background', $single_blog_post_breadcrumb_background_color_label, 'responsive_single_blog_post_title_layout', 27, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_background_color' ) );
+			responsive_color_control( $wp_customize, 'single_blog_post_breadcrumb_background', $single_blog_post_breadcrumb_background_color_label, 'responsive_single_blog_post_title_layout', 28, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_background_color' ) );
 
 			// Single blog Post Breadcrumb Separator Color
 			$single_blog_post_breadcrumb_separator_color_label = __( 'Breadcrumb Separator Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'single_blog_post_breadcrumb_separator', $single_blog_post_breadcrumb_separator_color_label, 'responsive_single_blog_post_title_layout', 28, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_separator_color' ), 'responsive_active_breadcrumb_separator_area' );
+			responsive_color_control( $wp_customize, 'single_blog_post_breadcrumb_separator', $single_blog_post_breadcrumb_separator_color_label, 'responsive_single_blog_post_title_layout', 29, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_separator_color' ), 'responsive_active_breadcrumb_separator_area' );
 
 			responsive_horizontal_separator_control( $wp_customize, 'single_blog_post_link_hover_separator', 1, 'responsive_single_blog_post_title_layout',30, 1 );
 
