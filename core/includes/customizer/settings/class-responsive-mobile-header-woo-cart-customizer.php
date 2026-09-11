@@ -285,7 +285,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 				
 				// Cart Icon Color.
 				$mobile_cart_color_label = __( 'Cart Color', 'responsive' );
-				responsive_color_control( $wp_customize, 'mobile_cart', $mobile_cart_color_label, 'responsive_mobile_header_woo_cart', 120, '#ffffff', null, '');
+				responsive_color_control( $wp_customize, 'mobile_cart', $mobile_cart_color_label, 'responsive_mobile_header_woo_cart', 120, '#000000', null, '');
 
 				// Count color.
 				$count_color_label = __( 'Count Color', 'responsive' );
