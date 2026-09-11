@@ -229,6 +229,10 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 
 			$shop_title_area_design_tab_ids = array(
 				'customize-control-responsive_shop_title_inner_elements_spacing',
+				'customize-control-responsive_shop_title_container_background_layout1',
+				'customize-control-responsive_shop_title_container_background_layout2',
+				'customize-control-responsive_shop_banner_background_color',
+				'customize-control-responsive_shop_banner_overlay_color',
 			);
 
 			// Products Title Area Tabs.
@@ -376,6 +380,65 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				100,
 				1,
 				'postMessage'
+			);
+
+			// Container Background - Layout 1.
+			responsive_select_button_control(
+				$wp_customize,
+				'shop_title_container_background_layout1',
+				esc_html__( 'Container Background', 'responsive' ),
+				'responsive_shop_title_layout',
+				11,
+				array(
+					'none'   => esc_html__( 'None', 'responsive' ),
+					'custom' => esc_html__( 'Custom', 'responsive' ),
+				),
+				Responsive\Core\get_responsive_customizer_defaults( 'shop_title_container_background_layout1' ),
+				null,
+				'refresh'
+			);
+
+			// Container Background - Layout 2.
+			responsive_select_button_control(
+				$wp_customize,
+				'shop_title_container_background_layout2',
+				esc_html__( 'Container Background', 'responsive' ),
+				'responsive_shop_title_layout',
+				12,
+				array(
+					'none'     => esc_html__( 'None', 'responsive' ),
+					'custom'   => esc_html__( 'Custom', 'responsive' ),
+					'featured' => esc_html__( 'Featured', 'responsive' ),
+				),
+				Responsive\Core\get_responsive_customizer_defaults( 'shop_title_container_background_layout2' ),
+				null,
+				'refresh'
+			);
+
+			// Banner Background Color.
+			$shop_banner_background_label = esc_html__( 'Banner Background', 'responsive' );
+			responsive_color_control_with_device_switchers(
+				$wp_customize,
+				'shop_banner_background',
+				$shop_banner_background_label,
+				'responsive_shop_title_layout',
+				13,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_banner_background_color' ),
+				null,
+				'',
+				'postMessage',
+				true
+			);
+
+			// Banner Overlay Color.
+			$shop_banner_overlay_label = esc_html__( 'Banner Overlay', 'responsive' );
+			responsive_color_control(
+				$wp_customize,
+				'shop_banner_overlay',
+				$shop_banner_overlay_label,
+				'responsive_shop_title_layout',
+				14,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_banner_overlay_color' )
 			);
 
 			// Layouts.

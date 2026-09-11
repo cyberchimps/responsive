@@ -6564,6 +6564,47 @@
         });
     });
 
+    // WooCommerce Shop/Archive Title Banner Background
+    api('responsive_shop_banner_background_color', function(val) {
+        val.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_shop_banner_background_color') || newval;
+            jQuery('style#responsive_shop_banner_background_color').remove();
+            jQuery('head').append(
+                '<style id="responsive_shop_banner_background_color">' +
+                '@media screen and (min-width: 993px) {' +
+                ' .woocommerce.archive .responsive-archive-entry-banner, .woocommerce-shop .responsive-archive-entry-banner, .woocommerce.archive .site-content-header, .woocommerce-shop .site-content-header { background-color: ' + color + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+    api('responsive_shop_banner_background_color_tablet', function(val) {
+        val.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_shop_banner_background_color_tablet') || newval;
+            jQuery('style#responsive_shop_banner_background_color_tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive_shop_banner_background_color_tablet">' +
+                '@media screen and (min-width: 577px) and (max-width: 992px) {' +
+                ' .woocommerce.archive .responsive-archive-entry-banner, .woocommerce-shop .responsive-archive-entry-banner, .woocommerce.archive .site-content-header, .woocommerce-shop .site-content-header { background-color: ' + color + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+    api('responsive_shop_banner_background_color_mobile', function(val) {
+        val.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_shop_banner_background_color_mobile') || newval;
+            jQuery('style#responsive_shop_banner_background_color_mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive_shop_banner_background_color_mobile">' +
+                '@media screen and (max-width: 576px) {' +
+                ' .woocommerce.archive .responsive-archive-entry-banner, .woocommerce-shop .responsive-archive-entry-banner, .woocommerce.archive .site-content-header, .woocommerce-shop .site-content-header { background-color: ' + color + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+
     // Page Title Area Title
     api( 'responsive_page_title_area_text_color', function(value) {
          value.bind(function(newval) {
@@ -6692,6 +6733,14 @@
             var color = processThemeSettingForCSS('responsive_page_featured_image_overlay_color');
             if ( !color ) color = 'transparent';
             $('.responsive-single-entry-banner, .responsive-single-post-featured-section.post-thumb, .entry-header').css('--overlay-color', color);
+        });
+    });
+
+    api('responsive_shop_banner_overlay_color', function(value) {
+        value.bind(function() {
+            var color = processThemeSettingForCSS('responsive_shop_banner_overlay_color');
+            if ( !color ) color = 'transparent';
+            $('.responsive-archive-entry-banner').css('--overlay-color', color);
         });
     });
 function updateMobileHeaderButtonHoverShadow() {

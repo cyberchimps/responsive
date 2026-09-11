@@ -363,8 +363,34 @@ function responsive_woocommerce_shop_banner2() {
 		if ( ! $has_content ) {
 			return;
 		}
+
+		$section_style = '';
+		$container_bg  = get_theme_mod( 'responsive_shop_title_container_background_layout2', Responsive\Core\get_responsive_customizer_defaults( 'shop_title_container_background_layout2' ) );
+		if ( 'featured' === $container_bg ) {
+			$featured_image_url = '';
+			if ( is_shop() ) {
+				$shop_page_id = wc_get_page_id( 'shop' );
+				if ( $shop_page_id > 0 && has_post_thumbnail( $shop_page_id ) ) {
+					$featured_image_url = get_the_post_thumbnail_url( $shop_page_id, 'full' );
+				}
+			} elseif ( is_product_taxonomy() ) {
+				$term = get_queried_object();
+				if ( $term && isset( $term->term_id ) ) {
+					$thumb_id = get_term_meta( $term->term_id, 'thumbnail_id', true );
+					if ( $thumb_id ) {
+						$featured_image_url = wp_get_attachment_url( $thumb_id );
+					}
+				}
+			}
+
+			if ( $featured_image_url ) {
+				$overlay_color = Responsive\Core\responsive_prepare_css_value( 'responsive_shop_banner_overlay_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_banner_overlay_color' ) );
+				$overlay_css   = empty( $overlay_color ) ? 'transparent' : $overlay_color;
+				$section_style = ' style="--overlay-color: ' . $overlay_css . '; background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), url(' . esc_url( $featured_image_url ) . '); background-repeat: no-repeat; background-size: cover; background-attachment: scroll; background-position: center center;"';
+			}
+		}
 		?>
-		<section class="responsive-archive-entry-banner">
+		<section class="responsive-archive-entry-banner"<?php echo $section_style; ?>>
 			<div class="container">
 				<?php
 				foreach ( $elements as $element ) {
