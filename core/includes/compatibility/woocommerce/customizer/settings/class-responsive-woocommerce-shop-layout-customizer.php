@@ -48,6 +48,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 
 			$general_tab_ids_prefix = 'customize-control-';
 			$general_tab_ids        = array(
+				$general_tab_ids_prefix . 'responsive_shop_title_area',
 				$general_tab_ids_prefix . 'responsive_shop_layout_elements_separator',
 				$general_tab_ids_prefix . 'responsive_shop_content_width',
 				$general_tab_ids_prefix . 'responsive_product_card_spacing',
@@ -191,6 +192,73 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			// product border radius
 			$product_border_radius_label = esc_html__( 'Border Radius (px)', 'responsive' );
 			responsive_radius_control($wp_customize, 'shop_product', 'responsive_woocommerce_shop', 30, 8, 8, null, $product_border_radius_label, 'postMessage',);
+
+			// Products Title Area Section Toggle.
+			responsive_section_toggle_control(
+				$wp_customize,
+				'shop_title_area',
+				__( 'Products Title Area', 'responsive' ),
+				'responsive_woocommerce_shop',
+				5,
+				'section',
+				'responsive_shop_title_layout',
+				true,
+				null,
+				'refresh',
+				'Enable the toggle to customize products title area settings.'
+			);
+
+			// Adding WooCommerce Products Title Layout Section.
+			$wp_customize->add_section(
+				'responsive_shop_title_layout',
+				array(
+					'title'    => esc_html__( 'Products Title Area', 'responsive' ),
+					'panel'    => 'woocommerce',
+					'priority' => 1,
+				)
+			);
+
+			// Products Title Tabs.
+			$shop_title_area_general_tab_ids = array(
+				'customize-control-responsive_shop_title_layout',
+			);
+
+			$shop_title_area_design_tab_ids = array();
+
+			// Products Title Area Tabs.
+			responsive_tabs_button_control(
+				$wp_customize,
+				'shop_title_area_tabs',
+				$tabs_label,
+				'responsive_shop_title_layout',
+				1,
+				'',
+				'responsive_shop_title_general_tab',
+				'responsive_shop_title_design_tab',
+				$shop_title_area_general_tab_ids,
+				$shop_title_area_design_tab_ids,
+				null
+			);
+
+			$shop_title_layout_choices = array(
+				'post_title_layout1' => esc_html__( 'Layout 1', 'responsive' ),
+				'post_title_layout2' => esc_html__( 'Layout 2', 'responsive' ),
+			);
+
+			$shop_title_layout_label = esc_html__( 'Banner Layout', 'responsive' );
+
+			responsive_imageradio_button_control(
+				$wp_customize,
+				'shop_title_layout',
+				$shop_title_layout_label,
+				'responsive_shop_title_layout',
+				1,
+				$shop_title_layout_choices,
+				'post_title_layout1',
+				null,
+				'svg',
+				'refresh'
+			);
 
 			// Layouts.
 			$shop_layout_elements_label = esc_html__( 'Layouts', 'responsive' );

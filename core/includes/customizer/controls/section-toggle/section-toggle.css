@@ -62,3 +62,6 @@
     padding-top: 24px;
     padding-bottom: 24px;
 }
+#sub-accordion-panel-woocommerce > #accordion-section-responsive_shop_title_layout:not(.open) {
+    height: 0;
+}
