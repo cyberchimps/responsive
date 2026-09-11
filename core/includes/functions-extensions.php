@@ -31,7 +31,9 @@ function responsive_get_breadcrumb_lists() {
 	$source = get_theme_mod( 'responsive_breadcrumb_source', 'default' );
 
 	if ( 'yoast' === $source && function_exists( 'yoast_breadcrumb' ) ) {
+		add_filter( 'wpseo_breadcrumb_separator', 'responsive_wrap_yoast_breadcrumb_separator' );
 		yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
+		remove_filter( 'wpseo_breadcrumb_separator', 'responsive_wrap_yoast_breadcrumb_separator' );
 	} elseif ( 'rankmath' === $source && function_exists( 'rank_math_the_breadcrumbs' ) ) {
 		rank_math_the_breadcrumbs();
 	} else {
@@ -44,6 +46,20 @@ function responsive_get_breadcrumb_lists() {
 		} else {
 			responsive_breadcrumb_lists();
 		}
+	}
+}
+
+if ( ! function_exists( 'responsive_wrap_yoast_breadcrumb_separator' ) ) {
+	/**
+	 * Wraps the Yoast SEO breadcrumb separator glyph in a colorable span,
+	 * matching the addressable separator markup already output by RankMath
+	 * (.separator) and the theme's native breadcrumbs (.chevron).
+	 *
+	 * @param string $separator The raw separator glyph.
+	 * @return string
+	 */
+	function responsive_wrap_yoast_breadcrumb_separator( $separator ) {
+		return '<span class="separator">' . $separator . '</span>';
 	}
 }
 

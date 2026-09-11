@@ -2602,26 +2602,26 @@ if ( ! function_exists( 'responsive_active_breadcrumb_separator' ) ) {
 if ( ! function_exists( 'responsive_breadcrumb_source_separator_unstylable' ) ) {
 	/**
 	 * Whether the selected Breadcrumb Source renders its separator in a way
-	 * that no CSS selector can target - true only for Yoast, which
-	 * concatenates its separator as plain text directly between crumbs with
-	 * no wrapping element at all. RankMath, by contrast, wraps its separator
-	 * in <span class="separator">, so its color CAN be styled and this
-	 * returns false for it - only the character-choice control (which picks
-	 * a literal glyph neither plugin ever uses) stays hidden for RankMath too.
+	 * that no CSS selector can target. RankMath wraps its separator in
+	 * <span class="separator">, and the theme wraps Yoast's separator glyph
+	 * the same way via the `wpseo_breadcrumb_separator` filter (see
+	 * responsive_wrap_yoast_breadcrumb_separator() in functions-extensions.php),
+	 * so both are always stylable - only the character-choice control (which
+	 * picks a literal glyph neither plugin ever uses) stays hidden for them.
 	 *
 	 * @since 1.1.0
 	 */
 	function responsive_breadcrumb_source_separator_unstylable() {
-		$source = get_theme_mod( 'responsive_breadcrumb_source', 'default' );
-		return ( 'yoast' === $source && function_exists( 'yoast_breadcrumb' ) );
+		return false;
 	}
 }
 
 if ( ! function_exists( 'responsive_active_breadcrumb_separator_color' ) ) {
 	/**
 	 * Active callback for the global breadcrumb separator COLOR control.
-	 * Stays visible for RankMath (whose separator is stylable) but hidden
-	 * for Yoast (whose separator has no addressable element).
+	 * Visible for all breadcrumb sources, since RankMath and Yoast (via the
+	 * theme's separator-wrapping filter) both render an addressable separator
+	 * element.
 	 *
 	 * @since 1.1.0
 	 */
