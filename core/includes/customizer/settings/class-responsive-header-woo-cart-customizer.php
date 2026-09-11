@@ -92,7 +92,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 			
 				responsive_tabs_button_control( $wp_customize, 'header_woo_cart_tabs', $tabs_label, 'responsive_header_woo_cart', 1, '', 'responsive_header_woo_cart_general_tab', 'responsive_header_woo_cart_design_tab', $general_tab_ids, $design_tab_ids, null );
 				// Cart Icon Heading.
-				$spacing_separator_label = __( 'Cart Icon', 'responsive-add-ons' );
+				$spacing_separator_label = __( 'Cart Icon', 'responsive' );
 				responsive_separator_control( $wp_customize, 'cart_icon_separator', $spacing_separator_label, 'responsive_header_woo_cart', 20 );
 
 				$wp_customize->add_setting(
@@ -108,15 +108,15 @@ if ( class_exists( 'WooCommerce' ) ) {
 						$wp_customize,
 						'responsive_cart_icon',
 						array(
-							'label'    => __( 'Cart Icon', 'responsive-add-ons' ),
+							'label'    => __( 'Cart Icon', 'responsive' ),
 							'section'  => 'responsive_header_woo_cart',
 							'settings' => 'responsive_cart_icon',
 							'priority' => 30,
 							'choices'  => array(
-								'icon-opencart'        => esc_html__( 'icon-opencart', 'responsive-add-ons' ),
-								'icon-shopping-cart'   => esc_html__( 'icon-shopping-cart', 'responsive-add-ons' ),
-								'icon-shopping-bag'    => esc_html__( 'icon-shopping-bag', 'responsive-add-ons' ),
-								'icon-shopping-basket' => esc_html__( 'icon-shopping-basket', 'responsive-add-ons' ),
+								'icon-opencart'        => esc_html__( 'icon-opencart', 'responsive' ),
+								'icon-shopping-cart'   => esc_html__( 'icon-shopping-cart', 'responsive' ),
+								'icon-shopping-bag'    => esc_html__( 'icon-shopping-bag', 'responsive' ),
+								'icon-shopping-basket' => esc_html__( 'icon-shopping-basket', 'responsive' ),
 							),
 						)
 					)
@@ -251,6 +251,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 				// Cart Icon Heading.
 				$cart_icon_color_separator = __( 'Cart Icon', 'responsive' );
 				responsive_separator_control( $wp_customize, 'cart_icon_color_separator', $cart_icon_color_separator, 'responsive_header_woo_cart', 110 );
+
 				// count Color.
 				$count_color_label = __( 'Count Color', 'responsive' );
 				responsive_color_control( $wp_customize, 'cart_count', $count_color_label, 'responsive_header_woo_cart', 130, '#000000', null, '', true, '#000000', 'cart_count_hover' );
