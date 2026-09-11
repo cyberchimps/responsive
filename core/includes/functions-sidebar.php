@@ -189,8 +189,8 @@ function responsive_widgets_init() {
 	register_sidebar(
 		array(
 			'name'          => __( 'Sidebar 1', 'responsive' ),
-			'id'            => 'sidebar-1',
-			'description'   => __( 'Custom Sidebar 1', 'responsive' ),
+			'id'            => 'responsive-custom-sidebar-1',
+			'description'   => __( 'Custom Responsive theme Sidebar 1', 'responsive' ),
 			'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<div class="widget-title"><h4>',
@@ -201,8 +201,8 @@ function responsive_widgets_init() {
 	register_sidebar(
 		array(
 			'name'          => __( 'Sidebar 2', 'responsive' ),
-			'id'            => 'sidebar-2',
-			'description'   => __( 'Custom Sidebar 2', 'responsive' ),
+			'id'            => 'responsive-custom-sidebar-2',
+			'description'   => __( 'Custom Responsive theme Sidebar 2', 'responsive' ),
 			'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<div class="widget-title"><h4>',

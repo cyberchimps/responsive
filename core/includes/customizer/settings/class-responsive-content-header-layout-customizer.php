@@ -64,7 +64,7 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 				)
 			);
 
-			responsive_horizontal_separator_control( $wp_customize, 'breadcrumb_enable_separator', 2, 'responsive_breadcrumb',15, 1, 'responsive_active_breadcrumb' );
+			responsive_horizontal_separator_control( $wp_customize, 'breadcrumb_enable_separator', 1, 'responsive_breadcrumb',15, 1, 'responsive_active_breadcrumb' );
 
 			// Breadcrumb Position.
 			$breadcrumb_position_label   = esc_html__( 'Breadcrumb Position', 'responsive' );
@@ -76,6 +76,25 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 
 			responsive_horizontal_separator_control( $wp_customize, 'breadcrumb_position_separator', 1, 'responsive_breadcrumb',20, 1, 'responsive_active_breadcrumb' );
 
+			// Breadcrumbs Source.
+			if ( ! function_exists( 'is_plugin_active' ) ) {
+				include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+			}
+			$breadcrumb_source_label   = esc_html__( 'Breadcrumbs Source', 'responsive' );
+			$breadcrumb_source_choices = array(
+				'default' => esc_html__( 'Default', 'responsive' ),
+			);
+			if ( is_plugin_active( 'seo-by-rank-math/rank-math.php' ) ) {
+				$breadcrumb_source_choices['rankmath'] = esc_html__( 'RankMath', 'responsive' );
+			}
+			if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) ) {
+				$breadcrumb_source_choices['yoast'] = esc_html__( 'Yoast SEO', 'responsive' );
+			}
+
+			responsive_select_control( $wp_customize, 'breadcrumb_source', $breadcrumb_source_label, 'responsive_breadcrumb', 21, $breadcrumb_source_choices, 'default', 'responsive_active_breadcrumb' );
+
+			responsive_horizontal_separator_control( $wp_customize, 'breadcrumb_source_separator', 1, 'responsive_breadcrumb', 22, 1, 'responsive_active_breadcrumb' );
+
 			// Breadcrumb separator.
 			$breadcrumb_separator_label   = esc_html__( 'Breadcrumb Separator', 'responsive' );
 			$breadcrumb_separator_choices = array(
@@ -84,9 +103,9 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 				'sol' => esc_html__( '/', 'responsive' ),
 				'unicode' => esc_html('[/]','responsive'),
 			);
-			responsive_select_button_control( $wp_customize, 'breadcrumb_separator', $breadcrumb_separator_label, 'responsive_breadcrumb', 25, $breadcrumb_separator_choices, 'rsaquo', 'responsive_active_breadcrumb', 'refresh' );
+			responsive_select_button_control( $wp_customize, 'breadcrumb_separator', $breadcrumb_separator_label, 'responsive_breadcrumb', 25, $breadcrumb_separator_choices, 'rsaquo', 'responsive_active_breadcrumb_separator', 'refresh' );
 
-			responsive_horizontal_separator_control( $wp_customize, 'breadcrumb_separator_separator', 1, 'responsive_breadcrumb',25, 1, 'responsive_active_breadcrumb' );
+			responsive_horizontal_separator_control( $wp_customize, 'breadcrumb_separator_separator', 1, 'responsive_breadcrumb',25, 1, 'responsive_active_breadcrumb_separator' );
 
 			// Content Header Allignment.
 			$content_header_alignment_label   = esc_html__( 'Alignment', 'responsive' );
@@ -103,9 +122,7 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 					'right'  => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
 				);
 			}
-			responsive_select_button_control( $wp_customize, 'content_header_alignment', $content_header_alignment_label, 'responsive_breadcrumb', 30, $content_header_alignment_choices, Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_alignment' ), 'responsive_active_breadcrumb', 'postMessage' );
-
-			responsive_horizontal_separator_control( $wp_customize, 'content_header_alignment_separator', 1, 'responsive_breadcrumb',30, 1, 'responsive_active_breadcrumb' );
+			responsive_select_button_control( $wp_customize, 'content_header_alignment', $content_header_alignment_label, 'responsive_breadcrumb', 30, $content_header_alignment_choices, Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_alignment' ), 'responsive_active_breadcrumb', 'refresh' );
 
 			// Breadcrumb Separator Text.
 			$wp_customize->add_setting(
@@ -129,40 +146,36 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 				)
 			);
 
-			// Padding (px).
-			$content_header_spacing_label = __( 'Spacing (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'content_header', 'responsive_breadcrumb', 35, 30, 30, 'responsive_active_breadcrumb', $content_header_spacing_label );
-
 			$breadcrumb_display_settings_separator_label = esc_html__( 'Display Settings', 'responsive' );
 			responsive_separator_control( $wp_customize, 'breadcrumb_display_settings_separator', $breadcrumb_display_settings_separator_label, 'responsive_breadcrumb',40, 'responsive_active_breadcrumb' );
 
 			// Option: Enalbe Breadcrumb on Home Page.
 			$breadcrumb_enable_home_page = __( 'Enable on Home Page', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'breadcrumb_enable_home_page', $breadcrumb_enable_home_page, 'responsive_breadcrumb', 45, 0, 'responsive_active_breadcrumb' );
+			responsive_toggle_control( $wp_customize, 'breadcrumb_enable_home_page', $breadcrumb_enable_home_page, 'responsive_breadcrumb', 45, 1, 'responsive_active_breadcrumb' );
 
 			// Option: Enable Breadcrumb on Blog / Posts Page.
 			$breadcrumb_enable_blog_posts_page = __( 'Enable on Blog / Posts Page', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'breadcrumb_enable_blog_posts_page', $breadcrumb_enable_blog_posts_page, 'responsive_breadcrumb', 45, 0, 'responsive_active_breadcrumb' );
+			responsive_toggle_control( $wp_customize, 'breadcrumb_enable_blog_posts_page', $breadcrumb_enable_blog_posts_page, 'responsive_breadcrumb', 45, 1, 'responsive_active_breadcrumb' );
 
 			// Option: Enable Breadcrumb on Search.
 			$breadcrumb_enable_search = __( 'Enable on Search', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'breadcrumb_enable_search', $breadcrumb_enable_search, 'responsive_breadcrumb', 45, 0, 'responsive_active_breadcrumb' );
+			responsive_toggle_control( $wp_customize, 'breadcrumb_enable_search', $breadcrumb_enable_search, 'responsive_breadcrumb', 45, 1, 'responsive_active_breadcrumb' );
 
 			// Option: Enable Breadcrumb on Archive.
 			$breadcrumb_enable_archive = __( 'Enable on Archive', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'breadcrumb_enable_archive', $breadcrumb_enable_archive, 'responsive_breadcrumb', 45, 0, 'responsive_active_breadcrumb' );
+			responsive_toggle_control( $wp_customize, 'breadcrumb_enable_archive', $breadcrumb_enable_archive, 'responsive_breadcrumb', 45, 1, 'responsive_active_breadcrumb' );
 
 			// Option: Enable Breadcrumb on single page.
 			$breadcrumb_enable_single_page = __( 'Enable on Single Page', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'breadcrumb_enable_single_page', $breadcrumb_enable_single_page, 'responsive_breadcrumb', 45, 0, 'responsive_active_breadcrumb' );
+			responsive_toggle_control( $wp_customize, 'breadcrumb_enable_single_page', $breadcrumb_enable_single_page, 'responsive_breadcrumb', 45, 1, 'responsive_active_breadcrumb' );
 
 			// Option: Enable Breadcrumb on single post.
 			$breadcrumb_enable_single_post = __( 'Enable on Single Post', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'breadcrumb_enable_single_post', $breadcrumb_enable_single_post, 'responsive_breadcrumb', 45, 0, 'responsive_active_breadcrumb' );
+			responsive_toggle_control( $wp_customize, 'breadcrumb_enable_single_post', $breadcrumb_enable_single_post, 'responsive_breadcrumb', 45, 1, 'responsive_active_breadcrumb' );
 
 			// Option: Enable Breadcrumb on 404 page.
 			$breadcrumb_enable_404_page = __( 'Enable on 404 Page', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'breadcrumb_enable_404_page', $breadcrumb_enable_404_page, 'responsive_breadcrumb', 45, 0, 'responsive_active_breadcrumb' );
+			responsive_toggle_control( $wp_customize, 'breadcrumb_enable_404_page', $breadcrumb_enable_404_page, 'responsive_breadcrumb', 45, 1, 'responsive_active_breadcrumb' );
 		}
 	}
 

@@ -25,6 +25,8 @@ if ( ! class_exists( 'Responsive_Customizer_Unit_Dimensions_Control' ) ) :
 		 */
 		public $type = 'responsive-unit-dimensions';
 
+		public $unit_choices = array( 'px', 'em', '%' );
+
 		/**
 		 * Enqueue control related scripts/styles.
 		 *
@@ -62,6 +64,7 @@ if ( ! class_exists( 'Responsive_Customizer_Unit_Dimensions_Control' ) ) :
 			$this->json['id']    = $this->id;
 			$this->json['l10n']  = $this->l10n();
 			$this->json['title'] = esc_html__( 'Link values together', 'responsive' );
+			$this->json['unit_choices'] = $this->unit_choices;
 
 			$this->json['inputAttrs'] = '';
 			foreach ( $this->input_attrs as $attr => $value ) {

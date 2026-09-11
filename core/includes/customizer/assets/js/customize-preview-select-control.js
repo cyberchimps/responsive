@@ -90,6 +90,22 @@
         }
     );
 
+    // Header Builder Width
+    api( 'responsive_header_builder_width', function( value ) {
+        value.bind( function( newval ) {
+            var $header = $( '.site-header' );
+            var $container = $header.find( '.site-header-row-container-inner .container' );
+            if ( 'contained' === newval ) {
+                $header.removeClass( 'header-width-fullwidth' ).addClass( 'header-width-contained' );
+                var containerWidth = api.has( 'responsive_container_width' ) ? api( 'responsive_container_width' ).get() : 1340;
+                $container.css( 'max-width', containerWidth + 'px' );
+            } else {
+                $header.removeClass( 'header-width-contained' ).addClass( 'header-width-fullwidth' );
+                $container.css( 'max-width', '100%' );
+            }
+        } );
+    } );
+
     // Header -> Layout
     //Header Layout
     // api( 'responsive_header_layout', function( $swipe ) {
@@ -271,6 +287,17 @@
 
                     $('body').removeClassRegEx('site-content-header-alignment-');
                     jQuery( 'body' ).addClass( 'site-content-header-alignment-'+ newval );
+
+                    var breadcrumbFlexAlignMap = { left: 'flex-start', center: 'center', right: 'flex-end' };
+                    var breadcrumbFlexAlign = breadcrumbFlexAlignMap[ newval ] || 'center';
+                    var breadcrumbAlignStyleId = 'responsive-breadcrumb-alignment-preview';
+                    $('#' + breadcrumbAlignStyleId).remove();
+                    $('head').append(
+                        '<style id="' + breadcrumbAlignStyleId + '">' +
+                        '.breadcrumbs { display: flex; justify-content: ' + breadcrumbFlexAlign + '; text-align: ' + newval + '; }' +
+                        '.responsive-breadcrumbs-wrapper { align-self: ' + breadcrumbFlexAlign + '; }' +
+                        '</style>'
+                    );
                 }
             );
         }

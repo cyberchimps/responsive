@@ -44,7 +44,6 @@ export const responsiveSortable = wp.customize.responsiveControl.extend( {
 
 		// Sub-controls logic handled in React now
 		let subControls = control.params.sub_controls || {};
-		console.log('Sortable Control Init:', control.id, 'Sub-controls mapping:', subControls);
 
 		// Handle chevron click for dropdown
 		control.sortableContainer.find('.responsive-sortable-chevron').click(function(e) {

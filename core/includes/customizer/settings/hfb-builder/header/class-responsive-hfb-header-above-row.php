@@ -72,6 +72,21 @@ if( ! class_exists( 'Responsive_HFB_Header_Above_Row' ) ) {
 				'postMessage'
 			);
             
+            // Top Border Color.
+			$header_above_row_top_border_color_label = __( 'Top Border Color', 'responsive' );
+			responsive_color_control_with_device_switchers_and_hover(
+				$wp_customize,
+				'header_above_row_top_border',
+				$header_above_row_top_border_color_label,
+				'responsive_header_above_row',
+				34,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_above_row_top_border_color' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_above_row_top_border_hover_color' ),
+				null,
+				'',
+				'postMessage'
+			);
+
             // Bottom Border Color.
 			$header_above_row_bottom_border_color_label = __( 'Bottom Border Color', 'responsive' );
 			responsive_color_control_with_device_switchers_and_hover(
@@ -88,6 +103,10 @@ if( ! class_exists( 'Responsive_HFB_Header_Above_Row' ) ) {
 			);
 
             responsive_horizontal_separator_control($wp_customize, 'header_above_row_bottom_border_size_separator', 1, 'responsive_header_above_row', 50, 1, );
+
+            // Top Border Size.
+            $header_above_row_top_border_size_label = __( 'Top Border Size (px)', 'responsive' );
+            responsive_drag_number_control_with_switchers( $wp_customize, 'header_above_row_top_border_size', $header_above_row_top_border_size_label, 'responsive_header_above_row', 54, 0, null, 300, 0, 'postMessage', 1 );
 
             // Bottom Border Size.
             $header_above_row_bottom_border_size_label = __( 'Bottom Border Size (px)', 'responsive' );
@@ -109,11 +128,13 @@ if( ! class_exists( 'Responsive_HFB_Header_Above_Row' ) ) {
 			$tab_ids_prefix = 'customize-control-';
 			$design_tab_ids = array(
 				$tab_ids_prefix . 'responsive_header_above_row_bg_color',
+				$tab_ids_prefix . 'responsive_header_above_row_top_border_color',
 				$tab_ids_prefix . 'responsive_header_above_row_bottom_border_color',
+				$tab_ids_prefix . 'responsive_header_above_row_bottom_border_size_separator',
+				$tab_ids_prefix . 'responsive_header_above_row_top_border_size',
 				$tab_ids_prefix . 'responsive_header_above_row_bottom_border_size',
 				$tab_ids_prefix . 'responsive_header_above_row_padding_padding',
 				$tab_ids_prefix . 'responsive_header_above_row_margin_padding',
-				$tab_ids_prefix . 'responsive_header_above_row_bottom_border_size_separator',
 				$tab_ids_prefix . 'responsive_header_above_spacing_separator',
 			);
 

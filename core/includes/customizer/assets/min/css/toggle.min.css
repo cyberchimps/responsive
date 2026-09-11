@@ -62,6 +62,9 @@
 }
 #customize-control-responsive_sub_menu_divider .responsive-toggle-control-wrapper {
     padding-top: 18px;
+    padding-bottom: 18px;
+}
+#customize-control-responsive_primary_menu_active_parent .responsive-toggle-control-wrapper {
     padding-bottom: 0;
 }
 #customize-control-responsive_transparent_header .responsive-toggle-control-wrapper {

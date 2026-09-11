@@ -24,7 +24,7 @@
             jQuery( 'style#responsive-blog-meta-seperator-content' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-blog-meta-seperator-content">'
-                + '.search .hentry .post-meta > span::after,.archive .hentry .post-meta > span::after,.blog .hentry .post-meta > span::after { content:"' + separator +'" }'
+                + '.search .hentry .post-meta > span:not(:last-child)::after,.archive .hentry .post-meta > span:not(:last-child)::after,.blog .hentry .post-meta > span:not(:last-child)::after { content:"' + separator +'" }'
                 + '</style>'
             );
         } );

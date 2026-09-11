@@ -19,7 +19,7 @@
 .customize-control-responsive-dimensions .dimension-wrap .link-dimensions.unlinked .responsive-unlinked,
 .customize-control-responsive-unit-dimensions .dimension-wrap .link-dimensions.unlinked .responsive-unlinked { display: none; }
 .customize-control-responsive-dimensions .dimension-wrap .link-dimensions.unlinked .responsive-linked,
-.customize-control-responsive-unit-dimensions .dimension-wrap .link-dimensions.unlinked .responsive-linked { display: block; color: #3c434a; }
+.customize-control-responsive-unit-dimensions .dimension-wrap .link-dimensions.unlinked .responsive-linked { display: block; color: #fff; }
 .customize-control-responsive-dimensions .dimension-wrap .link-dimensions .responsive-linked,
 .customize-control-responsive-unit-dimensions .dimension-wrap .link-dimensions .responsive-linked { display: none; }
 

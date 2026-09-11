@@ -198,29 +198,6 @@
 	);
 
 	api(
-		"responsive_theme_options['breadcrumb']",
-		function( $swipe ) {
-			$swipe.bind(
-				function( newval ) {
-					switch (newval) {
-						case true:
-							api.control( 'responsive_breadcrumb_position' ).toggle( false );
-							api.control( 'responsive_breadcrumb_color' ).toggle( false );
-							break;
-						/**
-						 * The select was switched to »show«.
-						 */
-						case false:
-							api.control( 'responsive_breadcrumb_position' ).toggle( true );
-							api.control( 'responsive_breadcrumb_color' ).toggle( true );
-							break;
-					}
-				}
-			);
-		}
-	);
-
-	api(
 		"responsive_blog_entry_columns",
 		function( $swipe ) {
 			$swipe.bind(
@@ -343,25 +320,16 @@
 			);
 		}
 	);
-	api(
-		'responsive_disable_author_meta',
-		function( $swipe ) {
-			$swipe.bind(
-				function( newval ) {
-					switch (newval) {
-						case true:
-						case 1:
-							api.control( 'responsive_post_author_box_style' ).toggle( false );
-							break;
-						case false:
-						case 0:
-							api.control( 'responsive_post_author_box_style' ).toggle( true );
-							break;
-					}
-				}
-			);
-		}
-	);
+	api( 'responsive_disable_author_meta', function( setting ) {
+		setting.bind( function( disabled ) {
+			const show = ! disabled;
+			[ 'responsive_post_author_box_style', 'responsive_responsive_disable_author_meta_separator' ].forEach( function( id ) {
+				api.control( id, function( control ) {
+					control.toggle( show );
+				} );
+			} );
+		} );
+	} );
 
 	api(
 		'responsive_sidebar_link_style',
@@ -379,5 +347,69 @@
 			);
 		}
 	);
+
+ 
+	// Button presets
+	function toggleButtonBackgroundColor( presetVal ) {
+		var showBgColor = !( presetVal && presetVal.indexOf( 'outline' ) === 0 );
+		if ( api.control( 'responsive_button_color' ) ) {
+			api.control( 'responsive_button_color' ).toggle( showBgColor );
+		}
+		if ( api.control( 'responsive_button_background_image' ) ) {
+			api.control( 'responsive_button_background_image' ).toggle( showBgColor );
+		}
+	}
+
+	api.bind( 'ready', function() {
+		if ( api( 'responsive_button_presets' ) ) {
+			toggleButtonBackgroundColor( api( 'responsive_button_presets' ).get() );
+		}
+	} );
+
+	api(
+		'responsive_button_presets',
+		function( $swipe ) {
+			$swipe.bind(
+				function( newval ) {
+					toggleButtonBackgroundColor( newval );
+				}
+			);
+		}
+	);
+
+function toggleRelatedPostsLocation( placement ) {
+	var show = ( 'contained' === placement );
+	var styleId = 'responsive-rp-location-visibility';
+
+	jQuery( '#' + styleId ).remove();
+
+	if ( ! show ) {
+		jQuery( 'head' ).append(
+			'<style id="' + styleId + '">' +
+			'#customize-control-responsive_single_blog_related_posts_location { display: none !important; }' +
+			'</style>'
+		);
+	}
+}
+
+api.bind( 'ready', function() {
+	if ( api( 'responsive_single_blog_related_posts_section_placement' ) ) {
+		toggleRelatedPostsLocation( api( 'responsive_single_blog_related_posts_section_placement' ).get() );
+	}
+} );
+
+api(
+	'responsive_single_blog_related_posts_section_placement',
+	function( $swipe ) {
+		$swipe.bind( function( newval ) {
+			toggleRelatedPostsLocation( newval );
+		} );
+	}
+);
+	// Breadcrumb sortable-element sync (position changes, enable/disable) for
+	// Page, Single Post, and the Blog/Archive Title Area all lives in
+	// syncBreadcrumbSortable() in breadcrumb-toggle.js, which - unlike the removed
+	// listeners that used to live here - correctly respects each context's
+	// per-post-type "Enable on ..." toggle, not just the global toggle.
 
 })( jQuery );

@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '6.4.1' );
+define( 'RESPONSIVE_THEME_VERSION', '6.4.3' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -1252,6 +1252,46 @@ function prevent_menu_icon_redirection() {
 }
 
 add_action( 'wp_footer', 'responsive_pro_fixed_menu_onscroll' );
+
+/**
+ * Transparent Header Device Scope
+ *
+ * Outputs a synchronous inline script at wp_body_open (priority 1), right after
+ * the opening <body> tag. document.body is available immediately here, so the
+ * res-transparent-header class is removed before any header HTML is rendered —
+ */
+function responsive_transparent_header_device_scope() {
+	if ( ! Responsive\Core\responsive_is_transparent_header() ) {
+		return;
+	}
+	$enable_on = get_theme_mod( 'responsive_transparent_header_enable_on', 'all' );
+	if ( 'all' === $enable_on ) {
+		return; // Default: nothing to do, class stays on all devices.
+	}
+	$breakpoint = intval( get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
+	?>
+	<script>
+	(function() {
+		var enableOn   = <?php echo wp_json_encode( $enable_on ); ?>;
+		var breakpoint = <?php echo $breakpoint; ?>;
+		function applyTransparentHeader() {
+			var w    = window.innerWidth;
+			var body = document.body;
+			if ( enableOn === 'desktop' && w <= breakpoint ) {
+				body.classList.remove( 'res-transparent-header' );
+			} else if ( enableOn === 'mobile' && w > breakpoint ) {
+				body.classList.remove( 'res-transparent-header' );
+			} else {
+				body.classList.add( 'res-transparent-header' );
+			}
+		}
+		applyTransparentHeader();
+		window.addEventListener( 'resize', applyTransparentHeader );
+	})();
+	</script>
+	<?php
+}
+add_action( 'wp_body_open', 'responsive_transparent_header_device_scope', 1 );
 
 if ( ! function_exists( 'responsive_pro_fixed_menu_onscroll' ) ) {
 	/**
@@ -3209,4 +3249,173 @@ function responsive_custom_comment_reply_link( $link, $args, $comment, $post ) {
 		}
 	}
 	return $link;
+}
+
+/* Added for backward compatibility for Title Font removal from Page->Design( as Title font is already there in new Page Title area ) */
+if ( ! function_exists( 'responsive_theme_background_updater_page_title_typography_6_4_3' ) ) {
+	/**
+	 * Handle backward compatibility for the removed Page > Design "Title Font" control.
+	 *
+	 * Migrates old page_title_typography theme mod values to the new
+	 * page_title_area_title_typography control now living under
+	 * Page Title Area > Design, since the old control has been removed.
+	 *
+	 * @since 6.4.3
+	 * @return void
+	 */
+	function responsive_theme_background_updater_page_title_typography_6_4_3() {
+		$responsive_options = Responsive\Core\responsive_get_options();
+
+		if ( ! isset( $responsive_options['page_title_typography_backward_done'] ) ) {
+
+			// Typography group (desktop/tablet/mobile).
+			$theme_mod_mapping = array(
+				'page_title_typography'                       => 'page_title_area_title_typography',
+				'page_title_tablet_typography'                => 'page_title_area_title_tablet_typography',
+				'page_title_mobile_typography'                => 'page_title_area_title_mobile_typography',
+				'page_title_typography_font_size_value'        => 'page_title_area_title_typography_font_size_value',
+				'page_title_tablet_typography_font_size_value' => 'page_title_area_title_tablet_typography_font_size_value',
+				'page_title_mobile_typography_font_size_value' => 'page_title_area_title_mobile_typography_font_size_value',
+				'page_title_typography_font_size_unit'         => 'page_title_area_title_typography_font_size_unit',
+				'page_title_tablet_typography_font_size_unit'  => 'page_title_area_title_tablet_typography_font_size_unit',
+				'page_title_mobile_typography_font_size_unit'  => 'page_title_area_title_mobile_typography_font_size_unit',
+			);
+
+			foreach ( $theme_mod_mapping as $old_mod => $new_mod ) {
+				$old_value = get_theme_mod( $old_mod, false );
+				$new_value = get_theme_mod( $new_mod, false );
+
+				if ( false !== $old_value && false === $new_value ) {
+					set_theme_mod( $new_mod, $old_value );
+				}
+			}
+
+			// Color lived on a separate dedicated control, not inside the typography array.
+			$old_typography = get_theme_mod( 'page_title_typography', false );
+			if ( is_array( $old_typography ) && ! empty( $old_typography['color'] ) ) {
+				$new_color = get_theme_mod( 'responsive_page_title_area_title_color', false );
+				if ( false === $new_color ) {
+					set_theme_mod( 'responsive_page_title_area_title_color', $old_typography['color'] );
+				}
+			}
+
+			$responsive_options['page_title_typography_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+
+if ( ! function_exists( 'responsive_theme_background_updater_site_content_padding_6_4_3' ) ) {
+	/**
+	 * Handle backward compatibility for site content padding migration.
+	 * 
+	 * Adds +28px to the global layout outside container and blog/archive outside container
+	 * top and bottom padding settings to maintain site layout after removing static padding
+	 * from .site-content.
+	 * 
+	 * @since 6.4.3
+	 * @return void
+	 */
+	function responsive_theme_background_updater_site_content_padding_6_4_3() {
+		$responsive_options = get_option( 'responsive_theme_options' );
+
+		if ( ! isset( $responsive_options['site_content_padding_6_4_3_backward_done'] ) || ! $responsive_options['site_content_padding_6_4_3_backward_done'] ) {
+
+			// Global Outside Container Padding (Top & Bottom).
+			$global_outside_container_mods = array(
+				'responsive_outside_container_top_padding',
+				'responsive_outside_container_bottom_padding',
+				'responsive_outside_container_tablet_top_padding',
+				'responsive_outside_container_tablet_bottom_padding',
+				'responsive_outside_container_mobile_top_padding',
+				'responsive_outside_container_mobile_bottom_padding',
+			);
+
+			foreach ( $global_outside_container_mods as $mod ) {
+				$current_val = get_theme_mod( $mod, 28 );
+				set_theme_mod( $mod, intval( $current_val ) + 28 );
+			}
+
+			// Blog / Archive Outside Container Padding (Top & Bottom).
+			$blog_outside_container_mods = array(
+				'responsive_blog_outside_container_top_padding',
+				'responsive_blog_outside_container_bottom_padding',
+				'responsive_blog_outside_container_tablet_top_padding',
+				'responsive_blog_outside_container_tablet_bottom_padding',
+				'responsive_blog_outside_container_mobile_top_padding',
+				'responsive_blog_outside_container_mobile_bottom_padding',
+			);
+
+			foreach ( $blog_outside_container_mods as $mod ) {
+				$current_val = get_theme_mod( $mod, false );
+				if ( false !== $current_val && '' !== $current_val ) {
+					set_theme_mod( $mod, intval( $current_val ) + 28 );
+				}
+			}
+
+			// Single Post Outside Container Padding (Top & Bottom).
+			$single_blog_outside_container_mods = array(
+				'responsive_single_blog_outside_container_top_padding',
+				'responsive_single_blog_outside_container_bottom_padding',
+				'responsive_single_blog_outside_container_tablet_top_padding',
+				'responsive_single_blog_outside_container_tablet_bottom_padding',
+				'responsive_single_blog_outside_container_mobile_top_padding',
+				'responsive_single_blog_outside_container_mobile_bottom_padding',
+			);
+
+			foreach ( $single_blog_outside_container_mods as $mod ) {
+				$current_val = get_theme_mod( $mod, false );
+				if ( false !== $current_val && '' !== $current_val ) {
+					set_theme_mod( $mod, intval( $current_val ) + 28 );
+				}
+			}
+
+			// Mark backward compatibility update as done.
+			$responsive_options['site_content_padding_6_4_3_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+
+if ( ! function_exists( 'responsive_theme_background_updater_secondary_menu_padding_6_4_4' ) ) {
+	/**
+	 * Handle backward compatibility for secondary menu padding.
+	 *
+	 * If the user previously saved custom padding values, adds 10px to top/bottom
+	 * and 18px to left/right. If untouched, settings automatically fall back to the new defaults.
+	 *
+	 * @since 6.4.4
+	 * @return void
+	 */
+	function responsive_theme_background_updater_secondary_menu_padding_6_4_4() {
+		$responsive_options = Responsive\Core\responsive_get_options();
+
+		if ( ! isset( $responsive_options['secondary_menu_padding_6_4_4_backward_done'] ) ) {
+
+			$padding_mods = array(
+				'responsive_secondary-menu-padding_top_padding'           => 10,
+				'responsive_secondary-menu-padding_bottom_padding'        => 10,
+				'responsive_secondary-menu-padding_left_padding'          => 18,
+				'responsive_secondary-menu-padding_right_padding'         => 18,
+				'responsive_secondary-menu-padding_tablet_top_padding'    => 10,
+				'responsive_secondary-menu-padding_tablet_bottom_padding' => 10,
+				'responsive_secondary-menu-padding_tablet_left_padding'   => 18,
+				'responsive_secondary-menu-padding_tablet_right_padding'  => 18,
+				'responsive_secondary-menu-padding_mobile_top_padding'    => 10,
+				'responsive_secondary-menu-padding_mobile_bottom_padding' => 10,
+				'responsive_secondary-menu-padding_mobile_left_padding'   => 18,
+				'responsive_secondary-menu-padding_mobile_right_padding'  => 18,
+			);
+
+			foreach ( $padding_mods as $mod_name => $increment_val ) {
+				$val = get_theme_mod( $mod_name, false );
+				if ( false !== $val && '' !== $val ) {
+					set_theme_mod( $mod_name, intval( $val ) + $increment_val );
+				}
+			}
+
+			$responsive_options['secondary_menu_padding_6_4_4_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
 }

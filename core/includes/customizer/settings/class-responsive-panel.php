@@ -56,8 +56,8 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'    => __( 'Breadcrumb', 'responsive' ),
 					'description' => '<div class="responsive-section-description"><p><b>' . __( 'Helpful Information', 'responsive' ) . '</b></p><p><a href="https://cyberchimps.com/docs/responsive-theme/responsive-theme-walkthrough/how-to-add-breadcrumbs-using-responsive-theme/" target="_blank">' . __( 'Breadcrumb Overview »', 'responsive' ) . '</a></p></div>',
-					'priority' => 9,
-					'panel'    => 'responsive_general',
+					'priority' => 101,
+					'panel'    => 'responsive_site',
 				)
 			);
 
@@ -65,8 +65,12 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 			$tab_ids_prefix  = 'customize-control-';
 			$design_tab_ids  = array(
 				$tab_ids_prefix . 'responsive_breadcrumb_color',
-				$tab_ids_prefix . 'responsive_breadcrumb_typography_separator',
 				$tab_ids_prefix . 'responsive_breadcrumb_typography_group',
+				$tab_ids_prefix . 'responsive_breadcrumb_link_color',
+				$tab_ids_prefix . 'responsive_breadcrumb_link_hover_color',
+				$tab_ids_prefix . 'responsive_breadcrumb_background_color',
+				$tab_ids_prefix . 'responsive_breadcrumb_separator_color',
+				$tab_ids_prefix . 'responsive_breadcrumb_background_separator'
 			);
 			$general_tab_ids = array(
 				$tab_ids_prefix . 'res_breadcrumb',
@@ -82,10 +86,11 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				$tab_ids_prefix . 'responsive_breadcrumb_enable_404_page',
 				$tab_ids_prefix . 'responsive_breadcrumb_separator',
 				$tab_ids_prefix . 'responsive_breadcrumb_separator_separator',
+				$tab_ids_prefix . 'responsive_breadcrumb_unicode',
 				$tab_ids_prefix . 'responsive_content_header_alignment',
-				$tab_ids_prefix . 'responsive_content_header_alignment_separator',
-				$tab_ids_prefix . 'responsive_content_header_padding',
 				$tab_ids_prefix . 'responsive_breadcrumb_display_settings_separator',
+				$tab_ids_prefix . 'responsive_breadcrumb_source',
+				$tab_ids_prefix . 'responsive_breadcrumb_source_separator'
 			);
 
 			responsive_tabs_button_control( $wp_customize, 'breadcrumb_tabs', $tabs_label, 'responsive_breadcrumb', 10, '', 'responsive_breadcrumb_general_tab', 'responsive_breadcrumb_design_tab', $general_tab_ids, $design_tab_ids, null );
@@ -108,22 +113,13 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				)
 			);
 
-			$wp_customize->add_panel(
-				'responsive_general',
-				array(
-					'title'       => __( 'General', 'responsive' ),
-					'description' => __( 'General Options', 'responsive' ),
-					'priority'    => 12,
-				)
-			);
-
 			$wp_customize->add_section(
 				'responsive_sidebar',
 				array(
 					'title'    => __( 'Sidebar', 'responsive' ),
 					'description' => '<div class="responsive-section-description"><p><b>' . __( 'Helpful Information', 'responsive' ) . '</b></p><p><a href="https://cyberchimps.com/docs/responsive-theme/responsive-theme-walkthrough/how-to-add-sidebar-in-responsive-theme/" target="_blank">' . __( 'Sidebar Overview »', 'responsive' ) . '</a></p></div>',
-					'priority' => 10,
-					'panel'    => 'responsive_general',
+					'priority' => 102,
+					'panel'    => 'responsive_site',
 				)
 			);
 
@@ -167,6 +163,8 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				$tab_ids_prefix . 'responsive_header_text_color',
 				$tab_ids_prefix . 'responsive_header_site_tagline_separator',
 				$tab_ids_prefix . 'responsive_header_site_tagline_typography_group',
+				$tab_ids_prefix . 'responsive_header_site_logo_spacing_separator',
+				$tab_ids_prefix . 'responsive_header_padding',
 			);
 			$logo_general_tab_ids = array(
 				$tab_ids_prefix . 'custom_logo',
@@ -181,6 +179,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				$tab_ids_prefix . 'responsive_inline_logo_site_title',
 				$tab_ids_prefix . 'responsive_site_title_visibility',
 				$tab_ids_prefix . 'responsive_site_tagline_visibility',
+				$tab_ids_prefix . 'responsive_redirect_to_site_icon',
 			);
 			
 			if( ! get_theme_mod( 'custom_logo' ) ) {

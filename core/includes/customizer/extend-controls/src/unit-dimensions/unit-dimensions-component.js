@@ -193,7 +193,7 @@ const UnitDimensionsComponent = props => {
 		{renderInputHtml('mobile', activeDevice === 'mobile' ? 'active' : '')}
 	</>;
 	
-	const availableUnits = ['px', 'em', '%'];
+	const availableUnits = props.control.params.unit_choices || ['px', 'em', '%'];
 	const currentUnitKey = activeDevice + '_unit';
 	const currentUnitValue = (props_value.units && props_value.units[currentUnitKey]) ? props_value.units[currentUnitKey].value : 'px';
 

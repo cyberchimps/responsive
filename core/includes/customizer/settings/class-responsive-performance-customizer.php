@@ -34,7 +34,6 @@ if ( ! class_exists( 'Responsive_Performance_Customizer' ) ) :
 					'title'    => esc_html__( 'Performance', 'responsive' ),
 					'description' => '<div class="responsive-section-description"><p><b>' . __( 'Helpful Information', 'responsive' ) . '</b></p><p><a href="https://cyberchimps.com/docs/responsive-theme/responsive-theme-walkthrough/how-to-load-google-fonts-locally/" target="_blank">' . __( 'Performance Overview »', 'responsive' ) . '</a></p></div>',
 					'priority' => 40,
-					'panel'    => 'responsive_general',
 				)
 			);
 

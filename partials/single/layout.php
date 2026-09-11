@@ -16,6 +16,8 @@ $single_title_layout             = get_theme_mod( 'responsive_single_blog_post_t
 $single_featured_image_ratio     = get_theme_mod( 'responsive_single_blog_featured_image_ratio', 'original' );
 $single_featured_image_alignment = get_theme_mod( 'responsive_single_blog_featured_image_alignment', 'left' );
 
+$related_posts_section_placement = get_theme_mod( 'responsive_single_blog_related_posts_section_placement', 'default' );
+
 $ratio_css = '';
 if ( 'predefined' === $single_featured_image_ratio ) {
 	$predefined_ratio = get_theme_mod( 'responsive_single_blog_featured_image_predefined_ratio', '1:1' );
@@ -99,9 +101,7 @@ if ( in_array( $single_title_layout, array( 'post_title_layout1', 'post_title_la
 			<?php
 		}
 
-		if ( ! in_array( 'excerpt', $elements, true ) ) {
-			get_template_part( 'partials/single/content' );
-		}
+		get_template_part( 'partials/single/content' );
 		?>
 
 		<?php if ( '' !== get_the_author_meta( 'description' ) && 0 === get_theme_mod( 'responsive_disable_author_meta', 0 ) ) : ?>
@@ -132,7 +132,9 @@ if ( in_array( $single_title_layout, array( 'post_title_layout1', 'post_title_la
 	edit_post_link( __( '<span class="post-edit">Edit</span>', 'responsive' ) );
 
 	Responsive\responsive_entry_bottom();
-
+	if($related_posts_section_placement == 'contained'){
+		Responsive\responsive_single_blog_related_posts_entry();
+	}
 	?>
 </article><!-- end of #post-<?php the_ID(); ?> -->
 <?php
@@ -146,5 +148,7 @@ if ( 1 === (int) get_theme_mod( 'responsive_single_blog_navigation', 0 ) ) {
 		)
 	);
 }
-Responsive\responsive_single_blog_related_posts_entry();
+if($related_posts_section_placement == 'default'){
+	Responsive\responsive_single_blog_related_posts_entry();
+}
 ?>

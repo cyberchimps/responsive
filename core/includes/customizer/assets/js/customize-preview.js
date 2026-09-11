@@ -773,21 +773,6 @@
 				$( '#woo-popup-wrap .popup-text' ).css( 'color', newval );
 	        }
 		});
-    });
-	api('responsive_blog_layout', function(value) {
-	value.bind(function(newval) {
-		const coverBackgroundControl = document.getElementById(
-			'customize-control-responsive_blog_cover_background_color'
-		);
-
-		if (coverBackgroundControl) {
-			coverBackgroundControl.style.display =
-				'cover' === newval && 'design' === tab
-					? 'block'
-					: 'none';
-		}
-	});
-});
-	
+    });	
 
 } )( jQuery );

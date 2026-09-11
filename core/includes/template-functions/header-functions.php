@@ -15,6 +15,18 @@ function header_markup() {
 }
 
 /**
+ * Adds header width class to header wrapper.
+ *
+ * @param array $classes Header classes.
+ * @return array
+ */
+function responsive_header_builder_width_class( $classes ) {
+	$header_width = get_theme_mod( 'responsive_header_builder_width', 'contained' );
+	$classes[]    = 'header-width-' . esc_attr( $header_width );
+	return $classes;
+}
+
+/**
  * Header Row Class.
  *
  * @param string $row the header row.
