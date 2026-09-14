@@ -701,6 +701,28 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'font-weight'    => '400',
 					),
 				),
+				'shop_title' => array(
+					'label'    => esc_html__( 'Title Font', 'responsive' ),
+					'target'   => $selectorArray['shop_title'],
+					'section'  => 'responsive_shop_title_layout',
+					'exclude'  => array( 'font-color' ),
+					'priority' => 19,
+					'defaults' => array(
+						'font-size'   => '32px',
+						'line-height' => '1.25',
+					),
+				),
+				'shop_text' => array(
+					'label'    => esc_html__( 'Text Font', 'responsive' ),
+					'target'   => $selectorArray['shop_text'],
+					'section'  => 'responsive_shop_title_layout',
+					'exclude'  => array( 'font-color' ),
+					'priority' => 20,
+					'defaults' => array(
+						'font-size'   => '16px',
+						'line-height' => '1.75',
+					),
+				),
 			);
 
 			for( $i=1;$i<=6;$i++ ) {
@@ -791,7 +813,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'footer_primary_row_widget_content' => '.rspv-site-primary-footer-wrap .footer-widgets',
 				'footer_below_row_widget_heading' => '.rspv-site-below-footer-wrap .footer-widgets .wp-block-heading, .rspv-site-below-footer-wrap .footer-social-icons .widget-title',
 				'footer_below_row_widget_content' => '.rspv-site-below-footer-wrap .footer-widgets',
-				'add_to_cart_button'         => '.woocommerce ul.products li.product .button, .woocommerce ul.products li.product .add_to_cart_button'
+				'add_to_cart_button'         => '.woocommerce ul.products li.product .button, .woocommerce ul.products li.product .add_to_cart_button',
+				'shop_title'                 => '.woocommerce .site-content-header .page-title, .woocommerce .responsive-archive-entry-banner .page-title',
+				'shop_text'                  => '.woocommerce .site-content-header, .woocommerce .responsive-archive-entry-banner, .woocommerce .site-content-header .page-description, .woocommerce .responsive-archive-entry-banner .page-description, .woocommerce .site-content-header .page-description p, .woocommerce .responsive-archive-entry-banner .page-description p, .woocommerce .site-content-header .woocommerce-breadcrumb, .woocommerce .responsive-archive-entry-banner .woocommerce-breadcrumb, .woocommerce .site-content-header .woocommerce-breadcrumb a, .woocommerce .responsive-archive-entry-banner .woocommerce-breadcrumb a',
 			);
 
 			if ( $this->is_responsive_version_greater() ) {

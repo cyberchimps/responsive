@@ -236,6 +236,9 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'customize-control-responsive_shop_title_color',
 				'customize-control-responsive_shop_text_color',
 				'customize-control-responsive_shop_title_link_color',
+				'customize-control-responsive_shop_title_link_separator',
+				'customize-control-responsive_shop_title_typography_group',
+				'customize-control-responsive_shop_text_typography_group',
 			);
 
 			// Products Title Area Tabs.
@@ -480,6 +483,33 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				true,
 				Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_title_link_hover_color' ),
 				'shop_title_link_hover'
+			);
+
+			// Separator.
+			responsive_horizontal_separator_control( $wp_customize, 'shop_title_link_separator', 1, 'responsive_shop_title_layout', 18, 1 );
+
+			// Title Font.
+			$shop_title_typography_label = esc_html__( 'Title Font', 'responsive' );
+			responsive_typography_group_control(
+				$wp_customize,
+				'shop_title_typography_group',
+				$shop_title_typography_label,
+				'responsive_shop_title_layout',
+				19,
+				'shop_title_typography',
+				true
+			);
+
+			// Text Font.
+			$shop_text_typography_label = esc_html__( 'Text Font', 'responsive' );
+			responsive_typography_group_control(
+				$wp_customize,
+				'shop_text_typography_group',
+				$shop_text_typography_label,
+				'responsive_shop_title_layout',
+				20,
+				'shop_text_typography',
+				true
 			);
 
 			// Layouts.

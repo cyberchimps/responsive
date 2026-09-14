@@ -6019,7 +6019,29 @@
         'add_to_cart_button',
         'customizer-typography-add_to_cart_button_typography',
         ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
-    )
+    );
     // Add To Cart Button Typography - End
+
+    // WooCommerce Shop Title Typography - Start
+    generateTypographyPreview(
+        'shop_title_typography',
+        'shop_title_tablet_typography',
+        'shop_title_mobile_typography',
+        'shop_title',
+        'customizer-typography-shop_title_typography',
+        ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
+    );
+    // WooCommerce Shop Title Typography - End
+
+    // WooCommerce Shop Text Typography - Start
+    generateTypographyPreview(
+        'shop_text_typography',
+        'shop_text_tablet_typography',
+        'shop_text_mobile_typography',
+        'shop_text',
+        'customizer-typography-shop_text_typography',
+        ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
+    );
+    // WooCommerce Shop Text Typography - End
 } )( jQuery );
 
