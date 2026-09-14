@@ -158,6 +158,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_product_price_shop_typography_group_seperator',
 				$design_tab_ids_prefix . 'responsive_product_content_shop_typography_group_seperator',
 				$design_tab_ids_prefix . 'responsive_shop_product_background_color', 
+				$design_tab_ids_prefix . 'responsive_shop_site_background_color', 
 				$design_tab_ids_prefix . 'responsive_border_shop_product',
 			);
 			
@@ -195,6 +196,10 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			$product_background_color_label =  esc_html__( 'Product Background Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'shop_product_background', $product_background_color_label, 'responsive_woocommerce_shop', 30,'#ffffff');
 			
+			// Shop Background Color.
+			$shop_site_background_color_label = esc_html__( 'Shop Background', 'responsive' );
+			responsive_color_control( $wp_customize, 'shop_site_background', $shop_site_background_color_label, 'responsive_woocommerce_shop', 30, Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_site_background_color' ) );
+
 			// product border radius
 			$product_border_radius_label = esc_html__( 'Border Radius (px)', 'responsive' );
 			responsive_radius_control($wp_customize, 'shop_product', 'responsive_woocommerce_shop', 30, 8, 8, null, $product_border_radius_label, 'postMessage',);

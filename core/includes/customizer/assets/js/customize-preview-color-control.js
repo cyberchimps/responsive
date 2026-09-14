@@ -2083,6 +2083,16 @@
         });
     });
 
+    // Shop Site Background Color
+    api('responsive_shop_site_background_color', function (value) {
+        value.bind(function (newval) {
+            if (newval && (newval.includes('palette') || newval.includes('site-background'))) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('body.archive.woocommerce, body.archive.woocommerce-page, body.woocommerce-shop').css('background-color', newval);
+        });
+    });
+
 
 
     //Buttons Color

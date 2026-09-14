@@ -12994,6 +12994,12 @@ function responsive_customizer_styles() {
 		$shop_sidebar_position = esc_html( ( $shop_sidebar_setting === 'global' || $shop_sidebar_setting === 'default' ) ? $global_sidebar : $shop_sidebar_setting );
 		$single_product_sidebar_position     = esc_html( get_theme_mod( 'responsive_single_product_sidebar_position', 'no' ) );
 		$product_bg_color 					 = esc_html( get_theme_mod( 'responsive_shop_product_background_color', '#ffffff'));
+		$shop_site_bg_color                  = esc_html(
+			responsive_prepare_css_value(
+				'responsive_shop_site_background_color',
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_site_background_color' )
+			)
+		);
 		$tl 								 = intval  ( get_theme_mod( 'responsive_shop_product_top_left_radius', 8 ) );
 		$tr 								 = intval  ( get_theme_mod( 'responsive_shop_product_top_right_radius', 8 ) );
 		$br 								 = intval  ( get_theme_mod( 'responsive_shop_product_bottom_right_radius', 8 ) );
@@ -13052,6 +13058,15 @@ function responsive_customizer_styles() {
     	}',
 			$product_bg_color
 		);
+
+		if ( ! empty( $shop_site_bg_color ) ) {
+			$woocommerce_custom_css .= "
+			body.archive.woocommerce,
+			body.archive.woocommerce-page,
+			body.woocommerce-shop {
+				background-color: {$shop_site_bg_color};
+			}";
+		}
 
 
 
