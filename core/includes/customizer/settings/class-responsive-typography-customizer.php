@@ -212,7 +212,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'blog_breadcrumb' => array(
 					'label'    => esc_html__( 'Breadcrumb Font', 'responsive' ),
 					'target'   => $selectorArray['blog_breadcrumb'],
-					'section'  => 'responsive_blog_layout',
+					'section'  => 'responsive_blog_title_layout',
 					'priority' => 132,
 					'exclude'  => array( 'font-color' ),
 					'defaults' => array(

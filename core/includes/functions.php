@@ -670,6 +670,9 @@ function responsive_add_custom_body_classes( $classes ) {
 	// Transparent Header.
 	if ( responsive_is_transparent_header() ) {
 		$classes[] = 'res-transparent-header';
+		if ( get_theme_mod( 'responsive_transparent_header_logo_option', 0 ) && get_theme_mod( 'responsive_transparent_header_logo' ) ) {
+			$classes[] = 'res-has-transparent-logo';
+		}
 	}
 	// Header Element layout class.
 	// $classes[] = 'site-header-layout-' . get_theme_mod( 'responsive_header_layout', get_responsive_customizer_defaults( 'responsive_header_layout' ) );
@@ -1737,11 +1740,11 @@ function defaults() {
 			'footer_copyright_links_hover'                              => 'footer-links-hover-color',
 			'footer_copyright_link_style'                               => 'standard',
 			'footer_copyright_link_hover_bg'                            => 'palette0',
-			'footer_above_link_style'                                   => 'standard',
+			'footer_above_link_style'                                   => 'no-underline',
 			'footer_above_link_hover_bg'                                => 'palette0',
-			'footer_primary_link_style'                                 => 'standard',
+			'footer_primary_link_style'                                 => 'no-underline',
 			'footer_primary_link_hover_bg'                              => 'palette0',
-			'footer_below_link_style'                                   => 'standard',
+			'footer_below_link_style'                                   => 'no-underline',
 			'footer_below_link_hover_bg'                                => 'palette0',
 			'footer_menu_background'                                    => '#333333',
 			'footer_menu_background_hover'                              => '#333333',
