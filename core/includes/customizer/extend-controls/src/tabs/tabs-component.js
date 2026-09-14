@@ -1631,6 +1631,16 @@ const TabsComponent = props => {
 			customWidthElement.style.display = (layout === 'post_title_layout2' && containerWidth === 'custom' && tab === 'general') ? 'block' : 'none';
 		}
 
+		const verticalAlignment = document.getElementById('customize-control-responsive_shop_title_vertical_alignment');
+		if (verticalAlignment) {
+			verticalAlignment.style.display = (layout === 'post_title_layout2' && tab === 'general') ? 'block' : 'none';
+		}
+
+		const minHeightElement = document.getElementById('customize-control-responsive_shop_banner_min_height');
+		if (minHeightElement) {
+			minHeightElement.style.display = (layout === 'post_title_layout2' && tab === 'design') ? 'block' : 'none';
+		}
+
 		const bgL1El = document.getElementById('customize-control-responsive_shop_title_container_background_layout1');
 		const bgL2El = document.getElementById('customize-control-responsive_shop_title_container_background_layout2');
 		const bannerBgEl = document.getElementById('customize-control-responsive_shop_banner_background_color');

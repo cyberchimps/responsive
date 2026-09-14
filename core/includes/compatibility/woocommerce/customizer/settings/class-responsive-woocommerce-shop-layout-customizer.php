@@ -227,9 +227,11 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'customize-control-responsive_shop_archive_title',
 				'customize-control-responsive_shop_archive_description',
 				'customize-control-responsive_shop_title_horizontal_alignment',
+				'customize-control-responsive_shop_title_vertical_alignment',
 			);
 
 			$shop_title_area_design_tab_ids = array(
+				'customize-control-responsive_shop_banner_min_height',
 				'customize-control-responsive_shop_title_inner_elements_spacing',
 				'customize-control-responsive_shop_title_container_background_layout1',
 				'customize-control-responsive_shop_title_container_background_layout2',
@@ -410,6 +412,31 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'center',
 				null
 			);
+
+			// Vertical Alignment.
+			$shop_title_vertical_alignment_label   = esc_html__( 'Vertical Alignment', 'responsive' );
+			$shop_title_vertical_alignment_choices = array(
+				'flex-start' => esc_html__( 'Top', 'responsive' ),
+				'center'     => esc_html__( 'Middle', 'responsive' ),
+				'flex-end'   => esc_html__( 'Bottom', 'responsive' ),
+			);
+
+			// Shop Title Vertical Alignment.
+			responsive_select_button_control(
+				$wp_customize,
+				'shop_title_vertical_alignment',
+				$shop_title_vertical_alignment_label,
+				'responsive_shop_title_layout',
+				8,
+				$shop_title_vertical_alignment_choices,
+				'flex-start',
+				null,
+				'refresh'
+			);
+
+			// Banner Min Height.
+			$shop_banner_min_height_label = esc_html__( 'Banner Min Height (px)', 'responsive' );
+			responsive_drag_number_control_with_switchers( $wp_customize, 'shop_banner_min_height', $shop_banner_min_height_label, 'responsive_shop_title_layout', 9, 0, null, 1000, 0, 'postMessage' );
 
 			// Inner Elements Spacing.
 			$shop_title_inner_elements_spacing_label = esc_html__( 'Inner Elements Spacing (px)', 'responsive' );

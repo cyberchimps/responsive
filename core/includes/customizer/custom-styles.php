@@ -13314,7 +13314,11 @@ function responsive_customizer_styles() {
 			$bg_tablet_css = ( 'custom' === $shop_title_container_bg ) ? $shop_banner_bg_tablet : 'transparent';
 			$bg_mobile_css = ( 'custom' === $shop_title_container_bg ) ? $shop_banner_bg_mobile : 'transparent';
 
-			$shop_banner_container_width = get_theme_mod( 'responsive_shop_banner_container_width', 'full_width' );
+			$shop_banner_container_width   = get_theme_mod( 'responsive_shop_banner_container_width', 'full_width' );
+			$shop_title_vertical_alignment = get_theme_mod( 'responsive_shop_title_vertical_alignment', 'flex-start' );
+			$shop_banner_min_height        = get_theme_mod( 'responsive_shop_banner_min_height', 0 );
+			$shop_banner_min_height_tablet = get_theme_mod( 'responsive_shop_banner_min_height_tablet', 0 );
+			$shop_banner_min_height_mobile = get_theme_mod( 'responsive_shop_banner_min_height_mobile', 0 );
 
 			$woocommerce_custom_css .= "
 			.woocommerce.archive .site-content-header,
@@ -13323,8 +13327,10 @@ function responsive_customizer_styles() {
 			}
 			.woocommerce.archive .responsive-archive-entry-banner,
 			.woocommerce-shop .responsive-archive-entry-banner {
+				min-height: {$shop_banner_min_height}px;
 				display: flex;
 				flex-direction: column;
+				justify-content: {$shop_title_vertical_alignment};
 				background-color: {$bg_color_css};
 				padding: " . $format_spacing( $shop_banner_padding['desktop'], $shop_banner_padding_desktop_unit ) . ";
 				" . responsive_format_margin_css_with_container_width( $shop_banner_margin['desktop'], $shop_banner_margin_desktop_unit, $shop_banner_container_width ) . "
@@ -13388,6 +13394,7 @@ function responsive_customizer_styles() {
 			@media screen and ( max-width: 992px ) {
 				.woocommerce.archive .responsive-archive-entry-banner,
 				.woocommerce-shop .responsive-archive-entry-banner {
+					min-height: {$shop_banner_min_height_tablet}px;
 					background-color: {$bg_tablet_css};
 					padding: " . $format_spacing( $shop_banner_padding['tablet'], $shop_banner_padding_tablet_unit ) . ";
 					" . responsive_format_margin_css_with_container_width( $shop_banner_margin['tablet'], $shop_banner_margin_tablet_unit, $shop_banner_container_width ) . "
@@ -13396,6 +13403,7 @@ function responsive_customizer_styles() {
 			@media screen and ( max-width: 576px ) {
 				.woocommerce.archive .responsive-archive-entry-banner,
 				.woocommerce-shop .responsive-archive-entry-banner {
+					min-height: {$shop_banner_min_height_mobile}px;
 					background-color: {$bg_mobile_css};
 					padding: " . $format_spacing( $shop_banner_padding['mobile'], $shop_banner_padding_mobile_unit ) . ";
 					" . responsive_format_margin_css_with_container_width( $shop_banner_margin['mobile'], $shop_banner_margin_mobile_unit, $shop_banner_container_width ) . "

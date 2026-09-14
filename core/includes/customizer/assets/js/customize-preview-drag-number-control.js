@@ -552,6 +552,51 @@
         });
     });
 
+    api( 'responsive_shop_banner_min_height', function( value ) {
+        value.bind( function( newval ) {
+            const styleId = 'responsive-shop-banner-min-height-desktop';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 993px) {
+                        body.woocommerce.archive .responsive-archive-entry-banner, body.woocommerce-shop .responsive-archive-entry-banner { min-height: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+    api( 'responsive_shop_banner_min_height_tablet', function( value ) {
+        value.bind( function( newval ) {
+            const styleId = 'responsive-shop-banner-min-height-tablet';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 577px) and (max-width: 992px) {
+                        body.woocommerce.archive .responsive-archive-entry-banner, body.woocommerce-shop .responsive-archive-entry-banner { min-height: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+    api( 'responsive_shop_banner_min_height_mobile', function( value ) {
+        value.bind( function( newval ) {
+            const styleId = 'responsive-shop-banner-min-height-mobile';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (max-width: 576px) {
+                        body.woocommerce.archive .responsive-archive-entry-banner, body.woocommerce-shop .responsive-archive-entry-banner { min-height: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
     // Page Title Area
     api( 'responsive_page_title_custom_width', function( value ) {
         value.bind( function( newval )  {
