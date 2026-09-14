@@ -13311,7 +13311,6 @@ function responsive_customizer_styles() {
 			.woocommerce-shop .responsive-archive-entry-banner {
 				display: flex;
 				flex-direction: column;
-				padding: 30px 0;
 				background-color: {$bg_color_css};
 				width: 100%;
 			}
@@ -13470,6 +13469,44 @@ function responsive_customizer_styles() {
 			.woocommerce.archive .site-content-header .woocommerce-breadcrumb,
 			.woocommerce-shop .site-content-header .woocommerce-breadcrumb {
 				margin-bottom: 0;
+			}";
+
+			// Padding and Margin.
+			$shop_banner_padding              = get_responsive_spacing_values( 'responsive_shop_banner_padding', 30, 0, 30, 0 );
+			$shop_banner_padding_desktop_unit = get_theme_mod( 'responsive_shop_banner_padding_desktop_unit', 'px' );
+			$shop_banner_padding_tablet_unit  = get_theme_mod( 'responsive_shop_banner_padding_tablet_unit', 'px' );
+			$shop_banner_padding_mobile_unit  = get_theme_mod( 'responsive_shop_banner_padding_mobile_unit', 'px' );
+
+			$shop_banner_margin              = get_responsive_spacing_values( 'responsive_shop_banner_margin', '', '', '', '' );
+			$shop_banner_margin_desktop_unit = get_theme_mod( 'responsive_shop_banner_margin_desktop_unit', 'px' );
+			$shop_banner_margin_tablet_unit  = get_theme_mod( 'responsive_shop_banner_margin_tablet_unit', 'px' );
+			$shop_banner_margin_mobile_unit  = get_theme_mod( 'responsive_shop_banner_margin_mobile_unit', 'px' );
+
+			$woocommerce_custom_css .= "
+			.woocommerce.archive .responsive-archive-entry-banner,
+			.woocommerce-shop .responsive-archive-entry-banner,
+			.woocommerce.archive .site-content-header,
+			.woocommerce-shop .site-content-header {
+				padding: " . $format_spacing( $shop_banner_padding['desktop'], $shop_banner_padding_desktop_unit ) . ";
+				margin: " . $format_spacing( $shop_banner_margin['desktop'], $shop_banner_margin_desktop_unit, true ) . ";
+			}
+			@media screen and ( max-width: 992px ) {
+				.woocommerce.archive .responsive-archive-entry-banner,
+				.woocommerce-shop .responsive-archive-entry-banner,
+				.woocommerce.archive .site-content-header,
+				.woocommerce-shop .site-content-header {
+					padding: " . $format_spacing( $shop_banner_padding['tablet'], $shop_banner_padding_tablet_unit ) . ";
+					margin: " . $format_spacing( $shop_banner_margin['tablet'], $shop_banner_margin_tablet_unit, true ) . ";
+				}
+			}
+			@media screen and ( max-width: 576px ) {
+				.woocommerce.archive .responsive-archive-entry-banner,
+				.woocommerce-shop .responsive-archive-entry-banner,
+				.woocommerce.archive .site-content-header,
+				.woocommerce-shop .site-content-header {
+					padding: " . $format_spacing( $shop_banner_padding['mobile'], $shop_banner_padding_mobile_unit ) . ";
+					margin: " . $format_spacing( $shop_banner_margin['mobile'], $shop_banner_margin_mobile_unit, true ) . ";
+				}
 			}";
 
 			// Colors.

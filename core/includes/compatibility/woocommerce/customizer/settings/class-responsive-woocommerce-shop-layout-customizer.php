@@ -239,6 +239,9 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'customize-control-responsive_shop_title_link_separator',
 				'customize-control-responsive_shop_title_typography_group',
 				'customize-control-responsive_shop_text_typography_group',
+				'customize-control-responsive_shop_title_typography_separator',
+				'customize-control-responsive_shop_banner_padding_padding',
+				'customize-control-responsive_shop_banner_margin_padding',
 			);
 
 			// Products Title Area Tabs.
@@ -511,6 +514,15 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'shop_text_typography',
 				true
 			);
+
+			// Separator.
+			responsive_horizontal_separator_control( $wp_customize, 'shop_title_typography_separator', 1, 'responsive_shop_title_layout', 21, 1 );
+
+			// Padding.
+			responsive_unit_padding_control( $wp_customize, 'shop_banner_padding', 'responsive_shop_title_layout', 22, 30, 0, null, esc_html__( 'Padding', 'responsive' ), 'postMessage', 30, 0, 30, 0, 'px' );
+
+			// Margin.
+			responsive_unit_padding_control( $wp_customize, 'shop_banner_margin', 'responsive_shop_title_layout', 23, '', '', null, esc_html__( 'Margin', 'responsive' ), 'postMessage', '', '', '', '', 'px' );
 
 			// Layouts.
 			$shop_layout_elements_label = esc_html__( 'Layouts', 'responsive' );
