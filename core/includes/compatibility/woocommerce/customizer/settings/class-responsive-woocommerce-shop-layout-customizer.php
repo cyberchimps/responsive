@@ -221,6 +221,8 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			// Products Title Tabs.
 			$shop_title_area_general_tab_ids = array(
 				'customize-control-responsive_shop_title_layout',
+				'customize-control-responsive_shop_banner_container_width',
+				'customize-control-responsive_shop_banner_custom_width',
 				'customize-control-responsive_shop_title_elements_positioning',
 				'customize-control-responsive_shop_archive_title',
 				'customize-control-responsive_shop_archive_description',
@@ -279,6 +281,39 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'refresh'
 			);
 
+			// Container Width.
+			$shop_banner_container_width_label   = esc_html__( 'Container Width', 'responsive' );
+			$shop_banner_container_width_choices = array(
+				'full_width' => esc_html__( 'Full Width', 'responsive' ),
+				'custom'     => esc_html__( 'Custom', 'responsive' ),
+			);
+			responsive_select_button_control(
+				$wp_customize,
+				'shop_banner_container_width',
+				$shop_banner_container_width_label,
+				'responsive_shop_title_layout',
+				2,
+				$shop_banner_container_width_choices,
+				'full_width',
+				null,
+				'refresh'
+			);
+
+			// Custom Width.
+			$shop_banner_custom_width_label = esc_html__( 'Custom Width (px)', 'responsive' );
+			responsive_drag_number_control(
+				$wp_customize,
+				'shop_banner_custom_width',
+				$shop_banner_custom_width_label,
+				'responsive_shop_title_layout',
+				3,
+				1316,
+				null,
+				1920,
+				768,
+				'postMessage'
+			);
+
 			// Structure (Sortable control).
 			$wp_customize->add_setting(
 				'responsive_shop_title_elements_positioning',
@@ -297,7 +332,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 						'label'    => esc_html__( 'Structure', 'responsive' ),
 						'section'  => 'responsive_shop_title_layout',
 						'settings' => 'responsive_shop_title_elements_positioning',
-						'priority' => 2,
+						'priority' => 4,
 						'choices'  => array(
 							'title'       => esc_html__( 'Title', 'responsive' ),
 							'description' => esc_html__( 'Description', 'responsive' ),
@@ -324,7 +359,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 					'section'  => 'responsive_shop_title_layout',
 					'settings' => 'responsive_shop_archive_title',
 					'type'     => 'text',
-					'priority' => 3,
+					'priority' => 5,
 				)
 			);
 
@@ -345,7 +380,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 					'section'  => 'responsive_shop_title_layout',
 					'settings' => 'responsive_shop_archive_description',
 					'type'     => 'textarea',
-					'priority' => 4,
+					'priority' => 6,
 				)
 			);
 
@@ -370,7 +405,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'shop_title_horizontal_alignment',
 				$shop_title_horizontal_alignment_label,
 				'responsive_shop_title_layout',
-				5,
+				7,
 				$shop_title_horizontal_alignment_choices,
 				'center',
 				null

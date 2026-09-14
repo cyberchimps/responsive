@@ -546,6 +546,12 @@
         });
     });
 
+    api( 'responsive_shop_banner_custom_width', function( value ) {
+        value.bind( function( newval ) {
+            $('body.woocommerce.archive .responsive-archive-entry-banner, body.woocommerce-shop .responsive-archive-entry-banner').css('max-width', newval+'px');
+        });
+    });
+
     // Page Title Area
     api( 'responsive_page_title_custom_width', function( value ) {
         value.bind( function( newval )  {

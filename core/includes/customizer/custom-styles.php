@@ -13284,6 +13284,18 @@ function responsive_customizer_styles() {
 
 		$check_shop_title  = get_theme_mod( 'responsive_shop_title_area', true );
 		$shop_title_layout = get_theme_mod( 'responsive_shop_title_layout', 'post_title_layout1' );
+
+		// Padding and Margin.
+		$shop_banner_padding              = get_responsive_spacing_values( 'responsive_shop_banner_padding', 30, 0, 30, 0 );
+		$shop_banner_padding_desktop_unit = get_theme_mod( 'responsive_shop_banner_padding_desktop_unit', 'px' );
+		$shop_banner_padding_tablet_unit  = get_theme_mod( 'responsive_shop_banner_padding_tablet_unit', 'px' );
+		$shop_banner_padding_mobile_unit  = get_theme_mod( 'responsive_shop_banner_padding_mobile_unit', 'px' );
+
+		$shop_banner_margin              = get_responsive_spacing_values( 'responsive_shop_banner_margin', '', '', '', '' );
+		$shop_banner_margin_desktop_unit = get_theme_mod( 'responsive_shop_banner_margin_desktop_unit', 'px' );
+		$shop_banner_margin_tablet_unit  = get_theme_mod( 'responsive_shop_banner_margin_tablet_unit', 'px' );
+		$shop_banner_margin_mobile_unit  = get_theme_mod( 'responsive_shop_banner_margin_mobile_unit', 'px' );
+
 		if ( ! $check_shop_title ) {
 			$woocommerce_custom_css .= "
 			.woocommerce.archive .site-content-header,
@@ -13302,6 +13314,8 @@ function responsive_customizer_styles() {
 			$bg_tablet_css = ( 'custom' === $shop_title_container_bg ) ? $shop_banner_bg_tablet : 'transparent';
 			$bg_mobile_css = ( 'custom' === $shop_title_container_bg ) ? $shop_banner_bg_mobile : 'transparent';
 
+			$shop_banner_container_width = get_theme_mod( 'responsive_shop_banner_container_width', 'full_width' );
+
 			$woocommerce_custom_css .= "
 			.woocommerce.archive .site-content-header,
 			.woocommerce-shop .site-content-header {
@@ -13312,8 +13326,57 @@ function responsive_customizer_styles() {
 				display: flex;
 				flex-direction: column;
 				background-color: {$bg_color_css};
-				width: 100%;
+				padding: " . $format_spacing( $shop_banner_padding['desktop'], $shop_banner_padding_desktop_unit ) . ";
+				" . responsive_format_margin_css_with_container_width( $shop_banner_margin['desktop'], $shop_banner_margin_desktop_unit, $shop_banner_container_width ) . "
+			}";
+
+			$calc_width_desktop = responsive_get_banner_calc_width( $shop_banner_margin['desktop'], $shop_banner_margin_desktop_unit );
+			$calc_width_tablet  = responsive_get_banner_calc_width( $shop_banner_margin['tablet'], $shop_banner_margin_tablet_unit );
+			$calc_width_mobile  = responsive_get_banner_calc_width( $shop_banner_margin['mobile'], $shop_banner_margin_mobile_unit );
+
+			if ( 'custom' === $shop_banner_container_width ) {
+				$shop_banner_custom_width = get_theme_mod( 'responsive_shop_banner_custom_width', 1316 );
+				$woocommerce_custom_css .= "
+				.woocommerce.archive .responsive-archive-entry-banner,
+				.woocommerce-shop .responsive-archive-entry-banner {
+					max-width: min({$shop_banner_custom_width}px, {$calc_width_desktop});
+					width: {$calc_width_desktop};
+				}
+				@media screen and ( max-width: 992px ) {
+					.woocommerce.archive .responsive-archive-entry-banner,
+					.woocommerce-shop .responsive-archive-entry-banner {
+						max-width: min({$shop_banner_custom_width}px, {$calc_width_tablet});
+						width: {$calc_width_tablet};
+					}
+				}
+				@media screen and ( max-width: 576px ) {
+					.woocommerce.archive .responsive-archive-entry-banner,
+					.woocommerce-shop .responsive-archive-entry-banner {
+						max-width: min({$shop_banner_custom_width}px, {$calc_width_mobile});
+						width: {$calc_width_mobile};
+					}
+				}";
+			} else {
+				$woocommerce_custom_css .= "
+				.woocommerce.archive .responsive-archive-entry-banner,
+				.woocommerce-shop .responsive-archive-entry-banner {
+					width: {$calc_width_desktop};
+				}
+				@media screen and ( max-width: 992px ) {
+					.woocommerce.archive .responsive-archive-entry-banner,
+					.woocommerce-shop .responsive-archive-entry-banner {
+						width: {$calc_width_tablet};
+					}
+				}
+				@media screen and ( max-width: 576px ) {
+					.woocommerce.archive .responsive-archive-entry-banner,
+					.woocommerce-shop .responsive-archive-entry-banner {
+						width: {$calc_width_mobile};
+					}
+				}";
 			}
+
+			$woocommerce_custom_css .= "
 			.woocommerce.archive .responsive-archive-entry-banner .container,
 			.woocommerce-shop .responsive-archive-entry-banner .container {
 				width: 100%;
@@ -13326,12 +13389,16 @@ function responsive_customizer_styles() {
 				.woocommerce.archive .responsive-archive-entry-banner,
 				.woocommerce-shop .responsive-archive-entry-banner {
 					background-color: {$bg_tablet_css};
+					padding: " . $format_spacing( $shop_banner_padding['tablet'], $shop_banner_padding_tablet_unit ) . ";
+					" . responsive_format_margin_css_with_container_width( $shop_banner_margin['tablet'], $shop_banner_margin_tablet_unit, $shop_banner_container_width ) . "
 				}
 			}
 			@media screen and ( max-width: 576px ) {
 				.woocommerce.archive .responsive-archive-entry-banner,
 				.woocommerce-shop .responsive-archive-entry-banner {
 					background-color: {$bg_mobile_css};
+					padding: " . $format_spacing( $shop_banner_padding['mobile'], $shop_banner_padding_mobile_unit ) . ";
+					" . responsive_format_margin_css_with_container_width( $shop_banner_margin['mobile'], $shop_banner_margin_mobile_unit, $shop_banner_container_width ) . "
 				}
 			}";
 		}
@@ -13471,43 +13538,29 @@ function responsive_customizer_styles() {
 				margin-bottom: 0;
 			}";
 
-			// Padding and Margin.
-			$shop_banner_padding              = get_responsive_spacing_values( 'responsive_shop_banner_padding', 30, 0, 30, 0 );
-			$shop_banner_padding_desktop_unit = get_theme_mod( 'responsive_shop_banner_padding_desktop_unit', 'px' );
-			$shop_banner_padding_tablet_unit  = get_theme_mod( 'responsive_shop_banner_padding_tablet_unit', 'px' );
-			$shop_banner_padding_mobile_unit  = get_theme_mod( 'responsive_shop_banner_padding_mobile_unit', 'px' );
-
-			$shop_banner_margin              = get_responsive_spacing_values( 'responsive_shop_banner_margin', '', '', '', '' );
-			$shop_banner_margin_desktop_unit = get_theme_mod( 'responsive_shop_banner_margin_desktop_unit', 'px' );
-			$shop_banner_margin_tablet_unit  = get_theme_mod( 'responsive_shop_banner_margin_tablet_unit', 'px' );
-			$shop_banner_margin_mobile_unit  = get_theme_mod( 'responsive_shop_banner_margin_mobile_unit', 'px' );
-
-			$woocommerce_custom_css .= "
-			.woocommerce.archive .responsive-archive-entry-banner,
-			.woocommerce-shop .responsive-archive-entry-banner,
-			.woocommerce.archive .site-content-header,
-			.woocommerce-shop .site-content-header {
-				padding: " . $format_spacing( $shop_banner_padding['desktop'], $shop_banner_padding_desktop_unit ) . ";
-				margin: " . $format_spacing( $shop_banner_margin['desktop'], $shop_banner_margin_desktop_unit, true ) . ";
-			}
-			@media screen and ( max-width: 992px ) {
-				.woocommerce.archive .responsive-archive-entry-banner,
-				.woocommerce-shop .responsive-archive-entry-banner,
+			// Padding and Margin for Layout 1.
+			if ( 'post_title_layout1' === $shop_title_layout ) {
+				$woocommerce_custom_css .= "
 				.woocommerce.archive .site-content-header,
 				.woocommerce-shop .site-content-header {
-					padding: " . $format_spacing( $shop_banner_padding['tablet'], $shop_banner_padding_tablet_unit ) . ";
-					margin: " . $format_spacing( $shop_banner_margin['tablet'], $shop_banner_margin_tablet_unit, true ) . ";
+					padding: " . $format_spacing( $shop_banner_padding['desktop'], $shop_banner_padding_desktop_unit ) . ";
+					margin: " . $format_spacing( $shop_banner_margin['desktop'], $shop_banner_margin_desktop_unit, true ) . ";
 				}
+				@media screen and ( max-width: 992px ) {
+					.woocommerce.archive .site-content-header,
+					.woocommerce-shop .site-content-header {
+						padding: " . $format_spacing( $shop_banner_padding['tablet'], $shop_banner_padding_tablet_unit ) . ";
+						margin: " . $format_spacing( $shop_banner_margin['tablet'], $shop_banner_margin_tablet_unit, true ) . ";
+					}
+				}
+				@media screen and ( max-width: 576px ) {
+					.woocommerce.archive .site-content-header,
+					.woocommerce-shop .site-content-header {
+						padding: " . $format_spacing( $shop_banner_padding['mobile'], $shop_banner_padding_mobile_unit ) . ";
+						margin: " . $format_spacing( $shop_banner_margin['mobile'], $shop_banner_margin_mobile_unit, true ) . ";
+					}
+				}";
 			}
-			@media screen and ( max-width: 576px ) {
-				.woocommerce.archive .responsive-archive-entry-banner,
-				.woocommerce-shop .responsive-archive-entry-banner,
-				.woocommerce.archive .site-content-header,
-				.woocommerce-shop .site-content-header {
-					padding: " . $format_spacing( $shop_banner_padding['mobile'], $shop_banner_padding_mobile_unit ) . ";
-					margin: " . $format_spacing( $shop_banner_margin['mobile'], $shop_banner_margin_mobile_unit, true ) . ";
-				}
-			}";
 
 			// Colors.
 			$shop_title_color            = responsive_prepare_css_value( 'responsive_shop_title_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_title_color' ) );
