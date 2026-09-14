@@ -14460,6 +14460,123 @@ function responsive_customizer_styles() {
 			}
 			";
 		}
+		// Design 2 – pill sale badge + bag icon overlay CSS (always output, scoped to body class).
+	$woocommerce_custom_css .= "
+
+		/* Pill-shaped sale badge – moved to top-LEFT of the product image */
+		.responsive-product-design-2 ul.products li.product .onsale,
+		.responsive-product-design-2.woocommerce ul.products li.product .onsale {
+			border-radius: 50px;
+			min-width: 0;
+			min-height: 0;
+			width: auto;
+			height: auto;
+			line-height: 1.2;
+			padding: 4px 12px;
+			top: 10px;
+			left: 10px;
+			right: auto;
+			margin: 0;
+		}
+
+		/* li.product is the positioning root for the bag overlay */
+		.responsive-product-design-2 ul.products li.product,
+		.responsive-product-design-2.woocommerce ul.products li.product {
+			position: relative;
+		}
+
+		/* Bag icon overlay container */
+		.responsive-product-design-2 ul.products li.product .responsive-design2-bag-wrap,
+		.responsive-product-design-2.woocommerce ul.products li.product .responsive-design2-bag-wrap {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			left: auto;
+			z-index: 9;
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity 0.2s ease, visibility 0.2s ease;
+		}
+		.responsive-product-design-2 ul.products li.product:hover .responsive-design2-bag-wrap,
+		.responsive-product-design-2.woocommerce ul.products li.product:hover .responsive-design2-bag-wrap {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		/* The bag icon button */
+		.responsive-product-design-2 ul.products li.product .responsive-design2-bag-wrap a.responsive-design2-bag-btn,
+		.responsive-product-design-2.woocommerce ul.products li.product .responsive-design2-bag-wrap a.responsive-design2-bag-btn {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 38px;
+			height: 38px;
+			border-radius: 8px;
+			border: none;
+			outline: none;
+			cursor: pointer;
+			padding: 0;
+			margin: 0;
+			line-height: 1;
+			box-shadow: none;
+		}
+		.responsive-product-design-2 ul.products li.product .responsive-design2-bag-wrap a.responsive-design2-bag-btn svg,
+		.responsive-product-design-2.woocommerce ul.products li.product .responsive-design2-bag-wrap a.responsive-design2-bag-btn svg {
+			width: 18px;
+			height: 18px;
+			display: block;
+			flex-shrink: 0;
+			margin: 0;
+		}
+		.responsive-product-design-2 ul.products li.product .responsive-design2-bag-wrap a.responsive-design2-bag-btn.loading,
+		.responsive-product-design-2.woocommerce ul.products li.product .responsive-design2-bag-wrap a.responsive-design2-bag-btn.loading {
+			opacity: 0.6;
+			pointer-events: none;
+		}
+
+		/* Tooltip */
+		.responsive-product-design-2 .responsive-design2-bag-tooltip {
+			position: absolute;
+			bottom: calc(100% + 8px);
+			left: 50%;
+			transform: translateX(-50%);
+			background: #1E2A3A;
+			color: #fff;
+			font-size: 12px;
+			white-space: nowrap;
+			padding: 4px 10px;
+			border-radius: 4px;
+			pointer-events: none;
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity 0.15s ease, visibility 0.15s ease;
+			line-height: 1.4;
+		}
+		.responsive-product-design-2 .responsive-design2-bag-tooltip::after {
+			content: '';
+			position: absolute;
+			top: 100%;
+			left: 50%;
+			transform: translateX(-50%);
+			border: 5px solid transparent;
+			border-top-color: #1E2A3A;
+		}
+		.responsive-product-design-2 .responsive-design2-bag-btn:hover .responsive-design2-bag-tooltip {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		/* Hide WooCommerce's injected 'View cart' link and checkmark icon for Design 2 */
+		.responsive-product-design-2 .responsive-design2-bag-wrap .added_to_cart {
+			display: none;
+		}
+		.responsive-product-design-2 .responsive-design2-bag-wrap a.responsive-design2-bag-btn:after {
+			display: none;
+			content: none;
+		}
+	";
+
 		wp_add_inline_style( 'responsive-woocommerce-style', apply_filters( 'responsive_head_css', responsive_minimize_css( $woocommerce_custom_css ) ) );
 		wp_add_inline_style('responsive-woocommerce-style', responsive_minimize_css($font_preset_css));
 	}

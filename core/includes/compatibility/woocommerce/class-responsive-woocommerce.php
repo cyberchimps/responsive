@@ -121,6 +121,11 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			if ( 1 === (int) get_theme_mod( 'responsive_product_align_button_bottom', Responsive\Core\get_responsive_customizer_defaults( 'responsive_product_align_button_bottom' ) ) ) {
 				add_filter( 'body_class', array( $this, 'responsive_woocommerce_align_button_bottom_body_class' ) );
 			}
+
+			// Design 2: bag icon overlay on product image hover.
+			if ( 'design2' === get_theme_mod( 'responsive_product_card_design', 'design1' ) ) {
+				add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'responsive_shop_product_bag_icon_overlay' ), 20 );
+			}
 		}
 		/**
 		 * Register Customizer sections and panel for woocommerce
@@ -459,6 +464,39 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		}
 
 		/**
+		 * Outputs the bag icon overlay for Design 2 on product cards.
+		 *
+		 * Hooked to woocommerce_before_shop_loop_item_title at priority 20.
+		 *
+		 * @return void
+		 */
+		public function responsive_shop_product_bag_icon_overlay() {
+			global $product;
+			if ( ! is_a( $product, 'WC_Product' ) ) {
+				$product = wc_get_product( get_the_ID() );
+			}
+			if ( ! $product ) {
+				return;
+			}
+			?>
+			<div class="responsive-design2-bag-wrap">
+				<a
+					href="<?php echo esc_url( $product->add_to_cart_url() ); ?>"
+					data-quantity="1"
+					class="responsive-design2-bag-btn button add_to_cart_button <?php echo esc_attr( $product->supports( 'ajax_add_to_cart' ) && $product->is_purchasable() && $product->is_in_stock() ? 'ajax_add_to_cart' : '' ); ?>"
+					data-product_id="<?php echo esc_attr( $product->get_id() ); ?>"
+					data-product_sku="<?php echo esc_attr( $product->get_sku() ); ?>"
+					aria-label="<?php echo esc_attr( $product->add_to_cart_description() ); ?>"
+					rel="nofollow"
+				>
+					<span class="responsive-design2-bag-tooltip"><?php esc_html_e( 'Add to Cart', 'responsive' ); ?></span>
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="448" height="448" viewBox="0 0 448 448" aria-hidden="true" focusable="false"><path fill="currentColor" d="M439.25 352l8.75 78.25c0.5 4.5-1 9-4 12.5-3 3.25-7.5 5.25-12 5.25h-416c-4.5 0-9-2-12-5.25-3-3.5-4.5-8-4-12.5l8.75-78.25h430.5zM416 142.25l21.5 193.75h-427l21.5-193.75c1-8 7.75-14.25 16-14.25h64v32c0 17.75 14.25 32 32 32s32-14.25 32-32v-32h96v32c0 17.75 14.25 32 32 32s32-14.25 32-32v-32h64c8.25 0 15 6.25 16 14.25zM320 96v64c0 8.75-7.25 16-16 16s-16-7.25-16-16v-64c0-35.25-28.75-64-64-64s-64 28.75-64 64v64c0 8.75-7.25 16-16 16s-16-7.25-16-16v-64c0-53 43-96 96-96s96 43 96 96z"/></svg>
+				</a>
+			</div>
+			<?php
+		}
+
+		/**
 		 * Add Custom WooCommerce scripts.
 		 *
 		 * @since 3.15.4
@@ -512,6 +550,11 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			// Global WooCommerce styling
 			$classes[] = 'product-sale-style-' . get_theme_mod( 'responsive_product_sale_style', 'circle' );
 			$classes[] = 'product-content-aligmnment-' . get_theme_mod( 'responsive_product_content_aligmnment', 'center' );
+
+			$product_card_design = get_theme_mod( 'responsive_product_card_design', 'design1' );
+			if ( 'design2' === $product_card_design ) {
+				$classes[] = 'responsive-product-design-2';
+			}
 
 			return $classes;
 		}

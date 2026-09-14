@@ -55,6 +55,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				$general_tab_ids_prefix . 'responsive_product_card_outside_container_padding',
 				$general_tab_ids_prefix . 'responsive_product_card_inside_container_padding',
 				$general_tab_ids_prefix . 'responsive_shop_elements_separator',
+				$general_tab_ids_prefix . 'responsive_product_card_design',
 				$general_tab_ids_prefix . 'responsive_woocommerce_catalog_view',
 				$general_tab_ids_prefix . 'responsive_product_content_aligmnment',
 				$general_tab_ids_prefix . 'responsive_woocommerce_shop_elements_positioning',
@@ -732,13 +733,32 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			$shop_elements_label = esc_html__( 'Shop Product', 'responsive' );
 			responsive_separator_control( $wp_customize, 'shop_elements_separator', $shop_elements_label, 'responsive_woocommerce_shop', 50 );
 
+			// Shop Design.
+			$product_card_design_label   = esc_html__( 'Shop Design', 'responsive' );
+			$product_card_design_choices = array(
+				'design1' => esc_html__( 'Design 1', 'responsive' ),
+				'design2' => esc_html__( 'Design 2', 'responsive' ),
+			);
+			responsive_imageradio_button_control(
+				$wp_customize,
+				'product_card_design',
+				$product_card_design_label,
+				'responsive_woocommerce_shop',
+				50.1,
+				$product_card_design_choices,
+				'design1',
+				null,
+				'svg',
+				'refresh'
+			);
+
 			// Catalog View.
 			$woocommerce_catalog_view_label   = esc_html__( 'Catalog View', 'responsive' );
 			$woocommerce_catalog_view_choices = array(
 				'grid' => esc_html__( 'Grid View', 'responsive' ),
 				'list' => esc_html__( 'List View', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'woocommerce_catalog_view', $woocommerce_catalog_view_label, 'responsive_woocommerce_shop', 50, $woocommerce_catalog_view_choices, 'grid', null );
+			responsive_select_control( $wp_customize, 'woocommerce_catalog_view', $woocommerce_catalog_view_label, 'responsive_woocommerce_shop', 50.2, $woocommerce_catalog_view_choices, 'grid', null );
 
 			// Product content Aligmnment.
 			$product_content_aligmnment_label   = esc_html__( 'Content Aligmnment', 'responsive' );
