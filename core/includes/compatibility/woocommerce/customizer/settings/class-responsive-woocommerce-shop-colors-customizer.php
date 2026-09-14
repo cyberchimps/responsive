@@ -99,6 +99,84 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Colors_Customizer' ) ) :
 			$add_to_cart_button_radius_label = esc_html__( 'Border Radius', 'responsive' );
 			responsive_unit_radius_control( $wp_customize, 'add_to_cart_button_radius', 'responsive_woocommerce_shop', 74.8, 0, 0, null, $add_to_cart_button_radius_label, 'postMessage', array( 'px', 'em', 'rem' ) );
 
+			// Button Shadow Separator.
+			responsive_horizontal_separator_control( $wp_customize, 'add_to_cart_button_shadow_separator', 1, 'responsive_woocommerce_shop', 74.82, 1 );
+
+			// Button Shadow.
+			responsive_shadow_control(
+				$wp_customize,
+				'add_to_cart_button_shadow',
+				__( 'Button Shadow', 'responsive' ),
+				'responsive_woocommerce_shop',
+				74.84,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_x' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_y' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_blur' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_spread' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_inset' ),
+				null,
+				'postMessage'
+			);
+
+			// Button Shadow Color.
+			responsive_color_control(
+				$wp_customize,
+				'add_to_cart_button_shadow',
+				__( 'Button Shadow Color', 'responsive' ),
+				'responsive_woocommerce_shop',
+				74.86,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_color' ),
+				null,
+				'',
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'color',
+				'postMessage'
+			);
+
+			// Button Hover Shadow Separator.
+			responsive_horizontal_separator_control( $wp_customize, 'add_to_cart_button_hover_shadow_separator', 1, 'responsive_woocommerce_shop', 74.88, 1 );
+
+			// Button Hover Shadow.
+			responsive_shadow_control(
+				$wp_customize,
+				'add_to_cart_button_hover_shadow',
+				__( 'Button Hover Shadow', 'responsive' ),
+				'responsive_woocommerce_shop',
+				74.90,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_x' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_y' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_blur' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_spread' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_inset' ),
+				null,
+				'postMessage'
+			);
+
+			// Button Hover Shadow Color.
+			responsive_color_control(
+				$wp_customize,
+				'add_to_cart_button_hover_shadow',
+				__( 'Button Hover Shadow Color', 'responsive' ),
+				'responsive_woocommerce_shop',
+				74.92,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_color' ),
+				null,
+				'',
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'color',
+				'postMessage'
+			);
+
 			// Product Sorting.
 			$shop_product_sorting_separator = esc_html__( 'Product Sorting', 'responsive' );
 			responsive_separator_control( $wp_customize, 'shop_product_sorting_separator', $shop_product_sorting_separator, 'responsive_woocommerce_shop', 75 );

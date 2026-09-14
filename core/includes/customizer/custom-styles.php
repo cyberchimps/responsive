@@ -13860,6 +13860,30 @@ function responsive_customizer_styles() {
 			if ( ! empty( $add_to_cart_btn_bcolor_mob_hvr ) ) {
 				$woocommerce_custom_css .= "@media (max-width: 480px) { {$btn_hover_selectors} { border-color: {$add_to_cart_btn_bcolor_mob_hvr}; } }";
 			}
+
+			// Add to Cart Button Shadow.
+			$add_to_cart_btn_shadow_x           = get_theme_mod( 'responsive_add_to_cart_button_shadow_x_axis', Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_x' ) );
+			$add_to_cart_btn_shadow_y           = get_theme_mod( 'responsive_add_to_cart_button_shadow_y_axis', Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_y' ) );
+			$add_to_cart_btn_shadow_blur        = get_theme_mod( 'responsive_add_to_cart_button_shadow_blur', Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_blur' ) );
+			$add_to_cart_btn_shadow_spread      = get_theme_mod( 'responsive_add_to_cart_button_shadow_spread', Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_spread' ) );
+			$add_to_cart_btn_shadow_inset       = get_theme_mod( 'responsive_add_to_cart_button_shadow_inset', Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_inset' ) );
+			$add_to_cart_btn_shadow_color       = esc_html( responsive_prepare_css_value( 'responsive_add_to_cart_button_shadow_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_shadow_color' ) ) );
+			$add_to_cart_btn_shadow_inset_style = $add_to_cart_btn_shadow_inset ? 'inset' : '';
+
+			// Add to Cart Button Hover Shadow.
+			$add_to_cart_btn_hvr_shadow_x           = get_theme_mod( 'responsive_add_to_cart_button_hover_shadow_x_axis', Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_x' ) );
+			$add_to_cart_btn_hvr_shadow_y           = get_theme_mod( 'responsive_add_to_cart_button_hover_shadow_y_axis', Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_y' ) );
+			$add_to_cart_btn_hvr_shadow_blur        = get_theme_mod( 'responsive_add_to_cart_button_hover_shadow_blur', Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_blur' ) );
+			$add_to_cart_btn_hvr_shadow_spread      = get_theme_mod( 'responsive_add_to_cart_button_hover_shadow_spread', Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_spread' ) );
+			$add_to_cart_btn_hvr_shadow_inset       = get_theme_mod( 'responsive_add_to_cart_button_hover_shadow_inset', Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_inset' ) );
+			$add_to_cart_btn_hvr_shadow_color       = esc_html( responsive_prepare_css_value( 'responsive_add_to_cart_button_hover_shadow_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_button_hover_shadow_color' ) ) );
+			$add_to_cart_btn_hvr_shadow_inset_style = $add_to_cart_btn_hvr_shadow_inset ? 'inset' : '';
+
+			$add_to_cart_color_selectors = '.woocommerce #respond input#submit, .wp-block-button__link.add_to_cart_button, .woocommerce div.product .woocommerce-tabs ul.tabs li a, .woocommerce div.product .woocommerce-tabs ul.tabs li, .woocommerce button.button.alt, .woocommerce button.button, .woocommerce a.button, .woocommerce a.button.alt';
+			$add_to_cart_hover_selectors = '.woocommerce #respond input#submit:hover, .wp-block-button__link.add_to_cart_button:hover, .woocommerce div.product .woocommerce-tabs ul.tabs li.active a, .woocommerce div.product .woocommerce-tabs ul.tabs li.active, .woocommerce button.button:focus, .woocommerce button.button.alt:focus, .woocommerce button.button:hover, .woocommerce button.button.alt:hover, .woocommerce button.button:hover, .woocommerce button.button:focus, .woocommerce a.button:focus, .woocommerce a.button:hover, .woocommerce a.button.alt:focus, .woocommerce a.button.alt:hover';
+
+			$woocommerce_custom_css .= "{$add_to_cart_color_selectors} { box-shadow: {$add_to_cart_btn_shadow_inset_style} {$add_to_cart_btn_shadow_x}px {$add_to_cart_btn_shadow_y}px {$add_to_cart_btn_shadow_blur}px {$add_to_cart_btn_shadow_spread}px {$add_to_cart_btn_shadow_color}; }";
+			$woocommerce_custom_css .= "{$add_to_cart_hover_selectors} { box-shadow: {$add_to_cart_btn_hvr_shadow_inset_style} {$add_to_cart_btn_hvr_shadow_x}px {$add_to_cart_btn_hvr_shadow_y}px {$add_to_cart_btn_hvr_shadow_blur}px {$add_to_cart_btn_hvr_shadow_spread}px {$add_to_cart_btn_hvr_shadow_color}; }";
 		}
 
 		// Single Product Styles.

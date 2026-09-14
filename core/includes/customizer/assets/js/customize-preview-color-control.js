@@ -2103,6 +2103,46 @@
         } );
     } );
 
+    // Add to Cart Button Shadow
+    ['x_axis', 'y_axis', 'blur', 'spread', 'inset', 'color'].forEach(function(param) {
+        api( 'responsive_add_to_cart_button_shadow_' + param, function( value ) {
+            value.bind( function() {
+                var styleId = 'responsive-add-to-cart-button-shadow-preview';
+                jQuery('style#' + styleId).remove();
+                var x = api('responsive_add_to_cart_button_shadow_x_axis') ? api('responsive_add_to_cart_button_shadow_x_axis').get() : 0;
+                var y = api('responsive_add_to_cart_button_shadow_y_axis') ? api('responsive_add_to_cart_button_shadow_y_axis').get() : 0;
+                var blur = api('responsive_add_to_cart_button_shadow_blur') ? api('responsive_add_to_cart_button_shadow_blur').get() : 0;
+                var spread = api('responsive_add_to_cart_button_shadow_spread') ? api('responsive_add_to_cart_button_shadow_spread').get() : 0;
+                var inset = api('responsive_add_to_cart_button_shadow_inset') && api('responsive_add_to_cart_button_shadow_inset').get() ? 'inset ' : '';
+                var color = api('responsive_add_to_cart_button_shadow_color') ? api('responsive_add_to_cart_button_shadow_color').get() : '#FFFFFF';
+                if( color && color.startsWith('palette') ) { color = `var(--responsive-global-${color})`; }
+                var selectors = '.woocommerce #respond input#submit, .wp-block-button__link.add_to_cart_button, .woocommerce div.product .woocommerce-tabs ul.tabs li a, .woocommerce div.product .woocommerce-tabs ul.tabs li, .woocommerce button.button.alt, .woocommerce button.button, .woocommerce a.button, .woocommerce a.button.alt';
+                var css = selectors + ' { box-shadow: ' + inset + x + 'px ' + y + 'px ' + blur + 'px ' + spread + 'px ' + color + '; }';
+                jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+            } );
+        } );
+    });
+
+    // Add to Cart Button Hover Shadow
+    ['x_axis', 'y_axis', 'blur', 'spread', 'inset', 'color'].forEach(function(param) {
+        api( 'responsive_add_to_cart_button_hover_shadow_' + param, function( value ) {
+            value.bind( function() {
+                var styleId = 'responsive-add-to-cart-button-hover-shadow-preview';
+                jQuery('style#' + styleId).remove();
+                var x = api('responsive_add_to_cart_button_hover_shadow_x_axis') ? api('responsive_add_to_cart_button_hover_shadow_x_axis').get() : 0;
+                var y = api('responsive_add_to_cart_button_hover_shadow_y_axis') ? api('responsive_add_to_cart_button_hover_shadow_y_axis').get() : 0;
+                var blur = api('responsive_add_to_cart_button_hover_shadow_blur') ? api('responsive_add_to_cart_button_hover_shadow_blur').get() : 0;
+                var spread = api('responsive_add_to_cart_button_hover_shadow_spread') ? api('responsive_add_to_cart_button_hover_shadow_spread').get() : 0;
+                var inset = api('responsive_add_to_cart_button_hover_shadow_inset') && api('responsive_add_to_cart_button_hover_shadow_inset').get() ? 'inset ' : '';
+                var color = api('responsive_add_to_cart_button_hover_shadow_color') ? api('responsive_add_to_cart_button_hover_shadow_color').get() : '#FFFFFF';
+                if( color && color.startsWith('palette') ) { color = `var(--responsive-global-${color})`; }
+                var selectors = '.woocommerce #respond input#submit:hover, .wp-block-button__link.add_to_cart_button:hover, .woocommerce div.product .woocommerce-tabs ul.tabs li.active a, .woocommerce div.product .woocommerce-tabs ul.tabs li.active, .woocommerce button.button:focus, .woocommerce button.button.alt:focus, .woocommerce button.button:hover, .woocommerce button.button.alt:hover, .woocommerce button.button:hover, .woocommerce button.button:focus, .woocommerce a.button:focus, .woocommerce a.button:hover, .woocommerce a.button.alt:focus, .woocommerce a.button.alt:hover';
+                var css = selectors + ' { box-shadow: ' + inset + x + 'px ' + y + 'px ' + blur + 'px ' + spread + 'px ' + color + '; }';
+                jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
+            } );
+        } );
+    });
+
     //Cart Options Color Section
     //Button Color
     api( 'responsive_cart_buttons_color', function( value ) {
