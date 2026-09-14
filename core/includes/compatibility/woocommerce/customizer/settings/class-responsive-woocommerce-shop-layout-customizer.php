@@ -233,6 +233,9 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'customize-control-responsive_shop_title_container_background_layout2',
 				'customize-control-responsive_shop_banner_background_color',
 				'customize-control-responsive_shop_banner_overlay_color',
+				'customize-control-responsive_shop_title_color',
+				'customize-control-responsive_shop_text_color',
+				'customize-control-responsive_shop_title_link_color',
 			);
 
 			// Products Title Area Tabs.
@@ -439,6 +442,44 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'responsive_shop_title_layout',
 				14,
 				Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_banner_overlay_color' )
+			);
+
+			// Title Color.
+			$shop_title_color_label = esc_html__( 'Title Color', 'responsive' );
+			responsive_color_control(
+				$wp_customize,
+				'shop_title',
+				$shop_title_color_label,
+				'responsive_shop_title_layout',
+				15,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_title_color' )
+			);
+
+			// Text Color.
+			$shop_text_color_label = esc_html__( 'Text Color', 'responsive' );
+			responsive_color_control(
+				$wp_customize,
+				'shop_text',
+				$shop_text_color_label,
+				'responsive_shop_title_layout',
+				16,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_text_color' )
+			);
+
+			// Link Color.
+			$shop_link_color_label = esc_html__( 'Link Color', 'responsive' );
+			responsive_color_control(
+				$wp_customize,
+				'shop_title_link',
+				$shop_link_color_label,
+				'responsive_shop_title_layout',
+				17,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_title_link_color' ),
+				null,
+				'',
+				true,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_title_link_hover_color' ),
+				'shop_title_link_hover'
 			);
 
 			// Layouts.
