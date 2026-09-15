@@ -2877,6 +2877,14 @@ function responsive_customizer_styles() {
 	$header_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_header_mobile_top_padding', 28 ) );
 	$header_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_header_mobile_bottom_padding', 28 ) );
 
+	// Header Widgets 2 Color.
+	$header_widget2_text_color       = esc_html( get_theme_mod( 'responsive_header_widget2_text_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget2_text' ) ) );
+	$header_widget2_background_color = esc_html( get_theme_mod( 'responsive_header_widget2_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget2_background' ) ) );
+	$header_widget2_border_color     = esc_html( get_theme_mod( 'responsive_header_widget2_border_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget2_border' ) ) );
+	$header_widget2_link_color       = esc_html( get_theme_mod( 'responsive_header_widget2_link_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget2_link' ) ) );
+	$header_widget2_link_hover_color = esc_html( get_theme_mod( 'responsive_header_widget2_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget2_link_hover' ) ) );
+
+
 	if ( Responsive\Core\responsive_is_transparent_header() ) {
 
 		// Header colors.
@@ -3335,14 +3343,6 @@ function responsive_customizer_styles() {
 		$header_widget_border_color     = esc_html( get_theme_mod( 'responsive_header_widget_border_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_border' ) ) );
 		$header_widget_link_color       = esc_html( get_theme_mod( 'responsive_header_widget_link_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link' ) ) );
 		$header_widget_link_hover_color = esc_html( get_theme_mod( 'responsive_header_widget_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link_hover' ) ) );
-
-		// Header Widgets 2 Color.
-		$header_widget2_text_color       = esc_html( get_theme_mod( 'responsive_header_widget2_text_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget2_text' ) ) );
-		$header_widget2_background_color = esc_html( get_theme_mod( 'responsive_header_widget2_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget2_background' ) ) );
-		$header_widget2_border_color     = esc_html( get_theme_mod( 'responsive_header_widget2_border_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget2_border' ) ) );
-		$header_widget2_link_color       = esc_html( get_theme_mod( 'responsive_header_widget2_link_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget2_link' ) ) );
-		$header_widget2_link_hover_color = esc_html( get_theme_mod( 'responsive_header_widget2_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget2_link_hover' ) ) );
-
 
 		$off_canvas_menu_link_default = esc_html( get_theme_mod( 'responsive_header_off_canvas_menu_link_default_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link' )  ) );
 		$off_canvas_menu_link_hover = esc_html( get_theme_mod( 'responsive_header_off_canvas_menu_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link_hover' ) ) );
@@ -6104,6 +6104,7 @@ function responsive_customizer_styles() {
 			#main-header .header-widgets2 h6{
 				margin-top: 0;
 			}
+			
 			.header-widgets2 .header-widget2-wrapper{
 				display: flex;
 				flex-direction: row;
@@ -6121,7 +6122,7 @@ function responsive_customizer_styles() {
 			.header-widgets2 {
 				background-color: {$header_widget2_background_color};
 				color: {$header_widget2_text_color};
-				border-color: {$header_widget2_border_color};
+				border-bottom: 1px solid {$header_widget2_border_color};
 			}
 			.header-widgets2 h1,
 			.header-widgets2 h2,
