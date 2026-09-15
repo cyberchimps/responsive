@@ -1279,7 +1279,7 @@ function defaults() {
 			'blog_title_layout'					  => 'post_title_layout1',
 			'page_title_layout'                   => 'post_title_layout1',
 			'shop_title_layout'                   => 'post_title_layout1',
-			'shop_title_elements_positioning'     => array( 'title', 'description', 'breadcrumb' ),
+			'shop_title_elements_positioning'     => array( 'breadcrumb', 'title', 'description' ),
 			'shop_title_horizontal_alignment'     => 'center',
 			'shop_title_inner_elements_spacing'   => 10,
 			'shop_title_container_background_layout1' => 'none',
@@ -3078,7 +3078,7 @@ add_action( 'woocommerce_before_main_content', function() {
     // Shop / catalog pages.
     if ( get_theme_mod( 'breadcrumbs_options', 1 ) && ( is_shop() || is_product_taxonomy() ) ) {
         if ( get_theme_mod( 'responsive_shop_title_area', true ) && 'post_title_layout2' !== get_theme_mod( 'responsive_shop_title_layout', 'post_title_layout1' ) ) {
-            $elements = get_theme_mod( 'responsive_shop_title_elements_positioning', array( 'title', 'description', 'breadcrumb' ) );
+            $elements = get_theme_mod( 'responsive_shop_title_elements_positioning', array( 'breadcrumb', 'title', 'description' ) );
             if ( is_string( $elements ) ) {
                 $decoded  = json_decode( $elements, true );
                 $elements = is_array( $decoded ) ? $decoded : explode( ',', $elements );

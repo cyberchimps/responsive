@@ -13713,7 +13713,7 @@ function responsive_customizer_styles() {
 		$shop_banner_padding_tablet_unit  = get_theme_mod( 'responsive_shop_banner_padding_tablet_unit', 'px' );
 		$shop_banner_padding_mobile_unit  = get_theme_mod( 'responsive_shop_banner_padding_mobile_unit', 'px' );
 
-		$shop_banner_margin              = get_responsive_spacing_values( 'responsive_shop_banner_margin', '', '', '', '' );
+		$shop_banner_margin              = get_responsive_spacing_values( 'responsive_shop_banner_margin', '', '', 24, '' );
 		$shop_banner_margin_desktop_unit = get_theme_mod( 'responsive_shop_banner_margin_desktop_unit', 'px' );
 		$shop_banner_margin_tablet_unit  = get_theme_mod( 'responsive_shop_banner_margin_tablet_unit', 'px' );
 		$shop_banner_margin_mobile_unit  = get_theme_mod( 'responsive_shop_banner_margin_mobile_unit', 'px' );
@@ -13859,7 +13859,7 @@ function responsive_customizer_styles() {
 				}";
 			}
 
-			$elements = get_theme_mod( 'responsive_shop_title_elements_positioning', array( 'title', 'description', 'breadcrumb' ) );
+			$elements = get_theme_mod( 'responsive_shop_title_elements_positioning', array( 'breadcrumb', 'title', 'description' ) );
 			if ( is_string( $elements ) ) {
 				$decoded  = json_decode( $elements, true );
 				$elements = is_array( $decoded ) ? $decoded : explode( ',', $elements );
@@ -14002,7 +14002,7 @@ function responsive_customizer_styles() {
 			.woocommerce .site-content-header,
 			.woocommerce .responsive-archive-entry-banner,
 			.woocommerce .site-content-header .page-description,
-			.woocommerce .responsive-archive-entry-banner .page-description,
+			.woocommerce .responsive-archive-entry-banner .page-description p,
 			.woocommerce .site-content-header .woocommerce-breadcrumb,
 			.woocommerce .responsive-archive-entry-banner .woocommerce-breadcrumb {
 				color: {$shop_title_text_color};

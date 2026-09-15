@@ -332,7 +332,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_shop_title_elements_positioning',
 				array(
-					'default'           => array( 'title', 'description', 'breadcrumb' ),
+					'default'           => array( 'breadcrumb', 'title', 'description' ),
 					'sanitize_callback' => 'responsive_sanitize_multi_choices',
 					'transport'         => 'refresh',
 				)
@@ -360,7 +360,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_shop_archive_title',
 				array(
-					'default'           => '',
+					'default'           => 'Shop',
 					'sanitize_callback' => 'sanitize_text_field',
 					'transport'         => 'refresh',
 				)
@@ -596,7 +596,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			responsive_unit_padding_control( $wp_customize, 'shop_banner_padding', 'responsive_shop_title_layout', 22, 30, 0, null, esc_html__( 'Padding', 'responsive' ), 'postMessage', 30, 0, 30, 0, 'px' );
 
 			// Margin.
-			responsive_unit_padding_control( $wp_customize, 'shop_banner_margin', 'responsive_shop_title_layout', 23, '', '', null, esc_html__( 'Margin', 'responsive' ), 'postMessage', '', '', '', '', 'px' );
+			responsive_unit_padding_control( $wp_customize, 'shop_banner_margin', 'responsive_shop_title_layout', 23, '', '', null, esc_html__( 'Margin', 'responsive' ), 'postMessage', '', '', '', '', 'px', 24, null, 24, null, 24, null );
 
 			// Layouts.
 			$shop_layout_elements_label = esc_html__( 'Layouts', 'responsive' );

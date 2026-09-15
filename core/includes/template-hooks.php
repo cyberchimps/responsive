@@ -316,7 +316,7 @@ function responsive_woocommerce_shop_banner2() {
 	if ( ( is_shop() || is_product_taxonomy() ) && get_theme_mod( 'responsive_shop_title_area', true ) && get_theme_mod( 'responsive_shop_title_layout', 'post_title_layout1' ) === 'post_title_layout2' ) {
 		$rendered = true;
 
-		$elements = get_theme_mod( 'responsive_shop_title_elements_positioning', array( 'title', 'description', 'breadcrumb' ) );
+		$elements = get_theme_mod( 'responsive_shop_title_elements_positioning', array( 'breadcrumb', 'title', 'description' ) );
 		if ( is_string( $elements ) ) {
 			$decoded  = json_decode( $elements, true );
 			$elements = is_array( $decoded ) ? $decoded : explode( ',', $elements );
@@ -429,7 +429,7 @@ function responsive_woocommerce_show_page_title( $show ) {
 		if ( ! get_theme_mod( 'responsive_shop_title_area', true ) || 'post_title_layout2' === get_theme_mod( 'responsive_shop_title_layout', 'post_title_layout1' ) ) {
 			return false;
 		}
-		$elements = get_theme_mod( 'responsive_shop_title_elements_positioning', array( 'title', 'description', 'breadcrumb' ) );
+		$elements = get_theme_mod( 'responsive_shop_title_elements_positioning', array( 'breadcrumb', 'title', 'description' ) );
 		if ( is_string( $elements ) ) {
 			$decoded  = json_decode( $elements, true );
 			$elements = is_array( $decoded ) ? $decoded : explode( ',', $elements );
@@ -473,7 +473,7 @@ function responsive_woocommerce_custom_shop_archive_description() {
 	if ( ! get_theme_mod( 'responsive_shop_title_area', true ) || 'post_title_layout2' === get_theme_mod( 'responsive_shop_title_layout', 'post_title_layout1' ) ) {
 		return;
 	}
-	$elements = get_theme_mod( 'responsive_shop_title_elements_positioning', array( 'title', 'description', 'breadcrumb' ) );
+	$elements = get_theme_mod( 'responsive_shop_title_elements_positioning', array( 'breadcrumb', 'title', 'description' ) );
 	if ( is_string( $elements ) ) {
 		$decoded  = json_decode( $elements, true );
 		$elements = is_array( $decoded ) ? $decoded : explode( ',', $elements );

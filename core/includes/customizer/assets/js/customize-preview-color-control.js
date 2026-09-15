@@ -6887,7 +6887,7 @@
     api('responsive_shop_text_color', function(value) {
         value.bind(function(newval) {
             var color = processThemeSettingForCSS('responsive_shop_text_color') || newval;
-            $('.woocommerce .site-content-header, .woocommerce .responsive-archive-entry-banner, .woocommerce .site-content-header .page-description, .woocommerce .responsive-archive-entry-banner .page-description, .woocommerce .site-content-header .woocommerce-breadcrumb, .woocommerce .responsive-archive-entry-banner .woocommerce-breadcrumb').css('color', color);
+            $('.woocommerce .site-content-header, .woocommerce .responsive-archive-entry-banner, .woocommerce .site-content-header .page-description, .woocommerce .responsive-archive-entry-banner .page-description p, .woocommerce .site-content-header .woocommerce-breadcrumb, .woocommerce .responsive-archive-entry-banner .woocommerce-breadcrumb').css('color', color);
         });
     });
 

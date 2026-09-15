@@ -1625,7 +1625,7 @@ const TabsComponent = props => {
 
 		const elements = api('responsive_shop_title_elements_positioning')
 			? api('responsive_shop_title_elements_positioning').get()
-			: ['title', 'description', 'breadcrumb'];
+			: ['breadcrumb', 'title', 'description'];
 
 		const isTitleVisible = Array.isArray(elements) ? elements.indexOf('title') !== -1 : (typeof elements === 'string' && elements.split(',').indexOf('title') !== -1);
 		const isDescVisible  = Array.isArray(elements) ? elements.indexOf('description') !== -1 : (typeof elements === 'string' && elements.split(',').indexOf('description') !== -1);
