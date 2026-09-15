@@ -57,7 +57,7 @@ if ( class_exists( 'woocommerce' ) ) {
             $output .= $captured_output;
         $output .= '<span class="responsive-header-cart-icon-count-wrap"><span class="res-cart-icon responsive-shopping-cart-svg" data-cart-total="' . $cart_contents_count . '">' . $cart_icon_svg . '</span>';
         if ( get_theme_mod( 'responsive_mobile_display_cart_count' ) ) {
-            $output .= '<span class="responsive-header-cart-total">'. wp_kses_post( WC()->cart->get_cart_contents_count() ) . '</span>';
+            $output .= '<span class="responsive-mobile-header-cart-total">'. wp_kses_post( WC()->cart->get_cart_contents_count() ) . '</span>';
         }
         $output .= '</span></div></a></div>';
         if ( 'dropdown' === $cart_click_action && ! wp_is_mobile() ) {
