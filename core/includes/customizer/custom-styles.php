@@ -13458,9 +13458,12 @@ function responsive_customizer_styles() {
 		
 
 		$woocommerce_custom_css .= sprintf(
-		'.responsive-site-style-boxed ul.products li.product,
-		.responsive-site-style-content-boxed ul.products li.product,
-		.responsive-site-style-flat ul.products li.product {
+		'.responsive-site-style-boxed.woocommerce.archive:not(.single-product) ul.products li.product,
+		.responsive-site-style-boxed.woocommerce-page.archive:not(.single-product) ul.products li.product,
+		.responsive-site-style-content-boxed.woocommerce.archive:not(.single-product) ul.products li.product,
+		.responsive-site-style-content-boxed.woocommerce-page.archive:not(.single-product) ul.products li.product,
+		.responsive-site-style-boxed ul.products li.product,
+		.responsive-site-style-content-boxed ul.products li.product {
 			background-color: %s;
     	}',
 			$product_bg_color
