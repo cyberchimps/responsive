@@ -1098,6 +1098,24 @@ span.res-header-cart-info-wrap, .res-addon-cart-wrap, .res-addon-mobile-cart-wra
     text-align: center;
     z-index: 3;
 }
+.responsive-mobile-header-cart-total {
+    position: absolute;
+    font-style: normal;
+    top: -10px;
+    right: -12px;
+    font-weight: bold;
+    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.3);
+    font-size: 11px;
+    padding-left: 0px;
+    padding-right: 2px;
+    line-height: 17px;
+    letter-spacing: -.5px;
+    height: 18px;
+    min-width: 18px;
+    border-radius: 99px;
+    text-align: center;
+    z-index: 3;
+}
 .res-cart-label-position-right, .res-mobile-cart-label-position-right  {
     flex-direction: row-reverse;
 }

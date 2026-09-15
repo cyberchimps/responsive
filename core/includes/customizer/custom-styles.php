@@ -7978,14 +7978,6 @@ function responsive_customizer_styles() {
 		$custom_css .= ".responsive-header-cart .res-addon-cart-wrap {";
 		$custom_css .= responsive_build_responsive_spacing_css($header_woo_cart_padding_values['desktop'], $header_woo_cart_margin_values['desktop']);
 		$custom_css .= "}";
-		$custom_css .= "@media screen and (max-width: 992px) {";
-		$custom_css .= ".responsive-header-cart .res-addon-cart-wrap {";
-		$custom_css .= responsive_build_responsive_spacing_css($header_woo_cart_padding_values['tablet'], $header_woo_cart_margin_values['tablet']);
-		$custom_css .= "}}";
-		$custom_css .= "@media screen and (max-width: 576px) {";
-		$custom_css .= ".responsive-header-cart .res-addon-cart-wrap {";
-		$custom_css .= responsive_build_responsive_spacing_css($header_woo_cart_padding_values['mobile'], $header_woo_cart_margin_values['mobile']);
-		$custom_css .= "}}";
 	}
 
 	// Fetch mobile header woo cart padding and margin values.
@@ -7994,16 +7986,8 @@ function responsive_customizer_styles() {
 	if(Responsive\Core\responsive_check_element_in_mobile_tablet_items('woo-cart', 'header'))
 	{
 		$custom_css .= ".responsive-mobile-header-cart .res-addon-mobile-cart-wrap {";
-		$custom_css .= responsive_build_responsive_spacing_css($mobile_header_woo_cart_padding_values['desktop'], $mobile_header_woo_cart_margin_values['desktop']);
+		$custom_css .= responsive_build_responsive_spacing_css($mobile_header_woo_cart_padding_values['desktop'], $mobile_header_woo_cart_margin_values['mobile']);
 		$custom_css .= "}";
-		$custom_css .= "@media screen and (max-width: 992px) {";
-		$custom_css .= ".responsive-mobile-header-cart .res-addon-mobile-cart-wrap {";
-		$custom_css .= responsive_build_responsive_spacing_css($mobile_header_woo_cart_padding_values['tablet'], $mobile_header_woo_cart_margin_values['tablet']);
-		$custom_css .= "}}";
-		$custom_css .= "@media screen and (max-width: 576px) {";
-		$custom_css .= ".responsive-mobile-header-cart .res-addon-mobile-cart-wrap {";
-		$custom_css .= responsive_build_responsive_spacing_css($mobile_header_woo_cart_padding_values['mobile'], $mobile_header_woo_cart_margin_values['mobile']);
-		$custom_css .= "}}";
 	}
 
 	if ( Responsive\Core\responsive_check_element_present_in_hfb( 'search', 'header' )  || Responsive\Core\responsive_check_element_in_mobile_tablet_items( 'search', 'header' ) ) {
