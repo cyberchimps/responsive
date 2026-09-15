@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function() {
       observer.observe(menuContainer, {
         childList: true,
         subtree: true,
-        attributes: true, // To detect class changes
       });
     }
 
@@ -52,9 +51,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
       menuItemHasChildren.forEach((menuItem) => {
         let subMenu = menuItem.querySelector( 'ul.sub-menu' );
-        if ( !subMenu ) {
+        if ( !subMenu || menuItem.dataset.hasEdgeListener ) {
           return;
         }
+        menuItem.dataset.hasEdgeListener = true;
 
         menuItem.addEventListener("mouseenter", function () {
           let off = getOffset(subMenu);
@@ -62,10 +62,10 @@ document.addEventListener("DOMContentLoaded", function() {
           let r = off.right;
           let docW = window.innerWidth;
 
-          if ( l < 0 ) {
-            subMenu.style.right = l+'px';
-          } else if ( 15+r > docW ) {
+          if ( 15+r > docW ) {
             subMenu.style.left = (docW-r-15)+'px';
+          } else if ( l < 0 ) {
+            subMenu.style.left = (15-l)+'px';
           }
         });
         menuItem.addEventListener("mouseleave", function () {
@@ -111,6 +111,13 @@ document.addEventListener("DOMContentLoaded", function() {
                   submenu.classList.add("sub-menu-edge");
                 }
               }
+            }
+          });
+
+          parentMenuItem.addEventListener("mouseleave", function () {
+            let submenu = parentMenuItem.querySelector("ul.sub-menu");
+            if (submenu) {
+              submenu.classList.remove("sub-menu-edge", "sub-menu-edge-rtl");
             }
           });
         }

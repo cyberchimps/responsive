@@ -94,6 +94,14 @@ if ( ! class_exists( 'Responsive_Header_Title_Tagline_Customizer' ) ) :
 			$site_tagline_separator_label = esc_html__( 'Site Tagline Typography', 'responsive' );
 			responsive_typography_group_control( $wp_customize, 'header_site_tagline_typography_group', $site_tagline_separator_label, 'responsive_header_site_logo_title', 15, 'header_site_tagline_typography' );
 
+			// Spacing.
+			$spacing_separator_label = esc_html__( 'Spacing', 'responsive' );
+			responsive_separator_control( $wp_customize, 'header_site_logo_spacing_separator', $spacing_separator_label, 'responsive_header_site_logo_title', 16 );
+
+			// Logo Padding.
+			$logo_padding_label = esc_html__( 'Logo Padding (px)', 'responsive' );
+			responsive_padding_control( $wp_customize, 'header', 'responsive_header_site_logo_title', 17, Responsive\Core\get_responsive_customizer_defaults( 'logo_padding' ), 0, null, $logo_padding_label );
+
 		}
 	}
 

@@ -23,6 +23,12 @@ const ButtonPresetComponent = ( props ) => {
 
 	const [selected, setSelected] = useState( () => props.control.setting.get() || '' );
 
+	const controlId = props.control.id || '';
+	const isSecondary = controlId.includes( 'secondary' );
+	const radiusPrefix = isSecondary ? 'responsive_secondary_buttons_radius_' : 'responsive_buttons_radius_';
+	const borderPrefix = isSecondary ? 'responsive_secondary_buttons_border_width_' : 'responsive_buttons_border_width_';
+	const defaultBorderWidth = isSecondary ? 2 : 0;
+
 	const applyPreset = ( presetKey ) => {
 		const choice = choices[ presetKey ];
 		if ( ! choice ) return;
@@ -31,14 +37,55 @@ const ButtonPresetComponent = ( props ) => {
 		setSelected( presetKey );
 
 		RADIUS_SIDES.forEach( ( side ) => {
-			const s = api( `responsive_buttons_radius_${ side }_radius` );
+			const s = api( `${ radiusPrefix }${ side }_radius` );
 			if ( s ) s.set( choice.radius );
 		} );
 
 		BORDER_SIDES.forEach( ( side ) => {
-			const s = api( `responsive_buttons_border_width_${ side }_border` );
+			const s = api( `${ borderPrefix }${ side }_border` );
 			if ( s ) s.set( choice.border_width );
 		} );
+
+		if ( isSecondary ) {
+			const shape = SHAPE[ presetKey ];
+			if ( shape ) {
+				const secColorControl = api( 'responsive_secondary_button_color' );
+				const secTextColorControl = api( 'responsive_secondary_button_text_color' );
+				const secHoverColorControl = api( 'responsive_secondary_button_hover_color' );
+				const secHoverTextColorControl = api( 'responsive_secondary_button_hover_text_color' );
+
+				if ( shape.filled ) {
+					if ( secColorControl ) {
+						const currentColor = secColorControl.get();
+						if ( ! currentColor || currentColor === 'transparent' ) {
+							secColorControl.set( 'palette0' );
+						}
+					}
+					if ( secTextColorControl ) {
+						secTextColorControl.set( 'palette6' );
+					}
+					if ( secHoverColorControl ) {
+						secHoverColorControl.set( 'palette7' );
+					}
+					if ( secHoverTextColorControl ) {
+						secHoverTextColorControl.set( 'palette6' );
+					}
+				} else {
+					if ( secColorControl ) {
+						secColorControl.set( 'transparent' );
+					}
+					if ( secTextColorControl ) {
+						secTextColorControl.set( 'palette0' );
+					}
+					if ( secHoverColorControl ) {
+						secHoverColorControl.set( 'palette0' );
+					}
+					if ( secHoverTextColorControl ) {
+						secHoverTextColorControl.set( 'palette1' );
+					}
+				}
+			}
+		}
 	};
 
 	const onReset = () => {
@@ -46,14 +93,33 @@ const ButtonPresetComponent = ( props ) => {
 		setSelected( '' );
 
 		RADIUS_SIDES.forEach( ( side ) => {
-			const s = api( `responsive_buttons_radius_${ side }_radius` );
+			const s = api( `${ radiusPrefix }${ side }_radius` );
 			if ( s ) s.set( 0 );
 		} );
 
 		BORDER_SIDES.forEach( ( side ) => {
-			const s = api( `responsive_buttons_border_width_${ side }_border` );
-			if ( s ) s.set( 0 );
+			const s = api( `${ borderPrefix }${ side }_border` );
+			if ( s ) s.set( defaultBorderWidth );
 		} );
+
+		if ( isSecondary ) {
+			const secColorControl = api( 'responsive_secondary_button_color' );
+			if ( secColorControl ) {
+				secColorControl.set( 'transparent' );
+			}
+			const secTextColorControl = api( 'responsive_secondary_button_text_color' );
+			if ( secTextColorControl ) {
+				secTextColorControl.set( 'palette0' );
+			}
+			const secHoverColorControl = api( 'responsive_secondary_button_hover_color' );
+			if ( secHoverColorControl ) {
+				secHoverColorControl.set( 'palette0' );
+			}
+			const secHoverTextColorControl = api( 'responsive_secondary_button_hover_text_color' );
+			if ( secHoverTextColorControl ) {
+				secHoverTextColorControl.set( 'palette1' );
+			}
+		}
 	};
 
 	return (

@@ -67,6 +67,7 @@ if ( ! class_exists( 'Responsive_Header_Button_Customizer' ) ) :
 				$tab_ids_prefix . 'responsive_header_button_border_width',
 				$tab_ids_prefix . 'responsive_header_button_border_color',
 				$tab_ids_prefix . 'responsive_border_header_button_radius',
+				$tab_ids_prefix . 'responsive_header_button_radius_separator',
 				$tab_ids_prefix . 'responsive_header_button_border_separator',
 				$tab_ids_prefix . 'responsive_header_button_typography_group',
 				$tab_ids_prefix . 'responsive_header_button_typography_separator',
@@ -74,6 +75,9 @@ if ( ! class_exists( 'Responsive_Header_Button_Customizer' ) ) :
 				$tab_ids_prefix . 'responsive_header_button_margin_separator',
 				$tab_ids_prefix . 'responsive_header_button_shadow',
 				$tab_ids_prefix . 'responsive_header_button_shadow_color',
+				$tab_ids_prefix . 'responsive_header_button_hover_shadow',
+				$tab_ids_prefix . 'responsive_header_button_hover_shadow_color',
+				$tab_ids_prefix . 'responsive_header_button_hover_shadow_separator',
 			);
 
 			responsive_tabs_button_control( $wp_customize, 'responsive_header_button', $tabs_label, 'responsive_header_button', 10, '', 'responsive_social_general_tab', 'responsive_social_design_tab', $general_tab_ids, $design_tab_ids, null );
@@ -208,6 +212,11 @@ if ( ! class_exists( 'Responsive_Header_Button_Customizer' ) ) :
 
 			responsive_color_control( $wp_customize, 'header_button_shadow', __( 'Button Shadow Color', 'responsive' ), 'responsive_header_button', 70, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_shadow_color' ), null, '', false );
 
+			responsive_horizontal_separator_control( $wp_customize, 'header_button_hover_shadow_separator', 1, 'responsive_header_button', 71, 1 );
+
+			responsive_shadow_control( $wp_customize, 'header_button_hover_shadow', 'Button Hover Shadow', 'responsive_header_button', 72, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_x' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_y' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_blur' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_spread' ), Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_inset' ), null, 'postMessage' );
+
+			responsive_color_control( $wp_customize, 'header_button_hover_shadow', __( 'Button Hover Shadow Color', 'responsive' ), 'responsive_header_button', 73, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_button_hover_shadow_color' ), null, '', false );
 		}
 
 	}
