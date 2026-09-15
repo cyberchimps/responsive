@@ -47,11 +47,29 @@ if ( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_chec
         return;
     }
 
+    $woo_sidebar_id = is_product() ? 'responsive-woo-product-sidebar' : 'responsive-woo-shop-sidebar';
+
     ?>
     <aside id="secondary"
         class="widget-area <?php echo esc_attr( implode( ' ', responsive_get_sidebar_classes() ) ); ?>"
         role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
-        <?php dynamic_sidebar( 'responsive-woo-shop-sidebar' ); ?>
+        <?php
+        if ( ! dynamic_sidebar( $woo_sidebar_id ) ) :
+            if ( is_user_logged_in() ) :
+                ?>
+                <div class="widget-wrapper responsive-empty-sidebar-notice">
+                    <?php
+                    if ( is_product() ) {
+                        esc_html_e( 'This sidebar is currently empty. Add widgets in Appearance > Widgets(Product Sidebar) to display content here.', 'responsive' );
+                    } else {
+                        esc_html_e( 'This sidebar is currently empty. Add widgets in Appearance > Widgets(WooCommerce Sidebar) to display content here.', 'responsive' );
+                    }
+                    ?>
+                </div>
+                <?php
+            endif;
+        endif;
+        ?>
     </aside>
     <?php
 }

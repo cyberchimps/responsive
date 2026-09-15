@@ -280,9 +280,29 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'font-size' => '13px',
 					),
 				),
+				'header_widgets2'             => array(
+					'label'    => esc_html__( 'Header Widgets', 'responsive' ),
+					'target'   => $selectorArray['header_widgets2'],
+					'section'  => 'responsive_header_widget',
+					'priority' => 160,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size' => '13px',
+					),
+				),
 				'mobile_header_widgets'      => array(
 					'label'    => esc_html__( 'Mobile Header Widgets', 'responsive' ),
 					'target'   => $selectorArray['mobile_header_widgets'],
+					'section'  => 'responsive_mobile_header_widget',
+					'priority' => 160,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size' => '13px',
+					),
+				),
+				'mobile_header_widgets2'      => array(
+					'label'    => esc_html__( 'Mobile Header Widgets', 'responsive' ),
+					'target'   => $selectorArray['mobile_header_widgets2'],
 					'section'  => 'responsive_mobile_header_widget',
 					'priority' => 160,
 					'exclude'  => array( 'font-color' ),
@@ -628,10 +648,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'section' => 'responsive_footer_above_row',
 					'exclude' => array('font-color'),
 					'priority' => 45,
-					'defaults' => array(
-						'font-size' => '16px',
-						'line-height' => '1.75'
-					)
 				),
 				'footer_above_row_widget_content' => array(
 					'label' => esc_html__('Typography', 'responsive'),
@@ -639,10 +655,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'section' => 'responsive_footer_above_row',
 					'exclude' => array('font-color'),
 					'priority' => 45,
-					'defaults' => array(
-						'font-size' => '13px',
-						'line-height' => '1.75'
-					)
 				),
 				'footer_primary_row_widget_heading' => array(
 					'label' => esc_html__('Typography', 'responsive'),
@@ -650,10 +662,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'section' => 'responsive_footer_primary_row',
 					'exclude' => array('font-color'),
 					'priority' => 45,
-					'defaults' => array(
-						'font-size' => '16px',
-						'line-height' => '1.75'
-					)
 				),
 				'footer_primary_row_widget_content' => array(
 					'label' => esc_html__('Typography', 'responsive'),
@@ -661,10 +669,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'section' => 'responsive_footer_primary_row',
 					'exclude' => array('font-color'),
 					'priority' => 45,
-					'defaults' => array(
-						'font-size' => '13px',
-						'line-height' => '1.75'
-					)
 				),
 				'footer_below_row_widget_heading' => array(
 					'label' => esc_html__('Typography', 'responsive'),
@@ -672,10 +676,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'section' => 'responsive_footer_below_row',
 					'exclude' => array('font-color'),
 					'priority' => 45,
-					'defaults' => array(
-						'font-size' => '16px',
-						'line-height' => '1.75'
-					)
 				),
 				'footer_below_row_widget_content' => array(
 					'label' => esc_html__('Typography', 'responsive'),
@@ -683,10 +683,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'section' => 'responsive_footer_below_row',
 					'exclude' => array('font-color'),
 					'priority' => 45,
-					'defaults' => array(
-						'font-size' => '13px',
-						'line-height' => '1.75'
-					)
 				),
 				'add_to_cart_button' => array(
 					'label'    => esc_html__( 'Add To Cart Button Font', 'responsive' ),
@@ -771,7 +767,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'header_site_title2'         => '.site-title a',
 				'header_site_tagline'        => '.site-description',
 				'header_widgets'             => '.header-widgets',
+				'header_widgets2'             => '.header-widgets2',
 				'mobile_header_widgets'      => '.mobile-header-widgets',
+				'mobile_header_widgets2'      => '.mobile-header-widgets2',
 				'mobile_header_social_item' => '.site-mobile-header-item .header-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label',
 				'header_menu'                => '.main-navigation a',
 				'header_secondary_menu'      => '.secondary-navigation a',

@@ -669,6 +669,9 @@ function responsive_add_custom_body_classes( $classes ) {
 	// Transparent Header.
 	if ( responsive_is_transparent_header() ) {
 		$classes[] = 'res-transparent-header';
+		if ( get_theme_mod( 'responsive_transparent_header_logo_option', 0 ) && get_theme_mod( 'responsive_transparent_header_logo' ) ) {
+			$classes[] = 'res-has-transparent-logo';
+		}
 	}
 	// Header Element layout class.
 	// $classes[] = 'site-header-layout-' . get_theme_mod( 'responsive_header_layout', get_responsive_customizer_defaults( 'responsive_header_layout' ) );
@@ -1318,7 +1321,7 @@ function defaults() {
 			'content_header_description'          => '#999999',
 			'breadcrumb'                          => 'palette0',
 			'footer_background'                   => '#333333',
-			'footer_text'                         => '#ffffff',
+			'footer_text'                         => '#333333',
 			'footer_links'                        => '#0066CC',
 			'footer_links_hover'                  => '#ffffff',
 			'header_background'                   => '#ffffff',
@@ -1336,6 +1339,11 @@ function defaults() {
 			'header_widget_border'                => '#eaeaea',
 			'header_widget_link'                  => '#0066CC',
 			'header_widget_link_hover'            => '#10659C',
+			'header_widget2_text'                 => '#333333',
+			'header_widget2_background'           => '#ffffff',
+			'header_widget2_border'               => '#eaeaea',
+			'header_widget2_link'                 => '#0066CC',
+			'header_widget2_link_hover'           => '#10659C',
 
 			'inline_logo_site_title'                  => 0,
 
@@ -1400,6 +1408,34 @@ function defaults() {
 			'mobile_header_html_link_color_hover' => '#0066CC',
 			'mobile_header_html_margin_x'         => 0,
 			'mobile_header_html_margin_y'         => 0,
+			'header_html2_content'                 => 'Insert HTML here',
+			'header_html2_auto_add_paragraph'      => 1,
+			'header_html2_link_style'              => 'underline',
+			'header_html2_link_color'              => '#000000',
+			'header_html2_link_color_hover'        => '#0066CC',
+			'header_html2_margin_x'                => 0,
+			'header_html2_margin_y'                => 0,
+			'mobile_header_html2_content'          => 'Insert HTML here',
+			'mobile_header_html2_auto_add_paragraph' => 1,
+			'mobile_header_html2_link_style'       => 'underline',
+			'mobile_header_html2_link_color'       => '#000000',
+			'mobile_header_html2_link_color_hover' => '#0066CC',
+			'mobile_header_html2_margin_x'         => 0,
+			'mobile_header_html2_margin_y'         => 0,
+			'footer_html_content'                 => 'Insert HTML here',
+			'footer_html_auto_add_paragraph'      => 1,
+			'footer_html_link_style'              => 'underline',
+			'footer_html_link_color'              => '#000000',
+			'footer_html_link_color_hover'        => '#0066CC',
+			'footer_html_margin_x'                => 0,
+			'footer_html_margin_y'                => 0,
+			'footer_html2_content'                 => 'Insert HTML here',
+			'footer_html2_auto_add_paragraph'      => 1,
+			'footer_html2_link_style'              => 'underline',
+			'footer_html2_link_color'              => '#000000',
+			'footer_html2_link_color_hover'        => '#0066CC',
+			'footer_html2_margin_x'                => 0,
+			'footer_html2_margin_y'                => 0,
 			'mobile_menu_toggle_border_color'     => '#0066cc',
 			'mobile_menu_toggle_border_width'	  => 1,
 			'menu_button_radius'                  => 0,
@@ -1739,17 +1775,17 @@ function defaults() {
 																				'below_6' => array(),
 																			),
 																		),
-			'footer_copyright_text'                         			=> '#333333',
+			'footer_copyright_text'                         			=> 'footer-text-color',
 			'footer_copyright_text_hover'                         		=> '#333333',
 			'footer_copyright_links'                                    => 'footer-links-color',
 			'footer_copyright_links_hover'                              => 'footer-links-hover-color',
 			'footer_copyright_link_style'                               => 'standard',
 			'footer_copyright_link_hover_bg'                            => 'palette0',
-			'footer_above_link_style'                                   => 'standard',
+			'footer_above_link_style'                                   => 'no-underline',
 			'footer_above_link_hover_bg'                                => 'palette0',
-			'footer_primary_link_style'                                 => 'standard',
+			'footer_primary_link_style'                                 => 'no-underline',
 			'footer_primary_link_hover_bg'                              => 'palette0',
-			'footer_below_link_style'                                   => 'standard',
+			'footer_below_link_style'                                   => 'no-underline',
 			'footer_below_link_hover_bg'                                => 'palette0',
 			'footer_menu_background'                                    => '#333333',
 			'footer_menu_background_hover'                              => '#333333',
@@ -1797,6 +1833,16 @@ function defaults() {
 																			'scroll_to_top'          => array(
 																				'name'    => esc_html__( 'Scroll to Top', 'responsive' ),
 																				'section' => 'responsive_scrolltotop_section',
+																			),
+																			'footer_html'          => array(
+																				'name'    => esc_html__( 'HTML 1', 'responsive' ),
+																				'section' => 'responsive_footer_html',
+																				'icon'    => 'html',
+																			),
+																			'footer_html2'          => array(
+																				'name'    => esc_html__( 'HTML 2', 'responsive' ),
+																				'section' => 'responsive_footer_html2',
+																				'icon'    => 'html',
 																			),
 																		),
 			'responsive_footer_builder_mobile_choices'      				    => array(
@@ -1867,8 +1913,13 @@ function defaults() {
 																				'icon'    => 'share',
 																			),
 																			'header_html'          => array(
-																				'name'    => esc_html__( 'HTML', 'responsive' ),
+																				'name'    => esc_html__( 'HTML 1', 'responsive' ),
 																				'section' => 'responsive_header_html',
+																				'icon'    => 'html',
+																			),
+																			'header_html2'          => array(
+																				'name'    => esc_html__( 'HTML 2', 'responsive' ),
+																				'section' => 'responsive_header_html2',
 																				'icon'    => 'html',
 																			),
 																			'header_button'        => array(
@@ -1877,8 +1928,13 @@ function defaults() {
 																				'icon'    => 'button',
 																			),
 																			'header_widgets1'        => array(
-																				'name'    => esc_html__( 'Header Widgets', 'responsive' ),
+																				'name'    => esc_html__( 'Widget 1', 'responsive' ),
 																				'section' => 'responsive_header_widget',
+																			),
+																			'header_widgets2'        => array(
+																				'name'    => esc_html__( 'Widget 2', 'responsive' ),
+																				'section' => 'responsive_header_widget2',
+																				'icon'    => 'wordpress',
 																			),
 																			'header_contact_info'  => array(
 																				'name'    => esc_html__( 'Contact Info', 'responsive' ),
@@ -1919,8 +1975,13 @@ function defaults() {
 																				'icon'    => 'share',
 																			),
 																			'header_html'          => array(
-																				'name'    => esc_html__( 'HTML', 'responsive' ),
+																				'name'    => esc_html__( 'HTML 1', 'responsive' ),
 																				'section' => 'responsive_mobile_header_html',
+																				'icon'    => 'html',
+																			),
+																			'header_html2'          => array(
+																				'name'    => esc_html__( 'HTML 2', 'responsive' ),
+																				'section' => 'responsive_mobile_header_html2',
 																				'icon'    => 'html',
 																			),
 																			'header_button'        => array(
@@ -1929,8 +1990,13 @@ function defaults() {
 																				'icon'    => 'button',
 																			),
 																			'header_widgets1'        => array(
-																				'name'    => esc_html__( 'Header Widgets', 'responsive' ),
+																				'name'    => esc_html__( 'Widget 1', 'responsive' ),
 																				'section' => 'responsive_mobile_header_widget',
+																			),
+																			'header_widgets2'        => array(
+																				'name'    => esc_html__( 'Widget 2', 'responsive' ),
+																				'section' => 'responsive_mobile_header_widget2',
+																				'icon'    => 'wordpress',
 																			),
 																			'header_contact_info'  => array(
 																				'name'    => esc_html__( 'Contact Info', 'responsive' ),
@@ -2603,6 +2669,49 @@ function responsive_check_for_element($component, $haystack) {
 	return false;
 }
 /**
+ * When WooCommerce isn't active, strip any 'woo-cart' entries out of the
+ * saved header builder layouts on read. This covers the case where Cart was
+ * placed in a header zone while WooCommerce was active and the plugin gets
+ * deactivated afterwards - without this, the builder choice metadata for
+ * 'woo-cart' disappears (it's only added when WooCommerce is active) but the
+ * saved layout still references it, leaving a blank/unlabelled box in the
+ * Header Builder. Filtering the theme mod itself removes it everywhere that
+ * reads it (builder UI, display_header_row(), has_side_columns(), etc.), and
+ * because the Customizer control reads its value the same way, saving from
+ * the Customizer afterwards persists the removal.
+ *
+ * @param mixed $items The saved header items array (rows > columns > element slugs).
+ * @return mixed The items array with 'woo-cart' removed from every column.
+ */
+function responsive_strip_woo_cart_from_header_items( $items ) {
+	if ( ! is_array( $items ) ) {
+		return $items;
+	}
+	foreach ( $items as $row => $columns ) {
+		if ( ! is_array( $columns ) ) {
+			continue;
+		}
+		foreach ( $columns as $column => $elements ) {
+			if ( is_array( $elements ) ) {
+				$items[ $row ][ $column ] = array_values(
+					array_filter(
+						$elements,
+						function( $element ) {
+							return 'woo-cart' !== $element;
+						}
+					)
+				);
+			}
+		}
+	}
+	return $items;
+}
+if ( ! class_exists( 'WooCommerce' ) ) {
+	add_filter( 'theme_mod_responsive_header_desktop_items', __NAMESPACE__ . '\\responsive_strip_woo_cart_from_header_items' );
+	add_filter( 'theme_mod_responsive_header_mobile_tablet_items', __NAMESPACE__ . '\\responsive_strip_woo_cart_from_header_items' );
+}
+
+/**
  * Check if toggle_button is present in mobile_tablet_items.
  *
  * @return bool True if toggle_button is present in mobile_tablet_items, false otherwise.
@@ -2689,37 +2798,37 @@ function responsive_woo_cart_label_markup(){
  * @since 1.0.0
  */
 function responsive_mobile_woo_cart_label_markup(){
-    $cart_title             = apply_filters( 'responsive_header_cart_title', __( 'Cart', 'responsive' ) );
-    $cart_title_markup      = '<span class="responsive-woo-header-cart-title">' . esc_html( $cart_title ) . '</span>';
-    $cart_total_markup      = '';
-    $cart_total_only_markup = '';
-    $cart_check_total = get_theme_mod( 'responsive_mobile_hide_cart_total_label' ) && null !== WC()->cart ? intval( WC()->cart->get_cart_contents_total() ) > 0 : true;
+    $mobile_cart_title             = apply_filters( 'responsive_mobile_header_cart_title', __( 'Cart', 'responsive' ) );
+    $mobile_cart_title_markup      = '<span class="responsive-mobile-woo-header-cart-title">' . esc_html( $mobile_cart_title ) . '</span>';
+    $mobile_cart_total_markup      = '';
+    $mobile_cart_total_only_markup = '';
+    $mobile_cart_check_total = get_theme_mod( 'responsive_mobile_hide_cart_total_label' ) && null !== WC()->cart ? intval( WC()->cart->get_cart_contents_total() ) > 0 : true;
     if ( null !== WC()->cart ) {
-        if ( $cart_check_total ) {
-            $cart_total_markup      = '<span class="responsive-woo-header-cart-total">' . WC()->cart->get_cart_subtotal() . '</span>';
-            $cart_total_only_markup = '<span class="responsive-woo-header-cart-total-only">' . WC()->cart->get_cart_contents_total() . '</span>';
+        if ( $mobile_cart_check_total ) {
+            $mobile_cart_total_markup      = '<span class="responsive-mobile-woo-header-cart-total">' . WC()->cart->get_cart_subtotal() . '</span>';
+            $mobile_cart_total_only_markup = '<span class="responsive-mobile-woo-header-cart-total-only">' . WC()->cart->get_cart_contents_total() . '</span>';
         }
     }
     $cart_cur_name_markup = '';
-    if ( function_exists( 'get_woocommerce_currency' ) && $cart_check_total ) {
+    if ( function_exists( 'get_woocommerce_currency' ) && $mobile_cart_check_total ) {
         $cart_cur_name_markup = '<span class="responsive-woo-header-cart-cur-name">' . get_woocommerce_currency() . '</span>';
     }
     $cart_cur_sym_markup = '';
-    if ( function_exists( 'get_woocommerce_currency_symbol' ) && $cart_check_total ) {
-        $cart_cur_sym_markup = '<span class="responsive-woo-header-cart-cur-symbol">' . get_woocommerce_currency_symbol() . '</span>';
+    if ( function_exists( 'get_woocommerce_currency_symbol' ) && $mobile_cart_check_total ) {
+        $cart_cur_sym_markup = '<span class="responsive-mobile-woo-header-cart-cur-symbol">' . get_woocommerce_currency_symbol() . '</span>';
     }
-    $woo_cart_label_val = get_theme_mod( 'responsive_mobile_woo_cart_label', '' );
+    $mobile_woo_cart_label_val = get_theme_mod( 'responsive_mobile_woo_cart_label', '' );
     $shortcode_label       = array( '{cart_total_currency_symbol}', '{cart_title}', '{cart_total}', '{cart_currency_name}', '{cart_currency_symbol}' );
-    $shortcode_label_value = array( $cart_total_markup, $cart_title_markup, $cart_total_only_markup, $cart_cur_name_markup, $cart_cur_sym_markup );
-    $cart_label_markup = '';
-    $cart_label_markup = str_replace( $shortcode_label, $shortcode_label_value, $woo_cart_label_val );
-    $cart_info_markup = sprintf(
-        '<span class="responsive-woo-header-cart-info-wrap">
+    $shortcode_label_value = array( $mobile_cart_total_markup, $mobile_cart_title_markup, $mobile_cart_total_only_markup, $cart_cur_name_markup, $cart_cur_sym_markup );
+    $mobile_cart_label_markup = '';
+    $mobile_cart_label_markup = str_replace( $shortcode_label, $shortcode_label_value, $mobile_woo_cart_label_val );
+    $mobile_cart_info_markup = sprintf(
+        '<span class="responsive-mobile-woo-header-cart-info-wrap">
                 %1$s
             </span>',
-        $cart_label_markup
+        $mobile_cart_label_markup
     );
-    echo $cart_info_markup;
+    echo $mobile_cart_label_markup;
 }
 /**
  * Make Old Woo Cart compatible with new header builder woo cart

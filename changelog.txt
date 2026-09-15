@@ -8,6 +8,12 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(10/09/2026) Version 6.4.4
+[+] = New = Introduced global styling controls for Secondary Buttons.
+[*] = Improvement = Added more Header Builder controls for enhanced customization.
+[*] = Improvement = Added more Footer Builder controls for enhanced customization.
+[*] = Improvement = Enhanced Related Posts customization with additional design controls.
+
 (31/08/2026) Version 6.4.3
 [*] = Improvement = Improved Global Controls and Post Types settings with enhanced customization options.
 

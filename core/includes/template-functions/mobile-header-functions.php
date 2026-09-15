@@ -190,3 +190,53 @@ function responsive_render_off_canvas_panel() {
 		<?php
 	}
 }
+
+/**
+ * Mobile counterpart of responsive_header_woo_cart_slide_in() (header-functions.php).
+ * Uses the mobile/tablet items check and the mobile click-action setting,
+ * and wraps the drawer in .site-mobile-header-item so the mobile-scoped
+ * tray color rules in custom-styles.php actually match (the desktop
+ * version otherwise wins since it prints unscoped).
+ */
+function responsive_mobile_header_woo_cart_slide_in() {
+	// Get the mobile cart click action setting.
+	$cart_click_action = get_theme_mod( 'responsive_mobile_header_woo_cart_click_action', 'dropdown' );
+	// Hide cart slide in only if current page is checkout/cart or if redirect option is selected.
+	$is_cart_element_loaded = \Responsive\Core\responsive_check_element_in_mobile_tablet_items( 'woo-cart', 'header' );
+	if (
+		$is_cart_element_loaded && class_exists( 'WooCommerce' ) && ! is_cart() && ! is_checkout()
+	) {
+		// Prevent slide in markup when 'redirect' option is selected.
+		if( 'redirect' !== $cart_click_action || 'dropdown' === $cart_click_action && wp_is_mobile() ) {
+		wp_enqueue_script( 'responsive-cart-slide-in', get_template_directory_uri() . '/core/js/slide-in-cart.js', array(), RESPONSIVE_THEME_VERSION, true );
+		$rspv_cart_localize_data = array(
+			'cart_click_action' => $cart_click_action,
+			'isMobile'          => wp_is_mobile()
+		);
+		wp_localize_script( 'responsive-cart-slide-in', 'responsive_woo_cart', $rspv_cart_localize_data );
+		wp_enqueue_style( 'dashicons' );
+	?>
+		<div class="rspv-slide-cart-overlay"></div>
+		<div id="rspv-slide-cart-drawer" class="rspv-mobile-header-cart-drawer site-mobile-header-item">
+			<div class="rspv-cart-drawer-header">
+				<button type="button" class="rspv-mobile-header-cart-drawer-close" aria-label="<?php echo esc_attr__( 'Close Cart Drawer', 'responsive' ); ?>">
+					<span class="dashicons dashicons-no-alt"></span>
+				</button>
+				<div class="rspv-mobile-cart-drawer-title">
+				<?php
+					echo apply_filters( 'responsive_header_cart_slide_in_shopping_cart_text', __( 'Shopping Cart', 'responsive' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				?>
+				</div>
+			</div>
+			<div class="rspv-mobile-cart-drawer-content">
+				<?php
+				if ( class_exists( 'WooCommerce', false ) ) {
+					the_widget( 'WC_Widget_Cart', 'title=' );
+				}
+				?>
+			</div>
+		</div>
+	<?php
+		}
+	}
+}

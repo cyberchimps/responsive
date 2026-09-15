@@ -206,7 +206,7 @@
     }
 }
 .rspv-hfb-footer-width-fullwidth .container {
-    max-width: none;
+    max-width: none !important;
 }
 .site-footer-row-columns-2 {
     &.rspv-hfb-footer-row-layout-left-heavy {

@@ -264,6 +264,7 @@ if( ! class_exists( 'Responsive_HFB_Footer_Primary_Row' ) ) {
 				false,
 				null,
 				null,
+				'color',
 				'refresh'
 			);
 

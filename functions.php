@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '6.4.3' );
+define( 'RESPONSIVE_THEME_VERSION', '6.4.4' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -2142,6 +2142,16 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_tablet_items_
 											case 'header_html':
 												// HTML stays in same position
 												$mobile_element = 'header_html';
+												break;
+
+											case 'header_html2':
+												// HTML 2 stays in same position
+												$mobile_element = 'header_html2';
+												break;
+
+											case 'header_widgets2':
+												// Widgets 2 stay in same position
+												$mobile_element = 'header_widgets2';
 												break;
 												
 											case 'header_button':
