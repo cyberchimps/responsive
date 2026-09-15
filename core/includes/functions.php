@@ -2749,6 +2749,15 @@ function responsive_get_refreshed_fragments_number( $fragments ) {
 	ob_start();
 	responsive_woo_cart_label_markup();
 	$fragments['span.responsive-woo-header-cart-info-wrap'] = ob_get_clean();
+
+	// Mobile cart 
+	?><span class="responsive-mobile-header-cart-total"><?php echo wp_kses_post( WC()->cart->get_cart_contents_count() ); ?></span> 
+	<?php
+	$fragments['span.responsive-mobile-header-cart-total'] = ob_get_clean();
+	ob_start();
+	responsive_mobile_woo_cart_label_markup();
+	$fragments['span.responsive-mobile-woo-header-cart-info-wrap'] = ob_get_clean();
+
 	return $fragments;
 }
 function responsive_woo_cart_label_markup(){
@@ -2820,7 +2829,7 @@ function responsive_mobile_woo_cart_label_markup(){
             </span>',
         $mobile_cart_label_markup
     );
-    echo $mobile_cart_label_markup;
+    echo $mobile_cart_info_markup;
 }
 /**
  * Make Old Woo Cart compatible with new header builder woo cart

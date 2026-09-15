@@ -2823,7 +2823,7 @@ const mobileHeaderWooCartMarginSettings = [
 mobileHeaderWooCartMarginSettings.forEach(function(setting) {
     api(setting, function(value) {
         value.bind(function(newval) {
-            responsive_dynamic_unit_padding('mobile_header_woo_cart_margin', '.responsive-mobile-header-cart .res-addon-mobile-cart-wrap');
+            responsive_dynamic_unit_margin('mobile_header_woo_cart_margin', '.responsive-mobile-header-cart .res-addon-mobile-cart-wrap');
         });
     });
 });
