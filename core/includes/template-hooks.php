@@ -383,10 +383,13 @@ function responsive_woocommerce_shop_banner2() {
 				}
 			}
 
+			$overlay_color = Responsive\Core\responsive_prepare_css_value( 'responsive_shop_banner_overlay_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_banner_overlay_color' ) );
+			$overlay_css   = empty( $overlay_color ) ? 'transparent' : $overlay_color;
+
 			if ( $featured_image_url ) {
-				$overlay_color = Responsive\Core\responsive_prepare_css_value( 'responsive_shop_banner_overlay_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_banner_overlay_color' ) );
-				$overlay_css   = empty( $overlay_color ) ? 'transparent' : $overlay_color;
-				$section_style = ' style="--overlay-color: ' . $overlay_css . '; background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), url(' . esc_url( $featured_image_url ) . '); background-repeat: no-repeat; background-size: cover; background-attachment: scroll; background-position: center center;"';
+				$section_style = ' style="--overlay-color: ' . $overlay_css . '; background-color: var(--overlay-color); background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), url(' . esc_url( $featured_image_url ) . '); background-repeat: no-repeat; background-size: cover; background-attachment: scroll; background-position: center center;"';
+			} else {
+				$section_style = ' style="--overlay-color: ' . $overlay_css . '; background-color: var(--overlay-color);"';
 			}
 		}
 		?>
