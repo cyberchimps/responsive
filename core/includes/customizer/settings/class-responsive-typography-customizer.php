@@ -771,7 +771,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'page_title_area_title'      => '.page #page .post-entry .post-title, .responsive-single-entry-banner .container .entry-title',
 				'page_title_area_meta' 		 => '.page .entry-header .post-meta, .page .entry-header .post-meta span, .page .entry-header .post-meta span time, .page .entry-header .post-meta span a, .page .entry-header .post-meta i, .responsive-single-entry-banner .container .post-meta, .responsive-single-entry-banner .container .post-meta span, .responsive-single-entry-banner .container .post-meta span a, .responsive-single-entry-banner .container .post-meta time, .responsive-single-entry-banner .container .post-meta i',	
 				'blog_post_title'			 => 'body .responsive-archive-entry-banner .page-title, body .responsive-archive-entry-banner .page-title *, body.archive:not(.woocommerce) .site-content-header .page-title, body.archive:not(.woocommerce) .site-content-header .page-title *',
-				'blog_post_text'			 => '.responsive-archive-entry-banner .container *:not(.breadcrumbs):not(.breadcrumbs *), .archive:not(.woocommerce) .site-content-header *:not(.breadcrumbs):not(.breadcrumbs *)',
+				'blog_post_text'			 => '.responsive-archive-entry-banner .container *:not(.page-title):not(.page-title *):not(.breadcrumbs):not(.breadcrumbs *), .archive:not(.woocommerce) .site-content-header *:not(.page-title):not(.page-title *):not(.breadcrumbs):not(.breadcrumbs *)',
 				'html_font'					 => '.responsive-header-html p',
 				'footer_menu'				 => '#footer .footer-navigation .menu li.page_item',
 				'footer_above_row_widget_heading' => '.rspv-site-above-footer-wrap .footer-widgets .wp-block-heading, .rspv-site-above-footer-wrap .footer-social-icons .widget-title',

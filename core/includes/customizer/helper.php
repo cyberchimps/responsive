@@ -474,6 +474,23 @@ if ( ! function_exists( 'responsive_default_color_palettes' ) ) {
 	}
 }
 
+if ( ! function_exists( 'responsive_breadcrumb_toggle_enabled' ) ) {
+	/**
+	 * Whether a single breadcrumb display-settings toggle is enabled.
+	 *
+	 * The control's registered default is 1 (enabled); get_theme_mod()'s fallback
+	 * here only applies when the mod was never saved, so treat "never saved"
+	 * (=== false) the same as explicitly enabled (1).
+	 *
+	 * @since 1.1.0
+	 * @param string $mod_name Theme mod key, e.g. 'responsive_breadcrumb_enable_home_page'.
+	 */
+	function responsive_breadcrumb_toggle_enabled( $mod_name ) {
+		$val = get_theme_mod( $mod_name, false );
+		return ( false === $val || 1 == $val );
+	}
+}
+
 if ( ! function_exists( 'responsive_page_single_elements_positioning' ) ) {
 	/**
 	 * Returns blog single elements positioning
@@ -496,11 +513,12 @@ if ( ! function_exists( 'responsive_page_single_elements_positioning' ) ) {
 		// Sync with global breadcrumb toggle.
 		$responsive_options = get_option( 'responsive_theme_options' );
 		$global_breadcrumb  = isset( $responsive_options['breadcrumb'] ) ? $responsive_options['breadcrumb'] : 0;
-		$enable_page        = get_theme_mod( 'responsive_breadcrumb_enable_single_page', false );
-		// The control's registered default is 1 (enabled); get_theme_mod()'s fallback here only
-		// applies when the mod was never saved, so treat "never saved" (=== false) the same as
-		// explicitly enabled (1) - same convention already used in loop-header.php.
-		$enable_page        = ( false === $enable_page || 1 == $enable_page );
+		// A page set as the site's front page is simultaneously both contexts, so
+		// both the Single Page toggle and the Home Page toggle must allow it.
+		$enable_page        = responsive_breadcrumb_toggle_enabled( 'responsive_breadcrumb_enable_single_page' );
+		if ( is_front_page() ) {
+			$enable_page = $enable_page && responsive_breadcrumb_toggle_enabled( 'responsive_breadcrumb_enable_home_page' );
+		}
 
 		if ( ! $enable_page || empty( $global_breadcrumb ) ) {
 			if ( ( $key = array_search( 'breadcrumb', $sections, true ) ) !== false ) {
@@ -533,18 +551,19 @@ if ( ! function_exists( 'responsive_blog_title_breadcrumb_enabled' ) ) {
 			return false;
 		}
 
-		if ( is_home() ) {
-			$enable = get_theme_mod( 'responsive_breadcrumb_enable_blog_posts_page', false );
+		if ( is_front_page() && is_home() ) {
+			// Home page showing the latest posts (Settings > Reading) - simultaneously
+			// both contexts, so both the Home Page toggle and the Blog/Posts Page
+			// toggle must allow it.
+			return responsive_breadcrumb_toggle_enabled( 'responsive_breadcrumb_enable_home_page' )
+				&& responsive_breadcrumb_toggle_enabled( 'responsive_breadcrumb_enable_blog_posts_page' );
+		} elseif ( is_home() ) {
+			return responsive_breadcrumb_toggle_enabled( 'responsive_breadcrumb_enable_blog_posts_page' );
 		} elseif ( is_archive() ) {
-			$enable = get_theme_mod( 'responsive_breadcrumb_enable_archive', false );
-		} else {
-			return false;
+			return responsive_breadcrumb_toggle_enabled( 'responsive_breadcrumb_enable_archive' );
 		}
 
-		// The control's registered default is 1 (enabled); get_theme_mod()'s fallback here only
-		// applies when the mod was never saved, so treat "never saved" (=== false) the same as
-		// explicitly enabled (1) - same convention already used in loop-header.php.
-		return ( false === $enable || 1 == $enable );
+		return false;
 	}
 }
 

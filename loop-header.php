@@ -37,11 +37,21 @@ $responsive_show_breadcrumbs = false;
 if ( 1 === $responsive_options['breadcrumb'] ) {
 	if(is_front_page())
 	{
-		$val = get_theme_mod( 'responsive_breadcrumb_enable_home_page', false );
-		if ( $val === false || 1 == $val )
+		// The front page is simultaneously the Home Page context and either the
+		// Blog/Posts Page context (latest posts) or a Single Page context (static
+		// page), so both toggles must allow it.
+		$home_enabled = responsive_breadcrumb_toggle_enabled( 'responsive_breadcrumb_enable_home_page' );
+		if ( is_home() ) {
+			$type_enabled = responsive_breadcrumb_toggle_enabled( 'responsive_breadcrumb_enable_blog_posts_page' );
+		} elseif ( is_page() ) {
+			$type_enabled = responsive_breadcrumb_toggle_enabled( 'responsive_breadcrumb_enable_single_page' );
+		} else {
+			$type_enabled = true;
+		}
+		if ( $home_enabled && $type_enabled )
 		{
 			$responsive_show_breadcrumbs = true;
-		} 
+		}
 	}
 	else if(is_home())
 	{
@@ -102,7 +112,15 @@ if ( 1 === $responsive_options['breadcrumb'] ) {
 	}
 }
 
-if ( ! is_404() && ! is_search() && ! is_author() ) {
+// Site-content-header only ever renders breadcrumbs on its own for 404/search/author
+// and the home page when it displays the latest posts. Single posts and pages -
+// including a static page set as the front page - always render their own
+// breadcrumb via partials/page|single/layout.php (Layout 1) or the banner2
+// title-area templates (Layout 2, see template-hooks.php), so leaving them
+// enabled here would duplicate them; the archive/blog listing has no such
+// separate renderer of its own, so it's handled entirely within this file
+// (see the $is_blog_archive block below).
+if ( ! is_404() && ! is_search() && ! is_author() && ! ( is_front_page() && is_home() ) ) {
 	$responsive_show_breadcrumbs = false;
 }
 
