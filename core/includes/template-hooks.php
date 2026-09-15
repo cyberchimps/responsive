@@ -455,7 +455,7 @@ add_filter( 'woocommerce_page_title', 'responsive_woocommerce_custom_shop_page_t
  * @return string
  */
 function responsive_woocommerce_custom_shop_page_title( $title ) {
-	if ( is_shop() || is_product_taxonomy() ) {
+	if ( is_shop() ) {
 		$custom_title = get_theme_mod( 'responsive_shop_archive_title', '' );
 		if ( ! empty( $custom_title ) ) {
 			return $custom_title;
