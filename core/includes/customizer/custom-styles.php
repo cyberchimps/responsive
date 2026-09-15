@@ -5020,6 +5020,7 @@ function responsive_customizer_styles() {
 				margin-left: -12px;
 				justify-content: space-between;
     			padding: 14px;
+				align-items: center;
 			}
 			.header-widgets2 .header-widget2-wrapper>.widget{
 				padding-right: 12px;
