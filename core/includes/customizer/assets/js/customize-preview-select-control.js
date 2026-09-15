@@ -945,6 +945,16 @@
             }
         });
     });
+    api( 'responsive_header_html2_link_style', function(value){
+        value.bind( function(newval){
+            var $inner = $( '.site-header .responsive-header-html2 .responsive-header-html2-inner' );
+            if ( newval === 'underline' ) {
+                $inner.addClass( 'responsive-header-html2-underline-link' );
+            } else {
+                $inner.removeClass( 'responsive-header-html2-underline-link' );
+            }
+        });
+    });
     api( 'responsive_mobile_header_html_link_style', function(value){
         value.bind( function(newval){
             var $inner = $( '.site-header-mobile .responsive-mobile-header-html .responsive-mobile-header-html-inner' );
@@ -952,6 +962,59 @@
                 $inner.addClass( 'responsive-mobile-header-html-underline-link' );
             } else {
                 $inner.removeClass( 'responsive-mobile-header-html-underline-link' );
+            }
+        });
+    });
+
+     api( 'responsive_mobile_header_html2_link_style', function(value){
+        value.bind( function(newval){
+            var $inner = $( '.responsive-mobile-header-html2 .responsive-mobile-header-html2-inner' );
+            if ( newval === 'underline' ) {
+                $inner.addClass( 'responsive-mobile-header-html2-underline-link' );
+            } else {
+                $inner.removeClass( 'responsive-mobile-header-html2-underline-link' );
+            }
+        });
+    });
+    // Footer HTML 1
+     api( 'responsive_footer_html_link_style', function(value){
+        value.bind( function(newval){
+            var $inner = $( '.site-footer .responsive-footer-html .responsive-footer-html-inner' );
+            if ( newval === 'underline' ) {
+                $inner.addClass( 'responsive-footer-html-underline-link' );
+            } else {
+                $inner.removeClass( 'responsive-footer-html-underline-link' );
+            }
+        });
+    });
+    api( 'responsive_footer_html2_link_style', function(value){
+        value.bind( function(newval){
+            var $inner = $( '.site-footer .responsive-footer-html2 .responsive-footer-html2-inner' );
+            if ( newval === 'underline' ) {
+                $inner.addClass( 'responsive-footer-html2-underline-link' );
+            } else {
+                $inner.removeClass( 'responsive-footer-html2-underline-link' );
+            }
+        });
+    });
+    api( 'responsive_mobile_footer_html_link_style', function(value){
+        value.bind( function(newval){
+            var $inner = $( '.site-footer-mobile .responsive-mobile-footer-html .responsive-mobile-footer-html-inner' );
+            if ( newval === 'underline' ) {
+                $inner.addClass( 'responsive-mobile-footer-html-underline-link' );
+            } else {
+                $inner.removeClass( 'responsive-mobile-footer-html-underline-link' );
+            }
+        });
+    });
+
+     api( 'responsive_mobile_footer_html2_link_style', function(value){
+        value.bind( function(newval){
+            var $inner = $( '.responsive-mobile-footer-html2 .responsive-mobile-footer-html2-inner' );
+            if ( newval === 'underline' ) {
+                $inner.addClass( 'responsive-mobile-footer-html2-underline-link' );
+            } else {
+                $inner.removeClass( 'responsive-mobile-footer-html2-underline-link' );
             }
         });
     });
@@ -978,6 +1041,16 @@
                 const iconCart = $(document).find('.res-addon-cart-wrap');
                 iconCart.removeClass( 'res-cart-label-position-left res-cart-label-position-right res-cart-label-position-bottom' );
                 iconCart.addClass('res-cart-label-position-' + position );
+            }
+        });
+    });
+     api( 'responsive_mobile_cart_label_position', function (setting) {
+        setting.bind(function (position) {
+            const cartSelector = '.responsive-mobile-header-cart';
+            if($(cartSelector).find('.res-addon-mobile-cart-wrap').length){
+                const iconCart = $(document).find('.res-addon-mobile-cart-wrap');
+                iconCart.removeClass( 'res-mobile-cart-label-position-left res-mobile-cart-label-position-right res-mobile-cart-label-position-bottom' );
+                iconCart.addClass('res-mobile-cart-label-position-' + position );
             }
         });
     });
