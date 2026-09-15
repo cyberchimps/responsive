@@ -4591,7 +4591,7 @@
             jQuery('style#responsive-mobile-cart-count-color').remove();
             jQuery('head').append(
                 '<style id="responsive-mobile-cart-count-color">'
-                + '.site-mobile-header-item .responsive-header-cart-total { color: ' + color + '!important; }'
+                + '.site-mobile-header-item .responsive-mobile-header-cart-total { color: ' + color + '!important; }'
                 + '</style>'
             );
         });
@@ -4601,7 +4601,7 @@
             jQuery('style#responsive-mobile-cart-count-hover-color').remove();
             jQuery('head').append(
                 '<style id="responsive-mobile-cart-count-hover-color">'
-                + '.site-mobile-header-item .responsive-header-cart-total:hover { color: ' + color + '!important; }'
+                + '.site-mobile-header-item .responsive-mobile-header-cart-total:hover { color: ' + color + '!important; }'
                 + '</style>'
             );
         });
