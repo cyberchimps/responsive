@@ -424,6 +424,18 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 					'after_widget'  => '</div>',
 				)
 			);
+
+			register_sidebar(
+				array(
+					'name'          => __( 'Product Sidebar', 'responsive' ),
+					'id'            => 'responsive-woo-product-sidebar',
+					'description'   => __( 'This sidebar will be used only on the Single Product page.', 'responsive' ),
+					'before_title'  => '<div class="widget-title"><h4>',
+					'after_title'   => '</h4></div>',
+					'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
+					'after_widget'  => '</div>',
+				)
+			);
 		}
 		// Off Canvas filter.
 		/**
