@@ -92,7 +92,6 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 	 * Allows visitors to quickly navigate back to a previous section or the root page.
 	 */
 	function responsive_breadcrumb_lists() {
-        error_log( "DEBUG BREADCRUMB LISTS: Executing responsive_breadcrumb_lists()" );
 		/* === OPTIONS === */
 		$text['home'] = _x( 'Home', 'Text for Home link Breadcrumb', 'responsive' ); // text for the 'Home' link.
 		/* translators: %s: Categories */
@@ -140,7 +139,6 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 				$html_output .= '<div class="breadcrumb-list">' . sprintf( $link, $home_link, $text['home'] ) ;
 			}
 		} else {
-            error_log( "DEBUG BREADCRUMB LISTS: Not front page" );
 			$html_output .= '<div class="breadcrumb-list">' . sprintf( $link, $home_link, $text['home'] ) . $delimiter;
 
 			if ( is_home() ) {
@@ -186,7 +184,6 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 				$html_output .= $before . get_the_time( 'Y' ) . $after;
 
 			} elseif ( is_single() && ! is_attachment() ) {
-                error_log( "DEBUG BREADCRUMB LISTS: is_single() is TRUE" );
 				if ( 'post' !== get_post_type() ) {
 					$post_type    = get_post_type_object( get_post_type() );
 					$archive_link = get_post_type_archive_link( $post_type->name );
@@ -197,7 +194,6 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 				} else {
 					++$position;
 					$cat     = get_the_category();
-                    error_log( "DEBUG BREADCRUMB LISTS: Categories array: " . print_r($cat, true) );
 					$count   = $cat[0]->count;
 					$cats    = get_category_parents( $cat[0], true, $delimiter );
 					$term_id = $cat[0]->term_id;
