@@ -453,10 +453,13 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			}
 
 			// CSS classes.
-			$classes   = array();
-			$classes[] = 'onsale';
-			$classes[] = get_theme_mod( 'responsive_product_sale_style' );
-			$classes   = implode( ' ', $classes );
+			$classes     = array();
+			$classes[]   = 'onsale';
+			$card_design = get_theme_mod( 'responsive_product_card_design', 'design1' );
+			if ( 'design2' !== $card_design ) {
+				$classes[] = get_theme_mod( 'responsive_product_sale_style' );
+			}
+			$classes     = implode( ' ', $classes );
 
 			// Generate markup.
 			return '<span class="' . esc_attr( $classes ) . '">' . esc_html( $text ) . '</span>';

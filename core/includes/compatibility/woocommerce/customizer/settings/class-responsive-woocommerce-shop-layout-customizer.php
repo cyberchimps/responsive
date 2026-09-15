@@ -837,7 +837,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'square'         => __( 'Square', 'responsive' ),
 				'square-outline' => __( 'Square Outline', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'product_sale_style', $product_sale_style_label, 'responsive_woocommerce_shop', 100, $product_sale_style_choices, 'circle', null );
+			responsive_select_control( $wp_customize, 'product_sale_style', $product_sale_style_label, 'responsive_woocommerce_shop', 100, $product_sale_style_choices, 'circle', 'responsive_check_product_sale_style_visible' );
 
 			// Off Canvas Layout.
 			$off_canvas_filter_label = esc_html__( 'Off Canvas Filter', 'responsive' );

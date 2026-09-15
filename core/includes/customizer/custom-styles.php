@@ -15028,6 +15028,7 @@ function responsive_customizer_styles() {
 		/* Pill-shaped sale badge – moved to top-LEFT of the product image */
 		.responsive-product-design-2 ul.products li.product .onsale,
 		.responsive-product-design-2.woocommerce ul.products li.product .onsale {
+			border: none;
 			border-radius: 50px;
 			min-width: 0;
 			min-height: 0;

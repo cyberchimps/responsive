@@ -50,12 +50,26 @@ const TabsComponent = props => {
 		return false;
 	};
 
+	const isControlInactive = (elementId) => {
+		if (isSidebarControlInactive(elementId)) {
+			return true;
+		}
+		const controlKey = elementId.replace('customize-control-', '');
+		if (api.control.has(controlKey)) {
+			const ctrl = api.control(controlKey);
+			if (ctrl && ctrl.active && !ctrl.active.get()) {
+				return true;
+			}
+		}
+		return false;
+	};
+
 	useEffect(() => {
 		const showElements = tab === 'general' ? 'design' : 'general';
 		elementsToHide[showElements].forEach(elementId => {
 			const element = document.getElementById(elementId);
 			if (element) {
-				if (isSidebarControlInactive(elementId)) {
+				if (isControlInactive(elementId)) {
 					element.style.display = 'none';
 				} else {
 					element.style.display = 'block';
