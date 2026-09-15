@@ -2687,6 +2687,9 @@ function responsive_get_refreshed_fragments_number( $fragments ) {
 	$fragments['span.responsive-woo-header-cart-info-wrap'] = ob_get_clean();
 
 	// Mobile cart 
+	?><span class="responsive-mobile-header-cart-total"><?php echo wp_kses_post( WC()->cart->get_cart_contents_count() ); ?></span> 
+	<?php
+	$fragments['span.responsive-mobile-header-cart-total'] = ob_get_clean();
 	ob_start();
 	responsive_mobile_woo_cart_label_markup();
 	$fragments['span.responsive-mobile-woo-header-cart-info-wrap'] = ob_get_clean();
