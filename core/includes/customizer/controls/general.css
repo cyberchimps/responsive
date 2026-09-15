@@ -1454,6 +1454,9 @@ in both cases the footer builder is active */
 	padding-top: 12px;
 	padding-bottom: 12px;
 }
+#customize-control-responsive_product_align_button_bottom {
+	padding-top: 18px;
+}
 #customize-control-responsive_cart_icon_separator,
 #customize-control-responsive_cart_icon_color_separator {
 	margin-top: 0;
