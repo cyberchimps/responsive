@@ -1081,11 +1081,11 @@ function responsive_customizer_styles() {
 		--wp--style--global--wide-size: {$default_container_max_width}px;
 	}
 	
-	html body.page-template-gutenberg-fullwidth:not(.customize-support):not(.custom-background) .wp-block-group.wp-block-group.wp-block-group-is-layout-constrained > :where(:not(.alignwide):not(.alignfull)){
+	html body.page-template-gutenberg-fullwidth .wp-block-group.wp-block-group.wp-block-group-is-layout-constrained > :where(:not(.alignwide):not(.alignfull)){
 		max-width: 720px;
 	}
 
-	html body.page-template-gutenberg-fullwidth:not(.customize-support):not(.custom-background) .wp-block-group.wp-block-group.wp-block-group-is-layout-constrained > .alignwide{
+	html body.page-template-gutenberg-fullwidth .wp-block-group.wp-block-group.wp-block-group-is-layout-constrained > .alignwide{
 		max-width: var(--wp--style--global--wide-size);
 	}
 	
@@ -14309,7 +14309,7 @@ function responsive_customizer_styles() {
 		$mobile_cart_count_hover_color         			  = get_theme_mod( 'responsive_mobile_cart_count_hover_color', '#000' );
 		$mobile_cart_color                      			  = get_theme_mod( 'responsive_mobile_cart_color', '#333333' );
 		$mobile_cart_hover_color                 			  = get_theme_mod( 'responsive_mobile_cart_hover_color', '#333333' );
-		$mobile_cart_icon_size                 			  = get_theme_mod( 'responsive_mobile_cart_icon_size', 24 );
+		$mobile_cart_icon_size                 			  = get_theme_mod( 'responsive_mobile_cart_icon_size', 20 );
 		$mobile_header_cart_button_color       			  = get_theme_mod( 'responsive_mobile_header_cart_button_color', '#10659C' );
 		$mobile_header_cart_button_hover_color 			  = responsive_prepare_css_value( 'responsive_mobile_header_cart_button_hover_color' );
 		$mobile_header_cart_button_text_color                = get_theme_mod( 'responsive_mobile_header_cart_button_text_color', '#ffffff' );
