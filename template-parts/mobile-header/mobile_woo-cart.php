@@ -7,7 +7,7 @@
 if ( ! defined('ABSPATH') ) {
     exit; // Exit if accessed directly
 }
-$cart_icon           = get_theme_mod( 'responsive_mobile_cart_icon', 'icon-opencart' );
+$cart_icon           = responsive_get_mobile_woo_cart_icon();
 $cart_label          = get_theme_mod( 'responsive_mobile_woo_cart_label');
 $cart_label_position = get_theme_mod( 'responsive_mobile_cart_label_position', 'left' );
 $cart_click_action   = get_theme_mod( 'responsive_mobile_header_woo_cart_click_action', 'dropdown' );
