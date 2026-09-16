@@ -14131,7 +14131,7 @@ function responsive_customizer_styles() {
 		";
 		// Header Woo Cart
 		$cart_style                   = get_theme_mod( 'responsive_cart_style', 'outline' );
-		$cart_color                   = get_theme_mod( 'responsive_cart_color', '#ffffff' );
+		$cart_color                   = get_theme_mod( 'responsive_cart_color', '#000000' );
 		$cart_hover_color             = get_theme_mod( 'responsive_cart_hover_color', '#000000' );
 		$cart_count_color               			  = get_theme_mod( 'responsive_cart_count_color', '#000' );
 		$cart_count_hover_color         			  = get_theme_mod( 'responsive_cart_count_hover_color', '#000' );

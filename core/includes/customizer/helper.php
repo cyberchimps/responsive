@@ -5144,3 +5144,17 @@ if ( ! function_exists( 'responsive_secondary_navigation_stretch_active' ) ) :
 		return ( 1 === (int) get_theme_mod( 'responsive_secondary_navigation_stretch', 0 ) );
 	}
 endif;
+
+/**
+ * Fetch the mobile Woo cart icon, falling back live to the desktop icon
+ * until the user explicitly sets a mobile-specific icon.
+ */
+function responsive_get_mobile_woo_cart_icon() {
+     $mobile_icon = get_theme_mod( 'responsive_mobile_cart_icon', '' );
+
+    if ( '' !== $mobile_icon ) {
+        return $mobile_icon;
+    }
+
+    return get_theme_mod( 'responsive_cart_icon', 'icon-opencart' );
+}
