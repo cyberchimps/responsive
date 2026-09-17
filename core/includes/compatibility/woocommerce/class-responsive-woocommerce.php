@@ -329,13 +329,9 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
 
-			// if ( class_exists( 'Responsive_Addons_Pro' ) ) {
-				$single_product_breadcrumb_flag = get_theme_mod( 'responsive_single_product_breadcrumbs', 1 );
-				if ( ! $single_product_breadcrumb_flag ) {
-					remove_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 10 );
-					add_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 10 );
-				}
-			// }
+			// Ensure notices render after site-content-header is closed by responsive_close_container (priority 10).
+			remove_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 10 );
+			add_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 20 );
 
 			/* Add single product content */
 			add_action( 'woocommerce_single_product_summary', array( $this, 'single_product_content_structure' ), 10 );
@@ -361,7 +357,9 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 							/**
 							 * Product Title on single product page.
 							 */
-							woocommerce_template_single_title();
+							if ( get_theme_mod( 'responsive_single_product_title_area', true ) && 'post_title_layout2' !== get_theme_mod( 'responsive_single_product_title_layout', 'post_title_layout1' ) ) {
+								woocommerce_template_single_title();
+							}
 							break;
 						case 'price':
 							/**

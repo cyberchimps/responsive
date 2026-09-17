@@ -418,6 +418,43 @@ function responsive_woocommerce_shop_banner2() {
 	}
 }
 
+add_action( 'woocommerce_before_main_content', 'responsive_woocommerce_single_product_banner2', 5 );
+add_action( 'responsive_wrapper_top', 'responsive_woocommerce_single_product_banner2' );
+
+/**
+ * WooCommerce Single Product Banner Layout 2
+ */
+function responsive_woocommerce_single_product_banner2() {
+	static $rendered = false;
+	if ( $rendered ) {
+		return;
+	}
+
+	if ( ! class_exists( 'WooCommerce' ) ) {
+		return;
+	}
+
+	if ( is_product() && get_theme_mod( 'responsive_single_product_title_area', true ) && get_theme_mod( 'responsive_single_product_title_layout', 'post_title_layout1' ) === 'post_title_layout2' ) {
+		$rendered = true;
+
+		$has_breadcrumb = (bool) get_theme_mod( 'responsive_single_product_breadcrumbs', 1 );
+		?>
+		<section class="responsive-archive-entry-banner responsive-single-product-entry-banner">
+			<div class="container">
+				<?php if ( $has_breadcrumb ) : ?>
+					<div class="responsive-breadcrumbs-wrapper">
+						<div class="breadcrumbs-inner">
+							<?php woocommerce_breadcrumb(); ?>
+						</div>
+					</div>
+				<?php endif; ?>
+				<h1 class="product_title entry-title page-title"><?php the_title(); ?></h1>
+			</div>
+		</section>
+		<?php
+	}
+}
+
 add_filter( 'woocommerce_show_page_title', 'responsive_woocommerce_show_page_title' );
 
 /**

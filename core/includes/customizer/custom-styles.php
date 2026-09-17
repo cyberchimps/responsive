@@ -13492,6 +13492,23 @@ function responsive_customizer_styles() {
 			$single_product_breadcrumb_display_value
 		);
 
+		$check_single_product_title  = get_theme_mod( 'responsive_single_product_title_area', true );
+		$single_product_title_layout = get_theme_mod( 'responsive_single_product_title_layout', 'post_title_layout1' );
+		if ( ! $check_single_product_title ) {
+			$woocommerce_custom_css .= "
+			.single-product .site-content-header,
+			.single-product .responsive-single-product-entry-banner,
+			.single-product .summary .product_title {
+				display: none;
+			}";
+		} elseif ( 'post_title_layout2' === $single_product_title_layout ) {
+			$woocommerce_custom_css .= "
+			.single-product .site-content-header,
+			.single-product .summary .product_title {
+				display: none;
+			}";
+		}
+
 		/**
 		 * Desktop (≥992px)
 		 */

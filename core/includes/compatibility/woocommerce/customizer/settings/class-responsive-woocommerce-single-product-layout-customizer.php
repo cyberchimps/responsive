@@ -47,6 +47,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 
 			$general_tab_ids_prefix = 'customize-control-';
 			$general_tab_ids        = array(
+				$general_tab_ids_prefix . 'responsive_single_product_title_area',
 				$general_tab_ids_prefix . 'responsive_single_product_layout_elements_separator',
 				$general_tab_ids_prefix . 'responsive_single_product_content_width',
 				$general_tab_ids_prefix . 'responsive_single_product_elements_separator',
@@ -93,6 +94,71 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 		
 			responsive_tabs_button_control( $wp_customize, 'woocommerce_single_product_tabs', $tabs_label, 'responsive_woocommerce_single_product_layout', 1, '', 'responsive_woocommerce_single_product_general_tab', 'responsive_woocommerce_single_product_design_tab', $general_tab_ids, $design_tab_ids, null );
 
+			// Product Title Area Section Toggle.
+			responsive_section_toggle_control(
+				$wp_customize,
+				'single_product_title_area',
+				__( 'Product Title Area', 'responsive' ),
+				'responsive_woocommerce_single_product_layout',
+				2,
+				'section',
+				'responsive_single_product_title_layout',
+				true,
+				null,
+				'refresh',
+				'Enable the toggle to customize product title area settings.'
+			);
+
+			// Adding WooCommerce Product Title Layout Section.
+			$wp_customize->add_section(
+				'responsive_single_product_title_layout',
+				array(
+					'title'    => esc_html__( 'Product Title Area', 'responsive' ),
+					'panel'    => 'woocommerce',
+					'priority' => 1,
+				)
+			);
+
+			// Product Title Tabs.
+			$single_product_title_area_general_tab_ids = array(
+				'customize-control-responsive_single_product_title_layout',
+			);
+			$single_product_title_area_design_tab_ids  = array();
+
+			// Product Title Area Tabs.
+			responsive_tabs_button_control(
+				$wp_customize,
+				'single_product_title_area_tabs',
+				$tabs_label,
+				'responsive_single_product_title_layout',
+				1,
+				'',
+				'responsive_single_product_title_general_tab',
+				'responsive_single_product_title_design_tab',
+				$single_product_title_area_general_tab_ids,
+				$single_product_title_area_design_tab_ids,
+				null
+			);
+
+			$single_product_title_layout_choices = array(
+				'post_title_layout1' => esc_html__( 'Layout 1', 'responsive' ),
+				'post_title_layout2' => esc_html__( 'Layout 2', 'responsive' ),
+			);
+
+			$single_product_title_layout_label = esc_html__( 'Banner Layout', 'responsive' );
+
+			responsive_imageradio_button_control(
+				$wp_customize,
+				'single_product_title_layout',
+				$single_product_title_layout_label,
+				'responsive_single_product_title_layout',
+				1,
+				$single_product_title_layout_choices,
+				'post_title_layout1',
+				null,
+				'svg',
+				'refresh'
+			);
 
 			// Layouts.
 			$single_product_layout_elements_label = esc_html__( 'Layouts', 'responsive' );
