@@ -49,6 +49,8 @@ if ( ! class_exists( 'Responsive_Header_Html2_Customizer' ) ) :
 				$tab_ids_prefix . 'responsive_header_html2_link_color',
 				$tab_ids_prefix . 'responsive_header_html2_link_colors_separator',
 				$tab_ids_prefix . 'responsive_header_html2_margin_padding',
+				$tab_ids_prefix . 'responsive_html2_font_typography_group',
+				$tab_ids_prefix . 'responsive_html2_typography_separator',
 			);
 			responsive_tabs_button_control( $wp_customize, 'header_html2_tabs', $tabs_label, 'responsive_header_html2', 10, '', 'responsive_header_html2_general_tab', 'responsive_header_html2_design_tab', $general_tab_ids, $design_tab_ids, null );
 		
@@ -79,6 +81,11 @@ if ( ! class_exists( 'Responsive_Header_Html2_Customizer' ) ) :
 			responsive_horizontal_separator_control( $wp_customize, 'header_html2_content_separator', 1, 'responsive_header_html2', 10, 1 );
 
 			responsive_toggle_control( $wp_customize, 'header_html2_auto_add_paragraph', esc_html__( 'Automatically add paragraphs', 'responsive' ), 'responsive_header_html2', 10, Responsive\Core\get_responsive_customizer_defaults( 'header_html2_auto_add_paragraph' ), null );
+
+			$html2_font_label = esc_html__( 'Font', 'responsive' );
+			responsive_typography_group_control( $wp_customize, 'html2_font_typography_group', $html2_font_label, 'responsive_header_html2', 10, 'html2_font_typography' );
+			
+			responsive_horizontal_separator_control( $wp_customize, 'html2_typography_separator', 1, 'responsive_header_html2', 10, 1 );
 
 			$header_html2_link_style_choices = array(
 				'underline' => esc_html__( 'Underline', 'responsive' ),

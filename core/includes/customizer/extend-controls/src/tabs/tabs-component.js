@@ -142,6 +142,13 @@ const TabsComponent = props => {
 				}
 			});
 		});
+		api( 'responsive_header_html_content', function ( value ) {
+		value.bind( function ( newval ) {
+			if ( newval ) {
+				$( '#responsive-html-editor-responsive_header_html_content-html' ).attr( 'aria-pressed', 'true' );
+			}
+		} );
+	} );
 		api('responsive_blog_sidebar_position', function( value ) {
 			value.bind( function( newval ) {
 				if ( newval ) {
