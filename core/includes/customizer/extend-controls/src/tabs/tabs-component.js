@@ -1112,6 +1112,11 @@ const TabsComponent = props => {
 			});
 		}
 
+		// Let other extensions (e.g. ResponsivePRO's Site Layout controls) know the
+		// visible tab has changed, since the generic per-id resets above may have
+		// just overridden any conditional visibility they applied.
+		document.dispatchEvent(new CustomEvent('responsive:tabChanged', { detail: { tab } }));
+
 	}, [tab]);
 
 	const hideSidebarWidthControl = (value, control) => {

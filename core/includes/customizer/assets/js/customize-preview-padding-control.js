@@ -3133,4 +3133,5 @@ mobileHeaderWooCartMarginSettings.forEach(function(setting) {
         });
     });
 
+
 } )( jQuery );
