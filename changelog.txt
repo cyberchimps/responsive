@@ -8,6 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(17/09/2026) Version 6.4.5
+[+] = New = Introducing new HTML 1, HTML 2, Widget 1, and Widget 2 widgets in the Header, along with HTML 1 and HTML 2 widgets in the Footer.
+[+] = New = Added a dedicated Product Sidebar widget area for enhanced layout customization on Single Product pages.
+
 (10/09/2026) Version 6.4.4
 [+] = New = Introduced global styling controls for Secondary Buttons.
 [*] = Improvement = Added more Header Builder controls for enhanced customization.
