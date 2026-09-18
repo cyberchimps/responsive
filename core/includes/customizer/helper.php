@@ -5158,3 +5158,79 @@ function responsive_get_mobile_woo_cart_icon() {
 
     return get_theme_mod( 'responsive_cart_icon', 'icon-opencart' );
 }
+
+/**
+ * Check whether the Responsive Pro plugin is active.
+ *
+ * Used to gate the "Upgrade to Pro" nudges shown in the free theme's
+ * customizer sections, since they should never render once Pro is active.
+ *
+ * @since 6.4.6
+ * @return bool
+ */
+function responsive_is_pro_active() {
+	return defined( 'RESPONSIVEPRO_VERSION' );
+}
+
+/**
+ * Register a reusable "Upgrade to Pro" nudge control in a given customizer
+ * section/panel. No-ops entirely (registers nothing) when Responsive Pro
+ * is active, so the nudge never renders for Pro users.
+ *
+ * The control is intentionally left out of any section's
+ * general_tab_ids/design_tab_ids arrays (see responsive_tabs_button_control()),
+ * so it stays visible regardless of which tab is active on sections that
+ * have a General/Design tab split; on sections without tabs it simply shows
+ * in the section's single view.
+ *
+ * @since 6.5.0
+ *
+ * @param  WP_Customize_Manager $wp_customize Customizer manager.
+ * @param  string               $element      Unique element id (control id will be responsive_pro_nudge_{$element}).
+ * @param  string               $section      Section id the nudge should appear in.
+ * @param  array                $args {
+ *     Optional. Nudge content overrides.
+ *
+ *     @type string $image       URL of the image shown above the heading. Empty by default.
+ *     @type string $title       Heading text. Defaults to "Upgrade to Pro".
+ *     @type string $description Short intro sentence. Empty by default.
+ *     @type array  $features    Checklist of Pro-only features for this section.
+ *     @type string $button_text CTA button text. Defaults to "Upgrade Now".
+ *     @type string $button_url  CTA button URL. Defaults to the standard Responsive Pro upgrade link.
+ * }
+ * @param  int                  $priority     Control priority within the section. Defaults to 999 (bottom).
+ * @return void
+ */
+function responsive_pro_nudge_control( $wp_customize, $element, $section, $args = array(), $priority = 999 ) {
+
+	if ( responsive_is_pro_active() ) {
+		return;
+	}
+
+	$setting_id = 'responsive_pro_nudge_' . $element;
+
+	$wp_customize->add_setting(
+		$setting_id,
+		array(
+			'sanitize_callback' => 'wp_kses_post',
+		)
+	);
+
+	$wp_customize->add_control(
+		new Responsive_Control_Pro_Nudge(
+			$wp_customize,
+			$setting_id,
+			array(
+				'section'            => $section,
+				'settings'           => $setting_id,
+				'priority'           => $priority,
+				'nudge_image'        => isset( $args['image'] ) ? $args['image'] : '',
+				'nudge_title'        => isset( $args['title'] ) ? $args['title'] : '',
+				'nudge_description'  => isset( $args['description'] ) ? $args['description'] : '',
+				'nudge_features'     => isset( $args['features'] ) ? $args['features'] : array(),
+				'button_text'        => isset( $args['button_text'] ) ? $args['button_text'] : '',
+				'button_url'         => isset( $args['button_url'] ) ? $args['button_url'] : '',
+			)
+		)
+	);
+}
