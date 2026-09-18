@@ -450,6 +450,18 @@
 		} );
 	} );
 
+	/**
+	 * Keep the HTML editor's "Text" tab toggle button's aria-pressed state
+	 * in sync with the setting's value.
+	 */
+	wp.customize( 'responsive_header_html_content', function ( value ) {
+		value.bind( function ( newval ) {
+			if ( newval ) {
+				$( '#responsive-html-editor-responsive_header_html_content-html' ).attr( 'aria-pressed', 'true' );
+			}
+		} );
+	} );
+
 	function processThemeSettingForCSS ( setting ) {
 		// Ensure the setting exists
         const settingObj = wp.customize(setting);

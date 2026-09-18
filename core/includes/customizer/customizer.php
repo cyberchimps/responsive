@@ -392,6 +392,9 @@ function responsive_controls_helpers() {
 function responsive_custom_customize_enqueue() {
 	$responsive = wp_get_theme( 'responsive' );
 	$suffix     = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+	
+	wp_enqueue_editor();
+	
 	wp_enqueue_style( 'icomoon-style', get_template_directory_uri() . "/core/css/icomoon/style{$suffix}.css", false, $responsive['Version'] );
 	wp_enqueue_style( 'responsive-general', get_template_directory_uri() . '/core/includes/customizer/assets/min/css/general.min.css', RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive-general', get_template_directory_uri() . '/core/includes/customizer/assets/min/js/general.min.js', array( 'jquery', 'customize-base' ), RESPONSIVE_THEME_VERSION, true );
@@ -404,6 +407,7 @@ function responsive_custom_customize_enqueue() {
 			'wp-element',
 			'wp-media-utils',
 			'wp-block-editor',
+			'editor',
 		);
 		if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
 			// wp_enqueue_script( 'responsive-custom-control-react-script', get_template_directory_uri() . '/core/includes/customizer/extend-controls/build/index.js', $custom_controls_react_deps, RESPONSIVE_THEME_VERSION, true );
@@ -422,6 +426,8 @@ function responsive_custom_customize_enqueue() {
 			'paletteDesignStyles' => responsive_get_available_design_styles(),
 		);
 		wp_localize_script( 'responsive-custom-control-react-script', 'localize', $localize_array );
+
+		wp_enqueue_editor();
 }
 
 /**
