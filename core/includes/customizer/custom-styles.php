@@ -5769,8 +5769,7 @@ function responsive_customizer_styles() {
 	.site-content-header .page-description {
 		color: {$content_header_description_color};
 	}
-	.breadcrumbs,
-	.breadcrumbs .breadcrumb-list {
+	.breadcrumbs {
 		background-color: var(--responsive-global-breadcrumb-background-color);
 	}
 	.breadcrumbs .breadcrumb-list .breadcrumb-current,
@@ -12601,8 +12600,8 @@ function responsive_customizer_styles() {
 		if( $single_blog_post_title_breadcrumb_background_color !== '')
 		{
 			$custom_css .= "
-			.single-post .entry-header .breadcrumbs, .single-post .entry-header .breadcrumb-list,
-			.responsive-blog-single-banner2 .breadcrumbs, .responsive-blog-single-banner2 .breadcrumb-list {
+			.single-post .entry-header .breadcrumbs,
+			.responsive-blog-single-banner2 .breadcrumbs {
 				background-color: {$single_blog_post_title_breadcrumb_background_color};
 			}
 			";
@@ -12878,9 +12877,10 @@ function responsive_customizer_styles() {
 		// Breadcrumb Background Color
 		$blog_post_title_breadcrumb_background_color = responsive_prepare_css_value( 'responsive_blog_post_breadcrumb_background_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_background_color' ) );
 		$custom_css .= "
-		.responsive-archive-entry-banner .breadcrumbs, .responsive-archive-entry-banner .breadcrumb-list,
-		.archive:not(.woocommerce) .site-content-header .breadcrumbs, .archive:not(.woocommerce) .site-content-header .breadcrumb-list {
+		.responsive-archive-entry-banner .breadcrumbs,
+		.archive:not(.woocommerce) .site-content-header .breadcrumbs {
 			background-color: {$blog_post_title_breadcrumb_background_color};
+			width: 100%;
 		}
 		";
 		

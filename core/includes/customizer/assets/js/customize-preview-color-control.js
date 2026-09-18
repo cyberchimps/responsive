@@ -6684,7 +6684,7 @@
             if( newval && (newval.includes('palette') || newval.includes('breadcrumb-background-color')) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
-            $('.single-post .entry-header .breadcrumbs, .single-post .entry-header .breadcrumb-list, .responsive-blog-single-banner2 .breadcrumbs, .responsive-blog-single-banner2 .breadcrumb-list').css('background-color', newval);
+            $('.single-post .entry-header .breadcrumbs ,.responsive-blog-single-banner2 .breadcrumbs').css('background-color', newval);
         })
     });
 
@@ -6838,7 +6838,7 @@
             if( newval && (newval.includes('palette') || newval.includes('breadcrumb-background-color')) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
-            $('.responsive-archive-entry-banner .breadcrumbs, .responsive-archive-entry-banner .breadcrumb-list, .archive:not(.woocommerce) .site-content-header .breadcrumbs, .archive:not(.woocommerce) .site-content-header .breadcrumb-list').css('background-color', newval);
+            $('.responsive-archive-entry-banner .breadcrumbs, .archive:not(.woocommerce) .site-content-header .breadcrumbs').css('background-color', newval);
         })
     });
 
@@ -7013,7 +7013,7 @@
             if( newval && (newval.includes('palette') || newval.includes('breadcrumb-background-color')) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
-            $('.page .entry-header .breadcrumbs, .page .entry-header .breadcrumb-list, .responsive-single-entry-banner .breadcrumbs, .responsive-single-entry-banner .breadcrumb-list').css('background-color', newval);
+            $('.page .entry-header .breadcrumbs ,.responsive-single-entry-banner .breadcrumbs').css('background-color', newval);
         })
     });
 

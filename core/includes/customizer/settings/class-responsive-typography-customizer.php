@@ -203,9 +203,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'section'  => 'responsive_single_blog_post_title_layout',
 					'priority' => 109,
 					'exclude'  => array( 'font-color' ),
-					'defaults' => array(
-						'line-height' => '1.75',
-					),
 				),
 
 				// Blog - Breadcrumb Font.
@@ -215,9 +212,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'section'  => 'responsive_blog_title_layout',
 					'priority' => 132,
 					'exclude'  => array( 'font-color' ),
-					'defaults' => array(
-						'line-height' => '1.75',
-					),
 				),
 
 				// Page Breadcrumb - Breadcrumb Font
@@ -227,9 +221,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'section'  => 'responsive_page_title_area_layout',
 					'priority' => 47,
 					'exclude'  => array( 'font-color' ),
-					'defaults' => array(
-						'line-height' => '1.75',
-					),
 				),
 				
 				'button'                     => array(
@@ -1007,7 +998,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								'type'              => 'theme_mod',
 								'sanitize_callback' => 'responsive_sanitize_select',
 								'transport'         => $transport,
-								'default'           => 'normal',
+								'default'           => '',
 							)
 						);
 

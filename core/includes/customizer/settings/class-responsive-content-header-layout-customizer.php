@@ -154,8 +154,9 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 			responsive_toggle_control( $wp_customize, 'breadcrumb_enable_home_page', $breadcrumb_enable_home_page, 'responsive_breadcrumb', 45, 1, 'responsive_active_breadcrumb' );
 
 			// Option: Enable Breadcrumb on Blog / Posts Page.
-			$breadcrumb_enable_blog_posts_page = __( 'Enable on Blog / Posts Page', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'breadcrumb_enable_blog_posts_page', $breadcrumb_enable_blog_posts_page, 'responsive_breadcrumb', 45, 1, 'responsive_active_breadcrumb' );
+			$breadcrumb_enable_blog_posts_page             = __( 'Enable on Blog / Posts Page', 'responsive' );
+			$breadcrumb_enable_blog_posts_page_description = __( 'Breadcrumb on the blog/posts page is visible only when the Blog Title Area Layout 2 is selected.', 'responsive' );
+			responsive_toggle_control( $wp_customize, 'breadcrumb_enable_blog_posts_page', $breadcrumb_enable_blog_posts_page, 'responsive_breadcrumb', 45, 1, 'responsive_active_breadcrumb', 'refresh', $breadcrumb_enable_blog_posts_page_description, true );
 
 			// Option: Enable Breadcrumb on Search.
 			$breadcrumb_enable_search = __( 'Enable on Search', 'responsive' );

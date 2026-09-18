@@ -30,6 +30,22 @@ const TabsComponent = props => {
 		general: design_tab_ids,
 	};
 
+	// The Breadcrumb section's General-tab fields (aside from the "Enable
+	// Breadcrumbs" toggle itself) should stay hidden while breadcrumbs are
+	// disabled. WP Core's active_callback already hides them on load, but
+	// this component force-sets display:block for every general_tab_ids
+	// element whenever the General tab is (re)selected, with no awareness
+	// of the toggle's value - so switching to Design and back to General
+	// briefly reveals them before an unrelated jQuery patch re-hides them
+	// ~100ms later. Gate the reveal here instead, synchronously.
+	const isBreadcrumbGeneralFieldInactive = (elementId) => {
+		if (id !== 'responsive_breadcrumb_tabs' || elementId === 'customize-control-res_breadcrumb') {
+			return false;
+		}
+		const breadcrumbToggle = api('responsive_theme_options[breadcrumb]');
+		return breadcrumbToggle ? !breadcrumbToggle.get() : false;
+	};
+
 	const isSidebarControlInactive = (elementId) => {
 		let posControlKey = null;
 		if (elementId.indexOf('responsive_page_sidebar') !== -1) {
@@ -55,7 +71,7 @@ const TabsComponent = props => {
 		elementsToHide[showElements].forEach(elementId => {
 			const element = document.getElementById(elementId);
 			if (element) {
-				if (isSidebarControlInactive(elementId)) {
+				if (isSidebarControlInactive(elementId) || isBreadcrumbGeneralFieldInactive(elementId)) {
 					element.style.display = 'none';
 				} else {
 					element.style.display = 'block';
@@ -68,6 +84,43 @@ const TabsComponent = props => {
 				element.style.display = 'none';
 			}
 		});
+
+		// Keep the General-tab fields in sync if the "Enable Breadcrumbs"
+		// toggle changes while the user is already sitting on the General tab.
+		if (id === 'responsive_breadcrumb_tabs') {
+			const breadcrumbToggle = api('responsive_theme_options[breadcrumb]');
+			if (breadcrumbToggle) {
+				// The separator character and custom-icon controls have their own
+				// extra condition (hidden when Yoast/RankMath supply the separator)
+				// on top of the breadcrumb-enabled gating, so they're re-applied via
+				// their own toggle functions rather than the generic loop below.
+				const separatorRelatedIds = [
+					'customize-control-responsive_breadcrumb_separator',
+					'customize-control-responsive_breadcrumb_separator_separator',
+					'customize-control-responsive_breadcrumb_unicode',
+				];
+				breadcrumbToggle.bind(() => {
+					// Design tab: the separator color control is gated the same way.
+					toggleBreadcrumbSeparatorColorTab();
+
+					if (tab !== 'general') {
+						return;
+					}
+					general_tab_ids.forEach(elementId => {
+						if (separatorRelatedIds.indexOf(elementId) !== -1) {
+							return;
+						}
+						const element = document.getElementById(elementId);
+						if (element) {
+							element.style.display = isBreadcrumbGeneralFieldInactive(elementId) ? 'none' : 'block';
+						}
+					});
+					toggleBreadcrumbSeparatorControls();
+					toggleBreadcrumbCustomIcon();
+				});
+			}
+		}
+
 		const isCustomLogoPresent = document.querySelector('#customize-control-custom_logo img.attachment-thumb') !== null;
 		toggleLogoControl('customize-control-responsive_logo_width', isCustomLogoPresent);
 		toggleLogoControl('customize-control-responsive_retina_logo', isCustomLogoPresent);
@@ -1150,6 +1203,44 @@ const TabsComponent = props => {
 			breadcrumbSeparatorColorCtrl.active.bind(toggleBreadcrumbSeparatorColorTab);
 		}
 
+		// Nearly every other General-tab breadcrumb field shares that same race:
+		// they use active_callback 'responsive_active_breadcrumb', so turning
+		// "Enable Breadcrumbs" on/off flips their active state, and WP Core's
+		// slideDown()/slideUp() for that transition runs asynchronously. Switch
+		// tabs quickly right after toggling and that animation can finish after
+		// our synchronous sweep above, leaving a General field visible on the
+		// Design tab (or hidden on General) until something else re-applies our
+		// rule. Re-apply it whenever any of these controls' active state settles.
+		if (id === 'responsive_breadcrumb_tabs') {
+			const separatorRelatedIds = [
+				'customize-control-responsive_breadcrumb_separator',
+				'customize-control-responsive_breadcrumb_separator_separator',
+				'customize-control-responsive_breadcrumb_unicode',
+			];
+			general_tab_ids
+				.filter(elementId => elementId !== 'customize-control-res_breadcrumb' && separatorRelatedIds.indexOf(elementId) === -1)
+				.forEach(elementId => {
+					const ctrl = api.control(elementId.replace('customize-control-', ''));
+					if (ctrl && ctrl.active) {
+						ctrl.active.bind(() => {
+							const element = document.getElementById(elementId);
+							if (element) {
+								element.style.display = (tab === 'general' && !isBreadcrumbGeneralFieldInactive(elementId)) ? 'block' : 'none';
+							}
+						});
+					}
+				});
+			separatorRelatedIds.forEach(elementId => {
+				const ctrl = api.control(elementId.replace('customize-control-', ''));
+				if (ctrl && ctrl.active) {
+					ctrl.active.bind(() => {
+						toggleBreadcrumbSeparatorControls();
+						toggleBreadcrumbCustomIcon();
+					});
+				}
+			});
+		}
+
 	}, [tab]);
 
 	const hideSidebarWidthControl = (value, control) => {
@@ -1653,7 +1744,8 @@ const TabsComponent = props => {
 		const separator = api('responsive_breadcrumb_separator') ? api('responsive_breadcrumb_separator').get() : 'rsaquo';
 		const customIconElement = document.getElementById('customize-control-responsive_breadcrumb_unicode');
 		if (customIconElement) {
-			customIconElement.style.display = (separator === 'unicode' && !isBreadcrumbPluginSource() && tab === 'general') ? 'block' : 'none';
+			customIconElement.style.display = (separator === 'unicode' && !isBreadcrumbPluginSource() && tab === 'general'
+				&& !isBreadcrumbGeneralFieldInactive('customize-control-responsive_breadcrumb_unicode')) ? 'block' : 'none';
 		}
 	};
 
@@ -1661,7 +1753,10 @@ const TabsComponent = props => {
 		// Both controls only ever belong on the General tab (see general_tab_ids
 		// in class-responsive-panel.php) - showing them here must still respect
 		// that, or switching to the Design tab would never hide them again.
-		const show = !isBreadcrumbPluginSource() && tab === 'general';
+		// They must also stay hidden while breadcrumbs are disabled entirely,
+		// same as the rest of that tab's fields (isBreadcrumbGeneralFieldInactive).
+		const show = !isBreadcrumbPluginSource() && tab === 'general'
+			&& !isBreadcrumbGeneralFieldInactive('customize-control-responsive_breadcrumb_separator');
 		const separatorEl = document.getElementById('customize-control-responsive_breadcrumb_separator');
 		const separatorDividerEl = document.getElementById('customize-control-responsive_breadcrumb_separator_separator');
 		if (separatorEl) {
@@ -1679,7 +1774,7 @@ const TabsComponent = props => {
 	const toggleBreadcrumbSeparatorColorTab = () => {
 		const el = document.getElementById('customize-control-responsive_breadcrumb_separator_color');
 		if (el) {
-			el.style.display = (tab === 'design') ? 'block' : 'none';
+			el.style.display = (tab === 'design' && !isBreadcrumbGeneralFieldInactive('customize-control-responsive_breadcrumb_separator_color')) ? 'block' : 'none';
 		}
 	};
 

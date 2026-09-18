@@ -3822,10 +3822,12 @@ function responsive_tabs_button_control( $wp_customize, $element, $label, $secti
  * @param  [type] $active_call  [description].
  * @param  [type] $transport    [description].
  * @param  [type] $description  [description].
+ * @param  bool   $tooltip      Optional. When true, renders the description as a hover
+ *                              tooltip icon beside the label instead of text below the toggle.
  *
  * @return void [description].
  */
-function responsive_toggle_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call, $transport = 'refresh', $description = '' ) {
+function responsive_toggle_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call, $transport = 'refresh', $description = '', $tooltip = false ) {
 
 	$wp_customize->add_setting(
 		'responsive_' . $element,
@@ -3842,6 +3844,7 @@ function responsive_toggle_control( $wp_customize, $element, $label, $section, $
 			array(
 				'label'           => $label,
 				'description'     => $description,
+				'tooltip'         => $tooltip,
 				'section'         => $section,
 				'settings'        => 'responsive_' . $element,
 				'priority'        => $priority,

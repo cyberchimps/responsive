@@ -228,7 +228,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 					'responsive_blog_title_elements_positioning',
 					array(
 						'label'       => esc_html__( 'Blog Title Elements', 'responsive' ),
-						'description' => esc_html__( 'Note: Title and description only appear when Layout 2 is selected.', 'responsive' ),
+						'description' => esc_html__( 'Note: Blog Title Elements appear on Blog/Posts page only when Layout 2 is selected.', 'responsive' ),
 						'section'     => 'responsive_blog_title_layout',
 						'settings'    => 'responsive_blog_title_elements_positioning',
 						'priority'    => 5,
