@@ -80,9 +80,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				$general_tab_ids_prefix . 'responsive_product_catalog_container_style_separator',
 				$general_tab_ids_prefix . 'responsive_product_catalog_container_style',
 			);
-			
-			$enable_native_popup_flag = get_theme_mod('enable_native_cart_popup');
-			
+
 			$native_general_pop_up_options = array(
 			$general_tab_ids_prefix . 'responsive_native_cart_popup_display',
 			$general_tab_ids_prefix . 'responsive_popup_elements_positioning',
@@ -156,11 +154,9 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_popup_continue_btn_color',
 			);
 			
-			if ( $enable_native_popup_flag === true || $enable_native_popup_flag === '1' || $enable_native_popup_flag === 1 ) {
-				$general_tab_ids = array_merge( $general_tab_ids, $native_general_pop_up_options );
-				$design_tab_ids = array_merge($design_tab_ids, $native_design_pop_up_options);
-			}
-			
+			$general_tab_ids = array_merge( $general_tab_ids, $native_general_pop_up_options );
+			$design_tab_ids  = array_merge( $design_tab_ids, $native_design_pop_up_options );
+
 			responsive_tabs_button_control( $wp_customize, 'woocommerce_shop_tabs', $tabs_label, 'responsive_woocommerce_shop', 1, '', 'responsive_woocommerce_shop_general_tab', 'responsive_woocommerce_shop_design_tab', $general_tab_ids, $design_tab_ids, null );
 			
 			// product background color

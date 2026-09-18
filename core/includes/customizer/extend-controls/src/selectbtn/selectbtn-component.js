@@ -4,7 +4,11 @@ import Icons from '../icons';
 
 const SelectButtonComponent = props => {
 
-	const [props_value, setPropsValue] = useState(props.control.setting.get());
+	const initialSettingValue = props.control.setting.get();
+	const isFontStyleControl = props.control.id && props.control.id.includes('font-style');
+	const [props_value, setPropsValue] = useState(
+		( !initialSettingValue && isFontStyleControl ) ? 'normal' : initialSettingValue
+	);
 
 	const onOptionClick = (value) => {
         setPropsValue(value);

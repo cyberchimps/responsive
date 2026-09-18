@@ -55,7 +55,7 @@
         if (!value) return null;
 	
 		// Detect palette var format
-        if (typeof value === 'string' && (value.startsWith('palette') || value.startsWith('footer-text-color') || value.startsWith('footer-links-color') || value.startsWith('footer-links-hover-color'))) {
+        if (typeof value === 'string' && (value.startsWith('palette') || value.startsWith('footer-text-color') || value.startsWith('footer-links-color') || value.startsWith('footer-links-hover-color') || value.startsWith('breadcrumb'))) {
             return `var(--responsive-global-${value})`;
         }
         if (typeof value === 'string' && value === 'border-color') {
@@ -1209,7 +1209,7 @@
                 newval = `var(--responsive-global-${newval})`;
             }
 
-            $('a, .woocommerce a.remove:hover').not('nav a').not('a.add_to_cart_button').not('.site-title-tagline a').not('.widget-area .widget-wrapper a').not('a.product_type_grouped').not('.woocommerce-tabs .description_tab').not('.woocommerce-tabs .reviews_tab').not('.post-meta a').not('.post-meta a:hover').not('.responsive-single-related-posts-container a').not('.responsive-single-related-posts-container a:hover').not('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.single-post .responsive-related-single-post-content .entry-category a ').css('color', newval );
+            $('a, .woocommerce a.remove:hover').not('nav a').not('a.add_to_cart_button').not('.site-title-tagline a').not('.widget-area .widget-wrapper a').not('a.product_type_grouped').not('.woocommerce-tabs .description_tab').not('.woocommerce-tabs .reviews_tab').not('.post-meta a').not('.post-meta a:hover').not('.responsive-single-related-posts-container a').not('.responsive-single-related-posts-container a:hover').not('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.breadcrumb a').not('.single-post .responsive-related-single-post-content .entry-category a ').css('color', newval );
         } );
     } );
 
@@ -2725,7 +2725,7 @@
     //Hover Colors
 
     //Links Hover Color
-	$("a").not('.secondary-navigation a').not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.responsive-header-html a, .responsive-mobile-header-html a').not('.post-meta a').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.read-more .more-link').not('footer.comment-meta a, .commentlist .comment-content a').not('.site-header .responsive-header-html2 .responsive-header-html2-inner a').not('.site-header .responsive-header-html .responsive-header-html-inner a').not('.site-footer .responsive-footer-html .responsive-footer-html-inner a').not('.site-footer .responsive-footer-html2 .responsive-footer-html2-inner a').hover(
+    $("a").not('.secondary-navigation a').not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.responsive-header-html a, .responsive-mobile-header-html a').not('.post-meta a').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.read-more .more-link').not('footer.comment-meta a, .commentlist .comment-content a').not('.button').not('.wp-block-button__link').not('.breadcrumb a').not('.site-header .responsive-header-html2 .responsive-header-html2-inner a').not('.site-header .responsive-header-html .responsive-header-html-inner a').not('.site-footer .responsive-footer-html .responsive-footer-html-inner a').not('.site-footer .responsive-footer-html2 .responsive-footer-html2-inner a').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
             $(this).css("color", linkHoverColor);
@@ -6620,7 +6620,7 @@
     // Single Blog Post Text Color
     api( 'responsive_single_blog_post_text_color', function(value) {
         value.bind(function(newval) {
-            $('.responsive-blog-single-banner2 .container *:not(.entry-title, .entry-title *):not(a, a *), .single-post .entry-header *:not(.entry-title, .entry-title *):not(a, a *)').css('color', newval);
+            $('.responsive-blog-single-banner2 .container *:not(.entry-title, .entry-title *):not(a, a *):not(.breadcrumbs):not(.breadcrumbs *), .single-post .entry-header *:not(.entry-title, .entry-title *):not(a, a *):not(.breadcrumbs):not(.breadcrumbs *)').css('color', newval);
         })
     });
 
@@ -6630,12 +6630,12 @@
              if( newval && newval.includes('palette') ) {
                     newval = 'var(--responsive-global-' + newval + ')';
             }
-            $('.single-post .entry-header a, .single-post .entry-header a *, .responsive-blog-single-banner2 .container a, .responsive-blog-single-banner2 .container a *').css('color', newval);
+            $('.single-post .entry-header a:not(.breadcrumbs *), .single-post .entry-header a *:not(.breadcrumbs *), .responsive-blog-single-banner2 .container a:not(.breadcrumbs *), .responsive-blog-single-banner2 .container a *:not(.breadcrumbs *)').css('color', newval);
         })
     });
 
     // Single Post Link Hover Color
-    $('.single-post .entry-header a, .single-post .entry-header a *, .responsive-blog-single-banner2 .container a, .responsive-blog-single-banner2 .container a *').hover(
+    $('.single-post .entry-header a:not(.breadcrumbs *), .single-post .entry-header a *:not(.breadcrumbs *), .responsive-blog-single-banner2 .container a:not(.breadcrumbs *), .responsive-blog-single-banner2 .container a *:not(.breadcrumbs *)').hover(
         function() {
             const hoverColor = processThemeSettingForCSS('responsive_single_blog_post_link_hover_color');
             if (hoverColor) $(this).css('color', hoverColor);
@@ -6645,6 +6645,58 @@
             $(this).css('color', baseColor);
         }
     );
+
+    // Single Blog Post Breadcrumb Text Color
+    api( 'responsive_single_blog_post_breadcrumb_color', function(value) {
+        value.bind(function(newval) {
+            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-color')) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.single-post .entry-header .breadcrumbs .breadcrumb-list .breadcrumb-current, .single-post .entry-header .breadcrumbs #breadcrumbs, .single-post .entry-header .breadcrumbs #breadcrumbs .breadcrumb_last, .single-post .entry-header .breadcrumbs .rank-math-breadcrumb, .single-post .entry-header .breadcrumbs .rank-math-breadcrumb .last, .responsive-blog-single-banner2 .breadcrumbs .breadcrumb-list .breadcrumb-current, .responsive-blog-single-banner2 .breadcrumbs #breadcrumbs, .responsive-blog-single-banner2 .breadcrumbs #breadcrumbs .breadcrumb_last, .responsive-blog-single-banner2 .breadcrumbs .rank-math-breadcrumb, .responsive-blog-single-banner2 .breadcrumbs .rank-math-breadcrumb .last').css('color', newval);
+        })
+    });
+
+    // Single Blog Post Breadcrumb Link Color
+    api( 'responsive_single_blog_post_breadcrumb_link_color', function(value) {
+        value.bind(function(newval) {
+            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-link-color')) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.single-post .entry-header .breadcrumbs .breadcrumb-list .breadcrumb a, .single-post .entry-header .breadcrumbs .breadcrumb-list .breadcrumb a *, .single-post .entry-header .breadcrumbs #breadcrumbs a, .single-post .entry-header .breadcrumbs #breadcrumbs a *, .single-post .entry-header .breadcrumbs .rank-math-breadcrumb a, .single-post .entry-header .breadcrumbs .rank-math-breadcrumb a *, .responsive-blog-single-banner2 .breadcrumbs .breadcrumb-list .breadcrumb a, .responsive-blog-single-banner2 .breadcrumbs .breadcrumb-list .breadcrumb a *, .responsive-blog-single-banner2 .breadcrumbs #breadcrumbs a, .responsive-blog-single-banner2 .breadcrumbs #breadcrumbs a *, .responsive-blog-single-banner2 .breadcrumbs .rank-math-breadcrumb a, .responsive-blog-single-banner2 .breadcrumbs .rank-math-breadcrumb a *').css('color', newval);
+        })
+    });
+
+    // Single Blog Post Breadcrumb Link Hover Color
+    $('.single-post .entry-header .breadcrumbs .breadcrumb-list .breadcrumb a, .single-post .entry-header .breadcrumbs .breadcrumb-list .breadcrumb a *, .single-post .entry-header .breadcrumbs #breadcrumbs a, .single-post .entry-header .breadcrumbs #breadcrumbs a *, .single-post .entry-header .breadcrumbs .rank-math-breadcrumb a, .single-post .entry-header .breadcrumbs .rank-math-breadcrumb a *, .responsive-blog-single-banner2 .breadcrumbs .breadcrumb-list .breadcrumb a, .responsive-blog-single-banner2 .breadcrumbs .breadcrumb-list .breadcrumb a *, .responsive-blog-single-banner2 .breadcrumbs #breadcrumbs a, .responsive-blog-single-banner2 .breadcrumbs #breadcrumbs a *, .responsive-blog-single-banner2 .breadcrumbs .rank-math-breadcrumb a, .responsive-blog-single-banner2 .breadcrumbs .rank-math-breadcrumb a *').hover(
+        function() {
+            const hoverColor = processThemeSettingForCSS('responsive_single_blog_post_breadcrumb_link_hover_color');
+            if (hoverColor) $(this).css('color', hoverColor);
+        },
+        function() {
+            const baseColor = processThemeSettingForCSS('responsive_single_blog_post_breadcrumb_link_color');
+            $(this).css('color', baseColor);
+        }
+    );
+
+    // Single Blog Post Breadcrumb Background Color
+    api( 'responsive_single_blog_post_breadcrumb_background_color', function(value) {
+        value.bind(function(newval) {
+            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-background-color')) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.single-post .entry-header .breadcrumbs ,.responsive-blog-single-banner2 .breadcrumbs').css('background-color', newval);
+        })
+    });
+
+    // Single Blog Post Breadcrumb Separator Color
+    api( 'responsive_single_blog_post_breadcrumb_separator_color', function(value) {
+        value.bind(function(newval) {
+            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-separator-color')) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.single-post .entry-header .breadcrumb-list .chevron, .responsive-blog-single-banner2 .breadcrumb-list .chevron, .single-post .entry-header #breadcrumbs .separator, .responsive-blog-single-banner2 #breadcrumbs .separator, .single-post .entry-header .rank-math-breadcrumb .separator, .responsive-blog-single-banner2 .rank-math-breadcrumb .separator').css('color', newval);
+        })
+    });
 
     // Single Blog Post Title Banner Background
     api('responsive_single_blog_banner_background_color', function(val) {
@@ -6696,7 +6748,7 @@
             if( newval && newval.includes('palette') ) {
                     newval = 'var(--responsive-global-' + newval + ')';
             }
-            $('.responsive-archive-entry-banner .container *:not(.page-title, .page-title *):not(a, a *), .archive:not(.woocommerce) .site-content-header *:not(.page-title, .page-title *):not(a, a *), .blog:not(.woocommerce) .site-content-header *:not(.page-title, .page-title *):not(a, a *)').css('color', newval);
+            $('.responsive-archive-entry-banner .container *:not(.page-title, .page-title *):not(a, a *):not(.breadcrumbs):not(.breadcrumbs *), .archive:not(.woocommerce) .site-content-header *:not(.page-title, .page-title *):not(a, a *):not(.breadcrumbs):not(.breadcrumbs *), .blog:not(.woocommerce) .site-content-header *:not(.page-title, .page-title *):not(a, a *):not(.breadcrumbs):not(.breadcrumbs *)').css('color', newval);
         })
     });
 
@@ -6716,7 +6768,7 @@
              if( newval && newval.includes('palette') ) {
                     newval = 'var(--responsive-global-' + newval + ')';
             }
-            $('.responsive-archive-entry-banner .container a, .responsive-archive-entry-banner .container a *, .archive:not(.woocommerce) .site-content-header a, .archive:not(.woocommerce) .site-content-header a *').css('color', newval);
+            $('.responsive-archive-entry-banner .container a:not(.breadcrumbs *), .responsive-archive-entry-banner .container a *:not(.breadcrumbs *), .archive:not(.woocommerce) .site-content-header a:not(.breadcrumbs *), .archive:not(.woocommerce) .site-content-header a *:not(.breadcrumbs *)').css('color', newval);
         })
     });
 
@@ -6728,15 +6780,75 @@
             }
             var styleId = 'responsive-blog-post-link-hover-color-preview';
             $('#' + styleId).remove();
-            
+
             if (newval) {
-                var selectors = '.responsive-archive-entry-banner .container a:hover *, .responsive-archive-entry-banner .container a:hover, .archive:not(.woocommerce) .site-content-header a:hover, .archive:not(.woocommerce) .site-content-header a:hover *';
+                var selectors = '.responsive-archive-entry-banner .container a:hover *:not(.breadcrumbs *), .responsive-archive-entry-banner .container a:hover:not(.breadcrumbs *), .archive:not(.woocommerce) .site-content-header a:hover:not(.breadcrumbs *), .archive:not(.woocommerce) .site-content-header a:hover *:not(.breadcrumbs *)';
                 jQuery('head').append(
                     '<style id="' + styleId + '">' +
                     selectors + ' { color: ' + newval + ' !important; }' +
                     '</style>'
                 );
             }
+        })
+    });
+
+    // Blog/Archive Breadcrumb Text Color
+    api( 'responsive_blog_post_breadcrumb_color', function(value) {
+        value.bind(function(newval) {
+            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-color')) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.responsive-archive-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb-current, .responsive-archive-entry-banner .breadcrumbs #breadcrumbs, .responsive-archive-entry-banner .breadcrumbs #breadcrumbs .breadcrumb_last, .responsive-archive-entry-banner .breadcrumbs .rank-math-breadcrumb, .responsive-archive-entry-banner .breadcrumbs .rank-math-breadcrumb .last, .archive:not(.woocommerce) .site-content-header .breadcrumbs .breadcrumb-list .breadcrumb-current, .archive:not(.woocommerce) .site-content-header .breadcrumbs #breadcrumbs, .archive:not(.woocommerce) .site-content-header .breadcrumbs #breadcrumbs .breadcrumb_last, .archive:not(.woocommerce) .site-content-header .breadcrumbs .rank-math-breadcrumb, .archive:not(.woocommerce) .site-content-header .breadcrumbs .rank-math-breadcrumb .last').css('color', newval);
+        })
+    });
+
+    // Blog/Archive Breadcrumb Link Color
+    api( 'responsive_blog_post_breadcrumb_link_color', function(value) {
+        value.bind(function(newval) {
+            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-link-color')) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.responsive-archive-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb a, .responsive-archive-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb a *, .responsive-archive-entry-banner .breadcrumbs #breadcrumbs a, .responsive-archive-entry-banner .breadcrumbs #breadcrumbs a *, .responsive-archive-entry-banner .breadcrumbs .rank-math-breadcrumb a, .responsive-archive-entry-banner .breadcrumbs .rank-math-breadcrumb a *, .archive:not(.woocommerce) .site-content-header .breadcrumbs .breadcrumb-list .breadcrumb a, .archive:not(.woocommerce) .site-content-header .breadcrumbs .breadcrumb-list .breadcrumb a *, .archive:not(.woocommerce) .site-content-header .breadcrumbs #breadcrumbs a, .archive:not(.woocommerce) .site-content-header .breadcrumbs #breadcrumbs a *, .archive:not(.woocommerce) .site-content-header .breadcrumbs .rank-math-breadcrumb a, .archive:not(.woocommerce) .site-content-header .breadcrumbs .rank-math-breadcrumb a *').css('color', newval);
+        })
+    });
+
+    // Blog/Archive Breadcrumb Link Hover Color
+    api( 'responsive_blog_post_breadcrumb_link_hover_color', function(value) {
+        value.bind(function(newval) {
+            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-link-hover-color')) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            var styleId = 'responsive-blog-post-breadcrumb-link-hover-color-preview';
+            $('#' + styleId).remove();
+
+            if (newval) {
+                var selectors = '.responsive-archive-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb a:hover, .responsive-archive-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb a:hover *, .responsive-archive-entry-banner .breadcrumbs #breadcrumbs a:hover, .responsive-archive-entry-banner .breadcrumbs #breadcrumbs a:hover *, .responsive-archive-entry-banner .breadcrumbs .rank-math-breadcrumb a:hover, .responsive-archive-entry-banner .breadcrumbs .rank-math-breadcrumb a:hover *, .archive:not(.woocommerce) .site-content-header .breadcrumbs .breadcrumb-list .breadcrumb a:hover, .archive:not(.woocommerce) .site-content-header .breadcrumbs .breadcrumb-list .breadcrumb a:hover *, .archive:not(.woocommerce) .site-content-header .breadcrumbs #breadcrumbs a:hover, .archive:not(.woocommerce) .site-content-header .breadcrumbs #breadcrumbs a:hover *, .archive:not(.woocommerce) .site-content-header .breadcrumbs .rank-math-breadcrumb a:hover, .archive:not(.woocommerce) .site-content-header .breadcrumbs .rank-math-breadcrumb a:hover *';
+                jQuery('head').append(
+                    '<style id="' + styleId + '">' +
+                    selectors + ' { color: ' + newval + ' !important; }' +
+                    '</style>'
+                );
+            }
+        })
+    });
+
+    // Blog/Archive Breadcrumb Background Color
+    api( 'responsive_blog_post_breadcrumb_background_color', function(value) {
+        value.bind(function(newval) {
+            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-background-color')) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.responsive-archive-entry-banner .breadcrumbs, .archive:not(.woocommerce) .site-content-header .breadcrumbs').css('background-color', newval);
+        })
+    });
+
+    // Blog/Archive Breadcrumb Separator Color
+    api( 'responsive_blog_post_breadcrumb_separator_color', function(value) {
+        value.bind(function(newval) {
+            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-separator-color')) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.responsive-archive-entry-banner .breadcrumb-list .chevron, .archive:not(.woocommerce) .site-content-header .breadcrumb-list .chevron, .responsive-archive-entry-banner #breadcrumbs .separator, .archive:not(.woocommerce) .site-content-header #breadcrumbs .separator, .responsive-archive-entry-banner .rank-math-breadcrumb .separator, .archive:not(.woocommerce) .site-content-header .rank-math-breadcrumb .separator').css('color', newval);
         })
     });
 
@@ -6793,7 +6905,7 @@
             jQuery( 'style#responsive-page-title-area-text-color' ).remove();
             jQuery( 'head' ).append(
                 '<style id="responsive-page-title-area-text-color">' +
-                'body .responsive-single-entry-banner .container *:not(.entry-title, .entry-title *):not(a, a *), .page #page .entry-header *:not(.entry-title, .entry-title *):not(a, a *) { color: ' + newval + '; }' +
+                'body .responsive-single-entry-banner .container *:not(.entry-title, .entry-title *):not(a, a *):not(.breadcrumbs):not(.breadcrumbs *), .page #page .entry-header *:not(.entry-title, .entry-title *):not(a, a *):not(.breadcrumbs):not(.breadcrumbs *) { color: ' + newval + '; }' +
                 '</style>'
             );
 
@@ -6825,7 +6937,7 @@
             $('#' + styleId).remove();
 
             if (newval) {
-                var selectors = '.page .entry-header a, .page .entry-header a *, .responsive-single-entry-banner .container a, .responsive-single-entry-banner .container a *';
+                var selectors = '.page .entry-header a:not(.breadcrumbs *), .page .entry-header a *:not(.breadcrumbs *), .responsive-single-entry-banner .container a:not(.breadcrumbs *), .responsive-single-entry-banner .container a *:not(.breadcrumbs *)';
                 jQuery('head').append(
                     '<style id="' + styleId + '">' +
                     selectors + ' { color: ' + newval + '; }' +
@@ -6843,15 +6955,75 @@
             }
             var styleId = 'responsive-page-title-area-link-hover-color-preview';
             $('#' + styleId).remove();
-            
+
             if (newval) {
-                var selectors = '.page .entry-header a:hover, .page .entry-header a:hover *, .responsive-single-entry-banner .container a:hover, .responsive-single-entry-banner .container a:hover *';
+                var selectors = '.page .entry-header a:hover:not(.breadcrumbs *), .page .entry-header a:hover *:not(.breadcrumbs *), .responsive-single-entry-banner .container a:hover:not(.breadcrumbs *), .responsive-single-entry-banner .container a:hover *:not(.breadcrumbs *)';
                 jQuery('head').append(
                     '<style id="' + styleId + '">' +
                     selectors + ' { color: ' + newval + ' !important; }' +
                     '</style>'
                 );
             }
+        })
+    });
+
+    // Page Title Area Breadcrumb Text Color
+    api( 'responsive_page_title_area_breadcrumb_color', function(value) {
+        value.bind(function(newval) {
+            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-color')) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.page .entry-header .breadcrumbs .breadcrumb-list .breadcrumb-current, .page .entry-header .breadcrumbs #breadcrumbs, .page .entry-header .breadcrumbs #breadcrumbs .breadcrumb_last, .page .entry-header .breadcrumbs .rank-math-breadcrumb, .page .entry-header .breadcrumbs .rank-math-breadcrumb .last, .responsive-single-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb-current, .responsive-single-entry-banner .breadcrumbs #breadcrumbs, .responsive-single-entry-banner .breadcrumbs #breadcrumbs .breadcrumb_last, .responsive-single-entry-banner .breadcrumbs .rank-math-breadcrumb, .responsive-single-entry-banner .breadcrumbs .rank-math-breadcrumb .last').css('color', newval);
+        })
+    });
+
+    // Page Title Area Breadcrumb Link Color
+    api( 'responsive_page_title_area_breadcrumb_link_color', function(value) {
+        value.bind(function(newval) {
+            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-link-color')) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.page .entry-header .breadcrumbs .breadcrumb-list .breadcrumb a, .page .entry-header .breadcrumbs .breadcrumb-list .breadcrumb a *, .page .entry-header .breadcrumbs #breadcrumbs a, .page .entry-header .breadcrumbs #breadcrumbs a *, .page .entry-header .breadcrumbs .rank-math-breadcrumb a, .page .entry-header .breadcrumbs .rank-math-breadcrumb a *, .responsive-single-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb a, .responsive-single-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb a *, .responsive-single-entry-banner .breadcrumbs #breadcrumbs a, .responsive-single-entry-banner .breadcrumbs #breadcrumbs a *, .responsive-single-entry-banner .breadcrumbs .rank-math-breadcrumb a, .responsive-single-entry-banner .breadcrumbs .rank-math-breadcrumb a *').css('color', newval);
+        })
+    });
+
+    // Page Title Area Breadcrumb Link Hover Color
+    api( 'responsive_page_title_area_breadcrumb_link_hover_color', function(value) {
+        value.bind(function(newval) {
+            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-link-hover-color')) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            var styleId = 'responsive-page-title-area-breadcrumb-link-hover-color-preview';
+            $('#' + styleId).remove();
+
+            if (newval) {
+                var selectors = '.page .entry-header .breadcrumbs .breadcrumb-list .breadcrumb a:hover, .page .entry-header .breadcrumbs .breadcrumb-list .breadcrumb a:hover *, .page .entry-header .breadcrumbs #breadcrumbs a:hover, .page .entry-header .breadcrumbs #breadcrumbs a:hover *, .page .entry-header .breadcrumbs .rank-math-breadcrumb a:hover, .page .entry-header .breadcrumbs .rank-math-breadcrumb a:hover *, .responsive-single-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb a:hover, .responsive-single-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb a:hover *, .responsive-single-entry-banner .breadcrumbs #breadcrumbs a:hover, .responsive-single-entry-banner .breadcrumbs #breadcrumbs a:hover *, .responsive-single-entry-banner .breadcrumbs .rank-math-breadcrumb a:hover, .responsive-single-entry-banner .breadcrumbs .rank-math-breadcrumb a:hover *';
+                jQuery('head').append(
+                    '<style id="' + styleId + '">' +
+                    selectors + ' { color: ' + newval + ' !important; }' +
+                    '</style>'
+                );
+            }
+        })
+    });
+
+    // Page Title Area Breadcrumb Background Color
+    api( 'responsive_page_title_area_breadcrumb_background_color', function(value) {
+        value.bind(function(newval) {
+            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-background-color')) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.page .entry-header .breadcrumbs ,.responsive-single-entry-banner .breadcrumbs').css('background-color', newval);
+        })
+    });
+
+    // Page Title Area Breadcrumb Separator Color
+    api( 'responsive_page_title_area_breadcrumb_separator_color', function(value) {
+        value.bind(function(newval) {
+            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-separator-color')) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.page .entry-header .breadcrumb-list .chevron, .responsive-single-entry-banner .breadcrumb-list .chevron, .page .entry-header #breadcrumbs .separator, .responsive-single-entry-banner #breadcrumbs .separator, .page .entry-header .rank-math-breadcrumb .separator, .responsive-single-entry-banner .rank-math-breadcrumb .separator').css('color', newval);
         })
     });
 

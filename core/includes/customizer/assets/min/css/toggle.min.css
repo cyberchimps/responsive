@@ -193,6 +193,36 @@
 	padding-top: 8px;
     margin: 0;
 }
+.responsive-toggle-control-label {
+    display: inline-flex;
+    align-items: center;
+}
+.customize-control-responsive-toggle .responsive-toggle-control-label .res-control-tooltip.dashicons-editor-help:before {
+    content: "\f223";
+}
+.customize-control-responsive-toggle .responsive-toggle-control-label .res-control-tooltip {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-left: 5px;
+    font-size: 16px;
+    transform: translateY(2px);
+}
+.responsive-toggle-tooltip-portal {
+    position: fixed;
+    background: #1e1e1e;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.4;
+    white-space: normal;
+    max-width: 200px;
+    text-align: left;
+    z-index: 999999;
+    pointer-events: none;
+}
 #customize-control-responsive_hide_cart_total_label .responsive-toggle-control-wrapper {
     padding: 0;
 }
