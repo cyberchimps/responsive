@@ -122,6 +122,10 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 			// Product Title Tabs.
 			$single_product_title_area_general_tab_ids = array(
 				'customize-control-responsive_single_product_title_layout',
+				'customize-control-responsive_single_product_title_elements_positioning',
+				'customize-control-responsive_single_product_banner_elements_positioning',
+				'customize-control-responsive_single_product_title_meta',
+				'customize-control-responsive_single_product_title_meta_separator_text',
 			);
 			$single_product_title_area_design_tab_ids  = array();
 
@@ -158,6 +162,228 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				null,
 				'svg',
 				'refresh'
+			);
+
+			/**
+			 * Single Product Title Area Layout 1 Structure.
+			 */
+			$wp_customize->add_setting(
+				'responsive_single_product_title_elements_positioning',
+				array(
+					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'single_product_title_elements_positioning' ),
+					'sanitize_callback' => 'responsive_sanitize_multi_choices',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_control(
+				new Responsive_Customizer_Sortable_Control(
+					$wp_customize,
+					'responsive_single_product_title_elements_positioning',
+					array(
+						'label'           => esc_html__( 'Structure', 'responsive' ),
+						'section'         => 'responsive_single_product_title_layout',
+						'settings'        => 'responsive_single_product_title_elements_positioning',
+						'priority'        => 4,
+						'choices'         => responsive_single_product_title_elements(),
+						'sub_controls'    => array(
+							'meta'     => array(
+								'responsive_single_product_title_meta_separator_text',
+							),
+							'taxonomy' => array(
+								'responsive_single_product_taxonomy',
+								'responsive_single_product_taxonomy_style',
+							),
+						),
+						'taxonomy_choices' => responsive_get_single_product_taxonomies(),
+						'active_callback' => 'responsive_single_product_title_layout1_active_callback',
+					)
+				)
+			);
+
+			/**
+			 * Single Product Title Area Layout 2 Structure.
+			 */
+			$wp_customize->add_setting(
+				'responsive_single_product_banner_elements_positioning',
+				array(
+					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'single_product_banner_elements_positioning' ),
+					'sanitize_callback' => 'responsive_sanitize_multi_choices',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_control(
+				new Responsive_Customizer_Sortable_Control(
+					$wp_customize,
+					'responsive_single_product_banner_elements_positioning',
+					array(
+						'label'           => esc_html__( 'Structure', 'responsive' ),
+						'section'         => 'responsive_single_product_title_layout',
+						'settings'        => 'responsive_single_product_banner_elements_positioning',
+						'priority'        => 5,
+						'choices'         => responsive_single_product_banner_elements(),
+						'sub_controls'    => array(
+							'meta'     => array(
+								'responsive_single_product_title_meta_separator_text',
+							),
+							'taxonomy' => array(
+								'responsive_single_product_taxonomy',
+								'responsive_single_product_taxonomy_style',
+							),
+						),
+						'taxonomy_choices' => responsive_get_single_product_taxonomies(),
+						'active_callback' => 'responsive_single_product_title_layout2_active_callback',
+					)
+				)
+			);
+
+			/**
+			 * Single Product Meta Elements.
+			 */
+			$wp_customize->add_setting(
+				'responsive_single_product_title_meta',
+				array(
+					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'single_product_title_meta' ),
+					'sanitize_callback' => 'responsive_sanitize_multi_choices',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_control(
+				new Responsive_Customizer_Sortable_Control(
+					$wp_customize,
+					'responsive_single_product_title_meta',
+					array(
+						'label'           => esc_html__( 'Meta Elements', 'responsive' ),
+						'section'         => 'responsive_single_product_title_layout',
+						'settings'        => 'responsive_single_product_title_meta',
+						'priority'        => 6,
+						'choices'         => responsive_single_product_meta_choices(),
+						'cloneable_choices' => array( 'taxonomy' ),
+						'sub_controls'    => array(
+							'author'  => array(
+								'responsive_single_product_author_prefix_label',
+								'responsive_single_product_author_avatar',
+								'responsive_single_product_author_avatar_size',
+							),
+							'date'    => array(
+								'responsive_single_product_date_format',
+							),
+							'updated' => array(
+								'responsive_single_product_updated_format',
+							),
+							'taxonomy' => true,
+						),
+						'taxonomy_choices' => responsive_get_single_product_taxonomies(),
+						'active_callback' => 'responsive_single_product_meta_active_callback',
+					)
+				)
+			);
+
+			// Author Meta Sub-Controls.
+			$wp_customize->add_setting(
+				'responsive_single_product_author_prefix_label',
+				array(
+					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'single_product_author_prefix_label' ),
+					'sanitize_callback' => 'sanitize_text_field',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_setting(
+				'responsive_single_product_author_avatar',
+				array(
+					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'single_product_author_avatar' ),
+					'sanitize_callback' => 'responsive_sanitize_toggle',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_setting(
+				'responsive_single_product_author_avatar_size',
+				array(
+					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'single_product_author_avatar_size' ),
+					'sanitize_callback' => 'responsive_sanitize_number',
+					'transport'         => 'postMessage',
+				)
+			);
+
+			// Date Meta Sub-Controls.
+			$wp_customize->add_setting(
+				'responsive_single_product_date_format',
+				array(
+					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'single_product_date_format' ),
+					'sanitize_callback' => 'sanitize_text_field',
+					'transport'         => 'refresh',
+				)
+			);
+
+			// Updated Meta Sub-Controls.
+			$wp_customize->add_setting(
+				'responsive_single_product_updated_format',
+				array(
+					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'single_product_updated_format' ),
+					'sanitize_callback' => 'sanitize_text_field',
+					'transport'         => 'refresh',
+				)
+			);
+
+			// Taxonomy Sub-Controls.
+			$wp_customize->add_setting(
+				'responsive_single_product_taxonomy',
+				array(
+					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'single_product_taxonomy' ),
+					'sanitize_callback' => 'sanitize_text_field',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_setting(
+				'responsive_single_product_taxonomy_style',
+				array(
+					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'single_product_taxonomy_style' ),
+					'sanitize_callback' => 'sanitize_text_field',
+					'transport'         => 'refresh',
+				)
+			);
+
+			// Meta Elements Taxonomies Data.
+			$wp_customize->add_setting(
+				'responsive_single_product_meta_taxonomies',
+				array(
+					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'single_product_meta_taxonomies' ),
+					'sanitize_callback' => 'responsive_sanitize_json',
+					'type'              => 'theme_mod',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				'responsive_single_product_meta_taxonomies',
+				array(
+					'section'  => 'responsive_single_product_title_layout',
+					'settings' => 'responsive_single_product_meta_taxonomies',
+					'type'     => 'hidden',
+				)
+			);
+
+			// Meta Separator Text.
+			$wp_customize->add_setting(
+				'responsive_single_product_title_meta_separator_text',
+				array(
+					'default'           => '•',
+					'sanitize_callback' => 'wp_check_invalid_utf8',
+					'type'              => 'theme_mod',
+					'transport'         => 'postMessage',
+				)
+			);
+			$wp_customize->add_control(
+				'responsive_single_product_title_meta_separator_text',
+				array(
+					'section'  => 'responsive_single_product_title_layout',
+					'settings' => 'responsive_single_product_title_meta_separator_text',
+					'type'     => 'hidden',
+				)
 			);
 
 			// Layouts.

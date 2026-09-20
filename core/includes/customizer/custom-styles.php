@@ -13509,6 +13509,78 @@ function responsive_customizer_styles() {
 			}";
 		}
 
+		// Single Product Meta Separator.
+		$single_product_meta_separator = sanitize_text_field( get_theme_mod( 'responsive_single_product_title_meta_separator_text', '•' ) );
+		$single_product_meta_separator = str_replace( array( '\\', "'" ), array( '\\\\', "\'" ), $single_product_meta_separator );
+		if ( 'none' === strtolower( $single_product_meta_separator ) ) {
+			$single_product_meta_separator = '';
+		}
+
+		$woocommerce_custom_css .= "
+		.single-product .site-content-header .post-meta > span:not(:last-child)::after,
+		.single-product .responsive-single-product-entry-banner .post-meta > span:not(:last-child)::after {
+			content: '{$single_product_meta_separator}';
+			margin-left: 0.5em;
+			margin-right: 0.5em;
+		}";
+
+		// Single Product Author Avatar & Styling.
+		$author_avatar_size = get_theme_mod( 'responsive_single_product_author_avatar_size', 30 );
+		$woocommerce_custom_css .= "
+		.single-product .post-meta .entry-author {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.35em;
+		}
+		.single-product .post-meta .entry-author .author-avatar {
+			display: inline-flex;
+			align-items: center;
+			line-height: 1;
+		}
+		.single-product .post-meta .entry-author .author-avatar img {
+			width: {$author_avatar_size}px;
+			height: {$author_avatar_size}px;
+			border-radius: 50%;
+			object-fit: cover;
+			display: inline-block;
+		}";
+
+		// Single Product Taxonomy Styling.
+		$woocommerce_custom_css .= "
+		.single-product .responsive-product-taxonomy {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5em;
+			align-items: center;
+			margin-bottom: 0.75em;
+		}
+		.single-product .post-meta .entry-taxonomy {
+			display: inline-flex;
+			gap: 0.35em;
+			align-items: center;
+			margin-bottom: 0;
+		}
+		.single-product .responsive-product-taxonomy a.taxonomy-term {
+			text-decoration: none;
+			transition: all 0.2s ease;
+		}
+		.single-product .responsive-product-taxonomy.responsive-taxonomy-style-badge a.taxonomy-term {
+			background-color: rgba(0, 124, 186, 0.1);
+			color: #007cba;
+			padding: 2px 10px;
+			border-radius: 4px;
+			font-size: 0.85em;
+			font-weight: 500;
+			display: inline-block;
+		}
+		.single-product .responsive-product-taxonomy.responsive-taxonomy-style-badge a.taxonomy-term:hover {
+			background-color: rgba(0, 124, 186, 0.2);
+		}
+		.single-product .responsive-product-taxonomy.responsive-taxonomy-style-underline a.taxonomy-term {
+			text-decoration: underline;
+			text-underline-offset: 3px;
+		}";
+
 		/**
 		 * Desktop (≥992px)
 		 */

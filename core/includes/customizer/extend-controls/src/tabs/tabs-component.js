@@ -1133,6 +1133,41 @@ const TabsComponent = props => {
 			});
 		}
 
+		toggleSingleProductTitleLayoutControls();
+		if (api('responsive_single_product_title_layout')) {
+			api('responsive_single_product_title_layout', function(value) {
+				value.bind(function() {
+					toggleSingleProductTitleLayoutControls();
+				});
+			});
+		}
+		if (api('responsive_single_product_title_elements_positioning')) {
+			api('responsive_single_product_title_elements_positioning', function(value) {
+				value.bind(function() {
+					toggleSingleProductTitleLayoutControls();
+				});
+			});
+		}
+		if (api('responsive_single_product_banner_elements_positioning')) {
+			api('responsive_single_product_banner_elements_positioning', function(value) {
+				value.bind(function() {
+					toggleSingleProductTitleLayoutControls();
+				});
+			});
+		}
+		const spTitleElementsCtrl = document.getElementById('customize-control-responsive_single_product_title_elements_positioning');
+		if (spTitleElementsCtrl) {
+			spTitleElementsCtrl.addEventListener('click', function() {
+				setTimeout(toggleSingleProductTitleLayoutControls, 50);
+			});
+		}
+		const spBannerElementsCtrl = document.getElementById('customize-control-responsive_single_product_banner_elements_positioning');
+		if (spBannerElementsCtrl) {
+			spBannerElementsCtrl.addEventListener('click', function() {
+				setTimeout(toggleSingleProductTitleLayoutControls, 50);
+			});
+		}
+
 		togglePageTitleLayoutControls();
 		if (api('responsive_page_title_layout')) {
 			api('responsive_page_title_layout', function(value) {
@@ -1706,6 +1741,42 @@ const TabsComponent = props => {
 			if (bgL2El) bgL2El.style.display = 'none';
 			if (bannerBgEl) bannerBgEl.style.display = 'none';
 			if (bannerOverlayEl) bannerOverlayEl.style.display = 'none';
+		}
+	};
+
+	const toggleSingleProductTitleLayoutControls = () => {
+		const layout = api('responsive_single_product_title_layout')
+			? api('responsive_single_product_title_layout').get()
+			: 'post_title_layout1';
+
+		const isLayout1 = ( 'post_title_layout1' === layout );
+
+		const l1StructureEl = document.getElementById('customize-control-responsive_single_product_title_elements_positioning');
+		const l2StructureEl = document.getElementById('customize-control-responsive_single_product_banner_elements_positioning');
+		const metaEl = document.getElementById('customize-control-responsive_single_product_title_meta');
+
+		if (l1StructureEl) {
+			l1StructureEl.style.display = (isLayout1 && tab === 'general') ? 'block' : 'none';
+		}
+		if (l2StructureEl) {
+			l2StructureEl.style.display = (!isLayout1 && tab === 'general') ? 'block' : 'none';
+		}
+
+		const elementsSettingId = isLayout1
+			? 'responsive_single_product_title_elements_positioning'
+			: 'responsive_single_product_banner_elements_positioning';
+		let elements = api(elementsSettingId) ? api(elementsSettingId).get() : [];
+		if (typeof elements === 'string') {
+			try {
+				elements = JSON.parse(elements);
+			} catch (e) {
+				elements = elements.split(',');
+			}
+		}
+		const hasMeta = Array.isArray(elements) && elements.indexOf('meta') !== -1;
+
+		if (metaEl) {
+			metaEl.style.display = (hasMeta && tab === 'general') ? 'block' : 'none';
 		}
 	};
 

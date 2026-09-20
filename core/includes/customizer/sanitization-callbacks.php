@@ -69,18 +69,44 @@ function responsive_sanitize_color( $color ) {
  */
 function responsive_sanitize_multi_choices( $input, $setting ) {
 	// Get list of choices from the control associated with the setting.
-	$choices    = $setting->manager->get_control( $setting->id )->choices;
+	$control    = $setting->manager->get_control( $setting->id );
+	$choices    = $control ? $control->choices : array();
 	$input_keys = $input;
 
-	foreach ( $input_keys as $key => $value ) {
-		if ( ! array_key_exists( $value, $choices ) ) {
-			unset( $input[ $key ] );
+	if ( is_array( $input_keys ) ) {
+		foreach ( $input_keys as $key => $value ) {
+			if ( ! array_key_exists( $value, $choices ) ) {
+				// Allow cloned items (e.g. taxonomy_1, taxonomy_2).
+				if ( strpos( $value, 'taxonomy_' ) === 0 && array_key_exists( 'taxonomy', $choices ) ) {
+					continue;
+				}
+				unset( $input[ $key ] );
+			}
 		}
 	}
 
 	// If the input is a valid key, return it;
 	// otherwise, return the default.
 	return ( is_array( $input ) ? $input : $setting->default );
+}
+
+/**
+ * JSON string sanitization callback.
+ *
+ * @param mixed $input Value to sanitize.
+ * @return string Sanitized JSON string.
+ */
+function responsive_sanitize_json( $input ) {
+	if ( is_array( $input ) ) {
+		return wp_json_encode( $input );
+	}
+	if ( is_string( $input ) ) {
+		$decoded = json_decode( $input, true );
+		if ( null !== $decoded ) {
+			return wp_json_encode( $decoded );
+		}
+	}
+	return '{}';
 }
 
 /**

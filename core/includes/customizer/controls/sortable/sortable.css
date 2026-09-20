@@ -51,6 +51,26 @@
     line-height: 16px;
     color: #50575E;
 }
+.responsive-sortable-action-icon {
+    cursor: pointer;
+    line-height: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #50575E;
+    margin-left: 2px;
+    padding: 2px;
+    border-radius: 3px;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+.responsive-sortable-action-icon:hover {
+    color: #007CBA;
+    background: #F0F0F1;
+}
+.responsive-sortable-delete-icon:hover {
+    color: #D63638;
+    background: #FDF2F2;
+}
 
 /* Sub-controls styling */
 .responsive-sortable-item-actions {
@@ -84,4 +104,8 @@ li.invisible .responsive-sortable-chevron {
 }
 .responsive-sortable-dropdown > .customize-control:last-child {
     margin-bottom: 0;
+}
+.responsive-sortable-dropdown .customize-control-responsive-range .customize-control-title,
+.responsive-sortable-dropdown .customize-control-responsive-selectbtn .customize-control-title {
+    margin: 0;
 }

@@ -30,6 +30,8 @@ if ( ! class_exists( 'Responsive_Customizer_Sortable_Control' ) ) :
 		public $type = 'responsive-sortable';
 
 		public $sub_controls = array();
+		public $taxonomy_choices = array();
+		public $cloneable_choices = array();
 
 		/**
 		 * Enqueue control related scripts/styles.
@@ -38,6 +40,7 @@ if ( ! class_exists( 'Responsive_Customizer_Sortable_Control' ) ) :
 		 */
 		public function enqueue() {
 			wp_enqueue_style( 'responsive-sortable', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/sortable.min.css', RESPONSIVE_THEME_VERSION, true );
+			wp_enqueue_style( 'responsive-selectbtn', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/selectbtn.min.css', null );
 		}
 
 		/**
@@ -57,6 +60,8 @@ if ( ! class_exists( 'Responsive_Customizer_Sortable_Control' ) ) :
 			$this->json['link']    = $this->get_link();
 			$this->json['id']      = $this->id;
 			$this->json['sub_controls'] = $this->sub_controls;
+			$this->json['taxonomy_choices'] = $this->taxonomy_choices;
+			$this->json['cloneable_choices'] = $this->cloneable_choices;
 
 			$this->json['inputAttrs'] = '';
 			foreach ( $this->input_attrs as $attr => $value ) {

@@ -2441,6 +2441,191 @@ function responsive_check_shop_add_to_cart_visible() {
 }
 
 /**
+ * Returns Single Product Title Area Layout 1 structure choices.
+ *
+ * @return array
+ */
+function responsive_single_product_title_elements() {
+	return apply_filters(
+		'responsive_single_product_title_elements',
+		array(
+			'title'      => esc_html__( 'Title', 'responsive' ),
+			'meta'       => esc_html__( 'Meta', 'responsive' ),
+			'breadcrumb' => esc_html__( 'Breadcrumb', 'responsive' ),
+			'excerpt'    => esc_html__( 'Excerpt', 'responsive' ),
+			'taxonomy'   => esc_html__( 'Taxonomies', 'responsive' ),
+		)
+	);
+}
+
+/**
+ * Returns Single Product Title Area Layout 2 structure choices.
+ *
+ * @return array
+ */
+function responsive_single_product_banner_elements() {
+	return apply_filters(
+		'responsive_single_product_banner_elements',
+		array(
+			'title'          => esc_html__( 'Title', 'responsive' ),
+			'meta'           => esc_html__( 'Meta', 'responsive' ),
+			'breadcrumb'     => esc_html__( 'Breadcrumb', 'responsive' ),
+			'excerpt'        => esc_html__( 'Excerpt', 'responsive' ),
+			'featured_image' => esc_html__( 'Featured Image', 'responsive' ),
+			'taxonomy'       => esc_html__( 'Taxonomies', 'responsive' ),
+		)
+	);
+}
+
+/**
+ * Returns registered taxonomies for single product.
+ *
+ * @return array
+ */
+function responsive_get_single_product_taxonomies() {
+	$taxonomies = get_object_taxonomies( 'product', 'objects' );
+	$options    = array();
+
+	if ( ! empty( $taxonomies ) && is_array( $taxonomies ) ) {
+		foreach ( $taxonomies as $taxonomy ) {
+			if ( 'product_visibility' === $taxonomy->name || 'pos_product_visibility' === $taxonomy->name ) {
+				continue;
+			}
+			$label = ! empty( $taxonomy->labels->singular_name ) ? $taxonomy->labels->singular_name : $taxonomy->label;
+			$options[ $taxonomy->name ] = $label;
+		}
+	}
+
+	if ( empty( $options ) ) {
+		$options = array(
+			'product_cat' => esc_html__( 'Product category', 'responsive' ),
+			'product_tag' => esc_html__( 'Product tag', 'responsive' ),
+		);
+	}
+
+	return apply_filters( 'responsive_single_product_taxonomies', $options );
+}
+
+/**
+ * Returns Single Product Meta choices.
+ *
+ * @return array
+ */
+function responsive_single_product_meta_choices() {
+	return apply_filters(
+		'responsive_single_product_meta_choices',
+		array(
+			'comments' => esc_html__( 'Comments', 'responsive' ),
+			'author'   => esc_html__( 'Author', 'responsive' ),
+			'date'     => esc_html__( 'Date Published', 'responsive' ),
+			'updated'  => esc_html__( 'Last Updated', 'responsive' ),
+			'taxonomy' => esc_html__( 'Taxonomies', 'responsive' ),
+		)
+	);
+}
+
+/**
+ * Returns Single Product Title Area Layout 1 positioning array.
+ *
+ * @return array
+ */
+function responsive_single_product_title_elements_positioning() {
+	$default  = Responsive\Core\get_responsive_customizer_defaults( 'single_product_title_elements_positioning' );
+	$sections = get_theme_mod( 'responsive_single_product_title_elements_positioning', $default );
+	if ( is_string( $sections ) ) {
+		$decoded  = json_decode( $sections, true );
+		$sections = is_array( $decoded ) ? $decoded : explode( ',', $sections );
+	} elseif ( ! is_array( $sections ) ) {
+		$sections = array();
+	}
+	return apply_filters( 'responsive_single_product_title_elements_positioning', $sections );
+}
+
+/**
+ * Returns Single Product Title Area Layout 2 positioning array.
+ *
+ * @return array
+ */
+function responsive_single_product_banner_elements_positioning() {
+	$default  = Responsive\Core\get_responsive_customizer_defaults( 'single_product_banner_elements_positioning' );
+	$sections = get_theme_mod( 'responsive_single_product_banner_elements_positioning', $default );
+	if ( is_string( $sections ) ) {
+		$decoded  = json_decode( $sections, true );
+		$sections = is_array( $decoded ) ? $decoded : explode( ',', $sections );
+	} elseif ( ! is_array( $sections ) ) {
+		$sections = array();
+	}
+	return apply_filters( 'responsive_single_product_banner_elements_positioning', $sections );
+}
+
+/**
+ * Returns Single Product Meta elements array.
+ *
+ * @return array
+ */
+function responsive_single_product_title_meta_elements() {
+	$default  = Responsive\Core\get_responsive_customizer_defaults( 'single_product_title_meta' );
+	$sections = get_theme_mod( 'responsive_single_product_title_meta', $default );
+	if ( is_string( $sections ) ) {
+		$decoded  = json_decode( $sections, true );
+		$sections = is_array( $decoded ) ? $decoded : explode( ',', $sections );
+	} elseif ( ! is_array( $sections ) ) {
+		$sections = array();
+	}
+	return apply_filters( 'responsive_single_product_title_meta', $sections );
+}
+
+/**
+ * Returns Single Product Meta Taxonomies configuration array.
+ *
+ * @return array
+ */
+function responsive_single_product_meta_taxonomies() {
+	$default = Responsive\Core\get_responsive_customizer_defaults( 'single_product_meta_taxonomies' );
+	$val     = get_theme_mod( 'responsive_single_product_meta_taxonomies', $default );
+	if ( is_string( $val ) ) {
+		$decoded = json_decode( $val, true );
+		$val     = is_array( $decoded ) ? $decoded : array();
+	} elseif ( ! is_array( $val ) ) {
+		$val = array();
+	}
+	return apply_filters( 'responsive_single_product_meta_taxonomies', $val );
+}
+
+/**
+ * Active callback for Single Product Title Area Layout 1 structure control.
+ *
+ * @return boolean
+ */
+function responsive_single_product_title_layout1_active_callback() {
+	return ( 'post_title_layout1' === get_theme_mod( 'responsive_single_product_title_layout', 'post_title_layout1' ) );
+}
+
+/**
+ * Active callback for Single Product Title Area Layout 2 structure control.
+ *
+ * @return boolean
+ */
+function responsive_single_product_title_layout2_active_callback() {
+	return ( 'post_title_layout2' === get_theme_mod( 'responsive_single_product_title_layout', 'post_title_layout1' ) );
+}
+
+/**
+ * Active callback for Single Product Meta Elements control: visible only when 'meta' is in the active layout's structure.
+ *
+ * @return boolean
+ */
+function responsive_single_product_meta_active_callback() {
+	$layout = get_theme_mod( 'responsive_single_product_title_layout', 'post_title_layout1' );
+	if ( 'post_title_layout2' === $layout ) {
+		$elements = responsive_single_product_banner_elements_positioning();
+	} else {
+		$elements = responsive_single_product_title_elements_positioning();
+	}
+	return is_array( $elements ) && in_array( 'meta', $elements, true );
+}
+
+/**
  * [responsive_active_single_product_sidebar_position description]
  *
  * @return [type] [description]
