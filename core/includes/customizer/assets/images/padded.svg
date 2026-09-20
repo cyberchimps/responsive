@@ -1,9 +1,10 @@
 <svg width="134" height="100" viewBox="0 0 134 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.5" y="0.5" width="133" height="99" rx="3.5" fill="white" stroke="#D2D2D2"/>
-<rect x="8" y="8" width="118" height="84" rx="2" stroke="#B9C6D6" stroke-dasharray="3 3"/>
-<rect x="16" y="20" width="102" height="27" rx="4" fill="#D1D9E3"/>
-<rect x="16" y="58" width="102" height="1" rx="0.5" fill="#9CB0C9"/>
-<rect x="16" y="66" width="102" height="1" rx="0.5" fill="#9CB0C9"/>
-<rect x="16" y="74" width="102" height="1" rx="0.5" fill="#9CB0C9"/>
-<rect x="16" y="82" width="60.5" height="1" rx="0.5" fill="#9CB0C9"/>
+<rect x="0.75" y="0.75" width="132.5" height="98.5" rx="3.25" fill="white" stroke="#AAAAAA" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="7 7"/>
+<rect x="32.09" y="13.09" width="69.82" height="33.82" rx="3.91" fill="#D1D9E3"/>
+<rect x="32.09" y="13.09" width="69.82" height="33.82" rx="3.91" stroke="#AAAAAA" stroke-width="0.18"/>
+<rect x="32.25" y="55.25" width="69.5" height="0.5" rx="0.25" fill="#9CB0C9" stroke="#AAAAAA" stroke-width="0.5"/>
+<rect x="32.25" y="63.25" width="69.5" height="0.5" rx="0.25" fill="#9CB0C9" stroke="#AAAAAA" stroke-width="0.5"/>
+<rect x="32.25" y="71.25" width="69.5" height="0.5" rx="0.25" fill="#9CB0C9" stroke="#AAAAAA" stroke-width="0.5"/>
+<rect x="32.25" y="79.25" width="69.5" height="0.5" rx="0.25" fill="#9CB0C9" stroke="#AAAAAA" stroke-width="0.5"/>
+<rect x="32.25" y="87.25" width="46.1667" height="0.5" rx="0.25" fill="#9CB0C9" stroke="#AAAAAA" stroke-width="0.5"/>
 </svg>

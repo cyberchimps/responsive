@@ -1,11 +1,11 @@
 <svg width="134" height="100" viewBox="0 0 134 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.5" y="0.5" width="133" height="99" rx="3.5" fill="white" stroke="#D2D2D2"/>
-<rect x="0.5" y="0.5" width="133" height="99" rx="3.5" fill="#F3F5F7"/>
-<rect x="18.5" y="0.5" width="97" height="99" fill="white" stroke="#D2D2D2"/>
-<rect x="30" y="13" width="74" height="34" rx="4" fill="#D1D9E3"/>
-<rect x="30" y="55" width="74" height="1" rx="0.5" fill="#9CB0C9"/>
-<rect x="30" y="63" width="74" height="1" rx="0.5" fill="#9CB0C9"/>
-<rect x="30" y="71" width="74" height="1" rx="0.5" fill="#9CB0C9"/>
-<rect x="30" y="79" width="74" height="1" rx="0.5" fill="#9CB0C9"/>
-<rect x="30" y="87" width="44" height="1" rx="0.5" fill="#9CB0C9"/>
+<rect x="0.5" y="0.5" width="133" height="99" rx="3.5" fill="white" stroke="#AAAAAA"/>
+<rect x="24" y="13" width="86" height="34" rx="4" fill="#D1D9E3"/>
+<rect x="24" y="55" width="86" height="1" rx="0.5" fill="#9CB0C9"/>
+<rect x="24" y="63" width="86" height="1" rx="0.5" fill="#9CB0C9"/>
+<rect x="24" y="71" width="86" height="1" rx="0.5" fill="#9CB0C9"/>
+<rect x="24" y="79" width="86" height="1" rx="0.5" fill="#9CB0C9"/>
+<rect x="24" y="87" width="57.3333" height="1" rx="0.5" fill="#9CB0C9"/>
+<line x1="18.5" y1="2.18557e-08" x2="18.5" y2="100" stroke="#9CB0C9"/>
+<line x1="116.5" y1="2.18557e-08" x2="116.5" y2="100" stroke="#9CB0C9"/>
 </svg>
