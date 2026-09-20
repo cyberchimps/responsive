@@ -1133,7 +1133,9 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_footer_primary_row_border_color .responsive-color-control-main-wrap,
 #customize-control-responsive_footer_primary_inner_column_spacing,
 #customize-control-responsive_footer_below_row_border_color .responsive-color-control-main-wrap,
-#customize-control-responsive_footer_below_inner_column_spacing {
+#customize-control-responsive_footer_below_inner_column_spacing,
+#customize-control-breadcrumbs_options,
+#customize-control-toolbar_options {
 	padding-top: 24px;
 	padding-bottom: 0;
 	border-top: 1px solid #D0D0D0;
