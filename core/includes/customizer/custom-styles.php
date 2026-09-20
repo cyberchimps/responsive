@@ -14242,28 +14242,34 @@ function responsive_customizer_styles() {
 			$woocommerce_custom_css .= "
 			.woocommerce.archive .site-content-header,
 			.woocommerce-shop .site-content-header,
-			.woocommerce .responsive-archive-entry-banner,
+			.woocommerce.archive .responsive-archive-entry-banner,
+			.woocommerce-shop .responsive-archive-entry-banner,
 			.woocommerce.archive .site-content-header .page-description,
 			.woocommerce-shop .site-content-header .page-description,
-			.woocommerce .responsive-archive-entry-banner .page-description p,
+			.woocommerce.archive .responsive-archive-entry-banner .page-description p,
+			.woocommerce-shop .responsive-archive-entry-banner .page-description p,
 			.woocommerce.archive .site-content-header .woocommerce-breadcrumb,
 			.woocommerce-shop .site-content-header .woocommerce-breadcrumb,
-			.woocommerce .responsive-archive-entry-banner .woocommerce-breadcrumb {
+			.woocommerce.archive .responsive-archive-entry-banner .woocommerce-breadcrumb,
+			.woocommerce-shop .responsive-archive-entry-banner .woocommerce-breadcrumb {
 				color: {$shop_title_text_color};
 			}
 			.woocommerce.archive .site-content-header .page-title,
 			.woocommerce-shop .site-content-header .page-title,
-			.woocommerce .responsive-archive-entry-banner .page-title {
+			.woocommerce.archive .responsive-archive-entry-banner .page-title,
+			.woocommerce-shop .responsive-archive-entry-banner .page-title {
 				color: {$shop_title_color};
 			}
 			.woocommerce.archive .site-content-header a,
 			.woocommerce-shop .site-content-header a,
-			.woocommerce .responsive-archive-entry-banner a {
+			.woocommerce.archive .responsive-archive-entry-banner a,
+			.woocommerce-shop .responsive-archive-entry-banner a {
 				color: {$shop_title_link_color};
 			}
 			.woocommerce.archive .site-content-header a:hover,
 			.woocommerce-shop .site-content-header a:hover,
-			.woocommerce .responsive-archive-entry-banner a:hover {
+			.woocommerce.archive .responsive-archive-entry-banner a:hover,
+			.woocommerce-shop .responsive-archive-entry-banner a:hover {
 				color: {$shop_title_link_hover_color};
 			}";
 		}

@@ -585,7 +585,7 @@ function responsive_woocommerce_single_product_banner2() {
 		global $post;
 		setup_postdata( $post );
 		?>
-		<section class="responsive-archive-entry-banner responsive-single-product-entry-banner">
+		<section class="responsive-single-product-entry-banner">
 			<div class="container">
 				<?php
 				if ( is_array( $elements ) ) {
