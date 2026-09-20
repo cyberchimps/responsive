@@ -1257,7 +1257,8 @@
         '.wp-block-button:not(.is-style-outline) > .wp-block-button__link,' +
         'div.wpforms-container-full .wpforms-form input[type=submit],' +
         'body div.wpforms-container-full .wpforms-form button[type=submit],' +
-        'div.wpforms-container-full .wpforms-form .wpforms-page-button';
+        'div.wpforms-container-full .wpforms-form .wpforms-page-button,' +
+        '.single-product .responsive-product-taxonomy.responsive-taxonomy-style-badge a.taxonomy-term';
 
     var buttonHoverBGPreviewStyleId = 'responsive-button-hover-color-preview';
     var buttonHoverBGPreviewSelectors =
@@ -1271,7 +1272,8 @@
         '.wp-block-button:not(.is-style-outline) > .wp-block-button__link:hover,' +
         'div.wpforms-container-full .wpforms-form input[type=submit]:hover,' +
         'body div.wpforms-container-full .wpforms-form button[type=submit]:hover,' +
-        'div.wpforms-container-full .wpforms-form .wpforms-page-button:hover';
+        'div.wpforms-container-full .wpforms-form .wpforms-page-button:hover,' +
+        '.single-product .responsive-product-taxonomy.responsive-taxonomy-style-badge a.taxonomy-term:hover';
 
     function isOutlineButtonPreset() {
         var preset = api( 'responsive_button_presets' ).get();
@@ -7102,7 +7104,7 @@
     api('responsive_shop_title_color', function(value) {
         value.bind(function(newval) {
             var color = processThemeSettingForCSS('responsive_shop_title_color') || newval;
-            $('.woocommerce .site-content-header .page-title, .woocommerce .responsive-archive-entry-banner .page-title').css('color', color);
+            $('.woocommerce.archive .site-content-header .page-title, .woocommerce-shop .site-content-header .page-title, .woocommerce .responsive-archive-entry-banner .page-title').css('color', color);
         });
     });
 
@@ -7110,7 +7112,7 @@
     api('responsive_shop_text_color', function(value) {
         value.bind(function(newval) {
             var color = processThemeSettingForCSS('responsive_shop_text_color') || newval;
-            $('.woocommerce .site-content-header, .woocommerce .responsive-archive-entry-banner, .woocommerce .site-content-header .page-description, .woocommerce .responsive-archive-entry-banner .page-description p, .woocommerce .site-content-header .woocommerce-breadcrumb, .woocommerce .responsive-archive-entry-banner .woocommerce-breadcrumb').css('color', color);
+            $('.woocommerce.archive .site-content-header, .woocommerce-shop .site-content-header, .woocommerce .responsive-archive-entry-banner, .woocommerce.archive .site-content-header .page-description, .woocommerce-shop .site-content-header .page-description, .woocommerce .responsive-archive-entry-banner .page-description p, .woocommerce.archive .site-content-header .woocommerce-breadcrumb, .woocommerce-shop .site-content-header .woocommerce-breadcrumb, .woocommerce .responsive-archive-entry-banner .woocommerce-breadcrumb').css('color', color);
         });
     });
 
@@ -7118,7 +7120,7 @@
     api('responsive_shop_title_link_color', function(value) {
         value.bind(function(newval) {
             var color = processThemeSettingForCSS('responsive_shop_title_link_color') || newval;
-            $('.woocommerce .site-content-header a, .woocommerce .responsive-archive-entry-banner a').css('color', color);
+            $('.woocommerce.archive .site-content-header a, .woocommerce-shop .site-content-header a, .woocommerce .responsive-archive-entry-banner a').css('color', color);
         });
     });
 
@@ -7129,7 +7131,48 @@
             var styleId = 'responsive-shop-title-link-hover-color-preview';
             $('#' + styleId).remove();
             if (color) {
-                var selectors = '.woocommerce .site-content-header a:hover, .woocommerce .responsive-archive-entry-banner a:hover';
+                var selectors = '.woocommerce.archive .site-content-header a:hover, .woocommerce-shop .site-content-header a:hover, .woocommerce .responsive-archive-entry-banner a:hover';
+                $('head').append(
+                    '<style id="' + styleId + '">' +
+                    selectors + ' { color: ' + color + '; }' +
+                    '</style>'
+                );
+            }
+        });
+    });
+
+    // WooCommerce Single Product Title Color
+    api('responsive_single_product_title_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_title_color') || newval;
+            $('.single-product .site-content-header .product_title, .single-product .responsive-single-product-entry-banner .product_title').css('color', color);
+        });
+    });
+
+    // WooCommerce Single Product Text Color
+    api('responsive_single_product_text_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_text_color') || newval;
+            $('.single-product .site-content-header, .single-product .responsive-single-product-entry-banner, .single-product .site-content-header .woocommerce-breadcrumb, .single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb').css('color', color);
+        });
+    });
+
+    // WooCommerce Single Product Link Color
+    api('responsive_single_product_title_link_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_title_link_color') || newval;
+            $('.single-product .site-content-header a, .single-product .responsive-single-product-entry-banner a').css('color', color);
+        });
+    });
+
+    // WooCommerce Single Product Link Hover Color
+    api('responsive_single_product_title_link_hover_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_title_link_hover_color') || newval;
+            var styleId = 'responsive-single-product-title-link-hover-color-preview';
+            $('#' + styleId).remove();
+            if (color) {
+                var selectors = '.single-product .site-content-header a:hover, .single-product .responsive-single-product-entry-banner a:hover';
                 $('head').append(
                     '<style id="' + styleId + '">' +
                     selectors + ' { color: ' + color + '; }' +

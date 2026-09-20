@@ -719,6 +719,39 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'line-height' => '1.75',
 					),
 				),
+				'single_product_title' => array(
+					'label'    => esc_html__( 'Title Font', 'responsive' ),
+					'target'   => $selectorArray['single_product_title'],
+					'section'  => 'responsive_single_product_title_layout',
+					'exclude'  => array( 'font-color' ),
+					'priority' => 19,
+					'defaults' => array(
+						'font-size'   => '32px',
+						'line-height' => '1.25',
+					),
+				),
+				'single_product_text' => array(
+					'label'    => esc_html__( 'Text Font', 'responsive' ),
+					'target'   => $selectorArray['single_product_text'],
+					'section'  => 'responsive_single_product_title_layout',
+					'exclude'  => array( 'font-color' ),
+					'priority' => 20,
+					'defaults' => array(
+						'font-size'   => '16px',
+						'line-height' => '1.75',
+					),
+				),
+				'single_product_meta' => array(
+					'label'    => esc_html__( 'Meta Font', 'responsive' ),
+					'target'   => $selectorArray['single_product_meta'],
+					'section'  => 'responsive_single_product_title_layout',
+					'exclude'  => array( 'font-color' ),
+					'priority' => 21,
+					'defaults' => array(
+						'font-size'   => '14px',
+						'line-height' => '1.75',
+					),
+				),
 			);
 
 			for( $i=1;$i<=6;$i++ ) {
@@ -812,8 +845,11 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'footer_below_row_widget_heading' => '.rspv-site-below-footer-wrap .footer-widgets .wp-block-heading, .rspv-site-below-footer-wrap .footer-social-icons .widget-title',
 				'footer_below_row_widget_content' => '.rspv-site-below-footer-wrap .footer-widgets',
 				'add_to_cart_button'         => '.woocommerce ul.products li.product .button, .woocommerce ul.products li.product .add_to_cart_button',
-				'shop_title'                 => '.woocommerce .site-content-header .page-title, .woocommerce .responsive-archive-entry-banner .page-title',
-				'shop_text'                  => '.woocommerce .site-content-header, .woocommerce .responsive-archive-entry-banner, .woocommerce .site-content-header .page-description, .woocommerce .responsive-archive-entry-banner .page-description, .woocommerce .site-content-header .page-description p, .woocommerce .responsive-archive-entry-banner .page-description p, .woocommerce .site-content-header .woocommerce-breadcrumb, .woocommerce .responsive-archive-entry-banner .woocommerce-breadcrumb, .woocommerce .site-content-header .woocommerce-breadcrumb a, .woocommerce .responsive-archive-entry-banner .woocommerce-breadcrumb a',
+				'shop_title'                 => '.woocommerce.archive .site-content-header .page-title, .woocommerce-shop .site-content-header .page-title, .woocommerce .responsive-archive-entry-banner .page-title',
+				'shop_text'                  => '.woocommerce.archive .site-content-header, .woocommerce-shop .site-content-header, .woocommerce .responsive-archive-entry-banner, .woocommerce.archive .site-content-header .page-description, .woocommerce-shop .site-content-header .page-description, .woocommerce .responsive-archive-entry-banner .page-description, .woocommerce.archive .site-content-header .page-description p, .woocommerce-shop .site-content-header .page-description p, .woocommerce .responsive-archive-entry-banner .page-description p, .woocommerce.archive .site-content-header .woocommerce-breadcrumb, .woocommerce-shop .site-content-header .woocommerce-breadcrumb, .woocommerce .responsive-archive-entry-banner .woocommerce-breadcrumb, .woocommerce.archive .site-content-header .woocommerce-breadcrumb a, .woocommerce-shop .site-content-header .woocommerce-breadcrumb a, .woocommerce .responsive-archive-entry-banner .woocommerce-breadcrumb a',
+				'single_product_title'       => '.single-product .site-content-header .product_title, .single-product .responsive-single-product-entry-banner .product_title',
+				'single_product_text'        => '.single-product .site-content-header, .single-product .responsive-single-product-entry-banner, .single-product .site-content-header .woocommerce-breadcrumb, .single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb, .single-product .site-content-header .woocommerce-breadcrumb a, .single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb a',
+				'single_product_meta'        => '.single-product .site-content-header .post-meta, .single-product .site-content-header .post-meta *, .single-product .responsive-single-product-entry-banner .post-meta, .single-product .responsive-single-product-entry-banner .post-meta *, .single-product .site-content-header .responsive-product-taxonomy, .single-product .site-content-header .responsive-product-taxonomy *, .single-product .responsive-single-product-entry-banner .responsive-product-taxonomy, .single-product .responsive-single-product-entry-banner .responsive-product-taxonomy *',
 			);
 
 			if ( $this->is_responsive_version_greater() ) {

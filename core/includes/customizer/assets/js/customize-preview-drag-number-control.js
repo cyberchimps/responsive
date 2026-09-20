@@ -546,6 +546,13 @@
         });
     });
 
+    api( 'responsive_single_product_title_inner_elements_spacing', function( value ) {
+        value.bind( function( newval ) {
+            $('.single-product .responsive-single-product-entry-banner .container > *:not(:last-child)').css('margin-bottom', newval+'px');
+            $('.single-product .site-content-header').css('row-gap', newval+'px');
+        });
+    });
+
     api( 'responsive_single_product_author_avatar_size', function( value ) {
         value.bind( function( newval ) {
             jQuery( '.single-product .post-meta .entry-author .author-avatar img' ).css( { width: newval + 'px', height: newval + 'px' } );
