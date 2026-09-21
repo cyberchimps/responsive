@@ -56,7 +56,7 @@ if ( ! function_exists( 'check_is_responsive_addons_greater' ) ) {
 		<?php
 		Responsive\responsive_header_top();
 		$responsive_show_header = true;
-		if ( class_exists( 'Responsive_Addons_Pro' ) || check_is_responsive_addons_greater() ) {
+		if ( class_exists( 'WooCommerce' ) ) {
 			if ( ( 1 === get_theme_mod( 'responsive_distraction_free_woocommerce', 0 ) ) && (
 				( is_shop() && 1 === get_theme_mod( 'responsive_disable_shop_header_footer', 0 ) )
 				|| ( is_product() && 1 === get_theme_mod( 'responsive_disable_single_product_header_footer', 0 ) )
@@ -65,7 +65,7 @@ if ( ! function_exists( 'check_is_responsive_addons_greater' ) ) {
 				|| ( is_account_page() && 1 === get_theme_mod( 'responsive_disable_account_header_footer', 0 ) )
 				|| ( is_product_category() && 1 === get_theme_mod( 'responsive_disable_product_category_header_footer', 0 ) )
 				|| ( is_product_tag() && 1 === get_theme_mod( 'responsive_disable_product_tag_header_footer', 0 ) )
-				) && 'on' === get_option( 'rpro_woocommerce_enable' )
+				)
 			) {
 				$responsive_show_header = false;
 			}

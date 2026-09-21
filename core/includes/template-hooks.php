@@ -232,15 +232,11 @@ add_action( 'responsive_wrapper_top', 'responsive_archive_blog_banner2' );
 function responsive_archive_blog_banner2() {
 	if ( ( is_home() || ( is_archive() && ! is_search() ) ) && get_theme_mod( 'responsive_blog_title_layout', 'post_title_layout1' ) === 'post_title_layout2' ) {
 		// For layout2:
-		// Show elements based on user's sorted order.
-		$elements = get_theme_mod( 'responsive_blog_title_elements_positioning', array( 'title', 'description', 'breadcrumb' ) );
-		if ( is_string( $elements ) ) {
-			$decoded = json_decode( $elements, true );
-			$elements = is_array( $decoded ) ? $decoded : explode( ',', $elements );
-		} else if ( ! is_array( $elements ) ) {
-			$elements = array();
-		}
-		
+		// Show elements based on user's sorted order. responsive_blog_title_elements_positioning()
+		// already strips 'breadcrumb' from the array unless it's enabled (global toggle + the
+		// context-appropriate per-post-type toggle), so membership below is authoritative.
+		$elements = responsive_blog_title_elements_positioning();
+
 		$responsive_page_title       = '';
 		$responsive_page_description = null;
 

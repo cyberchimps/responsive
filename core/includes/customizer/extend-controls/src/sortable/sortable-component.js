@@ -289,7 +289,7 @@ const SortableComponent = props => {
 
 	let invisibleMetaHtml = Object.keys(choices).map(choiceID => {
 		let html = '';
-		if (Array.isArray(value) && -1 === value.indexOf(choiceID)) {
+		if (!Object.values(value).includes(choiceID)) {
 			let hasSubControls = sub_controls && sub_controls[choiceID] && sub_controls[choiceID].length > 0;
 			html = <li {...inputAttrs} key={choiceID} className={'responsive-sortable-item invisible' + (hasSubControls ? ' has-sub-controls' : '')} data-value={choiceID}>
 				<div class="responsive-sortable-item-header">

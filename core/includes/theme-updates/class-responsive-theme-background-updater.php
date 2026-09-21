@@ -60,6 +60,9 @@ if ( ! class_exists( 'Responsive_Theme_Background_Updater' ) ) {
             '6.4.4' => array (
                 'responsive_theme_background_updater_secondary_menu_padding_6_4_4',
             ),
+            '6.4.6' => array (
+                'responsive_theme_background_updater_title_area_breadcrumb_6_4_6',
+            ),
 		);
 
         /**

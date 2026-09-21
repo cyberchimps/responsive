@@ -37,60 +37,91 @@ $responsive_show_breadcrumbs = false;
 if ( 1 === $responsive_options['breadcrumb'] ) {
 	if(is_front_page())
 	{
-		if(1 === get_theme_mod( 'responsive_breadcrumb_enable_home_page', 0 ))
+		// The front page is simultaneously the Home Page context and either the
+		// Blog/Posts Page context (latest posts) or a Single Page context (static
+		// page), so both toggles must allow it.
+		$home_enabled = responsive_breadcrumb_toggle_enabled( 'responsive_breadcrumb_enable_home_page' );
+		if ( is_home() ) {
+			$type_enabled = responsive_breadcrumb_toggle_enabled( 'responsive_breadcrumb_enable_blog_posts_page' );
+		} elseif ( is_page() ) {
+			$type_enabled = responsive_breadcrumb_toggle_enabled( 'responsive_breadcrumb_enable_single_page' );
+		} else {
+			$type_enabled = true;
+		}
+		if ( $home_enabled && $type_enabled )
 		{
 			$responsive_show_breadcrumbs = true;
-		} 
+		}
 	}
 	else if(is_home())
 	{
-		if(1 === get_theme_mod( 'responsive_breadcrumb_enable_blog_posts_page', 0 ) )
+		$val = get_theme_mod( 'responsive_breadcrumb_enable_blog_posts_page', false );
+		if ( $val === false || 1 == $val )
 		{
 			$responsive_show_breadcrumbs = true;
 		} 
 	}
 	else if(is_search())
 	{
-		if(1 === get_theme_mod( 'responsive_breadcrumb_enable_search', 0 ))
+		$val = get_theme_mod( 'responsive_breadcrumb_enable_search', false );
+		if ( $val === false || 1 == $val )
 		{
 			$responsive_show_breadcrumbs = true;
 		} 
 	}
 	else if(is_archive())
 	{
-		if(1 === get_theme_mod( 'responsive_breadcrumb_enable_archive', 0 ))
+		$val = get_theme_mod( 'responsive_breadcrumb_enable_archive', false );
+		if ( $val === false || 1 == $val )
 		{
 			$responsive_show_breadcrumbs = true;
 		} 
 	}
 	else if(is_404() )
 	{
-		if(1 === get_theme_mod( 'responsive_breadcrumb_enable_404_page', 0 ))
+		$val = get_theme_mod( 'responsive_breadcrumb_enable_404_page', false );
+		if ( $val === false || 1 == $val )
 		{
 			$responsive_show_breadcrumbs = true;
 		} 
 	}
 	else if(is_single())
 	{
-		if(1 === get_theme_mod( 'responsive_breadcrumb_enable_single_post', 0 ) )
+		$val = get_theme_mod( 'responsive_breadcrumb_enable_single_post', false );
+		if ( $val === false || 1 == $val )
 		{
 			$responsive_show_breadcrumbs = true;
 		} 
 	}
 	else if( is_page())
 	{
-		if(1 === get_theme_mod( 'responsive_breadcrumb_enable_single_page', 0 ) )
+		$val = get_theme_mod( 'responsive_breadcrumb_enable_single_page', false );
+		if ( $val === false || 1 == $val )
 		{
 			$responsive_show_breadcrumbs = true;
 		} 
 	}
-	if(get_theme_mod( 'responsive_breadcrumb_enable_singular', 0 ) && (1 === get_theme_mod( 'responsive_breadcrumb_enable_singular', 0 )))
+	
+	$singular_val = get_theme_mod( 'responsive_breadcrumb_enable_singular', false );
+	if( $singular_val !== false && ( 1 == $singular_val ) )
 	{
 		set_theme_mod( 'responsive_breadcrumb_enable_single_post', 1 );
 		set_theme_mod( 'responsive_breadcrumb_enable_single_page', 1 );
 		set_theme_mod( 'responsive_breadcrumb_enable_singular', 0 );
 		$responsive_show_breadcrumbs = true;
 	}
+}
+
+// Site-content-header only ever renders breadcrumbs on its own for 404/search/author
+// and the home page when it displays the latest posts. Single posts and pages -
+// including a static page set as the front page - always render their own
+// breadcrumb via partials/page|single/layout.php (Layout 1) or the banner2
+// title-area templates (Layout 2, see template-hooks.php), so leaving them
+// enabled here would duplicate them; the archive/blog listing has no such
+// separate renderer of its own, so it's handled entirely within this file
+// (see the $is_blog_archive block below).
+if ( ! is_404() && ! is_search() && ! is_author() && ! ( is_front_page() && is_home() ) ) {
+	$responsive_show_breadcrumbs = false;
 }
 
 if ( ! $responsive_page_title && ! $responsive_page_description && ! $responsive_show_breadcrumbs ) {
@@ -106,13 +137,7 @@ if ( $is_blog_archive ) {
 		return;
 	}
 
-	$elements = get_theme_mod( 'responsive_blog_title_elements_positioning', array( 'title', 'description', 'breadcrumb' ) );
-	if ( is_string( $elements ) ) {
-		$decoded = json_decode( $elements, true );
-		$elements = is_array( $decoded ) ? $decoded : explode( ',', $elements );
-	} else if ( ! is_array( $elements ) ) {
-		$elements = array();
-	}
+	$elements = responsive_blog_title_elements_positioning();
 
 	// For layout1:
 	// Hide everything on the blog page.
@@ -122,11 +147,10 @@ if ( $is_blog_archive ) {
 		$responsive_show_breadcrumbs = false;
 	} else {
 		// For archive pages, conditionally show elements based on their presence in the control.
-		if ( ! in_array( 'breadcrumb', $elements, true ) ) {
-			$responsive_show_breadcrumbs = false;
-		} else {
-			$responsive_show_breadcrumbs = true;
-		}
+		// responsive_blog_title_elements_positioning() has already stripped 'breadcrumb' from
+		// $elements if it isn't enabled (global toggle + per-post-type toggle), so membership
+		// in the array is authoritative here - no separate enable check needed.
+		$responsive_show_breadcrumbs = in_array( 'breadcrumb', $elements, true );
 		if ( ! in_array( 'title', $elements, true ) ) {
 			$responsive_page_title = '';
 		}

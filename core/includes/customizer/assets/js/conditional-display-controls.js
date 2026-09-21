@@ -198,29 +198,6 @@
 	);
 
 	api(
-		"responsive_theme_options['breadcrumb']",
-		function( $swipe ) {
-			$swipe.bind(
-				function( newval ) {
-					switch (newval) {
-						case true:
-							api.control( 'responsive_breadcrumb_position' ).toggle( false );
-							api.control( 'responsive_breadcrumb_color' ).toggle( false );
-							break;
-						/**
-						 * The select was switched to »show«.
-						 */
-						case false:
-							api.control( 'responsive_breadcrumb_position' ).toggle( true );
-							api.control( 'responsive_breadcrumb_color' ).toggle( true );
-							break;
-					}
-				}
-			);
-		}
-	);
-
-	api(
 		"responsive_blog_entry_columns",
 		function( $swipe ) {
 			$swipe.bind(
@@ -429,6 +406,10 @@ api(
 		} );
 	}
 );
-
+	// Breadcrumb sortable-element sync (position changes, enable/disable) for
+	// Page, Single Post, and the Blog/Archive Title Area all lives in
+	// syncBreadcrumbSortable() in breadcrumb-toggle.js, which - unlike the removed
+	// listeners that used to live here - correctly respects each context's
+	// per-post-type "Enable on ..." toggle, not just the global toggle.
 
 })( jQuery );
