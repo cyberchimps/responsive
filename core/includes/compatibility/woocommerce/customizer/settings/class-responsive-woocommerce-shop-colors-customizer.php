@@ -48,21 +48,13 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Colors_Customizer' ) ) :
 			$shop_button_separator = esc_html__( 'Add To Cart Buttons', 'responsive' );
 			responsive_separator_control( $wp_customize, 'shop_button_separator', $shop_button_separator, 'responsive_woocommerce_shop', 30 );
 
-			// Button.
+			// Button Color (Normal + Hover).
 			$add_to_cart_button_label = __( 'Button Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'add_to_cart_button', $add_to_cart_button_label, 'responsive_woocommerce_shop', 40, Responsive\Core\get_responsive_customizer_defaults('add_to_cart_button') );
+			responsive_color_control( $wp_customize, 'add_to_cart_button', $add_to_cart_button_label, 'responsive_woocommerce_shop', 40, Responsive\Core\get_responsive_customizer_defaults( 'add_to_cart_button' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'responsive_add_to_cart_button_hover_color' ), 'add_to_cart_button_hover' );
 
-			// Button Text.
+			// Button Text (Normal + Hover).
 			$add_to_cart_button_text_label = __( 'Button Text', 'responsive' );
-			responsive_color_control( $wp_customize, 'add_to_cart_button_text', $add_to_cart_button_text_label, 'responsive_woocommerce_shop', 50, get_responsive_customizer_defaults('responsive_add_to_cart_button_text_color') );
-
-			// Button Hover.
-			$add_to_cart_button_hover_label = __( 'Button Hover', 'responsive' );
-			responsive_color_control( $wp_customize, 'add_to_cart_button_hover', $add_to_cart_button_hover_label, 'responsive_woocommerce_shop', 60, Responsive\Core\get_responsive_customizer_defaults( 'responsive_add_to_cart_button_hover_color' ) );
-
-			// Button Hover Text.
-			$add_to_cart_button_hover_text_label = __( 'Button Hover Text', 'responsive' );
-			responsive_color_control( $wp_customize, 'add_to_cart_button_hover_text', $add_to_cart_button_hover_text_label, 'responsive_woocommerce_shop', 70, get_responsive_customizer_defaults('responsive_add_to_cart_button_hover_text_color') );
+			responsive_color_control( $wp_customize, 'add_to_cart_button_text', $add_to_cart_button_text_label, 'responsive_woocommerce_shop', 50, get_responsive_customizer_defaults( 'responsive_add_to_cart_button_text_color' ), null, '', true, get_responsive_customizer_defaults( 'responsive_add_to_cart_button_hover_text_color' ), 'add_to_cart_button_hover_text' );
 
 			// Button Font.
 			$add_to_cart_button_typography_label = esc_html__( 'Font', 'responsive' );

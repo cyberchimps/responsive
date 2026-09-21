@@ -3350,13 +3350,11 @@
     //Add to cart Button Text Hover Color
     $(".woocommerce span.onsale,.wc-block-grid__product-onsale,.woocommerce #respond input#submit,.wp-block-button__link.add_to_cart_button,.woocommerce div.product .woocommerce-tabs ul.tabs li a,.woocommerce div.product .woocommerce-tabs ul.tabs li,.woocommerce button.button.alt,.woocommerce button.button,.woocommerce a.button").hover(
         function() {
-            if ($(this).closest('li.product').hasClass('btn-style-text-with-arrow')) return;
             const addToCartButtonTextHoverColor = processThemeSettingForCSS('responsive_add_to_cart_button_hover_text_color');
             $(this).css("color", addToCartButtonTextHoverColor);
         },
         
         function() {
-            if ($(this).closest('li.product').hasClass('btn-style-text-with-arrow')) return;
             const addToCartButtonTextColor = processThemeSettingForCSS('responsive_add_to_cart_button_text_color');
             $(this).css("color", addToCartButtonTextColor);
         }
