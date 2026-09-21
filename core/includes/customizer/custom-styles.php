@@ -10653,20 +10653,6 @@ function responsive_customizer_styles() {
 			$mobile_menu_breakpoint = 0;
 		}
 
-		$responsive_disable_sticky_header_mobile_menu = get_theme_mod( 'responsive_disable_sticky_header_mobile_menu', 0 );
-		if ( '1' == $responsive_disable_sticky_header_mobile_menu ) {
-			$custom_css .= "@media (max-width:{$mobile_menu_breakpoint}px) {
-				#masthead.sticky-header, .res-transparent-header #masthead.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead.sticky-header,
-				#masthead-mobile.sticky-header, .res-transparent-header #masthead-mobile.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead-mobile.sticky-header {
-					position: relative;
-					scroll-behavior: smooth;
-				}
-				#wrapper.site-content {
-					margin-top: 0px !important;
-				}
-			}";
-		}
-
 		$sticky_header_background_color             = get_theme_mod( 'responsive_sticky_header_background_color' );
 		$sticky_header_site_title_color             = get_theme_mod( 'responsive_sticky_header_site_title_color' );
 		$sticky_header_site_title_hover_color       = get_theme_mod( 'responsive_sticky_header_site_title_hover_color' );

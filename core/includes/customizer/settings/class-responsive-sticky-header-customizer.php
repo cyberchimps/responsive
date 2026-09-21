@@ -61,11 +61,18 @@ if ( ! class_exists( 'Responsive_Sticky_Header_Customizer' ) ) :
 				$general_tab_ids        = array(
 					$general_tab_ids_prefix . 'res_sticky-header',
 					$general_tab_ids_prefix . 'responsive_shrink_sticky_header',
-					$general_tab_ids_prefix . 'responsive_disable_sticky_header_mobile_menu',
 					$general_tab_ids_prefix . 'responsive_sticky_header_logo_option',
 					$general_tab_ids_prefix . 'responsive_sticky_header_logo',
-					
+
 				);
+
+				/**
+				 * Lets add-ons (e.g. Responsive Pro) list their own controls in the General tab.
+				 * Controls that are not in either list are shown in both tabs.
+				 *
+				 * @param string[] $general_tab_ids Control container ids shown in the General tab.
+				 */
+				$general_tab_ids = apply_filters( 'responsive_sticky_header_general_tab_ids', $general_tab_ids );
 
 				$design_tab_ids_prefix = 'customize-control-';
 				$design_tab_ids        = array(
@@ -127,10 +134,6 @@ if ( ! class_exists( 'Responsive_Sticky_Header_Customizer' ) ) :
 						)
 					)
 				);
-
-				// Disable Sticky Header on Mobile.
-				$disable_sticky_header_mobile_menu_label = __( 'Disable Sticky Header on Mobile Menu', 'responsive' );
-				responsive_toggle_control( $wp_customize, 'disable_sticky_header_mobile_menu', $disable_sticky_header_mobile_menu_label, 'responsive_sticky_header_menu', 25, 0, null );
 
 				// Different Logo For Transparent Header.
 				$sticky_header_logo_option_label = __( 'Different Logo For Sticky Header', 'responsive' );
