@@ -50,8 +50,31 @@ const TabsComponent = props => {
 		return false;
 	};
 
+	const isAddToCartButtonControlInactive = (elementId) => {
+		const nonTextButtonControls = [
+			'customize-control-responsive_add_to_cart_button_color',
+			'customize-control-responsive_add_to_cart_button_border_width_border',
+			'customize-control-responsive_add_to_cart_button_border_style',
+			'customize-control-responsive_add_to_cart_button_border_color',
+			'customize-control-responsive_border_add_to_cart_button_radius',
+			'customize-control-responsive_add_to_cart_button_shadow_separator',
+			'customize-control-responsive_add_to_cart_button_shadow',
+			'customize-control-responsive_add_to_cart_button_shadow_color',
+			'customize-control-responsive_add_to_cart_button_hover_shadow_separator',
+			'customize-control-responsive_add_to_cart_button_hover_shadow',
+			'customize-control-responsive_add_to_cart_button_hover_shadow_color',
+		];
+		if (nonTextButtonControls.indexOf(elementId) !== -1) {
+			const buttonStyleSetting = api('responsive_product_button_style');
+			if (buttonStyleSetting && buttonStyleSetting.get() === 'text_with_arrow') {
+				return true;
+			}
+		}
+		return false;
+	};
+
 	const isControlInactive = (elementId) => {
-		if (isSidebarControlInactive(elementId)) {
+		if (isSidebarControlInactive(elementId) || isAddToCartButtonControlInactive(elementId)) {
 			return true;
 		}
 		const controlKey = elementId.replace('customize-control-', '');
@@ -1894,6 +1917,11 @@ const TabsComponent = props => {
 		const isButton = buttonStyle !== 'text_with_arrow';
 		const shouldShow = isButton && tab === 'design';
 
+		const buttonColorEl = document.getElementById('customize-control-responsive_add_to_cart_button_color');
+		if (buttonColorEl) {
+			buttonColorEl.style.display = shouldShow ? 'block' : 'none';
+		}
+
 		if (borderWidthEl) {
 			borderWidthEl.style.display = shouldShow ? 'block' : 'none';
 		}
@@ -1903,6 +1931,21 @@ const TabsComponent = props => {
 		if (borderRadiusEl) {
 			borderRadiusEl.style.display = shouldShow ? 'block' : 'none';
 		}
+
+		const shadowControlIds = [
+			'customize-control-responsive_add_to_cart_button_shadow_separator',
+			'customize-control-responsive_add_to_cart_button_shadow',
+			'customize-control-responsive_add_to_cart_button_shadow_color',
+			'customize-control-responsive_add_to_cart_button_hover_shadow_separator',
+			'customize-control-responsive_add_to_cart_button_hover_shadow',
+			'customize-control-responsive_add_to_cart_button_hover_shadow_color',
+		];
+		shadowControlIds.forEach(function(id) {
+			const el = document.getElementById(id);
+			if (el) {
+				el.style.display = shouldShow ? 'block' : 'none';
+			}
+		});
 
 		if (borderStyleEl) {
 			if (!shouldShow) {

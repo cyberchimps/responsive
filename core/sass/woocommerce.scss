@@ -1515,17 +1515,14 @@ li.product.btn-style-text-with-arrow {
         border-radius: 0;
         height: auto;
         min-height: 0;
-        line-height: 1.4;
-        font-size: inherit;
-        font-weight: 500;
-        color: inherit;
-        text-decoration: none;
         display: inline-flex;
         align-items: center;
         gap: 6px;
         cursor: pointer;
 
         .responsive-btn-arrow {
+            height: 1em;
+            width: 1em;
             flex-shrink: 0;
             display: block;
         }

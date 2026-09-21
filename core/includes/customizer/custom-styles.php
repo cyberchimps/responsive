@@ -871,7 +871,7 @@ function responsive_customizer_styles() {
 		$custom_css .= "
 		.woocommerce.archive:not(.single-product) ul.products li.product,
 		.woocommerce-page.archive:not(.single-product) ul.products li.product {
-			background-color: var(--responsive-global-site-background);
+			background-color: transparent;
 			border-radius: 0;
 			padding: " . responsive_spacing_css( $product_card_outside_container_padding_top, $product_card_outside_container_padding_right, $product_card_outside_container_padding_bottom, $product_card_outside_container_padding_left ) . ";
 		}";
@@ -13457,17 +13457,20 @@ function responsive_customizer_styles() {
 		// ";
 		
 
-		$woocommerce_custom_css .= sprintf(
-		'.responsive-site-style-boxed.woocommerce.archive:not(.single-product) ul.products li.product,
-		.responsive-site-style-boxed.woocommerce-page.archive:not(.single-product) ul.products li.product,
-		.responsive-site-style-content-boxed.woocommerce.archive:not(.single-product) ul.products li.product,
-		.responsive-site-style-content-boxed.woocommerce-page.archive:not(.single-product) ul.products li.product,
-		.responsive-site-style-boxed ul.products li.product,
-		.responsive-site-style-content-boxed ul.products li.product {
-			background-color: %s;
-    	}',
-			$product_bg_color
-		);
+		$product_catalog_container_style = get_theme_mod( 'responsive_product_catalog_container_style', 'default' );
+		$global_container_style          = get_theme_mod( 'responsive_style', 'boxed' );
+		$is_shop_boxed                   = ( 'boxed' === $product_catalog_container_style ) || ( 'default' === $product_catalog_container_style && 'boxed' === $global_container_style );
+
+		if ( $is_shop_boxed ) {
+			$woocommerce_custom_css .= sprintf(
+				'.responsive-site-style-boxed.woocommerce.archive:not(.single-product) ul.products li.product,
+				.responsive-site-style-boxed.woocommerce-page.archive:not(.single-product) ul.products li.product,
+				.responsive-site-style-boxed ul.products li.product {
+					background-color: %s;
+				}',
+				$product_bg_color
+			);
+		}
 
 		if ( ! empty( $shop_site_bg_color ) ) {
 			$woocommerce_custom_css .= "
@@ -14561,6 +14564,50 @@ function responsive_customizer_styles() {
 			$woocommerce_custom_css .= "{$add_to_cart_hover_selectors} { box-shadow: {$add_to_cart_btn_hvr_shadow_inset_style} {$add_to_cart_btn_hvr_shadow_x}px {$add_to_cart_btn_hvr_shadow_y}px {$add_to_cart_btn_hvr_shadow_blur}px {$add_to_cart_btn_hvr_shadow_spread}px {$add_to_cart_btn_hvr_shadow_color}; }";
 		}
 
+		if ( 'text_with_arrow' === $product_button_style ) {
+			$raw_cart_btn_text_color       = get_theme_mod( 'responsive_add_to_cart_button_text_color', '' );
+			$raw_cart_btn_hover_text_color = get_theme_mod( 'responsive_add_to_cart_button_hover_text_color', '' );
+
+			if ( empty( $raw_cart_btn_text_color ) || 'palette4' === $raw_cart_btn_text_color || '#ffffff' === strtolower( $raw_cart_btn_text_color ) ) {
+				$text_arrow_color = $link_color;
+			} else {
+				$text_arrow_color = esc_html( responsive_prepare_css_value( 'responsive_add_to_cart_button_text_color' ) );
+			}
+
+			if ( empty( $raw_cart_btn_hover_text_color ) || 'palette1' === $raw_cart_btn_hover_text_color ) {
+				$text_arrow_hover_color = $link_hover_color;
+			} else {
+				$text_arrow_hover_color = esc_html( responsive_prepare_css_value( 'responsive_add_to_cart_button_hover_text_color' ) );
+			}
+
+			$woocommerce_custom_css .= "
+			ul.products li.product.btn-style-text-with-arrow .responsive-product-action-wrap a.button,
+			ul.products li.product.btn-style-text-with-arrow .responsive-product-action-wrap button.button,
+			ul.wc-block-grid__products li.wc-block-grid__product.btn-style-text-with-arrow .responsive-product-action-wrap a.button,
+			ul.wc-block-grid__products li.wc-block-grid__product.btn-style-text-with-arrow .responsive-product-action-wrap button.button,
+			li.product.btn-style-text-with-arrow .responsive-product-action-wrap a.button,
+			li.product.btn-style-text-with-arrow .responsive-product-action-wrap button.button,
+			ul.products li.product.btn-style-text-with-arrow a.button,
+			ul.products li.product.btn-style-text-with-arrow button.button,
+			li.product.btn-style-text-with-arrow a.button,
+			li.product.btn-style-text-with-arrow button.button {
+				color: {$text_arrow_color};
+			}
+			ul.products li.product.btn-style-text-with-arrow .responsive-product-action-wrap a.button:hover,
+			ul.products li.product.btn-style-text-with-arrow .responsive-product-action-wrap button.button:hover,
+			ul.wc-block-grid__products li.wc-block-grid__product.btn-style-text-with-arrow .responsive-product-action-wrap a.button:hover,
+			ul.wc-block-grid__products li.wc-block-grid__product.btn-style-text-with-arrow .responsive-product-action-wrap button.button:hover,
+			li.product.btn-style-text-with-arrow .responsive-product-action-wrap a.button:hover,
+			li.product.btn-style-text-with-arrow .responsive-product-action-wrap button.button:hover,
+			ul.products li.product.btn-style-text-with-arrow a.button:hover,
+			ul.products li.product.btn-style-text-with-arrow button.button:hover,
+			li.product.btn-style-text-with-arrow a.button:hover,
+			li.product.btn-style-text-with-arrow button.button:hover {
+				color: {$text_arrow_hover_color};
+			}
+			";
+		}
+
 		// Single Product Styles.
 		$single_product_content_width = esc_html( get_theme_mod( 'responsive_single_product_content_width', 100 ) );
 
@@ -15354,9 +15401,11 @@ function responsive_customizer_styles() {
 		/* Tooltip */
 		.responsive-product-design-2 .responsive-design2-bag-tooltip {
 			position: absolute;
-			bottom: calc(100% + 8px);
-			left: 50%;
-			transform: translateX(-50%);
+			top: 50%;
+			right: calc(100% + 8px);
+			left: auto;
+			bottom: auto;
+			transform: translateY(-50%);
 			background: #1E2A3A;
 			color: #fff;
 			font-size: 12px;
@@ -15372,11 +15421,12 @@ function responsive_customizer_styles() {
 		.responsive-product-design-2 .responsive-design2-bag-tooltip::after {
 			content: '';
 			position: absolute;
-			top: 100%;
-			left: 50%;
-			transform: translateX(-50%);
+			top: 50%;
+			left: 100%;
+			bottom: auto;
+			transform: translateY(-50%);
 			border: 5px solid transparent;
-			border-top-color: #1E2A3A;
+			border-left-color: #1E2A3A;
 		}
 		.responsive-product-design-2 .responsive-design2-bag-btn:hover .responsive-design2-bag-tooltip {
 			opacity: 1;
