@@ -201,6 +201,24 @@ if ( ! class_exists( 'Responsive_Sticky_Header_Customizer' ) ) :
 				// Sub Menu Link Hover Color.
 				$sticky_sub_menu_link_hover_color_label = __( 'Sub Menu Item Link Hover Color', 'responsive' );
 				responsive_color_control( $wp_customize, 'sticky_header_sub_menu_link_hover', $sticky_sub_menu_link_hover_color_label, 'responsive_sticky_header_menu', 120, '' );
+
+				// Upgrade to Pro nudge (only registers when Responsive Pro is not active).
+				responsive_pro_nudge_control(
+					$wp_customize,
+					'sticky_header',
+					'responsive_sticky_header_menu',
+					array(
+						'image'       => RESPONSIVE_THEME_URI . 'admin/images/upgradeToPro.jpg',
+						'description' => __( 'Take your sticky header to the next level with powerful design and control features.', 'responsive' ),
+						'features'    => array(
+							__( 'Retina Image Upload for Sticky Header', 'responsive' ),
+							__( 'Background Blur Effect', 'responsive' ),
+							__( 'Sticky Header Options in Header Widgets', 'responsive' ),
+							__( 'Separate Sticky Properties for Primary, Secondary & Below Header Rows', 'responsive' ),
+						),
+					),
+					999
+				);
 			}
 		}
 
