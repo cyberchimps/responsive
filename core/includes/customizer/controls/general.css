@@ -1133,9 +1133,7 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_footer_primary_row_border_color .responsive-color-control-main-wrap,
 #customize-control-responsive_footer_primary_inner_column_spacing,
 #customize-control-responsive_footer_below_row_border_color .responsive-color-control-main-wrap,
-#customize-control-responsive_footer_below_inner_column_spacing,
-#customize-control-breadcrumbs_options,
-#customize-control-toolbar_options {
+#customize-control-responsive_footer_below_inner_column_spacing {
 	padding-top: 24px;
 	padding-bottom: 0;
 	border-top: 1px solid #D0D0D0;
@@ -1452,7 +1450,9 @@ in both cases the footer builder is active */
 #customize-control-responsive_breadcrumb_typography_group,
 #li#customize-control-responsive_single_blog_breadcrumb_typography_group,
 #customize-control-responsive_blog_breadcrumb_typography_group,
-li#customize-control-responsive_page_breadcrumb_typography_group {
+li#customize-control-responsive_page_breadcrumb_typography_group,
+#customize-control-breadcrumbs_options,
+#customize-control-toolbar_options {
 	margin-top: 24px;
 }
 #customize-control-responsive_cart_icon_separator,

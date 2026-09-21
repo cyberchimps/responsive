@@ -275,7 +275,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 					$wp_customize,
 					'responsive_blog_post_title_toggle',
 					array(
-						'label'    => __( 'Enable on Blog / Posts Page?', 'responsive' ),
+						'label'    => __( 'Enable Title Area on Blog Page?', 'responsive' ),
 						'section'  => 'responsive_blog_title_layout',
 						'settings' => 'responsive_blog_post_title_toggle',
 						'priority' => 6,
