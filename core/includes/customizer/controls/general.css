@@ -1352,7 +1352,8 @@ in both cases the footer builder is active */
 #customize-control-responsive_header_html_content_separator,
 #customize-control-responsive_header_html2_content_separator,
 #customize-control-responsive_footer_html_content_separator,
-#customize-control-responsive_footer_html2_content_separator{
+#customize-control-responsive_footer_html2_content_separator,
+#customize-control-responsive_sticky_header_rows_mobile{
 	margin-top: 24px;
 	margin-bottom: 24px;
 }
@@ -1445,7 +1446,8 @@ in both cases the footer builder is active */
 #customize-control-responsive_page_show_comments,
 #customize-control-responsive_footer_menu_typography_group,
 #customize-control-responsive_footer_menu_item_horizontal_spacing,
-#customize-control-responsive_footer_menu_item_top_bottom_spacing {
+#customize-control-responsive_footer_menu_item_top_bottom_spacing,
+#customize-control-responsive_sticky_header_rows_desktop {
 	margin-top: 24px;
 }
 #customize-control-responsive_cart_icon_separator,
