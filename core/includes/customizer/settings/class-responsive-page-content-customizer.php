@@ -138,8 +138,12 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 				'customize-control-responsive_page_title_area_title_color',
 				'customize-control-responsive_page_title_area_text_color',
 				'customize-control-responsive_page_title_area_link_color',
-				'customize-control-responsive_page_title_area_link_hover_color',
 				'customize-control-responsive_page_title_area_link_hover_separator',
+				'customize-control-responsive_page_title_area_breadcrumb_color',
+				'customize-control-responsive_page_title_area_breadcrumb_link_color',
+				'customize-control-responsive_page_title_area_breadcrumb_background_color',
+				'customize-control-responsive_page_title_area_breadcrumb_separator_color',
+				'customize-control-responsive_page_breadcrumb_typography_group',
 				'customize-control-responsive_page_title_area_title_typography_group',
 				'customize-control-responsive_page_title_area_text_typography_group',
 				'customize-control-responsive_page_title_area_meta_typography_group',
@@ -289,13 +293,25 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			$page_text_color_label = __( 'Text Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'page_title_area_text', $page_text_color_label, 'responsive_page_title_area_layout', 15, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_text_color' ) );
 
-			// Page Post Link Color
+			// Page Post Link Color (with Hover)
 			$page_link_color_label = __( 'Link Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'page_title_area_link', $page_link_color_label, 'responsive_page_title_area_layout', 20, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_color' ) );
+			responsive_color_control( $wp_customize, 'page_title_area_link', $page_link_color_label, 'responsive_page_title_area_layout', 20, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_hover_color' ), 'page_title_area_link_hover' );
 
-			// Page Post Link Hover Color
-			$page_link_hover_color_label = __( 'Link Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'page_title_area_link_hover', $page_link_hover_color_label, 'responsive_page_title_area_layout', 25, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_hover_color' ) );
+			// Page Breadcrumb Text Color
+			$page_title_area_breadcrumb_color_label = __( 'Breadcrumb Text Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'page_title_area_breadcrumb', $page_title_area_breadcrumb_color_label, 'responsive_page_title_area_layout', 26, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_color' ) );
+
+			// Page Breadcrumb Link Color (with Hover)
+			$page_title_area_breadcrumb_link_color_label = __( 'Breadcrumb Link Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'page_title_area_breadcrumb_link', $page_title_area_breadcrumb_link_color_label, 'responsive_page_title_area_layout', 27, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_link_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_link_hover_color' ), 'page_title_area_breadcrumb_link_hover' );
+
+			// Page Breadcrumb Background Color
+			$page_title_area_breadcrumb_background_color_label = __( 'Breadcrumb Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'page_title_area_breadcrumb_background', $page_title_area_breadcrumb_background_color_label, 'responsive_page_title_area_layout', 28, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_background_color' ) );
+
+			// Page Breadcrumb Separator Color
+			$page_title_area_breadcrumb_separator_color_label = __( 'Breadcrumb Separator Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'page_title_area_breadcrumb_separator', $page_title_area_breadcrumb_separator_color_label, 'responsive_page_title_area_layout', 29, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_separator_color' ), 'responsive_active_breadcrumb_separator_area' );
 
 			responsive_horizontal_separator_control( $wp_customize, 'page_title_area_link_hover_separator', 1, 'responsive_page_title_area_layout',30, 1 );
 
@@ -311,7 +327,11 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			$page_meta_typography_label = __( 'Meta Font', 'responsive' );
 			responsive_typography_group_control( $wp_customize, 'page_title_area_meta_typography_group', $page_meta_typography_label, 'responsive_page_title_area_layout', 45, 'page_title_area_meta_typography', true );
 
-			responsive_horizontal_separator_control( $wp_customize, 'page_title_area_meta_typography_group_separator', 1, 'responsive_page_title_area_layout',46, 1 );
+			// Page Breadcrumb Font
+			$page_breadcrumb_typography_label = esc_html__( 'Breadcrumb Font', 'responsive' );
+			responsive_typography_group_control( $wp_customize, 'page_breadcrumb_typography_group', $page_breadcrumb_typography_label, 'responsive_page_title_area_layout', 46, 'page_breadcrumb_typography', true );
+
+			responsive_horizontal_separator_control( $wp_customize, 'page_title_area_meta_typography_group_separator', 1, 'responsive_page_title_area_layout',47, 1 );
 
 			// Padding
 			responsive_unit_padding_control( $wp_customize, 'page_title_banner_padding', 'responsive_page_title_area_layout', 50, 30, 30, null, __( 'Padding', 'responsive' ), 'postMessage', 30, 30, 30, 30, 'px' );
@@ -332,7 +352,7 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_page_single_elements_positioning',
 				array(
-					'default'           => array( 'title', 'featured_image' ),
+					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'page_single_elements_positioning' ),
 					'sanitize_callback' => 'responsive_sanitize_multi_choices',
 					'transport'         => 'refresh',
 				)

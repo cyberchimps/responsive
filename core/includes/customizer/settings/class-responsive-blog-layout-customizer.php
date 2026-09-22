@@ -173,11 +173,15 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 				'customize-control-responsive_blog_post_title_color',
 				'customize-control-responsive_blog_post_text_color',
 				'customize-control-responsive_blog_post_link_color',
-				'customize-control-responsive_blog_post_link_hover_color',
 				'customize-control-responsive_blog_post_link_hover_separator',
 				'customize-control-responsive_blog_post_title_typography_group',
 				'customize-control-responsive_blog_post_text_typography_group',
-				'customize-control-responsive_blog_post_text_typography_group_separator'
+				'customize-control-responsive_blog_post_text_typography_group_separator',
+				'customize-control-responsive_blog_post_breadcrumb_color',
+				'customize-control-responsive_blog_post_breadcrumb_link_color',
+				'customize-control-responsive_blog_post_breadcrumb_background_color',
+				'customize-control-responsive_blog_post_breadcrumb_separator_color',
+				'customize-control-responsive_blog_breadcrumb_typography_group'
 			];
 			
 			// Blog Title Area Toggle
@@ -212,7 +216,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_blog_title_elements_positioning',
 				array(
-					'default'           => array( 'title', 'description', 'breadcrumb' ),
+					'default'           => array( 'title', 'description' ),
 					'sanitize_callback' => 'responsive_sanitize_multi_choices',
 					'transport'         => 'refresh',
 				)
@@ -224,7 +228,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 					'responsive_blog_title_elements_positioning',
 					array(
 						'label'       => esc_html__( 'Blog Title Elements', 'responsive' ),
-						'description' => esc_html__( 'Note: Title and description only appear when Layout 2 is selected.', 'responsive' ),
+						'description' => esc_html__( 'Note: Blog Title Elements appear on Blog/Posts page only when Layout 2 is selected.', 'responsive' ),
 						'section'     => 'responsive_blog_title_layout',
 						'settings'    => 'responsive_blog_title_elements_positioning',
 						'priority'    => 5,
@@ -271,7 +275,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 					$wp_customize,
 					'responsive_blog_post_title_toggle',
 					array(
-						'label'    => __( 'Enable on Blog / Posts Page?', 'responsive' ),
+						'label'    => __( 'Enable Title Area on Blog Page?', 'responsive' ),
 						'section'  => 'responsive_blog_title_layout',
 						'settings' => 'responsive_blog_post_title_toggle',
 						'priority' => 6,
@@ -330,25 +334,41 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 			$blog_post_text_color_label = __( 'Text Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'blog_post_text', $blog_post_text_color_label, 'responsive_blog_title_layout', 28, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_text_color' ) );
 
-			// Blog Post Link Color
+			// Blog Post Link Color (with Hover)
 			$blog_post_link_color_label = __( 'Link Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'blog_post_link', $blog_post_link_color_label, 'responsive_blog_title_layout', 29, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_color' ) );
+			responsive_color_control( $wp_customize, 'blog_post_link', $blog_post_link_color_label, 'responsive_blog_title_layout', 29, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_hover_color' ), 'blog_post_link_hover' );
 
-			// Blog Post Link Hover Color
-			$blog_post_link_hover_color_label = __( 'Link Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'blog_post_link_hover', $blog_post_link_hover_color_label, 'responsive_blog_title_layout', 30, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_hover_color' ) );
+			// Blog Post Breadcrumb Text Color
+			$blog_post_breadcrumb_color_label = __( 'Breadcrumb Text Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'blog_post_breadcrumb', $blog_post_breadcrumb_color_label, 'responsive_blog_title_layout', 31, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_color' ) );
 
-			responsive_horizontal_separator_control( $wp_customize, 'blog_post_link_hover_separator', 1, 'responsive_blog_title_layout',30, 1 );
+			// Blog Post Breadcrumb Link Color (with Hover)
+			$blog_post_breadcrumb_link_color_label = __( 'Breadcrumb Link Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'blog_post_breadcrumb_link', $blog_post_breadcrumb_link_color_label, 'responsive_blog_title_layout', 32, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_link_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_link_hover_color' ), 'blog_post_breadcrumb_link_hover' );
+
+			// Blog Post Breadcrumb Background Color
+			$blog_post_breadcrumb_background_color_label = __( 'Breadcrumb Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'blog_post_breadcrumb_background', $blog_post_breadcrumb_background_color_label, 'responsive_blog_title_layout', 33, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_background_color' ) );
+
+			// Blog Post Breadcrumb Separator Color
+			$blog_post_breadcrumb_separator_color_label = __( 'Breadcrumb Separator Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'blog_post_breadcrumb_separator', $blog_post_breadcrumb_separator_color_label, 'responsive_blog_title_layout', 34, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_breadcrumb_separator_color' ), 'responsive_active_breadcrumb_separator_area' );
+
+			responsive_horizontal_separator_control( $wp_customize, 'blog_post_link_hover_separator', 1, 'responsive_blog_title_layout',35, 1 );
 
 			// Blog Post Title Font
 			$blog_post_title_typography_label = __( 'Title Font', 'responsive' );
-			responsive_typography_group_control( $wp_customize, 'blog_post_title_typography_group', $blog_post_title_typography_label, 'responsive_blog_title_layout', 35, 'blog_post_title_typography', true );
+			responsive_typography_group_control( $wp_customize, 'blog_post_title_typography_group', $blog_post_title_typography_label, 'responsive_blog_title_layout', 36, 'blog_post_title_typography', true );
 
 			// Blog Post Text Font
 			$blog_post_text_typography_label = __( 'Text Font', 'responsive' );
 			responsive_typography_group_control( $wp_customize, 'blog_post_text_typography_group', $blog_post_text_typography_label, 'responsive_blog_title_layout', 40, 'blog_post_text_typography', true );
 
-			responsive_horizontal_separator_control( $wp_customize, 'blog_post_text_typography_group_separator', 1, 'responsive_blog_title_layout',41, 1 );
+			// Breadcrumb Font
+			$blog_breadcrumb_typography_label = esc_html__( 'Breadcrumb Font', 'responsive' );
+			responsive_typography_group_control( $wp_customize, 'blog_breadcrumb_typography_group', $blog_breadcrumb_typography_label, 'responsive_blog_title_layout', 41, 'blog_breadcrumb_typography' );
+
+			responsive_horizontal_separator_control( $wp_customize, 'blog_post_text_typography_group_separator', 1, 'responsive_blog_title_layout',42, 1 );
 
 			$wp_customize->add_setting(
 				'responsive_theme_options[blog_post_title_text]',

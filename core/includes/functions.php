@@ -208,6 +208,7 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'yoast-seo-breadcrumbs' );
+		add_theme_support( 'rank-math-breadcrumbs' );
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
@@ -1213,6 +1214,24 @@ if (
 
 			/* Replace transparent header logo and width */
 
+			/**
+			 * Filters the attributes of the Sticky Header logo image, e.g. to add a
+			 * retina `srcset` (see Responsive Pro's Sticky Header options).
+			 *
+			 * @param array $image_attr          Attributes passed to wp_get_attachment_image().
+			 * @param int   $responsive_sticky_logo Attachment ID of the Sticky Header logo.
+			 */
+			$image_attr = apply_filters(
+				'responsive_sticky_header_logo_image_attr',
+				array(
+					'alt'      => get_bloginfo( 'name' ),
+					'class'    => 'custom-logo',
+					'itemprop' => 'logo',
+					'size'     => '(max-width: 204px) 100vw, 204px',
+				),
+				$responsive_sticky_logo
+			);
+
 			$html = sprintf(
 				'<a href="%1$s" class="custom-logo-link sticky-custom-logo" rel="home" itemprop="url">%2$s</a>',
 				esc_url( get_theme_mod( 'responsive_custom_logo_url', home_url( '/' ) ) ),
@@ -1220,12 +1239,7 @@ if (
 					$responsive_sticky_logo,
 					'full',
 					false,
-					array(
-						'alt'      => get_bloginfo( 'name' ),
-						'class'    => 'custom-logo',
-						'itemprop' => 'logo',
-						'size'     => '(max-width: 204px) 100vw, 204px',
-					)
+					$image_attr
 				)
 			);
 		}
@@ -1290,6 +1304,7 @@ function defaults() {
 			'read_more_text'                      => 'Read more →',
 			'blog_entry_elements_positioning'     => array( 'featured_image', 'categories', 'title', 'meta', 'content' ),
 			'blog_single_elements_positioning'    => array( 'categories', 'title', 'meta', 'featured_image' ),
+			'page_single_elements_positioning'    => array( 'title', 'featured_image' ),
 
 			// alignment.
 			'blog_entry_title_alignment'          => 'left',
@@ -1313,7 +1328,16 @@ function defaults() {
 			'shop_product_price'                  => '#333333',
 			'content_header_heading'              => '#404040',
 			'content_header_description'          => '#999999',
-			'breadcrumb'                          => 'palette0',
+			'breadcrumb'                          => 'palette2',
+			'breadcrumb_link'                     => 'palette0',
+			'breadcrumb_background'				  => '#FFFFFF00',
+			'single_blog_post_breadcrumb_background_color' => 'breadcrumb-background-color',
+			'single_blog_post_breadcrumb_separator_color' => 'breadcrumb-separator-color',
+			'single_blog_post_breadcrumb_color'   => 'breadcrumb-color',
+			'single_blog_post_breadcrumb_link_color' => 'breadcrumb-link-color',
+			'single_blog_post_breadcrumb_link_hover_color' => 'breadcrumb-link-hover-color',
+			'breadcrumb_link_hover'               => 'palette1',
+			'breadcrumb_separator_color'          => '#000000',
 			'footer_background'                   => '#333333',
 			'footer_text'                         => '#333333',
 			'footer_links'                        => '#0066CC',
@@ -3173,7 +3197,7 @@ if( ! function_exists( 'responsive_prepare_css_value' ) ) {
 
 		$value = trim( $value );
 
-		if ( is_string( $value ) && ( preg_match( '/^palette\d+$/', $value ) || false !== strpos( $value, 'headings-color' ) || false !== strpos( $value, 'site-background' ) || false !== strpos( $value, 'box-background' ) || false !== strpos( $value, 'h1-color' ) || false !== strpos( $value, 'footer-text-color' ) || false !== strpos( $value, 'footer-links-color' ) || false !== strpos( $value, 'footer-links-hover-color' ) ) ) {
+		if ( is_string( $value ) && ( preg_match( '/^palette\d+$/', $value ) || false !== strpos( $value, 'headings-color' ) || false !== strpos( $value, 'site-background' ) || false !== strpos( $value, 'box-background' ) || false !== strpos( $value, 'h1-color' ) || false !== strpos( $value, 'footer-text-color' ) || false !== strpos( $value, 'footer-links-color' ) || false !== strpos( $value, 'footer-links-hover-color' ) || false !== strpos( $value, 'breadcrumb' ) ) ) {
 			return 'var(--responsive-global-' . $value . ')';
 		}
 

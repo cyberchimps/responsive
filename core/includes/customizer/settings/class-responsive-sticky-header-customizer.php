@@ -157,7 +157,7 @@ if ( ! class_exists( 'Responsive_Sticky_Header_Customizer' ) ) :
 							'flex-width'      => true,
 							'height'          => 100, // pixels.
 							'width'           => 300, // pixels.
-							'priority'        => 40,
+							'priority'        => 32,
 							'active_callback' => 'responsive_different_logo_sticky_header',
 						)
 					)

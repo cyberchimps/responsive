@@ -102,23 +102,6 @@
 		}
 	);
 
-	// Update when mobile menu breakpoint changes
-	api( 'responsive_mobile_menu_breakpoint', function( value ) {
-		value.bind( function() {
-			updateDisableStickyHeaderMobileMenu();
-		});
-	});
-
-	// Update when disable mobile menu changes
-	api( 'responsive_disable_mobile_menu', function( value ) {
-		value.bind( function() {
-			updateDisableStickyHeaderMobileMenu();
-		});
-	});
-
-	// Initialize on page load
-	updateDisableStickyHeaderMobileMenu();
-
 	api(
 		"responsive_disable_author_meta",
 		function( $swipe ) {
