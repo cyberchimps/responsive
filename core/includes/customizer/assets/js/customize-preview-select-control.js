@@ -287,6 +287,17 @@
 
                     $('body').removeClassRegEx('site-content-header-alignment-');
                     jQuery( 'body' ).addClass( 'site-content-header-alignment-'+ newval );
+
+                    var breadcrumbFlexAlignMap = { left: 'flex-start', center: 'center', right: 'flex-end' };
+                    var breadcrumbFlexAlign = breadcrumbFlexAlignMap[ newval ] || 'center';
+                    var breadcrumbAlignStyleId = 'responsive-breadcrumb-alignment-preview';
+                    $('#' + breadcrumbAlignStyleId).remove();
+                    $('head').append(
+                        '<style id="' + breadcrumbAlignStyleId + '">' +
+                        '.breadcrumbs { display: flex; justify-content: ' + breadcrumbFlexAlign + '; text-align: ' + newval + '; }' +
+                        '.responsive-breadcrumbs-wrapper { align-self: ' + breadcrumbFlexAlign + '; }' +
+                        '</style>'
+                    );
                 }
             );
         }
