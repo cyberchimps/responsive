@@ -312,7 +312,8 @@ function responsive_woocommerce_shop_banner2() {
 	if ( ( is_shop() || is_product_taxonomy() ) && get_theme_mod( 'responsive_shop_title_area', true ) && get_theme_mod( 'responsive_shop_title_layout', 'post_title_layout1' ) === 'post_title_layout2' ) {
 		$rendered = true;
 
-		$elements = get_theme_mod( 'responsive_shop_title_elements_positioning', array( 'breadcrumb', 'title', 'description' ) );
+		$default_elements = get_theme_mod( 'breadcrumbs_options', 1 ) ? array( 'breadcrumb', 'title', 'description' ) : array( 'title', 'description' );
+		$elements         = get_theme_mod( 'responsive_shop_title_elements_positioning', $default_elements );
 		if ( is_string( $elements ) ) {
 			$decoded  = json_decode( $elements, true );
 			$elements = is_array( $decoded ) ? $decoded : explode( ',', $elements );
@@ -340,8 +341,6 @@ function responsive_woocommerce_shop_banner2() {
 			}
 		}
 
-		$has_breadcrumb = (bool) get_theme_mod( 'breadcrumbs_options', 1 );
-
 		$has_content = false;
 		foreach ( $elements as $element ) {
 			if ( 'title' === $element && $responsive_page_title ) {
@@ -350,7 +349,7 @@ function responsive_woocommerce_shop_banner2() {
 			} elseif ( 'description' === $element && $responsive_page_description ) {
 				$has_content = true;
 				break;
-			} elseif ( 'breadcrumb' === $element && $has_breadcrumb ) {
+			} elseif ( 'breadcrumb' === $element ) {
 				$has_content = true;
 				break;
 			}
@@ -397,7 +396,7 @@ function responsive_woocommerce_shop_banner2() {
 						echo '<h1 class="page-title">' . wp_kses_post( $responsive_page_title ) . '</h1>';
 					} elseif ( 'description' === $element && $responsive_page_description ) {
 						echo '<div class="page-description">' . wp_kses_post( wpautop( $responsive_page_description ) ) . '</div>';
-					} elseif ( 'breadcrumb' === $element && $has_breadcrumb ) {
+					} elseif ( 'breadcrumb' === $element ) {
 						?>
 						<div class="responsive-breadcrumbs-wrapper">
 							<div class="breadcrumbs-inner">

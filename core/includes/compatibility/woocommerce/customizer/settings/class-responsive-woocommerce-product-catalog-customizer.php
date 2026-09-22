@@ -35,27 +35,6 @@ if ( ! class_exists( 'Responsive_Woocommerce_Product_Catalog_Customizer' ) ) :
 		public function customizer_options( $wp_customize ) {
 
 			$wp_customize->add_setting(
-				'breadcrumbs_options',
-				array(
-					'default'           => 1,
-					'sanitize_callback' => 'Responsive\Customizer\\responsive_sanitize_checkbox',
-					'transport'         => 'refresh',
-				)
-			);
-			$wp_customize->add_control(
-				new Responsive_Customizer_Toggle_Control(
-					$wp_customize,
-					'breadcrumbs_options',
-					array(
-						'label'    => __( 'Breadcrumbs', 'responsive' ),
-						'section'  => 'responsive_woocommerce_shop',
-						'settings' => 'breadcrumbs_options',
-						'priority' => 3,
-					)
-				)
-			);
-
-			$wp_customize->add_setting(
 				'toolbar_options',
 				array(
 					'default'           => 4,

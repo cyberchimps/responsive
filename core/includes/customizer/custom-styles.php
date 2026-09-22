@@ -14090,7 +14090,8 @@ function responsive_customizer_styles() {
 				}";
 			}
 
-			$elements = get_theme_mod( 'responsive_shop_title_elements_positioning', array( 'breadcrumb', 'title', 'description' ) );
+			$default_elements = get_theme_mod( 'breadcrumbs_options', 1 ) ? array( 'breadcrumb', 'title', 'description' ) : array( 'title', 'description' );
+			$elements         = get_theme_mod( 'responsive_shop_title_elements_positioning', $default_elements );
 			if ( is_string( $elements ) ) {
 				$decoded  = json_decode( $elements, true );
 				$elements = is_array( $decoded ) ? $decoded : explode( ',', $elements );

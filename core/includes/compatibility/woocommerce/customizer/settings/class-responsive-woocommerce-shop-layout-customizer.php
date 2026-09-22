@@ -66,7 +66,6 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				$general_tab_ids_prefix . 'responsive_enable_off_canvas_filter',
 				$general_tab_ids_prefix . 'responsive_enable_off_canvas_close_btn',
 				$general_tab_ids_prefix . 'responsive_off_canvas_close_button_color',
-				$general_tab_ids_prefix . 'breadcrumbs_options',
 				$general_tab_ids_prefix . 'toolbar_options',
 				$general_tab_ids_prefix . 'responsive_native_cart_popup_separator',
 				$general_tab_ids_prefix . 'responsive_enable_native_cart_popup',
@@ -322,10 +321,12 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			);
 
 			// Structure (Sortable control).
+			$default_elements = get_theme_mod( 'breadcrumbs_options', 1 ) ? array( 'breadcrumb', 'title', 'description' ) : array( 'title', 'description' );
+
 			$wp_customize->add_setting(
 				'responsive_shop_title_elements_positioning',
 				array(
-					'default'           => array( 'breadcrumb', 'title', 'description' ),
+					'default'           => $default_elements,
 					'sanitize_callback' => 'responsive_sanitize_multi_choices',
 					'transport'         => 'refresh',
 				)
