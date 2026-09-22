@@ -13965,8 +13965,7 @@ function responsive_customizer_styles() {
 			$woocommerce_custom_css .= "
 			.woocommerce.archive .site-content-header,
 			.woocommerce-shop .site-content-header,
-			.woocommerce.archive .responsive-archive-entry-banner,
-			.woocommerce-shop .responsive-archive-entry-banner {
+			.responsive-shop-entry-banner {
 				display: none;
 			}";
 		} elseif ( 'post_title_layout2' === $shop_title_layout ) {
@@ -13990,8 +13989,7 @@ function responsive_customizer_styles() {
 			.woocommerce-shop .site-content-header {
 				display: none;
 			}
-			.woocommerce.archive .responsive-archive-entry-banner,
-			.woocommerce-shop .responsive-archive-entry-banner {
+			.responsive-shop-entry-banner {
 				min-height: {$shop_banner_min_height}px;
 				display: flex;
 				flex-direction: column;
@@ -14008,57 +14006,48 @@ function responsive_customizer_styles() {
 			if ( 'custom' === $shop_banner_container_width ) {
 				$shop_banner_custom_width = get_theme_mod( 'responsive_shop_banner_custom_width', 1316 );
 				$woocommerce_custom_css .= "
-				.woocommerce.archive .responsive-archive-entry-banner,
-				.woocommerce-shop .responsive-archive-entry-banner {
+				.responsive-shop-entry-banner {
 					max-width: min({$shop_banner_custom_width}px, {$calc_width_desktop});
 					width: {$calc_width_desktop};
 				}
 				@media screen and ( max-width: 992px ) {
-					.woocommerce.archive .responsive-archive-entry-banner,
-					.woocommerce-shop .responsive-archive-entry-banner {
+					.responsive-shop-entry-banner {
 						max-width: min({$shop_banner_custom_width}px, {$calc_width_tablet});
 						width: {$calc_width_tablet};
 					}
 				}
 				@media screen and ( max-width: 576px ) {
-					.woocommerce.archive .responsive-archive-entry-banner,
-					.woocommerce-shop .responsive-archive-entry-banner {
+					.responsive-shop-entry-banner {
 						max-width: min({$shop_banner_custom_width}px, {$calc_width_mobile});
 						width: {$calc_width_mobile};
 					}
 				}";
 			} else {
 				$woocommerce_custom_css .= "
-				.woocommerce.archive .responsive-archive-entry-banner,
-				.woocommerce-shop .responsive-archive-entry-banner {
+				.responsive-shop-entry-banner {
 					width: {$calc_width_desktop};
 				}
 				@media screen and ( max-width: 992px ) {
-					.woocommerce.archive .responsive-archive-entry-banner,
-					.woocommerce-shop .responsive-archive-entry-banner {
+					.responsive-shop-entry-banner {
 						width: {$calc_width_tablet};
 					}
 				}
 				@media screen and ( max-width: 576px ) {
-					.woocommerce.archive .responsive-archive-entry-banner,
-					.woocommerce-shop .responsive-archive-entry-banner {
+					.responsive-shop-entry-banner {
 						width: {$calc_width_mobile};
 					}
 				}";
 			}
 
 			$woocommerce_custom_css .= "
-			.woocommerce.archive .responsive-archive-entry-banner .container,
-			.woocommerce-shop .responsive-archive-entry-banner .container {
+			.responsive-shop-entry-banner .container {
 				width: 100%;
 			}
-			.woocommerce.archive .responsive-archive-entry-banner + #wrapper .content-outer.container,
-			.woocommerce-shop .responsive-archive-entry-banner + #wrapper .content-outer.container {
+			.responsive-shop-entry-banner + #wrapper .content-outer.container {
 				margin: 0 auto 52px;
 			}
 			@media screen and ( max-width: 992px ) {
-				.woocommerce.archive .responsive-archive-entry-banner,
-				.woocommerce-shop .responsive-archive-entry-banner {
+				.responsive-shop-entry-banner {
 					min-height: {$shop_banner_min_height_tablet}px;
 					background-color: {$bg_tablet_css};
 					padding: " . $format_spacing( $shop_banner_padding['tablet'], $shop_banner_padding_tablet_unit ) . ";
@@ -14066,8 +14055,7 @@ function responsive_customizer_styles() {
 				}
 			}
 			@media screen and ( max-width: 576px ) {
-				.woocommerce.archive .responsive-archive-entry-banner,
-				.woocommerce-shop .responsive-archive-entry-banner {
+				.responsive-shop-entry-banner {
 					min-height: {$shop_banner_min_height_mobile}px;
 					background-color: {$bg_mobile_css};
 					padding: " . $format_spacing( $shop_banner_padding['mobile'], $shop_banner_padding_mobile_unit ) . ";
@@ -14162,16 +14150,14 @@ function responsive_customizer_styles() {
 			$align_mobile  = isset( $map_align[ $shop_title_horizontal_alignment_mobile ] ) ? $map_align[ $shop_title_horizontal_alignment_mobile ] : 'center';
 
 			$woocommerce_custom_css .= "
-			.woocommerce.archive .responsive-archive-entry-banner,
-			.woocommerce-shop .responsive-archive-entry-banner,
+			.responsive-shop-entry-banner,
 			.woocommerce.archive .site-content-header,
 			.woocommerce-shop .site-content-header {
 				align-items: {$align_desktop};
 				text-align: {$shop_title_horizontal_alignment};
 			}
 			@media screen and ( max-width: 992px ) {
-				.woocommerce.archive .responsive-archive-entry-banner,
-				.woocommerce-shop .responsive-archive-entry-banner,
+				.responsive-shop-entry-banner,
 				.woocommerce.archive .site-content-header,
 				.woocommerce-shop .site-content-header {
 					align-items: {$align_tablet};
@@ -14179,8 +14165,7 @@ function responsive_customizer_styles() {
 				}
 			}
 			@media screen and ( max-width: 576px ) {
-				.woocommerce.archive .responsive-archive-entry-banner,
-				.woocommerce-shop .responsive-archive-entry-banner,
+				.responsive-shop-entry-banner,
 				.woocommerce.archive .site-content-header,
 				.woocommerce-shop .site-content-header {
 					align-items: {$align_mobile};
@@ -14192,8 +14177,7 @@ function responsive_customizer_styles() {
 			$shop_title_inner_elements_spacing = get_theme_mod( 'responsive_shop_title_inner_elements_spacing', Responsive\Core\get_responsive_customizer_defaults( 'shop_title_inner_elements_spacing' ) );
 
 			$woocommerce_custom_css .= "
-			.woocommerce.archive .responsive-archive-entry-banner .container > *:not(:last-child),
-			.woocommerce-shop .responsive-archive-entry-banner .container > *:not(:last-child) {
+			.responsive-shop-entry-banner .container > *:not(:last-child) {
 				margin-bottom: {$shop_title_inner_elements_spacing}px;
 			}
 			.woocommerce.archive .site-content-header,
@@ -14244,34 +14228,28 @@ function responsive_customizer_styles() {
 			$woocommerce_custom_css .= "
 			.woocommerce.archive .site-content-header,
 			.woocommerce-shop .site-content-header,
-			.woocommerce.archive .responsive-archive-entry-banner,
-			.woocommerce-shop .responsive-archive-entry-banner,
+			.responsive-shop-entry-banner,
 			.woocommerce.archive .site-content-header .page-description,
 			.woocommerce-shop .site-content-header .page-description,
-			.woocommerce.archive .responsive-archive-entry-banner .page-description p,
-			.woocommerce-shop .responsive-archive-entry-banner .page-description p,
+			.responsive-shop-entry-banner .page-description p,
 			.woocommerce.archive .site-content-header .woocommerce-breadcrumb,
 			.woocommerce-shop .site-content-header .woocommerce-breadcrumb,
-			.woocommerce.archive .responsive-archive-entry-banner .woocommerce-breadcrumb,
-			.woocommerce-shop .responsive-archive-entry-banner .woocommerce-breadcrumb {
+			.responsive-shop-entry-banner .woocommerce-breadcrumb {
 				color: {$shop_title_text_color};
 			}
 			.woocommerce.archive .site-content-header .page-title,
 			.woocommerce-shop .site-content-header .page-title,
-			.woocommerce.archive .responsive-archive-entry-banner .page-title,
-			.woocommerce-shop .responsive-archive-entry-banner .page-title {
+			.responsive-shop-entry-banner .page-title {
 				color: {$shop_title_color};
 			}
 			.woocommerce.archive .site-content-header a,
 			.woocommerce-shop .site-content-header a,
-			.woocommerce.archive .responsive-archive-entry-banner a,
-			.woocommerce-shop .responsive-archive-entry-banner a {
+			.responsive-shop-entry-banner a {
 				color: {$shop_title_link_color};
 			}
 			.woocommerce.archive .site-content-header a:hover,
 			.woocommerce-shop .site-content-header a:hover,
-			.woocommerce.archive .responsive-archive-entry-banner a:hover,
-			.woocommerce-shop .responsive-archive-entry-banner a:hover {
+			.responsive-shop-entry-banner a:hover {
 				color: {$shop_title_link_hover_color};
 			}";
 		}

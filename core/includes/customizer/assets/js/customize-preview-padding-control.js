@@ -3087,7 +3087,7 @@ mobileHeaderWooCartMarginSettings.forEach(function(setting) {
             value.bind(function(newval) {
                 responsive_dynamic_unit_padding(
                     'shop_banner_padding',
-                    '.woocommerce.archive .responsive-archive-entry-banner, .woocommerce-shop .responsive-archive-entry-banner, .woocommerce.archive .site-content-header, .woocommerce-shop .site-content-header'
+                    '.responsive-shop-entry-banner, .woocommerce.archive .site-content-header, .woocommerce-shop .site-content-header'
                 );
             });
         });
@@ -3117,7 +3117,7 @@ mobileHeaderWooCartMarginSettings.forEach(function(setting) {
             value.bind(function(newval) {
                 responsive_dynamic_unit_margin(
                     'shop_banner_margin',
-                    '.woocommerce.archive .responsive-archive-entry-banner, .woocommerce-shop .responsive-archive-entry-banner, .woocommerce.archive .site-content-header, .woocommerce-shop .site-content-header'
+                    '.responsive-shop-entry-banner, .woocommerce.archive .site-content-header, .woocommerce-shop .site-content-header'
                 );
             });
         });

@@ -389,7 +389,7 @@ function responsive_woocommerce_shop_banner2() {
 			}
 		}
 		?>
-		<section class="responsive-archive-entry-banner"<?php echo $section_style; ?>>
+		<section class="responsive-shop-entry-banner"<?php echo $section_style; ?>>
 			<div class="container">
 				<?php
 				foreach ( $elements as $element ) {

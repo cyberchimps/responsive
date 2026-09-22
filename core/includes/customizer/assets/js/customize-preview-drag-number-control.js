@@ -541,14 +541,14 @@
 
     api( 'responsive_shop_title_inner_elements_spacing', function( value ) {
         value.bind( function( newval ) {
-            $('body.woocommerce.archive .responsive-archive-entry-banner .container > *:not(:last-child), body.woocommerce-shop .responsive-archive-entry-banner .container > *:not(:last-child)').css('margin-bottom', newval+'px');
+            $('.responsive-shop-entry-banner .container > *:not(:last-child)').css('margin-bottom', newval+'px');
             $('.woocommerce.archive .site-content-header, .woocommerce-shop .site-content-header').css('row-gap', newval+'px');
         });
     });
 
     api( 'responsive_shop_banner_custom_width', function( value ) {
         value.bind( function( newval ) {
-            $('body.woocommerce.archive .responsive-archive-entry-banner, body.woocommerce-shop .responsive-archive-entry-banner').css('max-width', newval+'px');
+            $('.responsive-shop-entry-banner').css('max-width', newval+'px');
         });
     });
 
@@ -560,7 +560,7 @@
             jQuery('head').append(
                 `<style id="${styleId}">
                     @media (min-width: 993px) {
-                        body.woocommerce.archive .responsive-archive-entry-banner, body.woocommerce-shop .responsive-archive-entry-banner { min-height: ${newval}px; }
+                        .responsive-shop-entry-banner { min-height: ${newval}px; }
                     }
                 </style>`
             );
@@ -575,7 +575,7 @@
             jQuery('head').append(
                 `<style id="${styleId}">
                     @media (min-width: 577px) and (max-width: 992px) {
-                        body.woocommerce.archive .responsive-archive-entry-banner, body.woocommerce-shop .responsive-archive-entry-banner { min-height: ${newval}px; }
+                        .responsive-shop-entry-banner { min-height: ${newval}px; }
                     }
                 </style>`
             );
@@ -590,7 +590,7 @@
             jQuery('head').append(
                 `<style id="${styleId}">
                     @media (max-width: 576px) {
-                        body.woocommerce.archive .responsive-archive-entry-banner, body.woocommerce-shop .responsive-archive-entry-banner { min-height: ${newval}px; }
+                        .responsive-shop-entry-banner { min-height: ${newval}px; }
                     }
                 </style>`
             );
