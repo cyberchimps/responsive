@@ -556,7 +556,6 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 			// Global WooCommerce styling
 			$classes[] = 'product-sale-style-' . get_theme_mod( 'responsive_product_sale_style', 'circle' );
-			$classes[] = 'product-content-aligmnment-' . get_theme_mod( 'responsive_product_content_aligmnment', 'center' );
 
 			$product_card_design = get_theme_mod( 'responsive_product_card_design', 'design1' );
 			if ( 'design2' === $product_card_design ) {

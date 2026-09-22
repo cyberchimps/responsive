@@ -57,7 +57,6 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				$general_tab_ids_prefix . 'responsive_shop_elements_separator',
 				$general_tab_ids_prefix . 'responsive_product_card_design',
 				$general_tab_ids_prefix . 'responsive_woocommerce_catalog_view',
-				$general_tab_ids_prefix . 'responsive_product_content_aligmnment',
 				$general_tab_ids_prefix . 'responsive_woocommerce_shop_elements_positioning',
 				$general_tab_ids_prefix . 'responsive_product_review_count',
 				$general_tab_ids_prefix . 'responsive_shop_add_to_cart_action',
@@ -753,22 +752,6 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'list' => esc_html__( 'List View', 'responsive' ),
 			);
 			responsive_select_control( $wp_customize, 'woocommerce_catalog_view', $woocommerce_catalog_view_label, 'responsive_woocommerce_shop', 50.2, $woocommerce_catalog_view_choices, 'grid', null );
-
-			// Product content Aligmnment.
-			$product_content_aligmnment_label   = esc_html__( 'Content Aligmnment', 'responsive' );
-			$product_content_aligmnment_choices = array(
-				'left'   => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
-				'center' => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
-				'right'  => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
-			);
-			if ( is_rtl() ) {
-				$product_content_aligmnment_choices = array(
-					'left'   => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
-					'center' => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
-					'right'  => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
-				);
-			}
-			responsive_select_button_control( $wp_customize, 'product_content_aligmnment', $product_content_aligmnment_label, 'responsive_woocommerce_shop', 60, $product_content_aligmnment_choices, 'center', null );
 
 			// Shop Elements.
 			$wp_customize->add_setting(

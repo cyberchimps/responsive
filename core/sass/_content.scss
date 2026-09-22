@@ -6,7 +6,7 @@
 
 .site-content-header {
     @include make-block-element($grid-gutter-width);
-    padding: $base-line-height-px;
+    padding: 30px; // $base-line-height-px
     background-color: map-get($colors, white);
     text-align: left;
 
