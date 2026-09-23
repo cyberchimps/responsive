@@ -399,7 +399,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 						switch ( $state ) {
 							case 'not installed':
 								?>
-								<a href="<?php echo esc_url( 'https://cyberchimps.com/pricing/?utm_source=Responsive_theme&utm_medium=intro_screen&utm_campaign=free-to-pro&utm_term=Upgrade_now_home' ); ?>" target="_blank" class="responsive-theme-upgrade-now-btn float-lg-end float-start text-decoration-none mb-4"><?php echo esc_html_e( 'Upgrade Now', 'responsive' ); ?></a>
+								<a href="<?php echo esc_url( 'https://cyberchimps.com/pricing/?utm_source=Responsive_theme&utm_medium=intro_screen&utm_campaign=free-to-pro&utm_term=Upgrade_now_home' ); ?>" target="_blank" class="responsive-theme-upgrade-now-btn float-lg-end float-start text-decoration-none mb-4"><?php esc_html_e( 'Upgrade Now', 'responsive' ); ?></a>
 								<?php
 								break;
 							case 'installed':
@@ -552,8 +552,8 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 							// } else {
 								?> -->
 							<!-- <span class="responsive-theme-feature-card responsive-theme-feature-card-free"><span><?php //esc_html_e( 'FREE', 'responsive' ); ?></span></span> -->
-							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html_e( 'Mega Menu', 'responsive' ); ?></div>
-							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Adds menu options such as mega menus, highlight tags, icons, etc.', 'responsive' ); ?></div>
+							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php esc_html_e( 'Mega Menu', 'responsive' ); ?></div>
+							<div class="responsive-theme-feature-card-desc"><?php esc_html_e( 'Adds menu options such as mega menus, highlight tags, icons, etc.', 'responsive' ); ?></div>
 							<?php do_action( 'responsivex_render_feature_toggle_mega_menu' ); ?>
 						</div>
 					</div>
@@ -571,8 +571,8 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 								<?php
 							}
 							?>
-							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html_e( 'Typography', 'responsive' ); ?></div>
-							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Adds options for font style, size, and family that suits your website best.', 'responsive' ); ?></div>
+							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php esc_html_e( 'Typography', 'responsive' ); ?></div>
+							<div class="responsive-theme-feature-card-desc"><?php esc_html_e( 'Adds options for font style, size, and family that suits your website best.', 'responsive' ); ?></div>
 							<?php
 							if ( 'activated' === $state ) {
 								?>
@@ -622,8 +622,8 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 								<?php
 							}
 							?>
-							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html_e( 'Colors & Backgrounds', 'responsive' ); ?></div>
-							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Enhances the background spacing, padding and color of your site.', 'responsive' ); ?></div>
+							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php esc_html_e( 'Colors & Backgrounds', 'responsive' ); ?></div>
+							<div class="responsive-theme-feature-card-desc"><?php esc_html_e( 'Enhances the background spacing, padding and color of your site.', 'responsive' ); ?></div>
 							<?php
 							if ( 'activated' === $state ) {
 								?>
@@ -689,8 +689,8 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 								?>
 							<span class="responsive-theme-feature-card responsive-theme-feature-card-free"><span><?php // esc_html_e( 'FREE', 'responsive' ); ?></span></span>
 							?>	-->
-							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html_e( 'Woocommerce', 'responsive' ); ?></div>
-							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Adds enhanced set of options in the WooCommerce store customizer.', 'responsive' ); ?></div>
+							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php esc_html_e( 'Woocommerce', 'responsive' ); ?></div>
+							<div class="responsive-theme-feature-card-desc"><?php esc_html_e( 'Adds enhanced set of options in the WooCommerce store customizer.', 'responsive' ); ?></div>
 							<?php do_action( 'responsivex_render_feature_toggle_woocommerce' ); ?>
 						</div>
 					</div>
@@ -698,8 +698,8 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 				<div class="col-xl-4 col-lg-6 col-md-6">
 					<div class="responsive-theme-feature-cards h-100">
 						<div class="responsive-theme-feature-cards-content">
-							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html_e( 'Custom Fonts', 'responsive' ); ?></div>
-							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Enables you to upload custom fonts directly, no additional font plugin required.', 'responsive' ); ?></div>
+							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php esc_html_e( 'Custom Fonts', 'responsive' ); ?></div>
+							<div class="responsive-theme-feature-card-desc"><?php esc_html_e( 'Enables you to upload custom fonts directly, no additional font plugin required.', 'responsive' ); ?></div>
 							<?php do_action( 'responsivex_render_feature_toggle_custom_fonts' ); ?>
 						</div>
 					</div>
@@ -707,8 +707,8 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 				<div class="col-xl-4 col-lg-6 col-md-6">
 					<div class="responsive-theme-feature-cards h-100">
 						<div class="responsive-theme-feature-cards-content">
-							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html_e( 'Site Builder', 'responsive' ); ?></div>
-							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Site Builder lets you edit parts of site like the header, footer, 404, and archive templates.', 'responsive' ); ?></div>
+							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php esc_html_e( 'Site Builder', 'responsive' ); ?></div>
+							<div class="responsive-theme-feature-card-desc"><?php esc_html_e( 'Site Builder lets you edit parts of site like the header, footer, 404, and archive templates.', 'responsive' ); ?></div>
 							<?php do_action( 'responsivex_render_feature_toggle_site_builder' ); ?>
 						</div>
 					</div>
