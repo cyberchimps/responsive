@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '6.4.5' );
+define( 'RESPONSIVE_THEME_VERSION', '6.4.6' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -3447,7 +3447,7 @@ if ( ! function_exists( 'responsive_theme_background_updater_title_area_breadcru
 	 * one-time migration re-adds 'breadcrumb' to the front of each affected array
 	 * when the corresponding legacy toggle(s) were enabled.
 	 *
-	 * @since 6.4.5
+	 * @since 6.4.6
 	 * @return void
 	 */
 	function responsive_theme_background_updater_title_area_breadcrumb_6_4_6() {
