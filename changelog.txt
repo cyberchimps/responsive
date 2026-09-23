@@ -10,7 +10,7 @@ Changelog Legend:
 
 (23/09/2026) Version 6.4.6
 [+] = New = Adding Breadcrumb Support for Yoast SEO and RankMath plugins. 
-[*] = Improvement = Adding more customization options for Breadcrumbs both in Global and in Post type level (Single Page, Single Post, Blog/Archive).
+[*] = Improvement = Improvement = Added more customization options for breadcrumbs at both the global and post-type levels (Single Page, Single Post, Blog/Archive).
 
 (17/09/2026) Version 6.4.5
 [+] = New = Introducing new HTML 1, HTML 2, Widget 1, and Widget 2 widgets in the Header, along with HTML 1 and HTML 2 widgets in the Footer.
