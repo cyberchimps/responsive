@@ -1267,7 +1267,7 @@
         'input[type=button]:hover,' +
         'input[type=submit]:hover,' +
         'button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button):not(.customize-partial-edit-shortcut-button):not(.menu-toggle),' +
-        '.button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button):not(.customize-partial-edit-shortcut-button):not(.menu-toggle),' +
+        '.button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button):not(.customize-partial-edit-shortcut-button):not(.menu-toggle):not(.site-mobile-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button),' +
         '.wp-block-button:not(.is-style-outline) > .wp-block-button__link:hover,' +
         'div.wpforms-container-full .wpforms-form input[type=submit]:hover,' +
         'body div.wpforms-container-full .wpforms-form button[type=submit]:hover,' +
