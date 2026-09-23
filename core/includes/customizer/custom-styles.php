@@ -14757,6 +14757,18 @@ function responsive_customizer_styles() {
 					$box_shadow_hover = 'none';
 			}
 
+			/** star-rating is a block with a fixed width, so text-align alone won't move it; position it via margin instead. */
+			switch ( $content_alignment ) {
+				case 'center':
+					$content_alignment_star_rating_margin = '0 auto';
+					break;
+				case 'right':
+					$content_alignment_star_rating_margin = '0 0 0 auto';
+					break;
+				default:
+					$content_alignment_star_rating_margin = '0 auto 0 0';
+			}
+
 			$woocommerce_custom_css .= "
 				.woocommerce-breadcrumb.is-shop {
 					display: {$breadcrumb_display_value}
@@ -14773,6 +14785,10 @@ function responsive_customizer_styles() {
 				}
 				.responsive-shop-summary-wrap : hover{
 					opacity : 1;
+				}
+				.woocommerce ul.products li.product .responsive-shop-summary-wrap .star-rating{
+					float: none;
+					margin: {$content_alignment_star_rating_margin};
 				}
 
 				.woocommerce ul.products li.product,
