@@ -14,13 +14,13 @@ if ( ! class_exists( 'WooCommerce' ) ) {
 	return;
 }
 
-if ( ! function_exists( 'enable_native_cart_popup_check' ) ) {
+if ( ! function_exists( 'responsive_enable_native_cart_popup_check' ) ) {
 	/**
 	 * Check if the native cart popup is enabled.
 	 *
 	 * @return bool
 	 */
-	function enable_native_cart_popup_check() {
+	function responsive_enable_native_cart_popup_check() {
 		$val = get_theme_mod( 'responsive_enable_native_cart_popup', false );
 		return ( $val === true || $val === '1' || $val === 1 );
 	}
@@ -48,37 +48,37 @@ if ( ! function_exists( 'responsive_popup_elements_positioning' ) ) {
 	}
 }
 
-if ( ! function_exists( 'responsive_addons_pagination_callbacks' ) ) {
+if ( ! function_exists( 'responsive_woo_pagination_callbacks' ) ) {
 	/**
 	 * Active callback for the shop pagination style control.
 	 *
 	 * @return bool
 	 */
-	function responsive_addons_pagination_callbacks() {
+	function responsive_woo_pagination_callbacks() {
 		$shop_scroll_style = get_theme_mod( 'shop_pagination', 'default' );
 		return 'default' === $shop_scroll_style;
 	}
 }
 
-if ( ! function_exists( 'responsive_addons_pagination_trigger' ) ) {
+if ( ! function_exists( 'responsive_woo_pagination_trigger' ) ) {
 	/**
 	 * Determines if infinite scroll pagination is enabled for the shop.
 	 *
 	 * @return bool
 	 */
-	function responsive_addons_pagination_trigger() {
+	function responsive_woo_pagination_trigger() {
 		$shop_scroll_style = get_theme_mod( 'shop_pagination', 'default' );
 		return 'infinite' === $shop_scroll_style;
 	}
 }
 
-if ( ! function_exists( 'responsive_addons_load_more_callback' ) ) {
+if ( ! function_exists( 'responsive_woo_load_more_callback' ) ) {
 	/**
 	 * Active callback for the "Load More" text control.
 	 *
 	 * @return bool
 	 */
-	function responsive_addons_load_more_callback() {
+	function responsive_woo_load_more_callback() {
 		$shop_infinite_loading = get_theme_mod( 'shop-infinite-scroll-event', 'scroll' );
 		$shop_scroll_style     = get_theme_mod( 'shop_pagination', 'default' );
 		return ( 'infinite' === $shop_scroll_style && 'click' === $shop_infinite_loading );
