@@ -1517,6 +1517,17 @@ li.product.btn-action-bottom-slide-up {
         }
     }
 }
+
+.responsive-product-action-wrap {
+    a.button,
+    button.button,
+    .button {
+        max-width: 100%;
+        box-sizing: border-box;
+        white-space: normal;
+    }
+}
+
 /* Button Style: Text with Arrow */
 ul.wc-block-grid__products li.wc-block-grid__product.btn-style-text-with-arrow,
 ul.products li.product.btn-style-text-with-arrow,
@@ -1534,7 +1545,10 @@ li.product.btn-style-text-with-arrow {
         min-height: 0;
         display: inline-flex;
         align-items: center;
+        flex-wrap: wrap;
         gap: 6px;
+        max-width: 100%;
+        box-sizing: border-box;
         cursor: pointer;
 
         .responsive-btn-arrow {
