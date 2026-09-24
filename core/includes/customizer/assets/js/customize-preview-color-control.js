@@ -7228,7 +7228,17 @@
     api('responsive_shop_title_link_color', function(value) {
         value.bind(function(newval) {
             var color = processThemeSettingForCSS('responsive_shop_title_link_color') || newval;
-            $('.woocommerce.archive .site-content-header a, .woocommerce-shop .site-content-header a, .responsive-shop-entry-banner a').css('color', color);
+            var styleId = 'responsive-shop-title-link-color-preview';
+            var selectors = '.woocommerce.archive .site-content-header a, .woocommerce-shop .site-content-header a, .woocommerce .responsive-shop-entry-banner a';
+            $(selectors).css('color', '');
+            $('#' + styleId).remove();
+            if (color) {
+                $('head').append(
+                    '<style id="' + styleId + '">' +
+                    selectors + ' { color: ' + color + '; }' +
+                    '</style>'
+                );
+            }
         });
     });
 
@@ -7239,7 +7249,7 @@
             var styleId = 'responsive-shop-title-link-hover-color-preview';
             $('#' + styleId).remove();
             if (color) {
-                var selectors = '.woocommerce.archive .site-content-header a:hover, .woocommerce-shop .site-content-header a:hover, .responsive-shop-entry-banner a:hover';
+                var selectors = '.woocommerce.archive .site-content-header a:hover, .woocommerce-shop .site-content-header a:hover, .woocommerce .responsive-shop-entry-banner a:hover';
                 $('head').append(
                     '<style id="' + styleId + '">' +
                     selectors + ' { color: ' + color + '; }' +

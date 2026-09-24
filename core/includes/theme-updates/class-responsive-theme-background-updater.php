@@ -63,6 +63,9 @@ if ( ! class_exists( 'Responsive_Theme_Background_Updater' ) ) {
             '6.4.6' => array (
                 'responsive_theme_background_updater_title_area_breadcrumb_6_4_6',
             ),
+            '6.4.7' => array (
+                'responsive_theme_background_updater_woocommerce_styling_6_4_7',
+            ),
 		);
 
         /**

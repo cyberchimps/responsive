@@ -586,6 +586,13 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_secondary_navigation_fill_stretch').style.display = 'none';
 		}
 
+		if ( api('responsive_product_card_design') && api('responsive_product_card_design').get() === 'design2' ) {
+			const saleStyleCtrl = document.getElementById('customize-control-responsive_product_sale_style');
+			if ( saleStyleCtrl ) {
+				saleStyleCtrl.style.display = 'none';
+			}
+		}
+
 		// Toggle Button Style - Hide controls based on style
 		if( api('responsive_mobile_menu_toggle_style') ) {
 			const allToggleButtonElementIds = [
@@ -1356,6 +1363,16 @@ const TabsComponent = props => {
 			api('responsive_product_button_style', function(value) {
 				value.bind(function() {
 					toggleAddToCartButtonBorderControls();
+				});
+			});
+		}
+		if (api('responsive_product_card_design')) {
+			api('responsive_product_card_design', function(value) {
+				value.bind(function(newval) {
+					const el = document.getElementById('customize-control-responsive_product_sale_style');
+					if (el) {
+						el.style.display = (newval !== 'design2' && 'general' === tab) ? 'block' : 'none';
+					}
 				});
 			});
 		}

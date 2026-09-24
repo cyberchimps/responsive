@@ -735,10 +735,10 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 74,
 					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
-						'font-size'      => '14px',
-						'line-height'    => '1',
-						'text-transform' => 'inherit',
-						'font-weight'    => '400',
+						'font-size'      => 'Default',
+						'line-height'    => 'Default',
+						'text-transform' => 'Default',
+						'font-weight'    => 'Default',
 					),
 				),
 				'shop_title' => array(
@@ -748,8 +748,8 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'exclude'  => array( 'font-color' ),
 					'priority' => 19,
 					'defaults' => array(
-						'font-size'   => '32px',
-						'line-height' => '1.25',
+						'font-size'   => 'Default',
+						'line-height' => 'Default',
 					),
 				),
 				'shop_text' => array(
@@ -759,8 +759,8 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'exclude'  => array( 'font-color' ),
 					'priority' => 20,
 					'defaults' => array(
-						'font-size'   => '16px',
-						'line-height' => '1.75',
+						'font-size'   => 'Default',
+						'line-height' => 'Default',
 					),
 				),
 			);

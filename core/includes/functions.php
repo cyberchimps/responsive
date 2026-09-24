@@ -1282,7 +1282,7 @@ function defaults() {
 			'shop_title_layout'                   => 'post_title_layout1',
 			'shop_title_elements_positioning'     => array( 'breadcrumb', 'title', 'description' ),
 			'shop_title_horizontal_alignment'     => 'center',
-			'shop_title_inner_elements_spacing'   => 10,
+			'shop_title_inner_elements_spacing'   => 0,
 			'shop_title_container_background_layout1' => 'none',
 			'shop_title_container_background_layout2' => 'custom',
 			'page_title_inner_elements_spacing'   => 10,

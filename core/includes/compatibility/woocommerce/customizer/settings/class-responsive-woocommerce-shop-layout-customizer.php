@@ -415,7 +415,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'responsive_shop_title_layout',
 				7,
 				$shop_title_horizontal_alignment_choices,
-				'center',
+				Responsive\Core\get_responsive_customizer_defaults( 'shop_title_horizontal_alignment' ),
 				null
 			);
 
@@ -455,7 +455,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				Responsive\Core\get_responsive_customizer_defaults( 'shop_title_inner_elements_spacing' ),
 				null,
 				100,
-				1,
+				0,
 				'postMessage'
 			);
 
@@ -587,7 +587,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			responsive_horizontal_separator_control( $wp_customize, 'shop_title_typography_separator', 1, 'responsive_shop_title_layout', 21, 1 );
 
 			// Padding.
-			responsive_unit_padding_control( $wp_customize, 'shop_banner_padding', 'responsive_shop_title_layout', 22, 30, 0, null, esc_html__( 'Padding', 'responsive' ), 'postMessage', 30, 0, 30, 0, 'px' );
+			responsive_unit_padding_control( $wp_customize, 'shop_banner_padding', 'responsive_shop_title_layout', 22, 30, 30, null, esc_html__( 'Padding', 'responsive' ), 'postMessage', 30, 30, 30, 30, 'px' );
 
 			// Margin.
 			responsive_unit_padding_control( $wp_customize, 'shop_banner_margin', 'responsive_shop_title_layout', 23, '', '', null, esc_html__( 'Margin', 'responsive' ), 'postMessage', '', '', '', '', 'px', 24, null, 24, null, 24, null );
@@ -815,7 +815,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'square'         => __( 'Square', 'responsive' ),
 				'square-outline' => __( 'Square Outline', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'product_sale_style', $product_sale_style_label, 'responsive_woocommerce_shop', 100, $product_sale_style_choices, 'circle', 'responsive_check_product_sale_style_visible' );
+			responsive_select_control( $wp_customize, 'product_sale_style', $product_sale_style_label, 'responsive_woocommerce_shop', 100, $product_sale_style_choices, 'circle', null );
 
 			// Off Canvas Layout.
 			$off_canvas_filter_label = esc_html__( 'Off Canvas Filter', 'responsive' );
