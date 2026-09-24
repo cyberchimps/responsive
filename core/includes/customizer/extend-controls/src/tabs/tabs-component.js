@@ -593,6 +593,17 @@ const TabsComponent = props => {
 			}
 		}
 
+		if ( api('toolbar_options') && ! api('toolbar_options').get() ) {
+			const resultsCountCtrl = document.getElementById('customize-control-responsive_show_archive_results_count');
+			const sortingDropdownCtrl = document.getElementById('customize-control-responsive_show_archive_sorting_dropdown');
+			if ( resultsCountCtrl ) {
+				resultsCountCtrl.style.display = 'none';
+			}
+			if ( sortingDropdownCtrl ) {
+				sortingDropdownCtrl.style.display = 'none';
+			}
+		}
+
 		// Toggle Button Style - Hide controls based on style
 		if( api('responsive_mobile_menu_toggle_style') ) {
 			const allToggleButtonElementIds = [
@@ -1372,6 +1383,21 @@ const TabsComponent = props => {
 					const el = document.getElementById('customize-control-responsive_product_sale_style');
 					if (el) {
 						el.style.display = (newval !== 'design2' && 'general' === tab) ? 'block' : 'none';
+					}
+				});
+			});
+		}
+		if (api('toolbar_options')) {
+			api('toolbar_options', function(value) {
+				value.bind(function(newval) {
+					const display = (!!newval && 'general' === tab) ? 'block' : 'none';
+					const resultsCountCtrl = document.getElementById('customize-control-responsive_show_archive_results_count');
+					const sortingDropdownCtrl = document.getElementById('customize-control-responsive_show_archive_sorting_dropdown');
+					if (resultsCountCtrl) {
+						resultsCountCtrl.style.display = display;
+					}
+					if (sortingDropdownCtrl) {
+						sortingDropdownCtrl.style.display = display;
 					}
 				});
 			});
