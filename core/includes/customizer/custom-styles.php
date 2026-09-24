@@ -10680,9 +10680,12 @@ function responsive_customizer_styles() {
 		$sticky_header_text_color                   = get_theme_mod( 'responsive_sticky_header_text_color' );
 		$sticky_header_menu_background_color        = get_theme_mod( 'responsive_sticky_header_menu_background_color' );
 		$sticky_header_active_menu_background_color = get_theme_mod( 'responsive_sticky_header_active_menu_background_color' );
+		$sticky_header_menu_background_hover_color  = get_theme_mod( 'responsive_sticky_header_menu_background_hover_color' );
 		$sticky_header_menu_link_color              = get_theme_mod( 'responsive_sticky_header_menu_link_color' );
 		$sticky_header_menu_link_hover_color        = get_theme_mod( 'responsive_sticky_header_menu_link_hover_color' );
 		$sticky_header_sub_menu_background_color    = get_theme_mod( 'responsive_sticky_header_sub_menu_background_color' );
+		$sticky_header_sub_menu_background_hover_color  = get_theme_mod( 'responsive_sticky_header_sub_menu_background_hover_color' );
+		$sticky_header_active_sub_menu_background_color = get_theme_mod( 'responsive_sticky_header_active_sub_menu_background_color' );
 		$sticky_header_sub_menu_link_color          = get_theme_mod( 'responsive_sticky_header_sub_menu_link_color' );
 		$sticky_header_sub_menu_link_hover_color    = get_theme_mod( 'responsive_sticky_header_sub_menu_link_hover_color' );
 
@@ -10771,6 +10774,42 @@ function responsive_customizer_styles() {
 				color: {$sticky_header_sub_menu_link_hover_color};
 			}
 			";
+
+		// Menu Background Hover Color: overrides the Active Menu Background Color on hovered menu items
+		// (which it otherwise also covers, see above). Unset, hovered items keep that color.
+		if ( $sticky_header_menu_background_hover_color ) {
+			$custom_css .= "
+				#masthead.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .menu li > a:hover,
+				#masthead-mobile.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu li > a:hover {
+					background-color: {$sticky_header_menu_background_hover_color};
+				}
+			";
+		}
+
+		// Sub Menu Background Active / Hover Colors, with the same targets as the normal header's
+		// Sub Menu Background states. Hover comes after active, so a hovered current item shows the
+		// hover color. Unset, the sub menu items keep their normal styling.
+		$sticky_sub_menu_headers = array( '#masthead.sticky-header', '.res-transparent-header #masthead.sticky-header', '#masthead-mobile.sticky-header', '.res-transparent-header #masthead-mobile.sticky-header' );
+
+		if ( $sticky_header_active_sub_menu_background_color ) {
+			$sticky_sub_menu_selectors = array();
+			foreach ( $sticky_sub_menu_headers as $sticky_sub_menu_header ) {
+				$sticky_sub_menu_selectors[] = "{$sticky_sub_menu_header} .main-navigation .menu .sub-menu .current_page_item > a";
+				$sticky_sub_menu_selectors[] = "{$sticky_sub_menu_header} .main-navigation .menu .sub-menu .current-menu-item > a";
+				$sticky_sub_menu_selectors[] = "{$sticky_sub_menu_header} .main-navigation .menu .children li.current_page_item a";
+			}
+			$custom_css .= implode( ', ', $sticky_sub_menu_selectors ) . " { background-color: {$sticky_header_active_sub_menu_background_color}; }";
+		}
+		if ( $sticky_header_sub_menu_background_hover_color ) {
+			$sticky_sub_menu_selectors = array();
+			foreach ( $sticky_sub_menu_headers as $sticky_sub_menu_header ) {
+				$sticky_sub_menu_selectors[] = "{$sticky_sub_menu_header} .main-navigation .children li a:hover";
+				$sticky_sub_menu_selectors[] = "{$sticky_sub_menu_header} .main-navigation .sub-menu li a:hover";
+				$sticky_sub_menu_selectors[] = "{$sticky_sub_menu_header} .main-navigation .menu .sub-menu .current_page_item > a:hover";
+				$sticky_sub_menu_selectors[] = "{$sticky_sub_menu_header} .main-navigation .menu .sub-menu .current-menu-item > a:hover";
+			}
+			$custom_css .= implode( ', ', $sticky_sub_menu_selectors ) . " { background-color: {$sticky_header_sub_menu_background_hover_color}; }";
+		}
 
 		// Styling for Blog/Archive Border radius
 		$get_radius = function( $mod_name, $box_val ) use ( $box_radius ) {
