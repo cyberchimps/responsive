@@ -152,11 +152,10 @@ if ( ! class_exists( 'Responsive_Woocommerce_Product_Catalog_Customizer' ) ) :
 						'settings' => 'product_image_hover_style_options',
 						'priority' => 10,
 						'choices'  => array(
-							'none'        => esc_html__( 'None', 'responsive' ),
-							'swap-images' => esc_html__( 'Swap Images', 'responsive' ),
-							'fade'        => esc_html__( 'Fade', 'responsive' ),
-							'zoom'        => esc_html__( 'Zoom', 'responsive' ),
-							'zoom-fade'   => esc_html__( 'Zoom Fade', 'responsive' ),
+							'none'      => esc_html__( 'None', 'responsive' ),
+							'fade'      => esc_html__( 'Fade', 'responsive' ),
+							'zoom'      => esc_html__( 'Zoom', 'responsive' ),
+							'zoom-fade' => esc_html__( 'Zoom Fade', 'responsive' ),
 						),
 					)
 				)
