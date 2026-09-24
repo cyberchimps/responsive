@@ -124,7 +124,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 			// Design 2: bag icon overlay on product image hover.
 			if ( 'design2' === get_theme_mod( 'responsive_product_card_design', 'design1' ) ) {
-				add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'responsive_shop_product_bag_icon_overlay' ), 20 );
+				add_action( 'woocommerce_after_shop_loop_item', array( $this, 'responsive_shop_product_bag_icon_overlay' ), 6 );
 			}
 		}
 		/**
@@ -142,6 +142,10 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			require RESPONSIVE_THEME_DIR . 'core/includes/customizer/settings/class-responsive-header-woo-cart-customizer.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-checkout-customizer.php';
+			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-native-cart-popup-customizer.php';
+			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-distraction-free-customizer.php';
+			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-product-catalog-customizer.php';
+			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-pagination-style-customizer.php';
 		}
 
 		/**
@@ -467,7 +471,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		/**
 		 * Outputs the bag icon overlay for Design 2 on product cards.
 		 *
-		 * Hooked to woocommerce_before_shop_loop_item_title at priority 20.
+		 * Hooked to woocommerce_after_shop_loop_item at priority 6.
 		 *
 		 * @return void
 		 */
@@ -550,7 +554,6 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 			// Global WooCommerce styling
 			$classes[] = 'product-sale-style-' . get_theme_mod( 'responsive_product_sale_style', 'circle' );
-			$classes[] = 'product-content-aligmnment-' . get_theme_mod( 'responsive_product_content_aligmnment', 'center' );
 
 			$product_card_design = get_theme_mod( 'responsive_product_card_design', 'design1' );
 			if ( 'design2' === $product_card_design ) {

@@ -450,6 +450,18 @@
 		} );
 	} );
 
+	/**
+	 * Keep the HTML editor's "Text" tab toggle button's aria-pressed state
+	 * in sync with the setting's value.
+	 */
+	wp.customize( 'responsive_header_html_content', function ( value ) {
+		value.bind( function ( newval ) {
+			if ( newval ) {
+				$( '#responsive-html-editor-responsive_header_html_content-html' ).attr( 'aria-pressed', 'true' );
+			}
+		} );
+	} );
+
 	function processThemeSettingForCSS ( setting ) {
 		// Ensure the setting exists
         const settingObj = wp.customize(setting);
@@ -501,6 +513,11 @@
 				cssVars['--responsive-global-footer-text-color'] = processThemeSettingForCSS('responsive_footer_text_color');
 				cssVars['--responsive-global-footer-links-color'] = processThemeSettingForCSS('responsive_footer_links_color');
 				cssVars['--responsive-global-footer-links-hover-color'] = processThemeSettingForCSS('responsive_footer_links_hover_color');
+				cssVars['--responsive-global-breadcrumb-color'] = processThemeSettingForCSS('responsive_breadcrumb_color');
+				cssVars['--responsive-global-breadcrumb-link-color'] = processThemeSettingForCSS('responsive_breadcrumb_link_color');
+				cssVars['--responsive-global-breadcrumb-link-hover-color'] = processThemeSettingForCSS('responsive_breadcrumb_link_hover_color');
+				cssVars['--responsive-global-breadcrumb-background-color'] = processThemeSettingForCSS('responsive_breadcrumb_background_color');
+				cssVars['--responsive-global-breadcrumb-separator-color'] = processThemeSettingForCSS('responsive_breadcrumb_separator_color');
 				const root = document.documentElement;
 				Object.entries(cssVars).forEach(([varName, color]) => {
 					root.style.setProperty(varName, color);
@@ -624,6 +641,41 @@
 					'--responsive-global-footer-links-hover-color',
 					newval
 				);
+			});
+		});
+
+		wp.customize( 'responsive_breadcrumb_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) { newval = `var(--responsive-global-${newval})`; }
+				document.documentElement.style.setProperty('--responsive-global-breadcrumb-color', newval);
+			});
+		});
+
+		wp.customize( 'responsive_breadcrumb_link_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) { newval = `var(--responsive-global-${newval})`; }
+				document.documentElement.style.setProperty('--responsive-global-breadcrumb-link-color', newval);
+			});
+		});
+
+		wp.customize( 'responsive_breadcrumb_link_hover_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) { newval = `var(--responsive-global-${newval})`; }
+				document.documentElement.style.setProperty('--responsive-global-breadcrumb-link-hover-color', newval);
+			});
+		});
+
+		wp.customize( 'responsive_breadcrumb_background_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) { newval = `var(--responsive-global-${newval})`; }
+				document.documentElement.style.setProperty('--responsive-global-breadcrumb-background-color', newval);
+			});
+		});
+
+		wp.customize( 'responsive_breadcrumb_separator_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) { newval = `var(--responsive-global-${newval})`; }
+				document.documentElement.style.setProperty('--responsive-global-breadcrumb-separator-color', newval);
 			});
 		});
 

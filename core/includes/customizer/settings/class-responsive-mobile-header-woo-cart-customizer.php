@@ -125,7 +125,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 				$wp_customize->add_setting(
 					'responsive_mobile_cart_icon',
 					array(
-						'default'           => 'icon-opencart',
+						'default'           => responsive_get_mobile_woo_cart_icon(),
 						'transport'         => 'refresh',
 						'sanitize_callback' => 'responsive_sanitize_select',
 					)

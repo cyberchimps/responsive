@@ -208,6 +208,7 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'yoast-seo-breadcrumbs' );
+		add_theme_support( 'rank-math-breadcrumbs' );
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
@@ -1295,7 +1296,7 @@ function defaults() {
 			'single_product_title_horizontal_alignment' => 'left',
 			'single_product_title_inner_elements_spacing' => 10,
 			'shop_title_horizontal_alignment'     => 'center',
-			'shop_title_inner_elements_spacing'   => 10,
+			'shop_title_inner_elements_spacing'   => 0,
 			'shop_title_container_background_layout1' => 'none',
 			'shop_title_container_background_layout2' => 'custom',
 			'page_title_inner_elements_spacing'   => 10,
@@ -1310,6 +1311,7 @@ function defaults() {
 			'read_more_text'                      => 'Read more →',
 			'blog_entry_elements_positioning'     => array( 'featured_image', 'categories', 'title', 'meta', 'content' ),
 			'blog_single_elements_positioning'    => array( 'categories', 'title', 'meta', 'featured_image' ),
+			'page_single_elements_positioning'    => array( 'title', 'featured_image' ),
 
 			// alignment.
 			'blog_entry_title_alignment'          => 'left',
@@ -1333,7 +1335,16 @@ function defaults() {
 			'shop_product_price'                  => '#333333',
 			'content_header_heading'              => '#404040',
 			'content_header_description'          => '#999999',
-			'breadcrumb'                          => 'palette0',
+			'breadcrumb'                          => 'palette2',
+			'breadcrumb_link'                     => 'palette0',
+			'breadcrumb_background'				  => '#FFFFFF00',
+			'single_blog_post_breadcrumb_background_color' => 'breadcrumb-background-color',
+			'single_blog_post_breadcrumb_separator_color' => 'breadcrumb-separator-color',
+			'single_blog_post_breadcrumb_color'   => 'breadcrumb-color',
+			'single_blog_post_breadcrumb_link_color' => 'breadcrumb-link-color',
+			'single_blog_post_breadcrumb_link_hover_color' => 'breadcrumb-link-hover-color',
+			'breadcrumb_link_hover'               => 'palette1',
+			'breadcrumb_separator_color'          => '#000000',
 			'footer_background'                   => '#333333',
 			'footer_text'                         => '#333333',
 			'footer_links'                        => '#0066CC',
@@ -1952,7 +1963,6 @@ function defaults() {
 																			'header_widgets2'        => array(
 																				'name'    => esc_html__( 'Widget 2', 'responsive' ),
 																				'section' => 'responsive_header_widget2',
-																				'icon'    => 'wordpress',
 																			),
 																			'header_contact_info'  => array(
 																				'name'    => esc_html__( 'Contact Info', 'responsive' ),
@@ -2014,7 +2024,6 @@ function defaults() {
 																			'header_widgets2'        => array(
 																				'name'    => esc_html__( 'Widget 2', 'responsive' ),
 																				'section' => 'responsive_mobile_header_widget2',
-																				'icon'    => 'wordpress',
 																			),
 																			'header_contact_info'  => array(
 																				'name'    => esc_html__( 'Contact Info', 'responsive' ),
@@ -2775,6 +2784,15 @@ function responsive_get_refreshed_fragments_number( $fragments ) {
 	ob_start();
 	responsive_woo_cart_label_markup();
 	$fragments['span.responsive-woo-header-cart-info-wrap'] = ob_get_clean();
+
+	// Mobile cart 
+	?><span class="responsive-mobile-header-cart-total"><?php echo wp_kses_post( WC()->cart->get_cart_contents_count() ); ?></span> 
+	<?php
+	$fragments['span.responsive-mobile-header-cart-total'] = ob_get_clean();
+	ob_start();
+	responsive_mobile_woo_cart_label_markup();
+	$fragments['span.responsive-mobile-woo-header-cart-info-wrap'] = ob_get_clean();
+
 	return $fragments;
 }
 function responsive_woo_cart_label_markup(){
@@ -2846,7 +2864,7 @@ function responsive_mobile_woo_cart_label_markup(){
             </span>',
         $mobile_cart_label_markup
     );
-    echo $mobile_cart_label_markup;
+    echo $mobile_cart_info_markup;
 }
 /**
  * Make Old Woo Cart compatible with new header builder woo cart
@@ -3094,9 +3112,10 @@ add_action( 'init', function() {
 // Add breadcrumbs back conditionally.
 add_action( 'woocommerce_before_main_content', function() {
     // Shop / catalog pages.
-    if ( get_theme_mod( 'breadcrumbs_options', 1 ) && ( is_shop() || is_product_taxonomy() ) ) {
+    if ( is_shop() || is_product_taxonomy() ) {
         if ( get_theme_mod( 'responsive_shop_title_area', true ) && 'post_title_layout2' !== get_theme_mod( 'responsive_shop_title_layout', 'post_title_layout1' ) ) {
-            $elements = get_theme_mod( 'responsive_shop_title_elements_positioning', array( 'breadcrumb', 'title', 'description' ) );
+            $default_elements = get_theme_mod( 'breadcrumbs_options', 1 ) ? array( 'breadcrumb', 'title', 'description' ) : array( 'title', 'description' );
+            $elements         = get_theme_mod( 'responsive_shop_title_elements_positioning', $default_elements );
             if ( is_string( $elements ) ) {
                 $decoded  = json_decode( $elements, true );
                 $elements = is_array( $decoded ) ? $decoded : explode( ',', $elements );
@@ -3250,7 +3269,7 @@ if( ! function_exists( 'responsive_prepare_css_value' ) ) {
 
 		$value = trim( $value );
 
-		if ( is_string( $value ) && ( preg_match( '/^palette\d+$/', $value ) || false !== strpos( $value, 'headings-color' ) || false !== strpos( $value, 'site-background' ) || false !== strpos( $value, 'box-background' ) || false !== strpos( $value, 'h1-color' ) || false !== strpos( $value, 'footer-text-color' ) || false !== strpos( $value, 'footer-links-color' ) || false !== strpos( $value, 'footer-links-hover-color' ) ) ) {
+		if ( is_string( $value ) && ( preg_match( '/^palette\d+$/', $value ) || false !== strpos( $value, 'headings-color' ) || false !== strpos( $value, 'site-background' ) || false !== strpos( $value, 'box-background' ) || false !== strpos( $value, 'h1-color' ) || false !== strpos( $value, 'footer-text-color' ) || false !== strpos( $value, 'footer-links-color' ) || false !== strpos( $value, 'footer-links-hover-color' ) || false !== strpos( $value, 'breadcrumb' ) ) ) {
 			return 'var(--responsive-global-' . $value . ')';
 		}
 

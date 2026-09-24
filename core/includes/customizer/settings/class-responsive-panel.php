@@ -65,8 +65,12 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 			$tab_ids_prefix  = 'customize-control-';
 			$design_tab_ids  = array(
 				$tab_ids_prefix . 'responsive_breadcrumb_color',
-				$tab_ids_prefix . 'responsive_breadcrumb_typography_separator',
 				$tab_ids_prefix . 'responsive_breadcrumb_typography_group',
+				$tab_ids_prefix . 'responsive_breadcrumb_link_color',
+				$tab_ids_prefix . 'responsive_breadcrumb_link_hover_color',
+				$tab_ids_prefix . 'responsive_breadcrumb_background_color',
+				$tab_ids_prefix . 'responsive_breadcrumb_separator_color',
+				$tab_ids_prefix . 'responsive_breadcrumb_background_separator'
 			);
 			$general_tab_ids = array(
 				$tab_ids_prefix . 'res_breadcrumb',
@@ -82,10 +86,11 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				$tab_ids_prefix . 'responsive_breadcrumb_enable_404_page',
 				$tab_ids_prefix . 'responsive_breadcrumb_separator',
 				$tab_ids_prefix . 'responsive_breadcrumb_separator_separator',
+				$tab_ids_prefix . 'responsive_breadcrumb_unicode',
 				$tab_ids_prefix . 'responsive_content_header_alignment',
-				$tab_ids_prefix . 'responsive_content_header_alignment_separator',
-				$tab_ids_prefix . 'responsive_content_header_padding',
 				$tab_ids_prefix . 'responsive_breadcrumb_display_settings_separator',
+				$tab_ids_prefix . 'responsive_breadcrumb_source',
+				$tab_ids_prefix . 'responsive_breadcrumb_source_separator'
 			);
 
 			responsive_tabs_button_control( $wp_customize, 'breadcrumb_tabs', $tabs_label, 'responsive_breadcrumb', 10, '', 'responsive_breadcrumb_general_tab', 'responsive_breadcrumb_design_tab', $general_tab_ids, $design_tab_ids, null );

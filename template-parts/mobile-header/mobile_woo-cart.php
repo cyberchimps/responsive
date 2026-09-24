@@ -7,7 +7,7 @@
 if ( ! defined('ABSPATH') ) {
     exit; // Exit if accessed directly
 }
-$cart_icon           = get_theme_mod( 'responsive_mobile_cart_icon', 'icon-opencart' );
+$cart_icon           = responsive_get_mobile_woo_cart_icon();
 $cart_label          = get_theme_mod( 'responsive_mobile_woo_cart_label');
 $cart_label_position = get_theme_mod( 'responsive_mobile_cart_label_position', 'left' );
 $cart_click_action   = get_theme_mod( 'responsive_mobile_header_woo_cart_click_action', 'dropdown' );
@@ -57,7 +57,7 @@ if ( class_exists( 'woocommerce' ) ) {
             $output .= $captured_output;
         $output .= '<span class="responsive-header-cart-icon-count-wrap"><span class="res-cart-icon responsive-shopping-cart-svg" data-cart-total="' . $cart_contents_count . '">' . $cart_icon_svg . '</span>';
         if ( get_theme_mod( 'responsive_mobile_display_cart_count' ) ) {
-            $output .= '<span class="responsive-header-cart-total">'. wp_kses_post( WC()->cart->get_cart_contents_count() ) . '</span>';
+            $output .= '<span class="responsive-mobile-header-cart-total">'. wp_kses_post( WC()->cart->get_cart_contents_count() ) . '</span>';
         }
         $output .= '</span></div></a></div>';
         if ( 'dropdown' === $cart_click_action && ! wp_is_mobile() ) {

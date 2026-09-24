@@ -57,7 +57,6 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				$general_tab_ids_prefix . 'responsive_shop_elements_separator',
 				$general_tab_ids_prefix . 'responsive_product_card_design',
 				$general_tab_ids_prefix . 'responsive_woocommerce_catalog_view',
-				$general_tab_ids_prefix . 'responsive_product_content_aligmnment',
 				$general_tab_ids_prefix . 'responsive_woocommerce_shop_elements_positioning',
 				$general_tab_ids_prefix . 'responsive_product_review_count',
 				$general_tab_ids_prefix . 'responsive_shop_add_to_cart_action',
@@ -67,7 +66,6 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				$general_tab_ids_prefix . 'responsive_enable_off_canvas_filter',
 				$general_tab_ids_prefix . 'responsive_enable_off_canvas_close_btn',
 				$general_tab_ids_prefix . 'responsive_off_canvas_close_button_color',
-				$general_tab_ids_prefix . 'breadcrumbs_options',
 				$general_tab_ids_prefix . 'toolbar_options',
 				$general_tab_ids_prefix . 'responsive_native_cart_popup_separator',
 				$general_tab_ids_prefix . 'responsive_enable_native_cart_popup',
@@ -98,9 +96,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				$general_tab_ids_prefix . 'responsive_product_catalog_container_style_separator',
 				$general_tab_ids_prefix . 'responsive_product_catalog_container_style',
 			);
-			
-			$enable_native_popup_flag = get_theme_mod('enable_native_cart_popup');
-			
+
 			$native_general_pop_up_options = array(
 			$general_tab_ids_prefix . 'responsive_native_cart_popup_display',
 			$general_tab_ids_prefix . 'responsive_popup_elements_positioning',
@@ -184,11 +180,9 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_popup_continue_btn_color',
 			);
 			
-			if ( $enable_native_popup_flag === true || $enable_native_popup_flag === '1' || $enable_native_popup_flag === 1 ) {
-				$general_tab_ids = array_merge( $general_tab_ids, $native_general_pop_up_options );
-				$design_tab_ids = array_merge($design_tab_ids, $native_design_pop_up_options);
-			}
-			
+			$general_tab_ids = array_merge( $general_tab_ids, $native_general_pop_up_options );
+			$design_tab_ids  = array_merge( $design_tab_ids, $native_design_pop_up_options );
+
 			responsive_tabs_button_control( $wp_customize, 'woocommerce_shop_tabs', $tabs_label, 'responsive_woocommerce_shop', 1, '', 'responsive_woocommerce_shop_general_tab', 'responsive_woocommerce_shop_design_tab', $general_tab_ids, $design_tab_ids, null );
 			
 			// product background color
@@ -327,10 +321,12 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			);
 
 			// Structure (Sortable control).
+			$default_elements = get_theme_mod( 'breadcrumbs_options', 1 ) ? array( 'breadcrumb', 'title', 'description' ) : array( 'title', 'description' );
+
 			$wp_customize->add_setting(
 				'responsive_shop_title_elements_positioning',
 				array(
-					'default'           => array( 'breadcrumb', 'title', 'description' ),
+					'default'           => $default_elements,
 					'sanitize_callback' => 'responsive_sanitize_multi_choices',
 					'transport'         => 'refresh',
 				)
@@ -419,7 +415,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'responsive_shop_title_layout',
 				7,
 				$shop_title_horizontal_alignment_choices,
-				'center',
+				Responsive\Core\get_responsive_customizer_defaults( 'shop_title_horizontal_alignment' ),
 				null
 			);
 
@@ -459,7 +455,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				Responsive\Core\get_responsive_customizer_defaults( 'shop_title_inner_elements_spacing' ),
 				null,
 				100,
-				1,
+				0,
 				'postMessage'
 			);
 
@@ -591,7 +587,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			responsive_horizontal_separator_control( $wp_customize, 'shop_title_typography_separator', 1, 'responsive_shop_title_layout', 21, 1 );
 
 			// Padding.
-			responsive_unit_padding_control( $wp_customize, 'shop_banner_padding', 'responsive_shop_title_layout', 22, 30, 0, null, esc_html__( 'Padding', 'responsive' ), 'postMessage', 30, 0, 30, 0, 'px' );
+			responsive_unit_padding_control( $wp_customize, 'shop_banner_padding', 'responsive_shop_title_layout', 22, 30, 30, null, esc_html__( 'Padding', 'responsive' ), 'postMessage', 30, 30, 30, 30, 'px' );
 
 			// Margin.
 			responsive_unit_padding_control( $wp_customize, 'shop_banner_margin', 'responsive_shop_title_layout', 23, '', '', null, esc_html__( 'Margin', 'responsive' ), 'postMessage', '', '', '', '', 'px', 24, null, 24, null, 24, null );
@@ -758,22 +754,6 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			);
 			responsive_select_control( $wp_customize, 'woocommerce_catalog_view', $woocommerce_catalog_view_label, 'responsive_woocommerce_shop', 50.2, $woocommerce_catalog_view_choices, 'grid', null );
 
-			// Product content Aligmnment.
-			$product_content_aligmnment_label   = esc_html__( 'Content Aligmnment', 'responsive' );
-			$product_content_aligmnment_choices = array(
-				'left'   => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
-				'center' => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
-				'right'  => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
-			);
-			if ( is_rtl() ) {
-				$product_content_aligmnment_choices = array(
-					'left'   => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
-					'center' => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
-					'right'  => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
-				);
-			}
-			responsive_select_button_control( $wp_customize, 'product_content_aligmnment', $product_content_aligmnment_label, 'responsive_woocommerce_shop', 60, $product_content_aligmnment_choices, 'center', null );
-
 			// Shop Elements.
 			$wp_customize->add_setting(
 				'responsive_woocommerce_shop_elements_positioning',
@@ -835,7 +815,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'square'         => __( 'Square', 'responsive' ),
 				'square-outline' => __( 'Square Outline', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'product_sale_style', $product_sale_style_label, 'responsive_woocommerce_shop', 100, $product_sale_style_choices, 'circle', 'responsive_check_product_sale_style_visible' );
+			responsive_select_control( $wp_customize, 'product_sale_style', $product_sale_style_label, 'responsive_woocommerce_shop', 100, $product_sale_style_choices, 'circle', null );
 
 			// Off Canvas Layout.
 			$off_canvas_filter_label = esc_html__( 'Off Canvas Filter', 'responsive' );

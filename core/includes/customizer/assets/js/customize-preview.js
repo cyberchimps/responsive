@@ -104,10 +104,18 @@
 
 	// Function to update disable sticky header mobile menu CSS
 	function updateDisableStickyHeaderMobileMenu() {
-		var disable_sticky_mobile = api( 'responsive_disable_sticky_header_mobile_menu' ).get();
-		var mobile_menu_breakpoint = api( 'responsive_mobile_menu_breakpoint' ).get();
-		var disable_mobile_menu = api( 'responsive_disable_mobile_menu' ).get();
-		
+		var disableStickyMobileSetting = api( 'responsive_disable_sticky_header_mobile_menu' );
+		var mobileMenuBreakpointSetting = api( 'responsive_mobile_menu_breakpoint' );
+		var disableMobileMenuSetting = api( 'responsive_disable_mobile_menu' );
+
+		if ( ! disableStickyMobileSetting || ! mobileMenuBreakpointSetting || ! disableMobileMenuSetting ) {
+			return;
+		}
+
+		var disable_sticky_mobile = disableStickyMobileSetting.get();
+		var mobile_menu_breakpoint = mobileMenuBreakpointSetting.get();
+		var disable_mobile_menu = disableMobileMenuSetting.get();
+
 		if ( 0 === disable_mobile_menu ) {
 			mobile_menu_breakpoint = 0;
 		}

@@ -208,19 +208,7 @@ if ( ! function_exists( 'responsive_check_product_price_custom_string' ) ) {
 	}
 }
 
-if ( ! function_exists( 'responsive_check_product_sale_style_visible' ) ) {
-	/**
-	 * Active callback for Sale Bubble Style control: visible only when Design 1 is selected and sale notification is not none.
-	 *
-	 * @return boolean True if visible, false otherwise.
-	 */
-	function responsive_check_product_sale_style_visible() {
-		$card_design       = get_theme_mod( 'responsive_product_card_design', 'design1' );
-		$sale_notification = get_theme_mod( 'responsive_product_sale_notification', 'default' );
 
-		return ( 'design2' !== $card_design ) && ( 'none' !== $sale_notification );
-	}
-}
 /**
  * Check if responsive_check_layout_type function is present.
  */
