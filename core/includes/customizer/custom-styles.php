@@ -680,6 +680,44 @@ function responsive_customizer_styles() {
 	$single_blog_inside_container_mobile_padding_bottom = responsive_get_padding_fallback( 'responsive_single_blog_inside_container_mobile_bottom_padding', $box_mobile_padding_bottom );
 	$single_blog_inside_container_mobile_unit           = esc_html( get_theme_mod( 'responsive_single_blog_inside_container_mobile_unit', $box_padding_mobile_unit  ) );
 
+	// Single Product Inside Container Padding
+	$single_product_inside_container_padding_right  = responsive_get_padding_fallback( 'responsive_single_product_inside_container_right_padding', $box_padding_right );
+	$single_product_inside_container_padding_left   = responsive_get_padding_fallback( 'responsive_single_product_inside_container_left_padding', $box_padding_left );
+	$single_product_inside_container_padding_top    = responsive_get_padding_fallback( 'responsive_single_product_inside_container_top_padding', $box_padding_top );
+	$single_product_inside_container_padding_bottom = responsive_get_padding_fallback( 'responsive_single_product_inside_container_bottom_padding', $box_padding_bottom );
+	$single_product_inside_container_unit           = esc_html( get_theme_mod( 'responsive_single_product_inside_container_desktop_unit', $box_padding_desktop_unit ) );
+
+	$single_product_inside_container_tablet_padding_right  = responsive_get_padding_fallback( 'responsive_single_product_inside_container_tablet_right_padding', $box_tablet_padding_right );
+	$single_product_inside_container_tablet_padding_left   = responsive_get_padding_fallback( 'responsive_single_product_inside_container_tablet_left_padding', $box_tablet_padding_left );
+	$single_product_inside_container_tablet_padding_top    = responsive_get_padding_fallback( 'responsive_single_product_inside_container_tablet_top_padding', $box_tablet_padding_top );
+	$single_product_inside_container_tablet_padding_bottom = responsive_get_padding_fallback( 'responsive_single_product_inside_container_tablet_bottom_padding', $box_tablet_padding_bottom );
+	$single_product_inside_container_tablet_unit           = esc_html( get_theme_mod( 'responsive_single_product_inside_container_tablet_unit', $box_padding_tablet_unit ) );
+
+	$single_product_inside_container_mobile_padding_right  = responsive_get_padding_fallback( 'responsive_single_product_inside_container_mobile_right_padding', $box_mobile_padding_right );
+	$single_product_inside_container_mobile_padding_left   = responsive_get_padding_fallback( 'responsive_single_product_inside_container_mobile_left_padding', $box_mobile_padding_left );
+	$single_product_inside_container_mobile_padding_top    = responsive_get_padding_fallback( 'responsive_single_product_inside_container_mobile_top_padding', $box_mobile_padding_top );
+	$single_product_inside_container_mobile_padding_bottom = responsive_get_padding_fallback( 'responsive_single_product_inside_container_mobile_bottom_padding', $box_mobile_padding_bottom );
+	$single_product_inside_container_mobile_unit           = esc_html( get_theme_mod( 'responsive_single_product_inside_container_mobile_unit', $box_padding_mobile_unit ) );
+
+	// Single Product Outside Container Spacing.
+	$single_product_outside_container_padding_right  = responsive_get_padding_fallback( 'responsive_single_product_outside_container_right_padding', $outside_container_padding_right );
+	$single_product_outside_container_padding_left   = responsive_get_padding_fallback( 'responsive_single_product_outside_container_left_padding', $outside_container_padding_left );
+	$single_product_outside_container_padding_top    = responsive_get_padding_fallback( 'responsive_single_product_outside_container_top_padding', $outside_container_padding_top );
+	$single_product_outside_container_padding_bottom = responsive_get_padding_fallback( 'responsive_single_product_outside_container_bottom_padding', $outside_container_padding_bottom );
+	$single_product_outside_container_unit           = esc_html( get_theme_mod( 'responsive_single_product_outside_container_desktop_unit', $outside_container_padding_desktop_unit ) );
+
+	$single_product_outside_container_tablet_padding_right  = responsive_get_padding_fallback( 'responsive_single_product_outside_container_tablet_right_padding', $outside_container_tablet_padding_right );
+	$single_product_outside_container_tablet_padding_left   = responsive_get_padding_fallback( 'responsive_single_product_outside_container_tablet_left_padding', $outside_container_tablet_padding_left );
+	$single_product_outside_container_tablet_padding_top    = responsive_get_padding_fallback( 'responsive_single_product_outside_container_tablet_top_padding', $outside_container_tablet_padding_top );
+	$single_product_outside_container_tablet_padding_bottom = responsive_get_padding_fallback( 'responsive_single_product_outside_container_tablet_bottom_padding', $outside_container_tablet_padding_bottom );
+	$single_product_outside_container_tablet_unit           = esc_html( get_theme_mod( 'responsive_single_product_outside_container_tablet_unit', $outside_container_padding_tablet_unit ) );
+
+	$single_product_outside_container_mobile_padding_right  = responsive_get_padding_fallback( 'responsive_single_product_outside_container_mobile_right_padding', $outside_container_mobile_padding_right );
+	$single_product_outside_container_mobile_padding_left   = responsive_get_padding_fallback( 'responsive_single_product_outside_container_mobile_left_padding', $outside_container_mobile_padding_left );
+	$single_product_outside_container_mobile_padding_top    = responsive_get_padding_fallback( 'responsive_single_product_outside_container_mobile_top_padding', $outside_container_mobile_padding_top );
+	$single_product_outside_container_mobile_padding_bottom = responsive_get_padding_fallback( 'responsive_single_product_outside_container_mobile_bottom_padding', $outside_container_mobile_padding_bottom );
+	$single_product_outside_container_mobile_unit           = esc_html( get_theme_mod( 'responsive_single_product_outside_container_mobile_unit', $outside_container_padding_mobile_unit ) );
+
 	$single_post_boxed_radius_top_left     = get_theme_mod( 'responsive_single_post_boxed_radius_top_left_radius', get_theme_mod( 'responsive_single_post_boxed_radius', '' ) );
 	$single_post_boxed_radius_top_right    = get_theme_mod( 'responsive_single_post_boxed_radius_top_right_radius', get_theme_mod( 'responsive_single_post_boxed_radius', '' ) );
 	$single_post_boxed_radius_bottom_right = get_theme_mod( 'responsive_single_post_boxed_radius_bottom_right_radius', get_theme_mod( 'responsive_single_post_boxed_radius', '' ) );
@@ -13623,6 +13661,54 @@ function responsive_customizer_styles() {
 			.woocommerce ul.products[class*=columns-] li.product, .woocommerce-page ul.products[class*=columns-] li.product{
 		        width:100%;
 		    }
+		}';
+
+		// Single Product Spacing Styles.
+		$woocommerce_custom_css .= '
+		.single-product div.product,
+		.woocommerce.single-product div.product,
+		.woocommerce-page.single-product div.product,
+		.woocommerce-page.single-product:not(.responsive-site-style-flat) div.product,
+		.woocommerce.single-product:not(.responsive-site-style-flat) div.product {
+			padding: ' . responsive_spacing_css( $single_product_inside_container_padding_top, $single_product_inside_container_padding_right, $single_product_inside_container_padding_bottom, $single_product_inside_container_padding_left, $single_product_inside_container_unit ) . ';
+		}
+		@media screen and ( max-width: 992px ) {
+			.single-product div.product,
+			.woocommerce.single-product div.product,
+			.woocommerce-page.single-product div.product,
+			.woocommerce-page.single-product:not(.responsive-site-style-flat) div.product,
+			.woocommerce.single-product:not(.responsive-site-style-flat) div.product {
+				padding: ' . responsive_spacing_css( $single_product_inside_container_tablet_padding_top, $single_product_inside_container_tablet_padding_right, $single_product_inside_container_tablet_padding_bottom, $single_product_inside_container_tablet_padding_left, $single_product_inside_container_tablet_unit ) . ';
+			}
+		}
+		@media screen and ( max-width: 576px ) {
+			.single-product div.product,
+			.woocommerce.single-product div.product,
+			.woocommerce-page.single-product div.product,
+			.woocommerce-page.single-product:not(.responsive-site-style-flat) div.product,
+			.woocommerce.single-product:not(.responsive-site-style-flat) div.product {
+				padding: ' . responsive_spacing_css( $single_product_inside_container_mobile_padding_top, $single_product_inside_container_mobile_padding_right, $single_product_inside_container_mobile_padding_bottom, $single_product_inside_container_mobile_padding_left, $single_product_inside_container_mobile_unit ) . ';
+			}
+		}
+
+		.single-product #primary.content-area,
+		.woocommerce.single-product #primary.content-area,
+		.woocommerce-page.single-product #primary.content-area {
+			padding: ' . responsive_spacing_css( $single_product_outside_container_padding_top, $single_product_outside_container_padding_right, $single_product_outside_container_padding_bottom, $single_product_outside_container_padding_left, $single_product_outside_container_unit ) . ';
+		}
+		@media screen and ( max-width: 992px ) {
+			.single-product #primary.content-area,
+			.woocommerce.single-product #primary.content-area,
+			.woocommerce-page.single-product #primary.content-area {
+				padding: ' . responsive_spacing_css( $single_product_outside_container_tablet_padding_top, $single_product_outside_container_tablet_padding_right, $single_product_outside_container_tablet_padding_bottom, $single_product_outside_container_tablet_padding_left, $single_product_outside_container_tablet_unit ) . ';
+			}
+		}
+		@media screen and ( max-width: 576px ) {
+			.single-product #primary.content-area,
+			.woocommerce.single-product #primary.content-area,
+			.woocommerce-page.single-product #primary.content-area {
+				padding: ' . responsive_spacing_css( $single_product_outside_container_mobile_padding_top, $single_product_outside_container_mobile_padding_right, $single_product_outside_container_mobile_padding_bottom, $single_product_outside_container_mobile_padding_left, $single_product_outside_container_mobile_unit ) . ';
+			}
 		}';
 
 		// Shop Styles.

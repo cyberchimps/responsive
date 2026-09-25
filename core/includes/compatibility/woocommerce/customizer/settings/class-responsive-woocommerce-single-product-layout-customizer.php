@@ -90,6 +90,9 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				$design_tab_ids_prefix . 'responsive_single_product_price_shop_typography_group_seperator',
 				$design_tab_ids_prefix . 'responsive_single_product_content_shop_typography_group_seperator',
 				$design_tab_ids_prefix . 'responsive_single_product_page_breadcrumb_shop_typography_group_seperator',
+				$design_tab_ids_prefix . 'responsive_single_product_spacing',
+				$design_tab_ids_prefix . 'responsive_single_product_outside_container_padding',
+				$design_tab_ids_prefix . 'responsive_single_product_inside_container_padding',
 			);
 
 		
@@ -673,6 +676,16 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 			// Add to cart font hover color.
 			$floatingb_addtocart_fonthover_label = esc_html__( 'Add To Cart Font Hover: Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'floatingb_addtocart_fonthover', $floatingb_addtocart_fonthover_label, 'responsive_woocommerce_single_product_layout', 70, '#f1f1f1' );
+
+			// Spacing heading.
+			$single_product_spacing_label = esc_html__( 'Spacing', 'responsive' );
+			responsive_separator_control( $wp_customize, 'single_product_spacing', $single_product_spacing_label, 'responsive_woocommerce_single_product_layout', 86 );
+
+			// Outside Container.
+			responsive_unit_padding_control( $wp_customize, 'single_product_outside_container', 'responsive_woocommerce_single_product_layout', 87, '', '', null, esc_html__( 'Outside Container', 'responsive' ), 'postMessage', '', '', '', '', 'px' );
+
+			// Inside Container.
+			responsive_unit_padding_control( $wp_customize, 'single_product_inside_container', 'responsive_woocommerce_single_product_layout', 88, '', '', null, esc_html__( 'Inside Container', 'responsive' ), 'postMessage', '', '', '', '', 'px' );
 
 		}
 
