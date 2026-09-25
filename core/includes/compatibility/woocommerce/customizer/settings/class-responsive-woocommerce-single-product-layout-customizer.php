@@ -70,6 +70,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 
 			$design_tab_ids_prefix = 'customize-control-';
 			$design_tab_ids        = array(
+				$design_tab_ids_prefix . 'responsive_single_product_floating_bar_design_separator',
 				$design_tab_ids_prefix . 'responsive_floatingb_background_color',
 				$design_tab_ids_prefix . 'responsive_floatingb_title_color',
 				$design_tab_ids_prefix . 'responsive_floatingb_price_color',
@@ -630,6 +631,9 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 			/*
 			 * Color settings for floating bar
 			 */
+			$single_product_floating_bar_design_label = esc_html__( 'Floating Bar', 'responsive' );
+			responsive_separator_control( $wp_customize, 'single_product_floating_bar_design_separator', $single_product_floating_bar_design_label, 'responsive_woocommerce_single_product_layout', 70 );
+
 			// Background color.
 			$floatingb_background_color_label = esc_html__( 'Background Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'floatingb_background', $floatingb_background_color_label, 'responsive_woocommerce_single_product_layout', 70, 'rgba(51,51,51,0.9)' );

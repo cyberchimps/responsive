@@ -361,9 +361,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 							/**
 							 * Product Title on single product page.
 							 */
-							if ( get_theme_mod( 'responsive_single_product_title_area', true ) && 'post_title_layout2' !== get_theme_mod( 'responsive_single_product_title_layout', 'post_title_layout1' ) ) {
-								woocommerce_template_single_title();
-							}
+							woocommerce_template_single_title();
 							break;
 						case 'price':
 							/**
