@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '6.4.5' );
+define( 'RESPONSIVE_THEME_VERSION', '6.4.6' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -43,6 +43,9 @@ require $responsive_template_directory . '/core/includes/customizer/customizer.p
 require $responsive_template_directory . '/core/includes/customizer/custom-styles.php';
 require $responsive_template_directory . '/core/includes/classes/class-responsive-local-fonts.php';
 require $responsive_template_directory . '/core/includes/compatibility/woocommerce/class-responsive-woocommerce.php';
+require $responsive_template_directory . '/core/includes/compatibility/woocommerce/class-responsive-woocommerce-native-cart-popup.php';
+require $responsive_template_directory . '/core/includes/compatibility/woocommerce/woocommerce-cart-popup-tags.php';
+require $responsive_template_directory . '/core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-typography-customizer.php';
 require $responsive_template_directory . '/core/includes/compatibility/sensei/class-responsive-sensei.php';
 require $responsive_template_directory . '/admin/admin-functions.php';
 require $responsive_template_directory . '/core/includes/classes/class-responsive-mobile-menu-markup.php';
@@ -3425,6 +3428,77 @@ if ( ! function_exists( 'responsive_theme_background_updater_secondary_menu_padd
 			}
 
 			$responsive_options['secondary_menu_padding_6_4_4_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+
+if ( ! function_exists( 'responsive_theme_background_updater_title_area_breadcrumb_6_4_6' ) ) {
+	/**
+	 * Handle backward compatibility for breadcrumbs moving from the Site Content
+	 * Header into the Title Area elements-positioning controls.
+	 *
+	 * Breadcrumbs used to render inside the site-content-header, gated only by the
+	 * "Enable Breadcrumbs" toggle and its per-page-type toggles. They now render as
+	 * an item inside the Title Area's sortable elements-positioning theme mods, and
+	 * are only shown there if 'breadcrumb' is present in the saved array. Since that
+	 * array never included 'breadcrumb' by default, users upgrading with the old
+	 * toggles turned on ended up with breadcrumbs silently disappearing. This
+	 * one-time migration re-adds 'breadcrumb' to the front of each affected array
+	 * when the corresponding legacy toggle(s) were enabled.
+	 *
+	 * @since 6.4.6
+	 * @return void
+	 */
+	function responsive_theme_background_updater_title_area_breadcrumb_6_4_6() {
+		$responsive_options = get_option( 'responsive_theme_options' );
+
+		if ( ! isset( $responsive_options['title_area_breadcrumb_6_4_6_backward_done'] ) ) {
+
+			$global_breadcrumb = isset( $responsive_options['breadcrumb'] ) ? $responsive_options['breadcrumb'] : 0;
+
+			if ( ! empty( $global_breadcrumb ) ) {
+
+				// mod name => [ default array, whether breadcrumbs were enabled for it ].
+				$mods = array(
+					'responsive_blog_single_elements_positioning' => array(
+						'default' => Responsive\Core\get_responsive_customizer_defaults( 'blog_single_elements_positioning' ),
+						'enabled' => responsive_breadcrumb_toggle_enabled( 'responsive_breadcrumb_enable_single_post' ),
+					),
+					'responsive_page_single_elements_positioning' => array(
+						'default' => Responsive\Core\get_responsive_customizer_defaults( 'page_single_elements_positioning' ),
+						'enabled' => responsive_breadcrumb_toggle_enabled( 'responsive_breadcrumb_enable_single_page' ),
+					),
+					'responsive_blog_title_elements_positioning' => array(
+						'default' => array( 'title', 'description' ),
+						'enabled' => responsive_breadcrumb_toggle_enabled( 'responsive_breadcrumb_enable_blog_posts_page' )
+							|| responsive_breadcrumb_toggle_enabled( 'responsive_breadcrumb_enable_archive' ),
+					),
+				);
+
+				foreach ( $mods as $mod_name => $mod_data ) {
+					if ( ! $mod_data['enabled'] ) {
+						continue;
+					}
+
+					$sections = get_theme_mod( $mod_name, $mod_data['default'] );
+
+					if ( $sections && ! is_array( $sections ) ) {
+						$sections = explode( ',', $sections );
+					}
+
+					if ( ! is_array( $sections ) ) {
+						$sections = $mod_data['default'];
+					}
+
+					if ( ! in_array( 'breadcrumb', $sections, true ) ) {
+						array_unshift( $sections, 'breadcrumb' );
+						set_theme_mod( $mod_name, $sections );
+					}
+				}
+			}
+
+			$responsive_options['title_area_breadcrumb_6_4_6_backward_done'] = true;
 			update_option( 'responsive_theme_options', $responsive_options );
 		}
 	}

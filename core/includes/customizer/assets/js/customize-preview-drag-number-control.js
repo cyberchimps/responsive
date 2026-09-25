@@ -111,7 +111,9 @@
     api( 'responsive_narrow_container_width', function( value ) {
         value.bind( function( newval ) {
             if ( api( 'responsive_width' ).get() === 'narrow' ) {
-                $('.container,[class*=\'__inner-container\'],.site-header-full-width-main-navigation:not(.responsive-site-full-width) .main-navigation-wrapper').css('max-width', newval+'px' );
+                // The header's .container always follows the Wide Container Width
+                // (see #masthead rules in custom-styles.php), so leave it untouched.
+                $('.container,[class*=\'__inner-container\'],.site-header-full-width-main-navigation:not(.responsive-site-full-width) .main-navigation-wrapper').not('#masthead .container').css('max-width', newval+'px' );
                 jQuery('style#responsive-gutenberg-wide-size').remove();
                 jQuery('head').append(
                     '<style id="responsive-gutenberg-wide-size">' +

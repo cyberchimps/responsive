@@ -1445,7 +1445,14 @@ in both cases the footer builder is active */
 #customize-control-responsive_page_show_comments,
 #customize-control-responsive_footer_menu_typography_group,
 #customize-control-responsive_footer_menu_item_horizontal_spacing,
-#customize-control-responsive_footer_menu_item_top_bottom_spacing {
+#customize-control-responsive_footer_menu_item_top_bottom_spacing, 
+#customize-control-responsive_breadcrumb_background_separator,
+#customize-control-responsive_breadcrumb_typography_group,
+#li#customize-control-responsive_single_blog_breadcrumb_typography_group,
+#customize-control-responsive_blog_breadcrumb_typography_group,
+li#customize-control-responsive_page_breadcrumb_typography_group,
+#customize-control-breadcrumbs_options,
+#customize-control-toolbar_options {
 	margin-top: 24px;
 }
 #customize-control-responsive_cart_icon_separator,
@@ -1571,7 +1578,8 @@ in both cases the footer builder is active */
 #customize-control-responsive_blog_entry_elements_positioning,
 #customize-control-responsive_blog_entry_meta_alignment,
 #customize-control-responsive_blog_entry_title_alignment,
-#customize-control-blog_pagination {
+#customize-control-blog_pagination,
+#customize-control-responsive_single_blog_post_meta_typography_group {
 	margin-bottom: 24px;	
 }
 .customize-section-description-container {
@@ -1636,7 +1644,8 @@ div.customize-section-description{
 #sub-accordion-section-responsive_footer_above_row .responsive-customizer-heading,
 #sub-accordion-section-responsive_footer_primary_row .responsive-customizer-heading,
 #sub-accordion-section-responsive_footer_below_row .responsive-customizer-heading,
-#customize-control-responsive_footer_bg_attachment {
+#customize-control-responsive_footer_bg_attachment,
+#customize-control-responsive_breadcrumb_source {
 	margin-bottom: 24px;
 }
 .responsive-hfb-builder-item.sortable-ghost {
@@ -2132,10 +2141,6 @@ ul.control-panel-nav_menus .customize-help-toggle:before {
 #sub-accordion-section-responsive_page li .responsive-color-control-wrapper .wp-picker-container,
 #sub-accordion-section-responsive_page li .responsive-color-control-wrapper .responsive-color-reset-btn{
 	margin-top: 20px;
-}
-#customize-control-responsive_single_blog_breadcrumb_typography_group .responsive-typography-settings-group-icon,
-#customize-control-responsive_single_blog_excerpt_typography_group .responsive-typography-settings-group-icon{
-	margin-top: 10px;
 }
 #sub-accordion-section-responsive_single_blog_layout #customize-control-responsive_single_blog_content_background_color .customize-control-title{
 	width: 80%;

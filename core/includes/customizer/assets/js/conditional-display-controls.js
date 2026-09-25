@@ -58,24 +58,11 @@
 		function( $swipe ) {
 			$swipe.bind(
 				function( newval ) {
-					switch (newval) {
-						case 'full-width':
-							// api.control( 'responsive_footer_full_width' ).toggle( false );
-							api.control( 'responsive_header_full_width' ).toggle( false );
-							api.control( 'responsive_inline_logo_site_title' ).toggle( false );
-							break;
-						/**
-						 * The select was switched to »show«.
-						 */
-						case 'contained':
-							// api.control( 'responsive_footer_full_width' ).toggle( true );
-							api.control( 'responsive_header_full_width' ).toggle( true );
-							api.control( 'responsive_inline_logo_site_title' ).toggle( true );
-							break;
-						case 'narrow':
-							api.control( 'responsive_header_full_width' ).toggle( true );
-							api.control( 'responsive_inline_logo_site_title' ).toggle( true );
-							break;
+					// Guarded: an exception here leaves the setting's jQuery callback
+					// list stuck mid-fire, so every later change - including the
+					// customizer's own "refresh" transport - silently stops running.
+					if ( api.control( 'responsive_inline_logo_site_title' ) ) {
+						api.control( 'responsive_inline_logo_site_title' ).toggle( 'full-width' !== newval );
 					}
 				}
 			);
@@ -190,29 +177,6 @@
 						 */
 						case 'sidebar':
 							api.control( 'responsive_sidebar_menu_alignment' ).toggle( true );
-							break;
-					}
-				}
-			);
-		}
-	);
-
-	api(
-		"responsive_theme_options['breadcrumb']",
-		function( $swipe ) {
-			$swipe.bind(
-				function( newval ) {
-					switch (newval) {
-						case true:
-							api.control( 'responsive_breadcrumb_position' ).toggle( false );
-							api.control( 'responsive_breadcrumb_color' ).toggle( false );
-							break;
-						/**
-						 * The select was switched to »show«.
-						 */
-						case false:
-							api.control( 'responsive_breadcrumb_position' ).toggle( true );
-							api.control( 'responsive_breadcrumb_color' ).toggle( true );
 							break;
 					}
 				}
@@ -429,6 +393,10 @@ api(
 		} );
 	}
 );
-
+	// Breadcrumb sortable-element sync (position changes, enable/disable) for
+	// Page, Single Post, and the Blog/Archive Title Area all lives in
+	// syncBreadcrumbSortable() in breadcrumb-toggle.js, which - unlike the removed
+	// listeners that used to live here - correctly respects each context's
+	// per-post-type "Enable on ..." toggle, not just the global toggle.
 
 })( jQuery );

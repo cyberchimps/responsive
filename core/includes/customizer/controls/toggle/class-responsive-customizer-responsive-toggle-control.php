@@ -24,7 +24,16 @@ if ( ! class_exists( 'Responsive_Customizer_Toggle_Control' ) ) :
          * @var string
 		 */
         public $type = 'responsive-toggle';
-        
+
+		/**
+		 * Whether to render the description as a hover tooltip icon
+		 * beside the label instead of the default text underneath the toggle.
+		 *
+		 * @access public
+		 * @var bool
+		 */
+		public $tooltip = false;
+
 		/**
          * Enqueue control related scripts/styles.
 		 *
@@ -46,6 +55,7 @@ if ( ! class_exists( 'Responsive_Customizer_Toggle_Control' ) ) :
 			$this->json['id']          = $this->id;
 			$this->json['type']        = $this->type;
 			$this->json['description'] = $this->description;
+			$this->json['tooltip']     = $this->tooltip;
 		}
 
 		/**

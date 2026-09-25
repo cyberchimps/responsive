@@ -5213,6 +5213,24 @@
             ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
         ),
 
+        // Blog title area Breadcrumb
+        generateTypographyPreview(
+            'blog_breadcrumb_typography',
+            'blog_breadcrumb_tablet_typography',
+            'blog_breadcrumb_mobile_typography',
+            'blog_breadcrumb',
+            'customizer-typography-blog_breadcrumb_typography',
+            ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
+        ),
+
+        generateTypographyPreview(
+            'page_breadcrumb_typography',
+            'page_breadcrumb_tablet_typography',
+            'page_breadcrumb_mobile_typography',
+            'page_breadcrumb',
+            'customizer-typography-page_breadcrumb_typography',
+            ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
+        ),
 
 
         api( "page_title_area_text_typography[text-transform]", function( $swipe ) {
