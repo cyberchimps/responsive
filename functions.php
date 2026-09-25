@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '6.4.5' );
+define( 'RESPONSIVE_THEME_VERSION', '6.4.6' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -44,7 +44,7 @@ require $responsive_template_directory . '/core/includes/customizer/custom-style
 require $responsive_template_directory . '/core/includes/classes/class-responsive-local-fonts.php';
 require $responsive_template_directory . '/core/includes/compatibility/woocommerce/class-responsive-woocommerce.php';
 require $responsive_template_directory . '/core/includes/compatibility/woocommerce/class-responsive-woocommerce-native-cart-popup.php';
-require $responsive_template_directory . '/core/includes/compatibility/woocommerce/woocommerce-cart-shortcodes.php';
+require $responsive_template_directory . '/core/includes/compatibility/woocommerce/woocommerce-cart-popup-tags.php';
 require $responsive_template_directory . '/core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-typography-customizer.php';
 require $responsive_template_directory . '/core/includes/compatibility/sensei/class-responsive-sensei.php';
 require $responsive_template_directory . '/admin/admin-functions.php';
@@ -3447,7 +3447,7 @@ if ( ! function_exists( 'responsive_theme_background_updater_title_area_breadcru
 	 * one-time migration re-adds 'breadcrumb' to the front of each affected array
 	 * when the corresponding legacy toggle(s) were enabled.
 	 *
-	 * @since 6.4.5
+	 * @since 6.4.6
 	 * @return void
 	 */
 	function responsive_theme_background_updater_title_area_breadcrumb_6_4_6() {

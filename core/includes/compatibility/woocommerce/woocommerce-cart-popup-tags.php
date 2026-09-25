@@ -1,13 +1,13 @@
 <?php
 /**
- * WooCommerce cart shortcodes used by the native cart popup.
+ * WooCommerce cart tags used by the native cart popup.
  *
- * Provides [responsive_woo_cart_items], [responsive_woo_total_cart] and
- * [responsive_woo_free_shipping_left], plus the AJAX endpoint that refreshes
- * the free shipping message when the cart changes.
+ * Renders the [responsive_woo_cart_items], [responsive_woo_total_cart] and
+ * [responsive_woo_free_shipping_left] tags inside the popup text, plus the
+ * AJAX endpoint that refreshes the free shipping message when the cart changes.
  *
- * Every definition here is guarded so that it stays inert when the Responsive
- * Add-ons plugin is active and already provides the same functions.
+ * These tags are not registered as shortcodes; they are parsed only where the
+ * popup outputs its customizer text.
  *
  * @package Responsive
  * @since 6.5.0
@@ -21,20 +21,20 @@ if ( ! class_exists( 'WooCommerce' ) ) {
 	return;
 }
 
-if ( ! function_exists( 'responsive_addons_woo_cart_items_count_function' ) ) {
+if ( ! function_exists( 'responsive_woo_cart_items_count' ) ) {
 	/**
-	 * Shortcode returns cart item count.
+	 * Returns the cart item count markup.
 	 *
 	 * @return string|void
 	 */
-	function responsive_addons_woo_cart_items_count_function() {
+	function responsive_woo_cart_items_count() {
 		if ( ! class_exists( 'WooCommerce' ) || is_admin() ) {
 			return;
 		}
 		// Return if in elementor, avoid errors.
 		if ( class_exists( 'Elementor\Plugin' )
 			&& \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
-			return esc_html__( 'This shortcode only works in front end', 'responsive' );
+			return esc_html__( 'This tag only works in front end', 'responsive' );
 		}
 		$output  = '<span class="responsive-woo-cart-count">';
 		$output .= WC()->cart->get_cart_contents_count();
@@ -44,20 +44,20 @@ if ( ! function_exists( 'responsive_addons_woo_cart_items_count_function' ) ) {
 	}
 }
 
-if ( ! function_exists( 'responsive_addons_woo_cart_total_function' ) ) {
+if ( ! function_exists( 'responsive_woo_cart_total' ) ) {
 	/**
-	 * Shortcode returns cart total.
+	 * Returns the cart total markup.
 	 *
 	 * @return string|void
 	 */
-	function responsive_addons_woo_cart_total_function() {
+	function responsive_woo_cart_total() {
 		if ( ! class_exists( 'WooCommerce' ) || is_admin() ) {
 			return;
 		}
 		// Return if in elementor, avoid errors.
 		if ( class_exists( 'Elementor\Plugin' )
 			&& \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
-			return esc_html__( 'This shortcode only works in front end', 'responsive' );
+			return esc_html__( 'This tag only works in front end', 'responsive' );
 		}
 
 		$output  = '<span class="responsive-woo-total">';
@@ -68,7 +68,7 @@ if ( ! function_exists( 'responsive_addons_woo_cart_total_function' ) ) {
 	}
 }
 
-if ( ! function_exists( 'woo_free_shipping_left' ) ) {
+if ( ! function_exists( 'responsive_woo_get_free_shipping_left' ) ) {
 	/**
 	 * Returns a message indicating how much is left to spend for free shipping,
 	 * or a message indicating free shipping has been reached.
@@ -79,7 +79,7 @@ if ( ! function_exists( 'woo_free_shipping_left' ) ) {
 	 *
 	 * @return string|void
 	 */
-	function woo_free_shipping_left( $content, $content_reached, $multiply_by = 1 ) {
+	function responsive_woo_get_free_shipping_left( $content, $content_reached, $multiply_by = 1 ) {
 
 		if ( ! class_exists( 'WooCommerce' ) ) {
 			return;
@@ -147,16 +147,16 @@ if ( ! function_exists( 'woo_free_shipping_left' ) ) {
 	}
 }
 
-if ( ! function_exists( 'woo_free_shipping_shortcode' ) ) {
+if ( ! function_exists( 'responsive_woo_free_shipping_tag' ) ) {
 	/**
-	 * Shortcode to display free shipping progress message.
+	 * Returns the free shipping progress message for the popup tag.
 	 *
-	 * @param array  $atts    Shortcode attributes.
-	 * @param string $content Content inside shortcode (not used).
+	 * @param array  $atts    Tag attributes.
+	 * @param string $content Enclosed tag content (not used).
 	 *
 	 * @return string|void
 	 */
-	function woo_free_shipping_shortcode( $atts, $content = '' ) {
+	function responsive_woo_free_shipping_tag( $atts, $content = '' ) {
 
 		if ( ! class_exists( 'WooCommerce' ) ) {
 			return;
@@ -191,24 +191,24 @@ if ( ! function_exists( 'woo_free_shipping_shortcode' ) ) {
 		$content_reached = $atts['content_reached'];
 		$multiply_by     = floatval( $atts['multiply_by'] );
 
-		return woo_free_shipping_left( "<span class='responsive-woo-free-shipping' data-content='" . esc_attr( $x ) . "' data-reach='" . esc_attr( $content_reached ) . "'>" . esc_html( $content ) . '</span>', '<span class="responsive-woo-free-shipping">' . esc_html( $content_reached ) . '</span>', $multiply_by );
+		return responsive_woo_get_free_shipping_left( "<span class='responsive-woo-free-shipping' data-content='" . esc_attr( $x ) . "' data-reach='" . esc_attr( $content_reached ) . "'>" . esc_html( $content ) . '</span>', '<span class="responsive-woo-free-shipping">' . esc_html( $content_reached ) . '</span>', $multiply_by );
 	}
 }
 
-if ( ! function_exists( 'update_responsive_woo_free_shipping_left_shortcode' ) ) {
+if ( ! function_exists( 'responsive_woo_ajax_update_free_shipping_left' ) ) {
 	/**
-	 * AJAX handler to refresh the free shipping shortcode fragment.
+	 * AJAX handler to refresh the free shipping message fragment.
 	 *
 	 * @return void
 	 */
-	function update_responsive_woo_free_shipping_left_shortcode() {
+	function responsive_woo_ajax_update_free_shipping_left() {
 		$atts = array();
 
 		// Don't accept POST data from users; recalculate from stored settings.
 		$default_bottom_text = esc_html__( '[responsive_woo_free_shipping_left]', 'responsive' );
 		$custom_text         = get_theme_mod( 'responsive_popup_bottom_text', $default_bottom_text );
 
-		// Parse shortcode attributes from the stored value.
+		// Parse tag attributes from the stored value.
 		if ( ! empty( $custom_text ) && preg_match( '/\[responsive_woo_free_shipping_left(.*?)\]/', $custom_text, $matches ) ) {
 			if ( ! empty( $matches[1] ) ) {
 				$shortcode_attrs = shortcode_parse_atts( $matches[1] );
@@ -219,35 +219,75 @@ if ( ! function_exists( 'update_responsive_woo_free_shipping_left_shortcode' ) )
 		}
 
 		// Recalculate from cart state using trusted database values.
-		$return_shortcode_value = woo_free_shipping_shortcode( $atts, '' );
-		wp_send_json( $return_shortcode_value );
+		$free_shipping_message = responsive_woo_free_shipping_tag( $atts, '' );
+		wp_send_json( $free_shipping_message );
 	}
 }
 
 if ( ! has_action( 'wp_ajax_update_responsive_woo_free_shipping_left_shortcode' ) ) {
-	add_action( 'wp_ajax_update_responsive_woo_free_shipping_left_shortcode', 'update_responsive_woo_free_shipping_left_shortcode' );
-	add_action( 'wp_ajax_nopriv_update_responsive_woo_free_shipping_left_shortcode', 'update_responsive_woo_free_shipping_left_shortcode' );
+	add_action( 'wp_ajax_update_responsive_woo_free_shipping_left_shortcode', 'responsive_woo_ajax_update_free_shipping_left' );
+	add_action( 'wp_ajax_nopriv_update_responsive_woo_free_shipping_left_shortcode', 'responsive_woo_ajax_update_free_shipping_left' );
 }
 
-if ( ! function_exists( 'responsive_woo_register_cart_shortcodes' ) ) {
+if ( ! function_exists( 'responsive_woo_parse_cart_tags' ) ) {
 	/**
-	 * Register the cart shortcodes used by the native cart popup.
+	 * Replace the cart popup tags in a string with their rendered values.
 	 *
-	 * Each registration is skipped when the shortcode already exists, so an
-	 * active Responsive Add-ons plugin keeps ownership of it.
+	 * The theme does not register these tags as shortcodes (that is plugin
+	 * territory), so they are parsed here only where the cart popup outputs
+	 * its customizer text. The shortcode-style syntax is kept so existing
+	 * saved values continue to work, and any other shortcodes are still
+	 * handled by do_shortcode().
 	 *
-	 * @return void
+	 * @param string $text Text that may contain cart popup tags.
+	 *
+	 * @return string
 	 */
-	function responsive_woo_register_cart_shortcodes() {
-		if ( ! shortcode_exists( 'responsive_woo_cart_items' ) ) {
-			add_shortcode( 'responsive_woo_cart_items', 'responsive_addons_woo_cart_items_count_function' );
+	function responsive_woo_parse_cart_tags( $text ) {
+		$tags = array(
+			'responsive_woo_cart_items'         => 'responsive_woo_cart_items_count',
+			'responsive_woo_total_cart'         => 'responsive_woo_cart_total',
+			'responsive_woo_free_shipping_left' => 'responsive_woo_free_shipping_tag',
+		);
+
+		if ( empty( $text ) || false === strpos( $text, '[' ) ) {
+			return $text;
 		}
-		if ( ! shortcode_exists( 'responsive_woo_total_cart' ) ) {
-			add_shortcode( 'responsive_woo_total_cart', 'responsive_addons_woo_cart_total_function' );
-		}
-		if ( ! shortcode_exists( 'responsive_woo_free_shipping_left' ) ) {
-			add_shortcode( 'responsive_woo_free_shipping_left', 'woo_free_shipping_shortcode' );
-		}
+
+		$text = preg_replace_callback(
+			'/' . get_shortcode_regex( array_keys( $tags ) ) . '/',
+			function ( $m ) use ( $tags ) {
+				// Allow [[tag]] to escape a tag, matching shortcode behaviour.
+				if ( '[' === $m[1] && ']' === $m[6] ) {
+					return substr( $m[0], 1, -1 );
+				}
+
+				$atts = shortcode_parse_atts( $m[3] );
+				if ( ! is_array( $atts ) ) {
+					$atts = array();
+				}
+
+				return $m[1] . call_user_func( $tags[ $m[2] ], $atts, $m[5] ) . $m[6];
+			},
+			$text
+		);
+
+		return do_shortcode( $text );
 	}
 }
-add_action( 'init', 'responsive_woo_register_cart_shortcodes', 20 );
+
+if ( ! function_exists( 'responsive_woo_popup_allowed_html' ) ) {
+	/**
+	 * Allowed HTML for the cart popup text.
+	 *
+	 * Post HTML plus <bdi>, which wc_price() wraps prices in.
+	 *
+	 * @return array
+	 */
+	function responsive_woo_popup_allowed_html() {
+		$allowed        = wp_kses_allowed_html( 'post' );
+		$allowed['bdi'] = array();
+
+		return $allowed;
+	}
+}

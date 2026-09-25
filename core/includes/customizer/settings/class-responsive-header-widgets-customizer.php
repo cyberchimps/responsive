@@ -66,13 +66,9 @@ if ( ! class_exists( 'Responsive_Header_Widgets_Customizer' ) ) :
 			$menu_border_color_label = __( 'Border Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'header_widget_border', $menu_border_color_label, 'responsive_header_widget', 120, Responsive\Core\get_responsive_customizer_defaults( 'header_widget_border' ), null );
 
-			// Link Color.
+			// Link Color (Normal + Hover).
 			$menu_link_color_label = __( 'Links Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_widget_link', $menu_link_color_label, 'responsive_header_widget', 130, Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link' ), null );
-
-			// Link Hover Color.
-			$menu_link_hover_color_label = __( 'Links Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_widget_link_hover', $menu_link_hover_color_label, 'responsive_header_widget', 140, Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link_hover' ), null );
+			responsive_color_control( $wp_customize, 'header_widget_link', $menu_link_color_label, 'responsive_header_widget', 130, Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link_hover' ), 'header_widget_link_hover' );
 
 			/**
 			 * Header Widgets.

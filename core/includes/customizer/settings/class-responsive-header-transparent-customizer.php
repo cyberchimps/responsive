@@ -75,7 +75,6 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_transparent_header_below_header_bg_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_border_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_site_title_color',
-				$design_tab_ids_prefix . 'responsive_transparent_header_site_title_hover_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_text_color',
 				$design_tab_ids_prefix . 'responsive_tranparent_header_menu_color_separator',
 				$design_tab_ids_prefix . 'responsive_transparent_header_menu_background_color',
@@ -83,15 +82,9 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_transparent_header_menu_border_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_active_menu_background_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_hover_menu_background_color',
-				$design_tab_ids_prefix . 'responsive_transparent_header_menu_link_color',
-				$design_tab_ids_prefix . 'responsive_transparent_header_active_menu_link_color',
-				$design_tab_ids_prefix . 'responsive_transparent_header_menu_link_hover_color',
-				$design_tab_ids_prefix . 'responsive_transparent_header_sub_menu_background_color',
-				$design_tab_ids_prefix . 'responsive_transparent_header_active_sub_menu_background_color',
-				$design_tab_ids_prefix . 'responsive_transparent_header_hover_sub_menu_background_color',
-				$design_tab_ids_prefix . 'responsive_transparent_header_sub_menu_link_color',
-				$design_tab_ids_prefix . 'responsive_transparent_header_sub_menu_active_link_color',
-				$design_tab_ids_prefix . 'responsive_transparent_header_sub_menu_link_hover_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_menu_link_color_states',
+				$design_tab_ids_prefix . 'responsive_transparent_header_sub_menu_background_color_states',
+				$design_tab_ids_prefix . 'responsive_transparent_header_sub_menu_link_color_states',
 				$design_tab_ids_prefix . 'responsive_transparent_header_menu_toggle_background_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_menu_toggle_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_menu_toggle_border_color',
@@ -265,10 +258,7 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			responsive_color_control( $wp_customize, 'transparent_header_border', $transparent_header_border_color_label, 'responsive_header_transparent', 120, Responsive\Core\get_responsive_customizer_defaults( 'header_border' ), null );
 
 			$transparent_header_site_title_color_label = __( 'Site Title Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'transparent_header_site_title', $transparent_header_site_title_color_label, 'responsive_header_transparent', 130, Responsive\Core\get_responsive_customizer_defaults( 'header_site_title' ), null );
-
-			$transparent_header_site_title_hover_color_label = __( 'Site Title Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'transparent_header_site_title_hover', $transparent_header_site_title_hover_color_label, 'responsive_header_transparent', 140, Responsive\Core\get_responsive_customizer_defaults( 'header_site_title_hover' ), null );
+			responsive_color_control( $wp_customize, 'transparent_header_site_title', $transparent_header_site_title_color_label, 'responsive_header_transparent', 130, Responsive\Core\get_responsive_customizer_defaults( 'header_site_title' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'header_site_title_hover' ), 'transparent_header_site_title_hover' );
 
 			$transparent_header_text_color_label = __( 'Site Tagline Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'transparent_header_text', $transparent_header_text_color_label, 'responsive_header_transparent', 150, Responsive\Core\get_responsive_customizer_defaults( 'header_text' ), null );
@@ -298,41 +288,50 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			$hover_menu_background_color_label = __( 'Hover Menu Background Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'transparent_header_hover_menu_background', $hover_menu_background_color_label, 'responsive_header_transparent', 192, Responsive\Core\get_responsive_customizer_defaults( 'header_active_menu_background' ), null );
 
-			// Link Color.
+			// Link Color (Normal + Hover + Active).
 			$menu_link_color_label = __( 'Menu Item Link Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'transparent_header_menu_link', $menu_link_color_label, 'responsive_header_transparent', 200, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link' ), null );
+			responsive_color_control_with_states(
+				$wp_customize,
+				'transparent_header_menu_link',
+				$menu_link_color_label,
+				'responsive_header_transparent',
+				200,
+				Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link_hover' ),
+				'transparent_header_menu_link_hover',
+				'',
+				'transparent_header_active_menu_link'
+			);
 
-			// Active Menu Link Color.
-			$menu_active_link_color_label = __( 'Active Menu Item Link Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'transparent_header_active_menu_link', $menu_active_link_color_label, 'responsive_header_transparent', 205, '' );
-
-			// Link Hover Color.
-			$menu_link_hover_color_label = __( 'Menu Item Link Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'transparent_header_menu_link_hover', $menu_link_hover_color_label, 'responsive_header_transparent', 210, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link_hover' ), null );
-
-			// Sub Menu Background Color.
+			// Sub Menu Background Color (Normal + Hover + Active).
 			$responsive_transparent_header_sub_menu_background_color_label = __( 'Sub Menu Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'transparent_header_sub_menu_background', $responsive_transparent_header_sub_menu_background_color_label, 'responsive_header_transparent', 220, Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_background' ), null );
+			responsive_color_control_with_states(
+				$wp_customize,
+				'transparent_header_sub_menu_background',
+				$responsive_transparent_header_sub_menu_background_color_label,
+				'responsive_header_transparent',
+				220,
+				Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_background' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_background' ),
+				'transparent_header_hover_sub_menu_background',
+				Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_background' ),
+				'transparent_header_active_sub_menu_background'
+			);
 
-			// Active Menu Color.
-			$responsive_transparent_header_active_sub_menu_background_color_label = __( 'Active Sub Menu Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'transparent_header_active_sub_menu_background', $responsive_transparent_header_active_sub_menu_background_color_label, 'responsive_header_transparent', 221, Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_background' ), null );
-
-			// Hover Menu Background Color.
-			$responsive_transparent_header_hover_sub_menu_background_color_label = __( 'Hover Sub Menu Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'transparent_header_hover_sub_menu_background', $responsive_transparent_header_hover_sub_menu_background_color_label, 'responsive_header_transparent', 222, Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_background' ), null );
-
-			// Sub Menu Link Color.
+			// Sub Menu Link Color (Normal + Hover + Active).
 			$sub_menu_link_color_label = __( 'Sub Menu Item Link Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'transparent_header_sub_menu_link', $sub_menu_link_color_label, 'responsive_header_transparent', 230, Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_link' ), null );
-
-			// Active Sub Menu Link Color.
-			$sub_menu_active_link_color_label = __( 'Active Sub Menu Item Link Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'transparent_header_sub_menu_active_link', $sub_menu_active_link_color_label, 'responsive_header_transparent', 235, '' );
-
-			// Sub Menu Link Hover Color.
-			$sub_menu_link_hover_color_label = __( 'Sub Menu Item Link Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'transparent_header_sub_menu_link_hover', $sub_menu_link_hover_color_label, 'responsive_header_transparent', 240, Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_link_hover' ), null );
+			responsive_color_control_with_states(
+				$wp_customize,
+				'transparent_header_sub_menu_link',
+				$sub_menu_link_color_label,
+				'responsive_header_transparent',
+				230,
+				Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_link' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_link_hover' ),
+				'transparent_header_sub_menu_link_hover',
+				'',
+				'transparent_header_sub_menu_active_link'
+			);
 
 			// Menu Toggle Background Color.
 			$menu_toggle_background_color_label = __( 'Menu Toggle Background Color', 'responsive' );

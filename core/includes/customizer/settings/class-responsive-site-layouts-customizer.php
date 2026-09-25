@@ -209,7 +209,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 					'image'       => RESPONSIVE_THEME_URI . 'admin/images/upgradeToPro.jpg',
 					'description' => __( 'Take your container layout to the next level with powerful design features.', 'responsive' ),
 					'features'    => array(
-						__( 'Full Width Layout', 'responsive' ),
+						__( 'Max Width Layout', 'responsive' ),
 						__( 'Padded Layout', 'responsive' ),
 						__( 'Fluid Layout', 'responsive' ),
 						__( 'Container Spacings', 'responsive' ),
