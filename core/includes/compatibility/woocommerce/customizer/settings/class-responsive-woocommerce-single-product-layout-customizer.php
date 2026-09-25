@@ -53,6 +53,8 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				$general_tab_ids_prefix . 'responsive_single_product_elements_separator',
 				$general_tab_ids_prefix . 'responsive_single_product_gallery_layout',
 				$general_tab_ids_prefix . 'responsive_woocommerce_product_elements_positioning',
+				$general_tab_ids_prefix . 'responsive_single_product_show_related_products',
+				$general_tab_ids_prefix . 'responsive_single_product_related_products_columns',
 				$general_tab_ids_prefix . 'responsive_single_product_floating_bar_separator',
 				$general_tab_ids_prefix . 'responsive_single_product_floating_bar',
 				$general_tab_ids_prefix . 'responsive_single_product_image_width',
@@ -614,6 +616,29 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 						'choices'  => responsive_product_elements(),
 					)
 				)
+			);
+
+			// Show Related Products toggle.
+			$single_product_show_related_products_label = esc_html__( 'Show Related Products', 'responsive' );
+			responsive_toggle_control( $wp_customize, 'single_product_show_related_products', $single_product_show_related_products_label, 'responsive_woocommerce_single_product_layout', 61, 1, null );
+
+			// Related Products Columns button selector.
+			$single_product_related_products_columns_label   = esc_html__( 'Related Products Columns', 'responsive' );
+			$single_product_related_products_columns_choices = array(
+				'2' => '2',
+				'3' => '3',
+				'4' => '4',
+			);
+			responsive_select_button_control(
+				$wp_customize,
+				'single_product_related_products_columns',
+				$single_product_related_products_columns_label,
+				'responsive_woocommerce_single_product_layout',
+				62,
+				$single_product_related_products_columns_choices,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_related_products_columns' ),
+				'responsive_active_single_product_related_products',
+				'refresh'
 			);
 
 			// Floating Bar.

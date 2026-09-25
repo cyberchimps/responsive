@@ -341,6 +341,42 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			add_action( 'woocommerce_single_product_summary', array( $this, 'single_product_content_structure' ), 10 );
 			add_filter( 'woocommerce_product_description_heading', '__return_false' );
 			add_filter( 'woocommerce_product_additional_information_heading', '__return_false' );
+
+			if ( ! get_theme_mod( 'responsive_single_product_show_related_products', 1 ) ) {
+				remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+			} else {
+				add_filter( 'woocommerce_output_related_products_args', array( $this, 'single_product_related_products_args' ) );
+				add_filter( 'woocommerce_related_products_columns', array( $this, 'single_product_related_products_columns' ) );
+			}
+		}
+
+		/**
+		 * Customize related products args on single product page.
+		 *
+		 * @param array $args Related products arguments.
+		 * @return array
+		 */
+		public function single_product_related_products_args( $args ) {
+			if ( ! is_product() ) {
+				return $args;
+			}
+			$columns = intval( get_theme_mod( 'responsive_single_product_related_products_columns', 4 ) );
+			$args['columns']        = $columns;
+			$args['posts_per_page'] = $columns;
+			return $args;
+		}
+
+		/**
+		 * Customize related products columns on single product page.
+		 *
+		 * @param int $columns Number of columns.
+		 * @return int
+		 */
+		public function single_product_related_products_columns( $columns ) {
+			if ( ! is_product() ) {
+				return $columns;
+			}
+			return intval( get_theme_mod( 'responsive_single_product_related_products_columns', 4 ) );
 		}
 
 		/**

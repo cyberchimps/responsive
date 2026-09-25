@@ -1295,6 +1295,8 @@ function defaults() {
 			'single_product_meta_taxonomies'            => '{}',
 			'single_product_title_horizontal_alignment' => 'left',
 			'single_product_title_inner_elements_spacing' => 10,
+			'responsive_single_product_show_related_products' => 1,
+			'responsive_single_product_related_products_columns' => '4',
 			'shop_title_horizontal_alignment'     => 'center',
 			'shop_title_inner_elements_spacing'   => 0,
 			'shop_title_container_background_layout1' => 'none',

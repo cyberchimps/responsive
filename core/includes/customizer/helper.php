@@ -2771,6 +2771,17 @@ function responsive_active_single_product_sidebar_position() {
 }
 
 /**
+ * Active callback for Single Product Related Products.
+ *
+ * @return bool
+ */
+if ( ! function_exists( 'responsive_active_single_product_related_products' ) ) {
+	function responsive_active_single_product_related_products() {
+		return (bool) get_theme_mod( 'responsive_single_product_show_related_products', 1 );
+	}
+}
+
+/**
  * [responsive_active_breadcrumb description].
  *
  * @return [type] [description]
