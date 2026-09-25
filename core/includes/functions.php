@@ -1509,6 +1509,8 @@ function defaults() {
 			'responsive_single_product_text_color'             => 'palette2',
 			'responsive_single_product_title_link_color'       => 'palette0',
 			'responsive_single_product_title_link_hover_color' => 'palette1',
+			'responsive_single_product_site_background_color'    => 'site-background',
+			'responsive_single_product_content_background_color' => 'box-background',
 			'responsive_page_site_background_color' => 'site-background',
 			'responsive_page_content_background_color' => 'box-background',
 			'responsive_link_style'               => 'no-underline',

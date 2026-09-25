@@ -2243,6 +2243,26 @@
         });
     });
 
+    // Single Product Site Background Color
+    api('responsive_single_product_site_background_color', function (value) {
+        value.bind(function (newval) {
+            if (newval && (newval.includes('palette') || newval.includes('site-background'))) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('body.single-product').css('background-color', newval);
+        });
+    });
+
+    // Single Product Content Background Color
+    api('responsive_single_product_content_background_color', function (value) {
+        value.bind(function (newval) {
+            if (newval && (newval.includes('palette') || newval.includes('box-background'))) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.single-product div.product').css('background-color', newval);
+        });
+    });
+
 
 
     //Buttons Color

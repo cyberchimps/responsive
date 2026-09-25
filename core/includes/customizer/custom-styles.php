@@ -13804,6 +13804,18 @@ function responsive_customizer_styles() {
 			}";
 		}
 
+		// Single Product Backgrounds.
+		$single_product_site_background_color    = esc_html( responsive_prepare_css_value( 'responsive_single_product_site_background_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_site_background_color' ) ) );
+		$single_product_content_background_color = esc_html( responsive_prepare_css_value( 'responsive_single_product_content_background_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_content_background_color' ) ) );
+
+		$woocommerce_custom_css .= "
+		body.single-product {
+			background-color: {$single_product_site_background_color};
+		}
+		.single-product div.product {
+			background-color: {$single_product_content_background_color};
+		}";
+
 
 
 

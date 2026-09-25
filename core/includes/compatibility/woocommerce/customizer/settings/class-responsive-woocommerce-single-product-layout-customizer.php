@@ -70,6 +70,8 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 
 			$design_tab_ids_prefix = 'customize-control-';
 			$design_tab_ids        = array(
+				$design_tab_ids_prefix . 'responsive_single_product_site_background_color',
+				$design_tab_ids_prefix . 'responsive_single_product_content_background_color',
 				$design_tab_ids_prefix . 'responsive_single_product_floating_bar_design_separator',
 				$design_tab_ids_prefix . 'responsive_floatingb_background_color',
 				$design_tab_ids_prefix . 'responsive_floatingb_title_color',
@@ -630,6 +632,48 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 			// Product Image Width.
 			$single_product_image_width_label = esc_html__( 'Image Width (%)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'single_product_image_width', $single_product_image_width_label, 'responsive_woocommerce_single_product_layout', 46, 48, null, 70, 20, 'refresh' );
+
+			// Single Product Site Background Color.
+			$single_product_site_background_color_label = esc_html__( 'Single Product Background', 'responsive' );
+			responsive_color_control(
+				$wp_customize,
+				'single_product_site_background',
+				$single_product_site_background_color_label,
+				'responsive_woocommerce_single_product_layout',
+				68,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_site_background_color' ),
+				null,
+				'',
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'color',
+				'postMessage'
+			);
+
+			// Single Product Content Background Color.
+			$single_product_content_background_color_label = esc_html__( 'Content Background', 'responsive' );
+			responsive_color_control(
+				$wp_customize,
+				'single_product_content_background',
+				$single_product_content_background_color_label,
+				'responsive_woocommerce_single_product_layout',
+				69,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_content_background_color' ),
+				null,
+				'',
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'color',
+				'postMessage'
+			);
 
 			/*
 			 * Color settings for floating bar
