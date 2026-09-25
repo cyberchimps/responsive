@@ -58,24 +58,11 @@
 		function( $swipe ) {
 			$swipe.bind(
 				function( newval ) {
-					switch (newval) {
-						case 'full-width':
-							// api.control( 'responsive_footer_full_width' ).toggle( false );
-							api.control( 'responsive_header_full_width' ).toggle( false );
-							api.control( 'responsive_inline_logo_site_title' ).toggle( false );
-							break;
-						/**
-						 * The select was switched to »show«.
-						 */
-						case 'contained':
-							// api.control( 'responsive_footer_full_width' ).toggle( true );
-							api.control( 'responsive_header_full_width' ).toggle( true );
-							api.control( 'responsive_inline_logo_site_title' ).toggle( true );
-							break;
-						case 'narrow':
-							api.control( 'responsive_header_full_width' ).toggle( true );
-							api.control( 'responsive_inline_logo_site_title' ).toggle( true );
-							break;
+					// Guarded: an exception here leaves the setting's jQuery callback
+					// list stuck mid-fire, so every later change - including the
+					// customizer's own "refresh" transport - silently stops running.
+					if ( api.control( 'responsive_inline_logo_site_title' ) ) {
+						api.control( 'responsive_inline_logo_site_title' ).toggle( 'full-width' !== newval );
 					}
 				}
 			);

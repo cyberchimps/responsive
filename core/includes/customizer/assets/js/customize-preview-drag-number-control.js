@@ -11,19 +11,29 @@
      * Generic preview binder for "drag number with unit switcher" controls,
      * with responsive (desktop/tablet/mobile) variants.
      *
+     * Exposed on `window` (see bottom of this file) so other scripts -
+     * including ResponsivePRO's own customize-preview-drag-number-control.js -
+     * can reuse it instead of redefining it.
+     *
      * @param {string}   settingBase  Base setting name, e.g. 'responsive_footer_menu_item_horizontal_spacing'
      *                                (expects _tablet, _mobile, and _unit, _tablet_unit, _mobile_unit variants to exist)
      * @param {string}   styleIdBase  Base id used for the injected <style> tag, e.g. 'responsive-footer-menu-item-horizontal-spacing'
-     * @param {function} cssCallback  function( value, unit, device ) → returns CSS rule string (selector + properties)
+     * @param {function} cssCallback  function( value, unit, device ) → returns CSS rule string (selector + properties),
+     *                                or a falsy value to skip output for that device (e.g. the control isn't active).
      *                                device is '', 'tablet', or 'mobile'
+     * @param {string[]} [extraWatchSettings]  Extra setting ids that, when changed, re-run cssCallback for every
+     *                                device (used for a setting elsewhere - e.g. a layout switcher - that this
+     *                                control's own active state depends on).
      */
-    function responsiveDragControlWithDeviceAndUnits( settingBase, styleIdBase, cssCallback ) {
+    function responsiveDragControlWithDeviceAndUnits( settingBase, styleIdBase, cssCallback, extraWatchSettings ) {
 
         var devices = [
             { suffix: '',        key: '',        media: null },
             { suffix: '_tablet', key: 'tablet',  media: 'max-width: 992px' },
             { suffix: '_mobile', key: 'mobile',  media: 'max-width: 576px' }
         ];
+
+        var updaters = [];
 
         devices.forEach( function( device ) {
 
@@ -38,6 +48,10 @@
 
                 jQuery( 'style#' + styleId ).remove();
 
+                if ( ! css ) {
+                    return;
+                }
+
                 var styleContent = device.media
                     ? '@media screen and (' + device.media + ') { ' + css + ' }'
                     : css;
@@ -47,6 +61,8 @@
                 );
             }
 
+            updaters.push( updateCSS );
+
             api( valueControlId, function( value ) {
                 value.bind( updateCSS );
             } );
@@ -54,7 +70,23 @@
                 value.bind( updateCSS );
             } );
         } );
+
+        // `api( id, callback )` already defers safely until the setting is
+        // registered (unlike `api( id )` alone, which only returns it if
+        // already present), so no existence guard is needed here.
+        ( extraWatchSettings || [] ).forEach( function( settingId ) {
+            api( settingId, function( value ) {
+                value.bind( function() {
+                    updaters.forEach( function( updateCSS ) {
+                        updateCSS();
+                    } );
+                } );
+            } );
+        } );
     }
+
+    // Exposed for reuse by other customize-preview scripts (e.g. ResponsivePRO).
+    window.responsiveDragControlWithDeviceAndUnits = responsiveDragControlWithDeviceAndUnits;
 
     //Theme Options Layout
     //Box Radius
@@ -79,7 +111,9 @@
     api( 'responsive_narrow_container_width', function( value ) {
         value.bind( function( newval ) {
             if ( api( 'responsive_width' ).get() === 'narrow' ) {
-                $('.container,[class*=\'__inner-container\'],.site-header-full-width-main-navigation:not(.responsive-site-full-width) .main-navigation-wrapper').css('max-width', newval+'px' );
+                // The header's .container always follows the Wide Container Width
+                // (see #masthead rules in custom-styles.php), so leave it untouched.
+                $('.container,[class*=\'__inner-container\'],.site-header-full-width-main-navigation:not(.responsive-site-full-width) .main-navigation-wrapper').not('#masthead .container').css('max-width', newval+'px' );
                 jQuery('style#responsive-gutenberg-wide-size').remove();
                 jQuery('head').append(
                     '<style id="responsive-gutenberg-wide-size">' +
