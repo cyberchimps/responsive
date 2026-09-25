@@ -15,7 +15,95 @@
    padding: 21px;
    border-radius: 3px;
  }
- 
+
+ .responsive-pro-nudge {
+   background: #fff;
+   border-radius: 6px;
+   margin: 12px;
+   text-align: center;
+ }
+
+ .responsive-pro-nudge-image img {
+   max-width: 100%;
+   height: auto;
+   width: 130px;
+ }
+
+ .responsive-pro-nudge-title {
+   font-size: 15px;
+   font-weight: 600;
+   margin: 0 0 8px;
+ }
+
+ .responsive-pro-nudge-description {
+   font-size: 14px;
+   color: #000000;
+   margin: 0 0 14px;
+   text-align: left;
+   font-family: 'Inter', sans-serif;
+   font-weight: 500;
+ }
+
+ .responsive-pro-nudge-features {
+   list-style: none;
+   margin: 0 0 18px;
+   padding: 0;
+   text-align: left;
+ }
+
+ .responsive-pro-nudge-features li {
+   position: relative;
+   font-family: 'Inter', sans-serif;
+   font-weight: 400;
+   font-style: normal;
+   font-size: 14px;
+   line-height: 20px;
+   letter-spacing: 0;
+   padding-left: 26px;
+   margin-bottom: 8px;
+ }
+
+ .responsive-pro-nudge-features li:before {
+   content: "";
+   position: absolute;
+   left: 0;
+   top: 2px;
+   width: 16px;
+   height: 16px;
+   background-image: url('../../admin/images/pro_tick.svg');
+   background-repeat: no-repeat;
+   background-size: contain;
+ }
+
+ .responsive-pro-nudge-button.button.button-primary {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   max-width: 320px;
+   margin: 0 auto;
+   gap: 10px;
+   box-sizing: border-box;
+   text-align: center;
+   background: linear-gradient(180deg, #080085 0%, #2563EB 100%);
+   border: none;
+   border-color: transparent;
+   border-radius: 6px;
+   padding: 12px 20px;
+   font-family: 'Inter', sans-serif;
+   font-weight: 500;
+   opacity: 1;
+   line-height: 1;
+   font-size: 14px;
+ }
+
+ .responsive-pro-nudge-button.button.button-primary:hover,
+ .responsive-pro-nudge-button.button.button-primary:focus {
+   background: linear-gradient(180deg, #080085 0%, #1d4fc4 100%);
+   border-color: transparent;
+   color: #fff;
+ }
+
  .responsive-upsell .upsell-pro-label {
    font-weight: bold;
    background: #a7a7a7;

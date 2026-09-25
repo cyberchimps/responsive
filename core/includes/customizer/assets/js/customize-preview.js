@@ -102,67 +102,6 @@
 		}
 	);
 
-	// Function to update disable sticky header mobile menu CSS
-	function updateDisableStickyHeaderMobileMenu() {
-		var disableStickyMobileSetting = api( 'responsive_disable_sticky_header_mobile_menu' );
-		var mobileMenuBreakpointSetting = api( 'responsive_mobile_menu_breakpoint' );
-		var disableMobileMenuSetting = api( 'responsive_disable_mobile_menu' );
-
-		if ( ! disableStickyMobileSetting || ! mobileMenuBreakpointSetting || ! disableMobileMenuSetting ) {
-			return;
-		}
-
-		var disable_sticky_mobile = disableStickyMobileSetting.get();
-		var mobile_menu_breakpoint = mobileMenuBreakpointSetting.get();
-		var disable_mobile_menu = disableMobileMenuSetting.get();
-
-		if ( 0 === disable_mobile_menu ) {
-			mobile_menu_breakpoint = 0;
-		}
-
-		jQuery( 'style#responsive-disable-sticky-header-mobile-menu' ).remove();
-		
-		if ( disable_sticky_mobile === true || disable_sticky_mobile === 1 ) {
-			var css = '@media (max-width: ' + mobile_menu_breakpoint + 'px) {';
-			css += '#masthead.sticky-header, .res-transparent-header #masthead.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead.sticky-header,';
-			css += '#masthead-mobile.sticky-header, .res-transparent-header #masthead-mobile.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead-mobile.sticky-header {';
-			css += 'position: relative !important;';
-			css += 'scroll-behavior: smooth;';
-			css += '}';
-			css += '#wrapper.site-content {';
-			css += 'margin-top: 0px !important;';
-			css += '}';
-			css += '}';
-			jQuery( 'head' ).append( '<style id="responsive-disable-sticky-header-mobile-menu">' + css + '</style>' );
-		}
-	}
-
-	api(
-		"responsive_disable_sticky_header_mobile_menu",
-		function( $swipe ) {
-			$swipe.bind( function( pair ) {
-				updateDisableStickyHeaderMobileMenu();
-			});
-		}
-	);
-
-	// Update when mobile menu breakpoint changes
-	api( 'responsive_mobile_menu_breakpoint', function( value ) {
-		value.bind( function() {
-			updateDisableStickyHeaderMobileMenu();
-		});
-	});
-
-	// Update when disable mobile menu changes
-	api( 'responsive_disable_mobile_menu', function( value ) {
-		value.bind( function() {
-			updateDisableStickyHeaderMobileMenu();
-		});
-	});
-
-	// Initialize on page load
-	updateDisableStickyHeaderMobileMenu();
-
 	api(
 		"responsive_disable_author_meta",
 		function( $swipe ) {

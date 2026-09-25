@@ -2552,10 +2552,10 @@ function responsive_customizer_styles() {
 	input[type=submit]:hover,
 	input[type=button]:focus:not(.customize-partial-edit-shortcut-button),
 	input[type=submit]:focus,
-	button:hover:not(.customize-partial-edit-shortcut-button),
-	button:focus:not(.customize-partial-edit-shortcut-button),
-	.button:hover:not(.customize-partial-edit-shortcut-button),
-	.button:focus,
+	button:hover:not(.customize-partial-edit-shortcut-button):not(.menu-toggle),
+	button:focus:not(.customize-partial-edit-shortcut-button):not(.menu-toggle),
+	.button:hover:not(.customize-partial-edit-shortcut-button):not(.menu-toggle),
+	.button:focus:not(.customize-partial-edit-shortcut-button):not(.menu-toggle),
 	body div.wpforms-container-full .wpforms-form input[type=submit]:hover,
 	body div.wpforms-container-full .wpforms-form input[type=submit]:focus,
 	body div.wpforms-container-full .wpforms-form input[type=submit]:active,
@@ -4781,10 +4781,10 @@ function responsive_customizer_styles() {
 	$mobile_menu_toggle_style        = get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' );
 
 	// Border Width - Outline Toggle button
-	$hmt_toggle_mobile_border_width_top = get_theme_mod( 'responsive_mobile_menu_toggle_border_width_mobile_top_border', 0);
-	$hmt_toggle_mobile_border_width_right = get_theme_mod( 'responsive_mobile_menu_toggle_border_width_mobile_right_border', 0);
-	$hmt_toggle_mobile_border_width_bottom = get_theme_mod( 'responsive_mobile_menu_toggle_border_width_mobile_bottom_border', 0);
-	$hmt_toggle_mobile_border_width_left = get_theme_mod( 'responsive_mobile_menu_toggle_border_width_mobile_left_border', 0);
+	$hmt_toggle_mobile_border_width_top = get_theme_mod( 'responsive_mobile_menu_toggle_border_width_mobile_top_border', 1);
+	$hmt_toggle_mobile_border_width_right = get_theme_mod( 'responsive_mobile_menu_toggle_border_width_mobile_right_border', 1);
+	$hmt_toggle_mobile_border_width_bottom = get_theme_mod( 'responsive_mobile_menu_toggle_border_width_mobile_bottom_border', 1);
+	$hmt_toggle_mobile_border_width_left = get_theme_mod( 'responsive_mobile_menu_toggle_border_width_mobile_left_border', 1);
 
 	if ( 'fill' === $mobile_menu_toggle_style ) {
 		$custom_css .= "@media (max-width:{$mobile_menu_breakpoint}px) {
@@ -10674,29 +10674,18 @@ function responsive_customizer_styles() {
 			$mobile_menu_breakpoint = 0;
 		}
 
-		$responsive_disable_sticky_header_mobile_menu = get_theme_mod( 'responsive_disable_sticky_header_mobile_menu', 0 );
-		if ( '1' == $responsive_disable_sticky_header_mobile_menu ) {
-			$custom_css .= "@media (max-width:{$mobile_menu_breakpoint}px) {
-				#masthead.sticky-header, .res-transparent-header #masthead.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead.sticky-header,
-				#masthead-mobile.sticky-header, .res-transparent-header #masthead-mobile.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead-mobile.sticky-header {
-					position: relative;
-					scroll-behavior: smooth;
-				}
-				#wrapper.site-content {
-					margin-top: 0px !important;
-				}
-			}";
-		}
-
 		$sticky_header_background_color             = get_theme_mod( 'responsive_sticky_header_background_color' );
 		$sticky_header_site_title_color             = get_theme_mod( 'responsive_sticky_header_site_title_color' );
 		$sticky_header_site_title_hover_color       = get_theme_mod( 'responsive_sticky_header_site_title_hover_color' );
 		$sticky_header_text_color                   = get_theme_mod( 'responsive_sticky_header_text_color' );
 		$sticky_header_menu_background_color        = get_theme_mod( 'responsive_sticky_header_menu_background_color' );
 		$sticky_header_active_menu_background_color = get_theme_mod( 'responsive_sticky_header_active_menu_background_color' );
+		$sticky_header_menu_background_hover_color  = get_theme_mod( 'responsive_sticky_header_menu_background_hover_color' );
 		$sticky_header_menu_link_color              = get_theme_mod( 'responsive_sticky_header_menu_link_color' );
 		$sticky_header_menu_link_hover_color        = get_theme_mod( 'responsive_sticky_header_menu_link_hover_color' );
 		$sticky_header_sub_menu_background_color    = get_theme_mod( 'responsive_sticky_header_sub_menu_background_color' );
+		$sticky_header_sub_menu_background_hover_color  = get_theme_mod( 'responsive_sticky_header_sub_menu_background_hover_color' );
+		$sticky_header_active_sub_menu_background_color = get_theme_mod( 'responsive_sticky_header_active_sub_menu_background_color' );
 		$sticky_header_sub_menu_link_color          = get_theme_mod( 'responsive_sticky_header_sub_menu_link_color' );
 		$sticky_header_sub_menu_link_hover_color    = get_theme_mod( 'responsive_sticky_header_sub_menu_link_hover_color' );
 
@@ -10785,6 +10774,42 @@ function responsive_customizer_styles() {
 				color: {$sticky_header_sub_menu_link_hover_color};
 			}
 			";
+
+		// Menu Background Hover Color: overrides the Active Menu Background Color on hovered menu items
+		// (which it otherwise also covers, see above). Unset, hovered items keep that color.
+		if ( $sticky_header_menu_background_hover_color ) {
+			$custom_css .= "
+				#masthead.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .menu li > a:hover,
+				#masthead-mobile.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu li > a:hover {
+					background-color: {$sticky_header_menu_background_hover_color};
+				}
+			";
+		}
+
+		// Sub Menu Background Active / Hover Colors, with the same targets as the normal header's
+		// Sub Menu Background states. Hover comes after active, so a hovered current item shows the
+		// hover color. Unset, the sub menu items keep their normal styling.
+		$sticky_sub_menu_headers = array( '#masthead.sticky-header', '.res-transparent-header #masthead.sticky-header', '#masthead-mobile.sticky-header', '.res-transparent-header #masthead-mobile.sticky-header' );
+
+		if ( $sticky_header_active_sub_menu_background_color ) {
+			$sticky_sub_menu_selectors = array();
+			foreach ( $sticky_sub_menu_headers as $sticky_sub_menu_header ) {
+				$sticky_sub_menu_selectors[] = "{$sticky_sub_menu_header} .main-navigation .menu .sub-menu .current_page_item > a";
+				$sticky_sub_menu_selectors[] = "{$sticky_sub_menu_header} .main-navigation .menu .sub-menu .current-menu-item > a";
+				$sticky_sub_menu_selectors[] = "{$sticky_sub_menu_header} .main-navigation .menu .children li.current_page_item a";
+			}
+			$custom_css .= implode( ', ', $sticky_sub_menu_selectors ) . " { background-color: {$sticky_header_active_sub_menu_background_color}; }";
+		}
+		if ( $sticky_header_sub_menu_background_hover_color ) {
+			$sticky_sub_menu_selectors = array();
+			foreach ( $sticky_sub_menu_headers as $sticky_sub_menu_header ) {
+				$sticky_sub_menu_selectors[] = "{$sticky_sub_menu_header} .main-navigation .children li a:hover";
+				$sticky_sub_menu_selectors[] = "{$sticky_sub_menu_header} .main-navigation .sub-menu li a:hover";
+				$sticky_sub_menu_selectors[] = "{$sticky_sub_menu_header} .main-navigation .menu .sub-menu .current_page_item > a:hover";
+				$sticky_sub_menu_selectors[] = "{$sticky_sub_menu_header} .main-navigation .menu .sub-menu .current-menu-item > a:hover";
+			}
+			$custom_css .= implode( ', ', $sticky_sub_menu_selectors ) . " { background-color: {$sticky_header_sub_menu_background_hover_color}; }";
+		}
 
 		// Styling for Blog/Archive Border radius
 		$get_radius = function( $mod_name, $box_val ) use ( $box_radius ) {

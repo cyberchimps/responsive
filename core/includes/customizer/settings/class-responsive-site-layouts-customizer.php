@@ -199,6 +199,24 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			// Redirect to site icon.
 			$site_icon_redirect_label = __( 'Site Icon', 'responsive' );
 			responsive_redirect_control( $wp_customize, 'redirect_to_site_icon', $site_icon_redirect_label, 'responsive_header_site_logo_title', 18, 'control', 'site_icon' );
+
+			// Upgrade to Pro nudge (only registers when Responsive Pro is not active).
+			responsive_pro_nudge_control(
+				$wp_customize,
+				'container',
+				'responsive_layout',
+				array(
+					'image'       => RESPONSIVE_THEME_URI . 'admin/images/upgradeToPro.jpg',
+					'description' => __( 'Take your container layout to the next level with powerful design features.', 'responsive' ),
+					'features'    => array(
+						__( 'Max Width Layout', 'responsive' ),
+						__( 'Padded Layout', 'responsive' ),
+						__( 'Fluid Layout', 'responsive' ),
+						__( 'Container Spacings', 'responsive' ),
+					),
+				),
+				999
+			);
 		}
 
 

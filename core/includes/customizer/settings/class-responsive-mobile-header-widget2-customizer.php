@@ -68,13 +68,9 @@ if ( ! class_exists( 'Responsive_Mobile_Header_Widget2_Customizer' ) ) :
 			// Fix typo in setting slug to ensure a proper option/setting ID gets registered.
 			responsive_color_control( $wp_customize, 'mobile_header_widget2_border', $menu_border_color2_label, 'responsive_mobile_header_widget2', 120, Responsive\Core\get_responsive_customizer_defaults( 'header_widget2_border' ), null );
 
-			// Link Color.
+			// Link Color (Normal + Hover).
 			$menu_link_color2_label = __( 'Links Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'mobile_header_widget2_link', $menu_link_color2_label, 'responsive_mobile_header_widget2', 130, Responsive\Core\get_responsive_customizer_defaults( 'header_widget2_link' ), null );
-
-			// Link Hover Color.
-			$menu_link_hover_color2_label = __( 'Links Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'mobile_header_widget2_link_hover', $menu_link_hover_color2_label, 'responsive_mobile_header_widget2', 140, Responsive\Core\get_responsive_customizer_defaults( 'header_widget2_link_hover' ), null );
+			responsive_color_control( $wp_customize, 'mobile_header_widget2_link', $menu_link_color2_label, 'responsive_mobile_header_widget2', 130, Responsive\Core\get_responsive_customizer_defaults( 'header_widget2_link' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'header_widget2_link_hover' ), 'mobile_header_widget2_link_hover' );
 
 			/**
 			 * Header Widgets.

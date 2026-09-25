@@ -290,9 +290,15 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 							'locked' => true,
 						),
 						array(
-							'id' => 'woocommerce',
-							'title' => 'WooCommerce',
-							'desc'  => 'Adds enhanced settings in the Woo store customizer.',
+							'id' => 'site-layout',
+							'title' => 'Site Layout',
+							'desc'  => 'Manage the overall layout and structural options of your website.',
+							'locked' => true,
+						),
+						array(
+							'id' => 'sticky-header',
+							'title' => 'Sticky Header',
+							'desc'  => 'Adds advanced sticky header customization options to keep your header visible while scrolling.',
 							'locked' => true,
 						),
 						array(
@@ -313,6 +319,12 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 							'desc'  => 'Generate engaging content, layouts, and more with AI.',
 							'locked' => true,
 						),
+						array(
+							'id' => 'woocommerce',
+							'title' => 'WooCommerce',
+							'desc'  => 'Adds enhanced settings in the Woo store customizer.',
+							'locked' => true,
+						)
 					),
 				);
 

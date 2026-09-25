@@ -61,11 +61,18 @@ if ( ! class_exists( 'Responsive_Sticky_Header_Customizer' ) ) :
 				$general_tab_ids        = array(
 					$general_tab_ids_prefix . 'res_sticky-header',
 					$general_tab_ids_prefix . 'responsive_shrink_sticky_header',
-					$general_tab_ids_prefix . 'responsive_disable_sticky_header_mobile_menu',
 					$general_tab_ids_prefix . 'responsive_sticky_header_logo_option',
 					$general_tab_ids_prefix . 'responsive_sticky_header_logo',
-					
+
 				);
+
+				/**
+				 * Lets add-ons (e.g. Responsive Pro) list their own controls in the General tab.
+				 * Controls that are not in either list are shown in both tabs.
+				 *
+				 * @param string[] $general_tab_ids Control container ids shown in the General tab.
+				 */
+				$general_tab_ids = apply_filters( 'responsive_sticky_header_general_tab_ids', $general_tab_ids );
 
 				$design_tab_ids_prefix = 'customize-control-';
 				$design_tab_ids        = array(
@@ -74,11 +81,10 @@ if ( ! class_exists( 'Responsive_Sticky_Header_Customizer' ) ) :
 					$design_tab_ids_prefix . 'responsive_sticky_header_site_title_color',
 					$design_tab_ids_prefix . 'responsive_sticky_header_site_title_hover_color',
 					$design_tab_ids_prefix . 'responsive_sticky_header_text_color',
-					$design_tab_ids_prefix . 'responsive_sticky_header_menu_background_color',
-					$design_tab_ids_prefix . 'responsive_sticky_header_active_menu_background_color',
+					$design_tab_ids_prefix . 'responsive_sticky_header_menu_background_color_states',
 					$design_tab_ids_prefix . 'responsive_sticky_header_menu_link_color',
 					$design_tab_ids_prefix . 'responsive_sticky_header_menu_link_hover_color',
-					$design_tab_ids_prefix . 'responsive_sticky_header_sub_menu_background_color',
+					$design_tab_ids_prefix . 'responsive_sticky_header_sub_menu_background_color_states',
 					$design_tab_ids_prefix . 'responsive_sticky_header_sub_menu_link_color',
 					$design_tab_ids_prefix . 'responsive_sticky_header_sub_menu_link_hover_color',
 				);
@@ -128,10 +134,6 @@ if ( ! class_exists( 'Responsive_Sticky_Header_Customizer' ) ) :
 					)
 				);
 
-				// Disable Sticky Header on Mobile.
-				$disable_sticky_header_mobile_menu_label = __( 'Disable Sticky Header on Mobile Menu', 'responsive' );
-				responsive_toggle_control( $wp_customize, 'disable_sticky_header_mobile_menu', $disable_sticky_header_mobile_menu_label, 'responsive_sticky_header_menu', 25, 0, null );
-
 				// Different Logo For Transparent Header.
 				$sticky_header_logo_option_label = __( 'Different Logo For Sticky Header', 'responsive' );
 				responsive_toggle_control( $wp_customize, 'sticky_header_logo_option', $sticky_header_logo_option_label, 'responsive_sticky_header_menu', 30, 0, null );
@@ -154,7 +156,7 @@ if ( ! class_exists( 'Responsive_Sticky_Header_Customizer' ) ) :
 							'flex-width'      => true,
 							'height'          => 100, // pixels.
 							'width'           => 300, // pixels.
-							'priority'        => 40,
+							'priority'        => 32,
 							'active_callback' => 'responsive_different_logo_sticky_header',
 						)
 					)
@@ -175,12 +177,27 @@ if ( ! class_exists( 'Responsive_Sticky_Header_Customizer' ) ) :
 				$sticky_header_text_color_label = __( 'Site Tagline Color', 'responsive' );
 				responsive_color_control( $wp_customize, 'sticky_header_text', $sticky_header_text_color_label, 'responsive_sticky_header_menu', 120, '' );
 
-				$sticky_menu_background_color_label = __( 'Menu Background Color', 'responsive' );
-				responsive_color_control( $wp_customize, 'sticky_header_menu_background', $sticky_menu_background_color_label, 'responsive_sticky_header_menu', 120, '', null );
+				// Menu Background: Normal / Hover / Active. Keeps the setting ids of the former separate
+				// "Menu Background Color" and "Active Menu Background Color" controls.
+				$sticky_menu_background_color_label = __( 'Menu Background', 'responsive' );
+				responsive_color_control_with_states(
+					$wp_customize,
+					'sticky_header_menu_background',
+					$sticky_menu_background_color_label,
+					'responsive_sticky_header_menu',
+					120,
 
-				// Active Menu Color.
-				$sticky_menu_border_color_label = __( 'Active Menu Background Color', 'responsive' );
-				responsive_color_control( $wp_customize, 'sticky_header_active_menu_background', $sticky_menu_border_color_label, 'responsive_sticky_header_menu', 120, '', null );
+					// Normal
+					'',
+
+					// Hover
+					'',
+					'sticky_header_menu_background_hover',
+
+					// Active
+					'',
+					'sticky_header_active_menu_background'
+				);
 
 				// Link Color.
 				$sticky_menu_link_color_label = __( 'Menu Item Link Color', 'responsive' );
@@ -191,8 +208,27 @@ if ( ! class_exists( 'Responsive_Sticky_Header_Customizer' ) ) :
 				responsive_color_control( $wp_customize, 'sticky_header_menu_link_hover', $sticky_menu_link_hover_color_label, 'responsive_sticky_header_menu', 120, '' );
 
 				// Sub Menu Background Color.
-				$sticky_header_sub_menu_background_color_label = __( 'Sub Menu Background Color', 'responsive' );
-				responsive_color_control( $wp_customize, 'sticky_header_sub_menu_background', $sticky_header_sub_menu_background_color_label, 'responsive_sticky_header_menu', 120, '' );
+				// Sub Menu Background: Normal / Hover / Active. Keeps the setting id of the former
+				// "Sub Menu Background Color" control for Normal.
+				$sticky_header_sub_menu_background_color_label = __( 'Sub Menu Background', 'responsive' );
+				responsive_color_control_with_states(
+					$wp_customize,
+					'sticky_header_sub_menu_background',
+					$sticky_header_sub_menu_background_color_label,
+					'responsive_sticky_header_menu',
+					120,
+
+					// Normal
+					'',
+
+					// Hover
+					'',
+					'sticky_header_sub_menu_background_hover',
+
+					// Active
+					'',
+					'sticky_header_active_sub_menu_background'
+				);
 
 				// Sub Menu Link Color.
 				$sticky_sub_menu_link_color_label = __( 'Sub Menu Item Link Color', 'responsive' );
@@ -201,6 +237,24 @@ if ( ! class_exists( 'Responsive_Sticky_Header_Customizer' ) ) :
 				// Sub Menu Link Hover Color.
 				$sticky_sub_menu_link_hover_color_label = __( 'Sub Menu Item Link Hover Color', 'responsive' );
 				responsive_color_control( $wp_customize, 'sticky_header_sub_menu_link_hover', $sticky_sub_menu_link_hover_color_label, 'responsive_sticky_header_menu', 120, '' );
+
+				// Upgrade to Pro nudge (only registers when Responsive Pro is not active).
+				responsive_pro_nudge_control(
+					$wp_customize,
+					'sticky_header',
+					'responsive_sticky_header_menu',
+					array(
+						'image'       => RESPONSIVE_THEME_URI . 'admin/images/upgradeToPro.jpg',
+						'description' => __( 'Take your sticky header to the next level with powerful design and control features.', 'responsive' ),
+						'features'    => array(
+							__( 'Retina Image Upload for Sticky Header', 'responsive' ),
+							__( 'Background Blur Effect', 'responsive' ),
+							__( 'Sticky Header Options in Header Widgets', 'responsive' ),
+							__( 'Separate Sticky Properties for Primary, Secondary & Below Header Rows', 'responsive' ),
+						),
+					),
+					999
+				);
 			}
 		}
 
