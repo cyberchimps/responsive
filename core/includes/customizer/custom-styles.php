@@ -14694,6 +14694,53 @@ function responsive_customizer_styles() {
 			box-shadow: 2px 2px 0 {$add_to_cart_button_color};
 		}
 
+		/* Center Product Tab Style */
+		body.product-tab-style-center.woocommerce div.product .woocommerce-tabs ul.tabs {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			padding: 0;
+			margin: 0 0 2em;
+			border-bottom: 1px solid #e2e8f0;
+			overflow: visible;
+		}
+
+		body.product-tab-style-center.woocommerce div.product .woocommerce-tabs ul.tabs::before,
+		body.product-tab-style-center.woocommerce div.product .woocommerce-tabs ul.tabs li::before,
+		body.product-tab-style-center.woocommerce div.product .woocommerce-tabs ul.tabs li::after {
+			display: none;
+		}
+
+		body.product-tab-style-center.woocommerce div.product .woocommerce-tabs ul.tabs li {
+			background: none;
+			border: 0;
+			border-radius: 0;
+			box-shadow: none;
+			margin: 0 16px;
+			padding: 0 0 10px;
+		}
+
+		body.product-tab-style-center.woocommerce div.product .woocommerce-tabs ul.tabs li a {
+			background: none;
+			color: inherit;
+			font-weight: 500;
+			padding: 0;
+		}
+
+		body.product-tab-style-center.woocommerce div.product .woocommerce-tabs ul.tabs li.active {
+			border-bottom: 2px solid var(--responsive-global-palette0, {$add_to_cart_button_color});
+			margin-bottom: -1px;
+		}
+
+		body.product-tab-style-center.woocommerce div.product .woocommerce-tabs ul.tabs li a:hover,
+		body.product-tab-style-center.woocommerce div.product .woocommerce-tabs ul.tabs li.active a {
+			color: var(--responsive-global-palette0, {$add_to_cart_button_color});
+		}
+
+		body.product-tab-style-center.woocommerce div.product .woocommerce-tabs ul.tabs li.active a {
+			font-weight: 600;
+		}
+
 		.woocommerce .widget_price_filter .ui-slider .ui-slider-handle,
 		.woocommerce .widget_price_filter .ui-slider .ui-slider-range,
 		.wc-block-grid__product-onsale,
