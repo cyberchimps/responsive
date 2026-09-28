@@ -53,6 +53,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				$general_tab_ids_prefix . 'responsive_single_product_elements_separator',
 				$general_tab_ids_prefix . 'responsive_single_product_gallery_layout',
 				$general_tab_ids_prefix . 'responsive_woocommerce_product_elements_positioning',
+				$general_tab_ids_prefix . 'responsive_single_product_show_weight_dimensions',
 				$general_tab_ids_prefix . 'responsive_single_product_show_related_products',
 				$general_tab_ids_prefix . 'responsive_single_product_related_products_columns',
 				$general_tab_ids_prefix . 'responsive_single_product_floating_bar_separator',
@@ -617,6 +618,10 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 					)
 				)
 			);
+
+			// Show Weight and Dimensions in Additional Information tab toggle.
+			$single_product_show_weight_dimensions_label = esc_html__( 'Show Weight and Dimensions in Additional Information tab?', 'responsive' );
+			responsive_toggle_control( $wp_customize, 'single_product_show_weight_dimensions', $single_product_show_weight_dimensions_label, 'responsive_woocommerce_single_product_layout', 60.9, 1, null );
 
 			// Show Related Products toggle.
 			$single_product_show_related_products_label = esc_html__( 'Show Related Products', 'responsive' );

@@ -342,6 +342,10 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			add_filter( 'woocommerce_product_description_heading', '__return_false' );
 			add_filter( 'woocommerce_product_additional_information_heading', '__return_false' );
 
+			if ( ! get_theme_mod( 'responsive_single_product_show_weight_dimensions', 1 ) ) {
+				add_filter( 'wc_product_enable_dimensions_display', '__return_false' );
+			}
+
 			if ( ! get_theme_mod( 'responsive_single_product_show_related_products', 1 ) ) {
 				remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 			} else {
