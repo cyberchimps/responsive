@@ -1485,7 +1485,7 @@ function defaults() {
 			'responsive_page_title_banner_background_color' => 'title-above-content-bg-color',
 			'responsive_single_blog_featured_image_overlay_color' => 'title-above-content-overlay-color',
 			'responsive_page_featured_image_overlay_color'  => 'title-above-content-overlay-color',
-			'responsive_shop_banner_background_color'       => '#f5f5f5',
+			'responsive_shop_banner_background_color'       => 'title-above-content-bg-color',
 			'responsive_shop_banner_overlay_color'          => '',
 			'responsive_shop_title_color'                   => 'h1-color',
 			'responsive_shop_text_color'                    => 'palette2',
