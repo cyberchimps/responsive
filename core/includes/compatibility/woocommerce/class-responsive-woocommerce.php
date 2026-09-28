@@ -346,6 +346,11 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 				add_filter( 'wc_product_enable_dimensions_display', '__return_false' );
 			}
 
+			if ( get_theme_mod( 'responsive_single_product_quantity_plus_minus', 0 ) ) {
+				add_action( 'woocommerce_before_quantity_input_field', array( $this, 'quantity_minus_button' ) );
+				add_action( 'woocommerce_after_quantity_input_field', array( $this, 'quantity_plus_button' ) );
+			}
+
 			if ( ! get_theme_mod( 'responsive_single_product_show_related_products', 1 ) ) {
 				remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 			} else {
@@ -381,6 +386,20 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 				return $columns;
 			}
 			return intval( get_theme_mod( 'responsive_single_product_related_products_columns', 4 ) );
+		}
+
+		/**
+		 * Render minus button before quantity input field.
+		 */
+		public function quantity_minus_button() {
+			echo '<button type="button" class="minus" aria-label="' . esc_attr__( 'Decrease quantity', 'responsive' ) . '">-</button>';
+		}
+
+		/**
+		 * Render plus button after quantity input field.
+		 */
+		public function quantity_plus_button() {
+			echo '<button type="button" class="plus" aria-label="' . esc_attr__( 'Increase quantity', 'responsive' ) . '">+</button>';
 		}
 
 		/**
@@ -560,6 +579,10 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			if ( 'bottom_slide_up' === get_theme_mod( 'responsive_product_button_action_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_product_button_action_style' ) ) ) {
 				wp_enqueue_script( 'responsive-woo-product-hover', get_template_directory_uri() . '/core/includes/compatibility/woocommerce/js/woo-product-hover.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
 			}
+
+			if ( is_woocommerce() && is_singular( 'product' ) && get_theme_mod( 'responsive_single_product_quantity_plus_minus', 0 ) ) {
+				wp_enqueue_script( 'responsive-woo-quantity', get_template_directory_uri() . '/core/includes/compatibility/woocommerce/js/woo-quantity.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
+			}
 		}
 
 		/**
@@ -579,9 +602,16 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			$single_product_sidebar_position = ( $single_product_setting === 'global' || $single_product_setting === 'default' ) ? $global_sidebar_position : $single_product_setting;
 			$classes[] = 'sidebar-position-' . $single_product_sidebar_position;
 			$classes[] = 'product-gallery-layout-' . get_theme_mod( 'responsive_single_product_gallery_layout', 'horizontal' );
+			$variation_display = get_theme_mod( 'responsive_single_product_variation_display', 'horizontal' );
+			if ( 'horizontal' !== $variation_display ) {
+				$classes[] = 'product-variation-display-' . $variation_display;
+			}
 			$tab_style = get_theme_mod( 'responsive_single_product_tab_style', 'normal' );
 			if ( 'normal' !== $tab_style ) {
 				$classes[] = 'product-tab-style-' . $tab_style;
+			}
+			if ( get_theme_mod( 'responsive_single_product_quantity_plus_minus', 0 ) ) {
+				$classes[] = 'product-quantity-plus-minus';
 			}
 		}
 

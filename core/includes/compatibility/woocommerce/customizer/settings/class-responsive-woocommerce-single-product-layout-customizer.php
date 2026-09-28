@@ -53,8 +53,10 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				$general_tab_ids_prefix . 'responsive_single_product_elements_separator',
 				$general_tab_ids_prefix . 'responsive_single_product_gallery_layout',
 				$general_tab_ids_prefix . 'responsive_woocommerce_product_elements_positioning',
+				$general_tab_ids_prefix . 'responsive_single_product_variation_display',
 				$general_tab_ids_prefix . 'responsive_single_product_tab_style',
 				$general_tab_ids_prefix . 'responsive_single_product_show_weight_dimensions',
+				$general_tab_ids_prefix . 'responsive_single_product_quantity_plus_minus',
 				$general_tab_ids_prefix . 'responsive_single_product_show_related_products',
 				$general_tab_ids_prefix . 'responsive_single_product_related_products_columns',
 				$general_tab_ids_prefix . 'responsive_single_product_floating_bar_separator',
@@ -620,6 +622,23 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				)
 			);
 
+			// Product Variation Display selector.
+			$single_product_variation_display_label   = esc_html__( 'Product Variation Display', 'responsive' );
+			$single_product_variation_display_choices = array(
+				'horizontal' => esc_html__( 'Horizontal', 'responsive' ),
+				'vertical'   => esc_html__( 'Vertical', 'responsive' ),
+			);
+			responsive_select_button_control(
+				$wp_customize,
+				'single_product_variation_display',
+				$single_product_variation_display_label,
+				'responsive_woocommerce_single_product_layout',
+				60.7,
+				$single_product_variation_display_choices,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_variation_display' ),
+				null
+			);
+
 			// Tab Style selector.
 			$single_product_tab_style_label   = esc_html__( 'Tab Style', 'responsive' );
 			$single_product_tab_style_choices = array(
@@ -640,6 +659,10 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 			// Show Weight and Dimensions in Additional Information tab toggle.
 			$single_product_show_weight_dimensions_label = esc_html__( 'Show Weight and Dimensions in Additional Information tab?', 'responsive' );
 			responsive_toggle_control( $wp_customize, 'single_product_show_weight_dimensions', $single_product_show_weight_dimensions_label, 'responsive_woocommerce_single_product_layout', 60.9, 1, null );
+
+			// Use Custom Quantity Plus and Minus toggle.
+			$single_product_quantity_plus_minus_label = esc_html__( 'Use Custom Quantity Plus and Minus', 'responsive' );
+			responsive_toggle_control( $wp_customize, 'single_product_quantity_plus_minus', $single_product_quantity_plus_minus_label, 'responsive_woocommerce_single_product_layout', 60.91, Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_quantity_plus_minus' ), null );
 
 			// Show Related Products toggle.
 			$single_product_show_related_products_label = esc_html__( 'Show Related Products', 'responsive' );

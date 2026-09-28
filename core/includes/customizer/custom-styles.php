@@ -14741,6 +14741,73 @@ function responsive_customizer_styles() {
 			font-weight: 600;
 		}
 
+		/* Product Variation Display Vertical */
+		body.product-variation-display-vertical.woocommerce div.product form.variations_form table.variations tr,
+		body.product-variation-display-vertical.woocommerce div.product form.variations_form table.variations th,
+		body.product-variation-display-vertical.woocommerce div.product form.variations_form table.variations td {
+			display: block;
+			width: 100%;
+			text-align: left;
+		}
+
+		body.product-variation-display-vertical.woocommerce div.product form.variations_form table.variations th.label {
+			padding: 0 0 6px;
+		}
+
+		body.product-variation-display-vertical.woocommerce div.product form.variations_form table.variations td.value {
+			padding: 0 0 16px;
+		}
+
+		body.product-variation-display-vertical.woocommerce div.product form.variations_form table.variations td.value select {
+			width: 100%;
+			max-width: 100%;
+		}
+
+		/* Custom Quantity Plus & Minus */
+		body.product-quantity-plus-minus .quantity {
+			display: inline-flex;
+			border: 1px solid #d3ced2;
+			border-radius: 4px;
+			background: #fff;
+			overflow: hidden;
+		}
+
+		body.product-quantity-plus-minus .quantity .qty {
+			width: 40px;
+			height: 38px;
+			border: 0;
+			padding: 0;
+			text-align: center;
+			background: transparent;
+			box-shadow: none;
+			-moz-appearance: textfield;
+		}
+
+		body.product-quantity-plus-minus .quantity .qty::-webkit-inner-spin-button,
+		body.product-quantity-plus-minus .quantity .qty::-webkit-outer-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+
+		body.product-quantity-plus-minus .quantity button.minus,
+		body.product-quantity-plus-minus .quantity button.plus {
+			width: 35px;
+			height: 38px;
+			border: 0;
+			padding: 0;
+			background: transparent;
+			color: #555;
+			font-size: 16px;
+			cursor: pointer;
+			box-shadow: none;
+		}
+
+		body.product-quantity-plus-minus .quantity button.minus:hover,
+		body.product-quantity-plus-minus .quantity button.plus:hover {
+			background: transparent;
+			color: #000;
+		}
+
 		.woocommerce .widget_price_filter .ui-slider .ui-slider-handle,
 		.woocommerce .widget_price_filter .ui-slider .ui-slider-range,
 		.wc-block-grid__product-onsale,

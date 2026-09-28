@@ -1252,7 +1252,7 @@
         '.read-more-button .hentry .read-more .more-link,' +
         'input[type=button],' +
         'input[type=submit],' +
-        'button:not(.responsive-header-button):not(.customize-partial-edit-shortcut-button):not(.search-submit),' +
+        'button:not(.responsive-header-button):not(.customize-partial-edit-shortcut-button):not(.search-submit):not(.plus, .minus),' +
         '.button:not(:where(.responsive-header-button, .customize-partial-edit-shortcut-button, .search-submit, .add_to_cart_button, .product_type_external, .product_type_grouped))' +
         '.wp-block-button:not(.is-style-outline) > .wp-block-button__link,' +
         'div.wpforms-container-full .wpforms-form input[type=submit],' +
@@ -1267,7 +1267,7 @@
         '.read-more-button .hentry .read-more .more-link:hover,' +
         'input[type=button]:hover,' +
         'input[type=submit]:hover,' +
-        'button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button):not(.customize-partial-edit-shortcut-button),' +
+        'button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button):not(.customize-partial-edit-shortcut-button):not(.plus, .minus),' +
         '.button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button, .customize-partial-edit-shortcut-button, .add_to_cart_button, .product_type_external, .product_type_grouped),' +
         '.wp-block-button:not(.is-style-outline) > .wp-block-button__link:hover,' +
         'div.wpforms-container-full .wpforms-form input[type=submit]:hover,' +
@@ -1401,14 +1401,14 @@
             if( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
-            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button]:not(.customize-partial-edit-shortcut-button),input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button:not(.customize-partial-edit-shortcut-button),.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').not('.footer-widget-area a').css('color', newval );
+            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button]:not(.customize-partial-edit-shortcut-button),input[type=submit],button:not(.customize-partial-edit-shortcut-button):not(.plus, .minus),.button:not(.customize-partial-edit-shortcut-button),.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').not('.footer-widget-area a').css('color', newval );
         } );
     } );
 
     //Buttons border color
     api( 'responsive_button_border_color', function( value ) {
         value.bind( function( newval ) {
-            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button]:not(.customize-partial-edit-shortcut-button),input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button:not(:where(.customize-partial-edit-shortcut-button, .add_to_cart_button, .product_type_external, .product_type_grouped)),.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').css('border-color', newval );
+            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button]:not(.customize-partial-edit-shortcut-button),input[type=submit],button:not(.customize-partial-edit-shortcut-button):not(.plus, .minus),.button:not(:where(.customize-partial-edit-shortcut-button, .add_to_cart_button, .product_type_external, .product_type_grouped)),.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').css('border-color', newval );
         } );
     } );
 
@@ -3043,7 +3043,7 @@
         }
     );
     //Buttons Hover Color
-    $(".page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button:not(.menu-toggle):not(.responsive-header-button), .button:not(:where(.responsive-header-button, .add_to_cart_button, .product_type_external, .product_type_grouped)), .wp-block-button:not(.is-style-outline) > .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, .elementor-widget-rael-button .rael-button").hover(
+    $(".page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button:not(.menu-toggle):not(.responsive-header-button):not(.plus, .minus), .button:not(:where(.responsive-header-button, .add_to_cart_button, .product_type_external, .product_type_grouped)), .wp-block-button:not(.is-style-outline) > .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, .elementor-widget-rael-button .rael-button").hover(
         function() {
             $(this).css("background-color", resolveButtonBackgroundColor('responsive_button_hover_color'));
             $(this).css("color", processThemeSettingForCSS('responsive_button_hover_text_color'));
