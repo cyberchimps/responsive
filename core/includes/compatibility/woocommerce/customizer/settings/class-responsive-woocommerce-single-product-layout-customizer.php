@@ -622,6 +622,15 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				)
 			);
 
+			$wp_customize->add_setting(
+				'responsive_single_product_payment_structure',
+				array(
+					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_payment_structure' ),
+					'sanitize_callback' => 'responsive_sanitize_json',
+					'transport'         => 'refresh',
+				)
+			);
+
 			// Product Variation Display selector.
 			$single_product_variation_display_label   = esc_html__( 'Product Variation Display', 'responsive' );
 			$single_product_variation_display_choices = array(

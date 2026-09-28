@@ -1301,6 +1301,42 @@ function defaults() {
 			'responsive_single_product_quantity_plus_minus' => 0,
 			'responsive_single_product_show_related_products' => 1,
 			'responsive_single_product_related_products_columns' => '4',
+			'responsive_single_product_payment_structure' => wp_json_encode(
+				array(
+					'color_type' => 'default',
+					'title'      => 'Guaranteed Safe Checkout',
+					'cards'      => array(
+						array(
+							'id'    => 'visa',
+							'title' => 'Visa',
+							'type'  => 'icon',
+							'icon'  => 'fab fa-cc-visa',
+							'image' => '',
+						),
+						array(
+							'id'    => 'mastercard',
+							'title' => 'Mastercard',
+							'type'  => 'icon',
+							'icon'  => 'fab fa-cc-mastercard',
+							'image' => '',
+						),
+						array(
+							'id'    => 'amex',
+							'title' => 'Amex',
+							'type'  => 'icon',
+							'icon'  => 'fab fa-cc-amex',
+							'image' => '',
+						),
+						array(
+							'id'    => 'discover',
+							'title' => 'Discover',
+							'type'  => 'icon',
+							'icon'  => 'fab fa-cc-discover',
+							'image' => '',
+						),
+					),
+				)
+			),
 			'shop_title_horizontal_alignment'     => 'center',
 			'shop_title_inner_elements_spacing'   => 0,
 			'shop_title_container_background_layout1' => 'none',

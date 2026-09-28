@@ -352,6 +352,7 @@ if ( ! function_exists( 'responsive_product_elements' ) ) {
 				'short_desc' => esc_html__( 'Short Description', 'responsive' ),
 				'add_cart'   => esc_html__( 'Add to Cart', 'responsive' ),
 				'meta'       => esc_html__( 'Meta', 'responsive' ),
+				'payment'    => esc_html__( 'Payments', 'responsive' ),
 			)
 		);
 

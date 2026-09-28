@@ -452,11 +452,87 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 							 */
 							woocommerce_template_single_meta();
 							break;
+						case 'payment':
+							/**
+							 * Payment methods structure on single product.
+							 */
+							$this->single_product_payment_structure();
+							break;
 						default:
 							break;
 					}
 				}
 			}
+		}
+
+		/**
+		 * Render payment methods structure on single product page.
+		 */
+		public function single_product_payment_structure() {
+			$raw_data = get_theme_mod(
+				'responsive_single_product_payment_structure',
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_payment_structure' )
+			);
+
+			if ( empty( $raw_data ) ) {
+				return;
+			}
+
+			if ( is_string( $raw_data ) ) {
+				$payment_data = json_decode( $raw_data, true );
+			} elseif ( is_array( $raw_data ) ) {
+				$payment_data = $raw_data;
+			} else {
+				return;
+			}
+
+			if ( ! is_array( $payment_data ) || empty( $payment_data['cards'] ) ) {
+				return;
+			}
+
+			if ( ! function_exists( 'responsive_get_svg_icon' ) ) {
+				require_once get_template_directory() . '/core/includes/responsive-icon-library.php';
+			}
+
+			$color_type = isset( $payment_data['color_type'] ) ? $payment_data['color_type'] : 'default';
+			$title      = isset( $payment_data['title'] ) ? $payment_data['title'] : '';
+			$cards      = $payment_data['cards'];
+			$classes    = array( 'responsive-product-payments' );
+
+			if ( 'grayscale' === $color_type ) {
+				$classes[] = 'is-grayscale';
+			}
+			?>
+			<fieldset class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
+				<?php if ( ! empty( $title ) ) : ?>
+					<legend class="responsive-product-payments-title"><?php echo esc_html( $title ); ?></legend>
+				<?php endif; ?>
+				<div class="responsive-product-payments-icons">
+					<?php foreach ( $cards as $card ) : ?>
+						<?php
+						$card_type  = isset( $card['type'] ) ? $card['type'] : 'icon';
+						$card_title = isset( $card['title'] ) ? $card['title'] : '';
+						$card_icon  = isset( $card['icon'] ) ? $card['icon'] : '';
+						$card_image = isset( $card['image'] ) ? $card['image'] : '';
+						?>
+						<div class="responsive-product-payment-item"<?php echo ! empty( $card_title ) ? ' title="' . esc_attr( $card_title ) . '"' : ''; ?>>
+							<?php if ( 'image' === $card_type && ! empty( $card_image ) ) : ?>
+								<img src="<?php echo esc_url( $card_image ); ?>" alt="<?php echo esc_attr( $card_title ); ?>" class="responsive-product-payment-image" />
+							<?php elseif ( ! empty( $card_icon ) ) : ?>
+								<?php
+								$svg = function_exists( 'responsive_get_svg_icon' ) ? responsive_get_svg_icon( $card_icon ) : '';
+								if ( ! empty( $svg ) ) :
+									echo $svg; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								else :
+									?>
+									<i class="<?php echo esc_attr( $card_icon ); ?>"></i>
+								<?php endif; ?>
+							<?php endif; ?>
+						</div>
+					<?php endforeach; ?>
+				</div>
+			</fieldset>
+			<?php
 		}
 
 		/**

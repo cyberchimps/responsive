@@ -1,8 +1,13 @@
 import PropTypes from 'prop-types';
 import ResponsiveSliderComponent from '../slider/slider-component.js';
+import PaymentSubControl from './payment-subcontrol.js';
 const { ToggleControl } = wp.components;
 
 const SubControls = ({ choiceID, subControlIds, taxonomyChoices, controlId }) => {
+	if (choiceID === 'payment' || choiceID === 'payments') {
+		return <PaymentSubControl />;
+	}
+
 	if (choiceID === 'author' && subControlIds && subControlIds.length >= 3) {
 		const prefixSettingId = subControlIds[0];
 		const avatarSettingId = subControlIds[1];
@@ -534,7 +539,8 @@ const SortableComponent = props => {
 
 	const renderItem = (choiceID, isInvisible) => {
 		const hasSubControls = (sub_controls && sub_controls[choiceID] && sub_controls[choiceID].length > 0) ||
-			(isTaxonomyChoice(choiceID) && sub_controls && (sub_controls['taxonomy'] || sub_controls['taxonomies']));
+			(isTaxonomyChoice(choiceID) && sub_controls && (sub_controls['taxonomy'] || sub_controls['taxonomies'])) ||
+			choiceID === 'payment' || choiceID === 'payments';
 		const labelText = getChoiceLabel(choiceID);
 		const canClone = isCloneable(choiceID);
 		const canDelete = isClone(choiceID);
@@ -613,7 +619,7 @@ const SortableComponent = props => {
 				{hasSubControls && (
 					<SubControls
 						choiceID={choiceID}
-						subControlIds={sub_controls[choiceID] || (isTaxonomyChoice(choiceID) ? (sub_controls['taxonomy'] || sub_controls['taxonomies']) : null)}
+						subControlIds={sub_controls ? (sub_controls[choiceID] || (isTaxonomyChoice(choiceID) ? (sub_controls['taxonomy'] || sub_controls['taxonomies']) : null)) : null}
 						taxonomyChoices={taxonomy_choices}
 						controlId={control.id}
 					/>
@@ -632,14 +638,14 @@ const SortableComponent = props => {
 	].map(choiceID => renderItem(choiceID, true));
 
 	return (
-		<label className="responsive-sortable">
+		<div className="responsive-sortable">
 			{labelHtml}
 			{descriptionHtml}
 			<ul className="sortable responsive-sortable-items-wrapper">
 				{visibleMetaHtml}
 				{invisibleMetaHtml}
 			</ul>
-		</label>
+		</div>
 	);
 };
 
