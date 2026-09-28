@@ -44,7 +44,7 @@ require $responsive_template_directory . '/core/includes/customizer/custom-style
 require $responsive_template_directory . '/core/includes/classes/class-responsive-local-fonts.php';
 require $responsive_template_directory . '/core/includes/compatibility/woocommerce/class-responsive-woocommerce.php';
 require $responsive_template_directory . '/core/includes/compatibility/woocommerce/class-responsive-woocommerce-native-cart-popup.php';
-require $responsive_template_directory . '/core/includes/compatibility/woocommerce/woocommerce-cart-shortcodes.php';
+require $responsive_template_directory . '/core/includes/compatibility/woocommerce/woocommerce-cart-popup-tags.php';
 require $responsive_template_directory . '/core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-typography-customizer.php';
 require $responsive_template_directory . '/core/includes/compatibility/sensei/class-responsive-sensei.php';
 require $responsive_template_directory . '/admin/admin-functions.php';
