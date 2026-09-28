@@ -337,6 +337,7 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'selectbtn-with-switchers/class-responsive-customizer-selectbtn-with-switchers-control.php';
 
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-control-upsell.php';
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-control-pro-nudge.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-generic-notice-section.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-main-notice-section.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-section-upsell.php';
@@ -376,6 +377,7 @@ function responsive_custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Color_With_States_And_Devices_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Selectbtn_Switchers_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Selectbtn_With_Switchers_Control' );
+	$wp_customize->register_control_type( 'Responsive_Control_Pro_Nudge' );
 
 }
 

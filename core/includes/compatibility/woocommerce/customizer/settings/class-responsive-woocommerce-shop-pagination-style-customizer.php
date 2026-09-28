@@ -50,7 +50,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Pagination_Style_Customizer' )
 					$wp_customize,
 					'shop_pagination_style',
 					array(
-						'active_callback' => 'responsive_addons_pagination_callbacks',
+						'active_callback' => 'responsive_woo_pagination_callbacks',
 						'label'           => __( 'Shop Pagination Style', 'responsive' ),
 						'section'         => 'responsive_woocommerce_shop',
 						'settings'        => 'shop_pagination_style',
