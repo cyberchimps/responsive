@@ -1252,8 +1252,8 @@
         '.read-more-button .hentry .read-more .more-link,' +
         'input[type=button],' +
         'input[type=submit],' +
-        'button:not(.responsive-header-button):not(.customize-partial-edit-shortcut-button):not(.search-submit),' +
-        '.button:not(.responsive-header-button):not(.customize-partial-edit-shortcut-button):not(.search-submit),' +
+        'button:not(.responsive-header-button):not(.customize-partial-edit-shortcut-button):not(.search-submit):not(.menu-toggle),' +
+        '.button:not(.responsive-header-button):not(.customize-partial-edit-shortcut-button):not(.search-submit):not(.menu-toggle),' +
         '.wp-block-button:not(.is-style-outline) > .wp-block-button__link,' +
         'div.wpforms-container-full .wpforms-form input[type=submit],' +
         'body div.wpforms-container-full .wpforms-form button[type=submit],' +
@@ -1266,8 +1266,8 @@
         '.read-more-button .hentry .read-more .more-link:hover,' +
         'input[type=button]:hover,' +
         'input[type=submit]:hover,' +
-        'button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button):not(.customize-partial-edit-shortcut-button),' +
-        '.button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button):not(.customize-partial-edit-shortcut-button),' +
+        'button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button):not(.customize-partial-edit-shortcut-button):not(.menu-toggle),' +
+        '.button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button):not(.customize-partial-edit-shortcut-button):not(.menu-toggle):not(.site-mobile-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button),' +
         '.wp-block-button:not(.is-style-outline) > .wp-block-button__link:hover,' +
         'div.wpforms-container-full .wpforms-form input[type=submit]:hover,' +
         'body div.wpforms-container-full .wpforms-form button[type=submit]:hover,' +
@@ -3244,18 +3244,6 @@
         } );
     } );
 
-    //Header Above Row Hover Background Color - Desktop
-    api( 'responsive_header_above_row_bg_color_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-above-row-bg-hover-color').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-above-row-bg-hover-color">'
-                + '.responsive-site-above-header-wrap:hover { background-color: ' + newval + ' }'
-                + '</style>'
-            );
-        } );
-    } );
-
     //Header Above Row Background Color - Tablet
     api( 'responsive_header_above_row_bg_color_tablet', function( value ) {
         value.bind( function( newval ) {
@@ -3268,18 +3256,6 @@
         } );
     } );
 
-    //Header Above Row Hover Background Color - Tablet
-    api( 'responsive_header_above_row_bg_color_tablet_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-above-row-bg-hover-color-tablet').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-above-row-bg-hover-color-tablet">'
-                + '@media screen and ( max-width: 992px ) { .responsive-site-above-mobile-header-wrap:hover { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
     //Header Above Row Background Color - Mobile
     api( 'responsive_header_above_row_bg_color_mobile', function( value ) {
         value.bind( function( newval ) {
@@ -3287,30 +3263,6 @@
             jQuery('head').append(
                 '<style id="responsive-header-above-row-bg-color-mobile">'
                 + '@media screen and ( max-width: 576px ) { .responsive-site-above-mobile-header-wrap { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
-    //Header Above Row Hover Background Color - Mobile
-    api( 'responsive_header_above_row_bg_color_mobile_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-above-row-bg-hover-color-mobile').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-above-row-bg-hover-color-mobile">'
-                + '@media screen and ( max-width: 576px ) { .responsive-site-above-mobile-header-wrap:hover { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
-    // Backward compatibility - old hover color setting
-    api( 'responsive_header_above_row_bg_hover_color', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-above-row-bg-hover-color-old').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-above-row-bg-hover-color-old">'
-                + '.responsive-site-above-header-wrap:hover { background-color: ' + newval + ' }'
                 + '</style>'
             );
         } );
@@ -3497,18 +3449,6 @@
         } );
     } );
 
-    //Header Primary Row Hover Background Color - Desktop
-    api( 'responsive_header_primary_row_bg_color_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-primary-row-bg-hover-color').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-primary-row-bg-hover-color">'
-                + '.responsive-site-primary-header-wrap:hover { background-color: ' + newval + ' }'
-                + '</style>'
-            );
-        } );
-    } );
-
     //Header Primary Row Background Color - Tablet
     api( 'responsive_header_primary_row_bg_color_tablet', function( value ) {
         value.bind( function( newval ) {
@@ -3521,18 +3461,6 @@
         } );
     } );
 
-    //Header Primary Row Hover Background Color - Tablet
-    api( 'responsive_header_primary_row_bg_color_tablet_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-primary-row-bg-hover-color-tablet').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-primary-row-bg-hover-color-tablet">'
-                + '@media screen and ( max-width: 992px ) { .responsive-site-primary-mobile-header-wrap:hover { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
     //Header Primary Row Background Color - Mobile
     api( 'responsive_header_primary_row_bg_color_mobile', function( value ) {
         value.bind( function( newval ) {
@@ -3540,30 +3468,6 @@
             jQuery('head').append(
                 '<style id="responsive-header-primary-row-bg-color-mobile">'
                 + '@media screen and ( max-width: 576px ) { .responsive-site-primary-mobile-header-wrap { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
-    //Header Primary Row Hover Background Color - Mobile
-    api( 'responsive_header_primary_row_bg_color_mobile_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-primary-row-bg-hover-color-mobile').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-primary-row-bg-hover-color-mobile">'
-                + '@media screen and ( max-width: 576px ) { .responsive-site-primary-mobile-header-wrap:hover { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
-    // Backward compatibility - old hover color setting
-    api( 'responsive_header_primary_row_bg_hover_color', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-primary-row-bg-hover-color-old').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-primary-row-bg-hover-color-old">'
-                + '.responsive-site-primary-header-wrap:hover { background-color: ' + newval + ' }'
                 + '</style>'
             );
         } );
@@ -3751,18 +3655,6 @@
         } );
     } );
 
-    //Header Below Row Hover Background Color - Desktop
-    api( 'responsive_header_below_row_bg_color_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-below-row-bg-hover-color').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-below-row-bg-hover-color">'
-                + '.responsive-site-below-header-wrap:hover { background-color: ' + newval + ' }'
-                + '</style>'
-            );
-        } );
-    } );
-
     //Header Below Row Background Color - Tablet
     api( 'responsive_header_below_row_bg_color_tablet', function( value ) {
         value.bind( function( newval ) {
@@ -3775,18 +3667,6 @@
         } );
     } );
 
-    //Header Below Row Hover Background Color - Tablet
-    api( 'responsive_header_below_row_bg_color_tablet_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-below-row-bg-hover-color-tablet').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-below-row-bg-hover-color-tablet">'
-                + '@media screen and ( max-width: 992px ) { .responsive-site-below-mobile-header-wrap:hover { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
     //Header Below Row Background Color - Mobile
     api( 'responsive_header_below_row_bg_color_mobile', function( value ) {
         value.bind( function( newval ) {
@@ -3794,30 +3674,6 @@
             jQuery('head').append(
                 '<style id="responsive-header-below-row-bg-color-mobile">'
                 + '@media screen and ( max-width: 576px ) { .responsive-site-below-mobile-header-wrap { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
-    //Header Below Row Hover Background Color - Mobile
-    api( 'responsive_header_below_row_bg_color_mobile_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-below-row-bg-hover-color-mobile').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-below-row-bg-hover-color-mobile">'
-                + '@media screen and ( max-width: 576px ) { .responsive-site-below-mobile-header-wrap:hover { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
-    // Backward compatibility - old hover color setting
-    api( 'responsive_header_below_row_bg_hover_color', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-below-row-bg-hover-color-old').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-below-row-bg-hover-color-old">'
-                + '.responsive-site-below-header-wrap:hover { background-color: ' + newval + ' }'
                 + '</style>'
             );
         } );
@@ -4220,9 +4076,24 @@
             );
         } );
     } );
+    // The Sticky Header Menu Background and Sub Menu Background (Normal / Hover / Active) colors are
+    // also printed by custom-styles.php with their saved values. A live rule can't take a cleared
+    // (e.g. reset) color back to "unset", so on clearing, the preview is refreshed instead: it is then
+    // rendered with the current, cleared values. The Customizer debounces refresh requests, so a reset
+    // clearing all three colors refreshes only once.
+    function responsiveStickyMenuBackgroundCleared( newval, styleId ) {
+        jQuery( 'style#' + styleId ).remove();
+        if ( newval ) {
+            return false;
+        }
+        api.preview.send( 'refresh' );
+        return true;
+    }
     api( 'responsive_sticky_header_menu_background_color', function( value ) {
         value.bind( function( newval ) {
-            jQuery('style#responsive-sticky-header-menu-background-color').remove();
+            if ( responsiveStickyMenuBackgroundCleared( newval, 'responsive-sticky-header-menu-background-color' ) ) {
+                return;
+            }
             jQuery('head').append(
                 '<style id="responsive-sticky-header-menu-background-color">'
                 + '#masthead.sticky-header .site-header-row .main-navigation .main-navigation-wrapper, #masthead.sticky-header .site-header-row .main-navigation.toggled, '
@@ -4233,11 +4104,27 @@
     } );
     api( 'responsive_sticky_header_active_menu_background_color', function( value ) {
         value.bind( function( newval ) {
-            jQuery('style#responsive-sticky-header-active-menu-background-color').remove();
+            if ( responsiveStickyMenuBackgroundCleared( newval, 'responsive-sticky-header-active-menu-background-color' ) ) {
+                return;
+            }
             jQuery('head').append(
                 '<style id="responsive-sticky-header-active-menu-background-color">'
                 + '#masthead.sticky-header .main-navigation .menu .current_page_item > a, #masthead.sticky-header .main-navigation .menu .current-menu-item > a, #masthead.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current_page_item > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current-menu-item > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu li > a:hover, '
                 + '#masthead-mobile.sticky-header .main-navigation .menu .current_page_item > a, #masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a, #masthead-mobile.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current_page_item > a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu li > a:hover { background-color: ' + newval + '; }'
+                + '</style>'
+            );
+        } );
+    } );
+    // Printed after the Active Menu Background Color rule (which also covers hovered items) so it overrides it on hover.
+    api( 'responsive_sticky_header_menu_background_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            if ( responsiveStickyMenuBackgroundCleared( newval, 'responsive-sticky-header-menu-background-hover-color' ) ) {
+                return;
+            }
+            jQuery('head').append(
+                '<style id="responsive-sticky-header-menu-background-hover-color">'
+                + '#masthead.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .menu li > a:hover, '
+                + '#masthead-mobile.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu li > a:hover { background-color: ' + newval + ' !important; }'
                 + '</style>'
             );
         } );
@@ -4266,11 +4153,51 @@
     } );
     api( 'responsive_sticky_header_sub_menu_background_color', function( value ) {
         value.bind( function( newval ) {
-            jQuery('style#responsive-sticky-header-sub-menu-bg-color').remove();
+            if ( responsiveStickyMenuBackgroundCleared( newval, 'responsive-sticky-header-sub-menu-bg-color' ) ) {
+                return;
+            }
             jQuery('head').append(
                 '<style id="responsive-sticky-header-sub-menu-bg-color">'
                 + '#masthead.sticky-header .main-navigation .children, #masthead.sticky-header .main-navigation .sub-menu, .res-transparent-header #masthead.sticky-header .main-navigation .children,	.res-transparent-header #masthead.sticky-header .main-navigation .sub-menu, '
                 + '#masthead-mobile.sticky-header .main-navigation .children, #masthead-mobile.sticky-header .main-navigation .sub-menu, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .children,	.res-transparent-header #masthead-mobile.sticky-header .main-navigation .sub-menu { background-color: ' + newval + '; }'
+                + '</style>'
+            );
+        } );
+    } );
+    // Sub Menu Background Active / Hover, mirroring custom-styles.php (hover after active, so a hovered
+    // current item shows the hover color). `!important` like the other sticky menu background rules here.
+    var responsiveStickySubMenuHeaders = [ '#masthead.sticky-header', '.res-transparent-header #masthead.sticky-header', '#masthead-mobile.sticky-header', '.res-transparent-header #masthead-mobile.sticky-header' ];
+    function responsiveStickySubMenuSelectors( items ) {
+        var selectors = [];
+        responsiveStickySubMenuHeaders.forEach( function( header ) {
+            items.forEach( function( item ) {
+                selectors.push( header + ' .main-navigation ' + item );
+            } );
+        } );
+        return selectors.join( ', ' );
+    }
+    api( 'responsive_sticky_header_active_sub_menu_background_color', function( value ) {
+        value.bind( function( newval ) {
+            if ( responsiveStickyMenuBackgroundCleared( newval, 'responsive-sticky-header-active-sub-menu-bg-color' ) ) {
+                return;
+            }
+            jQuery('head').append(
+                '<style id="responsive-sticky-header-active-sub-menu-bg-color">'
+                + responsiveStickySubMenuSelectors( [ '.menu .sub-menu .current_page_item > a', '.menu .sub-menu .current-menu-item > a', '.menu .children li.current_page_item a' ] )
+                + ' { background-color: ' + newval + ' !important; }'
+                + '</style>'
+            );
+        } );
+    } );
+    api( 'responsive_sticky_header_sub_menu_background_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            if ( responsiveStickyMenuBackgroundCleared( newval, 'responsive-sticky-header-sub-menu-bg-hover-color' ) ) {
+                return;
+            }
+            jQuery('head').append(
+                '<style id="responsive-sticky-header-sub-menu-bg-hover-color">'
+                + responsiveStickySubMenuSelectors( [ '.children li a:hover', '.sub-menu li a:hover', '.menu .sub-menu .current_page_item > a:hover', '.menu .sub-menu .current-menu-item > a:hover' ] )
+                + ' { background-color: ' + newval + ' !important; }'
                 + '</style>'
             );
         } );
