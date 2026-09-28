@@ -1987,7 +1987,6 @@ function defaults() {
 																			'header_widgets2'        => array(
 																				'name'    => esc_html__( 'Widget 2', 'responsive' ),
 																				'section' => 'responsive_mobile_header_widget2',
-																				'icon'    => 'wordpress',
 																			),
 																			'header_contact_info'  => array(
 																				'name'    => esc_html__( 'Contact Info', 'responsive' ),
