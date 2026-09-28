@@ -63,7 +63,7 @@ if ( ! class_exists( 'Responsive_Theme_Options_Customizer' ) ) :
 						array(
 							'section'     => 'responsive_blog_layout',
 							'label'       => __( 'Exclude Categories from Blog page', 'responsive' ),
-							'description' => __( 'Please choose the post categories that should not be displayed on the blog page', 'responsive' ),
+							'description' => __( 'Please choose the post categories that should not be displayed on the blog page. Also note that this setting will shift to Post filter section in upcoming releases.', 'responsive' ),
 							'settings'    => 'exclude_post_cat',
 							'choices'     => $option_all_post_cat,
 							'priority'    => 230,
