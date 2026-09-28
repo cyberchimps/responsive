@@ -1361,21 +1361,35 @@ if ( ! function_exists( 'responsive_pro_fixed_menu_onscroll' ) ) {
 			function responsiveStickyHeader() {
 				var masthead = document.getElementById("masthead");
 				var mastheadMobile = document.getElementById("masthead-mobile");
-				var height = masthead ? masthead.offsetHeight : (mastheadMobile ? mastheadMobile.offsetHeight : 0);
-				
+
 				if (document.documentElement.scrollTop > 0 ) {
+					// Offset the content only when the header becomes sticky, while it is still in the
+					// normal flow, so the natural height of the visible header (desktop or mobile) is used.
+					// Re-measuring on every scroll would pick up the smaller stuck/shrunk height, which
+					// shortens the page and keeps pulling the scroll position back up near the bottom.
+					var isStuck = (masthead && masthead.classList.contains( 'sticky-header' )) || (mastheadMobile && mastheadMobile.classList.contains( 'sticky-header' ));
+					var height = 0;
+					if (!isStuck) {
+						height = masthead ? masthead.offsetHeight : 0;
+						if (!height && mastheadMobile) {
+							height = mastheadMobile.offsetHeight;
+						}
+					}
+
 					if (masthead) {
 						masthead.classList.add( 'sticky-header' );
 					}
 					if (mastheadMobile) {
 						mastheadMobile.classList.add( 'sticky-header' );
 					}
-					
-					if (document.getElementById("wrapper") ) {
-						document.getElementById("wrapper").style.marginTop = height+'px';
-					}
-					if (document.getElementsByClassName("elementor")[0] ) {
-						document.getElementsByClassName("elementor")[0].style.marginTop = height+'px';
+
+					if (!isStuck) {
+						if (document.getElementById("wrapper") ) {
+							document.getElementById("wrapper").style.marginTop = height+'px';
+						}
+						if (document.getElementsByClassName("elementor")[0] ) {
+							document.getElementsByClassName("elementor")[0].style.marginTop = height+'px';
+						}
 					}
 
 					let container = document.getElementById( 'site-navigation' );

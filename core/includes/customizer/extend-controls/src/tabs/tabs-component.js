@@ -46,6 +46,23 @@ const TabsComponent = props => {
 		return breadcrumbToggle ? !breadcrumbToggle.get() : false;
 	};
 
+	// Every Sticky Header field (General and Design tabs, including the ones
+	// ResponsivePRO adds) stays hidden while "Enable Sticky Header?" is off.
+	const isStickyHeaderFieldInactive = (elementId) => {
+		if (id !== 'responsive_responsive_sticky_header_menu_tabs' || elementId === 'customize-control-res_sticky-header') {
+			return false;
+		}
+		const stickyToggle = api('responsive_theme_options[sticky-header]');
+		if (stickyToggle && !stickyToggle.get()) {
+			return true;
+		}
+		if (elementId === 'customize-control-responsive_sticky_header_logo') {
+			const logoToggle = api('responsive_sticky_header_logo_option');
+			return logoToggle ? !logoToggle.get() : false;
+		}
+		return false;
+	};
+
 	const isSidebarControlInactive = (elementId) => {
 		let posControlKey = null;
 		if (elementId.indexOf('responsive_page_sidebar') !== -1) {
@@ -71,7 +88,7 @@ const TabsComponent = props => {
 		elementsToHide[showElements].forEach(elementId => {
 			const element = document.getElementById(elementId);
 			if (element) {
-				if (isSidebarControlInactive(elementId) || isBreadcrumbGeneralFieldInactive(elementId)) {
+				if (isSidebarControlInactive(elementId) || isBreadcrumbGeneralFieldInactive(elementId) || isStickyHeaderFieldInactive(elementId)) {
 					element.style.display = 'none';
 				} else {
 					element.style.display = 'block';
@@ -1253,6 +1270,35 @@ const TabsComponent = props => {
 		// just overridden any conditional visibility they applied.
 		document.dispatchEvent(new CustomEvent('responsive:tabChanged', { detail: { tab } }));
 
+	}, [tab]);
+
+	// Show / hide the Sticky Header fields on the current tab as soon as
+	// "Enable Sticky Header?" (or "Different Logo For Sticky Header") changes.
+	useEffect(() => {
+		if (id !== 'responsive_responsive_sticky_header_menu_tabs') {
+			return;
+		}
+
+		const applyStickyHeaderVisibility = () => {
+			elementsToHide[tab === 'general' ? 'design' : 'general'].forEach(elementId => {
+				const element = document.getElementById(elementId);
+				if (element) {
+					element.style.display = isStickyHeaderFieldInactive(elementId) ? 'none' : 'block';
+				}
+			});
+			// Let ResponsivePRO re-apply its own conditions on top (devices, rows, ...).
+			document.dispatchEvent(new CustomEvent('responsive:tabChanged', { detail: { tab } }));
+		};
+
+		const settings = ['responsive_theme_options[sticky-header]', 'responsive_sticky_header_logo_option']
+			.map(settingId => api(settingId))
+			.filter(Boolean);
+
+		settings.forEach(setting => setting.bind(applyStickyHeaderVisibility));
+
+		return () => {
+			settings.forEach(setting => setting.unbind(applyStickyHeaderVisibility));
+		};
 	}, [tab]);
 
 	const hideSidebarWidthControl = (value, control) => {

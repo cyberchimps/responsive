@@ -59,14 +59,13 @@ if( ! class_exists( 'Responsive_HFB_Header_Below_Row' ) ) {
 
             // Background Color.
 			$header_below_row_color_label = __( 'Background Color', 'responsive' );
-			responsive_color_control_with_device_switchers_and_hover(
+			responsive_color_control_with_device_switchers(
 				$wp_customize,
 				'header_below_row_bg',
 				$header_below_row_color_label,
 				'responsive_header_below_row',
 				30,
 				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_below_row_bg_color' ),
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_below_row_bg_hover_color' ),
 				null,
 				'',
 				'postMessage'

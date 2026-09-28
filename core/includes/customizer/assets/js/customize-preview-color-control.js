@@ -3244,18 +3244,6 @@
         } );
     } );
 
-    //Header Above Row Hover Background Color - Desktop
-    api( 'responsive_header_above_row_bg_color_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-above-row-bg-hover-color').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-above-row-bg-hover-color">'
-                + '.responsive-site-above-header-wrap:hover { background-color: ' + newval + ' }'
-                + '</style>'
-            );
-        } );
-    } );
-
     //Header Above Row Background Color - Tablet
     api( 'responsive_header_above_row_bg_color_tablet', function( value ) {
         value.bind( function( newval ) {
@@ -3268,18 +3256,6 @@
         } );
     } );
 
-    //Header Above Row Hover Background Color - Tablet
-    api( 'responsive_header_above_row_bg_color_tablet_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-above-row-bg-hover-color-tablet').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-above-row-bg-hover-color-tablet">'
-                + '@media screen and ( max-width: 992px ) { .responsive-site-above-mobile-header-wrap:hover { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
     //Header Above Row Background Color - Mobile
     api( 'responsive_header_above_row_bg_color_mobile', function( value ) {
         value.bind( function( newval ) {
@@ -3287,30 +3263,6 @@
             jQuery('head').append(
                 '<style id="responsive-header-above-row-bg-color-mobile">'
                 + '@media screen and ( max-width: 576px ) { .responsive-site-above-mobile-header-wrap { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
-    //Header Above Row Hover Background Color - Mobile
-    api( 'responsive_header_above_row_bg_color_mobile_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-above-row-bg-hover-color-mobile').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-above-row-bg-hover-color-mobile">'
-                + '@media screen and ( max-width: 576px ) { .responsive-site-above-mobile-header-wrap:hover { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
-    // Backward compatibility - old hover color setting
-    api( 'responsive_header_above_row_bg_hover_color', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-above-row-bg-hover-color-old').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-above-row-bg-hover-color-old">'
-                + '.responsive-site-above-header-wrap:hover { background-color: ' + newval + ' }'
                 + '</style>'
             );
         } );
@@ -3497,18 +3449,6 @@
         } );
     } );
 
-    //Header Primary Row Hover Background Color - Desktop
-    api( 'responsive_header_primary_row_bg_color_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-primary-row-bg-hover-color').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-primary-row-bg-hover-color">'
-                + '.responsive-site-primary-header-wrap:hover { background-color: ' + newval + ' }'
-                + '</style>'
-            );
-        } );
-    } );
-
     //Header Primary Row Background Color - Tablet
     api( 'responsive_header_primary_row_bg_color_tablet', function( value ) {
         value.bind( function( newval ) {
@@ -3521,18 +3461,6 @@
         } );
     } );
 
-    //Header Primary Row Hover Background Color - Tablet
-    api( 'responsive_header_primary_row_bg_color_tablet_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-primary-row-bg-hover-color-tablet').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-primary-row-bg-hover-color-tablet">'
-                + '@media screen and ( max-width: 992px ) { .responsive-site-primary-mobile-header-wrap:hover { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
     //Header Primary Row Background Color - Mobile
     api( 'responsive_header_primary_row_bg_color_mobile', function( value ) {
         value.bind( function( newval ) {
@@ -3540,30 +3468,6 @@
             jQuery('head').append(
                 '<style id="responsive-header-primary-row-bg-color-mobile">'
                 + '@media screen and ( max-width: 576px ) { .responsive-site-primary-mobile-header-wrap { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
-    //Header Primary Row Hover Background Color - Mobile
-    api( 'responsive_header_primary_row_bg_color_mobile_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-primary-row-bg-hover-color-mobile').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-primary-row-bg-hover-color-mobile">'
-                + '@media screen and ( max-width: 576px ) { .responsive-site-primary-mobile-header-wrap:hover { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
-    // Backward compatibility - old hover color setting
-    api( 'responsive_header_primary_row_bg_hover_color', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-primary-row-bg-hover-color-old').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-primary-row-bg-hover-color-old">'
-                + '.responsive-site-primary-header-wrap:hover { background-color: ' + newval + ' }'
                 + '</style>'
             );
         } );
@@ -3751,18 +3655,6 @@
         } );
     } );
 
-    //Header Below Row Hover Background Color - Desktop
-    api( 'responsive_header_below_row_bg_color_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-below-row-bg-hover-color').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-below-row-bg-hover-color">'
-                + '.responsive-site-below-header-wrap:hover { background-color: ' + newval + ' }'
-                + '</style>'
-            );
-        } );
-    } );
-
     //Header Below Row Background Color - Tablet
     api( 'responsive_header_below_row_bg_color_tablet', function( value ) {
         value.bind( function( newval ) {
@@ -3775,18 +3667,6 @@
         } );
     } );
 
-    //Header Below Row Hover Background Color - Tablet
-    api( 'responsive_header_below_row_bg_color_tablet_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-below-row-bg-hover-color-tablet').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-below-row-bg-hover-color-tablet">'
-                + '@media screen and ( max-width: 992px ) { .responsive-site-below-mobile-header-wrap:hover { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
     //Header Below Row Background Color - Mobile
     api( 'responsive_header_below_row_bg_color_mobile', function( value ) {
         value.bind( function( newval ) {
@@ -3794,30 +3674,6 @@
             jQuery('head').append(
                 '<style id="responsive-header-below-row-bg-color-mobile">'
                 + '@media screen and ( max-width: 576px ) { .responsive-site-below-mobile-header-wrap { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
-    //Header Below Row Hover Background Color - Mobile
-    api( 'responsive_header_below_row_bg_color_mobile_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-below-row-bg-hover-color-mobile').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-below-row-bg-hover-color-mobile">'
-                + '@media screen and ( max-width: 576px ) { .responsive-site-below-mobile-header-wrap:hover { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
-    // Backward compatibility - old hover color setting
-    api( 'responsive_header_below_row_bg_hover_color', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-below-row-bg-hover-color-old').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-below-row-bg-hover-color-old">'
-                + '.responsive-site-below-header-wrap:hover { background-color: ' + newval + ' }'
                 + '</style>'
             );
         } );

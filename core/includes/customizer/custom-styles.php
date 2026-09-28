@@ -6954,15 +6954,12 @@ function responsive_customizer_styles() {
 
 	// Desktop colors
 	$header_above_row_bg_color = get_theme_mod( 'responsive_header_above_row_bg_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_above_row_bg_color' ) );
-	$header_above_row_bg_hover_color = get_theme_mod( 'responsive_header_above_row_bg_color_hover', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_above_row_bg_hover_color' ) );
 	
 	// Tablet colors (for mobile header on tablet)
 	$header_above_row_bg_color_tablet = get_theme_mod( 'responsive_header_above_row_bg_color_tablet', $header_above_row_bg_color );
-	$header_above_row_bg_hover_color_tablet = get_theme_mod( 'responsive_header_above_row_bg_color_tablet_hover', $header_above_row_bg_hover_color );
 	
 	// Mobile colors (for mobile header on mobile)
 	$header_above_row_bg_color_mobile = get_theme_mod( 'responsive_header_above_row_bg_color_mobile', $header_above_row_bg_color );
-	$header_above_row_bg_hover_color_mobile = get_theme_mod( 'responsive_header_above_row_bg_color_mobile_hover', $header_above_row_bg_hover_color );
 	
 	// Desktop border size
 	$header_above_row_top_border_size  = get_theme_mod( 'responsive_header_above_row_top_border_size', 0 );
@@ -6999,15 +6996,12 @@ function responsive_customizer_styles() {
 
 	// Desktop colors
 	$header_primary_row_bg_color = get_theme_mod( 'responsive_header_primary_row_bg_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_primary_row_bg_color' ) );
-	$header_primary_row_bg_hover_color = get_theme_mod( 'responsive_header_primary_row_bg_color_hover', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_primary_row_bg_hover_color' ) );
 	
 	// Tablet colors (for mobile header on tablet)
 	$header_primary_row_bg_color_tablet = get_theme_mod( 'responsive_header_primary_row_bg_color_tablet', $header_primary_row_bg_color );
-	$header_primary_row_bg_hover_color_tablet = get_theme_mod( 'responsive_header_primary_row_bg_color_tablet_hover', $header_primary_row_bg_hover_color );
 	
 	// Mobile colors (for mobile header on mobile)
 	$header_primary_row_bg_color_mobile = get_theme_mod( 'responsive_header_primary_row_bg_color_mobile', $header_primary_row_bg_color );
-	$header_primary_row_bg_hover_color_mobile = get_theme_mod( 'responsive_header_primary_row_bg_color_mobile_hover', $header_primary_row_bg_hover_color );
 	
 	// Desktop border size - Primary Row
 	$header_primary_row_top_border_size  = get_theme_mod( 'responsive_header_primary_row_top_border_size', 0 );
@@ -7044,15 +7038,12 @@ function responsive_customizer_styles() {
 
 	// Desktop colors
 	$header_below_row_bg_color = get_theme_mod( 'responsive_header_below_row_bg_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_below_row_bg_color' ) );
-	$header_below_row_bg_hover_color = get_theme_mod( 'responsive_header_below_row_bg_color_hover', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_below_row_bg_hover_color' ) );
 	
 	// Tablet colors (for mobile header on tablet)
 	$header_below_row_bg_color_tablet = get_theme_mod( 'responsive_header_below_row_bg_color_tablet', $header_below_row_bg_color );
-	$header_below_row_bg_hover_color_tablet = get_theme_mod( 'responsive_header_below_row_bg_color_tablet_hover', $header_below_row_bg_hover_color );
 	
 	// Mobile colors (for mobile header on mobile)
 	$header_below_row_bg_color_mobile = get_theme_mod( 'responsive_header_below_row_bg_color_mobile', $header_below_row_bg_color );
-	$header_below_row_bg_hover_color_mobile = get_theme_mod( 'responsive_header_below_row_bg_color_mobile_hover', $header_below_row_bg_hover_color );
 	
 	// Desktop border size - Below Row
 	$header_below_row_top_border_size  = get_theme_mod( 'responsive_header_below_row_top_border_size', 0 );
@@ -7094,7 +7085,6 @@ function responsive_customizer_styles() {
 			border-bottom: {$header_above_row_bottom_border_size}px solid {$header_above_row_bottom_border_color};
 		}
 		.responsive-site-above-header-wrap:hover {
-			background-color: {$header_above_row_bg_hover_color};
 			border-top-color: {$header_above_row_top_border_hover_color};
 			border-bottom-color: {$header_above_row_bottom_border_hover_color};
 		}
@@ -7104,7 +7094,6 @@ function responsive_customizer_styles() {
 			border-bottom: {$header_primary_row_bottom_border_size}px solid {$header_primary_row_bottom_border_color};
 		}
 		.responsive-site-primary-header-wrap:hover {
-			background-color: {$header_primary_row_bg_hover_color};
 			border-top-color: {$header_primary_row_top_border_hover_color};
 			border-bottom-color: {$header_primary_row_bottom_border_hover_color};
 		}
@@ -7114,7 +7103,6 @@ function responsive_customizer_styles() {
 			border-bottom: {$header_below_row_bottom_border_size}px solid {$header_below_row_bottom_border_color};
 		}
 		.responsive-site-below-header-wrap:hover {
-			background-color: {$header_below_row_bg_hover_color};
 			border-top-color: {$header_below_row_top_border_hover_color};
 			border-bottom-color: {$header_below_row_bottom_border_hover_color};
 		}
@@ -7127,7 +7115,6 @@ function responsive_customizer_styles() {
 				border-bottom: {$header_above_row_bottom_border_size_tablet}px solid {$header_above_row_bottom_border_color_tablet};
 			}
 			.responsive-site-above-mobile-header-wrap:hover {
-				background-color: {$header_above_row_bg_hover_color_tablet};
 				border-top-color: {$header_above_row_top_border_hover_color_tablet};
 				border-bottom-color: {$header_above_row_bottom_border_hover_color_tablet};
 			}
@@ -7138,7 +7125,6 @@ function responsive_customizer_styles() {
 				border-bottom: {$header_primary_row_bottom_border_size_tablet}px solid {$header_primary_row_bottom_border_color_tablet};
 			}
 			.responsive-site-primary-mobile-header-wrap:hover {
-				background-color: {$header_primary_row_bg_hover_color_tablet};
 				border-top-color: {$header_primary_row_top_border_hover_color_tablet};
 				border-bottom-color: {$header_primary_row_bottom_border_hover_color_tablet};
 			}
@@ -7149,7 +7135,6 @@ function responsive_customizer_styles() {
 				border-bottom: {$header_below_row_bottom_border_size_tablet}px solid {$header_below_row_bottom_border_color_tablet};
 			}
 			.responsive-site-below-mobile-header-wrap:hover {
-				background-color: {$header_below_row_bg_hover_color_tablet};
 				border-top-color: {$header_below_row_top_border_hover_color_tablet};
 				border-bottom-color: {$header_below_row_bottom_border_hover_color_tablet};
 			}
@@ -7163,7 +7148,6 @@ function responsive_customizer_styles() {
 				border-bottom: {$header_above_row_bottom_border_size_mobile}px solid {$header_above_row_bottom_border_color_mobile};
 			}
 			.responsive-site-above-mobile-header-wrap:hover {
-				background-color: {$header_above_row_bg_hover_color_mobile};
 				border-top-color: {$header_above_row_top_border_hover_color_mobile};
 				border-bottom-color: {$header_above_row_bottom_border_hover_color_mobile};
 			}
@@ -7174,7 +7158,6 @@ function responsive_customizer_styles() {
 				border-bottom: {$header_primary_row_bottom_border_size_mobile}px solid {$header_primary_row_bottom_border_color_mobile};
 			}
 			.responsive-site-primary-mobile-header-wrap:hover {
-				background-color: {$header_primary_row_bg_hover_color_mobile};
 				border-top-color: {$header_primary_row_top_border_hover_color_mobile};
 				border-bottom-color: {$header_primary_row_bottom_border_hover_color_mobile};
 			}
@@ -7185,7 +7168,6 @@ function responsive_customizer_styles() {
 				border-bottom: {$header_below_row_bottom_border_size_mobile}px solid {$header_below_row_bottom_border_color_mobile};
 			}
 			.responsive-site-below-mobile-header-wrap:hover {
-				background-color: {$header_below_row_bg_hover_color_mobile};
 				border-top-color: {$header_below_row_top_border_hover_color_mobile};
 				border-bottom-color: {$header_below_row_bottom_border_hover_color_mobile};
 			}
@@ -10809,6 +10791,12 @@ function responsive_customizer_styles() {
 				$sticky_sub_menu_selectors[] = "{$sticky_sub_menu_header} .main-navigation .menu .sub-menu .current-menu-item > a:hover";
 			}
 			$custom_css .= implode( ', ', $sticky_sub_menu_selectors ) . " { background-color: {$sticky_header_sub_menu_background_hover_color}; }";
+		}
+
+		// Sticky Header "Enable Shrink Effect". Always printed in the Customizer preview, where the toggle is applied live.
+		$sticky_header_options = wp_parse_args( get_option( 'responsive_theme_options', array() ) );
+		if ( ( isset( $sticky_header_options['sticky-header'] ) && 1 === $sticky_header_options['sticky-header'] && get_theme_mod( 'responsive_shrink_sticky_header', 0 ) ) || is_customize_preview() ) {
+			$custom_css .= responsive_sticky_header_shrink_css();
 		}
 
 		// Styling for Blog/Archive Border radius
@@ -15168,4 +15156,79 @@ function responsive_minimize_css( $css ) {
 	$css = preg_replace( '/\s*([:;{}])\s*/', '$1', $css );
 	$css = preg_replace( '/;}/', '}', $css );
 	return $css;
+}
+
+if ( ! function_exists( 'responsive_sticky_header_shrink_css' ) ) {
+	/**
+	 * CSS for the Sticky Header "Enable Shrink Effect" control (`responsive_shrink_sticky_header`).
+	 *
+	 * The sticky header script adds `.shrink` to #masthead / #masthead-mobile while the toggle is on
+	 * (live in the Customizer preview too). On top of the logo size cap in style.css, while the header
+	 * is sticky this:
+	 *
+	 * - reduces every header row's Height by 10px (rows with no Height set are sized by their content);
+	 * - halves the logo / site title block's top and bottom padding.
+	 *
+	 * Each value mirrors the normal rule for that device (same breakpoints: 992px / 576px), so it only
+	 * ever shrinks what is set.
+	 *
+	 * @return string
+	 */
+	function responsive_sticky_header_shrink_css() {
+
+		$shrink_by = 10;
+
+		$css = '#masthead.shrink .site-header-row, #masthead-mobile.shrink .site-mobile-header-row, #masthead.shrink .site-branding-wrapper, #masthead-mobile.shrink .site-branding-wrapper {'
+			. ' transition: min-height 0.3s ease-in-out, padding 0.3s ease-in-out; }';
+
+		$tablet_css = '';
+		$mobile_css = '';
+
+		foreach ( array( 'above', 'primary', 'below' ) as $row ) {
+			$desktop = absint( get_theme_mod( 'responsive_header_' . $row . '_row_height', 0 ) );
+			$tablet  = absint( get_theme_mod( 'responsive_header_' . $row . '_row_height_tablet', 0 ) );
+			$mobile  = absint( get_theme_mod( 'responsive_header_' . $row . '_row_height_mobile', 0 ) );
+
+			if ( $desktop ) {
+				$css .= '#masthead.sticky-header.shrink .site-' . $row . '-header-inner-wrap { min-height: ' . max( 0, $desktop - $shrink_by ) . 'px; }';
+			}
+			if ( $tablet ) {
+				$tablet_css .= '#masthead-mobile.sticky-header.shrink .site-' . $row . '-mobile-header-inner-wrap { min-height: ' . max( 0, $tablet - $shrink_by ) . 'px; }';
+			}
+			if ( $mobile ) {
+				$mobile_css .= '#masthead-mobile.sticky-header.shrink .site-' . $row . '-mobile-header-inner-wrap { min-height: ' . max( 0, $mobile - $shrink_by ) . 'px; }';
+			}
+		}
+
+		// Same theme mods and defaults used for `.site-branding-wrapper { padding }`.
+		$branding_selector = '#masthead.sticky-header.shrink .site-branding-wrapper, #masthead-mobile.sticky-header.shrink .site-branding-wrapper';
+		$branding_padding  = array(
+			'desktop' => array( 'responsive_header_top_padding', 'responsive_header_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'logo_padding' ) ),
+			'tablet'  => array( 'responsive_header_tablet_top_padding', 'responsive_header_tablet_bottom_padding', 28 ),
+			'mobile'  => array( 'responsive_header_mobile_top_padding', 'responsive_header_mobile_bottom_padding', 28 ),
+		);
+
+		foreach ( $branding_padding as $device => $mods ) {
+			$top    = intval( get_theme_mod( $mods[0], $mods[2] ) );
+			$bottom = intval( get_theme_mod( $mods[1], $mods[2] ) );
+			$rule   = $branding_selector . ' { padding-top: ' . round( $top / 2 ) . 'px; padding-bottom: ' . round( $bottom / 2 ) . 'px; }';
+
+			if ( 'desktop' === $device ) {
+				$css .= $rule;
+			} elseif ( 'tablet' === $device ) {
+				$tablet_css .= $rule;
+			} else {
+				$mobile_css .= $rule;
+			}
+		}
+
+		if ( '' !== $tablet_css ) {
+			$css .= '@media screen and ( max-width: 992px ) { ' . $tablet_css . ' }';
+		}
+		if ( '' !== $mobile_css ) {
+			$css .= '@media screen and ( max-width: 576px ) { ' . $mobile_css . ' }';
+		}
+
+		return $css;
+	}
 }
