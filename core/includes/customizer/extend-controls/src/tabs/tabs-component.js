@@ -1484,6 +1484,40 @@ const TabsComponent = props => {
 			}
 		});
 
+		// Let other extensions (e.g. ResponsivePRO's Site Layout controls) know the
+		// visible tab has changed, since the generic per-id resets above may have
+		// just overridden any conditional visibility they applied.
+		document.dispatchEvent(new CustomEvent('responsive:tabChanged', { detail: { tab } }));
+
+	}, [tab]);
+
+	// Show / hide the Sticky Header fields on the current tab as soon as
+	// "Enable Sticky Header?" (or "Different Logo For Sticky Header") changes.
+	useEffect(() => {
+		if (id !== 'responsive_responsive_sticky_header_menu_tabs') {
+			return;
+		}
+
+		const applyStickyHeaderVisibility = () => {
+			elementsToHide[tab === 'general' ? 'design' : 'general'].forEach(elementId => {
+				const element = document.getElementById(elementId);
+				if (element) {
+					element.style.display = isStickyHeaderFieldInactive(elementId) ? 'none' : 'block';
+				}
+			});
+			// Let ResponsivePRO re-apply its own conditions on top (devices, rows, ...).
+			document.dispatchEvent(new CustomEvent('responsive:tabChanged', { detail: { tab } }));
+		};
+
+		const settings = ['responsive_theme_options[sticky-header]', 'responsive_sticky_header_logo_option']
+			.map(settingId => api(settingId))
+			.filter(Boolean);
+
+		settings.forEach(setting => setting.bind(applyStickyHeaderVisibility));
+
+		return () => {
+			settings.forEach(setting => setting.unbind(applyStickyHeaderVisibility));
+		};
 	}, [tab]);
 
 	const hideSidebarWidthControl = (value, control) => {

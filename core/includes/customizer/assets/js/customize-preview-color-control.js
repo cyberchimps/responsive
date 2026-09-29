@@ -1252,8 +1252,8 @@
         '.read-more-button .hentry .read-more .more-link,' +
         'input[type=button],' +
         'input[type=submit],' +
-        'button:not(.responsive-header-button):not(.customize-partial-edit-shortcut-button):not(.search-submit):not(.plus, .minus),' +
-        '.button:not(:where(.responsive-header-button, .customize-partial-edit-shortcut-button, .search-submit, .add_to_cart_button, .product_type_external, .product_type_grouped))' +
+        'button:not(.responsive-header-button):not(.customize-partial-edit-shortcut-button):not(.search-submit):not(.menu-toggle):not(.plus, .minus),' +
+        '.button:not(:where(.responsive-header-button, .customize-partial-edit-shortcut-button, .search-submit, .add_to_cart_button, .product_type_external, .product_type_grouped, .menu-toggle))' +
         '.wp-block-button:not(.is-style-outline) > .wp-block-button__link,' +
         'div.wpforms-container-full .wpforms-form input[type=submit],' +
         'body div.wpforms-container-full .wpforms-form button[type=submit],' +
@@ -1267,8 +1267,8 @@
         '.read-more-button .hentry .read-more .more-link:hover,' +
         'input[type=button]:hover,' +
         'input[type=submit]:hover,' +
-        'button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button):not(.customize-partial-edit-shortcut-button):not(.plus, .minus),' +
-        '.button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button, .customize-partial-edit-shortcut-button, .add_to_cart_button, .product_type_external, .product_type_grouped),' +
+        'button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button):not(.customize-partial-edit-shortcut-button):not(.menu-toggle):not(.plus, .minus),' +
+        '.button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button, .customize-partial-edit-shortcut-button, .add_to_cart_button, .product_type_external, .product_type_grouped, .menu-toggle, .site-mobile-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button),' +
         '.wp-block-button:not(.is-style-outline) > .wp-block-button__link:hover,' +
         'div.wpforms-container-full .wpforms-form input[type=submit]:hover,' +
         'body div.wpforms-container-full .wpforms-form button[type=submit]:hover,' +
