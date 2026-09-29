@@ -59,13 +59,14 @@ if( ! class_exists( 'Responsive_HFB_Header_Below_Row' ) ) {
 
             // Background Color.
 			$header_below_row_color_label = __( 'Background Color', 'responsive' );
-			responsive_color_control_with_device_switchers(
+			responsive_color_control_with_device_switchers_and_hover(
 				$wp_customize,
 				'header_below_row_bg',
 				$header_below_row_color_label,
 				'responsive_header_below_row',
 				30,
 				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_below_row_bg_color' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_below_row_bg_hover_color' ),
 				null,
 				'',
 				'postMessage'
@@ -136,14 +137,6 @@ if( ! class_exists( 'Responsive_HFB_Header_Below_Row' ) ) {
 				$tab_ids_prefix . 'responsive_header_below_row_margin_padding',
 				$tab_ids_prefix . 'responsive_header_below_spacing_separator',
 			);
-
-			/**
-			 * Lets add-ons (e.g. Responsive Pro) list their own controls in the Design tab.
-			 * Controls that are not in either list are shown in both tabs.
-			 *
-			 * @param string[] $design_tab_ids Control container ids shown in the Design tab.
-			 */
-			$design_tab_ids = apply_filters( 'responsive_header_below_row_design_tab_ids', $design_tab_ids );
 
 			$general_tab_ids = array(
 				$tab_ids_prefix . 'responsive_header_below_row_height',
