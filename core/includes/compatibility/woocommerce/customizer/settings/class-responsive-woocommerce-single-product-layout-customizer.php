@@ -135,6 +135,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 			$single_product_title_area_general_tab_ids = array(
 				'customize-control-responsive_single_product_title_layout',
 				'customize-control-responsive_single_product_title_elements_positioning',
+				'customize-control-responsive_single_product_featured_image_as_background',
 				'customize-control-responsive_single_product_featured_image_ratio',
 				'customize-control-responsive_single_product_featured_image_predefined_ratio',
 				'customize-control-responsive_single_product_featured_image_custom_width',
@@ -148,6 +149,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 			$single_product_title_area_design_tab_ids  = array(
 				'customize-control-responsive_single_product_banner_min_height',
 				'customize-control-responsive_single_product_banner_background_color',
+				'customize-control-responsive_single_product_banner_overlay_color',
 				'customize-control-responsive_single_product_title_inner_elements_spacing',
 				'customize-control-responsive_single_product_title_color',
 				'customize-control-responsive_single_product_text_color',
@@ -230,6 +232,18 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 						'taxonomy_choices' => responsive_get_single_product_taxonomies(),
 					)
 				)
+			);
+
+			// Use as background.
+			$single_product_featured_image_as_background_label = esc_html__( 'Use as background', 'responsive' );
+			responsive_toggle_control(
+				$wp_customize,
+				'single_product_featured_image_as_background',
+				$single_product_featured_image_as_background_label,
+				'responsive_single_product_title_layout',
+				5.0,
+				0,
+				null
 			);
 
 			// Image Ratio.
@@ -557,6 +571,17 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				'',
 				'postMessage',
 				true
+			);
+
+			// Banner Overlay Color.
+			$single_product_banner_overlay_label = esc_html__( 'Banner Overlay', 'responsive' );
+			responsive_color_control(
+				$wp_customize,
+				'single_product_banner_overlay',
+				$single_product_banner_overlay_label,
+				'responsive_single_product_title_layout',
+				14,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_banner_overlay_color' )
 			);
 
 			// Title Color.

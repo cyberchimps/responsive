@@ -7484,6 +7484,14 @@
             $('.responsive-shop-entry-banner').css('--overlay-color', color);
         });
     });
+
+    api('responsive_single_product_banner_overlay_color', function(value) {
+        value.bind(function() {
+            var color = processThemeSettingForCSS('responsive_single_product_banner_overlay_color');
+            if ( !color ) color = 'transparent';
+            $('.responsive-single-product-entry-banner').css('--overlay-color', color);
+        });
+    });
 function updateMobileHeaderButtonHoverShadow() {
     var shadow_x      = api('responsive_mobile_header_button_hover_shadow_x_axis').get();
     var shadow_y      = api('responsive_mobile_header_button_hover_shadow_y_axis').get();

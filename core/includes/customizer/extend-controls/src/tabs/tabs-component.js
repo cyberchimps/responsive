@@ -1280,9 +1280,22 @@ const TabsComponent = props => {
 				});
 			});
 		}
+		if (api('responsive_single_product_featured_image_as_background')) {
+			api('responsive_single_product_featured_image_as_background', function(value) {
+				value.bind(function() {
+					toggleSingleProductTitleLayoutControls();
+				});
+			});
+		}
 		const spTitleElementsCtrl = document.getElementById('customize-control-responsive_single_product_title_elements_positioning');
 		if (spTitleElementsCtrl) {
 			spTitleElementsCtrl.addEventListener('click', function() {
+				setTimeout(toggleSingleProductTitleLayoutControls, 50);
+			});
+		}
+		const spUseAsBgCtrl = document.getElementById('customize-control-responsive_single_product_featured_image_as_background');
+		if (spUseAsBgCtrl) {
+			spUseAsBgCtrl.addEventListener('click', function() {
 				setTimeout(toggleSingleProductTitleLayoutControls, 50);
 			});
 		}
@@ -2042,6 +2055,21 @@ const TabsComponent = props => {
 		// Featured Image controls: dependent on visibility of featured image
 		const hasFeaturedImage = Array.isArray(elements) && elements.indexOf('featured_image') !== -1;
 
+		// Use as background toggle (only for Layout 2 when featured_image is visible)
+		const useAsBgEl = document.getElementById('customize-control-responsive_single_product_featured_image_as_background');
+		const isUseAsBgVisible = isLayout2 && hasFeaturedImage;
+		if (useAsBgEl) {
+			useAsBgEl.style.display = (isUseAsBgVisible && tab === 'general') ? 'block' : 'none';
+		}
+
+		const asBg = api('responsive_single_product_featured_image_as_background')
+			? api('responsive_single_product_featured_image_as_background').get()
+			: 0;
+		const isAsBackground = isUseAsBgVisible && (asBg === 1 || asBg === true || asBg === '1');
+
+		// Featured Image controls: only when featured image is visible AND NOT used as background
+		const showImageRatioControls = hasFeaturedImage && !isAsBackground;
+
 		const ratio = api('responsive_single_product_featured_image_ratio')
 			? api('responsive_single_product_featured_image_ratio').get()
 			: 'original';
@@ -2053,19 +2081,19 @@ const TabsComponent = props => {
 		const imageSizeEl       = document.getElementById('customize-control-responsive_single_product_featured_image_size');
 
 		if (ratioEl) {
-			ratioEl.style.display = (hasFeaturedImage && tab === 'general') ? 'block' : 'none';
+			ratioEl.style.display = (showImageRatioControls && tab === 'general') ? 'block' : 'none';
 		}
 		if (predefinedRatioEl) {
-			predefinedRatioEl.style.display = (hasFeaturedImage && ratio === 'predefined' && tab === 'general') ? 'block' : 'none';
+			predefinedRatioEl.style.display = (showImageRatioControls && ratio === 'predefined' && tab === 'general') ? 'block' : 'none';
 		}
 		if (customWidthEl) {
-			customWidthEl.style.display = (hasFeaturedImage && ratio === 'custom' && tab === 'general') ? 'block' : 'none';
+			customWidthEl.style.display = (showImageRatioControls && ratio === 'custom' && tab === 'general') ? 'block' : 'none';
 		}
 		if (customHeightEl) {
-			customHeightEl.style.display = (hasFeaturedImage && ratio === 'custom' && tab === 'general') ? 'block' : 'none';
+			customHeightEl.style.display = (showImageRatioControls && ratio === 'custom' && tab === 'general') ? 'block' : 'none';
 		}
 		if (imageSizeEl) {
-			imageSizeEl.style.display = (hasFeaturedImage && tab === 'general') ? 'block' : 'none';
+			imageSizeEl.style.display = (showImageRatioControls && tab === 'general') ? 'block' : 'none';
 		}
 
 		const verticalAlignment = document.getElementById('customize-control-responsive_single_product_title_vertical_alignment');
@@ -2080,7 +2108,12 @@ const TabsComponent = props => {
 
 		const bannerBgEl = document.getElementById('customize-control-responsive_single_product_banner_background_color');
 		if (bannerBgEl) {
-			bannerBgEl.style.display = (isLayout2 && tab === 'design') ? 'block' : 'none';
+			bannerBgEl.style.display = (isLayout2 && !isAsBackground && tab === 'design') ? 'block' : 'none';
+		}
+
+		const bannerOverlayEl = document.getElementById('customize-control-responsive_single_product_banner_overlay_color');
+		if (bannerOverlayEl) {
+			bannerOverlayEl.style.display = (isAsBackground && tab === 'design') ? 'block' : 'none';
 		}
 	};
 

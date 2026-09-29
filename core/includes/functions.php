@@ -1358,6 +1358,8 @@ function defaults() {
 			'responsive_single_product_banner_min_height'        => 0,
 			'responsive_single_product_banner_min_height_tablet' => 0,
 			'responsive_single_product_banner_min_height_mobile' => 0,
+			'responsive_single_product_featured_image_as_background' => 0,
+			'responsive_single_product_banner_overlay_color'     => '',
 			'shop_title_horizontal_alignment'     => 'center',
 			'shop_title_inner_elements_spacing'   => 0,
 			'shop_title_container_background_layout1' => 'none',
