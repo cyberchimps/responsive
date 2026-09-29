@@ -144,8 +144,11 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				'customize-control-responsive_single_product_title_meta',
 				'customize-control-responsive_single_product_title_meta_separator_text',
 				'customize-control-responsive_single_product_title_horizontal_alignment',
+				'customize-control-responsive_single_product_title_vertical_alignment',
 			);
 			$single_product_title_area_design_tab_ids  = array(
+				'customize-control-responsive_single_product_banner_min_height',
+				'customize-control-responsive_single_product_banner_background_color',
 				'customize-control-responsive_single_product_title_inner_elements_spacing',
 				'customize-control-responsive_single_product_title_color',
 				'customize-control-responsive_single_product_text_color',
@@ -424,6 +427,27 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				null
 			);
 
+			// Vertical Alignment.
+			$single_product_title_vertical_alignment_label   = esc_html__( 'Vertical Alignment', 'responsive' );
+			$single_product_title_vertical_alignment_choices = array(
+				'flex-start' => esc_html__( 'Top', 'responsive' ),
+				'center'     => esc_html__( 'Middle', 'responsive' ),
+				'flex-end'   => esc_html__( 'Bottom', 'responsive' ),
+			);
+
+			// Single Product Title Vertical Alignment.
+			responsive_select_button_control(
+				$wp_customize,
+				'single_product_title_vertical_alignment',
+				$single_product_title_vertical_alignment_label,
+				'responsive_single_product_title_layout',
+				8,
+				$single_product_title_vertical_alignment_choices,
+				'flex-start',
+				null,
+				'refresh'
+			);
+
 			// Author Meta Sub-Controls.
 			$wp_customize->add_setting(
 				'responsive_single_product_author_prefix_label',
@@ -529,6 +553,21 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				)
 			);
 
+			// Banner Min Height.
+			$single_product_banner_min_height_label = esc_html__( 'Banner Min Height (px)', 'responsive' );
+			responsive_drag_number_control_with_switchers(
+				$wp_customize,
+				'single_product_banner_min_height',
+				$single_product_banner_min_height_label,
+				'responsive_single_product_title_layout',
+				9,
+				0,
+				null,
+				1000,
+				0,
+				'postMessage'
+			);
+
 			// Inner Elements Spacing.
 			$single_product_title_inner_elements_spacing_label = esc_html__( 'Inner Elements Spacing (px)', 'responsive' );
 			responsive_drag_number_control(
@@ -542,6 +581,21 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				100,
 				1,
 				'postMessage'
+			);
+
+			// Banner Background Color.
+			$single_product_banner_background_label = esc_html__( 'Banner Background', 'responsive' );
+			responsive_color_control_with_device_switchers(
+				$wp_customize,
+				'single_product_banner_background',
+				$single_product_banner_background_label,
+				'responsive_single_product_title_layout',
+				13,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_banner_background_color' ),
+				null,
+				'',
+				'postMessage',
+				true
 			);
 
 			// Title Color.

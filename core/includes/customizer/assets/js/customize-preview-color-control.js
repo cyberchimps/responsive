@@ -7267,6 +7267,47 @@
         });
     });
 
+    // WooCommerce Single Product Title Banner Background
+    api('responsive_single_product_banner_background_color', function(val) {
+        val.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_banner_background_color') || newval;
+            jQuery('style#responsive_single_product_banner_background_color').remove();
+            jQuery('head').append(
+                '<style id="responsive_single_product_banner_background_color">' +
+                '@media screen and (min-width: 993px) {' +
+                ' .single-product .responsive-single-product-entry-banner { background-color: ' + color + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+    api('responsive_single_product_banner_background_color_tablet', function(val) {
+        val.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_banner_background_color_tablet') || newval;
+            jQuery('style#responsive_single_product_banner_background_color_tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive_single_product_banner_background_color_tablet">' +
+                '@media screen and (min-width: 577px) and (max-width: 992px) {' +
+                ' .single-product .responsive-single-product-entry-banner { background-color: ' + color + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+    api('responsive_single_product_banner_background_color_mobile', function(val) {
+        val.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_banner_background_color_mobile') || newval;
+            jQuery('style#responsive_single_product_banner_background_color_mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive_single_product_banner_background_color_mobile">' +
+                '@media screen and (max-width: 576px) {' +
+                ' .single-product .responsive-single-product-entry-banner { background-color: ' + color + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+
     // WooCommerce Shop Title Color
     api('responsive_shop_title_color', function(value) {
         value.bind(function(newval) {

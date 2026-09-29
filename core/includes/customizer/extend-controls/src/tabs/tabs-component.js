@@ -2032,6 +2032,21 @@ const TabsComponent = props => {
 		if (imageSizeEl) {
 			imageSizeEl.style.display = (isLayout2 && tab === 'general') ? 'block' : 'none';
 		}
+
+		const verticalAlignment = document.getElementById('customize-control-responsive_single_product_title_vertical_alignment');
+		if (verticalAlignment) {
+			verticalAlignment.style.display = (isLayout2 && tab === 'general') ? 'block' : 'none';
+		}
+
+		const minHeightEl = document.getElementById('customize-control-responsive_single_product_banner_min_height');
+		if (minHeightEl) {
+			minHeightEl.style.display = (isLayout2 && tab === 'design') ? 'block' : 'none';
+		}
+
+		const bannerBgEl = document.getElementById('customize-control-responsive_single_product_banner_background_color');
+		if (bannerBgEl) {
+			bannerBgEl.style.display = (isLayout2 && tab === 'design') ? 'block' : 'none';
+		}
 	};
 
 	const togglePageTitleLayoutControls = () => {
