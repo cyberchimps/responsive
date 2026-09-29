@@ -2039,7 +2039,9 @@ const TabsComponent = props => {
 			metaEl.style.display = (hasMeta && tab === 'general') ? 'block' : 'none';
 		}
 
-		// Featured Image controls for both layouts
+		// Featured Image controls: dependent on visibility of featured image
+		const hasFeaturedImage = Array.isArray(elements) && elements.indexOf('featured_image') !== -1;
+
 		const ratio = api('responsive_single_product_featured_image_ratio')
 			? api('responsive_single_product_featured_image_ratio').get()
 			: 'original';
@@ -2051,19 +2053,19 @@ const TabsComponent = props => {
 		const imageSizeEl       = document.getElementById('customize-control-responsive_single_product_featured_image_size');
 
 		if (ratioEl) {
-			ratioEl.style.display = (tab === 'general') ? 'block' : 'none';
+			ratioEl.style.display = (hasFeaturedImage && tab === 'general') ? 'block' : 'none';
 		}
 		if (predefinedRatioEl) {
-			predefinedRatioEl.style.display = (ratio === 'predefined' && tab === 'general') ? 'block' : 'none';
+			predefinedRatioEl.style.display = (hasFeaturedImage && ratio === 'predefined' && tab === 'general') ? 'block' : 'none';
 		}
 		if (customWidthEl) {
-			customWidthEl.style.display = (ratio === 'custom' && tab === 'general') ? 'block' : 'none';
+			customWidthEl.style.display = (hasFeaturedImage && ratio === 'custom' && tab === 'general') ? 'block' : 'none';
 		}
 		if (customHeightEl) {
-			customHeightEl.style.display = (ratio === 'custom' && tab === 'general') ? 'block' : 'none';
+			customHeightEl.style.display = (hasFeaturedImage && ratio === 'custom' && tab === 'general') ? 'block' : 'none';
 		}
 		if (imageSizeEl) {
-			imageSizeEl.style.display = (tab === 'general') ? 'block' : 'none';
+			imageSizeEl.style.display = (hasFeaturedImage && tab === 'general') ? 'block' : 'none';
 		}
 
 		const verticalAlignment = document.getElementById('customize-control-responsive_single_product_title_vertical_alignment');
