@@ -3063,5 +3063,64 @@ mobileHeaderWooCartMarginSettings.forEach(function(setting) {
         });
     });
 
+    // WooCommerce Shop Banner Padding Settings
+    const shopBannerPaddingSettings = [
+        'responsive_shop_banner_padding_top_padding',
+        'responsive_shop_banner_padding_left_padding',
+        'responsive_shop_banner_padding_bottom_padding',
+        'responsive_shop_banner_padding_right_padding',
+        'responsive_shop_banner_padding_tablet_top_padding',
+        'responsive_shop_banner_padding_tablet_right_padding',
+        'responsive_shop_banner_padding_tablet_bottom_padding',
+        'responsive_shop_banner_padding_tablet_left_padding',
+        'responsive_shop_banner_padding_mobile_top_padding',
+        'responsive_shop_banner_padding_mobile_right_padding',
+        'responsive_shop_banner_padding_mobile_bottom_padding',
+        'responsive_shop_banner_padding_mobile_left_padding',
+        'responsive_shop_banner_padding_desktop_unit',
+        'responsive_shop_banner_padding_tablet_unit',
+        'responsive_shop_banner_padding_mobile_unit'
+    ];
+
+    shopBannerPaddingSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_unit_padding(
+                    'shop_banner_padding',
+                    '.responsive-shop-entry-banner, .woocommerce.archive .site-content-header, .woocommerce-shop .site-content-header'
+                );
+            });
+        });
+    });
+
+    // WooCommerce Shop Banner Margin Settings
+    const shopBannerMarginSettings = [
+        'responsive_shop_banner_margin_top_padding',
+        'responsive_shop_banner_margin_left_padding',
+        'responsive_shop_banner_margin_bottom_padding',
+        'responsive_shop_banner_margin_right_padding',
+        'responsive_shop_banner_margin_tablet_top_padding',
+        'responsive_shop_banner_margin_tablet_right_padding',
+        'responsive_shop_banner_margin_tablet_bottom_padding',
+        'responsive_shop_banner_margin_tablet_left_padding',
+        'responsive_shop_banner_margin_mobile_top_padding',
+        'responsive_shop_banner_margin_mobile_right_padding',
+        'responsive_shop_banner_margin_mobile_bottom_padding',
+        'responsive_shop_banner_margin_mobile_left_padding',
+        'responsive_shop_banner_margin_desktop_unit',
+        'responsive_shop_banner_margin_tablet_unit',
+        'responsive_shop_banner_margin_mobile_unit'
+    ];
+
+    shopBannerMarginSettings.forEach(function(setting) {
+        api(setting, function(value) {
+            value.bind(function(newval) {
+                responsive_dynamic_unit_margin(
+                    'shop_banner_margin',
+                    '.responsive-shop-entry-banner, .woocommerce.archive .site-content-header, .woocommerce-shop .site-content-header'
+                );
+            });
+        });
+    });
 
 } )( jQuery );

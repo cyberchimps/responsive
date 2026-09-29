@@ -1292,6 +1292,12 @@ function defaults() {
 			'single_blog_post_title_layout'       => 'post_title_layout1',
 			'blog_title_layout'					  => 'post_title_layout1',
 			'page_title_layout'                   => 'post_title_layout1',
+			'shop_title_layout'                   => 'post_title_layout1',
+			'shop_title_elements_positioning'     => array( 'breadcrumb', 'title', 'description' ),
+			'shop_title_horizontal_alignment'     => 'center',
+			'shop_title_inner_elements_spacing'   => 0,
+			'shop_title_container_background_layout1' => 'none',
+			'shop_title_container_background_layout2' => 'custom',
 			'page_title_inner_elements_spacing'   => 10,
 			'single_blog_post_title_color'        => 'h1-color',
 			'single_blog_post_text_color'		  => 'palette2',
@@ -1492,6 +1498,12 @@ function defaults() {
 			'responsive_page_title_banner_background_color' => 'title-above-content-bg-color',
 			'responsive_single_blog_featured_image_overlay_color' => 'title-above-content-overlay-color',
 			'responsive_page_featured_image_overlay_color'  => 'title-above-content-overlay-color',
+			'responsive_shop_banner_background_color'       => 'title-above-content-bg-color',
+			'responsive_shop_banner_overlay_color'          => '',
+			'responsive_shop_title_color'                   => 'h1-color',
+			'responsive_shop_text_color'                    => 'palette2',
+			'responsive_shop_title_link_color'              => 'palette0',
+			'responsive_shop_title_link_hover_color'        => 'palette1',
 			'responsive_page_site_background_color' => 'site-background',
 			'responsive_page_content_background_color' => 'box-background',
 			'responsive_link_style'               => 'no-underline',
@@ -1506,6 +1518,13 @@ function defaults() {
 			'responsive_blog_sidebar_style'       => 'default',
 			'responsive_single_blog_sidebar_style'=> 'default',
 			'responsive_shop_sidebar_style'       => 'default',
+			'responsive_show_archive_results_count' => 1,
+			'responsive_show_archive_sorting_dropdown' => 1,
+			'responsive_product_image_hover_switch' => 'none',
+			'responsive_product_button_action_style' => 'always',
+			'responsive_product_button_style'        => 'button',
+			'responsive_product_align_button_bottom' => 0,
+			'responsive_product_mobile_columns'      => '1',
 			'responsive_single_product_sidebar_style' => 'default',
 			'responsive_widget_bottom_spacing'    => 30,
 			'responsive_widget_bottom_spacing_unit' => 'px',
@@ -3088,8 +3107,20 @@ add_action( 'init', function() {
 // Add breadcrumbs back conditionally.
 add_action( 'woocommerce_before_main_content', function() {
     // Shop / catalog pages.
-    if ( get_theme_mod( 'breadcrumbs_options', 1 ) && ( is_shop() || is_product_taxonomy() ) ) {
-        woocommerce_breadcrumb();
+    if ( is_shop() || is_product_taxonomy() ) {
+        if ( get_theme_mod( 'responsive_shop_title_area', true ) && 'post_title_layout2' !== get_theme_mod( 'responsive_shop_title_layout', 'post_title_layout1' ) ) {
+            $default_elements = get_theme_mod( 'breadcrumbs_options', 1 ) ? array( 'breadcrumb', 'title', 'description' ) : array( 'title', 'description' );
+            $elements         = get_theme_mod( 'responsive_shop_title_elements_positioning', $default_elements );
+            if ( is_string( $elements ) ) {
+                $decoded  = json_decode( $elements, true );
+                $elements = is_array( $decoded ) ? $decoded : explode( ',', $elements );
+            } elseif ( ! is_array( $elements ) ) {
+                $elements = array();
+            }
+            if ( in_array( 'breadcrumb', $elements, true ) ) {
+                woocommerce_breadcrumb();
+            }
+        }
     }
 
     // Single product pages.
@@ -3104,7 +3135,9 @@ add_filter( 'body_class', function( $classes ) {
 		return $classes;
 	}
     if ( is_shop() || is_product_taxonomy() ) {
-        $classes[] = 'shop-has-site-header';
+        if ( get_theme_mod( 'responsive_shop_title_area', true ) && 'post_title_layout2' !== get_theme_mod( 'responsive_shop_title_layout', 'post_title_layout1' ) ) {
+            $classes[] = 'shop-has-site-header';
+        }
     } elseif ( is_product() ) {
         $classes[] = 'single-product-has-site-header';
     }
@@ -3123,12 +3156,7 @@ add_filter('woocommerce_breadcrumb_defaults', function ($defaults) {
 });
 
 add_action( 'customize_register', function( $wp_customize ) {
-    $catalog_section = $wp_customize->get_section( 'woocommerce_product_catalog' );
-    if ( $catalog_section ) {
-        $catalog_section->priority = 1;
-    }
-
-	 $checkout_section = $wp_customize->get_section( 'woocommerce_checkout' );
+	$checkout_section = $wp_customize->get_section( 'woocommerce_checkout' );
     if ( $checkout_section ) {
         $checkout_section->priority = 3;
     }

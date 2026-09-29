@@ -76,6 +76,10 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 			add_action( 'responsive_header_bottom', array( $this, 'single_product_page_floating_bar' ) );
 
+			add_filter( 'loop_shop_per_page', array( $this, 'responsive_shop_loop_per_page' ), 99 );
+			add_action( 'woocommerce_product_query', array( $this, 'responsive_woocommerce_product_query' ), 20 );
+			add_action( 'pre_get_posts', array( $this, 'responsive_woocommerce_pre_get_posts' ), 20 );
+
 		}
 		/**
 		 * Remove Woo-Commerce Default actions
@@ -88,6 +92,40 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
 			remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
 			add_action( 'woocommerce_after_shop_loop_item', array( $this, 'responsive_woocommerce_shop_product_content' ) );
+
+			if ( ! get_theme_mod( 'responsive_show_archive_results_count', Responsive\Core\get_responsive_customizer_defaults( 'responsive_show_archive_results_count' ) ) ) {
+				remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+			}
+
+			if ( ! get_theme_mod( 'responsive_show_archive_sorting_dropdown', Responsive\Core\get_responsive_customizer_defaults( 'responsive_show_archive_sorting_dropdown' ) ) ) {
+				remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+			}
+
+			$hover_style = get_theme_mod( 'responsive_product_image_hover_switch', Responsive\Core\get_responsive_customizer_defaults( 'responsive_product_image_hover_switch' ) );
+			if ( 'none' !== $hover_style ) {
+				remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
+				add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'responsive_woocommerce_template_loop_product_thumbnail' ), 10 );
+			}
+
+			$btn_action_style = get_theme_mod( 'responsive_product_button_action_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_product_button_action_style' ) );
+			$btn_style        = get_theme_mod( 'responsive_product_button_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_product_button_style' ) );
+
+			if ( 'bottom_slide_up' === $btn_action_style || 'text_with_arrow' === $btn_style ) {
+				add_filter( 'woocommerce_post_class', array( $this, 'responsive_woocommerce_loop_product_class' ), 10, 2 );
+			}
+
+			if ( 'text_with_arrow' === $btn_style ) {
+				add_filter( 'woocommerce_loop_add_to_cart_link', array( $this, 'responsive_woocommerce_loop_add_to_cart_arrow' ), 10, 3 );
+			}
+
+			if ( 1 === (int) get_theme_mod( 'responsive_product_align_button_bottom', Responsive\Core\get_responsive_customizer_defaults( 'responsive_product_align_button_bottom' ) ) ) {
+				add_filter( 'body_class', array( $this, 'responsive_woocommerce_align_button_bottom_body_class' ) );
+			}
+
+			// Design 2: bag icon overlay on product image hover.
+			if ( 'design2' === get_theme_mod( 'responsive_product_card_design', 'design1' ) ) {
+				add_action( 'woocommerce_after_shop_loop_item', array( $this, 'responsive_shop_product_bag_icon_overlay' ), 6 );
+			}
 		}
 		/**
 		 * Register Customizer sections and panel for woocommerce
@@ -133,6 +171,50 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			}
 		}
 
+		/**
+		 * Change number of products per page if set in theme customizer.
+		 *
+		 * @param int $products_per_page Number of products per page.
+		 * @return int Number of products per page.
+		 */
+		public function responsive_shop_loop_per_page( $products_per_page ) {
+			$custom_per_page = get_theme_mod( 'responsive_shop_products_per_page', '' );
+			if ( ! empty( $custom_per_page ) && is_numeric( $custom_per_page ) && $custom_per_page > 0 ) {
+				return absint( $custom_per_page );
+			}
+			return $products_per_page;
+		}
+
+		/**
+		 * Set products per page for WooCommerce product query.
+		 *
+		 * @param WP_Query $query The query instance.
+		 */
+		public function responsive_woocommerce_product_query( $query ) {
+			$custom_per_page = get_theme_mod( 'responsive_shop_products_per_page', '' );
+			if ( ! empty( $custom_per_page ) && is_numeric( $custom_per_page ) && $custom_per_page > 0 ) {
+				$query->set( 'posts_per_page', absint( $custom_per_page ) );
+			}
+		}
+
+		/**
+		 * Set products per page on WooCommerce archive pre_get_posts.
+		 *
+		 * @param WP_Query $query The query instance.
+		 */
+		public function responsive_woocommerce_pre_get_posts( $query ) {
+			if ( is_admin() || ! $query->is_main_query() ) {
+				return;
+			}
+
+			if ( ( function_exists( 'is_shop' ) && is_shop() ) || ( function_exists( 'is_product_taxonomy' ) && is_product_taxonomy() ) || $query->is_post_type_archive( 'product' ) ) {
+				$custom_per_page = get_theme_mod( 'responsive_shop_products_per_page', '' );
+				if ( ! empty( $custom_per_page ) && is_numeric( $custom_per_page ) && $custom_per_page > 0 ) {
+					$query->set( 'posts_per_page', absint( $custom_per_page ) );
+				}
+			}
+		}
+
 
 		/**
 		 * Check if Elementor Editor is open.
@@ -154,7 +236,12 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			if ( ! $this->is_elementor_editor() ) {
 				$shop_structure = Responsive\WooCommerce\responsive_woocommerce_shop_elements_positioning();
 				if ( is_array( $shop_structure ) && ! empty( $shop_structure ) ) {
-					echo '<div class="responsive-shop-summary-wrap">';
+					$btn_action_style = get_theme_mod( 'responsive_product_button_action_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_product_button_action_style' ) );
+					$summary_classes  = 'responsive-shop-summary-wrap';
+					if ( 'bottom_slide_up' === $btn_action_style ) {
+						$summary_classes .= ' btn-action-bottom-slide-up';
+					}
+					echo '<div class="' . esc_attr( $summary_classes ) . '">';
 
 					foreach ( $shop_structure as $value ) {
 
@@ -175,7 +262,27 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 								/**
 								 * Rating on shop page.
 								 */
-								woocommerce_template_loop_rating();
+								$review_count_format = get_theme_mod( 'responsive_product_review_count', 'default' );
+								if ( 'count-text' === $review_count_format ) {
+									ob_start();
+									woocommerce_template_loop_rating();
+									$rating_html = ob_get_clean();
+
+									if ( ! empty( $rating_html ) ) {
+										global $product;
+										if ( ! is_a( $product, 'WC_Product' ) ) {
+											$product = wc_get_product( get_the_ID() );
+										}
+										$review_count = $product ? $product->get_review_count() : 0;
+										echo '<div class="responsive-product-rating-wrap">';
+										echo $rating_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+										/* translators: %s: number of reviews */
+										echo '<span class="responsive-review-count">' . esc_html( sprintf( _n( '%s review', '%s reviews', $review_count, 'responsive' ), number_format_i18n( $review_count ) ) ) . '</span>';
+										echo '</div>';
+									}
+								} else {
+									woocommerce_template_loop_rating();
+								}
 								break;
 							case 'category':
 								/**
@@ -193,7 +300,9 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 								/**
 								 * Add to cart button on shop page.
 								 */
+								echo '<div class="responsive-product-action-wrap">';
 								woocommerce_template_loop_add_to_cart();
+								echo '</div>';
 								break;
 							default:
 								break;
@@ -348,14 +457,50 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			}
 
 			// CSS classes.
-			$classes   = array();
-			$classes[] = 'onsale';
-			$classes[] = get_theme_mod( 'responsive_product_sale_style' );
-			$classes   = implode( ' ', $classes );
+			$classes     = array();
+			$classes[]   = 'onsale';
+			$card_design = get_theme_mod( 'responsive_product_card_design', 'design1' );
+			if ( 'design2' !== $card_design ) {
+				$classes[] = get_theme_mod( 'responsive_product_sale_style' );
+			}
+			$classes     = implode( ' ', $classes );
 
 			// Generate markup.
 			return '<span class="' . esc_attr( $classes ) . '">' . esc_html( $text ) . '</span>';
 
+		}
+
+		/**
+		 * Outputs the bag icon overlay for Design 2 on product cards.
+		 *
+		 * Hooked to woocommerce_after_shop_loop_item at priority 6.
+		 *
+		 * @return void
+		 */
+		public function responsive_shop_product_bag_icon_overlay() {
+			global $product;
+			if ( ! is_a( $product, 'WC_Product' ) ) {
+				$product = wc_get_product( get_the_ID() );
+			}
+			if ( ! $product ) {
+				return;
+			}
+			?>
+			<div class="responsive-design2-bag-wrap">
+				<a
+					href="<?php echo esc_url( $product->add_to_cart_url() ); ?>"
+					data-quantity="1"
+					class="responsive-design2-bag-btn button add_to_cart_button <?php echo esc_attr( $product->supports( 'ajax_add_to_cart' ) && $product->is_purchasable() && $product->is_in_stock() ? 'ajax_add_to_cart' : '' ); ?>"
+					data-product_id="<?php echo esc_attr( $product->get_id() ); ?>"
+					data-product_sku="<?php echo esc_attr( $product->get_sku() ); ?>"
+					aria-label="<?php echo esc_attr( $product->add_to_cart_description() ); ?>"
+					rel="nofollow"
+				>
+					<span class="responsive-design2-bag-tooltip"><?php esc_html_e( 'Add to Cart', 'responsive' ); ?></span>
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="448" height="448" viewBox="0 0 448 448" aria-hidden="true" focusable="false"><path fill="currentColor" d="M439.25 352l8.75 78.25c0.5 4.5-1 9-4 12.5-3 3.25-7.5 5.25-12 5.25h-416c-4.5 0-9-2-12-5.25-3-3.5-4.5-8-4-12.5l8.75-78.25h430.5zM416 142.25l21.5 193.75h-427l21.5-193.75c1-8 7.75-14.25 16-14.25h64v32c0 17.75 14.25 32 32 32s32-14.25 32-32v-32h96v32c0 17.75 14.25 32 32 32s32-14.25 32-32v-32h64c8.25 0 15 6.25 16 14.25zM320 96v64c0 8.75-7.25 16-16 16s-16-7.25-16-16v-64c0-35.25-28.75-64-64-64s-64 28.75-64 64v64c0 8.75-7.25 16-16 16s-16-7.25-16-16v-64c0-53 43-96 96-96s96 43 96 96z"/></svg>
+				</a>
+			</div>
+			<?php
 		}
 
 		/**
@@ -374,6 +519,10 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			}
 			if ( is_woocommerce() && is_singular( 'product' ) ) {
 				wp_enqueue_script( 'responsive-woo-floating-bar', get_template_directory_uri() . '/core/includes/compatibility/woocommerce/js/woo-floating-bar.js', array( 'customize-preview', 'jquery' ), RESPONSIVE_THEME_VERSION, true );
+			}
+
+			if ( 'bottom_slide_up' === get_theme_mod( 'responsive_product_button_action_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_product_button_action_style' ) ) ) {
+				wp_enqueue_script( 'responsive-woo-product-hover', get_template_directory_uri() . '/core/includes/compatibility/woocommerce/js/woo-product-hover.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
 			}
 		}
 
@@ -407,6 +556,11 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 			// Global WooCommerce styling
 			$classes[] = 'product-sale-style-' . get_theme_mod( 'responsive_product_sale_style', 'circle' );
+
+			$product_card_design = get_theme_mod( 'responsive_product_card_design', 'design1' );
+			if ( 'design2' === $product_card_design ) {
+				$classes[] = 'responsive-product-design-2';
+			}
 
 			return $classes;
 		}
@@ -577,6 +731,92 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			$html .= '</form>';
 
 			return $html;
+		}
+
+		/**
+		 * Product Image Hover Switch in product loop.
+		 */
+		public function responsive_woocommerce_template_loop_product_thumbnail() {
+			global $product;
+
+			if ( ! is_a( $product, 'WC_Product' ) ) {
+				$product = wc_get_product( get_the_ID() );
+			}
+
+			$hover_style = get_theme_mod( 'responsive_product_image_hover_switch', Responsive\Core\get_responsive_customizer_defaults( 'responsive_product_image_hover_switch' ) );
+			$gallery_ids = $product ? $product->get_gallery_image_ids() : array();
+
+			if ( 'none' !== $hover_style && ! empty( $gallery_ids ) ) {
+				$secondary_id = $gallery_ids[0];
+				$size         = 'woocommerce_thumbnail';
+
+				echo '<div class="responsive-product-image-hover-wrap hover-effect-' . esc_attr( $hover_style ) . '">';
+				echo woocommerce_get_product_thumbnail(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo wp_get_attachment_image(
+					$secondary_id,
+					$size,
+					false,
+					array(
+						'class' => 'responsive-product-secondary-image',
+						'alt'   => the_title_attribute( array( 'echo' => false ) ),
+					)
+				);
+				echo '</div>';
+			} else {
+				woocommerce_template_loop_product_thumbnail();
+			}
+		}
+
+		/**
+		 * Add custom classes to WooCommerce loop products for button action and button style.
+		 *
+		 * @param array $classes Array of post classes.
+		 * @param WC_Product|null $product Product object.
+		 * @return array
+		 */
+		public function responsive_woocommerce_loop_product_class( $classes, $product = null ) {
+			$btn_action_style = get_theme_mod( 'responsive_product_button_action_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_product_button_action_style' ) );
+			if ( 'bottom_slide_up' === $btn_action_style ) {
+				$classes[] = 'btn-action-bottom-slide-up';
+			}
+
+			$btn_style = get_theme_mod( 'responsive_product_button_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_product_button_style' ) );
+			if ( 'text_with_arrow' === $btn_style ) {
+				$classes[] = 'btn-style-text-with-arrow';
+			}
+
+			return $classes;
+		}
+
+		/**
+		 * Inject an inline SVG arrow into the Add to Cart button link when
+		 * Button Style is set to 'Text with Arrow'. The SVG uses currentColor
+		 * so it inherits the surrounding text colour automatically.
+		 *
+		 * @param string     $link    Full <a> tag HTML for the Add to Cart button.
+		 * @param WC_Product $product Product object.
+		 * @param array      $args    Arguments passed to woocommerce_loop_add_to_cart_link.
+		 * @return string
+		 */
+		public function responsive_woocommerce_loop_add_to_cart_arrow( $link, $product, $args ) {
+			$arrow_svg = '<svg class="responsive-btn-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
+			$link      = str_replace( '</a>', $arrow_svg . '</a>', $link );
+			return $link;
+		}
+
+		/**
+		 * Add body class when Align Button at Bottom is enabled.
+		 * CSS uses this class to push the Add to Cart button to the
+		 * bottom of each product card via flex column + margin-top: auto.
+		 *
+		 * @param array $classes Array of body class strings.
+		 * @return array
+		 */
+		public function responsive_woocommerce_align_button_bottom_body_class( $classes ) {
+			if ( is_shop() || is_product_taxonomy() ) {
+				$classes[] = 'responsive-align-btn-bottom';
+			}
+			return $classes;
 		}
 
 	}

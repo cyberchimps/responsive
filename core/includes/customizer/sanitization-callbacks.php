@@ -181,6 +181,8 @@ if ( ! function_exists( 'responsive_check_product_price_custom_string' ) ) {
 
 	}
 }
+
+
 /**
  * Check if responsive_check_layout_type function is present.
  */

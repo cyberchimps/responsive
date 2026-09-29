@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '6.4.6' );
+define( 'RESPONSIVE_THEME_VERSION', '6.4.7' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -667,6 +667,11 @@ if ( ! function_exists( 'responsive_blog_posts_per_page' ) ) :
 		$per_page = get_theme_mod( 'responsive_blog_post_per_page', 10 );
 
 		if ( ! is_admin() && $query->is_main_query() ) {
+			// Do not override WooCommerce product queries.
+			if ( ( function_exists( 'is_shop' ) && is_shop() ) || ( function_exists( 'is_product_taxonomy' ) && is_product_taxonomy() ) || $query->is_post_type_archive( 'product' ) ) {
+				return;
+			}
+
 			if ( $query->is_home() || $query->is_archive() ) {
 				$query->set( 'posts_per_page', absint( $per_page ) );
 			}
@@ -3513,6 +3518,40 @@ if ( ! function_exists( 'responsive_theme_background_updater_title_area_breadcru
 			}
 
 			$responsive_options['title_area_breadcrumb_6_4_6_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+
+if ( ! function_exists( 'responsive_theme_background_updater_woocommerce_styling_6_4_7' ) ) {
+	/**
+	 * Handle backward compatibility for WooCommerce shop title styling.
+	 *
+	 * Sets banner color settings to empty string for existing users so that
+	 * legacy or external styles are preserved.
+	 *
+	 * @since 6.4.7
+	 * @return void
+	 */
+	function responsive_theme_background_updater_woocommerce_styling_6_4_7() {
+		$responsive_options = get_option( 'responsive_theme_options' );
+
+		if ( empty( $responsive_options['woocommerce_styling_6_4_7_backward_done'] ) ) {
+
+			if ( false === get_theme_mod( 'responsive_shop_title_color', false ) ) {
+				set_theme_mod( 'responsive_shop_title_color', '' );
+			}
+			if ( false === get_theme_mod( 'responsive_shop_text_color', false ) ) {
+				set_theme_mod( 'responsive_shop_text_color', '' );
+			}
+			if ( false === get_theme_mod( 'responsive_shop_title_link_color', false ) ) {
+				set_theme_mod( 'responsive_shop_title_link_color', '' );
+			}
+			if ( false === get_theme_mod( 'responsive_shop_title_link_hover_color', false ) ) {
+				set_theme_mod( 'responsive_shop_title_link_hover_color', '' );
+			}
+
+			$responsive_options['woocommerce_styling_6_4_7_backward_done'] = true;
 			update_option( 'responsive_theme_options', $responsive_options );
 		}
 	}

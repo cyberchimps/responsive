@@ -573,6 +573,64 @@
         })
     });
 
+    api( 'responsive_shop_title_inner_elements_spacing', function( value ) {
+        value.bind( function( newval ) {
+            $('.responsive-shop-entry-banner .container > *:not(:last-child)').css('margin-bottom', newval+'px');
+            $('.woocommerce.archive .site-content-header, .woocommerce-shop .site-content-header').css('row-gap', newval+'px');
+        });
+    });
+
+    api( 'responsive_shop_banner_custom_width', function( value ) {
+        value.bind( function( newval ) {
+            $('.responsive-shop-entry-banner').css('max-width', newval+'px');
+        });
+    });
+
+    api( 'responsive_shop_banner_min_height', function( value ) {
+        value.bind( function( newval ) {
+            const styleId = 'responsive-shop-banner-min-height-desktop';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 993px) {
+                        .responsive-shop-entry-banner { min-height: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+    api( 'responsive_shop_banner_min_height_tablet', function( value ) {
+        value.bind( function( newval ) {
+            const styleId = 'responsive-shop-banner-min-height-tablet';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (min-width: 577px) and (max-width: 992px) {
+                        .responsive-shop-entry-banner { min-height: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
+    api( 'responsive_shop_banner_min_height_mobile', function( value ) {
+        value.bind( function( newval ) {
+            const styleId = 'responsive-shop-banner-min-height-mobile';
+            jQuery(`style#${styleId}`).remove();
+
+            jQuery('head').append(
+                `<style id="${styleId}">
+                    @media (max-width: 576px) {
+                        .responsive-shop-entry-banner { min-height: ${newval}px; }
+                    }
+                </style>`
+            );
+        });
+    });
+
     // Page Title Area
     api( 'responsive_page_title_custom_width', function( value ) {
         value.bind( function( newval )  {
