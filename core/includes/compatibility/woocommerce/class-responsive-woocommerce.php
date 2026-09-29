@@ -333,18 +333,73 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
 
-			// if ( class_exists( 'Responsive_Addons_Pro' ) ) {
-				$single_product_breadcrumb_flag = get_theme_mod( 'responsive_single_product_breadcrumbs', 1 );
-				if ( ! $single_product_breadcrumb_flag ) {
-					remove_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 10 );
-					add_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 10 );
-				}
-			// }
+			// Ensure notices render after site-content-header is closed by responsive_close_container (priority 10).
+			remove_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 10 );
+			add_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 20 );
 
 			/* Add single product content */
 			add_action( 'woocommerce_single_product_summary', array( $this, 'single_product_content_structure' ), 10 );
 			add_filter( 'woocommerce_product_description_heading', '__return_false' );
 			add_filter( 'woocommerce_product_additional_information_heading', '__return_false' );
+
+			if ( ! get_theme_mod( 'responsive_single_product_show_weight_dimensions', 1 ) ) {
+				add_filter( 'wc_product_enable_dimensions_display', '__return_false' );
+			}
+
+			if ( get_theme_mod( 'responsive_single_product_quantity_plus_minus', 0 ) ) {
+				add_action( 'woocommerce_before_quantity_input_field', array( $this, 'quantity_minus_button' ) );
+				add_action( 'woocommerce_after_quantity_input_field', array( $this, 'quantity_plus_button' ) );
+			}
+
+			if ( ! get_theme_mod( 'responsive_single_product_show_related_products', 1 ) ) {
+				remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+			} else {
+				add_filter( 'woocommerce_output_related_products_args', array( $this, 'single_product_related_products_args' ) );
+				add_filter( 'woocommerce_related_products_columns', array( $this, 'single_product_related_products_columns' ) );
+			}
+		}
+
+		/**
+		 * Customize related products args on single product page.
+		 *
+		 * @param array $args Related products arguments.
+		 * @return array
+		 */
+		public function single_product_related_products_args( $args ) {
+			if ( ! is_product() ) {
+				return $args;
+			}
+			$columns = intval( get_theme_mod( 'responsive_single_product_related_products_columns', 4 ) );
+			$args['columns']        = $columns;
+			$args['posts_per_page'] = $columns;
+			return $args;
+		}
+
+		/**
+		 * Customize related products columns on single product page.
+		 *
+		 * @param int $columns Number of columns.
+		 * @return int
+		 */
+		public function single_product_related_products_columns( $columns ) {
+			if ( ! is_product() ) {
+				return $columns;
+			}
+			return intval( get_theme_mod( 'responsive_single_product_related_products_columns', 4 ) );
+		}
+
+		/**
+		 * Render minus button before quantity input field.
+		 */
+		public function quantity_minus_button() {
+			echo '<button type="button" class="minus" aria-label="' . esc_attr__( 'Decrease quantity', 'responsive' ) . '">-</button>';
+		}
+
+		/**
+		 * Render plus button after quantity input field.
+		 */
+		public function quantity_plus_button() {
+			echo '<button type="button" class="plus" aria-label="' . esc_attr__( 'Increase quantity', 'responsive' ) . '">+</button>';
 		}
 
 		/**
@@ -397,11 +452,87 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 							 */
 							woocommerce_template_single_meta();
 							break;
+						case 'payment':
+							/**
+							 * Payment methods structure on single product.
+							 */
+							$this->single_product_payment_structure();
+							break;
 						default:
 							break;
 					}
 				}
 			}
+		}
+
+		/**
+		 * Render payment methods structure on single product page.
+		 */
+		public function single_product_payment_structure() {
+			$raw_data = get_theme_mod(
+				'responsive_single_product_payment_structure',
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_payment_structure' )
+			);
+
+			if ( empty( $raw_data ) ) {
+				return;
+			}
+
+			if ( is_string( $raw_data ) ) {
+				$payment_data = json_decode( $raw_data, true );
+			} elseif ( is_array( $raw_data ) ) {
+				$payment_data = $raw_data;
+			} else {
+				return;
+			}
+
+			if ( ! is_array( $payment_data ) || empty( $payment_data['cards'] ) ) {
+				return;
+			}
+
+			if ( ! function_exists( 'responsive_get_svg_icon' ) ) {
+				require_once get_template_directory() . '/core/includes/responsive-icon-library.php';
+			}
+
+			$color_type = isset( $payment_data['color_type'] ) ? $payment_data['color_type'] : 'default';
+			$title      = isset( $payment_data['title'] ) ? $payment_data['title'] : '';
+			$cards      = $payment_data['cards'];
+			$classes    = array( 'responsive-product-payments' );
+
+			if ( 'grayscale' === $color_type ) {
+				$classes[] = 'is-grayscale';
+			}
+			?>
+			<fieldset class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
+				<?php if ( ! empty( $title ) ) : ?>
+					<legend class="responsive-product-payments-title"><?php echo esc_html( $title ); ?></legend>
+				<?php endif; ?>
+				<div class="responsive-product-payments-icons">
+					<?php foreach ( $cards as $card ) : ?>
+						<?php
+						$card_type  = isset( $card['type'] ) ? $card['type'] : 'icon';
+						$card_title = isset( $card['title'] ) ? $card['title'] : '';
+						$card_icon  = isset( $card['icon'] ) ? $card['icon'] : '';
+						$card_image = isset( $card['image'] ) ? $card['image'] : '';
+						?>
+						<div class="responsive-product-payment-item"<?php echo ! empty( $card_title ) ? ' title="' . esc_attr( $card_title ) . '"' : ''; ?>>
+							<?php if ( 'image' === $card_type && ! empty( $card_image ) ) : ?>
+								<img src="<?php echo esc_url( $card_image ); ?>" alt="<?php echo esc_attr( $card_title ); ?>" class="responsive-product-payment-image" />
+							<?php elseif ( ! empty( $card_icon ) ) : ?>
+								<?php
+								$svg = function_exists( 'responsive_get_svg_icon' ) ? responsive_get_svg_icon( $card_icon ) : '';
+								if ( ! empty( $svg ) ) :
+									echo $svg; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								else :
+									?>
+									<i class="<?php echo esc_attr( $card_icon ); ?>"></i>
+								<?php endif; ?>
+							<?php endif; ?>
+						</div>
+					<?php endforeach; ?>
+				</div>
+			</fieldset>
+			<?php
 		}
 
 		/**
@@ -524,6 +655,10 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			if ( 'bottom_slide_up' === get_theme_mod( 'responsive_product_button_action_style', Responsive\Core\get_responsive_customizer_defaults( 'responsive_product_button_action_style' ) ) ) {
 				wp_enqueue_script( 'responsive-woo-product-hover', get_template_directory_uri() . '/core/includes/compatibility/woocommerce/js/woo-product-hover.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
 			}
+
+			if ( is_woocommerce() && is_singular( 'product' ) && get_theme_mod( 'responsive_single_product_quantity_plus_minus', 0 ) ) {
+				wp_enqueue_script( 'responsive-woo-quantity', get_template_directory_uri() . '/core/includes/compatibility/woocommerce/js/woo-quantity.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
+			}
 		}
 
 		/**
@@ -543,6 +678,17 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			$single_product_sidebar_position = ( $single_product_setting === 'global' || $single_product_setting === 'default' ) ? $global_sidebar_position : $single_product_setting;
 			$classes[] = 'sidebar-position-' . $single_product_sidebar_position;
 			$classes[] = 'product-gallery-layout-' . get_theme_mod( 'responsive_single_product_gallery_layout', 'horizontal' );
+			$variation_display = get_theme_mod( 'responsive_single_product_variation_display', 'horizontal' );
+			if ( 'horizontal' !== $variation_display ) {
+				$classes[] = 'product-variation-display-' . $variation_display;
+			}
+			$tab_style = get_theme_mod( 'responsive_single_product_tab_style', 'normal' );
+			if ( 'normal' !== $tab_style ) {
+				$classes[] = 'product-tab-style-' . $tab_style;
+			}
+			if ( get_theme_mod( 'responsive_single_product_quantity_plus_minus', 0 ) ) {
+				$classes[] = 'product-quantity-plus-minus';
+			}
 		}
 
 		if ( ( is_woocommerce() && is_shop() ) || is_cart() || is_checkout() || is_product_category() ) {
