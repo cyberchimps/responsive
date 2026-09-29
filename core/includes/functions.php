@@ -1337,6 +1337,11 @@ function defaults() {
 					),
 				)
 			),
+			'responsive_single_product_featured_image_ratio' => 'original',
+			'responsive_single_product_featured_image_predefined_ratio' => '1:1',
+			'responsive_single_product_featured_image_custom_width' => '',
+			'responsive_single_product_featured_image_custom_height' => '',
+			'responsive_single_product_featured_image_size'  => 'full',
 			'shop_title_horizontal_alignment'     => 'center',
 			'shop_title_inner_elements_spacing'   => 0,
 			'shop_title_container_background_layout1' => 'none',

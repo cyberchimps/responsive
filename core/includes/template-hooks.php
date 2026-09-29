@@ -613,9 +613,34 @@ function responsive_woocommerce_single_product_banner2() {
 								break;
 							case 'featured_image':
 								if ( has_post_thumbnail() && ! post_password_required() ) {
+									$image_size  = get_theme_mod( 'responsive_single_product_featured_image_size', 'full' );
+									$image_ratio = get_theme_mod( 'responsive_single_product_featured_image_ratio', 'original' );
+
+									$ratio_css = '';
+									if ( 'predefined' === $image_ratio ) {
+										$predefined_ratio = get_theme_mod( 'responsive_single_product_featured_image_predefined_ratio', '1:1' );
+										$ratio_value      = str_replace( ':', '/', $predefined_ratio );
+										$ratio_css        = 'aspect-ratio: ' . esc_attr( $ratio_value ) . ';';
+									} elseif ( 'custom' === $image_ratio ) {
+										$custom_width  = get_theme_mod( 'responsive_single_product_featured_image_custom_width', '' );
+										$custom_height = get_theme_mod( 'responsive_single_product_featured_image_custom_height', '' );
+										if ( $custom_width && $custom_height ) {
+											$ratio_css = 'aspect-ratio: ' . esc_attr( $custom_width ) . '/' . esc_attr( $custom_height ) . ';';
+										}
+									}
+
+									$img_args = array(
+										'alt' => get_the_title(),
+									);
+									if ( function_exists( 'responsive_get_schema_markup' ) && responsive_get_schema_markup( 'image' ) ) {
+										$img_args['itemprop'] = 'thumbnailUrl';
+									}
+									if ( $ratio_css ) {
+										$img_args['style'] = $ratio_css . ' object-fit: cover;';
+									}
 									?>
 									<div class="responsive-product-featured-image">
-										<?php the_post_thumbnail( 'woocommerce_single' ); ?>
+										<?php the_post_thumbnail( $image_size, $img_args ); ?>
 									</div>
 									<?php
 								}

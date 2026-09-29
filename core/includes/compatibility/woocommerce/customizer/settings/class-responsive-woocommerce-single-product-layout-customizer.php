@@ -136,6 +136,11 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				'customize-control-responsive_single_product_title_layout',
 				'customize-control-responsive_single_product_title_elements_positioning',
 				'customize-control-responsive_single_product_banner_elements_positioning',
+				'customize-control-responsive_single_product_featured_image_ratio',
+				'customize-control-responsive_single_product_featured_image_predefined_ratio',
+				'customize-control-responsive_single_product_featured_image_custom_width',
+				'customize-control-responsive_single_product_featured_image_custom_height',
+				'customize-control-responsive_single_product_featured_image_size',
 				'customize-control-responsive_single_product_title_meta',
 				'customize-control-responsive_single_product_title_meta_separator_text',
 				'customize-control-responsive_single_product_title_horizontal_alignment',
@@ -261,6 +266,92 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 						'active_callback' => 'responsive_single_product_title_layout2_active_callback',
 					)
 				)
+			);
+
+			// Image Ratio.
+			$single_product_featured_image_ratio_label   = esc_html__( 'Image Ratio', 'responsive' );
+			$single_product_featured_image_ratio_choices = array(
+				'original'   => esc_html__( 'Original', 'responsive' ),
+				'predefined' => esc_html__( 'Predefined', 'responsive' ),
+				'custom'     => esc_html__( 'Custom', 'responsive' ),
+			);
+			responsive_select_button_control(
+				$wp_customize,
+				'single_product_featured_image_ratio',
+				$single_product_featured_image_ratio_label,
+				'responsive_single_product_title_layout',
+				5.1,
+				$single_product_featured_image_ratio_choices,
+				'original',
+				null
+			);
+
+			// Predefined Ratio.
+			$single_product_featured_image_predefined_ratio_label   = esc_html__( 'Predefined Ratio', 'responsive' );
+			$single_product_featured_image_predefined_ratio_choices = array(
+				'1:1'  => esc_html__( '1:1', 'responsive' ),
+				'4:3'  => esc_html__( '4:3', 'responsive' ),
+				'16:9' => esc_html__( '16:9', 'responsive' ),
+				'2:1'  => esc_html__( '2:1', 'responsive' ),
+			);
+			responsive_select_button_control(
+				$wp_customize,
+				'single_product_featured_image_predefined_ratio',
+				$single_product_featured_image_predefined_ratio_label,
+				'responsive_single_product_title_layout',
+				5.2,
+				$single_product_featured_image_predefined_ratio_choices,
+				'1:1',
+				null
+			);
+
+			// Custom Width & Height.
+			$single_product_featured_image_custom_width_label = esc_html__( 'Custom Width', 'responsive' );
+			responsive_drag_number_control(
+				$wp_customize,
+				'single_product_featured_image_custom_width',
+				$single_product_featured_image_custom_width_label,
+				'responsive_single_product_title_layout',
+				5.3,
+				'',
+				null,
+				4800
+			);
+
+			$single_product_featured_image_custom_height_label = esc_html__( 'Custom Height', 'responsive' );
+			responsive_drag_number_control(
+				$wp_customize,
+				'single_product_featured_image_custom_height',
+				$single_product_featured_image_custom_height_label,
+				'responsive_single_product_title_layout',
+				5.4,
+				'',
+				null,
+				4800
+			);
+
+			// Image Size Dropdown.
+			$single_product_featured_image_size_label   = esc_html__( 'Image Size', 'responsive' );
+			$single_product_featured_image_size_choices = array(
+				'full'                          => esc_html__( 'Full Size', 'responsive' ),
+				'thumbnail'                     => esc_html__( 'Thumbnail', 'responsive' ),
+				'medium'                        => esc_html__( 'Medium', 'responsive' ),
+				'medium_large'                  => esc_html__( 'Medium Large', 'responsive' ),
+				'1536x1536'                     => esc_html__( '1536 x 1536', 'responsive' ),
+				'2048x2048'                     => esc_html__( '2048x2048', 'responsive' ),
+				'woocommerce_thumbnail'         => esc_html__( 'woocommerce_thumbnail', 'responsive' ),
+				'woocommerce_single'            => esc_html__( 'woocommerce_single', 'responsive' ),
+				'woocommerce_gallery_thumbnail' => esc_html__( 'woocommerce_gallery_thumbnail', 'responsive' ),
+			);
+			responsive_select_control(
+				$wp_customize,
+				'single_product_featured_image_size',
+				$single_product_featured_image_size_label,
+				'responsive_single_product_title_layout',
+				5.5,
+				$single_product_featured_image_size_choices,
+				'full',
+				null
 			);
 
 			/**
