@@ -1295,7 +1295,6 @@ function defaults() {
 			'shop_title_layout'                   => 'post_title_layout1',
 			'shop_title_elements_positioning'     => array( 'breadcrumb', 'title', 'description' ),
 			'single_product_title_elements_positioning' => array( 'breadcrumb', 'title' ),
-			'single_product_banner_elements_positioning' => array( 'breadcrumb', 'title', 'featured_image' ),
 			'single_product_title_meta'                 => array( 'author', 'date', 'comments' ),
 			'single_product_title_meta_separator_text'  => '•',
 			'single_product_author_prefix_label'        => 'By',
@@ -3227,6 +3226,40 @@ add_action( 'woocommerce_before_main_content', function() {
                         case 'taxonomy':
                             if ( function_exists( 'responsive_woocommerce_single_product_taxonomy_render' ) ) {
                                 responsive_woocommerce_single_product_taxonomy_render();
+                            }
+                            break;
+                        case 'featured_image':
+                            if ( has_post_thumbnail() && ! post_password_required() ) {
+                                $image_size  = get_theme_mod( 'responsive_single_product_featured_image_size', 'full' );
+                                $image_ratio = get_theme_mod( 'responsive_single_product_featured_image_ratio', 'original' );
+
+                                $ratio_css = '';
+                                if ( 'predefined' === $image_ratio ) {
+                                    $predefined_ratio = get_theme_mod( 'responsive_single_product_featured_image_predefined_ratio', '1:1' );
+                                    $ratio_value      = str_replace( ':', '/', $predefined_ratio );
+                                    $ratio_css        = 'aspect-ratio: ' . esc_attr( $ratio_value ) . ';';
+                                } elseif ( 'custom' === $image_ratio ) {
+                                    $custom_width  = get_theme_mod( 'responsive_single_product_featured_image_custom_width', '' );
+                                    $custom_height = get_theme_mod( 'responsive_single_product_featured_image_custom_height', '' );
+                                    if ( $custom_width && $custom_height ) {
+                                        $ratio_css = 'aspect-ratio: ' . esc_attr( $custom_width ) . '/' . esc_attr( $custom_height ) . ';';
+                                    }
+                                }
+
+                                $img_args = array(
+                                    'alt' => get_the_title(),
+                                );
+                                if ( function_exists( 'responsive_get_schema_markup' ) && responsive_get_schema_markup( 'image' ) ) {
+                                    $img_args['itemprop'] = 'thumbnailUrl';
+                                }
+                                if ( $ratio_css ) {
+                                    $img_args['style'] = $ratio_css . ' object-fit: cover;';
+                                }
+                                ?>
+                                <div class="responsive-product-featured-image">
+                                    <?php the_post_thumbnail( $image_size, $img_args ); ?>
+                                </div>
+                                <?php
                             }
                             break;
                     }

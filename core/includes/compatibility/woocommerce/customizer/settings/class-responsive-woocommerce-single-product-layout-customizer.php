@@ -135,7 +135,6 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 			$single_product_title_area_general_tab_ids = array(
 				'customize-control-responsive_single_product_title_layout',
 				'customize-control-responsive_single_product_title_elements_positioning',
-				'customize-control-responsive_single_product_banner_elements_positioning',
 				'customize-control-responsive_single_product_featured_image_ratio',
 				'customize-control-responsive_single_product_featured_image_predefined_ratio',
 				'customize-control-responsive_single_product_featured_image_custom_width',
@@ -198,7 +197,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 			);
 
 			/**
-			 * Single Product Title Area Layout 1 Structure.
+			 * Single Product Title Area Structure.
 			 */
 			$wp_customize->add_setting(
 				'responsive_single_product_title_elements_positioning',
@@ -229,44 +228,6 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 							),
 						),
 						'taxonomy_choices' => responsive_get_single_product_taxonomies(),
-						'active_callback' => 'responsive_single_product_title_layout1_active_callback',
-					)
-				)
-			);
-
-			/**
-			 * Single Product Title Area Layout 2 Structure.
-			 */
-			$wp_customize->add_setting(
-				'responsive_single_product_banner_elements_positioning',
-				array(
-					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'single_product_banner_elements_positioning' ),
-					'sanitize_callback' => 'responsive_sanitize_multi_choices',
-					'transport'         => 'refresh',
-				)
-			);
-
-			$wp_customize->add_control(
-				new Responsive_Customizer_Sortable_Control(
-					$wp_customize,
-					'responsive_single_product_banner_elements_positioning',
-					array(
-						'label'           => esc_html__( 'Structure', 'responsive' ),
-						'section'         => 'responsive_single_product_title_layout',
-						'settings'        => 'responsive_single_product_banner_elements_positioning',
-						'priority'        => 5,
-						'choices'         => responsive_single_product_banner_elements(),
-						'sub_controls'    => array(
-							'meta'     => array(
-								'responsive_single_product_title_meta_separator_text',
-							),
-							'taxonomy' => array(
-								'responsive_single_product_taxonomy',
-								'responsive_single_product_taxonomy_style',
-							),
-						),
-						'taxonomy_choices' => responsive_get_single_product_taxonomies(),
-						'active_callback' => 'responsive_single_product_title_layout2_active_callback',
 					)
 				)
 			);

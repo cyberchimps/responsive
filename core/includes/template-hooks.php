@@ -576,7 +576,7 @@ function responsive_woocommerce_single_product_banner2() {
 
 	if ( is_product() && get_theme_mod( 'responsive_single_product_title_area', true ) && get_theme_mod( 'responsive_single_product_title_layout', 'post_title_layout1' ) === 'post_title_layout2' ) {
 		$rendered = true;
-		$elements = responsive_single_product_banner_elements_positioning();
+		$elements = responsive_single_product_title_elements_positioning();
 		global $post;
 		setup_postdata( $post );
 		?>
