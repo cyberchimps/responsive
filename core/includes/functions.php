@@ -1214,6 +1214,24 @@ if (
 
 			/* Replace transparent header logo and width */
 
+			/**
+			 * Filters the attributes of the Sticky Header logo image, e.g. to add a
+			 * retina `srcset` (see Responsive Pro's Sticky Header options).
+			 *
+			 * @param array $image_attr          Attributes passed to wp_get_attachment_image().
+			 * @param int   $responsive_sticky_logo Attachment ID of the Sticky Header logo.
+			 */
+			$image_attr = apply_filters(
+				'responsive_sticky_header_logo_image_attr',
+				array(
+					'alt'      => get_bloginfo( 'name' ),
+					'class'    => 'custom-logo',
+					'itemprop' => 'logo',
+					'size'     => '(max-width: 204px) 100vw, 204px',
+				),
+				$responsive_sticky_logo
+			);
+
 			$html = sprintf(
 				'<a href="%1$s" class="custom-logo-link sticky-custom-logo" rel="home" itemprop="url">%2$s</a>',
 				esc_url( get_theme_mod( 'responsive_custom_logo_url', home_url( '/' ) ) ),
@@ -1221,12 +1239,7 @@ if (
 					$responsive_sticky_logo,
 					'full',
 					false,
-					array(
-						'alt'      => get_bloginfo( 'name' ),
-						'class'    => 'custom-logo',
-						'itemprop' => 'logo',
-						'size'     => '(max-width: 204px) 100vw, 204px',
-					)
+					$image_attr
 				)
 			);
 		}
@@ -1550,8 +1563,8 @@ function defaults() {
 			'responsive_page_title_banner_background_color' => 'title-above-content-bg-color',
 			'responsive_single_blog_featured_image_overlay_color' => 'title-above-content-overlay-color',
 			'responsive_page_featured_image_overlay_color'  => 'title-above-content-overlay-color',
-			'responsive_shop_banner_background_color'       => '#f5f5f5',
-			'responsive_shop_banner_overlay_color'          => 'title-above-content-overlay-color',
+			'responsive_shop_banner_background_color'       => 'title-above-content-bg-color',
+			'responsive_shop_banner_overlay_color'          => '',
 			'responsive_shop_title_color'                   => 'h1-color',
 			'responsive_shop_text_color'                    => 'palette2',
 			'responsive_shop_title_link_color'              => 'palette0',
