@@ -154,6 +154,9 @@
 #customize-control-responsive_enable_crosssells_options .responsive-toggle-control-wrapper {
     padding-top: 8px;
 }
+#customize-control-responsive_show_archive_results_count .responsive-toggle-control-wrapper {
+    padding-top: 18px;
+}
 #customize-control-responsive_disable_cart_fragments .responsive-toggle-control-wrapper {
     padding-top: 24px;
     padding-bottom: 8px;

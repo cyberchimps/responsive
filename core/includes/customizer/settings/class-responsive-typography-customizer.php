@@ -728,7 +728,41 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'exclude' => array('font-color'),
 					'priority' => 45,
 				),
-				
+				'add_to_cart_button' => array(
+					'label'    => esc_html__( 'Add To Cart Button Font', 'responsive' ),
+					'target'   => $selectorArray['add_to_cart_button'],
+					'section'  => 'responsive_woocommerce_shop',
+					'priority' => 74,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size'      => 'Default',
+						'line-height'    => 'Default',
+						'text-transform' => 'Default',
+						'font-weight'    => 'Default',
+					),
+				),
+				'shop_title' => array(
+					'label'    => esc_html__( 'Title Font', 'responsive' ),
+					'target'   => $selectorArray['shop_title'],
+					'section'  => 'responsive_shop_title_layout',
+					'exclude'  => array( 'font-color' ),
+					'priority' => 19,
+					'defaults' => array(
+						'font-size'   => 'Default',
+						'line-height' => 'Default',
+					),
+				),
+				'shop_text' => array(
+					'label'    => esc_html__( 'Text Font', 'responsive' ),
+					'target'   => $selectorArray['shop_text'],
+					'section'  => 'responsive_shop_title_layout',
+					'exclude'  => array( 'font-color' ),
+					'priority' => 20,
+					'defaults' => array(
+						'font-size'   => 'Default',
+						'line-height' => 'Default',
+					),
+				),
 			);
 
 			for( $i=1;$i<=6;$i++ ) {
@@ -825,8 +859,10 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'footer_primary_row_widget_heading' => '.rspv-site-primary-footer-wrap .footer-widgets .wp-block-heading, .rspv-site-primary-footer-wrap .footer-social-icons .widget-title',
 				'footer_primary_row_widget_content' => '.rspv-site-primary-footer-wrap .footer-widgets',
 				'footer_below_row_widget_heading' => '.rspv-site-below-footer-wrap .footer-widgets .wp-block-heading, .rspv-site-below-footer-wrap .footer-social-icons .widget-title',
-				'footer_below_row_widget_content' => '.rspv-site-below-footer-wrap .footer-widgets'
-
+				'footer_below_row_widget_content' => '.rspv-site-below-footer-wrap .footer-widgets',
+				'add_to_cart_button'         => '.woocommerce ul.products li.product .button, .woocommerce ul.products li.product .add_to_cart_button',
+				'shop_title'                 => '.woocommerce.archive .site-content-header .page-title, .woocommerce-shop .site-content-header .page-title, .responsive-shop-entry-banner .page-title',
+				'shop_text'                  => '.woocommerce.archive .site-content-header, .woocommerce-shop .site-content-header, .responsive-shop-entry-banner, .woocommerce.archive .site-content-header .page-description, .woocommerce-shop .site-content-header .page-description, .responsive-shop-entry-banner .page-description, .woocommerce.archive .site-content-header .page-description p, .woocommerce-shop .site-content-header .page-description p, .responsive-shop-entry-banner .page-description p, .woocommerce.archive .site-content-header .woocommerce-breadcrumb, .woocommerce-shop .site-content-header .woocommerce-breadcrumb, .responsive-shop-entry-banner .woocommerce-breadcrumb, .woocommerce.archive .site-content-header .woocommerce-breadcrumb a, .woocommerce-shop .site-content-header .woocommerce-breadcrumb a, .responsive-shop-entry-banner .woocommerce-breadcrumb a',
 			);
 
 			if ( $this->is_responsive_version_greater() ) {

@@ -218,7 +218,7 @@ function responsive_enqueue_command_palette_scripts() {
 			'name'        => 'responsive/customizer-product-catalog',
 			'label'       => __( 'Customizer: Product Catalog', 'responsive' ),
 			'searchLabel' => __( 'Product Catalog, Catalog, Store, Product, Customizer', 'responsive' ),
-			'url'         => admin_url( 'customize.php?autofocus[section]=woocommerce_product_catalog' ),
+			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_woocommerce_shop' ),
 		);
 		$sections[] = array(
 			'name'        => 'responsive/customizer-product-images',
@@ -231,12 +231,6 @@ function responsive_enqueue_command_palette_scripts() {
 			'label'       => __( 'Customizer: Single Product', 'responsive' ),
 			'searchLabel' => __( 'Single Product, Customizer', 'responsive' ),
 			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_woocommerce_single_product_layout' ),
-		);
-		$sections[] = array(
-			'name'        => 'responsive/customizer-product-catalog-options',
-			'label'       => __( 'Customizer: Product Catalog Options', 'responsive' ),
-			'searchLabel' => __( 'Product Catalog Options, Customizer', 'responsive' ),
-			'url'         => admin_url( 'customize.php?autofocus[section]=responsive_woocommerce_shop' ),
 		);
 		$sections[] = array(
 			'name'        => 'responsive/customizer-cart-options',
