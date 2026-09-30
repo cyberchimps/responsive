@@ -2725,6 +2725,21 @@ if ( ! function_exists( 'responsive_active_single_product_related_products' ) ) 
 }
 
 /**
+ * Active callback for Single Product Shipping Text.
+ *
+ * @param WP_Customize_Control $control Control instance.
+ * @return bool
+ */
+if ( ! function_exists( 'responsive_active_single_product_shipping_text' ) ) {
+	function responsive_active_single_product_shipping_text( $control = null ) {
+		if ( $control && $control->manager && $control->manager->get_setting( 'responsive_single_product_enable_shipping_text' ) ) {
+			return (bool) $control->manager->get_setting( 'responsive_single_product_enable_shipping_text' )->value();
+		}
+		return (bool) get_theme_mod( 'responsive_single_product_enable_shipping_text', 0 );
+	}
+}
+
+/**
  * [responsive_active_breadcrumb description].
  *
  * @return [type] [description]

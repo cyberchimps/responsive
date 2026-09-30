@@ -1308,6 +1308,8 @@ function defaults() {
 			'single_product_title_horizontal_alignment' => 'left',
 			'single_product_title_inner_elements_spacing' => 10,
 			'responsive_single_product_variation_display' => 'horizontal',
+			'responsive_single_product_enable_shipping_text' => 0,
+			'responsive_single_product_shipping_text'        => __( '& Free Shipping', 'responsive' ),
 			'responsive_single_product_tab_style'       => 'normal',
 			'responsive_single_product_show_weight_dimensions' => 1,
 			'responsive_single_product_quantity_plus_minus' => 0,

@@ -262,6 +262,14 @@ ul.wc-block-grid__products {
         font-weight: bold;
     }
 
+    .responsive-product-shipping-text {
+        font-size: 0.9em;
+        font-weight: normal;
+        margin-left: 6px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
     ul.products {
         margin: 0;
         li.product {

@@ -347,6 +347,10 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 				add_filter( 'wc_product_enable_dimensions_display', '__return_false' );
 			}
 
+			if ( get_theme_mod( 'responsive_single_product_enable_shipping_text', 0 ) ) {
+				add_filter( 'woocommerce_get_price_html', array( $this, 'single_product_shipping_text' ), 10, 2 );
+			}
+
 			if ( get_theme_mod( 'responsive_single_product_quantity_plus_minus', 0 ) ) {
 				add_action( 'woocommerce_before_quantity_input_field', array( $this, 'quantity_minus_button' ) );
 				add_action( 'woocommerce_after_quantity_input_field', array( $this, 'quantity_plus_button' ) );
@@ -412,6 +416,40 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			if ( get_theme_mod( 'responsive_single_product_breadcrumbs', 1 ) ) {
 				woocommerce_breadcrumb();
 			}
+		}
+
+		/**
+		 * Append shipping text next to the single product price.
+		 *
+		 * @param string          $price   Price HTML.
+		 * @param WC_Product|null $product Product instance.
+		 * @return string
+		 */
+		public function single_product_shipping_text( $price, $product = null ) {
+			if ( ! is_product() || empty( $price ) ) {
+				return $price;
+			}
+
+			global $post;
+			if ( ! $product || ! $post ) {
+				return $price;
+			}
+
+			$product_id = $product->is_type( 'variation' ) ? $product->get_parent_id() : $product->get_id();
+			if ( (int) $product_id !== (int) $post->ID ) {
+				return $price;
+			}
+
+			if ( false !== strpos( $price, 'responsive-product-shipping-text' ) ) {
+				return $price;
+			}
+
+			$shipping_text = get_theme_mod( 'responsive_single_product_shipping_text', __( '& Free Shipping', 'responsive' ) );
+			if ( '' === trim( $shipping_text ) ) {
+				return $price;
+			}
+
+			return $price . ' <span class="responsive-product-shipping-text">' . esc_html( $shipping_text ) . '</span>';
 		}
 
 		/**
