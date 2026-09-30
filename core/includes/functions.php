@@ -1315,6 +1315,7 @@ function defaults() {
 			'responsive_single_product_quantity_plus_minus' => 0,
 			'responsive_single_product_show_related_products' => 1,
 			'responsive_single_product_related_products_columns' => '4',
+			'responsive_single_product_floating_bar_placement' => 'top',
 			'responsive_single_product_payment_structure' => wp_json_encode(
 				array(
 					'color_type' => 'default',

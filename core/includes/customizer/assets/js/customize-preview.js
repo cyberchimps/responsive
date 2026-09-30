@@ -22,7 +22,7 @@
 								jQuery( '#masthead-mobile' ).addClass( "sticky-header" );
 								var floatingBarCheck = document.getElementById( 'floating-bar' );
 								var heightOfHeaderTaken = jQuery( '#masthead' ).outerHeight() || jQuery( '#masthead-mobile' ).outerHeight();
-								if ( floatingBarCheck && jQuery(window).width() > 768) {
+								if ( floatingBarCheck && jQuery(window).width() > 768 && !jQuery( '.responsive-floating-bar' ).hasClass( 'placement-bottom' ) ) {
 									jQuery( '.responsive-floating-bar' ).css({ top: heightOfHeaderTaken+'px', bottom: 'auto' });
 								} else if ( ( jQuery( '#masthead' ).hasClass( 'sticky-header' ) || jQuery( '#masthead-mobile' ).hasClass( 'sticky-header' ) ) && jQuery(window).width() <= 768 ) {
 									jQuery( '.responsive-floating-bar' ).css({ bottom: 0, top: 'auto' });
@@ -44,7 +44,7 @@
 								jQuery( '#masthead' ).removeClass( "sticky-header" );
 								jQuery( '#masthead-mobile' ).removeClass( "sticky-header" );
 								var floatingBarCheck = document.getElementById( 'floating-bar' );
-								if ( floatingBarCheck && jQuery(window).width() > 768 ) {
+								if ( floatingBarCheck && jQuery(window).width() > 768 && !jQuery( '.responsive-floating-bar' ).hasClass( 'placement-bottom' ) ) {
 									jQuery( '.responsive-floating-bar' ).css({ top: 0, bottom: 'auto' });
 								}	else if ( jQuery(window).width() <= 768 ) {
 									jQuery( '.responsive-floating-bar' ).css({ bottom: 0, top: 'auto' });

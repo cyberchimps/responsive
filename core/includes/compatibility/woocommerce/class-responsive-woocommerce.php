@@ -873,8 +873,9 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 				$floating_bar_show_cond   = ( is_user_logged_in() );
 
 				if ( $floating_bar_toggle_cond && 'display' === $floating_bar_toggle_cond ) {
+					$floating_bar_placement = get_theme_mod( 'responsive_single_product_floating_bar_placement', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_floating_bar_placement' ) );
 					?>
-				<div id="floating-bar" class="responsive-floating-bar" style="display: none;">
+				<div id="floating-bar" class="responsive-floating-bar placement-<?php echo esc_attr( $floating_bar_placement ); ?>" style="display: none;">
 					<div class="floatingb-container">
 						<div class="floatingb-left">
 							<h2 class="floatingb-title"><span class="floatingb-selected"><?php esc_html_e( 'Selected : ', 'responsive' ); ?></span><?php echo wp_trim_words( $product->get_title(), '4' ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>

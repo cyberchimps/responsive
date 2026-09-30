@@ -1043,6 +1043,10 @@ span.res-header-cart-info-wrap, .res-addon-cart-wrap, .res-addon-mobile-cart-wra
     top: 0;
     width: 100%;
     z-index: 1000;
+
+    .responsive-product-shipping-text {
+        display: none;
+    }
 }
 
 .floatingb-title {

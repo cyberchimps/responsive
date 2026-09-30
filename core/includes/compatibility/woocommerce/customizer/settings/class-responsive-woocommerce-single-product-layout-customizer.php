@@ -61,6 +61,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				$general_tab_ids_prefix . 'responsive_single_product_related_products_columns',
 				$general_tab_ids_prefix . 'responsive_single_product_floating_bar_separator',
 				$general_tab_ids_prefix . 'responsive_single_product_floating_bar',
+				$general_tab_ids_prefix . 'responsive_single_product_floating_bar_placement',
 				$general_tab_ids_prefix . 'responsive_single_product_image_width',
 				$general_tab_ids_prefix . 'responsive_single_product_breadcrumbs',
 				$general_tab_ids_prefix . 'responsive_single_product_enable_shipping_text',
@@ -849,6 +850,23 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				'hide'    => esc_html__( 'Hide', 'responsive' ),
 			);
 			responsive_select_control( $wp_customize, 'single_product_floating_bar', $single_product_floating_bar_label, 'responsive_woocommerce_single_product_layout', 70, $single_product_floating_bar_toggle_choices, 'hide', null, 'refresh', $single_product_floating_bar_desc );
+
+			// Floating Bar Placement.
+			$single_product_floating_bar_placement_label   = esc_html__( 'Floating Bar Placement', 'responsive' );
+			$single_product_floating_bar_placement_choices = array(
+				'top'    => esc_html__( 'Top', 'responsive' ),
+				'bottom' => esc_html__( 'Bottom', 'responsive' ),
+			);
+			responsive_select_button_control(
+				$wp_customize,
+				'single_product_floating_bar_placement',
+				$single_product_floating_bar_placement_label,
+				'responsive_woocommerce_single_product_layout',
+				70.1,
+				$single_product_floating_bar_placement_choices,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_floating_bar_placement' ),
+				null
+			);
 
 			// Product Image Width.
 			$single_product_image_width_label = esc_html__( 'Image Width (%)', 'responsive' );

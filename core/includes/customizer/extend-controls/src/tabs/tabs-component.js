@@ -635,6 +635,13 @@ const TabsComponent = props => {
 			}
 		}
 
+		if ( api('responsive_single_product_floating_bar') && api('responsive_single_product_floating_bar').get() !== 'display' ) {
+			const floatingBarPlacementCtrl = document.getElementById('customize-control-responsive_single_product_floating_bar_placement');
+			if ( floatingBarPlacementCtrl ) {
+				floatingBarPlacementCtrl.style.display = 'none';
+			}
+		}
+
 		// Toggle Button Style - Hide controls based on style
 		if( api('responsive_mobile_menu_toggle_style') ) {
 			const allToggleButtonElementIds = [
@@ -1491,6 +1498,16 @@ const TabsComponent = props => {
 					const shippingTextCtrl = document.getElementById('customize-control-responsive_single_product_shipping_text');
 					if (shippingTextCtrl) {
 						shippingTextCtrl.style.display = (!!newval && 'general' === tab) ? 'block' : 'none';
+					}
+				});
+			});
+		}
+		if (api('responsive_single_product_floating_bar')) {
+			api('responsive_single_product_floating_bar', function(value) {
+				value.bind(function(newval) {
+					const floatingBarPlacementCtrl = document.getElementById('customize-control-responsive_single_product_floating_bar_placement');
+					if (floatingBarPlacementCtrl) {
+						floatingBarPlacementCtrl.style.display = ('display' === newval && 'general' === tab) ? 'block' : 'none';
 					}
 				});
 			});

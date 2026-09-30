@@ -15150,6 +15150,17 @@ function responsive_customizer_styles() {
 			$floatingb_container_width       = esc_html( get_theme_mod( 'responsive_container_width', Responsive\Core\get_responsive_customizer_defaults( 'responsive_container_width' ) ) );
 		}
 
+		$floatingb_placement                 = esc_html( get_theme_mod( 'responsive_single_product_floating_bar_placement', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_floating_bar_placement' ) ) );
+
+		if ( 'bottom' === $floatingb_placement ) {
+			$woocommerce_custom_css .= '
+				.responsive-floating-bar.placement-bottom {
+					top: auto;
+					bottom: 0;
+				}
+			';
+		}
+
 		if ( is_admin_bar_showing() ) {
 			$woocommerce_custom_css .= '
 			@media (min-width: 769px) {
