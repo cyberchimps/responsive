@@ -171,6 +171,10 @@ if ( ! class_exists( 'Responsive_Woocommerce_Typography_Customizer' ) ) :
 
 			foreach ( $elements as $element => $array ) {
 
+				if ( 'shop_page_title' === $element ) {
+					continue;
+				}
+
 				$label              = ! empty( $array['label'] ) ? $array['label'] : null;
 				$exclude_attributes = ! empty( $array['exclude'] ) ? $array['exclude'] : false;
 				$active_callback    = isset( $array['active_callback'] ) ? $array['active_callback'] : null;

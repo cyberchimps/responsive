@@ -166,7 +166,8 @@ function has_center_column( $row = 'primary' ) {
 
 function responsive_header_woo_cart_slide_in() {
 	// Get the cart click action setting.
-	$cart_click_action = get_theme_mod( 'responsive_header_woo_cart_click_action', 'dropdown' );
+	$cart_click_action  = get_theme_mod( 'responsive_header_woo_cart_click_action', 'dropdown' );
+	$add_to_cart_action = get_theme_mod( 'responsive_shop_add_to_cart_action', 'default' );
 	// Hide cart slide in only if current page is checkout/cart or if redirect option is selected.
 	$is_cart_element_loaded = Responsive\Core\responsive_check_element_present_in_hfb( 'woo-cart', 'header' );
 	if (
@@ -174,11 +175,12 @@ function responsive_header_woo_cart_slide_in() {
 	) {
 		// Prevent slide in markup when 'redirect' option is selected.
 		// Remove the second if condition if we have mobile header builder.
-		if( 'redirect' !== $cart_click_action || 'dropdown' === $cart_click_action && wp_is_mobile() ) {
-		wp_enqueue_script( 'responsive-cart-slide-in', get_template_directory_uri() . '/core/js/slide-in-cart.js', array(), RESPONSIVE_THEME_VERSION, true );
+		if ( 'slide_in_cart' === $add_to_cart_action || 'redirect' !== $cart_click_action || ( 'dropdown' === $cart_click_action && wp_is_mobile() ) ) {
+		wp_enqueue_script( 'responsive-cart-slide-in', get_template_directory_uri() . '/core/js/slide-in-cart.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
 		$rspv_cart_localize_data = array(
-			'cart_click_action' => $cart_click_action,
-			'isMobile'          => wp_is_mobile()
+			'cart_click_action'  => $cart_click_action,
+			'add_to_cart_action' => $add_to_cart_action,
+			'isMobile'           => wp_is_mobile(),
 		);
 		wp_localize_script( 'responsive-cart-slide-in', 'responsive_woo_cart', $rspv_cart_localize_data );
 		wp_enqueue_style( 'dashicons' );
