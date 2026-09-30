@@ -143,14 +143,14 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 
 			// Container Width.
 			$container_width_label = __( 'Wide Container Width (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'container_width', $container_width_label, 'responsive_layout', 8, 1340, null, 1500, 768, 'postMessage' );
+			responsive_drag_number_control( $wp_customize, 'container_width', $container_width_label, 'responsive_layout', 8, 1340, null, 1500, 768, 'refresh' );
 			if ( $wp_customize->get_control( 'responsive_container_width' ) ) {
 				$wp_customize->get_control( 'responsive_container_width' )->description = __( 'Note: This setting applies to Desktop devices only.', 'responsive' );
 			}
 
 			// Narrow Container Width.
 			$narrow_container_width_label = __( 'Narrow Container Width (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'narrow_container_width', $narrow_container_width_label, 'responsive_layout', 9, 750, null, 1000, 400, 'postMessage' );
+			responsive_drag_number_control( $wp_customize, 'narrow_container_width', $narrow_container_width_label, 'responsive_layout', 9, 750, null, 1000, 400, 'refresh' );
 			if ( $wp_customize->get_control( 'responsive_narrow_container_width' ) ) {
 				$wp_customize->get_control( 'responsive_narrow_container_width' )->description = __( 'Note: This setting applies to Desktop devices when Narrow Layout is selected.', 'responsive' );
 			}
