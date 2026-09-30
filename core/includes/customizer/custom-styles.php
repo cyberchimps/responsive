@@ -13851,15 +13851,15 @@ function responsive_customizer_styles() {
 		$single_product_title_elements = responsive_single_product_title_elements_positioning();
 		if ( ! $check_single_product_title ) {
 			$woocommerce_custom_css .= "
-			.single-product .site-content-header,
-			.single-product .responsive-single-product-entry-banner,
+			body.woocommerce.single-product .site-content-header,
+			body.woocommerce.single-product .responsive-single-product-entry-banner,
 			.single-product .summary .product_title {
 				display: none;
 			}";
 		} elseif ( empty( $single_product_title_elements ) ) {
 			$woocommerce_custom_css .= "
-			.single-product .site-content-header,
-			.single-product .responsive-single-product-entry-banner {
+			body.woocommerce.single-product .site-content-header,
+			body.woocommerce.single-product .responsive-single-product-entry-banner {
 				display: none;
 			}";
 		} elseif ( 'post_title_layout2' === $single_product_title_layout ) {

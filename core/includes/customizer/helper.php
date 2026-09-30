@@ -2649,6 +2649,7 @@ function responsive_single_product_title_elements_positioning() {
 	} elseif ( ! is_array( $sections ) ) {
 		$sections = array();
 	}
+	$sections = array_values( array_filter( $sections ) );
 	return apply_filters( 'responsive_single_product_title_elements_positioning', $sections );
 }
 
