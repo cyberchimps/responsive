@@ -13836,12 +13836,15 @@ function responsive_customizer_styles() {
 		$woocommerce_custom_css .= sprintf(
 			'.woocommerce-breadcrumb.is-single-product {
 				display: %1$s;
-			}
-			body.single-product-has-site-header .site-content-header {
-				display: %1$s;
 			}',
 			$single_product_breadcrumb_display_value
 		);
+
+		$woocommerce_custom_css .= "
+		.single-product .summary .woocommerce-breadcrumb {
+			margin-bottom: 12px;
+			font-size: 1em;
+		}";
 
 		$check_single_product_title  = get_theme_mod( 'responsive_single_product_title_area', true );
 		$single_product_title_layout = get_theme_mod( 'responsive_single_product_title_layout', 'post_title_layout1' );

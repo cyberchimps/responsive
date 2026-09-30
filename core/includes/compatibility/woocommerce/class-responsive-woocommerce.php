@@ -338,6 +338,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			add_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 20 );
 
 			/* Add single product content */
+			add_action( 'woocommerce_single_product_summary', array( $this, 'single_product_summary_breadcrumbs' ), 5 );
 			add_action( 'woocommerce_single_product_summary', array( $this, 'single_product_content_structure' ), 10 );
 			add_filter( 'woocommerce_product_description_heading', '__return_false' );
 			add_filter( 'woocommerce_product_additional_information_heading', '__return_false' );
@@ -400,6 +401,17 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		 */
 		public function quantity_plus_button() {
 			echo '<button type="button" class="plus" aria-label="' . esc_attr__( 'Increase quantity', 'responsive' ) . '">+</button>';
+		}
+
+		/**
+		 * Render breadcrumbs at the top of the single product summary container.
+		 *
+		 * @return void
+		 */
+		public function single_product_summary_breadcrumbs() {
+			if ( get_theme_mod( 'responsive_single_product_breadcrumbs', 1 ) ) {
+				woocommerce_breadcrumb();
+			}
 		}
 
 		/**
