@@ -576,18 +576,34 @@ function responsive_woocommerce_single_product_banner2() {
 
 	if ( is_product() && get_theme_mod( 'responsive_single_product_title_area', true ) && get_theme_mod( 'responsive_single_product_title_layout', 'post_title_layout1' ) === 'post_title_layout2' ) {
 		$rendered = true;
-		$elements = responsive_single_product_banner_elements_positioning();
+		$elements = responsive_single_product_title_elements_positioning();
 		global $post;
 		setup_postdata( $post );
+
+		$as_background            = get_theme_mod( 'responsive_single_product_featured_image_as_background', 0 );
+		$has_featured_in_elements = is_array( $elements ) && in_array( 'featured_image', $elements, true );
+		$section_style            = '';
+
+		if ( $as_background && $has_featured_in_elements && has_post_thumbnail() && ! post_password_required() ) {
+			$featured_image_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+			$overlay_color      = Responsive\Core\responsive_prepare_css_value( 'responsive_single_product_banner_overlay_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_banner_overlay_color' ) );
+			$overlay_css        = empty( $overlay_color ) ? 'transparent' : $overlay_color;
+
+			if ( $featured_image_url ) {
+				$section_style = ' style="--overlay-color: ' . $overlay_css . '; background-color: var(--overlay-color); background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), url(' . esc_url( $featured_image_url ) . '); background-repeat: no-repeat; background-size: cover; background-attachment: scroll; background-position: center center;"';
+			} elseif ( ! empty( $overlay_color ) ) {
+				$section_style = ' style="--overlay-color: ' . $overlay_css . '; background-color: var(--overlay-color);"';
+			}
+		}
 		?>
-		<section class="responsive-single-product-entry-banner">
+		<section class="responsive-single-product-entry-banner"<?php echo $section_style; ?>>
 			<div class="container">
 				<?php
 				if ( is_array( $elements ) ) {
 					foreach ( $elements as $element ) {
 						switch ( $element ) {
 							case 'breadcrumb':
-								if ( get_theme_mod( 'responsive_single_product_breadcrumbs', 1 ) ) {
+								if ( get_theme_mod( 'responsive_single_product_breadcrumbs', 0 ) ) {
 									?>
 									<div class="responsive-breadcrumbs-wrapper">
 										<div class="breadcrumbs-inner">
@@ -612,7 +628,7 @@ function responsive_woocommerce_single_product_banner2() {
 								responsive_woocommerce_single_product_taxonomy_render();
 								break;
 							case 'featured_image':
-								if ( has_post_thumbnail() && ! post_password_required() ) {
+								if ( ! $as_background && has_post_thumbnail() && ! post_password_required() ) {
 									$image_size  = get_theme_mod( 'responsive_single_product_featured_image_size', 'full' );
 									$image_ratio = get_theme_mod( 'responsive_single_product_featured_image_ratio', 'original' );
 

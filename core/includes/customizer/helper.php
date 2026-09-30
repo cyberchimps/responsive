@@ -2570,31 +2570,13 @@ function responsive_check_shop_add_to_cart_visible() {
 }
 
 /**
- * Returns Single Product Title Area Layout 1 structure choices.
+ * Returns Single Product Title Area structure choices.
  *
  * @return array
  */
 function responsive_single_product_title_elements() {
 	return apply_filters(
 		'responsive_single_product_title_elements',
-		array(
-			'title'      => esc_html__( 'Title', 'responsive' ),
-			'meta'       => esc_html__( 'Meta', 'responsive' ),
-			'breadcrumb' => esc_html__( 'Breadcrumb', 'responsive' ),
-			'excerpt'    => esc_html__( 'Excerpt', 'responsive' ),
-			'taxonomy'   => esc_html__( 'Taxonomies', 'responsive' ),
-		)
-	);
-}
-
-/**
- * Returns Single Product Title Area Layout 2 structure choices.
- *
- * @return array
- */
-function responsive_single_product_banner_elements() {
-	return apply_filters(
-		'responsive_single_product_banner_elements',
 		array(
 			'title'          => esc_html__( 'Title', 'responsive' ),
 			'meta'           => esc_html__( 'Meta', 'responsive' ),
@@ -2654,7 +2636,7 @@ function responsive_single_product_meta_choices() {
 }
 
 /**
- * Returns Single Product Title Area Layout 1 positioning array.
+ * Returns Single Product Title Area positioning array.
  *
  * @return array
  */
@@ -2668,23 +2650,6 @@ function responsive_single_product_title_elements_positioning() {
 		$sections = array();
 	}
 	return apply_filters( 'responsive_single_product_title_elements_positioning', $sections );
-}
-
-/**
- * Returns Single Product Title Area Layout 2 positioning array.
- *
- * @return array
- */
-function responsive_single_product_banner_elements_positioning() {
-	$default  = Responsive\Core\get_responsive_customizer_defaults( 'single_product_banner_elements_positioning' );
-	$sections = get_theme_mod( 'responsive_single_product_banner_elements_positioning', $default );
-	if ( is_string( $sections ) ) {
-		$decoded  = json_decode( $sections, true );
-		$sections = is_array( $decoded ) ? $decoded : explode( ',', $sections );
-	} elseif ( ! is_array( $sections ) ) {
-		$sections = array();
-	}
-	return apply_filters( 'responsive_single_product_banner_elements_positioning', $sections );
 }
 
 /**
@@ -2722,35 +2687,12 @@ function responsive_single_product_meta_taxonomies() {
 }
 
 /**
- * Active callback for Single Product Title Area Layout 1 structure control.
- *
- * @return boolean
- */
-function responsive_single_product_title_layout1_active_callback() {
-	return ( 'post_title_layout1' === get_theme_mod( 'responsive_single_product_title_layout', 'post_title_layout1' ) );
-}
-
-/**
- * Active callback for Single Product Title Area Layout 2 structure control.
- *
- * @return boolean
- */
-function responsive_single_product_title_layout2_active_callback() {
-	return ( 'post_title_layout2' === get_theme_mod( 'responsive_single_product_title_layout', 'post_title_layout1' ) );
-}
-
-/**
- * Active callback for Single Product Meta Elements control: visible only when 'meta' is in the active layout's structure.
+ * Active callback for Single Product Meta Elements control: visible only when 'meta' is in the structure.
  *
  * @return boolean
  */
 function responsive_single_product_meta_active_callback() {
-	$layout = get_theme_mod( 'responsive_single_product_title_layout', 'post_title_layout1' );
-	if ( 'post_title_layout2' === $layout ) {
-		$elements = responsive_single_product_banner_elements_positioning();
-	} else {
-		$elements = responsive_single_product_title_elements_positioning();
-	}
+	$elements = responsive_single_product_title_elements_positioning();
 	return is_array( $elements ) && in_array( 'meta', $elements, true );
 }
 
@@ -2779,6 +2721,21 @@ function responsive_active_single_product_sidebar_position() {
 if ( ! function_exists( 'responsive_active_single_product_related_products' ) ) {
 	function responsive_active_single_product_related_products() {
 		return (bool) get_theme_mod( 'responsive_single_product_show_related_products', 1 );
+	}
+}
+
+/**
+ * Active callback for Single Product Shipping Text.
+ *
+ * @param WP_Customize_Control $control Control instance.
+ * @return bool
+ */
+if ( ! function_exists( 'responsive_active_single_product_shipping_text' ) ) {
+	function responsive_active_single_product_shipping_text( $control = null ) {
+		if ( $control && $control->manager && $control->manager->get_setting( 'responsive_single_product_enable_shipping_text' ) ) {
+			return (bool) $control->manager->get_setting( 'responsive_single_product_enable_shipping_text' )->value();
+		}
+		return (bool) get_theme_mod( 'responsive_single_product_enable_shipping_text', 0 );
 	}
 }
 

@@ -770,8 +770,8 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'exclude'  => array( 'font-color' ),
 					'priority' => 19,
 					'defaults' => array(
-						'font-size'   => '32px',
-						'line-height' => '1.25',
+						'font-size'   => 'Default',
+						'line-height' => 'Default',
 					),
 				),
 				'single_product_text' => array(
@@ -781,8 +781,8 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'exclude'  => array( 'font-color' ),
 					'priority' => 20,
 					'defaults' => array(
-						'font-size'   => '16px',
-						'line-height' => '1.75',
+						'font-size'   => 'Default',
+						'line-height' => 'Default',
 					),
 				),
 				'single_product_meta' => array(
@@ -792,8 +792,8 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'exclude'  => array( 'font-color' ),
 					'priority' => 21,
 					'defaults' => array(
-						'font-size'   => '14px',
-						'line-height' => '1.75',
+						'font-size'   => 'Default',
+						'line-height' => 'Default',
 					),
 				),
 			);
