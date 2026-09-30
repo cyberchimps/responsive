@@ -13755,7 +13755,7 @@ function responsive_customizer_styles() {
 		$tablet_tr							 = intval  ( get_theme_mod( 'responsive_shop_product_tablet_top_right_radius', 8)); 
 		$tablet_br 							 = intval  ( get_theme_mod( 'responsive_shop_product_tablet_bottom_right_radius', 8)); 
 		$tablet_bl							 = intval  ( get_theme_mod( 'responsive_shop_product_tablet_bottom_left_radius', 8)); 
-		$single_product_breadcrumbs_flag = get_theme_mod( 'responsive_single_product_breadcrumbs', 1 );
+		$single_product_breadcrumbs_flag = get_theme_mod( 'responsive_single_product_breadcrumbs', 0 );
 		$single_product_breadcrumb_display_value     = $single_product_breadcrumbs_flag ? 'block' : 'none';
 
 		$mobile_breakpoint 					 = 544; 
@@ -13964,18 +13964,18 @@ function responsive_customizer_styles() {
 
 
 		if ( $check_single_product_title ) {
-			$single_product_title_horizontal_alignment        = get_theme_mod( 'responsive_single_product_title_horizontal_alignment', 'left' );
-			$single_product_title_horizontal_alignment_tablet = get_theme_mod( 'responsive_single_product_title_horizontal_alignment_tablet', 'left' );
-			$single_product_title_horizontal_alignment_mobile = get_theme_mod( 'responsive_single_product_title_horizontal_alignment_mobile', 'left' );
+			$single_product_title_horizontal_alignment        = get_theme_mod( 'responsive_single_product_title_horizontal_alignment', 'center' );
+			$single_product_title_horizontal_alignment_tablet = get_theme_mod( 'responsive_single_product_title_horizontal_alignment_tablet', 'center' );
+			$single_product_title_horizontal_alignment_mobile = get_theme_mod( 'responsive_single_product_title_horizontal_alignment_mobile', 'center' );
 
 			$map_align = array(
 				'left'   => 'flex-start',
 				'center' => 'center',
 				'right'  => 'flex-end',
 			);
-			$align_desktop = isset( $map_align[ $single_product_title_horizontal_alignment ] ) ? $map_align[ $single_product_title_horizontal_alignment ] : 'flex-start';
-			$align_tablet  = isset( $map_align[ $single_product_title_horizontal_alignment_tablet ] ) ? $map_align[ $single_product_title_horizontal_alignment_tablet ] : 'flex-start';
-			$align_mobile  = isset( $map_align[ $single_product_title_horizontal_alignment_mobile ] ) ? $map_align[ $single_product_title_horizontal_alignment_mobile ] : 'flex-start';
+			$align_desktop = isset( $map_align[ $single_product_title_horizontal_alignment ] ) ? $map_align[ $single_product_title_horizontal_alignment ] : 'center';
+			$align_tablet  = isset( $map_align[ $single_product_title_horizontal_alignment_tablet ] ) ? $map_align[ $single_product_title_horizontal_alignment_tablet ] : 'center';
+			$align_mobile  = isset( $map_align[ $single_product_title_horizontal_alignment_mobile ] ) ? $map_align[ $single_product_title_horizontal_alignment_mobile ] : 'center';
 
 			$woocommerce_custom_css .= "
 			.single-product .site-content-header,
@@ -14083,7 +14083,7 @@ function responsive_customizer_styles() {
 			}";
 
 			// Padding and Margin.
-			$single_product_banner_padding              = get_responsive_spacing_values( 'responsive_single_product_banner_padding', 30, 0, 30, 0 );
+			$single_product_banner_padding              = get_responsive_spacing_values( 'responsive_single_product_banner_padding', 30, 30, 30, 30 );
 			$single_product_banner_padding_desktop_unit = get_theme_mod( 'responsive_single_product_banner_padding_desktop_unit', 'px' );
 			$single_product_banner_padding_tablet_unit  = get_theme_mod( 'responsive_single_product_banner_padding_tablet_unit', 'px' );
 			$single_product_banner_padding_mobile_unit  = get_theme_mod( 'responsive_single_product_banner_padding_mobile_unit', 'px' );

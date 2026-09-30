@@ -603,7 +603,7 @@ function responsive_woocommerce_single_product_banner2() {
 					foreach ( $elements as $element ) {
 						switch ( $element ) {
 							case 'breadcrumb':
-								if ( get_theme_mod( 'responsive_single_product_breadcrumbs', 1 ) ) {
+								if ( get_theme_mod( 'responsive_single_product_breadcrumbs', 0 ) ) {
 									?>
 									<div class="responsive-breadcrumbs-wrapper">
 										<div class="breadcrumbs-inner">

@@ -437,7 +437,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				'responsive_single_product_title_layout',
 				7,
 				$single_product_title_horizontal_alignment_choices,
-				'left',
+				'center',
 				null
 			);
 
@@ -704,7 +704,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 			responsive_horizontal_separator_control( $wp_customize, 'single_product_title_typography_separator', 1, 'responsive_single_product_title_layout', 22, 1 );
 
 			// Padding.
-			responsive_unit_padding_control( $wp_customize, 'single_product_banner_padding', 'responsive_single_product_title_layout', 23, 30, 0, null, esc_html__( 'Padding', 'responsive' ), 'postMessage', 30, 0, 30, 0, 'px' );
+			responsive_unit_padding_control( $wp_customize, 'single_product_banner_padding', 'responsive_single_product_title_layout', 23, 30, 30, null, esc_html__( 'Padding', 'responsive' ), 'postMessage', 30, 30, 30, 30, 'px' );
 
 			// Margin.
 			responsive_unit_padding_control( $wp_customize, 'single_product_banner_margin', 'responsive_single_product_title_layout', 24, '', '', null, esc_html__( 'Margin', 'responsive' ), 'postMessage', '', '', '', '', 'px', 24, null, 24, null, 24, null );
@@ -759,7 +759,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 
 			// Breadcrumbs toggle for Single Product pages.
 			$single_product_breadcrumbs_label = esc_html__( 'Breadcrumbs', 'responsive' );
-			responsive_toggle_control($wp_customize, 'single_product_breadcrumbs', $single_product_breadcrumbs_label, 'responsive_woocommerce_single_product_layout', 45, 1, null);
+			responsive_toggle_control($wp_customize, 'single_product_breadcrumbs', $single_product_breadcrumbs_label, 'responsive_woocommerce_single_product_layout', 45, 0, null);
 
 			// Enable Shipping Text toggle for Single Product pages.
 			$single_product_enable_shipping_text_label = esc_html__( 'Enable Shipping Text', 'responsive' );

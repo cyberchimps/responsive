@@ -1305,7 +1305,7 @@ function defaults() {
 			'single_product_taxonomy'                   => 'product_cat',
 			'single_product_taxonomy_style'             => 'default',
 			'single_product_meta_taxonomies'            => '{}',
-			'single_product_title_horizontal_alignment' => 'left',
+			'single_product_title_horizontal_alignment' => 'center',
 			'single_product_title_inner_elements_spacing' => 10,
 			'responsive_single_product_variation_display' => 'horizontal',
 			'responsive_single_product_enable_shipping_text' => 0,
@@ -3211,7 +3211,7 @@ add_action( 'woocommerce_before_main_content', function() {
                 foreach ( $elements as $element ) {
                     switch ( $element ) {
                         case 'breadcrumb':
-                            if ( get_theme_mod( 'responsive_single_product_breadcrumbs', 1 ) ) {
+                            if ( get_theme_mod( 'responsive_single_product_breadcrumbs', 0 ) ) {
                                 woocommerce_breadcrumb();
                             }
                             break;
@@ -3272,7 +3272,7 @@ add_action( 'woocommerce_before_main_content', function() {
                 wp_reset_postdata();
             }
         } elseif ( ! get_theme_mod( 'responsive_single_product_title_area', true ) ) {
-            if ( get_theme_mod( 'responsive_single_product_breadcrumbs', 1 ) ) {
+            if ( get_theme_mod( 'responsive_single_product_breadcrumbs', 0 ) ) {
                 woocommerce_breadcrumb();
             }
         }

@@ -413,7 +413,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		 * @return void
 		 */
 		public function single_product_summary_breadcrumbs() {
-			if ( get_theme_mod( 'responsive_single_product_breadcrumbs', 1 ) ) {
+			if ( get_theme_mod( 'responsive_single_product_breadcrumbs', 0 ) ) {
 				woocommerce_breadcrumb();
 			}
 		}
