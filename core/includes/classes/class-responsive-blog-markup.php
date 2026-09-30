@@ -82,10 +82,22 @@ if ( ! class_exists( 'Responsive_Blog_Markup' ) ) :
 
 			do_action( 'responsive_pagination_infinite' );
 
-			$query_vars                = json_decode( stripslashes( $_POST['query_vars'] ), true );
-			$query_vars['paged']       = ( isset( $_POST['page_no'] ) ) ? stripslashes( $_POST['page_no'] ) : 1;
-			$query_vars['post_status'] = 'publish';
-			$posts                     = new WP_Query( $query_vars );
+			$raw_query_vars = isset( $_POST['query_vars'] ) ? json_decode( wp_unslash( $_POST['query_vars'] ), true ) : array();
+			$raw_query_vars = is_array( $raw_query_vars ) ? $raw_query_vars : array();
+
+			// Only pass through the query vars a normal blog/archive/search query can have; drop everything else (meta_query, tax_query, posts_per_page, etc.).
+			$allowed_query_vars = array( 'cat', 'category_name', 'tag', 'author', 'author_name', 'year', 'monthnum', 'day', 's' );
+			$query_vars         = array_intersect_key( $raw_query_vars, array_flip( $allowed_query_vars ) );
+
+			$requested_post_type    = isset( $raw_query_vars['post_type'] ) ? sanitize_key( $raw_query_vars['post_type'] ) : 'post';
+			$public_post_types      = get_post_types( array( 'publicly_queryable' => true ) );
+			$query_vars['post_type'] = in_array( $requested_post_type, $public_post_types, true ) ? $requested_post_type : 'post';
+
+			$query_vars['paged']          = isset( $_POST['page_no'] ) ? absint( $_POST['page_no'] ) : 1;
+			$query_vars['post_status']    = 'publish';
+			$query_vars['posts_per_page'] = (int) get_option( 'posts_per_page' );
+
+			$posts = new WP_Query( $query_vars );
 
 			if ( $posts->have_posts() ) {
 				while ( $posts->have_posts() ) {
