@@ -137,6 +137,8 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 			// Product Title Tabs.
 			$single_product_title_area_general_tab_ids = array(
 				'customize-control-responsive_single_product_title_layout',
+				'customize-control-responsive_single_product_banner_container_width',
+				'customize-control-responsive_single_product_banner_custom_width',
 				'customize-control-responsive_single_product_title_elements_positioning',
 				'customize-control-responsive_single_product_featured_image_as_background',
 				'customize-control-responsive_single_product_featured_image_ratio',
@@ -200,6 +202,40 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				'svg',
 				'refresh'
 			);
+
+			// Container Width.
+			$single_product_banner_container_width_label   = esc_html__( 'Container Width', 'responsive' );
+			$single_product_banner_container_width_choices = array(
+				'full_width' => esc_html__( 'Full Width', 'responsive' ),
+				'custom'     => esc_html__( 'Custom', 'responsive' ),
+			);
+			responsive_select_button_control(
+				$wp_customize,
+				'single_product_banner_container_width',
+				$single_product_banner_container_width_label,
+				'responsive_single_product_title_layout',
+				2,
+				$single_product_banner_container_width_choices,
+				'full_width',
+				null,
+				'refresh'
+			);
+
+			// Custom Width.
+			$single_product_banner_custom_width_label = esc_html__( 'Custom Width (px)', 'responsive' );
+			responsive_drag_number_control(
+				$wp_customize,
+				'single_product_banner_custom_width',
+				$single_product_banner_custom_width_label,
+				'responsive_single_product_title_layout',
+				3,
+				1316,
+				null,
+				1920,
+				768,
+				'postMessage'
+			);
+
 
 			/**
 			 * Single Product Title Area Structure.

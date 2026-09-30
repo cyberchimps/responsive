@@ -13865,6 +13865,13 @@ function responsive_customizer_styles() {
 			$single_product_banner_bg_tablet = responsive_prepare_css_value( 'responsive_single_product_banner_background_color_tablet', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_banner_background_color' ) );
 			$single_product_banner_bg_mobile = responsive_prepare_css_value( 'responsive_single_product_banner_background_color_mobile', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_banner_background_color' ) );
 
+			$single_product_banner_container_width = get_theme_mod( 'responsive_single_product_banner_container_width', 'full_width' );
+
+			$sp_banner_margin              = get_responsive_spacing_values( 'responsive_single_product_banner_margin', '', '', 24, '' );
+			$sp_banner_margin_desktop_unit = get_theme_mod( 'responsive_single_product_banner_margin_desktop_unit', 'px' );
+			$sp_banner_margin_tablet_unit  = get_theme_mod( 'responsive_single_product_banner_margin_tablet_unit', 'px' );
+			$sp_banner_margin_mobile_unit  = get_theme_mod( 'responsive_single_product_banner_margin_mobile_unit', 'px' );
+
 			$woocommerce_custom_css .= "
 			.single-product .site-content-header,
 			.single-product .summary .product_title {
@@ -13874,6 +13881,52 @@ function responsive_customizer_styles() {
 				justify-content: {$single_product_vertical_alignment};
 				min-height: {$single_product_banner_min_height}px;
 				background-color: {$single_product_banner_bg};
+				" . responsive_format_margin_css_with_container_width( $sp_banner_margin['desktop'], $sp_banner_margin_desktop_unit, $single_product_banner_container_width ) . "
+			}";
+
+			$calc_width_desktop = responsive_get_banner_calc_width( $sp_banner_margin['desktop'], $sp_banner_margin_desktop_unit );
+			$calc_width_tablet  = responsive_get_banner_calc_width( $sp_banner_margin['tablet'], $sp_banner_margin_tablet_unit );
+			$calc_width_mobile  = responsive_get_banner_calc_width( $sp_banner_margin['mobile'], $sp_banner_margin_mobile_unit );
+
+			if ( 'custom' === $single_product_banner_container_width ) {
+				$single_product_banner_custom_width = get_theme_mod( 'responsive_single_product_banner_custom_width', 1316 );
+				$woocommerce_custom_css .= "
+				.single-product .responsive-single-product-entry-banner {
+					max-width: min({$single_product_banner_custom_width}px, {$calc_width_desktop});
+					width: {$calc_width_desktop};
+				}
+				@media screen and ( max-width: 992px ) {
+					.single-product .responsive-single-product-entry-banner {
+						max-width: min({$single_product_banner_custom_width}px, {$calc_width_tablet});
+						width: {$calc_width_tablet};
+					}
+				}
+				@media screen and ( max-width: 576px ) {
+					.single-product .responsive-single-product-entry-banner {
+						max-width: min({$single_product_banner_custom_width}px, {$calc_width_mobile});
+						width: {$calc_width_mobile};
+					}
+				}";
+			} else {
+				$woocommerce_custom_css .= "
+				.single-product .responsive-single-product-entry-banner {
+					width: {$calc_width_desktop};
+				}
+				@media screen and ( max-width: 992px ) {
+					.single-product .responsive-single-product-entry-banner {
+						width: {$calc_width_tablet};
+					}
+				}
+				@media screen and ( max-width: 576px ) {
+					.single-product .responsive-single-product-entry-banner {
+						width: {$calc_width_mobile};
+					}
+				}";
+			}
+
+			$woocommerce_custom_css .= "
+			.single-product .responsive-single-product-entry-banner .container {
+				width: 100%;
 			}";
 
 			if ( ! empty( $single_product_banner_min_height_tablet ) || ! empty( $single_product_banner_bg_tablet ) ) {
@@ -13908,6 +13961,7 @@ function responsive_customizer_styles() {
 				}";
 			}
 		}
+
 
 		if ( $check_single_product_title ) {
 			$single_product_title_horizontal_alignment        = get_theme_mod( 'responsive_single_product_title_horizontal_alignment', 'left' );
@@ -14059,6 +14113,42 @@ function responsive_customizer_styles() {
 					margin: " . $format_spacing( $single_product_banner_margin['mobile'], $single_product_banner_margin_mobile_unit, true ) . ";
 				}
 			}";
+
+			if ( 'post_title_layout2' === $single_product_title_layout ) {
+				$l = isset( $single_product_banner_margin['desktop']['left'] )  ? (string) $single_product_banner_margin['desktop']['left']  : '';
+				$r = isset( $single_product_banner_margin['desktop']['right'] ) ? (string) $single_product_banner_margin['desktop']['right'] : '';
+				if ( $l === '' || $r === '' ) {
+					$woocommerce_custom_css .= "
+					.single-product .responsive-single-product-entry-banner {" .
+						( $l === '' ? ' margin-left: auto;'  : '' ) .
+						( $r === '' ? ' margin-right: auto;' : '' ) .
+					"}";
+				}
+
+				$l = isset( $single_product_banner_margin['tablet']['left'] )  ? (string) $single_product_banner_margin['tablet']['left']  : '';
+				$r = isset( $single_product_banner_margin['tablet']['right'] ) ? (string) $single_product_banner_margin['tablet']['right'] : '';
+				if ( $l === '' || $r === '' ) {
+					$woocommerce_custom_css .= "
+					@media screen and ( max-width: 992px ) {
+						.single-product .responsive-single-product-entry-banner {" .
+							( $l === '' ? ' margin-left: auto;'  : '' ) .
+							( $r === '' ? ' margin-right: auto;' : '' ) .
+						"}
+					}";
+				}
+
+				$l = isset( $single_product_banner_margin['mobile']['left'] )  ? (string) $single_product_banner_margin['mobile']['left']  : '';
+				$r = isset( $single_product_banner_margin['mobile']['right'] ) ? (string) $single_product_banner_margin['mobile']['right'] : '';
+				if ( $l === '' || $r === '' ) {
+					$woocommerce_custom_css .= "
+					@media screen and ( max-width: 576px ) {
+						.single-product .responsive-single-product-entry-banner {" .
+							( $l === '' ? ' margin-left: auto;'  : '' ) .
+							( $r === '' ? ' margin-right: auto;' : '' ) .
+						"}
+					}";
+				}
+			}
 		}
 
 		// Single Product Meta Separator.
