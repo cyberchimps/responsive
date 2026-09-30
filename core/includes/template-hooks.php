@@ -577,6 +577,9 @@ function responsive_woocommerce_single_product_banner2() {
 	if ( is_product() && get_theme_mod( 'responsive_single_product_title_area', true ) && get_theme_mod( 'responsive_single_product_title_layout', 'post_title_layout1' ) === 'post_title_layout2' ) {
 		$rendered = true;
 		$elements = responsive_single_product_title_elements_positioning();
+		if ( empty( $elements ) ) {
+			return;
+		}
 		global $post;
 		setup_postdata( $post );
 
@@ -603,15 +606,13 @@ function responsive_woocommerce_single_product_banner2() {
 					foreach ( $elements as $element ) {
 						switch ( $element ) {
 							case 'breadcrumb':
-								if ( get_theme_mod( 'responsive_single_product_breadcrumbs', 0 ) ) {
-									?>
-									<div class="responsive-breadcrumbs-wrapper">
-										<div class="breadcrumbs-inner">
-											<?php woocommerce_breadcrumb(); ?>
-										</div>
+								?>
+								<div class="responsive-breadcrumbs-wrapper">
+									<div class="breadcrumbs-inner">
+										<?php woocommerce_breadcrumb(); ?>
 									</div>
-									<?php
-								}
+								</div>
+								<?php
 								break;
 							case 'title':
 								the_title( '<h1 class="product_title entry-title page-title">', '</h1>' );

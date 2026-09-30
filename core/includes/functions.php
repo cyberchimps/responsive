@@ -1294,7 +1294,7 @@ function defaults() {
 			'page_title_layout'                   => 'post_title_layout1',
 			'shop_title_layout'                   => 'post_title_layout1',
 			'shop_title_elements_positioning'     => array( 'breadcrumb', 'title', 'description' ),
-			'single_product_title_elements_positioning' => array( 'breadcrumb', 'title' ),
+			'single_product_title_elements_positioning' => array( 'breadcrumb' ),
 			'single_product_title_meta'                 => array( 'author', 'date', 'comments' ),
 			'single_product_title_meta_separator_text'  => '•',
 			'single_product_author_prefix_label'        => 'By',
@@ -3211,9 +3211,7 @@ add_action( 'woocommerce_before_main_content', function() {
                 foreach ( $elements as $element ) {
                     switch ( $element ) {
                         case 'breadcrumb':
-                            if ( get_theme_mod( 'responsive_single_product_breadcrumbs', 0 ) ) {
-                                woocommerce_breadcrumb();
-                            }
+                            woocommerce_breadcrumb();
                             break;
                         case 'title':
                             the_title( '<h1 class="product_title entry-title">', '</h1>' );
@@ -3270,10 +3268,6 @@ add_action( 'woocommerce_before_main_content', function() {
                     }
                 }
                 wp_reset_postdata();
-            }
-        } elseif ( ! get_theme_mod( 'responsive_single_product_title_area', true ) ) {
-            if ( get_theme_mod( 'responsive_single_product_breadcrumbs', 0 ) ) {
-                woocommerce_breadcrumb();
             }
         }
     }
