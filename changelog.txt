@@ -9,7 +9,7 @@ Changelog Legend:
 [!] = Bugs
 
 (30/09/2026) Version 6.4.7
-[+] = New = Adding Title Area Customizable options in Woocommerce Product Catalog Settings. 
+[+] = New = Added Title Area Customizable options in Woocommerce Product Catalog Settings. 
 [+] = Improvement = Added more customizable options in Woocommerce Product Catalog Settings.
 [+] = Improvement = Enhanced compatibility with Responsive PRO plugin.
 
