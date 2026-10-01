@@ -14046,6 +14046,11 @@ function responsive_customizer_styles() {
 				}
 			}";
 
+			$woocommerce_custom_css .= "
+			.single-product .responsive-single-product-entry-banner .container .responsive-breadcrumbs-wrapper {
+				align-self: auto;
+			}";
+
 			// Inner elements spacing.
 			$single_product_title_inner_elements_spacing = get_theme_mod( 'responsive_single_product_title_inner_elements_spacing', Responsive\Core\get_responsive_customizer_defaults( 'single_product_title_inner_elements_spacing' ) );
 
