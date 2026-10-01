@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '6.4.7' );
+define( 'RESPONSIVE_THEME_VERSION', '6.4.8' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -3552,6 +3552,40 @@ if ( ! function_exists( 'responsive_theme_background_updater_woocommerce_styling
 			}
 
 			$responsive_options['woocommerce_styling_6_4_7_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+
+if ( ! function_exists( 'responsive_theme_background_updater_single_product_title_area_colors_6_4_8' ) ) {
+	/**
+	 * Handle backward compatibility for single product title area colors.
+	 *
+	 * Sets title, text and link color settings to empty string for existing users
+	 * so that legacy or external styles are preserved.
+	 *
+	 * @since 6.4.8
+	 * @return void
+	 */
+	function responsive_theme_background_updater_single_product_title_area_colors_6_4_8() {
+		$responsive_options = get_option( 'responsive_theme_options' );
+
+		if ( empty( $responsive_options['single_product_title_area_colors_6_4_8_backward_done'] ) ) {
+
+			$color_settings = array(
+				'responsive_single_product_title_color',
+				'responsive_single_product_text_color',
+				'responsive_single_product_title_link_color',
+				'responsive_single_product_title_link_hover_color',
+			);
+
+			foreach ( $color_settings as $color_setting ) {
+				if ( false === get_theme_mod( $color_setting, false ) ) {
+					set_theme_mod( $color_setting, '' );
+				}
+			}
+
+			$responsive_options['single_product_title_area_colors_6_4_8_backward_done'] = true;
 			update_option( 'responsive_theme_options', $responsive_options );
 		}
 	}

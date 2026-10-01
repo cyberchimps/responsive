@@ -14064,30 +14064,44 @@ function responsive_customizer_styles() {
 			}";
 
 			// Colors.
-			$single_product_title_color            = responsive_prepare_css_value( 'responsive_single_product_title_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_title_color' ) );
-			$single_product_text_color             = responsive_prepare_css_value( 'responsive_single_product_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_text_color' ) );
-			$single_product_title_link_color       = responsive_prepare_css_value( 'responsive_single_product_title_link_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_title_link_color' ) );
-			$single_product_title_link_hover_color = responsive_prepare_css_value( 'responsive_single_product_title_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_title_link_hover_color' ) );
+			$single_product_title_color = ( '' === get_theme_mod( 'responsive_single_product_title_color', null ) ) ? '' : responsive_prepare_css_value( 'responsive_single_product_title_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_title_color' ) );
+			$single_product_text_color = ( '' === get_theme_mod( 'responsive_single_product_text_color', null ) ) ? '' : responsive_prepare_css_value( 'responsive_single_product_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_text_color' ) );
+			$single_product_title_link_color = ( '' === get_theme_mod( 'responsive_single_product_title_link_color', null ) ) ? '' : responsive_prepare_css_value( 'responsive_single_product_title_link_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_title_link_color' ) );
+			$single_product_title_link_hover_color = ( '' === get_theme_mod( 'responsive_single_product_title_link_hover_color', null ) ) ? '' : responsive_prepare_css_value( 'responsive_single_product_title_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_title_link_hover_color' ) );
 
-			$woocommerce_custom_css .= "
-			.single-product .site-content-header,
-			.single-product .responsive-single-product-entry-banner,
-			.single-product .site-content-header .woocommerce-breadcrumb,
-			.single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb {
-				color: {$single_product_text_color};
+			if ( ! empty( $single_product_text_color ) ) {
+				$woocommerce_custom_css .= "
+				.single-product .site-content-header,
+				.single-product .responsive-single-product-entry-banner,
+				.single-product .site-content-header .woocommerce-breadcrumb,
+				.single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb {
+					color: {$single_product_text_color};
+				}";
 			}
-			.single-product .site-content-header .product_title,
-			.single-product .responsive-single-product-entry-banner .product_title {
-				color: {$single_product_title_color};
+
+			if ( ! empty( $single_product_title_color ) ) {
+				$woocommerce_custom_css .= "
+				.single-product .site-content-header .product_title,
+				.single-product .responsive-single-product-entry-banner .product_title {
+					color: {$single_product_title_color};
+				}";
 			}
-			.single-product .site-content-header a,
-			.single-product .responsive-single-product-entry-banner a {
-				color: {$single_product_title_link_color};
+
+			if ( ! empty( $single_product_title_link_color ) ) {
+				$woocommerce_custom_css .= "
+				.single-product .site-content-header a,
+				.single-product .responsive-single-product-entry-banner a {
+					color: {$single_product_title_link_color};
+				}";
 			}
-			.single-product .site-content-header a:hover,
-			.single-product .responsive-single-product-entry-banner a:hover {
-				color: {$single_product_title_link_hover_color};
-			}";
+
+			if ( ! empty( $single_product_title_link_hover_color ) ) {
+				$woocommerce_custom_css .= "
+				.single-product .site-content-header a:hover,
+				.single-product .responsive-single-product-entry-banner a:hover {
+					color: {$single_product_title_link_hover_color};
+				}";
+			}
 
 			// Padding and Margin.
 			$single_product_banner_padding              = get_responsive_spacing_values( 'responsive_single_product_banner_padding', 30, 30, 30, 30 );
