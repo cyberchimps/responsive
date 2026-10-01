@@ -476,7 +476,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				'responsive_single_product_author_avatar',
 				array(
 					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'single_product_author_avatar' ),
-					'sanitize_callback' => 'responsive_sanitize_toggle',
+					'sanitize_callback' => 'responsive_checkbox_validate',
 					'transport'         => 'refresh',
 				)
 			);
