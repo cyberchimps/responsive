@@ -868,6 +868,10 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				$author_box_style_choices,
 				'normal',
 				'responsive_show_post_author_box',
+				'refresh',
+				'',
+				'Please note this section will be moved to Single Post Pro in upcoming releases',
+
 			);
 			
 			// Breadcrumb Font
