@@ -2189,3 +2189,7 @@ ul.control-panel-nav_menus .customize-help-toggle:before {
 #customize-control-responsive_footer_html2_font_typography_group{
 	padding: 10px 0;
 }
+#customize-control-responsive_single_product_featured_image_as_background,
+#customize-control-responsive_single_product_show_weight_dimensions {
+	padding-top: 16px;
+}

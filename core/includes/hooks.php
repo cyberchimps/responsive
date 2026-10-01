@@ -352,8 +352,7 @@ function responsive_woocommerce_wrapper() {
 				<div class="row">
 					<main id="primary" class="content-area <?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
 						<?php
-						$skip_header = is_product() && ( 'post_title_layout2' === get_theme_mod( 'responsive_single_product_title_layout', 'post_title_layout1' ) || ! get_theme_mod( 'responsive_single_product_title_area', true ) );
-						if ( is_woocommerce() && ! $skip_header ) {
+						if ( is_woocommerce() ) {
 							echo '<div class="site-content-header">';
 						}
 }
@@ -468,9 +467,6 @@ function responsive_open_container() {
  * @return void [description]
  */
 function responsive_close_container() {
-	if ( is_product() && ( 'post_title_layout2' === get_theme_mod( 'responsive_single_product_title_layout', 'post_title_layout1' ) || ! get_theme_mod( 'responsive_single_product_title_area', true ) ) ) {
-		return;
-	}
 	echo '</div>';
 }
 

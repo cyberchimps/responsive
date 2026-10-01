@@ -3283,9 +3283,7 @@ add_filter( 'body_class', function( $classes ) {
             $classes[] = 'shop-has-site-header';
         }
     } elseif ( is_product() ) {
-        if ( get_theme_mod( 'responsive_single_product_title_area', true ) && 'post_title_layout2' !== get_theme_mod( 'responsive_single_product_title_layout', 'post_title_layout1' ) ) {
-            $classes[] = 'single-product-has-site-header';
-        }
+        $classes[] = 'single-product-has-site-header';
     }
     return $classes;
 });
