@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(30/09/2026) Version 6.4.7
+[+] = New = Added Title Area Customizable options in Woocommerce Product Catalog Settings. 
+[+] = Improvement = Added more customizable options in Woocommerce Product Catalog Settings.
+[+] = Improvement = Enhanced compatibility with Responsive PRO plugin.
+
 (23/09/2026) Version 6.4.6
 [+] = New = Adding Breadcrumb Support for Yoast SEO and RankMath plugins. 
 [*] = Improvement = Improvement = Added more customization options for breadcrumbs at both the global and post-type levels (Single Page, Single Post, Blog/Archive).
