@@ -201,6 +201,8 @@ li.invisible .responsive-sortable-chevron {
     display: flex;
     align-items: center;
     gap: 10px;
+    flex: 1;
+    min-width: 0;
 }
 .payment-card-icon-preview {
     display: flex;
@@ -250,11 +252,16 @@ li.invisible .responsive-sortable-chevron {
     font-size: 13.5px;
     font-weight: 500;
     color: #2c3338;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .payment-card-actions {
     display: flex;
     align-items: center;
     gap: 6px;
+    flex-shrink: 0;
 }
 .payment-action-btn {
     border: none;
