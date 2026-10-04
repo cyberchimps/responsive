@@ -81,6 +81,8 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 			$design_tab_ids        = array(
 				$design_tab_ids_prefix . 'responsive_single_product_site_background_color',
 				$design_tab_ids_prefix . 'responsive_single_product_content_background_color',
+				$design_tab_ids_prefix . 'responsive_single_product_tab_text_color_states',
+				$design_tab_ids_prefix . 'responsive_single_product_tab_background_color_states',
 				$design_tab_ids_prefix . 'responsive_single_product_floating_bar_design_separator',
 				$design_tab_ids_prefix . 'responsive_floatingb_background_color',
 				$design_tab_ids_prefix . 'responsive_floatingb_title_color',
@@ -948,6 +950,36 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				null,
 				'color',
 				'postMessage'
+			);
+
+			// Single Product Tabs Text Color (Normal, Hover, Active).
+			$single_product_tab_text_color_label = esc_html__( 'Tab Text Color', 'responsive' );
+			responsive_color_control_with_states(
+				$wp_customize,
+				'single_product_tab_text',
+				$single_product_tab_text_color_label,
+				'responsive_woocommerce_single_product_layout',
+				69.1,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_tab_text_color' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_tab_text_hover_color' ),
+				'single_product_tab_text_hover',
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_tab_text_active_color' ),
+				'single_product_tab_text_active'
+			);
+
+			// Single Product Tabs Background Color (Normal, Hover, Active). Not applicable to the Center tab style.
+			$single_product_tab_background_color_label = esc_html__( 'Tab Background Color', 'responsive' );
+			responsive_color_control_with_states(
+				$wp_customize,
+				'single_product_tab_background',
+				$single_product_tab_background_color_label,
+				'responsive_woocommerce_single_product_layout',
+				69.2,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_tab_background_color' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_tab_background_hover_color' ),
+				'single_product_tab_background_hover',
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_tab_background_active_color' ),
+				'single_product_tab_background_active'
 			);
 
 			/*

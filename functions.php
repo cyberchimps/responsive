@@ -3588,5 +3588,32 @@ if ( ! function_exists( 'responsive_theme_background_updater_single_product_titl
 			$responsive_options['single_product_title_area_colors_6_4_8_backward_done'] = true;
 			update_option( 'responsive_theme_options', $responsive_options );
 		}
+
+		/*
+		 * Single product tab colors used to come from the Add to Cart button colors.
+		 * They now have their own controls, so carry the saved Add to Cart colors over once
+		 * for existing users. Values that were never saved already match the new defaults.
+		 * The tab hover background is intentionally not copied, tabs never had one.
+		 */
+		if ( empty( $responsive_options['single_product_tab_colors_6_4_8_backward_done'] ) ) {
+
+			$tab_color_map = array(
+				'responsive_single_product_tab_background_color'        => 'responsive_add_to_cart_button_color',
+				'responsive_single_product_tab_background_active_color' => 'responsive_add_to_cart_button_hover_color',
+				'responsive_single_product_tab_text_color'              => 'responsive_add_to_cart_button_text_color',
+				'responsive_single_product_tab_text_hover_color'        => 'responsive_add_to_cart_button_hover_text_color',
+				'responsive_single_product_tab_text_active_color'       => 'responsive_add_to_cart_button_hover_text_color',
+			);
+
+			foreach ( $tab_color_map as $tab_setting => $add_to_cart_setting ) {
+				$add_to_cart_value = get_theme_mod( $add_to_cart_setting, null );
+				if ( null !== $add_to_cart_value && '' !== $add_to_cart_value && false === get_theme_mod( $tab_setting, false ) ) {
+					set_theme_mod( $tab_setting, $add_to_cart_value );
+				}
+			}
+
+			$responsive_options['single_product_tab_colors_6_4_8_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
 	}
 }

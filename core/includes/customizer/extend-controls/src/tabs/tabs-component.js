@@ -642,6 +642,14 @@ const TabsComponent = props => {
 			}
 		}
 
+		// The Center tab style has no tab background, so hide the tab background control.
+		if ( api('responsive_single_product_tab_style') && 'center' === api('responsive_single_product_tab_style').get() ) {
+			const tabBackgroundCtrl = document.getElementById('customize-control-responsive_single_product_tab_background_color_states');
+			if ( tabBackgroundCtrl ) {
+				tabBackgroundCtrl.style.display = 'none';
+			}
+		}
+
 		// Toggle Button Style - Hide controls based on style
 		if( api('responsive_mobile_menu_toggle_style') ) {
 			const allToggleButtonElementIds = [
@@ -1520,6 +1528,16 @@ const TabsComponent = props => {
 					const floatingBarPlacementCtrl = document.getElementById('customize-control-responsive_single_product_floating_bar_placement');
 					if (floatingBarPlacementCtrl) {
 						floatingBarPlacementCtrl.style.display = ('display' === newval && 'general' === tab) ? 'block' : 'none';
+					}
+				});
+			});
+		}
+		if (api('responsive_single_product_tab_style')) {
+			api('responsive_single_product_tab_style', function(value) {
+				value.bind(function(newval) {
+					const tabBackgroundCtrl = document.getElementById('customize-control-responsive_single_product_tab_background_color_states');
+					if (tabBackgroundCtrl) {
+						tabBackgroundCtrl.style.display = ('center' !== newval && 'design' === tab) ? 'block' : 'none';
 					}
 				});
 			});

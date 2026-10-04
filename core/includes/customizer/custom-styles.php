@@ -14827,8 +14827,6 @@ function responsive_customizer_styles() {
 
 		.woocommerce #respond input#submit,
 		.wp-block-button__link.add_to_cart_button,
-		.woocommerce div.product .woocommerce-tabs ul.tabs li a,
-		.woocommerce div.product .woocommerce-tabs ul.tabs li,
 		.woocommerce button.button.alt,
 		.woocommerce button.button,
 		.woocommerce a.button, .woocommerce a.button.alt {
@@ -14838,8 +14836,6 @@ function responsive_customizer_styles() {
 
 		.woocommerce #respond input#submit:hover,
 		.wp-block-button__link.add_to_cart_button:hover,
-		.woocommerce div.product .woocommerce-tabs ul.tabs li.active a,
-		.woocommerce div.product .woocommerce-tabs ul.tabs li.active,
 		.woocommerce button.button:focus,
 		.woocommerce button.button.alt:focus,
 		.woocommerce button.button:hover,
@@ -14852,34 +14848,93 @@ function responsive_customizer_styles() {
 			color: {$add_to_cart_button_hover_text_color};
 		}
 
-		.woocommerce div.product .woocommerce-tabs ul.tabs li a:hover {
-			color: {$add_to_cart_button_hover_text_color};
-		}
+		";
 
+		// Single product tab colors. These have their own controls and are not tied to the Add to Cart button colors.
+		$single_product_tab_is_center   = 'center' === get_theme_mod( 'responsive_single_product_tab_style', 'normal' );
+		$single_product_tab_text        = esc_html( responsive_prepare_css_value( 'responsive_single_product_tab_text_color' ) );
+		$single_product_tab_text_hover  = esc_html( responsive_prepare_css_value( 'responsive_single_product_tab_text_hover_color' ) );
+		$single_product_tab_text_active = esc_html( responsive_prepare_css_value( 'responsive_single_product_tab_text_active_color' ) );
+		$single_product_tab_bg          = esc_html( responsive_prepare_css_value( 'responsive_single_product_tab_background_color' ) );
+		$single_product_tab_bg_hover    = esc_html( responsive_prepare_css_value( 'responsive_single_product_tab_background_hover_color' ) );
+		$single_product_tab_bg_active   = esc_html( responsive_prepare_css_value( 'responsive_single_product_tab_background_active_color' ) );
+
+		// The Center style has no tab background, so when the text colors were never customised it uses text colors that stay visible on the content background.
+		$single_product_tab_is_set = function ( $key ) {
+			$value = get_theme_mod( $key, false );
+			return false !== $value && '' !== $value;
+		};
+
+		$single_product_tab_text_center        = $single_product_tab_is_set( 'responsive_single_product_tab_text_color' ) ? $single_product_tab_text : 'var(--responsive-global-palette2)';
+		$single_product_tab_text_hover_center  = $single_product_tab_is_set( 'responsive_single_product_tab_text_hover_color' ) ? $single_product_tab_text_hover : "var(--responsive-global-palette0, {$add_to_cart_button_color})";
+		$single_product_tab_text_active_center = $single_product_tab_is_set( 'responsive_single_product_tab_text_active_color' ) ? $single_product_tab_text_active : "var(--responsive-global-palette0, {$add_to_cart_button_color})";
+
+		$woocommerce_custom_css .= "
+		.woocommerce div.product .woocommerce-tabs ul.tabs li a,
+		.woocommerce div.product .woocommerce-tabs ul.tabs li {
+			color: {$single_product_tab_text};
+		}
+		.woocommerce div.product .woocommerce-tabs ul.tabs li a:hover {
+			color: {$single_product_tab_text_hover};
+		}
+		.woocommerce div.product .woocommerce-tabs ul.tabs li.active a,
 		.woocommerce div.product .woocommerce-tabs ul.tabs li.active {
-			border-bottom-color: {$add_to_cart_button_hover_color};
+			color: {$single_product_tab_text_active};
+		}";
+
+		// Tab background (and the borders and corners drawn from it) does not apply to the Center style.
+		if ( ! $single_product_tab_is_center ) {
+			$woocommerce_custom_css .= "
+		.woocommerce div.product .woocommerce-tabs ul.tabs li a,
+		.woocommerce div.product .woocommerce-tabs ul.tabs li {
+			background-color: {$single_product_tab_bg};
+		}";
+
+			if ( '' !== $single_product_tab_bg_hover ) {
+				$woocommerce_custom_css .= "
+		.woocommerce div.product .woocommerce-tabs ul.tabs li:not(.active):hover,
+		.woocommerce div.product .woocommerce-tabs ul.tabs li:not(.active):hover a {
+			background-color: {$single_product_tab_bg_hover};
+		}
+		.woocommerce div.product .woocommerce-tabs ul.tabs li:not(.active):hover::before {
+			box-shadow: 2px 2px 0 {$single_product_tab_bg_hover};
+		}
+		.woocommerce div.product .woocommerce-tabs ul.tabs li:not(.active):hover::after {
+			box-shadow: -2px 2px 0 {$single_product_tab_bg_hover};
+		}";
+			}
+
+			$woocommerce_custom_css .= "
+		.woocommerce div.product .woocommerce-tabs ul.tabs li.active a,
+		.woocommerce div.product .woocommerce-tabs ul.tabs li.active {
+			background-color: {$single_product_tab_bg_active};
+		}
+		.woocommerce div.product .woocommerce-tabs ul.tabs li.active {
+			border-bottom-color: {$single_product_tab_bg_active};
 		}
 		.woocommerce div.product .woocommerce-tabs ul.tabs li.active::before {
-			box-shadow: 2px 2px 0 {$add_to_cart_button_hover_color};
+			box-shadow: 2px 2px 0 {$single_product_tab_bg_active};
 		}
 		.woocommerce div.product .woocommerce-tabs ul.tabs li.active::after {
-			box-shadow: -2px 2px 0 {$add_to_cart_button_hover_color};
+			box-shadow: -2px 2px 0 {$single_product_tab_bg_active};
 		}
 		.woocommerce div.product .woocommerce-tabs ul.tabs::before,
 		.woocommerce div.product .woocommerce-tabs ul.tabs li {
-			border-color: {$add_to_cart_button_color};
+			border-color: {$single_product_tab_bg};
 		}
 		.woocommerce div.product .woocommerce-tabs ul.tabs li::after,
 		.woocommerce div.product .woocommerce-tabs ul.tabs li::before {
-			border-color: {$add_to_cart_button_hover_color};
+			border-color: {$single_product_tab_bg_active};
 		}
 		.woocommerce div.product .woocommerce-tabs ul.tabs li::after {
-			box-shadow: -2px 2px 0 {$add_to_cart_button_color};
+			box-shadow: -2px 2px 0 {$single_product_tab_bg};
 		}
 		.woocommerce div.product .woocommerce-tabs ul.tabs li::before {
-			box-shadow: 2px 2px 0 {$add_to_cart_button_color};
+			box-shadow: 2px 2px 0 {$single_product_tab_bg};
+		}";
 		}
 
+		$woocommerce_custom_css .= "
 		/* Center Product Tab Style */
 		body.product-tab-style-center.woocommerce div.product .woocommerce-tabs ul.tabs {
 			display: flex;
@@ -14908,7 +14963,7 @@ function responsive_customizer_styles() {
 
 		body.product-tab-style-center.woocommerce div.product .woocommerce-tabs ul.tabs li a {
 			background: none;
-			color: inherit;
+			color: {$single_product_tab_text_center};
 			font-weight: 500;
 			padding: 0;
 		}
@@ -14918,12 +14973,12 @@ function responsive_customizer_styles() {
 			margin-bottom: -1px;
 		}
 
-		body.product-tab-style-center.woocommerce div.product .woocommerce-tabs ul.tabs li a:hover,
-		body.product-tab-style-center.woocommerce div.product .woocommerce-tabs ul.tabs li.active a {
-			color: var(--responsive-global-palette0, {$add_to_cart_button_color});
+		body.product-tab-style-center.woocommerce div.product .woocommerce-tabs ul.tabs li a:hover {
+			color: {$single_product_tab_text_hover_center};
 		}
 
 		body.product-tab-style-center.woocommerce div.product .woocommerce-tabs ul.tabs li.active a {
+			color: {$single_product_tab_text_active_center};
 			font-weight: 600;
 		}
 
