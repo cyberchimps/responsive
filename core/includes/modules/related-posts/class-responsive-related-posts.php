@@ -39,6 +39,29 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 		}
 
 		/**
+		 * Resolve a related posts color. Uses the Related Posts override only when it has
+		 * been set; otherwise inherits the Global > Colors & Typography value, so changing
+		 * the global colors also updates related posts.
+		 *
+		 * @param string      $rp_key     Related posts theme mod key.
+		 * @param string      $global_key Global color theme mod key to inherit from.
+		 * @param string|null $global_css Optional CSS value to use instead of resolving $global_key, e.g. a CSS variable.
+		 * @return string CSS color value.
+		 */
+		private function responsive_rp_color_value( $rp_key, $global_key, $global_css = null ) {
+			$override = get_theme_mod( $rp_key, null );
+
+			if ( null === $override || '' === $override ) {
+				if ( null !== $global_css ) {
+					return $global_css;
+				}
+				return responsive_prepare_css_value( $global_key, Responsive\Core\get_responsive_customizer_defaults( $global_key ) );
+			}
+
+			return responsive_prepare_css_value( $rp_key );
+		}
+
+		/**
 		 * Render Related Single Post Category Badge (above title, no icon/prefix)
 		 *
 		 * @package Responsive WordPress theme
@@ -91,12 +114,13 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 					if (is_array($exclude_ids) && !in_array($post_id, $exclude_ids)) {
 ?>
 						<?php
-						$text_color       = get_theme_mod( 'responsive_rp_text_color', responsive_prepare_css_value( 'responsive_body_text_color' ) );
-						$text_hover_color = get_theme_mod( 'responsive_rp_text_hover_color', responsive_prepare_css_value( 'responsive_body_text_color' ) );
-						$link_color       = get_theme_mod( 'responsive_rp_link_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_link_color' ) );
-						$link_hover_color = get_theme_mod( 'responsive_rp_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_link_hover_color' ) );
-						$meta_color       = get_theme_mod( 'responsive_rp_meta_color', responsive_prepare_css_value( 'responsive_meta_text_color' ) );
-						$meta_hover_color = get_theme_mod( 'responsive_rp_meta_hover_color', responsive_prepare_css_value( 'responsive_meta_text_color' ) );
+						$text_color       = $this->responsive_rp_color_value( 'responsive_rp_text_color', 'responsive_body_text_color' );
+						$text_hover_color = $this->responsive_rp_color_value( 'responsive_rp_text_hover_color', 'responsive_body_text_color' );
+						$link_color       = $this->responsive_rp_color_value( 'responsive_rp_link_color', 'responsive_link_color' );
+						$heading_link_color       = $this->responsive_rp_color_value( 'responsive_rp_link_color', 'responsive_global_headings_color' );
+						$link_hover_color = $this->responsive_rp_color_value( 'responsive_rp_link_hover_color', 'responsive_link_hover_color' );
+						$meta_color       = $this->responsive_rp_color_value( 'responsive_rp_meta_color', 'responsive_meta_text_color', 'var(--responsive-global-meta-text-color)' );
+						$meta_hover_color = $this->responsive_rp_color_value( 'responsive_rp_meta_hover_color', 'responsive_meta_text_color', 'var(--responsive-global-meta-text-color)' );
 						echo '<style>
 						.responsive-single-related-posts-container,
 						.responsive-single-related-posts-container p,
@@ -108,11 +132,9 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 						.responsive-single-related-posts-container .entry-content:hover {
 							color: ' . esc_attr( $text_hover_color ) . ';
 						}
-						 .responsive-single-related-posts-container .post-meta span a,
 						 .responsive-related-single-post-title a {
-							color: ' . esc_attr( $link_color ) . ';
+							color: ' . esc_attr( $heading_link_color ) . ';
 						}
-						.responsive-single-related-posts-container .post-meta span a:hover,
 						.responsive-single-related-posts-container .responsive-related-single-post-title a:hover {
 							color: ' . esc_attr( $link_hover_color ) . ';
 						}

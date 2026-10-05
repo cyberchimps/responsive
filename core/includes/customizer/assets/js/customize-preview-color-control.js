@@ -1004,6 +1004,9 @@
 
     api( 'responsive_rp_text_color', ( value ) => {
         value.bind( ( newval ) => {
+            if ( newval && newval.includes( 'palette' ) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
             document.querySelectorAll('.responsive-single-related-posts-container, .responsive-single-related-posts-container p, .responsive-single-related-posts-container .entry-content')
                 .forEach(el => el.style.color = newval);
         });
@@ -1021,6 +1024,9 @@
 
     api('responsive_rp_link_color', (value) => {
         value.bind((newval) => {
+            if ( newval && newval.includes( 'palette' ) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
             document
                 .querySelectorAll('.responsive-related-single-post-title a')
                 .forEach(el => {
@@ -1055,22 +1061,46 @@
         });
     });
 
+    // Related posts meta colors. Rendered through a preview <style> tag rather than inline
+    // styles, so the :hover rule can apply and reset when the cursor leaves.
+    const rpMetaTargets = [
+        '.responsive-single-related-posts-container .post-meta span',
+        '.responsive-single-related-posts-container .post-meta span i',
+        '.responsive-single-related-posts-container .post-meta span a',
+        '.responsive-single-related-posts-container .post-meta span a time',
+        '.responsive-single-related-posts-container .entry-meta',
+        '.single-post .responsive-related-single-post-content .entry-category a'
+    ];
+
+    const rpMetaCssValue = ( value ) => {
+        if ( value && ( value.includes( 'palette' ) || value.includes( 'meta-text-color' ) ) ) {
+            return 'var(--responsive-global-' + value + ')';
+        }
+        return value;
+    };
+
+    const applyRpMetaPreview = () => {
+        const normal = rpMetaCssValue( api( 'responsive_rp_meta_color' )() );
+        const hover  = rpMetaCssValue( api( 'responsive_rp_meta_hover_color' )() );
+
+        let style = document.getElementById( 'responsive-rp-meta-preview' );
+        if ( ! style ) {
+            style = document.createElement( 'style' );
+            style.id = 'responsive-rp-meta-preview';
+            document.body.appendChild( style );
+        }
+        style.textContent =
+            rpMetaTargets.join( ',' ) + ' { color: ' + normal + ' !important; }' +
+            rpMetaTargets.map( ( selector ) => selector + ':hover' ).join( ',' ) + ' { color: ' + hover + ' !important; }';
+    };
+
     api( 'responsive_rp_meta_color', ( value ) => {
-        value.bind( ( newval ) => {
-            document.querySelectorAll('.responsive-single-related-posts-container .post-meta span, .responsive-single-related-posts-container .post-meta span i, .responsive-single-related-posts-container .post-meta span a, .responsive-single-related-posts-container .post-meta span a time, .responsive-single-related-posts-container .entry-meta, .single-post .responsive-related-single-post-content .entry-category a')
-                .forEach(el => el.style.color = newval);
-        });
-    });
+        value.bind( applyRpMetaPreview );
+    } );
 
     api( 'responsive_rp_meta_hover_color', ( value ) => {
-        value.bind( ( newval ) => {
-            document.querySelectorAll('.responsive-single-related-posts-container .post-meta span, .responsive-single-related-posts-container .post-meta span i, .responsive-single-related-posts-container .post-meta span a, .responsive-single-related-posts-container .post-meta span a time, .responsive-single-related-posts-container .entry-meta, .single-post .responsive-related-single-post-content .entry-category a')
-                .forEach(el => {
-                    el.addEventListener('mouseenter', () => el.style.color = newval);
-                    el.addEventListener('mouseleave', () => el.style.color = api( 'responsive_rp_meta_color' )());
-                });
-        });
-    });
+        value.bind( applyRpMetaPreview );
+    } );
 
     
     //Body text Color
@@ -1198,6 +1228,7 @@
             if ( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
+            document.documentElement.style.setProperty('--responsive-global-meta-text-color', newval);
             $('.post-meta *, .hentry .post-meta a').css('color', newval );
         } );
     } );
