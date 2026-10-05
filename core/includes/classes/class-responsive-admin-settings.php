@@ -296,6 +296,12 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 							'locked' => true,
 						),
 						array(
+							'id' => 'sticky-header',
+							'title' => 'Sticky Header',
+							'desc'  => 'Adds advanced sticky header customization options to keep your header visible while scrolling.',
+							'locked' => true,
+						),
+						array(
 							'id' => 'custom-fonts',
 							'title' => 'Custom Fonts',
 							'desc'  => 'Upload custom fonts directly, no additional font plugin required.',
