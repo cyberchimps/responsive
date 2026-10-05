@@ -3316,7 +3316,7 @@ add_filter('woocommerce_breadcrumb_defaults', function ($defaults) {
 add_action( 'customize_register', function( $wp_customize ) {
 	$checkout_section = $wp_customize->get_section( 'woocommerce_checkout' );
     if ( $checkout_section ) {
-        $checkout_section->priority = 3;
+        $checkout_section->priority = 6;
     }
 
     $section = $wp_customize->get_section( 'woocommerce_product_images' );

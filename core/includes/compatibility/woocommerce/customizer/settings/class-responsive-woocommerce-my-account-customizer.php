@@ -35,7 +35,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_My_Account_Customizer' ) ) :
 				array(
 					'title'    => esc_html__( 'My Account Layout', 'responsive' ),
 					'panel'    => 'woocommerce',
-					'priority' => 7,
+					'priority' => 5,
 				)
 			);
 

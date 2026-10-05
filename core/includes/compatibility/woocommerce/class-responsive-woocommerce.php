@@ -187,6 +187,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-pagination-style-customizer.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-store-notice-customizer.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-my-account-customizer.php';
+			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-general-customizer.php';
 		}
 
 		/**

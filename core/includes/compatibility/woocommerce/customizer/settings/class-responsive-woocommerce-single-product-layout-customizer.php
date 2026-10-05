@@ -38,7 +38,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				array(
 					'title'    => esc_html__( 'Single Product', 'responsive' ),
 					'panel'    => 'woocommerce',
-					'priority' => 2,
+					'priority' => 3,
 				)
 			);
 
