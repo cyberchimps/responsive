@@ -20,6 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 
 Responsive\responsive_wrapper_top(); // before wrapper content hook.
+$related_posts_section_placement = get_theme_mod( 'responsive_single_blog_related_posts_section_placement', 'default' );
+
 // Elementor `single` location.
 if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) && ! ( function_exists( 'rea_theme_template_render_at_location' ) && rea_theme_template_render_at_location( 'single' ) ) ) {
 	Responsive\responsive_wrapper();
@@ -27,7 +29,10 @@ if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_d
 	while ( have_posts() ) :
 		the_post();
 		get_template_part( 'partials/single/layout', get_post_type() );
-		comments_template();
+		if ( comments_open() || get_comments_number() ) {
+			comments_template();
+		}
+		
 	endwhile;
 
 	?>
@@ -39,5 +44,8 @@ if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_d
 	Responsive\responsive_wrapper_close();
 }
 	Responsive\responsive_wrapper_end(); // after wrapper hook.
+	if($related_posts_section_placement == 'separated'){
+		Responsive\responsive_single_blog_related_posts_entry();
+	}
 	get_footer();
 ?>

@@ -57,7 +57,11 @@
   border-style: solid;
   border-color: #3b3b3b transparent transparent transparent;
 }
-#customize-control-responsive_single_blog_enable_related_posts {
+#customize-control-responsive_single_blog_enable_related_posts,
+#customize-control-responsive_single_blog_comments {
     padding-top: 24px;
     padding-bottom: 24px;
+}
+#sub-accordion-panel-woocommerce > #accordion-section-responsive_shop_title_layout:not(.open) {
+    height: 0;
 }

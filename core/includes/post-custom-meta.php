@@ -42,6 +42,40 @@ function responsive_get_content_classes() {
 }
 
 /**
+ * Get current sidebar style
+ */
+function responsive_get_sidebar_style() {
+	$global_style = get_theme_mod( 'responsive_sidebar_style', 'boxed' );
+
+	if ( class_exists( 'WooCommerce' ) && is_shop() ) {
+		$style = get_theme_mod( 'responsive_shop_sidebar_style', 'default' );
+		return ( 'default' === $style ) ? $global_style : $style;
+	}
+
+	if ( class_exists( 'WooCommerce' ) && is_product() ) {
+		$style = get_theme_mod( 'responsive_single_product_sidebar_style', 'default' );
+		return ( 'default' === $style ) ? $global_style : $style;
+	}
+
+	if ( is_page() ) {
+		$style = get_theme_mod( 'responsive_page_sidebar_style', 'default' );
+		return ( 'default' === $style ) ? $global_style : $style;
+	}
+
+	if ( is_single() ) {
+		$style = get_theme_mod( 'responsive_single_blog_sidebar_style', 'default' );
+		return ( 'default' === $style ) ? $global_style : $style;
+	}
+
+	if ( is_home() || is_search() || is_archive() ) {
+		$style = get_theme_mod( 'responsive_blog_sidebar_style', 'default' );
+		return ( 'default' === $style ) ? $global_style : $style;
+	}
+
+	return $global_style;
+}
+
+/**
  * Get sidebar classes
  */
 function responsive_get_sidebar_classes() {
@@ -60,6 +94,9 @@ function responsive_get_sidebar_classes() {
 		$sidebar_classes[] = 'col-300';
 		$sidebar_classes[] = 'fit';
 	}
+
+	$sidebar_classes[] = 'responsive-sidebar-style-' . responsive_get_sidebar_style();
+
 	return apply_filters( 'responsive_sidebar_classes', $sidebar_classes );
 }
 

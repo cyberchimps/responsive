@@ -27,6 +27,13 @@ if ( ! class_exists( 'Responsive_Customizer_Select_Button_Control' ) ) :
 		public $type = 'responsive-selectbtn';
 
 		/**
+		 * Optional note text.
+		 *
+		 * @var string
+		 */
+		public $note = '';
+
+		/**
 		 * Enqueue control related scripts/styles.
 		 *
 		 * @access public
@@ -49,6 +56,7 @@ if ( ! class_exists( 'Responsive_Customizer_Select_Button_Control' ) ) :
 			$this->json['id']          = $this->id;
 			$this->json['type']        = $this->type;
 			$this->json['description'] = $this->description;
+			$this->json['note']        = $this->note;
 		}
 
 		/**

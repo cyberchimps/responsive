@@ -26,7 +26,11 @@ if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_d
 	while ( have_posts() ) :
 		the_post();
 		get_template_part( 'partials/page/layout', get_post_type() );
-		comments_template();
+		if ( get_theme_mod( 'responsive_page_show_comments', false ) && ( comments_open() ) ) {
+			Responsive\responsive_comments_before();
+			comments_template( '', true );
+			Responsive\responsive_comments_after();
+		}
 	endwhile;
 
 	get_template_part( 'loop-nav', get_post_type() );

@@ -417,7 +417,7 @@ function responsive_sensei_read_more_text( $text ) {
 function responsive_sensei_custom_excerpt_length( $length ) {
 	global $post;
 	if ( 'course' === $post->post_type ) {
-		$excerpt_length = get_theme_mod( 'responsive_sensei_excerpt_length', 40 );
+		$excerpt_length = get_theme_mod( 'responsive_sensei_excerpt_length', 90 );
 		if ( ! empty( $excerpt_length ) ) {
 			$length = $excerpt_length;
 		}

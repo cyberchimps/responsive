@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+/* Import everything EXCEPT Preflight */
+@import "tailwindcss/theme";
+@import "tailwindcss/utilities";
+
+@theme {
+  /* This maps the "Inter" font to the "font-sans" utility */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Target your specific files */
+@source "./**/*.{js,jsx,ts,tsx}";
+
+#wpcontent {
+  @apply pl-0;
+}
+
+#wpbody-content {
+  @apply pb-0 bg-slate-50;
+}
+
+#responsive-getting-started-page-app {
+  @apply font-sans;
+}
+
+.resp-active-tab {
+  @apply border-b-2 border-b-[#2563EB];
+}
+
+.resp-active-tab p {
+  @apply text-[#111827];
+}
+
+.resp-setting-tab-active {
+  @apply bg-slate-100;
+}
+
+.resp-setting-tab-active svg path {
+  @apply stroke-blue-500;
+}
+
+.resp-setting-tab-active > p {
+  @apply text-blue-500;
+}
+
+.resp-cyberchimps-logo {
+  @apply w-12.5;
+}
+
+.rst-delete-auth #loader,
+.rst-start-auth #loader {
+  display: none;
+  position: absolute;
+  top: 2px;
+  width: 25px;
+  height: 25px;
+  border: solid 5px #000;
+  border-radius: 50%;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  transition: all 0.5s ease-in;
+  animation-name: rotate;
+  animation-duration: 1.0s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.rst-delete-auth #loader {
+  right: 35px;
+}
+.rst-start-auth #loader {
+  right: 50%;
+}
+
+.resp-sync-auth[disabled] svg path {
+  @apply fill-neutral-400;
+}
+
+.resp-sync-auth.resp-is-syncing svg {
+  @apply cursor-not-allowed animate-[spin_2s_linear_infinite];
+}
+
+.resp-sync-auth:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.resp-sync-auth::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s;
+  margin-bottom: 5px;
+}
+.font-semi-bold {
+  font-weight: 600;
+}
+.text-3xl{
+  font-size: 2rem;
+}
+.text-gray1000{
+  color: #4B5563;
+}
+.upgrade-button,
+.connect-button{
+  background-color: #1D4ED8;
+}
+.no-border{
+  border: none;
+}
+.connection-border{
+  border-color: #2563EB;
+}
+.free-badge-bg{
+  background-color: #F1F3F5;
+}
+.pro-badge-bg{
+  background-color: #EFF6FF;
+}
+.margin-right-8{
+  margin-right: 8em;
+}

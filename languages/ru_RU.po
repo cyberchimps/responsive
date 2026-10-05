@@ -1535,7 +1535,7 @@ msgstr "Включить пользовательские фронт-стран�
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:88
 #, fuzzy
 msgid "Overrides the WordPress front page option"
-msgstr "Переопределяет вариант wordPress первой страницы"
+msgstr "Переопределяет вариант WordPress первой страницы"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:93
 msgid "Hero Area"

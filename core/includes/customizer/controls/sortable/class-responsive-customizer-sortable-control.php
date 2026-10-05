@@ -29,6 +29,8 @@ if ( ! class_exists( 'Responsive_Customizer_Sortable_Control' ) ) :
 		 */
 		public $type = 'responsive-sortable';
 
+		public $sub_controls = array();
+
 		/**
 		 * Enqueue control related scripts/styles.
 		 *
@@ -54,6 +56,7 @@ if ( ! class_exists( 'Responsive_Customizer_Sortable_Control' ) ) :
 			$this->json['choices'] = $this->choices;
 			$this->json['link']    = $this->get_link();
 			$this->json['id']      = $this->id;
+			$this->json['sub_controls'] = $this->sub_controls;
 
 			$this->json['inputAttrs'] = '';
 			foreach ( $this->input_attrs as $attr => $value ) {

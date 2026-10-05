@@ -11,19 +11,24 @@
             mobile_menu_breakpoint = 0;
         }
 
+        var desktopUnit = api.has('responsive_' + control + '_radius_desktop_unit') ? (api('responsive_' + control + '_radius_desktop_unit').get() || 'px') : (api.has('responsive_' + control + '_desktop_unit') ? (api('responsive_' + control + '_desktop_unit').get() || 'px') : 'px');
+        var tabletUnit  = api.has('responsive_' + control + '_radius_tablet_unit') ? (api('responsive_' + control + '_radius_tablet_unit').get() || 'px') : (api.has('responsive_' + control + '_tablet_unit') ? (api('responsive_' + control + '_tablet_unit').get() || 'px') : 'px');
+        var mobileUnit  = api.has('responsive_' + control + '_radius_mobile_unit') ? (api('responsive_' + control + '_radius_mobile_unit').get() || 'px') : (api.has('responsive_' + control + '_mobile_unit') ? (api('responsive_' + control + '_mobile_unit').get() || 'px') : 'px');
+
         jQuery('style#responsive-' + control + '-radius').remove();
-        var desktopRadius = 'border-top-left-radius:' + api('responsive_' + control + '_radius_top_left_radius').get() + 'px; ' +
-                            'border-top-right-radius:' + api('responsive_' + control + '_radius_top_right_radius').get() + 'px; ' +
-                            'border-bottom-left-radius:' + api('responsive_' + control + '_radius_bottom_left_radius').get() + 'px; ' +
-                            'border-bottom-right-radius:' + api('responsive_' + control + '_radius_bottom_right_radius').get() + 'px;';
-        var tabletRadius  = 'border-top-left-radius:' + api('responsive_' + control + '_radius_tablet_top_left_radius').get() + 'px; ' +
-                            'border-top-right-radius:' + api('responsive_' + control + '_radius_tablet_top_right_radius').get() + 'px; ' +
-                            'border-bottom-left-radius:' + api('responsive_' + control + '_radius_tablet_bottom_left_radius').get() + 'px; ' +
-                            'border-bottom-right-radius:' + api('responsive_' + control + '_radius_tablet_bottom_right_radius').get() + 'px;';
-        var mobileRadius  = 'border-top-left-radius:' + api('responsive_' + control + '_radius_mobile_top_left_radius').get() + 'px; ' +
-                            'border-top-right-radius:' + api('responsive_' + control + '_radius_mobile_top_right_radius').get() + 'px; ' +
-                            'border-bottom-left-radius:' + api('responsive_' + control + '_radius_mobile_bottom_left_radius').get() + 'px; ' +
-                            'border-bottom-right-radius:' + api('responsive_' + control + '_radius_mobile_bottom_right_radius').get() + 'px;';
+
+        var desktopRadius = 'border-top-left-radius:' + api('responsive_' + control + '_radius_top_left_radius').get() + desktopUnit + ' !important; ' +
+                            'border-top-right-radius:' + api('responsive_' + control + '_radius_top_right_radius').get() + desktopUnit + ' !important; ' +
+                            'border-bottom-left-radius:' + api('responsive_' + control + '_radius_bottom_left_radius').get() + desktopUnit + ' !important; ' +
+                            'border-bottom-right-radius:' + api('responsive_' + control + '_radius_bottom_right_radius').get() + desktopUnit + ' !important;';
+        var tabletRadius  = 'border-top-left-radius:' + api('responsive_' + control + '_radius_tablet_top_left_radius').get() + tabletUnit + ' !important; ' +
+                            'border-top-right-radius:' + api('responsive_' + control + '_radius_tablet_top_right_radius').get() + tabletUnit + ' !important; ' +
+                            'border-bottom-left-radius:' + api('responsive_' + control + '_radius_tablet_bottom_left_radius').get() + tabletUnit + ' !important; ' +
+                            'border-bottom-right-radius:' + api('responsive_' + control + '_radius_tablet_bottom_right_radius').get() + tabletUnit + ' !important;';
+        var mobileRadius  = 'border-top-left-radius:' + api('responsive_' + control + '_radius_mobile_top_left_radius').get() + mobileUnit + ' !important; ' +
+                            'border-top-right-radius:' + api('responsive_' + control + '_radius_mobile_top_right_radius').get() + mobileUnit + ' !important; ' +
+                            'border-bottom-left-radius:' + api('responsive_' + control + '_radius_mobile_bottom_left_radius').get() + mobileUnit + ' !important; ' +
+                            'border-bottom-right-radius:' + api('responsive_' + control + '_radius_mobile_bottom_right_radius').get() + mobileUnit + ' !important;';
 
         jQuery('head').append(
             '<style id="responsive-' + control + '-radius">' +
@@ -33,25 +38,35 @@
             '</style>'
         );
     }
-    function responsive_dynamic_border_width(control, selector) {
+    function responsive_dynamic_border_width(control, selector, borderStyle = '') {
         var mobile_menu_breakpoint = api('responsive_mobile_menu_breakpoint').get();
         if (0 == api('responsive_disable_mobile_menu').get()) {
             mobile_menu_breakpoint = 0;
         }
+
+        var desktopUnit = api.has('responsive_' + control + '_desktop_unit') ? (api('responsive_' + control + '_desktop_unit').get() || 'px') : 'px';
+        var tabletUnit  = api.has('responsive_' + control + '_tablet_unit') ? (api('responsive_' + control + '_tablet_unit').get() || 'px') : 'px';
+        var mobileUnit  = api.has('responsive_' + control + '_mobile_unit') ? (api('responsive_' + control + '_mobile_unit').get() || 'px') : 'px';
+
         jQuery('style#responsive-' + control + '-radius').remove();
         jQuery('style#responsive-' + control).remove();
-        var desktopBorderWidth = 'border-top-width:' + api('responsive_' + control + '_top_border').get() + 'px; ' +
-                                 'border-right-width:' + api('responsive_' + control + '_right_border').get() + 'px; ' +
-                                 'border-bottom-width:' + api('responsive_' + control + '_bottom_border').get() + 'px; ' +
-                                 'border-left-width:' + api('responsive_' + control + '_left_border').get() + 'px;';
-        var tabletBorderWidth = 'border-top-width:' + api('responsive_' + control + '_tablet_top_border').get() + 'px; ' +
-                                'border-right-width:' + api('responsive_' + control + '_tablet_right_border').get() + 'px; ' +
-                                'border-bottom-width:' + api('responsive_' + control + '_tablet_bottom_border').get() + 'px; ' +
-                                'border-left-width:' + api('responsive_' + control + '_tablet_left_border').get() + 'px;';
-        var mobileBorderWidth = 'border-top-width:' + api('responsive_' + control + '_mobile_top_border').get() + 'px; ' +
-                                'border-right-width:' + api('responsive_' + control + '_mobile_right_border').get() + 'px; ' +
-                                'border-bottom-width:' + api('responsive_' + control + '_mobile_bottom_border').get() + 'px; ' +
-                                'border-left-width:' + api('responsive_' + control + '_mobile_left_border').get() + 'px;';
+        var desktopBorderWidth = 'border-top-width:' + api('responsive_' + control + '_top_border').get() + desktopUnit + '; ' +
+                                 'border-right-width:' + api('responsive_' + control + '_right_border').get() + desktopUnit + '; ' +
+                                 'border-bottom-width:' + api('responsive_' + control + '_bottom_border').get() + desktopUnit + '; ' +
+                                 'border-left-width:' + api('responsive_' + control + '_left_border').get() + desktopUnit + ';';
+        
+        if ( '' !== borderStyle ) {
+            desktopBorderWidth += 'border-style: ' + borderStyle + ';';
+        }
+
+        var tabletBorderWidth = 'border-top-width:' + api('responsive_' + control + '_tablet_top_border').get() + tabletUnit + '; ' +
+                                'border-right-width:' + api('responsive_' + control + '_tablet_right_border').get() + tabletUnit + '; ' +
+                                'border-bottom-width:' + api('responsive_' + control + '_tablet_bottom_border').get() + tabletUnit + '; ' +
+                                'border-left-width:' + api('responsive_' + control + '_tablet_left_border').get() + tabletUnit + ';';
+        var mobileBorderWidth = 'border-top-width:' + api('responsive_' + control + '_mobile_top_border').get() + mobileUnit + '; ' +
+                                'border-right-width:' + api('responsive_' + control + '_mobile_right_border').get() + mobileUnit + '; ' +
+                                'border-bottom-width:' + api('responsive_' + control + '_mobile_bottom_border').get() + mobileUnit + '; ' +
+                                'border-left-width:' + api('responsive_' + control + '_mobile_left_border').get() + mobileUnit + ';';
 
         jQuery('head').append(
             '<style id="responsive-' + control +'">' +
@@ -166,27 +181,38 @@
         value.bind( function( newval ) {
             $('.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,.responsive-site-style-content-boxed .custom-home-about-section,.responsive-site-style-content-boxed .custom-home-feature-section,.responsive-site-style-content-boxed .custom-home-team-section,.responsive-site-style-content-boxed .custom-home-testimonial-section,.responsive-site-style-content-boxed .custom-home-contact-section,.responsive-site-style-content-boxed .custom-home-widget-section,.responsive-site-style-content-boxed .custom-home-featured-area,.responsive-site-style-content-boxed .site-content-header,.responsive-site-style-content-boxed .content-area-wrapper,.responsive-site-style-content-boxed .site-content .hentry,.responsive-site-style-content-boxed .navigation,.responsive-site-style-content-boxed .responsive-single-related-posts-container,.responsive-site-style-content-boxed .comments-area,.responsive-site-style-content-boxed .comment-respond,.responsive-site-style-boxed .custom-home-about-section,.responsive-site-style-boxed .custom-home-feature-section,.responsive-site-style-boxed .custom-home-team-section,.responsive-site-style-boxed .custom-home-testimonial-section,.responsive-site-style-boxed .custom-home-contact-section,.responsive-site-style-boxed .custom-home-widget-section,.responsive-site-style-boxed .custom-home-featured-area,.responsive-site-style-boxed .site-content-header,.responsive-site-style-boxed .site-content .hentry,.responsive-site-style-boxed .navigation,.responsive-site-style-boxed .responsive-single-related-posts-container,.responsive-site-style-boxed .comments-area,.responsive-site-style-boxed .comment-respond,.responsive-site-style-boxed .comment-respond,.responsive-site-style-boxed aside#secondary .widget-wrapper,.responsive-site-style-boxed .site-content article.product').css('border-radius', newval+'px' );
             $('.woocommerce.responsive-site-style-content-boxed .related-product-wrapper,.woocommerce-page.responsive-site-style-content-boxed .related-product-wrapper,.woocommerce-page.responsive-site-style-content-boxed .products-wrapper,.woocommerce.responsive-site-style-content-boxed .products-wrapper,.woocommerce-page:not(.responsive-site-style-flat) .woocommerce-pagination,.woocommerce-page.responsive-site-style-boxed ul.products li.product,.woocommerce.responsive-site-style-boxed ul.products li.product,.woocommerce-page.single-product:not(.responsive-site-style-flat) div.product,.woocommerce.single-product:not(.responsive-site-style-flat) div.product').css('border-radius', newval+'px' );
+            
+            // If individual blog border radius is not set, explicitly apply the global value to blog elements.
+            // If it is set, ensure the global inline style doesn't override it.
+            let blogTopLeft = api('responsive_blog_border_radius_top_left_radius') ? api('responsive_blog_border_radius_top_left_radius').get() : '';
+            let blogElements = '.blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry, .blog:not(.custom-home-page-active) .site-content .hentry, .archive .site-content .hentry';
+            if ( blogTopLeft === '' ) {
+                $('#responsive-border-box-blog-override').remove();
+                $('head').append('<style id="responsive-border-box-blog-override">' + blogElements + ' { border-radius: ' + newval + 'px !important; }</style>');
+            } else {
+                $('#responsive-border-box-blog-override').remove();
+            }
         } );
     } );
 
     //Buttons radius
     api( 'responsive_buttons_radius', function( value ) {
         value.bind( function( newval ) {
-            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').css('border-radius', newval+'px' );
+            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button,.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').css('border-radius', newval+'px' );
             $('.woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button').css('border-radius', newval+'px' );
-            $('.edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button').css('border-radius', newval+'px' );
+            $('.edit-post-visual-editor.editor-styles-wrapper .wp-block-button:not(.is-style-outline) > .wp-block-button__link,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button').css('border-radius', newval+'px' );
         } );
     } );
 
     function applyBorderRadius(controlName) {
         api(controlName, function(value) {
             value.bind( function( newval ) {
-                let selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button';
+                let selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button,.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button';
                 if ( responsiveSiteLocalOptions.isElementorVersion ) {
                     selector += ', .elementor-button-wrapper .elementor-button';
                 }
                 selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button';
-                selector += ', .edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button';
+                selector += ', .edit-post-visual-editor.editor-styles-wrapper .wp-block-button:not(.is-style-outline) > .wp-block-button__link,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button';
     
                 responsive_dynamic_radius('buttons', selector);
             } );
@@ -241,7 +267,7 @@
     function applyButtonsBorderWidth(controlName) {
         api( controlName, function( value ) {
             value.bind( function( newval ) {
-                let selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button';
+                let selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button';
                 selector += ', .wp-block-button__link:focus,.wp-block-button__link:hover,.read-more-button .hentry .read-more .more-link:hover,.read-more-button .hentry .read-more .more-link:focus,input[type=button]:hover,input[type=submit]:hover,input[type=button]:focus,input[type=submit]:focus,button:not(.customize-partial-edit-shortcut-button):hover,button:not(.customize-partial-edit-shortcut-button):focus,.button:not(.customize-partial-edit-shortcut-button):hover,.button:not(.customize-partial-edit-shortcut-button):focus,div.wpforms-container-full .wpforms-form input[type=submit]:hover,div.wpforms-container-full .wpforms-form input[type=submit]:focus,div.wpforms-container-full .wpforms-form input[type=submit]:active,div.wpforms-container-full .wpforms-form button[type=submit]:hover,div.wpforms-container-full .wpforms-form button[type=submit]:focus,div.wpforms-container-full .wpforms-form button[type=submit]:active,div.wpforms-container-full .wpforms-form .wpforms-page-button:hover,div.wpforms-container-full .wpforms-form .wpforms-page-button:active,div.wpforms-container-full .wpforms-form .wpforms-page-button:focus';
                 selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button';
                 selector += ', .edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button';
@@ -268,6 +294,39 @@
     applyButtonsBorderWidth('responsive_buttons_border_width_mobile_right_border');
     applyButtonsBorderWidth('responsive_buttons_border_width_mobile_bottom_border');
     applyButtonsBorderWidth('responsive_buttons_border_width_mobile_left_border');
+
+    ['responsive_buttons_radius_desktop_unit', 'responsive_buttons_radius_tablet_unit', 'responsive_buttons_radius_mobile_unit'].forEach(function(settingId) {
+        if (api.has(settingId)) {
+            api(settingId, function(setting) {
+                setting.bind(function() {
+                    let selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button,.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button';
+                    if ( responsiveSiteLocalOptions.isElementorVersion ) {
+                        selector += ', .elementor-button-wrapper .elementor-button';
+                    }
+                    selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button';
+                    selector += ', .edit-post-visual-editor.editor-styles-wrapper .wp-block-button:not(.is-style-outline) > .wp-block-button__link,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button';
+        
+                    responsive_dynamic_radius('buttons', selector);
+                });
+            });
+        }
+    });
+
+    ['responsive_buttons_border_width_desktop_unit', 'responsive_buttons_border_width_tablet_unit', 'responsive_buttons_border_width_mobile_unit'].forEach(function(settingId) {
+        if (api.has(settingId)) {
+            api(settingId, function(setting) {
+                setting.bind(function() {
+                    let selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button';
+                    selector += ', .wp-block-button__link:focus,.wp-block-button__link:hover,.read-more-button .hentry .read-more .more-link:hover,.read-more-button .hentry .read-more .more-link:focus,input[type=button]:hover,input[type=submit]:hover,input[type=button]:focus,input[type=submit]:focus,button:not(.customize-partial-edit-shortcut-button):hover,button:not(.customize-partial-edit-shortcut-button):focus,.button:not(.customize-partial-edit-shortcut-button):hover,.button:not(.customize-partial-edit-shortcut-button):focus,div.wpforms-container-full .wpforms-form input[type=submit]:hover,div.wpforms-container-full .wpforms-form input[type=submit]:focus,div.wpforms-container-full .wpforms-form input[type=submit]:active,div.wpforms-container-full .wpforms-form button[type=submit]:hover,div.wpforms-container-full .wpforms-form button[type=submit]:focus,div.wpforms-container-full .wpforms-form button[type=submit]:active,div.wpforms-container-full .wpforms-form .wpforms-page-button:hover,div.wpforms-container-full .wpforms-form .wpforms-page-button:active,div.wpforms-container-full .wpforms-form .wpforms-page-button:focus';
+                    selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button';
+                    selector += ', .edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button';
+                    selector += ', .edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link:focus,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button:focus,.edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link:hover,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button:hover';
+                    selector += ', .elementor-widget-rael-button .rael-button, .wp-block-search__button';
+                    responsive_dynamic_border_width("buttons_border_width", selector);
+                });
+            });
+        }
+    });
 
     function applyInputsRadius(controlName) {
         api(controlName, function(value) {
@@ -304,6 +363,57 @@
             $('div.wpforms-container-full .wpforms-form .wpforms-field input.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field input.user-invalid,div.wpforms-container-full .wpforms-form .wpforms-field textarea.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field textarea.user-invalid,div.wpforms-container-full .wpforms-form .wpforms-field select.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field select.user-invalid').css('border-width', newval+'px' );
         } );
     } );
+
+    // Comments Border Width.
+    function applyCommentsBorderWidth(controlName) {
+        api(controlName, function(value) {
+            value.bind( function( newval ) {
+                let selector = 'body .site .comments-area';
+                responsive_dynamic_border_width('comments_border_width', selector, 'solid');
+            } );
+        });
+    }
+    
+    applyCommentsBorderWidth('responsive_comments_border_width_top_border');
+    applyCommentsBorderWidth('responsive_comments_border_width_right_border');
+    applyCommentsBorderWidth('responsive_comments_border_width_bottom_border');
+    applyCommentsBorderWidth('responsive_comments_border_width_left_border');
+
+    applyCommentsBorderWidth('responsive_comments_border_width_tablet_top_border');
+    applyCommentsBorderWidth('responsive_comments_border_width_tablet_right_border');
+    applyCommentsBorderWidth('responsive_comments_border_width_tablet_bottom_border');
+    applyCommentsBorderWidth('responsive_comments_border_width_tablet_left_border');
+
+    applyCommentsBorderWidth('responsive_comments_border_width_mobile_top_border');
+    applyCommentsBorderWidth('responsive_comments_border_width_mobile_right_border');
+    applyCommentsBorderWidth('responsive_comments_border_width_mobile_bottom_border');
+    applyCommentsBorderWidth('responsive_comments_border_width_mobile_left_border');
+
+    // Comments Border Radius.
+    function applyCommentsBorderRadius(controlName) {
+        api(controlName, function(value) {
+            value.bind( function( newval ) {
+                let selector = 'body .site .comments-area';
+                responsive_dynamic_radius('comments_border', selector);
+            } );
+        });
+    }
+
+    applyCommentsBorderRadius('responsive_comments_border_radius_top_left_radius');
+    applyCommentsBorderRadius('responsive_comments_border_radius_bottom_left_radius');
+    applyCommentsBorderRadius('responsive_comments_border_radius_bottom_right_radius');
+    applyCommentsBorderRadius('responsive_comments_border_radius_top_right_radius');
+
+    applyCommentsBorderRadius('responsive_comments_border_radius_tablet_top_left_radius');
+    applyCommentsBorderRadius('responsive_comments_border_radius_tablet_top_right_radius');
+    applyCommentsBorderRadius('responsive_comments_border_radius_tablet_bottom_right_radius');
+    applyCommentsBorderRadius('responsive_comments_border_radius_tablet_bottom_left_radius');
+
+    applyCommentsBorderRadius('responsive_comments_border_radius_mobile_top_left_radius');
+    applyCommentsBorderRadius('responsive_comments_border_radius_mobile_top_right_radius');
+    applyCommentsBorderRadius('responsive_comments_border_radius_mobile_bottom_right_radius');
+    applyCommentsBorderRadius('responsive_comments_border_radius_mobile_bottom_left_radius');
+
 
     //Footer Border width
     // api( 'responsive_footer_border_size', function( value ) {
@@ -715,6 +825,185 @@
         'responsive_shop_product_mobile_bottom_left_radius'
     ].forEach(function(id){
         api(id, function(value){ value.bind(shopPageCardRadius); });
+    });
+
+    // Header cart widget styling
+     api(
+		'responsive_cart_icon_size',
+		function ( value ) {
+			value.bind(
+				function ( newval ) {
+					if ( newval ) {
+							$( '.responsive-shopping-cart-svg svg' ).css( 'height', newval + 'px' );
+							$( '.responsive-shopping-cart-svg svg' ).css( 'width', newval + 'px' );
+							$( '.responsive-shopping-cart-svg' ).css( 'height', newval + 'px' );
+							$( '.responsive-shopping-cart-svg' ).css( 'width', newval + 'px' );
+					}
+				}
+			);
+		}
+	);
+    api(
+		'responsive_cart_border_width',
+		function (setting) {
+			setting.bind(
+				function (width) {
+					jQuery( 'style#responsive-cart-border-width' ).remove();
+					jQuery( 'head' ).append(
+						'<style id="responsive-cart-border-width">'
+						+ '.res-addon-cart-wrap, .res-addon-cart-wrap:hover { border-width: ' + width + 'px !important; }'
+						+ '</style>'
+					);
+				}
+			);
+		}
+	);
+    // Mobile header cart widget styling
+    api(
+		'responsive_mobile_cart_border_width',
+		function (setting) {
+			setting.bind(
+				function (width) {
+					jQuery( 'style#responsive-mobile-cart-border-width' ).remove();
+					jQuery( 'head' ).append(
+						'<style id="responsive-mobile-cart-border-width">'
+						+ '.res-addon-mobile-cart-wrap, .res-addon-mobile-cart-wrap:hover { border-width: ' + width + 'px !important; }'
+						+ '</style>'
+					);
+				}
+			);
+		}
+	);
+       	api(
+		'responsive_mobile_cart_icon_size',
+		function ( value ) {
+			value.bind(
+				function ( newval ) {
+					if ( newval ) {
+							$( '.responsive-shopping-cart-svg svg' ).css( 'height', newval + 'px' );
+							$( '.responsive-shopping-cart-svg svg' ).css( 'width', newval + 'px' );
+							$( '.responsive-shopping-cart-svg' ).css( 'height', newval + 'px' );
+							$( '.responsive-shopping-cart-svg' ).css( 'width', newval + 'px' );
+					}
+				}
+			);
+		}
+	);
+    	
+    function applyCartRadius(controlName, radiusControl, selector) {
+    api(controlName, function(value) {
+        value.bind( function( newval ) {
+            responsive_dynamic_radius(radiusControl, selector);
+        } );
+    });
+}
+
+    // Desktop cart
+    var cartRadiusSelector = '.res-addon-cart-wrap';
+
+    applyCartRadius( 'responsive_cart_radius_top_left_radius', 'cart', cartRadiusSelector );
+    applyCartRadius( 'responsive_cart_radius_top_right_radius', 'cart', cartRadiusSelector );
+    applyCartRadius( 'responsive_cart_radius_bottom_left_radius', 'cart', cartRadiusSelector );
+    applyCartRadius( 'responsive_cart_radius_bottom_right_radius', 'cart', cartRadiusSelector );
+
+    applyCartRadius( 'responsive_cart_radius_tablet_top_left_radius', 'cart', cartRadiusSelector );
+    applyCartRadius( 'responsive_cart_radius_tablet_top_right_radius', 'cart', cartRadiusSelector );
+    applyCartRadius( 'responsive_cart_radius_tablet_bottom_left_radius', 'cart', cartRadiusSelector );
+    applyCartRadius( 'responsive_cart_radius_tablet_bottom_right_radius', 'cart', cartRadiusSelector );
+
+    applyCartRadius( 'responsive_cart_radius_mobile_top_left_radius', 'cart', cartRadiusSelector );
+    applyCartRadius( 'responsive_cart_radius_mobile_top_right_radius', 'cart', cartRadiusSelector );
+    applyCartRadius( 'responsive_cart_radius_mobile_bottom_left_radius', 'cart', cartRadiusSelector );
+    applyCartRadius( 'responsive_cart_radius_mobile_bottom_right_radius', 'cart', cartRadiusSelector );
+
+    // Mobile header cart
+    var mobileCartRadiusSelector = '.res-addon-mobile-cart-wrap';
+
+    applyCartRadius( 'responsive_mobile_cart_radius_top_left_radius', 'mobile_cart', mobileCartRadiusSelector );
+    applyCartRadius( 'responsive_mobile_cart_radius_top_right_radius', 'mobile_cart', mobileCartRadiusSelector );
+    applyCartRadius( 'responsive_mobile_cart_radius_bottom_left_radius', 'mobile_cart', mobileCartRadiusSelector );
+    applyCartRadius( 'responsive_mobile_cart_radius_bottom_right_radius', 'mobile_cart', mobileCartRadiusSelector );
+
+    applyCartRadius( 'responsive_mobile_cart_radius_tablet_top_left_radius', 'mobile_cart', mobileCartRadiusSelector );
+    applyCartRadius( 'responsive_mobile_cart_radius_tablet_top_right_radius', 'mobile_cart', mobileCartRadiusSelector );
+    applyCartRadius( 'responsive_mobile_cart_radius_tablet_bottom_left_radius', 'mobile_cart', mobileCartRadiusSelector );
+    applyCartRadius( 'responsive_mobile_cart_radius_tablet_bottom_right_radius', 'mobile_cart', mobileCartRadiusSelector );
+
+    applyCartRadius( 'responsive_mobile_cart_radius_mobile_top_left_radius', 'mobile_cart', mobileCartRadiusSelector );
+    applyCartRadius( 'responsive_mobile_cart_radius_mobile_top_right_radius', 'mobile_cart', mobileCartRadiusSelector );
+    applyCartRadius( 'responsive_mobile_cart_radius_mobile_bottom_left_radius', 'mobile_cart', mobileCartRadiusSelector );
+    applyCartRadius( 'responsive_mobile_cart_radius_mobile_bottom_right_radius', 'mobile_cart', mobileCartRadiusSelector );
+    // Related Posts Buttons Border Width.
+    function applyRpBorderWidth(controlName) {
+        api(controlName, function(value) {
+            value.bind( function( newval ) {
+                let selector = '.responsive-single-related-posts-container';
+                responsive_dynamic_border_width('rp_border_width', selector, 'solid');
+            } );
+        });
+    }
+    applyRpBorderWidth('responsive_rp_border_width_top_border');
+    applyRpBorderWidth('responsive_rp_border_width_right_border');
+    applyRpBorderWidth('responsive_rp_border_width_bottom_border');
+    applyRpBorderWidth('responsive_rp_border_width_left_border');
+
+    applyRpBorderWidth('responsive_rp_border_width_tablet_top_border');
+    applyRpBorderWidth('responsive_rp_border_width_tablet_right_border');
+    applyRpBorderWidth('responsive_rp_border_width_tablet_bottom_border');
+    applyRpBorderWidth('responsive_rp_border_width_tablet_left_border');
+
+    applyRpBorderWidth('responsive_rp_border_width_mobile_top_border');
+    applyRpBorderWidth('responsive_rp_border_width_mobile_right_border');
+    applyRpBorderWidth('responsive_rp_border_width_mobile_bottom_border');
+    applyRpBorderWidth('responsive_rp_border_width_mobile_left_border');
+
+    // Also refresh on unit changes.
+    ['responsive_rp_border_width_desktop_unit', 'responsive_rp_border_width_tablet_unit', 'responsive_rp_border_width_mobile_unit'].forEach(function(settingId) {
+        if (api.has(settingId)) {
+            api(settingId, function(setting) {
+                setting.bind(function() {
+                    let selector = '.responsive-single-related-posts-container';
+                    responsive_dynamic_border_width('rp_border_width', selector, 'solid');
+                });
+            });
+        }
+    });
+
+    // Related Posts Buttons Radius.
+    function applyRpRadius(controlName) {
+        api(controlName, function(value) {
+            value.bind( function( newval ) {
+                let selector = '.responsive-single-related-posts-container';
+                responsive_dynamic_radius('rp', selector);
+            } );
+        });
+    }
+
+    applyRpRadius('responsive_rp_radius_top_left_radius');
+    applyRpRadius('responsive_rp_radius_top_right_radius');
+    applyRpRadius('responsive_rp_radius_bottom_left_radius');
+    applyRpRadius('responsive_rp_radius_bottom_right_radius');
+
+    applyRpRadius('responsive_rp_radius_tablet_top_left_radius');
+    applyRpRadius('responsive_rp_radius_tablet_top_right_radius');
+    applyRpRadius('responsive_rp_radius_tablet_bottom_left_radius');
+    applyRpRadius('responsive_rp_radius_tablet_bottom_right_radius');
+
+    applyRpRadius('responsive_rp_radius_mobile_top_left_radius');
+    applyRpRadius('responsive_rp_radius_mobile_top_right_radius');
+    applyRpRadius('responsive_rp_radius_mobile_bottom_left_radius');
+    applyRpRadius('responsive_rp_radius_mobile_bottom_right_radius');
+
+    // Also refresh on unit changes.
+    ['responsive_rp_radius_desktop_unit', 'responsive_rp_radius_tablet_unit', 'responsive_rp_radius_mobile_unit'].forEach(function(settingId) {
+        if (api.has(settingId)) {
+            api(settingId, function(setting) {
+                setting.bind(function() {
+                    let selector = '.responsive-single-related-posts-container';
+                    responsive_dynamic_radius('rp', selector);
+                });
+            });
+        }
     });
 
 } )( jQuery );

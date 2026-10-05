@@ -139,8 +139,8 @@ function responsive_sanitize_number_blank( $val ) {
  * @since 1.2.1
  */
 function responsive_sanitize_select( $input, $setting ) {
-	// Ensure input is a slug.
-	$input = sanitize_key( $input );
+	// Ensure input is sanitized.
+	$input = sanitize_text_field( $input );
 
 	// Get list of choices from the control associated with the setting.
 	$choices = $setting->manager->get_control( $setting->id )->choices;
@@ -181,6 +181,8 @@ if ( ! function_exists( 'responsive_check_product_price_custom_string' ) ) {
 
 	}
 }
+
+
 /**
  * Check if responsive_check_layout_type function is present.
  */
@@ -340,8 +342,8 @@ function responsive_sanitize_row_layout_select( $input ) {
  * @since 6.2.6
  */
 function responsive_sanitize_select_with_switchers( $input, $setting ) {
-	// Ensure input is a valid slug.
-	$input = sanitize_key( $input );
+	// Ensure input is sanitized.
+	$input = sanitize_text_field( $input );
 
 	// Get the control ID (desktop/tablet/mobile share the same base control).
 	$base_control_id = str_replace( array( '_tablet', '_mobile' ), '', $setting->id );

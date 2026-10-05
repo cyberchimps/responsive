@@ -49,9 +49,13 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			$general_tab_ids_prefix = 'customize-control-';
 			$general_tab_ids        = array(
 				$general_tab_ids_prefix . 'responsive_transparent_header',
+				$general_tab_ids_prefix . 'responsive_transparent_header_enable_on',
 				$general_tab_ids_prefix . 'responsive_transparent_header_logo_option',
 				$general_tab_ids_prefix . 'responsive_enable_transparent_header_bottom_border',
 				$general_tab_ids_prefix . 'responsive_transparent_header_logo',
+				$general_tab_ids_prefix . 'responsive_transparent_header_logo_width',
+				$general_tab_ids_prefix . 'responsive_transparent_header_retina_logo_option',
+				$general_tab_ids_prefix . 'responsive_transparent_header_retina_logo',
 				$general_tab_ids_prefix . 'responsive_transparent_bottom_border',
 				$general_tab_ids_prefix . 'responsive_disable_archive_transparent_header',
 				$general_tab_ids_prefix . 'responsive_disable_blog_page_transparent_header',
@@ -66,6 +70,9 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			$design_tab_ids        = array(
 				$design_tab_ids_prefix . 'responsive_site_content_padding',
 				$design_tab_ids_prefix . 'responsive_tranparent_header_color_separator',
+				$design_tab_ids_prefix . 'responsive_transparent_header_above_header_bg_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_primary_header_bg_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_below_header_bg_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_border_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_site_title_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_site_title_hover_color',
@@ -87,6 +94,7 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_transparent_header_sub_menu_link_hover_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_menu_toggle_background_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_menu_toggle_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_menu_toggle_border_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_widget_color_separator',
 				$design_tab_ids_prefix . 'responsive_transparent_header_widget_text_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_widget_background_color',
@@ -94,6 +102,20 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_transparent_header_widget_border_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_widget_link_color',
 				$design_tab_ids_prefix . 'responsive_transparent_header_widget_link_hover_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_button_color_separator',
+				$design_tab_ids_prefix . 'responsive_transparent_header_button_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_button_bg_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_button_border_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_social_color_separator',
+				$design_tab_ids_prefix . 'responsive_transparent_header_social_item_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_social_item_bg_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_search_color_separator',
+				$design_tab_ids_prefix . 'responsive_transparent_header_search_icon_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_search_bg_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_html_color_separator',
+				$design_tab_ids_prefix . 'responsive_transparent_header_html_link_color',
+				$design_tab_ids_prefix . 'responsive_transparent_header_woo_cart_color_separator',
+				$design_tab_ids_prefix . 'responsive_transparent_header_cart_count_color',
 			);
 
 			responsive_tabs_button_control( $wp_customize, 'header_transparent_tabs', $tabs_label, 'responsive_header_transparent', 1, '', 'responsive_header_transparent_general_tab', 'responsive_header_transparent_design_tab', $general_tab_ids, $design_tab_ids, null );
@@ -102,13 +124,18 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			$transparent_header_label = __( 'Enable on Complete Website', 'responsive' );
 			responsive_toggle_control( $wp_customize, 'transparent_header', $transparent_header_label, 'responsive_header_transparent', 20, 0, null );
 
+			// Enable On Device.
+			$transparent_header_enable_on_label   = __( 'Enable On', 'responsive' );
+			$transparent_header_enable_on_choices = array(
+				'all'     => __( 'Desktop + Mobile', 'responsive' ),
+				'desktop' => __( 'Desktop', 'responsive' ),
+				'mobile'  => __( 'Mobile', 'responsive' ),
+			);
+			responsive_select_button_control( $wp_customize, 'transparent_header_enable_on', $transparent_header_enable_on_label, 'responsive_header_transparent', 21, $transparent_header_enable_on_choices, 'all', 'responsive_is_transparent_header_enabled' );
+
 			// Different Logo For Transparent Header.
 			$transparent_header_logo_option_label = __( 'Different Logo For Transparent Header ', 'responsive' );
 			responsive_toggle_control( $wp_customize, 'transparent_header_logo_option', $transparent_header_logo_option_label, 'responsive_header_transparent', 25, 0, 'responsive_is_transparent_header_enabled' );
-
-			// Enable Header Bottom Border.
-			$enable_transparent_header_bottom_border_label = __( 'Enable Transparent Header Bottom Border', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'enable_transparent_header_bottom_border', $enable_transparent_header_bottom_border_label, 'responsive_header_transparent', 26, 0, 'responsive_is_transparent_header_enabled' );
 
 			$wp_customize->add_setting(
 				'responsive_transparent_header_logo',
@@ -128,11 +155,67 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 						'flex_width'      => true,
 						'height'          => 100, // pixels.
 						'width'           => 300, // pixels.
-						'priority'        => 28,
+						'priority'        => 26,
 						'active_callback' => 'responsive_different_logo_transparent_header',
 					)
 				)
 			);
+
+			// Transparent Header Logo Width Controller.
+			$transparent_header_logo_width_label = __( 'Logo Width (px)', 'responsive' );
+			responsive_drag_number_control_with_switchers(
+				$wp_customize,
+				'transparent_header_logo_width',
+				$transparent_header_logo_width_label,
+				'responsive_header_transparent',
+				27,
+				0,
+				'responsive_different_logo_transparent_header',
+				1200,
+				20,
+				'postMessage',
+				1
+			);
+
+			// Different Logo For Retina Devices.
+			$transparent_header_retina_logo_option_label = __( 'Different Logo for retina devices?', 'responsive' );
+			responsive_toggle_control(
+				$wp_customize,
+				'transparent_header_retina_logo_option',
+				$transparent_header_retina_logo_option_label,
+				'responsive_header_transparent',
+				28,
+				0,
+				function() {
+					return (bool) ( get_theme_mod( 'responsive_transparent_header_logo_option', 0 ) && responsive_is_transparent_header() );
+				}
+			);
+
+			$wp_customize->add_setting(
+				'responsive_transparent_header_retina_logo',
+				array(
+					'sanitize_callback' => 'esc_url_raw',
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Image_Control(
+					$wp_customize,
+					'responsive_transparent_header_retina_logo',
+					array(
+						'label'           => esc_html__( 'Retina Logo For Transparent Header', 'responsive' ),
+						'section'         => 'responsive_header_transparent',
+						'priority'        => 29,
+						'active_callback' => function() {
+							return (bool) ( get_theme_mod( 'responsive_transparent_header_logo_option', 0 ) && get_theme_mod( 'responsive_transparent_header_retina_logo_option', 0 ) && responsive_is_transparent_header() );
+						},
+					)
+				)
+			);
+
+			// Enable Header Bottom Border.
+			$enable_transparent_header_bottom_border_label = __( 'Enable Transparent Header Bottom Border', 'responsive' );
+			responsive_toggle_control( $wp_customize, 'enable_transparent_header_bottom_border', $enable_transparent_header_bottom_border_label, 'responsive_header_transparent', 30, 0, 'responsive_is_transparent_header_enabled' );
 
 			// Transparent Header Height.
 			// $transparent_header_height_label = __( 'Transparent Header Height', 'responsive' );
@@ -168,6 +251,15 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			 */
 			$tranparent_header_color_separator_label = esc_html__( 'Transparent Header Colors', 'responsive' );
 			responsive_separator_control( $wp_customize, 'tranparent_header_color_separator', $tranparent_header_color_separator_label, 'responsive_header_transparent', 100, null );
+
+			$transparent_header_above_header_bg_color_label = __( 'Above Header Background', 'responsive' );
+			responsive_color_control_with_device_switchers( $wp_customize, 'transparent_header_above_header_bg', $transparent_header_above_header_bg_color_label, 'responsive_header_transparent', 105, '', null, '', 'postMessage', true );
+
+			$transparent_header_primary_header_bg_color_label = __( 'Primary Header Background', 'responsive' );
+			responsive_color_control_with_device_switchers( $wp_customize, 'transparent_header_primary_header_bg', $transparent_header_primary_header_bg_color_label, 'responsive_header_transparent', 110, '', null, '', 'postMessage', true );
+
+			$transparent_header_below_header_bg_color_label = __( 'Below Header Background', 'responsive' );
+			responsive_color_control_with_device_switchers( $wp_customize, 'transparent_header_below_header_bg', $transparent_header_below_header_bg_color_label, 'responsive_header_transparent', 115, '', null, '', 'postMessage', true );
 
 			$transparent_header_border_color_label = __( 'Border Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'transparent_header_border', $transparent_header_border_color_label, 'responsive_header_transparent', 120, Responsive\Core\get_responsive_customizer_defaults( 'header_border' ), null );
@@ -250,6 +342,10 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			$menu_toggle_color_label = __( 'Menu Toggle Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'transparent_header_menu_toggle', $menu_toggle_color_label, 'responsive_header_transparent', 260, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_toggle' ), null );
 
+			// Menu Toggle Border Color.
+			$menu_toggle_border_color_label = __( 'Menu Toggle Border Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'transparent_header_menu_toggle_border', $menu_toggle_border_color_label, 'responsive_header_transparent', 265, '', null );
+
 			/**
 			 * Header Widget Separator.
 			 */
@@ -276,6 +372,72 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			// Link Hover Color.
 			$menu_link_hover_color_label = __( 'Links Hover Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'transparent_header_widget_link_hover', $menu_link_hover_color_label, 'responsive_header_transparent', 320, Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link_hover' ), null );
+
+			/**
+			 * Header Button Separator.
+			 */
+			$transparent_header_button_separator_label = esc_html__( 'Button Color', 'responsive' );
+			responsive_separator_control( $wp_customize, 'transparent_header_button_color_separator', $transparent_header_button_separator_label, 'responsive_header_transparent', 330, null );
+
+			// Text Color.
+			$button_text_color_label = __( 'Text', 'responsive' );
+			responsive_color_control( $wp_customize, 'transparent_header_button', $button_text_color_label, 'responsive_header_transparent', 340, '', null, '', true, '', 'transparent_header_button_hover' );
+
+			// Background Color.
+			$button_background_color_label = __( 'Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'transparent_header_button_bg', $button_background_color_label, 'responsive_header_transparent', 350, '', null, '', true, '', 'transparent_header_button_bg_hover' );
+
+			// Border Color.
+			$button_border_color_label = __( 'Border Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'transparent_header_button_border', $button_border_color_label, 'responsive_header_transparent', 360, '', null, '', true, '', 'transparent_header_button_border_hover' );
+
+			/**
+			 * Header Social Separator.
+			 */
+			$transparent_header_social_separator_label = esc_html__( 'Social Color', 'responsive' );
+			responsive_separator_control( $wp_customize, 'transparent_header_social_color_separator', $transparent_header_social_separator_label, 'responsive_header_transparent', 370, null );
+
+			// Icon Color.
+			$social_icon_color_label = __( 'Icon Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'transparent_header_social_item', $social_icon_color_label, 'responsive_header_transparent', 380, '', null, '', true, '', 'transparent_header_social_item_hover' );
+
+			// Background Color.
+			$social_background_color_label = __( 'Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'transparent_header_social_item_bg', $social_background_color_label, 'responsive_header_transparent', 390, '', null, '', true, '', 'transparent_header_social_item_bg_hover' );
+
+			/**
+			 * Header Search Separator.
+			 */
+			$transparent_header_search_separator_label = esc_html__( 'Search Color', 'responsive' );
+			responsive_separator_control( $wp_customize, 'transparent_header_search_color_separator', $transparent_header_search_separator_label, 'responsive_header_transparent', 395, null );
+
+			// Search Color.
+			$search_color_label = __( 'Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'transparent_header_search_icon', $search_color_label, 'responsive_header_transparent', 400, '', null, '', true, '', 'transparent_header_search_icon_hover' );
+
+			// Search Background Color.
+			$search_bg_color_label = __( 'Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'transparent_header_search_bg', $search_bg_color_label, 'responsive_header_transparent', 405, '', null, '', true, '', 'transparent_header_search_bg_hover' );
+
+			/**
+			 * Header HTML Separator.
+			 */
+			$transparent_header_html_separator_label = esc_html__( 'HTML Color', 'responsive' );
+			responsive_separator_control( $wp_customize, 'transparent_header_html_color_separator', $transparent_header_html_separator_label, 'responsive_header_transparent', 410, null );
+
+			// HTML Link Color.
+			$html_link_color_label = __( 'Link Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'transparent_header_html_link', $html_link_color_label, 'responsive_header_transparent', 415, '', null, '', true, '', 'transparent_header_html_link_hover' );
+
+			/**
+			 * Header WooCommerce Cart Separator.
+			 */
+			$transparent_header_woo_cart_separator_label = esc_html__( 'WooCommerce Cart Color', 'responsive' );
+			responsive_separator_control( $wp_customize, 'transparent_header_woo_cart_color_separator', $transparent_header_woo_cart_separator_label, 'responsive_header_transparent', 420, null );
+
+			// WooCommerce Cart Count Color.
+			$cart_count_color_label = __( 'Count Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'transparent_header_cart_count', $cart_count_color_label, 'responsive_header_transparent', 425, '', null, '', true, '', 'transparent_header_cart_count_hover' );
 
 		}
 	}

@@ -114,6 +114,10 @@ const ColorComponent = props => {
 		// Get the default value from the control's default setting
 		const defaultValue = props.control.params.default;
 		updateValues(defaultValue);
+
+		if (props.control.id === 'responsive_add_to_cart_button_text_color' && wp.customize?.previewer?.refresh) {
+			wp.customize.previewer.refresh();
+		}
 	};
 
 	let labelHtml = null;

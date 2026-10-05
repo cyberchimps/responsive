@@ -37,6 +37,7 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 				'responsive_header_layout',
 				array(
 					'title'    => esc_html__( 'Primary Header', 'responsive' ),
+					'description' => '<div class="responsive-section-description"><p><b>' . __( 'Helpful Information', 'responsive' ) . '</b></p><p><a href="https://cyberchimps.com/docs/responsive-theme/responsive-theme-walkthrough/create-a-header-using-responsive-themes-header-builder/" target="_blank">' . __( 'Header Overview »', 'responsive' ) . '</a></p></div>',
 					'panel'    => 'responsive_header',
 					'priority' => 10,
 
@@ -115,8 +116,8 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 			// responsive_select_button_control( $wp_customize, 'mobile_header_alignment', $mobile_header_alignment_label, 'responsive_header_layout', 35, $header_alignment_choices, get_theme_mod( 'responsive_header_alignment', 'center' ), 'responsive_active_mobile_vertical_header', 'postMessage' );
 
 			// Logo Padding.
-			$logo_padding_label = esc_html__( 'Logo Padding (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'header', 'responsive_header_layout', 40, Responsive\Core\get_responsive_customizer_defaults( 'logo_padding' ), 0, null, $logo_padding_label );
+			// $logo_padding_label = esc_html__( 'Logo Padding (px)', 'responsive' );
+			// responsive_padding_control( $wp_customize, 'header', 'responsive_header_layout', 40, Responsive\Core\get_responsive_customizer_defaults( 'logo_padding' ), 0, null, $logo_padding_label );
 
 			// Bottom Border.
 			// $bottom_border_label = __( 'Bottom Border Size', 'responsive' );

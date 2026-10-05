@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '6.3.5' );
+define( 'RESPONSIVE_THEME_VERSION', '6.4.7' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -43,6 +43,9 @@ require $responsive_template_directory . '/core/includes/customizer/customizer.p
 require $responsive_template_directory . '/core/includes/customizer/custom-styles.php';
 require $responsive_template_directory . '/core/includes/classes/class-responsive-local-fonts.php';
 require $responsive_template_directory . '/core/includes/compatibility/woocommerce/class-responsive-woocommerce.php';
+require $responsive_template_directory . '/core/includes/compatibility/woocommerce/class-responsive-woocommerce-native-cart-popup.php';
+require $responsive_template_directory . '/core/includes/compatibility/woocommerce/woocommerce-cart-popup-tags.php';
+require $responsive_template_directory . '/core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-typography-customizer.php';
 require $responsive_template_directory . '/core/includes/compatibility/sensei/class-responsive-sensei.php';
 require $responsive_template_directory . '/admin/admin-functions.php';
 require $responsive_template_directory . '/core/includes/classes/class-responsive-mobile-menu-markup.php';
@@ -122,7 +125,7 @@ function responsive_setup_content_width() {
 	 * Content Width
 	 */
 	if ( ( 'contained' === get_theme_mod( 'responsive_width', 'contained' ) ) ) {
-		$container_max_width = esc_html( get_theme_mod( 'responsive_container_width', 1140 ) );
+		$container_max_width = esc_html( get_theme_mod( 'responsive_container_width', Responsive\Core\get_responsive_customizer_defaults( 'responsive_container_width' ) ) );
 
 		// Helper to resolve sidebar position with "global" fallback
 		$get_sidebar_position = function( $context, $fallback = 'no' ) {
@@ -136,7 +139,7 @@ function responsive_setup_content_width() {
 			$sidebar_position = $get_sidebar_position( 'page', 'no' );
 
 			if ( 'no' !== $sidebar_position ) {
-				$page_content_width = esc_html( get_theme_mod( 'responsive_page_content_width', 66 ) );
+				$page_content_width = esc_html( get_theme_mod( 'responsive_page_content_width', 100 ) );
 				$content_width      = ( $page_content_width / 100 ) * $container_max_width;
 			} else {
 				$content_width = $container_max_width;
@@ -652,6 +655,32 @@ endif;
 add_action( 'pre_get_posts', 'responsive_exclude_post_cat', 10 );
 
 /**
+ * Set custom posts per page for blog and archive pages.
+ */
+if ( ! function_exists( 'responsive_blog_posts_per_page' ) ) :
+	/**
+	 * Set custom posts per page for blog and archive pages.
+	 *
+	 * @param object $query Query.
+	 */
+	function responsive_blog_posts_per_page( $query ) {
+		$per_page = get_theme_mod( 'responsive_blog_post_per_page', 10 );
+
+		if ( ! is_admin() && $query->is_main_query() ) {
+			// Do not override WooCommerce product queries.
+			if ( ( function_exists( 'is_shop' ) && is_shop() ) || ( function_exists( 'is_product_taxonomy' ) && is_product_taxonomy() ) || $query->is_post_type_archive( 'product' ) ) {
+				return;
+			}
+
+			if ( $query->is_home() || $query->is_archive() ) {
+				$query->set( 'posts_per_page', absint( $per_page ) );
+			}
+		}
+	}
+endif;
+add_action( 'pre_get_posts', 'responsive_blog_posts_per_page', 10 );
+
+/**
  * Enqueue customizer styling
  */
 function responsive_controls_style() {
@@ -799,7 +828,7 @@ if ( ! get_option( 'responsive_version_410' ) ) {
 			}
 
 			! get_theme_mod( 'responsive_header_alignment' ) && get_theme_mod( 'header_layout_options' ) ? set_theme_mod( 'responsive_header_alignment', str_replace( 'header-logo-', '', get_theme_mod( 'header_layout_options' ) ) ) : '';
-			! get_theme_mod( 'responsive_container_width' ) ? set_theme_mod( 'responsive_container_width', get_theme_mod( 'responsive_main_container_width', 1140 ) ) : '';
+			! get_theme_mod( 'responsive_container_width' ) ? set_theme_mod( 'responsive_container_width', get_theme_mod( 'responsive_main_container_width', 1340 ) ) : '';
 
 			$responsive_options_blog = array( 'full-width-page', 'blog-2-col', 'blog-3-col', 'blog-4-col' );
 
@@ -835,7 +864,7 @@ if ( ! get_option( 'responsive_version_410' ) ) {
 
 
 			if ( get_theme_mod( 'responsive_display_thumbnail_without_padding' ) ) {
-				! get_theme_mod( 'responsive_blog_entry_featured_image_style' ) ? set_theme_mod( 'responsive_blog_entry_featured_image_style', 'stretched' ) : '';
+				! get_theme_mod( 'responsive_blog_entry_featured_image_style' ) ? set_theme_mod( 'responsive_blog_entry_featured_image_style', 'default' ) : '';
 			}
 
 			if ( 'sidebar-content-page' === $responsive_options['single_post_layout_default'] ) {
@@ -1231,6 +1260,46 @@ function prevent_menu_icon_redirection() {
 }
 
 add_action( 'wp_footer', 'responsive_pro_fixed_menu_onscroll' );
+
+/**
+ * Transparent Header Device Scope
+ *
+ * Outputs a synchronous inline script at wp_body_open (priority 1), right after
+ * the opening <body> tag. document.body is available immediately here, so the
+ * res-transparent-header class is removed before any header HTML is rendered —
+ */
+function responsive_transparent_header_device_scope() {
+	if ( ! Responsive\Core\responsive_is_transparent_header() ) {
+		return;
+	}
+	$enable_on = get_theme_mod( 'responsive_transparent_header_enable_on', 'all' );
+	if ( 'all' === $enable_on ) {
+		return; // Default: nothing to do, class stays on all devices.
+	}
+	$breakpoint = intval( get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
+	?>
+	<script>
+	(function() {
+		var enableOn   = <?php echo wp_json_encode( $enable_on ); ?>;
+		var breakpoint = <?php echo $breakpoint; ?>;
+		function applyTransparentHeader() {
+			var w    = window.innerWidth;
+			var body = document.body;
+			if ( enableOn === 'desktop' && w <= breakpoint ) {
+				body.classList.remove( 'res-transparent-header' );
+			} else if ( enableOn === 'mobile' && w > breakpoint ) {
+				body.classList.remove( 'res-transparent-header' );
+			} else {
+				body.classList.add( 'res-transparent-header' );
+			}
+		}
+		applyTransparentHeader();
+		window.addEventListener( 'resize', applyTransparentHeader );
+	})();
+	</script>
+	<?php
+}
+add_action( 'wp_body_open', 'responsive_transparent_header_device_scope', 1 );
 
 if ( ! function_exists( 'responsive_pro_fixed_menu_onscroll' ) ) {
 	/**
@@ -2077,6 +2146,16 @@ if( ! function_exists( 'responsive_theme_background_updater_mobile_tablet_items_
 												// HTML stays in same position
 												$mobile_element = 'header_html';
 												break;
+
+											case 'header_html2':
+												// HTML 2 stays in same position
+												$mobile_element = 'header_html2';
+												break;
+
+											case 'header_widgets2':
+												// Widgets 2 stay in same position
+												$mobile_element = 'header_widgets2';
+												break;
 												
 											case 'header_button':
 												// Button stays in same position
@@ -2660,10 +2739,10 @@ if ( ! function_exists( 'responsive_theme_background_updater_global_palette_reva
 					'style' => $old_palette_scheme,
 					'palette' => array (
 						'label'              => '',
-						'accent'             => get_theme_mod( 'responsive_global_color_palette_accent_color', '#0066CC' ),
+						'accent'             => get_theme_mod( 'responsive_global_color_palette_accent_color', '#3B82F6' ),
 						'link_hover'		 => get_theme_mod( 'responsive_global_color_palette_link_hover_color', '#10659C' ),
-						'text'               => get_theme_mod( 'responsive_global_color_palette_text_color', '#333333' ),
-						'header_text'        => get_theme_mod( 'responsive_global_color_palette_headings_color', '#333333' ),
+						'text'               => get_theme_mod( 'responsive_global_color_palette_text_color', '#404040' ),
+						'header_text'        => get_theme_mod( 'responsive_global_color_palette_headings_color', '#404040' ),
 						'content_background' => get_theme_mod( 'responsive_global_color_palette_content_bg_color', '#ffffff' ),
 						'site_background'    => get_theme_mod( 'responsive_global_color_palette_site_background_color', '#f0f5fa' ),
 						'alt_background'     => get_theme_mod( 'responsive_global_color_palette_alt_background_color', '#eaeaea' ),
@@ -3005,6 +3084,460 @@ if( !function_exists( 'responsive_theme_background_updater_footer_links_restyle'
 
 			// Mark backward compatibility update as done
 			$responsive_options['footer_links_restyle_6_3_4_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+
+if( !function_exists( 'responsive_theme_background_updater_blog_container_margin_legacy' ) ) {
+	/**
+	 * Handle backward compatibility for blog container margin which was added in 6.4.1
+	 * @since 6.4.1
+	 * @return void
+	 */
+	function responsive_theme_background_updater_blog_container_margin_legacy() {
+		$responsive_options = get_option( 'responsive_theme_options' );
+		if ( ! isset( $responsive_options['blog_container_margin_6_4_1_backward_done'] ) || ! $responsive_options['blog_container_margin_6_4_1_backward_done'] ) {
+			
+			$single_mods = array(
+				'responsive_blog_content_width' => 66,
+				'responsive_container_width' => 1140,
+				'responsive_blog_entry_columns' => 2,
+				'responsive_page_content_width' => 66,
+				'responsive_single_blog_content_width' => 66,
+				'responsive_header_primary_row_bottom_border_color' => '#0066CC',
+				'responsive_footer_below_row_border_color' => '#0066CC',
+				'responsive_global_color_palette_accent_color' => '#0066CC',
+				'responsive_global_color_palette_site_background_color' => '#F0F5FA',
+				'responsive_global_color_palette_alt_background_color' => '#EAEAEA',
+				'responsive_blog_entry_featured_image_style' => 'default'
+			);
+
+			foreach( $single_mods as $mod_name => $value ) {
+				if ( false === get_theme_mod( $mod_name, false ) ) {
+					set_theme_mod( $mod_name, $value );
+				}
+			}
+
+			$padding_types = array(
+				'responsive_outside_container',
+				'responsive_blog_outside_container',
+				'responsive_sidebar_outside_container'
+			);
+			$devices = array( '', '_tablet', '_mobile' );
+			$sides = array(
+				'top' => 0,
+				'right' => 15,
+				'bottom' => 0,
+				'left' => 15
+			);
+			foreach( $padding_types as $padding_type ) {
+				foreach( $devices as $device ) {
+					foreach( $sides as $side => $value ) {
+						$mod_name = $padding_type . $device . '_' . $side . '_padding';
+						if ( false === get_theme_mod( $mod_name, false ) ) {
+							set_theme_mod( $mod_name, $value );
+						}
+					}
+				}
+			}
+
+			$responsive_options['blog_container_margin_6_4_1_backward_legacy'] = true;
+			$responsive_options['blog_container_margin_6_4_1_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+}
+}
+
+add_filter( 'body_class', function( $classes ) {
+	$responsive_options = get_option( 'responsive_theme_options' );
+	if ( isset( $responsive_options['blog_container_margin_6_4_1_backward_legacy'] ) && $responsive_options['blog_container_margin_6_4_1_backward_legacy'] ) {
+		$classes[] = 'responsive-blog-container-margin-legacy';
+	}
+	return $classes;
+} );
+
+
+add_action( 'wp', 'responsive_header_button_border_none_legacy_migrate', 5 );
+add_action( 'admin_init', 'responsive_header_button_border_none_legacy_migrate', 5 );
+add_action( 'customize_save_responsive_header_button_border_style', 'responsive_header_button_border_none_clear_legacy_on_save' );
+
+/**
+ * Remove Category: prefix from category archive titles
+ */
+add_filter( 'get_the_archive_title', function( $title ) {
+	if ( is_category() ) {
+		$title = single_cat_title( '', false );
+	}
+	return $title;
+} );
+
+if ( ! function_exists( 'responsive_is_seo_plugin_active' ) ) {
+	/**
+	 * Check if a dedicated SEO plugin is active that already outputs a meta description.
+	 *
+	 * @return bool
+	 */
+	function responsive_is_seo_plugin_active() {
+		// Yoast SEO, Rank Math, All in One SEO, SEOPress, The SEO Framework.
+		return defined( 'WPSEO_VERSION' )
+			|| class_exists( 'RankMath' )
+			|| defined( 'AIOSEO_VERSION' )
+			|| defined( 'SEOPRESS_VERSION' )
+			|| class_exists( 'The_SEO_Framework\Load' );
+	}
+}
+
+if ( ! function_exists( 'responsive_get_meta_description' ) ) {
+	/**
+	 * Build a fallback meta description string for the current request.
+	 *
+	 * @return string
+	 */
+	function responsive_get_meta_description() {
+		$description = '';
+
+		if ( is_home() ) {
+			if ( 'page' === get_option( 'show_on_front' ) && is_front_page() ) {
+				// Home set as a static front page
+				global $post;
+				if ( $post instanceof WP_Post && has_excerpt( $post ) ) {
+					$description = $post->post_excerpt;
+				} else {
+					$description = get_bloginfo( 'description' );
+				}
+			} else {
+				// Default posts page as home
+				$description = get_bloginfo( 'description' );
+			}
+		}
+
+		if ( empty( $description ) ) {
+			$description = get_bloginfo( 'description' );
+		}
+
+		$description = wp_strip_all_tags( strip_shortcodes( $description ) );
+		$description = trim( preg_replace( '/\s+/', ' ', $description ) );
+
+		return wp_trim_words( $description, 30, '...' );
+	}
+}
+
+if ( ! function_exists( 'responsive_output_meta_description' ) ) {
+	/**
+	 * Output a meta description tag in wp_head when no SEO plugin is handling it.
+	 */
+	function responsive_output_meta_description() {
+		if ( is_admin() || responsive_is_seo_plugin_active() ) {
+			return;
+		}
+
+		if ( is_404() || ( is_search() && empty( get_search_query() ) ) ) {
+			return;
+		}
+
+		$description = responsive_get_meta_description();
+		$default_desc = "Responsive is a flexible WordPress theme that helps you create fast, mobile-friendly, and professional websites.";
+
+		if ( empty( $description ) ) {
+			echo '<meta name="description" content="' . esc_attr( $default_desc ) . '" />' . "\n";
+		}
+		else{
+			echo '<meta name="description" content="' . esc_attr( $description ) . '" />' . "\n";
+		}
+	}
+}
+
+add_action( 'wp_head', 'responsive_output_meta_description', 1 );
+
+/**
+ * Append edit link to the reply link so they appear together at the bottom.
+ */
+add_filter( 'comment_reply_link', 'responsive_custom_comment_reply_link', 10, 4 );
+function responsive_custom_comment_reply_link( $link, $args, $comment, $post ) {
+	if ( current_user_can( 'edit_comment', $comment->comment_ID ) ) {
+		$edit_url = get_edit_comment_link( $comment );
+		$edit_link = '<span class="edit-link"><a class="comment-edit-link" href="' . esc_url( $edit_url ) . '">' . __( 'Edit', 'responsive' ) . '</a></span>';
+		
+		$pos = strrpos( $link, '</div>' );
+		if ( $pos !== false ) {
+			$link = substr_replace( $link, $edit_link . '</div>', $pos, 6 );
+		} else {
+			$link .= $edit_link;
+		}
+	}
+	return $link;
+}
+
+/* Added for backward compatibility for Title Font removal from Page->Design( as Title font is already there in new Page Title area ) */
+if ( ! function_exists( 'responsive_theme_background_updater_page_title_typography_6_4_3' ) ) {
+	/**
+	 * Handle backward compatibility for the removed Page > Design "Title Font" control.
+	 *
+	 * Migrates old page_title_typography theme mod values to the new
+	 * page_title_area_title_typography control now living under
+	 * Page Title Area > Design, since the old control has been removed.
+	 *
+	 * @since 6.4.3
+	 * @return void
+	 */
+	function responsive_theme_background_updater_page_title_typography_6_4_3() {
+		$responsive_options = Responsive\Core\responsive_get_options();
+
+		if ( ! isset( $responsive_options['page_title_typography_backward_done'] ) ) {
+
+			// Typography group (desktop/tablet/mobile).
+			$theme_mod_mapping = array(
+				'page_title_typography'                       => 'page_title_area_title_typography',
+				'page_title_tablet_typography'                => 'page_title_area_title_tablet_typography',
+				'page_title_mobile_typography'                => 'page_title_area_title_mobile_typography',
+				'page_title_typography_font_size_value'        => 'page_title_area_title_typography_font_size_value',
+				'page_title_tablet_typography_font_size_value' => 'page_title_area_title_tablet_typography_font_size_value',
+				'page_title_mobile_typography_font_size_value' => 'page_title_area_title_mobile_typography_font_size_value',
+				'page_title_typography_font_size_unit'         => 'page_title_area_title_typography_font_size_unit',
+				'page_title_tablet_typography_font_size_unit'  => 'page_title_area_title_tablet_typography_font_size_unit',
+				'page_title_mobile_typography_font_size_unit'  => 'page_title_area_title_mobile_typography_font_size_unit',
+			);
+
+			foreach ( $theme_mod_mapping as $old_mod => $new_mod ) {
+				$old_value = get_theme_mod( $old_mod, false );
+				$new_value = get_theme_mod( $new_mod, false );
+
+				if ( false !== $old_value && false === $new_value ) {
+					set_theme_mod( $new_mod, $old_value );
+				}
+			}
+
+			// Color lived on a separate dedicated control, not inside the typography array.
+			$old_typography = get_theme_mod( 'page_title_typography', false );
+			if ( is_array( $old_typography ) && ! empty( $old_typography['color'] ) ) {
+				$new_color = get_theme_mod( 'responsive_page_title_area_title_color', false );
+				if ( false === $new_color ) {
+					set_theme_mod( 'responsive_page_title_area_title_color', $old_typography['color'] );
+				}
+			}
+
+			$responsive_options['page_title_typography_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+
+if ( ! function_exists( 'responsive_theme_background_updater_site_content_padding_6_4_3' ) ) {
+	/**
+	 * Handle backward compatibility for site content padding migration.
+	 * 
+	 * Adds +28px to the global layout outside container and blog/archive outside container
+	 * top and bottom padding settings to maintain site layout after removing static padding
+	 * from .site-content.
+	 * 
+	 * @since 6.4.3
+	 * @return void
+	 */
+	function responsive_theme_background_updater_site_content_padding_6_4_3() {
+		$responsive_options = get_option( 'responsive_theme_options' );
+
+		if ( ! isset( $responsive_options['site_content_padding_6_4_3_backward_done'] ) || ! $responsive_options['site_content_padding_6_4_3_backward_done'] ) {
+
+			// Global Outside Container Padding (Top & Bottom).
+			$global_outside_container_mods = array(
+				'responsive_outside_container_top_padding',
+				'responsive_outside_container_bottom_padding',
+				'responsive_outside_container_tablet_top_padding',
+				'responsive_outside_container_tablet_bottom_padding',
+				'responsive_outside_container_mobile_top_padding',
+				'responsive_outside_container_mobile_bottom_padding',
+			);
+
+			foreach ( $global_outside_container_mods as $mod ) {
+				$current_val = get_theme_mod( $mod, 28 );
+				set_theme_mod( $mod, intval( $current_val ) + 28 );
+			}
+
+			// Blog / Archive Outside Container Padding (Top & Bottom).
+			$blog_outside_container_mods = array(
+				'responsive_blog_outside_container_top_padding',
+				'responsive_blog_outside_container_bottom_padding',
+				'responsive_blog_outside_container_tablet_top_padding',
+				'responsive_blog_outside_container_tablet_bottom_padding',
+				'responsive_blog_outside_container_mobile_top_padding',
+				'responsive_blog_outside_container_mobile_bottom_padding',
+			);
+
+			foreach ( $blog_outside_container_mods as $mod ) {
+				$current_val = get_theme_mod( $mod, false );
+				if ( false !== $current_val && '' !== $current_val ) {
+					set_theme_mod( $mod, intval( $current_val ) + 28 );
+				}
+			}
+
+			// Single Post Outside Container Padding (Top & Bottom).
+			$single_blog_outside_container_mods = array(
+				'responsive_single_blog_outside_container_top_padding',
+				'responsive_single_blog_outside_container_bottom_padding',
+				'responsive_single_blog_outside_container_tablet_top_padding',
+				'responsive_single_blog_outside_container_tablet_bottom_padding',
+				'responsive_single_blog_outside_container_mobile_top_padding',
+				'responsive_single_blog_outside_container_mobile_bottom_padding',
+			);
+
+			foreach ( $single_blog_outside_container_mods as $mod ) {
+				$current_val = get_theme_mod( $mod, false );
+				if ( false !== $current_val && '' !== $current_val ) {
+					set_theme_mod( $mod, intval( $current_val ) + 28 );
+				}
+			}
+
+			// Mark backward compatibility update as done.
+			$responsive_options['site_content_padding_6_4_3_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+
+if ( ! function_exists( 'responsive_theme_background_updater_secondary_menu_padding_6_4_4' ) ) {
+	/**
+	 * Handle backward compatibility for secondary menu padding.
+	 *
+	 * If the user previously saved custom padding values, adds 10px to top/bottom
+	 * and 18px to left/right. If untouched, settings automatically fall back to the new defaults.
+	 *
+	 * @since 6.4.4
+	 * @return void
+	 */
+	function responsive_theme_background_updater_secondary_menu_padding_6_4_4() {
+		$responsive_options = Responsive\Core\responsive_get_options();
+
+		if ( ! isset( $responsive_options['secondary_menu_padding_6_4_4_backward_done'] ) ) {
+
+			$padding_mods = array(
+				'responsive_secondary-menu-padding_top_padding'           => 10,
+				'responsive_secondary-menu-padding_bottom_padding'        => 10,
+				'responsive_secondary-menu-padding_left_padding'          => 18,
+				'responsive_secondary-menu-padding_right_padding'         => 18,
+				'responsive_secondary-menu-padding_tablet_top_padding'    => 10,
+				'responsive_secondary-menu-padding_tablet_bottom_padding' => 10,
+				'responsive_secondary-menu-padding_tablet_left_padding'   => 18,
+				'responsive_secondary-menu-padding_tablet_right_padding'  => 18,
+				'responsive_secondary-menu-padding_mobile_top_padding'    => 10,
+				'responsive_secondary-menu-padding_mobile_bottom_padding' => 10,
+				'responsive_secondary-menu-padding_mobile_left_padding'   => 18,
+				'responsive_secondary-menu-padding_mobile_right_padding'  => 18,
+			);
+
+			foreach ( $padding_mods as $mod_name => $increment_val ) {
+				$val = get_theme_mod( $mod_name, false );
+				if ( false !== $val && '' !== $val ) {
+					set_theme_mod( $mod_name, intval( $val ) + $increment_val );
+				}
+			}
+
+			$responsive_options['secondary_menu_padding_6_4_4_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+
+if ( ! function_exists( 'responsive_theme_background_updater_title_area_breadcrumb_6_4_6' ) ) {
+	/**
+	 * Handle backward compatibility for breadcrumbs moving from the Site Content
+	 * Header into the Title Area elements-positioning controls.
+	 *
+	 * Breadcrumbs used to render inside the site-content-header, gated only by the
+	 * "Enable Breadcrumbs" toggle and its per-page-type toggles. They now render as
+	 * an item inside the Title Area's sortable elements-positioning theme mods, and
+	 * are only shown there if 'breadcrumb' is present in the saved array. Since that
+	 * array never included 'breadcrumb' by default, users upgrading with the old
+	 * toggles turned on ended up with breadcrumbs silently disappearing. This
+	 * one-time migration re-adds 'breadcrumb' to the front of each affected array
+	 * when the corresponding legacy toggle(s) were enabled.
+	 *
+	 * @since 6.4.6
+	 * @return void
+	 */
+	function responsive_theme_background_updater_title_area_breadcrumb_6_4_6() {
+		$responsive_options = get_option( 'responsive_theme_options' );
+
+		if ( ! isset( $responsive_options['title_area_breadcrumb_6_4_6_backward_done'] ) ) {
+
+			$global_breadcrumb = isset( $responsive_options['breadcrumb'] ) ? $responsive_options['breadcrumb'] : 0;
+
+			if ( ! empty( $global_breadcrumb ) ) {
+
+				// mod name => [ default array, whether breadcrumbs were enabled for it ].
+				$mods = array(
+					'responsive_blog_single_elements_positioning' => array(
+						'default' => Responsive\Core\get_responsive_customizer_defaults( 'blog_single_elements_positioning' ),
+						'enabled' => responsive_breadcrumb_toggle_enabled( 'responsive_breadcrumb_enable_single_post' ),
+					),
+					'responsive_page_single_elements_positioning' => array(
+						'default' => Responsive\Core\get_responsive_customizer_defaults( 'page_single_elements_positioning' ),
+						'enabled' => responsive_breadcrumb_toggle_enabled( 'responsive_breadcrumb_enable_single_page' ),
+					),
+					'responsive_blog_title_elements_positioning' => array(
+						'default' => array( 'title', 'description' ),
+						'enabled' => responsive_breadcrumb_toggle_enabled( 'responsive_breadcrumb_enable_blog_posts_page' )
+							|| responsive_breadcrumb_toggle_enabled( 'responsive_breadcrumb_enable_archive' ),
+					),
+				);
+
+				foreach ( $mods as $mod_name => $mod_data ) {
+					if ( ! $mod_data['enabled'] ) {
+						continue;
+					}
+
+					$sections = get_theme_mod( $mod_name, $mod_data['default'] );
+
+					if ( $sections && ! is_array( $sections ) ) {
+						$sections = explode( ',', $sections );
+					}
+
+					if ( ! is_array( $sections ) ) {
+						$sections = $mod_data['default'];
+					}
+
+					if ( ! in_array( 'breadcrumb', $sections, true ) ) {
+						array_unshift( $sections, 'breadcrumb' );
+						set_theme_mod( $mod_name, $sections );
+					}
+				}
+			}
+
+			$responsive_options['title_area_breadcrumb_6_4_6_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+
+if ( ! function_exists( 'responsive_theme_background_updater_woocommerce_styling_6_4_7' ) ) {
+	/**
+	 * Handle backward compatibility for WooCommerce shop title styling.
+	 *
+	 * Sets banner color settings to empty string for existing users so that
+	 * legacy or external styles are preserved.
+	 *
+	 * @since 6.4.7
+	 * @return void
+	 */
+	function responsive_theme_background_updater_woocommerce_styling_6_4_7() {
+		$responsive_options = get_option( 'responsive_theme_options' );
+
+		if ( empty( $responsive_options['woocommerce_styling_6_4_7_backward_done'] ) ) {
+
+			if ( false === get_theme_mod( 'responsive_shop_title_color', false ) ) {
+				set_theme_mod( 'responsive_shop_title_color', '' );
+			}
+			if ( false === get_theme_mod( 'responsive_shop_text_color', false ) ) {
+				set_theme_mod( 'responsive_shop_text_color', '' );
+			}
+			if ( false === get_theme_mod( 'responsive_shop_title_link_color', false ) ) {
+				set_theme_mod( 'responsive_shop_title_link_color', '' );
+			}
+			if ( false === get_theme_mod( 'responsive_shop_title_link_hover_color', false ) ) {
+				set_theme_mod( 'responsive_shop_title_link_hover_color', '' );
+			}
+
+			$responsive_options['woocommerce_styling_6_4_7_backward_done'] = true;
 			update_option( 'responsive_theme_options', $responsive_options );
 		}
 	}

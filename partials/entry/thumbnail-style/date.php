@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( 'post' == get_post_type() ) { ?>
 
 	<div class="blog-entry-date clr">
-		<?php echo get_the_date(); ?>
+		<?php echo get_the_date( 'M j, Y' ); ?>
 	</div>
 
 <?php } ?>

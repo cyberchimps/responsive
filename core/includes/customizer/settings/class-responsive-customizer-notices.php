@@ -60,7 +60,6 @@ class Responsive_Customizer_Notices extends Responsive_Register_Customizer_Contr
 	 */
 	public function add_controls() {
 		$this->register_types();
-		$this->add_docs_link_section();
 		/* WP-6805 This part is removed as it was calling a function to add install notice for
 		RSPT int the theme customizer no longer required */
 		// $this->maybe_add_main_notice();
@@ -73,40 +72,9 @@ class Responsive_Customizer_Notices extends Responsive_Register_Customizer_Contr
 	 * Register customizer controls type.
 	 */
 	private function register_types() {
-		$this->register_type( 'Responsive_Section_Docs', 'section' );
 		$this->register_type( 'Responsive_Generic_Notice_Section', 'section' );
 		$this->register_type( 'Responsive_Main_Notice_Section', 'section' );
 		$this->register_type( 'Responsive_Upsell_Section', 'section' );
-	}
-
-	/**
-	 * Add docs link section.
-	 */
-	private function add_docs_link_section() {
-		$this->add_section(
-			new Responsive_Customizer_Section(
-				'responsive_docs_section',
-				array(
-					'theme_info_title' => esc_html__( 'Responsive', 'responsive' ),
-					'label_url'        => 'https://cyberchimps.com/docs/',
-					'label_text'       => esc_html__( 'Documentation', 'responsive' ),
-					'priority'         => 259,
-				),
-				'Responsive_Section_Docs'
-			)
-		);
-		$this->add_control(
-			new Responsive_Customizer_Control(
-				'responsive_control_to_enable_docs_section',
-				array(
-					'sanitize_callback' => 'sanitize_text_field',
-				),
-				array(
-					'section' => 'responsive_docs_section',
-					'type'    => 'hidden',
-				)
-			)
-		);
 	}
 
 	/**

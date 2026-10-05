@@ -130,36 +130,48 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			);
 
 			// Site Width.
-			$responsive_width_label  = __( 'Width', 'responsive' );
+			$responsive_width_label  = __( 'Container Layout', 'responsive' );
 			$responsive_width_choice = array(
-				'contained'  => esc_html__( 'Contained', 'responsive' ),
+				'contained'  => esc_html__( 'Normal', 'responsive' ),
+ 				'narrow'  => esc_html__( 'Narrow', 'responsive' ),
 				'full-width' => esc_html__( 'Full Width', 'responsive' ),
 			);
-			responsive_imageradio_button_control( $wp_customize, 'width', $responsive_width_label, 'responsive_layout', 10, $responsive_width_choice, 'contained', null, 'svg', 'postMessage' );
+			responsive_imageradio_button_control( $wp_customize, 'width', $responsive_width_label, 'responsive_layout', 10, $responsive_width_choice, 'contained', null, 'svg', 'refresh' );
 
+			responsive_horizontal_separator_control( $wp_customize, 'width_separator', 1, 'responsive_layout', 20,  1 );
 				// responsive_select_control( $wp_customize, 'width', $responsive_width_label, 'responsive_layout', 10, $responsive_width_choice, 'contained', null, 'postMessage' );
 
 			// Container Width.
-			$container_width_label = __( 'Container Width (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'container_width', $container_width_label, 'responsive_layout', 20, 1140, 'responsive_active_site_layout_contained', 1500, 768, 'postMessage' );
+			$container_width_label = __( 'Wide Container Width (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'container_width', $container_width_label, 'responsive_layout', 8, 1340, null, 1500, 768, 'refresh' );
+			if ( $wp_customize->get_control( 'responsive_container_width' ) ) {
+				$wp_customize->get_control( 'responsive_container_width' )->description = __( 'Note: This setting applies to Desktop devices only.', 'responsive' );
+			}
+
+			// Narrow Container Width.
+			$narrow_container_width_label = __( 'Narrow Container Width (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'narrow_container_width', $narrow_container_width_label, 'responsive_layout', 9, 750, null, 1000, 400, 'refresh' );
+			if ( $wp_customize->get_control( 'responsive_narrow_container_width' ) ) {
+				$wp_customize->get_control( 'responsive_narrow_container_width' )->description = __( 'Note: This setting applies to Desktop devices when Narrow Layout is selected.', 'responsive' );
+			}
 			// Header Allignment.
-			$responsive_style_label  = __( 'Style', 'responsive' );
+			$responsive_style_label  = __( 'Container Style', 'responsive' );
 			$responsive_style_choice = array(
 				'boxed'         => esc_html__( 'Boxed', 'responsive' ),
 				'content-boxed' => esc_html__( 'Content Boxed', 'responsive' ),
 				'flat'          => esc_html__( 'Flat', 'responsive' ),
 			);
-			responsive_select_button_control( $wp_customize, 'style', $responsive_style_label, 'responsive_layout', 30, $responsive_style_choice, Responsive\Core\get_responsive_customizer_defaults( 'responsive_style' ), null, 'postMessage' );
+			responsive_select_button_control( $wp_customize, 'style', $responsive_style_label, 'responsive_layout', 30, $responsive_style_choice, Responsive\Core\get_responsive_customizer_defaults( 'responsive_style' ), null, 'refresh' );
 
 			// responsive_select_control( $wp_customize, 'style', $responsive_style_label, 'responsive_layout', 30, $responsive_style_choice, Responsive\Core\get_responsive_customizer_defaults( 'responsive_style' ), null, 'postMessage' );
 
 			// Box Padding (px).
 			$box_padding_label = __( 'Inside Container (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'box', 'responsive_layout', 80, Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ), Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ), 'responsive_not_active_site_style_flat', $box_padding_label );
+			responsive_unit_padding_control( $wp_customize, 'box', 'responsive_layout', 80, Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ), Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ), 'responsive_not_active_site_style_flat', $box_padding_label );
 
 			// Box Radius.
 			$box_radius_label = __( 'Box Radius (px)', 'responsive' );
-			responsive_radius_control( $wp_customize, 'box', 'responsive_layout', 50, 8, 8, 'responsive_not_active_site_style_flat', $box_radius_label );
+			responsive_radius_control( $wp_customize, 'box', 'responsive_layout', 50, 4, 4, 'responsive_not_active_site_style_flat', $box_radius_label, 'refresh' );
 
 			// responsive_number_control( $wp_customize, 'box_radius', $box_radius_label, 'responsive_layout', 50, 0, 'responsive_not_active_site_style_flat' );
 
@@ -184,6 +196,27 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			// Site Tagline Visibility control
 			$site_tagline_visibility_label = __( 'Site Tagline Visibility', 'responsive' );
 			responsive_multi_select_button_control($wp_customize, 'site_tagline_visibility', $site_tagline_visibility_label, 'responsive_header_site_logo_title', 16, $site_tagline_visibility_choices, array('desktop','tablet','mobile'), null, 'refresh');
+			// Redirect to site icon.
+			$site_icon_redirect_label = __( 'Site Icon', 'responsive' );
+			responsive_redirect_control( $wp_customize, 'redirect_to_site_icon', $site_icon_redirect_label, 'responsive_header_site_logo_title', 18, 'control', 'site_icon' );
+
+			// Upgrade to Pro nudge (only registers when Responsive Pro is not active).
+			responsive_pro_nudge_control(
+				$wp_customize,
+				'container',
+				'responsive_layout',
+				array(
+					'image'       => RESPONSIVE_THEME_URI . 'admin/images/upgradeToPro.jpg',
+					'description' => __( 'Take your container layout to the next level with powerful design features.', 'responsive' ),
+					'features'    => array(
+						__( 'Max Width Layout', 'responsive' ),
+						__( 'Padded Layout', 'responsive' ),
+						__( 'Fluid Layout', 'responsive' ),
+						__( 'Container Spacings', 'responsive' ),
+					),
+				),
+				999
+			);
 		}
 
 

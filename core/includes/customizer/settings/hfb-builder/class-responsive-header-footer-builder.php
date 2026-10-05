@@ -45,6 +45,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
                 'responsive_header_builder',
                 array(
                     'title'    => esc_html__( 'Header Builder', 'responsive' ),
+                    'description' => '<div class="responsive-section-description"><p><b>' . __( 'Helpful Information', 'responsive' ) . '</b></p><p><a href="https://cyberchimps.com/docs/responsive-theme/responsive-theme-walkthrough/create-a-header-using-responsive-themes-header-builder/" target="_blank">' . __( 'Header Overview »', 'responsive' ) . '</a></p></div>',
                     'panel'    => 'responsive_header',
                     'priority' => 100,
 
@@ -64,7 +65,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 				);
 				$header_mobile_tablet_choices['woo-cart'] = array(
 					'name'    => esc_html__( 'Cart', 'responsive' ),
-					'section' => 'responsive_header_woo_cart',
+					'section' => 'responsive_mobile_header_woo_cart',
 					'icon'    => 'cart',
 				);
 			}

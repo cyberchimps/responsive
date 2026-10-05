@@ -249,6 +249,9 @@ function responsive_add_review_styling() {
 	#responsive-sites-on-active .button.installing:before {
 		margin: 4px -1px 0px 5px;
 	}
+	.wp-theme-responsive .button.updating-message:before{
+		line-height: 1;
+	}
 	</style>
 	<?php
 }

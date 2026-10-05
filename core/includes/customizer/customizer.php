@@ -189,7 +189,7 @@ function responsive_register_options() {
 		'class-responsive-site-color-palettes-scheme-customizer',
 		'class-responsive-site-colors-customizer',
 		'class-responsive-site-typography-customizer',
-		'class-responsive-header-layout-customizer',
+		// 'class-responsive-header-layout-customizer',
 		'class-responsive-header-title-tagline-customizer',
 		// 'class-responsive-header-colors-customizer',
 		'class-responsive-header-transparent-customizer',
@@ -213,8 +213,11 @@ function responsive_register_options() {
 		'class-responsive-buttons-customizer',
 		'class-responsive-form-fields-customizer',
 		'class-responsive-header-widgets-customizer',
+		'class-responsive-header-widget2-customizer',
 		'class-responsive-mobile-header-widgets-customizer',
+		'class-responsive-mobile-header-widget2-customizer',
 		'class-responsive-sidebar-layout-customizer',
+		'class-responsive-container-layout-customizer',
 		'hfb-builder/class-responsive-header-footer-builder',
 		'hfb-builder/header/class-responsive-hfb-header-above-row',
 		'hfb-builder/header/class-responsive-hfb-header-pimary-row',
@@ -235,8 +238,12 @@ function responsive_register_options() {
 		'class-responsive-mobile-header-contact-info-customizer',
 		'class-responsive-header-search-customizer',
 		'class-responsive-header-html-customizer',
+		'class-responsive-header-html2-customizer',
 		'class-responsive-mobile-header-html-customizer',
+		'class-responsive-mobile-header-html2-customizer',
 		'class-responsive-footer-social-customizer',
+		'class-responsive-footer-html-customizer',
+		'class-responsive-footer-html2-customizer',
 		'class-responsive-performance-customizer',
 		'class-responsive-footer-widgets-settings-customizer',
 	);
@@ -299,6 +306,7 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'tinymce/class-responsive-customizer-tinymce-control.php';
 	require_once $dir . 'html/class-responsive-customizer-html-control.php';
 	require_once $dir . 'dimensions/class-responsive-customizer-dimensions-control.php';
+	require_once $dir . 'unit-dimensions/class-responsive-customizer-unit-dimensions-control.php';
 	require_once $dir . 'heading/class-responsive-customizer-heading-control.php';
 	require_once $dir . 'select/class-responsive-customizer-responsive-select-control.php';
 	require_once $dir . 'checkbox/class-responsive-customizer-responsive-checkbox-control.php';
@@ -319,6 +327,7 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'shadow/class-responsive-customizer-shadow-control.php';
 	require_once $dir . 'input-with-dropdown/class-responsive-customizer-input-with-dropdown-control.php';
 	require_once $dir . 'fontpresets/class-responsive-customizer-font-preset-control.php';
+	require_once $dir . 'buttonpresets/class-responsive-customizer-button-preset-control.php';
 	require_once $dir . 'contact-info/class-responsive-customizer-contact-info-control.php';
 	require_once $dir . 'color-with-devices/class-responsive-customizer-color-with-devices-control.php';
 	require_once $dir . 'color-with-devices-and-hover/class-responsive-customizer-color-with-devices-and-hover-control.php';
@@ -328,9 +337,9 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'selectbtn-with-switchers/class-responsive-customizer-selectbtn-with-switchers-control.php';
 
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-control-upsell.php';
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-control-pro-nudge.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-generic-notice-section.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-main-notice-section.php';
-	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-section-docs.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-section-upsell.php';
 	// Register JS control types.
 	$wp_customize->register_control_type( 'Responsive_Customizer_Palette_Control' );
@@ -361,12 +370,14 @@ function responsive_custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Shadow_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Social_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Input_With_Dropdown_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Button_Presets_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Contact_Info_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Color_With_Devices_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Color_With_Devices_And_Hover_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Color_With_States_And_Devices_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Selectbtn_Switchers_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Selectbtn_With_Switchers_Control' );
+	$wp_customize->register_control_type( 'Responsive_Control_Pro_Nudge' );
 
 }
 
@@ -383,6 +394,9 @@ function responsive_controls_helpers() {
 function responsive_custom_customize_enqueue() {
 	$responsive = wp_get_theme( 'responsive' );
 	$suffix     = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+	
+	wp_enqueue_editor();
+	
 	wp_enqueue_style( 'icomoon-style', get_template_directory_uri() . "/core/css/icomoon/style{$suffix}.css", false, $responsive['Version'] );
 	wp_enqueue_style( 'responsive-general', get_template_directory_uri() . '/core/includes/customizer/assets/min/css/general.min.css', RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive-general', get_template_directory_uri() . '/core/includes/customizer/assets/min/js/general.min.js', array( 'jquery', 'customize-base' ), RESPONSIVE_THEME_VERSION, true );
@@ -395,6 +409,7 @@ function responsive_custom_customize_enqueue() {
 			'wp-element',
 			'wp-media-utils',
 			'wp-block-editor',
+			'editor',
 		);
 		if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
 			// wp_enqueue_script( 'responsive-custom-control-react-script', get_template_directory_uri() . '/core/includes/customizer/extend-controls/build/index.js', $custom_controls_react_deps, RESPONSIVE_THEME_VERSION, true );
@@ -413,6 +428,8 @@ function responsive_custom_customize_enqueue() {
 			'paletteDesignStyles' => responsive_get_available_design_styles(),
 		);
 		wp_localize_script( 'responsive-custom-control-react-script', 'localize', $localize_array );
+
+		wp_enqueue_editor();
 }
 
 /**
@@ -426,6 +443,9 @@ function responsive_tooltip_script() {
 	$output .= '
 	        	wp.customize.bind(\'ready\', function() {
 	            	wp.customize.control.each(function(ctrl, i) {
+	                	if ( ctrl && ctrl.id === "responsive_container_width" ) {
+	                		return;
+	                	}
 	                	var desc = ctrl.container.find(".customize-control-description");
 	                	if( desc.length) {
 	                    	var title 		= ctrl.container.find(".customize-control-title");
@@ -437,6 +457,87 @@ function responsive_tooltip_script() {
 	                    	li_wrapper.append(" <i class=\'res-control-tooltip dashicons dashicons-editor-help\'title=\'" + tooltip +"\'></i>");
 	                	}
 	            	});
+
+                    // Ensure Section/Panel Help Toggle is present
+                    var injectHelpToggle = function(item, titleSelector) {
+                        if ( item.params.description && item.params.description.indexOf(\'responsive-section-description\') !== -1 ) {
+                            item.container.find(titleSelector).each(function() {
+                                if ( ! jQuery(this).find(\'.customize-help-toggle\').length ) {
+                                    jQuery(this).append(\'<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"></button>\');
+                                }
+                            });
+                            // If it\'s a panel, or if description is missing from DOM, inject it
+                            if ( ! item.container.find(\'.description\').length ) {
+                                item.container.find(\'.accordion-section-title\').after(\'<div class="description">\' + item.params.description + \'</div>\');
+                            }
+                        }
+                    };
+
+                    wp.customize.section.each(function(section) { injectHelpToggle(section, \'.customize-section-title\'); });
+                    wp.customize.panel.each(function(panel) { injectHelpToggle(panel, \'.customize-panel-title\'); });
+
+                    // Handle dynamically added sections/panels
+                    wp.customize.section.bind(\'add\', function(section) { injectHelpToggle(section, \'.customize-section-title\'); });
+                    wp.customize.panel.bind(\'add\', function(panel) { injectHelpToggle(panel, \'.customize-panel-title\'); });
+
+                    // Handle Section Help Tooltips
+					jQuery(document).on(\'click\', \'.customize-help-toggle\', function() {
+					var header = jQuery(this).closest(\'.customize-section-title, .accordion-section-title\');
+					var description = header.next(\'.description, .customize-panel-description\');
+
+					if ( ! description.length ) { description = header.siblings(\'.description\'); }
+
+					var inner = description.find(\'.responsive-section-description\');
+					if ( inner.length ) {
+						var isOpening = ! inner.is(\':visible\');
+
+						inner.slideToggle(200);
+
+						// Check which panel the button belongs to
+						var isHeaderPanel = jQuery(this).closest(\'#sub-accordion-panel-responsive_header\').length;
+						var isFooterPanel = jQuery(this).closest(\'#sub-accordion-panel-responsive_footer\').length;
+
+						if ( isHeaderPanel || isFooterPanel ) {
+							let styleId = isHeaderPanel ? \'responsive-header-drag-margin-style\' : \'responsive-footer-drag-margin-style\';
+							let existingStyle = jQuery(\'#\' + styleId);
+
+							if ( isOpening ) {
+								let selector = isHeaderPanel
+									? \'#sub-accordion-section-responsive_header_builder_section\'
+									: \'#sub-accordion-section-responsive_footer_layout\';
+
+								let css = selector + \' { margin-top: 107px !important; }\';
+
+								if ( existingStyle.length ) {
+									existingStyle.text(css);
+								} else {
+									jQuery(\'<style id="\' + styleId + \'">\' + css + \'</style>\').appendTo(\'head\');
+								}
+							} else {
+								existingStyle.remove();
+							}
+						}
+
+						if( isFooterPanel ) {
+							let styleId = \'responsive-footer-builder-top-style\';
+							let existingStyle = jQuery(\'#\' + styleId);
+
+							if( isOpening ) {
+								let selector = \'.responsive-footer-builder-is-active .in-sub-panel:not( .section-open ) #sub-accordion-panel-responsive_footer.current-panel~ul#sub-accordion-section-responsive_footer_layout\';
+
+								let css = selector + \' { top: 51px; } \';
+
+								if( existingStyle.length ) {
+									existingStyle.text(css);
+								} else {
+									jQuery(\'<style id="\' + styleId + \'">\' + css + \'</style>\').appendTo(\'head\');
+								}
+							} else {
+								existingStyle.remove();
+							}
+						}
+					}
+				});
 	        	});';
 
 	$output .= '</script>';

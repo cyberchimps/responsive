@@ -39,6 +39,7 @@ export const responsiveText = wp.customize.responsiveControl.extend( {
 			control.container.on( 'click',
 				'.responsive-switchers button',
 				function( event ) {
+					event.stopPropagation();
 
 					// Set up variables
 					var $this 		= jQuery( this ),

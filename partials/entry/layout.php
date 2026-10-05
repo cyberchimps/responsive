@@ -15,10 +15,8 @@ $format = get_post_format();
 
 $responsive_blog_entry_content_type = get_theme_mod( 'responsive_blog_entry_content_type', 'excerpt' );
 if ( 'excerpt' === $responsive_blog_entry_content_type ) {
-	add_filter( 'excerpt_length', 'responsive_custom_excerpt_length' );
 	add_filter( 'responsive_post_read_more', 'responsive_read_more_text' );
 } elseif ( 'content' === $responsive_blog_entry_content_type ) {
-	add_filter( 'the_content_more_link', 'responsive_modify_read_more_link' );
 	add_filter( 'responsive_post_read_more', 'responsive_read_more_text' );
 }
 
@@ -26,7 +24,14 @@ Responsive\responsive_entry_before();
 
 ?>
 <div class="entry-column">
-	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php responsive_schema_markup( 'creativework' ); ?>>
+	<article
+		id="post-<?php the_ID(); ?>"
+		<?php post_class( responsive_active_blog_layout_cover() ? 'cover-layout' : '' ); ?>
+		<?php if ( responsive_active_blog_layout_cover() && has_post_thumbnail() ) : ?>
+			style="background-image:url('<?php echo esc_url( get_the_post_thumbnail_url( get_the_ID(), 'full' ) ); ?>');"
+		<?php endif; ?>
+		<?php responsive_schema_markup( 'creativework' ); ?>
+	>
 		<?php Responsive\responsive_entry_top(); ?>
 
 		<div class="post-entry">
@@ -38,7 +43,7 @@ Responsive\responsive_entry_before();
 		// Get elements.
 		$elements = responsive_blog_entry_elements_positioning();
 		// Loop through elements.
-		if ( 'blog-layout-1' === get_theme_mod( 'responsive_blog_layout_options' ) || responsive_active_blog_layout_grid() ) {
+		if ( 'blog-layout-1' === get_theme_mod( 'responsive_blog_layout_options' ) || responsive_active_blog_layout_grid() || responsive_active_blog_layout_cover()) {
 			foreach ( $elements as $element ) {
 				// Featured Image.
 				if ( 'featured_image' === $element && ! post_password_required() ) {

@@ -42,6 +42,7 @@ if ( ! class_exists( 'Responsive_Site_Scripts_Customizer' ) ) :
 				'responsive_scripts',
 				array(
 					'title'    => __( 'Embed Scripts', 'responsive' ),
+					'description' => '<div class="responsive-section-description"><p><b>' . __( 'Helpful Information', 'responsive' ) . '</b></p><p><a href="https://cyberchimps.com/docs/responsive-theme/responsive-theme-walkthrough/header-and-footer-scripts-in-theme-customizer/" target="_blank">' . __( 'Scripts Overview »', 'responsive' ) . '</a></p></div>',
 					'panel'    => 'responsive_site',
 					'priority' => 100,
 				)

@@ -14,6 +14,7 @@ export const responsiveBorderWidthDimensions = wp.customize.responsiveControl.ex
         control.container.on( 'click',
 				'.responsive-switchers button',
 				function( event ) {
+					event.stopPropagation();
 
 					// Set up variables
 					var $this 		= jQuery( this ),

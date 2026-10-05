@@ -56,7 +56,7 @@ if ( class_exists( 'Sensei_Main' ) ) {
 
 				// Excerpt Length.
 				$sensei_archive_excerpt_length_label = esc_html__( 'Excerpt Length', 'responsive' );
-				responsive_drag_number_control( $wp_customize, 'sensei_excerpt_length', $sensei_archive_excerpt_length_label, 'responsive_sensei_content', 20, 40, '', 500 );
+				responsive_drag_number_control( $wp_customize, 'sensei_excerpt_length', $sensei_archive_excerpt_length_label, 'responsive_sensei_content', 20, 90, '', 500 );
 
 				// Read More Text.
 				$sensei_archive_read_more_text_label = esc_html__( 'Enroll Text', 'responsive' );
