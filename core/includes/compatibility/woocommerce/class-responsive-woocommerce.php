@@ -82,6 +82,37 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 		}
 		/**
+		 * Open the wrapper that holds the My Account menu (and the user info when it is on), so they move as one block in every layout.
+		 */
+		public function my_account_wrap_open() {
+			echo '<div class="responsive-account-navigation-wrap">';
+		}
+
+		/**
+		 * Close the user info and My Account menu wrapper.
+		 */
+		public function my_account_wrap_close() {
+			echo '</div>';
+		}
+
+		/**
+		 * Print the logged in user's avatar and name above the My Account menu.
+		 */
+		public function my_account_user_info() {
+			if ( ! is_user_logged_in() ) {
+				return;
+			}
+
+			$user = wp_get_current_user();
+			?>
+			<div class="responsive-account-user-info">
+				<span class="responsive-account-user-avatar"><?php echo get_avatar( $user->ID, 48 ); ?></span>
+				<span class="responsive-account-user-name"><?php echo esc_html( $user->display_name ); ?></span>
+			</div>
+			<?php
+		}
+
+		/**
 		 * Remove Woo-Commerce Default actions
 		 *
 		 * @since 3.15.4
@@ -92,6 +123,14 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
 			remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
 			add_action( 'woocommerce_after_shop_loop_item', array( $this, 'responsive_woocommerce_shop_product_content' ) );
+
+			// The wrapper is part of every My Account layout. Only the avatar and name depend on the toggle.
+			add_action( 'woocommerce_before_account_navigation', array( $this, 'my_account_wrap_open' ), 1 );
+			add_action( 'woocommerce_after_account_navigation', array( $this, 'my_account_wrap_close' ), 99 );
+
+			if ( get_theme_mod( 'responsive_my_account_show_user_info', Responsive\Core\get_responsive_customizer_defaults( 'responsive_my_account_show_user_info' ) ) ) {
+				add_action( 'woocommerce_before_account_navigation', array( $this, 'my_account_user_info' ) );
+			}
 
 			if ( ! get_theme_mod( 'responsive_show_archive_results_count', Responsive\Core\get_responsive_customizer_defaults( 'responsive_show_archive_results_count' ) ) ) {
 				remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
@@ -147,6 +186,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-product-catalog-customizer.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-pagination-style-customizer.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-store-notice-customizer.php';
+			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-my-account-customizer.php';
 		}
 
 		/**

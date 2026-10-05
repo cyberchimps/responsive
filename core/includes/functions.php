@@ -1323,6 +1323,8 @@ function defaults() {
 			'responsive_store_notice_background_color'              => '#720eec',
 			'responsive_store_notice_background_hover_color'        => '#720eec',
 			'responsive_store_notice_position'                      => 'top',
+			'responsive_my_account_show_user_info'                  => 0,
+			'responsive_my_account_navigation_layout'               => 'left',
 			'responsive_single_product_show_weight_dimensions' => 1,
 			'responsive_single_product_quantity_plus_minus' => 0,
 			'responsive_single_product_show_related_products' => 1,

@@ -13638,6 +13638,107 @@ function responsive_customizer_styles() {
 			color: {$breadcrumb_color};
 		}";
 
+		// My Account layout. The menu (and the avatar and name when they are on) share one wrapper that moves as a block, so the content never gets pushed down.
+		$my_account_layout = get_theme_mod( 'responsive_my_account_navigation_layout', Responsive\Core\get_responsive_customizer_defaults( 'responsive_my_account_navigation_layout' ) );
+
+		$woocommerce_custom_css .= '
+		.woocommerce-account .responsive-account-user-info {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			margin-bottom: 0.5em;
+		}
+		.woocommerce-account .responsive-account-user-avatar img {
+			display: block;
+			width: 48px;
+			height: 48px;
+			border-radius: 50%;
+		}
+		.woocommerce-account .responsive-account-user-name {
+			font-weight: 500;
+			word-break: break-word;
+		}
+		.woocommerce-account .responsive-account-navigation-wrap {
+			box-sizing: border-box;
+		}
+		.woocommerce-account .responsive-account-navigation-wrap .woocommerce-MyAccount-navigation {
+			float: none;
+			width: 100%;
+		}
+		.woocommerce-account .woocommerce-MyAccount-content > p:first-of-type {
+			margin-top: 0;
+		}';
+
+		if ( 'above' === $my_account_layout ) {
+			// Menu in a row above the content, selected tab underlined.
+			$woocommerce_custom_css .= '
+		body.woocommerce-account .responsive-account-navigation-wrap {
+			float: none;
+			width: 100%;
+			margin-bottom: 1.5em;
+		}
+		body.woocommerce-account .woocommerce-MyAccount-content {
+			float: none;
+			width: 100%;
+		}
+		.woocommerce-account .responsive-account-navigation-wrap .woocommerce-MyAccount-navigation ul {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0 1.5em;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.woocommerce-account .responsive-account-navigation-wrap .woocommerce-MyAccount-navigation-link {
+			margin: 0;
+			border-bottom: 3px solid transparent;
+		}
+		.woocommerce-account .responsive-account-navigation-wrap .woocommerce-MyAccount-navigation-link.is-active {
+			border-bottom-color: #2b6cb0;
+		}';
+		} elseif ( 'right' === $my_account_layout ) {
+			// Menu on the right, content on the left. Divider and selected tab bar sit on the menu's left edge.
+			$woocommerce_custom_css .= '
+		.woocommerce-account .responsive-account-navigation-wrap .woocommerce-MyAccount-navigation ul {
+			margin-left: 0;
+		}
+		.woocommerce-account .responsive-account-navigation-wrap .responsive-account-user-info {
+			padding-left: 0.75em;
+		}
+		.woocommerce-account .responsive-account-navigation-wrap .woocommerce-MyAccount-navigation-link {
+			list-style-position: inside;
+			padding-left: 0.75em;
+		}
+		.woocommerce-account .responsive-account-navigation-wrap .woocommerce-MyAccount-navigation-link.is-active {
+			border-left: 5px solid #2b6cb0;
+		}
+		@media (min-width: 769px) {
+			body.woocommerce-account .responsive-account-navigation-wrap {
+				float: right;
+				width: 30%;
+				border-left: 1px solid gray;
+			}
+			body.woocommerce-account .woocommerce-MyAccount-content {
+				float: left;
+			}
+		}';
+		} else {
+			// Left (default). Divider and selected tab bar sit on the menu's right edge.
+			$woocommerce_custom_css .= '
+		.woocommerce-account .responsive-account-navigation-wrap {
+			border-right: 1px solid gray;
+		}
+		.woocommerce-account .responsive-account-navigation-wrap .woocommerce-MyAccount-navigation-link.is-active {
+			border-right: 5px solid #2b6cb0;
+		}
+		@media (min-width: 769px) {
+			.woocommerce-account .responsive-account-navigation-wrap {
+				float: left;
+				width: 30%;
+			}
+		}';
+		}
+
 		// Store notice colors. WooCommerce only prints the notice when it is enabled, so no condition is needed here.
 		$store_notice_text     = esc_html( responsive_prepare_css_value( 'responsive_store_notice_text_color' ) );
 		$store_notice_text_h   = esc_html( responsive_prepare_css_value( 'responsive_store_notice_text_hover_color' ) );
