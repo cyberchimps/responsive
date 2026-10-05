@@ -785,6 +785,15 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'line-height' => 'Default',
 					),
 				),
+				// Store Notice font. No defaults on purpose, nothing is output until a value is picked. The text color has its own control.
+				'store_notice' => array(
+					'label'           => esc_html__( 'Font', 'responsive' ),
+					'target'          => $selectorArray['store_notice'],
+					'section'         => 'woocommerce_store_notice',
+					'priority'        => 34,
+					'exclude'         => array( 'font-color' ),
+					'active_callback' => array( 'Responsive_Woocommerce_Store_Notice_Customizer', 'is_store_notice_enabled' ),
+				),
 				'single_product_meta' => array(
 					'label'    => esc_html__( 'Meta Font', 'responsive' ),
 					'target'   => $selectorArray['single_product_meta'],
@@ -898,6 +907,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'shop_text'                  => '.woocommerce.archive .site-content-header, .woocommerce-shop .site-content-header, .responsive-shop-entry-banner, .woocommerce.archive .site-content-header .page-description, .woocommerce-shop .site-content-header .page-description, .responsive-shop-entry-banner .page-description, .woocommerce.archive .site-content-header .page-description p, .woocommerce-shop .site-content-header .page-description p, .responsive-shop-entry-banner .page-description p, .woocommerce.archive .site-content-header .woocommerce-breadcrumb, .woocommerce-shop .site-content-header .woocommerce-breadcrumb, .responsive-shop-entry-banner .woocommerce-breadcrumb, .woocommerce.archive .site-content-header .woocommerce-breadcrumb a, .woocommerce-shop .site-content-header .woocommerce-breadcrumb a, .responsive-shop-entry-banner .woocommerce-breadcrumb a',
 				'single_product_title'       => '.single-product .site-content-header .product_title, .single-product .responsive-single-product-entry-banner .product_title',
 				'single_product_text'        => '.single-product .site-content-header, .single-product .responsive-single-product-entry-banner, .single-product .site-content-header .woocommerce-breadcrumb, .single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb, .single-product .site-content-header .woocommerce-breadcrumb a, .single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb a',
+				'store_notice'               => 'body .woocommerce-store-notice, body p.demo_store',
 				'single_product_meta'        => '.single-product .site-content-header .post-meta, .single-product .site-content-header .post-meta *, .single-product .responsive-single-product-entry-banner .post-meta, .single-product .responsive-single-product-entry-banner .post-meta *, .single-product .site-content-header .responsive-product-taxonomy, .single-product .site-content-header .responsive-product-taxonomy *, .single-product .responsive-single-product-entry-banner .responsive-product-taxonomy, .single-product .responsive-single-product-entry-banner .responsive-product-taxonomy *',
 			);
 

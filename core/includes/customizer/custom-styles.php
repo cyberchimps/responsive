@@ -13638,6 +13638,58 @@ function responsive_customizer_styles() {
 			color: {$breadcrumb_color};
 		}";
 
+		// Store notice colors. WooCommerce only prints the notice when it is enabled, so no condition is needed here.
+		$store_notice_text     = esc_html( responsive_prepare_css_value( 'responsive_store_notice_text_color' ) );
+		$store_notice_text_h   = esc_html( responsive_prepare_css_value( 'responsive_store_notice_text_hover_color' ) );
+		$store_notice_bg       = esc_html( responsive_prepare_css_value( 'responsive_store_notice_background_color' ) );
+		$store_notice_bg_hover = esc_html( responsive_prepare_css_value( 'responsive_store_notice_background_hover_color' ) );
+
+		$woocommerce_custom_css .= "
+		body .woocommerce-store-notice,
+		body p.demo_store {
+			background-color: {$store_notice_bg};
+			color: {$store_notice_text};
+		}
+		body .woocommerce-store-notice a,
+		body p.demo_store a {
+			color: {$store_notice_text};
+		}
+		body .woocommerce-store-notice:hover,
+		body p.demo_store:hover {
+			background-color: {$store_notice_bg_hover};
+			color: {$store_notice_text_h};
+		}
+		body .woocommerce-store-notice:hover a,
+		body p.demo_store:hover a {
+			color: {$store_notice_text_h};
+		}";
+
+		$store_notice_position = get_theme_mod( 'responsive_store_notice_position', 'top' );
+
+		if ( 'hang-over-top' === $store_notice_position ) {
+			$woocommerce_custom_css .= '
+		body .woocommerce-store-notice,
+		body p.demo_store {
+			position: sticky;
+		}';
+		} elseif ( 'bottom' === $store_notice_position ) {
+			$woocommerce_custom_css .= '
+		body .woocommerce-store-notice,
+		body p.demo_store,
+		body.admin-bar p.demo_store {
+			position: fixed;
+			top: auto;
+			bottom: 0;
+			box-shadow: 0 -1px 1em rgba(0, 0, 0, 0.2);
+		}';
+		} else {
+			$woocommerce_custom_css .= '
+		body .woocommerce-store-notice,
+		body p.demo_store {
+			position: fixed;
+		}';
+		}
+
 		$woocommerce_custom_css .= '
 		.woocommerce.responsive-site-style-content-boxed .related-product-wrapper,
 		.woocommerce-page.responsive-site-style-content-boxed .related-product-wrapper,

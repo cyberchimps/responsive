@@ -2323,6 +2323,43 @@
 
 
 
+    // Store Notice Colors (WooCommerce > Store Notice).
+    (function() {
+        var notice = 'body .woocommerce-store-notice, body p.demo_store';
+        var noticeLinks = 'body .woocommerce-store-notice a, body p.demo_store a';
+        var noticeHover = 'body .woocommerce-store-notice:hover, body p.demo_store:hover';
+        var noticeHoverLinks = 'body .woocommerce-store-notice:hover a, body p.demo_store:hover a';
+
+        // Listed in the order the saved CSS prints them so equal specificity resolves the same way.
+        var storeNoticeRules = {
+            responsive_store_notice_text_color: function( c ) {
+                return notice + '{color:' + c + ';}' + noticeLinks + '{color:' + c + ';}';
+            },
+            responsive_store_notice_background_color: function( c ) {
+                return notice + '{background-color:' + c + ';}';
+            },
+            responsive_store_notice_text_hover_color: function( c ) {
+                return noticeHover + '{color:' + c + ';}' + noticeHoverLinks + '{color:' + c + ';}';
+            },
+            responsive_store_notice_background_hover_color: function( c ) {
+                return noticeHover + '{background-color:' + c + ';}';
+            }
+        };
+
+        // One style tag per control, created up front in order so the order never changes.
+        Object.keys( storeNoticeRules ).forEach( function( key ) {
+            var styleId = 'responsive-' + key.replace( /_/g, '-' ) + '-preview';
+            jQuery( 'head' ).append( '<style id="' + styleId + '"></style>' );
+
+            api( key, function( value ) {
+                value.bind( function() {
+                    var color = processThemeSettingForCSS( key );
+                    jQuery( 'style#' + styleId ).text( color ? storeNoticeRules[ key ]( color ) : '' );
+                } );
+            } );
+        } );
+    })();
+
     //Buttons Color
     api( 'responsive_add_to_cart_button_color', function( value ) {
         value.bind( function( newval ) {

@@ -1317,6 +1317,12 @@ function defaults() {
 			'responsive_single_product_tab_background_color'        => '#0066CC',
 			'responsive_single_product_tab_background_hover_color'  => '',
 			'responsive_single_product_tab_background_active_color' => 'palette7',
+			// Same fixed values WooCommerce itself uses for the store notice, so nothing changes until a color is picked.
+			'responsive_store_notice_text_color'                    => '#fcfbfe',
+			'responsive_store_notice_text_hover_color'              => '#fcfbfe',
+			'responsive_store_notice_background_color'              => '#720eec',
+			'responsive_store_notice_background_hover_color'        => '#720eec',
+			'responsive_store_notice_position'                      => 'top',
 			'responsive_single_product_show_weight_dimensions' => 1,
 			'responsive_single_product_quantity_plus_minus' => 0,
 			'responsive_single_product_show_related_products' => 1,
