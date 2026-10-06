@@ -350,6 +350,12 @@ if ( ! class_exists( 'Responsive_Woocommerce_Native_Cart_Popup' ) ) :
 						woocommerce_template_single_meta();
 						break;
 
+					case 'payment':
+						if ( class_exists( 'Responsive_WooCommerce' ) && method_exists( Responsive_WooCommerce::get_instance(), 'single_product_payment_structure' ) ) {
+							Responsive_WooCommerce::get_instance()->single_product_payment_structure();
+						}
+						break;
+
 					default:
 						break;
 				}
