@@ -92,7 +92,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'customize-control-responsive_blog_single_elements_positioning',
 				'customize-control-responsive_blog_single_meta',
 			);
-			responsive_tabs_button_control( $wp_customize, 'single_blog_tabs', $main_tabs_label, 'responsive_single_blog_layout', 1, '', 'responsive_single_blog_layout_general_tab', 'responsive_single_blog_layout_design_tab', $main_general_tab_ids, $main_design_tab_ids, null );
+			responsive_tabs_button_control( $wp_customize, 'single_blog_tabs', $main_tabs_label, 'responsive_single_blog_layout', 1, '', 'responsive_single_blog_layout_general_tab', 'responsive_single_blog_layout_design_tab', apply_filters( 'responsive_single_blog_layout_general_tab_ids', $main_general_tab_ids ), apply_filters( 'responsive_single_blog_layout_design_tab_ids', $main_design_tab_ids ), null );
 
 			/**
 			 * Section
@@ -868,6 +868,10 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				$author_box_style_choices,
 				'normal',
 				'responsive_show_post_author_box',
+				'refresh',
+				'',
+				'Please note this section will be moved to Single Post Pro in upcoming releases',
+
 			);
 			
 			// Breadcrumb Font

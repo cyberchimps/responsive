@@ -75,7 +75,7 @@ if ( ! class_exists( 'Responsive_Container_Spacing_Customizer' ) ) :
 			// Single Post Inside Container.
 			responsive_unit_padding_control( $wp_customize, 'single_blog_inside_container', 'responsive_single_blog_layout', 270, '', '', 'responsive_not_active_site_style_flat', __( 'Inside Container', 'responsive' ), 'postMessage', '', '', '', '', 'px' );
 
-			// 	Upgrade to Pro nudge for Single Post Page (only registers when Responsive Pro is not active).
+			// Upgrade to Pro nudge for Single Post Page (only registers when Responsive Pro is not active).
 			responsive_pro_nudge_control(
 				$wp_customize,
 				'container',
