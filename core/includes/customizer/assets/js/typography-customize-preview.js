@@ -6617,5 +6617,38 @@
         ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
     );
     // WooCommerce Shop Text Typography - End
+
+    // WooCommerce Single Product Title Typography - Start
+    generateTypographyPreview(
+        'single_product_title_typography',
+        'single_product_title_tablet_typography',
+        'single_product_title_mobile_typography',
+        'single_product_title',
+        'customizer-typography-single_product_title_typography',
+        ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
+    );
+    // WooCommerce Single Product Title Typography - End
+
+    // WooCommerce Single Product Text Typography - Start
+    generateTypographyPreview(
+        'single_product_text_typography',
+        'single_product_text_tablet_typography',
+        'single_product_text_mobile_typography',
+        'single_product_text',
+        'customizer-typography-single_product_text_typography',
+        ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
+    );
+    // WooCommerce Single Product Text Typography - End
+
+    // WooCommerce Single Product Meta Typography - Start
+    generateTypographyPreview(
+        'single_product_meta_typography',
+        'single_product_meta_tablet_typography',
+        'single_product_meta_mobile_typography',
+        'single_product_meta',
+        'customizer-typography-single_product_meta_typography',
+        ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
+    );
+    // WooCommerce Single Product Meta Typography - End
 } )( jQuery );
 

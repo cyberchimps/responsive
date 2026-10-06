@@ -1430,6 +1430,7 @@ in both cases the footer builder is active */
 #customize-control-responsive_page_title_area_meta_typography_group,
 #customize-control-responsive_blog_title_area,
 #customize-control-responsive_shop_title_area,
+#customize-control-responsive_single_product_title_area,
 #customize-control-responsive_blog_banner_background_color,
 #customize-control-responsive_blog_post_title_inner_elements_spacing,
 #responsive_blog_post_title_inner_elements_spacing_separator,
@@ -1446,14 +1447,16 @@ in both cases the footer builder is active */
 #customize-control-responsive_page_show_comments,
 #customize-control-responsive_footer_menu_typography_group,
 #customize-control-responsive_footer_menu_item_horizontal_spacing,
-#customize-control-responsive_footer_menu_item_top_bottom_spacing, 
+#customize-control-responsive_footer_menu_item_top_bottom_spacing,
+#customize-control-responsive_sticky_header_rows_desktop, 
 #customize-control-responsive_breadcrumb_background_separator,
 #customize-control-responsive_breadcrumb_typography_group,
 #li#customize-control-responsive_single_blog_breadcrumb_typography_group,
 #customize-control-responsive_blog_breadcrumb_typography_group,
 li#customize-control-responsive_page_breadcrumb_typography_group,
 #customize-control-breadcrumbs_options,
-#customize-control-toolbar_options {
+#customize-control-toolbar_options,
+#customize-control-responsive_sticky_header_rows_mobile {
 	margin-top: 24px;
 }
 #customize-control-responsive_shop_title_typography_group,
@@ -2142,7 +2145,7 @@ ul.control-panel-nav_menus .customize-help-toggle:before {
 #customize-control-responsive_rp_carousel_dots .responsive-toggle-control-wrapper{
 	padding-bottom: 25px;
 }
-#customize-theme-controls .customize-pane-child.open#sub-accordion-section-responsive_blog_layout, #customize-theme-controls ul#sub-accordion-section-responsive_page_title_area_layout, #customize-theme-controls ul#sub-accordion-section-responsive_breadcrumb, #customize-theme-controls ul#sub-accordion-section-responsive_page, #customize-theme-controls ul#sub-accordion-section-responsive_single_blog_layout  {
+#customize-theme-controls ul#sub-accordion-section-responsive_header_widget2, #customize-theme-controls ul#sub-accordion-section-responsive_header_widget, #customize-theme-controls .customize-pane-child.open#sub-accordion-section-responsive_blog_layout, #customize-theme-controls ul#sub-accordion-section-responsive_page_title_area_layout, #customize-theme-controls ul#sub-accordion-section-responsive_breadcrumb, #customize-theme-controls ul#sub-accordion-section-responsive_page, #customize-theme-controls ul#sub-accordion-section-responsive_single_blog_layout, #customize-theme-controls ul#sub-accordion-section-responsive_sticky_header_menu  {
 	height: 100%;
 }
 #sub-accordion-section-responsive_single_blog_layout li .responsive-color-control-wrapper .wp-picker-container,
@@ -2170,7 +2173,8 @@ ul.control-panel-nav_menus .customize-help-toggle:before {
     display: none;
 }
 #customize-control-responsive_sub_menu_divider .responsive-toggle-control-wrapper,
-#customize-control-responsive_secondary_sub_menu_divider .responsive-toggle-control-wrapper {
+#customize-control-responsive_secondary_sub_menu_divider .responsive-toggle-control-wrapper,
+#customize-control-responsive_single_product_show_related_products .responsive-toggle-control-wrapper {
 	padding-top: 18px;
 	padding-bottom: 18px;
 }

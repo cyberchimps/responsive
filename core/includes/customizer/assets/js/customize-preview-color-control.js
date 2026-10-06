@@ -1252,12 +1252,13 @@
         '.read-more-button .hentry .read-more .more-link,' +
         'input[type=button],' +
         'input[type=submit],' +
-        'button:not(.responsive-header-button):not(.customize-partial-edit-shortcut-button):not(.search-submit),' +
-        '.button:not(:where(.responsive-header-button, .customize-partial-edit-shortcut-button, .search-submit, .add_to_cart_button, .product_type_external, .product_type_grouped))' +
+        'button:not(.responsive-header-button):not(.customize-partial-edit-shortcut-button):not(.search-submit):not(.menu-toggle):not(.plus, .minus),' +
+        '.button:not(:where(.responsive-header-button, .customize-partial-edit-shortcut-button, .search-submit, .add_to_cart_button, .product_type_external, .product_type_grouped, .menu-toggle))' +
         '.wp-block-button:not(.is-style-outline) > .wp-block-button__link,' +
         'div.wpforms-container-full .wpforms-form input[type=submit],' +
         'body div.wpforms-container-full .wpforms-form button[type=submit],' +
-        'div.wpforms-container-full .wpforms-form .wpforms-page-button';
+        'div.wpforms-container-full .wpforms-form .wpforms-page-button,' +
+        '.single-product .responsive-product-taxonomy.responsive-taxonomy-style-badge a.taxonomy-term';
 
     var buttonHoverBGPreviewStyleId = 'responsive-button-hover-color-preview';
     var buttonHoverBGPreviewSelectors =
@@ -1266,12 +1267,13 @@
         '.read-more-button .hentry .read-more .more-link:hover,' +
         'input[type=button]:hover,' +
         'input[type=submit]:hover,' +
-        'button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button):not(.customize-partial-edit-shortcut-button),' +
-        '.button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button, .customize-partial-edit-shortcut-button, .add_to_cart_button, .product_type_external, .product_type_grouped),' +
+        'button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button):not(.customize-partial-edit-shortcut-button):not(.menu-toggle):not(.plus, .minus),' +
+        '.button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button, .customize-partial-edit-shortcut-button, .add_to_cart_button, .product_type_external, .product_type_grouped, .menu-toggle, .site-mobile-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button),' +
         '.wp-block-button:not(.is-style-outline) > .wp-block-button__link:hover,' +
         'div.wpforms-container-full .wpforms-form input[type=submit]:hover,' +
         'body div.wpforms-container-full .wpforms-form button[type=submit]:hover,' +
-        'div.wpforms-container-full .wpforms-form .wpforms-page-button:hover';
+        'div.wpforms-container-full .wpforms-form .wpforms-page-button:hover,' +
+        '.single-product .responsive-product-taxonomy.responsive-taxonomy-style-badge a.taxonomy-term:hover';
 
     function isOutlineButtonPreset() {
         var preset = api( 'responsive_button_presets' ).get();
@@ -1399,14 +1401,14 @@
             if( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
-            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button]:not(.customize-partial-edit-shortcut-button),input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button:not(.customize-partial-edit-shortcut-button),.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').not('.footer-widget-area a').css('color', newval );
+            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button]:not(.customize-partial-edit-shortcut-button),input[type=submit],button:not(.customize-partial-edit-shortcut-button):not(.plus, .minus),.button:not(.customize-partial-edit-shortcut-button),.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').not('.footer-widget-area a').css('color', newval );
         } );
     } );
 
     //Buttons border color
     api( 'responsive_button_border_color', function( value ) {
         value.bind( function( newval ) {
-            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button]:not(.customize-partial-edit-shortcut-button),input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button:not(:where(.customize-partial-edit-shortcut-button, .add_to_cart_button, .product_type_external, .product_type_grouped)),.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').css('border-color', newval );
+            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button]:not(.customize-partial-edit-shortcut-button),input[type=submit],button:not(.customize-partial-edit-shortcut-button):not(.plus, .minus),.button:not(:where(.customize-partial-edit-shortcut-button, .add_to_cart_button, .product_type_external, .product_type_grouped)),.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').css('border-color', newval );
         } );
     } );
 
@@ -2241,6 +2243,26 @@
         });
     });
 
+    // Single Product Site Background Color
+    api('responsive_single_product_site_background_color', function (value) {
+        value.bind(function (newval) {
+            if (newval && (newval.includes('palette') || newval.includes('site-background'))) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('body.single-product').css('background-color', newval);
+        });
+    });
+
+    // Single Product Content Background Color
+    api('responsive_single_product_content_background_color', function (value) {
+        value.bind(function (newval) {
+            if (newval && (newval.includes('palette') || newval.includes('box-background'))) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.single-product div.product').css('background-color', newval);
+        });
+    });
+
 
 
     //Buttons Color
@@ -3021,7 +3043,7 @@
         }
     );
     //Buttons Hover Color
-    $(".page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button:not(.menu-toggle):not(.responsive-header-button), .button:not(:where(.responsive-header-button, .add_to_cart_button, .product_type_external, .product_type_grouped)), .wp-block-button:not(.is-style-outline) > .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, .elementor-widget-rael-button .rael-button").hover(
+    $(".page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button:not(.menu-toggle):not(.responsive-header-button):not(.plus, .minus), .button:not(:where(.responsive-header-button, .add_to_cart_button, .product_type_external, .product_type_grouped)), .wp-block-button:not(.is-style-outline) > .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, .elementor-widget-rael-button .rael-button").hover(
         function() {
             $(this).css("background-color", resolveButtonBackgroundColor('responsive_button_hover_color'));
             $(this).css("color", processThemeSettingForCSS('responsive_button_hover_text_color'));
@@ -3552,18 +3574,6 @@
         } );
     } );
 
-    //Header Above Row Hover Background Color - Desktop
-    api( 'responsive_header_above_row_bg_color_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-above-row-bg-hover-color').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-above-row-bg-hover-color">'
-                + '.responsive-site-above-header-wrap:hover { background-color: ' + newval + ' }'
-                + '</style>'
-            );
-        } );
-    } );
-
     //Header Above Row Background Color - Tablet
     api( 'responsive_header_above_row_bg_color_tablet', function( value ) {
         value.bind( function( newval ) {
@@ -3576,18 +3586,6 @@
         } );
     } );
 
-    //Header Above Row Hover Background Color - Tablet
-    api( 'responsive_header_above_row_bg_color_tablet_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-above-row-bg-hover-color-tablet').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-above-row-bg-hover-color-tablet">'
-                + '@media screen and ( max-width: 992px ) { .responsive-site-above-mobile-header-wrap:hover { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
     //Header Above Row Background Color - Mobile
     api( 'responsive_header_above_row_bg_color_mobile', function( value ) {
         value.bind( function( newval ) {
@@ -3595,30 +3593,6 @@
             jQuery('head').append(
                 '<style id="responsive-header-above-row-bg-color-mobile">'
                 + '@media screen and ( max-width: 576px ) { .responsive-site-above-mobile-header-wrap { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
-    //Header Above Row Hover Background Color - Mobile
-    api( 'responsive_header_above_row_bg_color_mobile_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-above-row-bg-hover-color-mobile').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-above-row-bg-hover-color-mobile">'
-                + '@media screen and ( max-width: 576px ) { .responsive-site-above-mobile-header-wrap:hover { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
-    // Backward compatibility - old hover color setting
-    api( 'responsive_header_above_row_bg_hover_color', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-above-row-bg-hover-color-old').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-above-row-bg-hover-color-old">'
-                + '.responsive-site-above-header-wrap:hover { background-color: ' + newval + ' }'
                 + '</style>'
             );
         } );
@@ -3805,18 +3779,6 @@
         } );
     } );
 
-    //Header Primary Row Hover Background Color - Desktop
-    api( 'responsive_header_primary_row_bg_color_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-primary-row-bg-hover-color').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-primary-row-bg-hover-color">'
-                + '.responsive-site-primary-header-wrap:hover { background-color: ' + newval + ' }'
-                + '</style>'
-            );
-        } );
-    } );
-
     //Header Primary Row Background Color - Tablet
     api( 'responsive_header_primary_row_bg_color_tablet', function( value ) {
         value.bind( function( newval ) {
@@ -3829,18 +3791,6 @@
         } );
     } );
 
-    //Header Primary Row Hover Background Color - Tablet
-    api( 'responsive_header_primary_row_bg_color_tablet_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-primary-row-bg-hover-color-tablet').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-primary-row-bg-hover-color-tablet">'
-                + '@media screen and ( max-width: 992px ) { .responsive-site-primary-mobile-header-wrap:hover { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
     //Header Primary Row Background Color - Mobile
     api( 'responsive_header_primary_row_bg_color_mobile', function( value ) {
         value.bind( function( newval ) {
@@ -3848,30 +3798,6 @@
             jQuery('head').append(
                 '<style id="responsive-header-primary-row-bg-color-mobile">'
                 + '@media screen and ( max-width: 576px ) { .responsive-site-primary-mobile-header-wrap { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
-    //Header Primary Row Hover Background Color - Mobile
-    api( 'responsive_header_primary_row_bg_color_mobile_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-primary-row-bg-hover-color-mobile').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-primary-row-bg-hover-color-mobile">'
-                + '@media screen and ( max-width: 576px ) { .responsive-site-primary-mobile-header-wrap:hover { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
-    // Backward compatibility - old hover color setting
-    api( 'responsive_header_primary_row_bg_hover_color', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-primary-row-bg-hover-color-old').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-primary-row-bg-hover-color-old">'
-                + '.responsive-site-primary-header-wrap:hover { background-color: ' + newval + ' }'
                 + '</style>'
             );
         } );
@@ -4059,18 +3985,6 @@
         } );
     } );
 
-    //Header Below Row Hover Background Color - Desktop
-    api( 'responsive_header_below_row_bg_color_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-below-row-bg-hover-color').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-below-row-bg-hover-color">'
-                + '.responsive-site-below-header-wrap:hover { background-color: ' + newval + ' }'
-                + '</style>'
-            );
-        } );
-    } );
-
     //Header Below Row Background Color - Tablet
     api( 'responsive_header_below_row_bg_color_tablet', function( value ) {
         value.bind( function( newval ) {
@@ -4083,18 +3997,6 @@
         } );
     } );
 
-    //Header Below Row Hover Background Color - Tablet
-    api( 'responsive_header_below_row_bg_color_tablet_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-below-row-bg-hover-color-tablet').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-below-row-bg-hover-color-tablet">'
-                + '@media screen and ( max-width: 992px ) { .responsive-site-below-mobile-header-wrap:hover { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
     //Header Below Row Background Color - Mobile
     api( 'responsive_header_below_row_bg_color_mobile', function( value ) {
         value.bind( function( newval ) {
@@ -4102,30 +4004,6 @@
             jQuery('head').append(
                 '<style id="responsive-header-below-row-bg-color-mobile">'
                 + '@media screen and ( max-width: 576px ) { .responsive-site-below-mobile-header-wrap { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
-    //Header Below Row Hover Background Color - Mobile
-    api( 'responsive_header_below_row_bg_color_mobile_hover', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-below-row-bg-hover-color-mobile').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-below-row-bg-hover-color-mobile">'
-                + '@media screen and ( max-width: 576px ) { .responsive-site-below-mobile-header-wrap:hover { background-color: ' + newval + ' } }'
-                + '</style>'
-            );
-        } );
-    } );
-
-    // Backward compatibility - old hover color setting
-    api( 'responsive_header_below_row_bg_hover_color', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-header-below-row-bg-hover-color-old').remove();
-            jQuery('head').append(
-                '<style id="responsive-header-below-row-bg-hover-color-old">'
-                + '.responsive-site-below-header-wrap:hover { background-color: ' + newval + ' }'
                 + '</style>'
             );
         } );
@@ -4528,9 +4406,24 @@
             );
         } );
     } );
+    // The Sticky Header Menu Background and Sub Menu Background (Normal / Hover / Active) colors are
+    // also printed by custom-styles.php with their saved values. A live rule can't take a cleared
+    // (e.g. reset) color back to "unset", so on clearing, the preview is refreshed instead: it is then
+    // rendered with the current, cleared values. The Customizer debounces refresh requests, so a reset
+    // clearing all three colors refreshes only once.
+    function responsiveStickyMenuBackgroundCleared( newval, styleId ) {
+        jQuery( 'style#' + styleId ).remove();
+        if ( newval ) {
+            return false;
+        }
+        api.preview.send( 'refresh' );
+        return true;
+    }
     api( 'responsive_sticky_header_menu_background_color', function( value ) {
         value.bind( function( newval ) {
-            jQuery('style#responsive-sticky-header-menu-background-color').remove();
+            if ( responsiveStickyMenuBackgroundCleared( newval, 'responsive-sticky-header-menu-background-color' ) ) {
+                return;
+            }
             jQuery('head').append(
                 '<style id="responsive-sticky-header-menu-background-color">'
                 + '#masthead.sticky-header .site-header-row .main-navigation .main-navigation-wrapper, #masthead.sticky-header .site-header-row .main-navigation.toggled, '
@@ -4541,11 +4434,27 @@
     } );
     api( 'responsive_sticky_header_active_menu_background_color', function( value ) {
         value.bind( function( newval ) {
-            jQuery('style#responsive-sticky-header-active-menu-background-color').remove();
+            if ( responsiveStickyMenuBackgroundCleared( newval, 'responsive-sticky-header-active-menu-background-color' ) ) {
+                return;
+            }
             jQuery('head').append(
                 '<style id="responsive-sticky-header-active-menu-background-color">'
                 + '#masthead.sticky-header .main-navigation .menu .current_page_item > a, #masthead.sticky-header .main-navigation .menu .current-menu-item > a, #masthead.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current_page_item > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current-menu-item > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu li > a:hover, '
                 + '#masthead-mobile.sticky-header .main-navigation .menu .current_page_item > a, #masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a, #masthead-mobile.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current_page_item > a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu li > a:hover { background-color: ' + newval + '; }'
+                + '</style>'
+            );
+        } );
+    } );
+    // Printed after the Active Menu Background Color rule (which also covers hovered items) so it overrides it on hover.
+    api( 'responsive_sticky_header_menu_background_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            if ( responsiveStickyMenuBackgroundCleared( newval, 'responsive-sticky-header-menu-background-hover-color' ) ) {
+                return;
+            }
+            jQuery('head').append(
+                '<style id="responsive-sticky-header-menu-background-hover-color">'
+                + '#masthead.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .menu li > a:hover, '
+                + '#masthead-mobile.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu li > a:hover { background-color: ' + newval + ' !important; }'
                 + '</style>'
             );
         } );
@@ -4574,11 +4483,51 @@
     } );
     api( 'responsive_sticky_header_sub_menu_background_color', function( value ) {
         value.bind( function( newval ) {
-            jQuery('style#responsive-sticky-header-sub-menu-bg-color').remove();
+            if ( responsiveStickyMenuBackgroundCleared( newval, 'responsive-sticky-header-sub-menu-bg-color' ) ) {
+                return;
+            }
             jQuery('head').append(
                 '<style id="responsive-sticky-header-sub-menu-bg-color">'
                 + '#masthead.sticky-header .main-navigation .children, #masthead.sticky-header .main-navigation .sub-menu, .res-transparent-header #masthead.sticky-header .main-navigation .children,	.res-transparent-header #masthead.sticky-header .main-navigation .sub-menu, '
                 + '#masthead-mobile.sticky-header .main-navigation .children, #masthead-mobile.sticky-header .main-navigation .sub-menu, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .children,	.res-transparent-header #masthead-mobile.sticky-header .main-navigation .sub-menu { background-color: ' + newval + '; }'
+                + '</style>'
+            );
+        } );
+    } );
+    // Sub Menu Background Active / Hover, mirroring custom-styles.php (hover after active, so a hovered
+    // current item shows the hover color). `!important` like the other sticky menu background rules here.
+    var responsiveStickySubMenuHeaders = [ '#masthead.sticky-header', '.res-transparent-header #masthead.sticky-header', '#masthead-mobile.sticky-header', '.res-transparent-header #masthead-mobile.sticky-header' ];
+    function responsiveStickySubMenuSelectors( items ) {
+        var selectors = [];
+        responsiveStickySubMenuHeaders.forEach( function( header ) {
+            items.forEach( function( item ) {
+                selectors.push( header + ' .main-navigation ' + item );
+            } );
+        } );
+        return selectors.join( ', ' );
+    }
+    api( 'responsive_sticky_header_active_sub_menu_background_color', function( value ) {
+        value.bind( function( newval ) {
+            if ( responsiveStickyMenuBackgroundCleared( newval, 'responsive-sticky-header-active-sub-menu-bg-color' ) ) {
+                return;
+            }
+            jQuery('head').append(
+                '<style id="responsive-sticky-header-active-sub-menu-bg-color">'
+                + responsiveStickySubMenuSelectors( [ '.menu .sub-menu .current_page_item > a', '.menu .sub-menu .current-menu-item > a', '.menu .children li.current_page_item a' ] )
+                + ' { background-color: ' + newval + ' !important; }'
+                + '</style>'
+            );
+        } );
+    } );
+    api( 'responsive_sticky_header_sub_menu_background_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            if ( responsiveStickyMenuBackgroundCleared( newval, 'responsive-sticky-header-sub-menu-bg-hover-color' ) ) {
+                return;
+            }
+            jQuery('head').append(
+                '<style id="responsive-sticky-header-sub-menu-bg-hover-color">'
+                + responsiveStickySubMenuSelectors( [ '.children li a:hover', '.sub-menu li a:hover', '.menu .sub-menu .current_page_item > a:hover', '.menu .sub-menu .current-menu-item > a:hover' ] )
+                + ' { background-color: ' + newval + ' !important; }'
                 + '</style>'
             );
         } );
@@ -7239,6 +7188,47 @@
                 '<style id="responsive_shop_banner_background_color_mobile">' +
                 '@media screen and (max-width: 576px) {' +
                 ' .responsive-shop-entry-banner, .woocommerce.archive .site-content-header, .woocommerce-shop .site-content-header { background-color: ' + color + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+
+    // WooCommerce Single Product Title Banner Background
+    api('responsive_single_product_banner_background_color', function(val) {
+        val.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_banner_background_color') || newval;
+            jQuery('style#responsive_single_product_banner_background_color').remove();
+            jQuery('head').append(
+                '<style id="responsive_single_product_banner_background_color">' +
+                '@media screen and (min-width: 993px) {' +
+                ' .single-product .responsive-single-product-entry-banner { background-color: ' + color + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+    api('responsive_single_product_banner_background_color_tablet', function(val) {
+        val.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_banner_background_color_tablet') || newval;
+            jQuery('style#responsive_single_product_banner_background_color_tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive_single_product_banner_background_color_tablet">' +
+                '@media screen and (min-width: 577px) and (max-width: 992px) {' +
+                ' .single-product .responsive-single-product-entry-banner { background-color: ' + color + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+    api('responsive_single_product_banner_background_color_mobile', function(val) {
+        val.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_banner_background_color_mobile') || newval;
+            jQuery('style#responsive_single_product_banner_background_color_mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive_single_product_banner_background_color_mobile">' +
+                '@media screen and (max-width: 576px) {' +
+                ' .single-product .responsive-single-product-entry-banner { background-color: ' + color + '; }' +
                 '}' +
                 '</style>'
             );
