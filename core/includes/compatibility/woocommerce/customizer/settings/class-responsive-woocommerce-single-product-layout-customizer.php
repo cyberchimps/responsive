@@ -164,7 +164,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				'customize-control-responsive_single_product_text_color',
 				'customize-control-responsive_single_product_title_link_color',
 				'customize-control-responsive_single_product_title_link_separator',
-				'customize-control-responsive_single_product_title_typography_group',
+				'customize-control-responsive_single_product_title_area_title_typography_group',
 				'customize-control-responsive_single_product_text_typography_group',
 				'customize-control-responsive_single_product_meta_typography_group',
 				'customize-control-responsive_single_product_title_typography_separator',
@@ -678,11 +678,11 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 			$single_product_title_typography_label = esc_html__( 'Title Font', 'responsive' );
 			responsive_typography_group_control(
 				$wp_customize,
-				'single_product_title_typography_group',
+				'single_product_title_area_title_typography_group',
 				$single_product_title_typography_label,
 				'responsive_single_product_title_layout',
 				19,
-				'single_product_title_typography',
+				'single_product_title_area_title_typography',
 				true
 			);
 

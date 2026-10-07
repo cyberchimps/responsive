@@ -2081,6 +2081,9 @@ const TabsComponent = props => {
 	};
 
 	const toggleSingleProductTitleLayoutControls = () => {
+		if ( id !== 'responsive_single_product_title_area_tabs' ) {
+			return;
+		}
 		const layout = api('responsive_single_product_title_layout')
 			? api('responsive_single_product_title_layout').get()
 			: 'post_title_layout1';
@@ -2118,6 +2121,11 @@ const TabsComponent = props => {
 
 		// Featured Image controls: dependent on visibility of featured image
 		const hasFeaturedImage = Array.isArray(elements) && elements.indexOf('featured_image') !== -1;
+
+		const featuredImageSeparatorEl = document.getElementById('customize-control-responsive_single_product_title_featured_image_separator');
+		if (featuredImageSeparatorEl) {
+			featuredImageSeparatorEl.style.display = (hasFeaturedImage && tab === 'general') ? 'block' : 'none';
+		}
 
 		// Use as background toggle (only for Layout 2 when featured_image is visible)
 		const useAsBgEl = document.getElementById('customize-control-responsive_single_product_featured_image_as_background');

@@ -6620,11 +6620,11 @@
 
     // WooCommerce Single Product Title Typography - Start
     generateTypographyPreview(
-        'single_product_title_typography',
-        'single_product_title_tablet_typography',
-        'single_product_title_mobile_typography',
-        'single_product_title',
-        'customizer-typography-single_product_title_typography',
+        'single_product_title_area_title_typography',
+        'single_product_title_area_title_tablet_typography',
+        'single_product_title_area_title_mobile_typography',
+        'single_product_title_area_title',
+        'customizer-typography-single_product_title_area_title_typography',
         ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
     );
     // WooCommerce Single Product Title Typography - End
