@@ -215,7 +215,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Typography_Customizer' ) ) :
 				$seperator_priority = $priority - 1;
 				$control_priority   = $seperator_priority;
 				$seperator_count    = 1;
-				if ( 'shop_page_title' === $element || 'single_product_title' === $element ) {
+				if ( 'shop_page_title' === $element ) {
 					$seperator_count = 2;
 				}
 				responsive_horizontal_separator_control( $wp_customize, $element . '_shop_typography_group_seperator', $seperator_count, $section, $seperator_priority, 1 );

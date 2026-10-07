@@ -2196,3 +2196,11 @@ ul.control-panel-nav_menus .customize-help-toggle:before {
 #customize-control-responsive_single_product_featured_image_as_background .responsive-toggle-control-wrapper {
 	padding-bottom: 0;
 }
+#customize-control-responsive_single_product_title_typography_group,
+#customize-control-responsive_single_product_text_typography_group,
+#customize-control-responsive_single_product_meta_typography_group {
+	padding-bottom: 12px;
+}
+#customize-control-responsive_single_product_title_typography_group {
+	padding-top: 12px;
+}
