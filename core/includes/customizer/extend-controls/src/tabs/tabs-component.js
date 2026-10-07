@@ -2090,6 +2090,7 @@ const TabsComponent = props => {
 
 		const structureEl = document.getElementById('customize-control-responsive_single_product_title_elements_positioning');
 		const metaEl      = document.getElementById('customize-control-responsive_single_product_title_meta');
+		const metaSeparatorEl = document.getElementById('customize-control-responsive_single_product_title_meta_separator');
 
 		if (structureEl) {
 			structureEl.style.display = (tab === 'general') ? 'block' : 'none';
@@ -2109,6 +2110,10 @@ const TabsComponent = props => {
 
 		if (metaEl) {
 			metaEl.style.display = (hasMeta && tab === 'general') ? 'block' : 'none';
+		}
+
+		if (metaSeparatorEl) {
+			metaSeparatorEl.style.display = (hasMeta && tab === 'general') ? 'block' : 'none';
 		}
 
 		// Featured Image controls: dependent on visibility of featured image

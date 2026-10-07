@@ -503,7 +503,7 @@
             jQuery( 'style.customizer-typography-single_product_breadcrumb-font-family' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_breadcrumb-font-family">'
-                + '.single-product .woocommerce-breadcrumb { font-family:' + pair +' }'
+                + '.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb) { font-family:' + pair +' }'
                 + '</style>'
             );
 
@@ -513,7 +513,7 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-font-weight' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-font-weight">'
-                + '.single-product .woocommerce-breadcrumb{ font-weight:' + dataAndEvents +';}'
+                + '.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ font-weight:' + dataAndEvents +';}'
                 + '</style>'
             );
 
@@ -523,7 +523,7 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-font-style' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-font-style">'
-                + '.single-product .woocommerce-breadcrumb{ font-style:' + dataAndEvents +';}'
+                + '.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ font-style:' + dataAndEvents +';}'
                 + '</style>'
             );
 
@@ -533,9 +533,9 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-font-size">'
-                + '.single-product .woocommerce-breadcrumb{ font-size:' + dataAndEvents +';}'
-                + '@media (max-width: 768px){.single-product .woocommerce-breadcrumb{ font-size:' + api( "single_product_page_breadcrumb_tablet_typography[font-size]" ).get() +';}}'
-                + '@media (max-width: 480px){.single-product .woocommerce-breadcrumb{ font-size:' + api( "single_product_page_breadcrumb_mobile_typography[font-size]" ).get() +';}}'
+                + '.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ font-size:' + dataAndEvents +';}'
+                + '@media (max-width: 768px){.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ font-size:' + api( "single_product_page_breadcrumb_tablet_typography[font-size]" ).get() +';}}'
+                + '@media (max-width: 480px){.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ font-size:' + api( "single_product_page_breadcrumb_mobile_typography[font-size]" ).get() +';}}'
                 + '</style>'
             );
 
@@ -545,8 +545,8 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-tablet-font-size">'
-                + '@media (max-width: 768px){.single-product .woocommerce-breadcrumb{ font-size:' + dataAndEvents +';}}'
-                + '@media (max-width: 480px){.single-product .woocommerce-breadcrumb{ font-size:' + api( "single_product_page_breadcrumb_mobile_typography[font-size]" ).get() +';}}'
+                + '@media (max-width: 768px){.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ font-size:' + api( "single_product_page_breadcrumb_mobile_typography[font-size]" ).get() +';}}'
                 + '</style>'
             );
 
@@ -556,7 +556,7 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-mobile-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-mobile-font-size">'
-                + '@media (max-width: 480px){.single-product .woocommerce-breadcrumb{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ font-size:' + dataAndEvents +';}}'
                 + '</style>'
             );
 
@@ -566,7 +566,7 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-color' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-color">'
-                + '.single-product .woocommerce-breadcrumb,  .single-product .woocommerce-breadcrumb a{ color:' + dataAndEvents +';}'
+                + '.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb),  .single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb) a{ color:' + dataAndEvents +';}'
                 + '</style>'
             );
 
@@ -576,7 +576,7 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-line-height' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-line-height">'
-                + '.single-product .woocommerce-breadcrumb{ line-height:' + dataAndEvents +';}'
+                + '.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ line-height:' + dataAndEvents +';}'
                 + '</style>'
             );
 
@@ -586,7 +586,7 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-tablet-line-height' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-tablet-line-height">'
-                + '@media (max-width: 768px){.single-product .woocommerce-breadcrumb{ line-height:' + dataAndEvents +';}}'
+                + '@media (max-width: 768px){.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ line-height:' + dataAndEvents +';}}'
                 + '</style>'
             );
 
@@ -596,7 +596,7 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-mobile-line-height' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-mobile-line-height">'
-                + '@media (max-width: 480px){.single-product .woocommerce-breadcrumb{ line-height:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ line-height:' + dataAndEvents +';}}'
                 + '</style>'
             );
 
@@ -606,7 +606,7 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-letter-spacing' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-letter-spacing">'
-                + '.single-product .woocommerce-breadcrumb{ letter-spacing:' + dataAndEvents +'px;}'
+                + '.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ letter-spacing:' + dataAndEvents +'px;}'
                 + '</style>'
             );
 
@@ -616,7 +616,7 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-tablet-letter-spacing' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-tablet-letter-spacing">'
-                + '@media (max-width: 768px){.single-product .woocommerce-breadcrumb{ letter-spacing:' + dataAndEvents +'px;}}'
+                + '@media (max-width: 768px){.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ letter-spacing:' + dataAndEvents +'px;}}'
                 + '</style>'
             );
 
@@ -626,7 +626,7 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-mobile-letter-spacing' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-mobile-letter-spacing">'
-                + '@media (max-width: 480px){.single-product .woocommerce-breadcrumb{ letter-spacing:' + dataAndEvents +'px;}}'
+                + '@media (max-width: 480px){.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ letter-spacing:' + dataAndEvents +'px;}}'
                 + '</style>'
             );
 
@@ -636,7 +636,7 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-text-transform' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-text-transform">'
-                + '.single-product .woocommerce-breadcrumb{ text-transform:' + dataAndEvents +';}'
+                + '.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ text-transform:' + dataAndEvents +';}'
                 + '</style>'
             );
 

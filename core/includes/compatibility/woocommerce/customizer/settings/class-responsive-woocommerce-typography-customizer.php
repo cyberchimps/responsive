@@ -142,7 +142,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Typography_Customizer' ) ) :
 					),
 					'single_product_page_breadcrumb' => array(
 						'label'    => esc_html__( 'Breadcrumb', 'responsive' ),
-						'target'   => '.single-product .woocommerce-breadcrumb, .single-product .woocommerce-breadcrumb a',
+						'target'   => '.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb), .single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb) a',
 						'priority' => 85,
 						'type'     => 'control',
 						'section'  => 'responsive_woocommerce_single_product_layout',
