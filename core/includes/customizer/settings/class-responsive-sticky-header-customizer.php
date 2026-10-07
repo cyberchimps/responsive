@@ -77,7 +77,6 @@ if ( ! class_exists( 'Responsive_Sticky_Header_Customizer' ) ) :
 				$design_tab_ids_prefix = 'customize-control-';
 				$design_tab_ids        = array(
 					$design_tab_ids_prefix . 'responsive_sticky_header_color_separator',
-					$design_tab_ids_prefix . 'responsive_sticky_header_background_color',
 					$design_tab_ids_prefix . 'responsive_sticky_header_site_title_color',
 					$design_tab_ids_prefix . 'responsive_sticky_header_text_color',
 					$design_tab_ids_prefix . 'responsive_sticky_header_menu_background_color_states',
@@ -161,9 +160,6 @@ if ( ! class_exists( 'Responsive_Sticky_Header_Customizer' ) ) :
 
 				$sticky_header_color_separator_label = esc_html__( 'Sticky Header Colors', 'responsive' );
 				responsive_separator_control( $wp_customize, 'sticky_header_color_separator', $sticky_header_color_separator_label, 'responsive_sticky_header_menu', 50, null );
-
-				$sticky_header_background_label = __( 'Background Color', 'responsive' );
-				responsive_color_control( $wp_customize, 'sticky_header_background', $sticky_header_background_label, 'responsive_sticky_header_menu', 100, '' );
 
 				$sticky_header_site_title_color_label = __( 'Site Title Color', 'responsive' );
 				responsive_color_control( $wp_customize, 'sticky_header_site_title', $sticky_header_site_title_color_label, 'responsive_sticky_header_menu', 110, '', null, '', true, '', 'sticky_header_site_title_hover' );

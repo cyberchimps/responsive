@@ -4418,17 +4418,6 @@
             $('style#secondary-menu-item-hover-style').remove();
         }
     );
-    api( 'responsive_sticky_header_background_color', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-sticky-header-bg-color').remove();
-            jQuery('head').append(
-                '<style id="responsive-sticky-header-bg-color">'
-                + '#masthead.sticky-header, .res-transparent-header #masthead.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead.sticky-header,'
-                + '#masthead-mobile.sticky-header, .res-transparent-header #masthead-mobile.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead-mobile.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead-mobile.sticky-header { background-color: ' + newval + '; }'
-                + '</style>'
-            );
-        } );
-    } );
     api( 'responsive_sticky_header_site_title_color', function( value ) {
         value.bind( function( newval ) {
             jQuery('style#responsive-sticky-header-site-title-color').remove();
