@@ -56,7 +56,11 @@ if ( ! class_exists( 'Responsive_Blog_Markup' ) ) :
 			$blog_pagination            = responsive_blog_pagination();
 			$blog_infinite_scroll_event = 'scroll';
 
-			$data['query_vars']            = wp_json_encode( $wp_query->query );
+			// Send the main query's real page size (after pre_get_posts and Customizer changes) so page 2+ matches page 1.
+			$client_query                   = $wp_query->query;
+			$client_query['posts_per_page'] = (int) $wp_query->get( 'posts_per_page' );
+
+			$data['query_vars']            = wp_json_encode( $client_query );
 			$data['edit_post_url']         = admin_url( 'post.php?post={{id}}&action=edit' );
 			$data['ajax_url']              = admin_url( 'admin-ajax.php' );
 			$data['infinite_count']        = 2;
@@ -82,20 +86,10 @@ if ( ! class_exists( 'Responsive_Blog_Markup' ) ) :
 
 			do_action( 'responsive_pagination_infinite' );
 
-			$raw_query_vars = isset( $_POST['query_vars'] ) ? json_decode( wp_unslash( $_POST['query_vars'] ), true ) : array();
-			$raw_query_vars = is_array( $raw_query_vars ) ? $raw_query_vars : array();
+			$query_vars = $this->get_sanitized_query_vars( isset( $_POST['query_vars'] ) ? wp_unslash( $_POST['query_vars'] ) : '' );
 
-			// Only pass through the query vars a normal blog/archive/search query can have; drop everything else (meta_query, tax_query, posts_per_page, etc.).
-			$allowed_query_vars = array( 'cat', 'category_name', 'tag', 'author', 'author_name', 'year', 'monthnum', 'day', 's' );
-			$query_vars         = array_intersect_key( $raw_query_vars, array_flip( $allowed_query_vars ) );
-
-			$requested_post_type    = isset( $raw_query_vars['post_type'] ) ? sanitize_key( $raw_query_vars['post_type'] ) : 'post';
-			$public_post_types      = get_post_types( array( 'publicly_queryable' => true ) );
-			$query_vars['post_type'] = in_array( $requested_post_type, $public_post_types, true ) ? $requested_post_type : 'post';
-
-			$query_vars['paged']          = isset( $_POST['page_no'] ) ? absint( $_POST['page_no'] ) : 1;
-			$query_vars['post_status']    = 'publish';
-			$query_vars['posts_per_page'] = (int) get_option( 'posts_per_page' );
+			$query_vars['paged']       = isset( $_POST['page_no'] ) ? max( 1, absint( $_POST['page_no'] ) ) : 1;
+			$query_vars['post_status'] = 'publish';
 
 			$posts = new WP_Query( $query_vars );
 
@@ -111,6 +105,81 @@ if ( ! class_exists( 'Responsive_Blog_Markup' ) ) :
 			wp_reset_postdata();
 
 			wp_die();
+		}
+
+		/**
+		 * Rebuild the main query's vars from client input using a strict allowlist and per-key sanitizers.
+		 *
+		 * @param mixed $json Raw JSON string sent by the browser.
+		 * @return array
+		 */
+		private function get_sanitized_query_vars( $json ) {
+			$raw = is_string( $json ) ? json_decode( $json, true ) : null;
+			$raw = is_array( $raw ) ? $raw : array();
+
+			$query_vars = array();
+
+			// Comma lists of IDs. Negative values are kept for category/author exclusion.
+			foreach ( array( 'cat', 'author' ) as $key ) {
+				if ( ! isset( $raw[ $key ] ) || ! ( is_string( $raw[ $key ] ) || is_int( $raw[ $key ] ) ) ) {
+					continue;
+				}
+				$ids = array_filter(
+					array_map( 'trim', explode( ',', (string) $raw[ $key ] ) ),
+					function ( $id ) {
+						return (bool) preg_match( '/^-?\d+$/', $id );
+					}
+				);
+				if ( $ids ) {
+					$query_vars[ $key ] = implode( ',', $ids );
+				}
+			}
+
+			// Date and numeric values.
+			foreach ( array( 'year', 'monthnum', 'day', 'm' ) as $key ) {
+				if ( isset( $raw[ $key ] ) && is_scalar( $raw[ $key ] ) ) {
+					$query_vars[ $key ] = absint( $raw[ $key ] );
+				}
+			}
+
+			// Text values: slugs, search terms and every public taxonomy's query var.
+			foreach ( $this->get_allowed_text_query_vars() as $key ) {
+				if ( isset( $raw[ $key ] ) && is_string( $raw[ $key ] ) ) {
+					$query_vars[ $key ] = sanitize_text_field( $raw[ $key ] );
+				}
+			}
+
+			// Post type(s), limited to publicly queryable types.
+			$public_post_types = get_post_types( array( 'publicly_queryable' => true ) );
+			$requested         = isset( $raw['post_type'] ) ? $raw['post_type'] : 'post';
+			$requested         = array_filter( array_map( 'sanitize_key', (array) $requested ), 'is_string' );
+			$post_types        = array_values( array_intersect( $requested, $public_post_types ) );
+
+			$query_vars['post_type'] = $post_types ? ( 1 === count( $post_types ) ? $post_types[0] : $post_types ) : 'post';
+
+			// Page size, bounded so a client cannot request an arbitrarily large query.
+			$query_vars['posts_per_page'] = isset( $raw['posts_per_page'] ) && is_scalar( $raw['posts_per_page'] )
+				? min( 100, max( 1, absint( $raw['posts_per_page'] ) ) )
+				: max( 1, (int) get_option( 'posts_per_page' ) );
+
+			return $query_vars;
+		}
+
+		/**
+		 * Text query vars allowed from the client: fixed keys plus public taxonomies' query vars.
+		 *
+		 * @return array
+		 */
+		private function get_allowed_text_query_vars() {
+			$keys = array( 'category_name', 'tag', 'author_name', 's', 'post_format' );
+
+			foreach ( get_taxonomies( array( 'public' => true ), 'objects' ) as $taxonomy ) {
+				if ( ! empty( $taxonomy->query_var ) ) {
+					$keys[] = $taxonomy->query_var;
+				}
+			}
+
+			return array_unique( $keys );
 		}
 
 	}
