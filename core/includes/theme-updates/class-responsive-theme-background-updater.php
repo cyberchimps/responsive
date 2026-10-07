@@ -69,6 +69,9 @@ if ( ! class_exists( 'Responsive_Theme_Background_Updater' ) ) {
             '6.4.8' => array (
                 'responsive_theme_background_updater_single_product_title_area_colors_6_4_8',
             ),
+            '6.4.9' => array (
+                'responsive_theme_background_updater_checkout_width_6_4_9',
+            ),
 		);
 
         /**

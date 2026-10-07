@@ -185,13 +185,28 @@ if ( ! class_exists( 'Responsive_Container_Layout_Customizer' ) ) :
 			responsive_horizontal_separator_control( $wp_customize, 'single_product_container_style_separator', 1, 'responsive_woocommerce_single_product_layout', 7, 1 );
 
 			// Woocommerce Single Product Container Style.
-			$single_product_container_style_label   = esc_html__( 'Container Style', 'responsive' );
-			$single_product_container_style_choices = array(
-				'default' => esc_html__( 'Default', 'responsive' ),
-				'boxed'   => esc_html__( 'Boxed', 'responsive' ),
-				'unboxed' => esc_html__( 'Unboxed', 'responsive' ),
+			$wp_customize->add_setting(
+				'responsive_single_product_container_style',
+				array(
+					'default'           => 'default',
+					'sanitize_callback' => 'sanitize_text_field',
+				)
 			);
-			responsive_select_button_control( $wp_customize, 'single_product_container_style', $single_product_container_style_label, 'responsive_woocommerce_single_product_layout', 8, $single_product_container_style_choices, 'default', null, 'refresh' );
+
+			$wp_customize->add_control(
+				'responsive_single_product_container_style',
+				array(
+					'label'    => esc_html__( 'Container Style', 'responsive' ),
+					'section'  => 'responsive_woocommerce_single_product_layout',
+					'type'     => 'select',
+					'choices'  => array(
+						'default' => esc_html__( 'Default', 'responsive' ),
+						'boxed' => esc_html__( 'Boxed', 'responsive' ),
+						'flat' => esc_html__( 'Flat', 'responsive' ),
+					),
+					'priority' => 8,
+				)
+			);
 
 			// Woocommerce Product Catalog Container Layout.
 			$product_catalog_container_layout_label = esc_html__( 'Container Layout', 'responsive' );
@@ -202,13 +217,29 @@ if ( ! class_exists( 'Responsive_Container_Layout_Customizer' ) ) :
 			responsive_horizontal_separator_control( $wp_customize, 'product_catalog_container_style_separator', 1, 'responsive_woocommerce_shop', 7, 1 );
 
 			// Woocommerce Product Catalog Container Style.
-			$product_catalog_container_style_label   = esc_html__( 'Container Style', 'responsive' );
-			$product_catalog_container_style_choices = array(
-				'default' => esc_html__( 'Default', 'responsive' ),
-				'boxed'   => esc_html__( 'Boxed', 'responsive' ),
-				'unboxed' => esc_html__( 'Unboxed', 'responsive' ),
+			$wp_customize->add_setting(
+				'responsive_product_catalog_container_style',
+				array(
+					'default'           => 'default',
+					'sanitize_callback' => 'sanitize_text_field',
+				)
 			);
-			responsive_select_button_control( $wp_customize, 'product_catalog_container_style', $product_catalog_container_style_label, 'responsive_woocommerce_shop', 8, $product_catalog_container_style_choices, 'default', null, 'refresh' );
+
+			$wp_customize->add_control(
+				'responsive_product_catalog_container_style',
+				array(
+					'label'    => esc_html__( 'Container Style', 'responsive' ),
+					'section'  => 'responsive_woocommerce_shop',
+					'type'     => 'select',
+					'choices'  => array(
+						'default' => esc_html__( 'Default', 'responsive' ),
+						'boxed' => esc_html__( 'Boxed', 'responsive' ),
+						'content-boxed' => esc_html__( 'Content Boxed', 'responsive' ),
+						'flat' => esc_html__( 'Flat', 'responsive' ),
+					),
+					'priority' => 8,
+				)
+			);
 
 		}
 	}

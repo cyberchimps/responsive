@@ -2715,6 +2715,18 @@ function responsive_active_single_product_sidebar_position() {
 }
 
 /**
+ * Active callback for the checkout Main Content Width slider.
+ *
+ * The slider only applies when the checkout has no sidebar. With a sidebar, the sidebar width
+ * decides the content width. Checkout uses WooCommerce General > Global for its sidebar.
+ *
+ * @return bool
+ */
+function responsive_active_checkout_content_width() {
+	return 'no' === Responsive\Core\responsive_get_woocommerce_setting( 'sidebar_position', 'general' );
+}
+
+/**
  * Active callback for Single Product Related Products.
  *
  * @return bool

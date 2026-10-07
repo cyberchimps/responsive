@@ -636,7 +636,15 @@ function responsive_add_custom_body_classes( $classes ) {
 	$classes[] = 'link-style-' . get_theme_mod( 'responsive_link_style', get_responsive_customizer_defaults( 'responsive_link_style' ) );
 	$classes[] = 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' );
 
-	if ( is_page() ) {
+	// WooCommerce pages: Single Product / Product Catalog > WooCommerce General > Global. The Page and
+	// Blog / Archive overrides below only run for pages that are not WooCommerce pages ($woo_style is null).
+	$woo_style = responsive_get_woocommerce_container_style();
+	if ( ! empty( $woo_style ) ) {
+		$classes   = array_diff( $classes, array( 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' ) ) );
+		$classes[] = 'responsive-site-style-' . $woo_style;
+	}
+
+	if ( null === $woo_style && is_page() ) {
 		$page_container_style = get_theme_mod( 'responsive_page_container_style', 'default' );
 		if ( 'default' !== $page_container_style ) {
 			$classes    = array_diff( $classes, array( 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' ) ) );
@@ -649,7 +657,7 @@ function responsive_add_custom_body_classes( $classes ) {
 	// 'default' inherits the global responsive_style setting above. Container Layout
 	// (Default/Normal/Full Width) for Page/Blog/Single is handled in
 	// responsive_add_container_layout_body_classes() below.
-	if ( ! is_singular() && ( is_home() || is_archive() ) && ! is_search() ) {
+	if ( null === $woo_style && ! is_singular() && ( is_home() || is_archive() ) && ! is_search() ) {
 
 		$blog_container_style = get_theme_mod( 'responsive_blog_container_style', 'default' );
 		if ( 'default' !== $blog_container_style ) {
@@ -728,8 +736,10 @@ function responsive_add_custom_body_classes( $classes ) {
 				$sidebar_position = ( $page_sidebar_setting === 'global' || $page_sidebar_setting === 'default' ) ? $global_sidebar_position : $page_sidebar_setting;
 			}
 
-			// Page sidebar Position.
-			$classes[] = 'sidebar-position-' . $sidebar_position;
+			// Page sidebar Position (WooCommerce pages get theirs from the WooCommerce settings).
+			if ( '' === responsive_get_woocommerce_context() ) {
+				$classes[] = 'sidebar-position-' . $sidebar_position;
+			}
 			// Page Featured Image Aligmnmnet.
 			$classes[] = 'featured-image-alignment-' . get_theme_mod( 'responsive_page_featured_image_alignment', 'left' );
 			// Page Title Aligmnmnet.
@@ -904,6 +914,225 @@ function responsive_add_custom_body_classes( $classes ) {
  * @return array
  */
 /**
+ * Which WooCommerce tier the current request belongs to.
+ *
+ * - 'single'  : single product (own settings, then General).
+ * - 'catalog' : shop and every product archive, including category, tag, attribute
+ *               and brand archives (own settings, then General).
+ * - 'general' : any other WooCommerce page, i.e. cart, checkout and my account
+ *               (General only).
+ * - ''        : not a WooCommerce page.
+ *
+ * @return string
+ */
+function responsive_get_woocommerce_context() {
+	if ( ! class_exists( 'WooCommerce' ) ) {
+		return '';
+	}
+	if ( is_product() ) {
+		return 'single';
+	}
+	if ( is_shop() || is_product_taxonomy() ) {
+		return 'catalog';
+	}
+	if ( is_woocommerce() || is_cart() || is_checkout() || is_account_page() ) {
+		return 'general';
+	}
+	return '';
+}
+
+/**
+ * Resolve a WooCommerce setting through individual (catalog / single product), then General.
+ *
+ * Returns the first value from the chain that is one of $allowed, or '' when every level
+ * is Default (or holds a value that is no longer valid), meaning the global value applies.
+ *
+ * @param string $context WooCommerce context from responsive_get_woocommerce_context().
+ * @param string $catalog Theme mod for the catalog tier.
+ * @param string $single  Theme mod for the single product tier.
+ * @param string $general Theme mod for the General tier.
+ * @param array  $allowed Concrete values the setting can resolve to.
+ * @return string
+ */
+function responsive_resolve_woocommerce_setting( $context, $catalog, $single, $general, $allowed ) {
+	$chain = array( $general );
+	if ( 'catalog' === $context ) {
+		array_unshift( $chain, $catalog );
+	} elseif ( 'single' === $context ) {
+		array_unshift( $chain, $single );
+	}
+
+	foreach ( $chain as $theme_mod ) {
+		$value = get_theme_mod( $theme_mod, 'default' );
+		if ( 'contained' === $value ) {
+			$value = 'normal';
+		}
+		if ( in_array( $value, $allowed, true ) ) {
+			return $value;
+		}
+	}
+	return '';
+}
+
+/**
+ * Container Layout for the current WooCommerce page.
+ *
+ * @param string|null $context Tier to resolve ('single', 'catalog' or 'general'). Defaults to the current page.
+ * @return string|null normal|narrow|full-width, '' to use the global layout, null when not a WooCommerce page.
+ */
+function responsive_get_woocommerce_container_layout( $context = null ) {
+	$context = null === $context ? responsive_get_woocommerce_context() : $context;
+	if ( '' === $context ) {
+		return null;
+	}
+	return responsive_resolve_woocommerce_setting(
+		$context,
+		'responsive_product_catalog_container_layout',
+		'responsive_single_product_container_layout',
+		'responsive_woocommerce_container_layout',
+		array( 'normal', 'narrow', 'full-width' )
+	);
+}
+
+/**
+ * Container Style for the current WooCommerce page.
+ *
+ * @param string|null $context Tier to resolve ('single', 'catalog' or 'general'). Defaults to the current page.
+ * @return string|null boxed|content-boxed|flat, '' to use the global style, null when not a WooCommerce page.
+ */
+function responsive_get_woocommerce_container_style( $context = null ) {
+	$context = null === $context ? responsive_get_woocommerce_context() : $context;
+	if ( '' === $context ) {
+		return null;
+	}
+	return responsive_resolve_woocommerce_setting(
+		$context,
+		'responsive_product_catalog_container_style',
+		'responsive_single_product_container_style',
+		'responsive_woocommerce_container_style',
+		array( 'boxed', 'content-boxed', 'flat' )
+	);
+}
+
+/**
+ * Sidebar position for the current WooCommerce page. Always a concrete value.
+ *
+ * @param string|null $context Tier to resolve ('single', 'catalog' or 'general'). Defaults to the current page.
+ * @return string|null left|right|no, null when not a WooCommerce page.
+ */
+function responsive_get_woocommerce_sidebar_position( $context = null ) {
+	$context = null === $context ? responsive_get_woocommerce_context() : $context;
+	if ( '' === $context ) {
+		return null;
+	}
+	$position = responsive_resolve_woocommerce_setting(
+		$context,
+		'responsive_shop_sidebar_position',
+		'responsive_single_product_sidebar_position',
+		'responsive_woocommerce_sidebar_layout',
+		array( 'left', 'right', 'no' )
+	);
+	return '' !== $position ? $position : get_theme_mod( 'responsive_default_sidebar_position', 'no' );
+}
+
+/**
+ * Sidebar Style for the current WooCommerce page, before the global fallback.
+ *
+ * @param string|null $context Tier to resolve ('single', 'catalog' or 'general'). Defaults to the current page.
+ * @return string|null boxed|unboxed, '' to use the global style, null when not a WooCommerce page.
+ */
+function responsive_get_woocommerce_sidebar_style( $context = null ) {
+	$context = null === $context ? responsive_get_woocommerce_context() : $context;
+	if ( '' === $context ) {
+		return null;
+	}
+	return responsive_resolve_woocommerce_setting(
+		$context,
+		'responsive_shop_sidebar_style',
+		'responsive_single_product_sidebar_style',
+		'responsive_woocommerce_sidebar_style',
+		array( 'boxed', 'unboxed' )
+	);
+}
+
+/**
+ * Final value of a layout setting for a WooCommerce page.
+ *
+ * Walks Single Product / Product Catalog > WooCommerce General > Global (WooCommerce General >
+ * Global for cart, checkout and my account) and always returns a concrete value.
+ *
+ * Supported settings and their return values:
+ * - 'container_layout' : normal | narrow | full-width
+ * - 'container_style'  : boxed | content-boxed | flat
+ * - 'sidebar_position' : left | right | no ('no' whenever the resolved layout is narrow)
+ * - 'sidebar_style'    : boxed | unboxed
+ * - 'sidebar_width'    : sidebar width in percent (0 when there is no sidebar)
+ *
+ * @param string      $setting One of the settings above.
+ * @param string|null $context Tier to resolve ('single', 'catalog' or 'general'). Defaults to the current page.
+ * @return string|int|null The resolved value, or null when not on a WooCommerce page or for an unknown setting.
+ */
+function responsive_get_woocommerce_setting( $setting, $context = null ) {
+	$context = null === $context ? responsive_get_woocommerce_context() : $context;
+	if ( '' === $context ) {
+		return null;
+	}
+
+	switch ( $setting ) {
+		case 'container_layout':
+			$value = responsive_get_woocommerce_container_layout( $context );
+			if ( '' === $value ) {
+				$global = get_theme_mod( 'responsive_width', 'contained' );
+				$value  = in_array( $global, array( 'narrow', 'full-width' ), true ) ? $global : 'normal';
+			}
+			return $value;
+
+		case 'container_style':
+			$value = responsive_get_woocommerce_container_style( $context );
+			if ( '' === $value ) {
+				$value = get_theme_mod( 'responsive_style', 'boxed' );
+				if ( ! in_array( $value, array( 'boxed', 'content-boxed', 'flat' ), true ) ) {
+					$value = 'boxed';
+				}
+			}
+			return $value;
+
+		case 'sidebar_position':
+			if ( 'narrow' === responsive_get_woocommerce_setting( 'container_layout', $context ) ) {
+				return 'no';
+			}
+			return responsive_get_woocommerce_sidebar_position( $context );
+
+		case 'sidebar_style':
+			$value = responsive_get_woocommerce_sidebar_style( $context );
+			if ( '' === $value ) {
+				$value = get_theme_mod( 'responsive_sidebar_style', 'boxed' );
+				if ( ! in_array( $value, array( 'boxed', 'unboxed' ), true ) ) {
+					$value = 'boxed';
+				}
+			}
+			return $value;
+
+		case 'sidebar_width':
+			if ( 'no' === responsive_get_woocommerce_setting( 'sidebar_position', $context ) ) {
+				return 0;
+			}
+			// The catalog and single product have their own width, used when their own sidebar
+			// position is left or right. Everything else uses the global default sidebar width.
+			$own_settings = array(
+				'catalog' => array( 'responsive_shop_sidebar_position', 'responsive_shop_sidebar_width' ),
+				'single'  => array( 'responsive_single_product_sidebar_position', 'responsive_single_product_sidebar_width' ),
+			);
+			if ( isset( $own_settings[ $context ] ) && in_array( get_theme_mod( $own_settings[ $context ][0], 'global' ), array( 'left', 'right' ), true ) ) {
+				return get_theme_mod( $own_settings[ $context ][1], 30 );
+			}
+			return get_theme_mod( 'responsive_default_sidebar_width', 30 );
+	}
+
+	return null;
+}
+
+/**
  * Check if the narrow container layout is active for the current page context.
  *
  * @return bool
@@ -911,10 +1140,10 @@ function responsive_add_custom_body_classes( $classes ) {
 function responsive_is_narrow_container_layout() {
 	$container_layout = 'default';
 
-	if ( class_exists( 'WooCommerce' ) && ( is_shop() || is_product_category() || is_product_tag() ) ) {
-		$container_layout = get_theme_mod( 'responsive_product_catalog_container_layout', 'default' );
-	} elseif ( class_exists( 'WooCommerce' ) && is_product() ) {
-		$container_layout = get_theme_mod( 'responsive_single_product_container_layout', 'default' );
+	// WooCommerce pages: Single Product / Product Catalog > WooCommerce General > Global.
+	$woo_layout = responsive_get_woocommerce_container_layout();
+	if ( null !== $woo_layout ) {
+		$container_layout = '' !== $woo_layout ? $woo_layout : 'default';
 	} elseif ( is_page() ) {
 		$container_layout = get_post_meta( get_the_ID(), 'responsive_page_meta_container_layout', true );
 		if ( ! $container_layout ) {
@@ -943,10 +1172,10 @@ function responsive_add_container_layout_body_classes( $classes ) {
 
 	$container_layout = 'default';
 
-	if ( class_exists( 'WooCommerce' ) && ( is_shop() || is_product_category() || is_product_tag() ) ) {
-		$container_layout = get_theme_mod( 'responsive_product_catalog_container_layout', 'default' );
-	} elseif ( class_exists( 'WooCommerce' ) && is_product() ) {
-		$container_layout = get_theme_mod( 'responsive_single_product_container_layout', 'default' );
+	// WooCommerce pages: Single Product / Product Catalog > WooCommerce General > Global.
+	$woo_layout = responsive_get_woocommerce_container_layout();
+	if ( null !== $woo_layout ) {
+		$container_layout = '' !== $woo_layout ? $woo_layout : 'default';
 	} elseif ( is_page() ) {
 		$container_layout = get_post_meta( get_the_ID(), 'responsive_page_meta_container_layout', true );
 		if ( ! $container_layout ) {

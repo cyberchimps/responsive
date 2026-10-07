@@ -371,8 +371,8 @@ function responsive_gutenberg_customizer_css() {
 	$single_blog_content_alignment     = get_theme_mod( 'responsive_single_blog_content_alignment', 'left' );
 
 	if ( class_exists( 'WooCommerce' ) ) {
-		$cart_content_width                = get_theme_mod( 'responsive_cart_content_width', 70 );
-		$checkout_content_width            = get_theme_mod( 'responsive_checkout_content_width', 70 );
+		$cart_content_width                = get_theme_mod( 'responsive_cart_content_width', 100 );
+		$checkout_content_width            = get_theme_mod( 'responsive_checkout_content_width', 100 );
 		global $post;
 
 		if ( $post && in_array( get_post_type( $post ), get_post_types() ) ) {

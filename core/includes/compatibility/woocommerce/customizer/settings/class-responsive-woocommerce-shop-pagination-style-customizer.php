@@ -72,8 +72,8 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Pagination_Style_Customizer' )
 				'responsive_checkout_width',
 				array(
 					'transport'         => 'refresh',
-					'default'           => '960',
-					'sanitize_callback' => 'responsive_sanitize_number',
+					'default'           => '',
+					'sanitize_callback' => 'responsive_sanitize_number_blank',
 				)
 			);
 

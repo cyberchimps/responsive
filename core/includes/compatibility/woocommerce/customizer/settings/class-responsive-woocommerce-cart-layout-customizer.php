@@ -88,7 +88,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 				// Main Content Width.
 				$shop_content_width_label = esc_html__( 'Main Content Width (%)', 'responsive' );
-				responsive_drag_number_control( $wp_customize, 'cart_content_width', $shop_content_width_label, 'responsive_woocommerce_cart', 10, 70, null, 100, 1, 'postMessage' );
+				responsive_drag_number_control( $wp_customize, 'cart_content_width', $shop_content_width_label, 'responsive_woocommerce_cart', 10, 100, null, 100, 1, 'postMessage' );
 
 				$cart_page_id   = wc_get_page_id( 'cart' );
 				$is_cart_block_present = has_block( 'woocommerce/cart', $cart_page_id );

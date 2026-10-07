@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '6.4.8' );
+define( 'RESPONSIVE_THEME_VERSION', '6.4.9' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -171,44 +171,22 @@ function responsive_setup_content_width() {
 
 		if ( class_exists( 'WooCommerce' ) ) {
 
-			// Global default sidebar position
-			$global_sidebar_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
+			// Sidebar position: individual setting > WooCommerce General > Global. With a sidebar,
+			// the sidebar width decides the content width. Without one, the Main Content Width
+			// slider of the page applies.
+			$sidebar_position = Responsive\Core\responsive_get_woocommerce_setting( 'sidebar_position' );
 
-			$resolve_sidebar_position = function( $context_setting ) use ( $global_sidebar_position ) {
-				$value = get_theme_mod( $context_setting, 'global' );
-				return ( $value === 'global' || $value === 'default' ) ? $global_sidebar_position : $value;
-			};
-
-			if ( is_product() ) {
-				$sidebar_position = $resolve_sidebar_position( 'responsive_single_product_sidebar_position' );
-				if ( $sidebar_position !== 'no' ) {
+			if ( null !== $sidebar_position ) {
+				if ( 'no' !== $sidebar_position ) {
+					$content_width = ( ( 100 - floatval( Responsive\Core\responsive_get_woocommerce_setting( 'sidebar_width' ) ) ) / 100 ) * $container_max_width;
+				} elseif ( is_product() ) {
 					$content_width = ( floatval( get_theme_mod( 'responsive_single_product_content_width', 100 ) ) / 100 ) * $container_max_width;
-				} else {
-					$content_width = $container_max_width;
-				}
-
-			} elseif ( is_shop() ) {
-				$sidebar_position = $resolve_sidebar_position( 'responsive_shop_sidebar_position' );
-				if ( $sidebar_position !== 'no' ) {
+				} elseif ( is_cart() ) {
+					$content_width = ( floatval( get_theme_mod( 'responsive_cart_content_width', 100 ) ) / 100 ) * $container_max_width;
+				} elseif ( is_checkout() ) {
+					$content_width = ( floatval( get_theme_mod( 'responsive_checkout_content_width', 100 ) ) / 100 ) * $container_max_width;
+				} elseif ( is_shop() || is_product_taxonomy() ) {
 					$content_width = ( floatval( get_theme_mod( 'responsive_shop_content_width', Responsive\Core\get_responsive_customizer_defaults( 'shop_content_width' ) ) ) / 100 ) * $container_max_width;
-				} else {
-					$content_width = $container_max_width;
-				}
-
-			} elseif ( is_cart() ) {
-				$sidebar_position = $resolve_sidebar_position( 'responsive_cart_sidebar_position' );
-				if ( $sidebar_position !== 'no' ) {
-					$content_width = ( floatval( get_theme_mod( 'responsive_cart_content_width', 70 ) ) / 100 ) * $container_max_width;
-				} else {
-					$content_width = $container_max_width;
-				}
-
-			} elseif ( is_checkout() ) {
-				$sidebar_position = $resolve_sidebar_position( 'responsive_checkout_sidebar_position' );
-				if ( $sidebar_position !== 'no' ) {
-					$content_width = ( floatval( get_theme_mod( 'responsive_checkout_content_width', 70 ) ) / 100 ) * $container_max_width;
-				} else {
-					$content_width = $container_max_width;
 				}
 			}
 		}
@@ -3613,6 +3591,75 @@ if ( ! function_exists( 'responsive_theme_background_updater_single_product_titl
 			}
 
 			$responsive_options['single_product_tab_colors_6_4_8_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+
+		/*
+		 * Product Catalog and Single Product Container Style no longer offer Unboxed. Their
+		 * options now match the global ones (Flat replaces Unboxed), so move saved values over once.
+		 */
+		if ( empty( $responsive_options['woocommerce_container_style_flat_6_4_8_backward_done'] ) ) {
+
+			$container_style_settings = array(
+				'responsive_product_catalog_container_style',
+				'responsive_single_product_container_style',
+			);
+
+			foreach ( $container_style_settings as $container_style_setting ) {
+				if ( 'unboxed' === get_theme_mod( $container_style_setting, 'default' ) ) {
+					set_theme_mod( $container_style_setting, 'flat' );
+				}
+			}
+
+			$responsive_options['woocommerce_container_style_flat_6_4_8_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+
+if ( ! function_exists( 'responsive_theme_background_updater_checkout_width_6_4_9' ) ) {
+	/**
+	 * Handle backward compatibility for the checkout and cart width settings.
+	 *
+	 * The checkout Main Content Width now defaults to 100 and the Checkout Form Width to blank
+	 * (no width rule printed), and the cart Main Content Width now defaults to 100. Existing
+	 * users keep the widths they were getting, so the old defaults are saved for anyone who
+	 * never changed them.
+	 *
+	 * @since 6.4.9
+	 * @return void
+	 */
+	function responsive_theme_background_updater_checkout_width_6_4_9() {
+		$responsive_options = get_option( 'responsive_theme_options' );
+
+		if ( empty( $responsive_options['checkout_width_6_4_9_backward_done'] ) ) {
+
+			$old_defaults = array(
+				'responsive_checkout_content_width' => 70,
+				'responsive_checkout_width'         => '960',
+			);
+
+			foreach ( $old_defaults as $setting => $old_default ) {
+				if ( false === get_theme_mod( $setting, false ) ) {
+					set_theme_mod( $setting, $old_default );
+				}
+			}
+
+			$responsive_options['checkout_width_6_4_9_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+
+		/*
+		 * The cart Main Content Width default moved from 70 to 100. Existing users who never
+		 * changed it keep the 70 they were getting.
+		 */
+		if ( empty( $responsive_options['cart_content_width_6_4_9_backward_done'] ) ) {
+
+			if ( false === get_theme_mod( 'responsive_cart_content_width', false ) ) {
+				set_theme_mod( 'responsive_cart_content_width', 70 );
+			}
+
+			$responsive_options['cart_content_width_6_4_9_backward_done'] = true;
 			update_option( 'responsive_theme_options', $responsive_options );
 		}
 	}

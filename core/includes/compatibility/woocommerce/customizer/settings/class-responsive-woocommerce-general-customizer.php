@@ -12,7 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! class_exists( 'Responsive_Woocommerce_General_Customizer' ) ) :
 
 	/**
-	 * General section. UI only, not linked to any front end output yet.
+	 * General section. Container Layout, Container Style and Sidebar Layout feed the
+	 * WooCommerce body classes (see responsive_get_woocommerce_context()).
 	 */
 	class Responsive_Woocommerce_General_Customizer {
 
@@ -47,31 +48,40 @@ if ( ! class_exists( 'Responsive_Woocommerce_General_Customizer' ) ) :
 				'responsive_woocommerce_general',
 				10,
 				array(
-					'contained'  => esc_html__( 'Normal', 'responsive' ),
-					'narrow'     => esc_html__( 'Narrow', 'responsive' ),
-					'full-width' => esc_html__( 'Full Width', 'responsive' ),
+					'default_container' => esc_html__( 'Default', 'responsive' ),
+					'normal'            => esc_html__( 'Normal', 'responsive' ),
+					'narrow'            => esc_html__( 'Narrow', 'responsive' ),
+					'full-width'        => esc_html__( 'Full Width', 'responsive' ),
 				),
-				'contained',
+				'default_container',
 				null,
 				'svg',
 				'refresh'
 			);
 
 			// Container Style.
-			responsive_select_button_control(
-				$wp_customize,
-				'woocommerce_container_style',
-				esc_html__( 'Container Style', 'responsive' ),
-				'responsive_woocommerce_general',
-				20,
+			$wp_customize->add_setting(
+				'responsive_woocommerce_container_style',
 				array(
-					'boxed'         => esc_html__( 'Boxed', 'responsive' ),
-					'content-boxed' => esc_html__( 'Content Boxed', 'responsive' ),
-					'flat'          => esc_html__( 'Flat', 'responsive' ),
-				),
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_style' ),
-				null,
-				'refresh'
+					'default'           => 'default',
+					'sanitize_callback' => 'sanitize_text_field',
+				)
+			);
+
+			$wp_customize->add_control(
+				'responsive_woocommerce_container_style',
+				array(
+					'label'    => esc_html__( 'Container Style', 'responsive' ),
+					'section'  => 'responsive_woocommerce_general',
+					'type'     => 'select',
+					'choices'  => array(
+						'default' => esc_html__( 'Default', 'responsive' ),
+						'boxed' => esc_html__( 'Boxed', 'responsive' ),
+						'content-boxed' => esc_html__( 'Content Boxed', 'responsive' ),
+						'flat' => esc_html__( 'Flat', 'responsive' ),
+					),
+					'priority' => 20,
+				)
 			);
 
 			// Sidebar Layout.
@@ -82,11 +92,12 @@ if ( ! class_exists( 'Responsive_Woocommerce_General_Customizer' ) ) :
 				'responsive_woocommerce_general',
 				30,
 				array(
-					'left'  => esc_html__( 'Left', 'responsive' ),
-					'right' => esc_html__( 'Right', 'responsive' ),
-					'no'    => esc_html__( 'No Sidebar', 'responsive' ),
+					'global' => esc_html__( 'Default', 'responsive' ),
+					'left'   => esc_html__( 'Left', 'responsive' ),
+					'right'  => esc_html__( 'Right', 'responsive' ),
+					'no'     => esc_html__( 'No Sidebar', 'responsive' ),
 				),
-				'no',
+				'global',
 				null,
 				'svg'
 			);
@@ -99,10 +110,11 @@ if ( ! class_exists( 'Responsive_Woocommerce_General_Customizer' ) ) :
 				'responsive_woocommerce_general',
 				40,
 				array(
+					'default' => esc_html__( 'Default', 'responsive' ),
 					'unboxed' => esc_html__( 'Unboxed', 'responsive' ),
 					'boxed'   => esc_html__( 'Boxed', 'responsive' ),
 				),
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_sidebar_style' ),
+				'default',
 				null,
 				'postMessage'
 			);

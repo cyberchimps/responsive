@@ -362,20 +362,20 @@ function responsive_customizer_styles() {
 
 	if ( 'full-width' === $responsive_page_container_layout ) {
 		$custom_css .= "
-		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout) .container,
-		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout) [class*='__inner-container'] {
+		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.woocommerce-account) .container,
+		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.woocommerce-account) [class*='__inner-container'] {
 			max-width: 100%;
 		}";
 	} elseif ( 'narrow' === $responsive_page_container_layout ) {
 		$custom_css .= "
-		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout) .container,
-		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout) [class*='__inner-container'] {
+		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.woocommerce-account) .container,
+		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.woocommerce-account) [class*='__inner-container'] {
 			max-width: {$narrow_container_max_width}px;
 		}";
 	} elseif ( 'normal' === $responsive_page_container_layout ) {
 		$custom_css .= "
-		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout) .container,
-		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout) [class*='__inner-container'] {
+		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.woocommerce-account) .container,
+		.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.woocommerce-account) [class*='__inner-container'] {
 			max-width: {$container_max_width}px;
 		}";
 	}
@@ -433,51 +433,36 @@ function responsive_customizer_styles() {
 		}";
 	}
 
-	// Product Catalog Container Layout.
-	$product_catalog_container_layout_setting = get_theme_mod( 'responsive_product_catalog_container_layout', 'default' );
-	$responsive_product_catalog_container_layout = ( 'default' === $product_catalog_container_layout_setting ) ? $global_container_layout_key : $product_catalog_container_layout_setting;
+	// Product Catalog Container Layout: own setting > WooCommerce General > Global.
+	// Applies to the shop and every product archive (category, tag, attribute, brand).
+	$catalog_container_layout = Responsive\Core\responsive_get_woocommerce_setting( 'container_layout', 'catalog' );
+	$catalog_container_widths = array(
+		'full-width' => '100%',
+		'narrow'     => "{$narrow_container_max_width}px",
+		'normal'     => "{$container_max_width}px",
+	);
 
-	if ( 'full-width' === $responsive_product_catalog_container_layout ) {
+	if ( isset( $catalog_container_widths[ $catalog_container_layout ] ) ) {
 		$custom_css .= "
-		.woocommerce-shop .container:where(:not(#masthead .container, .site-header .container)),
-		.woocommerce-shop [class*='__inner-container'] {
-			max-width: 100% !important;
-		}";
-	} elseif ( 'narrow' === $responsive_product_catalog_container_layout ) {
-		$custom_css .= "
-		.woocommerce-shop .container:where(:not(#masthead .container, .site-header .container)),
-		.woocommerce-shop [class*='__inner-container'] {
-			max-width: {$narrow_container_max_width}px !important;
-		}";
-	} elseif ( 'normal' === $responsive_product_catalog_container_layout ) {
-		$custom_css .= "
-		.woocommerce-shop .container:where(:not(#masthead .container, .site-header .container)),
-		.woocommerce-shop [class*='__inner-container'] {
-			max-width: {$container_max_width}px !important;
+		body.archive.woocommerce:not(.post-type-archive-course) .container:where(:not(#masthead .container, .site-header .container)),
+		body.archive.woocommerce:not(.post-type-archive-course) [class*='__inner-container'] {
+			max-width: {$catalog_container_widths[ $catalog_container_layout ]};
 		}";
 	}
 
-	// Single Product Container Layout.
-	$single_product_container_layout_setting = get_theme_mod( 'responsive_single_product_container_layout', 'default' );
-	$responsive_single_product_container_layout = ( 'default' === $single_product_container_layout_setting ) ? $global_container_layout_key : $single_product_container_layout_setting;
+	// Single Product Container Layout: own setting > WooCommerce General > Global.
+	$single_product_container_layout = Responsive\Core\responsive_get_woocommerce_setting( 'container_layout', 'single' );
+	$single_product_container_widths = array(
+		'full-width' => '100%',
+		'narrow'     => "{$narrow_container_max_width}px",
+		'normal'     => "{$container_max_width}px",
+	);
 
-	if ( 'full-width' === $responsive_single_product_container_layout ) {
+	if ( isset( $single_product_container_widths[ $single_product_container_layout ] ) ) {
 		$custom_css .= "
-		.single-product .container:where(:not(#masthead .container, .site-header .container)),
-		.single-product [class*='__inner-container'] {
-			max-width: 100% !important;
-		}";
-	} elseif ( 'narrow' === $responsive_single_product_container_layout ) {
-		$custom_css .= "
-		.single-product .container:where(:not(#masthead .container, .site-header .container)),
-		.single-product [class*='__inner-container'] {
-			max-width: {$narrow_container_max_width}px !important;
-		}";
-	} elseif ( 'normal' === $responsive_single_product_container_layout ) {
-		$custom_css .= "
-		.single-product .container:where(:not(#masthead .container, .site-header .container)),
-		.single-product [class*='__inner-container'] {
-			max-width: {$container_max_width}px !important;
+		body.single-product .container:where(:not(#masthead .container, .site-header .container)),
+		body.single-product [class*='__inner-container'] {
+			max-width: {$single_product_container_widths[ $single_product_container_layout ]};
 		}";
 	}
 
@@ -13913,23 +13898,10 @@ function responsive_customizer_styles() {
 
 		$mobile_breakpoint 					 = 544; 
 
-		$shop_sidebar_setting_for_width = get_theme_mod( 'responsive_shop_sidebar_position', 'global' );
-		if ( Responsive\Core\responsive_is_narrow_container_layout() ) {
-			$shop_sidebar_width = 0;
-			$shop_sidebar_position = 'no';
-		}
-		else if( $shop_sidebar_position === 'no' )
-		{
-			$shop_sidebar_width = 0;
-		}
-		else if( $shop_sidebar_setting_for_width === 'global' || $shop_sidebar_setting_for_width === 'default')
-		{
-			$shop_sidebar_width = esc_html( get_theme_mod('responsive_default_sidebar_width',30)); 
-		}
-		else 
-		{
-			$shop_sidebar_width = esc_html( get_theme_mod('responsive_shop_sidebar_width', 30));
-		}
+		// Product catalog sidebar: own setting > WooCommerce General > Global. The sidebar width,
+		// when a sidebar is on, decides both the sidebar and the content area width.
+		$shop_sidebar_position = Responsive\Core\responsive_get_woocommerce_setting( 'sidebar_position', 'catalog' );
+		$shop_sidebar_width    = (float) Responsive\Core\responsive_get_woocommerce_setting( 'sidebar_width', 'catalog' );
 
 		// $woocommerce_custom_css .= "
 		// 	/* Default: 100% width for mobile & tablet */
@@ -14471,26 +14443,10 @@ function responsive_customizer_styles() {
 
 
 
-		$single_product_setting        = get_theme_mod( 'responsive_single_product_sidebar_position', 'global' );
-		$single_product_sidebar_position = esc_html( ( $single_product_setting === 'global' || $single_product_setting === 'default' ) ? $global_sidebar : $single_product_setting );
-		
-		if ( Responsive\Core\responsive_is_narrow_container_layout() ) {
-			$single_product_sidebar_width = 0;
-			$single_product_sidebar_position = 'no';
-		}
-		else if( $single_product_setting === 'global' || $single_product_setting === 'default' )
-		{
-			$single_product_sidebar_width = esc_html( get_theme_mod('responsive_default_sidebar_width', 30) );
-		}
-		else if( $single_product_setting !== 'no' )
-		{
-			$single_product_sidebar_width = esc_html( get_theme_mod('responsive_single_product_sidebar_width', 30) );
-		}
-		else 
-		{
-			$single_product_sidebar_width = 0;
-		}
-		
+		// Single product sidebar: own setting > WooCommerce General > Global.
+		$single_product_sidebar_position = Responsive\Core\responsive_get_woocommerce_setting( 'sidebar_position', 'single' );
+		$single_product_sidebar_width    = (float) Responsive\Core\responsive_get_woocommerce_setting( 'sidebar_width', 'single' );
+
 		$shop_content_width_setting = $shop_content_width;
 		$shop_content_width         = ( 'no' !== $shop_sidebar_position ) ? ( 100 - $shop_sidebar_width ) : $shop_content_width_setting;
 		$single_product_content_width = 100 - $single_product_sidebar_width;
@@ -14498,15 +14454,31 @@ function responsive_customizer_styles() {
 			$woocommerce_custom_css .= "
 			@media (min-width:992px) {
 				.search.woocommerce .content-area,
-				.shop-has-site-header .archive.woocommerce:not(.post-type-archive-course) .content-area,
-				.page.woocommerce-cart .content-area {
+				.shop-has-site-header .archive.woocommerce:not(.post-type-archive-course) .content-area {
 					max-width: {$shop_content_width}%;
 				}
 				.search.woocommerce aside.widget-area,
-				.shop-has-site-header .archive.woocommerce aside.widget-area,
-				.woocommerce-cart aside.widget-area,
-				.woocommerce-checkout aside.widget-area {
+				.shop-has-site-header .archive.woocommerce aside.widget-area {
 					min-width: {$shop_sidebar_width}%;
+				}
+			}";
+		}
+
+		// Cart and checkout: when a sidebar is on, the sidebar width decides both the sidebar and the
+		// content area width. The Main Content Width slider only applies when there is no sidebar.
+		$cart_checkout_sidebar_position = Responsive\Core\responsive_get_woocommerce_setting( 'sidebar_position', 'general' );
+		if ( 'no' !== $cart_checkout_sidebar_position ) {
+			$cart_checkout_sidebar_width = (float) Responsive\Core\responsive_get_woocommerce_setting( 'sidebar_width', 'general' );
+			$cart_checkout_content_width = 100 - $cart_checkout_sidebar_width;
+			$woocommerce_custom_css     .= "
+			@media (min-width:992px) {
+				body.woocommerce-cart #primary.content-area,
+				body.woocommerce-checkout #primary.content-area {
+					width: {$cart_checkout_content_width}%;
+				}
+				body.page.woocommerce-cart aside#secondary.widget-area:not(.home-widgets),
+				body.page.woocommerce-checkout aside#secondary.widget-area:not(.home-widgets) {
+					width: {$cart_checkout_sidebar_width}%;
 				}
 			}";
 		}
@@ -14616,7 +14588,7 @@ function responsive_customizer_styles() {
 			$woocommerce_custom_css .= "
 		@media (min-width:992px) {
 			.search.woocommerce aside.widget-area,
-			.archive.woocommerce aside.widget-area, .page.woocommerce-cart.woocommerce-page aside.widget-area, .page.woocommerce-checkout.woocommerce-page aside.widget-area {
+			.archive.woocommerce aside.widget-area {
 				width: calc(100% - {$shop_content_width}%);
 			}
 		}";
@@ -15452,7 +15424,9 @@ function responsive_customizer_styles() {
 		// Single Product Styles.
 		$single_product_content_width = esc_html( get_theme_mod( 'responsive_single_product_content_width', 100 ) );
 
-		$woocommerce_custom_css .= "
+		// The Main Content Width slider only applies when single product has no sidebar.
+		if ( 'no' === Responsive\Core\responsive_get_woocommerce_setting( 'sidebar_position', 'single' ) ) {
+			$woocommerce_custom_css .= "
 		@media (min-width:992px) {
 			.single-product.woocommerce .content-area,
 			.single-product.woocommerce .content-area {
@@ -15463,6 +15437,7 @@ function responsive_customizer_styles() {
 				width: calc(100% - {$single_product_content_width}%);
 			}
 		}";
+		}
 
 		// Single product floating bar styles.
 		$floatingb_bg_color                  = esc_html( get_theme_mod( 'responsive_floatingb_background_color', 'rgba(51,51,51,0.9)' ) );
@@ -15608,7 +15583,7 @@ function responsive_customizer_styles() {
 		}
 
 		// cart Styles.
-		$cart_content_width            = esc_html( get_theme_mod( 'responsive_cart_content_width', 70 ) );
+		$cart_content_width            = esc_html( get_theme_mod( 'responsive_cart_content_width', 100 ) );
 		$cart_buttons_color            = esc_html( get_theme_mod( 'responsive_cart_buttons_color', '#10659C' ) );
 		$cart_buttons_text_color       = esc_html( responsive_prepare_css_value( 'responsive_cart_buttons_text_color', 'palette4' ) );
 		$cart_buttons_hover_color      = esc_html( get_theme_mod( 'responsive_cart_buttons_hover_color', '#0066CC' ) );
@@ -15619,12 +15594,18 @@ function responsive_customizer_styles() {
 		$cart_checkout_button_hover_color      = esc_html( responsive_prepare_css_value( 'responsive_cart_checkout_button_hover_color' ) );
 		$cart_checkout_button_hover_text_color = esc_html( responsive_prepare_css_value( 'responsive_cart_checkout_button_hover_text_color', 'palette1' ) );
 
-		$woocommerce_custom_css .= "
+		// The cart Main Content Width slider only applies when the cart has no sidebar.
+		if ( 'no' === Responsive\Core\responsive_get_woocommerce_setting( 'sidebar_position', 'general' ) ) {
+			$woocommerce_custom_css .= "
 		@media (min-width:992px) {
 			.page.woocommerce-cart .content-area {
 				width:{$cart_content_width}%;
 			}
 		}
+		";
+		}
+
+		$woocommerce_custom_css .= "
 		.page.woocommerce-cart .woocommerce button.button:disabled,
 		.page.woocommerce-cart .woocommerce button.button:disabled[disabled],
 		.page.woocommerce-cart .woocommerce button.button {
@@ -15667,14 +15648,20 @@ function responsive_customizer_styles() {
 		";
 
 		// checkout Styles.
-		$checkout_content_width = esc_html( get_theme_mod( 'responsive_checkout_content_width', 70 ) );
+		$checkout_content_width = esc_html( get_theme_mod( 'responsive_checkout_content_width', 100 ) );
 
-		$woocommerce_custom_css .= "
+		// The checkout Main Content Width slider only applies when the checkout has no sidebar.
+		if ( 'no' === Responsive\Core\responsive_get_woocommerce_setting( 'sidebar_position', 'general' ) ) {
+			$woocommerce_custom_css .= "
 		@media (min-width:992px) {
 			.page.woocommerce-checkout .content-area {
 				width:{$checkout_content_width}%;
 			}
 		}
+		";
+		}
+
+		$woocommerce_custom_css .= "
 		.page.woocommerce-checkout .woocommerce button.button.alt,
 		.page.woocommerce-checkout .woocommerce button.button {
 			background-color: {$cart_checkout_button_color};
@@ -16344,12 +16331,16 @@ function responsive_customizer_styles() {
 				';
 			}
 
-			$checkout_width = get_theme_mod( 'responsive_checkout_width', '960' );
-			$woocommerce_custom_css .= "
+			// Blank means "no width rule", so the checkout keeps the container width from the layout settings.
+			$checkout_width = get_theme_mod( 'responsive_checkout_width', '' );
+			if ( '' !== $checkout_width ) {
+				$checkout_width = esc_html( $checkout_width );
+				$woocommerce_custom_css .= "
 				.woocommerce-checkout .content-outer{
 					max-width: {$checkout_width}px;
 				}
 			";
+			}
 
 			$shop_pagination_style = get_theme_mod( 'shop_pagination_style', 'square' );
 			if ( 'circle' === $shop_pagination_style ) {
