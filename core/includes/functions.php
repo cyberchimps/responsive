@@ -1294,6 +1294,81 @@ function defaults() {
 			'page_title_layout'                   => 'post_title_layout1',
 			'shop_title_layout'                   => 'post_title_layout1',
 			'shop_title_elements_positioning'     => array( 'breadcrumb', 'title', 'description' ),
+			'single_product_title_elements_positioning' => array( 'breadcrumb' ),
+			'single_product_title_meta'                 => array( 'author', 'date', 'comments' ),
+			'single_product_title_meta_separator_text'  => '•',
+			'single_product_author_prefix_label'        => 'By',
+			'single_product_author_avatar'              => false,
+			'single_product_author_avatar_size'         => 30,
+			'single_product_date_format'                => 'default',
+			'single_product_updated_format'             => 'default',
+			'single_product_taxonomy'                   => 'product_cat',
+			'single_product_taxonomy_style'             => 'default',
+			'single_product_meta_taxonomies'            => '{}',
+			'single_product_title_horizontal_alignment' => 'center',
+			'single_product_title_inner_elements_spacing' => 10,
+			'responsive_single_product_variation_display' => 'horizontal',
+			'responsive_single_product_enable_shipping_text' => 0,
+			'responsive_single_product_shipping_text'        => __( '& Free Shipping', 'responsive' ),
+			'responsive_single_product_tab_style'       => 'normal',
+			'responsive_single_product_tab_text_color'              => 'palette4',
+			'responsive_single_product_tab_text_hover_color'        => 'palette1',
+			'responsive_single_product_tab_text_active_color'       => 'palette1',
+			'responsive_single_product_tab_background_color'        => '#0066CC',
+			'responsive_single_product_tab_background_hover_color'  => '',
+			'responsive_single_product_tab_background_active_color' => 'palette7',
+			'responsive_single_product_show_weight_dimensions' => 1,
+			'responsive_single_product_quantity_plus_minus' => 0,
+			'responsive_single_product_show_related_products' => 1,
+			'responsive_single_product_related_products_columns' => '4',
+			'responsive_single_product_floating_bar_placement' => 'top',
+			'responsive_single_product_payment_structure' => wp_json_encode(
+				array(
+					'color_type' => 'default',
+					'title'      => 'Guaranteed Safe Checkout',
+					'cards'      => array(
+						array(
+							'id'    => 'visa',
+							'title' => 'Visa',
+							'type'  => 'icon',
+							'icon'  => 'fab fa-cc-visa',
+							'image' => '',
+						),
+						array(
+							'id'    => 'mastercard',
+							'title' => 'Mastercard',
+							'type'  => 'icon',
+							'icon'  => 'fab fa-cc-mastercard',
+							'image' => '',
+						),
+						array(
+							'id'    => 'amex',
+							'title' => 'Amex',
+							'type'  => 'icon',
+							'icon'  => 'fab fa-cc-amex',
+							'image' => '',
+						),
+						array(
+							'id'    => 'discover',
+							'title' => 'Discover',
+							'type'  => 'icon',
+							'icon'  => 'fab fa-cc-discover',
+							'image' => '',
+						),
+					),
+				)
+			),
+			'responsive_single_product_featured_image_ratio' => 'original',
+			'responsive_single_product_featured_image_predefined_ratio' => '1:1',
+			'responsive_single_product_featured_image_custom_width' => '',
+			'responsive_single_product_featured_image_custom_height' => '',
+			'responsive_single_product_featured_image_size'  => 'full',
+			'responsive_single_product_title_vertical_alignment' => 'flex-start',
+			'responsive_single_product_banner_min_height'        => 0,
+			'responsive_single_product_banner_min_height_tablet' => 0,
+			'responsive_single_product_banner_min_height_mobile' => 0,
+			'responsive_single_product_featured_image_as_background' => 0,
+			'responsive_single_product_banner_overlay_color'     => '',
 			'shop_title_horizontal_alignment'     => 'center',
 			'shop_title_inner_elements_spacing'   => 0,
 			'shop_title_container_background_layout1' => 'none',
@@ -1504,6 +1579,15 @@ function defaults() {
 			'responsive_shop_text_color'                    => 'palette2',
 			'responsive_shop_title_link_color'              => 'palette0',
 			'responsive_shop_title_link_hover_color'        => 'palette1',
+			'responsive_single_product_title_color'            => 'h1-color',
+			'responsive_single_product_text_color'             => 'palette2',
+			'responsive_single_product_title_link_color'       => 'palette0',
+			'responsive_single_product_title_link_hover_color' => 'palette1',
+			'responsive_single_product_site_background_color'    => 'site-background',
+			'responsive_single_product_content_background_color' => 'box-background',
+			'responsive_single_product_banner_background_color'        => '#f5f5f5',
+			'responsive_single_product_banner_background_color_tablet' => '#f5f5f5',
+			'responsive_single_product_banner_background_color_mobile' => '#f5f5f5',
 			'responsive_page_site_background_color' => 'site-background',
 			'responsive_page_content_background_color' => 'box-background',
 			'responsive_link_style'               => 'no-underline',
@@ -3124,8 +3208,74 @@ add_action( 'woocommerce_before_main_content', function() {
     }
 
     // Single product pages.
-    if ( get_theme_mod( 'responsive_single_product_breadcrumbs', 1 ) && is_product() ) {
-        woocommerce_breadcrumb();
+    if ( is_product() ) {
+        if ( get_theme_mod( 'responsive_single_product_title_area', true ) && 'post_title_layout2' !== get_theme_mod( 'responsive_single_product_title_layout', 'post_title_layout1' ) ) {
+            $elements = responsive_single_product_title_elements_positioning();
+            if ( is_array( $elements ) ) {
+                global $post;
+                setup_postdata( $post );
+                foreach ( $elements as $element ) {
+                    switch ( $element ) {
+                        case 'breadcrumb':
+                            woocommerce_breadcrumb();
+                            break;
+                        case 'title':
+                            the_title( '<h1 class="product_title entry-title">', '</h1>' );
+                            break;
+                        case 'meta':
+                            if ( function_exists( 'responsive_woocommerce_single_product_meta_render' ) ) {
+                                responsive_woocommerce_single_product_meta_render();
+                            }
+                            break;
+                        case 'excerpt':
+                            if ( function_exists( 'woocommerce_template_single_excerpt' ) ) {
+                                woocommerce_template_single_excerpt();
+                            }
+                            break;
+                        case 'taxonomy':
+                            if ( function_exists( 'responsive_woocommerce_single_product_taxonomy_render' ) ) {
+                                responsive_woocommerce_single_product_taxonomy_render();
+                            }
+                            break;
+                        case 'featured_image':
+                            if ( has_post_thumbnail() && ! post_password_required() ) {
+                                $image_size  = get_theme_mod( 'responsive_single_product_featured_image_size', 'full' );
+                                $image_ratio = get_theme_mod( 'responsive_single_product_featured_image_ratio', 'original' );
+
+                                $ratio_css = '';
+                                if ( 'predefined' === $image_ratio ) {
+                                    $predefined_ratio = get_theme_mod( 'responsive_single_product_featured_image_predefined_ratio', '1:1' );
+                                    $ratio_value      = str_replace( ':', '/', $predefined_ratio );
+                                    $ratio_css        = 'aspect-ratio: ' . esc_attr( $ratio_value ) . ';';
+                                } elseif ( 'custom' === $image_ratio ) {
+                                    $custom_width  = get_theme_mod( 'responsive_single_product_featured_image_custom_width', '' );
+                                    $custom_height = get_theme_mod( 'responsive_single_product_featured_image_custom_height', '' );
+                                    if ( $custom_width && $custom_height ) {
+                                        $ratio_css = 'aspect-ratio: ' . esc_attr( $custom_width ) . '/' . esc_attr( $custom_height ) . ';';
+                                    }
+                                }
+
+                                $img_args = array(
+                                    'alt' => get_the_title(),
+                                );
+                                if ( function_exists( 'responsive_get_schema_markup' ) && responsive_get_schema_markup( 'image' ) ) {
+                                    $img_args['itemprop'] = 'thumbnailUrl';
+                                }
+                                if ( $ratio_css ) {
+                                    $img_args['style'] = $ratio_css . ' object-fit: cover;';
+                                }
+                                ?>
+                                <div class="responsive-product-featured-image">
+                                    <?php the_post_thumbnail( $image_size, $img_args ); ?>
+                                </div>
+                                <?php
+                            }
+                            break;
+                    }
+                }
+                wp_reset_postdata();
+            }
+        }
     }
 }, 20 );
 

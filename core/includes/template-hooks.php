@@ -413,6 +413,266 @@ function responsive_woocommerce_shop_banner2() {
 	}
 }
 
+add_action( 'woocommerce_before_main_content', 'responsive_woocommerce_single_product_banner2', 5 );
+add_action( 'responsive_wrapper_top', 'responsive_woocommerce_single_product_banner2' );
+
+/**
+ * Render meta for single product title area.
+ *
+ * @return void
+ */
+function responsive_woocommerce_single_product_meta_render() {
+	$meta_elements = responsive_single_product_title_meta_elements();
+	if ( empty( $meta_elements ) || ! is_array( $meta_elements ) ) {
+		return;
+	}
+
+	echo '<div class="post-meta">';
+	foreach ( $meta_elements as $meta_element ) {
+		switch ( $meta_element ) {
+			case 'author':
+				$author_prefix = get_theme_mod( 'responsive_single_product_author_prefix_label', 'By' );
+				$show_avatar   = get_theme_mod( 'responsive_single_product_author_avatar', false );
+				$avatar_size   = get_theme_mod( 'responsive_single_product_author_avatar_size', 30 );
+				$avatar_html   = '';
+				if ( $show_avatar ) {
+					$avatar_html = '<span class="author-avatar">' . get_avatar( get_the_author_meta( 'ID' ), (int) $avatar_size ) . '</span>';
+				}
+				$prefix_html = '';
+				if ( ! empty( $author_prefix ) ) {
+					$prefix_html = '<span class="author-prefix">' . esc_html( $author_prefix ) . ' </span>';
+				}
+				?>
+				<span class="entry-author" <?php responsive_schema_markup( 'entry-author' ); ?>>
+					<?php
+					echo $prefix_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					echo $avatar_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					printf(
+						'<span class="author vcard"><a class="url fn n" href="%1$s" aria-label="%2$s" title="%2$s" itemprop="url"><span itemprop="name">%3$s</span></a></span>',
+						esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+						/* translators: %s view posts by */
+						esc_attr( sprintf( __( 'View all posts by %s', 'responsive' ), get_the_author() ) ),
+						esc_attr( wp_kses_post( get_the_author() ) )
+					);
+					?>
+				</span>
+				<?php
+				break;
+			case 'date':
+				$date_format_setting = get_theme_mod( 'responsive_single_product_date_format', 'default' );
+				$date_format         = ( 'default' === $date_format_setting || empty( $date_format_setting ) ) ? get_option( 'date_format' ) : $date_format_setting;
+				?>
+				<span class="entry-date">
+					<?php
+					printf(
+						'<span class="%1$s" itemprop="datePublished">%2$s</span>',
+						'meta-prep meta-prep-author posted',
+						sprintf(
+							'<a href="%1$s" aria-label="%2$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s" itemprop="dateModified">%4$s</time></a>',
+							esc_url( get_permalink() ),
+							esc_attr( get_the_title() ),
+							esc_html( get_the_date( 'c' ) ),
+							esc_html( get_the_date( $date_format ) )
+						)
+					);
+					?>
+				</span>
+				<?php
+				break;
+			case 'updated':
+				$updated_format_setting = get_theme_mod( 'responsive_single_product_updated_format', 'default' );
+				$updated_format         = ( 'default' === $updated_format_setting || empty( $updated_format_setting ) ) ? get_option( 'date_format' ) : $updated_format_setting;
+				?>
+				<span class="entry-updated">
+					<?php
+					printf(
+						'<span class="%1$s" itemprop="datePublished">%2$s</span>',
+						'meta-prep meta-prep-author posted',
+						sprintf(
+							'<a href="%1$s" aria-label="%2$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s" itemprop="dateModified">%4$s</time></a>',
+							esc_url( get_permalink() ),
+							esc_attr( get_the_title() ),
+							esc_html( get_the_modified_date( 'c' ) ),
+							esc_html( get_the_modified_date( $updated_format ) )
+						)
+					);
+					?>
+				</span>
+				<?php
+				break;
+			case 'comments':
+				if ( ( comments_open() || get_comments_number() || is_customize_preview() ) && ! post_password_required() ) {
+					?>
+					<span class="entry-comment">
+						<span class="comments-link">
+							<span class="mdash"><i class="icon-comments-o" aria-hidden="true"></i></span>
+							<?php comments_popup_link( __( 'No Comments', 'responsive' ), __( '1 Comment', 'responsive' ), __( '% Comments', 'responsive' ) ); ?>
+						</span>
+					</span>
+					<?php
+				}
+				break;
+			default:
+				if ( 'taxonomy' === $meta_element || strpos( $meta_element, 'taxonomy_' ) === 0 ) {
+					$meta_taxonomies = function_exists( 'responsive_single_product_meta_taxonomies' ) ? responsive_single_product_meta_taxonomies() : array();
+					$tax_config      = isset( $meta_taxonomies[ $meta_element ] ) ? $meta_taxonomies[ $meta_element ] : array();
+					$taxonomy        = ! empty( $tax_config['taxonomy'] ) ? $tax_config['taxonomy'] : get_theme_mod( 'responsive_single_product_taxonomy', 'product_cat' );
+					$style           = ! empty( $tax_config['style'] ) ? $tax_config['style'] : get_theme_mod( 'responsive_single_product_taxonomy_style', 'default' );
+
+					$terms = get_the_terms( get_the_ID(), $taxonomy );
+					if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+						echo '<span class="entry-taxonomy responsive-product-taxonomy responsive-taxonomy-style-' . esc_attr( $style ) . '">';
+						foreach ( $terms as $term ) {
+							$term_link = get_term_link( $term );
+							if ( ! is_wp_error( $term_link ) ) {
+								echo '<a href="' . esc_url( $term_link ) . '" class="taxonomy-term ' . esc_attr( $style ) . '">' . esc_html( $term->name ) . '</a>';
+							}
+						}
+						echo '</span>';
+					}
+				}
+				break;
+		}
+	}
+	echo '</div>';
+}
+
+/**
+ * Render taxonomies for single product title area.
+ *
+ * @return void
+ */
+function responsive_woocommerce_single_product_taxonomy_render() {
+	$taxonomy = get_theme_mod( 'responsive_single_product_taxonomy', 'product_cat' );
+	$style    = get_theme_mod( 'responsive_single_product_taxonomy_style', 'default' );
+
+	$terms = get_the_terms( get_the_ID(), $taxonomy );
+	if ( empty( $terms ) || is_wp_error( $terms ) ) {
+		return;
+	}
+
+	echo '<div class="responsive-product-taxonomy responsive-taxonomy-style-' . esc_attr( $style ) . '">';
+	foreach ( $terms as $term ) {
+		$term_link = get_term_link( $term );
+		if ( ! is_wp_error( $term_link ) ) {
+			echo '<a href="' . esc_url( $term_link ) . '" class="taxonomy-term ' . esc_attr( $style ) . '">' . esc_html( $term->name ) . '</a>';
+		}
+	}
+	echo '</div>';
+}
+
+/**
+ * WooCommerce Single Product Banner Layout 2
+ */
+function responsive_woocommerce_single_product_banner2() {
+	static $rendered = false;
+	if ( $rendered ) {
+		return;
+	}
+
+	if ( ! class_exists( 'WooCommerce' ) ) {
+		return;
+	}
+
+	if ( is_product() && get_theme_mod( 'responsive_single_product_title_area', true ) && get_theme_mod( 'responsive_single_product_title_layout', 'post_title_layout1' ) === 'post_title_layout2' ) {
+		$rendered = true;
+		$elements = responsive_single_product_title_elements_positioning();
+		if ( empty( $elements ) ) {
+			return;
+		}
+		global $post;
+		setup_postdata( $post );
+
+		$as_background            = get_theme_mod( 'responsive_single_product_featured_image_as_background', 0 );
+		$has_featured_in_elements = is_array( $elements ) && in_array( 'featured_image', $elements, true );
+		$section_style            = '';
+
+		if ( $as_background && $has_featured_in_elements && has_post_thumbnail() && ! post_password_required() ) {
+			$featured_image_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+			$overlay_color      = Responsive\Core\responsive_prepare_css_value( 'responsive_single_product_banner_overlay_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_banner_overlay_color' ) );
+			$overlay_css        = empty( $overlay_color ) ? 'transparent' : $overlay_color;
+
+			if ( $featured_image_url ) {
+				$section_style = ' style="--overlay-color: ' . $overlay_css . '; background-color: var(--overlay-color); background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), url(' . esc_url( $featured_image_url ) . '); background-repeat: no-repeat; background-size: cover; background-attachment: scroll; background-position: center center;"';
+			} elseif ( ! empty( $overlay_color ) ) {
+				$section_style = ' style="--overlay-color: ' . $overlay_css . '; background-color: var(--overlay-color);"';
+			}
+		}
+		?>
+		<section class="responsive-single-product-entry-banner"<?php echo $section_style; ?>>
+			<div class="container">
+				<?php
+				if ( is_array( $elements ) ) {
+					foreach ( $elements as $element ) {
+						switch ( $element ) {
+							case 'breadcrumb':
+								?>
+								<div class="responsive-breadcrumbs-wrapper">
+									<div class="breadcrumbs-inner">
+										<?php woocommerce_breadcrumb(); ?>
+									</div>
+								</div>
+								<?php
+								break;
+							case 'title':
+								the_title( '<h1 class="product_title entry-title page-title">', '</h1>' );
+								break;
+							case 'meta':
+								responsive_woocommerce_single_product_meta_render();
+								break;
+							case 'excerpt':
+								if ( function_exists( 'woocommerce_template_single_excerpt' ) ) {
+									woocommerce_template_single_excerpt();
+								}
+								break;
+							case 'taxonomy':
+								responsive_woocommerce_single_product_taxonomy_render();
+								break;
+							case 'featured_image':
+								if ( ! $as_background && has_post_thumbnail() && ! post_password_required() ) {
+									$image_size  = get_theme_mod( 'responsive_single_product_featured_image_size', 'full' );
+									$image_ratio = get_theme_mod( 'responsive_single_product_featured_image_ratio', 'original' );
+
+									$ratio_css = '';
+									if ( 'predefined' === $image_ratio ) {
+										$predefined_ratio = get_theme_mod( 'responsive_single_product_featured_image_predefined_ratio', '1:1' );
+										$ratio_value      = str_replace( ':', '/', $predefined_ratio );
+										$ratio_css        = 'aspect-ratio: ' . esc_attr( $ratio_value ) . ';';
+									} elseif ( 'custom' === $image_ratio ) {
+										$custom_width  = get_theme_mod( 'responsive_single_product_featured_image_custom_width', '' );
+										$custom_height = get_theme_mod( 'responsive_single_product_featured_image_custom_height', '' );
+										if ( $custom_width && $custom_height ) {
+											$ratio_css = 'aspect-ratio: ' . esc_attr( $custom_width ) . '/' . esc_attr( $custom_height ) . ';';
+										}
+									}
+
+									$img_args = array(
+										'alt' => get_the_title(),
+									);
+									if ( function_exists( 'responsive_get_schema_markup' ) && responsive_get_schema_markup( 'image' ) ) {
+										$img_args['itemprop'] = 'thumbnailUrl';
+									}
+									if ( $ratio_css ) {
+										$img_args['style'] = $ratio_css . ' object-fit: cover;';
+									}
+									?>
+									<div class="responsive-product-featured-image">
+										<?php the_post_thumbnail( $image_size, $img_args ); ?>
+									</div>
+									<?php
+								}
+								break;
+						}
+					}
+				}
+				?>
+			</div>
+		</section>
+		<?php
+		wp_reset_postdata();
+	}
+}
+
 add_filter( 'woocommerce_show_page_title', 'responsive_woocommerce_show_page_title' );
 
 /**

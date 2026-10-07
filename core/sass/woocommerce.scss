@@ -262,6 +262,14 @@ ul.wc-block-grid__products {
         font-weight: bold;
     }
 
+    .responsive-product-shipping-text {
+        font-size: 0.9em;
+        font-weight: normal;
+        margin-left: 6px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
     ul.products {
         margin: 0;
         li.product {
@@ -1035,6 +1043,10 @@ span.res-header-cart-info-wrap, .res-addon-cart-wrap, .res-addon-mobile-cart-wra
     top: 0;
     width: 100%;
     z-index: 1000;
+
+    .responsive-product-shipping-text {
+        display: none;
+    }
 }
 
 .floatingb-title {
@@ -1598,3 +1610,92 @@ body.responsive-align-btn-bottom {
         }
     }
 }
+
+/* Single Product Payments Structure */
+fieldset.responsive-product-payments {
+    border: 1px solid #dcdcde;
+    border-radius: 6px;
+    padding: 0 18px 18px;
+    margin: 20px 0;
+    min-inline-size: auto;
+    width: 100%;
+    box-sizing: border-box;
+    background: transparent;
+
+    legend.responsive-product-payments-title {
+        margin: 0 auto;
+        padding: 0 12px;
+        float: none;
+        width: auto;
+        text-align: center;
+        border: none;
+    }
+
+    .responsive-product-payments-icons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 12px 14px;
+        padding-top: 4px;
+    }
+
+    .responsive-product-payment-item {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 0;
+
+        svg {
+            width: 47px;
+            height: 30px;
+            max-width: 47px;
+            max-height: 30px;
+            display: block;
+            border-radius: 3px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+            path:not([fill]) {
+                fill: #3c434a;
+            }
+        }
+
+        .responsive-product-payment-image {
+            width: 47px;
+            height: 30px;
+            max-width: 47px;
+            max-height: 30px;
+            object-fit: contain;
+            border-radius: 3px;
+            display: block;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        i {
+            font-size: 26px;
+            color: #3c434a;
+        }
+    }
+
+    &.is-grayscale {
+        .responsive-product-payment-item {
+            filter: grayscale(100%);
+            -webkit-filter: grayscale(100%);
+            opacity: 0.85;
+            transition: filter 0.2s ease, opacity 0.2s ease;
+
+            &:hover {
+                filter: grayscale(0%);
+                -webkit-filter: grayscale(0%);
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.single-product .site-content-header .product_title,
+.single-product .responsive-single-product-entry-banner .product_title {
+    margin-top: 0;
+}
+
+

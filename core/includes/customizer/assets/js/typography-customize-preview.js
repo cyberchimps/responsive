@@ -40,7 +40,7 @@
                 $swipe.bind( function( dataAndEvents ) {
                     // Skip if a global font preset is set (adjust prefix exclusions if necessary)
                     var font_preset_set = api( "responsive_font_presets" ) ? api( "responsive_font_presets" ).get() : '';
-                    if ( '' !== font_preset_set && settingPrefix.indexOf('page_title_area') === -1 && settingPrefix !== 'page_title_typography' ) return;
+                    if ( '' !== font_preset_set && settingPrefix.indexOf('page_title_area') === -1 && settingPrefix.indexOf('single_product_') !== 0 && settingPrefix !== 'page_title_typography' ) return;
 
                     if ( prop === 'font-family' && dataAndEvents ) {
                         var fontName = dataAndEvents.split(",")[0];
@@ -6617,5 +6617,38 @@
         ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
     );
     // WooCommerce Shop Text Typography - End
+
+    // WooCommerce Single Product Title Typography - Start
+    generateTypographyPreview(
+        'single_product_title_area_title_typography',
+        'single_product_title_area_title_tablet_typography',
+        'single_product_title_area_title_mobile_typography',
+        'single_product_title_area_title',
+        'customizer-typography-single_product_title_area_title_typography',
+        ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
+    );
+    // WooCommerce Single Product Title Typography - End
+
+    // WooCommerce Single Product Text Typography - Start
+    generateTypographyPreview(
+        'single_product_text_typography',
+        'single_product_text_tablet_typography',
+        'single_product_text_mobile_typography',
+        'single_product_text',
+        'customizer-typography-single_product_text_typography',
+        ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
+    );
+    // WooCommerce Single Product Text Typography - End
+
+    // WooCommerce Single Product Meta Typography - Start
+    generateTypographyPreview(
+        'single_product_meta_typography',
+        'single_product_meta_tablet_typography',
+        'single_product_meta_mobile_typography',
+        'single_product_meta',
+        'customizer-typography-single_product_meta_typography',
+        ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
+    );
+    // WooCommerce Single Product Meta Typography - End
 } )( jQuery );
 

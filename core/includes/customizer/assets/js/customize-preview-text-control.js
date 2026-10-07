@@ -42,6 +42,24 @@
             );
         } );
     } );
+    //Single Product Meta Separator
+    api( 'responsive_single_product_title_meta_separator_text', function( value ) {
+        value.bind( function( newval ) {
+            var separator = ( 'none' === newval.toLowerCase() ) ? '' : newval;
+            jQuery( 'style#responsive-single-product-meta-seperator-content' ).remove();
+            jQuery( 'head' ).append(
+                '<style id="responsive-single-product-meta-seperator-content">'
+                + '.single-product .site-content-header .post-meta > span:not(:last-child)::after, .single-product .responsive-single-product-entry-banner .post-meta > span:not(:last-child)::after { content:"' + separator +'"; margin-left: 0.5em; margin-right: 0.5em; }'
+                + '</style>'
+            );
+        } );
+    } );
+    //Single Product Author Prefix Label
+    api( 'responsive_single_product_author_prefix_label', function( value ) {
+        value.bind( function( newval ) {
+            jQuery( '.single-product .post-meta .entry-author .author-prefix' ).text( newval ? newval + ' ' : '' );
+        } );
+    } );
     api( 'responsive_header_button_label', function( value ) {
         value.bind( function( newval ) {
             jQuery('.site-header .site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap a.responsive-header-button').text(newval);

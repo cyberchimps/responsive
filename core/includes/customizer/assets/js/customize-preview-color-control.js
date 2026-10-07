@@ -1209,7 +1209,7 @@
                 newval = `var(--responsive-global-${newval})`;
             }
 
-            $('a, .woocommerce a.remove:hover').not('nav a').not('a.add_to_cart_button').not('.site-title-tagline a').not('.widget-area .widget-wrapper a').not('a.product_type_grouped').not('.woocommerce-tabs .description_tab').not('.woocommerce-tabs .reviews_tab').not('.post-meta a').not('.post-meta a:hover').not('.responsive-single-related-posts-container a').not('.responsive-single-related-posts-container a:hover').not('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.breadcrumb a').not('.single-post .responsive-related-single-post-content .entry-category a ').not('.woocommerce.archive .site-content-header a, .woocommerce-shop .site-content-header a, .responsive-shop-entry-banner a, .single-product .site-content-header a, .single-product .responsive-single-product-entry-banner a').css('color', newval );
+            $('a, .woocommerce a.remove:hover').not('nav a').not('a.add_to_cart_button').not('.site-title-tagline a').not('.widget-area .widget-wrapper a').not('a.product_type_grouped').not('.woocommerce-tabs .description_tab').not('.woocommerce-tabs .reviews_tab').not('.woocommerce-tabs ul.tabs li a').not('.post-meta a').not('.post-meta a:hover').not('.responsive-single-related-posts-container a').not('.responsive-single-related-posts-container a:hover').not('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.breadcrumb a').not('.single-post .responsive-related-single-post-content .entry-category a ').not('.woocommerce.archive .site-content-header a, .woocommerce-shop .site-content-header a, .responsive-shop-entry-banner a, .single-product .site-content-header a, .single-product .responsive-single-product-entry-banner a').css('color', newval );
         } );
     } );
 
@@ -1252,12 +1252,13 @@
         '.read-more-button .hentry .read-more .more-link,' +
         'input[type=button],' +
         'input[type=submit],' +
-        'button:not(.responsive-header-button):not(.customize-partial-edit-shortcut-button):not(.search-submit):not(.menu-toggle),' +
-        '.button:not(:where(.responsive-header-button, .customize-partial-edit-shortcut-button, .search-submit, .add_to_cart_button, .product_type_external, .product_type_grouped)):not(.menu-toggle)' +
+        'button:not(.responsive-header-button):not(.customize-partial-edit-shortcut-button):not(.search-submit):not(.menu-toggle):not(.plus, .minus),' +
+        '.button:not(:where(.responsive-header-button, .customize-partial-edit-shortcut-button, .search-submit, .add_to_cart_button, .product_type_external, .product_type_grouped, .menu-toggle))' +
         '.wp-block-button:not(.is-style-outline) > .wp-block-button__link,' +
         'div.wpforms-container-full .wpforms-form input[type=submit],' +
         'body div.wpforms-container-full .wpforms-form button[type=submit],' +
-        'div.wpforms-container-full .wpforms-form .wpforms-page-button';
+        'div.wpforms-container-full .wpforms-form .wpforms-page-button,' +
+        '.single-product .responsive-product-taxonomy.responsive-taxonomy-style-badge a.taxonomy-term';
 
     var buttonHoverBGPreviewStyleId = 'responsive-button-hover-color-preview';
     var buttonHoverBGPreviewSelectors =
@@ -1266,12 +1267,13 @@
         '.read-more-button .hentry .read-more .more-link:hover,' +
         'input[type=button]:hover,' +
         'input[type=submit]:hover,' +
-        'button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button):not(.customize-partial-edit-shortcut-button):not(.menu-toggle),' +
-        '.button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button, .customize-partial-edit-shortcut-button, .add_to_cart_button, .product_type_external, .product_type_grouped):not(.menu-toggle):not(.site-mobile-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button),' +
+        'button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button):not(.customize-partial-edit-shortcut-button):not(.menu-toggle):not(.plus, .minus),' +
+        '.button:hover:not(.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button, .customize-partial-edit-shortcut-button, .add_to_cart_button, .product_type_external, .product_type_grouped, .menu-toggle, .site-mobile-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button),' +
         '.wp-block-button:not(.is-style-outline) > .wp-block-button__link:hover,' +
         'div.wpforms-container-full .wpforms-form input[type=submit]:hover,' +
         'body div.wpforms-container-full .wpforms-form button[type=submit]:hover,' +
-        'div.wpforms-container-full .wpforms-form .wpforms-page-button:hover';
+        'div.wpforms-container-full .wpforms-form .wpforms-page-button:hover,' +
+        '.single-product .responsive-product-taxonomy.responsive-taxonomy-style-badge a.taxonomy-term:hover';
 
     function isOutlineButtonPreset() {
         var preset = api( 'responsive_button_presets' ).get();
@@ -1370,7 +1372,7 @@
             var styleId = 'responsive-add-to-cart-button-hover-color-preview';
             jQuery('style#' + styleId).remove();
             
-            var selectors = '.woocommerce #respond input#submit:hover, .wp-block-button__link.add_to_cart_button:hover, .woocommerce div.product .woocommerce-tabs ul.tabs li.active a, .woocommerce div.product .woocommerce-tabs ul.tabs li.active, .woocommerce button.button:focus, .woocommerce button.button.alt:focus, .woocommerce button.button:hover, .woocommerce button.button.alt:hover, .woocommerce button.button:hover, .woocommerce button.button:focus, .woocommerce a.button:focus, .woocommerce a.button:hover, .woocommerce a.button.alt:focus, .woocommerce a.button.alt:hover, .woocommerce .widget_price_filter .price_slider_wrapper .ui-widget-content';
+            var selectors = '.woocommerce #respond input#submit:hover, .wp-block-button__link.add_to_cart_button:hover, .woocommerce button.button:focus, .woocommerce button.button.alt:focus, .woocommerce button.button:hover, .woocommerce button.button.alt:hover, .woocommerce button.button:hover, .woocommerce button.button:focus, .woocommerce a.button:focus, .woocommerce a.button:hover, .woocommerce a.button.alt:focus, .woocommerce a.button.alt:hover, .woocommerce .widget_price_filter .price_slider_wrapper .ui-widget-content';
             var css = selectors + ' { background-color: ' + newval + ' !important; }';
             
             jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
@@ -1399,14 +1401,14 @@
             if( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
-            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button]:not(.customize-partial-edit-shortcut-button),input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button:not(.customize-partial-edit-shortcut-button),.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').not('.footer-widget-area a').css('color', newval );
+            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button]:not(.customize-partial-edit-shortcut-button),input[type=submit],button:not(.customize-partial-edit-shortcut-button):not(.plus, .minus),.button:not(.customize-partial-edit-shortcut-button),.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').not('.footer-widget-area a').css('color', newval );
         } );
     } );
 
     //Buttons border color
     api( 'responsive_button_border_color', function( value ) {
         value.bind( function( newval ) {
-            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button]:not(.customize-partial-edit-shortcut-button),input[type=submit],button:not(.customize-partial-edit-shortcut-button),.button:not(:where(.customize-partial-edit-shortcut-button, .add_to_cart_button, .product_type_external, .product_type_grouped)),.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').css('border-color', newval );
+            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button]:not(.customize-partial-edit-shortcut-button),input[type=submit],button:not(.customize-partial-edit-shortcut-button):not(.plus, .minus),.button:not(:where(.customize-partial-edit-shortcut-button, .add_to_cart_button, .product_type_external, .product_type_grouped)),.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').css('border-color', newval );
         } );
     } );
 
@@ -2241,16 +2243,93 @@
         });
     });
 
+    // Single Product Site Background Color
+    api('responsive_single_product_site_background_color', function (value) {
+        value.bind(function (newval) {
+            if (newval && (newval.includes('palette') || newval.includes('site-background'))) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('body.single-product').css('background-color', newval);
+        });
+    });
+
+    // Single Product Content Background Color
+    api('responsive_single_product_content_background_color', function (value) {
+        value.bind(function (newval) {
+            if (newval && (newval.includes('palette') || newval.includes('box-background'))) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
+            $('.single-product div.product').css('background-color', newval);
+        });
+    });
+
+    // Single Product Tab Colors (own controls, independent from the Add to Cart button colors).
+    (function() {
+        var tabsBase = '.woocommerce div.product .woocommerce-tabs ul.tabs';
+
+        // Rules for each control. Listed in the order the saved CSS prints them (hover before active) so equal specificity resolves the same way.
+        var tabColorRules = {
+            responsive_single_product_tab_text_color: function( tabs, c ) {
+                return tabs + ' li a,' + tabs + ' li{color:' + c + ';}';
+            },
+            responsive_single_product_tab_text_hover_color: function( tabs, c ) {
+                return tabs + ' li a:hover{color:' + c + ';}';
+            },
+            responsive_single_product_tab_text_active_color: function( tabs, c ) {
+                return tabs + ' li.active a,' + tabs + ' li.active{color:' + c + ';}';
+            },
+            responsive_single_product_tab_background_color: function( tabs, c ) {
+                return tabs + ' li a,' + tabs + ' li{background-color:' + c + ';}' +
+                    tabs + '::before,' + tabs + ' li{border-color:' + c + ';}' +
+                    tabs + ' li::after{box-shadow:-2px 2px 0 ' + c + ';}' +
+                    tabs + ' li::before{box-shadow:2px 2px 0 ' + c + ';}';
+            },
+            responsive_single_product_tab_background_hover_color: function( tabs, c ) {
+                return tabs + ' li:not(.active):hover,' + tabs + ' li:not(.active):hover a{background-color:' + c + ';}' +
+                    tabs + ' li:not(.active):hover::after{box-shadow:-2px 2px 0 ' + c + ';}' +
+                    tabs + ' li:not(.active):hover::before{box-shadow:2px 2px 0 ' + c + ';}';
+            },
+            responsive_single_product_tab_background_active_color: function( tabs, c ) {
+                return tabs + ' li.active a,' + tabs + ' li.active{background-color:' + c + ';}' +
+                    tabs + ' li.active{border-bottom-color:' + c + ';}' +
+                    tabs + ' li.active::before{box-shadow:2px 2px 0 ' + c + ';}' +
+                    tabs + ' li.active::after{box-shadow:-2px 2px 0 ' + c + ';}' +
+                    tabs + ' li::after,' + tabs + ' li::before{border-color:' + c + ';}';
+            }
+        };
+
+        // Create one style tag per control up front, in order, and only change their content later so the order never changes.
+        Object.keys( tabColorRules ).forEach( function( key ) {
+            var styleId = 'responsive-' + key.replace( /_/g, '-' ) + '-preview';
+            jQuery( 'head' ).append( '<style id="' + styleId + '"></style>' );
+
+            api( key, function( value ) {
+                value.bind( function() {
+                    var isCenter = $( 'body' ).hasClass( 'product-tab-style-center' );
+                    var css      = '';
+                    var color    = processThemeSettingForCSS( key );
+
+                    // The Center style has no tab background.
+                    if ( color && ! ( isCenter && key.indexOf( '_background_' ) !== -1 ) ) {
+                        // The saved Center rules are prefixed with the body class, match their specificity so the preview wins without !important.
+                        var tabs = isCenter ? 'body.product-tab-style-center' + tabsBase : tabsBase;
+                        css = tabColorRules[ key ]( tabs, color );
+                    }
+                    jQuery( 'style#' + styleId ).text( css );
+                } );
+            } );
+        } );
+    })();
+
 
 
     //Buttons Color
     api( 'responsive_add_to_cart_button_color', function( value ) {
         value.bind( function( newval ) {
-            $('.woocommerce #respond input#submit,.wp-block-button__link.add_to_cart_button,.woocommerce div.product .woocommerce-tabs ul.tabs li a,.woocommerce div.product .woocommerce-tabs ul.tabs li,.woocommerce button.button.alt,.woocommerce button.button,.woocommerce a.button,.woocommerce .widget_price_filter .ui-slider .ui-slider-handle,.woocommerce .widget_price_filter .ui-slider .ui-slider-range,.wc-block-grid__product-onsale,.woocommerce span.onsale')
+            $('.woocommerce #respond input#submit,.wp-block-button__link.add_to_cart_button,.woocommerce button.button.alt,.woocommerce button.button,.woocommerce a.button,.woocommerce .widget_price_filter .ui-slider .ui-slider-handle,.woocommerce .widget_price_filter .ui-slider .ui-slider-range,.wc-block-grid__product-onsale,.woocommerce span.onsale')
                 .filter(function() {
                     return !$(this).closest('li.product').hasClass('btn-style-text-with-arrow');
                 }).css('background-color', newval );
-            $('.woocommerce div.product .woocommerce-tabs ul.tabs::before,.woocommerce div.product .woocommerce-tabs ul.tabs li').css('border-color', newval );
         } );
     } );
 
@@ -2261,7 +2340,7 @@
             if( formattedVal && formattedVal.startsWith('palette') ) {
                 formattedVal = `var(--responsive-global-${formattedVal})`;
             }
-            var $targets = $('.woocommerce span.onsale,.wc-block-grid__product-onsale,.woocommerce #respond input#submit,.wp-block-button__link.add_to_cart_button,.woocommerce div.product .woocommerce-tabs ul.tabs li a,.woocommerce div.product .woocommerce-tabs ul.tabs li,.woocommerce button.button.alt,.woocommerce button.button,.woocommerce a.button');
+            var $targets = $('.woocommerce span.onsale,.wc-block-grid__product-onsale,.woocommerce #respond input#submit,.wp-block-button__link.add_to_cart_button,.woocommerce button.button.alt,.woocommerce button.button,.woocommerce a.button');
 
             $targets.filter(function() {
                 return !$(this).closest('li.product').hasClass('btn-style-text-with-arrow');
@@ -3009,7 +3088,7 @@
     //Hover Colors
 
     //Links Hover Color
-    $("a").not('.secondary-navigation a').not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.responsive-header-html a, .responsive-mobile-header-html a').not('.post-meta a').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.read-more .more-link').not('footer.comment-meta a, .commentlist .comment-content a').not('.button').not('.wp-block-button__link').not('.breadcrumb a').not('.site-header .responsive-header-html2 .responsive-header-html2-inner a').not('.site-header .responsive-header-html .responsive-header-html-inner a').not('.site-footer .responsive-footer-html .responsive-footer-html-inner a').not('.site-footer .responsive-footer-html2 .responsive-footer-html2-inner a').not('.woocommerce.archive .site-content-header a, .woocommerce-shop .site-content-header a, .responsive-shop-entry-banner a, .single-product .site-content-header a, .single-product .responsive-single-product-entry-banner a').hover(
+    $("a").not('.woocommerce-tabs ul.tabs li a').not('.secondary-navigation a').not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.responsive-header-html a, .responsive-mobile-header-html a').not('.post-meta a').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.read-more .more-link').not('footer.comment-meta a, .commentlist .comment-content a').not('.button').not('.wp-block-button__link').not('.breadcrumb a').not('.site-header .responsive-header-html2 .responsive-header-html2-inner a').not('.site-header .responsive-header-html .responsive-header-html-inner a').not('.site-footer .responsive-footer-html .responsive-footer-html-inner a').not('.site-footer .responsive-footer-html2 .responsive-footer-html2-inner a').not('.woocommerce.archive .site-content-header a, .woocommerce-shop .site-content-header a, .responsive-shop-entry-banner a, .single-product .site-content-header a, .single-product .responsive-single-product-entry-banner a').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
             $(this).css("color", linkHoverColor);
@@ -3021,7 +3100,7 @@
         }
     );
     //Buttons Hover Color
-    $(".page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button:not(.menu-toggle):not(.responsive-header-button), .button:not(:where(.responsive-header-button, .add_to_cart_button, .product_type_external, .product_type_grouped)), .wp-block-button:not(.is-style-outline) > .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, .elementor-widget-rael-button .rael-button").hover(
+    $(".page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button:not(.menu-toggle):not(.responsive-header-button):not(.plus, .minus), .button:not(:where(.responsive-header-button, .add_to_cart_button, .product_type_external, .product_type_grouped)), .wp-block-button:not(.is-style-outline) > .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, .elementor-widget-rael-button .rael-button").hover(
         function() {
             $(this).css("background-color", resolveButtonBackgroundColor('responsive_button_hover_color'));
             $(this).css("color", processThemeSettingForCSS('responsive_button_hover_text_color'));
@@ -3363,7 +3442,7 @@
     );
 
     //Add to cart Button Text Hover Color
-    $(".woocommerce span.onsale,.wc-block-grid__product-onsale,.woocommerce #respond input#submit,.wp-block-button__link.add_to_cart_button,.woocommerce div.product .woocommerce-tabs ul.tabs li a,.woocommerce div.product .woocommerce-tabs ul.tabs li,.woocommerce button.button.alt,.woocommerce button.button,.woocommerce a.button").hover(
+    $(".woocommerce span.onsale,.wc-block-grid__product-onsale,.woocommerce #respond input#submit,.wp-block-button__link.add_to_cart_button,.woocommerce button.button.alt,.woocommerce button.button,.woocommerce a.button").hover(
         function() {
             if ($(this).closest('li.product').hasClass('btn-style-text-with-arrow')) {
                 var rawHoverColor = api('responsive_add_to_cart_button_hover_text_color') ? api('responsive_add_to_cart_button_hover_text_color').get() : '';
@@ -7161,6 +7240,47 @@
         });
     });
 
+    // WooCommerce Single Product Title Banner Background
+    api('responsive_single_product_banner_background_color', function(val) {
+        val.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_banner_background_color') || newval;
+            jQuery('style#responsive_single_product_banner_background_color').remove();
+            jQuery('head').append(
+                '<style id="responsive_single_product_banner_background_color">' +
+                '@media screen and (min-width: 993px) {' +
+                ' .single-product .responsive-single-product-entry-banner { background-color: ' + color + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+    api('responsive_single_product_banner_background_color_tablet', function(val) {
+        val.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_banner_background_color_tablet') || newval;
+            jQuery('style#responsive_single_product_banner_background_color_tablet').remove();
+            jQuery('head').append(
+                '<style id="responsive_single_product_banner_background_color_tablet">' +
+                '@media screen and (min-width: 577px) and (max-width: 992px) {' +
+                ' .single-product .responsive-single-product-entry-banner { background-color: ' + color + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+    api('responsive_single_product_banner_background_color_mobile', function(val) {
+        val.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_banner_background_color_mobile') || newval;
+            jQuery('style#responsive_single_product_banner_background_color_mobile').remove();
+            jQuery('head').append(
+                '<style id="responsive_single_product_banner_background_color_mobile">' +
+                '@media screen and (max-width: 576px) {' +
+                ' .single-product .responsive-single-product-entry-banner { background-color: ' + color + '; }' +
+                '}' +
+                '</style>'
+            );
+        });
+    });
+
     // WooCommerce Shop Title Color
     api('responsive_shop_title_color', function(value) {
         value.bind(function(newval) {
@@ -7203,6 +7323,71 @@
             $('#' + styleId).remove();
             if (color) {
                 var selectors = '.woocommerce.archive .site-content-header a:hover, .woocommerce-shop .site-content-header a:hover, .woocommerce .responsive-shop-entry-banner a:hover';
+                $('head').append(
+                    '<style id="' + styleId + '">' +
+                    selectors + ' { color: ' + color + '; }' +
+                    '</style>'
+                );
+            }
+        });
+    });
+
+    // Single Product Title Color
+    api('responsive_single_product_title_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_title_color') || newval;
+            if (color && typeof color === 'string') {
+                if (color.includes('h1-color') || color.includes('palette')) {
+                    color = 'var(--responsive-global-' + color + ')';
+                }
+            }
+            $('.single-product .site-content-header .product_title, .single-product .responsive-single-product-entry-banner .product_title').css('color', color ? color : '');
+        });
+    });
+
+    // Single Product Text Color
+    api('responsive_single_product_text_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_text_color') || newval;
+            if (color && typeof color === 'string' && color.includes('palette')) {
+                color = 'var(--responsive-global-' + color + ')';
+            }
+            $('.single-product .site-content-header, .single-product .responsive-single-product-entry-banner, .single-product .site-content-header .woocommerce-breadcrumb, .single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb').css('color', color ? color : '');
+        });
+    });
+
+    // Single Product Link Color
+    api('responsive_single_product_title_link_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_title_link_color') || newval;
+            if (color && typeof color === 'string' && color.includes('palette')) {
+                color = 'var(--responsive-global-' + color + ')';
+            }
+            var styleId = 'responsive-single-product-title-link-color-preview';
+            var selectors = '.single-product .site-content-header a, .single-product .responsive-single-product-entry-banner a';
+            $(selectors).css('color', '');
+            $('#' + styleId).remove();
+            if (color) {
+                $('head').append(
+                    '<style id="' + styleId + '">' +
+                    selectors + ' { color: ' + color + '; }' +
+                    '</style>'
+                );
+            }
+        });
+    });
+
+    // Single Product Link Hover Color
+    api('responsive_single_product_title_link_hover_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_title_link_hover_color') || newval;
+            if (color && typeof color === 'string' && color.includes('palette')) {
+                color = 'var(--responsive-global-' + color + ')';
+            }
+            var styleId = 'responsive-single-product-title-link-hover-color-preview';
+            $('#' + styleId).remove();
+            if (color) {
+                var selectors = '.single-product .site-content-header a:hover, .single-product .responsive-single-product-entry-banner a:hover';
                 $('head').append(
                     '<style id="' + styleId + '">' +
                     selectors + ' { color: ' + color + '; }' +
@@ -7408,6 +7593,14 @@
             var color = processThemeSettingForCSS('responsive_shop_banner_overlay_color');
             if ( !color ) color = 'transparent';
             $('.responsive-shop-entry-banner').css('--overlay-color', color);
+        });
+    });
+
+    api('responsive_single_product_banner_overlay_color', function(value) {
+        value.bind(function() {
+            var color = processThemeSettingForCSS('responsive_single_product_banner_overlay_color');
+            if ( !color ) color = 'transparent';
+            $('.responsive-single-product-entry-banner').css('--overlay-color', color);
         });
     });
 function updateMobileHeaderButtonHoverShadow() {
