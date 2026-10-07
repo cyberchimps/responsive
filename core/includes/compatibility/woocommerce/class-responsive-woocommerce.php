@@ -338,12 +338,17 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			add_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 20 );
 
 			/* Add single product content */
+			add_action( 'woocommerce_single_product_summary', array( $this, 'single_product_summary_breadcrumbs' ), 5 );
 			add_action( 'woocommerce_single_product_summary', array( $this, 'single_product_content_structure' ), 10 );
 			add_filter( 'woocommerce_product_description_heading', '__return_false' );
 			add_filter( 'woocommerce_product_additional_information_heading', '__return_false' );
 
 			if ( ! get_theme_mod( 'responsive_single_product_show_weight_dimensions', 1 ) ) {
 				add_filter( 'wc_product_enable_dimensions_display', '__return_false' );
+			}
+
+			if ( get_theme_mod( 'responsive_single_product_enable_shipping_text', 0 ) ) {
+				add_filter( 'woocommerce_get_price_html', array( $this, 'single_product_shipping_text' ), 10, 2 );
 			}
 
 			if ( get_theme_mod( 'responsive_single_product_quantity_plus_minus', 0 ) ) {
@@ -400,6 +405,51 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		 */
 		public function quantity_plus_button() {
 			echo '<button type="button" class="plus" aria-label="' . esc_attr__( 'Increase quantity', 'responsive' ) . '">+</button>';
+		}
+
+		/**
+		 * Render breadcrumbs at the top of the single product summary container.
+		 *
+		 * @return void
+		 */
+		public function single_product_summary_breadcrumbs() {
+			if ( get_theme_mod( 'responsive_single_product_breadcrumbs', 0 ) ) {
+				woocommerce_breadcrumb();
+			}
+		}
+
+		/**
+		 * Append shipping text next to the single product price.
+		 *
+		 * @param string          $price   Price HTML.
+		 * @param WC_Product|null $product Product instance.
+		 * @return string
+		 */
+		public function single_product_shipping_text( $price, $product = null ) {
+			if ( ! is_product() || empty( $price ) ) {
+				return $price;
+			}
+
+			global $post;
+			if ( ! $product || ! $post ) {
+				return $price;
+			}
+
+			$product_id = $product->is_type( 'variation' ) ? $product->get_parent_id() : $product->get_id();
+			if ( (int) $product_id !== (int) $post->ID ) {
+				return $price;
+			}
+
+			if ( false !== strpos( $price, 'responsive-product-shipping-text' ) ) {
+				return $price;
+			}
+
+			$shipping_text = get_theme_mod( 'responsive_single_product_shipping_text', __( '& Free Shipping', 'responsive' ) );
+			if ( '' === trim( $shipping_text ) ) {
+				return $price;
+			}
+
+			return $price . ' <span class="responsive-product-shipping-text">' . esc_html( $shipping_text ) . '</span>';
 		}
 
 		/**
@@ -823,8 +873,9 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 				$floating_bar_show_cond   = ( is_user_logged_in() );
 
 				if ( $floating_bar_toggle_cond && 'display' === $floating_bar_toggle_cond ) {
+					$floating_bar_placement = get_theme_mod( 'responsive_single_product_floating_bar_placement', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_floating_bar_placement' ) );
 					?>
-				<div id="floating-bar" class="responsive-floating-bar" style="display: none;">
+				<div id="floating-bar" class="responsive-floating-bar placement-<?php echo esc_attr( $floating_bar_placement ); ?>" style="display: none;">
 					<div class="floatingb-container">
 						<div class="floatingb-left">
 							<h2 class="floatingb-title"><span class="floatingb-selected"><?php esc_html_e( 'Selected : ', 'responsive' ); ?></span><?php echo wp_trim_words( $product->get_title(), '4' ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>

@@ -628,6 +628,28 @@ const TabsComponent = props => {
 			}
 		}
 
+		if ( api('responsive_single_product_enable_shipping_text') && ! api('responsive_single_product_enable_shipping_text').get() ) {
+			const shippingTextCtrl = document.getElementById('customize-control-responsive_single_product_shipping_text');
+			if ( shippingTextCtrl ) {
+				shippingTextCtrl.style.display = 'none';
+			}
+		}
+
+		if ( api('responsive_single_product_floating_bar') && api('responsive_single_product_floating_bar').get() !== 'display' ) {
+			const floatingBarPlacementCtrl = document.getElementById('customize-control-responsive_single_product_floating_bar_placement');
+			if ( floatingBarPlacementCtrl ) {
+				floatingBarPlacementCtrl.style.display = 'none';
+			}
+		}
+
+		// The Center tab style has no tab background, so hide the tab background control.
+		if ( api('responsive_single_product_tab_style') && 'center' === api('responsive_single_product_tab_style').get() ) {
+			const tabBackgroundCtrl = document.getElementById('customize-control-responsive_single_product_tab_background_color_states');
+			if ( tabBackgroundCtrl ) {
+				tabBackgroundCtrl.style.display = 'none';
+			}
+		}
+
 		// Toggle Button Style - Hide controls based on style
 		if( api('responsive_mobile_menu_toggle_style') ) {
 			const allToggleButtonElementIds = [
@@ -1273,15 +1295,15 @@ const TabsComponent = props => {
 				});
 			});
 		}
-		if (api('responsive_single_product_banner_elements_positioning')) {
-			api('responsive_single_product_banner_elements_positioning', function(value) {
+		if (api('responsive_single_product_featured_image_ratio')) {
+			api('responsive_single_product_featured_image_ratio', function(value) {
 				value.bind(function() {
 					toggleSingleProductTitleLayoutControls();
 				});
 			});
 		}
-		if (api('responsive_single_product_featured_image_ratio')) {
-			api('responsive_single_product_featured_image_ratio', function(value) {
+		if (api('responsive_single_product_featured_image_as_background')) {
+			api('responsive_single_product_featured_image_as_background', function(value) {
 				value.bind(function() {
 					toggleSingleProductTitleLayoutControls();
 				});
@@ -1293,10 +1315,17 @@ const TabsComponent = props => {
 				setTimeout(toggleSingleProductTitleLayoutControls, 50);
 			});
 		}
-		const spBannerElementsCtrl = document.getElementById('customize-control-responsive_single_product_banner_elements_positioning');
-		if (spBannerElementsCtrl) {
-			spBannerElementsCtrl.addEventListener('click', function() {
+		const spUseAsBgCtrl = document.getElementById('customize-control-responsive_single_product_featured_image_as_background');
+		if (spUseAsBgCtrl) {
+			spUseAsBgCtrl.addEventListener('click', function() {
 				setTimeout(toggleSingleProductTitleLayoutControls, 50);
+			});
+		}
+		if (api('responsive_single_product_banner_container_width')) {
+			api('responsive_single_product_banner_container_width', function(value) {
+				value.bind(function() {
+					toggleSingleProductTitleLayoutControls();
+				});
 			});
 		}
 
@@ -1479,6 +1508,36 @@ const TabsComponent = props => {
 					const relatedColumnsCtrl = document.getElementById('customize-control-responsive_single_product_related_products_columns');
 					if (relatedColumnsCtrl) {
 						relatedColumnsCtrl.style.display = (!!newval && 'general' === tab) ? 'block' : 'none';
+					}
+				});
+			});
+		}
+		if (api('responsive_single_product_enable_shipping_text')) {
+			api('responsive_single_product_enable_shipping_text', function(value) {
+				value.bind(function(newval) {
+					const shippingTextCtrl = document.getElementById('customize-control-responsive_single_product_shipping_text');
+					if (shippingTextCtrl) {
+						shippingTextCtrl.style.display = (!!newval && 'general' === tab) ? 'block' : 'none';
+					}
+				});
+			});
+		}
+		if (api('responsive_single_product_floating_bar')) {
+			api('responsive_single_product_floating_bar', function(value) {
+				value.bind(function(newval) {
+					const floatingBarPlacementCtrl = document.getElementById('customize-control-responsive_single_product_floating_bar_placement');
+					if (floatingBarPlacementCtrl) {
+						floatingBarPlacementCtrl.style.display = ('display' === newval && 'general' === tab) ? 'block' : 'none';
+					}
+				});
+			});
+		}
+		if (api('responsive_single_product_tab_style')) {
+			api('responsive_single_product_tab_style', function(value) {
+				value.bind(function(newval) {
+					const tabBackgroundCtrl = document.getElementById('customize-control-responsive_single_product_tab_background_color_states');
+					if (tabBackgroundCtrl) {
+						tabBackgroundCtrl.style.display = ('center' !== newval && 'design' === tab) ? 'block' : 'none';
 					}
 				});
 			});
@@ -2029,21 +2088,17 @@ const TabsComponent = props => {
 		const isLayout1 = ( 'post_title_layout1' === layout );
 		const isLayout2 = !isLayout1;
 
-		const l1StructureEl = document.getElementById('customize-control-responsive_single_product_title_elements_positioning');
-		const l2StructureEl = document.getElementById('customize-control-responsive_single_product_banner_elements_positioning');
-		const metaEl = document.getElementById('customize-control-responsive_single_product_title_meta');
+		const structureEl = document.getElementById('customize-control-responsive_single_product_title_elements_positioning');
+		const metaEl      = document.getElementById('customize-control-responsive_single_product_title_meta');
+		const metaSeparatorEl = document.getElementById('customize-control-responsive_single_product_title_meta_separator');
 
-		if (l1StructureEl) {
-			l1StructureEl.style.display = (isLayout1 && tab === 'general') ? 'block' : 'none';
-		}
-		if (l2StructureEl) {
-			l2StructureEl.style.display = (isLayout2 && tab === 'general') ? 'block' : 'none';
+		if (structureEl) {
+			structureEl.style.display = (tab === 'general') ? 'block' : 'none';
 		}
 
-		const elementsSettingId = isLayout1
-			? 'responsive_single_product_title_elements_positioning'
-			: 'responsive_single_product_banner_elements_positioning';
-		let elements = api(elementsSettingId) ? api(elementsSettingId).get() : [];
+		let elements = api('responsive_single_product_title_elements_positioning')
+			? api('responsive_single_product_title_elements_positioning').get()
+			: [];
 		if (typeof elements === 'string') {
 			try {
 				elements = JSON.parse(elements);
@@ -2057,7 +2112,28 @@ const TabsComponent = props => {
 			metaEl.style.display = (hasMeta && tab === 'general') ? 'block' : 'none';
 		}
 
-		// Featured Image controls for Layout 2
+		if (metaSeparatorEl) {
+			metaSeparatorEl.style.display = (hasMeta && tab === 'general') ? 'block' : 'none';
+		}
+
+		// Featured Image controls: dependent on visibility of featured image
+		const hasFeaturedImage = Array.isArray(elements) && elements.indexOf('featured_image') !== -1;
+
+		// Use as background toggle (only for Layout 2 when featured_image is visible)
+		const useAsBgEl = document.getElementById('customize-control-responsive_single_product_featured_image_as_background');
+		const isUseAsBgVisible = isLayout2 && hasFeaturedImage;
+		if (useAsBgEl) {
+			useAsBgEl.style.display = (isUseAsBgVisible && tab === 'general') ? 'block' : 'none';
+		}
+
+		const asBg = api('responsive_single_product_featured_image_as_background')
+			? api('responsive_single_product_featured_image_as_background').get()
+			: 0;
+		const isAsBackground = isUseAsBgVisible && (asBg === 1 || asBg === true || asBg === '1');
+
+		// Featured Image controls: only when featured image is visible AND NOT used as background
+		const showImageRatioControls = hasFeaturedImage && !isAsBackground;
+
 		const ratio = api('responsive_single_product_featured_image_ratio')
 			? api('responsive_single_product_featured_image_ratio').get()
 			: 'original';
@@ -2069,24 +2145,38 @@ const TabsComponent = props => {
 		const imageSizeEl       = document.getElementById('customize-control-responsive_single_product_featured_image_size');
 
 		if (ratioEl) {
-			ratioEl.style.display = (isLayout2 && tab === 'general') ? 'block' : 'none';
+			ratioEl.style.display = (showImageRatioControls && tab === 'general') ? 'block' : 'none';
 		}
 		if (predefinedRatioEl) {
-			predefinedRatioEl.style.display = (isLayout2 && ratio === 'predefined' && tab === 'general') ? 'block' : 'none';
+			predefinedRatioEl.style.display = (showImageRatioControls && ratio === 'predefined' && tab === 'general') ? 'block' : 'none';
 		}
 		if (customWidthEl) {
-			customWidthEl.style.display = (isLayout2 && ratio === 'custom' && tab === 'general') ? 'block' : 'none';
+			customWidthEl.style.display = (showImageRatioControls && ratio === 'custom' && tab === 'general') ? 'block' : 'none';
 		}
 		if (customHeightEl) {
-			customHeightEl.style.display = (isLayout2 && ratio === 'custom' && tab === 'general') ? 'block' : 'none';
+			customHeightEl.style.display = (showImageRatioControls && ratio === 'custom' && tab === 'general') ? 'block' : 'none';
 		}
 		if (imageSizeEl) {
-			imageSizeEl.style.display = (isLayout2 && tab === 'general') ? 'block' : 'none';
+			imageSizeEl.style.display = (showImageRatioControls && tab === 'general') ? 'block' : 'none';
 		}
 
 		const verticalAlignment = document.getElementById('customize-control-responsive_single_product_title_vertical_alignment');
 		if (verticalAlignment) {
 			verticalAlignment.style.display = (isLayout2 && tab === 'general') ? 'block' : 'none';
+		}
+
+		const spContainerWidth = api('responsive_single_product_banner_container_width')
+			? api('responsive_single_product_banner_container_width').get()
+			: 'full_width';
+
+		const spContainerWidthEl = document.getElementById('customize-control-responsive_single_product_banner_container_width');
+		const spCustomWidthEl    = document.getElementById('customize-control-responsive_single_product_banner_custom_width');
+
+		if (spContainerWidthEl) {
+			spContainerWidthEl.style.display = (isLayout2 && tab === 'general') ? 'block' : 'none';
+		}
+		if (spCustomWidthEl) {
+			spCustomWidthEl.style.display = (isLayout2 && spContainerWidth === 'custom' && tab === 'general') ? 'block' : 'none';
 		}
 
 		const minHeightEl = document.getElementById('customize-control-responsive_single_product_banner_min_height');
@@ -2096,7 +2186,12 @@ const TabsComponent = props => {
 
 		const bannerBgEl = document.getElementById('customize-control-responsive_single_product_banner_background_color');
 		if (bannerBgEl) {
-			bannerBgEl.style.display = (isLayout2 && tab === 'design') ? 'block' : 'none';
+			bannerBgEl.style.display = (isLayout2 && !isAsBackground && tab === 'design') ? 'block' : 'none';
+		}
+
+		const bannerOverlayEl = document.getElementById('customize-control-responsive_single_product_banner_overlay_color');
+		if (bannerOverlayEl) {
+			bannerOverlayEl.style.display = (isAsBackground && tab === 'design') ? 'block' : 'none';
 		}
 	};
 

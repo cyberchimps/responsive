@@ -24,8 +24,10 @@
       mutations.forEach(record => {
         if (record.type === 'attributes' && record.attributeName === 'class') {
           if ($('#masthead').hasClass('sticky-header') && $(window).width() > 768) {
-            var heightOfHeader = $('#masthead').outerHeight();
-            $('.responsive-floating-bar').css({ top: heightOfHeader + 'px', bottom: 'auto' });
+            if (!$('.responsive-floating-bar').hasClass('placement-bottom')) {
+              var heightOfHeader = $('#masthead').outerHeight();
+              $('.responsive-floating-bar').css({ top: heightOfHeader + 'px', bottom: 'auto' });
+            }
           } else if ($('#masthead').hasClass('sticky-header') && $(window).width() <= 768) {
             $('.responsive-floating-bar').css({ top: 'auto', bottom: 0 });
           }
