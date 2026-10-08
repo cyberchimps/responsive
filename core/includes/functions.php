@@ -2116,10 +2116,10 @@ function defaults() {
 																			),
 																		),
 		'rp_section_bg' => 'box-background',
-		'responsive_rp_link_color'               => '#0066CC',
-		'responsive_rp_link_hover_color'         => '#10659C', 
-		'responsive_rp_meta_text'                => '#999999',
-		'responsive_rp_body_text_color'          => '#333333',
+		'responsive_rp_link_color'               => 'palette0',
+		'responsive_rp_link_hover_color'         => 'palette1', 
+		'responsive_rp_meta_text'                => 'meta-text-color',
+		'responsive_rp_body_text_color'          => 'palette2',
 		'footer_widget_title_color'             => 'footer-text-color',
 		'footer_widget_content_color'           => 'footer-text-color',
 		'footer_widget_link_color'              => 'footer-links-color',
@@ -3302,6 +3302,17 @@ add_filter('woocommerce_breadcrumb_defaults', function ($defaults) {
         $class .= ' is-shop';
     }
     $defaults['wrap_before'] = '<nav class="' . esc_attr($class) . '" aria-label="Breadcrumb">';
+
+    // Use the same separator as the theme's own breadcrumbs (Customizer > Breadcrumbs > Design)
+    // so the separator character and the .chevron color control apply here too.
+    $separator = get_theme_mod( 'responsive_breadcrumb_separator', 'rsaquo' );
+    if ( 'unicode' === $separator ) {
+        $unicode = strtolower( get_theme_mod( 'responsive_breadcrumb_unicode' ) );
+        $entity  = ( '\\' === $unicode || '' === $unicode ) ? '\\' : str_replace( '\\', '&#x', $unicode ) . ';';
+        $defaults['delimiter'] = ' <span class="chevron">' . $entity . '</span> ';
+    } else {
+        $defaults['delimiter'] = ' <span class="chevron">&' . esc_attr( $separator ) . ';</span> ';
+    }
     return $defaults;
 });
 
@@ -3374,7 +3385,7 @@ if( ! function_exists( 'responsive_prepare_css_value' ) ) {
 
 		$value = trim( $value );
 
-		if ( is_string( $value ) && ( preg_match( '/^palette\d+$/', $value ) || false !== strpos( $value, 'headings-color' ) || false !== strpos( $value, 'site-background' ) || false !== strpos( $value, 'box-background' ) || false !== strpos( $value, 'h1-color' ) || false !== strpos( $value, 'footer-text-color' ) || false !== strpos( $value, 'footer-links-color' ) || false !== strpos( $value, 'footer-links-hover-color' ) || false !== strpos( $value, 'breadcrumb' ) ) ) {
+		if ( is_string( $value ) && ( preg_match( '/^palette\d+$/', $value ) || false !== strpos( $value, 'headings-color' ) || false !== strpos( $value, 'site-background' ) || false !== strpos( $value, 'box-background' ) || false !== strpos( $value, 'h1-color' ) || false !== strpos( $value, 'footer-text-color' ) || false !== strpos( $value, 'footer-links-color' ) || false !== strpos( $value, 'footer-links-hover-color' ) || false !== strpos( $value, 'breadcrumb' ) ) || false !== strpos( $value, 'meta-text-color' ) ) {
 			return 'var(--responsive-global-' . $value . ')';
 		}
 

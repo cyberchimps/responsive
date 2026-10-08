@@ -978,6 +978,7 @@ function responsive_customizer_styles() {
 			--responsive-global-breadcrumb-background-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_breadcrumb_background_color', Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_background' ) ) ) . ';
 			--responsive-global-breadcrumb-separator-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_breadcrumb_separator_color', Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_separator_color' ) ) ) . ';
 			--responsive-global-h1-color: ' .esc_attr( responsive_prepare_css_value( 'responsive_h1_text_color', '#FFFFFF' ) ) .';
+			--responsive-global-meta-text-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_meta_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_meta_text_color' ) ) ) . ';
 			--responsive-title-above-content-bg-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_title_above_content_bg_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_title_above_content_bg_color' ) ) ) . ';
 			--responsive-title-above-content-overlay-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_title_above_content_overlay_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_title_above_content_overlay_color' ) ) ) . ';
 			--responsive-global-box-radius-top-left: ' . $box_top_left_radius . 'px;
@@ -13622,13 +13623,27 @@ function responsive_customizer_styles() {
 		// WooCommerce.
 		$woocommerce_custom_css = '';
 
+		// Same alignment as the global breadcrumbs, applied to WooCommerce's own breadcrumb nav.
+		$woo_breadcrumb_alignment = get_theme_mod( 'responsive_content_header_alignment', Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_alignment' ) );
+		$woo_breadcrumb_alignment = in_array( $woo_breadcrumb_alignment, array( 'left', 'center', 'right' ), true ) ? $woo_breadcrumb_alignment : 'center';
+
 		$woocommerce_custom_css .= "
 		.wc-block-grid__product-title {
 			color:{$body_text_color};
 		}
-		.woocommerce .woocommerce-breadcrumb,
-		.woocommerce .woocommerce-breadcrumb a {
+		.woocommerce .woocommerce-breadcrumb {
 			color: {$breadcrumb_color};
+			background-color: var(--responsive-global-breadcrumb-background-color);
+			text-align: {$woo_breadcrumb_alignment};
+		}
+		.woocommerce .woocommerce-breadcrumb a {
+			color: var(--responsive-global-breadcrumb-link-color);
+		}
+		.woocommerce .woocommerce-breadcrumb a:hover {
+			color: var(--responsive-global-breadcrumb-link-hover-color);
+		}
+		.woocommerce .woocommerce-breadcrumb .chevron {
+			color: var(--responsive-global-breadcrumb-separator-color);
 		}";
 
 		$woocommerce_custom_css .= '
