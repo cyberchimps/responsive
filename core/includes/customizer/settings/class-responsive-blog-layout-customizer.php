@@ -146,7 +146,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 				$general_tab_ids_prefix . 'responsive_blog_post_per_page',
 			);
 
-			responsive_tabs_button_control( $wp_customize, 'blog_archive_tabs', $tabs_label, 'responsive_blog_layout', 1, '', 'responsive_blog_layout_general_tab', 'responsive_blog_layout_design_tab', $general_tab_ids, $design_tab_ids, null );
+			responsive_tabs_button_control( $wp_customize, 'blog_archive_tabs', $tabs_label, 'responsive_blog_layout', 1, '', 'responsive_blog_layout_general_tab', 'responsive_blog_layout_design_tab', apply_filters( 'responsive_blog_layout_general_tab_ids', $general_tab_ids ), apply_filters( 'responsive_blog_layout_design_tab_ids', $design_tab_ids ), null );
 
 			// Blog Title Tabs
 			$blog_title_area_general_tab_ids = [

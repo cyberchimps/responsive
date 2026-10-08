@@ -29,7 +29,7 @@
             jQuery( 'style.customizer-typography-single_product_title-font-family' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_title-font-family">'
-                + '.single-product div.product .entry-title { font-family:' + pair +' }'
+                + '.single-product div.product .entry-title:not(.site-content-header .entry-title):not(.responsive-single-product-entry-banner .entry-title) { font-family:' + pair +' }'
                 + '</style>'
             );
 
@@ -39,7 +39,7 @@
             jQuery( 'style.customizer-typography-single_product_title-font-weight' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_title-font-weight">'
-                + '.single-product div.product .entry-title{ font-weight:' + dataAndEvents +';}'
+                + '.single-product div.product .entry-title:not(.site-content-header .entry-title):not(.responsive-single-product-entry-banner .entry-title){ font-weight:' + dataAndEvents +';}'
                 + '</style>'
             );
 
@@ -49,7 +49,7 @@
             jQuery( 'style.customizer-typography-single_product_title-font-style' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_title-font-style">'
-                + '.single-product div.product .entry-title{ font-style:' + dataAndEvents +';}'
+                + '.single-product div.product .entry-title:not(.site-content-header .entry-title):not(.responsive-single-product-entry-banner .entry-title){ font-style:' + dataAndEvents +';}'
                 + '</style>'
             );
 
@@ -59,9 +59,9 @@
             jQuery( 'style.customizer-typography-single_product_title-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_title-font-size">'
-                + '.single-product div.product .entry-title{ font-size:' + dataAndEvents +';}'
-                + '@media (max-width: 768px){.single-product div.product .entry-title{ font-size:' + api( "single_product_title_tablet_typography[font-size]" ).get()  +';}}'
-                + '@media (max-width: 480px){.single-product div.product .entry-title{ font-size:' + api( "single_product_title_mobile_typography[font-size]").get() +';}}'
+                + '.single-product div.product .entry-title:not(.site-content-header .entry-title):not(.responsive-single-product-entry-banner .entry-title){ font-size:' + dataAndEvents +';}'
+                + '@media (max-width: 768px){.single-product div.product .entry-title:not(.site-content-header .entry-title):not(.responsive-single-product-entry-banner .entry-title){ font-size:' + api( "single_product_title_tablet_typography[font-size]" ).get()  +';}}'
+                + '@media (max-width: 480px){.single-product div.product .entry-title:not(.site-content-header .entry-title):not(.responsive-single-product-entry-banner .entry-title){ font-size:' + api( "single_product_title_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -71,8 +71,8 @@
             jQuery( 'style.customizer-typography-single_product_title-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_title-tablet-font-size">'
-                + '@media (max-width: 768px){.single-product div.product .entry-title{ font-size:' + dataAndEvents +';}}'
-                + '@media (max-width: 480px){.single-product div.product .entry-title{ font-size:' + api( "single_product_title_mobile_typography[font-size]").get() +';}}'
+                + '@media (max-width: 768px){.single-product div.product .entry-title:not(.site-content-header .entry-title):not(.responsive-single-product-entry-banner .entry-title){ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){.single-product div.product .entry-title:not(.site-content-header .entry-title):not(.responsive-single-product-entry-banner .entry-title){ font-size:' + api( "single_product_title_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -82,7 +82,7 @@
             jQuery( 'style.customizer-typography-single_product_title-mobile-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_title-mobile-font-size">'
-                + '@media (max-width: 480px){.single-product div.product .entry-title{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){.single-product div.product .entry-title:not(.site-content-header .entry-title):not(.responsive-single-product-entry-banner .entry-title){ font-size:' + dataAndEvents +';}}'
                 + '</style>'
             );
 
@@ -92,7 +92,7 @@
             jQuery( 'style.customizer-typography-single_product_title-color' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_title-color">'
-                + '.single-product div.product .entry-title{ color:' + dataAndEvents +';}'
+                + '.single-product div.product .entry-title:not(.site-content-header .entry-title):not(.responsive-single-product-entry-banner .entry-title){ color:' + dataAndEvents +';}'
                 + '</style>'
             );
 
@@ -102,7 +102,7 @@
             jQuery( 'style.customizer-typography-single_product_title-line-height' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_title-line-height">'
-                + '.single-product div.product .entry-title{ line-height:' + dataAndEvents +';}'
+                + '.single-product div.product .entry-title:not(.site-content-header .entry-title):not(.responsive-single-product-entry-banner .entry-title){ line-height:' + dataAndEvents +';}'
                 + '</style>'
             );
 
@@ -112,7 +112,7 @@
             jQuery( 'style.customizer-typography-single_product_title-tablet-line-height' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_title-tablet-line-height">'
-                + '@media (max-width: 768px){.single-product div.product .entry-title{ line-height:' + dataAndEvents +';}}'
+                + '@media (max-width: 768px){.single-product div.product .entry-title:not(.site-content-header .entry-title):not(.responsive-single-product-entry-banner .entry-title){ line-height:' + dataAndEvents +';}}'
                 + '</style>'
             );
 
@@ -122,7 +122,7 @@
             jQuery( 'style.customizer-typography-single_product_title-mobile-line-height' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_title-mobile-line-height">'
-                + '@media (max-width: 480px){.single-product div.product .entry-title{ line-height:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){.single-product div.product .entry-title:not(.site-content-header .entry-title):not(.responsive-single-product-entry-banner .entry-title){ line-height:' + dataAndEvents +';}}'
                 + '</style>'
             );
 
@@ -132,7 +132,7 @@
             jQuery( 'style.customizer-typography-single_product_title-letter-spacing' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_title-letter-spacing">'
-                + '.single-product div.product .entry-title{ letter-spacing:' + dataAndEvents +'px;}'
+                + '.single-product div.product .entry-title:not(.site-content-header .entry-title):not(.responsive-single-product-entry-banner .entry-title){ letter-spacing:' + dataAndEvents +'px;}'
                 + '</style>'
             );
 
@@ -142,7 +142,7 @@
             jQuery( 'style.customizer-typography-single_product_title-tablet-letter-spacing' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_title-tablet-letter-spacing">'
-                + '@media (max-width: 768px){.single-product div.product .entry-title{ letter-spacing:' + dataAndEvents +'px;}}'
+                + '@media (max-width: 768px){.single-product div.product .entry-title:not(.site-content-header .entry-title):not(.responsive-single-product-entry-banner .entry-title){ letter-spacing:' + dataAndEvents +'px;}}'
                 + '</style>'
             );
 
@@ -152,7 +152,7 @@
             jQuery( 'style.customizer-typography-single_product_title-mobile-letter-spacing' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_title-mobile-letter-spacing">'
-                + '@media (max-width: 480px){.single-product div.product .entry-title{ letter-spacing:' + dataAndEvents +'px;}}'
+                + '@media (max-width: 480px){.single-product div.product .entry-title:not(.site-content-header .entry-title):not(.responsive-single-product-entry-banner .entry-title){ letter-spacing:' + dataAndEvents +'px;}}'
                 + '</style>'
             );
 
@@ -162,7 +162,7 @@
             jQuery( 'style.customizer-typography-single_product_title-text-transform' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_title-text-transform">'
-                + '.single-product div.product .entry-title{ text-transform:' + dataAndEvents +';}'
+                + '.single-product div.product .entry-title:not(.site-content-header .entry-title):not(.responsive-single-product-entry-banner .entry-title){ text-transform:' + dataAndEvents +';}'
                 + '</style>'
             );
 
@@ -345,7 +345,7 @@
             jQuery( 'style.customizer-typography-single_product_content-font-family' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_content-font-family">'
-                + '.single-product .woocommerce-product-details__short-description, .single-product .woocommerce-Tabs-panel--description { font-family:' + pair +' }'
+                + '.single-product .woocommerce-product-details__short-description:not(.site-content-header .woocommerce-product-details__short-description):not(.responsive-single-product-entry-banner .woocommerce-product-details__short-description), .single-product .woocommerce-Tabs-panel--description { font-family:' + pair +' }'
                 + '</style>'
             );
 
@@ -355,7 +355,7 @@
             jQuery( 'style.customizer-typography-single_product_content-font-weight' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_content-font-weight">'
-                + '.single-product p{ font-weight:' + dataAndEvents +';}'
+                + '.single-product p:not(.site-content-header p):not(.responsive-single-product-entry-banner p){ font-weight:' + dataAndEvents +';}'
                 + '</style>'
             );
 
@@ -365,7 +365,7 @@
             jQuery( 'style.customizer-typography-single_product_content-font-style' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_content-font-style">'
-                + '.single-product p{ font-style:' + dataAndEvents +';}'
+                + '.single-product p:not(.site-content-header p):not(.responsive-single-product-entry-banner p){ font-style:' + dataAndEvents +';}'
                 + '</style>'
             );
 
@@ -375,9 +375,9 @@
             jQuery( 'style.customizer-typography-single_product_content-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_content-font-size">'
-                + '.single-product p{ font-size:' + dataAndEvents +';}'
-                + '@media (max-width: 768px){.single-product p{ font-size:' + api( "single_product_content_tablet_typography[font-size]" ).get() +';}}'
-                + '@media (max-width: 480px){.single-product p{ font-size:' + api( "single_product_content_mobile_typography[font-size]" ).get() +';}}'
+                + '.single-product p:not(.site-content-header p):not(.responsive-single-product-entry-banner p){ font-size:' + dataAndEvents +';}'
+                + '@media (max-width: 768px){.single-product p:not(.site-content-header p):not(.responsive-single-product-entry-banner p){ font-size:' + api( "single_product_content_tablet_typography[font-size]" ).get() +';}}'
+                + '@media (max-width: 480px){.single-product p:not(.site-content-header p):not(.responsive-single-product-entry-banner p){ font-size:' + api( "single_product_content_mobile_typography[font-size]" ).get() +';}}'
                 + '</style>'
             );
 
@@ -387,8 +387,8 @@
             jQuery( 'style.customizer-typography-single_product_content-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_content-tablet-font-size">'
-                + '@media (max-width: 768px){.single-product p{ font-size:' + dataAndEvents +';}}'
-                + '@media (max-width: 480px){.single-product p{ font-size:' + api( "single_product_content_mobile_typography[font-size]" ).get() +';}}'
+                + '@media (max-width: 768px){.single-product p:not(.site-content-header p):not(.responsive-single-product-entry-banner p){ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){.single-product p:not(.site-content-header p):not(.responsive-single-product-entry-banner p){ font-size:' + api( "single_product_content_mobile_typography[font-size]" ).get() +';}}'
                 + '</style>'
             );
 
@@ -398,7 +398,7 @@
             jQuery( 'style.customizer-typography-single_product_content-mobile-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_content-mobile-font-size">'
-                + '@media (max-width: 480px){.single-product p{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){.single-product p:not(.site-content-header p):not(.responsive-single-product-entry-banner p){ font-size:' + dataAndEvents +';}}'
                 + '</style>'
             );
 
@@ -408,7 +408,7 @@
             jQuery( 'style.customizer-typography-single_product_content-color' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_content-color">'
-                + '.single-product p{ color:' + dataAndEvents +';}'
+                + '.single-product p:not(.site-content-header p):not(.responsive-single-product-entry-banner p){ color:' + dataAndEvents +';}'
                 + '</style>'
             );
 
@@ -418,7 +418,7 @@
             jQuery( 'style.customizer-typography-single_product_content-line-height' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_content-line-height">'
-                + '.single-product p{ line-height:' + dataAndEvents +';}'
+                + '.single-product p:not(.site-content-header p):not(.responsive-single-product-entry-banner p){ line-height:' + dataAndEvents +';}'
                 + '</style>'
             );
 
@@ -428,7 +428,7 @@
             jQuery( 'style.customizer-typography-single_product_content-tablet-line-height' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_content-tablet-line-height">'
-                + '@media (max-width: 768px){.single-product p{ line-height:' + dataAndEvents +';}}'
+                + '@media (max-width: 768px){.single-product p:not(.site-content-header p):not(.responsive-single-product-entry-banner p){ line-height:' + dataAndEvents +';}}'
                 + '</style>'
             );
 
@@ -438,7 +438,7 @@
             jQuery( 'style.customizer-typography-single_product_content-mobile-line-height' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_content-mobile-line-height">'
-                + '@media (max-width: 480px){.single-product p{ line-height:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){.single-product p:not(.site-content-header p):not(.responsive-single-product-entry-banner p){ line-height:' + dataAndEvents +';}}'
                 + '</style>'
             );
 
@@ -448,7 +448,7 @@
             jQuery( 'style.customizer-typography-single_product_content-letter-spacing' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_content-letter-spacing">'
-                + '.single-product p{ letter-spacing:' + dataAndEvents +'px;}'
+                + '.single-product p:not(.site-content-header p):not(.responsive-single-product-entry-banner p){ letter-spacing:' + dataAndEvents +'px;}'
                 + '</style>'
             );
 
@@ -458,7 +458,7 @@
             jQuery( 'style.customizer-typography-single_product_content-tablet-letter-spacing' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_content-tablet-letter-spacing">'
-                + '@media (max-width: 768px){.single-product p{ letter-spacing:' + dataAndEvents +'px;}}'
+                + '@media (max-width: 768px){.single-product p:not(.site-content-header p):not(.responsive-single-product-entry-banner p){ letter-spacing:' + dataAndEvents +'px;}}'
                 + '</style>'
             );
 
@@ -468,7 +468,7 @@
             jQuery( 'style.customizer-typography-single_product_content-mobile-letter-spacing' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_content-mobile-letter-spacing">'
-                + '@media (max-width: 480px){.single-product p{ letter-spacing:' + dataAndEvents +'px;}}'
+                + '@media (max-width: 480px){.single-product p:not(.site-content-header p):not(.responsive-single-product-entry-banner p){ letter-spacing:' + dataAndEvents +'px;}}'
                 + '</style>'
             );
 
@@ -478,7 +478,7 @@
             jQuery( 'style.customizer-typography-single_product_content-text-transform' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_content-text-transform">'
-                + '.single-product p{ text-transform:' + dataAndEvents +';}'
+                + '.single-product p:not(.site-content-header p):not(.responsive-single-product-entry-banner p){ text-transform:' + dataAndEvents +';}'
                 + '</style>'
             );
 
@@ -503,7 +503,7 @@
             jQuery( 'style.customizer-typography-single_product_breadcrumb-font-family' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_breadcrumb-font-family">'
-                + '.single-product .woocommerce-breadcrumb { font-family:' + pair +' }'
+                + '.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb) { font-family:' + pair +' }'
                 + '</style>'
             );
 
@@ -513,7 +513,7 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-font-weight' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-font-weight">'
-                + '.single-product .woocommerce-breadcrumb{ font-weight:' + dataAndEvents +';}'
+                + '.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ font-weight:' + dataAndEvents +';}'
                 + '</style>'
             );
 
@@ -523,7 +523,7 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-font-style' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-font-style">'
-                + '.single-product .woocommerce-breadcrumb{ font-style:' + dataAndEvents +';}'
+                + '.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ font-style:' + dataAndEvents +';}'
                 + '</style>'
             );
 
@@ -533,9 +533,9 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-font-size">'
-                + '.single-product .woocommerce-breadcrumb{ font-size:' + dataAndEvents +';}'
-                + '@media (max-width: 768px){.single-product .woocommerce-breadcrumb{ font-size:' + api( "single_product_page_breadcrumb_tablet_typography[font-size]" ).get() +';}}'
-                + '@media (max-width: 480px){.single-product .woocommerce-breadcrumb{ font-size:' + api( "single_product_page_breadcrumb_mobile_typography[font-size]" ).get() +';}}'
+                + '.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ font-size:' + dataAndEvents +';}'
+                + '@media (max-width: 768px){.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ font-size:' + api( "single_product_page_breadcrumb_tablet_typography[font-size]" ).get() +';}}'
+                + '@media (max-width: 480px){.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ font-size:' + api( "single_product_page_breadcrumb_mobile_typography[font-size]" ).get() +';}}'
                 + '</style>'
             );
 
@@ -545,8 +545,8 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-tablet-font-size">'
-                + '@media (max-width: 768px){.single-product .woocommerce-breadcrumb{ font-size:' + dataAndEvents +';}}'
-                + '@media (max-width: 480px){.single-product .woocommerce-breadcrumb{ font-size:' + api( "single_product_page_breadcrumb_mobile_typography[font-size]" ).get() +';}}'
+                + '@media (max-width: 768px){.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ font-size:' + api( "single_product_page_breadcrumb_mobile_typography[font-size]" ).get() +';}}'
                 + '</style>'
             );
 
@@ -556,7 +556,7 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-mobile-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-mobile-font-size">'
-                + '@media (max-width: 480px){.single-product .woocommerce-breadcrumb{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ font-size:' + dataAndEvents +';}}'
                 + '</style>'
             );
 
@@ -566,7 +566,7 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-color' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-color">'
-                + '.single-product .woocommerce-breadcrumb,  .single-product .woocommerce-breadcrumb a{ color:' + dataAndEvents +';}'
+                + '.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb),  .single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb) a{ color:' + dataAndEvents +';}'
                 + '</style>'
             );
 
@@ -576,7 +576,7 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-line-height' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-line-height">'
-                + '.single-product .woocommerce-breadcrumb{ line-height:' + dataAndEvents +';}'
+                + '.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ line-height:' + dataAndEvents +';}'
                 + '</style>'
             );
 
@@ -586,7 +586,7 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-tablet-line-height' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-tablet-line-height">'
-                + '@media (max-width: 768px){.single-product .woocommerce-breadcrumb{ line-height:' + dataAndEvents +';}}'
+                + '@media (max-width: 768px){.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ line-height:' + dataAndEvents +';}}'
                 + '</style>'
             );
 
@@ -596,7 +596,7 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-mobile-line-height' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-mobile-line-height">'
-                + '@media (max-width: 480px){.single-product .woocommerce-breadcrumb{ line-height:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ line-height:' + dataAndEvents +';}}'
                 + '</style>'
             );
 
@@ -606,7 +606,7 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-letter-spacing' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-letter-spacing">'
-                + '.single-product .woocommerce-breadcrumb{ letter-spacing:' + dataAndEvents +'px;}'
+                + '.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ letter-spacing:' + dataAndEvents +'px;}'
                 + '</style>'
             );
 
@@ -616,7 +616,7 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-tablet-letter-spacing' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-tablet-letter-spacing">'
-                + '@media (max-width: 768px){.single-product .woocommerce-breadcrumb{ letter-spacing:' + dataAndEvents +'px;}}'
+                + '@media (max-width: 768px){.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ letter-spacing:' + dataAndEvents +'px;}}'
                 + '</style>'
             );
 
@@ -626,7 +626,7 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-mobile-letter-spacing' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-mobile-letter-spacing">'
-                + '@media (max-width: 480px){.single-product .woocommerce-breadcrumb{ letter-spacing:' + dataAndEvents +'px;}}'
+                + '@media (max-width: 480px){.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ letter-spacing:' + dataAndEvents +'px;}}'
                 + '</style>'
             );
 
@@ -636,7 +636,7 @@
             jQuery( 'style.customizer-typography-single_product_page_breadcrumb-text-transform' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-single_product_page_breadcrumb-text-transform">'
-                + '.single-product .woocommerce-breadcrumb{ text-transform:' + dataAndEvents +';}'
+                + '.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb){ text-transform:' + dataAndEvents +';}'
                 + '</style>'
             );
 

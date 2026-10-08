@@ -352,6 +352,7 @@ if ( ! function_exists( 'responsive_product_elements' ) ) {
 				'short_desc' => esc_html__( 'Short Description', 'responsive' ),
 				'add_cart'   => esc_html__( 'Add to Cart', 'responsive' ),
 				'meta'       => esc_html__( 'Meta', 'responsive' ),
+				'payment'    => esc_html__( 'Payments', 'responsive' ),
 			)
 		);
 
@@ -2569,6 +2570,134 @@ function responsive_check_shop_add_to_cart_visible() {
 }
 
 /**
+ * Returns Single Product Title Area structure choices.
+ *
+ * @return array
+ */
+function responsive_single_product_title_elements() {
+	return apply_filters(
+		'responsive_single_product_title_elements',
+		array(
+			'title'          => esc_html__( 'Title', 'responsive' ),
+			'meta'           => esc_html__( 'Meta', 'responsive' ),
+			'breadcrumb'     => esc_html__( 'Breadcrumb', 'responsive' ),
+			'excerpt'        => esc_html__( 'Excerpt', 'responsive' ),
+			'featured_image' => esc_html__( 'Featured Image', 'responsive' ),
+			'taxonomy'       => esc_html__( 'Taxonomies', 'responsive' ),
+		)
+	);
+}
+
+/**
+ * Returns registered taxonomies for single product.
+ *
+ * @return array
+ */
+function responsive_get_single_product_taxonomies() {
+	$taxonomies = get_object_taxonomies( 'product', 'objects' );
+	$options    = array();
+
+	if ( ! empty( $taxonomies ) && is_array( $taxonomies ) ) {
+		foreach ( $taxonomies as $taxonomy ) {
+			if ( 'product_visibility' === $taxonomy->name || 'pos_product_visibility' === $taxonomy->name ) {
+				continue;
+			}
+			$label = ! empty( $taxonomy->labels->singular_name ) ? $taxonomy->labels->singular_name : $taxonomy->label;
+			$options[ $taxonomy->name ] = $label;
+		}
+	}
+
+	if ( empty( $options ) ) {
+		$options = array(
+			'product_cat' => esc_html__( 'Product category', 'responsive' ),
+			'product_tag' => esc_html__( 'Product tag', 'responsive' ),
+		);
+	}
+
+	return apply_filters( 'responsive_single_product_taxonomies', $options );
+}
+
+/**
+ * Returns Single Product Meta choices.
+ *
+ * @return array
+ */
+function responsive_single_product_meta_choices() {
+	return apply_filters(
+		'responsive_single_product_meta_choices',
+		array(
+			'comments' => esc_html__( 'Comments', 'responsive' ),
+			'author'   => esc_html__( 'Author', 'responsive' ),
+			'date'     => esc_html__( 'Date Published', 'responsive' ),
+			'updated'  => esc_html__( 'Last Updated', 'responsive' ),
+			'taxonomy' => esc_html__( 'Taxonomies', 'responsive' ),
+		)
+	);
+}
+
+/**
+ * Returns Single Product Title Area positioning array.
+ *
+ * @return array
+ */
+function responsive_single_product_title_elements_positioning() {
+	$default  = Responsive\Core\get_responsive_customizer_defaults( 'single_product_title_elements_positioning' );
+	$sections = get_theme_mod( 'responsive_single_product_title_elements_positioning', $default );
+	if ( is_string( $sections ) ) {
+		$decoded  = json_decode( $sections, true );
+		$sections = is_array( $decoded ) ? $decoded : explode( ',', $sections );
+	} elseif ( ! is_array( $sections ) ) {
+		$sections = array();
+	}
+	$sections = array_values( array_filter( $sections ) );
+	return apply_filters( 'responsive_single_product_title_elements_positioning', $sections );
+}
+
+/**
+ * Returns Single Product Meta elements array.
+ *
+ * @return array
+ */
+function responsive_single_product_title_meta_elements() {
+	$default  = Responsive\Core\get_responsive_customizer_defaults( 'single_product_title_meta' );
+	$sections = get_theme_mod( 'responsive_single_product_title_meta', $default );
+	if ( is_string( $sections ) ) {
+		$decoded  = json_decode( $sections, true );
+		$sections = is_array( $decoded ) ? $decoded : explode( ',', $sections );
+	} elseif ( ! is_array( $sections ) ) {
+		$sections = array();
+	}
+	return apply_filters( 'responsive_single_product_title_meta', $sections );
+}
+
+/**
+ * Returns Single Product Meta Taxonomies configuration array.
+ *
+ * @return array
+ */
+function responsive_single_product_meta_taxonomies() {
+	$default = Responsive\Core\get_responsive_customizer_defaults( 'single_product_meta_taxonomies' );
+	$val     = get_theme_mod( 'responsive_single_product_meta_taxonomies', $default );
+	if ( is_string( $val ) ) {
+		$decoded = json_decode( $val, true );
+		$val     = is_array( $decoded ) ? $decoded : array();
+	} elseif ( ! is_array( $val ) ) {
+		$val = array();
+	}
+	return apply_filters( 'responsive_single_product_meta_taxonomies', $val );
+}
+
+/**
+ * Active callback for Single Product Meta Elements control: visible only when 'meta' is in the structure.
+ *
+ * @return boolean
+ */
+function responsive_single_product_meta_active_callback() {
+	$elements = responsive_single_product_title_elements_positioning();
+	return is_array( $elements ) && in_array( 'meta', $elements, true );
+}
+
+/**
  * [responsive_active_single_product_sidebar_position description]
  *
  * @return [type] [description]
@@ -2583,6 +2712,32 @@ function responsive_active_single_product_sidebar_position() {
 		return ( 'no' !== $global_position );
 	}
 	return ( 'no' !== $position );
+}
+
+/**
+ * Active callback for Single Product Related Products.
+ *
+ * @return bool
+ */
+if ( ! function_exists( 'responsive_active_single_product_related_products' ) ) {
+	function responsive_active_single_product_related_products() {
+		return (bool) get_theme_mod( 'responsive_single_product_show_related_products', 1 );
+	}
+}
+
+/**
+ * Active callback for Single Product Shipping Text.
+ *
+ * @param WP_Customize_Control $control Control instance.
+ * @return bool
+ */
+if ( ! function_exists( 'responsive_active_single_product_shipping_text' ) ) {
+	function responsive_active_single_product_shipping_text( $control = null ) {
+		if ( $control && $control->manager && $control->manager->get_setting( 'responsive_single_product_enable_shipping_text' ) ) {
+			return (bool) $control->manager->get_setting( 'responsive_single_product_enable_shipping_text' )->value();
+		}
+		return (bool) get_theme_mod( 'responsive_single_product_enable_shipping_text', 0 );
+	}
 }
 
 /**

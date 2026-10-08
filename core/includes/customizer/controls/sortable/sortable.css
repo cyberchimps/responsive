@@ -51,6 +51,26 @@
     line-height: 16px;
     color: #50575E;
 }
+.responsive-sortable-action-icon {
+    cursor: pointer;
+    line-height: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #50575E;
+    margin-left: 2px;
+    padding: 2px;
+    border-radius: 3px;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+.responsive-sortable-action-icon:hover {
+    color: #007CBA;
+    background: #F0F0F1;
+}
+.responsive-sortable-delete-icon:hover {
+    color: #D63638;
+    background: #FDF2F2;
+}
 
 /* Sub-controls styling */
 .responsive-sortable-item-actions {
@@ -84,4 +104,523 @@ li.invisible .responsive-sortable-chevron {
 }
 .responsive-sortable-dropdown > .customize-control:last-child {
     margin-bottom: 0;
+}
+.responsive-sortable-dropdown .customize-control-responsive-range .customize-control-title,
+.responsive-sortable-dropdown .customize-control-responsive-selectbtn .customize-control-title {
+    margin: 0;
+}
+
+/* Payment SubControl Styles (Image 1, 2, 3 parity) */
+.responsive-payment-structure-dropdown {
+    background: #fff;
+    padding: 12px;
+}
+.payment-control-group {
+    margin-bottom: 14px;
+}
+.payment-control-heading {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #23282d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+.payment-segmented-control {
+    display: flex;
+    width: 100%;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fff;
+    box-sizing: border-box;
+}
+.payment-segmented-btn {
+    flex: 1;
+    border: none;
+    background: #fff;
+    color: #3c434a;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 7px 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.15s, color 0.15s;
+    line-height: 1.4;
+    outline: none;
+}
+.payment-segmented-btn.is-active {
+    background: #1e73be;
+    color: #fff;
+    font-weight: 600;
+}
+.payment-text-input {
+    width: 100%;
+    height: 34px;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 13px;
+    color: #2c3338;
+    background: #fff;
+    box-sizing: border-box;
+    outline: none;
+}
+.payment-text-input:focus {
+    border-color: #1e73be;
+    box-shadow: 0 0 0 1px #1e73be;
+}
+
+/* Cards List */
+.payment-cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+.payment-card-item {
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    overflow: visible;
+}
+.payment-card-item.is-expanded {
+    border: 1.5px solid #1e73be;
+}
+.payment-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    cursor: pointer;
+    user-select: none;
+}
+.payment-card-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+}
+.payment-card-icon-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 47px;
+    height: 30px;
+    flex-shrink: 0;
+}
+.payment-card-thumb-image {
+    max-width: 47px;
+    max-height: 30px;
+    border-radius: 2px;
+    object-fit: contain;
+}
+.payment-card-svg-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+}
+.payment-card-svg-icon svg {
+    width: 47px;
+    height: 30px;
+    max-width: 47px;
+    max-height: 30px;
+    display: block;
+    object-fit: contain;
+}
+.payment-card-svg-icon svg path:not([fill]) {
+    fill: #3c434a;
+}
+.payment-card-svg-icon.is-grayscale,
+.payment-card-font-icon.is-grayscale {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+}
+.payment-card-font-icon,
+.payment-card-empty-icon {
+    font-size: 20px;
+    color: #3c434a;
+}
+.payment-card-empty-icon {
+    color: #8c8f94;
+}
+.payment-card-title {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #2c3338;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.payment-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+.payment-action-btn {
+    border: none;
+    background: transparent;
+    padding: 2px 4px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #50575e;
+    border-radius: 3px;
+    line-height: 0;
+    transition: color 0.15s, background 0.15s;
+}
+.payment-action-btn:hover {
+    color: #1d2327;
+    background: #f0f0f1;
+}
+.payment-duplicate-btn:hover {
+    color: #1e73be;
+}
+.payment-delete-btn:hover {
+    background: #fdf2f2;
+}
+
+/* Expanded Card Content */
+.payment-card-content {
+    padding: 12px;
+    border-top: 1px solid #f0f0f1;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    overflow: visible;
+}
+.payment-card-field {
+    display: flex;
+    flex-direction: column;
+}
+.payment-field-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #2c3338;
+    margin-bottom: 5px;
+}
+
+/* Dashed Box and FontIconPicker Integration */
+.payment-icon-picker-wrapper {
+    position: relative;
+    width: 100%;
+}
+.payment-icon-picker-wrapper .rfipbtn {
+    width: 100%;
+    min-height: 85px;
+    border: 1.5px dashed #b4b4b4;
+    border-radius: 4px;
+    background: #f9f9f9;
+    box-shadow: none;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    box-sizing: border-box;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+.payment-icon-picker-wrapper .rfipbtn:hover {
+    border-color: #1e73be;
+    background: #fafafa;
+}
+.payment-icon-picker-wrapper .rfipbtn__current,
+.payment-icon-picker-wrapper .rfipbtn__icon,
+.payment-icon-picker-wrapper .rfipbtn__elm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.payment-icon-picker-wrapper .rfipbtn__current {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+.payment-icon-picker-wrapper .rfipbtn__icon {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    position: static;
+}
+.payment-icon-picker-wrapper .rfipbtn__elm {
+    font-size: 32px;
+}
+.payment-icon-picker-wrapper .rfipbtn__elm svg {
+    width: 54px;
+    height: 34px;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+}
+.payment-icon-picker-wrapper .rfipbtn__elm svg path:not([fill]) {
+    fill: #3c434a;
+}
+.payment-icon-picker-wrapper .rfipbtn__elm i {
+    font-size: 32px;
+    color: #3c434a;
+    display: block;
+}
+.payment-icon-picker-wrapper .rfipbtn__del {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 22px;
+    height: 22px;
+    border: 1px solid #dcdcde;
+    background: #fff;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: #50575e;
+    line-height: 1;
+    z-index: 5;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.payment-icon-picker-wrapper .rfipbtn__del:hover {
+    background: #f0f0f1;
+    color: #d63638;
+    border-color: #b4b4b4;
+}
+/* FontIconPicker Popover (Image 3) */
+.payment-icon-picker-wrapper .rfipdropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    bottom: auto;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    background: #fff;
+    border: 1.5px solid #1e73be;
+    border-radius: 4px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    z-index: 999999;
+    box-sizing: border-box;
+}
+.payment-icon-picker-wrapper .rfipdropdown__selector {
+    padding: 8px;
+    box-sizing: border-box;
+    width: 100%;
+}
+.payment-icon-picker-wrapper .rfipsearch {
+    margin-bottom: 8px;
+}
+.payment-icon-picker-wrapper .rfipsearch input {
+    width: 100%;
+    height: 32px;
+    border: 1.5px solid #1e73be;
+    border-radius: 3px;
+    padding: 4px 8px;
+    font-size: 12.5px;
+    box-sizing: border-box;
+    outline: none;
+}
+.payment-icon-picker-wrapper .rfipicons__pager {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: #3c434a;
+}
+.payment-icon-picker-wrapper .rfipicons__num {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.payment-icon-picker-wrapper .rfipicons__cp {
+    width: 28px;
+    height: 22px;
+    border: 1px solid #c3c4c7;
+    border-radius: 2px;
+    text-align: center;
+    font-size: 12px;
+    padding: 0;
+}
+.payment-icon-picker-wrapper .rfipicons__sp,
+.payment-icon-picker-wrapper .rfipicons__tp {
+    font-size: 13px;
+    font-weight: 500;
+}
+.payment-icon-picker-wrapper .rfipicons__arrow {
+    display: flex;
+    gap: 4px;
+}
+.payment-icon-picker-wrapper .rfipicons__left,
+.payment-icon-picker-wrapper .rfipicons__right {
+    width: 24px;
+    height: 24px;
+    background: #f0f0f1;
+    border: 1px solid #c3c4c7;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    line-height: 1;
+    font-size: 16px;
+    color: #3c434a;
+}
+.payment-icon-picker-wrapper .rfipicons__left:hover,
+.payment-icon-picker-wrapper .rfipicons__right:hover {
+    background: #e0e0e0;
+}
+.payment-icon-picker-wrapper .rfipicons__left i::before,
+.payment-icon-picker-wrapper .rfipicons__right i::before {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+.payment-icon-picker-wrapper .rfipicons__left i::before {
+    content: "‹";
+}
+.payment-icon-picker-wrapper .rfipicons__right i::before {
+    content: "›";
+}
+.payment-icon-picker-wrapper .rfipicons__selector {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 5px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+}
+.payment-icon-picker-wrapper .rfipicons__icon {
+    width: 100%;
+    min-width: 0;
+    height: 36px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.payment-icon-picker-wrapper .rfipicons__ibox {
+    width: 100%;
+    height: 100%;
+    background: #f5f5f5;
+    border: 1.5px solid transparent;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #3c434a;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: border-color 0.15s, background-color 0.15s;
+    overflow: hidden;
+    padding: 2px;
+}
+.payment-icon-picker-wrapper .rfipicons__ibox:hover {
+    background: #ebebeb;
+    border-color: #b4b4b4;
+}
+.payment-icon-picker-wrapper .rfipicons__icon--selected .rfipicons__ibox {
+    background: #eef2ff;
+    border-color: #1e73be;
+    box-shadow: 0 0 0 1px #1e73be;
+}
+.payment-icon-picker-wrapper .rfipicons__ibox svg {
+    width: 32px;
+    height: 20px;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+}
+.payment-icon-picker-wrapper .rfipicons__ibox i {
+    font-size: 18px;
+    color: #3c434a;
+    display: block;
+}
+.payment-icon-picker-wrapper .rfipicons__ibox svg path:not([fill]) {
+    fill: currentColor;
+}
+
+/* Image Uploader & Preview */
+.payment-image-uploader {
+    width: 100%;
+    box-sizing: border-box;
+}
+.payment-image-preview-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.payment-image-preview-box {
+    width: 60px;
+    height: 38px;
+    min-width: 60px;
+    max-width: 60px;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    background: #f7f7f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 2px;
+    flex-shrink: 0;
+}
+.payment-image-preview-box .payment-image-preview {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    border: none;
+    border-radius: 2px;
+    object-fit: contain;
+    display: block;
+}
+.payment-image-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    flex: 1;
+}
+.payment-image-actions .payment-change-image-btn {
+    font-size: 12px;
+    height: 28px;
+    line-height: 26px;
+    padding: 0 10px;
+}
+.payment-image-actions .payment-remove-image-btn {
+    color: #d63638;
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 2px 6px;
+    line-height: 1.4;
+    box-shadow: none;
+}
+.payment-image-actions .payment-remove-image-btn:hover {
+    color: #b32d2e;
+    text-decoration: underline;
+    background: transparent;
 }

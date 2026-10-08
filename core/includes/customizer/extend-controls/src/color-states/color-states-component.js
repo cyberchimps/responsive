@@ -60,12 +60,17 @@ const ColorStatesComponent = props => {
 		// } else {
         //     props.control.setting.set(value);
         // }
-		if (is_active_required) {
+		if (is_hover_required || is_active_required) {
+			// Set every state the control has - a control can have both hover and active.
 			props.control.settings.normal.set(value.normal);
-			props.control.settings.active.set(value.active);
-		} else if (is_hover_required) {
-			props.control.settings.normal.set(value.normal);
-			props.control.settings.hover.set(value.hover);
+
+			if (is_hover_required && props.control.settings.hover) {
+				props.control.settings.hover.set(value.hover);
+			}
+
+			if (is_active_required && props.control.settings.active) {
+				props.control.settings.active.set(value.active);
+			}
 		} else {
 			props.control.setting.set(value);
 		}
