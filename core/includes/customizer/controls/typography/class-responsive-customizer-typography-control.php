@@ -99,16 +99,26 @@ if ( ! class_exists( 'Responsive_Customizer_Typography_Control' ) ) :
 			wp_enqueue_script( 'responsive-typography-weight', RESPONSIVE_THEME_URI . 'core/includes/customizer/controls/typography/typography-weight-control.js', array( 'jquery', 'customize-base' ), RESPONSIVE_THEME_VERSION, true );
 			wp_enqueue_script( 'responsive-conditional-display-controls', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/js/conditional-display-controls.js', array( 'jquery', 'customize-base' ), RESPONSIVE_THEME_VERSION, true );
 			wp_enqueue_script( 'lifter-conditional-display-controls', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/js/lifter-conditional-controls.js', array( 'jquery', 'customize-base' ), RESPONSIVE_THEME_VERSION, true );
-			wp_localize_script(
-				'responsive-typography-weight',
-				'responsive',
-				array(
-					'googleFonts' => responsive_get_google_fonts(),
-					'weigthMap'   => $this->all_font_weight,
-					'std_fonts'   => responsive_standard_fonts(),
-					'custom_fonts' => $this->get_custom_fonts(),
-				)
-			);
+
+			// wp_localize_script() prepends to any existing inline data for the same
+			// handle/object name rather than replacing it. Since enqueue() runs once
+			// per typography control instance (dozens of them), localizing here
+			// unconditionally would concatenate that many duplicate copies of the
+			// (large) google fonts list into a single inline script. Do it once.
+			static $localized = false;
+			if ( ! $localized ) {
+				wp_localize_script(
+					'responsive-typography-weight',
+					'responsive',
+					array(
+						'googleFonts' => responsive_get_google_fonts(),
+						'weigthMap'   => $this->all_font_weight,
+						'std_fonts'   => responsive_standard_fonts(),
+						'custom_fonts' => $this->get_custom_fonts(),
+					)
+				);
+				$localized = true;
+			}
 		}
 		/**
 		 * Get Custom Fonts.
