@@ -10,7 +10,7 @@ class ResponsiveColorStatesPickerControl extends Component {
         this.state = {
             activeState: 'normal', // normal | hover | active
             isVisible: false,
-            opacityZero: false,
+            opacityZero: this.extractOpacity(this.getColorValue('normal')) === 0,
         };
     }
 
@@ -47,6 +47,7 @@ class ResponsiveColorStatesPickerControl extends Component {
         this.setState((prev) => ({
             activeState: state,
             isVisible: prev.activeState === state ? !prev.isVisible : true,
+            opacityZero: this.extractOpacity(this.getColorValue(state)) === 0,
         }));
     };
 
@@ -86,7 +87,17 @@ class ResponsiveColorStatesPickerControl extends Component {
             const rgbaMatch = color.match(
                 /rgba\(\s*\d+,\s*\d+,\s*\d+,\s*(\d*\.?\d+)\s*\)/
             );
-            return rgbaMatch ? parseFloat(rgbaMatch[1]) : 1;
+            if (rgbaMatch) return parseFloat(rgbaMatch[1]);
+
+            // Match #RRGGBBAA or #RGBA hex-with-alpha
+            const hexMatch = color.match(/^#?([0-9a-f]{8}|[0-9a-f]{4})$/i);
+            if (hexMatch) {
+                const hex = hexMatch[1];
+                const alphaHex = hex.length === 8 ? hex.slice(6, 8) : hex[3] + hex[3];
+                return parseInt(alphaHex, 16) / 255;
+            }
+
+            return 1;
         }
 
         if (typeof color === 'object' && color.rgb && color.rgb.a !== undefined) {

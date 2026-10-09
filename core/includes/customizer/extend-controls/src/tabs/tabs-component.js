@@ -940,32 +940,6 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_mobile_header_button_border_color').style.display = 'none';
 		}
 
-		// Hide background image controls if disabled
-		const toggleFooterBgControls = () => {
-			const isBgImgEnabled = api('responsive_footer_background_image_toggle') ? api('responsive_footer_background_image_toggle').get() : false;
-			const display = (isBgImgEnabled && 'design' === tab) ? 'block' : 'none';
-			const elements = [
-				'customize-control-responsive_footer_bg_left',
-				'customize-control-responsive_footer_bg_top',
-				'customize-control-responsive_footer_bg_repeat',
-				'customize-control-responsive_footer_bg_size',
-				'customize-control-responsive_footer_bg_attachment'
-			];
-			elements.forEach(id => {
-				let el = document.getElementById(id);
-				if (el) el.style.display = display;
-			});
-		};
-		toggleFooterBgControls();
-
-		if (api('responsive_footer_background_image_toggle')) {
-			api('responsive_footer_background_image_toggle', function( value ) {
-				value.bind( function( newval ) {
-					toggleFooterBgControls();
-				});
-			});
-		}
-
 		// Sidebar Divider Style Controls
 		if( api('responsive_sidebar_border_divider_style') ) {
 			toggleSidebarDividerStyleControls( api('responsive_sidebar_border_divider_style').get() );
@@ -1593,6 +1567,50 @@ const TabsComponent = props => {
 
 		return () => {
 			settings.forEach(setting => setting.unbind(applyStickyHeaderVisibility));
+		};
+	}, [tab]);
+
+	// Hide the footer background-position/repeat/size/attachment controls
+	// unless the Footer's own Design tab is active AND its background image
+	// is enabled. Scoped to the footer tabs control only - without this guard,
+	// every Tabs instance in the Customizer (e.g. Above/Primary/Below Footer
+	// Row tabs, which default to their own 'general' tab) would also run this
+	// logic and force these footer-only elements to display:none using their
+	// own unrelated tab state, hiding them until the footer tabs control's own
+	// state changed again.
+	useEffect(() => {
+		if (id !== 'responsive_footer_tabs') {
+			return;
+		}
+
+		const footerBgElements = [
+			'customize-control-responsive_footer_bg_left',
+			'customize-control-responsive_footer_bg_top',
+			'customize-control-responsive_footer_bg_repeat',
+			'customize-control-responsive_footer_bg_size',
+			'customize-control-responsive_footer_bg_attachment',
+		];
+
+		const toggleFooterBgControls = () => {
+			const bgToggle = api('responsive_footer_background_image_toggle');
+			const isBgImgEnabled = bgToggle ? bgToggle.get() : false;
+			const display = (isBgImgEnabled && 'design' === tab) ? 'block' : 'none';
+			footerBgElements.forEach(elementId => {
+				const el = document.getElementById(elementId);
+				if (el) el.style.display = display;
+			});
+		};
+		toggleFooterBgControls();
+
+		const bgToggleSetting = api('responsive_footer_background_image_toggle');
+		if (bgToggleSetting) {
+			bgToggleSetting.bind(toggleFooterBgControls);
+		}
+
+		return () => {
+			if (bgToggleSetting) {
+				bgToggleSetting.unbind(toggleFooterBgControls);
+			}
 		};
 	}, [tab]);
 
