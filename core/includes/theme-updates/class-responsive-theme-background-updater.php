@@ -68,6 +68,7 @@ if ( ! class_exists( 'Responsive_Theme_Background_Updater' ) ) {
             ),
             '6.4.8' => array (
                 'responsive_theme_background_updater_single_product_title_area_colors_6_4_8',
+                'responsive_theme_background_updater_single_product_title_area_text_font_6_4_8',
             ),
 		);
 

@@ -3617,3 +3617,79 @@ if ( ! function_exists( 'responsive_theme_background_updater_single_product_titl
 		}
 	}
 }
+
+
+if ( ! function_exists( 'responsive_theme_background_updater_single_product_title_area_text_font_6_4_8' ) ) {
+	/**
+	 * Handle backward compatibility for single product title area text font and colors.
+	 *
+	 * Till v6.4.7 there was no specific title area controls for single product and only breadcrumb used to show. It now has
+	 * its own typography, so carry over the values the user saved for the breadcrumb once. Only
+	 * values that exist are copied, an untouched breadcrumb font has nothing saved and falls back
+	 * to the new defaults.
+	 *
+	 * @since 6.4.8
+	 * @return void
+	 */
+	function responsive_theme_background_updater_single_product_title_area_text_font_6_4_8() {
+
+		if ( get_option( 'responsive_single_product_title_area_text_font_6_4_8_done' ) ) {
+			return;
+		}
+
+		$font_map = array(
+			'single_product_page_breadcrumb_shop_typography'   => 'single_product_text_typography',
+			'single_product_page_breadcrumb_tablet_typography' => 'single_product_text_tablet_typography',
+			'single_product_page_breadcrumb_mobile_typography' => 'single_product_text_mobile_typography',
+		);
+		$properties = array( 'font-family', 'font-weight', 'font-style', 'text-transform', 'font-size', 'line-height', 'letter-spacing' );
+
+		foreach ( $font_map as $from => $to ) {
+			$from_values = get_theme_mod( $from );
+			if ( ! is_array( $from_values ) ) {
+				continue;
+			}
+
+			$to_values = get_theme_mod( $to );
+			if ( ! is_array( $to_values ) ) {
+				$to_values = array();
+			}
+
+			$copied_font_size = false;
+			foreach ( $properties as $property ) {
+				if ( isset( $from_values[ $property ] ) && '' !== $from_values[ $property ] ) {
+					$to_values[ $property ] = $from_values[ $property ];
+					if ( 'font-size' === $property ) {
+						$copied_font_size = true;
+					}
+				}
+			}
+			set_theme_mod( $to, $to_values );
+
+			if ( $copied_font_size ) {
+				$from_prefix = str_replace( '_typography', '_typography_font_size', $from );
+				$to_prefix   = str_replace( '_typography', '_typography_font_size', $to );
+				foreach ( array( '_value', '_unit' ) as $part ) {
+					$size_mod = get_theme_mod( $from_prefix . $part );
+					if ( null !== $size_mod && false !== $size_mod && '' !== $size_mod ) {
+						set_theme_mod( $to_prefix . $part, $size_mod );
+					}
+				}
+			}
+		}
+
+		$breadcrumb_font = get_theme_mod( 'single_product_page_breadcrumb_shop_typography' );
+		if ( is_array( $breadcrumb_font ) && isset( $breadcrumb_font['color'] ) && '' !== $breadcrumb_font['color'] ) {
+			$title_area_color_settings = array(
+				'responsive_single_product_text_color',
+				'responsive_single_product_title_link_color',
+				'responsive_single_product_title_link_hover_color',
+			);
+			foreach ( $title_area_color_settings as $color_setting ) {
+				set_theme_mod( $color_setting, $breadcrumb_font['color'] );
+			}
+		}
+
+		update_option( 'responsive_single_product_title_area_text_font_6_4_8_done', true );
+	}
+}
