@@ -10697,10 +10697,11 @@ function responsive_customizer_styles() {
 		$sticky_header_site_title_color             = get_theme_mod( 'responsive_sticky_header_site_title_color' );
 		$sticky_header_site_title_hover_color       = get_theme_mod( 'responsive_sticky_header_site_title_hover_color' );
 		$sticky_header_text_color                   = get_theme_mod( 'responsive_sticky_header_text_color' );
-		$sticky_header_menu_background_color        = get_theme_mod( 'responsive_sticky_header_menu_background_color' );
-		$sticky_header_active_menu_background_color = get_theme_mod( 'responsive_sticky_header_active_menu_background_color' );
+		$sticky_header_menu_background_color        = get_theme_mod( 'responsive_sticky_header_menu_background_color', '#00000000' );
+		$sticky_header_active_menu_background_color = get_theme_mod( 'responsive_sticky_header_active_menu_background_color','#00000000' );
 		$sticky_header_menu_background_hover_color  = get_theme_mod( 'responsive_sticky_header_menu_background_hover_color' );
 		$sticky_header_menu_link_color              = get_theme_mod( 'responsive_sticky_header_menu_link_color' );
+		$sticky_header_active_menu_link_color       = get_theme_mod( 'responsive_sticky_header_active_menu_link_color' );
 		$sticky_header_menu_link_hover_color        = get_theme_mod( 'responsive_sticky_header_menu_link_hover_color' );
 		$sticky_header_sub_menu_background_color    = get_theme_mod( 'responsive_sticky_header_sub_menu_background_color' );
 		$sticky_header_sub_menu_background_hover_color  = get_theme_mod( 'responsive_sticky_header_sub_menu_background_hover_color' );
@@ -10741,19 +10742,15 @@ function responsive_customizer_styles() {
 			}
 
 			#masthead.sticky-header .main-navigation .menu .current_page_item > a,
-			#masthead.sticky-header .main-navigation .menu .current-menu-item > a,
-			#masthead.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current_page_item > a,
-			.res-transparent-header #masthead.sticky-header .main-navigation .menu .current-menu-item > a,
-			.res-transparent-header #masthead.sticky-header .main-navigation .menu li > a:hover {
-				color: {$sticky_header_menu_link_hover_color};
+			#masthead.sticky-header .main-navigation .menu .current-menu-item > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current_page_item > a,
+			.res-transparent-header #masthead.sticky-header .main-navigation .menu .current-menu-item > a {
+				color: {$sticky_header_active_menu_link_color};
 				background-color: {$sticky_header_active_menu_background_color};
 			}
 			#masthead-mobile.sticky-header .main-navigation .menu .current_page_item > a,
-			#masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a,
-			#masthead-mobile.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current_page_item > a,
-			.res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a,
-			.res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu li > a:hover {
-				color: {$sticky_header_menu_link_hover_color};
+			#masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current_page_item > a,
+			.res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a {
+				color: {$sticky_header_active_menu_link_color};
 				background-color: {$sticky_header_active_menu_background_color};
 			}
 			#masthead.sticky-header .main-navigation .children,
@@ -10795,6 +10792,17 @@ function responsive_customizer_styles() {
 				#masthead.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .menu li > a:hover,
 				#masthead-mobile.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu li > a:hover {
 					background-color: {$sticky_header_menu_background_hover_color};
+				}
+			";
+		}
+
+		// Menu Item Link Hover Color: overrides the Active Menu Link Color on hovered menu items
+		// (which it otherwise also covers, see above). Unset, hovered items keep that color.
+		if ( $sticky_header_menu_link_hover_color ) {
+			$custom_css .= "
+				#masthead.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .menu li > a:hover,
+				#masthead-mobile.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu li > a:hover {
+					color: {$sticky_header_menu_link_hover_color};
 				}
 			";
 		}

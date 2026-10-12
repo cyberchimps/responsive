@@ -80,7 +80,7 @@ if ( ! class_exists( 'Responsive_Sticky_Header_Customizer' ) ) :
 					$design_tab_ids_prefix . 'responsive_sticky_header_site_title_color',
 					$design_tab_ids_prefix . 'responsive_sticky_header_text_color',
 					$design_tab_ids_prefix . 'responsive_sticky_header_menu_background_color_states',
-					$design_tab_ids_prefix . 'responsive_sticky_header_menu_link_color',
+					$design_tab_ids_prefix . 'responsive_sticky_header_menu_link_color_states',
 					$design_tab_ids_prefix . 'responsive_sticky_header_sub_menu_background_color_states',
 					$design_tab_ids_prefix . 'responsive_sticky_header_sub_menu_link_color',
 				);
@@ -189,9 +189,27 @@ if ( ! class_exists( 'Responsive_Sticky_Header_Customizer' ) ) :
 					'sticky_header_active_menu_background'
 				);
 
-				// Link Color (Normal + Hover).
+				// Link Color: Normal / Hover / Active. Keeps the setting ids of the former
+				// "Menu Item Link Color" (Normal + Hover) control.
 				$sticky_menu_link_color_label = __( 'Menu Item Link Color', 'responsive' );
-				responsive_color_control( $wp_customize, 'sticky_header_menu_link', $sticky_menu_link_color_label, 'responsive_sticky_header_menu', 120, '', null, '', true, '', 'sticky_header_menu_link_hover' );
+				responsive_color_control_with_states(
+					$wp_customize,
+					'sticky_header_menu_link',
+					$sticky_menu_link_color_label,
+					'responsive_sticky_header_menu',
+					120,
+
+					// Normal
+					'',
+
+					// Hover
+					'',
+					'sticky_header_menu_link_hover',
+
+					// Active
+					'',
+					'sticky_header_active_menu_link'
+				);
 
 				// Sub Menu Background Color.
 				// Sub Menu Background: Normal / Hover / Active. Keeps the setting id of the former
