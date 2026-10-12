@@ -4516,13 +4516,25 @@
             );
         } );
     } );
+    api( 'responsive_sticky_header_active_menu_link_color', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-sticky-header-active-menu-link-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-sticky-header-active-menu-link-color">'
+                + '#masthead.sticky-header .main-navigation .menu .current_page_item > a, #masthead.sticky-header .main-navigation .menu .current-menu-item > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current_page_item > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current-menu-item > a, '
+                + '#masthead-mobile.sticky-header .main-navigation .menu .current_page_item > a, #masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current_page_item > a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a { color: ' + newval + ' !important; }'
+                + '</style>'
+            );
+        } );
+    } );
+    // Printed after the Active Menu Link Color rule (which also covers hovered items) so it overrides it on hover.
     api( 'responsive_sticky_header_menu_link_hover_color', function( value ) {
         value.bind( function( newval ) {
             jQuery('style#responsive-sticky-header-menu-link-hover-color').remove();
             jQuery('head').append(
                 '<style id="responsive-sticky-header-menu-link-hover-color">'
-                + '#masthead.sticky-header .main-navigation .menu .current_page_item > a, #masthead.sticky-header .main-navigation .menu .current-menu-item > a, #masthead.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current_page_item > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current-menu-item > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu li > a:hover, '
-                + '#masthead-mobile.sticky-header .main-navigation .menu .current_page_item > a, #masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a, #masthead-mobile.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current_page_item > a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu li > a:hover { color: ' + newval + '!important; }'
+                + '#masthead.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .menu li > a:hover, '
+                + '#masthead-mobile.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu li > a:hover { color: ' + newval + ' !important; }'
                 + '</style>'
             );
         } );
