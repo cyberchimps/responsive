@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(12/10/2026) Version 6.4.8
+[+] = New = Enhanced WooCommerce Single Product customization options — Added comprehensive controls for single product layouts, advanced title area settings, and display options for seamless design parity.
+
 (30/09/2026) Version 6.4.7
 [+] = New = Added Title Area Customizable options in Woocommerce Product Catalog Settings. 
 [+] = Improvement = Added more customizable options in Woocommerce Product Catalog Settings.
