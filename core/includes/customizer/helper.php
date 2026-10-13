@@ -4323,12 +4323,12 @@ function enable_off_canvas_filter_check() {
 	return ( 0 !== get_theme_mod( 'responsive_enable_off_canvas_filter', 0 ) ) ? true : false;
 }
 /**
- * Check if off canvas close button is active
+ * Check if off canvas close button is active (it needs the off canvas filter enabled too)
  *
  * @return mixed
  */
 function enable_enable_off_canvas_close_btn() {
-	return ( 0 !== get_theme_mod( 'responsive_enable_off_canvas_close_btn', 0 ) ) ? true : false;
+	return enable_off_canvas_filter_check() && ( 0 !== get_theme_mod( 'responsive_enable_off_canvas_close_btn', 0 ) );
 }
 
 if ( ! function_exists( 'responsive_hamburger_off_canvas_btn_label_text_label' ) ) {

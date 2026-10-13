@@ -82,6 +82,46 @@ const TabsComponent = props => {
 		return popupToggle ? !popupToggle.get() : false;
 	};
 
+	// Off Canvas Filter fields stay hidden unless the matching toggle is on:
+	// the filter fields, the close button toggle and the Design tab heading
+	// follow "Enable Off Canvas Filter", and the close button colours need both
+	// that and "Enable Off Canvas Close Button".
+	const offCanvasFilterFieldIds = [
+		'customize-control-responsive_enable_off_canvas_close_btn',
+		'customize-control-responsive_hamburger_off_canvas_btn_label_text',
+		'customize-control-responsive_off_canvas_filter_button_color',
+		'customize-control-responsive_off_canvas_filter_button_text_color',
+		'customize-control-responsive_off_canvas_filter_button_border_color',
+		'customize-control-responsive_off_canvas_filter_button_hover_color',
+		'customize-control-responsive_off_canvas_filter_button_text_hover_color',
+		'customize-control-responsive_off_canvas_filter_button_border_hover_color',
+	];
+	const offCanvasCloseFieldIds = [
+		'customize-control-responsive_off_canvas_close_button_color',
+		'customize-control-responsive_off_canvas_close_button_hover_color',
+	];
+	const offCanvasDesignSeparatorId = 'customize-control-responsive_off_canvas_filter_design_separator';
+	const isOffCanvasFilterFieldInactive = (elementId) => {
+		if (id !== 'responsive_woocommerce_shop_tabs') {
+			return false;
+		}
+		const filterToggle = api('responsive_enable_off_canvas_filter');
+		const closeToggle = api('responsive_enable_off_canvas_close_btn');
+		const filterOn = filterToggle ? !!filterToggle.get() : true;
+		const closeOn = closeToggle ? !!closeToggle.get() : true;
+		if (offCanvasFilterFieldIds.indexOf(elementId) !== -1) {
+			return !filterOn;
+		}
+		if (offCanvasCloseFieldIds.indexOf(elementId) !== -1) {
+			return !filterOn || !closeOn;
+		}
+		if (elementId === offCanvasDesignSeparatorId) {
+			return !filterOn;
+		}
+		return false;
+	};
+	const isShopConditionalFieldInactive = (elementId) => isNativeCartPopupFieldInactive(elementId) || isOffCanvasFilterFieldInactive(elementId);
+
 	const isSidebarControlInactive = (elementId) => {
 		let posControlKey = null;
 		if (elementId.indexOf('responsive_page_sidebar') !== -1) {
@@ -144,7 +184,7 @@ const TabsComponent = props => {
 		elementsToHide[showElements].forEach(elementId => {
 			const element = document.getElementById(elementId);
 			if (element) {
-				if (isSidebarControlInactive(elementId) || isBreadcrumbGeneralFieldInactive(elementId) || isStickyHeaderFieldInactive(elementId) || isNativeCartPopupFieldInactive(elementId)) {
+				if (isSidebarControlInactive(elementId) || isBreadcrumbGeneralFieldInactive(elementId) || isStickyHeaderFieldInactive(elementId) || isShopConditionalFieldInactive(elementId)) {
 					element.style.display = 'none';
 				} else {
 					element.style.display = 'block';
@@ -1615,35 +1655,43 @@ const TabsComponent = props => {
 		};
 	}, [tab]);
 
-	// Show / hide the Native Cart Popup fields on the current tab as soon as
-	// "Enable Popup" changes, instead of waiting for the preview to refresh.
+	// Show / hide the Native Cart Popup and Off Canvas Filter fields on the
+	// current tab as soon as their toggles change, instead of waiting for the
+	// preview to refresh.
 	useEffect(() => {
 		if (id !== 'responsive_woocommerce_shop_tabs') {
 			return;
 		}
 
-		const applyNativeCartPopupVisibility = () => {
+		const isShopConditionalField = (elementId) => (
+			elementId.indexOf('customize-control-responsive_popup_') === 0 ||
+			nativeCartPopupFieldIds.indexOf(elementId) !== -1 ||
+			offCanvasFilterFieldIds.indexOf(elementId) !== -1 ||
+			offCanvasCloseFieldIds.indexOf(elementId) !== -1 ||
+			elementId === offCanvasDesignSeparatorId
+		);
+
+		const applyShopConditionalVisibility = () => {
 			const currentTabIds = tab === 'general' ? general_tab_ids : design_tab_ids;
 			currentTabIds.forEach(elementId => {
-				if (elementId.indexOf('customize-control-responsive_popup_') !== 0 && nativeCartPopupFieldIds.indexOf(elementId) === -1) {
+				if (!isShopConditionalField(elementId)) {
 					return;
 				}
 				const element = document.getElementById(elementId);
 				if (element) {
-					element.style.display = isNativeCartPopupFieldInactive(elementId) ? 'none' : 'block';
+					element.style.display = isShopConditionalFieldInactive(elementId) ? 'none' : 'block';
 				}
 			});
 		};
 
-		const popupToggle = api('responsive_enable_native_cart_popup');
-		if (popupToggle) {
-			popupToggle.bind(applyNativeCartPopupVisibility);
-		}
+		const toggles = ['responsive_enable_native_cart_popup', 'responsive_enable_off_canvas_filter', 'responsive_enable_off_canvas_close_btn']
+			.map(settingId => api(settingId))
+			.filter(Boolean);
+
+		toggles.forEach(setting => setting.bind(applyShopConditionalVisibility));
 
 		return () => {
-			if (popupToggle) {
-				popupToggle.unbind(applyNativeCartPopupVisibility);
-			}
+			toggles.forEach(setting => setting.unbind(applyShopConditionalVisibility));
 		};
 	}, [tab]);
 
