@@ -3088,7 +3088,7 @@
     //Hover Colors
 
     //Links Hover Color
-    $("a").not('.woocommerce-tabs ul.tabs li a').not('.secondary-navigation a').not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.responsive-header-html a, .responsive-mobile-header-html a').not('.post-meta a').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.read-more .more-link').not('footer.comment-meta a, .commentlist .comment-content a').not('.button').not('.wp-block-button__link').not('.breadcrumb a').not('.site-header .responsive-header-html2 .responsive-header-html2-inner a').not('.site-header .responsive-header-html .responsive-header-html-inner a').not('.site-footer .responsive-footer-html .responsive-footer-html-inner a').not('.site-footer .responsive-footer-html2 .responsive-footer-html2-inner a').not('.woocommerce.archive .site-content-header a, .woocommerce-shop .site-content-header a, .responsive-shop-entry-banner a, .single-product .site-content-header a, .single-product .responsive-single-product-entry-banner a').hover(
+    $("a").not('.woocommerce-tabs ul.tabs li a').not('.secondary-navigation a').not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.responsive-header-html a, .responsive-mobile-header-html a').not('.post-meta a').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.read-more .more-link').not('footer.comment-meta a, .commentlist .comment-content a').not('.button').not('.wp-block-button__link').not('.breadcrumb a').not('.site-header .responsive-header-html2 .responsive-header-html2-inner a').not('.site-header .responsive-header-html .responsive-header-html-inner a').not('.site-footer .responsive-footer-html .responsive-footer-html-inner a').not('.site-footer .responsive-footer-html2 .responsive-footer-html2-inner a').not('.woocommerce.archive .site-content-header a, .woocommerce-shop .site-content-header a, .responsive-shop-entry-banner a, .single-product .site-content-header a, .single-product .responsive-single-product-entry-banner a').not('#off-canvas-menu a, #off-canvas-site-navigation .menu a, .off-canvas-widget-area a, .off-canvas-navigation a, .responsive-off-canvas-panel a, .off_canvas_filter_btn').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
             $(this).css("color", linkHoverColor);
@@ -3575,21 +3575,14 @@
 			}
 		});
 	});
-    api( 'responsive_off_canvas_filter_button_text_hover_color', function( value ) {
-		value.bind( function( to ) {
-			var $child = $( '.customizer-responsive_off_canvas_filter_button_text_hover_color' );
-			if ( to ) {
-				var style = '<style class="customizer-responsive_off_canvas_filter_button_text_hover_color">.off_canvas_filter_btn:hover {color:' + to + ';} element.style{color: unset}</style>';
-				if ( $child.length ) {
-					$child.replaceWith( style );
-				} else {
-					$( 'head' ).append( style );
-				}
-			} else {
-				$child.remove();
-			}
-		});
-	});
+    $('.off_canvas_filter_btn').hover(
+        function() {
+            $(this).css('color', processThemeSettingForCSS('responsive_off_canvas_filter_button_text_hover_color'));
+        },
+        function() {
+            $(this).css('color', processThemeSettingForCSS('responsive_off_canvas_filter_button_text_color'));
+        }
+    );
     api( 'responsive_off_canvas_filter_button_border_hover_color', function( value ) {
 		value.bind( function( to ) {
 			var $child = $( '.customizer-responsive_off_canvas_filter_button_border_hover_color' );
