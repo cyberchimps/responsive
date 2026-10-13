@@ -1117,7 +1117,11 @@ span.res-header-cart-info-wrap, .res-addon-cart-wrap, .res-addon-mobile-cart-wra
 }
 
 .woocommerce .woocommerce-ordering select {
-  padding: .5em;
+  padding: .5em 35px .5em .5em; // Reserve room for the dropdown arrow.
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .responsive-shopping-cart-svg {
