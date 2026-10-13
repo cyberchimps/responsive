@@ -63,6 +63,25 @@ const TabsComponent = props => {
 		return false;
 	};
 
+	// Every Native Cart Popup field (General and Design tabs) stays hidden
+	// while "Enable Popup" is off. The toggle and its own heading stay visible.
+	const nativeCartPopupFieldIds = [
+		'customize-control-responsive_native_cart_popup_display',
+		'customize-control-responsive_native_cart_popup_styling_separator',
+		'customize-control-responsive_native_cart_popup_styling_color_separator',
+	];
+	const isNativeCartPopupFieldInactive = (elementId) => {
+		if (id !== 'responsive_woocommerce_shop_tabs') {
+			return false;
+		}
+		const isPopupField = elementId.indexOf('customize-control-responsive_popup_') === 0 || nativeCartPopupFieldIds.indexOf(elementId) !== -1;
+		if (!isPopupField) {
+			return false;
+		}
+		const popupToggle = api('responsive_enable_native_cart_popup');
+		return popupToggle ? !popupToggle.get() : false;
+	};
+
 	const isSidebarControlInactive = (elementId) => {
 		let posControlKey = null;
 		if (elementId.indexOf('responsive_page_sidebar') !== -1) {
@@ -125,7 +144,7 @@ const TabsComponent = props => {
 		elementsToHide[showElements].forEach(elementId => {
 			const element = document.getElementById(elementId);
 			if (element) {
-				if (isSidebarControlInactive(elementId) || isBreadcrumbGeneralFieldInactive(elementId) || isStickyHeaderFieldInactive(elementId)) {
+				if (isSidebarControlInactive(elementId) || isBreadcrumbGeneralFieldInactive(elementId) || isStickyHeaderFieldInactive(elementId) || isNativeCartPopupFieldInactive(elementId)) {
 					element.style.display = 'none';
 				} else {
 					element.style.display = 'block';
@@ -1593,6 +1612,38 @@ const TabsComponent = props => {
 
 		return () => {
 			settings.forEach(setting => setting.unbind(applyStickyHeaderVisibility));
+		};
+	}, [tab]);
+
+	// Show / hide the Native Cart Popup fields on the current tab as soon as
+	// "Enable Popup" changes, instead of waiting for the preview to refresh.
+	useEffect(() => {
+		if (id !== 'responsive_woocommerce_shop_tabs') {
+			return;
+		}
+
+		const applyNativeCartPopupVisibility = () => {
+			const currentTabIds = tab === 'general' ? general_tab_ids : design_tab_ids;
+			currentTabIds.forEach(elementId => {
+				if (elementId.indexOf('customize-control-responsive_popup_') !== 0 && nativeCartPopupFieldIds.indexOf(elementId) === -1) {
+					return;
+				}
+				const element = document.getElementById(elementId);
+				if (element) {
+					element.style.display = isNativeCartPopupFieldInactive(elementId) ? 'none' : 'block';
+				}
+			});
+		};
+
+		const popupToggle = api('responsive_enable_native_cart_popup');
+		if (popupToggle) {
+			popupToggle.bind(applyNativeCartPopupVisibility);
+		}
+
+		return () => {
+			if (popupToggle) {
+				popupToggle.unbind(applyNativeCartPopupVisibility);
+			}
 		};
 	}, [tab]);
 
