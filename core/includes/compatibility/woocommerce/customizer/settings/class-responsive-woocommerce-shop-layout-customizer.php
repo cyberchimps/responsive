@@ -200,7 +200,8 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 
 			// product border radius
 			$product_border_radius_label = esc_html__( 'Border Radius (px)', 'responsive' );
-			responsive_radius_control($wp_customize, 'shop_product', 'responsive_woocommerce_shop', 30, 8, 8, null, $product_border_radius_label, 'postMessage',);
+			// Blank means follow the Global > Layout box radius, so keep blank values instead of converting them to 0.
+			responsive_radius_control( $wp_customize, 'shop_product', 'responsive_woocommerce_shop', 30, '', '', null, $product_border_radius_label, 'postMessage', 'responsive_sanitize_number_blank' );
 
 			// Products Title Area Section Toggle.
 			responsive_section_toggle_control(
