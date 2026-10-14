@@ -2454,11 +2454,25 @@ function responsive_active_single_blog_sidebar_section() {
 }
 
 function responsive_active_shop_sidebar_section() {
-	return ! responsive_is_layout_narrow( get_theme_mod( 'responsive_product_catalog_container_layout', 'default_container' ) );
+	// Product Catalog > WooCommerce General > Global. A narrow layout never has a sidebar.
+	return 'narrow' !== Responsive\Core\responsive_get_woocommerce_setting( 'container_layout', 'catalog' );
 }
 
 function responsive_active_single_product_sidebar_section() {
-	return ! responsive_is_layout_narrow( get_theme_mod( 'responsive_single_product_container_layout', 'default_container' ) );
+	// Single Product > WooCommerce General > Global. A narrow layout never has a sidebar.
+	return 'narrow' !== Responsive\Core\responsive_get_woocommerce_setting( 'container_layout', 'single' );
+}
+
+/**
+ * Active callback for the single product Content Background and Inside Container spacing controls.
+ *
+ * They style the product box, so they only apply when single product does not resolve to a Flat
+ * container style: Single Product > WooCommerce General > Global.
+ *
+ * @return bool
+ */
+function responsive_show_single_product_box_controls() {
+	return 'flat' !== Responsive\Core\responsive_get_woocommerce_setting( 'container_style', 'single' );
 }
 
 /**

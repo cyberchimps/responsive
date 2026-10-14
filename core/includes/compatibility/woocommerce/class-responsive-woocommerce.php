@@ -69,6 +69,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			add_filter( 'body_class', array( $this, 'add_body_class' ) );
 
 			add_action( 'wp', array( $this, 'cart_page_upselles' ) );
+			add_filter( 'render_block', array( $this, 'hide_block_cart_cross_sells' ), 10, 2 );
 
 			add_action( 'widgets_init', array( $this, 'register_off_canvas_sidebar' ), 11 );
 			add_action( 'wp_footer', array( $this, 'get_off_canvas_sidebar' ) );
@@ -211,6 +212,20 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			if ( ! $crossselles_enabled ) {
 				remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
 			}
+		}
+
+		/**
+		 * Hides the cross-sells in the block based cart when disabled in the customizer.
+		 *
+		 * @param string $block_content Rendered block content.
+		 * @param array  $block         Parsed block.
+		 * @return string
+		 */
+		public function hide_block_cart_cross_sells( $block_content, $block ) {
+			if ( isset( $block['blockName'] ) && 'woocommerce/cart-cross-sells-block' === $block['blockName'] && ! get_theme_mod( 'responsive_enable_crosssells_options', 1 ) ) {
+				return '';
+			}
+			return $block_content;
 		}
 
 		/**

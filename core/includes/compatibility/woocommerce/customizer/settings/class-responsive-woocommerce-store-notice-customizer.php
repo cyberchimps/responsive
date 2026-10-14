@@ -77,31 +77,31 @@ if ( ! class_exists( 'Responsive_Woocommerce_Store_Notice_Customizer' ) ) :
 				'store_notice_background_hover'
 			);
 
-			// Store Notice Position. Refresh transport, the saved CSS decides the layout.
-			responsive_select_button_control(
-				$wp_customize,
-				'store_notice_position',
-				esc_html__( 'Notice Position', 'responsive' ),
-				$section,
-				32,
-				array(
-					'hang-over-top' => esc_html__( 'Hang Over Top', 'responsive' ),
-					'top'           => esc_html__( 'Top', 'responsive' ),
-					'bottom'        => esc_html__( 'Bottom', 'responsive' ),
-				),
-				Responsive\Core\get_responsive_customizer_defaults( 'responsive_store_notice_position' ),
-				array( __CLASS__, 'is_store_notice_enabled' )
-			);
-
 			// Store Notice Font. The font controls themselves come from the global typography class, only the group toggle is registered here.
 			responsive_typography_group_control(
 				$wp_customize,
 				'store_notice_typography_group',
 				esc_html__( 'Font', 'responsive' ),
 				$section,
-				33,
+				32,
 				'store_notice_typography',
 				true,
+				array( __CLASS__, 'is_store_notice_enabled' )
+			);
+
+			// Store Notice Position. Refresh transport, the saved CSS decides the layout.
+			responsive_select_button_control(
+				$wp_customize,
+				'store_notice_position',
+				esc_html__( 'Notice Position', 'responsive' ),
+				$section,
+				34,
+				array(
+					'hang-over-top' => esc_html__( 'Hang Over Top', 'responsive' ),
+					'top'           => esc_html__( 'Top', 'responsive' ),
+					'bottom'        => esc_html__( 'Bottom', 'responsive' ),
+				),
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_store_notice_position' ),
 				array( __CLASS__, 'is_store_notice_enabled' )
 			);
 		}

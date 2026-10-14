@@ -203,6 +203,7 @@ const TabsComponent = props => {
 			}
 		};
 		toggleContentBackground();
+		toggleSingleProductBoxControls();
 
 		hideSidebarWidthControl( api('responsive_page_sidebar_position').get(), 'page' );
 		hideSidebarStyleControl( api('responsive_page_sidebar_position').get(), 'page' );
@@ -1770,6 +1771,34 @@ const TabsComponent = props => {
 		}
 	}
 
+	// Single product Container Style as it resolves: own setting > WooCommerce General > Global.
+	// Mirrors responsive_get_woocommerce_setting( 'container_style', 'single' ) on the PHP side.
+	const resolveSingleProductContainerStyle = () => {
+		let style = getWoocommerceSetting('responsive_single_product_container_style', 'default');
+		if (isWoocommerceDefaultValue(style)) {
+			style = getWoocommerceSetting('responsive_woocommerce_container_style', 'default');
+		}
+		if (isWoocommerceDefaultValue(style)) {
+			style = getWoocommerceSetting('responsive_style', 'boxed');
+		}
+		return style;
+	};
+
+	// The single product Content Background and Inside Container spacing style the product box,
+	// so they are hidden when single product resolves to a Flat container style.
+	const toggleSingleProductBoxControls = () => {
+		const isVisible = resolveSingleProductContainerStyle() !== 'flat' && tab === 'design';
+		[
+			'customize-control-responsive_single_product_content_background_color',
+			'customize-control-responsive_single_product_inside_container_padding',
+		].forEach(controlId => {
+			const element = document.getElementById(controlId);
+			if (element) {
+				element.style.display = isVisible ? 'block' : 'none';
+			}
+		});
+	};
+
 	const hideRetinaLogoUploadControl = (value) => {
 		const controlId = `customize-control-responsive_retina_logo_image`;
 		const isCustomLogoPresent = document.querySelector('#customize-control-custom_logo img.attachment-thumb') !== null;
@@ -2445,6 +2474,7 @@ const TabsComponent = props => {
 			if (api('responsive_cart_content_width')) {
 				hideWoocommerceMainContentWidthControl('global', 'cart');
 			}
+			toggleSingleProductBoxControls();
 		};
 
 		const watchedSettings = [
@@ -2453,6 +2483,9 @@ const TabsComponent = props => {
 			'responsive_product_catalog_container_layout',
 			'responsive_single_product_container_layout',
 			'responsive_width',
+			'responsive_single_product_container_style',
+			'responsive_woocommerce_container_style',
+			'responsive_style',
 		];
 		const bound = [];
 		watchedSettings.forEach(key => {

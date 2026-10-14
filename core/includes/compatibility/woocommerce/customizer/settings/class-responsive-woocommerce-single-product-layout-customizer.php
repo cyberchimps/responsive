@@ -940,7 +940,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				'responsive_woocommerce_single_product_layout',
 				69,
 				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_content_background_color' ),
-				null,
+				'responsive_show_single_product_box_controls',
 				'',
 				false,
 				null,
@@ -1036,7 +1036,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 			responsive_unit_padding_control( $wp_customize, 'single_product_outside_container', 'responsive_woocommerce_single_product_layout', 87, '', '', null, esc_html__( 'Outside Container', 'responsive' ), 'postMessage', '', '', '', '', 'px' );
 
 			// Inside Container.
-			responsive_unit_padding_control( $wp_customize, 'single_product_inside_container', 'responsive_woocommerce_single_product_layout', 88, '', '', null, esc_html__( 'Inside Container', 'responsive' ), 'postMessage', '', '', '', '', 'px' );
+			responsive_unit_padding_control( $wp_customize, 'single_product_inside_container', 'responsive_woocommerce_single_product_layout', 88, '', '', 'responsive_show_single_product_box_controls', esc_html__( 'Inside Container', 'responsive' ), 'postMessage', '', '', '', '', 'px' );
 
 		}
 

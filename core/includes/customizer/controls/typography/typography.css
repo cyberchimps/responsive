@@ -272,7 +272,10 @@ label.responsive_font_weight select option:checked {
 	padding-bottom: 0;
 }
 #customize-control-responsive_product_content_shop_typography_group,
-#customize-control-responsive_single_product_page_breadcrumb_shop_typography_group
+#customize-control-responsive_single_product_page_breadcrumb_shop_typography_group,
+#customize-control-responsive_single_product_title_typography_group,
+#customize-control-responsive_single_product_text_typography_group,
+#customize-control-responsive_single_product_meta_typography_group
 {
 	padding-bottom: 12px;
 }

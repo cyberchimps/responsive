@@ -790,7 +790,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'label'           => esc_html__( 'Font', 'responsive' ),
 					'target'          => $selectorArray['store_notice'],
 					'section'         => 'woocommerce_store_notice',
-					'priority'        => 34,
+					'priority'        => 33,
 					'exclude'         => array( 'font-color' ),
 					'active_callback' => array( 'Responsive_Woocommerce_Store_Notice_Customizer', 'is_store_notice_enabled' ),
 				),
