@@ -510,6 +510,7 @@
 				cssVars['--responsive-global-site-background'] = processThemeSettingForCSS('responsive_site_background_color');
 				cssVars['--responsive-global-box-background'] = processThemeSettingForCSS('responsive_box_background_color');
 				cssVars['--responsive-global-h1-color'] = processThemeSettingForCSS('responsive_h1_text_color');
+				cssVars['--responsive-global-meta-text-color'] = processThemeSettingForCSS('responsive_meta_text_color');
 				cssVars['--responsive-global-footer-text-color'] = processThemeSettingForCSS('responsive_footer_text_color');
 				cssVars['--responsive-global-footer-links-color'] = processThemeSettingForCSS('responsive_footer_links_color');
 				cssVars['--responsive-global-footer-links-hover-color'] = processThemeSettingForCSS('responsive_footer_links_hover_color');
@@ -603,6 +604,18 @@
 				}
 				document.documentElement.style.setProperty(
 					'--responsive-global-h1-color',
+					newval
+				);
+			});
+		});
+
+		wp.customize( 'responsive_meta_text_color', function( value ) {
+			value.bind( function( newval ) {
+				if( newval && newval.startsWith('palette') ) {
+					newval = `var(--responsive-global-${newval})`;
+				}
+				document.documentElement.style.setProperty(
+					'--responsive-global-meta-text-color',
 					newval
 				);
 			});
