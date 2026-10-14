@@ -83,9 +83,7 @@
 }
 
 .colophon-widgets,
-.footer-navigation,
-.social-icon,
-.copyright {
+.footer-navigation {
     @extend .col-xs-12;
     // padding-top: $grid-gutter-width / 2;
     // padding-bottom: $grid-gutter-width / 2;
