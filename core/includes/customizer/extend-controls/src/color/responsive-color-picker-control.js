@@ -45,7 +45,17 @@ class ResponsiveColorPickerControl extends Component {
 			if (colorStr === 'transparent') return 0;
 
 			const rgbaMatch = colorStr.match(/rgba\(\s*\d+,\s*\d+,\s*\d+,\s*(\d*\.?\d+)\s*\)/);
-			return rgbaMatch ? parseFloat(rgbaMatch[1]) : 1;
+			if (rgbaMatch) return parseFloat(rgbaMatch[1]);
+
+			// Match #RRGGBBAA or #RGBA hex-with-alpha
+			const hexMatch = colorStr.match(/^#?([0-9a-f]{8}|[0-9a-f]{4})$/i);
+			if (hexMatch) {
+				const hex = hexMatch[1];
+				const alphaHex = hex.length === 8 ? hex.slice(6, 8) : hex[3] + hex[3];
+				return parseInt(alphaHex, 16) / 255;
+			}
+
+			return 1;
 		}
 
 		// If color is an object
