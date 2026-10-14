@@ -56,6 +56,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 			$general_tab_ids_prefix = 'customize-control-';
 			$general_tab_ids        = array(
 				$general_tab_ids_prefix . 'responsive_cart_layout_seperator',
+				$general_tab_ids_prefix . 'responsive_enable_crosssells_options',
 				$general_tab_ids_prefix . 'responsive_disable_cart_fragments',
 				$general_tab_ids_prefix . 'responsive_cart_content_width',
 			);
