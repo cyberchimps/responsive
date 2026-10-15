@@ -207,11 +207,11 @@ function responsive_mobile_header_woo_cart_slide_in() {
 		$is_cart_element_loaded && class_exists( 'WooCommerce' ) && ! is_cart() && ! is_checkout()
 	) {
 		// Prevent slide in markup when 'redirect' option is selected.
-		if( 'redirect' !== $cart_click_action || 'dropdown' === $cart_click_action && wp_is_mobile() ) {
+		if( 'redirect' !== $cart_click_action || 'dropdown' === $cart_click_action && wp_is_mobile() ) { // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_is_mobile_wp_is_mobile -- jetpack_is_mobile() is not available outside Jetpack/VIP.
 		wp_enqueue_script( 'responsive-cart-slide-in', get_template_directory_uri() . '/core/js/slide-in-cart.js', array(), RESPONSIVE_THEME_VERSION, true );
 		$rspv_cart_localize_data = array(
 			'cart_click_action' => $cart_click_action,
-			'isMobile'          => wp_is_mobile()
+			'isMobile'          => wp_is_mobile() // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_is_mobile_wp_is_mobile -- jetpack_is_mobile() is not available outside Jetpack/VIP.
 		);
 		wp_localize_script( 'responsive-cart-slide-in', 'responsive_woo_cart', $rspv_cart_localize_data );
 		wp_enqueue_style( 'dashicons' );

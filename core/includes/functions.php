@@ -2898,14 +2898,14 @@ function responsive_woo_cart_label_markup(){
     $shortcode_label       = array( '{cart_total_currency_symbol}', '{cart_title}', '{cart_total}', '{cart_currency_name}', '{cart_currency_symbol}' );
     $shortcode_label_value = array( $cart_total_markup, $cart_title_markup, $cart_total_only_markup, $cart_cur_name_markup, $cart_cur_sym_markup );
     $cart_label_markup = '';
-    $cart_label_markup = str_replace( $shortcode_label, $shortcode_label_value, $woo_cart_label_val );
+    $cart_label_markup = str_replace( $shortcode_label, $shortcode_label_value, esc_html( $woo_cart_label_val ) );
     $cart_info_markup = sprintf(
         '<span class="responsive-woo-header-cart-info-wrap">
                 %1$s
             </span>',
         $cart_label_markup
     );
-    echo $cart_info_markup;
+    echo $cart_info_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Typed label text is escaped above; the rest is WooCommerce price markup, which wp_kses_post would strip (e.g. <bdi>).
 }
 /**
  * Mobile Header Woo Cart Label Markup
@@ -2936,14 +2936,14 @@ function responsive_mobile_woo_cart_label_markup(){
     $shortcode_label       = array( '{cart_total_currency_symbol}', '{cart_title}', '{cart_total}', '{cart_currency_name}', '{cart_currency_symbol}' );
     $shortcode_label_value = array( $mobile_cart_total_markup, $mobile_cart_title_markup, $mobile_cart_total_only_markup, $cart_cur_name_markup, $cart_cur_sym_markup );
     $mobile_cart_label_markup = '';
-    $mobile_cart_label_markup = str_replace( $shortcode_label, $shortcode_label_value, $mobile_woo_cart_label_val );
+    $mobile_cart_label_markup = str_replace( $shortcode_label, $shortcode_label_value, esc_html( $mobile_woo_cart_label_val ) );
     $mobile_cart_info_markup = sprintf(
         '<span class="responsive-mobile-woo-header-cart-info-wrap">
                 %1$s
             </span>',
         $mobile_cart_label_markup
     );
-    echo $mobile_cart_info_markup;
+    echo $mobile_cart_info_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Typed label text is escaped above; the rest is WooCommerce price markup, which wp_kses_post would strip (e.g. <bdi>).
 }
 /**
  * Make Old Woo Cart compatible with new header builder woo cart

@@ -266,7 +266,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Native_Cart_Popup' ) ) :
 		 * Quick view ajax
 		 */
 		function responsive_load_product_quick_view_ajax() {
-			if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'responsive_quick_view_nonce' ) ) {
+			if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'responsive_quick_view_nonce' ) ) {
 				wp_send_json_error( 'Invalid nonce', 403 );
 			}
 			if ( ! isset( $_REQUEST['product_id'] ) ) {

@@ -600,7 +600,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 			// If none then return.
 			if ( 'none' === $sale_notification ) {
-				return;
+				return '';
 			}
 
 			// Default text.

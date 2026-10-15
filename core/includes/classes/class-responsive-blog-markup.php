@@ -86,7 +86,7 @@ if ( ! class_exists( 'Responsive_Blog_Markup' ) ) :
 
 			do_action( 'responsive_pagination_infinite' );
 
-			$query_vars = $this->get_sanitized_query_vars( isset( $_POST['query_vars'] ) ? wp_unslash( $_POST['query_vars'] ) : '' );
+			$query_vars = $this->get_sanitized_query_vars( isset( $_POST['query_vars'] ) ? wp_unslash( $_POST['query_vars'] ) : '' ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Sanitized in get_sanitized_query_vars().
 
 			$query_vars['paged']       = isset( $_POST['page_no'] ) ? max( 1, absint( $_POST['page_no'] ) ) : 1;
 			$query_vars['post_status'] = 'publish';

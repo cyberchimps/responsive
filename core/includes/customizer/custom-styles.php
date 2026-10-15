@@ -965,7 +965,7 @@ function responsive_customizer_styles() {
 
 
 	// Detect the operating system and set the typical scrollbar width.
-	$user_agent = isset( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : '';
+	$user_agent = isset( $_SERVER['HTTP_USER_AGENT'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) ) : '';
 	$scrollbar_widths = [
 		'Win'     => '17px',
 		'Mac'     => '0px',

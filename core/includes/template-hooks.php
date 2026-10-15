@@ -133,11 +133,11 @@ function responsive_single_blog_banner2() {
 			if ( $featured_image_url ) {
 				$overlay_color = Responsive\Core\responsive_prepare_css_value( 'responsive_single_blog_featured_image_overlay_color', '' );
 				$overlay_css = empty( $overlay_color ) ? 'transparent' : $overlay_color;
-				$section_style = ' style="--overlay-color: ' . $overlay_css . '; background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), url(' . esc_url( $featured_image_url ) . '); background-repeat: no-repeat; background-size: cover; background-attachment: scroll; background-position: center center;' . $ratio_css . '"';
+				$section_style = '--overlay-color: ' . $overlay_css . '; background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), url(' . esc_url( $featured_image_url ) . '); background-repeat: no-repeat; background-size: cover; background-attachment: scroll; background-position: center center;' . $ratio_css;
 			}
 		}
 		?>
-		<section class="responsive-blog-single-banner2"<?php echo $section_style; ?>>
+		<section class="responsive-blog-single-banner2"<?php if ( $section_style ) { echo ' style="' . esc_attr( $section_style ) . '"'; } ?>>
 			<div class="container">
 				<?php
 				foreach ( $elements as $element ) {
@@ -198,11 +198,11 @@ function responsive_single_page_banner2() {
 			if ( $featured_image_url ) {
 				$overlay_color = Responsive\Core\responsive_prepare_css_value( 'responsive_page_featured_image_overlay_color', '' );
 				$overlay_css = empty( $overlay_color ) ? 'transparent' : $overlay_color;
-				$section_style = ' style="--overlay-color: ' . $overlay_css . '; background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), url(' . esc_url( $featured_image_url ) . '); background-repeat: no-repeat; background-size: cover; background-attachment: scroll; background-position: center center;' . $ratio_css . '"';
+				$section_style = '--overlay-color: ' . $overlay_css . '; background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), url(' . esc_url( $featured_image_url ) . '); background-repeat: no-repeat; background-size: cover; background-attachment: scroll; background-position: center center;' . $ratio_css;
 			}
 		}
 		?>
-		<section class="responsive-single-entry-banner" data-post-type="page" data-banner-layout="layout-2"<?php echo $section_style; ?>>
+		<section class="responsive-single-entry-banner" data-post-type="page" data-banner-layout="layout-2"<?php if ( $section_style ) { echo ' style="' . esc_attr( $section_style ) . '"'; } ?>>
 			<div class="container">
 				<?php
 				foreach ( $elements as $element ) {
@@ -382,13 +382,13 @@ function responsive_woocommerce_shop_banner2() {
 			$overlay_css   = empty( $overlay_color ) ? 'transparent' : $overlay_color;
 
 			if ( $featured_image_url ) {
-				$section_style = ' style="--overlay-color: ' . $overlay_css . '; background-color: var(--overlay-color); background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), url(' . esc_url( $featured_image_url ) . '); background-repeat: no-repeat; background-size: cover; background-attachment: scroll; background-position: center center;"';
+				$section_style = '--overlay-color: ' . $overlay_css . '; background-color: var(--overlay-color); background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), url(' . esc_url( $featured_image_url ) . '); background-repeat: no-repeat; background-size: cover; background-attachment: scroll; background-position: center center;';
 			} else {
-				$section_style = ' style="--overlay-color: ' . $overlay_css . '; background-color: var(--overlay-color);"';
+				$section_style = '--overlay-color: ' . $overlay_css . '; background-color: var(--overlay-color);';
 			}
 		}
 		?>
-		<section class="responsive-shop-entry-banner"<?php echo $section_style; ?>>
+		<section class="responsive-shop-entry-banner"<?php if ( $section_style ) { echo ' style="' . esc_attr( $section_style ) . '"'; } ?>>
 			<div class="container">
 				<?php
 				foreach ( $elements as $element ) {
@@ -593,13 +593,13 @@ function responsive_woocommerce_single_product_banner2() {
 			$overlay_css        = empty( $overlay_color ) ? 'transparent' : $overlay_color;
 
 			if ( $featured_image_url ) {
-				$section_style = ' style="--overlay-color: ' . $overlay_css . '; background-color: var(--overlay-color); background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), url(' . esc_url( $featured_image_url ) . '); background-repeat: no-repeat; background-size: cover; background-attachment: scroll; background-position: center center;"';
+				$section_style = '--overlay-color: ' . $overlay_css . '; background-color: var(--overlay-color); background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), url(' . esc_url( $featured_image_url ) . '); background-repeat: no-repeat; background-size: cover; background-attachment: scroll; background-position: center center;';
 			} elseif ( ! empty( $overlay_color ) ) {
-				$section_style = ' style="--overlay-color: ' . $overlay_css . '; background-color: var(--overlay-color);"';
+				$section_style = '--overlay-color: ' . $overlay_css . '; background-color: var(--overlay-color);';
 			}
 		}
 		?>
-		<section class="responsive-single-product-entry-banner"<?php echo $section_style; ?>>
+		<section class="responsive-single-product-entry-banner"<?php if ( $section_style ) { echo ' style="' . esc_attr( $section_style ) . '"'; } ?>>
 			<div class="container">
 				<?php
 				if ( is_array( $elements ) ) {

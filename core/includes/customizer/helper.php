@@ -1920,7 +1920,7 @@ function responsive_color_control( $wp_customize, $element, $label, $section, $p
 	}
 	} catch (\Throwable $th) {
 		//throw $th;
-		error_log("Something went wrong here");
+		error_log("Something went wrong here"); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log -- Logs a caught error from the Customizer control.
 	}
 }
 
@@ -2049,7 +2049,7 @@ function responsive_color_control_with_states(
         );
 
     } catch ( \Throwable $th ) {
-        error_log( 'Responsive color control error: ' . $th->getMessage() );
+        error_log( 'Responsive color control error: ' . $th->getMessage() ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log -- Logs a caught error from the Customizer control.
     }
 }
 

@@ -43,27 +43,33 @@ $footer_text = get_option('footer-copyright');
             ?>
             <span>
                 <?php
-                echo apply_filters(
-                    'responsive_theme_footer_link_text',
-                    esc_html__( ' | Powered by', 'responsive' )
-                )
+                echo wp_kses_post(
+                    apply_filters(
+                        'responsive_theme_footer_link_text',
+                        esc_html__( ' | Powered by', 'responsive' )
+                    )
+                );
                 ?>
             </span>
             <a href= "
             <?php
-            echo apply_filters(
-                'responsive_theme_footer_link',
-                esc_url( 'https://cyberchimps.com/')
+            echo esc_url(
+                apply_filters(
+                    'responsive_theme_footer_link',
+                    esc_url( 'https://cyberchimps.com/')
+                )
             );
             ?>
                 "
                 target="_blank"
                 >
                 <?php
-                echo apply_filters(
-                    'responsive_theme_footer_theme_text',
-                    esc_html__( ' Responsive Theme', 'responsive' )
-                )
+                echo wp_kses_post(
+                    apply_filters(
+                        'responsive_theme_footer_theme_text',
+                        esc_html__( ' Responsive Theme', 'responsive' )
+                    )
+                );
                 ?>
                 </a><?php } ?>
             <?php
