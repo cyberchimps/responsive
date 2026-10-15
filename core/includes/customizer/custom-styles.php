@@ -466,9 +466,9 @@ function responsive_customizer_styles() {
 		}";
 	}
 
-	// Cart and My Account container layout: WooCommerce General > Global. They have no layout setting
+	// Cart, Checkout and My Account container layout: WooCommerce General > Global. They have no layout setting
 	// of their own. Only printed when General sets a layout, so sites that never set one keep the global
-	// width. Checkout is not handled here.
+	// width.
 	$general_container_layout = Responsive\Core\responsive_get_woocommerce_container_layout( 'general' );
 	$general_container_widths = array(
 		'full-width' => '100%',
@@ -480,6 +480,8 @@ function responsive_customizer_styles() {
 		$custom_css .= "
 		body.woocommerce-cart .container:where(:not(#masthead .container, .site-header .container)),
 		body.woocommerce-cart [class*='__inner-container'],
+		body.woocommerce-checkout .container:where(:not(#masthead .container, .site-header .container)),
+		body.woocommerce-checkout [class*='__inner-container'],
 		body.woocommerce-account .container:where(:not(#masthead .container, .site-header .container)),
 		body.woocommerce-account [class*='__inner-container'] {
 			max-width: {$general_container_widths[ $general_container_layout ]};
