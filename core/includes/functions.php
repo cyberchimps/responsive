@@ -430,8 +430,10 @@ if ( ! function_exists( 'responsive_css' ) ) {
  * Custom retina logo
  */
 add_filter( 'wp_get_attachment_image_attributes', function( $attr, $attachment, $size ) {
-    // Only change the custom logo
-    if ( isset( $attr['class'] ) && strpos( $attr['class'], 'custom-logo' ) !== false ) {
+    // Only change the main custom logo (not the mobile logo).
+    if ( isset( $attr['class'] )
+        && strpos( $attr['class'], 'custom-logo' ) !== false
+        && strpos( $attr['class'], 'mobile-custom-logo-img' ) === false ) {
         $retina_logo = get_theme_mod( 'responsive_retina_logo_image', '' );
 
         if ( get_theme_mod( 'responsive_retina_logo', 0 ) && $retina_logo ) {
@@ -2197,7 +2199,7 @@ function responsive_mobile_custom_logo() {
 				false,
 				array(
 					'alt'      => esc_attr( $mobile_logo_alt ),
-					'class'    => 'custom-logo',
+					'class'    => 'custom-logo mobile-custom-logo-img',
 					'itemprop' => 'logo',
 					'size'     => '(max-width: 204px) 100vw, 204px',
 				)
