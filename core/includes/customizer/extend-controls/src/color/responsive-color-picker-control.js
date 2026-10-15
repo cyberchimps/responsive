@@ -45,7 +45,17 @@ class ResponsiveColorPickerControl extends Component {
 			if (colorStr === 'transparent') return 0;
 
 			const rgbaMatch = colorStr.match(/rgba\(\s*\d+,\s*\d+,\s*\d+,\s*(\d*\.?\d+)\s*\)/);
-			return rgbaMatch ? parseFloat(rgbaMatch[1]) : 1;
+			if (rgbaMatch) return parseFloat(rgbaMatch[1]);
+
+			// Match #RRGGBBAA or #RGBA hex-with-alpha
+			const hexMatch = colorStr.match(/^#?([0-9a-f]{8}|[0-9a-f]{4})$/i);
+			if (hexMatch) {
+				const hex = hexMatch[1];
+				const alphaHex = hex.length === 8 ? hex.slice(6, 8) : hex[3] + hex[3];
+				return parseInt(alphaHex, 16) / 255;
+			}
+
+			return 1;
 		}
 
 		// If color is an object
@@ -123,7 +133,7 @@ class ResponsiveColorPickerControl extends Component {
 		} = this.state;
 
 		const getColorPreviewValue = (value, wantRawValue = false) => {
-			if ( value && ( value.startsWith('palette') || value.includes('headings-color') || value.startsWith('title-above-content') || value.startsWith('site-background')  || value.startsWith('box-background') || value.startsWith('h1-color') || value.startsWith('footer-text-color') || value.startsWith('footer-links-color') || value.startsWith('footer-links-hover-color') || value.startsWith('breadcrumb')) ) {
+			if ( value && ( value.startsWith('palette') || value.includes('headings-color') || value.startsWith('title-above-content') || value.startsWith('site-background')  || value.startsWith('box-background') || value.startsWith('h1-color') || value.startsWith('footer-text-color') || value.startsWith('footer-links-color') || value.startsWith('footer-links-hover-color') || value.startsWith('breadcrumb') || value.startsWith('meta-text-color')) ) {
 				const varName = value.startsWith('title-above-content') ? `--responsive-${value}` : `--responsive-global-${value}`;
 				if (wantRawValue) {
 					return getComputedStyle(document.documentElement)

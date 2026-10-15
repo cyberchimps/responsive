@@ -123,10 +123,6 @@
         color: map-get($colors, gray);
         font-size: map-get($font-sizes, small);
 
-        a {
-            @include make-link(map-get($colors, gray), map-get($colors, blue));
-        }
-
         & > span {
             &::after {
                 margin: 0 $grid-gutter-width/5;

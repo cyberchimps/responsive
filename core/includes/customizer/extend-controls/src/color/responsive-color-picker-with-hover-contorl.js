@@ -47,6 +47,14 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 			return parseFloat(rgbaMatch[1]);
 		}
 
+		// Match #RRGGBBAA or #RGBA hex-with-alpha
+		const hexMatch = colorStr.match(/^#?([0-9a-f]{8}|[0-9a-f]{4})$/i);
+		if (hexMatch) {
+			const hex = hexMatch[1];
+			const alphaHex = hex.length === 8 ? hex.slice(6, 8) : hex[3] + hex[3];
+			return parseInt(alphaHex, 16) / 255;
+		}
+
 		return 1;
 	}
 
@@ -101,7 +109,7 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 		const { inputattr } = this.state;
 
 		const getColorPreviewValue = (value, wantRawValue = false) => {
-			if ( value && ( value.includes('palette') || value.includes('headings-color') || value.includes('title-above-content') || value.includes('breadcrumb') ) ) {
+			if ( value && ( value.includes('palette') || value.includes('headings-color') || value.includes('title-above-content') || value.includes('breadcrumb') || value.startsWith('meta-text-color') ) ) {
 				const varName = value.includes('title-above-content') ? `--responsive-${value}` : `--responsive-global-${value}`;
 				if (wantRawValue) {
 					return getComputedStyle(document.documentElement)
