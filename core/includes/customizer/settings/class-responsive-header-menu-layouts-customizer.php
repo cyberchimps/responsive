@@ -91,7 +91,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				$tab_ids_prefix . 'responsive_mobile_menu_toggle_style',
 				$tab_ids_prefix . 'responsive_header_menu_typography_group',
 			);
-			responsive_tabs_button_control( $wp_customize, 'primary_menu_tabs', $tabs_label, 'responsive_header_menu_layout', 10, '', 'responsive_primary_menu_general_tab', 'responsive_primary_menu_design_tab', $primary_menu_general_tab_ids, $primary_menu_design_tab_ids, 'responsive_disabled_main_menu' );
+			responsive_tabs_button_control( $wp_customize, 'primary_menu_tabs', $tabs_label, 'responsive_header_menu_layout', 10, '', 'responsive_primary_menu_general_tab', 'responsive_primary_menu_design_tab', apply_filters( 'primary_menu_general_tab_ids', $primary_menu_general_tab_ids ), apply_filters( 'primary_menu_design_tab_ids', $primary_menu_design_tab_ids ), 'responsive_disabled_main_menu' );
 
 			// Main Menu Settings.
 			$main_menu_separator_label = __( 'Main Menu Settings', 'responsive' );
