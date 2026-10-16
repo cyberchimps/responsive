@@ -1769,7 +1769,7 @@
     //Active Menu Background Color
     api( 'responsive_header_active_menu_background_color', function( value ) {
         value.bind( function( newval ) {
-            $('.main-navigation .menu  .current_page_item > a,.main-navigation .menu  .current-menu-item > a').css('background-color', newval );
+            $('.main-navigation .menu > li.current_page_item > a,.main-navigation .menu > li.current-menu-item > a').css('background-color', newval );
         } );
     } );
 
@@ -1829,7 +1829,7 @@
 	//Active Menu Link Color
     api( 'responsive_header_active_menu_link_color', function( value ) {
         value.bind( function( newval ) {
-            $('.main-navigation .menu .current_page_item > a,.main-navigation .menu .current-menu-item > a,.main-navigation .menu .current-menu-item.current_page_item a').css('color', newval );
+            $('.main-navigation .menu > li.current_page_item > a,.main-navigation .menu > li.current-menu-item > a,.main-navigation .menu > li.current-menu-item.current_page_item > a').css('color', newval );
             if ( api('responsive_header_menu_link_hover_color').get() === '' ) {
                 jQuery( 'style#responsive-header-active-menu-link-color-change' ).remove();
                 jQuery( 'head' ).append(
