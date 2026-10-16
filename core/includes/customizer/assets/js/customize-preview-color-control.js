@@ -3300,6 +3300,18 @@
             $(this).css("color", ( isCurrent && activeColor ) ? activeColor : menuLinkColor);
         }
     );
+    //Menu arrow follows the hover of the whole link
+    $(".main-navigation .menu > li > a").hover(
+        function() {
+            $(this).find('.res-iconify svg').css("stroke", processThemeSettingForCSS('responsive_header_menu_link_hover_color'));
+        },
+        function() {
+            const isCurrent = $(this).closest('li').is('.current-menu-item, .current_page_item');
+            const activeColor = processThemeSettingForCSS('responsive_header_active_menu_link_color');
+            const menuLinkColor = processThemeSettingForCSS('responsive_header_menu_link_color');
+            $(this).find('.res-iconify svg').css("stroke", ( isCurrent && activeColor ) ? activeColor : menuLinkColor);
+        }
+    );
     $(".main-navigation .menu li .res-iconify svg, .main-navigation .menu > li > a:not(.sub-menu) > .res-iconify svg").hover(
         function() {
             $(this).css("stroke", api('responsive_header_menu_link_hover_color').get());
@@ -3380,7 +3392,7 @@
         },
 
         function() {
-            $(this).css("color", processThemeSettingForCSS('responsive_header_sub_menu_link_hover_color'));
+            $(this).css("color", processThemeSettingForCSS('responsive_header_sub_menu_link_color'));
         }
     );
     $(".main-navigation .menu .sub-menu li > .res-iconify svg, .main-navigation .menu .sub-menu li > a > .res-iconify svg").hover(

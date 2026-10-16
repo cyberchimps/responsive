@@ -4089,7 +4089,7 @@ function responsive_customizer_styles() {
 		color: {$header_menu_link_hover_color};
 		background-color: {$header_hover_menu_background_color};
 	}
-	.main-navigation .menu li:hover .res-iconify svg:hover, .main-navigation .menu > li:hover > a:not(.sub-menu) > .res-iconify svg {
+	.main-navigation .menu li:hover .res-iconify svg:hover, .main-navigation .menu > li > a:hover > .res-iconify svg {
 		stroke: {$header_menu_link_hover_color};
 	}
 	.main-navigation .children,
@@ -4118,8 +4118,9 @@ function responsive_customizer_styles() {
 		color: {$header_sub_menu_link_hover_color};
 		background-color: {$header_hover_sub_menu_background_color};
 	}
-	.main-navigation .menu .sub-menu li:hover > .res-iconify svg,
-	.main-navigation .menu .sub-menu li:hover > a > .res-iconify svg {
+	.main-navigation .menu .sub-menu li > .res-iconify:hover svg,
+	.main-navigation .menu .sub-menu li > a:hover + .res-iconify svg,
+	.main-navigation .menu .sub-menu li > a:hover > .res-iconify svg {
 		stroke: {$header_sub_menu_link_hover_color};
 	}
 	.main-navigation .menu-toggle {
