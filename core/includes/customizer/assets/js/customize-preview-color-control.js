@@ -1773,19 +1773,18 @@
         } );
     } );
 
-    //Active Menu Background Color
-    api( 'responsive_header_hover_menu_background_color', function( value ) {
-        value.bind( function( newval ) {
-            $(".main-navigation .menu li > a").hover(
-                function() {
-                    $(this).css("background-color", processThemeSettingForCSS('responsive_header_hover_menu_background_color'));
-                },
-                function() {
-                    $(this).css("background-color", processThemeSettingForCSS('responsive_header_active_menu_background_color'));
-                }
-            );
-        } );
-    } );
+    //Hover Menu Background Color
+    $(".main-navigation .menu li > a").hover(
+        function() {
+            $(this).css("background-color", processThemeSettingForCSS('responsive_header_hover_menu_background_color'));
+        },
+        function() {
+            // Only the current item keeps a link background; the rest fall back to the stylesheet.
+            const isCurrent = $(this).closest('li').is('.current-menu-item, .current_page_item');
+            const activeBg = processThemeSettingForCSS('responsive_header_active_menu_background_color');
+            $(this).css("background-color", ( isCurrent && activeBg ) ? activeBg : '');
+        }
+    );
 
     //Menu Item Link Color
     api( 'responsive_header_menu_link_color', function( value ) {
@@ -3283,8 +3282,10 @@
         },
 
         function() {
+            const isCurrent = $(this).closest('li').is('.current-menu-item, .current_page_item');
+            const activeColor = processThemeSettingForCSS('responsive_header_active_menu_link_color');
             const menuLinkColor = processThemeSettingForCSS('responsive_header_menu_link_color');
-            $(this).css("color", menuLinkColor);
+            $(this).css("color", ( isCurrent && activeColor ) ? activeColor : menuLinkColor);
         }
     );
     $(".main-navigation .menu li .res-iconify svg, .main-navigation .menu > li > a:not(.sub-menu) > .res-iconify svg").hover(
