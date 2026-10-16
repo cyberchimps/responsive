@@ -1774,7 +1774,7 @@
     } );
 
     //Hover Menu Background Color
-    $(".main-navigation .menu li > a").hover(
+    $(".main-navigation .menu > li > a").hover(
         function() {
             $(this).css("background-color", processThemeSettingForCSS('responsive_header_hover_menu_background_color'));
         },
@@ -1782,6 +1782,18 @@
             // Only the current item keeps a link background; the rest fall back to the stylesheet.
             const isCurrent = $(this).closest('li').is('.current-menu-item, .current_page_item');
             const activeBg = processThemeSettingForCSS('responsive_header_active_menu_background_color');
+            $(this).css("background-color", ( isCurrent && activeBg ) ? activeBg : '');
+        }
+    );
+
+    //Hover Sub Menu Background Color
+    $(".main-navigation .sub-menu li > a, .main-navigation .children li > a").hover(
+        function() {
+            $(this).css("background-color", processThemeSettingForCSS('responsive_header_hover_sub_menu_background_color'));
+        },
+        function() {
+            const isCurrent = $(this).closest('li').is('.current-menu-item, .current_page_item');
+            const activeBg = processThemeSettingForCSS('responsive_header_active_sub_menu_background_color');
             $(this).css("background-color", ( isCurrent && activeBg ) ? activeBg : '');
         }
     );
