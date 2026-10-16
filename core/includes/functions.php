@@ -1449,7 +1449,7 @@ function defaults() {
 			'inline_logo_site_title'                  => 0,
 
 			// hamburger menu padding
-			'hamburger_menu_padding'              => 15,
+			'hamburger_menu_padding'              => 13,
 			'primary_navigation_stretch'          => 0,
 			'primary_navigation_fill_stretch'     => 0,
 			'header_primary_navigation_visibility' => array( 'desktop', 'tablet', 'mobile' ),

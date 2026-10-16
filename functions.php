@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '6.4.8' );
+define( 'RESPONSIVE_THEME_VERSION', '6.5.0' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -3665,7 +3665,6 @@ if ( ! function_exists( 'responsive_theme_background_updater_single_product_titl
 	}
 }
 
-
 if ( ! function_exists( 'responsive_theme_background_updater_single_product_title_area_text_font_6_4_8' ) ) {
 	/**
 	 * Handle backward compatibility for single product title area text font and colors.
@@ -3738,5 +3737,34 @@ if ( ! function_exists( 'responsive_theme_background_updater_single_product_titl
 		}
 
 		update_option( 'responsive_single_product_title_area_text_font_6_4_8_done', true );
+	}
+}
+
+if ( ! function_exists( 'responsive_theme_background_updater_hamburger_menu_padding_6_5_0' ) ) {
+	/**
+	 * Handle backward compatibility for hamburger menu padding.
+	 *
+	 * The toggle button padding used to be a hardcoded 13px. It now comes from the
+	 * Hamburger Menu padding control, so save 13 once for every side that was never set.
+	 *
+	 * @since 6.5.0
+	 * @return void
+	 */
+	function responsive_theme_background_updater_hamburger_menu_padding_6_5_0() {
+
+		if ( get_option( 'responsive_hamburger_menu_padding_6_5_0_done' ) ) {
+			return;
+		}
+
+		foreach ( array( '', 'tablet_', 'mobile_' ) as $device ) {
+			foreach ( array( 'top', 'right', 'bottom', 'left' ) as $side ) {
+				$setting = 'responsive_hamburger_menu_' . $device . $side . '_padding';
+				if ( false === get_theme_mod( $setting, false ) ) {
+					set_theme_mod( $setting, 13 );
+				}
+			}
+		}
+
+		update_option( 'responsive_hamburger_menu_padding_6_5_0_done', true );
 	}
 }

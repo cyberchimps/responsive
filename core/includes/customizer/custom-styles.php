@@ -12146,7 +12146,19 @@ function responsive_customizer_styles() {
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
-		padding: 13px;
+	}
+	.site-header-item-toggle-button .menu-toggle {
+		padding: {$hamburger_menu_padding_top}px {$hamburger_menu_padding_right}px {$hamburger_menu_padding_bottom}px {$hamburger_menu_padding_left}px;
+	}
+	@media screen and ( min-width: 577px ) and ( max-width: {$toggle_button_breakpoint}px ) {
+		.site-header-item-toggle-button .menu-toggle {
+			padding: {$hamburger_menu_tablet_padding_top}px {$hamburger_menu_tablet_padding_right}px {$hamburger_menu_tablet_padding_bottom}px {$hamburger_menu_tablet_padding_left}px;
+		}
+	}
+	@media screen and ( max-width: 576px ) {
+		.site-header-item-toggle-button .menu-toggle {
+			padding: {$hamburger_menu_mobile_padding_top}px {$hamburger_menu_mobile_padding_right}px {$hamburger_menu_mobile_padding_bottom}px {$hamburger_menu_mobile_padding_left}px;
+		}
 	}
 	@media screen and ( min-width: " . ($toggle_button_breakpoint + 1) . "px ) {
 		.responsive-desktop-header-wrapper .site-header-item-toggle-button,

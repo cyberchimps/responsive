@@ -70,6 +70,9 @@ if ( ! class_exists( 'Responsive_Theme_Background_Updater' ) ) {
                 'responsive_theme_background_updater_single_product_title_area_colors_6_4_8',
                 'responsive_theme_background_updater_single_product_title_area_text_font_6_4_8',
             ),
+            '6.5.0' => array (
+                'responsive_theme_background_updater_hamburger_menu_padding_6_5_0',
+            ),
 		);
 
         /**
