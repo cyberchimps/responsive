@@ -1156,7 +1156,7 @@
     headerSocialMargin.forEach(setting => {
         api(setting, function(value) {
             value.bind(function(newval) {
-                responsive_dynamic_margin('header_social_item_margin', '.header-layouts.social-icon .social-icons');
+                responsive_dynamic_margin('header_social_item_margin', '.site-header-item .header-layouts.social-icon .social-icons');
             });
         });
     });
