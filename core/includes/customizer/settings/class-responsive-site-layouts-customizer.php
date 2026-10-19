@@ -203,7 +203,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			// Upgrade to Pro nudge (only registers when Responsive Pro is not active).
 			responsive_pro_nudge_control(
 				$wp_customize,
-				'container',
+				'site_layout_container',
 				'responsive_layout',
 				array(
 					'image'       => RESPONSIVE_THEME_URI . 'admin/images/upgradeToPro.jpg',

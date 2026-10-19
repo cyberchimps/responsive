@@ -7255,6 +7255,22 @@
         }
     },
     {
+        "Outfit": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Over the Rainbow": {
             "variants": [
                 "regular"
@@ -7726,6 +7742,27 @@
                 "900italic"
             ],
             "category": "serif"
+        }
+    },
+    {
+        "Plus Jakarta Sans": {
+            "variants": [
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic"
+            ],
+            "category": "sans-serif"
         }
     },
     {
