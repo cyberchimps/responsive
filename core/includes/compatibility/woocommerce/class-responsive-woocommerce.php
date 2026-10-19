@@ -222,9 +222,20 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		 * @return string
 		 */
 		public function hide_block_cart_cross_sells( $block_content, $block ) {
-			if ( isset( $block['blockName'] ) && 'woocommerce/cart-cross-sells-block' === $block['blockName'] && ! get_theme_mod( 'responsive_enable_crosssells_options', 1 ) ) {
+			if ( empty( $block['blockName'] ) || get_theme_mod( 'responsive_enable_crosssells_options', 1 ) ) {
+				return $block_content;
+			}
+
+			// Older WooCommerce versions use a dedicated cross-sells block.
+			if ( 'woocommerce/cart-cross-sells-block' === $block['blockName'] ) {
 				return '';
 			}
+
+			// Newer WooCommerce versions render cross-sells as a Product Collection block.
+			if ( 'woocommerce/product-collection' === $block['blockName'] && isset( $block['attrs']['collection'] ) && 'woocommerce/product-collection/cross-sells' === $block['attrs']['collection'] ) {
+				return '';
+			}
+
 			return $block_content;
 		}
 
