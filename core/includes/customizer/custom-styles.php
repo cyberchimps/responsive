@@ -968,6 +968,7 @@ function responsive_customizer_styles() {
 			--responsive-global-breadcrumb-background-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_breadcrumb_background_color', Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_background' ) ) ) . ';
 			--responsive-global-breadcrumb-separator-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_breadcrumb_separator_color', Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_separator_color' ) ) ) . ';
 			--responsive-global-h1-color: ' .esc_attr( responsive_prepare_css_value( 'responsive_h1_text_color', '#FFFFFF' ) ) .';
+			--responsive-global-meta-text-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_meta_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_meta_text_color' ) ) ) . ';
 			--responsive-title-above-content-bg-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_title_above_content_bg_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_title_above_content_bg_color' ) ) ) . ';
 			--responsive-title-above-content-overlay-color: ' . esc_attr( responsive_prepare_css_value( 'responsive_title_above_content_overlay_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_title_above_content_overlay_color' ) ) ) . ';
 			--responsive-global-box-radius-top-left: ' . $box_top_left_radius . 'px;
@@ -9890,6 +9891,173 @@ function responsive_customizer_styles() {
 			}';
 		}
 
+		// When "Use Brand Colors" is set to "On Hover", the label (if shown) should pick up the
+		// Icon Colors control: normal state color in the normal state, hover color on hover —
+		// instead of inheriting the hardcoded brand colors from the SCSS.
+		if ( 'on-hover' === $footer_use_brand_colors ) {
+			$footer_social_show_label = get_theme_mod( 'responsive_footer_social_show_label', Responsive\Core\get_responsive_customizer_defaults( 'footer_social_show_label' ) );
+			if ( $footer_social_show_label ) {
+				// Normal state - Desktop
+				$footer_social_item_color = get_theme_mod( 'responsive_footer_social_item_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_color' ) );
+				if ( $footer_social_item_color ) {
+					$custom_css .= '@media screen and (min-width: 993px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label { color: ' . $footer_social_item_color . '; }';
+					$custom_css .= '}';
+				}
+				// Normal state - Tablet
+				$footer_social_item_color_tablet = get_theme_mod( 'responsive_footer_social_item_color_tablet', $footer_social_item_color );
+				if ( $footer_social_item_color_tablet ) {
+					$custom_css .= '@media screen and (min-width: 577px) and (max-width: 992px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label { color: ' . $footer_social_item_color_tablet . '; }';
+					$custom_css .= '}';
+				}
+				// Normal state - Mobile
+				$footer_social_item_color_mobile = get_theme_mod( 'responsive_footer_social_item_color_mobile', $footer_social_item_color );
+				if ( $footer_social_item_color_mobile ) {
+					$custom_css .= '@media screen and (max-width: 556px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label { color: ' . $footer_social_item_color_mobile . '; }';
+					$custom_css .= '}';
+				}
+
+				// Hover state - Desktop
+				$footer_social_item_color_hover = get_theme_mod( 'responsive_footer_social_item_color_hover', Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_hover_color' ) );
+				// Backward compatibility: check old setting name.
+				if ( ! $footer_social_item_color_hover ) {
+					$footer_social_item_color_hover = get_theme_mod( 'responsive_footer_social_item_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_hover_color' ) );
+				}
+				if ( $footer_social_item_color_hover ) {
+					$custom_css .= '@media screen and (min-width: 993px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover .responsive-social-icon-label { color: ' . $footer_social_item_color_hover . '; }';
+					$custom_css .= '}';
+				}
+				// Hover state - Tablet
+				$footer_social_item_color_tablet_hover = get_theme_mod( 'responsive_footer_social_item_color_tablet_hover', $footer_social_item_color_hover );
+				if ( $footer_social_item_color_tablet_hover ) {
+					$custom_css .= '@media screen and (min-width: 577px) and (max-width: 992px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover .responsive-social-icon-label { color: ' . $footer_social_item_color_tablet_hover . '; }';
+					$custom_css .= '}';
+				}
+				// Hover state - Mobile
+				$footer_social_item_color_mobile_hover = get_theme_mod( 'responsive_footer_social_item_color_mobile_hover', $footer_social_item_color_hover );
+				if ( $footer_social_item_color_mobile_hover ) {
+					$custom_css .= '@media screen and (max-width: 556px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover .responsive-social-icon-label { color: ' . $footer_social_item_color_mobile_hover . '; }';
+					$custom_css .= '}';
+				}
+			}
+
+			// The normal (non-hover) background should come from the Background Colors control;
+			// the hover background stays governed by the brand-color SCSS rule.
+			if ( 'filled' === $footer_social_item_style ) {
+				// Normal state background - Desktop
+				$footer_social_item_bg_color = get_theme_mod( 'responsive_footer_social_item_background_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_bg_color' ) );
+				if ( $footer_social_item_bg_color ) {
+					$custom_css .= '@media screen and (min-width: 993px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { background-color: ' . $footer_social_item_bg_color . '; }';
+					$custom_css .= '}';
+				}
+				// Normal state background - Tablet
+				$footer_social_item_bg_color_tablet = get_theme_mod( 'responsive_footer_social_item_background_color_tablet', $footer_social_item_bg_color );
+				if ( $footer_social_item_bg_color_tablet ) {
+					$custom_css .= '@media screen and (min-width: 577px) and (max-width: 992px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { background-color: ' . $footer_social_item_bg_color_tablet . '; }';
+					$custom_css .= '}';
+				}
+				// Normal state background - Mobile
+				$footer_social_item_bg_color_mobile = get_theme_mod( 'responsive_footer_social_item_background_color_mobile', $footer_social_item_bg_color );
+				if ( $footer_social_item_bg_color_mobile ) {
+					$custom_css .= '@media screen and (max-width: 556px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { background-color: ' . $footer_social_item_bg_color_mobile . '; }';
+					$custom_css .= '}';
+				}
+			}
+		}
+
+		// When "Use Brand Colors" is set to "Until Hover", the label (if shown) keeps coming from
+		// the Icon Colors control in both states, same as "On Hover". The hover background,
+		// however, should come from the Background Colors hover control instead of the hardcoded
+		// brand hover color - the normal state background stays governed by the brand-color SCSS rule.
+		if ( 'until-hover' === $footer_use_brand_colors ) {
+			$footer_social_show_label = get_theme_mod( 'responsive_footer_social_show_label', Responsive\Core\get_responsive_customizer_defaults( 'footer_social_show_label' ) );
+			if ( $footer_social_show_label ) {
+				// Normal state - Desktop
+				$footer_social_item_color = get_theme_mod( 'responsive_footer_social_item_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_color' ) );
+				if ( $footer_social_item_color ) {
+					$custom_css .= '@media screen and (min-width: 993px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label { color: ' . $footer_social_item_color . '; }';
+					$custom_css .= '}';
+				}
+				// Normal state - Tablet
+				$footer_social_item_color_tablet = get_theme_mod( 'responsive_footer_social_item_color_tablet', $footer_social_item_color );
+				if ( $footer_social_item_color_tablet ) {
+					$custom_css .= '@media screen and (min-width: 577px) and (max-width: 992px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label { color: ' . $footer_social_item_color_tablet . '; }';
+					$custom_css .= '}';
+				}
+				// Normal state - Mobile
+				$footer_social_item_color_mobile = get_theme_mod( 'responsive_footer_social_item_color_mobile', $footer_social_item_color );
+				if ( $footer_social_item_color_mobile ) {
+					$custom_css .= '@media screen and (max-width: 556px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label { color: ' . $footer_social_item_color_mobile . '; }';
+					$custom_css .= '}';
+				}
+
+				// Hover state - Desktop
+				$footer_social_item_color_hover = get_theme_mod( 'responsive_footer_social_item_color_hover', Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_hover_color' ) );
+				// Backward compatibility: check old setting name.
+				if ( ! $footer_social_item_color_hover ) {
+					$footer_social_item_color_hover = get_theme_mod( 'responsive_footer_social_item_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_hover_color' ) );
+				}
+				if ( $footer_social_item_color_hover ) {
+					$custom_css .= '@media screen and (min-width: 993px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover .responsive-social-icon-label { color: ' . $footer_social_item_color_hover . '; }';
+					$custom_css .= '}';
+				}
+				// Hover state - Tablet
+				$footer_social_item_color_tablet_hover = get_theme_mod( 'responsive_footer_social_item_color_tablet_hover', $footer_social_item_color_hover );
+				if ( $footer_social_item_color_tablet_hover ) {
+					$custom_css .= '@media screen and (min-width: 577px) and (max-width: 992px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover .responsive-social-icon-label { color: ' . $footer_social_item_color_tablet_hover . '; }';
+					$custom_css .= '}';
+				}
+				// Hover state - Mobile
+				$footer_social_item_color_mobile_hover = get_theme_mod( 'responsive_footer_social_item_color_mobile_hover', $footer_social_item_color_hover );
+				if ( $footer_social_item_color_mobile_hover ) {
+					$custom_css .= '@media screen and (max-width: 556px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover .responsive-social-icon-label { color: ' . $footer_social_item_color_mobile_hover . '; }';
+					$custom_css .= '}';
+				}
+			}
+
+			if ( 'filled' === $footer_social_item_style ) {
+				// Hover state background - Desktop
+				$footer_social_item_bg_color_hover = get_theme_mod( 'responsive_footer_social_item_background_color_hover', Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_bg_hover_color' ) );
+				// Backward compatibility: check old setting name.
+				if ( ! $footer_social_item_bg_color_hover ) {
+					$footer_social_item_bg_color_hover = get_theme_mod( 'responsive_footer_social_item_background_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_social_item_bg_hover_color' ) );
+				}
+				if ( $footer_social_item_bg_color_hover ) {
+					$custom_css .= '@media screen and (min-width: 993px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' . $footer_social_item_bg_color_hover . ' !important; }';
+					$custom_css .= '}';
+				}
+				// Hover state background - Tablet
+				$footer_social_item_bg_color_tablet_hover = get_theme_mod( 'responsive_footer_social_item_background_color_tablet_hover', $footer_social_item_bg_color_hover );
+				if ( $footer_social_item_bg_color_tablet_hover ) {
+					$custom_css .= '@media screen and (min-width: 577px) and (max-width: 992px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' . $footer_social_item_bg_color_tablet_hover . ' !important; }';
+					$custom_css .= '}';
+				}
+				// Hover state background - Mobile
+				$footer_social_item_bg_color_mobile_hover = get_theme_mod( 'responsive_footer_social_item_background_color_mobile_hover', $footer_social_item_bg_color_hover );
+				if ( $footer_social_item_bg_color_mobile_hover ) {
+					$custom_css .= '@media screen and (max-width: 556px) {';
+					$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' . $footer_social_item_bg_color_mobile_hover . ' !important; }';
+					$custom_css .= '}';
+				}
+			}
+		}
+
 		$footer_social_item_icon_size = get_theme_mod( 'responsive_footer_social_item_icon_size', 21 );
 		$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { font-size: ' . $footer_social_item_icon_size . 'px }';
 		$custom_css .= '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-wrapper svg { width: ' . $footer_social_item_icon_size . 'px; height: ' . $footer_social_item_icon_size . 'px }';		
@@ -13620,13 +13788,27 @@ function responsive_customizer_styles() {
 		// WooCommerce.
 		$woocommerce_custom_css = '';
 
+		// Same alignment as the global breadcrumbs, applied to WooCommerce's own breadcrumb nav.
+		$woo_breadcrumb_alignment = get_theme_mod( 'responsive_content_header_alignment', Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_alignment' ) );
+		$woo_breadcrumb_alignment = in_array( $woo_breadcrumb_alignment, array( 'left', 'center', 'right' ), true ) ? $woo_breadcrumb_alignment : 'center';
+
 		$woocommerce_custom_css .= "
 		.wc-block-grid__product-title {
 			color:{$body_text_color};
 		}
-		.woocommerce .woocommerce-breadcrumb,
-		.woocommerce .woocommerce-breadcrumb a {
+		.woocommerce .woocommerce-breadcrumb {
 			color: {$breadcrumb_color};
+			background-color: var(--responsive-global-breadcrumb-background-color);
+			text-align: {$woo_breadcrumb_alignment};
+		}
+		.woocommerce .woocommerce-breadcrumb a {
+			color: var(--responsive-global-breadcrumb-link-color);
+		}
+		.woocommerce .woocommerce-breadcrumb a:hover {
+			color: var(--responsive-global-breadcrumb-link-hover-color);
+		}
+		.woocommerce .woocommerce-breadcrumb .chevron {
+			color: var(--responsive-global-breadcrumb-separator-color);
 		}";
 
 		// My Account layout. The menu (and the avatar and name when they are on) share one wrapper that moves as a block, so the content never gets pushed down.

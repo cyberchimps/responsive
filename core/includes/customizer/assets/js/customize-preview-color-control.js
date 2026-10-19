@@ -1004,6 +1004,9 @@
 
     api( 'responsive_rp_text_color', ( value ) => {
         value.bind( ( newval ) => {
+            if ( newval && newval.includes( 'palette' ) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
             document.querySelectorAll('.responsive-single-related-posts-container, .responsive-single-related-posts-container p, .responsive-single-related-posts-container .entry-content')
                 .forEach(el => el.style.color = newval);
         });
@@ -1021,6 +1024,9 @@
 
     api('responsive_rp_link_color', (value) => {
         value.bind((newval) => {
+            if ( newval && newval.includes( 'palette' ) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
             document
                 .querySelectorAll('.responsive-related-single-post-title a')
                 .forEach(el => {
@@ -1055,22 +1061,46 @@
         });
     });
 
+    // Related posts meta colors. Rendered through a preview <style> tag rather than inline
+    // styles, so the :hover rule can apply and reset when the cursor leaves.
+    const rpMetaTargets = [
+        '.responsive-single-related-posts-container .post-meta span',
+        '.responsive-single-related-posts-container .post-meta span i',
+        '.responsive-single-related-posts-container .post-meta span a',
+        '.responsive-single-related-posts-container .post-meta span a time',
+        '.responsive-single-related-posts-container .entry-meta',
+        '.single-post .responsive-related-single-post-content .entry-category a'
+    ];
+
+    const rpMetaCssValue = ( value ) => {
+        if ( value && ( value.includes( 'palette' ) || value.includes( 'meta-text-color' ) ) ) {
+            return 'var(--responsive-global-' + value + ')';
+        }
+        return value;
+    };
+
+    const applyRpMetaPreview = () => {
+        const normal = rpMetaCssValue( api( 'responsive_rp_meta_color' )() );
+        const hover  = rpMetaCssValue( api( 'responsive_rp_meta_hover_color' )() );
+
+        let style = document.getElementById( 'responsive-rp-meta-preview' );
+        if ( ! style ) {
+            style = document.createElement( 'style' );
+            style.id = 'responsive-rp-meta-preview';
+            document.body.appendChild( style );
+        }
+        style.textContent =
+            rpMetaTargets.join( ',' ) + ' { color: ' + normal + ' !important; }' +
+            rpMetaTargets.map( ( selector ) => selector + ':hover' ).join( ',' ) + ' { color: ' + hover + ' !important; }';
+    };
+
     api( 'responsive_rp_meta_color', ( value ) => {
-        value.bind( ( newval ) => {
-            document.querySelectorAll('.responsive-single-related-posts-container .post-meta span, .responsive-single-related-posts-container .post-meta span i, .responsive-single-related-posts-container .post-meta span a, .responsive-single-related-posts-container .post-meta span a time, .responsive-single-related-posts-container .entry-meta, .single-post .responsive-related-single-post-content .entry-category a')
-                .forEach(el => el.style.color = newval);
-        });
-    });
+        value.bind( applyRpMetaPreview );
+    } );
 
     api( 'responsive_rp_meta_hover_color', ( value ) => {
-        value.bind( ( newval ) => {
-            document.querySelectorAll('.responsive-single-related-posts-container .post-meta span, .responsive-single-related-posts-container .post-meta span i, .responsive-single-related-posts-container .post-meta span a, .responsive-single-related-posts-container .post-meta span a time, .responsive-single-related-posts-container .entry-meta, .single-post .responsive-related-single-post-content .entry-category a')
-                .forEach(el => {
-                    el.addEventListener('mouseenter', () => el.style.color = newval);
-                    el.addEventListener('mouseleave', () => el.style.color = api( 'responsive_rp_meta_color' )());
-                });
-        });
-    });
+        value.bind( applyRpMetaPreview );
+    } );
 
     
     //Body text Color
@@ -1198,6 +1228,7 @@
             if ( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
+            document.documentElement.style.setProperty('--responsive-global-meta-text-color', newval);
             $('.post-meta *, .hentry .post-meta a').css('color', newval );
         } );
     } );
@@ -1209,7 +1240,7 @@
                 newval = `var(--responsive-global-${newval})`;
             }
 
-            $('a, .woocommerce a.remove:hover').not('nav a').not('a.add_to_cart_button').not('.site-title-tagline a').not('.widget-area .widget-wrapper a').not('a.product_type_grouped').not('.woocommerce-tabs .description_tab').not('.woocommerce-tabs .reviews_tab').not('.woocommerce-tabs ul.tabs li a').not('.post-meta a').not('.post-meta a:hover').not('.responsive-single-related-posts-container a').not('.responsive-single-related-posts-container a:hover').not('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.breadcrumb a').not('.single-post .responsive-related-single-post-content .entry-category a ').not('.woocommerce.archive .site-content-header a, .woocommerce-shop .site-content-header a, .responsive-shop-entry-banner a, .single-product .site-content-header a, .single-product .responsive-single-product-entry-banner a').css('color', newval );
+            $('a, .woocommerce a.remove:hover').not('nav a').not('a.add_to_cart_button').not('.site-title-tagline a').not('.widget-area .widget-wrapper a').not('a.product_type_grouped').not('.woocommerce-tabs .description_tab').not('.woocommerce-tabs .reviews_tab').not('.woocommerce-tabs ul.tabs li a').not('.post-meta a').not('.post-meta a:hover').not('.responsive-single-related-posts-container a').not('.responsive-single-related-posts-container a:hover').not('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.breadcrumb a').not('.single-post .responsive-related-single-post-content .entry-category a ').not('.woocommerce.archive .site-content-header a, .woocommerce-shop .site-content-header a, .responsive-shop-entry-banner a, .single-product .site-content-header a, .single-product .responsive-single-product-entry-banner a').not('.responsive-social-icon-anchor').css('color', newval );
         } );
     } );
 
@@ -2161,7 +2192,7 @@
 
             $('head').append(
                 '<style id="responsive-footer-links-color-style">' +
-                '.site-footer a:not(.footer-widget-area .footer-widget-wrapper a) { color: ' + newval + '; }' +
+                '.site-footer a:not(.footer-widget-area .footer-widget-wrapper a):not(.responsive-social-icon-anchor) { color: ' + newval + '; }' +
                 '</style>'
             );
 
@@ -3125,7 +3156,7 @@
     //Hover Colors
 
     //Links Hover Color
-    $("a").not('.woocommerce-tabs ul.tabs li a').not('.secondary-navigation a').not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.responsive-header-html a, .responsive-mobile-header-html a').not('.post-meta a').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.read-more .more-link').not('footer.comment-meta a, .commentlist .comment-content a').not('.button').not('.wp-block-button__link').not('.breadcrumb a').not('.site-header .responsive-header-html2 .responsive-header-html2-inner a').not('.site-header .responsive-header-html .responsive-header-html-inner a').not('.site-footer .responsive-footer-html .responsive-footer-html-inner a').not('.site-footer .responsive-footer-html2 .responsive-footer-html2-inner a').not('.woocommerce.archive .site-content-header a, .woocommerce-shop .site-content-header a, .responsive-shop-entry-banner a, .single-product .site-content-header a, .single-product .responsive-single-product-entry-banner a').hover(
+    $("a").not('.responsive-social-icon-anchor').not('.woocommerce-tabs ul.tabs li a').not('.secondary-navigation a').not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.responsive-header-html a, .responsive-mobile-header-html a').not('.post-meta a').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.read-more .more-link').not('footer.comment-meta a, .commentlist .comment-content a').not('.button').not('.wp-block-button__link').not('.breadcrumb a').not('.site-header .responsive-header-html2 .responsive-header-html2-inner a').not('.site-header .responsive-header-html .responsive-header-html-inner a').not('.site-footer .responsive-footer-html .responsive-footer-html-inner a').not('.site-footer .responsive-footer-html2 .responsive-footer-html2-inner a').not('.woocommerce.archive .site-content-header a, .woocommerce-shop .site-content-header a, .responsive-shop-entry-banner a, .single-product .site-content-header a, .single-product .responsive-single-product-entry-banner a').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
             $(this).css("color", linkHoverColor);
@@ -3466,7 +3497,7 @@
         }
     );
     //Footer Links Hover Color
-    $(".site-footer a").not('.footer-navigation a').not('.footer-widget-area .footer-widget-wrapper a').not('.site-footer .responsive-footer-html .responsive-footer-html-inner a').not('.site-footer .responsive-footer-html2 .responsive-footer-html2-inner a').hover(
+    $(".site-footer a").not('.responsive-social-icon-anchor').not('.footer-navigation a').not('.footer-widget-area .footer-widget-wrapper a').not('.site-footer .responsive-footer-html .responsive-footer-html-inner a').not('.site-footer .responsive-footer-html2 .responsive-footer-html2-inner a').hover(
         function() {
             var hoverColor = processThemeSettingForCSS('responsive_footer_links_hover_color');
             document.documentElement.style.setProperty('--responsive-global-footer-links-hover-color', hoverColor);
@@ -5464,6 +5495,15 @@
                     + '} </style>'
                 );
             }
+            if ( ( 'on-hover' === footer_social_item_use_brand_colors || 'until-hover' === footer_social_item_use_brand_colors ) && api('responsive_footer_social_show_label').get() ) {
+                jQuery('style#responsive-footer-social-item-label-color-desktop').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-label-color-desktop">'
+                    + '@media screen and (min-width: 993px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label { color: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
         });
     });
     // Footer Social Item Color - Tablet
@@ -5479,6 +5519,15 @@
                     + '} </style>'
                 );
             }
+            if ( ( 'on-hover' === footer_social_item_use_brand_colors || 'until-hover' === footer_social_item_use_brand_colors ) && api('responsive_footer_social_show_label').get() ) {
+                jQuery('style#responsive-footer-social-item-label-color-tablet').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-label-color-tablet">'
+                    + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label { color: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
         });
     });
     // Footer Social Item Color - Mobile
@@ -5491,6 +5540,15 @@
                     '<style id="responsive-footer-social-item-color-mobile">'
                     + '@media screen and (max-width: 556px) {'
                     + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { color: ' + newval + '; fill: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+            if ( ( 'on-hover' === footer_social_item_use_brand_colors || 'until-hover' === footer_social_item_use_brand_colors ) && api('responsive_footer_social_show_label').get() ) {
+                jQuery('style#responsive-footer-social-item-label-color-mobile').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-label-color-mobile">'
+                    + '@media screen and (max-width: 556px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label { color: ' + newval + '; }'
                     + '} </style>'
                 );
             }
@@ -5541,6 +5599,15 @@
                     + '} </style>'
                 );
             }
+            if ( ( 'on-hover' === footer_social_item_use_brand_colors || 'until-hover' === footer_social_item_use_brand_colors ) && api('responsive_footer_social_show_label').get() ) {
+                jQuery('style#responsive-footer-social-item-label-hover-color-desktop').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-label-hover-color-desktop">'
+                    + '@media screen and (min-width: 993px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover .responsive-social-icon-label { color: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
         });
     });
     // Footer Social Item Hover Color - Tablet
@@ -5556,6 +5623,15 @@
                     + '} </style>'
                 );
             }
+            if ( ( 'on-hover' === footer_social_item_use_brand_colors || 'until-hover' === footer_social_item_use_brand_colors ) && api('responsive_footer_social_show_label').get() ) {
+                jQuery('style#responsive-footer-social-item-label-hover-color-tablet').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-label-hover-color-tablet">'
+                    + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover .responsive-social-icon-label { color: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
         });
     });
     // Footer Social Item Hover Color - Mobile
@@ -5568,6 +5644,15 @@
                     '<style id="responsive-footer-social-item-hover-color-mobile">'
                     + '@media screen and (max-width: 556px) {'
                     + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { color: ' + newval + '; fill: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+            if ( ( 'on-hover' === footer_social_item_use_brand_colors || 'until-hover' === footer_social_item_use_brand_colors ) && api('responsive_footer_social_show_label').get() ) {
+                jQuery('style#responsive-footer-social-item-label-hover-color-mobile').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-label-hover-color-mobile">'
+                    + '@media screen and (max-width: 556px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover .responsive-social-icon-label { color: ' + newval + '; }'
                     + '} </style>'
                 );
             }
@@ -5614,7 +5699,7 @@
     api( 'responsive_footer_social_item_background_color', function(val){
         val.bind(function(newval){
             var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
-            if ( 'no' === footer_social_item_use_brand_colors ) {
+            if ( 'no' === footer_social_item_use_brand_colors || 'on-hover' === footer_social_item_use_brand_colors ) {
                 jQuery('style#responsive-footer-social-item-background-color-desktop').remove();
                 jQuery('head').append(
                     '<style id="responsive-footer-social-item-background-color-desktop">'
@@ -5629,7 +5714,7 @@
     api( 'responsive_footer_social_item_background_color_tablet', function(val){
         val.bind(function(newval){
             var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
-            if ( 'no' === footer_social_item_use_brand_colors ) {
+            if ( 'no' === footer_social_item_use_brand_colors || 'on-hover' === footer_social_item_use_brand_colors ) {
                 jQuery('style#responsive-footer-social-item-background-color-tablet').remove();
                 jQuery('head').append(
                     '<style id="responsive-footer-social-item-background-color-tablet">'
@@ -5644,7 +5729,7 @@
     api( 'responsive_footer_social_item_background_color_mobile', function(val){
         val.bind(function(newval){
             var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
-            if ( 'no' === footer_social_item_use_brand_colors ) {
+            if ( 'no' === footer_social_item_use_brand_colors || 'on-hover' === footer_social_item_use_brand_colors ) {
                 jQuery('style#responsive-footer-social-item-background-color-mobile').remove();
                 jQuery('head').append(
                     '<style id="responsive-footer-social-item-background-color-mobile">'
@@ -5701,6 +5786,15 @@
                     + '} </style>'
                 );
             }
+            if ( 'until-hover' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-until-hover-background-color-desktop').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-until-hover-background-color-desktop">'
+                    + '@media screen and (min-width: 993px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' + newval + ' !important; }'
+                    + '} </style>'
+                );
+            }
         });
     });
     // Footer Social Item Background Hover Color - Tablet
@@ -5716,6 +5810,15 @@
                     + '} </style>'
                 );
             }
+            if ( 'until-hover' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-until-hover-background-color-tablet').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-until-hover-background-color-tablet">'
+                    + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' + newval + ' !important; }'
+                    + '} </style>'
+                );
+            }
         });
     });
     // Footer Social Item Background Hover Color - Mobile
@@ -5728,6 +5831,15 @@
                     '<style id="responsive-footer-social-item-background-hover-color-mobile">'
                     + '@media screen and (max-width: 556px) {'
                     + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+            if ( 'until-hover' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-until-hover-background-color-mobile').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-until-hover-background-color-mobile">'
+                    + '@media screen and (max-width: 556px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' + newval + ' !important; }'
                     + '} </style>'
                 );
             }
