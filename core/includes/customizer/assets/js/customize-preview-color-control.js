@@ -2073,6 +2073,18 @@
         } );
     } );
 
+    //Transparent Header Hover Sub Menu Background Color
+    $(".res-transparent-header .main-navigation .sub-menu li > a, .res-transparent-header .main-navigation .children li > a").hover(
+        function() {
+            $(this).css("background-color", processThemeSettingForCSS('responsive_transparent_header_hover_sub_menu_background_color'));
+        },
+        function() {
+            const isCurrent = $(this).closest('li').is('.current-menu-item, .current_page_item');
+            const activeBg = processThemeSettingForCSS('responsive_transparent_header_active_sub_menu_background_color');
+            $(this).css("background-color", ( isCurrent && activeBg ) ? activeBg : '');
+        }
+    );
+
     //Sub Menu Item Link Color
     api( 'responsive_transparent_header_sub_menu_link_color', function( value ) {
         value.bind( function( newval ) {
@@ -2089,7 +2101,12 @@
     //Menu Toggle Background Color
     api( 'responsive_transparent_header_menu_toggle_background_color', function( value ) {
         value.bind( function( newval ) {
+            // Background and svg fill only apply in the fill toggle style.
+            if ( 'fill' !== api('responsive_mobile_menu_toggle_style').get() ) {
+                return;
+            }
             $('.res-transparent-header .main-navigation .menu-toggle, .res-transparent-header #masthead-mobile .menu-toggle').css('background-color', newval );
+            $('.res-transparent-header .menu-toggle svg rect:first-child, .res-transparent-header .menu-toggle svg circle:first-child').css('fill', newval );
         } );
     } );
 
@@ -2097,6 +2114,7 @@
     api( 'responsive_transparent_header_menu_toggle_color', function( value ) {
         value.bind( function( newval ) {
             $('.res-transparent-header .main-navigation .menu-toggle').css('color', newval );
+            $('.res-transparent-header .menu-toggle svg > *:not(:first-child)').css('fill', newval );
         } );
     } );
 

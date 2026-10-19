@@ -3078,6 +3078,13 @@ function responsive_customizer_styles() {
 			";
 		}
 
+		// Toggle icon color: the svg bars are filled, so `color` alone has no effect.
+		$custom_css .= "
+			body.res-transparent-header .menu-toggle svg > *:not(:first-child) {
+				fill: {$header_menu_toggle_color};
+			}
+		";
+
 		// Header Social Color.
 		$transparent_header_social_item_color          = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_social_item_color', '' ) );
 		$transparent_header_social_item_hover_color    = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_social_item_hover_color', '' ) );
