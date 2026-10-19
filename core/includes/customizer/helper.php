@@ -2650,6 +2650,40 @@ function responsive_single_product_meta_choices() {
 }
 
 /**
+ * Whether breadcrumb should show in the WooCommerce Product Catalog / Single Product
+ * Title Area, based on the global breadcrumb toggle (Global > Breadcrumbs).
+ *
+ * @return bool
+ */
+function responsive_woocommerce_title_breadcrumb_enabled() {
+	$responsive_options = get_option( 'responsive_theme_options' );
+	return ! empty( $responsive_options['breadcrumb'] );
+}
+
+/**
+ * Returns Product Catalog Title Area positioning array.
+ *
+ * @return array
+ */
+function responsive_shop_title_elements_positioning() {
+	$default  = get_theme_mod( 'breadcrumbs_options', 1 ) ? array( 'breadcrumb', 'title', 'description' ) : array( 'title', 'description' );
+	$sections = get_theme_mod( 'responsive_shop_title_elements_positioning', $default );
+	if ( is_string( $sections ) ) {
+		$decoded  = json_decode( $sections, true );
+		$sections = is_array( $decoded ) ? $decoded : explode( ',', $sections );
+	} elseif ( ! is_array( $sections ) ) {
+		$sections = array();
+	}
+
+	// Sync with global breadcrumb toggle.
+	if ( ! responsive_woocommerce_title_breadcrumb_enabled() ) {
+		$sections = array_values( array_diff( $sections, array( 'breadcrumb' ) ) );
+	}
+
+	return apply_filters( 'responsive_shop_title_elements_positioning', $sections );
+}
+
+/**
  * Returns Single Product Title Area positioning array.
  *
  * @return array
@@ -2664,6 +2698,11 @@ function responsive_single_product_title_elements_positioning() {
 		$sections = array();
 	}
 	$sections = array_values( array_filter( $sections ) );
+
+	// Sync with global breadcrumb toggle.
+	if ( ! responsive_woocommerce_title_breadcrumb_enabled() ) {
+		$sections = array_values( array_diff( $sections, array( 'breadcrumb' ) ) );
+	}
 	return apply_filters( 'responsive_single_product_title_elements_positioning', $sections );
 }
 

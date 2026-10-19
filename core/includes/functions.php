@@ -3430,14 +3430,7 @@ add_action( 'woocommerce_before_main_content', function() {
     // Shop / catalog pages.
     if ( is_shop() || is_product_taxonomy() ) {
         if ( get_theme_mod( 'responsive_shop_title_area', true ) && 'post_title_layout2' !== get_theme_mod( 'responsive_shop_title_layout', 'post_title_layout1' ) ) {
-            $default_elements = get_theme_mod( 'breadcrumbs_options', 1 ) ? array( 'breadcrumb', 'title', 'description' ) : array( 'title', 'description' );
-            $elements         = get_theme_mod( 'responsive_shop_title_elements_positioning', $default_elements );
-            if ( is_string( $elements ) ) {
-                $decoded  = json_decode( $elements, true );
-                $elements = is_array( $decoded ) ? $decoded : explode( ',', $elements );
-            } elseif ( ! is_array( $elements ) ) {
-                $elements = array();
-            }
+            $elements = responsive_shop_title_elements_positioning();
             if ( in_array( 'breadcrumb', $elements, true ) ) {
                 woocommerce_breadcrumb();
             }

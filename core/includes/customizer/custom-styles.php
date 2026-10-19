@@ -14964,14 +14964,7 @@ function responsive_customizer_styles() {
 				}";
 			}
 
-			$default_elements = get_theme_mod( 'breadcrumbs_options', 1 ) ? array( 'breadcrumb', 'title', 'description' ) : array( 'title', 'description' );
-			$elements         = get_theme_mod( 'responsive_shop_title_elements_positioning', $default_elements );
-			if ( is_string( $elements ) ) {
-				$decoded  = json_decode( $elements, true );
-				$elements = is_array( $decoded ) ? $decoded : explode( ',', $elements );
-			} elseif ( ! is_array( $elements ) ) {
-				$elements = array();
-			}
+			$elements = responsive_shop_title_elements_positioning();
 
 			if ( empty( $elements ) ) {
 				$woocommerce_custom_css .= "
