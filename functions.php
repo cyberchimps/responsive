@@ -3621,8 +3621,8 @@ if ( ! function_exists( 'responsive_theme_background_updater_checkout_width_6_4_
 	/**
 	 * Handle backward compatibility for the checkout and cart width settings.
 	 *
-	 * The checkout Main Content Width now defaults to 100 and the Checkout Form Width to blank
-	 * (no width rule printed), and the cart Main Content Width now defaults to 100. Existing
+	 * The checkout and cart Main Content Width now default to 100. The Checkout Form Width
+	 * setting was removed: the container layout decides the checkout max-width. Existing
 	 * users keep the widths they were getting, so the old defaults are saved for anyone who
 	 * never changed them.
 	 *
@@ -3636,7 +3636,6 @@ if ( ! function_exists( 'responsive_theme_background_updater_checkout_width_6_4_
 
 			$old_defaults = array(
 				'responsive_checkout_content_width' => 70,
-				'responsive_checkout_width'         => '960',
 			);
 
 			foreach ( $old_defaults as $setting => $old_default ) {

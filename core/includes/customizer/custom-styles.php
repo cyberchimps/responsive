@@ -16375,17 +16375,6 @@ function responsive_customizer_styles() {
 				';
 			}
 
-			// Blank means "no width rule", so the checkout keeps the container width from the layout settings.
-			$checkout_width = get_theme_mod( 'responsive_checkout_width', '' );
-			if ( '' !== $checkout_width ) {
-				$checkout_width = esc_html( $checkout_width );
-				$woocommerce_custom_css .= "
-				.woocommerce-checkout .content-outer{
-					max-width: {$checkout_width}px;
-				}
-			";
-			}
-
 			$shop_pagination_style = get_theme_mod( 'shop_pagination_style', 'square' );
 			if ( 'circle' === $shop_pagination_style ) {
 				$woocommerce_custom_css .= '
