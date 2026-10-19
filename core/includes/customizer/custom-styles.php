@@ -6613,7 +6613,7 @@ function responsive_customizer_styles() {
 	}";
 	$related_single_posts_per_row_count = absint( get_theme_mod( 'responsive_single_blog_related_posts_per_row', 2 ) );
 	$section_background_color           = responsive_prepare_css_value( 'responsive_rp_section_bg_color', Responsive\Core\get_responsive_customizer_defaults( 'rp_section_bg' ) );
-	$section_title_color 				= get_theme_mod( 'responsive_rp_section_title_color', Responsive\Core\get_responsive_customizer_defaults('responsive-global-palette3') );
+	$section_title_color                = responsive_prepare_css_value( 'responsive_rp_section_title_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_rp_section_title_color' ) );
 	$custom_css                        .= "
 	body:not(.responsive-site-style-flat) .responsive-single-related-posts-container,body:not(.responsive-site-style-flat) .responsive-single-related-posts-container .responsive-related-single-posts-wrapper .responsive-related-single-post {
 		background: {$section_background_color};

@@ -2361,6 +2361,7 @@ function defaults() {
 																			),
 																		),
 		'rp_section_bg' => 'box-background',
+		'responsive_rp_section_title_color'      => 'headings-color',
 		'responsive_rp_link_color'               => 'palette0',
 		'responsive_rp_link_hover_color'         => 'palette1', 
 		'responsive_rp_meta_text'                => 'meta-text-color',

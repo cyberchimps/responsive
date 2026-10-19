@@ -984,6 +984,9 @@
 
     api( 'responsive_rp_section_title_color', function ( value ){
         value.bind( function ( newval ) {
+            if ( newval && ( newval.startsWith( 'palette' ) || newval.startsWith( 'headings-color' ) ) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
             const elems = document.querySelectorAll( '.responsive-related-single-posts-title' );
 			elems.forEach( el => {
                 el.style.color = newval;
