@@ -6895,7 +6895,7 @@
     // Off-Canvas Menu Link Active Color
     api('responsive_header_off_canvas_menu_link_active_color', function(value) {
         value.bind(function(newval) {
-            $('.off-canvas-widget-area #off-canvas-menu li.current-menu-item > a, .off-canvas-widget-area #off-canvas-menu li.current_page_item > a, #off-canvas-site-navigation .menu li > a').css('color', newval);
+            $('.off-canvas-widget-area #off-canvas-menu li.current-menu-item > a, .off-canvas-widget-area #off-canvas-menu li.current_page_item > a, #off-canvas-site-navigation .menu li.current_page_item > a').css('color', newval);
         });
     });
 
