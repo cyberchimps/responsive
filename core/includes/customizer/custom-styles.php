@@ -14427,9 +14427,7 @@ function responsive_customizer_styles() {
 			if ( ! empty( $single_product_text_color ) ) {
 				$woocommerce_custom_css .= "
 				.single-product .site-content-header,
-				.single-product .responsive-single-product-entry-banner,
-				.single-product .site-content-header .woocommerce-breadcrumb,
-				.single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb {
+				.single-product .responsive-single-product-entry-banner {
 					color: {$single_product_text_color};
 				}";
 			}
@@ -14455,6 +14453,53 @@ function responsive_customizer_styles() {
 				.single-product .site-content-header a:hover,
 				.single-product .responsive-single-product-entry-banner a:hover {
 					color: {$single_product_title_link_hover_color};
+				}";
+			}
+
+			// Breadcrumb colors. These default to the global Breadcrumbs colors.
+			$single_product_breadcrumb_color            = responsive_prepare_css_value( 'responsive_single_product_breadcrumb_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_breadcrumb_color' ) );
+			$single_product_breadcrumb_link_color       = responsive_prepare_css_value( 'responsive_single_product_breadcrumb_link_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_breadcrumb_link_color' ) );
+			$single_product_breadcrumb_link_hover_color = responsive_prepare_css_value( 'responsive_single_product_breadcrumb_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_breadcrumb_link_hover_color' ) );
+			$single_product_breadcrumb_background_color = responsive_prepare_css_value( 'responsive_single_product_breadcrumb_background_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_breadcrumb_background_color' ) );
+			$single_product_breadcrumb_separator_color  = responsive_prepare_css_value( 'responsive_single_product_breadcrumb_separator_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_breadcrumb_separator_color' ) );
+
+			if ( ! empty( $single_product_breadcrumb_color ) ) {
+				$woocommerce_custom_css .= "
+				.single-product .site-content-header .woocommerce-breadcrumb,
+				.single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb {
+					color: {$single_product_breadcrumb_color};
+				}";
+			}
+
+			if ( ! empty( $single_product_breadcrumb_link_color ) ) {
+				$woocommerce_custom_css .= "
+				.single-product .site-content-header .woocommerce-breadcrumb a,
+				.single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb a {
+					color: {$single_product_breadcrumb_link_color};
+				}";
+			}
+
+			if ( ! empty( $single_product_breadcrumb_link_hover_color ) ) {
+				$woocommerce_custom_css .= "
+				.single-product .site-content-header .woocommerce-breadcrumb a:hover,
+				.single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb a:hover {
+					color: {$single_product_breadcrumb_link_hover_color};
+				}";
+			}
+
+			if ( ! empty( $single_product_breadcrumb_background_color ) ) {
+				$woocommerce_custom_css .= "
+				.single-product .site-content-header .woocommerce-breadcrumb,
+				.single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb {
+					background-color: {$single_product_breadcrumb_background_color};
+				}";
+			}
+
+			if ( ! empty( $single_product_breadcrumb_separator_color ) ) {
+				$woocommerce_custom_css .= "
+				.single-product .site-content-header .woocommerce-breadcrumb .chevron,
+				.single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb .chevron {
+					color: {$single_product_breadcrumb_separator_color};
 				}";
 			}
 
@@ -15113,10 +15158,7 @@ function responsive_customizer_styles() {
 				.responsive-shop-entry-banner,
 				.woocommerce.archive .site-content-header .page-description,
 				.woocommerce-shop .site-content-header .page-description,
-				.responsive-shop-entry-banner .page-description p,
-				.woocommerce.archive .site-content-header .woocommerce-breadcrumb,
-				.woocommerce-shop .site-content-header .woocommerce-breadcrumb,
-				.responsive-shop-entry-banner .woocommerce-breadcrumb {
+				.responsive-shop-entry-banner .page-description p {
 					color: {$shop_title_text_color};
 				}";
 			}
@@ -15145,6 +15187,38 @@ function responsive_customizer_styles() {
 				.woocommerce-shop .site-content-header a:hover,
 				.woocommerce .responsive-shop-entry-banner a:hover {
 					color: {$shop_title_link_hover_color};
+				}";
+			}
+
+			// Breadcrumb colors. These default to the global Breadcrumbs colors.
+			$shop_breadcrumb_color            = responsive_prepare_css_value( 'responsive_shop_breadcrumb_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_breadcrumb_color' ) );
+			$shop_breadcrumb_background_color = responsive_prepare_css_value( 'responsive_shop_breadcrumb_background_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_breadcrumb_background_color' ) );
+			$shop_breadcrumb_separator_color  = responsive_prepare_css_value( 'responsive_shop_breadcrumb_separator_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_breadcrumb_separator_color' ) );
+
+			if ( ! empty( $shop_breadcrumb_color ) ) {
+				$woocommerce_custom_css .= "
+				.woocommerce.archive .site-content-header .woocommerce-breadcrumb,
+				.woocommerce-shop .site-content-header .woocommerce-breadcrumb,
+				.responsive-shop-entry-banner .woocommerce-breadcrumb {
+					color: {$shop_breadcrumb_color};
+				}";
+			}
+
+			if ( ! empty( $shop_breadcrumb_background_color ) ) {
+				$woocommerce_custom_css .= "
+				.woocommerce.archive .site-content-header .woocommerce-breadcrumb,
+				.woocommerce-shop .site-content-header .woocommerce-breadcrumb,
+				.responsive-shop-entry-banner .woocommerce-breadcrumb {
+					background-color: {$shop_breadcrumb_background_color};
+				}";
+			}
+
+			if ( ! empty( $shop_breadcrumb_separator_color ) ) {
+				$woocommerce_custom_css .= "
+				.woocommerce.archive .site-content-header .woocommerce-breadcrumb .chevron,
+				.woocommerce-shop .site-content-header .woocommerce-breadcrumb .chevron,
+				.responsive-shop-entry-banner .woocommerce-breadcrumb .chevron {
+					color: {$shop_breadcrumb_separator_color};
 				}";
 			}
 		}

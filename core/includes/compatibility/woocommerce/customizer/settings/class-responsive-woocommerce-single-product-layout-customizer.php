@@ -163,9 +163,14 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				'customize-control-responsive_single_product_title_color',
 				'customize-control-responsive_single_product_text_color',
 				'customize-control-responsive_single_product_title_link_color',
+				'customize-control-responsive_single_product_breadcrumb_color',
+				'customize-control-responsive_single_product_breadcrumb_link_color',
+				'customize-control-responsive_single_product_breadcrumb_background_color',
+				'customize-control-responsive_single_product_breadcrumb_separator_color',
 				'customize-control-responsive_single_product_title_link_separator',
 				'customize-control-responsive_single_product_title_area_title_typography_group',
 				'customize-control-responsive_single_product_text_typography_group',
+				'customize-control-responsive_single_product_title_breadcrumb_typography_group',
 				'customize-control-responsive_single_product_meta_typography_group',
 				'customize-control-responsive_single_product_title_typography_separator',
 				'customize-control-responsive_single_product_banner_padding_padding',
@@ -671,6 +676,87 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				'single_product_title_link_hover'
 			);
 
+			// Breadcrumb colors. Default to the global Breadcrumbs colors. Priorities are fractional to sit between Link Color and the separator.
+			$single_product_breadcrumb_label = esc_html__( 'Breadcrumb Text Color', 'responsive' );
+			responsive_color_control(
+				$wp_customize,
+				'single_product_breadcrumb',
+				$single_product_breadcrumb_label,
+				'responsive_single_product_title_layout',
+				17.1,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_breadcrumb_color' ),
+				null,
+				'',
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'color',
+				'postMessage'
+			);
+
+			$single_product_breadcrumb_link_label = esc_html__( 'Breadcrumb Link Color', 'responsive' );
+			responsive_color_control(
+				$wp_customize,
+				'single_product_breadcrumb_link',
+				$single_product_breadcrumb_link_label,
+				'responsive_single_product_title_layout',
+				17.2,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_breadcrumb_link_color' ),
+				null,
+				'',
+				true,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_breadcrumb_link_hover_color' ),
+				'single_product_breadcrumb_link_hover',
+				false,
+				null,
+				null,
+				'color',
+				'postMessage'
+			);
+
+			$single_product_breadcrumb_background_label = esc_html__( 'Breadcrumb Background Color', 'responsive' );
+			responsive_color_control(
+				$wp_customize,
+				'single_product_breadcrumb_background',
+				$single_product_breadcrumb_background_label,
+				'responsive_single_product_title_layout',
+				17.3,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_breadcrumb_background_color' ),
+				null,
+				'',
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'color',
+				'postMessage'
+			);
+
+			$single_product_breadcrumb_separator_label = esc_html__( 'Breadcrumb Separator Color', 'responsive' );
+			responsive_color_control(
+				$wp_customize,
+				'single_product_breadcrumb_separator',
+				$single_product_breadcrumb_separator_label,
+				'responsive_single_product_title_layout',
+				17.4,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_breadcrumb_separator_color' ),
+				null,
+				'',
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'color',
+				'postMessage'
+			);
+
 			// Separator.
 			responsive_horizontal_separator_control( $wp_customize, 'single_product_title_link_separator', 1, 'responsive_single_product_title_layout', 18, 1 );
 
@@ -695,6 +781,18 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				'responsive_single_product_title_layout',
 				20,
 				'single_product_text_typography',
+				true
+			);
+
+			// Breadcrumb Font. Follows the global Breadcrumbs font until set.
+			$single_product_breadcrumb_typography_label = esc_html__( 'Breadcrumb Font', 'responsive' );
+			responsive_typography_group_control(
+				$wp_customize,
+				'single_product_title_breadcrumb_typography_group',
+				$single_product_breadcrumb_typography_label,
+				'responsive_single_product_title_layout',
+				20.1,
+				'single_product_title_breadcrumb_typography',
 				true
 			);
 

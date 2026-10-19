@@ -72,6 +72,9 @@ if ( ! class_exists( 'Responsive_Theme_Background_Updater' ) ) {
             ),
             '6.4.9' => array (
                 'responsive_theme_background_updater_checkout_width_6_4_9',
+                'responsive_theme_background_updater_shop_title_link_colors_6_4_9',
+                'responsive_theme_background_updater_title_area_breadcrumb_colors_6_4_9',
+                'responsive_theme_background_updater_title_area_breadcrumb_font_6_4_9',
             ),
 		);
 

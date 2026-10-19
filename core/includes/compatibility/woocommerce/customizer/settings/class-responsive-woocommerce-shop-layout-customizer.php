@@ -241,9 +241,13 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'customize-control-responsive_shop_title_color',
 				'customize-control-responsive_shop_text_color',
 				'customize-control-responsive_shop_title_link_color',
+				'customize-control-responsive_shop_breadcrumb_color',
+				'customize-control-responsive_shop_breadcrumb_background_color',
+				'customize-control-responsive_shop_breadcrumb_separator_color',
 				'customize-control-responsive_shop_title_link_separator',
 				'customize-control-responsive_shop_title_typography_group',
 				'customize-control-responsive_shop_text_typography_group',
+				'customize-control-responsive_shop_breadcrumb_typography_group',
 				'customize-control-responsive_shop_title_typography_separator',
 				'customize-control-responsive_shop_banner_padding_padding',
 				'customize-control-responsive_shop_banner_margin_padding',
@@ -553,6 +557,69 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'shop_title_link_hover'
 			);
 
+			// Breadcrumb Text Color. Defaults to the global Breadcrumbs color. Priorities are fractional to sit between Link Color and the separator.
+			$shop_breadcrumb_color_label = esc_html__( 'Breadcrumb Text Color', 'responsive' );
+			responsive_color_control(
+				$wp_customize,
+				'shop_breadcrumb',
+				$shop_breadcrumb_color_label,
+				'responsive_shop_title_layout',
+				17.1,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_breadcrumb_color' ),
+				null,
+				'',
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'color',
+				'postMessage'
+			);
+
+			// Breadcrumb Background Color.
+			$shop_breadcrumb_background_color_label = esc_html__( 'Breadcrumb Background Color', 'responsive' );
+			responsive_color_control(
+				$wp_customize,
+				'shop_breadcrumb_background',
+				$shop_breadcrumb_background_color_label,
+				'responsive_shop_title_layout',
+				17.2,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_breadcrumb_background_color' ),
+				null,
+				'',
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'color',
+				'postMessage'
+			);
+
+			// Breadcrumb Separator Color.
+			$shop_breadcrumb_separator_color_label = esc_html__( 'Breadcrumb Separator Color', 'responsive' );
+			responsive_color_control(
+				$wp_customize,
+				'shop_breadcrumb_separator',
+				$shop_breadcrumb_separator_color_label,
+				'responsive_shop_title_layout',
+				17.3,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_breadcrumb_separator_color' ),
+				null,
+				'',
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'color',
+				'postMessage'
+			);
+
 			// Separator.
 			responsive_horizontal_separator_control( $wp_customize, 'shop_title_link_separator', 1, 'responsive_shop_title_layout', 18, 1 );
 
@@ -577,6 +644,18 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'responsive_shop_title_layout',
 				20,
 				'shop_text_typography',
+				true
+			);
+
+			// Breadcrumb Font. Follows the global Breadcrumbs font until set.
+			$shop_breadcrumb_typography_label = esc_html__( 'Breadcrumb Font', 'responsive' );
+			responsive_typography_group_control(
+				$wp_customize,
+				'shop_breadcrumb_typography_group',
+				$shop_breadcrumb_typography_label,
+				'responsive_shop_title_layout',
+				20.1,
+				'shop_breadcrumb_typography',
 				true
 			);
 

@@ -6618,6 +6618,17 @@
     );
     // WooCommerce Shop Text Typography - End
 
+    // WooCommerce Shop Breadcrumb Typography - Start
+    generateTypographyPreview(
+        'shop_breadcrumb_typography',
+        'shop_breadcrumb_tablet_typography',
+        'shop_breadcrumb_mobile_typography',
+        'shop_breadcrumb',
+        'customizer-typography-shop_breadcrumb_typography',
+        ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
+    );
+    // WooCommerce Shop Breadcrumb Typography - End
+
     // WooCommerce Single Product Title Typography - Start
     generateTypographyPreview(
         'single_product_title_area_title_typography',
@@ -6639,6 +6650,17 @@
         ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
     );
     // WooCommerce Single Product Text Typography - End
+
+    // WooCommerce Single Product Breadcrumb Typography - Start
+    generateTypographyPreview(
+        'single_product_title_breadcrumb_typography',
+        'single_product_title_breadcrumb_tablet_typography',
+        'single_product_title_breadcrumb_mobile_typography',
+        'single_product_title_breadcrumb',
+        'customizer-typography-single_product_title_breadcrumb_typography',
+        ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
+    );
+    // WooCommerce Single Product Breadcrumb Typography - End
 
     // WooCommerce Single Product Meta Typography - Start
     generateTypographyPreview(

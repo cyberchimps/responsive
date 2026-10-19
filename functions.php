@@ -3665,6 +3665,147 @@ if ( ! function_exists( 'responsive_theme_background_updater_checkout_width_6_4_
 }
 
 
+if ( ! function_exists( 'responsive_theme_background_updater_shop_title_link_colors_6_4_9' ) ) {
+	/**
+	 * Handle backward compatibility for the product catalog title area link colors.
+	 *
+	 * The Link Color and Link Hover Color now default to the global Breadcrumbs link colors
+	 * instead of palette0 / palette1. Existing users who never changed them keep the colors
+	 * they were getting, so the old defaults are saved for anyone who never set them.
+	 *
+	 * @since 6.4.9
+	 * @return void
+	 */
+	function responsive_theme_background_updater_shop_title_link_colors_6_4_9() {
+		$responsive_options = get_option( 'responsive_theme_options' );
+
+		if ( empty( $responsive_options['shop_title_link_colors_6_4_9_backward_done'] ) ) {
+
+			$old_defaults = array(
+				'responsive_shop_title_link_color'       => 'palette0',
+				'responsive_shop_title_link_hover_color' => 'palette1',
+			);
+
+			foreach ( $old_defaults as $setting => $old_default ) {
+				if ( false === get_theme_mod( $setting, false ) ) {
+					set_theme_mod( $setting, $old_default );
+				}
+			}
+
+			$responsive_options['shop_title_link_colors_6_4_9_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+
+
+if ( ! function_exists( 'responsive_theme_background_updater_title_area_breadcrumb_colors_6_4_9' ) ) {
+	/**
+	 * Handle backward compatibility for the product catalog and single product title area breadcrumb colors.
+	 *
+	 * The breadcrumb now has its own color controls that default to the global Breadcrumbs colors.
+	 * Until now the breadcrumb took the title area Text Color (and, on single product, Link Color
+	 * and Link Hover Color). Existing users keep what they were seeing, so the breadcrumb colors are
+	 * seeded from the title area colors. A title area color that was cleared ('') never reached the
+	 * breadcrumb, so it keeps following the global breadcrumb color. The background and separator
+	 * colors already followed the global ones, so they need nothing.
+	 *
+	 * @since 6.4.9
+	 * @return void
+	 */
+	function responsive_theme_background_updater_title_area_breadcrumb_colors_6_4_9() {
+		$responsive_options = get_option( 'responsive_theme_options' );
+
+		if ( empty( $responsive_options['title_area_breadcrumb_colors_6_4_9_backward_done'] ) ) {
+
+			// New breadcrumb setting => title area setting it used to follow.
+			$seed_from = array(
+				'responsive_shop_breadcrumb_color'                  => 'responsive_shop_text_color',
+				'responsive_single_product_breadcrumb_color'        => 'responsive_single_product_text_color',
+				'responsive_single_product_breadcrumb_link_color'   => 'responsive_single_product_title_link_color',
+				'responsive_single_product_breadcrumb_link_hover_color' => 'responsive_single_product_title_link_hover_color',
+			);
+
+			foreach ( $seed_from as $new_setting => $title_area_setting ) {
+				if ( false !== get_theme_mod( $new_setting, false ) ) {
+					continue;
+				}
+
+				$value = get_theme_mod( $title_area_setting, null );
+
+				if ( '' === $value ) {
+					continue;
+				}
+
+				if ( null === $value ) {
+					$value = Responsive\Core\get_responsive_customizer_defaults( $title_area_setting );
+				}
+
+				set_theme_mod( $new_setting, $value );
+			}
+
+			$responsive_options['title_area_breadcrumb_colors_6_4_9_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+
+
+if ( ! function_exists( 'responsive_theme_background_updater_title_area_breadcrumb_font_6_4_9' ) ) {
+	/**
+	 * Handle backward compatibility for the product catalog and single product title area breadcrumb font.
+	 *
+	 * The breadcrumb now has its own Breadcrumb Font control that follows the global Breadcrumbs
+	 * font until set. Until now the breadcrumb took the title area Text Font. Existing users who
+	 * set a Text Font keep what they were seeing, so those values are copied to the Breadcrumb Font.
+	 * Users who never set a Text Font have nothing to copy and follow the global breadcrumb font.
+	 *
+	 * @since 6.4.9
+	 * @return void
+	 */
+	function responsive_theme_background_updater_title_area_breadcrumb_font_6_4_9() {
+		$responsive_options = get_option( 'responsive_theme_options' );
+
+		if ( empty( $responsive_options['title_area_breadcrumb_font_6_4_9_backward_done'] ) ) {
+
+			// Text Font element => Breadcrumb Font element.
+			$elements = array(
+				'shop_text'           => 'shop_breadcrumb',
+				'single_product_text' => 'single_product_title_breadcrumb',
+			);
+
+			// Every theme mod a typography element stores.
+			$suffixes = array(
+				'_typography',
+				'_tablet_typography',
+				'_mobile_typography',
+				'_typography_font_size_value',
+				'_tablet_typography_font_size_value',
+				'_mobile_typography_font_size_value',
+				'_typography_font_size_unit',
+				'_tablet_typography_font_size_unit',
+				'_mobile_typography_font_size_unit',
+			);
+
+			foreach ( $elements as $text_element => $breadcrumb_element ) {
+				foreach ( $suffixes as $suffix ) {
+					$value = get_theme_mod( $text_element . $suffix, null );
+
+					if ( null === $value || false !== get_theme_mod( $breadcrumb_element . $suffix, false ) ) {
+						continue;
+					}
+
+					set_theme_mod( $breadcrumb_element . $suffix, $value );
+				}
+			}
+
+			$responsive_options['title_area_breadcrumb_font_6_4_9_backward_done'] = true;
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+	}
+}
+
+
 if ( ! function_exists( 'responsive_theme_background_updater_single_product_title_area_text_font_6_4_8' ) ) {
 	/**
 	 * Handle backward compatibility for single product title area text font and colors.
