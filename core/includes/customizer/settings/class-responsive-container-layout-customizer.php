@@ -178,11 +178,11 @@ if ( ! class_exists( 'Responsive_Container_Layout_Customizer' ) ) :
             );
 			// Woocommerce Single Product Container Layout.
 			$single_product_container_layout_label = esc_html__( 'Container Layout', 'responsive' );
-			responsive_separator_control( $wp_customize, 'single_product_container_layout_separator', $single_product_container_layout_label, 'responsive_woocommerce_single_product_layout', 6 );
+			responsive_separator_control( $wp_customize, 'single_product_container_layout_separator', $single_product_container_layout_label, 'responsive_woocommerce_single_product_layout', 3 );
 
-			responsive_imageradio_button_control( $wp_customize, 'single_product_container_layout', $single_product_container_layout_label, 'responsive_woocommerce_single_product_layout', 6, $container_layout_choices, 'default_container', null, 'svg', 'refresh' );
+			responsive_imageradio_button_control( $wp_customize, 'single_product_container_layout', $single_product_container_layout_label, 'responsive_woocommerce_single_product_layout', 3, $container_layout_choices, 'default_container', null, 'svg', 'refresh' );
 
-			responsive_horizontal_separator_control( $wp_customize, 'single_product_container_style_separator', 1, 'responsive_woocommerce_single_product_layout', 7, 1 );
+			responsive_horizontal_separator_control( $wp_customize, 'single_product_container_style_separator', 1, 'responsive_woocommerce_single_product_layout', 4, 1 );
 
 			// Woocommerce Single Product Container Style.
 			$wp_customize->add_setting(
@@ -204,17 +204,17 @@ if ( ! class_exists( 'Responsive_Container_Layout_Customizer' ) ) :
 						'boxed' => esc_html__( 'Boxed', 'responsive' ),
 						'flat' => esc_html__( 'Flat', 'responsive' ),
 					),
-					'priority' => 8,
+					'priority' => 5,
 				)
 			);
 
 			// Woocommerce Product Catalog Container Layout.
 			$product_catalog_container_layout_label = esc_html__( 'Container Layout', 'responsive' );
-			responsive_separator_control( $wp_customize, 'product_catalog_container_layout_separator', $product_catalog_container_layout_label, 'responsive_woocommerce_shop', 5 );
+			responsive_separator_control( $wp_customize, 'product_catalog_container_layout_separator', $product_catalog_container_layout_label, 'responsive_woocommerce_shop', 3 );
 
-			responsive_imageradio_button_control( $wp_customize, 'product_catalog_container_layout', $product_catalog_container_layout_label, 'responsive_woocommerce_shop', 6, $container_layout_choices, 'default_container', null, 'svg', 'refresh' );
+			responsive_imageradio_button_control( $wp_customize, 'product_catalog_container_layout', $product_catalog_container_layout_label, 'responsive_woocommerce_shop', 3, $container_layout_choices, 'default_container', null, 'svg', 'refresh' );
 
-			responsive_horizontal_separator_control( $wp_customize, 'product_catalog_container_style_separator', 1, 'responsive_woocommerce_shop', 7, 1 );
+			responsive_horizontal_separator_control( $wp_customize, 'product_catalog_container_style_separator', 1, 'responsive_woocommerce_shop', 4, 1 );
 
 			// Woocommerce Product Catalog Container Style.
 			$wp_customize->add_setting(
@@ -237,7 +237,7 @@ if ( ! class_exists( 'Responsive_Container_Layout_Customizer' ) ) :
 						'content-boxed' => esc_html__( 'Content Boxed', 'responsive' ),
 						'flat' => esc_html__( 'Flat', 'responsive' ),
 					),
-					'priority' => 8,
+					'priority' => 5,
 				)
 			);
 

@@ -678,7 +678,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 
 			// Sidebar Layout heading.
 			$shop_sidebar_heading = esc_html__( 'Sidebar Layout', 'responsive' );
-			responsive_separator_control( $wp_customize, 'shop_sidebar_separator', $shop_sidebar_heading, 'responsive_woocommerce_shop', 37, 'responsive_active_shop_sidebar_section');
+			responsive_separator_control( $wp_customize, 'shop_sidebar_separator', $shop_sidebar_heading, 'responsive_woocommerce_shop', 6, 'responsive_active_shop_sidebar_section');
 
 			// Sidebar Position.
 			$sidebar_label   = esc_html__( 'WooCommerce Sidebar Position', 'responsive' );
@@ -698,7 +698,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				);
 			}
 
-			responsive_imageradio_button_control( $wp_customize, 'shop_sidebar_position', $sidebar_label, 'responsive_woocommerce_shop', 38, $sidebar_choices, 'global', 'responsive_active_shop_sidebar_section', 'svg');
+			responsive_imageradio_button_control( $wp_customize, 'shop_sidebar_position', $sidebar_label, 'responsive_woocommerce_shop', 7, $sidebar_choices, 'global', 'responsive_active_shop_sidebar_section', 'svg');
 
 			$shop_sidebar_style_label  = __( 'Sidebar Style', 'responsive' );
 			$shop_sidebar_style_choice = array(
@@ -706,13 +706,13 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'unboxed' => esc_html__( 'Unboxed', 'responsive' ),
 				'boxed'   => esc_html__( 'Boxed', 'responsive' ),
 			);
-			responsive_select_button_control( $wp_customize, 'shop_sidebar_style', $shop_sidebar_style_label, 'responsive_woocommerce_shop', 39, $shop_sidebar_style_choice, Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_sidebar_style' ), 'responsive_active_shop_sidebar_position', 'postMessage' );
+			responsive_select_button_control( $wp_customize, 'shop_sidebar_style', $shop_sidebar_style_label, 'responsive_woocommerce_shop', 8, $shop_sidebar_style_choice, Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_sidebar_style' ), 'responsive_active_shop_sidebar_position', 'postMessage' );
 
 			$container_spacing_label = esc_html__( 'Product Card Spacing', 'responsive' );
 			responsive_separator_control( $wp_customize, 'product_card_spacing', $container_spacing_label, 'responsive_woocommerce_shop', 30 );
 
 			$sidebar_width_label = esc_html__( 'Sidebar Width (%)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'shop_sidebar_width', $sidebar_width_label, 'responsive_woocommerce_shop' , 40, 30, 'responsive_active_shop_sidebar_position', 50, 15, 'postMessage' );
+			responsive_drag_number_control( $wp_customize, 'shop_sidebar_width', $sidebar_width_label, 'responsive_woocommerce_shop' , 9, 30, 'responsive_active_shop_sidebar_position', 50, 15, 'postMessage' );
 
 			// Shop Display Options heading.
 			$shop_display_options_heading = esc_html__( 'Shop Display Options', 'responsive' );

@@ -1783,7 +1783,7 @@ const TabsComponent = props => {
 			}
 		} else {
 			controlElement.style.display = 'none';
-			if (separatorElement) {
+			if (separatorElement && 'shop' !== control) {
 				separatorElement.style.display = 'none';
 			}
 		}
