@@ -182,7 +182,6 @@ const SOCIAL_FA_MAP = {
 	'fas fa-envelope': 'email',
 	'fas fa-phone': 'phone',
 	'fas fa-rss': 'rss',
-	'fab fa-wordpress': 'wordpress',
 };
 
 Object.keys(SOCIAL_FA_MAP).forEach((faClass) => {
@@ -243,7 +242,6 @@ export const ALL_ICONS_LIST = [
 	'yelp',
 	'behance',
 	'dribbble',
-	'wordpress',
 
 	// --- Page 4: Audio / Media & Style Variants (15 icons) ---
 	'soundcloud',
@@ -317,7 +315,6 @@ export const ICON_LABELS = {
 	'yelp': 'Yelp',
 	'behance': 'Behance',
 	'dribbble': 'Dribbble',
-	'wordpress': 'WordPress',
 	'soundcloud': 'SoundCloud',
 	'bandcamp': 'Bandcamp',
 	'stumbleupon': 'StumbleUpon',
