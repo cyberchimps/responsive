@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(22/10/2026) Version 6.4.9
+[+] = New = Introduced dedicated Layout and Sidebar customization options in General WooCommerce settings for greater control over WooCommerce page layouts.
+[+] = New = Expanded WooCommerce customization options for Store Notice, Cart, and My Account pages to improve design flexibility.
+[*] = Improvement = Updated the Google Fonts library to include the latest available fonts.
+
 (12/10/2026) Version 6.4.8
 [+] = New = Enhanced WooCommerce Single Product customization options — Added comprehensive controls for single product layouts, advanced title area settings, and display options for seamless design parity.
 
