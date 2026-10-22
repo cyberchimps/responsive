@@ -1171,14 +1171,23 @@
         var globalStyle = api('responsive_sidebar_style').get() || 'boxed';
         var style = globalStyle;
 
-        if (body.hasClass('single-product')) {
-            var prodSetting = api('responsive_single_product_sidebar_style');
-            var prodStyle = prodSetting ? prodSetting.get() : 'default';
-            style = (prodStyle === 'default') ? globalStyle : prodStyle;
-        } else if (body.hasClass('archive') && (body.hasClass('post-type-archive-product') || body.hasClass('tax-product_cat') || body.hasClass('tax-product_tag') || body.hasClass('woocommerce-page'))) {
-            var shopSetting = api('responsive_shop_sidebar_style');
-            var shopStyle = shopSetting ? shopSetting.get() : 'default';
-            style = (shopStyle === 'default') ? globalStyle : shopStyle;
+        if (body.hasClass('woocommerce') || body.hasClass('woocommerce-page')) {
+            // WooCommerce: Single Product / Product Catalog > WooCommerce General > Global.
+            // Cart, checkout and my account have no own setting, so they use General only.
+            var wooTier = null;
+            if (body.hasClass('single-product')) {
+                wooTier = api('responsive_single_product_sidebar_style');
+            } else if (body.hasClass('archive')) {
+                wooTier = api('responsive_shop_sidebar_style');
+            }
+            var wooGeneral = api('responsive_woocommerce_sidebar_style');
+            var wooChain = [wooTier ? wooTier.get() : 'default', wooGeneral ? wooGeneral.get() : 'default'];
+            for (var i = 0; i < wooChain.length; i++) {
+                if (wooChain[i] === 'boxed' || wooChain[i] === 'unboxed') {
+                    style = wooChain[i];
+                    break;
+                }
+            }
         } else if (body.hasClass('page')) {
             var pageSetting = api('responsive_page_sidebar_style');
             var pageStyle = pageSetting ? pageSetting.get() : 'default';
@@ -1227,7 +1236,8 @@
         'responsive_blog_sidebar_style',
         'responsive_single_blog_sidebar_style',
         'responsive_shop_sidebar_style',
-        'responsive_single_product_sidebar_style'
+        'responsive_single_product_sidebar_style',
+        'responsive_woocommerce_sidebar_style'
     ];
 
     $.each(sidebarSettings, function(index, settingName) {

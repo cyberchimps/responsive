@@ -56,6 +56,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 			$general_tab_ids_prefix = 'customize-control-';
 			$general_tab_ids        = array(
 				$general_tab_ids_prefix . 'responsive_cart_layout_seperator',
+				$general_tab_ids_prefix . 'responsive_enable_crosssells_options',
 				$general_tab_ids_prefix . 'responsive_disable_cart_fragments',
 				$general_tab_ids_prefix . 'responsive_cart_content_width',
 			);
@@ -88,14 +89,10 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 				// Main Content Width.
 				$shop_content_width_label = esc_html__( 'Main Content Width (%)', 'responsive' );
-				responsive_drag_number_control( $wp_customize, 'cart_content_width', $shop_content_width_label, 'responsive_woocommerce_cart', 10, 70, null, 100, 1, 'postMessage' );
+				responsive_drag_number_control( $wp_customize, 'cart_content_width', $shop_content_width_label, 'responsive_woocommerce_cart', 10, 100, null, 100, 1, 'postMessage' );
 
-				$cart_page_id   = wc_get_page_id( 'cart' );
-				$is_cart_block_present = has_block( 'woocommerce/cart', $cart_page_id );
-				if( ! $is_cart_block_present ) {
-					$enable_crosssells_options_label = esc_html__( 'Enable Cross-sells', 'responsive' );
-					responsive_toggle_control( $wp_customize, 'enable_crosssells_options', $enable_crosssells_options_label, 'responsive_woocommerce_cart', 2, 1, null );
-				}
+				$enable_crosssells_options_label = esc_html__( 'Enable Cross-sells', 'responsive' );
+				responsive_toggle_control( $wp_customize, 'enable_crosssells_options', $enable_crosssells_options_label, 'responsive_woocommerce_cart', 2, 1, null );
 
 				$disable_cart_fragments_label = esc_html__( 'Disable Cart Fragments', 'responsive' );
 				responsive_toggle_control( $wp_customize, 'disable_cart_fragments', $disable_cart_fragments_label, 'responsive_woocommerce_cart', 2, 0, null );
