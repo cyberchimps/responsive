@@ -87,6 +87,14 @@ function responsive_standard_fonts()
  */
 function responsive_get_google_fonts()
 {
+	// Cache the parsed font list for the duration of the request so that
+	// every typography control doesn't re-read and re-decode the JSON
+	// file and rebuild its own copy of the (large) fonts array.
+	static $google_fonts = null;
+
+	if (null !== $google_fonts) {
+		return apply_filters('responsive_google_fonts', $google_fonts);
+	}
 
 	$google_fonts_file = apply_filters('responsive_google_fonts_json_file', RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/typography/google-fonts.json');
 
@@ -96,6 +104,7 @@ function responsive_get_google_fonts()
 
 	$file_contants     = file_get_contents($google_fonts_file);
 	$google_fonts_json = json_decode($file_contants, 1);
+	$google_fonts       = array();
 	foreach ($google_fonts_json as $key => $font) {
 		$name = key($font);
 		foreach ($font[$name] as $font_key => $single_font) {

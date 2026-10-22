@@ -2454,11 +2454,25 @@ function responsive_active_single_blog_sidebar_section() {
 }
 
 function responsive_active_shop_sidebar_section() {
-	return ! responsive_is_layout_narrow( get_theme_mod( 'responsive_product_catalog_container_layout', 'default_container' ) );
+	// Product Catalog > WooCommerce General > Global. A narrow layout never has a sidebar.
+	return 'narrow' !== Responsive\Core\responsive_get_woocommerce_setting( 'container_layout', 'catalog' );
 }
 
 function responsive_active_single_product_sidebar_section() {
-	return ! responsive_is_layout_narrow( get_theme_mod( 'responsive_single_product_container_layout', 'default_container' ) );
+	// Single Product > WooCommerce General > Global. A narrow layout never has a sidebar.
+	return 'narrow' !== Responsive\Core\responsive_get_woocommerce_setting( 'container_layout', 'single' );
+}
+
+/**
+ * Active callback for the single product Content Background and Inside Container spacing controls.
+ *
+ * They style the product box, so they only apply when single product does not resolve to a Flat
+ * container style: Single Product > WooCommerce General > Global.
+ *
+ * @return bool
+ */
+function responsive_show_single_product_box_controls() {
+	return 'flat' !== Responsive\Core\responsive_get_woocommerce_setting( 'container_style', 'single' );
 }
 
 /**
@@ -2636,6 +2650,40 @@ function responsive_single_product_meta_choices() {
 }
 
 /**
+ * Whether breadcrumb should show in the WooCommerce Product Catalog / Single Product
+ * Title Area, based on the global breadcrumb toggle (Global > Breadcrumbs).
+ *
+ * @return bool
+ */
+function responsive_woocommerce_title_breadcrumb_enabled() {
+	$responsive_options = get_option( 'responsive_theme_options' );
+	return ! empty( $responsive_options['breadcrumb'] );
+}
+
+/**
+ * Returns Product Catalog Title Area positioning array.
+ *
+ * @return array
+ */
+function responsive_shop_title_elements_positioning() {
+	$default  = get_theme_mod( 'breadcrumbs_options', 1 ) ? array( 'breadcrumb', 'title', 'description' ) : array( 'title', 'description' );
+	$sections = get_theme_mod( 'responsive_shop_title_elements_positioning', $default );
+	if ( is_string( $sections ) ) {
+		$decoded  = json_decode( $sections, true );
+		$sections = is_array( $decoded ) ? $decoded : explode( ',', $sections );
+	} elseif ( ! is_array( $sections ) ) {
+		$sections = array();
+	}
+
+	// Sync with global breadcrumb toggle.
+	if ( ! responsive_woocommerce_title_breadcrumb_enabled() ) {
+		$sections = array_values( array_diff( $sections, array( 'breadcrumb' ) ) );
+	}
+
+	return apply_filters( 'responsive_shop_title_elements_positioning', $sections );
+}
+
+/**
  * Returns Single Product Title Area positioning array.
  *
  * @return array
@@ -2650,6 +2698,11 @@ function responsive_single_product_title_elements_positioning() {
 		$sections = array();
 	}
 	$sections = array_values( array_filter( $sections ) );
+
+	// Sync with global breadcrumb toggle.
+	if ( ! responsive_woocommerce_title_breadcrumb_enabled() ) {
+		$sections = array_values( array_diff( $sections, array( 'breadcrumb' ) ) );
+	}
 	return apply_filters( 'responsive_single_product_title_elements_positioning', $sections );
 }
 
@@ -2712,6 +2765,18 @@ function responsive_active_single_product_sidebar_position() {
 		return ( 'no' !== $global_position );
 	}
 	return ( 'no' !== $position );
+}
+
+/**
+ * Active callback for the checkout Main Content Width slider.
+ *
+ * The slider only applies when the checkout has no sidebar. With a sidebar, the sidebar width
+ * decides the content width. Checkout uses WooCommerce General > Global for its sidebar.
+ *
+ * @return bool
+ */
+function responsive_active_checkout_content_width() {
+	return 'no' === Responsive\Core\responsive_get_woocommerce_setting( 'sidebar_position', 'general' );
 }
 
 /**

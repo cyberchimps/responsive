@@ -6618,6 +6618,17 @@
     );
     // WooCommerce Shop Text Typography - End
 
+    // WooCommerce Shop Breadcrumb Typography - Start
+    generateTypographyPreview(
+        'shop_breadcrumb_typography',
+        'shop_breadcrumb_tablet_typography',
+        'shop_breadcrumb_mobile_typography',
+        'shop_breadcrumb',
+        'customizer-typography-shop_breadcrumb_typography',
+        ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
+    );
+    // WooCommerce Shop Breadcrumb Typography - End
+
     // WooCommerce Single Product Title Typography - Start
     generateTypographyPreview(
         'single_product_title_area_title_typography',
@@ -6640,6 +6651,17 @@
     );
     // WooCommerce Single Product Text Typography - End
 
+    // WooCommerce Single Product Breadcrumb Typography - Start
+    generateTypographyPreview(
+        'single_product_title_breadcrumb_typography',
+        'single_product_title_breadcrumb_tablet_typography',
+        'single_product_title_breadcrumb_mobile_typography',
+        'single_product_title_breadcrumb',
+        'customizer-typography-single_product_title_breadcrumb_typography',
+        ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
+    );
+    // WooCommerce Single Product Breadcrumb Typography - End
+
     // WooCommerce Single Product Meta Typography - Start
     generateTypographyPreview(
         'single_product_meta_typography',
@@ -6650,5 +6672,16 @@
         ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
     );
     // WooCommerce Single Product Meta Typography - End
+
+    // WooCommerce Store Notice Typography - Start
+    generateTypographyPreview(
+        'store_notice_typography',
+        'store_notice_tablet_typography',
+        'store_notice_mobile_typography',
+        'store_notice',
+        'customizer-typography-store_notice_typography',
+        ['text-transform', 'font-family', 'font-weight', 'font-size', 'line-height', 'letter-spacing', 'font-style']
+    );
+    // WooCommerce Store Notice Typography - End
 } )( jQuery );
 

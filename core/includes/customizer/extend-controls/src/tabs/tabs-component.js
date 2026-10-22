@@ -203,6 +203,7 @@ const TabsComponent = props => {
 			}
 		};
 		toggleContentBackground();
+		toggleSingleProductBoxControls();
 
 		hideSidebarWidthControl( api('responsive_page_sidebar_position').get(), 'page' );
 		hideSidebarStyleControl( api('responsive_page_sidebar_position').get(), 'page' );
@@ -226,6 +227,11 @@ const TabsComponent = props => {
 		if(api('responsive_single_product_sidebar_position'))
 		{
 			hideWoocommerceMainContentWidthControl( api('responsive_single_product_sidebar_position').get(), 'single_product');
+		}
+		// Cart has no sidebar setting of its own, it follows WooCommerce General > Global.
+		if(api('responsive_cart_content_width'))
+		{
+			hideWoocommerceMainContentWidthControl( 'global', 'cart');
 		}
 		hideRetinaLogoUploadControl( api( 'responsive_retina_logo').get());
 		hideMobileLogoUploadControl( api( 'responsive_mobile_logo_option').get());
@@ -940,32 +946,6 @@ const TabsComponent = props => {
 			document.getElementById('customize-control-responsive_mobile_header_button_border_color').style.display = 'none';
 		}
 
-		// Hide background image controls if disabled
-		const toggleFooterBgControls = () => {
-			const isBgImgEnabled = api('responsive_footer_background_image_toggle') ? api('responsive_footer_background_image_toggle').get() : false;
-			const display = (isBgImgEnabled && 'design' === tab) ? 'block' : 'none';
-			const elements = [
-				'customize-control-responsive_footer_bg_left',
-				'customize-control-responsive_footer_bg_top',
-				'customize-control-responsive_footer_bg_repeat',
-				'customize-control-responsive_footer_bg_size',
-				'customize-control-responsive_footer_bg_attachment'
-			];
-			elements.forEach(id => {
-				let el = document.getElementById(id);
-				if (el) el.style.display = display;
-			});
-		};
-		toggleFooterBgControls();
-
-		if (api('responsive_footer_background_image_toggle')) {
-			api('responsive_footer_background_image_toggle', function( value ) {
-				value.bind( function( newval ) {
-					toggleFooterBgControls();
-				});
-			});
-		}
-
 		// Sidebar Divider Style Controls
 		if( api('responsive_sidebar_border_divider_style') ) {
 			toggleSidebarDividerStyleControls( api('responsive_sidebar_border_divider_style').get() );
@@ -1596,6 +1576,50 @@ const TabsComponent = props => {
 		};
 	}, [tab]);
 
+	// Hide the footer background-position/repeat/size/attachment controls
+	// unless the Footer's own Design tab is active AND its background image
+	// is enabled. Scoped to the footer tabs control only - without this guard,
+	// every Tabs instance in the Customizer (e.g. Above/Primary/Below Footer
+	// Row tabs, which default to their own 'general' tab) would also run this
+	// logic and force these footer-only elements to display:none using their
+	// own unrelated tab state, hiding them until the footer tabs control's own
+	// state changed again.
+	useEffect(() => {
+		if (id !== 'responsive_footer_tabs') {
+			return;
+		}
+
+		const footerBgElements = [
+			'customize-control-responsive_footer_bg_left',
+			'customize-control-responsive_footer_bg_top',
+			'customize-control-responsive_footer_bg_repeat',
+			'customize-control-responsive_footer_bg_size',
+			'customize-control-responsive_footer_bg_attachment',
+		];
+
+		const toggleFooterBgControls = () => {
+			const bgToggle = api('responsive_footer_background_image_toggle');
+			const isBgImgEnabled = bgToggle ? bgToggle.get() : false;
+			const display = (isBgImgEnabled && 'design' === tab) ? 'block' : 'none';
+			footerBgElements.forEach(elementId => {
+				const el = document.getElementById(elementId);
+				if (el) el.style.display = display;
+			});
+		};
+		toggleFooterBgControls();
+
+		const bgToggleSetting = api('responsive_footer_background_image_toggle');
+		if (bgToggleSetting) {
+			bgToggleSetting.bind(toggleFooterBgControls);
+		}
+
+		return () => {
+			if (bgToggleSetting) {
+				bgToggleSetting.unbind(toggleFooterBgControls);
+			}
+		};
+	}, [tab]);
+
 	const hideSidebarWidthControl = (value, control) => {
     const controlId = (control === 'global' || control === 'default') ? 'customize-control-responsive_default_sidebar_width' : `customize-control-responsive_${control}_sidebar_width`;
     const controlElement = document.getElementById(controlId);
@@ -1683,19 +1707,44 @@ const TabsComponent = props => {
 		});
 	};
 
+	// Whether a WooCommerce page type ('shop', 'single_product' or 'cart') ends up with a sidebar:
+	// own setting > WooCommerce General > Global. A narrow container layout never has a sidebar.
+	// Mirrors responsive_get_woocommerce_setting( 'sidebar_position' ) on the PHP side.
+	const isWoocommerceDefaultValue = (v) => !v || v === 'global' || v === 'default' || v === 'default_container';
+	const getWoocommerceSetting = (key, fallback) => (key && api(key)) ? api(key).get() : fallback;
+	const resolveWoocommerceSidebarPosition = (value, control) => {
+		const ownLayoutKeys = {
+			shop: 'responsive_product_catalog_container_layout',
+			single_product: 'responsive_single_product_container_layout',
+		};
+		let layout = getWoocommerceSetting(ownLayoutKeys[control], 'default');
+		if (isWoocommerceDefaultValue(layout)) {
+			layout = getWoocommerceSetting('responsive_woocommerce_container_layout', 'default');
+		}
+		if (isWoocommerceDefaultValue(layout)) {
+			layout = getWoocommerceSetting('responsive_width', 'contained');
+		}
+		if (layout === 'narrow') {
+			return 'no';
+		}
+
+		let position = value;
+		if (isWoocommerceDefaultValue(position)) {
+			position = getWoocommerceSetting('responsive_woocommerce_sidebar_layout', 'global');
+		}
+		if (isWoocommerceDefaultValue(position)) {
+			position = getWoocommerceSetting('responsive_default_sidebar_position', 'no');
+		}
+		return position;
+	};
+
 	const hideWoocommerceSidebarWidthControl = (value,control) => {
 		const controlId = `customize-control-responsive_${control}_sidebar_width`;
 		const controlElement = document.getElementById(controlId);
 		if (!controlElement) return;
 		controlElement.style.display = 'none';
 
-		let isVisible = false;
-		if (value === 'global') {
-			const globalValue = api('responsive_default_sidebar_position') ? api('responsive_default_sidebar_position').get() : 'no';
-			isVisible = globalValue !== 'no' && tab === 'general';
-		} else {
-			isVisible = value !== 'no' && tab === 'general';
-		}
+		const isVisible = resolveWoocommerceSidebarPosition(value, control) !== 'no' && tab === 'general';
 
 		if (isVisible && !isSidebarControlInactive(controlId)) {
 			controlElement.style.display = 'block';
@@ -1708,13 +1757,7 @@ const TabsComponent = props => {
 		if (!controlElement) return;
 		controlElement.style.display = 'none';
 
-		let isVisible = false;
-		if (value === 'global') {
-			const globalValue = api('responsive_default_sidebar_position') ? api('responsive_default_sidebar_position').get() : 'no';
-			isVisible = globalValue !== 'no' && tab === 'general';
-		} else {
-			isVisible = value !== 'no' && tab === 'general';
-		}
+		const isVisible = resolveWoocommerceSidebarPosition(value, control) !== 'no' && tab === 'general';
 
 		if (isVisible && !isSidebarControlInactive(controlId)) {
 			controlElement.style.display = 'block';
@@ -1728,13 +1771,10 @@ const TabsComponent = props => {
 		const separatorElement = document.getElementById(separatorId);
 		if (!controlElement) return;
 
-		let resolvedValue = value;
-		if (value === 'global' || value === 'default') {
-			resolvedValue = api('responsive_default_sidebar_position') ? api('responsive_default_sidebar_position').get() : 'no';
-		}
-
-		// For shop/single product sidebar: hide when 'left' or 'right'
-		let isVisible = resolvedValue === 'no' && tab === 'general';
+		// The Main Content Width slider only applies when the page has no sidebar. With a sidebar,
+		// the sidebar width decides the content width, so the slider is hidden.
+		const resolvedValue = resolveWoocommerceSidebarPosition(value, control);
+		const isVisible = resolvedValue === 'no' && tab === 'general';
 
 		if (isVisible) {
 			controlElement.style.display = 'block';
@@ -1743,11 +1783,39 @@ const TabsComponent = props => {
 			}
 		} else {
 			controlElement.style.display = 'none';
-			if (separatorElement) {
+			if (separatorElement && 'shop' !== control) {
 				separatorElement.style.display = 'none';
 			}
 		}
 	}
+
+	// Single product Container Style as it resolves: own setting > WooCommerce General > Global.
+	// Mirrors responsive_get_woocommerce_setting( 'container_style', 'single' ) on the PHP side.
+	const resolveSingleProductContainerStyle = () => {
+		let style = getWoocommerceSetting('responsive_single_product_container_style', 'default');
+		if (isWoocommerceDefaultValue(style)) {
+			style = getWoocommerceSetting('responsive_woocommerce_container_style', 'default');
+		}
+		if (isWoocommerceDefaultValue(style)) {
+			style = getWoocommerceSetting('responsive_style', 'boxed');
+		}
+		return style;
+	};
+
+	// The single product Content Background and Inside Container spacing style the product box,
+	// so they are hidden when single product resolves to a Flat container style.
+	const toggleSingleProductBoxControls = () => {
+		const isVisible = resolveSingleProductContainerStyle() !== 'flat' && tab === 'design';
+		[
+			'customize-control-responsive_single_product_content_background_color',
+			'customize-control-responsive_single_product_inside_container_padding',
+		].forEach(controlId => {
+			const element = document.getElementById(controlId);
+			if (element) {
+				element.style.display = isVisible ? 'block' : 'none';
+			}
+		});
+	};
 
 	const hideRetinaLogoUploadControl = (value) => {
 		const controlId = `customize-control-responsive_retina_logo_image`;
@@ -2416,6 +2484,53 @@ const TabsComponent = props => {
 			}
 		}
 	};
+
+	// Keep the WooCommerce sidebar dependent controls (content width, sidebar width and style) in
+	// sync when the WooCommerce General sidebar / layout, the page layouts or the global layout
+	// change. Handlers are removed on cleanup so a stale tab value is never applied.
+	useEffect(() => {
+		const refreshWoocommerceSidebarControls = () => {
+			if (api('responsive_shop_sidebar_position')) {
+				const shopPosition = api('responsive_shop_sidebar_position').get();
+				hideWoocommerceSidebarWidthControl(shopPosition, 'shop');
+				hideWoocommerceSidebarStyleControl(shopPosition, 'shop');
+				hideWoocommerceMainContentWidthControl(shopPosition, 'shop');
+			}
+			if (api('responsive_single_product_sidebar_position')) {
+				const singlePosition = api('responsive_single_product_sidebar_position').get();
+				hideWoocommerceSidebarWidthControl(singlePosition, 'single_product');
+				hideWoocommerceSidebarStyleControl(singlePosition, 'single_product');
+				hideWoocommerceMainContentWidthControl(singlePosition, 'single_product');
+			}
+			if (api('responsive_cart_content_width')) {
+				hideWoocommerceMainContentWidthControl('global', 'cart');
+			}
+			toggleSingleProductBoxControls();
+		};
+
+		const watchedSettings = [
+			'responsive_woocommerce_sidebar_layout',
+			'responsive_woocommerce_container_layout',
+			'responsive_product_catalog_container_layout',
+			'responsive_single_product_container_layout',
+			'responsive_width',
+			'responsive_single_product_container_style',
+			'responsive_woocommerce_container_style',
+			'responsive_style',
+		];
+		const bound = [];
+		watchedSettings.forEach(key => {
+			const setting = api(key);
+			if (setting) {
+				setting.bind(refreshWoocommerceSidebarControls);
+				bound.push(setting);
+			}
+		});
+
+		return () => {
+			bound.forEach(setting => setting.unbind(refreshWoocommerceSidebarControls));
+		};
+	}, [tab]);
 
 	return <>
 		<div className='responsive-component-tabs nav-tab-wrapper wp-clearfix' data-name={name}>

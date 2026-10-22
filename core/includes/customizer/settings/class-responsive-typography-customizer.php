@@ -495,8 +495,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'exclude'  => array( 'font-color' ),
 					'priority' => 90,
 					'defaults' => array(
-						'font-size'   => '16px',
-						'line-height' => '1.75',
 					),
 				),
 				'header_search_label' => array(
@@ -660,8 +658,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 114,
 					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
-						'font-size'   => '13px',
-						'line-height' => '1.75',
 					),
 				),
 				'footer_html2_font' => array(
@@ -671,8 +667,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 115,
 					'exclude'  => array( 'font-color' ),
 					'defaults' => array(
-						'font-size'   => '13px',
-						'line-height' => '1.75',
 					),
 				),
 				'footer_menu' => array(
@@ -682,8 +676,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'exclude' => array('font-color'),
 					'priority' => 45,
 					'defaults' => array(
-						'font-size' => '13px',
-						'line-height' => '1.75'
 					)
 				),
 				'footer_above_row_widget_heading' => array(
@@ -763,6 +755,13 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'line-height' => 'Default',
 					),
 				),
+				'shop_breadcrumb' => array(
+					'label'    => esc_html__( 'Breadcrumb Font', 'responsive' ),
+					'target'   => $selectorArray['shop_breadcrumb'],
+					'section'  => 'responsive_shop_title_layout',
+					'exclude'  => array( 'font-color' ),
+					'priority' => 20.1,
+				),
 				'single_product_title_area_title' => array(
 					'label'    => esc_html__( 'Title Font', 'responsive' ),
 					'target'   => $selectorArray['single_product_title_area_title'],
@@ -784,6 +783,22 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'font-size'   => 'Default',
 						'line-height' => 'Default',
 					),
+				),
+				'single_product_title_breadcrumb' => array(
+					'label'    => esc_html__( 'Breadcrumb Font', 'responsive' ),
+					'target'   => $selectorArray['single_product_title_breadcrumb'],
+					'section'  => 'responsive_single_product_title_layout',
+					'exclude'  => array( 'font-color' ),
+					'priority' => 20.1,
+				),
+				// Store Notice font. No defaults on purpose, nothing is output until a value is picked. The text color has its own control.
+				'store_notice' => array(
+					'label'           => esc_html__( 'Font', 'responsive' ),
+					'target'          => $selectorArray['store_notice'],
+					'section'         => 'woocommerce_store_notice',
+					'priority'        => 33,
+					'exclude'         => array( 'font-color' ),
+					'active_callback' => array( 'Responsive_Woocommerce_Store_Notice_Customizer', 'is_store_notice_enabled' ),
 				),
 				'single_product_meta' => array(
 					'label'    => esc_html__( 'Meta Font', 'responsive' ),
@@ -836,7 +851,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'heading_h4'                 => 'h4',
 				'heading_h5'                 => 'h5',
 				'heading_h6'                 => 'h6',
-				'meta'                       => '.hentry .post-data,.post-meta *',
+				'meta'                       => '.hentry .post-data,.post-meta *,.responsive-related-single-post-category *',
 				'button'                     => '.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, .entry-content div.wpforms-container-full .wpforms-form input[type=submit], body .entry-content div.wpforms-container-full .wpforms-form button[type=submit], .entry-content div.wpforms-container-full .wpforms-form .wpforms-page-button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,.entry-content div.wpforms-container-full .wpforms-form input[type=submit],.entry-content div.wpforms-container-full .wpforms-form button[type=submit],.entry-content div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link,body div.wpforms-container-full .wpforms-form button[type=submit], button,div.wpforms-container-full .wpforms-form .wpforms-submit-container,.elementor-widget-rael-button .rael-button .rael-text, .wp-block-file__button, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button',
 				'secondary_button'           => '.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button, .wp-block-button.is-style-outline > .wp-block-button__link',
 				'input'                      => 'select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],.entry-content div.wpforms-container-full .wpforms-form input[type=date],.entry-content div.wpforms-container-full .wpforms-form input[type=datetime],.entry-content div.wpforms-container-full .wpforms-form input[type=datetime-local],.entry-content div.wpforms-container-full .wpforms-form input[type=email],.entry-content div.wpforms-container-full .wpforms-form input[type=month],.entry-content div.wpforms-container-full .wpforms-form input[type=number],.entry-content div.wpforms-container-full .wpforms-form input[type=password],.entry-content div.wpforms-container-full .wpforms-form input[type=range],.entry-content div.wpforms-container-full .wpforms-form input[type=search],.entry-content div.wpforms-container-full .wpforms-form input[type=tel],.entry-content div.wpforms-container-full .wpforms-form input[type=text],.entry-content div.wpforms-container-full .wpforms-form input[type=time],.entry-content div.wpforms-container-full .wpforms-form input[type=url],.entry-content div.wpforms-container-full .wpforms-form input[type=week],.entry-content div.wpforms-container-full .wpforms-form select,.entry-content div.wpforms-container-full .wpforms-form textarea,body div.wpforms-container-full .wpforms-form input[type=text],body div.wpforms-container-full .wpforms-form input[type=email],body div.wpforms-container-full .wpforms-form textarea',
@@ -853,7 +868,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'sidebar'                    => '.site-content .widget-area:not(.home-widgets) .widget-wrapper',
 				'content_header_heading'     => '.site-content-header .page-header .page-title,.site-content-header .page-title',
 				'content_header_description' => '.site-content-header .page-header .page-description',
-				'breadcrumb'                 => '.breadcrumbs',
+				'breadcrumb'                 => '.breadcrumbs, .woocommerce.archive .site-content-header .woocommerce-breadcrumb, .woocommerce-shop .site-content-header .woocommerce-breadcrumb, .responsive-shop-entry-banner .woocommerce-breadcrumb, .single-product .site-content-header .woocommerce-breadcrumb, .single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb',
 				'footer'                     => '.site-footer',
 				'rp_section_title'           => '.responsive-related-single-posts-title',
 				'rp_post_title'              => '.responsive-related-single-post-title',
@@ -895,9 +910,13 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'footer_below_row_widget_content' => '.rspv-site-below-footer-wrap .footer-widgets',
 				'add_to_cart_button'         => '.woocommerce ul.products li.product .button, .woocommerce ul.products li.product .add_to_cart_button',
 				'shop_title'                 => '.woocommerce.archive .site-content-header .page-title, .woocommerce-shop .site-content-header .page-title, .responsive-shop-entry-banner .page-title',
-				'shop_text'                  => '.woocommerce.archive .site-content-header, .woocommerce-shop .site-content-header, .responsive-shop-entry-banner, .woocommerce.archive .site-content-header .page-description, .woocommerce-shop .site-content-header .page-description, .responsive-shop-entry-banner .page-description, .woocommerce.archive .site-content-header .page-description p, .woocommerce-shop .site-content-header .page-description p, .responsive-shop-entry-banner .page-description p, .woocommerce.archive .site-content-header .woocommerce-breadcrumb, .woocommerce-shop .site-content-header .woocommerce-breadcrumb, .responsive-shop-entry-banner .woocommerce-breadcrumb, .woocommerce.archive .site-content-header .woocommerce-breadcrumb a, .woocommerce-shop .site-content-header .woocommerce-breadcrumb a, .responsive-shop-entry-banner .woocommerce-breadcrumb a',
+				'shop_text'                  => '.woocommerce.archive .site-content-header, .woocommerce-shop .site-content-header, .responsive-shop-entry-banner, .woocommerce.archive .site-content-header .page-description, .woocommerce-shop .site-content-header .page-description, .responsive-shop-entry-banner .page-description, .woocommerce.archive .site-content-header .page-description p, .woocommerce-shop .site-content-header .page-description p, .responsive-shop-entry-banner .page-description p',
 				'single_product_title_area_title'       => '.single-product .site-content-header .product_title, .single-product .responsive-single-product-entry-banner .product_title',
-				'single_product_text'        => '.single-product .site-content-header, .single-product .responsive-single-product-entry-banner, .single-product .site-content-header .woocommerce-breadcrumb, .single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb, .single-product .site-content-header .woocommerce-breadcrumb a, .single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb a',
+				'single_product_text'        => '.single-product .site-content-header, .single-product .responsive-single-product-entry-banner',
+				// Breadcrumb Font of the Products / Product title areas. The 'body' prefix keeps these more specific than the global Breadcrumbs font selector above.
+				'shop_breadcrumb'            => 'body.woocommerce.archive .site-content-header .woocommerce-breadcrumb, body.woocommerce-shop .site-content-header .woocommerce-breadcrumb, body .responsive-shop-entry-banner .woocommerce-breadcrumb, body.woocommerce.archive .site-content-header .woocommerce-breadcrumb a, body.woocommerce-shop .site-content-header .woocommerce-breadcrumb a, body .responsive-shop-entry-banner .woocommerce-breadcrumb a',
+				'single_product_title_breadcrumb' => 'body.single-product .site-content-header .woocommerce-breadcrumb, body.single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb, body.single-product .site-content-header .woocommerce-breadcrumb a, body.single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb a',
+				'store_notice'               => 'body .woocommerce-store-notice, body p.demo_store',
 				'single_product_meta'        => '.single-product .site-content-header .post-meta, .single-product .site-content-header .post-meta *, .single-product .responsive-single-product-entry-banner .post-meta, .single-product .responsive-single-product-entry-banner .post-meta *, .single-product .site-content-header .responsive-product-taxonomy, .single-product .site-content-header .responsive-product-taxonomy *, .single-product .responsive-single-product-entry-banner .responsive-product-taxonomy, .single-product .responsive-single-product-entry-banner .responsive-product-taxonomy *',
 			);
 

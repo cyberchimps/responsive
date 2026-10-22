@@ -62,38 +62,6 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Pagination_Style_Customizer' )
 					)
 				)
 			);
-
-			/*
-			------------------------------------------------------------------
-			// Checkout Width
-			-------------------------------------------------------------------
-			*/
-			$wp_customize->add_setting(
-				'responsive_checkout_width',
-				array(
-					'transport'         => 'refresh',
-					'default'           => '960',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
-
-			$wp_customize->add_control(
-				new Responsive_Customizer_Range_Control(
-					$wp_customize,
-					'responsive_checkout_width',
-					array(
-						'label'       => __( 'Checkout Form Width (px)', 'responsive' ),
-						'section'     => 'woocommerce_checkout',
-						'settings'    => 'responsive_checkout_width',
-						'priority'    => 10,
-						'input_attrs' => array(
-							'min'  => 0,
-							'max'  => 4096,
-							'step' => 1,
-						),
-					)
-				)
-			);
 		}
 	}
 
