@@ -887,28 +887,80 @@ function responsive_customizer_styles() {
 		}
 	}
 
+	// Product card radius: the Product Catalog radius when set, otherwise the Global > Layout box radius.
+	$shop_card_radius = array(
+		'tl'        => intval( responsive_get_padding_fallback( 'responsive_shop_product_top_left_radius', $box_top_left_radius ) ),
+		'tr'        => intval( responsive_get_padding_fallback( 'responsive_shop_product_top_right_radius', $box_top_right_radius ) ),
+		'br'        => intval( responsive_get_padding_fallback( 'responsive_shop_product_bottom_right_radius', $box_bottom_right_radius ) ),
+		'bl'        => intval( responsive_get_padding_fallback( 'responsive_shop_product_bottom_left_radius', $box_bottom_left_radius ) ),
+		'tablet_tl' => intval( responsive_get_padding_fallback( 'responsive_shop_product_tablet_top_left_radius', $box_tablet_top_left_radius ) ),
+		'tablet_tr' => intval( responsive_get_padding_fallback( 'responsive_shop_product_tablet_top_right_radius', $box_tablet_top_right_radius ) ),
+		'tablet_br' => intval( responsive_get_padding_fallback( 'responsive_shop_product_tablet_bottom_right_radius', $box_tablet_bottom_right_radius ) ),
+		'tablet_bl' => intval( responsive_get_padding_fallback( 'responsive_shop_product_tablet_bottom_left_radius', $box_tablet_bottom_left_radius ) ),
+		'mobile_tl' => intval( responsive_get_padding_fallback( 'responsive_shop_product_mobile_top_left_radius', $box_mobile_top_left_radius ) ),
+		'mobile_tr' => intval( responsive_get_padding_fallback( 'responsive_shop_product_mobile_top_right_radius', $box_mobile_top_right_radius ) ),
+		'mobile_br' => intval( responsive_get_padding_fallback( 'responsive_shop_product_mobile_bottom_right_radius', $box_mobile_bottom_right_radius ) ),
+		'mobile_bl' => intval( responsive_get_padding_fallback( 'responsive_shop_product_mobile_bottom_left_radius', $box_mobile_bottom_left_radius ) ),
+	);
+
 	// Product Catalog Container Style: own setting > WooCommerce General > Global.
 	$responsive_product_catalog_container_style = Responsive\Core\responsive_get_woocommerce_setting( 'container_style', 'catalog' );
+
+	// Product card padding comes only from the Product Catalog settings, never from Global > Layout.
+	$shop_card_padding_tablet = responsive_spacing_css(
+		esc_html( get_theme_mod( 'responsive_product_card_outside_container_tablet_top_padding', 15 ) ),
+		esc_html( get_theme_mod( 'responsive_product_card_outside_container_tablet_right_padding', 15 ) ),
+		esc_html( get_theme_mod( 'responsive_product_card_outside_container_tablet_bottom_padding', 15 ) ),
+		esc_html( get_theme_mod( 'responsive_product_card_outside_container_tablet_left_padding', 15 ) )
+	);
+	$shop_card_padding_mobile = responsive_spacing_css(
+		esc_html( get_theme_mod( 'responsive_product_card_outside_container_mobile_top_padding', 15 ) ),
+		esc_html( get_theme_mod( 'responsive_product_card_outside_container_mobile_right_padding', 15 ) ),
+		esc_html( get_theme_mod( 'responsive_product_card_outside_container_mobile_bottom_padding', 15 ) ),
+		esc_html( get_theme_mod( 'responsive_product_card_outside_container_mobile_left_padding', 15 ) )
+	);
+	$shop_card_padding_desktop = responsive_spacing_css( $product_card_outside_container_padding_top, $product_card_outside_container_padding_right, $product_card_outside_container_padding_bottom, $product_card_outside_container_padding_left );
+
 	if ( 'boxed' === $responsive_product_catalog_container_style ) {
 		$custom_css .= "
 		.woocommerce.archive:not(.single-product) ul.products li.product,
 		.woocommerce-page.archive:not(.single-product) ul.products li.product {
 			background-color: {$box_background_color};
-			border-radius: {$box_top_left_radius}px {$box_top_right_radius}px {$box_bottom_right_radius}px {$box_bottom_left_radius}px;
-			padding: " . responsive_spacing_css( $box_padding_top, $box_padding_right, $box_padding_bottom, $box_padding_left ) . ";
+			border-radius: {$shop_card_radius['tl']}px {$shop_card_radius['tr']}px {$shop_card_radius['br']}px {$shop_card_radius['bl']}px;
+			padding: {$shop_card_padding_desktop};
 		}
 		@media screen and ( max-width: 992px ) {
 			.woocommerce.archive:not(.single-product) ul.products li.product,
 			.woocommerce-page.archive:not(.single-product) ul.products li.product {
-				border-radius: {$box_tablet_top_left_radius}px {$box_tablet_top_right_radius}px {$box_tablet_bottom_right_radius}px {$box_tablet_bottom_left_radius}px;
-				padding: " . responsive_spacing_css( $box_tablet_padding_top, $box_tablet_padding_right, $box_tablet_padding_bottom, $box_tablet_padding_left ) . ";
+				border-radius: {$shop_card_radius['tablet_tl']}px {$shop_card_radius['tablet_tr']}px {$shop_card_radius['tablet_br']}px {$shop_card_radius['tablet_bl']}px;
+				padding: {$shop_card_padding_tablet};
 			}
 		}
 		@media screen and ( max-width: 576px ) {
 			.woocommerce.archive:not(.single-product) ul.products li.product,
 			.woocommerce-page.archive:not(.single-product) ul.products li.product {
-				border-radius: {$box_mobile_top_left_radius}px {$box_mobile_top_right_radius}px {$box_mobile_bottom_right_radius}px {$box_mobile_bottom_left_radius}px;
-				padding: " . responsive_spacing_css( $box_mobile_padding_top, $box_mobile_padding_right, $box_mobile_padding_bottom, $box_mobile_padding_left ) . ";
+				border-radius: {$shop_card_radius['mobile_tl']}px {$shop_card_radius['mobile_tr']}px {$shop_card_radius['mobile_br']}px {$shop_card_radius['mobile_bl']}px;
+				padding: {$shop_card_padding_mobile};
+			}
+		}";
+	} elseif ( 'unboxed' === $responsive_product_catalog_container_style ) {
+		$custom_css .= "
+		.woocommerce.archive:not(.single-product) ul.products li.product,
+		.woocommerce-page.archive:not(.single-product) ul.products li.product {
+			background-color: transparent;
+			border-radius: 0;
+			padding: {$shop_card_padding_desktop};
+		}
+		@media screen and ( max-width: 992px ) {
+			.woocommerce.archive:not(.single-product) ul.products li.product,
+			.woocommerce-page.archive:not(.single-product) ul.products li.product {
+				padding: {$shop_card_padding_tablet};
+			}
+		}
+		@media screen and ( max-width: 576px ) {
+			.woocommerce.archive:not(.single-product) ul.products li.product,
+			.woocommerce-page.archive:not(.single-product) ul.products li.product {
+				padding: {$shop_card_padding_mobile};
 			}
 		}";
 	}
@@ -939,7 +991,7 @@ function responsive_customizer_styles() {
 
 
 	// Detect the operating system and set the typical scrollbar width.
-	$user_agent = isset( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : '';
+	$user_agent = isset( $_SERVER['HTTP_USER_AGENT'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) ) : '';
 	$scrollbar_widths = [
 		'Win'     => '17px',
 		'Mac'     => '0px',
@@ -2581,9 +2633,9 @@ function responsive_customizer_styles() {
 	input[type=submit]:hover,
 	input[type=button]:focus:not(.customize-partial-edit-shortcut-button),
 	input[type=submit]:focus,
-	button:hover:not(.customize-partial-edit-shortcut-button):not(.menu-toggle),
+	button:hover:not(.customize-partial-edit-shortcut-button):not(.menu-toggle, .floating-bar-addbtn),
 	button:focus:not(.customize-partial-edit-shortcut-button):not(.menu-toggle),
-	.button:hover:not(.customize-partial-edit-shortcut-button):not(.menu-toggle),
+	.button:hover:not(.customize-partial-edit-shortcut-button):not(.menu-toggle, .floating-bar-addbtn),
 	.button:focus:not(.customize-partial-edit-shortcut-button):not(.menu-toggle),
 	body div.wpforms-container-full .wpforms-form input[type=submit]:hover,
 	body div.wpforms-container-full .wpforms-form input[type=submit]:focus,
@@ -3071,6 +3123,13 @@ function responsive_customizer_styles() {
 				}
 			";
 		}
+
+		// Toggle icon color: the svg bars are filled, so `color` alone has no effect.
+		$custom_css .= "
+			body.res-transparent-header .menu-toggle svg > *:not(:first-child) {
+				fill: {$header_menu_toggle_color};
+			}
+		";
 
 		// Header Social Color.
 		$transparent_header_social_item_color          = esc_html( responsive_prepare_css_value( 'responsive_transparent_header_social_item_color', '' ) );
@@ -4083,7 +4142,7 @@ function responsive_customizer_styles() {
 		color: {$header_menu_link_hover_color};
 		background-color: {$header_hover_menu_background_color};
 	}
-	.main-navigation .menu li:hover .res-iconify svg:hover, .main-navigation .menu > li:hover > a:not(.sub-menu) > .res-iconify svg {
+	.main-navigation .menu li:hover .res-iconify svg:hover, .main-navigation .menu > li > a:hover > .res-iconify svg {
 		stroke: {$header_menu_link_hover_color};
 	}
 	.main-navigation .children,
@@ -4112,8 +4171,9 @@ function responsive_customizer_styles() {
 		color: {$header_sub_menu_link_hover_color};
 		background-color: {$header_hover_sub_menu_background_color};
 	}
-	.main-navigation .menu .sub-menu li:hover > .res-iconify svg,
-	.main-navigation .menu .sub-menu li:hover > a > .res-iconify svg {
+	.main-navigation .menu .sub-menu li > .res-iconify:hover svg,
+	.main-navigation .menu .sub-menu li > a:hover + .res-iconify svg,
+	.main-navigation .menu .sub-menu li > a:hover > .res-iconify svg {
 		stroke: {$header_sub_menu_link_hover_color};
 	}
 	.main-navigation .menu-toggle {
@@ -12148,7 +12208,19 @@ function responsive_customizer_styles() {
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
-		padding: 13px;
+	}
+	.site-header-item-toggle-button .menu-toggle {
+		padding: {$hamburger_menu_padding_top}px {$hamburger_menu_padding_right}px {$hamburger_menu_padding_bottom}px {$hamburger_menu_padding_left}px;
+	}
+	@media screen and ( min-width: 577px ) and ( max-width: {$toggle_button_breakpoint}px ) {
+		.site-header-item-toggle-button .menu-toggle {
+			padding: {$hamburger_menu_tablet_padding_top}px {$hamburger_menu_tablet_padding_right}px {$hamburger_menu_tablet_padding_bottom}px {$hamburger_menu_tablet_padding_left}px;
+		}
+	}
+	@media screen and ( max-width: 576px ) {
+		.site-header-item-toggle-button .menu-toggle {
+			padding: {$hamburger_menu_mobile_padding_top}px {$hamburger_menu_mobile_padding_right}px {$hamburger_menu_mobile_padding_bottom}px {$hamburger_menu_mobile_padding_left}px;
+		}
 	}
 	@media screen and ( min-width: " . ($toggle_button_breakpoint + 1) . "px ) {
 		.responsive-desktop-header-wrapper .site-header-item-toggle-button,
@@ -14114,18 +14186,18 @@ function responsive_customizer_styles() {
 				Responsive\Core\get_responsive_customizer_defaults( 'responsive_page_site_background_color' )
 			)
 		);
-		$tl 								 = intval  ( get_theme_mod( 'responsive_shop_product_top_left_radius', 8 ) );
-		$tr 								 = intval  ( get_theme_mod( 'responsive_shop_product_top_right_radius', 8 ) );
-		$br 								 = intval  ( get_theme_mod( 'responsive_shop_product_bottom_right_radius', 8 ) );
-		$bl 								 = intval  ( get_theme_mod( 'responsive_shop_product_bottom_left_radius', 8 ) );
-		$mobile_tl 							 = intval  ( get_theme_mod( 'responsive_shop_product_mobile_top_left_radius', 8)); 
-		$mobile_tr 							 = intval  ( get_theme_mod( 'responsive_shop_product_mobile_top_right_radius', 8));
-		$mobile_br							 = intval  ( get_theme_mod( 'responsive_shop_product_mobile_bottom_right_radius', 8));
-		$mobile_bl							 = intval  ( get_theme_mod( 'responsive_shop_product_mobile_bottom_left_radius', 8)); 
-		$tablet_tl							 = intval  ( get_theme_mod( 'responsive_shop_product_tablet_top_left_radius', 8)); 
-		$tablet_tr							 = intval  ( get_theme_mod( 'responsive_shop_product_tablet_top_right_radius', 8)); 
-		$tablet_br 							 = intval  ( get_theme_mod( 'responsive_shop_product_tablet_bottom_right_radius', 8)); 
-		$tablet_bl							 = intval  ( get_theme_mod( 'responsive_shop_product_tablet_bottom_left_radius', 8)); 
+		$tl = $shop_card_radius['tl'];
+		$tr = $shop_card_radius['tr'];
+		$br = $shop_card_radius['br'];
+		$bl = $shop_card_radius['bl'];
+		$mobile_tl = $shop_card_radius['mobile_tl'];
+		$mobile_tr = $shop_card_radius['mobile_tr'];
+		$mobile_br = $shop_card_radius['mobile_br'];
+		$mobile_bl = $shop_card_radius['mobile_bl'];
+		$tablet_tl = $shop_card_radius['tablet_tl'];
+		$tablet_tr = $shop_card_radius['tablet_tr'];
+		$tablet_br = $shop_card_radius['tablet_br'];
+		$tablet_bl = $shop_card_radius['tablet_bl'];
 		$single_product_breadcrumbs_flag = get_theme_mod( 'responsive_single_product_breadcrumbs', 0 );
 		$single_product_breadcrumb_display_value     = $single_product_breadcrumbs_flag ? 'block' : 'none';
 

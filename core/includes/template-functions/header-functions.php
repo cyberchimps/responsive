@@ -175,12 +175,12 @@ function responsive_header_woo_cart_slide_in() {
 	) {
 		// Prevent slide in markup when 'redirect' option is selected.
 		// Remove the second if condition if we have mobile header builder.
-		if ( 'slide_in_cart' === $add_to_cart_action || 'redirect' !== $cart_click_action || ( 'dropdown' === $cart_click_action && wp_is_mobile() ) ) {
+		if ( 'slide_in_cart' === $add_to_cart_action || 'redirect' !== $cart_click_action || ( 'dropdown' === $cart_click_action && wp_is_mobile() ) ) { // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_is_mobile_wp_is_mobile -- jetpack_is_mobile() is not available outside Jetpack/VIP.
 		wp_enqueue_script( 'responsive-cart-slide-in', get_template_directory_uri() . '/core/js/slide-in-cart.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
 		$rspv_cart_localize_data = array(
 			'cart_click_action'  => $cart_click_action,
 			'add_to_cart_action' => $add_to_cart_action,
-			'isMobile'           => wp_is_mobile(),
+			'isMobile'           => wp_is_mobile(), // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_is_mobile_wp_is_mobile -- jetpack_is_mobile() is not available outside Jetpack/VIP.
 		);
 		wp_localize_script( 'responsive-cart-slide-in', 'responsive_woo_cart', $rspv_cart_localize_data );
 		wp_enqueue_style( 'dashicons' );
@@ -218,7 +218,7 @@ function responsive_header_woo_cart_slide_in() {
  * is defined in mobile-header-functions.php.
  */
 function responsive_header_woo_cart_slide_in_router() {
-	if ( wp_is_mobile() ) {
+	if ( wp_is_mobile() ) { // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_is_mobile_wp_is_mobile -- jetpack_is_mobile() is not available outside Jetpack/VIP.
 		responsive_mobile_header_woo_cart_slide_in();
 	} else {
 		responsive_header_woo_cart_slide_in();

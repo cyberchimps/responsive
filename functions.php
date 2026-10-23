@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '6.4.9' );
+define( 'RESPONSIVE_THEME_VERSION', '6.5.0' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -987,6 +987,53 @@ function responsive_wpkses_post_tags( $tags, $context ) {
 }
 add_filter( 'wp_kses_allowed_html', 'responsive_wpkses_post_tags', 10, 2 );
 
+function responsive_meta_allowed_html() {
+	$allowed = wp_kses_allowed_html( 'post' );
+	$schema  = array(
+		'itemprop'  => true,
+		'itemscope' => true,
+		'itemtype'  => true,
+	);
+	foreach ( array( 'span', 'a', 'time' ) as $tag ) {
+		$allowed[ $tag ] = array_merge( isset( $allowed[ $tag ] ) ? $allowed[ $tag ] : array(), $schema );
+	}
+	return $allowed;
+}
+
+function responsive_svg_allowed_html() {
+	$common = array_fill_keys(
+		array( 'id', 'class', 'style', 'transform', 'opacity', 'fill', 'fill-opacity', 'fill-rule', 'clip-rule', 'clip-path', 'mask', 'stroke', 'stroke-width', 'stroke-opacity', 'stroke-linecap', 'stroke-linejoin', 'stroke-miterlimit', 'stroke-dasharray', 'stroke-dashoffset' ),
+		true
+	);
+	$tags   = array(
+		'svg'            => array( 'xmlns', 'width', 'height', 'viewbox', 'preserveaspectratio', 'role', 'aria-hidden', 'aria-label', 'focusable' ),
+		'g'              => array(),
+		'defs'           => array(),
+		'title'          => array(),
+		'desc'           => array(),
+		'path'           => array( 'd' ),
+		'circle'         => array( 'cx', 'cy', 'r' ),
+		'ellipse'        => array( 'cx', 'cy', 'rx', 'ry' ),
+		'rect'           => array( 'x', 'y', 'width', 'height', 'rx', 'ry' ),
+		'line'           => array( 'x1', 'y1', 'x2', 'y2' ),
+		'polyline'       => array( 'points' ),
+		'polygon'        => array( 'points' ),
+		'text'           => array( 'x', 'y', 'dx', 'dy', 'text-anchor', 'font-family', 'font-size', 'font-weight' ),
+		'tspan'          => array( 'x', 'y', 'dx', 'dy', 'text-anchor', 'font-family', 'font-size', 'font-weight' ),
+		'lineargradient' => array( 'x1', 'y1', 'x2', 'y2', 'gradientunits', 'gradienttransform' ),
+		'radialgradient' => array( 'cx', 'cy', 'r', 'fx', 'fy', 'gradientunits', 'gradienttransform' ),
+		'stop'           => array( 'offset', 'stop-color', 'stop-opacity' ),
+		'clippath'       => array( 'clippathunits' ),
+		'mask'           => array( 'x', 'y', 'width', 'height', 'maskunits' ),
+	);
+
+	$allowed = array();
+	foreach ( $tags as $tag => $attrs ) {
+		$allowed[ $tag ] = $common + array_fill_keys( $attrs, true );
+	}
+	return $allowed;
+}
+
 /**
  * Register theme locations
  *
@@ -1259,7 +1306,7 @@ function responsive_transparent_header_device_scope() {
 	<script>
 	(function() {
 		var enableOn   = <?php echo wp_json_encode( $enable_on ); ?>;
-		var breakpoint = <?php echo $breakpoint; ?>;
+		var breakpoint = <?php echo absint( $breakpoint ); ?>;
 		function applyTransparentHeader() {
 			var w    = window.innerWidth;
 			var body = document.body;
@@ -1442,7 +1489,7 @@ function save_footer_text_callback() {
 		wp_send_json_error( esc_html__( 'You do not have sufficient permissions to perform this action.', 'responsive' ) );
 	}
 
-	$footer_text = wp_kses_post( $_POST['footer_text'] );
+	$footer_text = isset( $_POST['footer_text'] ) ? wp_kses_post( wp_unslash( $_POST['footer_text'] ) ) : '';
 
 	update_option( 'footer-copyright', $footer_text );
 
@@ -1483,7 +1530,7 @@ add_action( 'wp_ajax_responsive_flush_local_fonts_cache', 'responsive_ajax_flush
  */
 function responsive_admin_post_flush_local_fonts() {
     if ( ! current_user_can( 'customize' ) ) {
-        wp_die( __( 'Insufficient permissions.', 'responsive' ) );
+        wp_die( esc_html__( 'Insufficient permissions.', 'responsive' ) );
     }
     check_admin_referer( 'responsive_flush_local_fonts' );
     if ( class_exists( 'Responsive_Local_Fonts' ) ) {
@@ -3805,7 +3852,6 @@ if ( ! function_exists( 'responsive_theme_background_updater_title_area_breadcru
 	}
 }
 
-
 if ( ! function_exists( 'responsive_theme_background_updater_single_product_title_area_text_font_6_4_8' ) ) {
 	/**
 	 * Handle backward compatibility for single product title area text font and colors.
@@ -3878,5 +3924,34 @@ if ( ! function_exists( 'responsive_theme_background_updater_single_product_titl
 		}
 
 		update_option( 'responsive_single_product_title_area_text_font_6_4_8_done', true );
+	}
+}
+
+if ( ! function_exists( 'responsive_theme_background_updater_hamburger_menu_padding_6_5_0' ) ) {
+	/**
+	 * Handle backward compatibility for hamburger menu padding.
+	 *
+	 * The toggle button padding used to be a hardcoded 13px. It now comes from the
+	 * Hamburger Menu padding control, so save 13 once for every side that was never set.
+	 *
+	 * @since 6.5.0
+	 * @return void
+	 */
+	function responsive_theme_background_updater_hamburger_menu_padding_6_5_0() {
+
+		if ( get_option( 'responsive_hamburger_menu_padding_6_5_0_done' ) ) {
+			return;
+		}
+
+		foreach ( array( '', 'tablet_', 'mobile_' ) as $device ) {
+			foreach ( array( 'top', 'right', 'bottom', 'left' ) as $side ) {
+				$setting = 'responsive_hamburger_menu_' . $device . $side . '_padding';
+				if ( false === get_theme_mod( $setting, false ) ) {
+					set_theme_mod( $setting, 13 );
+				}
+			}
+		}
+
+		update_option( 'responsive_hamburger_menu_padding_6_5_0_done', true );
 	}
 }

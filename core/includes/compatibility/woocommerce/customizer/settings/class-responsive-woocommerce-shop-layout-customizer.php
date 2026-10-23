@@ -65,7 +65,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				$general_tab_ids_prefix . 'responsive_off_canvas_filter_separator',
 				$general_tab_ids_prefix . 'responsive_enable_off_canvas_filter',
 				$general_tab_ids_prefix . 'responsive_enable_off_canvas_close_btn',
-				$general_tab_ids_prefix . 'responsive_off_canvas_close_button_color',
+				$general_tab_ids_prefix . 'responsive_hamburger_off_canvas_btn_label_text',
 				$general_tab_ids_prefix . 'toolbar_options',
 				$general_tab_ids_prefix . 'responsive_native_cart_popup_separator',
 				$general_tab_ids_prefix . 'responsive_enable_native_cart_popup',
@@ -139,7 +139,15 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_shop_product_sorting_separator',
 				$design_tab_ids_prefix . 'responsive_sorting_option_text_color',
 				$design_tab_ids_prefix . 'responsive_sorting_option_background_color',
+				$design_tab_ids_prefix . 'responsive_off_canvas_filter_design_separator',
 				$design_tab_ids_prefix . 'responsive_off_canvas_close_button_color',
+				$design_tab_ids_prefix . 'responsive_off_canvas_close_button_hover_color',
+				$design_tab_ids_prefix . 'responsive_off_canvas_filter_button_color',
+				$design_tab_ids_prefix . 'responsive_off_canvas_filter_button_text_color',
+				$design_tab_ids_prefix . 'responsive_off_canvas_filter_button_border_color',
+				$design_tab_ids_prefix . 'responsive_off_canvas_filter_button_hover_color',
+				$design_tab_ids_prefix . 'responsive_off_canvas_filter_button_text_hover_color',
+				$design_tab_ids_prefix . 'responsive_off_canvas_filter_button_border_hover_color',
 				$design_tab_ids_prefix . 'box_shadow_options',
 				$design_tab_ids_prefix . 'box_shadow_hover_options',
 				$design_tab_ids_prefix . 'product_image_hover_style_options',
@@ -192,7 +200,8 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 
 			// product border radius
 			$product_border_radius_label = esc_html__( 'Border Radius (px)', 'responsive' );
-			responsive_radius_control($wp_customize, 'shop_product', 'responsive_woocommerce_shop', 30, 8, 8, null, $product_border_radius_label, 'postMessage',);
+			// Blank means follow the Global > Layout box radius, so keep blank values instead of converting them to 0.
+			responsive_radius_control( $wp_customize, 'shop_product', 'responsive_woocommerce_shop', 30, '', '', null, $product_border_radius_label, 'postMessage', 'responsive_sanitize_number_blank' );
 
 			// Products Title Area Section Toggle.
 			responsive_section_toggle_control(
@@ -900,35 +909,39 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			$enable_off_canvas_filter = __( 'Enable Off Canvas Filter', 'responsive' );
 			responsive_toggle_control( $wp_customize, 'enable_off_canvas_filter', $enable_off_canvas_filter, 'responsive_woocommerce_shop', 115, 0, null, 'refresh' );
 
+			$enable_off_canvas_close_btn = __( 'Enable Off Canvas Close Button', 'responsive' );
+			responsive_toggle_control( $wp_customize, 'enable_off_canvas_close_btn', $enable_off_canvas_close_btn, 'responsive_woocommerce_shop', 117, 0, 'enable_off_canvas_filter_check', 'refresh' );
+
 			$hamburger_off_canvas_btn_label = __( 'Off Canvas Filter Button Text', 'responsive' );
 			responsive_text_control( $wp_customize, 'hamburger_off_canvas_btn_label_text', $hamburger_off_canvas_btn_label, 'responsive_woocommerce_shop', 120, 'Filter', 'enable_off_canvas_filter_check', 'sanitize_text_field', 'text', 'postMessage' );
 
-			$enable_off_canvas_close_btn = __( 'Enable Off Canvas Close Button', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'enable_off_canvas_close_btn', $enable_off_canvas_close_btn, 'responsive_woocommerce_shop', 125, 0, null, 'refresh' );
+			// Design tab: Off Canvas Filter colors, placed right after Product Sorting.
+			$off_canvas_filter_design_label = esc_html__( 'Off Canvas Filter', 'responsive' );
+			responsive_separator_control( $wp_customize, 'off_canvas_filter_design_separator', $off_canvas_filter_design_label, 'responsive_woocommerce_shop', 75.1, 'enable_off_canvas_filter_check' );
 
 			$close_button_color = __( 'Close Button Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'off_canvas_close_button', $close_button_color, 'responsive_woocommerce_shop', 130, '#CCCCCC', 'enable_enable_off_canvas_close_btn' );
+			responsive_color_control( $wp_customize, 'off_canvas_close_button', $close_button_color, 'responsive_woocommerce_shop', 75.2, '#CCCCCC', 'enable_enable_off_canvas_close_btn' );
 
 			$close_button_hover_color = __( 'Close Button Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'off_canvas_close_button_hover', $close_button_hover_color, 'responsive_woocommerce_shop', 135, '#777777', 'enable_enable_off_canvas_close_btn' );
+			responsive_color_control( $wp_customize, 'off_canvas_close_button_hover', $close_button_hover_color, 'responsive_woocommerce_shop', 75.2, '#777777', 'enable_enable_off_canvas_close_btn' );
 
 			$filter_button_color = __( 'Filter Button Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'off_canvas_filter_button', $filter_button_color, 'responsive_woocommerce_shop', 140, 'transparent', 'enable_off_canvas_filter_check' );
+			responsive_color_control( $wp_customize, 'off_canvas_filter_button', $filter_button_color, 'responsive_woocommerce_shop', 75.2, 'transparent', 'enable_off_canvas_filter_check' );
 
 			$filter_text_color = __( 'Filter Button Text Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'off_canvas_filter_button_text', $filter_text_color, 'responsive_woocommerce_shop', 140, '#808080', 'enable_off_canvas_filter_check' );
+			responsive_color_control( $wp_customize, 'off_canvas_filter_button_text', $filter_text_color, 'responsive_woocommerce_shop', 75.2, '#808080', 'enable_off_canvas_filter_check' );
 
 			$filter_button_border_color = __( 'Filter Button Border Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'off_canvas_filter_button_border', $filter_button_border_color, 'responsive_woocommerce_shop', 140, '#808080', 'enable_off_canvas_filter_check' );
+			responsive_color_control( $wp_customize, 'off_canvas_filter_button_border', $filter_button_border_color, 'responsive_woocommerce_shop', 75.2, '#808080', 'enable_off_canvas_filter_check' );
 
 			$filter_button_color_hover = __( 'Filter Button Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'off_canvas_filter_button_hover', $filter_button_color_hover, 'responsive_woocommerce_shop', 140, 'transparent', 'enable_off_canvas_filter_check' );
+			responsive_color_control( $wp_customize, 'off_canvas_filter_button_hover', $filter_button_color_hover, 'responsive_woocommerce_shop', 75.2, 'transparent', 'enable_off_canvas_filter_check' );
 
 			$filter_text_color_hover = __( 'Filter Button Text Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'off_canvas_filter_button_text_hover', $filter_text_color_hover, 'responsive_woocommerce_shop', 140, '#10659c', 'enable_off_canvas_filter_check' );
+			responsive_color_control( $wp_customize, 'off_canvas_filter_button_text_hover', $filter_text_color_hover, 'responsive_woocommerce_shop', 75.2, '#10659c', 'enable_off_canvas_filter_check' );
 
 			$filter_button_border_color_hover = __( 'Filter Button Border Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'off_canvas_filter_button_border_hover', $filter_button_border_color_hover, 'responsive_woocommerce_shop', 140, '#10659c', 'enable_off_canvas_filter_check' );
+			responsive_color_control( $wp_customize, 'off_canvas_filter_button_border_hover', $filter_button_border_color_hover, 'responsive_woocommerce_shop', 75.2, '#10659c', 'enable_off_canvas_filter_check' );
 
 		}
 

@@ -23,7 +23,7 @@ if( ! defined('ABSPATH') ) {
 				'responsive_header_button_open_in_new_tab',
 				Responsive\Core\get_responsive_customizer_defaults('responsive_header_button_open_in_new_tab')
 			);
-			$target = $new_tab ? 'target="_blank"' : 'target="_self"';
+			$target = $new_tab ? '_blank' : '_self';
 			$rel = array();
 			if ( $new_tab ) {
 				$rel[] = 'noopener';
@@ -56,7 +56,7 @@ if( ! defined('ABSPATH') ) {
 
 			$header_button_size_class = 'responsive-header-button-' . $header_button_size . '-size';
 
-			$rel_display = ! empty( $rel ) ? ' rel="' . esc_attr( implode( ' ', $rel ) ) . '"' : '';
+			$rel_display = implode( ' ', $rel );
 
 			if ($is_visible) {
 				$button_label = get_theme_mod(
@@ -65,9 +65,13 @@ if( ! defined('ABSPATH') ) {
 				);
 				?>
 				<a 
-					href="<?php echo $href; ?>" 
-					<?php echo $target; ?> 
-					<?php echo $rel_display; ?>
+					href="<?php echo esc_url( trim( $href ) ); ?>" 
+					target="<?php echo esc_attr( $target ); ?>"
+					<?php
+					if ( $rel_display ) {
+						echo ' rel="' . esc_attr( $rel_display ) . '"';
+					}
+					?>
 					<?php echo esc_attr( $download ); ?>  
 					class="button responsive-header-button <?php echo esc_attr( $header_button_size_class ); ?>">
 					<?php echo esc_html( $button_label, 'responsive' ); ?>

@@ -736,23 +736,31 @@
     applyLayoutBoxRadius('responsive_box_mobile_bottom_right_radius');
 
     function shopPageCardRadius() {
-        function getRadiusValues(prefix) {
+        // A blank Product Catalog radius follows the Global > Layout box radius.
+        function getRadiusValues(prefix, globalPrefix) {
+            function resolve(corner) {
+                var val = api(prefix + corner)();
+                if (val === '' || val === null || val === undefined) {
+                    val = api(globalPrefix + corner)();
+                }
+                return parseInt(val, 10) || 0;
+            }
             return {
-            tl: parseInt(api(prefix + '_top_left_radius')(), 10) || 0,
-            tr: parseInt(api(prefix + '_top_right_radius')(), 10) || 0,
-            br: parseInt(api(prefix + '_bottom_right_radius')(), 10) || 0,
-            bl: parseInt(api(prefix + '_bottom_left_radius')(), 10) || 0
+            tl: resolve('_top_left_radius'),
+            tr: resolve('_top_right_radius'),
+            br: resolve('_bottom_right_radius'),
+            bl: resolve('_bottom_left_radius')
             };
         }
 
         // Desktop
-        var { tl, tr, br, bl } = getRadiusValues('responsive_shop_product');
+        var { tl, tr, br, bl } = getRadiusValues('responsive_shop_product', 'responsive_box');
 
         // Tablet
-        var { tl: tablet_tl, tr: tablet_tr, br: tablet_br, bl: tablet_bl } = getRadiusValues('responsive_shop_product_tablet');
+        var { tl: tablet_tl, tr: tablet_tr, br: tablet_br, bl: tablet_bl } = getRadiusValues('responsive_shop_product_tablet', 'responsive_box_tablet');
 
         // Mobile
-        var { tl: mobile_tl, tr: mobile_tr, br: mobile_br, bl: mobile_bl } = getRadiusValues('responsive_shop_product_mobile');
+        var { tl: mobile_tl, tr: mobile_tr, br: mobile_br, bl: mobile_bl } = getRadiusValues('responsive_shop_product_mobile', 'responsive_box_mobile');
 
         // Breakpoints
         var mobileBreakPoint = 544;
@@ -823,7 +831,20 @@
         'responsive_shop_product_mobile_top_right_radius',
         'responsive_shop_product_mobile_bottom_right_radius',
         'responsive_shop_product_mobile_bottom_left_radius'
-    ].forEach(function(id){
+    ].concat([
+        'responsive_box_top_left_radius',
+        'responsive_box_top_right_radius',
+        'responsive_box_bottom_right_radius',
+        'responsive_box_bottom_left_radius',
+        'responsive_box_tablet_top_left_radius',
+        'responsive_box_tablet_top_right_radius',
+        'responsive_box_tablet_bottom_right_radius',
+        'responsive_box_tablet_bottom_left_radius',
+        'responsive_box_mobile_top_left_radius',
+        'responsive_box_mobile_top_right_radius',
+        'responsive_box_mobile_bottom_right_radius',
+        'responsive_box_mobile_bottom_left_radius'
+    ]).forEach(function(id){
         api(id, function(value){ value.bind(shopPageCardRadius); });
     });
 

@@ -148,7 +148,7 @@ do_action( 'responsive_before_single_page_meta' );
 	}
 
 	$meta_output = implode( $separator_html, $meta_items );
-	echo $meta_output;
+	echo wp_kses( $meta_output, responsive_meta_allowed_html() );
 	?>
 </div><!-- end of .post-meta -->
 <?php do_action( 'responsive_after_single_page_meta' ); ?>

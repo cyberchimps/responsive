@@ -76,6 +76,9 @@ if ( ! class_exists( 'Responsive_Theme_Background_Updater' ) ) {
                 'responsive_theme_background_updater_title_area_breadcrumb_colors_6_4_9',
                 'responsive_theme_background_updater_title_area_breadcrumb_font_6_4_9',
             ),
+            '6.5.0' => array (
+                'responsive_theme_background_updater_hamburger_menu_padding_6_5_0',
+            ),
 		);
 
         /**
