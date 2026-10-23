@@ -375,6 +375,20 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			// Margin
 			responsive_unit_padding_control( $wp_customize, 'primary_menu_margin', 'responsive_header_menu_layout', 250, '', '', 'responsive_disabled_main_menu', __( 'Margin', 'responsive' ), 'postMessage', '', '', '', '', 'px' );
 
+			// 	Upgrade to Pro nudge for Header (only registers when Responsive Pro is not active).
+			responsive_pro_nudge_control(
+				$wp_customize,
+				'primary_menu_container',
+				'responsive_header_menu_layout',
+				array(
+					'image'       => RESPONSIVE_THEME_URI . 'admin/images/upgradeToPro.jpg',
+					'description' => __( 'Take your container layout to the next level with powerful design features.', 'responsive' ),
+					'features'    => array(
+						__( 'Enhanced Typography', 'responsive' ),
+					),
+				),
+				999
+			);
 		}
 
 	}

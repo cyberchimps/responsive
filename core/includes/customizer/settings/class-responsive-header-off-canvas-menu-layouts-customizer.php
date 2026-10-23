@@ -162,6 +162,20 @@ if( ! class_exists( 'Responsive_Header_Off_Canvas_Menu_Layouts_Customizer' ) ) {
             
 
 
+			// 	Upgrade to Pro nudge for OffCanvas Menu (only registers when Responsive Pro is not active).
+			responsive_pro_nudge_control(
+				$wp_customize,
+				'offcanvas_menu_container',
+				'responsive_header_off_canvas_menu_layout',
+				array(
+					'image'       => RESPONSIVE_THEME_URI . 'admin/images/upgradeToPro.jpg',
+					'description' => __( 'Take your container layout to the next level with powerful design features.', 'responsive' ),
+					'features'    => array(
+						__( 'Enhanced Typography', 'responsive' ),
+					),
+				),
+				999
+			);
         }
 
     }

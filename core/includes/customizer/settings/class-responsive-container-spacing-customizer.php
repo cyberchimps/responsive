@@ -61,6 +61,7 @@ if ( ! class_exists( 'Responsive_Container_Spacing_Customizer' ) ) :
 						__( 'Equal Grids', 'responsive' ),
 						__( 'Pagination Styles', 'responsive' ),
 						__( 'Custom Featured Image Size', 'responsive' ),
+						__( 'Enhanced Typography', 'responsive' ),
 					),
 				),
 				999
