@@ -899,26 +899,42 @@ function responsive_customizer_styles() {
 	// Product Catalog Container Style.
 	$product_catalog_container_style_setting = get_theme_mod( 'responsive_product_catalog_container_style', 'default' );
 	$responsive_product_catalog_container_style = ( 'default' === $product_catalog_container_style_setting ) ? $global_container_style_key : $product_catalog_container_style_setting;
+
+	// Product card padding comes only from the Product Catalog settings, never from Global > Layout.
+	$shop_card_padding_tablet = responsive_spacing_css(
+		esc_html( get_theme_mod( 'responsive_product_card_outside_container_tablet_top_padding', 15 ) ),
+		esc_html( get_theme_mod( 'responsive_product_card_outside_container_tablet_right_padding', 15 ) ),
+		esc_html( get_theme_mod( 'responsive_product_card_outside_container_tablet_bottom_padding', 15 ) ),
+		esc_html( get_theme_mod( 'responsive_product_card_outside_container_tablet_left_padding', 15 ) )
+	);
+	$shop_card_padding_mobile = responsive_spacing_css(
+		esc_html( get_theme_mod( 'responsive_product_card_outside_container_mobile_top_padding', 15 ) ),
+		esc_html( get_theme_mod( 'responsive_product_card_outside_container_mobile_right_padding', 15 ) ),
+		esc_html( get_theme_mod( 'responsive_product_card_outside_container_mobile_bottom_padding', 15 ) ),
+		esc_html( get_theme_mod( 'responsive_product_card_outside_container_mobile_left_padding', 15 ) )
+	);
+	$shop_card_padding_desktop = responsive_spacing_css( $product_card_outside_container_padding_top, $product_card_outside_container_padding_right, $product_card_outside_container_padding_bottom, $product_card_outside_container_padding_left );
+
 	if ( 'boxed' === $responsive_product_catalog_container_style ) {
 		$custom_css .= "
 		.woocommerce.archive:not(.single-product) ul.products li.product,
 		.woocommerce-page.archive:not(.single-product) ul.products li.product {
 			background-color: {$box_background_color};
 			border-radius: {$shop_card_radius['tl']}px {$shop_card_radius['tr']}px {$shop_card_radius['br']}px {$shop_card_radius['bl']}px;
-			padding: " . responsive_spacing_css( $box_padding_top, $box_padding_right, $box_padding_bottom, $box_padding_left ) . ";
+			padding: {$shop_card_padding_desktop};
 		}
 		@media screen and ( max-width: 992px ) {
 			.woocommerce.archive:not(.single-product) ul.products li.product,
 			.woocommerce-page.archive:not(.single-product) ul.products li.product {
 				border-radius: {$shop_card_radius['tablet_tl']}px {$shop_card_radius['tablet_tr']}px {$shop_card_radius['tablet_br']}px {$shop_card_radius['tablet_bl']}px;
-				padding: " . responsive_spacing_css( $box_tablet_padding_top, $box_tablet_padding_right, $box_tablet_padding_bottom, $box_tablet_padding_left ) . ";
+				padding: {$shop_card_padding_tablet};
 			}
 		}
 		@media screen and ( max-width: 576px ) {
 			.woocommerce.archive:not(.single-product) ul.products li.product,
 			.woocommerce-page.archive:not(.single-product) ul.products li.product {
 				border-radius: {$shop_card_radius['mobile_tl']}px {$shop_card_radius['mobile_tr']}px {$shop_card_radius['mobile_br']}px {$shop_card_radius['mobile_bl']}px;
-				padding: " . responsive_spacing_css( $box_mobile_padding_top, $box_mobile_padding_right, $box_mobile_padding_bottom, $box_mobile_padding_left ) . ";
+				padding: {$shop_card_padding_mobile};
 			}
 		}";
 	} elseif ( 'unboxed' === $responsive_product_catalog_container_style ) {
@@ -927,7 +943,19 @@ function responsive_customizer_styles() {
 		.woocommerce-page.archive:not(.single-product) ul.products li.product {
 			background-color: transparent;
 			border-radius: 0;
-			padding: " . responsive_spacing_css( $product_card_outside_container_padding_top, $product_card_outside_container_padding_right, $product_card_outside_container_padding_bottom, $product_card_outside_container_padding_left ) . ";
+			padding: {$shop_card_padding_desktop};
+		}
+		@media screen and ( max-width: 992px ) {
+			.woocommerce.archive:not(.single-product) ul.products li.product,
+			.woocommerce-page.archive:not(.single-product) ul.products li.product {
+				padding: {$shop_card_padding_tablet};
+			}
+		}
+		@media screen and ( max-width: 576px ) {
+			.woocommerce.archive:not(.single-product) ul.products li.product,
+			.woocommerce-page.archive:not(.single-product) ul.products li.product {
+				padding: {$shop_card_padding_mobile};
+			}
 		}";
 	}
 
