@@ -2600,6 +2600,26 @@ function responsive_customizer_styles() {
 		box-shadow: ' . $button_hover_shadow_inset_style . ' ' . $button_hover_shadow_x . 'px ' . $button_hover_shadow_y . 'px ' . $button_hover_shadow_blur . 'px ' . $button_hover_shadow_spread . 'px ' . $button_hover_shadow_color . ';
 	}
 
+	body div.wpforms-container-full .wpforms-form input[type=submit]:hover,
+	body div.wpforms-container-full .wpforms-form button[type=submit]:hover,
+	body div.wpforms-container-full .wpforms-form .wpforms-page-button:hover {
+		border-width: ' . responsive_spacing_css( $buttons_border_width_top, $buttons_border_width_right, $buttons_border_width_bottom, $buttons_border_width_left, $buttons_border_width_desktop_unit ) . ';
+	}
+	@media screen and ( max-width: 992px ) {
+		body div.wpforms-container-full .wpforms-form input[type=submit]:hover,
+		body div.wpforms-container-full .wpforms-form button[type=submit]:hover,
+		body div.wpforms-container-full .wpforms-form .wpforms-page-button:hover {
+			border-width: ' . responsive_spacing_css( $buttons_border_tablet_width_top, $buttons_border_tablet_width_right, $buttons_border_tablet_width_bottom, $buttons_border_tablet_width_left, $buttons_border_width_tablet_unit ) . ';
+		}
+	}
+	@media screen and ( max-width: 576px ) {
+		body div.wpforms-container-full .wpforms-form input[type=submit]:hover,
+		body div.wpforms-container-full .wpforms-form button[type=submit]:hover,
+		body div.wpforms-container-full .wpforms-form .wpforms-page-button:hover {
+			border-width: ' . responsive_spacing_css( $buttons_border_mobile_width_top, $buttons_border_mobile_width_right, $buttons_border_mobile_width_bottom, $buttons_border_mobile_width_left, $buttons_border_width_mobile_unit ) . ';
+		}
+	}
+
 	.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button:hover,
 	.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button:focus,
 	.wp-block-button.is-style-outline > .wp-block-button__link:hover,
