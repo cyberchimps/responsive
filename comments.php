@@ -80,8 +80,8 @@ if ( post_password_required() || ! $is_comments_enabled || ( ! have_comments() &
 					printf( // WPCS: XSS OK.
 						/* translators: 1: comment count number, 2: title. */
 						esc_html( _nx( '%1$s Comment on &ldquo;%2$s&rdquo;', '%1$s Comments on &ldquo;%2$s&rdquo;', $responsive_comment_count, 'comments title', 'responsive' ) ),
-						number_format_i18n( $responsive_comment_count ),
-						'<span>' . get_the_title() . '</span>'
+						esc_html( number_format_i18n( $responsive_comment_count ) ),
+						'<span>' . esc_html( get_the_title() ) . '</span>'
 					);
 				}
 				?>
