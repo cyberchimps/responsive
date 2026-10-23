@@ -48,7 +48,7 @@ if ( ! class_exists( 'Responsive_Container_Spacing_Customizer' ) ) :
 			// 	Upgrade to Pro nudge for Blog/Archive Page (only registers when Responsive Pro is not active).
 			responsive_pro_nudge_control(
 				$wp_customize,
-				'container',
+				'blog_container',
 				'responsive_blog_layout',
 				array(
 					'image'       => RESPONSIVE_THEME_URI . 'admin/images/upgradeToPro.jpg',
@@ -78,7 +78,7 @@ if ( ! class_exists( 'Responsive_Container_Spacing_Customizer' ) ) :
 			// Upgrade to Pro nudge for Single Post Page (only registers when Responsive Pro is not active).
 			responsive_pro_nudge_control(
 				$wp_customize,
-				'container',
+				'single_post_container',
 				'responsive_single_blog_layout',
 				array(
 					'image'       => RESPONSIVE_THEME_URI . 'admin/images/upgradeToPro.jpg',
