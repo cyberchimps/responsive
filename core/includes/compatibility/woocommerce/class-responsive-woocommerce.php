@@ -69,6 +69,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			add_filter( 'body_class', array( $this, 'add_body_class' ) );
 
 			add_action( 'wp', array( $this, 'cart_page_upselles' ) );
+			add_filter( 'render_block', array( $this, 'hide_block_cart_cross_sells' ), 10, 2 );
 
 			add_action( 'widgets_init', array( $this, 'register_off_canvas_sidebar' ), 11 );
 			add_action( 'wp_footer', array( $this, 'get_off_canvas_sidebar' ) );
@@ -82,6 +83,37 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 		}
 		/**
+		 * Open the wrapper that holds the My Account menu (and the user info when it is on), so they move as one block in every layout.
+		 */
+		public function my_account_wrap_open() {
+			echo '<div class="responsive-account-navigation-wrap">';
+		}
+
+		/**
+		 * Close the user info and My Account menu wrapper.
+		 */
+		public function my_account_wrap_close() {
+			echo '</div>';
+		}
+
+		/**
+		 * Print the logged in user's avatar and name above the My Account menu.
+		 */
+		public function my_account_user_info() {
+			if ( ! is_user_logged_in() ) {
+				return;
+			}
+
+			$user = wp_get_current_user();
+			?>
+			<div class="responsive-account-user-info">
+				<span class="responsive-account-user-avatar"><?php echo get_avatar( $user->ID, 48 ); ?></span>
+				<span class="responsive-account-user-name"><?php echo esc_html( $user->display_name ); ?></span>
+			</div>
+			<?php
+		}
+
+		/**
 		 * Remove Woo-Commerce Default actions
 		 *
 		 * @since 3.15.4
@@ -92,6 +124,14 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
 			remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
 			add_action( 'woocommerce_after_shop_loop_item', array( $this, 'responsive_woocommerce_shop_product_content' ) );
+
+			// The wrapper is part of every My Account layout. Only the avatar and name depend on the toggle.
+			add_action( 'woocommerce_before_account_navigation', array( $this, 'my_account_wrap_open' ), 1 );
+			add_action( 'woocommerce_after_account_navigation', array( $this, 'my_account_wrap_close' ), 99 );
+
+			if ( get_theme_mod( 'responsive_my_account_show_user_info', Responsive\Core\get_responsive_customizer_defaults( 'responsive_my_account_show_user_info' ) ) ) {
+				add_action( 'woocommerce_before_account_navigation', array( $this, 'my_account_user_info' ) );
+			}
 
 			if ( ! get_theme_mod( 'responsive_show_archive_results_count', Responsive\Core\get_responsive_customizer_defaults( 'responsive_show_archive_results_count' ) ) ) {
 				remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
@@ -146,6 +186,9 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-distraction-free-customizer.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-product-catalog-customizer.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-pagination-style-customizer.php';
+			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-store-notice-customizer.php';
+			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-my-account-customizer.php';
+			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-general-customizer.php';
 		}
 
 		/**
@@ -169,6 +212,31 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			if ( ! $crossselles_enabled ) {
 				remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
 			}
+		}
+
+		/**
+		 * Hides the cross-sells in the block based cart when disabled in the customizer.
+		 *
+		 * @param string $block_content Rendered block content.
+		 * @param array  $block         Parsed block.
+		 * @return string
+		 */
+		public function hide_block_cart_cross_sells( $block_content, $block ) {
+			if ( empty( $block['blockName'] ) || get_theme_mod( 'responsive_enable_crosssells_options', 1 ) ) {
+				return $block_content;
+			}
+
+			// Older WooCommerce versions use a dedicated cross-sells block.
+			if ( 'woocommerce/cart-cross-sells-block' === $block['blockName'] ) {
+				return '';
+			}
+
+			// Newer WooCommerce versions render cross-sells as a Product Collection block.
+			if ( 'woocommerce/product-collection' === $block['blockName'] && isset( $block['attrs']['collection'] ) && 'woocommerce/product-collection/cross-sells' === $block['attrs']['collection'] ) {
+				return '';
+			}
+
+			return $block_content;
 		}
 
 		/**
@@ -338,12 +406,17 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			add_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 20 );
 
 			/* Add single product content */
+			add_action( 'woocommerce_single_product_summary', array( $this, 'single_product_summary_breadcrumbs' ), 5 );
 			add_action( 'woocommerce_single_product_summary', array( $this, 'single_product_content_structure' ), 10 );
 			add_filter( 'woocommerce_product_description_heading', '__return_false' );
 			add_filter( 'woocommerce_product_additional_information_heading', '__return_false' );
 
 			if ( ! get_theme_mod( 'responsive_single_product_show_weight_dimensions', 1 ) ) {
 				add_filter( 'wc_product_enable_dimensions_display', '__return_false' );
+			}
+
+			if ( get_theme_mod( 'responsive_single_product_enable_shipping_text', 0 ) ) {
+				add_filter( 'woocommerce_get_price_html', array( $this, 'single_product_shipping_text' ), 10, 2 );
 			}
 
 			if ( get_theme_mod( 'responsive_single_product_quantity_plus_minus', 0 ) ) {
@@ -400,6 +473,51 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		 */
 		public function quantity_plus_button() {
 			echo '<button type="button" class="plus" aria-label="' . esc_attr__( 'Increase quantity', 'responsive' ) . '">+</button>';
+		}
+
+		/**
+		 * Render breadcrumbs at the top of the single product summary container.
+		 *
+		 * @return void
+		 */
+		public function single_product_summary_breadcrumbs() {
+			if ( get_theme_mod( 'responsive_single_product_breadcrumbs', 0 ) ) {
+				woocommerce_breadcrumb();
+			}
+		}
+
+		/**
+		 * Append shipping text next to the single product price.
+		 *
+		 * @param string          $price   Price HTML.
+		 * @param WC_Product|null $product Product instance.
+		 * @return string
+		 */
+		public function single_product_shipping_text( $price, $product = null ) {
+			if ( ! is_product() || empty( $price ) ) {
+				return $price;
+			}
+
+			global $post;
+			if ( ! $product || ! $post ) {
+				return $price;
+			}
+
+			$product_id = $product->is_type( 'variation' ) ? $product->get_parent_id() : $product->get_id();
+			if ( (int) $product_id !== (int) $post->ID ) {
+				return $price;
+			}
+
+			if ( false !== strpos( $price, 'responsive-product-shipping-text' ) ) {
+				return $price;
+			}
+
+			$shipping_text = get_theme_mod( 'responsive_single_product_shipping_text', __( '& Free Shipping', 'responsive' ) );
+			if ( '' === trim( $shipping_text ) ) {
+				return $price;
+			}
+
+			return $price . ' <span class="responsive-product-shipping-text">' . esc_html( $shipping_text ) . '</span>';
 		}
 
 		/**
@@ -673,10 +791,8 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 		if ( is_woocommerce() && is_product() ) {
 			// Single Product Page
-			$global_sidebar_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
-			$single_product_setting = get_theme_mod( 'responsive_single_product_sidebar_position', 'global' );
-			$single_product_sidebar_position = ( $single_product_setting === 'global' || $single_product_setting === 'default' ) ? $global_sidebar_position : $single_product_setting;
-			$classes[] = 'sidebar-position-' . $single_product_sidebar_position;
+			// Sidebar: Single Product > WooCommerce General > Global.
+			$classes[] = 'sidebar-position-' . Responsive\Core\responsive_get_woocommerce_sidebar_position();
 			$classes[] = 'product-gallery-layout-' . get_theme_mod( 'responsive_single_product_gallery_layout', 'horizontal' );
 			$variation_display = get_theme_mod( 'responsive_single_product_variation_display', 'horizontal' );
 			if ( 'horizontal' !== $variation_display ) {
@@ -691,12 +807,15 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			}
 		}
 
+		// Sidebar for every WooCommerce page except single product (handled above):
+		// Product Catalog (all product archives) > WooCommerce General > Global,
+		// and WooCommerce General > Global for cart, checkout and my account.
+		if ( ! is_product() && '' !== Responsive\Core\responsive_get_woocommerce_context() ) {
+			$classes[] = 'sidebar-position-' . Responsive\Core\responsive_get_woocommerce_sidebar_position();
+		}
+
 		if ( ( is_woocommerce() && is_shop() ) || is_cart() || is_checkout() || is_product_category() ) {
 			// Shop / Catalog Pages
-			$global_sidebar_position = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
-			$shop_setting = get_theme_mod( 'responsive_shop_sidebar_position', 'global' );
-			$shop_sidebar_position = ( $shop_setting === 'global' || $shop_setting === 'default' ) ? $global_sidebar_position : $shop_setting;
-			$classes[] = 'sidebar-position-' . $shop_sidebar_position;
 			$classes[] = 'responsive-catalog-view-' . get_theme_mod( 'responsive_woocommerce_catalog_view', 'grid' );
 		}
 
@@ -823,8 +942,9 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 				$floating_bar_show_cond   = ( is_user_logged_in() );
 
 				if ( $floating_bar_toggle_cond && 'display' === $floating_bar_toggle_cond ) {
+					$floating_bar_placement = get_theme_mod( 'responsive_single_product_floating_bar_placement', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_product_floating_bar_placement' ) );
 					?>
-				<div id="floating-bar" class="responsive-floating-bar" style="display: none;">
+				<div id="floating-bar" class="responsive-floating-bar placement-<?php echo esc_attr( $floating_bar_placement ); ?>" style="display: none;">
 					<div class="floatingb-container">
 						<div class="floatingb-left">
 							<h2 class="floatingb-title"><span class="floatingb-selected"><?php esc_html_e( 'Selected : ', 'responsive' ); ?></span><?php echo wp_trim_words( $product->get_title(), '4' ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>

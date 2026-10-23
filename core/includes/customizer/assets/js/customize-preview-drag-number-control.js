@@ -638,6 +638,12 @@
         });
     });
 
+    api( 'responsive_single_product_banner_custom_width', function( value ) {
+        value.bind( function( newval ) {
+            $('.single-product .responsive-single-product-entry-banner').css('max-width', newval+'px');
+        });
+    });
+
     api( 'responsive_shop_banner_custom_width', function( value ) {
         value.bind( function( newval ) {
             $('.responsive-shop-entry-banner').css('max-width', newval+'px');

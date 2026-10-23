@@ -203,6 +203,7 @@ const TabsComponent = props => {
 			}
 		};
 		toggleContentBackground();
+		toggleSingleProductBoxControls();
 
 		hideSidebarWidthControl( api('responsive_page_sidebar_position').get(), 'page' );
 		hideSidebarStyleControl( api('responsive_page_sidebar_position').get(), 'page' );
@@ -226,6 +227,11 @@ const TabsComponent = props => {
 		if(api('responsive_single_product_sidebar_position'))
 		{
 			hideWoocommerceMainContentWidthControl( api('responsive_single_product_sidebar_position').get(), 'single_product');
+		}
+		// Cart has no sidebar setting of its own, it follows WooCommerce General > Global.
+		if(api('responsive_cart_content_width'))
+		{
+			hideWoocommerceMainContentWidthControl( 'global', 'cart');
 		}
 		hideRetinaLogoUploadControl( api( 'responsive_retina_logo').get());
 		hideMobileLogoUploadControl( api( 'responsive_mobile_logo_option').get());
@@ -628,6 +634,28 @@ const TabsComponent = props => {
 			}
 		}
 
+		if ( api('responsive_single_product_enable_shipping_text') && ! api('responsive_single_product_enable_shipping_text').get() ) {
+			const shippingTextCtrl = document.getElementById('customize-control-responsive_single_product_shipping_text');
+			if ( shippingTextCtrl ) {
+				shippingTextCtrl.style.display = 'none';
+			}
+		}
+
+		if ( api('responsive_single_product_floating_bar') && api('responsive_single_product_floating_bar').get() !== 'display' ) {
+			const floatingBarPlacementCtrl = document.getElementById('customize-control-responsive_single_product_floating_bar_placement');
+			if ( floatingBarPlacementCtrl ) {
+				floatingBarPlacementCtrl.style.display = 'none';
+			}
+		}
+
+		// The Center tab style has no tab background, so hide the tab background control.
+		if ( api('responsive_single_product_tab_style') && 'center' === api('responsive_single_product_tab_style').get() ) {
+			const tabBackgroundCtrl = document.getElementById('customize-control-responsive_single_product_tab_background_color_states');
+			if ( tabBackgroundCtrl ) {
+				tabBackgroundCtrl.style.display = 'none';
+			}
+		}
+
 		// Toggle Button Style - Hide controls based on style
 		if( api('responsive_mobile_menu_toggle_style') ) {
 			const allToggleButtonElementIds = [
@@ -916,32 +944,6 @@ const TabsComponent = props => {
 		if( 'none' === api('responsive_mobile_header_button_border_style').get() ) {
 			document.getElementById('customize-control-responsive_mobile_header_button_border_width').style.display = 'none';
 			document.getElementById('customize-control-responsive_mobile_header_button_border_color').style.display = 'none';
-		}
-
-		// Hide background image controls if disabled
-		const toggleFooterBgControls = () => {
-			const isBgImgEnabled = api('responsive_footer_background_image_toggle') ? api('responsive_footer_background_image_toggle').get() : false;
-			const display = (isBgImgEnabled && 'design' === tab) ? 'block' : 'none';
-			const elements = [
-				'customize-control-responsive_footer_bg_left',
-				'customize-control-responsive_footer_bg_top',
-				'customize-control-responsive_footer_bg_repeat',
-				'customize-control-responsive_footer_bg_size',
-				'customize-control-responsive_footer_bg_attachment'
-			];
-			elements.forEach(id => {
-				let el = document.getElementById(id);
-				if (el) el.style.display = display;
-			});
-		};
-		toggleFooterBgControls();
-
-		if (api('responsive_footer_background_image_toggle')) {
-			api('responsive_footer_background_image_toggle', function( value ) {
-				value.bind( function( newval ) {
-					toggleFooterBgControls();
-				});
-			});
 		}
 
 		// Sidebar Divider Style Controls
@@ -1273,15 +1275,15 @@ const TabsComponent = props => {
 				});
 			});
 		}
-		if (api('responsive_single_product_banner_elements_positioning')) {
-			api('responsive_single_product_banner_elements_positioning', function(value) {
+		if (api('responsive_single_product_featured_image_ratio')) {
+			api('responsive_single_product_featured_image_ratio', function(value) {
 				value.bind(function() {
 					toggleSingleProductTitleLayoutControls();
 				});
 			});
 		}
-		if (api('responsive_single_product_featured_image_ratio')) {
-			api('responsive_single_product_featured_image_ratio', function(value) {
+		if (api('responsive_single_product_featured_image_as_background')) {
+			api('responsive_single_product_featured_image_as_background', function(value) {
 				value.bind(function() {
 					toggleSingleProductTitleLayoutControls();
 				});
@@ -1293,10 +1295,17 @@ const TabsComponent = props => {
 				setTimeout(toggleSingleProductTitleLayoutControls, 50);
 			});
 		}
-		const spBannerElementsCtrl = document.getElementById('customize-control-responsive_single_product_banner_elements_positioning');
-		if (spBannerElementsCtrl) {
-			spBannerElementsCtrl.addEventListener('click', function() {
+		const spUseAsBgCtrl = document.getElementById('customize-control-responsive_single_product_featured_image_as_background');
+		if (spUseAsBgCtrl) {
+			spUseAsBgCtrl.addEventListener('click', function() {
 				setTimeout(toggleSingleProductTitleLayoutControls, 50);
+			});
+		}
+		if (api('responsive_single_product_banner_container_width')) {
+			api('responsive_single_product_banner_container_width', function(value) {
+				value.bind(function() {
+					toggleSingleProductTitleLayoutControls();
+				});
 			});
 		}
 
@@ -1483,6 +1492,36 @@ const TabsComponent = props => {
 				});
 			});
 		}
+		if (api('responsive_single_product_enable_shipping_text')) {
+			api('responsive_single_product_enable_shipping_text', function(value) {
+				value.bind(function(newval) {
+					const shippingTextCtrl = document.getElementById('customize-control-responsive_single_product_shipping_text');
+					if (shippingTextCtrl) {
+						shippingTextCtrl.style.display = (!!newval && 'general' === tab) ? 'block' : 'none';
+					}
+				});
+			});
+		}
+		if (api('responsive_single_product_floating_bar')) {
+			api('responsive_single_product_floating_bar', function(value) {
+				value.bind(function(newval) {
+					const floatingBarPlacementCtrl = document.getElementById('customize-control-responsive_single_product_floating_bar_placement');
+					if (floatingBarPlacementCtrl) {
+						floatingBarPlacementCtrl.style.display = ('display' === newval && 'general' === tab) ? 'block' : 'none';
+					}
+				});
+			});
+		}
+		if (api('responsive_single_product_tab_style')) {
+			api('responsive_single_product_tab_style', function(value) {
+				value.bind(function(newval) {
+					const tabBackgroundCtrl = document.getElementById('customize-control-responsive_single_product_tab_background_color_states');
+					if (tabBackgroundCtrl) {
+						tabBackgroundCtrl.style.display = ('center' !== newval && 'design' === tab) ? 'block' : 'none';
+					}
+				});
+			});
+		}
 		[
 			'responsive_add_to_cart_button_border_width_top_border',
 			'responsive_add_to_cart_button_border_width_right_border',
@@ -1534,6 +1573,50 @@ const TabsComponent = props => {
 
 		return () => {
 			settings.forEach(setting => setting.unbind(applyStickyHeaderVisibility));
+		};
+	}, [tab]);
+
+	// Hide the footer background-position/repeat/size/attachment controls
+	// unless the Footer's own Design tab is active AND its background image
+	// is enabled. Scoped to the footer tabs control only - without this guard,
+	// every Tabs instance in the Customizer (e.g. Above/Primary/Below Footer
+	// Row tabs, which default to their own 'general' tab) would also run this
+	// logic and force these footer-only elements to display:none using their
+	// own unrelated tab state, hiding them until the footer tabs control's own
+	// state changed again.
+	useEffect(() => {
+		if (id !== 'responsive_footer_tabs') {
+			return;
+		}
+
+		const footerBgElements = [
+			'customize-control-responsive_footer_bg_left',
+			'customize-control-responsive_footer_bg_top',
+			'customize-control-responsive_footer_bg_repeat',
+			'customize-control-responsive_footer_bg_size',
+			'customize-control-responsive_footer_bg_attachment',
+		];
+
+		const toggleFooterBgControls = () => {
+			const bgToggle = api('responsive_footer_background_image_toggle');
+			const isBgImgEnabled = bgToggle ? bgToggle.get() : false;
+			const display = (isBgImgEnabled && 'design' === tab) ? 'block' : 'none';
+			footerBgElements.forEach(elementId => {
+				const el = document.getElementById(elementId);
+				if (el) el.style.display = display;
+			});
+		};
+		toggleFooterBgControls();
+
+		const bgToggleSetting = api('responsive_footer_background_image_toggle');
+		if (bgToggleSetting) {
+			bgToggleSetting.bind(toggleFooterBgControls);
+		}
+
+		return () => {
+			if (bgToggleSetting) {
+				bgToggleSetting.unbind(toggleFooterBgControls);
+			}
 		};
 	}, [tab]);
 
@@ -1624,19 +1707,44 @@ const TabsComponent = props => {
 		});
 	};
 
+	// Whether a WooCommerce page type ('shop', 'single_product' or 'cart') ends up with a sidebar:
+	// own setting > WooCommerce General > Global. A narrow container layout never has a sidebar.
+	// Mirrors responsive_get_woocommerce_setting( 'sidebar_position' ) on the PHP side.
+	const isWoocommerceDefaultValue = (v) => !v || v === 'global' || v === 'default' || v === 'default_container';
+	const getWoocommerceSetting = (key, fallback) => (key && api(key)) ? api(key).get() : fallback;
+	const resolveWoocommerceSidebarPosition = (value, control) => {
+		const ownLayoutKeys = {
+			shop: 'responsive_product_catalog_container_layout',
+			single_product: 'responsive_single_product_container_layout',
+		};
+		let layout = getWoocommerceSetting(ownLayoutKeys[control], 'default');
+		if (isWoocommerceDefaultValue(layout)) {
+			layout = getWoocommerceSetting('responsive_woocommerce_container_layout', 'default');
+		}
+		if (isWoocommerceDefaultValue(layout)) {
+			layout = getWoocommerceSetting('responsive_width', 'contained');
+		}
+		if (layout === 'narrow') {
+			return 'no';
+		}
+
+		let position = value;
+		if (isWoocommerceDefaultValue(position)) {
+			position = getWoocommerceSetting('responsive_woocommerce_sidebar_layout', 'global');
+		}
+		if (isWoocommerceDefaultValue(position)) {
+			position = getWoocommerceSetting('responsive_default_sidebar_position', 'no');
+		}
+		return position;
+	};
+
 	const hideWoocommerceSidebarWidthControl = (value,control) => {
 		const controlId = `customize-control-responsive_${control}_sidebar_width`;
 		const controlElement = document.getElementById(controlId);
 		if (!controlElement) return;
 		controlElement.style.display = 'none';
 
-		let isVisible = false;
-		if (value === 'global') {
-			const globalValue = api('responsive_default_sidebar_position') ? api('responsive_default_sidebar_position').get() : 'no';
-			isVisible = globalValue !== 'no' && tab === 'general';
-		} else {
-			isVisible = value !== 'no' && tab === 'general';
-		}
+		const isVisible = resolveWoocommerceSidebarPosition(value, control) !== 'no' && tab === 'general';
 
 		if (isVisible && !isSidebarControlInactive(controlId)) {
 			controlElement.style.display = 'block';
@@ -1649,13 +1757,7 @@ const TabsComponent = props => {
 		if (!controlElement) return;
 		controlElement.style.display = 'none';
 
-		let isVisible = false;
-		if (value === 'global') {
-			const globalValue = api('responsive_default_sidebar_position') ? api('responsive_default_sidebar_position').get() : 'no';
-			isVisible = globalValue !== 'no' && tab === 'general';
-		} else {
-			isVisible = value !== 'no' && tab === 'general';
-		}
+		const isVisible = resolveWoocommerceSidebarPosition(value, control) !== 'no' && tab === 'general';
 
 		if (isVisible && !isSidebarControlInactive(controlId)) {
 			controlElement.style.display = 'block';
@@ -1669,13 +1771,10 @@ const TabsComponent = props => {
 		const separatorElement = document.getElementById(separatorId);
 		if (!controlElement) return;
 
-		let resolvedValue = value;
-		if (value === 'global' || value === 'default') {
-			resolvedValue = api('responsive_default_sidebar_position') ? api('responsive_default_sidebar_position').get() : 'no';
-		}
-
-		// For shop/single product sidebar: hide when 'left' or 'right'
-		let isVisible = resolvedValue === 'no' && tab === 'general';
+		// The Main Content Width slider only applies when the page has no sidebar. With a sidebar,
+		// the sidebar width decides the content width, so the slider is hidden.
+		const resolvedValue = resolveWoocommerceSidebarPosition(value, control);
+		const isVisible = resolvedValue === 'no' && tab === 'general';
 
 		if (isVisible) {
 			controlElement.style.display = 'block';
@@ -1684,11 +1783,39 @@ const TabsComponent = props => {
 			}
 		} else {
 			controlElement.style.display = 'none';
-			if (separatorElement) {
+			if (separatorElement && 'shop' !== control) {
 				separatorElement.style.display = 'none';
 			}
 		}
 	}
+
+	// Single product Container Style as it resolves: own setting > WooCommerce General > Global.
+	// Mirrors responsive_get_woocommerce_setting( 'container_style', 'single' ) on the PHP side.
+	const resolveSingleProductContainerStyle = () => {
+		let style = getWoocommerceSetting('responsive_single_product_container_style', 'default');
+		if (isWoocommerceDefaultValue(style)) {
+			style = getWoocommerceSetting('responsive_woocommerce_container_style', 'default');
+		}
+		if (isWoocommerceDefaultValue(style)) {
+			style = getWoocommerceSetting('responsive_style', 'boxed');
+		}
+		return style;
+	};
+
+	// The single product Content Background and Inside Container spacing style the product box,
+	// so they are hidden when single product resolves to a Flat container style.
+	const toggleSingleProductBoxControls = () => {
+		const isVisible = resolveSingleProductContainerStyle() !== 'flat' && tab === 'design';
+		[
+			'customize-control-responsive_single_product_content_background_color',
+			'customize-control-responsive_single_product_inside_container_padding',
+		].forEach(controlId => {
+			const element = document.getElementById(controlId);
+			if (element) {
+				element.style.display = isVisible ? 'block' : 'none';
+			}
+		});
+	};
 
 	const hideRetinaLogoUploadControl = (value) => {
 		const controlId = `customize-control-responsive_retina_logo_image`;
@@ -2022,6 +2149,9 @@ const TabsComponent = props => {
 	};
 
 	const toggleSingleProductTitleLayoutControls = () => {
+		if ( id !== 'responsive_single_product_title_area_tabs' ) {
+			return;
+		}
 		const layout = api('responsive_single_product_title_layout')
 			? api('responsive_single_product_title_layout').get()
 			: 'post_title_layout1';
@@ -2029,21 +2159,17 @@ const TabsComponent = props => {
 		const isLayout1 = ( 'post_title_layout1' === layout );
 		const isLayout2 = !isLayout1;
 
-		const l1StructureEl = document.getElementById('customize-control-responsive_single_product_title_elements_positioning');
-		const l2StructureEl = document.getElementById('customize-control-responsive_single_product_banner_elements_positioning');
-		const metaEl = document.getElementById('customize-control-responsive_single_product_title_meta');
+		const structureEl = document.getElementById('customize-control-responsive_single_product_title_elements_positioning');
+		const metaEl      = document.getElementById('customize-control-responsive_single_product_title_meta');
+		const metaSeparatorEl = document.getElementById('customize-control-responsive_single_product_title_meta_separator');
 
-		if (l1StructureEl) {
-			l1StructureEl.style.display = (isLayout1 && tab === 'general') ? 'block' : 'none';
-		}
-		if (l2StructureEl) {
-			l2StructureEl.style.display = (isLayout2 && tab === 'general') ? 'block' : 'none';
+		if (structureEl) {
+			structureEl.style.display = (tab === 'general') ? 'block' : 'none';
 		}
 
-		const elementsSettingId = isLayout1
-			? 'responsive_single_product_title_elements_positioning'
-			: 'responsive_single_product_banner_elements_positioning';
-		let elements = api(elementsSettingId) ? api(elementsSettingId).get() : [];
+		let elements = api('responsive_single_product_title_elements_positioning')
+			? api('responsive_single_product_title_elements_positioning').get()
+			: [];
 		if (typeof elements === 'string') {
 			try {
 				elements = JSON.parse(elements);
@@ -2057,7 +2183,33 @@ const TabsComponent = props => {
 			metaEl.style.display = (hasMeta && tab === 'general') ? 'block' : 'none';
 		}
 
-		// Featured Image controls for Layout 2
+		if (metaSeparatorEl) {
+			metaSeparatorEl.style.display = (hasMeta && tab === 'general') ? 'block' : 'none';
+		}
+
+		// Featured Image controls: dependent on visibility of featured image
+		const hasFeaturedImage = Array.isArray(elements) && elements.indexOf('featured_image') !== -1;
+
+		const featuredImageSeparatorEl = document.getElementById('customize-control-responsive_single_product_title_featured_image_separator');
+		if (featuredImageSeparatorEl) {
+			featuredImageSeparatorEl.style.display = (hasFeaturedImage && tab === 'general') ? 'block' : 'none';
+		}
+
+		// Use as background toggle (only for Layout 2 when featured_image is visible)
+		const useAsBgEl = document.getElementById('customize-control-responsive_single_product_featured_image_as_background');
+		const isUseAsBgVisible = isLayout2 && hasFeaturedImage;
+		if (useAsBgEl) {
+			useAsBgEl.style.display = (isUseAsBgVisible && tab === 'general') ? 'block' : 'none';
+		}
+
+		const asBg = api('responsive_single_product_featured_image_as_background')
+			? api('responsive_single_product_featured_image_as_background').get()
+			: 0;
+		const isAsBackground = isUseAsBgVisible && (asBg === 1 || asBg === true || asBg === '1');
+
+		// Featured Image controls: only when featured image is visible AND NOT used as background
+		const showImageRatioControls = hasFeaturedImage && !isAsBackground;
+
 		const ratio = api('responsive_single_product_featured_image_ratio')
 			? api('responsive_single_product_featured_image_ratio').get()
 			: 'original';
@@ -2069,24 +2221,38 @@ const TabsComponent = props => {
 		const imageSizeEl       = document.getElementById('customize-control-responsive_single_product_featured_image_size');
 
 		if (ratioEl) {
-			ratioEl.style.display = (isLayout2 && tab === 'general') ? 'block' : 'none';
+			ratioEl.style.display = (showImageRatioControls && tab === 'general') ? 'block' : 'none';
 		}
 		if (predefinedRatioEl) {
-			predefinedRatioEl.style.display = (isLayout2 && ratio === 'predefined' && tab === 'general') ? 'block' : 'none';
+			predefinedRatioEl.style.display = (showImageRatioControls && ratio === 'predefined' && tab === 'general') ? 'block' : 'none';
 		}
 		if (customWidthEl) {
-			customWidthEl.style.display = (isLayout2 && ratio === 'custom' && tab === 'general') ? 'block' : 'none';
+			customWidthEl.style.display = (showImageRatioControls && ratio === 'custom' && tab === 'general') ? 'block' : 'none';
 		}
 		if (customHeightEl) {
-			customHeightEl.style.display = (isLayout2 && ratio === 'custom' && tab === 'general') ? 'block' : 'none';
+			customHeightEl.style.display = (showImageRatioControls && ratio === 'custom' && tab === 'general') ? 'block' : 'none';
 		}
 		if (imageSizeEl) {
-			imageSizeEl.style.display = (isLayout2 && tab === 'general') ? 'block' : 'none';
+			imageSizeEl.style.display = (showImageRatioControls && tab === 'general') ? 'block' : 'none';
 		}
 
 		const verticalAlignment = document.getElementById('customize-control-responsive_single_product_title_vertical_alignment');
 		if (verticalAlignment) {
 			verticalAlignment.style.display = (isLayout2 && tab === 'general') ? 'block' : 'none';
+		}
+
+		const spContainerWidth = api('responsive_single_product_banner_container_width')
+			? api('responsive_single_product_banner_container_width').get()
+			: 'full_width';
+
+		const spContainerWidthEl = document.getElementById('customize-control-responsive_single_product_banner_container_width');
+		const spCustomWidthEl    = document.getElementById('customize-control-responsive_single_product_banner_custom_width');
+
+		if (spContainerWidthEl) {
+			spContainerWidthEl.style.display = (isLayout2 && tab === 'general') ? 'block' : 'none';
+		}
+		if (spCustomWidthEl) {
+			spCustomWidthEl.style.display = (isLayout2 && spContainerWidth === 'custom' && tab === 'general') ? 'block' : 'none';
 		}
 
 		const minHeightEl = document.getElementById('customize-control-responsive_single_product_banner_min_height');
@@ -2096,7 +2262,12 @@ const TabsComponent = props => {
 
 		const bannerBgEl = document.getElementById('customize-control-responsive_single_product_banner_background_color');
 		if (bannerBgEl) {
-			bannerBgEl.style.display = (isLayout2 && tab === 'design') ? 'block' : 'none';
+			bannerBgEl.style.display = (isLayout2 && !isAsBackground && tab === 'design') ? 'block' : 'none';
+		}
+
+		const bannerOverlayEl = document.getElementById('customize-control-responsive_single_product_banner_overlay_color');
+		if (bannerOverlayEl) {
+			bannerOverlayEl.style.display = (isAsBackground && tab === 'design') ? 'block' : 'none';
 		}
 	};
 
@@ -2313,6 +2484,53 @@ const TabsComponent = props => {
 			}
 		}
 	};
+
+	// Keep the WooCommerce sidebar dependent controls (content width, sidebar width and style) in
+	// sync when the WooCommerce General sidebar / layout, the page layouts or the global layout
+	// change. Handlers are removed on cleanup so a stale tab value is never applied.
+	useEffect(() => {
+		const refreshWoocommerceSidebarControls = () => {
+			if (api('responsive_shop_sidebar_position')) {
+				const shopPosition = api('responsive_shop_sidebar_position').get();
+				hideWoocommerceSidebarWidthControl(shopPosition, 'shop');
+				hideWoocommerceSidebarStyleControl(shopPosition, 'shop');
+				hideWoocommerceMainContentWidthControl(shopPosition, 'shop');
+			}
+			if (api('responsive_single_product_sidebar_position')) {
+				const singlePosition = api('responsive_single_product_sidebar_position').get();
+				hideWoocommerceSidebarWidthControl(singlePosition, 'single_product');
+				hideWoocommerceSidebarStyleControl(singlePosition, 'single_product');
+				hideWoocommerceMainContentWidthControl(singlePosition, 'single_product');
+			}
+			if (api('responsive_cart_content_width')) {
+				hideWoocommerceMainContentWidthControl('global', 'cart');
+			}
+			toggleSingleProductBoxControls();
+		};
+
+		const watchedSettings = [
+			'responsive_woocommerce_sidebar_layout',
+			'responsive_woocommerce_container_layout',
+			'responsive_product_catalog_container_layout',
+			'responsive_single_product_container_layout',
+			'responsive_width',
+			'responsive_single_product_container_style',
+			'responsive_woocommerce_container_style',
+			'responsive_style',
+		];
+		const bound = [];
+		watchedSettings.forEach(key => {
+			const setting = api(key);
+			if (setting) {
+				setting.bind(refreshWoocommerceSidebarControls);
+				bound.push(setting);
+			}
+		});
+
+		return () => {
+			bound.forEach(setting => setting.unbind(refreshWoocommerceSidebarControls));
+		};
+	}, [tab]);
 
 	return <>
 		<div className='responsive-component-tabs nav-tab-wrapper wp-clearfix' data-name={name}>

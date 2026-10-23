@@ -151,7 +151,7 @@ li.invisible .responsive-sortable-chevron {
     outline: none;
 }
 .payment-segmented-btn.is-active {
-    background: #4f46e5;
+    background: #1e73be;
     color: #fff;
     font-weight: 600;
 }
@@ -168,8 +168,8 @@ li.invisible .responsive-sortable-chevron {
     outline: none;
 }
 .payment-text-input:focus {
-    border-color: #4f46e5;
-    box-shadow: 0 0 0 1px #4f46e5;
+    border-color: #1e73be;
+    box-shadow: 0 0 0 1px #1e73be;
 }
 
 /* Cards List */
@@ -187,7 +187,7 @@ li.invisible .responsive-sortable-chevron {
     overflow: visible;
 }
 .payment-card-item.is-expanded {
-    border: 1.5px solid #4f46e5;
+    border: 1.5px solid #1e73be;
 }
 .payment-card-header {
     display: flex;
@@ -201,6 +201,8 @@ li.invisible .responsive-sortable-chevron {
     display: flex;
     align-items: center;
     gap: 10px;
+    flex: 1;
+    min-width: 0;
 }
 .payment-card-icon-preview {
     display: flex;
@@ -250,11 +252,16 @@ li.invisible .responsive-sortable-chevron {
     font-size: 13.5px;
     font-weight: 500;
     color: #2c3338;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .payment-card-actions {
     display: flex;
     align-items: center;
     gap: 6px;
+    flex-shrink: 0;
 }
 .payment-action-btn {
     border: none;
@@ -274,7 +281,7 @@ li.invisible .responsive-sortable-chevron {
     background: #f0f0f1;
 }
 .payment-duplicate-btn:hover {
-    color: #4f46e5;
+    color: #1e73be;
 }
 .payment-delete-btn:hover {
     background: #fdf2f2;
@@ -325,7 +332,7 @@ li.invisible .responsive-sortable-chevron {
     transition: border-color 0.2s, background-color 0.2s;
 }
 .payment-icon-picker-wrapper .rfipbtn:hover {
-    border-color: #4f46e5;
+    border-color: #1e73be;
     background: #fafafa;
 }
 .payment-icon-picker-wrapper .rfipbtn__current,
@@ -400,7 +407,7 @@ li.invisible .responsive-sortable-chevron {
     width: 100%;
     max-width: 100%;
     background: #fff;
-    border: 1.5px solid #4f46e5;
+    border: 1.5px solid #1e73be;
     border-radius: 4px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     z-index: 999999;
@@ -417,7 +424,7 @@ li.invisible .responsive-sortable-chevron {
 .payment-icon-picker-wrapper .rfipsearch input {
     width: 100%;
     height: 32px;
-    border: 1.5px solid #4f46e5;
+    border: 1.5px solid #1e73be;
     border-radius: 3px;
     padding: 4px 8px;
     font-size: 12.5px;
@@ -529,8 +536,8 @@ li.invisible .responsive-sortable-chevron {
 }
 .payment-icon-picker-wrapper .rfipicons__icon--selected .rfipicons__ibox {
     background: #eef2ff;
-    border-color: #4f46e5;
-    box-shadow: 0 0 0 1px #4f46e5;
+    border-color: #1e73be;
+    box-shadow: 0 0 0 1px #1e73be;
 }
 .payment-icon-picker-wrapper .rfipicons__ibox svg {
     width: 32px;

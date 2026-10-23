@@ -48,7 +48,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Distraction_Free_Customizer' ) ) :
 				array(
 					'title'    => esc_html__( 'Distraction Free', 'responsive' ),
 					'panel'    => 'woocommerce',
-					'priority' => 6,
+					'priority' => 8,
 				)
 			);
 

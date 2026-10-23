@@ -984,6 +984,9 @@
 
     api( 'responsive_rp_section_title_color', function ( value ){
         value.bind( function ( newval ) {
+            if ( newval && ( newval.startsWith( 'palette' ) || newval.startsWith( 'headings-color' ) ) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
             const elems = document.querySelectorAll( '.responsive-related-single-posts-title' );
 			elems.forEach( el => {
                 el.style.color = newval;
@@ -1004,6 +1007,9 @@
 
     api( 'responsive_rp_text_color', ( value ) => {
         value.bind( ( newval ) => {
+            if ( newval && newval.includes( 'palette' ) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
             document.querySelectorAll('.responsive-single-related-posts-container, .responsive-single-related-posts-container p, .responsive-single-related-posts-container .entry-content')
                 .forEach(el => el.style.color = newval);
         });
@@ -1021,6 +1027,9 @@
 
     api('responsive_rp_link_color', (value) => {
         value.bind((newval) => {
+            if ( newval && newval.includes( 'palette' ) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
             document
                 .querySelectorAll('.responsive-related-single-post-title a')
                 .forEach(el => {
@@ -1055,22 +1064,46 @@
         });
     });
 
+    // Related posts meta colors. Rendered through a preview <style> tag rather than inline
+    // styles, so the :hover rule can apply and reset when the cursor leaves.
+    const rpMetaTargets = [
+        '.responsive-single-related-posts-container .post-meta span',
+        '.responsive-single-related-posts-container .post-meta span i',
+        '.responsive-single-related-posts-container .post-meta span a',
+        '.responsive-single-related-posts-container .post-meta span a time',
+        '.responsive-single-related-posts-container .entry-meta',
+        '.single-post .responsive-related-single-post-content .entry-category a'
+    ];
+
+    const rpMetaCssValue = ( value ) => {
+        if ( value && ( value.includes( 'palette' ) || value.includes( 'meta-text-color' ) ) ) {
+            return 'var(--responsive-global-' + value + ')';
+        }
+        return value;
+    };
+
+    const applyRpMetaPreview = () => {
+        const normal = rpMetaCssValue( api( 'responsive_rp_meta_color' )() );
+        const hover  = rpMetaCssValue( api( 'responsive_rp_meta_hover_color' )() );
+
+        let style = document.getElementById( 'responsive-rp-meta-preview' );
+        if ( ! style ) {
+            style = document.createElement( 'style' );
+            style.id = 'responsive-rp-meta-preview';
+            document.body.appendChild( style );
+        }
+        style.textContent =
+            rpMetaTargets.join( ',' ) + ' { color: ' + normal + ' !important; }' +
+            rpMetaTargets.map( ( selector ) => selector + ':hover' ).join( ',' ) + ' { color: ' + hover + ' !important; }';
+    };
+
     api( 'responsive_rp_meta_color', ( value ) => {
-        value.bind( ( newval ) => {
-            document.querySelectorAll('.responsive-single-related-posts-container .post-meta span, .responsive-single-related-posts-container .post-meta span i, .responsive-single-related-posts-container .post-meta span a, .responsive-single-related-posts-container .post-meta span a time, .responsive-single-related-posts-container .entry-meta, .single-post .responsive-related-single-post-content .entry-category a')
-                .forEach(el => el.style.color = newval);
-        });
-    });
+        value.bind( applyRpMetaPreview );
+    } );
 
     api( 'responsive_rp_meta_hover_color', ( value ) => {
-        value.bind( ( newval ) => {
-            document.querySelectorAll('.responsive-single-related-posts-container .post-meta span, .responsive-single-related-posts-container .post-meta span i, .responsive-single-related-posts-container .post-meta span a, .responsive-single-related-posts-container .post-meta span a time, .responsive-single-related-posts-container .entry-meta, .single-post .responsive-related-single-post-content .entry-category a')
-                .forEach(el => {
-                    el.addEventListener('mouseenter', () => el.style.color = newval);
-                    el.addEventListener('mouseleave', () => el.style.color = api( 'responsive_rp_meta_color' )());
-                });
-        });
-    });
+        value.bind( applyRpMetaPreview );
+    } );
 
     
     //Body text Color
@@ -1198,6 +1231,7 @@
             if ( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
+            document.documentElement.style.setProperty('--responsive-global-meta-text-color', newval);
             $('.post-meta *, .hentry .post-meta a').css('color', newval );
         } );
     } );
@@ -1209,7 +1243,7 @@
                 newval = `var(--responsive-global-${newval})`;
             }
 
-            $('a, .woocommerce a.remove:hover').not('nav a').not('a.add_to_cart_button').not('.site-title-tagline a').not('.widget-area .widget-wrapper a').not('a.product_type_grouped').not('.woocommerce-tabs .description_tab').not('.woocommerce-tabs .reviews_tab').not('.post-meta a').not('.post-meta a:hover').not('.responsive-single-related-posts-container a').not('.responsive-single-related-posts-container a:hover').not('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.breadcrumb a').not('.single-post .responsive-related-single-post-content .entry-category a ').not('.woocommerce.archive .site-content-header a, .woocommerce-shop .site-content-header a, .responsive-shop-entry-banner a, .single-product .site-content-header a, .single-product .responsive-single-product-entry-banner a').css('color', newval );
+            $('a, .woocommerce a.remove:hover').not('nav a').not('a.add_to_cart_button').not('.site-title-tagline a').not('.widget-area .widget-wrapper a').not('a.product_type_grouped').not('.woocommerce-tabs .description_tab').not('.woocommerce-tabs .reviews_tab').not('.woocommerce-tabs ul.tabs li a').not('.post-meta a').not('.post-meta a:hover').not('.responsive-single-related-posts-container a').not('.responsive-single-related-posts-container a:hover').not('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.breadcrumb a').not('.single-post .responsive-related-single-post-content .entry-category a ').not('.woocommerce.archive .site-content-header a, .woocommerce-shop .site-content-header a, .responsive-shop-entry-banner a, .single-product .site-content-header a, .single-product .responsive-single-product-entry-banner a').not('.responsive-social-icon-anchor').css('color', newval );
         } );
     } );
 
@@ -1372,7 +1406,7 @@
             var styleId = 'responsive-add-to-cart-button-hover-color-preview';
             jQuery('style#' + styleId).remove();
             
-            var selectors = '.woocommerce #respond input#submit:hover, .wp-block-button__link.add_to_cart_button:hover, .woocommerce div.product .woocommerce-tabs ul.tabs li.active a, .woocommerce div.product .woocommerce-tabs ul.tabs li.active, .woocommerce button.button:focus, .woocommerce button.button.alt:focus, .woocommerce button.button:hover, .woocommerce button.button.alt:hover, .woocommerce button.button:hover, .woocommerce button.button:focus, .woocommerce a.button:focus, .woocommerce a.button:hover, .woocommerce a.button.alt:focus, .woocommerce a.button.alt:hover, .woocommerce .widget_price_filter .price_slider_wrapper .ui-widget-content';
+            var selectors = '.woocommerce #respond input#submit:hover, .wp-block-button__link.add_to_cart_button:hover, .woocommerce button.button:focus, .woocommerce button.button.alt:focus, .woocommerce button.button:hover, .woocommerce button.button.alt:hover, .woocommerce button.button:hover, .woocommerce button.button:focus, .woocommerce a.button:focus, .woocommerce a.button:hover, .woocommerce a.button.alt:focus, .woocommerce a.button.alt:hover, .woocommerce .widget_price_filter .price_slider_wrapper .ui-widget-content';
             var css = selectors + ' { background-color: ' + newval + ' !important; }';
             
             jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
@@ -2161,7 +2195,7 @@
 
             $('head').append(
                 '<style id="responsive-footer-links-color-style">' +
-                '.site-footer a:not(.footer-widget-area .footer-widget-wrapper a) { color: ' + newval + '; }' +
+                '.site-footer a:not(.footer-widget-area .footer-widget-wrapper a):not(.responsive-social-icon-anchor) { color: ' + newval + '; }' +
                 '</style>'
             );
 
@@ -2263,16 +2297,110 @@
         });
     });
 
+    // Single Product Tab Colors (own controls, independent from the Add to Cart button colors).
+    (function() {
+        var tabsBase = '.woocommerce div.product .woocommerce-tabs ul.tabs';
 
+        // Rules for each control. Listed in the order the saved CSS prints them (hover before active) so equal specificity resolves the same way.
+        var tabColorRules = {
+            responsive_single_product_tab_text_color: function( tabs, c ) {
+                return tabs + ' li a,' + tabs + ' li{color:' + c + ';}';
+            },
+            responsive_single_product_tab_text_hover_color: function( tabs, c ) {
+                return tabs + ' li a:hover{color:' + c + ';}';
+            },
+            responsive_single_product_tab_text_active_color: function( tabs, c ) {
+                return tabs + ' li.active a,' + tabs + ' li.active{color:' + c + ';}';
+            },
+            responsive_single_product_tab_background_color: function( tabs, c ) {
+                return tabs + ' li a,' + tabs + ' li{background-color:' + c + ';}' +
+                    tabs + '::before,' + tabs + ' li{border-color:' + c + ';}' +
+                    tabs + ' li::after{box-shadow:-2px 2px 0 ' + c + ';}' +
+                    tabs + ' li::before{box-shadow:2px 2px 0 ' + c + ';}';
+            },
+            responsive_single_product_tab_background_hover_color: function( tabs, c ) {
+                return tabs + ' li:not(.active):hover,' + tabs + ' li:not(.active):hover a{background-color:' + c + ';}' +
+                    tabs + ' li:not(.active):hover::after{box-shadow:-2px 2px 0 ' + c + ';}' +
+                    tabs + ' li:not(.active):hover::before{box-shadow:2px 2px 0 ' + c + ';}';
+            },
+            responsive_single_product_tab_background_active_color: function( tabs, c ) {
+                return tabs + ' li.active a,' + tabs + ' li.active{background-color:' + c + ';}' +
+                    tabs + ' li.active{border-bottom-color:' + c + ';}' +
+                    tabs + ' li.active::before{box-shadow:2px 2px 0 ' + c + ';}' +
+                    tabs + ' li.active::after{box-shadow:-2px 2px 0 ' + c + ';}' +
+                    tabs + ' li::after,' + tabs + ' li::before{border-color:' + c + ';}';
+            }
+        };
+
+        // Create one style tag per control up front, in order, and only change their content later so the order never changes.
+        Object.keys( tabColorRules ).forEach( function( key ) {
+            var styleId = 'responsive-' + key.replace( /_/g, '-' ) + '-preview';
+            jQuery( 'head' ).append( '<style id="' + styleId + '"></style>' );
+
+            api( key, function( value ) {
+                value.bind( function() {
+                    var isCenter = $( 'body' ).hasClass( 'product-tab-style-center' );
+                    var css      = '';
+                    var color    = processThemeSettingForCSS( key );
+
+                    // The Center style has no tab background.
+                    if ( color && ! ( isCenter && key.indexOf( '_background_' ) !== -1 ) ) {
+                        // The saved Center rules are prefixed with the body class, match their specificity so the preview wins without !important.
+                        var tabs = isCenter ? 'body.product-tab-style-center' + tabsBase : tabsBase;
+                        css = tabColorRules[ key ]( tabs, color );
+                    }
+                    jQuery( 'style#' + styleId ).text( css );
+                } );
+            } );
+        } );
+    })();
+
+
+
+    // Store Notice Colors (WooCommerce > Store Notice).
+    (function() {
+        var notice = 'body .woocommerce-store-notice, body p.demo_store';
+        var noticeLinks = 'body .woocommerce-store-notice a, body p.demo_store a';
+        var noticeHover = 'body .woocommerce-store-notice:hover, body p.demo_store:hover';
+        var noticeHoverLinks = 'body .woocommerce-store-notice:hover a, body p.demo_store:hover a';
+
+        // Listed in the order the saved CSS prints them so equal specificity resolves the same way.
+        var storeNoticeRules = {
+            responsive_store_notice_text_color: function( c ) {
+                return notice + '{color:' + c + ';}' + noticeLinks + '{color:' + c + ';}';
+            },
+            responsive_store_notice_background_color: function( c ) {
+                return notice + '{background-color:' + c + ';}';
+            },
+            responsive_store_notice_text_hover_color: function( c ) {
+                return noticeHover + '{color:' + c + ';}' + noticeHoverLinks + '{color:' + c + ';}';
+            },
+            responsive_store_notice_background_hover_color: function( c ) {
+                return noticeHover + '{background-color:' + c + ';}';
+            }
+        };
+
+        // One style tag per control, created up front in order so the order never changes.
+        Object.keys( storeNoticeRules ).forEach( function( key ) {
+            var styleId = 'responsive-' + key.replace( /_/g, '-' ) + '-preview';
+            jQuery( 'head' ).append( '<style id="' + styleId + '"></style>' );
+
+            api( key, function( value ) {
+                value.bind( function() {
+                    var color = processThemeSettingForCSS( key );
+                    jQuery( 'style#' + styleId ).text( color ? storeNoticeRules[ key ]( color ) : '' );
+                } );
+            } );
+        } );
+    })();
 
     //Buttons Color
     api( 'responsive_add_to_cart_button_color', function( value ) {
         value.bind( function( newval ) {
-            $('.woocommerce #respond input#submit,.wp-block-button__link.add_to_cart_button,.woocommerce div.product .woocommerce-tabs ul.tabs li a,.woocommerce div.product .woocommerce-tabs ul.tabs li,.woocommerce button.button.alt,.woocommerce button.button,.woocommerce a.button,.woocommerce .widget_price_filter .ui-slider .ui-slider-handle,.woocommerce .widget_price_filter .ui-slider .ui-slider-range,.wc-block-grid__product-onsale,.woocommerce span.onsale')
+            $('.woocommerce #respond input#submit,.wp-block-button__link.add_to_cart_button,.woocommerce button.button.alt,.woocommerce button.button,.woocommerce a.button,.woocommerce .widget_price_filter .ui-slider .ui-slider-handle,.woocommerce .widget_price_filter .ui-slider .ui-slider-range,.wc-block-grid__product-onsale,.woocommerce span.onsale')
                 .filter(function() {
                     return !$(this).closest('li.product').hasClass('btn-style-text-with-arrow');
                 }).css('background-color', newval );
-            $('.woocommerce div.product .woocommerce-tabs ul.tabs::before,.woocommerce div.product .woocommerce-tabs ul.tabs li').css('border-color', newval );
         } );
     } );
 
@@ -2283,7 +2411,7 @@
             if( formattedVal && formattedVal.startsWith('palette') ) {
                 formattedVal = `var(--responsive-global-${formattedVal})`;
             }
-            var $targets = $('.woocommerce span.onsale,.wc-block-grid__product-onsale,.woocommerce #respond input#submit,.wp-block-button__link.add_to_cart_button,.woocommerce div.product .woocommerce-tabs ul.tabs li a,.woocommerce div.product .woocommerce-tabs ul.tabs li,.woocommerce button.button.alt,.woocommerce button.button,.woocommerce a.button');
+            var $targets = $('.woocommerce span.onsale,.wc-block-grid__product-onsale,.woocommerce #respond input#submit,.wp-block-button__link.add_to_cart_button,.woocommerce button.button.alt,.woocommerce button.button,.woocommerce a.button');
 
             $targets.filter(function() {
                 return !$(this).closest('li.product').hasClass('btn-style-text-with-arrow');
@@ -3031,7 +3159,7 @@
     //Hover Colors
 
     //Links Hover Color
-    $("a").not('.secondary-navigation a').not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.responsive-header-html a, .responsive-mobile-header-html a').not('.post-meta a').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.read-more .more-link').not('footer.comment-meta a, .commentlist .comment-content a').not('.button').not('.wp-block-button__link').not('.breadcrumb a').not('.site-header .responsive-header-html2 .responsive-header-html2-inner a').not('.site-header .responsive-header-html .responsive-header-html-inner a').not('.site-footer .responsive-footer-html .responsive-footer-html-inner a').not('.site-footer .responsive-footer-html2 .responsive-footer-html2-inner a').not('.woocommerce.archive .site-content-header a, .woocommerce-shop .site-content-header a, .responsive-shop-entry-banner a, .single-product .site-content-header a, .single-product .responsive-single-product-entry-banner a').hover(
+    $("a").not('.responsive-social-icon-anchor').not('.woocommerce-tabs ul.tabs li a').not('.secondary-navigation a').not('.responsive-single-related-posts-container a').not('.widget-area .widget-wrapper a').not('.footer-widget-area .footer-widget-wrapper a').not('.footer-navigation #footer-menu li a').not('.responsive-header-button').not('.responsive-header-html a, .responsive-mobile-header-html a').not('.post-meta a').not('.link-style-color-underline .entry-content a').not('.link-style-offset-background .entry-content a').not('h1 a, h2 a,h3 a,h4 a,h5 a,h6 a').not('.breadcrumbs a').not('.comments-area .reply a').not('.read-more .more-link').not('footer.comment-meta a, .commentlist .comment-content a').not('.button').not('.wp-block-button__link').not('.breadcrumb a').not('.site-header .responsive-header-html2 .responsive-header-html2-inner a').not('.site-header .responsive-header-html .responsive-header-html-inner a').not('.site-footer .responsive-footer-html .responsive-footer-html-inner a').not('.site-footer .responsive-footer-html2 .responsive-footer-html2-inner a').not('.woocommerce.archive .site-content-header a, .woocommerce-shop .site-content-header a, .responsive-shop-entry-banner a, .single-product .site-content-header a, .single-product .responsive-single-product-entry-banner a').hover(
         function() {
             const linkHoverColor = processThemeSettingForCSS('responsive_link_hover_color');
             $(this).css("color", linkHoverColor);
@@ -3372,7 +3500,7 @@
         }
     );
     //Footer Links Hover Color
-    $(".site-footer a").not('.footer-navigation a').not('.footer-widget-area .footer-widget-wrapper a').not('.site-footer .responsive-footer-html .responsive-footer-html-inner a').not('.site-footer .responsive-footer-html2 .responsive-footer-html2-inner a').hover(
+    $(".site-footer a").not('.responsive-social-icon-anchor').not('.footer-navigation a').not('.footer-widget-area .footer-widget-wrapper a').not('.site-footer .responsive-footer-html .responsive-footer-html-inner a').not('.site-footer .responsive-footer-html2 .responsive-footer-html2-inner a').hover(
         function() {
             var hoverColor = processThemeSettingForCSS('responsive_footer_links_hover_color');
             document.documentElement.style.setProperty('--responsive-global-footer-links-hover-color', hoverColor);
@@ -3385,7 +3513,7 @@
     );
 
     //Add to cart Button Text Hover Color
-    $(".woocommerce span.onsale,.wc-block-grid__product-onsale,.woocommerce #respond input#submit,.wp-block-button__link.add_to_cart_button,.woocommerce div.product .woocommerce-tabs ul.tabs li a,.woocommerce div.product .woocommerce-tabs ul.tabs li,.woocommerce button.button.alt,.woocommerce button.button,.woocommerce a.button").hover(
+    $(".woocommerce span.onsale,.wc-block-grid__product-onsale,.woocommerce #respond input#submit,.wp-block-button__link.add_to_cart_button,.woocommerce button.button.alt,.woocommerce button.button,.woocommerce a.button").hover(
         function() {
             if ($(this).closest('li.product').hasClass('btn-style-text-with-arrow')) {
                 var rawHoverColor = api('responsive_add_to_cart_button_hover_text_color') ? api('responsive_add_to_cart_button_hover_text_color').get() : '';
@@ -4361,17 +4489,6 @@
             $('style#secondary-menu-item-hover-style').remove();
         }
     );
-    api( 'responsive_sticky_header_background_color', function( value ) {
-        value.bind( function( newval ) {
-            jQuery('style#responsive-sticky-header-bg-color').remove();
-            jQuery('head').append(
-                '<style id="responsive-sticky-header-bg-color">'
-                + '#masthead.sticky-header, .res-transparent-header #masthead.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead.sticky-header,'
-                + '#masthead-mobile.sticky-header, .res-transparent-header #masthead-mobile.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead-mobile.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead-mobile.sticky-header { background-color: ' + newval + '; }'
-                + '</style>'
-            );
-        } );
-    } );
     api( 'responsive_sticky_header_site_title_color', function( value ) {
         value.bind( function( newval ) {
             jQuery('style#responsive-sticky-header-site-title-color').remove();
@@ -4470,13 +4587,25 @@
             );
         } );
     } );
+    api( 'responsive_sticky_header_active_menu_link_color', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-sticky-header-active-menu-link-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-sticky-header-active-menu-link-color">'
+                + '#masthead.sticky-header .main-navigation .menu .current_page_item > a, #masthead.sticky-header .main-navigation .menu .current-menu-item > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current_page_item > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current-menu-item > a, '
+                + '#masthead-mobile.sticky-header .main-navigation .menu .current_page_item > a, #masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current_page_item > a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a { color: ' + newval + ' !important; }'
+                + '</style>'
+            );
+        } );
+    } );
+    // Printed after the Active Menu Link Color rule (which also covers hovered items) so it overrides it on hover.
     api( 'responsive_sticky_header_menu_link_hover_color', function( value ) {
         value.bind( function( newval ) {
             jQuery('style#responsive-sticky-header-menu-link-hover-color').remove();
             jQuery('head').append(
                 '<style id="responsive-sticky-header-menu-link-hover-color">'
-                + '#masthead.sticky-header .main-navigation .menu .current_page_item > a, #masthead.sticky-header .main-navigation .menu .current-menu-item > a, #masthead.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current_page_item > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current-menu-item > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu li > a:hover, '
-                + '#masthead-mobile.sticky-header .main-navigation .menu .current_page_item > a, #masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a, #masthead-mobile.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current_page_item > a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu li > a:hover { color: ' + newval + '!important; }'
+                + '#masthead.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .menu li > a:hover, '
+                + '#masthead-mobile.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu li > a:hover { color: ' + newval + ' !important; }'
                 + '</style>'
             );
         } );
@@ -5369,6 +5498,15 @@
                     + '} </style>'
                 );
             }
+            if ( ( 'on-hover' === footer_social_item_use_brand_colors || 'until-hover' === footer_social_item_use_brand_colors ) && api('responsive_footer_social_show_label').get() ) {
+                jQuery('style#responsive-footer-social-item-label-color-desktop').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-label-color-desktop">'
+                    + '@media screen and (min-width: 993px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label { color: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
         });
     });
     // Footer Social Item Color - Tablet
@@ -5384,6 +5522,15 @@
                     + '} </style>'
                 );
             }
+            if ( ( 'on-hover' === footer_social_item_use_brand_colors || 'until-hover' === footer_social_item_use_brand_colors ) && api('responsive_footer_social_show_label').get() ) {
+                jQuery('style#responsive-footer-social-item-label-color-tablet').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-label-color-tablet">'
+                    + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label { color: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
         });
     });
     // Footer Social Item Color - Mobile
@@ -5396,6 +5543,15 @@
                     '<style id="responsive-footer-social-item-color-mobile">'
                     + '@media screen and (max-width: 556px) {'
                     + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor { color: ' + newval + '; fill: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+            if ( ( 'on-hover' === footer_social_item_use_brand_colors || 'until-hover' === footer_social_item_use_brand_colors ) && api('responsive_footer_social_show_label').get() ) {
+                jQuery('style#responsive-footer-social-item-label-color-mobile').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-label-color-mobile">'
+                    + '@media screen and (max-width: 556px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor .responsive-social-icon-label { color: ' + newval + '; }'
                     + '} </style>'
                 );
             }
@@ -5446,6 +5602,15 @@
                     + '} </style>'
                 );
             }
+            if ( ( 'on-hover' === footer_social_item_use_brand_colors || 'until-hover' === footer_social_item_use_brand_colors ) && api('responsive_footer_social_show_label').get() ) {
+                jQuery('style#responsive-footer-social-item-label-hover-color-desktop').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-label-hover-color-desktop">'
+                    + '@media screen and (min-width: 993px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover .responsive-social-icon-label { color: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
         });
     });
     // Footer Social Item Hover Color - Tablet
@@ -5461,6 +5626,15 @@
                     + '} </style>'
                 );
             }
+            if ( ( 'on-hover' === footer_social_item_use_brand_colors || 'until-hover' === footer_social_item_use_brand_colors ) && api('responsive_footer_social_show_label').get() ) {
+                jQuery('style#responsive-footer-social-item-label-hover-color-tablet').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-label-hover-color-tablet">'
+                    + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover .responsive-social-icon-label { color: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
         });
     });
     // Footer Social Item Hover Color - Mobile
@@ -5473,6 +5647,15 @@
                     '<style id="responsive-footer-social-item-hover-color-mobile">'
                     + '@media screen and (max-width: 556px) {'
                     + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { color: ' + newval + '; fill: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+            if ( ( 'on-hover' === footer_social_item_use_brand_colors || 'until-hover' === footer_social_item_use_brand_colors ) && api('responsive_footer_social_show_label').get() ) {
+                jQuery('style#responsive-footer-social-item-label-hover-color-mobile').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-label-hover-color-mobile">'
+                    + '@media screen and (max-width: 556px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover .responsive-social-icon-label { color: ' + newval + '; }'
                     + '} </style>'
                 );
             }
@@ -5519,7 +5702,7 @@
     api( 'responsive_footer_social_item_background_color', function(val){
         val.bind(function(newval){
             var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
-            if ( 'no' === footer_social_item_use_brand_colors ) {
+            if ( 'no' === footer_social_item_use_brand_colors || 'on-hover' === footer_social_item_use_brand_colors ) {
                 jQuery('style#responsive-footer-social-item-background-color-desktop').remove();
                 jQuery('head').append(
                     '<style id="responsive-footer-social-item-background-color-desktop">'
@@ -5534,7 +5717,7 @@
     api( 'responsive_footer_social_item_background_color_tablet', function(val){
         val.bind(function(newval){
             var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
-            if ( 'no' === footer_social_item_use_brand_colors ) {
+            if ( 'no' === footer_social_item_use_brand_colors || 'on-hover' === footer_social_item_use_brand_colors ) {
                 jQuery('style#responsive-footer-social-item-background-color-tablet').remove();
                 jQuery('head').append(
                     '<style id="responsive-footer-social-item-background-color-tablet">'
@@ -5549,7 +5732,7 @@
     api( 'responsive_footer_social_item_background_color_mobile', function(val){
         val.bind(function(newval){
             var footer_social_item_use_brand_colors = api('responsive_footer_social_item_use_brand_colors').get();
-            if ( 'no' === footer_social_item_use_brand_colors ) {
+            if ( 'no' === footer_social_item_use_brand_colors || 'on-hover' === footer_social_item_use_brand_colors ) {
                 jQuery('style#responsive-footer-social-item-background-color-mobile').remove();
                 jQuery('head').append(
                     '<style id="responsive-footer-social-item-background-color-mobile">'
@@ -5606,6 +5789,15 @@
                     + '} </style>'
                 );
             }
+            if ( 'until-hover' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-until-hover-background-color-desktop').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-until-hover-background-color-desktop">'
+                    + '@media screen and (min-width: 993px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' + newval + ' !important; }'
+                    + '} </style>'
+                );
+            }
         });
     });
     // Footer Social Item Background Hover Color - Tablet
@@ -5621,6 +5813,15 @@
                     + '} </style>'
                 );
             }
+            if ( 'until-hover' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-until-hover-background-color-tablet').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-until-hover-background-color-tablet">'
+                    + '@media screen and (min-width: 577px) and (max-width: 992px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' + newval + ' !important; }'
+                    + '} </style>'
+                );
+            }
         });
     });
     // Footer Social Item Background Hover Color - Mobile
@@ -5633,6 +5834,15 @@
                     '<style id="responsive-footer-social-item-background-hover-color-mobile">'
                     + '@media screen and (max-width: 556px) {'
                     + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' + newval + '; }'
+                    + '} </style>'
+                );
+            }
+            if ( 'until-hover' === footer_social_item_use_brand_colors ) {
+                jQuery('style#responsive-footer-social-item-until-hover-background-color-mobile').remove();
+                jQuery('head').append(
+                    '<style id="responsive-footer-social-item-until-hover-background-color-mobile">'
+                    + '@media screen and (max-width: 556px) {'
+                    + '.footer-layouts.social-icon .social-icons .responsive-social-icon .responsive-social-icon-anchor:hover { background-color: ' + newval + ' !important; }'
                     + '} </style>'
                 );
             }
@@ -7247,7 +7457,7 @@
     api('responsive_shop_text_color', function(value) {
         value.bind(function(newval) {
             var color = processThemeSettingForCSS('responsive_shop_text_color') || newval;
-            $('.woocommerce.archive .site-content-header, .woocommerce-shop .site-content-header, .responsive-shop-entry-banner, .woocommerce.archive .site-content-header .page-description, .woocommerce-shop .site-content-header .page-description, .responsive-shop-entry-banner .page-description, .responsive-shop-entry-banner .page-description p, .woocommerce.archive .site-content-header .page-description p, .woocommerce-shop .site-content-header .page-description p, .woocommerce.archive .site-content-header .woocommerce-breadcrumb, .woocommerce-shop .site-content-header .woocommerce-breadcrumb, .responsive-shop-entry-banner .woocommerce-breadcrumb').css('color', color);
+            $('.woocommerce.archive .site-content-header, .woocommerce-shop .site-content-header, .responsive-shop-entry-banner, .woocommerce.archive .site-content-header .page-description, .woocommerce-shop .site-content-header .page-description, .responsive-shop-entry-banner .page-description, .responsive-shop-entry-banner .page-description p, .woocommerce.archive .site-content-header .page-description p, .woocommerce-shop .site-content-header .page-description p').css('color', color);
         });
     });
 
@@ -7285,6 +7495,202 @@
             }
         });
     });
+
+    // Single Product Title Color
+    api('responsive_single_product_title_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_title_color') || newval;
+            if (color && typeof color === 'string') {
+                if (color.includes('h1-color') || color.includes('palette')) {
+                    color = 'var(--responsive-global-' + color + ')';
+                }
+            }
+            $('.single-product .site-content-header .product_title, .single-product .responsive-single-product-entry-banner .product_title').css('color', color ? color : '');
+        });
+    });
+
+    // Single Product Text Color
+    api('responsive_single_product_text_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_text_color') || newval;
+            if (color && typeof color === 'string' && color.includes('palette')) {
+                color = 'var(--responsive-global-' + color + ')';
+            }
+            $('.single-product .site-content-header, .single-product .responsive-single-product-entry-banner').css('color', color ? color : '');
+        });
+    });
+
+    // Single Product Link Color
+    api('responsive_single_product_title_link_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_title_link_color') || newval;
+            if (color && typeof color === 'string' && color.includes('palette')) {
+                color = 'var(--responsive-global-' + color + ')';
+            }
+            var styleId = 'responsive-single-product-title-link-color-preview';
+            var selectors = '.single-product .site-content-header a, .single-product .responsive-single-product-entry-banner a';
+            $(selectors).css('color', '');
+            $('#' + styleId).remove();
+            if (color) {
+                $('head').append(
+                    '<style id="' + styleId + '">' +
+                    selectors + ' { color: ' + color + '; }' +
+                    '</style>'
+                );
+            }
+        });
+    });
+
+    // Single Product Link Hover Color
+    api('responsive_single_product_title_link_hover_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_title_link_hover_color') || newval;
+            if (color && typeof color === 'string' && color.includes('palette')) {
+                color = 'var(--responsive-global-' + color + ')';
+            }
+            var styleId = 'responsive-single-product-title-link-hover-color-preview';
+            $('#' + styleId).remove();
+            if (color) {
+                var selectors = '.single-product .site-content-header a:hover, .single-product .responsive-single-product-entry-banner a:hover';
+                $('head').append(
+                    '<style id="' + styleId + '">' +
+                    selectors + ' { color: ' + color + '; }' +
+                    '</style>'
+                );
+            }
+        });
+    });
+
+    // Products / Product Title Area breadcrumb colors - Start
+    // Shop Breadcrumb Text Color
+    api('responsive_shop_breadcrumb_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_shop_breadcrumb_color') || newval;
+            var styleId = 'responsive-shop-breadcrumb-color-preview';
+            $('#' + styleId).remove();
+            if (color) {
+                $('head').append(
+                    '<style id="' + styleId + '">' +
+                    '.woocommerce.archive .site-content-header .woocommerce-breadcrumb, .woocommerce-shop .site-content-header .woocommerce-breadcrumb, .responsive-shop-entry-banner .woocommerce-breadcrumb { color: ' + color + '; }' +
+                    '</style>'
+                );
+            }
+        });
+    });
+
+    // Shop Breadcrumb Background Color
+    api('responsive_shop_breadcrumb_background_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_shop_breadcrumb_background_color') || newval;
+            var styleId = 'responsive-shop-breadcrumb-background-color-preview';
+            $('#' + styleId).remove();
+            if (color) {
+                $('head').append(
+                    '<style id="' + styleId + '">' +
+                    '.woocommerce.archive .site-content-header .woocommerce-breadcrumb, .woocommerce-shop .site-content-header .woocommerce-breadcrumb, .responsive-shop-entry-banner .woocommerce-breadcrumb { background-color: ' + color + '; }' +
+                    '</style>'
+                );
+            }
+        });
+    });
+
+    // Shop Breadcrumb Separator Color
+    api('responsive_shop_breadcrumb_separator_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_shop_breadcrumb_separator_color') || newval;
+            var styleId = 'responsive-shop-breadcrumb-separator-color-preview';
+            $('#' + styleId).remove();
+            if (color) {
+                $('head').append(
+                    '<style id="' + styleId + '">' +
+                    '.woocommerce.archive .site-content-header .woocommerce-breadcrumb .chevron, .woocommerce-shop .site-content-header .woocommerce-breadcrumb .chevron, .responsive-shop-entry-banner .woocommerce-breadcrumb .chevron { color: ' + color + '; }' +
+                    '</style>'
+                );
+            }
+        });
+    });
+
+    // Single Product Breadcrumb Text Color
+    api('responsive_single_product_breadcrumb_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_breadcrumb_color') || newval;
+            var styleId = 'responsive-single-product-breadcrumb-color-preview';
+            $('#' + styleId).remove();
+            if (color) {
+                $('head').append(
+                    '<style id="' + styleId + '">' +
+                    '.single-product .site-content-header .woocommerce-breadcrumb, .single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb { color: ' + color + '; }' +
+                    '</style>'
+                );
+            }
+        });
+    });
+
+    // Single Product Breadcrumb Link Color
+    api('responsive_single_product_breadcrumb_link_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_breadcrumb_link_color') || newval;
+            var styleId = 'responsive-single-product-breadcrumb-link-color-preview';
+            $('#' + styleId).remove();
+            if (color) {
+                $('head').append(
+                    '<style id="' + styleId + '">' +
+                    '.single-product .site-content-header .woocommerce-breadcrumb a, .single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb a { color: ' + color + '; }' +
+                    '</style>'
+                );
+            }
+        });
+    });
+
+    // Single Product Breadcrumb Link Hover Color
+    api('responsive_single_product_breadcrumb_link_hover_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_breadcrumb_link_hover_color') || newval;
+            var styleId = 'responsive-single-product-breadcrumb-link-hover-color-preview';
+            $('#' + styleId).remove();
+            if (color) {
+                $('head').append(
+                    '<style id="' + styleId + '">' +
+                    '.single-product .site-content-header .woocommerce-breadcrumb a:hover, .single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb a:hover { color: ' + color + '; }' +
+                    '</style>'
+                );
+            }
+        });
+    });
+
+    // Single Product Breadcrumb Background Color
+    api('responsive_single_product_breadcrumb_background_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_breadcrumb_background_color') || newval;
+            var styleId = 'responsive-single-product-breadcrumb-background-color-preview';
+            $('#' + styleId).remove();
+            if (color) {
+                $('head').append(
+                    '<style id="' + styleId + '">' +
+                    '.single-product .site-content-header .woocommerce-breadcrumb, .single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb { background-color: ' + color + '; }' +
+                    '</style>'
+                );
+            }
+        });
+    });
+
+    // Single Product Breadcrumb Separator Color
+    api('responsive_single_product_breadcrumb_separator_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_breadcrumb_separator_color') || newval;
+            var styleId = 'responsive-single-product-breadcrumb-separator-color-preview';
+            $('#' + styleId).remove();
+            if (color) {
+                $('head').append(
+                    '<style id="' + styleId + '">' +
+                    '.single-product .site-content-header .woocommerce-breadcrumb .chevron, .single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb .chevron { color: ' + color + '; }' +
+                    '</style>'
+                );
+            }
+        });
+    });
+
+    // Products / Product Title Area breadcrumb colors - End
 
     // Page Title Area Title
     api( 'responsive_page_title_area_text_color', function(value) {
@@ -7482,6 +7888,14 @@
             var color = processThemeSettingForCSS('responsive_shop_banner_overlay_color');
             if ( !color ) color = 'transparent';
             $('.responsive-shop-entry-banner').css('--overlay-color', color);
+        });
+    });
+
+    api('responsive_single_product_banner_overlay_color', function(value) {
+        value.bind(function() {
+            var color = processThemeSettingForCSS('responsive_single_product_banner_overlay_color');
+            if ( !color ) color = 'transparent';
+            $('.responsive-single-product-entry-banner').css('--overlay-color', color);
         });
     });
 function updateMobileHeaderButtonHoverShadow() {

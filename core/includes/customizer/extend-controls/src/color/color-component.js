@@ -115,7 +115,14 @@ const ColorComponent = props => {
 		const defaultValue = props.control.params.default;
 		updateValues(defaultValue);
 
-		if (props.control.id === 'responsive_add_to_cart_button_text_color' && wp.customize?.previewer?.refresh) {
+		const refreshOnResetIds = [
+			'responsive_add_to_cart_button_text_color',
+			'responsive_single_product_title_color',
+			'responsive_single_product_text_color',
+			'responsive_single_product_title_link_color',
+		];
+
+		if (refreshOnResetIds.includes(props.control.id) && wp.customize?.previewer?.refresh) {
 			wp.customize.previewer.refresh();
 		}
 	};

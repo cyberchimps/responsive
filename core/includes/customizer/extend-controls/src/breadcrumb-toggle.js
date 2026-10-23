@@ -51,7 +51,7 @@
 
                 let isGlobalEnabled = wp.customize('responsive_theme_options[breadcrumb]') && (wp.customize('responsive_theme_options[breadcrumb]').get() == true || wp.customize('responsive_theme_options[breadcrumb]').get() == '1');
 
-                let isEnabled = toggleSettings.some(function(setting) {
+                let isEnabled = toggleSettings.length === 0 || toggleSettings.some(function(setting) {
                     return wp.customize(setting) && (wp.customize(setting).get() == true || wp.customize(setting).get() == '1');
                 });
 
@@ -160,6 +160,9 @@
         // not 'responsive_blog_entry_elements_positioning' - the latter is the per-post
         // element set for entries *within* the blog listing loop and has no 'breadcrumb' choice.
         syncBreadcrumbSortable(['responsive_breadcrumb_enable_blog_posts_page', 'responsive_breadcrumb_enable_archive'], 'responsive_blog_title_elements_positioning');
+        // WooCommerce Product Catalog / Single Product Title Areas follow the global toggle only.
+        syncBreadcrumbSortable([], 'responsive_shop_title_elements_positioning');
+        syncBreadcrumbSortable([], 'responsive_single_product_title_elements_positioning');
 
     });
 

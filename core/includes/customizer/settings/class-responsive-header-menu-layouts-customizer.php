@@ -91,7 +91,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				$tab_ids_prefix . 'responsive_mobile_menu_toggle_style',
 				$tab_ids_prefix . 'responsive_header_menu_typography_group',
 			);
-			responsive_tabs_button_control( $wp_customize, 'primary_menu_tabs', $tabs_label, 'responsive_header_menu_layout', 10, '', 'responsive_primary_menu_general_tab', 'responsive_primary_menu_design_tab', $primary_menu_general_tab_ids, $primary_menu_design_tab_ids, 'responsive_disabled_main_menu' );
+			responsive_tabs_button_control( $wp_customize, 'primary_menu_tabs', $tabs_label, 'responsive_header_menu_layout', 10, '', 'responsive_primary_menu_general_tab', 'responsive_primary_menu_design_tab', apply_filters( 'primary_menu_general_tab_ids', $primary_menu_general_tab_ids ), apply_filters( 'primary_menu_design_tab_ids', $primary_menu_design_tab_ids ), 'responsive_disabled_main_menu' );
 
 			// Main Menu Settings.
 			$main_menu_separator_label = __( 'Main Menu Settings', 'responsive' );
@@ -375,6 +375,20 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			// Margin
 			responsive_unit_padding_control( $wp_customize, 'primary_menu_margin', 'responsive_header_menu_layout', 250, '', '', 'responsive_disabled_main_menu', __( 'Margin', 'responsive' ), 'postMessage', '', '', '', '', 'px' );
 
+			// 	Upgrade to Pro nudge for Header (only registers when Responsive Pro is not active).
+			responsive_pro_nudge_control(
+				$wp_customize,
+				'primary_menu_container',
+				'responsive_header_menu_layout',
+				array(
+					'image'       => RESPONSIVE_THEME_URI . 'admin/images/upgradeToPro.jpg',
+					'description' => __( 'Take your container layout to the next level with powerful design features.', 'responsive' ),
+					'features'    => array(
+						__( 'Enhanced Typography', 'responsive' ),
+					),
+				),
+				999
+			);
 		}
 
 	}

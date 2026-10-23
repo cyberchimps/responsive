@@ -62,7 +62,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Typography_Customizer' ) ) :
 					),
 					'single_product_title'           => array(
 						'label'    => esc_html__( 'Product Title', 'responsive' ),
-						'target'   => '.single-product div.product .entry-title',
+						'target'   => '.single-product div.product .entry-title:not(.site-content-header .entry-title):not(.responsive-single-product-entry-banner .entry-title)',
 						'priority' => 79,
 						'type'     => 'control',
 						'section'  => 'responsive_woocommerce_single_product_layout',
@@ -116,7 +116,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Typography_Customizer' ) ) :
 					),
 					'single_product_content'         => array(
 						'label'    => esc_html__( 'Product Content', 'responsive' ),
-						'target'   => '.single-product .woocommerce-product-details__short-description, .single-product .woocommerce-Tabs-panel--description',
+						'target'   => '.single-product .woocommerce-product-details__short-description:not(.site-content-header .woocommerce-product-details__short-description):not(.responsive-single-product-entry-banner .woocommerce-product-details__short-description), .single-product .woocommerce-Tabs-panel--description',
 						'priority' => 83,
 						'type'     => 'control',
 						'section'  => 'responsive_woocommerce_single_product_layout',
@@ -142,7 +142,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Typography_Customizer' ) ) :
 					),
 					'single_product_page_breadcrumb' => array(
 						'label'    => esc_html__( 'Breadcrumb', 'responsive' ),
-						'target'   => '.single-product .woocommerce-breadcrumb, .single-product .woocommerce-breadcrumb a',
+						'target'   => '.single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb), .single-product .woocommerce-breadcrumb:not(.site-content-header .woocommerce-breadcrumb):not(.responsive-single-product-entry-banner .woocommerce-breadcrumb) a',
 						'priority' => 85,
 						'type'     => 'control',
 						'section'  => 'responsive_woocommerce_single_product_layout',
@@ -215,7 +215,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Typography_Customizer' ) ) :
 				$seperator_priority = $priority - 1;
 				$control_priority   = $seperator_priority;
 				$seperator_count    = 1;
-				if ( 'shop_page_title' === $element || 'single_product_title' === $element ) {
+				if ( 'shop_page_title' === $element ) {
 					$seperator_count = 2;
 				}
 				responsive_horizontal_separator_control( $wp_customize, $element . '_shop_typography_group_seperator', $seperator_count, $section, $seperator_priority, 1 );
@@ -377,6 +377,10 @@ if ( ! class_exists( 'Responsive_Woocommerce_Typography_Customizer' ) ) :
 				if ( in_array( 'font-size', $attributes, true ) ) {
 
 					$default = ! empty( $array['defaults']['font-size'] ) ? $array['defaults']['font-size'] : null;
+
+					// Breadcrumb and product content tablet/mobile start empty so nothing is output or previewed until a size is set.
+					$device_default = in_array( $element, array( 'single_product_page_breadcrumb', 'single_product_content' ), true ) ? null : $default;
+
 					$wp_customize->add_setting(
 						$element . '_shop_typography[font-size]',
 						array(
@@ -392,7 +396,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Typography_Customizer' ) ) :
 						array(
 							'transport'         => $transport,
 							'sanitize_callback' => 'sanitize_text_field',
-							'default'           => $default,
+							'default'           => $device_default,
 						)
 					);
 
@@ -401,7 +405,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Typography_Customizer' ) ) :
 						array(
 							'transport'         => $transport,
 							'sanitize_callback' => 'sanitize_text_field',
-							'default'           => $default,
+							'default'           => $device_default,
 						)
 					);
 					$wp_customize->add_setting(

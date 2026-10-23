@@ -66,6 +66,16 @@ if ( ! class_exists( 'Responsive_Theme_Background_Updater' ) ) {
             '6.4.7' => array (
                 'responsive_theme_background_updater_woocommerce_styling_6_4_7',
             ),
+            '6.4.8' => array (
+                'responsive_theme_background_updater_single_product_title_area_colors_6_4_8',
+                'responsive_theme_background_updater_single_product_title_area_text_font_6_4_8',
+            ),
+            '6.4.9' => array (
+                'responsive_theme_background_updater_checkout_width_6_4_9',
+                'responsive_theme_background_updater_shop_title_link_colors_6_4_9',
+                'responsive_theme_background_updater_title_area_breadcrumb_colors_6_4_9',
+                'responsive_theme_background_updater_title_area_breadcrumb_font_6_4_9',
+            ),
 		);
 
         /**

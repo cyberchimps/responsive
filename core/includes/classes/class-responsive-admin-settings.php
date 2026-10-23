@@ -302,6 +302,18 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 							'locked' => true,
 						),
 						array(
+							'id' => 'blog-pro',
+							'title' => 'Blog Pro',
+							'desc'  => 'Unlock advanced customization options for your WordPress Blog/Archive & Single Posts.',
+							'locked' => true,
+						),
+						array(
+							'id' => 'typography',
+							'title' => 'Typography',
+							'desc'  => 'Unlock advanced typography controls for your Header, Menus & Blog/Archive.',
+							'locked' => true,
+						),
+						array(
 							'id' => 'custom-fonts',
 							'title' => 'Custom Fonts',
 							'desc'  => 'Upload custom fonts directly, no additional font plugin required.',
