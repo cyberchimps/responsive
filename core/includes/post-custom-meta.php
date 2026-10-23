@@ -47,14 +47,12 @@ function responsive_get_content_classes() {
 function responsive_get_sidebar_style() {
 	$global_style = get_theme_mod( 'responsive_sidebar_style', 'boxed' );
 
-	if ( class_exists( 'WooCommerce' ) && is_shop() ) {
-		$style = get_theme_mod( 'responsive_shop_sidebar_style', 'default' );
-		return ( 'default' === $style ) ? $global_style : $style;
-	}
-
-	if ( class_exists( 'WooCommerce' ) && is_product() ) {
-		$style = get_theme_mod( 'responsive_single_product_sidebar_style', 'default' );
-		return ( 'default' === $style ) ? $global_style : $style;
+	// WooCommerce pages: Single Product / Product Catalog > WooCommerce General > Global.
+	if ( class_exists( 'WooCommerce' ) ) {
+		$woo_style = Responsive\Core\responsive_get_woocommerce_setting( 'sidebar_style' );
+		if ( null !== $woo_style ) {
+			return $woo_style;
+		}
 	}
 
 	if ( is_page() ) {

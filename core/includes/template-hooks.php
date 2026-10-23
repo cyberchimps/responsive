@@ -312,14 +312,7 @@ function responsive_woocommerce_shop_banner2() {
 	if ( ( is_shop() || is_product_taxonomy() ) && get_theme_mod( 'responsive_shop_title_area', true ) && get_theme_mod( 'responsive_shop_title_layout', 'post_title_layout1' ) === 'post_title_layout2' ) {
 		$rendered = true;
 
-		$default_elements = get_theme_mod( 'breadcrumbs_options', 1 ) ? array( 'breadcrumb', 'title', 'description' ) : array( 'title', 'description' );
-		$elements         = get_theme_mod( 'responsive_shop_title_elements_positioning', $default_elements );
-		if ( is_string( $elements ) ) {
-			$decoded  = json_decode( $elements, true );
-			$elements = is_array( $decoded ) ? $decoded : explode( ',', $elements );
-		} elseif ( ! is_array( $elements ) ) {
-			$elements = array();
-		}
+		$elements = responsive_shop_title_elements_positioning();
 
 		$responsive_page_title = get_theme_mod( 'responsive_shop_archive_title', '' );
 		if ( empty( $responsive_page_title ) ) {

@@ -117,7 +117,7 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 						$text_color       = $this->responsive_rp_color_value( 'responsive_rp_text_color', 'responsive_body_text_color' );
 						$text_hover_color = $this->responsive_rp_color_value( 'responsive_rp_text_hover_color', 'responsive_body_text_color' );
 						$link_color       = $this->responsive_rp_color_value( 'responsive_rp_link_color', 'responsive_link_color' );
-						$heading_link_color       = $this->responsive_rp_color_value( 'responsive_rp_link_color', 'responsive_global_headings_color' );
+						$heading_link_color       = $this->responsive_rp_color_value( 'responsive_rp_link_color', 'responsive_link_color', 'var(--responsive-global-palette0)' );
 						$link_hover_color = $this->responsive_rp_color_value( 'responsive_rp_link_hover_color', 'responsive_link_hover_color' );
 						$meta_color       = $this->responsive_rp_color_value( 'responsive_rp_meta_color', 'responsive_meta_text_color', 'var(--responsive-global-meta-text-color)' );
 						$meta_hover_color = $this->responsive_rp_color_value( 'responsive_rp_meta_hover_color', 'responsive_meta_text_color', 'var(--responsive-global-meta-text-color)' );

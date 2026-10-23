@@ -39,7 +39,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				array(
 					'title'    => esc_html__( 'Product Catalog', 'responsive' ),
 					'panel'    => 'woocommerce',
-					'priority' => 5,
+					'priority' => 2,
 				)
 			);
 
@@ -250,9 +250,13 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'customize-control-responsive_shop_title_color',
 				'customize-control-responsive_shop_text_color',
 				'customize-control-responsive_shop_title_link_color',
+				'customize-control-responsive_shop_breadcrumb_color',
+				'customize-control-responsive_shop_breadcrumb_background_color',
+				'customize-control-responsive_shop_breadcrumb_separator_color',
 				'customize-control-responsive_shop_title_link_separator',
 				'customize-control-responsive_shop_title_typography_group',
 				'customize-control-responsive_shop_text_typography_group',
+				'customize-control-responsive_shop_breadcrumb_typography_group',
 				'customize-control-responsive_shop_title_typography_separator',
 				'customize-control-responsive_shop_banner_padding_padding',
 				'customize-control-responsive_shop_banner_margin_padding',
@@ -562,6 +566,69 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'shop_title_link_hover'
 			);
 
+			// Breadcrumb Text Color. Defaults to the global Breadcrumbs color. Priorities are fractional to sit between Link Color and the separator.
+			$shop_breadcrumb_color_label = esc_html__( 'Breadcrumb Text Color', 'responsive' );
+			responsive_color_control(
+				$wp_customize,
+				'shop_breadcrumb',
+				$shop_breadcrumb_color_label,
+				'responsive_shop_title_layout',
+				17.1,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_breadcrumb_color' ),
+				null,
+				'',
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'color',
+				'postMessage'
+			);
+
+			// Breadcrumb Background Color.
+			$shop_breadcrumb_background_color_label = esc_html__( 'Breadcrumb Background Color', 'responsive' );
+			responsive_color_control(
+				$wp_customize,
+				'shop_breadcrumb_background',
+				$shop_breadcrumb_background_color_label,
+				'responsive_shop_title_layout',
+				17.2,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_breadcrumb_background_color' ),
+				null,
+				'',
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'color',
+				'postMessage'
+			);
+
+			// Breadcrumb Separator Color.
+			$shop_breadcrumb_separator_color_label = esc_html__( 'Breadcrumb Separator Color', 'responsive' );
+			responsive_color_control(
+				$wp_customize,
+				'shop_breadcrumb_separator',
+				$shop_breadcrumb_separator_color_label,
+				'responsive_shop_title_layout',
+				17.3,
+				Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_breadcrumb_separator_color' ),
+				null,
+				'',
+				false,
+				null,
+				null,
+				false,
+				null,
+				null,
+				'color',
+				'postMessage'
+			);
+
 			// Separator.
 			responsive_horizontal_separator_control( $wp_customize, 'shop_title_link_separator', 1, 'responsive_shop_title_layout', 18, 1 );
 
@@ -589,6 +656,18 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				true
 			);
 
+			// Breadcrumb Font. Follows the global Breadcrumbs font until set.
+			$shop_breadcrumb_typography_label = esc_html__( 'Breadcrumb Font', 'responsive' );
+			responsive_typography_group_control(
+				$wp_customize,
+				'shop_breadcrumb_typography_group',
+				$shop_breadcrumb_typography_label,
+				'responsive_shop_title_layout',
+				20.1,
+				'shop_breadcrumb_typography',
+				true
+			);
+
 			// Separator.
 			responsive_horizontal_separator_control( $wp_customize, 'shop_title_typography_separator', 1, 'responsive_shop_title_layout', 21, 1 );
 
@@ -608,7 +687,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 
 			// Sidebar Layout heading.
 			$shop_sidebar_heading = esc_html__( 'Sidebar Layout', 'responsive' );
-			responsive_separator_control( $wp_customize, 'shop_sidebar_separator', $shop_sidebar_heading, 'responsive_woocommerce_shop', 37, 'responsive_active_shop_sidebar_section');
+			responsive_separator_control( $wp_customize, 'shop_sidebar_separator', $shop_sidebar_heading, 'responsive_woocommerce_shop', 6, 'responsive_active_shop_sidebar_section');
 
 			// Sidebar Position.
 			$sidebar_label   = esc_html__( 'WooCommerce Sidebar Position', 'responsive' );
@@ -628,7 +707,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				);
 			}
 
-			responsive_imageradio_button_control( $wp_customize, 'shop_sidebar_position', $sidebar_label, 'responsive_woocommerce_shop', 38, $sidebar_choices, 'global', 'responsive_active_shop_sidebar_section', 'svg');
+			responsive_imageradio_button_control( $wp_customize, 'shop_sidebar_position', $sidebar_label, 'responsive_woocommerce_shop', 7, $sidebar_choices, 'global', 'responsive_active_shop_sidebar_section', 'svg');
 
 			$shop_sidebar_style_label  = __( 'Sidebar Style', 'responsive' );
 			$shop_sidebar_style_choice = array(
@@ -636,13 +715,13 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'unboxed' => esc_html__( 'Unboxed', 'responsive' ),
 				'boxed'   => esc_html__( 'Boxed', 'responsive' ),
 			);
-			responsive_select_button_control( $wp_customize, 'shop_sidebar_style', $shop_sidebar_style_label, 'responsive_woocommerce_shop', 39, $shop_sidebar_style_choice, Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_sidebar_style' ), 'responsive_active_shop_sidebar_position', 'postMessage' );
+			responsive_select_button_control( $wp_customize, 'shop_sidebar_style', $shop_sidebar_style_label, 'responsive_woocommerce_shop', 8, $shop_sidebar_style_choice, Responsive\Core\get_responsive_customizer_defaults( 'responsive_shop_sidebar_style' ), 'responsive_active_shop_sidebar_position', 'postMessage' );
 
 			$container_spacing_label = esc_html__( 'Product Card Spacing', 'responsive' );
 			responsive_separator_control( $wp_customize, 'product_card_spacing', $container_spacing_label, 'responsive_woocommerce_shop', 30 );
 
 			$sidebar_width_label = esc_html__( 'Sidebar Width (%)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'shop_sidebar_width', $sidebar_width_label, 'responsive_woocommerce_shop' , 40, 30, 'responsive_active_shop_sidebar_position', 50, 15, 'postMessage' );
+			responsive_drag_number_control( $wp_customize, 'shop_sidebar_width', $sidebar_width_label, 'responsive_woocommerce_shop' , 9, 30, 'responsive_active_shop_sidebar_position', 50, 15, 'postMessage' );
 
 			// Shop Display Options heading.
 			$shop_display_options_heading = esc_html__( 'Shop Display Options', 'responsive' );

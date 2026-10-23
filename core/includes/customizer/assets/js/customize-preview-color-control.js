@@ -984,6 +984,9 @@
 
     api( 'responsive_rp_section_title_color', function ( value ){
         value.bind( function ( newval ) {
+            if ( newval && ( newval.startsWith( 'palette' ) || newval.startsWith( 'headings-color' ) ) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
+            }
             const elems = document.querySelectorAll( '.responsive-related-single-posts-title' );
 			elems.forEach( el => {
                 el.style.color = newval;
@@ -2382,6 +2385,43 @@
     })();
 
 
+
+    // Store Notice Colors (WooCommerce > Store Notice).
+    (function() {
+        var notice = 'body .woocommerce-store-notice, body p.demo_store';
+        var noticeLinks = 'body .woocommerce-store-notice a, body p.demo_store a';
+        var noticeHover = 'body .woocommerce-store-notice:hover, body p.demo_store:hover';
+        var noticeHoverLinks = 'body .woocommerce-store-notice:hover a, body p.demo_store:hover a';
+
+        // Listed in the order the saved CSS prints them so equal specificity resolves the same way.
+        var storeNoticeRules = {
+            responsive_store_notice_text_color: function( c ) {
+                return notice + '{color:' + c + ';}' + noticeLinks + '{color:' + c + ';}';
+            },
+            responsive_store_notice_background_color: function( c ) {
+                return notice + '{background-color:' + c + ';}';
+            },
+            responsive_store_notice_text_hover_color: function( c ) {
+                return noticeHover + '{color:' + c + ';}' + noticeHoverLinks + '{color:' + c + ';}';
+            },
+            responsive_store_notice_background_hover_color: function( c ) {
+                return noticeHover + '{background-color:' + c + ';}';
+            }
+        };
+
+        // One style tag per control, created up front in order so the order never changes.
+        Object.keys( storeNoticeRules ).forEach( function( key ) {
+            var styleId = 'responsive-' + key.replace( /_/g, '-' ) + '-preview';
+            jQuery( 'head' ).append( '<style id="' + styleId + '"></style>' );
+
+            api( key, function( value ) {
+                value.bind( function() {
+                    var color = processThemeSettingForCSS( key );
+                    jQuery( 'style#' + styleId ).text( color ? storeNoticeRules[ key ]( color ) : '' );
+                } );
+            } );
+        } );
+    })();
 
     //Buttons Color
     api( 'responsive_add_to_cart_button_color', function( value ) {
@@ -4583,13 +4623,25 @@
             );
         } );
     } );
+    api( 'responsive_sticky_header_active_menu_link_color', function( value ) {
+        value.bind( function( newval ) {
+            jQuery('style#responsive-sticky-header-active-menu-link-color').remove();
+            jQuery('head').append(
+                '<style id="responsive-sticky-header-active-menu-link-color">'
+                + '#masthead.sticky-header .main-navigation .menu .current_page_item > a, #masthead.sticky-header .main-navigation .menu .current-menu-item > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current_page_item > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current-menu-item > a, '
+                + '#masthead-mobile.sticky-header .main-navigation .menu .current_page_item > a, #masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current_page_item > a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a { color: ' + newval + ' !important; }'
+                + '</style>'
+            );
+        } );
+    } );
+    // Printed after the Active Menu Link Color rule (which also covers hovered items) so it overrides it on hover.
     api( 'responsive_sticky_header_menu_link_hover_color', function( value ) {
         value.bind( function( newval ) {
             jQuery('style#responsive-sticky-header-menu-link-hover-color').remove();
             jQuery('head').append(
                 '<style id="responsive-sticky-header-menu-link-hover-color">'
-                + '#masthead.sticky-header .main-navigation .menu .current_page_item > a, #masthead.sticky-header .main-navigation .menu .current-menu-item > a, #masthead.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current_page_item > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current-menu-item > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu li > a:hover, '
-                + '#masthead-mobile.sticky-header .main-navigation .menu .current_page_item > a, #masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a, #masthead-mobile.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current_page_item > a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu .current-menu-item > a, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu li > a:hover { color: ' + newval + '!important; }'
+                + '#masthead.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .menu li > a:hover, '
+                + '#masthead-mobile.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead-mobile.sticky-header .main-navigation .menu li > a:hover { color: ' + newval + ' !important; }'
                 + '</style>'
             );
         } );
@@ -7441,7 +7493,7 @@
     api('responsive_shop_text_color', function(value) {
         value.bind(function(newval) {
             var color = processThemeSettingForCSS('responsive_shop_text_color') || newval;
-            $('.woocommerce.archive .site-content-header, .woocommerce-shop .site-content-header, .responsive-shop-entry-banner, .woocommerce.archive .site-content-header .page-description, .woocommerce-shop .site-content-header .page-description, .responsive-shop-entry-banner .page-description, .responsive-shop-entry-banner .page-description p, .woocommerce.archive .site-content-header .page-description p, .woocommerce-shop .site-content-header .page-description p, .woocommerce.archive .site-content-header .woocommerce-breadcrumb, .woocommerce-shop .site-content-header .woocommerce-breadcrumb, .responsive-shop-entry-banner .woocommerce-breadcrumb').css('color', color);
+            $('.woocommerce.archive .site-content-header, .woocommerce-shop .site-content-header, .responsive-shop-entry-banner, .woocommerce.archive .site-content-header .page-description, .woocommerce-shop .site-content-header .page-description, .responsive-shop-entry-banner .page-description, .responsive-shop-entry-banner .page-description p, .woocommerce.archive .site-content-header .page-description p, .woocommerce-shop .site-content-header .page-description p').css('color', color);
         });
     });
 
@@ -7500,7 +7552,7 @@
             if (color && typeof color === 'string' && color.includes('palette')) {
                 color = 'var(--responsive-global-' + color + ')';
             }
-            $('.single-product .site-content-header, .single-product .responsive-single-product-entry-banner, .single-product .site-content-header .woocommerce-breadcrumb, .single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb').css('color', color ? color : '');
+            $('.single-product .site-content-header, .single-product .responsive-single-product-entry-banner').css('color', color ? color : '');
         });
     });
 
@@ -7544,6 +7596,137 @@
             }
         });
     });
+
+    // Products / Product Title Area breadcrumb colors - Start
+    // Shop Breadcrumb Text Color
+    api('responsive_shop_breadcrumb_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_shop_breadcrumb_color') || newval;
+            var styleId = 'responsive-shop-breadcrumb-color-preview';
+            $('#' + styleId).remove();
+            if (color) {
+                $('head').append(
+                    '<style id="' + styleId + '">' +
+                    '.woocommerce.archive .site-content-header .woocommerce-breadcrumb, .woocommerce-shop .site-content-header .woocommerce-breadcrumb, .responsive-shop-entry-banner .woocommerce-breadcrumb { color: ' + color + '; }' +
+                    '</style>'
+                );
+            }
+        });
+    });
+
+    // Shop Breadcrumb Background Color
+    api('responsive_shop_breadcrumb_background_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_shop_breadcrumb_background_color') || newval;
+            var styleId = 'responsive-shop-breadcrumb-background-color-preview';
+            $('#' + styleId).remove();
+            if (color) {
+                $('head').append(
+                    '<style id="' + styleId + '">' +
+                    '.woocommerce.archive .site-content-header .woocommerce-breadcrumb, .woocommerce-shop .site-content-header .woocommerce-breadcrumb, .responsive-shop-entry-banner .woocommerce-breadcrumb { background-color: ' + color + '; }' +
+                    '</style>'
+                );
+            }
+        });
+    });
+
+    // Shop Breadcrumb Separator Color
+    api('responsive_shop_breadcrumb_separator_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_shop_breadcrumb_separator_color') || newval;
+            var styleId = 'responsive-shop-breadcrumb-separator-color-preview';
+            $('#' + styleId).remove();
+            if (color) {
+                $('head').append(
+                    '<style id="' + styleId + '">' +
+                    '.woocommerce.archive .site-content-header .woocommerce-breadcrumb .chevron, .woocommerce-shop .site-content-header .woocommerce-breadcrumb .chevron, .responsive-shop-entry-banner .woocommerce-breadcrumb .chevron { color: ' + color + '; }' +
+                    '</style>'
+                );
+            }
+        });
+    });
+
+    // Single Product Breadcrumb Text Color
+    api('responsive_single_product_breadcrumb_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_breadcrumb_color') || newval;
+            var styleId = 'responsive-single-product-breadcrumb-color-preview';
+            $('#' + styleId).remove();
+            if (color) {
+                $('head').append(
+                    '<style id="' + styleId + '">' +
+                    '.single-product .site-content-header .woocommerce-breadcrumb, .single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb { color: ' + color + '; }' +
+                    '</style>'
+                );
+            }
+        });
+    });
+
+    // Single Product Breadcrumb Link Color
+    api('responsive_single_product_breadcrumb_link_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_breadcrumb_link_color') || newval;
+            var styleId = 'responsive-single-product-breadcrumb-link-color-preview';
+            $('#' + styleId).remove();
+            if (color) {
+                $('head').append(
+                    '<style id="' + styleId + '">' +
+                    '.single-product .site-content-header .woocommerce-breadcrumb a, .single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb a { color: ' + color + '; }' +
+                    '</style>'
+                );
+            }
+        });
+    });
+
+    // Single Product Breadcrumb Link Hover Color
+    api('responsive_single_product_breadcrumb_link_hover_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_breadcrumb_link_hover_color') || newval;
+            var styleId = 'responsive-single-product-breadcrumb-link-hover-color-preview';
+            $('#' + styleId).remove();
+            if (color) {
+                $('head').append(
+                    '<style id="' + styleId + '">' +
+                    '.single-product .site-content-header .woocommerce-breadcrumb a:hover, .single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb a:hover { color: ' + color + '; }' +
+                    '</style>'
+                );
+            }
+        });
+    });
+
+    // Single Product Breadcrumb Background Color
+    api('responsive_single_product_breadcrumb_background_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_breadcrumb_background_color') || newval;
+            var styleId = 'responsive-single-product-breadcrumb-background-color-preview';
+            $('#' + styleId).remove();
+            if (color) {
+                $('head').append(
+                    '<style id="' + styleId + '">' +
+                    '.single-product .site-content-header .woocommerce-breadcrumb, .single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb { background-color: ' + color + '; }' +
+                    '</style>'
+                );
+            }
+        });
+    });
+
+    // Single Product Breadcrumb Separator Color
+    api('responsive_single_product_breadcrumb_separator_color', function(value) {
+        value.bind(function(newval) {
+            var color = processThemeSettingForCSS('responsive_single_product_breadcrumb_separator_color') || newval;
+            var styleId = 'responsive-single-product-breadcrumb-separator-color-preview';
+            $('#' + styleId).remove();
+            if (color) {
+                $('head').append(
+                    '<style id="' + styleId + '">' +
+                    '.single-product .site-content-header .woocommerce-breadcrumb .chevron, .single-product .responsive-single-product-entry-banner .woocommerce-breadcrumb .chevron { color: ' + color + '; }' +
+                    '</style>'
+                );
+            }
+        });
+    });
+
+    // Products / Product Title Area breadcrumb colors - End
 
     // Page Title Area Title
     api( 'responsive_page_title_area_text_color', function(value) {

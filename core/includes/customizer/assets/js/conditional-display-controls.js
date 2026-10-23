@@ -251,7 +251,6 @@
 	}
 	function toggleWooShopMainContentWidthBySidebar() {
 		toggleWooMainContentWidthBySidebar( 'responsive_shop_sidebar_position', [
-			'responsive_shop_layout_elements_separator',
 			'responsive_shop_content_width',
 		] );
 	}

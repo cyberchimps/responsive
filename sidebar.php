@@ -23,25 +23,11 @@ if ( Responsive\Core\responsive_is_narrow_container_layout() ) {
 }
 
 Responsive\responsive_widgets_before(); // above widgets container hook.
-if ( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_checkout() ) ) {
+if ( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_checkout() || is_account_page() ) ) {
 
-    $get_sidebar_position = function( $context, $default = 'no' ) {
-        $global = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
-        $value  = get_theme_mod( "responsive_{$context}_sidebar_position", $default );
-        return ( $value === 'global' || $value === 'default' ) ? $global : $value;
-    };
-
-    if ( is_product() ) {
-        $sidebar_position = $get_sidebar_position( 'single_product', 'global' );
-    } elseif ( is_shop() ) {
-        $sidebar_position = $get_sidebar_position( 'shop', 'global' );
-    } elseif ( is_cart() ) {
-        $sidebar_position = $get_sidebar_position( 'cart' );
-    } elseif ( is_checkout() ) {
-        $sidebar_position = $get_sidebar_position( 'checkout' );
-    } else {
-        $sidebar_position = $get_sidebar_position( 'shop', 'global' ); // fallback
-    }
+    // Single Product / Product Catalog > WooCommerce General > Global (General > Global for
+    // cart, checkout and my account). Same resolver as the sidebar-position body class.
+    $sidebar_position = Responsive\Core\responsive_get_woocommerce_sidebar_position();
 
     if ( $sidebar_position === 'no' ) {
         return;
