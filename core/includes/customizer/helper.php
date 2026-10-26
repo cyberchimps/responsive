@@ -1629,12 +1629,12 @@ function responsive_borderwidth_control( $wp_customize, $element, $section, $pri
  * @param  array   $unit_choices
  * @return void
  */
-function responsive_unit_borderwidth_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Border Width', $transport = 'postMessage', $unit_choices = array( 'px', 'em' ) ) {
+function responsive_unit_borderwidth_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Border Width', $transport = 'postMessage', $unit_choices = array( 'px', 'em' ), $sanitize_callback = 'responsive_sanitize_number' ) {
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_top_border',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_y,
 		)
 	);
@@ -1642,7 +1642,7 @@ function responsive_unit_borderwidth_control( $wp_customize, $element, $section,
 		'responsive_' . $element . '_left_border',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_x,
 		)
 	);
@@ -1650,7 +1650,7 @@ function responsive_unit_borderwidth_control( $wp_customize, $element, $section,
 		'responsive_' . $element . '_bottom_border',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_y,
 		)
 	);
@@ -1658,7 +1658,7 @@ function responsive_unit_borderwidth_control( $wp_customize, $element, $section,
 		'responsive_' . $element . '_right_border',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_x,
 		)
 	);
@@ -1666,7 +1666,7 @@ function responsive_unit_borderwidth_control( $wp_customize, $element, $section,
 		'responsive_' . $element . '_tablet_top_border',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_y,
 		)
 	);
@@ -1674,7 +1674,7 @@ function responsive_unit_borderwidth_control( $wp_customize, $element, $section,
 		'responsive_' . $element . '_tablet_right_border',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_x,
 		)
 	);
@@ -1682,7 +1682,7 @@ function responsive_unit_borderwidth_control( $wp_customize, $element, $section,
 		'responsive_' . $element . '_tablet_bottom_border',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_y,
 		)
 	);
@@ -1690,7 +1690,7 @@ function responsive_unit_borderwidth_control( $wp_customize, $element, $section,
 		'responsive_' . $element . '_tablet_left_border',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_x,
 		)
 	);
@@ -1699,7 +1699,7 @@ function responsive_unit_borderwidth_control( $wp_customize, $element, $section,
 		'responsive_' . $element . '_mobile_top_border',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_y,
 		)
 	);
@@ -1707,7 +1707,7 @@ function responsive_unit_borderwidth_control( $wp_customize, $element, $section,
 		'responsive_' . $element . '_mobile_right_border',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_x,
 		)
 	);
@@ -1715,7 +1715,7 @@ function responsive_unit_borderwidth_control( $wp_customize, $element, $section,
 		'responsive_' . $element . '_mobile_bottom_border',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_y,
 		)
 	);
@@ -1723,7 +1723,7 @@ function responsive_unit_borderwidth_control( $wp_customize, $element, $section,
 		'responsive_' . $element . '_mobile_left_border',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_x,
 		)
 	);
@@ -3500,12 +3500,12 @@ function responsive_radius_control( $wp_customize, $element, $section, $priority
  * @param  array   $unit_choices
  * @return void
  */
-function responsive_unit_radius_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Radius', $transport = 'postMessage', $unit_choices = array( 'px', 'em', '%' ) ) {
+function responsive_unit_radius_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Radius', $transport = 'postMessage', $unit_choices = array( 'px', 'em', '%' ), $sanitize_callback = 'responsive_sanitize_number' ) {
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_top_left_radius',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_y,
 		)
 	);
@@ -3513,7 +3513,7 @@ function responsive_unit_radius_control( $wp_customize, $element, $section, $pri
 		'responsive_' . $element . '_top_right_radius',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_x,
 		)
 	);
@@ -3521,7 +3521,7 @@ function responsive_unit_radius_control( $wp_customize, $element, $section, $pri
 		'responsive_' . $element . '_bottom_right_radius',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_y,
 		)
 	);
@@ -3529,7 +3529,7 @@ function responsive_unit_radius_control( $wp_customize, $element, $section, $pri
 		'responsive_' . $element . '_bottom_left_radius',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_x,
 		)
 	);
@@ -3537,7 +3537,7 @@ function responsive_unit_radius_control( $wp_customize, $element, $section, $pri
 		'responsive_' . $element . '_tablet_top_left_radius',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_y,
 		)
 	);
@@ -3545,7 +3545,7 @@ function responsive_unit_radius_control( $wp_customize, $element, $section, $pri
 		'responsive_' . $element . '_tablet_top_right_radius',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_x,
 		)
 	);
@@ -3553,7 +3553,7 @@ function responsive_unit_radius_control( $wp_customize, $element, $section, $pri
 		'responsive_' . $element . '_tablet_bottom_right_radius',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_y,
 		)
 	);
@@ -3561,7 +3561,7 @@ function responsive_unit_radius_control( $wp_customize, $element, $section, $pri
 		'responsive_' . $element . '_tablet_bottom_left_radius',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_x,
 		)
 	);
@@ -3570,7 +3570,7 @@ function responsive_unit_radius_control( $wp_customize, $element, $section, $pri
 		'responsive_' . $element . '_mobile_top_left_radius',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_y,
 		)
 	);
@@ -3578,7 +3578,7 @@ function responsive_unit_radius_control( $wp_customize, $element, $section, $pri
 		'responsive_' . $element . '_mobile_top_right_radius',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_x,
 		)
 	);
@@ -3586,7 +3586,7 @@ function responsive_unit_radius_control( $wp_customize, $element, $section, $pri
 		'responsive_' . $element . '_mobile_bottom_right_radius',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_y,
 		)
 	);
@@ -3594,7 +3594,7 @@ function responsive_unit_radius_control( $wp_customize, $element, $section, $pri
 		'responsive_' . $element . '_mobile_bottom_left_radius',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_x,
 		)
 	);
