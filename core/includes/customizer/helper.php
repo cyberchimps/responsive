@@ -969,12 +969,10 @@ if ( ! function_exists( 'responsive_schema_markup' ) ) {
  */
 function responsive_read_more_text( $text ) {
 
-	$read_more = get_theme_mod( 'responsive_blog_read_more_text', __( 'Read more →', 'responsive' ) );
-	if ( '' !== $read_more ) {
-		$text = $read_more;
-	}
+	// An empty saved value hides the read more link; a value that was never saved falls back to the default text.
+	$read_more = get_theme_mod( 'responsive_blog_read_more_text', $text );
 
-	return $text;
+	return '' !== trim( $read_more ) ? $read_more : '';
 }
 
 
@@ -1035,6 +1033,10 @@ if ( ! function_exists( 'responsive_post_link' ) ) {
 
 		$read_more_text = apply_filters( 'responsive_post_read_more', __( 'Read more →', 'responsive' ) );
 
+		if ( '' === trim( $read_more_text ) ) {
+			return apply_filters( 'responsive_post_link', ' &hellip;', $output_filter );
+		}
+
 		$post_link = sprintf(
 			esc_html( '%s' ),
 			'<a class="more-link" href="' . esc_url( get_permalink() ) . '"> ' . the_title( '<span class="screen-reader-text">', '</span>', false ) . ' ' . $read_more_text . '</a>'
@@ -1055,6 +1057,9 @@ if ( ! function_exists( 'responsive_modify_read_more_link' ) ) {
 	 */
 	function responsive_modify_read_more_link() {
 		$read_more_text = apply_filters( 'responsive_post_read_more', __( 'Read more →', 'responsive' ) );
+		if ( '' === trim( $read_more_text ) ) {
+			return '';
+		}
 		return '<p class="read-more"><a class="more-link" href="' . get_permalink() . '">' . $read_more_text . '</a></p>';
 	}
 }
