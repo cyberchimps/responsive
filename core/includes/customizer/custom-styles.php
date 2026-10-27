@@ -1333,13 +1333,13 @@ function responsive_customizer_styles() {
 		}
 	}';
 
-	if ( $logo_custom_width ) {
+	if ( '' !== $logo_custom_width ) {
 		$custom_css .= ".site-header .custom-logo {
 			width: {$logo_custom_width}px;
 		}";
 	}
 
-	if( $logo_custom_width_tablet ) {
+	if ( '' !== $logo_custom_width_tablet ) {
 		$custom_css .= "@media screen and ( max-width: 992px ) {
 			.site-header .custom-logo {
 				width: {$logo_custom_width_tablet}px;
@@ -1347,7 +1347,7 @@ function responsive_customizer_styles() {
 		}";
 	}
 
-	if( $logo_custom_width_mobile ) {
+	if ( '' !== $logo_custom_width_mobile ) {
 		$custom_css .= "@media screen and ( max-width: 576px ) {
 			.site-header .custom-logo {
 				width: {$logo_custom_width_mobile}px;

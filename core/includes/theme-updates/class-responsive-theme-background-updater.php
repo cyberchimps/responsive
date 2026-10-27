@@ -78,6 +78,7 @@ if ( ! class_exists( 'Responsive_Theme_Background_Updater' ) ) {
             ),
             '6.5.0' => array (
                 'responsive_theme_background_updater_hamburger_menu_padding_6_5_0',
+                'responsive_theme_background_updater_logo_width_6_5_0',
             ),
 		);
 
