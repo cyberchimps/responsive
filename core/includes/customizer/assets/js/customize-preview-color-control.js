@@ -5442,11 +5442,21 @@
     });
     api( 'responsive_header_button_hover_shadow_color', function(val){
         
-        val.bind( function( newval ) {
-			if ( newval && newval.startsWith('palette') ) {
-				newval = `var(--responsive-global-${newval})`;
-			}
-			$('.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover').css('color', newval );
+        val.bind( function() {
+			var shadow_x      = api('responsive_header_button_hover_shadow_x_axis').get();
+			var shadow_y      = api('responsive_header_button_hover_shadow_y_axis').get();
+			var shadow_blur   = api('responsive_header_button_hover_shadow_blur').get();
+			var shadow_spread = api('responsive_header_button_hover_shadow_spread').get();
+			var shadow_inset  = api('responsive_header_button_hover_shadow_inset').get() ? 'inset' : '';
+			var shadow_color  = processThemeSettingForCSS('responsive_header_button_hover_shadow_color');
+
+			var styleId = 'responsive-header-button-hover-shadow-color-preview';
+			jQuery('style#' + styleId).remove();
+
+			var selectors = '.site-header-item .responsive-header-button-wrap .responsive-header-button-inner-wrap .responsive-header-button:hover';
+			var css = selectors + ' { box-shadow: ' + shadow_inset + ' ' + shadow_x + 'px ' + shadow_y + 'px ' + shadow_blur + 'px ' + shadow_spread + 'px ' + shadow_color + '; }';
+
+			jQuery('head').append('<style id="' + styleId + '">' + css + '</style>');
 		} );
     });
     api( 'responsive_mobile_header_button_shadow_color', function(val){
