@@ -15560,10 +15560,10 @@ function responsive_customizer_styles() {
 			border: 1px solid {$filter_button_border_color_hover};
     		color: {$filter_text_color_hover};
 		}
-		button.responsive-off-canvas-panel-close svg{
+		.responsive-off-canvas-close svg{
 			fill: {$close_button_color };
 		}
-		button.responsive-off-canvas-panel-close:hover svg{
+		.responsive-off-canvas-close:hover svg{
 			fill: {$close_button_hover_color };
 		}
 		";
