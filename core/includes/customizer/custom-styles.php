@@ -1333,13 +1333,13 @@ function responsive_customizer_styles() {
 		}
 	}';
 
-	if ( $logo_custom_width ) {
+	if ( '' !== $logo_custom_width ) {
 		$custom_css .= ".site-header .custom-logo {
 			width: {$logo_custom_width}px;
 		}";
 	}
 
-	if( $logo_custom_width_tablet ) {
+	if ( '' !== $logo_custom_width_tablet ) {
 		$custom_css .= "@media screen and ( max-width: 992px ) {
 			.site-header .custom-logo {
 				width: {$logo_custom_width_tablet}px;
@@ -1347,7 +1347,7 @@ function responsive_customizer_styles() {
 		}";
 	}
 
-	if( $logo_custom_width_mobile ) {
+	if ( '' !== $logo_custom_width_mobile ) {
 		$custom_css .= "@media screen and ( max-width: 576px ) {
 			.site-header .custom-logo {
 				width: {$logo_custom_width_mobile}px;
@@ -2633,9 +2633,9 @@ function responsive_customizer_styles() {
 	input[type=submit]:hover,
 	input[type=button]:focus:not(.customize-partial-edit-shortcut-button),
 	input[type=submit]:focus,
-	button:hover:not(.customize-partial-edit-shortcut-button):not(.menu-toggle, .floating-bar-addbtn),
+	button:hover:not(.customize-partial-edit-shortcut-button, .menu-toggle, .floating-bar-addbtn),
 	button:focus:not(.customize-partial-edit-shortcut-button):not(.menu-toggle),
-	.button:hover:not(.customize-partial-edit-shortcut-button):not(.menu-toggle, .floating-bar-addbtn),
+	.button:hover:not(.customize-partial-edit-shortcut-button, .menu-toggle, .floating-bar-addbtn),
 	.button:focus:not(.customize-partial-edit-shortcut-button):not(.menu-toggle),
 	body div.wpforms-container-full .wpforms-form input[type=submit]:hover,
 	body div.wpforms-container-full .wpforms-form input[type=submit]:focus,
@@ -15560,10 +15560,10 @@ function responsive_customizer_styles() {
 			border: 1px solid {$filter_button_border_color_hover};
     		color: {$filter_text_color_hover};
 		}
-		button.responsive-off-canvas-panel-close svg{
+		.responsive-off-canvas-close svg{
 			fill: {$close_button_color };
 		}
-		button.responsive-off-canvas-panel-close:hover svg{
+		.responsive-off-canvas-close:hover svg{
 			fill: {$close_button_hover_color };
 		}
 		";

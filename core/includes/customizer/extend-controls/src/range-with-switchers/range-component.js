@@ -73,7 +73,9 @@ const ResponsiveRangeWithSwitchersComponent = props => {
 
 
 	const updateValues = (device, value ) => {        
-		let inputValue = Number(value);
+		// A control whose default is empty (unset) keeps an empty value empty instead of turning it into 0.
+		const deviceParams = props.control.params[`${device}`];
+		let inputValue = ( '' === value && deviceParams && '' === deviceParams.default ) ? '' : Number(value);
 		let updateValue = {...props_value};
 		updateValue[`${device}`].set(inputValue);
 		setPropsValue(updateValue);
@@ -119,7 +121,7 @@ const ResponsiveRangeWithSwitchersComponent = props => {
 				link = splited_values[1].replace(/"/g, "");
 			}
 		}
-		const sliderWidth = ((props_value[`${device}`].get() - inp_array.min) / (inp_array.max - inp_array.min)) * 100;
+		const sliderWidth = ((Number(props_value[`${device}`].get()) - inp_array.min) / (inp_array.max - inp_array.min)) * 100;
 
 		return <div className={`${device} control-wrap ${active}`}>
 				<input
