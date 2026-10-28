@@ -440,7 +440,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'exclude'  => array( 'font-color' ),
 					'priority' => 30,
 					'defaults' => array(
-						'font-size'   => '13px',
+						'font-size'   => '16px',
 						'line-height' => '1.75',
 					),
 				),
@@ -450,10 +450,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'section'  => 'responsive_footer_layout',
 					'exclude'  => array( 'font-color' ),
 					'priority' => 80,
-					'defaults' => array(
-						'font-size'   => '16px',
-						'line-height' => '1.75',
-					),
 				),
 				'header_button' => array(
 					'label'    => esc_html__( 'Typography', 'responsive' ),
