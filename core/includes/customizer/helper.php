@@ -2123,9 +2123,10 @@ function responsive_drag_number_control( $wp_customize, $element, $label, $secti
  * @param  integer $min          [description].
  * @param  [type]  $transport  [description].
  * @param  [type]  $step  [description].
+ * @param  string  $sanitize_callback Sanitize callback for the number settings. Defaults to responsive_sanitize_number.
  * @return void                [description].
  */
-function responsive_drag_number_control_with_switchers( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $max = 4096, $min = 1, $transport = 'refresh', $step = 1, $tablet_default = null, $mobile_default = null, $devices = array( 'desktop', 'tablet', 'mobile' ), $units = array() ) {
+function responsive_drag_number_control_with_switchers( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $max = 4096, $min = 1, $transport = 'refresh', $step = 1, $tablet_default = null, $mobile_default = null, $devices = array( 'desktop', 'tablet', 'mobile' ), $units = array(), $sanitize_callback = 'responsive_sanitize_number' ) {
 
 	// Conditionally register settings based on devices parameter
 	$settings = array();
@@ -2136,7 +2137,7 @@ function responsive_drag_number_control_with_switchers( $wp_customize, $element,
 			array(
 				'transport'         => $transport,
 				'default'           => $default,
-				'sanitize_callback' => 'responsive_sanitize_number',
+				'sanitize_callback' => $sanitize_callback,
 			)
 		);
 		$settings['desktop'] = 'responsive_' . $element;
@@ -2160,7 +2161,7 @@ function responsive_drag_number_control_with_switchers( $wp_customize, $element,
 			array(
 				'transport'         => $transport,
 				'default'           => $tablet_default ? $tablet_default : $default,
-				'sanitize_callback' => 'responsive_sanitize_number',
+				'sanitize_callback' => $sanitize_callback,
 			)
 		);
 		$settings['tablet'] = 'responsive_' . $element . '_tablet';
@@ -2184,7 +2185,7 @@ function responsive_drag_number_control_with_switchers( $wp_customize, $element,
 			array(
 				'transport'         => $transport,
 				'default'           => $mobile_default ? $mobile_default : $default,
-				'sanitize_callback' => 'responsive_sanitize_number',
+				'sanitize_callback' => $sanitize_callback,
 			)
 		);
 		$settings['mobile'] = 'responsive_' . $element . '_mobile';

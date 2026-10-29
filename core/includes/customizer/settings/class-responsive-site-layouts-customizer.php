@@ -75,7 +75,8 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 
 			// Logo Width Controller.
 			$logo_width_label = __( 'Logo Width (px)', 'responsive' );
-			responsive_drag_number_control_with_switchers( $wp_customize, 'logo_width', $logo_width_label, 'responsive_header_site_logo_title', 9, 0, null, 1200, 20, 'postMessage', 1 );
+			// Empty means no width rule, so the uploaded logo keeps its own size; 0 is a real 0px width.
+			responsive_drag_number_control_with_switchers( $wp_customize, 'logo_width', $logo_width_label, 'responsive_header_site_logo_title', 9, '', null, 1200, 20, 'postMessage', 1, null, null, array( 'desktop', 'tablet', 'mobile' ), array(), 'responsive_sanitize_number_blank' );
 
 			// Different Logo For Mobile Device.
 			$mobile_logo_option_label = __( 'Different Logo For Mobile Devices?', 'responsive' );

@@ -296,36 +296,32 @@
     applyButtonsBorderWidth('responsive_buttons_border_width_mobile_left_border');
 
     ['responsive_buttons_radius_desktop_unit', 'responsive_buttons_radius_tablet_unit', 'responsive_buttons_radius_mobile_unit'].forEach(function(settingId) {
-        if (api.has(settingId)) {
-            api(settingId, function(setting) {
-                setting.bind(function() {
-                    let selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button:not(.customize-partial-edit-shortcut-button, .wp-block-accordion-heading__toggle),.button,.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button';
-                    if ( responsiveSiteLocalOptions.isElementorVersion ) {
-                        selector += ', .elementor-button-wrapper .elementor-button';
-                    }
-                    selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button';
-                    selector += ', .edit-post-visual-editor.editor-styles-wrapper .wp-block-button:not(.is-style-outline) > .wp-block-button__link,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button';
-        
-                    responsive_dynamic_radius('buttons', selector);
-                });
+        api(settingId, function(setting) {
+            setting.bind(function() {
+                let selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button:not(.customize-partial-edit-shortcut-button, .wp-block-accordion-heading__toggle),.button,.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button';
+                if ( responsiveSiteLocalOptions.isElementorVersion ) {
+                    selector += ', .elementor-button-wrapper .elementor-button';
+                }
+                selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button';
+                selector += ', .edit-post-visual-editor.editor-styles-wrapper .wp-block-button:not(.is-style-outline) > .wp-block-button__link,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button';
+    
+                responsive_dynamic_radius('buttons', selector);
             });
-        }
+        });
     });
 
     ['responsive_buttons_border_width_desktop_unit', 'responsive_buttons_border_width_tablet_unit', 'responsive_buttons_border_width_mobile_unit'].forEach(function(settingId) {
-        if (api.has(settingId)) {
-            api(settingId, function(setting) {
-                setting.bind(function() {
-                    let selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button:not(.customize-partial-edit-shortcut-button, .wp-block-accordion-heading__toggle),.button,.wp-block-button__link,body div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],body div.wpforms-container-full .wpforms-form .wpforms-page-button,body div.wpforms-container-full .wpforms-form input[type=submit]:not(:hover):not(:active),body div.wpforms-container-full .wpforms-form button[type=submit]:not(:hover):not(:active),body div.wpforms-container-full .wpforms-form .wpforms-page-button:not(:hover):not(:active)';
-                    selector += ', .wp-block-button__link:focus,.wp-block-button__link:hover,.read-more-button .hentry .read-more .more-link:hover,.read-more-button .hentry .read-more .more-link:focus,input[type=button]:hover,input[type=submit]:hover,input[type=button]:focus,input[type=submit]:focus,button:not(.customize-partial-edit-shortcut-button, .wp-block-accordion-heading__toggle):hover,button:not(.customize-partial-edit-shortcut-button, .wp-block-accordion-heading__toggle):focus,.button:not(.customize-partial-edit-shortcut-button):hover,.button:not(.customize-partial-edit-shortcut-button):focus,body div.wpforms-container-full .wpforms-form input[type=submit]:hover,body div.wpforms-container-full .wpforms-form button[type=submit]:hover,body div.wpforms-container-full .wpforms-form .wpforms-page-button:hover';
-                    selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button';
-                    selector += ', .edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button';
-                    selector += ', .edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link:focus,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button:focus,.edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link:hover,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button:hover';
-                    selector += ', .elementor-widget-rael-button .rael-button, .wp-block-search__button';
-                    responsive_dynamic_border_width("buttons_border_width", selector);
-                });
+        api(settingId, function(setting) {
+            setting.bind(function() {
+                let selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button:not(.customize-partial-edit-shortcut-button, .wp-block-accordion-heading__toggle),.button,.wp-block-button__link,body div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],body div.wpforms-container-full .wpforms-form .wpforms-page-button,body div.wpforms-container-full .wpforms-form input[type=submit]:not(:hover):not(:active),body div.wpforms-container-full .wpforms-form button[type=submit]:not(:hover):not(:active),body div.wpforms-container-full .wpforms-form .wpforms-page-button:not(:hover):not(:active)';
+                selector += ', .wp-block-button__link:focus,.wp-block-button__link:hover,.read-more-button .hentry .read-more .more-link:hover,.read-more-button .hentry .read-more .more-link:focus,input[type=button]:hover,input[type=submit]:hover,input[type=button]:focus,input[type=submit]:focus,button:not(.customize-partial-edit-shortcut-button, .wp-block-accordion-heading__toggle):hover,button:not(.customize-partial-edit-shortcut-button, .wp-block-accordion-heading__toggle):focus,.button:not(.customize-partial-edit-shortcut-button):hover,.button:not(.customize-partial-edit-shortcut-button):focus,body div.wpforms-container-full .wpforms-form input[type=submit]:hover,body div.wpforms-container-full .wpforms-form input[type=submit]:focus,body div.wpforms-container-full .wpforms-form input[type=submit]:active,div.wpforms-container-full .wpforms-form button[type=submit]:hover,div.wpforms-container-full .wpforms-form button[type=submit]:focus,div.wpforms-container-full .wpforms-form button[type=submit]:active,div.wpforms-container-full .wpforms-form .wpforms-page-button:hover,div.wpforms-container-full .wpforms-form .wpforms-page-button:active,div.wpforms-container-full .wpforms-form .wpforms-page-button:focus';
+                selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button';
+                selector += ', .edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button';
+                selector += ', .edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link:focus,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button:focus,.edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link:hover,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button:hover';
+                selector += ', .elementor-widget-rael-button .rael-button, .wp-block-search__button';
+                responsive_dynamic_border_width("buttons_border_width", selector);
             });
-        }
+        });
     });
 
     function applyInputsRadius(controlName) {

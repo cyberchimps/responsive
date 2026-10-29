@@ -3955,3 +3955,30 @@ if ( ! function_exists( 'responsive_theme_background_updater_hamburger_menu_padd
 		update_option( 'responsive_hamburger_menu_padding_6_5_0_done', true );
 	}
 }
+
+if ( ! function_exists( 'responsive_theme_background_updater_logo_width_6_5_0' ) ) {
+	/**
+	 * Handle backward compatibility for the logo width.
+	 *
+	 * An empty logo width now means no width rule (the logo keeps its uploaded size) and 0 is a real
+	 * 0px width. Before, a saved 0 was ignored, so convert saved 0 values to empty to keep the same look.
+	 *
+	 * @since 6.5.0
+	 * @return void
+	 */
+	function responsive_theme_background_updater_logo_width_6_5_0() {
+
+		if ( get_option( 'responsive_logo_width_6_5_0_done' ) ) {
+			return;
+		}
+
+		foreach ( array( 'responsive_logo_width', 'responsive_logo_width_tablet', 'responsive_logo_width_mobile' ) as $setting ) {
+			$value = get_theme_mod( $setting, '' );
+			if ( '' !== $value && 0.0 === (float) $value ) {
+				set_theme_mod( $setting, '' );
+			}
+		}
+
+		update_option( 'responsive_logo_width_6_5_0_done', true );
+	}
+}
