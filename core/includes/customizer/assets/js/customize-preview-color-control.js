@@ -1435,14 +1435,14 @@
             if( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
-            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button]:not(.customize-partial-edit-shortcut-button),input[type=submit],button:not(.customize-partial-edit-shortcut-button):not(.plus, .minus),.button:not(.customize-partial-edit-shortcut-button),.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').not('.footer-widget-area a').css('color', newval );
+            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button]:not(.customize-partial-edit-shortcut-button),input[type=submit],button:not(.customize-partial-edit-shortcut-button, .wp-block-accordion-heading__toggle):not(.plus, .minus),.button:not(.customize-partial-edit-shortcut-button),.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').not('.footer-widget-area a').css('color', newval );
         } );
     } );
 
     //Buttons border color
     api( 'responsive_button_border_color', function( value ) {
         value.bind( function( newval ) {
-            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button]:not(.customize-partial-edit-shortcut-button),input[type=submit],button:not(.customize-partial-edit-shortcut-button):not(.plus, .minus),.button:not(:where(.customize-partial-edit-shortcut-button, .add_to_cart_button, .product_type_external, .product_type_grouped)),.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').css('border-color', newval );
+            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button]:not(.customize-partial-edit-shortcut-button),input[type=submit],button:not(.customize-partial-edit-shortcut-button, .wp-block-accordion-heading__toggle):not(.plus, .minus),.button:not(:where(.customize-partial-edit-shortcut-button, .add_to_cart_button, .product_type_external, .product_type_grouped)),.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').css('border-color', newval );
         } );
     } );
 
