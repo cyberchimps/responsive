@@ -664,6 +664,9 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 			}
 			responsive_select_button_control( $wp_customize, 'single_blog_content_alignment', $single_blog_content_alignment_label, 'responsive_single_blog_layout', 150, $single_blog_content_alignment_choices, 'left', null );
 
+			// Show Post navigation
+			responsive_horizontal_separator_control( $wp_customize, 'single_blog_navigation_before', 1, 'responsive_single_blog_layout',151, 1 );
+			responsive_toggle_control( $wp_customize, 'single_blog_navigation', __( 'Show Post Navigation', 'responsive' ), 'responsive_single_blog_layout', 152, 0, null );
 
 			/**
 			* Related Posts Section.
@@ -950,10 +953,6 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'color',
 				'refresh'
 			);
-
-			// Show Post navigation
-			responsive_horizontal_separator_control( $wp_customize, 'single_blog_navigation_before', 1, 'responsive_single_blog_layout',271, 1 );
-			responsive_toggle_control( $wp_customize, 'single_blog_navigation', __( 'Show Post Navigation', 'responsive' ), 'responsive_single_blog_layout', 272, 0, null );
 
 		}
 
