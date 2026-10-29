@@ -1315,24 +1315,6 @@ function responsive_customizer_styles() {
 			padding: ' . responsive_spacing_css( $box_mobile_padding_top, $box_mobile_padding_right, $box_mobile_padding_bottom, $box_mobile_padding_left ) . ';
 		}
 	}';
-	$custom_css .= '
-	aside#secondary.responsive-sidebar-style-boxed .widget-wrapper,
-	aside#secondary.responsive-sidebar-style-unboxed .widget-wrapper {
-		padding: ' . responsive_spacing_css( $box_padding_top, $box_padding_right, $box_padding_bottom, $box_padding_left ) . ';
-	}
-	@media screen and ( max-width: 992px ) {
-		aside#secondary.responsive-sidebar-style-boxed .widget-wrapper,
-		aside#secondary.responsive-sidebar-style-unboxed .widget-wrapper {
-			padding: ' . responsive_spacing_css( $box_tablet_padding_top, $box_tablet_padding_right, $box_tablet_padding_bottom, $box_tablet_padding_left ) . ';
-		}
-	}
-	@media screen and ( max-width: 576px ) {
-		aside#secondary.responsive-sidebar-style-boxed .widget-wrapper,
-		aside#secondary.responsive-sidebar-style-unboxed .widget-wrapper {
-			padding: ' . responsive_spacing_css( $box_mobile_padding_top, $box_mobile_padding_right, $box_mobile_padding_bottom, $box_mobile_padding_left ) . ';
-		}
-	}';
-
 	if ( $logo_custom_width ) {
 		$custom_css .= ".site-header .custom-logo {
 			width: {$logo_custom_width}px;
