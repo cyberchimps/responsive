@@ -62,7 +62,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Colors_Customizer' ) ) :
 
 			// Button Border Width.
 			$add_to_cart_button_border_width_label = esc_html__( 'Border Width', 'responsive' );
-			responsive_unit_borderwidth_control( $wp_customize, 'add_to_cart_button_border_width', 'responsive_woocommerce_shop', 74.2, 0, 0, null, $add_to_cart_button_border_width_label, 'postMessage', array( 'px', 'em' ) );
+			responsive_unit_borderwidth_control( $wp_customize, 'add_to_cart_button_border_width', 'responsive_woocommerce_shop', 74.2, '', '', null, $add_to_cart_button_border_width_label, 'postMessage', array( 'px', 'em' ), 'responsive_sanitize_number_blank' );
 
 			// Button Border Style.
 			$add_to_cart_button_border_styles = array(
@@ -89,7 +89,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Colors_Customizer' ) ) :
 
 			// Button Border Radius.
 			$add_to_cart_button_radius_label = esc_html__( 'Border Radius', 'responsive' );
-			responsive_unit_radius_control( $wp_customize, 'add_to_cart_button_radius', 'responsive_woocommerce_shop', 74.8, 0, 0, null, $add_to_cart_button_radius_label, 'postMessage', array( 'px', 'em', 'rem' ) );
+			responsive_unit_radius_control( $wp_customize, 'add_to_cart_button_radius', 'responsive_woocommerce_shop', 74.8, '', '', null, $add_to_cart_button_radius_label, 'postMessage', array( 'px', 'em', 'rem' ), 'responsive_sanitize_number_blank' );
 
 			// Button Shadow Separator.
 			responsive_horizontal_separator_control( $wp_customize, 'add_to_cart_button_shadow_separator', 1, 'responsive_woocommerce_shop', 74.82, 1 );
