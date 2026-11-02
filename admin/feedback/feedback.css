@@ -1,0 +1,218 @@
+/*
+ * Neve-style feedback panel docked to the bottom-right corner.
+ * No backdrop, so the Add New Theme page stays fully visible and usable.
+ */
+.rtf-backdrop {
+	position: fixed;
+	right: 20px;
+	bottom: 0;
+	z-index: 9989; /* below the admin bar, admin menu and WP's theme preview overlay */
+	width: 400px;
+	max-width: calc(100% - 40px);
+	pointer-events: none;
+}
+
+.rtf-backdrop[hidden] {
+	display: none;
+}
+
+.rtf-popup {
+	max-height: calc(100vh - 60px);
+	overflow-y: auto;
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-bottom: 0;
+	border-radius: 6px 6px 0 0;
+	box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.15);
+	pointer-events: auto;
+	transform: translateY(100%);
+	transition: transform 200ms ease-out;
+}
+
+.rtf-backdrop.is-open .rtf-popup {
+	transform: translateY(0);
+}
+
+/* Coloured header bar, as in Neve. */
+.rtf-popup h2 {
+	margin: 0;
+	padding: 14px 20px;
+	background: #2563eb;
+	border-radius: 6px 6px 0 0;
+	color: #fff;
+	font-size: 16px;
+	line-height: 1.4;
+	text-align: center;
+}
+
+.rtf-subtext {
+	margin: 14px 20px 12px;
+	font-size: 13px;
+	color: #50575e;
+}
+
+.rtf-popup textarea {
+	display: block;
+	width: calc(100% - 40px);
+	min-height: 90px;
+	margin: 0 20px;
+	padding: 8px 10px;
+	resize: vertical;
+	font-size: 14px;
+}
+
+.rtf-actions {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 16px;
+	margin: 14px 20px 0;
+}
+
+/* "Skip" is a plain text link, not a button. */
+.rtf-skip {
+	padding: 0;
+	border: 0;
+	background: none;
+	color: #50575e;
+	font-size: 13px;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.rtf-skip:hover {
+	color: #1d2327;
+}
+
+.rtf-skip:focus {
+	outline: 2px solid #2271b1;
+	outline-offset: 2px;
+	border-radius: 2px;
+}
+
+.rtf-actions .updating-message::before {
+	margin: 3px 5px 0 -2px;
+}
+
+.rtf-privacy {
+	margin: 12px 20px 16px;
+	font-size: 12px;
+	color: #646970;
+}
+
+.rtf-privacy summary {
+	width: max-content;
+	max-width: 100%;
+	color: #2563eb;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.rtf-privacy p {
+	margin: 6px 0 0;
+}
+
+.rtf-thanks {
+	margin: 0;
+	padding: 28px 20px;
+	font-size: 15px;
+	text-align: center;
+	color: #1d2327;
+}
+
+/* Full width along the bottom on small screens. */
+@media screen and (max-width: 600px) {
+	.rtf-backdrop {
+		right: 0;
+		width: 100%;
+		max-width: 100%;
+	}
+
+	.rtf-popup,
+	.rtf-popup h2 {
+		border-radius: 0;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.rtf-popup {
+		transition: none;
+	}
+}
+
+/* Opt-in checkbox for the website address. */
+.rtf-consent {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 13px;
+	color: #50575e;
+	cursor: pointer;
+}
+
+.rtf-popup .rtf-consent {
+	margin: 10px 20px 0;
+}
+
+.rtf-consent input[type="checkbox"] {
+	margin: 0;
+}
+
+/*
+ * Notice mode: the same form inside a standard dismissible admin notice.
+ * Core notice styles do most of the work; this only sizes the form.
+ */
+.rtf-notice .rtf-form {
+	max-width: 640px;
+	padding: 4px 0 12px;
+}
+
+.rtf-notice h2 {
+	margin: 0.6em 0 0.2em;
+	font-size: 15px;
+}
+
+.rtf-notice .rtf-subtext {
+	margin: 0 0 8px;
+}
+
+.rtf-notice textarea {
+	display: block;
+	width: 100%;
+	min-height: 70px;
+	resize: vertical;
+}
+
+.rtf-notice .rtf-consent {
+	margin: 8px 0 0;
+}
+
+.rtf-notice .rtf-actions {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 16px;
+	margin: 10px 0 0;
+}
+
+.rtf-notice .rtf-actions .button-primary {
+	order: -1;
+}
+
+.rtf-notice .rtf-privacy {
+	margin: 10px 0 0;
+	font-size: 12px;
+}
+
+.rtf-notice .rtf-privacy summary {
+	width: max-content;
+	max-width: 100%;
+	cursor: pointer;
+}
+
+.rtf-notice .rtf-thanks {
+	margin: 0.5em 0;
+	padding: 2px;
+	font-size: 14px;
+	text-align: left;
+}

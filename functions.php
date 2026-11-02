@@ -68,6 +68,11 @@ if ( is_admin() ) {
 	 * Admin Menu Settings
 	 */
 	require_once $responsive_template_directory . '/core/includes/classes/class-responsive-admin-settings.php';
+
+	/**
+	 * Optional feedback popup on Appearance > Themes > Add New Theme.
+	 */
+	require_once $responsive_template_directory . '/admin/feedback/class-responsive-theme-feedback.php';
 }
 
 /**
@@ -3880,3 +3885,4 @@ if ( ! function_exists( 'responsive_theme_background_updater_single_product_titl
 		update_option( 'responsive_single_product_title_area_text_font_6_4_8_done', true );
 	}
 }
+
