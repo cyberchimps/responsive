@@ -53,7 +53,7 @@ if ( ! class_exists( 'Responsive_Theme_Feedback' ) ) :
 		 * Inbox that receives answers, emailed from the user's site with wp_mail().
 		 * Temporary: switch to the support inbox before release. Nothing shows while this is empty.
 		 */
-		const EMAIL = 'prasada.pujari@hbwsl.com';
+		const EMAIL = 'support@cyberchimps.com';
 
 		/**
 		 * Display mode: 'popup' (bottom-right panel) or 'notice' (dismissible admin notice).
@@ -249,11 +249,6 @@ if ( ! class_exists( 'Responsive_Theme_Feedback' ) ) :
 				<label for="rtf-answer" class="screen-reader-text"><?php esc_html_e( 'One quick question', 'responsive' ); ?></label>
 				<textarea id="rtf-answer" name="details" rows="4" maxlength="1000" placeholder="<?php esc_attr_e( 'Tell us in your own words. There are no wrong answers.', 'responsive' ); ?>"></textarea>
 
-				<label class="rtf-consent" for="rtf-include-url">
-					<input type="checkbox" id="rtf-include-url" name="include_url" value="1" />
-					<?php esc_html_e( 'Include my website url', 'responsive' ); ?>
-				</label>
-
 				<div class="rtf-actions">
 					<button type="button" class="rtf-skip" data-rtf-skip><?php esc_html_e( 'Skip', 'responsive' ); ?></button>
 					<button type="submit" class="button button-primary" data-rtf-send disabled><?php esc_html_e( 'Send', 'responsive' ); ?></button>
@@ -265,7 +260,7 @@ if ( ! class_exists( 'Responsive_Theme_Feedback' ) ) :
 						<?php
 						printf(
 							/* translators: %s: privacy policy link. */
-							esc_html__( 'When you click Send, your answer is emailed to the Responsive support team from this site. Your website address is added only if you tick the box above, though the email\'s sender address may still show your domain. Nothing else is collected. %s', 'responsive' ),
+							esc_html__( 'When you click Send, only your answer is emailed to the Responsive support team. We don’t collect your website address or any other details, but the email is sent from your site, so its sender address may show your domain. %s', 'responsive' ),
 							'<a href="' . esc_url( $privacy_url ) . '" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Privacy policy', 'responsive' ) . '</a>'
 						);
 						?>
@@ -324,13 +319,11 @@ if ( ! class_exists( 'Responsive_Theme_Feedback' ) ) :
 			do_action( 'responsive_theme_feedback_submitted', $payload );
 
 			// Fixed subject: user input never goes into email headers.
-			$subject = sprintf( '[Responsive feedback]' );
+			$subject = sprintf( '[Responsive feedback from Responsive theme switch form]' );
 
 			$body  = "New answer from the Responsive theme feedback popup (Add New Theme screen).\n\n";
 			$body .= "Question: One quick question\n\n";
 			$body .= "Answer:\n" . $payload['details'] . "\n\n";
-			$body .= 'Website: ' . ( isset( $payload['site_url'] ) ? $payload['site_url'] : 'Not shared (user did not tick the box)' ) . "\n";
-			//$body .= 'Theme version: ' . $payload['version'] . "\n";
 
 			// Fail silently: the user sees the thank-you message whether or not mail is delivered.
 			wp_mail( self::recipient(), $subject, $body, array( 'Content-Type: text/plain; charset=UTF-8' ) );
