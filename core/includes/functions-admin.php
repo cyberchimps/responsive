@@ -94,6 +94,7 @@ function responsive_theme_notice_dismissed() {
 	if ( isset( $_GET['responsive-theme-review-notice-dismissed'] ) ) {
 		update_option( 'responsive_theme_review_notice_dismissed', true );
 		wp_safe_redirect( remove_query_arg( array( 'responsive-theme-review-notice-dismissed' ), wp_get_referer() ) );
+		exit;
 	}
 }
 
@@ -104,6 +105,7 @@ function responsive_theme_notice_change_timeout() {
 	if ( isset( $_GET['responsive-theme-review-notice-change-timeout'] ) ) {
 		set_transient( 'responsive_theme_ask_review_flag', true, DAY_IN_SECONDS );
 		wp_safe_redirect( remove_query_arg( array( 'responsive-theme-review-notice-change-timeout' ), wp_get_referer() ) );
+		exit;
 	}
 }
 

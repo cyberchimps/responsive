@@ -572,14 +572,14 @@ function responsive_get_social_icons( $area ) {
 							}
 							?>
 							<li class="responsive-social-icon responsive-social-icon-<?php echo esc_html( $key ); ?>">
-								<a class="responsive-social-icon-anchor<?php echo $brand_color; ?>" aria-label=<?php echo esc_attr( $key ); ?> title=<?php echo esc_attr( $key ); ?> href="<?php echo $icon_link; ?>" target=<?php echo esc_attr( $icon_link_openat ); ?> <?php responsive_schema_markup( 'url' ); ?>>
+								<a class="responsive-social-icon-anchor<?php echo esc_attr( $brand_color ); ?>" aria-label=<?php echo esc_attr( $key ); ?> title=<?php echo esc_attr( $key ); ?> href="<?php echo esc_url( $icon_link ); ?>" target=<?php echo esc_attr( $icon_link_openat ); ?> <?php responsive_schema_markup( 'url' ); ?>>
 									<?php
 
 										if ( 'icon' === $icon_source ) {
 											?>
 											<span class="responsive-social-icon-wrapper<?php echo esc_attr( $brand_svg ); ?>">
 												<?php
-												echo responsive_get_svg_icon( $icon_type );
+												echo responsive_get_svg_icon( $icon_type ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Icon markup comes from the theme's own SVG library.
 												?>
 											</span>
 											<?php
@@ -595,7 +595,7 @@ function responsive_get_social_icons( $area ) {
 											?>
 											<span class="responsive-social-icon-wrapper<?php echo esc_attr( $brand_svg ); ?>" style="max-width: <?php echo esc_attr( $icon_width )?>px;">
 												<?php
-													echo $icon_svg;
+													echo wp_kses( $icon_svg, responsive_svg_allowed_html() );
 												?>
 											</span>
 											<?php

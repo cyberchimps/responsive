@@ -44,7 +44,7 @@ if ( class_exists( 'woocommerce' ) ) {
         }
         $output .= '</span></div></a></div>';
 
-        if ( 'dropdown' === $cart_click_action && ! wp_is_mobile() ) {
+        if ( 'dropdown' === $cart_click_action && ! wp_is_mobile() ) { // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_is_mobile_wp_is_mobile -- jetpack_is_mobile() is not available outside Jetpack/VIP.
         $output .= '
             <div class="responsive-header-cart-data">';
                 ob_start();
@@ -53,7 +53,7 @@ if ( class_exists( 'woocommerce' ) ) {
             $output .= '</div>';
         }
 	?>
-    <div class="responsive-header-cart rspv-header-cart-<?php echo esc_attr( $cart_click_action ) ?>"><?php echo $output; ?></div>
+    <div class="responsive-header-cart rspv-header-cart-<?php echo esc_attr( $cart_click_action ) ?>"><?php echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Cart block is built from escaped parts and the label text is escaped in the label function; wp_kses_post would strip the SVG icon and price markup. ?></div>
 </div><!-- data-section="header_woo_cart" -->
 <?php
 }

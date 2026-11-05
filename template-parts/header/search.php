@@ -9,7 +9,7 @@ if( ! defined('ABSPATH') ) {
     exit; // Exit if accessed directly
 }
 
-$search_label = esc_html( get_theme_mod( 'responsive_header_search_label' ) );
+$search_label = get_theme_mod( 'responsive_header_search_label' );
 $search_style = get_theme_mod( 'search_style','search' );
 $search_icon  = get_theme_mod( 'responsive_header_search_icon','search1' );
 
@@ -42,7 +42,7 @@ $unique_id = uniqid( 'search-' );
                         <div class="live-search-results"></div>
                         <button type="submit" class="search-submit" value="Search" aria-label="<?php esc_attr_e( 'Search', 'responsive' ); ?>">
                             <span class="responsive-header-search-icon">
-                                <?php echo $search_icon_svg; ?>
+                                <?php echo $search_icon_svg; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Theme-defined SVG markup, not user input. ?>
                             </span>
                         </button>
                     </div>
@@ -59,7 +59,7 @@ $unique_id = uniqid( 'search-' );
                     <div class="live-search-results"></div>
                     <button type="submit" class="search-submit responsive-header-slide-search" value="Search" aria-label="<?php esc_attr_e( 'Search', 'responsive' ); ?>">
                         <span class="responsive-header-search-icon">
-                            <?php echo $search_icon_svg; ?>
+                            <?php echo $search_icon_svg; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Theme-defined SVG markup, not user input. ?>
                         </span>
                     </button>
                 </div>
@@ -68,7 +68,7 @@ $unique_id = uniqid( 'search-' );
         <div class="responsive-header-search-link res-search-link" id="<?php echo esc_attr( $search_id . '-' . $unique_id ); ?>" data-search-link="<?php echo esc_attr( $unique_id ); ?>">
             <div class="res-search-icon" aria-label="Search icon link">
                 <div class="responsive-header-search-icon-wrap">
-                    <span class="responsive-header-search-icon"><?php echo $search_icon_svg; ?></span>
+                    <span class="responsive-header-search-icon"><?php echo $search_icon_svg; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Theme-defined SVG markup, not user input. ?></span>
                 </div>
             </div>
         </div>
@@ -86,7 +86,7 @@ $unique_id = uniqid( 'search-' );
                         <div class="live-search-results" style="display:none;"></div>
                         <button type="submit" class="search-submit" value="Search" aria-label="<?php esc_attr_e( 'Search', 'responsive' ); ?>">
                             <span class="responsive-header-search-icon">
-                                <?php echo $search_icon_svg; ?>
+                                <?php echo $search_icon_svg; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Theme-defined SVG markup, not user input. ?>
                             </span>
                         </button>
                     </div>
@@ -97,8 +97,8 @@ $unique_id = uniqid( 'search-' );
         <div class="responsive-header-search-link full-screen-res-search-link" id="<?php echo esc_attr( $search_id . '-' . $unique_id ); ?>" data-search-link="<?php echo esc_attr( $unique_id ); ?>">
             <div class="res-search-icon" aria-label="Search icon link">
                 <div class="responsive-header-search-icon-wrap">
-                    <span class="responsive-header-search-label"><?php echo $search_label; ?></span>
-                    <span class="responsive-header-search-icon"><?php echo $search_icon_svg; ?></span>
+                    <span class="responsive-header-search-label"><?php echo esc_html( $search_label ); ?></span>
+                    <span class="responsive-header-search-icon"><?php echo $search_icon_svg; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Theme-defined SVG markup, not user input. ?></span>
                 </div>
             </div>
         </div>

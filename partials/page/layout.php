@@ -38,7 +38,7 @@ if ( in_array( $page_title_layout, array( 'post_title_layout1', 'post_title_layo
 	<div class="responsive-single-post-featured-section post-thumb responsive-article-image-container--wide" style="text-align: <?php echo esc_attr( $page_featured_image_alignment ); ?>;">
 		<?php 
 		if ( $ratio_css ) {
-			echo '<style>.responsive-single-post-featured-section.post-thumb img { ' . $ratio_css . ' object-fit: cover; width: 100%; height: 100%; }</style>';
+			echo '<style>.responsive-single-post-featured-section.post-thumb img { ' . esc_html ( $ratio_css ) . ' object-fit: cover; width: 100%; height: 100%; }</style>';
 		}
 		$page_featured_image_size = get_theme_mod( 'responsive_page_featured_image_size', 'full' );
 		the_post_thumbnail( $page_featured_image_size ); 
@@ -69,11 +69,11 @@ if ( in_array( $page_title_layout, array( 'post_title_layout1', 'post_title_layo
 						if ( $ratio_css ) {
 							$bg_css .= ' ' . $ratio_css;
 						}
-						$header_style = ' style="' . $bg_css . '"';
+						$header_style = $bg_css;
 					}
 				}
 				?>
-				<header class="entry-header"<?php echo $header_style; ?>>
+				<header class="entry-header"<?php if ( $header_style ) { echo ' style="' . esc_attr( $header_style ) . '"'; } ?>>
 					<?php
 					// Loop through elements.
 					foreach ( $elements as $element ) {

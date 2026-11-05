@@ -288,7 +288,7 @@ function responsive_delete_local_fonts_cache() {
     $deleted_count = 0;
     foreach ( $files as $file ) {
         if ( is_file( $file ) ) {
-            if ( unlink( $file ) ) {
+            if ( wp_delete_file( $file ) ) {
                 $deleted_count++;
             }
         }

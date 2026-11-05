@@ -40,11 +40,11 @@ if ( ! class_exists( 'Responsive_Customizer_Builder_Header_Blank_Control' ) ) :
 		public function render_content() {
             ?>
             <?php if ( ! empty( $this->label ) ) : ?>
-                <span class="customize-control-title"><?php echo ( $this->label ); ?></span>
+                <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
             <?php endif; ?>
     
             <?php if ( ! empty( $this->description ) ) : ?>
-                <span class="responsive-blank-customize-control-description"><?php echo ( $this->description ); ?></span>
+                <span class="responsive-blank-customize-control-description"><?php echo wp_kses_post( $this->description ); ?></span>
             <?php endif; ?>
             <?php
         }

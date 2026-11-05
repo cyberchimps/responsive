@@ -113,7 +113,7 @@ function responsive_sanitize_checkbox( $input ) {
 function responsive_sanitize_posts( $input ) {
 	$output            = '';
 	$options_posts     = array();
-	$options_posts_obj = get_posts( 'posts_per_page=-1' );
+	$options_posts_obj = get_posts( 'posts_per_page=-1' ); // phpcs:ignore WordPressVIPMinimum.Performance.NoPaging.posts_per_page_posts_per_page -- The sanitizer checks the choice against every post.
 	$options_posts[''] = esc_html( __( 'Choose Post', 'responsive' ) );
 	foreach ( $options_posts_obj as $posts ) {
 		$options_posts[ $posts->ID ] = $posts->post_title;

@@ -27,8 +27,30 @@ ul.products {
             min-width: 100%;
             margin: 0 0 $grid-gutter-width 0;
 
+            // Image takes a third of the row so list images stay a consistent
+            // size regardless of the uploaded file's dimensions.
+            a.woocommerce-LoopProduct-link {
+                flex: 0 0 33.333%;
+                max-width: 33.333%;
+            }
+
             .responsive-shop-summary-wrap {
+                flex: 1;
+                min-width: 0;
                 padding-left: $base-line-height-px;
+            }
+
+            @media (max-width: 575px) {
+                flex-direction: column;
+
+                a.woocommerce-LoopProduct-link {
+                    flex-basis: auto;
+                    max-width: 100%;
+                }
+
+                .responsive-shop-summary-wrap {
+                    padding-left: 0;
+                }
             }
 
             .onsale {
@@ -1117,7 +1139,11 @@ span.res-header-cart-info-wrap, .res-addon-cart-wrap, .res-addon-mobile-cart-wra
 }
 
 .woocommerce .woocommerce-ordering select {
-  padding: .5em;
+  padding: .5em 35px .5em .5em; // Reserve room for the dropdown arrow.
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .responsive-shopping-cart-svg {

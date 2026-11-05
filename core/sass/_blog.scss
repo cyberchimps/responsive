@@ -19,7 +19,8 @@ body.responsive-blog-container-margin-legacy .site-content .container {
   border-left: 1px solid #404040;
 }
 
-.blog.responsive-site-style-content-boxed .site-content #main-blog  {
+.blog.responsive-site-style-content-boxed .site-content #main-blog,
+.archive.responsive-site-style-content-boxed .site-content #main-blog {
   padding: 30px;
   row-gap: 24px;
 }
