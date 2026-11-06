@@ -32,7 +32,25 @@ if ( ! class_exists( 'Responsive_Theme_Feedback' ) ) :
 	/**
 	 * Class Responsive_Theme_Feedback
 	 */
-	final class Responsive_Theme_Feedback {
+	class Responsive_Theme_Feedback {
+
+		/**
+		 * Member Variable
+		 *
+		 * @var object instance
+		 */
+		private static $instance;
+
+		/**
+		 * Initiator
+		 */
+		public static function get_instance() {
+			if ( ! isset( self::$instance ) ) {
+				self::$instance = new self();
+			}
+
+			return self::$instance;
+		}
 
 		/**
 		 * User meta key. Stores array( 'status' => 'sent'|'skipped', 'time' => int ).
@@ -56,6 +74,16 @@ if ( ! class_exists( 'Responsive_Theme_Feedback' ) ) :
 		const EMAIL = 'support@cyberchimps.com';
 
 		/**
+		 * User meta key set when the Starter Templates warning on Add New Theme is dismissed.
+		 */
+		const WARNING_META_KEY = 'responsive_rst_switch_warning_dismissed';
+
+		/**
+		 * AJAX action that dismisses the Starter Templates warning.
+		 */
+		const WARNING_ACTION = 'responsive_rst_switch_warning_dismiss';
+
+		/**
 		 * Display mode: 'popup' (bottom-right panel) or 'notice' (dismissible admin notice).
 		 */
 		const DISPLAY = 'popup';
@@ -63,12 +91,91 @@ if ( ! class_exists( 'Responsive_Theme_Feedback' ) ) :
 		/**
 		 * Boot hooks.
 		 */
-		public static function init() {
-			add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue' ) );
-			add_action( 'admin_notices', array( __CLASS__, 'render_notice' ) );
+		public function __construct() {
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue' ) );
+			add_action( 'admin_notices', array( $this, 'render_notice' ) );
 			// 'admin_footer' runs before footer scripts print, so the markup exists when the JS runs.
-			add_action( 'admin_footer', array( __CLASS__, 'render_popup' ) );
-			add_action( 'wp_ajax_' . self::ACTION, array( __CLASS__, 'handle_ajax' ) );
+			add_action( 'admin_footer', array( $this, 'render_popup' ) );
+			add_action( 'wp_ajax_' . self::ACTION, array( $this, 'handle_ajax' ) );
+
+			// Starter Templates warning on Appearance > Themes > Add New Theme.
+			add_action( 'admin_notices', array( $this, 'render_switch_warning' ) );
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_switch_warning' ) );
+			add_action( 'wp_ajax_' . self::WARNING_ACTION, array( $this, 'dismiss_switch_warning' ) );
+		}
+
+		/**
+		 * Whether to show the Starter Templates warning.
+		 * It appears on Add New Theme, i.e. right after the user clicks "Add New Theme".
+		 *
+		 * @return bool
+		 */
+		private static function should_show_switch_warning() {
+			$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+
+			return $screen
+				&& self::SCREEN === $screen->id
+				&& 'responsive' === get_template()
+				&& current_user_can( 'switch_themes' )
+				&& self::has_starter_templates()
+				&& ! get_user_meta( get_current_user_id(), self::WARNING_META_KEY, true );
+		}
+
+		/**
+		 * Standard WordPress warning notice at the top of Add New Theme.
+		 */
+		public static function render_switch_warning() {
+			if ( ! self::should_show_switch_warning() ) {
+				return;
+			}
+			?>
+			<div class="notice notice-warning is-dismissible" id="responsive-rst-switch-warning" data-nonce="<?php echo esc_attr( wp_create_nonce( self::WARNING_ACTION ) ); ?>">
+				<p><?php esc_html_e( 'Looks like you have a Responsive Starter Template installed. It may not look/work like the demo site with another theme.', 'responsive' ); ?></p>
+			</div>
+			<?php
+		}
+
+		/**
+		 * Remember the dismissal (WordPress.org requires notices to be permanently dismissible).
+		 *
+		 * @param string $hook_suffix Current admin page.
+		 */
+		public static function enqueue_switch_warning( $hook_suffix ) {
+			if ( 'theme-install.php' !== $hook_suffix || ! self::should_show_switch_warning() ) {
+				return;
+			}
+
+			$ajax_url = wp_json_encode( admin_url( 'admin-ajax.php' ) );
+			$action   = wp_json_encode( self::WARNING_ACTION );
+
+			$script = <<<JS
+document.addEventListener( 'click', function ( e ) {
+	if ( ! e.target.closest || ! e.target.closest( '#responsive-rst-switch-warning .notice-dismiss' ) ) {
+		return;
+	}
+	var n = document.getElementById( 'responsive-rst-switch-warning' );
+	var d = new FormData();
+	d.append( 'action', {$action} );
+	d.append( 'nonce', n.getAttribute( 'data-nonce' ) );
+	fetch( {$ajax_url}, { method: 'POST', credentials: 'same-origin', body: d } ).catch( function () {} );
+} );
+JS;
+
+			wp_add_inline_script( 'common', $script );
+		}
+
+		/**
+		 * AJAX: dismiss the Starter Templates warning for this user.
+		 */
+		public static function dismiss_switch_warning() {
+			check_ajax_referer( self::WARNING_ACTION, 'nonce' );
+
+			if ( ! current_user_can( 'switch_themes' ) ) {
+				wp_send_json_error( null, 403 );
+			}
+
+			update_user_meta( get_current_user_id(), self::WARNING_META_KEY, time() );
+			wp_send_json_success();
 		}
 
 		/**
@@ -165,6 +272,18 @@ if ( ! class_exists( 'Responsive_Theme_Feedback' ) ) :
 		}
 
 		/**
+		 * Whether the Responsive Starter Templates plugin is installed and active.
+		 *
+		 * @return bool
+		 */
+		private static function has_starter_templates() {
+			if ( ! function_exists( 'is_plugin_active' ) ) {
+				require_once ABSPATH . 'wp-admin/includes/plugin.php';
+			}
+			return is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) || class_exists( 'Responsive_Add_Ons' );
+		}
+
+		/**
 		 * FP-03: inbox that receives the feedback email.
 		 *
 		 * @return string
@@ -245,6 +364,7 @@ if ( ! class_exists( 'Responsive_Theme_Feedback' ) ) :
 			<form class="rtf-form" id="rtf-form" novalidate>
 				<h2 id="rtf-heading"><?php esc_html_e( 'One quick question', 'responsive' ); ?></h2>
 				<p id="rtf-subtext" class="rtf-subtext"><?php esc_html_e( 'Takes 20 seconds. A real person on the Responsive team reads every answer.', 'responsive' ); ?></p>
+
 
 				<label for="rtf-answer" class="screen-reader-text"><?php esc_html_e( 'One quick question', 'responsive' ); ?></label>
 				<textarea id="rtf-answer" name="details" rows="4" maxlength="1000" placeholder="<?php esc_attr_e( 'Tell us in your own words. There are no wrong answers.', 'responsive' ); ?>"></textarea>
@@ -332,6 +452,6 @@ if ( ! class_exists( 'Responsive_Theme_Feedback' ) ) :
 		}
 	}
 
-	Responsive_Theme_Feedback::init();
+	Responsive_Theme_Feedback::get_instance();
 
 endif;
