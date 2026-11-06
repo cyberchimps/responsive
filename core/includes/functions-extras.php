@@ -137,6 +137,9 @@ function responsive_read_more() {
 	if ( is_object( $post ) ) {
 		if ( 'product' !== $post->post_type ) {
 			$read_more = apply_filters( 'responsive_post_read_more', __( 'Read more →', 'responsive' ) );
+			if ( '' === trim( $read_more ) ) {
+				return '';
+			}
 			return '<p class="read-more"><a class="more-link" href="' . get_permalink() . '">' . $read_more . '</a></p><!-- end of .read-more -->';
 		}
 	}

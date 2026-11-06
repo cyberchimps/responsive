@@ -51,7 +51,7 @@ if ( ! class_exists( 'Responsive_Local_Fonts' ) ) :
 			wp_mkdir_p( $targetDir );
 
 			$response = wp_remote_get( $google_css_url, array( 
-				'timeout' => 15,
+				'timeout' => 15, // phpcs:ignore WordPressVIPMinimum.Performance.RemoteRequestTimeout.timeout_timeout -- Font downloads can take longer than 3s.
 				'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
 			) );
 			if ( is_wp_error( $response ) ) {
@@ -80,13 +80,13 @@ if ( ! class_exists( 'Responsive_Local_Fonts' ) ) :
 					$local_url     = $targetUrl . $font_filename;
 					if ( ! file_exists( $local_path ) ) {
 						$font_resp = wp_remote_get( $font_url, array( 
-							'timeout' => 20,
+							'timeout' => 20, // phpcs:ignore WordPressVIPMinimum.Performance.RemoteRequestTimeout.timeout_timeout -- Font downloads can take longer than 3s.
 							'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
 						) );
 						if ( ! is_wp_error( $font_resp ) ) {
 							$body = wp_remote_retrieve_body( $font_resp );
 							if ( ! empty( $body ) ) {
-								file_put_contents( $local_path, $body );
+								file_put_contents( $local_path, $body ); // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_file_put_contents -- Caches downloaded Google fonts in uploads; WP_Filesystem may need FTP credentials.
 							}
 						}
 					}
@@ -94,7 +94,7 @@ if ( ! class_exists( 'Responsive_Local_Fonts' ) ) :
 				}
 			}
 
-			file_put_contents( $cssPath, $updated_css );
+			file_put_contents( $cssPath, $updated_css ); // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_file_put_contents -- Caches downloaded Google fonts in uploads; WP_Filesystem may need FTP credentials.
 			return $cssUrl;
 		}
 
@@ -158,12 +158,12 @@ if ( ! class_exists( 'Responsive_Local_Fonts' ) ) :
 				if ( is_dir( $item ) && ! is_link( $item ) ) {
 					self::rrmdir( $item );
 				} else {
-					@chmod( $item, 0644 );
-					@unlink( $item );
+					@chmod( $item, 0644 ); // phpcs:ignore Generic.PHP.NoSilencedErrors.Forbidden, WordPressVIPMinimum.Functions.RestrictedFunctions.chmod_chmod -- Clears the read-only flag before deleting cached font files.
+					wp_delete_file( $item );
 				}
 			}
 
-			@rmdir( $dir );
+			@rmdir( $dir ); // phpcs:ignore Generic.PHP.NoSilencedErrors.Forbidden, WordPressVIPMinimum.Functions.RestrictedFunctions.directory_rmdir -- Removes the emptied local font cache folder.
 		}
 
 		public static function preload_all_fonts() {
