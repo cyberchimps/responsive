@@ -8,6 +8,12 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(05/11/2026) Version 6.5.1
+[!] = Fix = Rebuilt dashboard assets.
+
+(05/11/2026) Version 6.5.0
+[!] = Fix = Resolved existing issues and improved stability within the WordPress Customizer.
+
 (22/10/2026) Version 6.4.9
 [+] = New = Introduced dedicated Layout and Sidebar customization options in General WooCommerce settings for greater control over WooCommerce page layouts.
 [+] = New = Expanded WooCommerce customization options for Store Notice, Cart, and My Account pages to improve design flexibility.

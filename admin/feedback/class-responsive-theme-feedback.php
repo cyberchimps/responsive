@@ -362,16 +362,16 @@ JS;
 			$privacy_url = (string) apply_filters( 'responsive_theme_feedback_privacy_url', 'https://cyberchimps.com/privacy-policy/' );
 			?>
 			<form class="rtf-form" id="rtf-form" novalidate>
-				<h2 id="rtf-heading"><?php esc_html_e( 'One quick question', 'responsive' ); ?></h2>
-				<p id="rtf-subtext" class="rtf-subtext"><?php esc_html_e( 'Takes 20 seconds. A real person on the Responsive team reads every answer.', 'responsive' ); ?></p>
+				<h2 id="rtf-heading"><?php esc_html_e( 'Switching from Responsive Theme?', 'responsive' ); ?></h2>
+				<p id="rtf-subtext" class="rtf-subtext"><?php esc_html_e( 'It takes only 20 seconds. We\'d genuinely like to understand what\'s making you consider another theme.', 'responsive' ); ?></p>
 
 
-				<label for="rtf-answer" class="screen-reader-text"><?php esc_html_e( 'One quick question', 'responsive' ); ?></label>
-				<textarea id="rtf-answer" name="details" rows="4" maxlength="1000" placeholder="<?php esc_attr_e( 'Tell us in your own words. There are no wrong answers.', 'responsive' ); ?>"></textarea>
+				<label for="rtf-answer" class="screen-reader-text"><?php esc_html_e( 'Switching from Responsive Theme?', 'responsive' ); ?></label>
+				<textarea id="rtf-answer" name="details" rows="4" maxlength="1000" placeholder="<?php esc_attr_e( 'Tell us what\'s frustrating you, what isn\'t working, or what you wish we did better.', 'responsive' ); ?>"></textarea>
 
 				<div class="rtf-actions">
 					<button type="button" class="rtf-skip" data-rtf-skip><?php esc_html_e( 'Skip', 'responsive' ); ?></button>
-					<button type="submit" class="button button-primary" data-rtf-send disabled><?php esc_html_e( 'Send', 'responsive' ); ?></button>
+					<button type="submit" class="button button-primary" data-rtf-send disabled><?php esc_html_e( 'Send Feedback', 'responsive' ); ?></button>
 				</div>
 
 				<details class="rtf-privacy">
