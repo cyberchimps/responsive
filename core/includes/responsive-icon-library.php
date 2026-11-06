@@ -147,7 +147,6 @@ if ( ! function_exists( 'responsive_get_svg_icon' ) ) {
       'fas fa-envelope'       => 'email',
       'fas fa-phone'          => 'phone',
       'fas fa-rss'            => 'rss',
-      'fab fa-wordpress'      => 'WordPress',
     );
 
     if ( isset( $alias_map[ $icon_name ] ) ) {

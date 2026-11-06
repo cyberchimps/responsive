@@ -67,6 +67,11 @@ if ( is_admin() ) {
 	 * Admin Menu Settings
 	 */
 	require_once $responsive_template_directory . '/core/includes/classes/class-responsive-admin-settings.php';
+
+	/**
+	 * Optional feedback popup on Appearance > Themes > Add New Theme.
+	 */
+	require_once $responsive_template_directory . '/admin/feedback/class-responsive-theme-feedback.php';
 }
 
 /**
