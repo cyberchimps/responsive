@@ -61,13 +61,17 @@ require $responsive_template_directory . '/core/includes/modules/color-palette/c
 require $responsive_template_directory . '/core/includes/functions-deprecated.php';
 // Custom page walker.
 require $responsive_template_directory . '/core/includes/classes/class-responsive-walker-page.php';
-require $responsive_template_directory . '/admin/starter-custom-page/responsive-home-starter-content.php';
 
 if ( is_admin() ) {
 	/**
 	 * Admin Menu Settings
 	 */
 	require_once $responsive_template_directory . '/core/includes/classes/class-responsive-admin-settings.php';
+
+	/**
+	 * Optional feedback popup on Appearance > Themes > Add New Theme.
+	 */
+	require_once $responsive_template_directory . '/admin/feedback/class-responsive-theme-feedback.php';
 }
 
 /**
@@ -210,12 +214,6 @@ function responsive_free_setup() {
 	add_editor_style( 'core/css/gutenberg-editor.css' );
 	// Gutenberg editor color palette.
 	add_theme_support( 'editor-color-palette', responsive_gutenberg_color_palette() );
-
-	// Render Custom Starter content.
-	if ( class_exists( 'Responsive_Home_Starter_Content', false ) ) {
-		$responsive_home_starter_content = new Responsive_Home_Starter_Content();
-		add_theme_support( 'starter-content', $responsive_home_starter_content->get() );
-	}
 
 	$small_font_sizes  = get_theme_mod( 'meta_typography' );
 	$normal_sizes      = get_theme_mod( 'body_typography' );
