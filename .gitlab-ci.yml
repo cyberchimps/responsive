@@ -30,7 +30,7 @@ claude_review:
   # caused "npm: command not found". Installing Node via nvm here works
   # whether the runner is Docker-backed or a plain shell executor.
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == "develop" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
       when: manual
   allow_failure: true   # a not-yet-run manual job should never block merge
   before_script:
