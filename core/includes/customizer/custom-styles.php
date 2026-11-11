@@ -1315,25 +1315,7 @@ function responsive_customizer_styles() {
 			padding: ' . responsive_spacing_css( $box_mobile_padding_top, $box_mobile_padding_right, $box_mobile_padding_bottom, $box_mobile_padding_left ) . ';
 		}
 	}';
-	$custom_css .= '
-	aside#secondary.responsive-sidebar-style-boxed .widget-wrapper,
-	aside#secondary.responsive-sidebar-style-unboxed .widget-wrapper {
-		padding: ' . responsive_spacing_css( $box_padding_top, $box_padding_right, $box_padding_bottom, $box_padding_left ) . ';
-	}
-	@media screen and ( max-width: 992px ) {
-		aside#secondary.responsive-sidebar-style-boxed .widget-wrapper,
-		aside#secondary.responsive-sidebar-style-unboxed .widget-wrapper {
-			padding: ' . responsive_spacing_css( $box_tablet_padding_top, $box_tablet_padding_right, $box_tablet_padding_bottom, $box_tablet_padding_left ) . ';
-		}
-	}
-	@media screen and ( max-width: 576px ) {
-		aside#secondary.responsive-sidebar-style-boxed .widget-wrapper,
-		aside#secondary.responsive-sidebar-style-unboxed .widget-wrapper {
-			padding: ' . responsive_spacing_css( $box_mobile_padding_top, $box_mobile_padding_right, $box_mobile_padding_bottom, $box_mobile_padding_left ) . ';
-		}
-	}';
-
-	if ( '' !== $logo_custom_width ) {
+	if ( $logo_custom_width ) {
 		$custom_css .= ".site-header .custom-logo {
 			width: {$logo_custom_width}px;
 		}";
@@ -1541,7 +1523,7 @@ function responsive_customizer_styles() {
 				.read-more-button .hentry .read-more .more-link,
 				input[type=button],
 				input[type=submit],
-				button:not(.customize-partial-edit-shortcut-button),
+				button:not(.customize-partial-edit-shortcut-button, .wp-block-accordion-heading__toggle),
 				.button,
 				.wp-block-button:not(.is-style-outline) > .wp-block-button__link,
 				body div.wpforms-container-full .wpforms-form input[type=submit],
@@ -2445,7 +2427,7 @@ function responsive_customizer_styles() {
 	.read-more-button .hentry .read-more .more-link,
 	input[type=button],
 	input[type=submit],
-	button:not(.customize-partial-edit-shortcut-button),
+	button:not(.customize-partial-edit-shortcut-button, .wp-block-accordion-heading__toggle),
 	.button,
 	.wp-block-button__link,
 	.wp-block-file__button,
@@ -2496,7 +2478,7 @@ function responsive_customizer_styles() {
 	.read-more-button .hentry .read-more .more-link,
 	input[type=button],
 	input[type=submit],
-	button:not(.customize-partial-edit-shortcut-button),
+	button:not(.customize-partial-edit-shortcut-button, .wp-block-accordion-heading__toggle),
 	.button,
 	.wp-block-button__link,
 	.wp-block-file__button { background-color: transparent; }';
@@ -2521,7 +2503,7 @@ function responsive_customizer_styles() {
 		.wp-block-button__link,
 		.wp-block-file__button,
 		input[type=submit],
-		button:not(.customize-partial-edit-shortcut-button),
+		button:not(.customize-partial-edit-shortcut-button, .wp-block-accordion-heading__toggle),
 		.button,
 		body div.wpforms-container-full .wpforms-form input[type=submit],
 		body div.wpforms-container-full .wpforms-form button[type=submit],
@@ -2569,7 +2551,7 @@ function responsive_customizer_styles() {
 		.wp-block-button__link,
 		.wp-block-file__button,
 		input[type=submit],
-		button:not(.customize-partial-edit-shortcut-button),
+		button:not(.customize-partial-edit-shortcut-button, .wp-block-accordion-heading__toggle),
 		.button,
 		body div.wpforms-container-full .wpforms-form input[type=submit],
 		body div.wpforms-container-full .wpforms-form button[type=submit],
@@ -2633,8 +2615,8 @@ function responsive_customizer_styles() {
 	input[type=submit]:hover,
 	input[type=button]:focus:not(.customize-partial-edit-shortcut-button),
 	input[type=submit]:focus,
-	button:hover:not(.customize-partial-edit-shortcut-button, .menu-toggle, .floating-bar-addbtn),
-	button:focus:not(.customize-partial-edit-shortcut-button):not(.menu-toggle),
+	button:hover:not(.customize-partial-edit-shortcut-button, .menu-toggle, .floating-bar-addbtn, .wp-block-accordion-heading__toggle),
+	button:focus:not(.customize-partial-edit-shortcut-button, .wp-block-accordion-heading__toggle):not(.menu-toggle),
 	.button:hover:not(.customize-partial-edit-shortcut-button, .menu-toggle, .floating-bar-addbtn),
 	.button:focus:not(.customize-partial-edit-shortcut-button):not(.menu-toggle),
 	body div.wpforms-container-full .wpforms-form input[type=submit]:hover,
@@ -2650,6 +2632,26 @@ function responsive_customizer_styles() {
 		border-color: ' . $button_hover_border_color . ';	
 		background-color:' . $button_hover_background . ';
 		box-shadow: ' . $button_hover_shadow_inset_style . ' ' . $button_hover_shadow_x . 'px ' . $button_hover_shadow_y . 'px ' . $button_hover_shadow_blur . 'px ' . $button_hover_shadow_spread . 'px ' . $button_hover_shadow_color . ';
+	}
+
+	body div.wpforms-container-full .wpforms-form input[type=submit]:hover,
+	body div.wpforms-container-full .wpforms-form button[type=submit]:hover,
+	body div.wpforms-container-full .wpforms-form .wpforms-page-button:hover {
+		border-width: ' . responsive_spacing_css( $buttons_border_width_top, $buttons_border_width_right, $buttons_border_width_bottom, $buttons_border_width_left, $buttons_border_width_desktop_unit ) . ';
+	}
+	@media screen and ( max-width: 992px ) {
+		body div.wpforms-container-full .wpforms-form input[type=submit]:hover,
+		body div.wpforms-container-full .wpforms-form button[type=submit]:hover,
+		body div.wpforms-container-full .wpforms-form .wpforms-page-button:hover {
+			border-width: ' . responsive_spacing_css( $buttons_border_tablet_width_top, $buttons_border_tablet_width_right, $buttons_border_tablet_width_bottom, $buttons_border_tablet_width_left, $buttons_border_width_tablet_unit ) . ';
+		}
+	}
+	@media screen and ( max-width: 576px ) {
+		body div.wpforms-container-full .wpforms-form input[type=submit]:hover,
+		body div.wpforms-container-full .wpforms-form button[type=submit]:hover,
+		body div.wpforms-container-full .wpforms-form .wpforms-page-button:hover {
+			border-width: ' . responsive_spacing_css( $buttons_border_mobile_width_top, $buttons_border_mobile_width_right, $buttons_border_mobile_width_bottom, $buttons_border_mobile_width_left, $buttons_border_width_mobile_unit ) . ';
+		}
 	}
 
 	.wp-block-button.is-style-outline > .wp-block-button__link.wp-element-button:hover,
@@ -15624,14 +15626,14 @@ function responsive_customizer_styles() {
 			$add_to_cart_btn_rad_mob_bl   = get_theme_mod( 'responsive_add_to_cart_button_radius_mobile_bottom_left_radius', '' );
 			$add_to_cart_btn_rad_mob_unit = esc_html( get_theme_mod( 'responsive_add_to_cart_button_radius_mobile_unit', 'px' ) );
 
-			$has_desktop_bw  = ( '' !== (string) $add_to_cart_btn_bw_top && 0 !== (int) $add_to_cart_btn_bw_top ) || ( '' !== (string) $add_to_cart_btn_bw_right && 0 !== (int) $add_to_cart_btn_bw_right ) || ( '' !== (string) $add_to_cart_btn_bw_bottom && 0 !== (int) $add_to_cart_btn_bw_bottom ) || ( '' !== (string) $add_to_cart_btn_bw_left && 0 !== (int) $add_to_cart_btn_bw_left );
-			$has_desktop_rad = ( '' !== (string) $add_to_cart_btn_rad_tl && 0 !== (int) $add_to_cart_btn_rad_tl ) || ( '' !== (string) $add_to_cart_btn_rad_tr && 0 !== (int) $add_to_cart_btn_rad_tr ) || ( '' !== (string) $add_to_cart_btn_rad_br && 0 !== (int) $add_to_cart_btn_rad_br ) || ( '' !== (string) $add_to_cart_btn_rad_bl && 0 !== (int) $add_to_cart_btn_rad_bl );
+			$has_desktop_bw  = '' !== (string) $add_to_cart_btn_bw_top || '' !== (string) $add_to_cart_btn_bw_right || '' !== (string) $add_to_cart_btn_bw_bottom || '' !== (string) $add_to_cart_btn_bw_left;
+			$has_desktop_rad = '' !== (string) $add_to_cart_btn_rad_tl || '' !== (string) $add_to_cart_btn_rad_tr || '' !== (string) $add_to_cart_btn_rad_br || '' !== (string) $add_to_cart_btn_rad_bl;
 
-			$has_tablet_bw  = ( '' !== (string) $add_to_cart_btn_bw_tab_top && 0 !== (int) $add_to_cart_btn_bw_tab_top ) || ( '' !== (string) $add_to_cart_btn_bw_tab_right && 0 !== (int) $add_to_cart_btn_bw_tab_right ) || ( '' !== (string) $add_to_cart_btn_bw_tab_bottom && 0 !== (int) $add_to_cart_btn_bw_tab_bottom ) || ( '' !== (string) $add_to_cart_btn_bw_tab_left && 0 !== (int) $add_to_cart_btn_bw_tab_left );
-			$has_tablet_rad = ( '' !== (string) $add_to_cart_btn_rad_tab_tl && 0 !== (int) $add_to_cart_btn_rad_tab_tl ) || ( '' !== (string) $add_to_cart_btn_rad_tab_tr && 0 !== (int) $add_to_cart_btn_rad_tab_tr ) || ( '' !== (string) $add_to_cart_btn_rad_tab_br && 0 !== (int) $add_to_cart_btn_rad_tab_br ) || ( '' !== (string) $add_to_cart_btn_rad_tab_bl && 0 !== (int) $add_to_cart_btn_rad_tab_bl );
+			$has_tablet_bw  = '' !== (string) $add_to_cart_btn_bw_tab_top || '' !== (string) $add_to_cart_btn_bw_tab_right || '' !== (string) $add_to_cart_btn_bw_tab_bottom || '' !== (string) $add_to_cart_btn_bw_tab_left;
+			$has_tablet_rad = '' !== (string) $add_to_cart_btn_rad_tab_tl || '' !== (string) $add_to_cart_btn_rad_tab_tr || '' !== (string) $add_to_cart_btn_rad_tab_br || '' !== (string) $add_to_cart_btn_rad_tab_bl;
 
-			$has_mobile_bw  = ( '' !== (string) $add_to_cart_btn_bw_mob_top && 0 !== (int) $add_to_cart_btn_bw_mob_top ) || ( '' !== (string) $add_to_cart_btn_bw_mob_right && 0 !== (int) $add_to_cart_btn_bw_mob_right ) || ( '' !== (string) $add_to_cart_btn_bw_mob_bottom && 0 !== (int) $add_to_cart_btn_bw_mob_bottom ) || ( '' !== (string) $add_to_cart_btn_bw_mob_left && 0 !== (int) $add_to_cart_btn_bw_mob_left );
-			$has_mobile_rad = ( '' !== (string) $add_to_cart_btn_rad_mob_tl && 0 !== (int) $add_to_cart_btn_rad_mob_tl ) || ( '' !== (string) $add_to_cart_btn_rad_mob_tr && 0 !== (int) $add_to_cart_btn_rad_mob_tr ) || ( '' !== (string) $add_to_cart_btn_rad_mob_br && 0 !== (int) $add_to_cart_btn_rad_mob_br ) || ( '' !== (string) $add_to_cart_btn_rad_mob_bl && 0 !== (int) $add_to_cart_btn_rad_mob_bl );
+			$has_mobile_bw  = '' !== (string) $add_to_cart_btn_bw_mob_top || '' !== (string) $add_to_cart_btn_bw_mob_right || '' !== (string) $add_to_cart_btn_bw_mob_bottom || '' !== (string) $add_to_cart_btn_bw_mob_left;
+			$has_mobile_rad = '' !== (string) $add_to_cart_btn_rad_mob_tl || '' !== (string) $add_to_cart_btn_rad_mob_tr || '' !== (string) $add_to_cart_btn_rad_mob_br || '' !== (string) $add_to_cart_btn_rad_mob_bl;
 
 			$btn_selectors       = '.woocommerce ul.products li.product .button, .woocommerce ul.products li.product .add_to_cart_button, .wp-block-button__link.add_to_cart_button, .wc-block-grid__product-add-to-cart .wp-block-button__link';
 			$btn_hover_selectors = '.woocommerce ul.products li.product .button:hover, .woocommerce ul.products li.product .add_to_cart_button:hover, .wp-block-button__link.add_to_cart_button:hover, .wc-block-grid__product-add-to-cart .wp-block-button__link:hover';

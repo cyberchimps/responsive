@@ -1435,14 +1435,14 @@
             if( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
-            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button]:not(.customize-partial-edit-shortcut-button),input[type=submit],button:not(.customize-partial-edit-shortcut-button):not(.plus, .minus, .floating-bar-addbtn),.button:not(.customize-partial-edit-shortcut-button, .floating-bar-addbtn),.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').not('.footer-widget-area a').css('color', newval );
+            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button]:not(.customize-partial-edit-shortcut-button),input[type=submit],button:not(.customize-partial-edit-shortcut-button, .wp-block-accordion-heading__toggle):not(.plus, .minus, .floating-bar-addbtn),.button:not(.customize-partial-edit-shortcut-button, .floating-bar-addbtn),.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').not('.footer-widget-area a').css('color', newval );
         } );
     } );
 
     //Buttons border color
     api( 'responsive_button_border_color', function( value ) {
         value.bind( function( newval ) {
-            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button]:not(.customize-partial-edit-shortcut-button),input[type=submit],button:not(.customize-partial-edit-shortcut-button):not(.plus, .minus, .floating-bar-addbtn),.button:not(:where(.customize-partial-edit-shortcut-button, .add_to_cart_button, .product_type_external, .product_type_grouped, .floating-bar-addbtn)),.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').css('border-color', newval );
+            $('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button]:not(.customize-partial-edit-shortcut-button),input[type=submit],button:not(.customize-partial-edit-shortcut-button, .wp-block-accordion-heading__toggle):not(.plus, .minus, .floating-bar-addbtn),.button:not(:where(.customize-partial-edit-shortcut-button, .add_to_cart_button, .product_type_external, .product_type_grouped, .floating-bar-addbtn)),.wp-block-button:not(.is-style-outline) > .wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button').css('border-color', newval );
         } );
     } );
 
@@ -3213,13 +3213,33 @@
             $(this).css("border-color", processThemeSettingForCSS('responsive_button_border_color'));
         }
     );
+    api( 'responsive_button_color', function( value ) {
+        if( responsiveSiteLocalOptions.isDisableElementorDefaultColors ) {
+            value.bind( function() {
+                var color = processThemeSettingForCSS( 'responsive_button_color' );
+                jQuery( 'style#responsive-elementor-button-color' ).remove();
+                if ( ! color ) {
+                    return;
+                }
+                jQuery( 'head' ).append(
+                    '<style id="responsive-elementor-button-color">'
+                    + '.elementor-button-wrapper .elementor-button { background-color:' + color +'}'
+                    + '</style>'
+                );
+            } );
+        }
+    } );
     api( 'responsive_button_hover_color', function( value ) {
         if( responsiveSiteLocalOptions.isDisableElementorDefaultColors ) {
-            value.bind( function( newval ) {
+            value.bind( function() {
+                var color = processThemeSettingForCSS( 'responsive_button_hover_color' );
                 jQuery( 'style#responsive-elementor-button-hover-color' ).remove();
+                if ( ! color ) {
+                    return;
+                }
                 jQuery( 'head' ).append(
                     '<style id="responsive-elementor-button-hover-color">'
-                    + '.elementor-button-wrapper .elementor-button:hover{ background-color:' + newval +' }'
+                    + '.elementor-button-wrapper .elementor-button:hover{ background-color:' + color +' }'
                     + '</style>'
                 );
             } );
@@ -3227,12 +3247,16 @@
     } );
     api( 'responsive_button_text_color', function( value ) {
         if( responsiveSiteLocalOptions.isDisableElementorDefaultColors ) {
-            value.bind( function( newval ) {
+            value.bind( function() {
+                var color = processThemeSettingForCSS( 'responsive_button_text_color' );
                 jQuery( 'style#responsive-elementor-button-text-color' ).remove();
+                if ( ! color ) {
+                    return;
+                }
                 jQuery( 'head' ).append(
                     '<style id="responsive-elementor-button-text-color">'
-                    + '.elementor-button-wrapper .elementor-button{ color:' + newval +' !important;}'
-                    + '.elementor-button-wrapper .elementor-button{ fill:' + newval +'}'
+                    + '.elementor-button-wrapper .elementor-button{ color:' + color +' !important;}'
+                    + '.elementor-button-wrapper .elementor-button{ fill:' + color +'}'
                     + '</style>'
                 );
             } );
@@ -3240,12 +3264,16 @@
     } );
     api( 'responsive_button_hover_text_color', function( value ) {
         if( responsiveSiteLocalOptions.isDisableElementorDefaultColors ) {
-            value.bind( function( newval ) {
+            value.bind( function() {
+                var color = processThemeSettingForCSS( 'responsive_button_hover_text_color' );
                 jQuery( 'style#responsive-elementor-button-text-hover-color' ).remove();
+                if ( ! color ) {
+                    return;
+                }
                 jQuery( 'head' ).append(
                     '<style id="responsive-elementor-button-text-hover-color">'
-                    + '.elementor-button-wrapper .elementor-button:hover{ color:' + newval +' !important; }'
-                    + '.elementor-button-wrapper .elementor-button:hover svg{ fill:' + newval +'}'
+                    + '.elementor-button-wrapper .elementor-button:hover{ color:' + color +' !important; }'
+                    + '.elementor-button-wrapper .elementor-button:hover svg{ fill:' + color +'}'
                     + '</style>'
                 );
             } );
@@ -3253,11 +3281,15 @@
     } );
     api( 'responsive_button_border_color', function( value ) {
         if( responsiveSiteLocalOptions.isDisableElementorDefaultColors ) {
-            value.bind( function( newval ) {
+            value.bind( function() {
+                var color = processThemeSettingForCSS( 'responsive_button_border_color' );
                 jQuery( 'style#responsive-elementor-button-border-color' ).remove();
+                if ( ! color ) {
+                    return;
+                }
                 jQuery( 'head' ).append(
                     '<style id="responsive-elementor-button-border-color">'
-                    + '.elementor-button-wrapper .elementor-button{ border-color:' + newval +'; }'
+                    + '.elementor-button-wrapper .elementor-button{ border-color:' + color +'; }'
                     + '</style>'
                 );
             } );
@@ -3265,11 +3297,15 @@
     } );
     api( 'responsive_button_hover_border_color', function( value ) {
         if( responsiveSiteLocalOptions.isDisableElementorDefaultColors ) {
-            value.bind( function( newval ) {
+            value.bind( function() {
+                var color = processThemeSettingForCSS( 'responsive_button_hover_border_color' );
                 jQuery( 'style#responsive-elementor-button-border-hover-color' ).remove();
+                if ( ! color ) {
+                    return;
+                }
                 jQuery( 'head' ).append(
                     '<style id="responsive-elementor-button-border-hover-color">'
-                    + '.elementor-button-wrapper .elementor-button:hover{ border-color:' + newval +'; }'
+                    + '.elementor-button-wrapper .elementor-button:hover{ border-color:' + color +'; }'
                     + '</style>'
                 );
             } );
