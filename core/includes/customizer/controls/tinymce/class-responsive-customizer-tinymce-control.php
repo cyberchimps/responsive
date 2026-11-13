@@ -42,7 +42,7 @@ if (class_exists('WP_Customize_Control')) {
                 <?php
                 foreach ($dropdown_options as $label => $option_value) {
                     $selected = selected($value, $option_value, false);
-                    echo "<option value='" . esc_attr( $option_value ) . "' " . esc_attr( $selected ) . ">$label</option>";
+                    echo "<option value='" . esc_attr( $option_value ) . "' " . esc_attr( $selected ) . ">" . esc_html( $label ) . "</option>";
                 }
                 ?>
             </select>

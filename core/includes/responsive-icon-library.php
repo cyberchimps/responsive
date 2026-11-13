@@ -156,4 +156,3 @@ if ( ! function_exists( 'responsive_get_svg_icon' ) ) {
     return isset($icons[$icon_name]) ? $icons[$icon_name] : '';
   }
 }
-?>

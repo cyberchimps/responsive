@@ -355,7 +355,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 					<p class="responsive-theme-home-settings-text fw-bolder"><?php esc_html_e( 'Customizer Settings', 'responsive' ); ?></p>
 				</div>
 				<div class="col-md-3 text-end mb-4">
-					<a class="responsive-theme-go-to-customizer-link text-decoration-none shadow-none" href="<?php echo esc_attr( $admin_customize_url ); ?>">
+					<a class="responsive-theme-go-to-customizer-link text-decoration-none shadow-none" href="<?php echo esc_url( $admin_customize_url ); ?>">
 						<?php echo esc_html( 'Go to Customizer' ); ?>
 					</a>
 				</div>
@@ -365,7 +365,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 				foreach ( $home_settings as $home_setting ) {
 					?>
 				<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
-					<a class="text-decoration-none shadow-none" href="<?php echo esc_attr( $home_setting['link'] ); ?>">
+					<a class="text-decoration-none shadow-none" href="<?php echo esc_url( $home_setting['link'] ); ?>">
 						<div class="responsive-theme-home-setting">
 							<div class="responsive-theme-home-setting-button">
 								<span class="dashicons <?php echo esc_attr( $home_setting['icon'] ); ?> mt-1 me-2"></span>

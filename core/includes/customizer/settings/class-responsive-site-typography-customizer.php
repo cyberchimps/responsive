@@ -163,11 +163,11 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 					$this->load_fonts($headingFont);
 					
 					echo "<style class='customizer-typography-font-preset-body-font-family'>
-							body { font-family: " . $bodyFont . "; font-weight: {$bodyWeight}; }
+							body { font-family: " . wp_kses( $bodyFont, array() ) . "; font-weight: " . absint( $bodyWeight ) . "; }
 						  </style>";
 					
 					echo "<style class='customizer-typography-font-preset-headings-font-family'>
-						  	h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 { font-family: " . $headingFont . "; font-weight: {$headingWeight}; }
+						  	h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 { font-family: " . wp_kses( $headingFont, array() ) . "; font-weight: " . absint( $headingWeight ) . "; }
 						</style>";
 				}
 			}

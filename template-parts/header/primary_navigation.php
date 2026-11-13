@@ -61,7 +61,7 @@ $nav_class_string = implode( ' ', $nav_classes );
 			
 			?>
 			
-			<button class="menu-toggle" aria-controls="header-menu" aria-expanded="false"><?php echo $svg_markup; ?><span class="hamburger-menu-label"><?php printf( esc_html( $hamburger_menu_label ) ); ?></span><span class="screen-reader-text"><?php esc_html_e( 'Menu', 'responsive' ); ?></span></button>
+			<button class="menu-toggle" aria-controls="header-menu" aria-expanded="false"><?php echo $svg_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Theme-defined SVG markup, not user input. ?><span class="hamburger-menu-label"><?php printf( esc_html( $hamburger_menu_label ) ); ?></span><span class="screen-reader-text"><?php esc_html_e( 'Menu', 'responsive' ); ?></span></button>
 			<?php } ?>
 			<?php
 			wp_nav_menu(

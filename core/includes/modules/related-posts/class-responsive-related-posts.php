@@ -288,9 +288,9 @@ if (!class_exists('Responsive_Single_Blog_Related_Posts')) :
 				$featured_img_markup .= '<div class="post-thumb-img-content post-thumb">';
 				$featured_img_markup .= '<a href="' . esc_url($post_permalink) . '" class="related-single-post-featured-image">' . $featured_image . '</a>';
 				$featured_img_markup .= '</a></div></div>';
-				echo $featured_img_markup;
+				echo $featured_img_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Built from esc_url() and get_the_post_thumbnail().
 			} else {
-				echo $featured_img_markup;
+				echo $featured_img_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Built from esc_url() and get_the_post_thumbnail().
 			}
 		}
 

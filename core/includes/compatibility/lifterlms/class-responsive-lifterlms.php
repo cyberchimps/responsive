@@ -45,7 +45,7 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 		 */
 		public function __construct() {
 
-			add_filter( 'after_setup_theme', array( $this, 'responsive_llms_setup' ) );
+			add_action( 'after_setup_theme', array( $this, 'responsive_llms_setup' ) );
 
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 

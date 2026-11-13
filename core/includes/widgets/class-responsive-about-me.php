@@ -99,7 +99,7 @@ class Responsive_About_Me extends WP_Widget {
 			<label for="<?php echo esc_attr( $author_image_field_id ); ?>"><?php esc_html_e( 'Image :', 'responsive' ); ?></label>
 
 			<?php if ( ! empty( $image ) ) : ?>
-				<img class="<?php echo esc_attr( $this->id ); ?>_img" src="<?php echo esc_attr( $image ); ?>" style="margin:0;padding:0;max-width:100%;display:block"/>
+				<img class="<?php echo esc_attr( $this->id ); ?>_img" src="<?php echo esc_url( $image ); ?>" style="margin:0;padding:0;max-width:100%;display:block"/>
 				<a href="#" id="<?php echo esc_attr( $this->id ); ?>" class="responsive-image-remove">Remove Image</a>
 				<input type="hidden" name="<?php echo esc_attr( $author_image_field_name ); ?>" value="<?php echo esc_url( $image ); ?>" />
 			<?php else : ?>

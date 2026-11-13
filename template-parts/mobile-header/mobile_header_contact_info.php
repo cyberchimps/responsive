@@ -29,7 +29,7 @@ require get_template_directory() . '/core/includes/responsive-icon-library.php';
                     ?>
                     <li class="responsive-header-contact-info-icons-list">
                         <span class="responsive-header-contact-info-icon-container <?php echo 'rounded' === $contact_icon_shape ? esc_attr( 'responsive-header-contact-info-rounded' ) : ''; ?>">
-                            <?php echo responsive_get_svg_icon( 'contact_' . $contact_info['id'] ); ?>
+                            <?php echo responsive_get_svg_icon( 'contact_' . $contact_info['id'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Theme-defined SVG markup, not user input. ?>
                         </span>
                         <div class="responsive-header-contact-info-contact-info">
                             <span class="responsive-header-contact-info-contact-title"><?php echo esc_html( $contact_info['title'] ); ?></span>

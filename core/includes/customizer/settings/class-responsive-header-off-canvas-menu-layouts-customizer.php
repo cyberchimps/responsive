@@ -158,10 +158,24 @@ if( ! class_exists( 'Responsive_Header_Off_Canvas_Menu_Layouts_Customizer' ) ) {
                 $tab_ids_prefix . 'responsive_header_off_canvas_menu_visibility'    
             );
 
-            responsive_tabs_button_control( $wp_customize, 'header_off_canvas_menu_layout_tabs', $tabs_label, 'responsive_header_off_canvas_menu_layout', 5, '', 'responsive_header_off_canvas_menu_layout_general_tab', 'responsive_header_off_canvas_menu_layout_design_tab', $general_tab_ids, $design_tab_ids, null);
+            responsive_tabs_button_control( $wp_customize, 'header_off_canvas_menu_layout_tabs', $tabs_label, 'responsive_header_off_canvas_menu_layout', 5, '', 'responsive_header_off_canvas_menu_layout_general_tab', 'responsive_header_off_canvas_menu_layout_design_tab', apply_filters( 'header_off_canvas_menu_general_tab_ids' , $general_tab_ids ), apply_filters( 'header_off_canvas_menu_design_tab_ids' , $design_tab_ids), null);
             
 
 
+			// 	Upgrade to Pro nudge for OffCanvas Menu (only registers when Responsive Pro is not active).
+			responsive_pro_nudge_control(
+				$wp_customize,
+				'offcanvas_menu_container',
+				'responsive_header_off_canvas_menu_layout',
+				array(
+					'image'       => RESPONSIVE_THEME_URI . 'admin/images/upgradeToPro.jpg',
+					'description' => __( 'Take your container layout to the next level with powerful design features.', 'responsive' ),
+					'features'    => array(
+						__( 'Enhanced Typography', 'responsive' ),
+					),
+				),
+				999
+			);
         }
 
     }

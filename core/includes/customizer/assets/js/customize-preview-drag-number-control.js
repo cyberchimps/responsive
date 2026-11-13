@@ -129,14 +129,10 @@
         } );
     } );
     //Logo Width
+    // An empty logo width means no width rule, so the logo keeps its uploaded size; 0 is a real 0px width.
     api( 'responsive_logo_width', function( value ) {
         value.bind( function( newval ) {
-            if( newval.length !== 0 ){
-                $('.site-header .custom-logo').css('width', newval+'px' );         
-            }
-            else{
-                $('.site-header .custom-logo').css('width', '100%' ); 
-            }
+            $('.site-header .custom-logo').css('width', '' !== newval ? newval + 'px' : '' );
         } );
     } );
 
@@ -144,12 +140,14 @@
         value.bind(function(newval) {
             jQuery('style#responsive-logo-width-tablet').remove();
 
-            var widthValue = (newval.length !== 0) ? (newval + 'px') : '100%';
+            if ( '' === newval ) {
+                return;
+            }
 
             jQuery('head').append(
                 '<style id="responsive-logo-width-tablet">' +
                     '@media (max-width: 992px) {' +
-                        '.site-header .custom-logo { width: ' + widthValue + ' !important; }' +
+                        '.site-header .custom-logo { width: ' + newval + 'px !important; }' +
                     '}' +
                 '</style>'
             );
@@ -160,12 +158,14 @@
         value.bind(function(newval) {
             jQuery('style#responsive-logo-width-mobile').remove();
 
-            var widthValue = (newval.length !== 0) ? (newval + 'px') : '100%';
+            if ( '' === newval ) {
+                return;
+            }
 
             jQuery('head').append(
                 '<style id="responsive-logo-width-mobile">' +
                     '@media screen and (max-width: 576px) {' +
-                        '.site-header .custom-logo { width: ' + widthValue + ' !important; }' +
+                        '.site-header .custom-logo { width: ' + newval + 'px !important; }' +
                     '}' +
                 '</style>'
             );
