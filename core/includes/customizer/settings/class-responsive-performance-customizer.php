@@ -93,6 +93,19 @@ if ( ! class_exists( 'Responsive_Performance_Customizer' ) ) :
 					)
 				)
 			);
+
+			// Toggle: Enable Smooth Scroll to ID.
+			responsive_toggle_control(
+				$wp_customize,
+				'enable_scroll_to_id',
+				esc_html__( 'Enable Smooth Scroll to ID', 'responsive' ),
+				'responsive_performance',
+				50,
+				0,
+				null,
+				'refresh',
+				esc_html__( 'Smoothly scrolls to a section when an anchor link (for example #contact) is clicked.', 'responsive' )
+			);
 		}
 	}
 
