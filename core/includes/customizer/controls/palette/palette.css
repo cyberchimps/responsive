@@ -329,6 +329,9 @@
     padding-left: 15px; 
     padding-top: 12px;
 }
+.responsive-palette-link-row + .responsive-palette-link-row {
+    padding-top: 0;
+}
 .responsive-palette-link-swatch {
     box-sizing: border-box;
     width: 22px;

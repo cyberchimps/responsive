@@ -104,9 +104,9 @@ const isLightCssColor = ( color ) => {
  */
 export const PaletteLinkRow = ( { value, onSelect } ) => {
 	const list = usePaletteList();
-	return (
-		<div className="responsive-palette-link-row" role="group" aria-label={ __( 'Global palette', 'responsive' ) }>
-			{ list.map( ( item ) => {
+	const renderRow = ( items, extraClass ) => (
+		<div className={ 'responsive-palette-link-row' + ( extraClass ? ' ' + extraClass : '' ) } role="group" aria-label={ extraClass ? __( 'Custom colors', 'responsive' ) : __( 'Global palette', 'responsive' ) }>
+			{ items.map( ( item ) => {
 				const selected = value === item.id;
 				return (
 					<button
@@ -126,6 +126,14 @@ export const PaletteLinkRow = ( { value, onSelect } ) => {
 				);
 			} ) }
 		</div>
+	);
+	const fixed = list.filter( ( item ) => ! item.custom );
+	const custom = list.filter( ( item ) => item.custom );
+	return (
+		<>
+			{ renderRow( fixed ) }
+			{ custom.length > 0 && renderRow( custom, 'is-custom' ) }
+		</>
 	);
 };
 

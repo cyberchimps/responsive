@@ -2706,6 +2706,46 @@ function responsive_customizer_styles() {
 		padding: ' . responsive_spacing_css( $inputs_padding_top, $inputs_padding_right, $inputs_padding_bottom, $inputs_padding_left ) . ';
 		height: auto;
 	}
+
+	/* Keep the configured border width/colour when WPForms applies its :focus / :focus:invalid rules. */
+	body div.wpforms-container-full .wpforms-form input[type=date]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=datetime]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=datetime-local]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=email]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=month]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=number]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=password]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=range]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=search]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=tel]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=text]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=time]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=url]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=week]:focus,
+	body div.wpforms-container-full .wpforms-form select:focus,
+	body div.wpforms-container-full .wpforms-form textarea:focus,
+	body div.wpforms-container-full .wpforms-form input[type=date]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=datetime]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=datetime-local]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=email]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=month]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=number]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=password]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=range]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=search]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=tel]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=text]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=time]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=url]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=week]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form select:focus:invalid,
+	body div.wpforms-container-full .wpforms-form textarea:focus:invalid {
+		border-color: ' . $inputs_border_color. ';
+		border-top-width: '. $input_border_top_width. 'px;
+		border-right-width: '. $input_border_right_width. 'px;
+		border-bottom-width: '. $input_border_bottom_width. 'px;
+		border-left-width: '. $input_border_left_width. 'px;
+	}
 	.entry-content div.wpforms-container-full .wpforms-form select,
 	body div.wpforms-container-full .wpforms-form select,
 	select {
