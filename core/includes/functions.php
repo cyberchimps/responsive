@@ -1993,7 +1993,7 @@ function defaults() {
 			'responsive_header_below_row_bg_hover_color'              => '#FFFFFF',
 			'responsive_header_below_row_top_border_color'             => '#007CBA',
 			'responsive_header_below_row_top_border_hover_color'       => '#D9D9D9',
-			'responsive_header_below_row_bottom_border_color'         => '#palette7',
+			'responsive_header_below_row_bottom_border_color'         => 'palette7',
 			'responsive_header_below_row_bottom_border_hover_color'   => '#D9D9D9',
 			'responsive_footer_above_row_bg_color'                    => '#333333',
 			'responsive_footer_above_row_border_color'                => 'palette7',
