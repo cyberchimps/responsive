@@ -94,6 +94,8 @@ if ( ! class_exists( 'Responsive_Performance_Customizer' ) ) :
 				)
 			);
 
+			responsive_horizontal_separator_control($wp_customize, 'flush_separator', 1, 'responsive_performance', 45, 1, );
+
 			// Toggle: Enable Smooth Scroll to ID.
 			responsive_toggle_control(
 				$wp_customize,
