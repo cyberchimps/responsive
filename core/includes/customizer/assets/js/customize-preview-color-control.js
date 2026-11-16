@@ -55,7 +55,7 @@
         if (!value) return null;
 	
 		// Detect palette var format
-        if (typeof value === 'string' && (value.startsWith('palette') || value.startsWith('footer-text-color') || value.startsWith('footer-links-color') || value.startsWith('footer-links-hover-color') || value.startsWith('breadcrumb'))) {
+        if (typeof value === 'string' && (value.startsWith('palette') || value.startsWith('meta-text-color') || value.startsWith('footer-text-color') || value.startsWith('footer-links-color') || value.startsWith('footer-links-hover-color') || value.startsWith('breadcrumb'))) {
             return `var(--responsive-global-${value})`;
         }
         if (typeof value === 'string' && value === 'border-color') {
@@ -7046,7 +7046,7 @@
     // Blog/Archive Item Meta Color
     api( 'responsive_blog_item_meta_color', function( value ) {
         value.bind( function( newval ) {
-            if ( newval && newval.includes( 'palette' ) ) {
+            if ( newval && ( newval.includes( 'palette' ) || newval.includes( 'meta-text-color' ) ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $( '.blog .hentry .post-meta .entry-author a, .archive .hentry .post-meta .entry-author a, .blog .hentry .post-meta .entry-date a, .archive .hentry .post-meta .entry-date a' ).css( 'color', newval );
@@ -7140,15 +7140,15 @@
     // Single Post Link Color
     api( 'responsive_single_blog_post_link_color', function(value) {
         value.bind(function(newval) {
-             if( newval && newval.includes('palette') ) {
-                    newval = 'var(--responsive-global-' + newval + ')';
+            if ( newval && ( newval.includes( 'palette' ) || newval.includes( 'meta-text-color' ) ) ) {
+                newval = 'var(--responsive-global-' + newval + ')';
             }
-            $('.single-post .entry-header a:not(.breadcrumbs *), .single-post .entry-header a *:not(.breadcrumbs *), .responsive-blog-single-banner2 .container a:not(.breadcrumbs *), .responsive-blog-single-banner2 .container a *:not(.breadcrumbs *)').css('color', newval);
+            $('.single-post .entry-header a:not(.breadcrumbs *), .single-post .entry-header a *:not(.breadcrumbs *), .responsive-blog-single-banner2 .container a:not(.breadcrumbs *), .responsive-blog-single-banner2 .container a *:not(.breadcrumbs *), .single-post .comments-area .comment-metadata a').css('color', newval);
         })
     });
 
     // Single Post Link Hover Color
-    $('.single-post .entry-header a:not(.breadcrumbs *), .single-post .entry-header a *:not(.breadcrumbs *), .responsive-blog-single-banner2 .container a:not(.breadcrumbs *), .responsive-blog-single-banner2 .container a *:not(.breadcrumbs *)').hover(
+    $('.single-post .entry-header a:not(.breadcrumbs *), .single-post .entry-header a *:not(.breadcrumbs *), .responsive-blog-single-banner2 .container a:not(.breadcrumbs *), .responsive-blog-single-banner2 .container a *:not(.breadcrumbs *), .single-post .comments-area .comment-metadata a').hover(
         function() {
             const hoverColor = processThemeSettingForCSS('responsive_single_blog_post_link_hover_color');
             if (hoverColor) $(this).css('color', hoverColor);
@@ -7779,7 +7779,7 @@
             $('#' + styleId).remove();
 
             if (newval) {
-                var selectors = '.page .entry-header a:not(.breadcrumbs *), .page .entry-header a *:not(.breadcrumbs *), .responsive-single-entry-banner .container a:not(.breadcrumbs *), .responsive-single-entry-banner .container a *:not(.breadcrumbs *)';
+                var selectors = '.page .entry-header a:not(.breadcrumbs *), .page .entry-header a *:not(.breadcrumbs *), .responsive-single-entry-banner .container a:not(.breadcrumbs *), .responsive-single-entry-banner .container a *:not(.breadcrumbs *), .page .comments-area .comment-metadata a';
                 jQuery('head').append(
                     '<style id="' + styleId + '">' +
                     selectors + ' { color: ' + newval + '; }' +
@@ -7799,7 +7799,7 @@
             $('#' + styleId).remove();
 
             if (newval) {
-                var selectors = '.page .entry-header a:hover:not(.breadcrumbs *), .page .entry-header a:hover *:not(.breadcrumbs *), .responsive-single-entry-banner .container a:hover:not(.breadcrumbs *), .responsive-single-entry-banner .container a:hover *:not(.breadcrumbs *)';
+                var selectors = '.page .entry-header a:hover:not(.breadcrumbs *), .page .entry-header a:hover *:not(.breadcrumbs *), .responsive-single-entry-banner .container a:hover:not(.breadcrumbs *), .responsive-single-entry-banner .container a:hover *:not(.breadcrumbs *), .page .comments-area .comment-metadata a:hover';
                 jQuery('head').append(
                     '<style id="' + styleId + '">' +
                     selectors + ' { color: ' + newval + ' !important; }' +

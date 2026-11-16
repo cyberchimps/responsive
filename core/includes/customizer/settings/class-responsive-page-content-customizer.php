@@ -295,7 +295,7 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 
 			// Page Post Link Color (with Hover)
 			$page_link_color_label = __( 'Link Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'page_title_area_link', $page_link_color_label, 'responsive_page_title_area_layout', 20, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_hover_color' ), 'page_title_area_link_hover' );
+			responsive_color_control( $wp_customize, 'page_title_area_link', $page_link_color_label, 'responsive_page_title_area_layout', 20, Responsive\Core\get_responsive_customizer_defaults( 'single_page_meta_color' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_hover_color' ), 'page_title_area_link_hover' );
 
 			// Page Breadcrumb Text Color
 			$page_title_area_breadcrumb_color_label = __( 'Breadcrumb Text Color', 'responsive' );

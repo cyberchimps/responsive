@@ -275,40 +275,22 @@ if ( ! class_exists( 'Responsive_Woocommerce_Native_Cart_Popup_Customizer' ) ) :
 			responsive_color_control( $wp_customize, 'popup_content', $popup_content_color, 'responsive_woocommerce_shop', 165, '#777777', 'responsive_enable_native_cart_popup_check' );
 
 			$popup_continue_btn_bg = __( 'Continue Button Background', 'responsive' );
-			responsive_color_control( $wp_customize, 'popup_continue_btn_bg', $popup_continue_btn_bg, 'responsive_woocommerce_shop', 165, '#0066CC', 'responsive_enable_native_cart_popup_check' );
+			responsive_color_control( $wp_customize, 'popup_continue_btn_bg', $popup_continue_btn_bg, 'responsive_woocommerce_shop', 165, '#0066CC', 'responsive_enable_native_cart_popup_check', '', true, '#10659C', 'popup_continue_btn_hover_bg' );
 
 			$popup_continue_btn_color = __( 'Continue Button Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'popup_continue_btn', $popup_continue_btn_color, 'responsive_woocommerce_shop', 165, '#ffffff', 'responsive_enable_native_cart_popup_check' );
+			responsive_color_control( $wp_customize, 'popup_continue_btn', $popup_continue_btn_color, 'responsive_woocommerce_shop', 165, '#ffffff', 'responsive_enable_native_cart_popup_check', '', true, '#ffffff', 'popup_continue_btn_hover' );
 
 			$popup_continue_btn_border = __( 'Continue Button Border Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'popup_continue_btn_border', $popup_continue_btn_border, 'responsive_woocommerce_shop', 165, '#10659C', 'responsive_enable_native_cart_popup_check' );
-
-			$popup_continue_btn_hover_bg = __( 'Continue Button Background: Hover', 'responsive' );
-			responsive_color_control( $wp_customize, 'popup_continue_btn_hover_bg', $popup_continue_btn_hover_bg, 'responsive_woocommerce_shop', 165, '#10659C', 'responsive_enable_native_cart_popup_check' );
-
-			$popup_continue_btn_hover = __( 'Continue Button Color: Hover', 'responsive' );
-			responsive_color_control( $wp_customize, 'popup_continue_btn_hover', $popup_continue_btn_hover, 'responsive_woocommerce_shop', 165, '#ffffff', 'responsive_enable_native_cart_popup_check' );
-
-			$popup_continue_btn_hover_border = __( 'Continue Button Border Color: Hover', 'responsive' );
-			responsive_color_control( $wp_customize, 'popup_continue_btn_hover_border', $popup_continue_btn_hover_border, 'responsive_woocommerce_shop', 165, '#10659C', 'responsive_enable_native_cart_popup_check' );
+			responsive_color_control( $wp_customize, 'popup_continue_btn_border', $popup_continue_btn_border, 'responsive_woocommerce_shop', 165, '#10659C', 'responsive_enable_native_cart_popup_check', '', true, '#10659C', 'popup_continue_btn_hover_border' );
 
 			$popup_cart_btn_bg = __( 'Cart Button Background', 'responsive' );
-			responsive_color_control( $wp_customize, 'popup_cart_btn_bg', $popup_cart_btn_bg, 'responsive_woocommerce_shop', 165, '#0066CC', 'responsive_enable_native_cart_popup_check' );
+			responsive_color_control( $wp_customize, 'popup_cart_btn_bg', $popup_cart_btn_bg, 'responsive_woocommerce_shop', 165, '#0066CC', 'responsive_enable_native_cart_popup_check', '', true, '#10659C', 'popup_cart_btn_hover_bg' );
 
 			$popup_cart_btn = __( 'Cart Button Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'popup_cart_btn', $popup_cart_btn, 'responsive_woocommerce_shop', 165, '#ffffff', 'responsive_enable_native_cart_popup_check' );
+			responsive_color_control( $wp_customize, 'popup_cart_btn', $popup_cart_btn, 'responsive_woocommerce_shop', 165, '#ffffff', 'responsive_enable_native_cart_popup_check', '', true, '#ffffff', 'popup_cart_btn_hover' );
 
 			$popup_cart_btn_border = __( 'Cart Button Border Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'popup_cart_btn_border', $popup_cart_btn_border, 'responsive_woocommerce_shop', 165, '#10659C', 'responsive_enable_native_cart_popup_check' );
-
-			$popup_cart_btn_hover_bg = __( 'Cart Button Background: Hover', 'responsive' );
-			responsive_color_control( $wp_customize, 'popup_cart_btn_hover_bg', $popup_cart_btn_hover_bg, 'responsive_woocommerce_shop', 165, '#10659C', 'responsive_enable_native_cart_popup_check' );
-
-			$popup_cart_btn_hover = __( 'Cart Button Color: Hover', 'responsive' );
-			responsive_color_control( $wp_customize, 'popup_cart_btn_hover', $popup_cart_btn_hover, 'responsive_woocommerce_shop', 165, '#ffffff', 'responsive_enable_native_cart_popup_check' );
-
-			$popup_cart_btn_hover_border = __( 'Cart Button Border Color: Hover', 'responsive' );
-			responsive_color_control( $wp_customize, 'popup_cart_btn_hover_border', $popup_cart_btn_hover_border, 'responsive_woocommerce_shop', 165, '#10659C', 'responsive_enable_native_cart_popup_check' );
+			responsive_color_control( $wp_customize, 'popup_cart_btn_border', $popup_cart_btn_border, 'responsive_woocommerce_shop', 165, '#10659C', 'responsive_enable_native_cart_popup_check', '', true, '#10659C', 'popup_cart_btn_hover_border' );
 
 			$popup_text_color = __( 'Bottom Text Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'popup_text', $popup_text_color, 'responsive_woocommerce_shop', 165, '#777777', 'responsive_enable_native_cart_popup_check' );

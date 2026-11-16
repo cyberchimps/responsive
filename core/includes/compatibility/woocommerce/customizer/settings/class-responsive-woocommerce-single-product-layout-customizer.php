@@ -91,9 +91,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				$design_tab_ids_prefix . 'responsive_floatingb_qty_input_font_color',
 				$design_tab_ids_prefix . 'responsive_floatingb_qty_input_border_color',
 				$design_tab_ids_prefix . 'responsive_floatingb_addtocart_background_color',
-				$design_tab_ids_prefix . 'responsive_floatingb_addtocart_bghover_color',
 				$design_tab_ids_prefix . 'responsive_floatingb_addtocart_font_color',
-				$design_tab_ids_prefix . 'responsive_floatingb_addtocart_fonthover_color',
 				$design_tab_ids_prefix . 'responsive_single_product_title_seperator',
 				$design_tab_ids_prefix . 'responsive_single_product_title_shop_typography_group',
 				$design_tab_ids_prefix . 'responsive_single_product_price_shop_typography_group',
@@ -1120,19 +1118,11 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 
 			// Add to cart background color.
 			$floatingb_addtocart_background_label = esc_html__( 'Add To Cart: Background', 'responsive' );
-			responsive_color_control( $wp_customize, 'floatingb_addtocart_background', $floatingb_addtocart_background_label, 'responsive_woocommerce_single_product_layout', 70, '#0066cc' );
-
-			// Add to cart background hover color.
-			$floatingb_addtocart_bghover_label = esc_html__( 'Add To Cart Hover: Background', 'responsive' );
-			responsive_color_control( $wp_customize, 'floatingb_addtocart_bghover', $floatingb_addtocart_bghover_label, 'responsive_woocommerce_single_product_layout', 70, '#10659c' );
+			responsive_color_control( $wp_customize, 'floatingb_addtocart_background', $floatingb_addtocart_background_label, 'responsive_woocommerce_single_product_layout', 70, '#0066cc', null, '', true, '#10659c', 'floatingb_addtocart_bghover' );
 
 			// Add to cart font color.
 			$floatingb_addtocart_font_label = esc_html__( 'Add To Cart Font: Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'floatingb_addtocart_font', $floatingb_addtocart_font_label, 'responsive_woocommerce_single_product_layout', 70, '#ffffff' );
-
-			// Add to cart font hover color.
-			$floatingb_addtocart_fonthover_label = esc_html__( 'Add To Cart Font Hover: Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'floatingb_addtocart_fonthover', $floatingb_addtocart_fonthover_label, 'responsive_woocommerce_single_product_layout', 70, '#f1f1f1' );
+			responsive_color_control( $wp_customize, 'floatingb_addtocart_font', $floatingb_addtocart_font_label, 'responsive_woocommerce_single_product_layout', 70, '#ffffff', null, '', true, '#f1f1f1', 'floatingb_addtocart_fonthover' );
 
 			// Spacing heading.
 			$single_product_spacing_label = esc_html__( 'Spacing', 'responsive' );

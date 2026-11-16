@@ -50,23 +50,23 @@
 
         jQuery('style#responsive-' + control + '-radius').remove();
         jQuery('style#responsive-' + control).remove();
-        var desktopBorderWidth = 'border-top-width:' + api('responsive_' + control + '_top_border').get() + desktopUnit + '; ' +
-                                 'border-right-width:' + api('responsive_' + control + '_right_border').get() + desktopUnit + '; ' +
-                                 'border-bottom-width:' + api('responsive_' + control + '_bottom_border').get() + desktopUnit + '; ' +
-                                 'border-left-width:' + api('responsive_' + control + '_left_border').get() + desktopUnit + ';';
+        var desktopBorderWidth = 'border-top-width:' + api('responsive_' + control + '_top_border').get() + desktopUnit + ' !important; ' +
+                                 'border-right-width:' + api('responsive_' + control + '_right_border').get() + desktopUnit + ' !important; ' +
+                                 'border-bottom-width:' + api('responsive_' + control + '_bottom_border').get() + desktopUnit + ' !important; ' +
+                                 'border-left-width:' + api('responsive_' + control + '_left_border').get() + desktopUnit + ' !important;';
         
         if ( '' !== borderStyle ) {
             desktopBorderWidth += 'border-style: ' + borderStyle + ';';
         }
 
-        var tabletBorderWidth = 'border-top-width:' + api('responsive_' + control + '_tablet_top_border').get() + tabletUnit + '; ' +
-                                'border-right-width:' + api('responsive_' + control + '_tablet_right_border').get() + tabletUnit + '; ' +
-                                'border-bottom-width:' + api('responsive_' + control + '_tablet_bottom_border').get() + tabletUnit + '; ' +
-                                'border-left-width:' + api('responsive_' + control + '_tablet_left_border').get() + tabletUnit + ';';
-        var mobileBorderWidth = 'border-top-width:' + api('responsive_' + control + '_mobile_top_border').get() + mobileUnit + '; ' +
-                                'border-right-width:' + api('responsive_' + control + '_mobile_right_border').get() + mobileUnit + '; ' +
-                                'border-bottom-width:' + api('responsive_' + control + '_mobile_bottom_border').get() + mobileUnit + '; ' +
-                                'border-left-width:' + api('responsive_' + control + '_mobile_left_border').get() + mobileUnit + ';';
+        var tabletBorderWidth = 'border-top-width:' + api('responsive_' + control + '_tablet_top_border').get() + tabletUnit + ' !important; ' +
+                                'border-right-width:' + api('responsive_' + control + '_tablet_right_border').get() + tabletUnit + ' !important; ' +
+                                'border-bottom-width:' + api('responsive_' + control + '_tablet_bottom_border').get() + tabletUnit + ' !important; ' +
+                                'border-left-width:' + api('responsive_' + control + '_tablet_left_border').get() + tabletUnit + ' !important;';
+        var mobileBorderWidth = 'border-top-width:' + api('responsive_' + control + '_mobile_top_border').get() + mobileUnit + ' !important; ' +
+                                'border-right-width:' + api('responsive_' + control + '_mobile_right_border').get() + mobileUnit + ' !important; ' +
+                                'border-bottom-width:' + api('responsive_' + control + '_mobile_bottom_border').get() + mobileUnit + ' !important; ' +
+                                'border-left-width:' + api('responsive_' + control + '_mobile_left_border').get() + mobileUnit + ' !important;';
 
         jQuery('head').append(
             '<style id="responsive-' + control +'">' +
@@ -354,7 +354,7 @@
     //Form Inputs Border Width
     api( 'responsive_inputs_border_width', function( value ) {
         value.bind( function( newval ) {
-            $('select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],body div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea').css('border-width', newval+'px' );
+            $('select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],body div.wpforms-container-full .wpforms-form input[type=date],body div.wpforms-container-full .wpforms-form input[type=datetime],body div.wpforms-container-full .wpforms-form input[type=datetime-local],body div.wpforms-container-full .wpforms-form input[type=email],body div.wpforms-container-full .wpforms-form input[type=month],body div.wpforms-container-full .wpforms-form input[type=number],body div.wpforms-container-full .wpforms-form input[type=password],body div.wpforms-container-full .wpforms-form input[type=range],body div.wpforms-container-full .wpforms-form input[type=search],body div.wpforms-container-full .wpforms-form input[type=tel],body div.wpforms-container-full .wpforms-form input[type=text],body div.wpforms-container-full .wpforms-form input[type=time],body div.wpforms-container-full .wpforms-form input[type=url],body div.wpforms-container-full .wpforms-form input[type=week],body div.wpforms-container-full .wpforms-form select,body div.wpforms-container-full .wpforms-form textarea').css('border-width', newval+'px' );
             $('#add_payment_method table.cart td.actions .coupon .input-text,.woocommerce-cart table.cart td.actions .coupon .input-text,.woocommerce-checkout table.cart td.actions .coupon .input-text,.woocommerce form .form-row input.input-text,.woocommerce form .form-row textarea').css('border-width', newval+'px' );
             $('div.wpforms-container-full .wpforms-form .wpforms-field input.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field input.user-invalid,div.wpforms-container-full .wpforms-form .wpforms-field textarea.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field textarea.user-invalid,div.wpforms-container-full .wpforms-form .wpforms-field select.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field select.user-invalid').css('border-width', newval+'px' );
         } );

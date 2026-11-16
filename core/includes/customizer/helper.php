@@ -3012,12 +3012,12 @@ function responsive_get_available_design_styles() {
 						'accent'            => '#3B82F6',
 						'link_hover'		=> '#10659C',
 						'text'              => '#404040',
-						'header_text'       => '#404040',
+						'header_text'       => '#3B82F6',
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#ffffff',
-						'subtle_background' => '#10659C'
-
+						'subtle_background' => '#D4D4D4',
+						'secondary_neutral'  => '#AAAAAA',
 					),
 					'one'     => array(
 						'label'             => _x( 'Frolic', 'color palette name', 'responsive' ),
@@ -3028,7 +3028,8 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#f7fbff',
-						'subtle_background' => '#313789'
+						'subtle_background' => '#313789',
+						'secondary_neutral'  => '#AAAAAA',
 					),
 					'two'     => array(
 						'label'             => _x( 'Coral', 'color palette name', 'responsive' ),
@@ -3039,7 +3040,8 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#fff7f7',
-						'subtle_background' => '#d74143'
+						'subtle_background' => '#d74143',
+						'secondary_neutral'  => '#AAAAAA',
 					),
 					'three'   => array(
 						'label'             => _x( 'Organic', 'color palette name', 'responsive' ),
@@ -3050,7 +3052,8 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#f2f9f7',
-						'subtle_background' => '#2c6651'
+						'subtle_background' => '#2c6651',
+						'secondary_neutral'  => '#AAAAAA',
 					),
 					'four'    => array(
 						'label'             => _x( 'Berry', 'color palette name', 'responsive' ),
@@ -3061,7 +3064,8 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#f7feff',
-						'subtle_background' => '#0c5067'
+						'subtle_background' => '#0c5067',
+						'secondary_neutral'  => '#AAAAAA',
 					),
 				),
 			),
@@ -3079,7 +3083,8 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background' => '#f8f8f8',
-						'subtle_background' => '#e5822e'
+						'subtle_background' => '#e5822e',
+						'secondary_neutral'  => '#AAAAAA',
 					),
 					'two'   => array(
 						'label'          => _x( 'Emerald', 'color palette name', 'responsive' ),
@@ -3090,7 +3095,8 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background' => '#f3f1f0',
-						'subtle_background' => '#21787b'
+						'subtle_background' => '#21787b',
+						'secondary_neutral'  => '#AAAAAA',
 					),
 					'three' => array(
 						'label'          => _x( 'Brick', 'color palette name', 'responsive' ),
@@ -3101,7 +3107,8 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background' => '#f9f2ef',
-						'subtle_background' => '#b52b13'
+						'subtle_background' => '#b52b13',
+						'secondary_neutral'  => '#AAAAAA',
 					),
 					'four'  => array(
 						'label'          => _x( 'Bronze', 'color palette name', 'responsive' ),
@@ -3112,7 +3119,8 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background' => '#f9f4ef',
-						'subtle_background' => '#846939'
+						'subtle_background' => '#846939',
+						'secondary_neutral'  => '#AAAAAA',
 					),
 				),
 			),
@@ -3130,7 +3138,8 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background' => '#eceff1',
-						'subtle_background' => '#808080'
+						'subtle_background' => '#808080',
+						'secondary_neutral'  => '#AAAAAA',
 					),
 					'two'   => array(
 						'label'          => _x( 'Blush', 'color palette name', 'responsive' ),
@@ -3141,7 +3150,8 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background' => '#fce4ec',
-						'subtle_background' => '#951246'
+						'subtle_background' => '#951246',
+						'secondary_neutral'  => '#AAAAAA',
 					),
 					'three'  => array(
 						'label'          => _x( 'Pacific', 'color palette name', 'responsive' ),
@@ -3152,7 +3162,8 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background' => '#e0f2f1',
-						'subtle_background' => '#00463e'
+						'subtle_background' => '#00463e',
+						'secondary_neutral'  => '#AAAAAA',
 					),
 				),
 			),
@@ -3170,7 +3181,8 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#ded9e2',
-						'subtle_background' => '#808080'
+						'subtle_background' => '#808080',
+						'secondary_neutral'  => '#AAAAAA',
 					),
 				),
 			),
@@ -3188,7 +3200,8 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#eeeeee',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#c9c9c9',
-						'subtle_background' => '#87dfcb'
+						'subtle_background' => '#87dfcb',
+						'secondary_neutral'  => '#AAAAAA',
 					),
 					'two' => array(
 						'label'             => _x( 'Mocha', 'color palette name', 'responsive' ),
@@ -3199,7 +3212,8 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#eeeeee',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#c9c9c9',
-						'subtle_background' => '#ddbf9d'
+						'subtle_background' => '#ddbf9d',
+						'secondary_neutral'  => '#AAAAAA',
 					),
 					'three'  => array(
 						'label'             => _x( 'Lavender', 'color palette name', 'responsive' ),
@@ -3210,7 +3224,8 @@ function responsive_get_available_design_styles() {
 						'content_background' => '#eeeeee',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#c9c9c9',
-						'subtle_background' => '#d4d1ea'
+						'subtle_background' => '#d4d1ea',
+						'secondary_neutral'  => '#AAAAAA',
 					),
 				),
 			),
@@ -5034,7 +5049,7 @@ function responsive_button_presets_control( $wp_customize, $element, $label, $se
  * @param  [type]  $desc         [description].
  * @return void [description].
  */
-function responsive_color_control_with_device_switchers( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $desc='', $transport = 'postMessage', $has_reset = false ) {
+function responsive_color_control_with_device_switchers( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $desc='', $transport = 'postMessage', $has_reset = true ) {
 
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_color',
@@ -5100,7 +5115,7 @@ function responsive_color_control_with_device_switchers( $wp_customize, $element
  * @param  [type]  $transport     [description].
  * @return void [description].
  */
-function responsive_color_control_with_device_switchers_and_hover( $wp_customize, $element, $label, $section, $priority, $default, $default_hover = '', $active_call = null, $desc='', $transport = 'postMessage' ) {
+function responsive_color_control_with_device_switchers_and_hover( $wp_customize, $element, $label, $section, $priority, $default, $default_hover = '', $active_call = null, $desc='', $transport = 'postMessage', $has_reset = true ) {
 
 	// Normal color settings for each device
 	$wp_customize->add_setting(
@@ -5176,6 +5191,7 @@ function responsive_color_control_with_device_switchers_and_hover( $wp_customize
 				'priority'        => $priority,
 				'active_callback' => $active_call,
 				'description'     => $desc,
+				'has_reset'       => $has_reset,
 			)
 		)
 	);
