@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
 import {Button, ColorPicker } from '@wordpress/components';
+import { PaletteLinkRow, GlobeBadge } from '../color/palette-swatches';
 
 class ColorPickerControlWithDevices extends Component {
 	constructor( props ) {
@@ -132,6 +133,7 @@ class ColorPickerControlWithDevices extends Component {
 							<Button className={ isVisible ? 'button wp-color-result wp-picker-open' : 'button wp-color-result ' } onClick={ () => { isVisible ? toggleClose() : toggleVisible() } }
 								aria-expanded='false' style={{backgroundColor: getColorPreviewValue(this.props.color)}}
 							>
+								<GlobeBadge value={this.props.color} />
 							</Button>
 							<span className="tooltip-text">{this.props.swatchTitle}</span>
 						</div>
@@ -139,11 +141,13 @@ class ColorPickerControlWithDevices extends Component {
 						<Button className={ isVisible ? 'button wp-color-result wp-picker-open' : 'button wp-color-result ' } onClick={ () => { isVisible ? toggleClose() : toggleVisible() } }
 							aria-expanded='false' style={{backgroundColor: getColorPreviewValue(this.props.color)}}
 						>
+							<GlobeBadge value={this.props.color} />
 						</Button>
 					)}
 					<div className="wp-picker-holder">
 						{ isVisible && (
 							<>	
+									<PaletteLinkRow value={this.props.color} onSelect={ ( id ) => this.props.onChangeComplete( id, 'color' ) } />
 									{ refresh && (
 										<>
 											<ColorPicker

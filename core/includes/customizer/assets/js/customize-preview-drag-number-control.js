@@ -781,6 +781,62 @@
         }
     );
 
+    // Footer Above Row / Primary Row -> Top & Bottom Border Size (desktop, tablet, mobile)
+    // The size controls are postMessage, but the CSS is only printed server-side when size > 0,
+    // so border-style and border-color are also applied here to make the border visible.
+    function responsiveFooterRowBorderSize( row, selector, side ) {
+        var sizeBase  = 'responsive_footer_' + row + '_row_' + side + '_border_size';
+        var typeBase  = 'responsive_footer_' + row + '_' + side + '_border_type';
+        var colorBase = 'responsive_footer_' + row + '_row_' + ( 'top' === side ? '' : 'bottom_' ) + 'border_color';
+
+        var devices = [
+            { suffix: '',        media: '@media screen and (min-width: 993px)' },
+            { suffix: '_tablet', media: '@media screen and (min-width: 577px) and (max-width: 992px)' },
+            { suffix: '_mobile', media: '@media screen and (max-width: 576px)' }
+        ];
+
+        function resolveColor( color ) {
+            if ( ! color ) {
+                return '';
+            }
+            return /^palette\d+$/.test( color ) ? 'var(--responsive-global-' + color + ')' : color;
+        }
+
+        devices.forEach( function( device ) {
+            var styleId = 'responsive-footer-' + row + '-row-' + side + '-border-size' + device.suffix.replace( '_', '-' );
+
+            function updateCSS() {
+                var size = parseInt( api( sizeBase + device.suffix ) ? api( sizeBase + device.suffix ).get() : 0, 10 ) || 0;
+                var typeSetting  = api( typeBase + device.suffix );
+                var colorSetting = api( colorBase + device.suffix );
+                var type  = ( typeSetting && typeSetting.get() ) || 'solid';
+                var color = resolveColor( colorSetting ? colorSetting.get() : '' );
+
+                jQuery( 'style#' + styleId ).remove();
+                jQuery( 'head' ).append(
+                    '<style id="' + styleId + '">'
+                    + device.media + ' { ' + selector + ' { '
+                    + 'border-' + side + '-width: ' + size + 'px; '
+                    + 'border-' + side + '-style: ' + ( size > 0 ? type : 'none' ) + '; '
+                    + ( color ? 'border-' + side + '-color: ' + color + '; ' : '' )
+                    + '} }</style>'
+                );
+            }
+
+            [ sizeBase, typeBase, colorBase ].forEach( function( base ) {
+                api( base + device.suffix, function( value ) {
+                    value.bind( updateCSS );
+                } );
+            } );
+        } );
+    }
+
+    [ 'top', 'bottom' ].forEach( function( side ) {
+        responsiveFooterRowBorderSize( 'above', '.rspv-site-above-footer-wrap', side );
+        responsiveFooterRowBorderSize( 'primary', '.rspv-site-primary-footer-wrap', side );
+        responsiveFooterRowBorderSize( 'below', '.rspv-site-below-footer-wrap', side );
+    } );
+
     //Blog Layout
     //Main Content Width
     var blogContentWidthMq = window.matchMedia( "(min-width:992px)" );

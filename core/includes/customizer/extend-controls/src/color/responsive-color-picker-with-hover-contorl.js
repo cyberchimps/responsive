@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
 import { Button, ColorPicker, ColorPalette} from '@wordpress/components';
+import { PaletteLinkRow, GlobeBadge } from './palette-swatches';
 
 class ResponsiveColorPickerWithHoverControl extends Component {
 
@@ -129,12 +130,14 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 						<Button className={isNormalVisible ? 'button wp-color-result normal-state wp-picker-open' : 'button wp-color-result normal-state'} onClick={() => { this.toggleNormalVisible() }}
 							aria-expanded='false' style={{ backgroundColor: getColorPreviewValue( this.props.color ) }}
 						>
+							<GlobeBadge value={this.props.color} />
 						</Button>
                         <span className="tooltip-text">{__('Normal', 'responsive')}</span>
                     </div>
 					<div className="wp-picker-holder">
 						{isNormalVisible && (
 							<>
+								<PaletteLinkRow value={this.props.color} onSelect={(id) => this.props.onChangeComplete(id, 'normal')} />
 								{refresh ? (
 									<ColorPicker
 										color={getColorPreviewValue(this.props.color, true)}
@@ -158,12 +161,14 @@ class ResponsiveColorPickerWithHoverControl extends Component {
                         <Button className={isHoverVisible ? 'button wp-color-result hover-state wp-picker-open' : 'button wp-color-result hover-state'} onClick={() => { this.toggleHoverVisible() }}
                             aria-expanded='false' style={{ backgroundColor: getColorPreviewValue(this.props.hover_color) }}
                         >
+                            <GlobeBadge value={this.props.hover_color} />
                         </Button>
                         <span className="tooltip-text">{__('Hover', 'responsive')}</span>
                     </div>
 					<div className="wp-picker-holder">
 						{isHoverVisible && (
 							<>
+								<PaletteLinkRow value={this.props.hover_color} onSelect={(id) => this.props.onChangeComplete(id, 'hover')} />
 								{refresh ? (
 									<ColorPicker
 										color={getColorPreviewValue(this.props.hover_color, true)}

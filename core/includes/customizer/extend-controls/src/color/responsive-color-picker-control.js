@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
 import {Button, ColorPicker, ColorPalette, TabPanel, GradientPicker } from '@wordpress/components';
+import { PaletteLinkRow, GlobeBadge } from './palette-swatches';
 
 class ResponsiveColorPickerControl extends Component {
 
@@ -210,8 +211,10 @@ class ResponsiveColorPickerControl extends Component {
 						aria-expanded='false'
 						style={buttonBackgroundStyle}
 					>
+						<GlobeBadge value={this.props.color} />
 					</Button>
 					<div className="wp-picker-holder">
+						{ isVisible && this.props.headerSlot }
 						{(isVisible && is_gradient_available) ?
 							(
 								<>
@@ -240,6 +243,8 @@ class ResponsiveColorPickerControl extends Component {
 										{(tab) => (
 											<div className="responsive-color-picker-tab-content">
 												{tab.name === 'color' && (
+													<>
+													{ ! this.props.disablePaletteLink && <PaletteLinkRow value={this.props.color} onSelect={(id) => this.onPaletteLink(id)} /> }
 													<ColorPicker
 														color={getColorPreviewValue(color, true)}
 														onChangeComplete={(currentColor) => {
@@ -247,6 +252,7 @@ class ResponsiveColorPickerControl extends Component {
 															this.onChangeComplete(currentColor, 'color')
 														}}
 													/>
+													</>
 												)}
 												{tab.name === 'gradient' && (
 													<GradientPicker
@@ -284,6 +290,7 @@ class ResponsiveColorPickerControl extends Component {
 								</>
 							) : (isVisible && !is_gradient_available) ? (
 								<>
+									{ ! this.props.disablePaletteLink && <PaletteLinkRow value={this.props.color} onSelect={(id) => this.onPaletteLink(id)} /> }
 									<ColorPicker
 										color={getColorPreviewValue(this.props.color, true)}
 										onChangeComplete={(color) => this.onChangeComplete(color, 'color')}
@@ -348,6 +355,11 @@ class ResponsiveColorPickerControl extends Component {
 		this.props.onChangeComplete( color, type );
 	}
 
+	onPaletteLink( paletteId ) {
+		this.setState( { color: paletteId, opacityZero: false } );
+		this.props.onChangeComplete( paletteId, 'color' );
+	}
+
 	onPaletteChangeComplete( color ) {
 		this.setState( { color: color } );
 		this.props.onChangeComplete( color, 'color' );
@@ -372,6 +384,7 @@ ResponsiveColorPickerControl.propTypes = {
 	colorType: PropTypes.string,
 	isOpen: PropTypes.bool,
 	selfClicked: PropTypes.func,
+	disablePaletteLink: PropTypes.bool,
 };
 
 export default ResponsiveColorPickerControl;

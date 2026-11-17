@@ -98,7 +98,8 @@ if( ! class_exists( 'Responsive_HFB_Header_Above_Row' ) ) {
 				Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_above_row_bottom_border_hover_color' ),
 				null,
 				'',
-				'postMessage'
+				'postMessage',
+				true
 			);
 
             responsive_horizontal_separator_control($wp_customize, 'header_above_row_bottom_border_size_separator', 1, 'responsive_header_above_row', 50, 1, );

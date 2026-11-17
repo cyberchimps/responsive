@@ -41,6 +41,52 @@ class Responsive_Global_Color_Palette {
 		return '--responsive-global-palette';
 	}
 
+	/**
+	 * Maximum number of user-added custom palette colors.
+	 */
+	const MAX_CUSTOM_COLORS = 9;
+
+	/**
+	 * Get the user-added custom palette colors.
+	 *
+	 * Each item: array( 'id' => int (>= 9, never reused), 'name' => string, 'color' => string ).
+	 *
+	 * @since 6.5.0
+	 * @return array
+	 */
+	public static function get_custom_colors() {
+		$data = get_theme_mod( 'responsive_custom_palette_colors', array() );
+		if ( ! is_array( $data ) || empty( $data['items'] ) || ! is_array( $data['items'] ) ) {
+			return array();
+		}
+		$items = array();
+		foreach ( $data['items'] as $item ) {
+			if ( isset( $item['id'], $item['color'] ) && (int) $item['id'] >= 9 ) {
+				$items[] = array(
+					'id'    => (int) $item['id'],
+					'name'  => isset( $item['name'] ) ? (string) $item['name'] : '',
+					'color' => (string) $item['color'],
+				);
+			}
+		}
+		return array_slice( $items, 0, self::MAX_CUSTOM_COLORS );
+	}
+
+	/**
+	 * Whether a custom palette color with the given numeric id exists.
+	 *
+	 * @param int $id Palette index (>= 9).
+	 * @return bool
+	 */
+	public static function custom_color_exists( $id ) {
+		foreach ( self::get_custom_colors() as $item ) {
+			if ( (int) $id === $item['id'] ) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public static function responsive_generate_global_palette_styles( $output_css ) {
 
 		$global_palette   = get_theme_mod( 'responsive_global_color_palette', get_responsive_customizer_defaults( 'default_global_palette' ) );
@@ -60,13 +106,23 @@ class Responsive_Global_Color_Palette {
 		if ( isset( $global_palette['palette'] ) ) {
 
 			// Define the correct order of palette keys to ensure proper mapping to CSS variables
-			$palette_key_order = array( 'accent', 'link_hover', 'text', 'header_text', 'content_background', 'site_background', 'alt_background', 'subtle_background' );
+			$palette_key_order = array( 'accent', 'link_hover', 'text', 'header_text', 'content_background', 'site_background', 'alt_background', 'subtle_background', 'secondary_neutral' );
 
 			foreach ( $palette_key_order as $index => $key ) {
 				if ( isset( $global_palette['palette'][ $key ] ) ) {
 					$palette_css_vars[ $variable_prefix . $index ] = $global_palette['palette'][ $key ];
 				}
 			}
+
+			// Palettes saved before Secondary Neutral existed (and presets) do not carry it: use its own setting.
+			if ( ! isset( $global_palette['palette']['secondary_neutral'] ) ) {
+				$palette_css_vars[ $variable_prefix . '8' ] = get_theme_mod( 'responsive_global_color_palette_secondary_neutral_color', '#64748B' );
+			}
+		}
+
+		$custom_colors = self::get_custom_colors();
+		foreach ( $custom_colors as $item ) {
+			$palette_css_vars[ $variable_prefix . $item['id'] ] = $item['color'];
 		}
 
 		$css = ":root {\n";
@@ -86,6 +142,10 @@ class Responsive_Global_Color_Palette {
 		$css .= "    --e-global-color-responsivepalette5: var(--responsive-global-palette5);\n";
 		$css .= "    --e-global-color-responsivepalette6: var(--responsive-global-palette6);\n";
 		$css .= "    --e-global-color-responsivepalette7: var(--responsive-global-palette7);\n";
+		$css .= "    --e-global-color-responsivepalette8: var(--responsive-global-palette8);\n";
+		foreach ( $custom_colors as $item ) {
+			$css .= "    --e-global-color-responsivepalette{$item['id']}: var(--responsive-global-palette{$item['id']});\n";
+		}
 		$css .= "}\n";
 
 		$output_css .= $css;
@@ -108,6 +168,7 @@ class Responsive_Global_Color_Palette {
 			'responsive-palette5',
 			'responsive-palette6',
 			'responsive-palette7',
+			'responsive-palette8',
 		);
 	}
 
@@ -119,14 +180,15 @@ class Responsive_Global_Color_Palette {
 	 */
 	public static function get_palette_labels() {
 		return array(
-			__( 'Accent', 'responsive' ),
-			__( 'Link Hover', 'responsive' ),
-			__( 'Text', 'responsive' ),
-			__( 'Headings', 'responsive' ),
-			__( 'Background', 'responsive' ),
-			__( 'Site Background', 'responsive' ),
-			__( 'Alt Background', 'responsive' ),
-			__( 'Subtle Background', 'responsive' )
+			__( 'Primary Accent', 'responsive' ),
+			__( 'Secondary Accent', 'responsive' ),
+			__( 'Primary Contrast', 'responsive' ),
+			__( 'Secondary Contrast', 'responsive' ),
+			__( 'Primary Background', 'responsive' ),
+			__( 'Secondary Background', 'responsive' ),
+			__( 'Alternate Background', 'responsive' ),
+			__( 'Primary Neutral', 'responsive' ),
+			__( 'Secondary Neutral', 'responsive' )
 		);
 	}
 
@@ -146,6 +208,7 @@ class Responsive_Global_Color_Palette {
 			'site_background',
 			'alt_background',
 			'subtle_background',
+			'secondary_neutral',
 		);
 	}
 
@@ -190,6 +253,15 @@ class Responsive_Global_Color_Palette {
 			);
 		}
 
+		foreach ( self::get_custom_colors() as $item ) {
+			$id                    = 'responsivepalette' . $item['id'];
+			$data['colors'][ $id ] = array(
+				'id'    => esc_attr( $id ),
+				'title' => 'Theme ' . $item['name'],
+				'value' => $item['color'],
+			);
+		}
+
 		$response->set_data( $data );
 		return $response;
 	}
@@ -223,6 +295,17 @@ class Responsive_Global_Color_Palette {
 		}
 
 		$rest_id = substr( $route, strrpos( $route, '/' ) + 1 );
+		foreach ( self::get_custom_colors() as $item ) {
+			if ( 'responsivepalette' . $item['id'] === $rest_id ) {
+				return rest_ensure_response(
+					array(
+						'id'    => esc_attr( $rest_id ),
+						'title' => $this->get_css_variable_prefix() . esc_html( $item['name'] ),
+						'value' => $item['color'],
+					)
+				);
+			}
+		}
 		if ( ! in_array( $rest_id, array_keys( $slug_map ), true ) ) {
 			return $response;
 		}

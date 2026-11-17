@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
 import { Button, ColorPicker } from '@wordpress/components';
+import { PaletteLinkRow, GlobeBadge } from '../color/palette-swatches';
 
 class ResponsiveColorStatesPickerControl extends Component {
     constructor(props) {
@@ -72,8 +73,10 @@ class ResponsiveColorStatesPickerControl extends Component {
                 <Button
                     className={`button wp-color-result ${isActive ? 'wp-picker-open' : ''}`}
                     style={{ backgroundColor: this.resolveColorValue(this.getColorValue(state)) }}
-                    onClick={() => this.togglePicker(state)}  
-                />
+                    onClick={() => this.togglePicker(state)}
+                >
+                    <GlobeBadge value={this.getColorValue(state)} />
+                </Button>
                 <span className="tooltip-text">{state}</span>
             </div>
         );
@@ -124,6 +127,7 @@ class ResponsiveColorStatesPickerControl extends Component {
                 {/* COLOR PICKER */}
                 {isVisible && (
                     <div className="wp-picker-holder">
+                        <PaletteLinkRow value={this.getColorValue(activeState)} onSelect={(id) => this.onColorChange(id)} />
                         <ColorPicker
                             color={this.resolveColorValue(this.getColorValue(activeState), true)}
                             onChangeComplete={this.onColorChange}

@@ -104,8 +104,47 @@ function responsive_gutenberg_colors( $responsive_gutenberg_color_options ) {
 	$css .= ':root .has-responsive-global-palette-6-background-color { background-color: var(--responsive-global-palette6); }';
 	$css .= ':root .has-responsive-global-palette-7-color { color: var(--responsive-global-palette7); }';
 	$css .= ':root .has-responsive-global-palette-7-background-color { background-color: var(--responsive-global-palette7); }';
+	$css .= ':root .has-responsive-global-palette-8-color { color: var(--responsive-global-palette8); }';
+	$css .= ':root .has-responsive-global-palette-8-background-color { background-color: var(--responsive-global-palette8); }';
+	foreach ( Responsive_Global_Color_Palette::get_custom_colors() as $custom ) {
+		$n    = (int) $custom['id'];
+		$css .= ":root .has-responsive-global-palette-{$n}-color { color: var(--responsive-global-palette{$n}); }";
+		$css .= ":root .has-responsive-global-palette-{$n}-background-color { background-color: var(--responsive-global-palette{$n}); }";
+	}
 	return wp_strip_all_tags( $css );
 }
+
+/**
+ * Add user-added custom palette colors to the block editor palette (theme.json is static).
+ *
+ * @param WP_Theme_JSON_Data $theme_json Theme JSON data.
+ * @return WP_Theme_JSON_Data
+ */
+function responsive_add_custom_palette_to_theme_json( $theme_json ) {
+	$custom = Responsive_Global_Color_Palette::get_custom_colors();
+	if ( empty( $custom ) ) {
+		return $theme_json;
+	}
+	$data    = $theme_json->get_data();
+	$palette = isset( $data['settings']['color']['palette'] ) ? $data['settings']['color']['palette'] : array();
+	if ( isset( $palette['theme'] ) ) {
+		$palette = $palette['theme'];
+	}
+	foreach ( $custom as $item ) {
+		$palette[] = array(
+			'name'  => '' !== $item['name'] ? $item['name'] : 'Custom ' . ( $item['id'] - 8 ),
+			'slug'  => 'responsive-global-palette' . (int) $item['id'],
+			'color' => 'var(--responsive-global-palette' . (int) $item['id'] . ')',
+		);
+	}
+	return $theme_json->update_with(
+		array(
+			'version'  => 2,
+			'settings' => array( 'color' => array( 'palette' => $palette ) ),
+		)
+	);
+}
+add_filter( 'wp_theme_json_data_theme', 'responsive_add_custom_palette_to_theme_json' );
 
 /**
  * [customizer_css description].

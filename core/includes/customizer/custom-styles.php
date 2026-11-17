@@ -2708,6 +2708,46 @@ function responsive_customizer_styles() {
 		padding: ' . responsive_spacing_css( $inputs_padding_top, $inputs_padding_right, $inputs_padding_bottom, $inputs_padding_left ) . ';
 		height: auto;
 	}
+
+	/* Keep the configured border width/colour when WPForms applies its :focus / :focus:invalid rules. */
+	body div.wpforms-container-full .wpforms-form input[type=date]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=datetime]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=datetime-local]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=email]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=month]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=number]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=password]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=range]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=search]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=tel]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=text]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=time]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=url]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=week]:focus,
+	body div.wpforms-container-full .wpforms-form select:focus,
+	body div.wpforms-container-full .wpforms-form textarea:focus,
+	body div.wpforms-container-full .wpforms-form input[type=date]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=datetime]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=datetime-local]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=email]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=month]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=number]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=password]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=range]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=search]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=tel]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=text]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=time]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=url]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form input[type=week]:focus:invalid,
+	body div.wpforms-container-full .wpforms-form select:focus:invalid,
+	body div.wpforms-container-full .wpforms-form textarea:focus:invalid {
+		border-color: ' . $inputs_border_color. ';
+		border-top-width: '. $input_border_top_width. 'px;
+		border-right-width: '. $input_border_right_width. 'px;
+		border-bottom-width: '. $input_border_bottom_width. 'px;
+		border-left-width: '. $input_border_left_width. 'px;
+	}
 	.entry-content div.wpforms-container-full .wpforms-form select,
 	body div.wpforms-container-full .wpforms-form select,
 	select {
@@ -11139,7 +11179,7 @@ function responsive_customizer_styles() {
 			color: {$blog_category_hover_color};
 		}";
 		// Styling Blog Item Meta Color.
-		$blog_item_meta_color       = esc_html( responsive_prepare_css_value( 'responsive_blog_item_meta_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_meta_text_color' ) ) );
+		$blog_item_meta_color       = esc_html( responsive_prepare_css_value( 'responsive_blog_item_meta_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_blog_item_meta_color' ) ) );
 		$blog_item_meta_hover_color = esc_html( responsive_prepare_css_value( 'responsive_blog_item_meta_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'blog_item_meta_hover' ) ) );
 
 		$custom_css .= "
@@ -13108,6 +13148,24 @@ function responsive_customizer_styles() {
 		
 	}
 
+	// Single Post - comment date/time link color follows the single post link color
+	$single_post_comment_meta_link_color       = responsive_prepare_css_value( 'responsive_single_blog_post_link_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_color' ) );
+	$single_post_comment_meta_link_hover_color = responsive_prepare_css_value( 'responsive_single_blog_post_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_hover_color' ) );
+	if ( '' !== $single_post_comment_meta_link_color ) {
+		$custom_css .= "
+			.single-post .comments-area .comment-metadata a {
+				color: {$single_post_comment_meta_link_color};
+			}
+		";
+	}
+	if ( '' !== $single_post_comment_meta_link_hover_color ) {
+		$custom_css .= "
+			.single-post .comments-area .comment-metadata a:hover {
+				color: {$single_post_comment_meta_link_hover_color};
+			}
+		";
+	}
+
 	// Blog/Archive - Title
 	// check if enabled
 	$check_blog_title = get_theme_mod( 'responsive_blog_title_area', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_post_title' ));
@@ -13411,6 +13469,24 @@ function responsive_customizer_styles() {
 		}
 	}
 	
+	// Single Page - comment date/time link color follows the page title area link colors
+	$page_comment_meta_link_color       = responsive_prepare_css_value( 'responsive_page_title_area_link_color', Responsive\Core\get_responsive_customizer_defaults( 'single_page_meta_color' ) );
+	$page_comment_meta_link_hover_color = responsive_prepare_css_value( 'responsive_page_title_area_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_hover_color' ) );
+	if ( '' !== $page_comment_meta_link_color ) {
+		$custom_css .= "
+			.page .comments-area .comment-metadata a {
+				color: {$page_comment_meta_link_color};
+			}
+		";
+	}
+	if ( '' !== $page_comment_meta_link_hover_color ) {
+		$custom_css .= "
+			.page .comments-area .comment-metadata a:hover {
+				color: {$page_comment_meta_link_hover_color};
+			}
+		";
+	}
+
 	// Single Page - Title Area
 	// check if enabled
 	$check_page_title = get_theme_mod( 'responsive_page_title_area', Responsive\Core\get_responsive_customizer_defaults( 'responsive_single_blog_post_title' ) );
@@ -13429,7 +13505,7 @@ function responsive_customizer_styles() {
 		// text color
 		$page_title_text_color = responsive_prepare_css_value( 'responsive_page_title_area_text_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_text_color' ) );
 		// Link Color
-		$page_title_link_color = responsive_prepare_css_value( 'responsive_page_title_area_link_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_color' ) );
+		$page_title_link_color = responsive_prepare_css_value( 'responsive_page_title_area_link_color', Responsive\Core\get_responsive_customizer_defaults( 'single_page_meta_color' ) );
 		// Link Hover Color
 		$page_title_link_hover_color = responsive_prepare_css_value( 'responsive_page_title_area_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_hover_color' ) );
 		$custom_css .= "
@@ -14152,8 +14228,8 @@ function responsive_customizer_styles() {
 		// Shop Styles.
 		$shop_content_width                  = esc_html( get_theme_mod( 'responsive_shop_content_width', Responsive\Core\get_responsive_customizer_defaults( 'shop_content_width' ) ) );
 		$shop_product_rating_color           = esc_html( responsive_prepare_css_value( 'responsive_shop_product_rating_color' ) );
-		$shop_product_price_color            = esc_html( get_theme_mod( 'responsive_shop_product_price_color', Responsive\Core\get_responsive_customizer_defaults( 'shop_product_price' ) ) );
-		$add_to_cart_button_color            = esc_html( get_theme_mod( 'responsive_add_to_cart_button_color', Responsive\Core\get_responsive_customizer_defaults( 'add_to_cart_button' ) ) );
+		$shop_product_price_color            = esc_html( responsive_prepare_css_value( 'responsive_shop_product_price_color', Responsive\Core\get_responsive_customizer_defaults( 'shop_product_price' ) ) );
+		$add_to_cart_button_color            = esc_html( responsive_prepare_css_value( 'responsive_add_to_cart_button_color', Responsive\Core\get_responsive_customizer_defaults( 'add_to_cart_button' ) ) );
 		$add_to_cart_button_text_color       = esc_html( responsive_prepare_css_value( 'responsive_add_to_cart_button_text_color' ) );
 		$add_to_cart_button_hover_color      = esc_html( responsive_prepare_css_value( 'responsive_add_to_cart_button_hover_color' ) );
 		$add_to_cart_button_hover_text_color = esc_html( responsive_prepare_css_value( 'responsive_add_to_cart_button_hover_text_color' ) );
@@ -15598,11 +15674,11 @@ function responsive_customizer_styles() {
 			$add_to_cart_btn_border_style = esc_html( get_theme_mod( 'responsive_add_to_cart_button_border_style', 'solid' ) );
 
 			// Border Color (Normal & Hover).
-			$add_to_cart_btn_bcolor         = esc_html( responsive_prepare_css_value( 'responsive_add_to_cart_button_border_color' ) );
+			$add_to_cart_btn_bcolor         = esc_html( responsive_prepare_css_value( 'responsive_add_to_cart_button_border_color', 'palette7' ) );
 			$add_to_cart_btn_bcolor_hover   = esc_html( responsive_prepare_css_value( 'responsive_add_to_cart_button_border_color_hover' ) );
-			$add_to_cart_btn_bcolor_tab     = esc_html( responsive_prepare_css_value( 'responsive_add_to_cart_button_border_color_tablet' ) );
+			$add_to_cart_btn_bcolor_tab     = esc_html( responsive_prepare_css_value( 'responsive_add_to_cart_button_border_color_tablet', 'palette7' ) );
 			$add_to_cart_btn_bcolor_tab_hvr = esc_html( responsive_prepare_css_value( 'responsive_add_to_cart_button_border_color_tablet_hover' ) );
-			$add_to_cart_btn_bcolor_mob     = esc_html( responsive_prepare_css_value( 'responsive_add_to_cart_button_border_color_mobile' ) );
+			$add_to_cart_btn_bcolor_mob     = esc_html( responsive_prepare_css_value( 'responsive_add_to_cart_button_border_color_mobile', 'palette7' ) );
 			$add_to_cart_btn_bcolor_mob_hvr = esc_html( responsive_prepare_css_value( 'responsive_add_to_cart_button_border_color_mobile_hover' ) );
 
 			// Border Radius (Desktop).
@@ -15955,12 +16031,12 @@ function responsive_customizer_styles() {
 		$cart_buttons_color            = esc_html( get_theme_mod( 'responsive_cart_buttons_color', '#10659C' ) );
 		$cart_buttons_text_color       = esc_html( responsive_prepare_css_value( 'responsive_cart_buttons_text_color', 'palette4' ) );
 		$cart_buttons_hover_color      = esc_html( get_theme_mod( 'responsive_cart_buttons_hover_color', '#0066CC' ) );
-		$cart_buttons_hover_text_color = esc_html( responsive_prepare_css_value( 'responsive_cart_buttons_hover_text_color', 'palette1' ) );
+		$cart_buttons_hover_text_color = esc_html( responsive_prepare_css_value( 'responsive_cart_buttons_hover_text_color', '#FFFFFF' ) );
 
 		$cart_checkout_button_color            = esc_html( responsive_prepare_css_value( 'responsive_cart_checkout_button_color' ) );
 		$cart_checkout_button_text_color       = esc_html( responsive_prepare_css_value( 'responsive_cart_checkout_button_text_color', 'palette4' ) );
 		$cart_checkout_button_hover_color      = esc_html( responsive_prepare_css_value( 'responsive_cart_checkout_button_hover_color' ) );
-		$cart_checkout_button_hover_text_color = esc_html( responsive_prepare_css_value( 'responsive_cart_checkout_button_hover_text_color', 'palette1' ) );
+		$cart_checkout_button_hover_text_color = esc_html( responsive_prepare_css_value( 'responsive_cart_checkout_button_hover_text_color', '#FFFFFF' ) );
 
 		// The cart Main Content Width slider only applies when the cart has no sidebar.
 		if ( 'no' === Responsive\Core\responsive_get_woocommerce_setting( 'sidebar_position', 'general' ) ) {
