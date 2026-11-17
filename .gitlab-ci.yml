@@ -43,8 +43,13 @@ claude_review:
     - node -v && npm -v
     - npm install -g @anthropic-ai/claude-code
   script:
-    - git fetch origin "$CI_MERGE_REQUEST_TARGET_BRANCH_NAME" --depth=1
-    - git diff "origin/$CI_MERGE_REQUEST_TARGET_BRANCH_NAME"..HEAD > diff.txt
+    - git fetch origin "$CI_MERGE_REQUEST_TARGET_BRANCH_NAME"
+    - |
+      git diff "origin/$CI_MERGE_REQUEST_TARGET_BRANCH_NAME"...HEAD -- . \
+        ':(exclude)*.min.css' ':(exclude)*.min.js' ':(exclude)*-rtl.css' \
+        ':(exclude)core/css/style.css' ':(exclude)*.map' \
+        ':(exclude)package-lock.json' ':(exclude)languages/*' \
+        | head -c 300000 > diff.txt
     - |
       {
         echo "You are a senior WordPress engineer reviewing a merge request";
@@ -71,19 +76,21 @@ claude_review:
         echo "  extract() on user-influenced data.";
         echo "- Hooks (add_action/add_filter) used correctly, without side";
         echo "  effects that run on every page load unnecessarily.";
+        echo "The merge request diff is provided on stdin. It may be truncated";
+        echo "and generated files (minified/compiled CSS) are excluded.";
         echo "Report findings by severity (critical/security first), citing";
         echo "file and line. Be concise.";
-        echo "--- DIFF START ---";
-        cat diff.txt;
-        echo "--- DIFF END ---";
-      } > review_prompt.txt
-    - claude -p "$(cat review_prompt.txt)" --model claude-haiku-4-5 > review-output.txt 2>&1 || true
+      } > review_instructions.txt
+    - claude -p "$(cat review_instructions.txt)" --model claude-haiku-4-5 < diff.txt > review-output.txt 2> review-error.txt || true
     - |
       if [ -s review-output.txt ]; then
         PAYLOAD=$(jq -n --rawfile body review-output.txt '{"body": ("### Claude Code Review\n\n" + $body)}')
-        curl --request POST \
-          --header "PRIVATE-TOKEN: $GITLAB_TOKEN" \
-          --header "Content-Type: application/json" \
-          --data "$PAYLOAD" \
-          "$CI_API_V4_URL/projects/$CI_PROJECT_ID/merge_requests/$CI_MERGE_REQUEST_IID/notes"
+      else
+        cat review-error.txt
+        PAYLOAD=$(jq -n '{"body": "### Claude Code Review\n\nReview failed. See the job log for details."}')
       fi
+      curl --request POST \
+        --header "PRIVATE-TOKEN: $GITLAB_TOKEN" \
+        --header "Content-Type: application/json" \
+        --data "$PAYLOAD" \
+        "$CI_API_V4_URL/projects/$CI_PROJECT_ID/merge_requests/$CI_MERGE_REQUEST_IID/notes"
