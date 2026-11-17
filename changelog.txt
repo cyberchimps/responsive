@@ -8,6 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(12/11/2026) Version 6.5.2
+[+] = New = Added a feedback popup to the Responsive theme to help users share their feedback.
+[*] = Improvement = Updated the Customizer preview screen for an improved user experience.
+
 (05/11/2026) Version 6.5.1
 [!] = Fix = Rebuilt dashboard assets.
 
