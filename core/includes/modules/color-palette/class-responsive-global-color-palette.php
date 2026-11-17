@@ -257,8 +257,8 @@ class Responsive_Global_Color_Palette {
 			$id                    = 'responsivepalette' . $item['id'];
 			$data['colors'][ $id ] = array(
 				'id'    => esc_attr( $id ),
-				'title' => 'Theme ' . $item['name'],
-				'value' => $item['color'],
+				'title' => 'Theme ' . esc_html( $item['name'] ),
+				'value' => esc_attr( $item['color'] ),
 			);
 		}
 
@@ -301,7 +301,7 @@ class Responsive_Global_Color_Palette {
 					array(
 						'id'    => esc_attr( $rest_id ),
 						'title' => $this->get_css_variable_prefix() . esc_html( $item['name'] ),
-						'value' => $item['color'],
+						'value' => esc_attr( $item['color'] ),
 					)
 				);
 			}

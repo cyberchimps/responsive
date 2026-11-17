@@ -13147,8 +13147,8 @@ function responsive_customizer_styles() {
 	}
 
 	// Single Post - comment date/time link color follows the single post link color
-	$single_post_comment_meta_link_color       = responsive_prepare_css_value( 'responsive_single_blog_post_link_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_color' ) );
-	$single_post_comment_meta_link_hover_color = responsive_prepare_css_value( 'responsive_single_blog_post_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_hover_color' ) );
+	$single_post_comment_meta_link_color       = esc_html( responsive_prepare_css_value( 'responsive_single_blog_post_link_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_color' ) ) );
+	$single_post_comment_meta_link_hover_color = esc_html( responsive_prepare_css_value( 'responsive_single_blog_post_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_hover_color' ) ) );
 	if ( '' !== $single_post_comment_meta_link_color ) {
 		$custom_css .= "
 			.single-post .comments-area .comment-metadata a {
@@ -13468,8 +13468,8 @@ function responsive_customizer_styles() {
 	}
 	
 	// Single Page - comment date/time link color follows the page title area link colors
-	$page_comment_meta_link_color       = responsive_prepare_css_value( 'responsive_page_title_area_link_color', Responsive\Core\get_responsive_customizer_defaults( 'single_page_meta_color' ) );
-	$page_comment_meta_link_hover_color = responsive_prepare_css_value( 'responsive_page_title_area_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_hover_color' ) );
+	$page_comment_meta_link_color       = esc_html( responsive_prepare_css_value( 'responsive_page_title_area_link_color', Responsive\Core\get_responsive_customizer_defaults( 'single_page_meta_color' ) ) );
+	$page_comment_meta_link_hover_color = esc_html( responsive_prepare_css_value( 'responsive_page_title_area_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_hover_color' ) ) );
 	if ( '' !== $page_comment_meta_link_color ) {
 		$custom_css .= "
 			.page .comments-area .comment-metadata a {
@@ -13503,9 +13503,9 @@ function responsive_customizer_styles() {
 		// text color
 		$page_title_text_color = responsive_prepare_css_value( 'responsive_page_title_area_text_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_text_color' ) );
 		// Link Color
-		$page_title_link_color = responsive_prepare_css_value( 'responsive_page_title_area_link_color', Responsive\Core\get_responsive_customizer_defaults( 'single_page_meta_color' ) );
+		$page_title_link_color = esc_html( responsive_prepare_css_value( 'responsive_page_title_area_link_color', Responsive\Core\get_responsive_customizer_defaults( 'single_page_meta_color' ) ) );
 		// Link Hover Color
-		$page_title_link_hover_color = responsive_prepare_css_value( 'responsive_page_title_area_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_hover_color' ) );
+		$page_title_link_hover_color = esc_html( responsive_prepare_css_value( 'responsive_page_title_area_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_link_hover_color' ) ) );
 		$custom_css .= "
 			.responsive-single-entry-banner .container .entry-title, .page .entry-header .entry-title {
 				color: {$page_title_color};
@@ -16026,9 +16026,9 @@ function responsive_customizer_styles() {
 
 		// cart Styles.
 		$cart_content_width            = esc_html( get_theme_mod( 'responsive_cart_content_width', 100 ) );
-		$cart_buttons_color            = esc_html( get_theme_mod( 'responsive_cart_buttons_color', '#10659C' ) );
+		$cart_buttons_color            = esc_html( responsive_prepare_css_value( 'responsive_cart_buttons_color', '#10659C' ) );
 		$cart_buttons_text_color       = esc_html( responsive_prepare_css_value( 'responsive_cart_buttons_text_color', 'palette4' ) );
-		$cart_buttons_hover_color      = esc_html( get_theme_mod( 'responsive_cart_buttons_hover_color', '#0066CC' ) );
+		$cart_buttons_hover_color      = esc_html( responsive_prepare_css_value( 'responsive_cart_buttons_hover_color', 'palette1' ) );
 		$cart_buttons_hover_text_color = esc_html( responsive_prepare_css_value( 'responsive_cart_buttons_hover_text_color', '#FFFFFF' ) );
 
 		$cart_checkout_button_color            = esc_html( responsive_prepare_css_value( 'responsive_cart_checkout_button_color' ) );
