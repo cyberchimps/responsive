@@ -42,6 +42,7 @@ function setup() {
 	add_action( 'wp_enqueue_scripts', $n( 'responsive_js' ) );
 	add_action( 'wp_enqueue_scripts', $n( 'responsive_enqueue_comment_reply' ) );
 	add_action( 'wp_enqueue_scripts', $n( 'responsive_enqueue_scrolltotop' ) );
+	add_action( 'wp_enqueue_scripts', $n( 'responsive_enqueue_scroll_to_id' ) );
 	add_action( 'widgets_init', $n( 'responsive_register_widgets' ) );
 	add_filter( 'pre_update_option_show_on_front', $n( 'responsive_front_page_override' ), 10, 2 );
 	add_filter( 'body_class', $n( 'responsive_add_class' ), 999 );
@@ -564,6 +565,39 @@ function responsive_enqueue_comment_reply() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+}
+
+/**
+ * Enqueue the Smooth Scroll to ID script when the option is enabled
+ * (Customize > Site Settings > Smooth Scroll).
+ */
+function responsive_enqueue_scroll_to_id() {
+	if ( 1 !== (int) get_theme_mod( 'responsive_enable_scroll_to_id', 0 ) ) {
+		return;
+	}
+
+	$suffix    = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+	$directory = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? 'js-dev' : 'js';
+
+	wp_enqueue_script( 'responsive-scroll-to-id', get_template_directory_uri() . '/core/' . $directory . '/scroll-to-id' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, true );
+
+	/**
+	 * Filter the Smooth Scroll to ID script arguments.
+	 *
+	 * - extraOffset:  extra pixels to subtract from the scroll position.
+	 * - excludeLinks: additional CSS selector(s) of links to ignore.
+	 */
+	wp_localize_script(
+		'responsive-scroll-to-id',
+		'responsiveScrollToId',
+		apply_filters(
+			'responsive_scroll_to_id_args',
+			array(
+				'extraOffset'  => 0,
+				'excludeLinks' => '',
+			)
+		)
+	);
 }
 
 /*
