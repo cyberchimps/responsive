@@ -9,6 +9,26 @@
 	// Declare vars.
 	var api = wp.customize;
 
+	// Resolve a saved colour like responsive_prepare_css_value() does on the frontend:
+	// "paletteN" and the named global colours become their CSS variable.
+	function responsivePaletteToVar( color ) {
+		if ( typeof color !== 'string' ) {
+			return color;
+		}
+		color = color.trim();
+		if ( color.indexOf( '(' ) !== -1 || color.charAt( 0 ) === '#' ) {
+			return color;
+		}
+		if ( /^palette\d+$/.test( color ) || /(headings-color|site-background|box-background|h1-color|footer-text-color|footer-links-color|footer-links-hover-color|breadcrumb|meta-text-color)/.test( color ) ) {
+			return 'var(--responsive-global-' + color + ')';
+		}
+		if ( 'title-above-content-bg-color' === color ) {
+			return 'var(--responsive-title-above-content-bg-color)';
+		}
+		return color;
+	}
+
+
 	function processThemeSettingForCSS ( setting ) {
 		// Ensure the setting exists
         const settingObj = api(setting);
@@ -52,7 +72,7 @@
 	    value.bind( function( newval ) {
 			if( newval ) {
 				if( api('responsive_header_widget_background_image').get() ) {
-					$('body:not(.res-transparent-header) .header-widgets').css('background-image', 'linear-gradient(to right,' + api('responsive_header_widget_background_color').get() + ',' + api('responsive_header_widget_background_color').get() + '),url(' + api('responsive_header_widget_background_image').get() + ')' );
+					$('body:not(.res-transparent-header) .header-widgets').css('background-image', 'linear-gradient(to right,' + responsivePaletteToVar( api('responsive_header_widget_background_color').get() ) + ',' + responsivePaletteToVar( api('responsive_header_widget_background_color').get() ) + '),url(' + api('responsive_header_widget_background_image').get() + ')' );
 				}
 			} else {
 				$('body:not(.res-transparent-header) .header-widgets').css('background-image', 'none');
@@ -62,12 +82,13 @@
     //header_widget color
 	api( 'responsive_header_widget_background_image', function( value ) {
 	    value.bind( function( newval ) {
-	        $('body:not(.res-transparent-header) .header-widgets').css('background-image', 'linear-gradient(to right,' + api('responsive_header_widget_background_color').get() + ',' + api('responsive_header_widget_background_color').get() + '),url(' + newval + ')' );
+	        $('body:not(.res-transparent-header) .header-widgets').css('background-image', 'linear-gradient(to right,' + responsivePaletteToVar( api('responsive_header_widget_background_color').get() ) + ',' + responsivePaletteToVar( api('responsive_header_widget_background_color').get() ) + '),url(' + newval + ')' );
 	    } );
 	} );
 	//header_widget color
 	api( 'responsive_header_widget_background_color', function( value ) {
 	    value.bind( function( newval ) {
+            newval = responsivePaletteToVar( newval );
 	        if( api('responsive_header_widget_background_image').get() && api('responsive_header_widget_background_image_toggle').get() ) {
 	            $('body:not(.res-transparent-header) .header-widgets').css('background-image', 'linear-gradient(to right,' + newval + ',' + newval + '),url(' + api('responsive_header_widget_background_image').get() + ')' );
 	        }
@@ -78,7 +99,7 @@
 	    value.bind( function( newval ) {
 			if( newval ) {
 				if( api('responsive_transparent_header_widget_background_image').get() ) {
-					$('.res-transparent-header .header-widgets').css('background-image', 'linear-gradient(to right,' + api('responsive_transparent_header_widget_background_color').get() + ',' + api('responsive_transparent_header_widget_background_color').get() + '),url(' + api('responsive_transparent_header_widget_background_image').get() + ')' );
+					$('.res-transparent-header .header-widgets').css('background-image', 'linear-gradient(to right,' + responsivePaletteToVar( api('responsive_transparent_header_widget_background_color').get() ) + ',' + responsivePaletteToVar( api('responsive_transparent_header_widget_background_color').get() ) + '),url(' + api('responsive_transparent_header_widget_background_image').get() + ')' );
 				}
 			} else {
 				$('.res-transparent-header .header-widgets').css('background-image', 'none');
@@ -88,12 +109,13 @@
 	//transparent_header_widget color
 	api( 'responsive_transparent_header_widget_background_image', function( value ) {
 	    value.bind( function( newval ) {
-	        $('.res-transparent-header .header-widgets').css('background-image', 'linear-gradient(to right,' + api('responsive_transparent_header_widget_background_color').get() + ',' + api('responsive_transparent_header_widget_background_color').get() + '),url(' + newval + ')' );
+	        $('.res-transparent-header .header-widgets').css('background-image', 'linear-gradient(to right,' + responsivePaletteToVar( api('responsive_transparent_header_widget_background_color').get() ) + ',' + responsivePaletteToVar( api('responsive_transparent_header_widget_background_color').get() ) + '),url(' + newval + ')' );
 	    } );
 	} );
 	//transparent_header_widget color
 	api( 'responsive_transparent_header_widget_background_color', function( value ) {
 	    value.bind( function( newval ) {
+            newval = responsivePaletteToVar( newval );
 	        if( api('responsive_transparent_header_widget_background_image').get() && api('responsive_transparent_header_widget_background_image_toggle').get() ) {
 	            $('.res-transparent-header .header-widgets').css('background-image', 'linear-gradient(to right,' + newval + ',' + newval + '),url(' + api('responsive_transparent_header_widget_background_image').get() + ')' );
 	        }
@@ -110,7 +132,7 @@
 					var bgLeft       = api('responsive_footer_bg_left') ? api('responsive_footer_bg_left').get() : 0;
 					var bgTop        = api('responsive_footer_bg_top') ? api('responsive_footer_bg_top').get() : 0;
 					$('body:not(.res-transparent-footer) .site-footer').css({
-						'background-image'     : 'linear-gradient(to right,' + api( 'responsive_footer_background_color' ).get() + ',' + api( 'responsive_footer_background_color' ).get() + '),url(' + api('responsive_footer_background_image').get() + ')',
+						'background-image'     : 'linear-gradient(to right,' + responsivePaletteToVar( api( 'responsive_footer_background_color' ).get() ) + ',' + responsivePaletteToVar( api( 'responsive_footer_background_color' ).get() ) + '),url(' + api('responsive_footer_background_image').get() + ')',
 						'background-repeat'    : bgRepeat,
 						'background-size'      : bgSize,
 						'background-attachment': bgAttachment,
@@ -131,7 +153,7 @@
 			var bgLeft       = api('responsive_footer_bg_left') ? api('responsive_footer_bg_left').get() : 0;
 			var bgTop        = api('responsive_footer_bg_top') ? api('responsive_footer_bg_top').get() : 0;
 			$('body:not(.res-transparent-footer) .site-footer').css({
-				'background-image'     : 'linear-gradient(to right,' + api('responsive_footer_background_color').get() + ',' + api('responsive_footer_background_color').get() + '),url(' + newval + ')',
+				'background-image'     : 'linear-gradient(to right,' + responsivePaletteToVar( api('responsive_footer_background_color').get() ) + ',' + responsivePaletteToVar( api('responsive_footer_background_color').get() ) + '),url(' + newval + ')',
 				'background-repeat'    : bgRepeat,
 				'background-size'      : bgSize,
 				'background-attachment': bgAttachment,
@@ -142,6 +164,7 @@
 	//footer color
 	api( 'responsive_footer_background_color', function( value ) {
 	    value.bind( function( newval ) {
+            newval = responsivePaletteToVar( newval );
 	        if( api('responsive_footer_background_image').get() && api( 'responsive_footer_background_image_toggle').get() ) {
 	            $('body:not(.res-transparent-footer) .site-footer').css('background-image', 'linear-gradient(to right,' + newval + ',' + newval + '),url(' + api('responsive_footer_background_image').get() + ')' );
 	        }
@@ -213,12 +236,13 @@
 	} );
 	api( 'responsive_box_background_color', function( value ) {
 		value.bind( function( newval ) {
+            newval = responsivePaletteToVar( newval );
 			if( newval && newval.includes('palette') ) {
 				newval = 'var(--responsive-global-' + newval + ')';
 			}
 			if( api( 'responsive_box_background_image_toggle').get() && api('responsive_box_background_image').get() ) {
 				$('.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,.responsive-site-style-content-boxed .custom-home-about-section,.responsive-site-style-content-boxed .custom-home-feature-section,.responsive-site-style-content-boxed .custom-home-team-section,.responsive-site-style-content-boxed .custom-home-testimonial-section,.responsive-site-style-content-boxed .custom-home-contact-section,.responsive-site-style-content-boxed .custom-home-widget-section,.responsive-site-style-content-boxed .custom-home-featured-area,.responsive-site-style-content-boxed .site-content-header,.responsive-site-style-content-boxed .content-area-wrapper,.responsive-site-style-content-boxed .site-content .hentry,.responsive-site-style-content-boxed .navigation,.responsive-site-style-content-boxed .comments-area,.responsive-site-style-content-boxed .comment-respond,.responsive-site-style-boxed .custom-home-about-section,.responsive-site-style-boxed .custom-home-feature-section,.responsive-site-style-boxed .custom-home-team-section,.responsive-site-style-boxed .custom-home-testimonial-section,.responsive-site-style-boxed .custom-home-contact-section,.responsive-site-style-boxed .custom-home-widget-section,.responsive-site-style-boxed .custom-home-featured-area,.responsive-site-style-boxed .site-content-header,.responsive-site-style-boxed .site-content .hentry,.responsive-site-style-boxed .navigation,.responsive-site-style-boxed .comments-area,.responsive-site-style-boxed .comment-respond,.responsive-site-style-boxed .comment-respond').css('background-image', 'linear-gradient(to right,' + newval + ',' + newval + '),url(' + api('responsive_box_background_image').get() + ')' );
-				if( ! api('responsive_sidebar_background_image').get() && ! ! api('responsive_sidebar_background_color').get() ) {
+				if( ! api('responsive_sidebar_background_image').get() && ! ! responsivePaletteToVar( api('responsive_sidebar_background_color').get() ) ) {
 					$('.responsive-site-style-boxed aside#secondary .widget-wrapper').css('background-image', 'linear-gradient(to right,' + newval + ',' + newval + '),url(' + api('responsive_box_background_image').get() + ')' );
 				}
 			}
@@ -248,6 +272,7 @@
 	// button color.
     api( 'responsive_button_color', function( value ) {
         value.bind( function( newval ) {
+            newval = responsivePaletteToVar( newval );
 			if( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
@@ -280,6 +305,7 @@
 	// secondary button color.
     api( 'responsive_secondary_button_color', function( value ) {
         value.bind( function( newval ) {
+            newval = responsivePaletteToVar( newval );
 			if( newval && newval.startsWith('palette') ) {
                 newval = `var(--responsive-global-${newval})`;
             }
@@ -294,7 +320,7 @@
 	    value.bind( function( newval ) {
 			if( newval ) {
 				if( api('responsive_inputs_background_image').get() ) {
-					$('select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],body div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea').css({'background-image': 'linear-gradient(to right,' + api( 'responsive_inputs_background_color' ).get() + ',' + api( 'responsive_inputs_background_color' ).get() + '),url(' + api('responsive_inputs_background_image').get() + ')', 'background-size': 'cover' });
+					$('select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],body div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea').css({'background-image': 'linear-gradient(to right,' + responsivePaletteToVar( api( 'responsive_inputs_background_color' ).get() ) + ',' + responsivePaletteToVar( api( 'responsive_inputs_background_color' ).get() ) + '),url(' + api('responsive_inputs_background_image').get() + ')', 'background-size': 'cover' });
 				}
 			} else {
 				$('select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],body div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea').css('background-image', 'none');
@@ -304,12 +330,13 @@
 	//Inputs color
 	api( 'responsive_inputs_background_image', function( value ) {
 	    value.bind( function( newval ) {
-	        $('select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],body div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea').css({'background-image': 'linear-gradient(to right,' + api('responsive_inputs_background_color').get() + ',' + api('responsive_inputs_background_color').get() + '),url(' + newval + ')', 'background-size': 'cover' });
+	        $('select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],body div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea').css({'background-image': 'linear-gradient(to right,' + responsivePaletteToVar( api('responsive_inputs_background_color').get() ) + ',' + responsivePaletteToVar( api('responsive_inputs_background_color').get() ) + '),url(' + newval + ')', 'background-size': 'cover' });
 	    } );
 	} );
 	//Inputs color
 	api( 'responsive_inputs_background_color', function( value ) {
 	    value.bind( function( newval ) {
+            newval = responsivePaletteToVar( newval );
 	        if( api('responsive_inputs_background_image').get() && api( 'responsive_inputs_background_image_toggle').get() ) {
 	            $('select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],body div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea').css('background-image', 'linear-gradient(to right,' + newval + ',' + newval + '),url(' + api('responsive_inputs_background_image').get() + ')' );
 	        }
@@ -352,6 +379,7 @@
 	//sidebar color
 	api( 'responsive_sidebar_background_color', function( value ) {
 	    value.bind( function( newval ) {
+            newval = responsivePaletteToVar( newval );
 			if ( ! $('#secondary').hasClass('responsive-sidebar-style-boxed') ) {
 				$('.responsive-site-style-boxed aside#secondary .widget-wrapper').css({
 					'background-image': 'none',
@@ -370,4 +398,4 @@
 	    } );
 	} );
 
-} )( jQuery );
+} )( jQuery );

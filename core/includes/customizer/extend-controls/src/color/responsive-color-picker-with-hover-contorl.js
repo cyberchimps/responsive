@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
 import { Button, ColorPicker, ColorPalette} from '@wordpress/components';
-import { PaletteLinkRow, GlobeBadge } from './palette-swatches';
+import { PaletteLinkRow, GlobeBadge, getSwatchStyle, getPickerColor, ensureVisibleOnFirstPick } from './palette-swatches';
 
 class ResponsiveColorPickerWithHoverControl extends Component {
 
@@ -128,7 +128,7 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 
                     <div className="tooltip-container">
 						<Button className={isNormalVisible ? 'button wp-color-result normal-state wp-picker-open' : 'button wp-color-result normal-state'} onClick={() => { this.toggleNormalVisible() }}
-							aria-expanded='false' style={{ backgroundColor: getColorPreviewValue( this.props.color ) }}
+							aria-expanded='false' style={getSwatchStyle(this.props.color, getColorPreviewValue(this.props.color))}
 						>
 							<GlobeBadge value={this.props.color} />
 						</Button>
@@ -140,13 +140,13 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 								<PaletteLinkRow value={this.props.color} onSelect={(id) => this.props.onChangeComplete(id, 'normal')} />
 								{refresh ? (
 									<ColorPicker
-										color={getColorPreviewValue(this.props.color, true)}
-										onChangeComplete={(color) => this.onChangeComplete(color, 'normal')}
+										color={getPickerColor(this.props.color, getColorPreviewValue(this.props.color, true))}
+										onChangeComplete={(color) => this.onChangeComplete(ensureVisibleOnFirstPick(color, this.props.color), 'normal')}
 									/>
 								) : (
 									<ColorPicker
-										color={getColorPreviewValue(this.props.color, true)}
-										onChangeComplete={(color) => this.onChangeComplete(color, 'normal')}
+										color={getPickerColor(this.props.color, getColorPreviewValue(this.props.color, true))}
+										onChangeComplete={(color) => this.onChangeComplete(ensureVisibleOnFirstPick(color, this.props.color), 'normal')}
 									/>
 								)}
 								{ this.state.normalOpacityZero && 
@@ -159,7 +159,7 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 
                     <div className="tooltip-container">
                         <Button className={isHoverVisible ? 'button wp-color-result hover-state wp-picker-open' : 'button wp-color-result hover-state'} onClick={() => { this.toggleHoverVisible() }}
-                            aria-expanded='false' style={{ backgroundColor: getColorPreviewValue(this.props.hover_color) }}
+                            aria-expanded='false' style={getSwatchStyle(this.props.hover_color, getColorPreviewValue(this.props.hover_color))}
                         >
                             <GlobeBadge value={this.props.hover_color} />
                         </Button>
@@ -171,13 +171,13 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 								<PaletteLinkRow value={this.props.hover_color} onSelect={(id) => this.props.onChangeComplete(id, 'hover')} />
 								{refresh ? (
 									<ColorPicker
-										color={getColorPreviewValue(this.props.hover_color, true)}
-										onChangeComplete={(color) => this.onChangeComplete(color, 'hover')}
+										color={getPickerColor(this.props.hover_color, getColorPreviewValue(this.props.hover_color, true))}
+										onChangeComplete={(color) => this.onChangeComplete(ensureVisibleOnFirstPick(color, this.props.hover_color), 'hover')}
 									/>
 								) : (
 									<ColorPicker
-										color={getColorPreviewValue(this.props.hover_color, true)}
-										onChangeComplete={(color) => this.onChangeComplete(color, 'hover')}
+										color={getPickerColor(this.props.hover_color, getColorPreviewValue(this.props.hover_color, true))}
+										onChangeComplete={(color) => this.onChangeComplete(ensureVisibleOnFirstPick(color, this.props.hover_color), 'hover')}
 									/>
 								)}
 								{ this.state.hoverOpacityZero && 

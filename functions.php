@@ -1204,6 +1204,34 @@ function responsive_add_sub_toggles_to_secondary_menu( $args, $item, $depth ) {
 
 add_filter( 'nav_menu_item_args', 'responsive_add_sub_toggles_to_secondary_menu', 10, 3 );
 
+/**
+ * Make sure sub menu items that have children show the dropdown indicator.
+ *
+ * The mega menu walkers (Responsive Pro / Add-ons) only print the inner indicator
+ * ( $args->link_after ) for top level items, so on desktop, where only the inner
+ * indicator is visible, nested items with a sub menu show no arrow at all.
+ * Add it when the walker left it out; walkers that already print it are untouched.
+ *
+ * @param string   $item_output The menu item's starting HTML output.
+ * @param WP_Post  $item        Menu item data object.
+ * @param int      $depth       Depth of the menu item.
+ * @param stdClass $args        An object of wp_nav_menu() arguments.
+ * @return string
+ */
+function responsive_add_sub_menu_indicator_to_nested_items( $item_output, $item, $depth, $args ) {
+	if ( $depth < 1 || empty( $args->link_after ) || false === strpos( $args->link_after, 'res-iconify-inner' ) ) {
+		return $item_output;
+	}
+
+	if ( ! in_array( 'menu-item-has-children', (array) $item->classes, true ) || false !== strpos( $item_output, 'res-iconify-inner' ) ) {
+		return $item_output;
+	}
+
+	// Place the indicator inside the link, right before its closing tag.
+	return preg_replace( '~</a>~', str_replace( '\\', '\\\\', $args->link_after ) . '</a>', $item_output, 1 );
+}
+add_filter( 'walker_nav_menu_start_el', 'responsive_add_sub_menu_indicator_to_nested_items', 10, 4 );
+
 if ( ! function_exists( 'responsive_display_date_box' ) ) {
 	/**
 	 * Display date box on blog/archive page.

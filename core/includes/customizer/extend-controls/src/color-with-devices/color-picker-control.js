@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
 import {Button, ColorPicker } from '@wordpress/components';
-import { PaletteLinkRow, GlobeBadge } from '../color/palette-swatches';
+import { PaletteLinkRow, GlobeBadge, getSwatchStyle, getPickerColor, ensureVisibleOnFirstPick } from '../color/palette-swatches';
 
 class ColorPickerControlWithDevices extends Component {
 	constructor( props ) {
@@ -131,7 +131,7 @@ class ColorPickerControlWithDevices extends Component {
 					{this.props.swatchTitle ? (
 						<div className="tooltip-container">
 							<Button className={ isVisible ? 'button wp-color-result wp-picker-open' : 'button wp-color-result ' } onClick={ () => { isVisible ? toggleClose() : toggleVisible() } }
-								aria-expanded='false' style={{backgroundColor: getColorPreviewValue(this.props.color)}}
+								aria-expanded='false' style={getSwatchStyle(this.props.color, getColorPreviewValue(this.props.color))}
 							>
 								<GlobeBadge value={this.props.color} />
 							</Button>
@@ -139,7 +139,7 @@ class ColorPickerControlWithDevices extends Component {
 						</div>
 					) : (
 						<Button className={ isVisible ? 'button wp-color-result wp-picker-open' : 'button wp-color-result ' } onClick={ () => { isVisible ? toggleClose() : toggleVisible() } }
-							aria-expanded='false' style={{backgroundColor: getColorPreviewValue(this.props.color)}}
+							aria-expanded='false' style={getSwatchStyle(this.props.color, getColorPreviewValue(this.props.color))}
 						>
 							<GlobeBadge value={this.props.color} />
 						</Button>
@@ -151,16 +151,16 @@ class ColorPickerControlWithDevices extends Component {
 									{ refresh && (
 										<>
 											<ColorPicker
-												color={ getColorPreviewValue(this.props.color, true) }
-												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
+												color={ getPickerColor(this.props.color, getColorPreviewValue(this.props.color, true)) }
+												onChangeComplete={ ( color ) => this.onChangeComplete( ensureVisibleOnFirstPick( color, this.props.color ) ) }
 											/>
 										</>
 									) }
 									{ ! refresh &&  (
 										<>
 											<ColorPicker
-												color={ getColorPreviewValue(this.props.color, true) }
-												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
+												color={ getPickerColor(this.props.color, getColorPreviewValue(this.props.color, true)) }
+												onChangeComplete={ ( color ) => this.onChangeComplete( ensureVisibleOnFirstPick( color, this.props.color ) ) }
 											/>
 
 										</>

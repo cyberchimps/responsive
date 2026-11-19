@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
 import {Button, ColorPicker, ColorPalette, TabPanel, GradientPicker } from '@wordpress/components';
-import { PaletteLinkRow, GlobeBadge } from './palette-swatches';
+import { PaletteLinkRow, GlobeBadge, getSwatchStyle, getPickerColor, ensureVisibleOnFirstPick } from './palette-swatches';
 
 class ResponsiveColorPickerControl extends Component {
 
@@ -149,7 +149,7 @@ class ResponsiveColorPickerControl extends Component {
 		// Determine the background style based on activeTab
         const buttonBackgroundStyle = activeTab === 'gradient' && is_gradient_available
             ? { background: gradient } // Apply gradient string
-            : { backgroundColor: getColorPreviewValue(color) }; // Apply solid color from state.color
+            : getSwatchStyle(color, getColorPreviewValue(color)); // Apply solid color from state.color
 
 		const toggleVisible = (desiredTab = this.state.activeTab) => {
 			if ( refresh === true ) {
@@ -246,10 +246,10 @@ class ResponsiveColorPickerControl extends Component {
 													<>
 													{ ! this.props.disablePaletteLink && <PaletteLinkRow value={this.props.color} onSelect={(id) => this.onPaletteLink(id)} /> }
 													<ColorPicker
-														color={getColorPreviewValue(color, true)}
+														color={getPickerColor(color, getColorPreviewValue(color, true))}
 														onChangeComplete={(currentColor) => {
 															this.setState({ color: currentColor })
-															this.onChangeComplete(currentColor, 'color')
+															this.onChangeComplete(ensureVisibleOnFirstPick(currentColor, color), 'color')
 														}}
 													/>
 													</>
@@ -292,8 +292,8 @@ class ResponsiveColorPickerControl extends Component {
 								<>
 									{ ! this.props.disablePaletteLink && <PaletteLinkRow value={this.props.color} onSelect={(id) => this.onPaletteLink(id)} /> }
 									<ColorPicker
-										color={getColorPreviewValue(this.props.color, true)}
-										onChangeComplete={(color) => this.onChangeComplete(color, 'color')}
+										color={getPickerColor(this.props.color, getColorPreviewValue(this.props.color, true))}
+										onChangeComplete={(picked) => this.onChangeComplete(ensureVisibleOnFirstPick(picked, this.props.color), 'color')}
 									/>
 
 									{this.state.opacityZero && (

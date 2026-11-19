@@ -8,6 +8,26 @@
 	
 	// Declare vars.
 	var api = wp.customize;
+
+	// Resolve a saved colour like responsive_prepare_css_value() does on the frontend:
+	// "paletteN" and the named global colours become their CSS variable.
+	function responsivePaletteToVar( color ) {
+		if ( typeof color !== 'string' ) {
+			return color;
+		}
+		color = color.trim();
+		if ( color.indexOf( '(' ) !== -1 || color.charAt( 0 ) === '#' ) {
+			return color;
+		}
+		if ( /^palette\d+$/.test( color ) || /(headings-color|site-background|box-background|h1-color|footer-text-color|footer-links-color|footer-links-hover-color|breadcrumb|meta-text-color)/.test( color ) ) {
+			return 'var(--responsive-global-' + color + ')';
+		}
+		if ( 'title-above-content-bg-color' === color ) {
+			return 'var(--responsive-title-above-content-bg-color)';
+		}
+		return color;
+	}
+
 	api(
 		"responsive_theme_options[sticky-header]",
 		function( $swipe ) {
@@ -121,12 +141,13 @@
 	if ( responsive_pro.isProGreater && ! responsive_pro.isThemeGreater ) {
 		api( 'responsive_button_background_image', function( value ) {
 			value.bind( function( newval ) {
-				$('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button ').css('background-image', 'linear-gradient(to right,' + api('responsive_button_color').get() + ',' + api('responsive_button_color').get() + '),url(' + newval + ')' );
+				$('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button ').css('background-image', 'linear-gradient(to right,' + responsivePaletteToVar( api('responsive_button_color').get() ) + ',' + responsivePaletteToVar( api('responsive_button_color').get() ) + '),url(' + newval + ')' );
 			} );
 		} );
 
 		api( 'responsive_button_color', function( value ) {
 			value.bind( function( newval ) {
+            newval = responsivePaletteToVar( newval );
 				if( api('responsive_button_background_image').get() ) {
 					$('.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button ').css('background-image', 'linear-gradient(to right,' + newval + ',' + newval + '),url(' + api('responsive_button_background_image').get() + ')' );
 				}
@@ -137,13 +158,13 @@
 		//Inputs color
 		api( 'responsive_inputs_background_image', function( value ) {
 			value.bind( function( newval ) {
-				$('select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],body div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea,#add_payment_method table.cart td.actions .coupon .input-text,.woocommerce-cart table.cart td.actions .coupon .input-text,.woocommerce-checkout table.cart td.actions .coupon .input-text,.woocommerce form .form-row input.input-text,.woocommerce form .form-row textarea').css('background-image', 'linear-gradient(to right,' + api('responsive_inputs_background_color').get() + ',' + api('responsive_inputs_background_color').get() + '),url(' + newval + ')' );
+				$('select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],body div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea,#add_payment_method table.cart td.actions .coupon .input-text,.woocommerce-cart table.cart td.actions .coupon .input-text,.woocommerce-checkout table.cart td.actions .coupon .input-text,.woocommerce form .form-row input.input-text,.woocommerce form .form-row textarea').css('background-image', 'linear-gradient(to right,' + responsivePaletteToVar( api('responsive_inputs_background_color').get() ) + ',' + responsivePaletteToVar( api('responsive_inputs_background_color').get() ) + '),url(' + newval + ')' );
 			} );
 		} );
 	} else {
 		api( 'responsive_inputs_background_image', function( value ) {
 			value.bind( function( newval ) {
-				$('#add_payment_method table.cart td.actions .coupon .input-text,.woocommerce-cart table.cart td.actions .coupon .input-text,.woocommerce-checkout table.cart td.actions .coupon .input-text,.woocommerce form .form-row input.input-text,.woocommerce form .form-row textarea').css('background-image', 'linear-gradient(to right,' + api('responsive_inputs_background_color').get() + ',' + api('responsive_inputs_background_color').get() + '),url(' + newval + ')' );
+				$('#add_payment_method table.cart td.actions .coupon .input-text,.woocommerce-cart table.cart td.actions .coupon .input-text,.woocommerce-checkout table.cart td.actions .coupon .input-text,.woocommerce form .form-row input.input-text,.woocommerce form .form-row textarea').css('background-image', 'linear-gradient(to right,' + responsivePaletteToVar( api('responsive_inputs_background_color').get() ) + ',' + responsivePaletteToVar( api('responsive_inputs_background_color').get() ) + '),url(' + newval + ')' );
 			} );
 		} );
 	}
@@ -151,6 +172,7 @@
 		//Inputs color
 		api( 'responsive_inputs_background_color', function( value ) {
 			value.bind( function( newval ) {
+            newval = responsivePaletteToVar( newval );
 				if( api('responsive_inputs_background_image').get() ) {
 					$('select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],body div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea,#add_payment_method table.cart td.actions .coupon .input-text,.woocommerce-cart table.cart td.actions .coupon .input-text,.woocommerce-checkout table.cart td.actions .coupon .input-text,.woocommerce form .form-row input.input-text,.woocommerce form .form-row textarea').css('background-image', 'linear-gradient(to right,' + newval + ',' + newval + '),url(' + api('responsive_inputs_background_image').get() + ')' );
 				}
@@ -160,6 +182,7 @@
 		//Inputs color
 		api( 'responsive_inputs_background_color', function( value ) {
 			value.bind( function( newval ) {
+            newval = responsivePaletteToVar( newval );
 				if( api('responsive_inputs_background_image').get() ) {
 					$('#add_payment_method table.cart td.actions .coupon .input-text,.woocommerce-cart table.cart td.actions .coupon .input-text,.woocommerce-checkout table.cart td.actions .coupon .input-text,.woocommerce form .form-row input.input-text,.woocommerce form .form-row textarea').css('background-image', 'linear-gradient(to right,' + newval + ',' + newval + '),url(' + api('responsive_inputs_background_image').get() + ')' );
 				}
@@ -171,12 +194,13 @@
 		//sidebar color
 		api( 'responsive_sidebar_background_image', function( value ) {
 			value.bind( function( newval ) {
-				$('.responsive-site-style-boxed aside#secondary .widget-wrapper').css('background-image', 'linear-gradient(to right,' + api('responsive_sidebar_background_color').get() + ',' + api('responsive_sidebar_background_color').get() + '),url(' + newval + ')' );
+				$('.responsive-site-style-boxed aside#secondary .widget-wrapper').css('background-image', 'linear-gradient(to right,' + responsivePaletteToVar( api('responsive_sidebar_background_color').get() ) + ',' + responsivePaletteToVar( api('responsive_sidebar_background_color').get() ) + '),url(' + newval + ')' );
 			} );
 		} );
 		//sidebar color
 		api( 'responsive_sidebar_background_color', function( value ) {
 			value.bind( function( newval ) {
+            newval = responsivePaletteToVar( newval );
 				if( api('responsive_sidebar_background_image').get() ) {
 					$('.responsive-site-style-boxed aside#secondary .widget-wrapper').css('background-image', 'linear-gradient(to right,' + newval + ',' + newval + '),url(' + api('responsive_sidebar_background_image').get() + ')' );
 				}
@@ -186,7 +210,7 @@
 		//header color
 		api( 'responsive_header_background_image', function( value ) {
 			value.bind( function( newval ) {
-				$('body:not(.res-transparent-header) .site-header').css('background-image', 'linear-gradient(to right,' + api('responsive_header_background_color').get() + ',' + api('responsive_header_background_color').get() + '),url(' + newval + ')' );
+				$('body:not(.res-transparent-header) .site-header').css('background-image', 'linear-gradient(to right,' + responsivePaletteToVar( api('responsive_header_background_color').get() ) + ',' + responsivePaletteToVar( api('responsive_header_background_color').get() ) + '),url(' + newval + ')' );
 			} );
 		} );
 		//header color
@@ -443,6 +467,7 @@
 	// Popup background color
 	api('responsive_popup_bg_color', function( value ) {
 		value.bind( function( newval ) {
+            newval = responsivePaletteToVar( newval );
 	        if ( newval ) {
 				$( '#woo-popup-wrap #woo-popup-inner' ).css( 'background-color', newval );
 	        }
@@ -451,6 +476,7 @@
 	// Popup overlay color
 	api('responsive_popup_overlay_color', function( value ) {
 		value.bind( function( newval ) {
+            newval = responsivePaletteToVar( newval );
 	        if ( newval ) {
 				$( '.mfp-container' ).css( 'background', newval );
 	        }
@@ -460,6 +486,7 @@
 	// Popup check mark background
     api( 'responsive_popup_checkmark_bg_color', function( value ) {
 		value.bind( function( to ) {
+            to = responsivePaletteToVar( to );
 			var $child = $( '.customizer-responsive_popup_checkmark_bg_color' );
 			if ( to ) {
 				var style = '<style class="customizer-responsive_popup_checkmark_bg_color">#woo-popup-wrap .checkmark{box-shadow: inset 0 0 0 ' + to + '; }#woo-popup-wrap .checkmark-circle{stroke: ' + to + ';}@keyframes fill {100% { box-shadow: inset 0 0 0 100px ' + to + '; }}</style>';
@@ -477,6 +504,7 @@
 	// Popup check mark color
     api( 'responsive_popup_checkmark_color', function( value ) {
 		value.bind( function( to ) {
+            to = responsivePaletteToVar( to );
 			var $child = $( '.customizer-responsive_popup_checkmark_color' );
 			if ( to ) {
 				var style = '<style class="customizer-responsive_popup_checkmark_color">#woo-popup-wrap .checkmark-check{stroke: ' + to + ';}</style>';
@@ -494,6 +522,7 @@
 	// Popup title color
 	api('responsive_popup_title_color', function( value ) {
 		value.bind( function( newval ) {
+            newval = responsivePaletteToVar( newval );
 	        if ( newval ) {
 				$( '#woo-popup-wrap .popup-title' ).css( 'color', newval );
 	        }
@@ -503,6 +532,7 @@
 	// Popup content color
 	api('responsive_popup_content_color', function( value ) {
 		value.bind( function( newval ) {
+            newval = responsivePaletteToVar( newval );
 	        if ( newval ) {
 				$( '#woo-popup-wrap .popup-content' ).css( 'color', newval );
 	        }
@@ -512,6 +542,7 @@
 	// Popup continue button background color
     api( 'responsive_popup_continue_btn_bg_color', function( value ) {
 		value.bind( function( to ) {
+            to = responsivePaletteToVar( to );
 			var $child = $( '.customizer-responsive_popup_continue_btn_bg_color' );
 			if ( to ) {
 				var style = '<style class="customizer-responsive_popup_continue_btn_bg_color">#woo-popup-wrap .buttons-wrap a.continue-btn{background-color: ' + to + ';}</style>';
@@ -529,6 +560,7 @@
 	// Popup continue button color
     api( 'responsive_popup_continue_btn_color', function( value ) {
 		value.bind( function( to ) {
+            to = responsivePaletteToVar( to );
 			var $child = $( '.customizer-responsive_popup_continue_btn_color' );
 			if ( to ) {
 				var style = '<style class="customizer-responsive_popup_continue_btn_color">#woo-popup-wrap .buttons-wrap a.continue-btn{color: ' + to + ';}</style>';
@@ -546,6 +578,7 @@
 	// Popup continue button border color
     api( 'responsive_popup_continue_btn_border_color', function( value ) {
 		value.bind( function( to ) {
+            to = responsivePaletteToVar( to );
 			var $child = $( '.customizer-responsive_popup_continue_btn_border_color' );
 			if ( to ) {
 				var style = '<style class="customizer-responsive_popup_continue_btn_border_color">#woo-popup-wrap .buttons-wrap a.continue-btn{border-color: ' + to + ';}</style>';
@@ -563,6 +596,7 @@
 	// Popup continue button hover background color
     api( 'responsive_popup_continue_btn_hover_bg_color', function( value ) {
 		value.bind( function( to ) {
+            to = responsivePaletteToVar( to );
 			var $child = $( '.customizer-responsive_popup_continue_btn_hover_bg_color' );
 			if ( to ) {
 				var style = '<style class="customizer-responsive_popup_continue_btn_hover_bg_color">#woo-popup-wrap .buttons-wrap a.continue-btn:hover{background-color: ' + to + ';}</style>';
@@ -580,6 +614,7 @@
 	// Popup continue button hover color
     api( 'responsive_popup_continue_btn_hover_color', function( value ) {
 		value.bind( function( to ) {
+            to = responsivePaletteToVar( to );
 			var $child = $( '.customizer-responsive_popup_continue_btn_hover_color' );
 			if ( to ) {
 				var style = '<style class="customizer-responsive_popup_continue_btn_hover_color">#woo-popup-wrap .buttons-wrap a.continue-btn:hover{color: ' + to + ';}</style>';
@@ -597,6 +632,7 @@
     // Popup continue button hover border color
     api( 'responsive_popup_continue_btn_hover_border_color', function( value ) {
 		value.bind( function( to ) {
+            to = responsivePaletteToVar( to );
 			var $child = $( '.customizer-responsive_popup_continue_btn_hover_border_color' );
 			if ( to ) {
 				var style = '<style class="customizer-responsive_popup_continue_btn_hover_border_color">#woo-popup-wrap .buttons-wrap a.continue-btn:hover{border-color: ' + to + ';}</style>';
@@ -614,6 +650,7 @@
 	// Popup cart button background color
     api( 'responsive_popup_cart_btn_bg_color', function( value ) {
 		value.bind( function( to ) {
+            to = responsivePaletteToVar( to );
 			var $child = $( '.customizer-responsive_popup_cart_btn_bg_color' );
 			if ( to ) {
 				var style = '<style class="customizer-responsive_popup_cart_btn_bg_color">#woo-popup-wrap .buttons-wrap a.cart-btn{background-color: ' + to + ';}</style>';
@@ -631,6 +668,7 @@
     // Popup cart button color
     api( 'responsive_popup_cart_btn_color', function( value ) {
 		value.bind( function( to ) {
+            to = responsivePaletteToVar( to );
 			var $child = $( '.responsive_popup_cart_btn_color' );
 			if ( to ) {
 				var style = '<style class="customizer-responsive_popup_cart_btn_color">#woo-popup-wrap .buttons-wrap a.cart-btn{color: ' + to + ';}</style>';
@@ -648,6 +686,7 @@
     // Popup cart button border color
     api( 'responsive_popup_cart_btn_border_color', function( value ) {
 		value.bind( function( to ) {
+            to = responsivePaletteToVar( to );
 			var $child = $( '.customizer-responsive_popup_cart_btn_border_color' );
 			if ( to ) {
 				var style = '<style class="customizer-responsive_popup_cart_btn_border_color">#woo-popup-wrap .buttons-wrap a.cart-btn{border-color: ' + to + ';}</style>';
@@ -665,6 +704,7 @@
     // Popup cart button hover background color
     api( 'responsive_popup_cart_btn_hover_bg_color', function( value ) {
 		value.bind( function( to ) {
+            to = responsivePaletteToVar( to );
 			var $child = $( '.customizer-responsive_popup_cart_btn_hover_bg_color' );
 			if ( to ) {
 				var style = '<style class="customizer-responsive_popup_cart_btn_hover_bg_color">#woo-popup-wrap .buttons-wrap a.cart-btn:hover{background-color: ' + to + ';}</style>';
@@ -682,6 +722,7 @@
     // Popup cart button hover color
     api( 'responsive_popup_cart_btn_hover_color', function( value ) {
 		value.bind( function( to ) {
+            to = responsivePaletteToVar( to );
 			var $child = $( '.customizer-responsive_popup_cart_btn_hover_color' );
 			if ( to ) {
 				var style = '<style class="customizer-responsive_popup_cart_btn_hover_color">#woo-popup-wrap .buttons-wrap a.cart-btn:hover{color: ' + to + ';}</style>';
@@ -699,6 +740,7 @@
     // Popup cart button hover border color
     api( 'responsive_popup_cart_btn_hover_border_color', function( value ) {
 		value.bind( function( to ) {
+            to = responsivePaletteToVar( to );
 			var $child = $( '.customizer-responsive_popup_cart_btn_hover_border_colorr' );
 			if ( to ) {
 				var style = '<style class="customizer-responsive_popup_cart_btn_hover_border_color">#woo-popup-wrap .buttons-wrap a.cart-btn:hover{border-color: ' + to + ';}</style>';
@@ -716,6 +758,7 @@
 	// Popup bottom text color
 	api('responsive_popup_text_color', function( value ) {
 		value.bind( function( newval ) {
+            newval = responsivePaletteToVar( newval );
 	        if ( newval ) {
 				$( '#woo-popup-wrap .popup-text' ).css( 'color', newval );
 	        }

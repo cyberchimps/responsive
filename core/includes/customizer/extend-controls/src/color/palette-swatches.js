@@ -20,6 +20,25 @@ export const FIXED_PALETTE = [
 	{ settingId: 'responsive_global_color_palette_secondary_neutral_color', label: __( 'Secondary Neutral', 'responsive' ) },
 ];
 
+// Checkerboard shown on a swatch when no colour is set (blank value).
+const BLANK_SWATCH_STYLE = {
+	backgroundColor: '#fff',
+	backgroundImage: 'linear-gradient(45deg,#ccc 25%,transparent 25%,transparent 75%,#ccc 75%),linear-gradient(45deg,#ccc 25%,transparent 25%,transparent 75%,#ccc 75%)',
+	backgroundSize: '10px 10px',
+	backgroundPosition: '0 0,5px 5px',
+};
+
+// Swatch style: checkerboard when the raw value is blank, else the resolved colour.
+export const getSwatchStyle = ( rawValue, resolvedValue ) => ( rawValue ? { backgroundColor: resolvedValue } : BLANK_SWATCH_STYLE );
+
+// Colour handed to <ColorPicker>: when blank, start fully opaque (alpha 1) so the user can pick a colour
+// directly without first raising the opacity.
+export const getPickerColor = ( rawValue, resolvedValue ) => ( rawValue ? resolvedValue : 'rgba(0,0,0,1)' );
+
+// Kept for call-site compatibility. The blank picker is already opaque, so picks pass through untouched
+// (this also lets users deliberately choose alpha 0).
+export const ensureVisibleOnFirstPick = ( pickedColor ) => pickedColor;
+
 export const isPaletteValue = ( value ) => typeof value === 'string' && /^palette\d+$/.test( value );
 
 export const globeIcon = (

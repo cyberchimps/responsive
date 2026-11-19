@@ -287,7 +287,7 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 
 			// Page Title Color
 			$page_title_color_label = __( 'Title Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'page_title_area_title', $page_title_color_label, 'responsive_page_title_area_layout', 10, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_title_color' ) );
+			responsive_color_control( $wp_customize, 'page_title_area_title', $page_title_color_label, 'responsive_page_title_area_layout', 10, Responsive\Core\get_responsive_customizer_defaults( 'page_title_area_title_color' ) );
 
 			// Page Text Color
 			$page_text_color_label = __( 'Text Color', 'responsive' );
