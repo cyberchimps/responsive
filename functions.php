@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '6.5.2' );
+define( 'RESPONSIVE_THEME_VERSION', '6.5.3' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -4009,20 +4009,20 @@ if ( ! function_exists( 'responsive_theme_background_updater_logo_width_6_5_0' )
 	}
 }
 
-if ( ! function_exists( 'responsive_theme_background_updater_color_defaults_6_5_2' ) ) {
+if ( ! function_exists( 'responsive_theme_background_updater_color_defaults_6_5_3' ) ) {
 	/**
 	 * Handle backward compatibility for the revamped default colors.
 	 *
-	 * The default global palette and many color defaults changed in 6.5.2. Any color setting that
+	 * The default global palette and many color defaults changed in 6.5.3. Any color setting that
 	 * was never saved (theme_mod not set) used to render the old default, so the old default is saved
 	 * for those settings. Settings the user already saved are left untouched.
 	 *
-	 * @since 6.5.2
+	 * @since 6.5.3
 	 * @return void
 	 */
-	function responsive_theme_background_updater_color_defaults_6_5_2() {
+	function responsive_theme_background_updater_color_defaults_6_5_3() {
 
-		if ( get_option( 'responsive_color_defaults_6_5_2_done' ) ) {
+		if ( get_option( 'responsive_color_defaults_6_5_3_done' ) ) {
 			return;
 		}
 
@@ -4112,6 +4112,6 @@ if ( ! function_exists( 'responsive_theme_background_updater_color_defaults_6_5_
 			}
 		}
 
-		update_option( 'responsive_color_defaults_6_5_2_done', true );
+		update_option( 'responsive_color_defaults_6_5_3_done', true );
 	}
 }
