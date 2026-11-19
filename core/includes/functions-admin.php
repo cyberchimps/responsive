@@ -34,6 +34,8 @@ function setup() {
  */
 function responsive_ask_for_review_notice() {
 
+	error_log( 'responsive_ask_for_review_notice' );
+
 	if ( isset( $_GET['page'] ) && 'responsive' === $_GET['page'] ) {
 		return;
 	}
