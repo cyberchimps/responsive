@@ -4084,6 +4084,12 @@ if ( ! function_exists( 'responsive_theme_background_updater_color_defaults_6_5_
 			'responsive_header_primary_row_bottom_border_color_tablet_hover' => '#D4D4D4',
 			'responsive_header_primary_row_bottom_border_color_mobile_hover' => '#D4D4D4',
 			'responsive_header_active_menu_background_color'   => '#ffffff',
+			// Menu hover/active backgrounds used to fall back to white; the default is now blank.
+			'responsive_header_hover_menu_background_color'    => '#ffffff',
+			'responsive_transparent_header_active_menu_background_color' => '#ffffff',
+			'responsive_transparent_header_hover_menu_background_color'  => '#ffffff',
+			'responsive_header_off_canvas_menu_bg_hover_color' => '#ffffff',
+			'responsive_header_off_canvas_menu_bg_active_color' => '#ffffff',
 			'responsive_header_above_row_bottom_border_color'  => '#007CBA',
 			'responsive_header_below_row_bottom_border_color'  => '#007CBA',
 			'responsive_footer_above_row_bg_color'             => '#333333',
