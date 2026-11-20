@@ -4074,11 +4074,25 @@ if ( ! function_exists( 'responsive_theme_background_updater_color_defaults_6_5_
 			'responsive_mobile_header_button_border_color'     => '#000000',
 
 			// Header / footer.
+			'responsive_header_primary_row_bg_color'           => '#FFFFFF',
+			'responsive_header_above_row_bg_color'             => '#FFFFFF',
+			'responsive_header_below_row_bg_color'             => '#FFFFFF',
 			'responsive_header_site_title_color'               => 'palette3',
 			'responsive_header_menu_link_color'                => 'palette3',
 			'responsive_header_primary_row_bottom_border_color' => '#D4D4D4',
+			'responsive_header_primary_row_bottom_border_color_hover' => '#D4D4D4',
+			'responsive_header_primary_row_bottom_border_color_tablet_hover' => '#D4D4D4',
+			'responsive_header_primary_row_bottom_border_color_mobile_hover' => '#D4D4D4',
+			'responsive_header_active_menu_background_color'   => '#ffffff',
 			'responsive_header_above_row_bottom_border_color'  => '#007CBA',
 			'responsive_header_below_row_bottom_border_color'  => '#007CBA',
+			'responsive_footer_above_row_bg_color'             => '#333333',
+			'responsive_footer_primary_row_bg_color'           => '#333333',
+			'responsive_footer_primary_row_bg_color_tablet'    => '#333333',
+			'responsive_footer_primary_row_bg_color_mobile'    => '#333333',
+			'responsive_footer_below_row_bg_color'             => '#FFFFFF',
+			'responsive_footer_below_row_bg_color_tablet'      => '#FFFFFF',
+			'responsive_footer_below_row_bg_color_mobile'      => '#FFFFFF',
 			'responsive_footer_above_row_border_color'         => '#FFFFFF',
 			'responsive_footer_primary_row_border_color'       => '#aaaaaa',
 			'responsive_footer_below_row_border_color'         => '#D4D4D4',
@@ -4109,6 +4123,21 @@ if ( ! function_exists( 'responsive_theme_background_updater_color_defaults_6_5_
 		foreach ( $old_defaults as $setting => $old_default ) {
 			if ( false === get_theme_mod( $setting, false ) ) {
 				set_theme_mod( $setting, $old_default );
+			}
+		}
+
+		// Add To Cart button border colors are new and default to palette7, which is output as a border-color.
+		// Before they existed the buttons took their border color from the global Buttons border color, so
+		// save that color for settings that were never saved to keep the previous border.
+		$previous_border_color = get_theme_mod( 'responsive_button_border_color', '' );
+		if ( '' === $previous_border_color || false === $previous_border_color ) {
+			$previous_border_color = Responsive\Core\get_responsive_customizer_defaults( 'button_border' );
+		}
+		if ( '' !== $previous_border_color && null !== $previous_border_color ) {
+			foreach ( array( 'responsive_add_to_cart_button_border_color', 'responsive_add_to_cart_button_border_color_tablet', 'responsive_add_to_cart_button_border_color_mobile' ) as $border_setting ) {
+				if ( false === get_theme_mod( $border_setting, false ) ) {
+					set_theme_mod( $border_setting, $previous_border_color );
+				}
 			}
 		}
 

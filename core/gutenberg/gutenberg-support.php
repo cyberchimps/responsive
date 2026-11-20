@@ -168,6 +168,10 @@ function responsive_gutenberg_customizer_css() {
 	$secondary_button_hover_color        = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_color' ) ) );
 	$secondary_button_text_color         = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_text_color' ) ) );
 	$secondary_button_hover_text_color   = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_hover_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_text_color' ) ) );
+	// A blank hover text color means the normal state text color is used on hover too.
+	if ( '' === $secondary_button_hover_text_color ) {
+		$secondary_button_hover_text_color = $secondary_button_text_color;
+	}
 	$secondary_button_border_color       = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_border_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_border_color' ) ) );
 	$secondary_button_hover_border_color = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_hover_border_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_border_color' ) ) );
 

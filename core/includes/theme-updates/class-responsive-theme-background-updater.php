@@ -83,9 +83,6 @@ if ( ! class_exists( 'Responsive_Theme_Background_Updater' ) ) {
             '6.5.3' => array (
                 'responsive_theme_background_updater_color_defaults_6_5_3',
             ),
-            '6.5.3' => array (
-                'responsive_theme_background_updater_add_to_cart_border_color_6_5_3',
-            ),
 		);
 
         /**

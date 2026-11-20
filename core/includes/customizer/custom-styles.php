@@ -1938,6 +1938,10 @@ function responsive_customizer_styles() {
 	$secondary_button_hover_color        = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_color' ) ) );
 	$secondary_button_text_color         = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_text_color' ) ) );
 	$secondary_button_hover_text_color   = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_hover_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_text_color' ) ) );
+	// A blank hover text color means the normal state text color is used on hover too.
+	if ( '' === $secondary_button_hover_text_color ) {
+		$secondary_button_hover_text_color = $secondary_button_text_color;
+	}
 	$secondary_button_border_color       = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_border_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_border_color' ) ) );
 	$secondary_button_hover_border_color = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_hover_border_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_border_color' ) ) );
 
@@ -3466,7 +3470,7 @@ function responsive_customizer_styles() {
 		$header_menu_border_color            = esc_html( responsive_prepare_css_value( 'responsive_header_menu_border_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_border' ) ) );
 		$header_menu_link_color              = esc_html( responsive_prepare_css_value( 'responsive_header_menu_link_color' ) );
 		$header_menu_link_hover_color        = esc_html( responsive_prepare_css_value( 'responsive_header_menu_link_hover_color' ) );
-		$header_active_menu_background_color = esc_html( responsive_prepare_css_value( 'responsive_header_active_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_active_menu_background' ) ) );
+		$header_active_menu_background_color = esc_html( responsive_prepare_css_value( 'responsive_header_active_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_active_background' ) ) );
 		$header_hover_menu_background_color  = esc_html( responsive_prepare_css_value( 'responsive_header_hover_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_active_menu_background' ) ) );
 		$menu_active_link_color              = esc_html( responsive_prepare_css_value( 'responsive_header_active_menu_link_color', '' ) );
 
@@ -14247,6 +14251,10 @@ function responsive_customizer_styles() {
 		$add_to_cart_button_text_color       = esc_html( responsive_prepare_css_value( 'responsive_add_to_cart_button_text_color' ) );
 		$add_to_cart_button_hover_color      = esc_html( responsive_prepare_css_value( 'responsive_add_to_cart_button_hover_color' ) );
 		$add_to_cart_button_hover_text_color = esc_html( responsive_prepare_css_value( 'responsive_add_to_cart_button_hover_text_color' ) );
+		// A blank hover text color means the normal state text color is used on hover too.
+		if ( '' === $add_to_cart_button_hover_text_color ) {
+			$add_to_cart_button_hover_text_color = $add_to_cart_button_text_color;
+		}
 		$global_sidebar = get_theme_mod( 'responsive_default_sidebar_position', 'no' );
 		$shop_sidebar_setting = get_theme_mod( 'responsive_shop_sidebar_position', 'global' );
 		$shop_sidebar_position = esc_html( ( $shop_sidebar_setting === 'global' || $shop_sidebar_setting === 'default' ) ? $global_sidebar : $shop_sidebar_setting );
