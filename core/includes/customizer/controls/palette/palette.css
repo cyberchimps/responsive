@@ -210,7 +210,7 @@
 .responsive-custom-palette-anchor {
     display: block;
     position: relative;
-    width: 26px;
+    width: 100%;
     height: 0;
 }
 .responsive-custom-palette-remove {
@@ -322,9 +322,12 @@
 
 /* ---- Link a color control to a palette color ---- */
 .responsive-palette-link-row {
-    display: flex;
-    flex-wrap: wrap;
+    /* Same 9-column grid for both rows so every swatch has identical size and alignment. */
+    display: grid;
+    grid-template-columns: repeat(9, minmax(0, 22px));
+    justify-content: space-between;
     gap: 8px;
+    padding-right: 15px;
     margin-bottom: 12px;
     padding-left: 15px; 
     padding-top: 12px;
@@ -334,8 +337,10 @@
 }
 .responsive-palette-link-swatch {
     box-sizing: border-box;
-    width: 22px;
-    height: 22px;
+    min-width: 0;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
     padding: 0;
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 50%;
@@ -382,4 +387,40 @@ body.wp-customizer .wp-picker-container .wp-color-result.button {
 }
 .responsive-selected-palette-all-colors .responsive-selected-palette-editor .responsive-selected-palette-pickers {
     justify-content: flex-start;
+}
+
+/* Keep the first 9 palette colors on a single row on narrow sidebars.
+   Both rows share the same 9-column grid so every swatch has an identical size. */
+.responsive-selected-palette-all-colors .responsive-selected-palette-editor .responsive-selected-palette-pickers {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+}
+.responsive-selected-palette-main-row,
+.responsive-selected-palette-custom-row {
+    display: grid;
+    grid-template-columns: repeat(9, minmax(0, 26px));
+    justify-content: start;
+    gap: 6px;
+}
+.responsive-selected-palette-main-row > .responsive-inline-color-picker,
+.responsive-selected-palette-custom-row > .responsive-inline-color-picker {
+    width: 100%;
+    min-width: 0;
+}
+.responsive-selected-palette-custom-row .responsive-inline-color-picker > div,
+.responsive-selected-palette-custom-row .responsive-inline-color-picker .wp-picker-container,
+.responsive-selected-palette-custom-row .responsive-inline-color-picker .wp-color-result {
+    width: 100%;
+    min-width: 0;
+}
+.responsive-selected-palette-custom-row .responsive-add-custom-color {
+    width: 100%;
+    max-width: 26px;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 1 / 1;
+}
+.responsive-selected-palette-custom-row:empty {
+    display: none;
 }

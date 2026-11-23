@@ -730,7 +730,6 @@ body.wp-customizer .responsive-color-control-main-wrap .wp-picker-container .wp-
 
 /* Keep all global palette swatches on a single line in the Color/Gradient tabbed picker */
 .responsive-color-picker-tabs .responsive-color-picker-tab-content .responsive-palette-link-row {
-    flex-wrap: nowrap;
     justify-content: space-between;
     gap: 4px;
     padding-left: 0;
@@ -738,11 +737,10 @@ body.wp-customizer .responsive-color-control-main-wrap .wp-picker-container .wp-
     padding-top: 0;
 }
 .responsive-color-picker-tabs .responsive-color-picker-tab-content .responsive-palette-link-row.is-custom {
-    justify-content: flex-start;
-    gap: 6px;
+    justify-content: space-between;
 }
 .responsive-color-picker-tabs .responsive-color-picker-tab-content .responsive-palette-link-swatch {
-    flex: 0 0 22px;
+    flex: none;
 }
 
 .responsive-color-picker-tabs .components-tab-panel__tab-content .responsive-color-picker-tab-content .components-custom-gradient-picker .components-custom-gradient-picker__gradient-bar {

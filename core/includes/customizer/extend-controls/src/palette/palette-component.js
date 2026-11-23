@@ -265,9 +265,12 @@ const PaletteComponent = props => {
             style.innerHTML = `
                 .responsive-inline-color-picker.lg-round .wp-color-result {
                     padding: 0 !important;
-                    width: 26px !important;
+                    width: 100% !important;
+                    max-width: 26px !important;
+                    aspect-ratio: 1 / 1;
                     border-radius: 50% !important;
-                    min-height: 26px !important;
+                    min-height: 0 !important;
+                    height: auto !important;
                 }
             `;
             document.head.appendChild(style);
@@ -492,6 +495,7 @@ const PaletteComponent = props => {
     let selectedPaletteColorsRow = <div className="responsive-selected-palette-all-colors">
         <div className="responsive-selected-palette-editor">
             <div className="responsive-selected-palette-pickers">
+                <div className="responsive-selected-palette-main-row">
                 <InlineThemeModColorPicker key={0} settingId={'responsive_global_color_palette_accent_color'} labelText={'Primary Accent'} settingKey={'accent'} selectedChoice={selectedChoice} />
                 <InlineThemeModColorPicker key={1} settingId={'responsive_global_color_palette_link_hover_color'} labelText={'Secondary Accent'} settingKey={'link_hover'} selectedChoice={selectedChoice} />
                 <InlineThemeModColorPicker key={2} settingId={'responsive_global_color_palette_text_color'} labelText={'Primary Contrast'} settingKey={'text'} selectedChoice={selectedChoice} />
@@ -501,6 +505,8 @@ const PaletteComponent = props => {
                 <InlineThemeModColorPicker key={6} settingId={'responsive_global_color_palette_alt_background_color'} labelText={'Alternate Background'} settingKey={'alt_background'} selectedChoice={selectedChoice} />
                 <InlineThemeModColorPicker key={7} settingId={'responsive_global_color_palette_subtle_background_color'} labelText={'Primary Neutral'} settingKey={'subtle_background'} selectedChoice={selectedChoice} />
                 <InlineThemeModColorPicker key={8} settingId={'responsive_global_color_palette_secondary_neutral_color'} labelText={'Secondary Neutral'} settingKey={'secondary_neutral'} selectedChoice={selectedChoice} />
+                </div>
+                <div className="responsive-selected-palette-custom-row">
                 {customData.items.map( ( item ) => (
                     <CustomPaletteSwatch
                         key={ 'custom-' + item.id }
@@ -517,6 +523,7 @@ const PaletteComponent = props => {
                         <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1.5v9M1.5 6h9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>
                     </button>
                 ) }
+                </div>
             </div>
         </div>
     </div>
