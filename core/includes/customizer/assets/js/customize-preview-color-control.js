@@ -30,7 +30,7 @@
             }  else {
 			api( 'responsive_site_background_color', function( value ) {
 				var color = value.get();
-                if( color && color.includes('palette') ) {
+                if ( typeof color === 'string' && !color.includes('var(') && ( color && color.includes('palette') ) ) {
                     color = 'var(--responsive-global-' + color + ')';
                 }
                 document.documentElement.style.setProperty('--responsive-global-site-background', color);
@@ -176,7 +176,7 @@
         } else {
             api('responsive_box_background_color', function (value) {
                 var color = value.get();
-                if( color && color.includes('palette') ) {
+                if ( typeof color === 'string' && !color.includes('var(') && ( color && color.includes('palette') ) ) {
                     color = 'var(--responsive-global-' + color + ')';
                 }
                 document.documentElement.style.setProperty('--responsive-global-box-background', color);
@@ -1065,7 +1065,7 @@
     api( 'responsive_alt_background_color', function( value ) {
         value.bind( function( newval ) {
             newval = responsivePaletteToVar( newval );
-            if ( newval && newval.includes('palette') ) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && newval.includes('palette') ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $('address, blockquote, pre, code, kbd, tt, var').css('background-color', newval );
@@ -1086,7 +1086,7 @@
 	});
     api( 'responsive_rp_section_bg_color', ( value ) => {
         value.bind( ( newval ) => {
-            if ( newval && newval.includes( 'palette' ) ) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && newval.includes( 'palette' ) ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             if ( newval && newval.startsWith('box-background') ) {
@@ -1098,7 +1098,7 @@
 
     api( 'responsive_rp_text_color', ( value ) => {
         value.bind( ( newval ) => {
-            if ( newval && newval.includes( 'palette' ) ) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && newval.includes( 'palette' ) ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             document.querySelectorAll('.responsive-single-related-posts-container, .responsive-single-related-posts-container p, .responsive-single-related-posts-container .entry-content')
@@ -1118,7 +1118,7 @@
 
     api('responsive_rp_link_color', (value) => {
         value.bind((newval) => {
-            if ( newval && newval.includes( 'palette' ) ) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && newval.includes( 'palette' ) ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             document
@@ -2295,7 +2295,7 @@
         } else {
             api( 'responsive_footer_background_color', function( value ) {
                 var color = value.get();
-                if( color && color.includes('palette') ) {
+                if ( typeof color === 'string' && !color.includes('var(') && ( color && color.includes('palette') ) ) {
                     color = 'var(--responsive-global-' + color + ')';
                 }
                 $('.site-footer').css({
@@ -2436,7 +2436,7 @@
     api('responsive_shop_site_background_color', function (value) {
         value.bind(function (newval) {
             newval = responsivePaletteToVar( newval );
-            if (newval && (newval.includes('palette') || newval.includes('site-background'))) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && (newval && (newval.includes('palette') || newval.includes('site-background'))) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $('body.archive.woocommerce, body.archive.woocommerce-page, body.woocommerce-shop').css('background-color', newval);
@@ -2447,7 +2447,7 @@
     api('responsive_single_product_site_background_color', function (value) {
         value.bind(function (newval) {
             newval = responsivePaletteToVar( newval );
-            if (newval && (newval.includes('palette') || newval.includes('site-background'))) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && (newval && (newval.includes('palette') || newval.includes('site-background'))) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $('body.single-product').css('background-color', newval);
@@ -2458,7 +2458,7 @@
     api('responsive_single_product_content_background_color', function (value) {
         value.bind(function (newval) {
             newval = responsivePaletteToVar( newval );
-            if (newval && (newval.includes('palette') || newval.includes('box-background'))) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && (newval && (newval.includes('palette') || newval.includes('box-background'))) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $('.single-product div.product').css('background-color', newval);
@@ -7456,9 +7456,6 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_blog_site_background_color', function( value ) {
         value.bind( function( newval ) {
             newval = responsivePaletteToVar( newval );
-            if ( newval && ( newval.includes( 'palette' ) || newval.includes( 'site-background' ) )) {
-                newval = 'var(--responsive-global-' + newval + ')';
-            }
             $( 'body.blog, body.archive, body.search-results' ).css( 'background-color', newval );
         } );
     } );
@@ -7467,12 +7464,6 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_blog_content_background_color', function( value ) {
         value.bind( function( newval ) {
             newval = responsivePaletteToVar( newval );
-            if ( newval && newval.includes( 'palette' ) ) {
-                newval = 'var(--responsive-global-' + newval + ')';
-            }
-            if ( newval && newval.startsWith('box-background') ) {
-                newval = `var(--responsive-global-${newval})`;
-            }
             $(
                 '.blog:not(.custom-home-page-active) .site-content .hentry,' +
                 '.archive:not(.post-type-archive-product) .site-content .hentry,' +
@@ -7485,7 +7476,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_blog_category_color', function( value ) {
         value.bind( function( newval ) {
             newval = responsivePaletteToVar( newval );
-            if ( newval && newval.includes( 'palette' ) ) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && newval.includes( 'palette' ) ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $( '.blog .hentry .post-meta .entry-category a, .archive .hentry .post-meta .entry-category a' ).css( 'color', newval );
@@ -7509,7 +7500,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_blog_item_meta_color', function( value ) {
         value.bind( function( newval ) {
             newval = responsivePaletteToVar( newval );
-            if ( newval && ( newval.includes( 'palette' ) || newval.includes( 'meta-text-color' ) ) ) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && ( newval.includes( 'palette' ) || newval.includes( 'meta-text-color' ) ) ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $( '.blog .hentry .post-meta .entry-author a, .archive .hentry .post-meta .entry-author a, .blog .hentry .post-meta .entry-date a, .archive .hentry .post-meta .entry-date a' ).css( 'color', newval );
@@ -7532,12 +7523,6 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_page_site_background_color', function( value ) {
         value.bind( function( newval ) {
             newval = responsivePaletteToVar( newval );
-            if ( newval && newval.includes( 'palette' ) ) {
-                newval = 'var(--responsive-global-' + newval + ')';
-            }
-            if ( newval && newval.startsWith('site-background') ) {
-                newval = `var(--responsive-global-${newval})`;
-            }
             $( 'body.page' ).css( 'background-color', newval );
         } );
     } );
@@ -7546,12 +7531,6 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_single_blog_site_background_color', function( value ) {
         value.bind( function( newval ) {
             newval = responsivePaletteToVar( newval );
-            if ( newval && newval.includes( 'palette' ) ) {
-                newval = 'var(--responsive-global-' + newval + ')';
-            }
-            if ( newval && newval.startsWith('site-background') ) {
-                newval = `var(--responsive-global-${newval})`;
-            }
             $( 'body.single-post' ).css( 'background-color', newval );
         } );
     } );
@@ -7560,12 +7539,6 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_page_content_background_color', function( value ) {
         value.bind( function( newval ) {
             newval = responsivePaletteToVar( newval );
-            if ( newval && newval.includes( 'palette' ) ) {
-                newval = 'var(--responsive-global-' + newval + ')';
-            }
-             if ( newval && newval.startsWith('box-background') ) {
-                newval = `var(--responsive-global-${newval})`;
-            }
             $(
                 '.page:not(.front-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.page-template-gutenberg-fullwidth) .site-content .hentry, .page .site-content #comments,.page .site-content #comments .comment-respond'
             ).css( 'background-color', newval );
@@ -7576,12 +7549,6 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_single_blog_content_background_color', function( value ) {
         value.bind( function( newval ) {
             newval = responsivePaletteToVar( newval );
-            if ( newval && newval.includes( 'palette' ) ) {
-                newval = 'var(--responsive-global-' + newval + ')';
-            }
-             if ( newval && newval.startsWith('box-background') ) {
-                newval = `var(--responsive-global-${newval})`;
-            }
             $(
                 '.single.single-post .site-content .hentry:not(.responsive-related-single-post),.single.single-post .site-content #comments, .single.single-post .site-content #comments .comment-respond'
             ).css( 'background-color', newval );
@@ -7593,7 +7560,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
             if ( ! newval ) { newval = responsiveTitleFallbackColor(); }
-            if ( newval && newval.includes( 'h1-color' ) ) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && newval.includes( 'h1-color' ) ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $('.single-post .entry-title').css('color', newval);
@@ -7613,7 +7580,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_single_blog_post_link_color', function(value) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
-            if ( newval && ( newval.includes( 'palette' ) || newval.includes( 'meta-text-color' ) ) ) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && ( newval.includes( 'palette' ) || newval.includes( 'meta-text-color' ) ) ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $('.single-post .entry-header a:not(.breadcrumbs *), .single-post .entry-header a *:not(.breadcrumbs *), .responsive-blog-single-banner2 .container a:not(.breadcrumbs *), .responsive-blog-single-banner2 .container a *:not(.breadcrumbs *), .single-post .comments-area .comment-metadata a').css('color', newval);
@@ -7636,7 +7603,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_single_blog_post_breadcrumb_color', function(value) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
-            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-color')) ) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && (newval.includes('palette') || newval.includes('breadcrumb-color')) ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $('.single-post .entry-header .breadcrumbs .breadcrumb-list .breadcrumb-current, .single-post .entry-header .breadcrumbs #breadcrumbs, .single-post .entry-header .breadcrumbs #breadcrumbs .breadcrumb_last, .single-post .entry-header .breadcrumbs .rank-math-breadcrumb, .single-post .entry-header .breadcrumbs .rank-math-breadcrumb .last, .responsive-blog-single-banner2 .breadcrumbs .breadcrumb-list .breadcrumb-current, .responsive-blog-single-banner2 .breadcrumbs #breadcrumbs, .responsive-blog-single-banner2 .breadcrumbs #breadcrumbs .breadcrumb_last, .responsive-blog-single-banner2 .breadcrumbs .rank-math-breadcrumb, .responsive-blog-single-banner2 .breadcrumbs .rank-math-breadcrumb .last').css('color', newval);
@@ -7647,7 +7614,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_single_blog_post_breadcrumb_link_color', function(value) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
-            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-link-color')) ) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && (newval.includes('palette') || newval.includes('breadcrumb-link-color')) ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $('.single-post .entry-header .breadcrumbs .breadcrumb-list .breadcrumb a, .single-post .entry-header .breadcrumbs .breadcrumb-list .breadcrumb a *, .single-post .entry-header .breadcrumbs #breadcrumbs a, .single-post .entry-header .breadcrumbs #breadcrumbs a *, .single-post .entry-header .breadcrumbs .rank-math-breadcrumb a, .single-post .entry-header .breadcrumbs .rank-math-breadcrumb a *, .responsive-blog-single-banner2 .breadcrumbs .breadcrumb-list .breadcrumb a, .responsive-blog-single-banner2 .breadcrumbs .breadcrumb-list .breadcrumb a *, .responsive-blog-single-banner2 .breadcrumbs #breadcrumbs a, .responsive-blog-single-banner2 .breadcrumbs #breadcrumbs a *, .responsive-blog-single-banner2 .breadcrumbs .rank-math-breadcrumb a, .responsive-blog-single-banner2 .breadcrumbs .rank-math-breadcrumb a *').css('color', newval);
@@ -7670,7 +7637,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_single_blog_post_breadcrumb_background_color', function(value) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
-            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-background-color')) ) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && (newval.includes('palette') || newval.includes('breadcrumb-background-color')) ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $('.single-post .entry-header .breadcrumbs ,.responsive-blog-single-banner2 .breadcrumbs').css('background-color', newval);
@@ -7681,7 +7648,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_single_blog_post_breadcrumb_separator_color', function(value) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
-            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-separator-color')) ) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && (newval.includes('palette') || newval.includes('breadcrumb-separator-color')) ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $('.single-post .entry-header .breadcrumb-list .chevron, .responsive-blog-single-banner2 .breadcrumb-list .chevron, .single-post .entry-header #breadcrumbs .separator, .responsive-blog-single-banner2 #breadcrumbs .separator, .single-post .entry-header .rank-math-breadcrumb .separator, .responsive-blog-single-banner2 .rank-math-breadcrumb .separator').css('color', newval);
@@ -7740,7 +7707,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
             if ( ! newval ) { newval = responsiveTextFallbackColor(); }
-            if( newval && newval.includes('palette') ) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && newval.includes('palette') ) ) {
                     newval = 'var(--responsive-global-' + newval + ')';
             }
             $('.responsive-archive-entry-banner .container *:not(.page-title, .page-title *):not(a, a *):not(.breadcrumbs):not(.breadcrumbs *), .archive:not(.woocommerce) .site-content-header *:not(.page-title, .page-title *):not(a, a *):not(.breadcrumbs):not(.breadcrumbs *), .blog:not(.woocommerce) .site-content-header *:not(.page-title, .page-title *):not(a, a *):not(.breadcrumbs):not(.breadcrumbs *)').css('color', newval);
@@ -7752,7 +7719,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
             if ( ! newval ) { newval = responsiveTitleFallbackColor(); }
-             if( newval && newval.includes('palette') ) {
+             if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && newval.includes('palette') ) ) {
                     newval = 'var(--responsive-global-' + newval + ')';
             }
             $('.responsive-archive-entry-banner .page-title, .responsive-archive-entry-banner .page-title *, .archive:not(.woocommerce) .site-content-header .page-title, .archive:not(.woocommerce) .site-content-header .page-title *').css('color', newval);
@@ -7763,7 +7730,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_blog_post_link_color', function(value) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
-             if( newval && newval.includes('palette') ) {
+             if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && newval.includes('palette') ) ) {
                     newval = 'var(--responsive-global-' + newval + ')';
             }
             $('.responsive-archive-entry-banner .container a:not(.breadcrumbs *), .responsive-archive-entry-banner .container a *:not(.breadcrumbs *), .archive:not(.woocommerce) .site-content-header a:not(.breadcrumbs *), .archive:not(.woocommerce) .site-content-header a *:not(.breadcrumbs *)').css('color', newval);
@@ -7774,7 +7741,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_blog_post_link_hover_color', function(value) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
-             if( newval && newval.includes('palette') ) {
+             if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && newval.includes('palette') ) ) {
                     newval = 'var(--responsive-global-' + newval + ')';
             }
             var styleId = 'responsive-blog-post-link-hover-color-preview';
@@ -7795,7 +7762,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_blog_post_breadcrumb_color', function(value) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
-            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-color')) ) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && (newval.includes('palette') || newval.includes('breadcrumb-color')) ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $('.responsive-archive-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb-current, .responsive-archive-entry-banner .breadcrumbs #breadcrumbs, .responsive-archive-entry-banner .breadcrumbs #breadcrumbs .breadcrumb_last, .responsive-archive-entry-banner .breadcrumbs .rank-math-breadcrumb, .responsive-archive-entry-banner .breadcrumbs .rank-math-breadcrumb .last, .archive:not(.woocommerce) .site-content-header .breadcrumbs .breadcrumb-list .breadcrumb-current, .archive:not(.woocommerce) .site-content-header .breadcrumbs #breadcrumbs, .archive:not(.woocommerce) .site-content-header .breadcrumbs #breadcrumbs .breadcrumb_last, .archive:not(.woocommerce) .site-content-header .breadcrumbs .rank-math-breadcrumb, .archive:not(.woocommerce) .site-content-header .breadcrumbs .rank-math-breadcrumb .last').css('color', newval);
@@ -7806,7 +7773,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_blog_post_breadcrumb_link_color', function(value) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
-            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-link-color')) ) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && (newval.includes('palette') || newval.includes('breadcrumb-link-color')) ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $('.responsive-archive-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb a, .responsive-archive-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb a *, .responsive-archive-entry-banner .breadcrumbs #breadcrumbs a, .responsive-archive-entry-banner .breadcrumbs #breadcrumbs a *, .responsive-archive-entry-banner .breadcrumbs .rank-math-breadcrumb a, .responsive-archive-entry-banner .breadcrumbs .rank-math-breadcrumb a *, .archive:not(.woocommerce) .site-content-header .breadcrumbs .breadcrumb-list .breadcrumb a, .archive:not(.woocommerce) .site-content-header .breadcrumbs .breadcrumb-list .breadcrumb a *, .archive:not(.woocommerce) .site-content-header .breadcrumbs #breadcrumbs a, .archive:not(.woocommerce) .site-content-header .breadcrumbs #breadcrumbs a *, .archive:not(.woocommerce) .site-content-header .breadcrumbs .rank-math-breadcrumb a, .archive:not(.woocommerce) .site-content-header .breadcrumbs .rank-math-breadcrumb a *').css('color', newval);
@@ -7817,7 +7784,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_blog_post_breadcrumb_link_hover_color', function(value) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
-            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-link-hover-color')) ) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && (newval.includes('palette') || newval.includes('breadcrumb-link-hover-color')) ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             var styleId = 'responsive-blog-post-breadcrumb-link-hover-color-preview';
@@ -7838,7 +7805,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_blog_post_breadcrumb_background_color', function(value) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
-            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-background-color')) ) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && (newval.includes('palette') || newval.includes('breadcrumb-background-color')) ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $('.responsive-archive-entry-banner .breadcrumbs, .archive:not(.woocommerce) .site-content-header .breadcrumbs').css('background-color', newval);
@@ -7849,7 +7816,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_blog_post_breadcrumb_separator_color', function(value) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
-            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-separator-color')) ) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && (newval.includes('palette') || newval.includes('breadcrumb-separator-color')) ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $('.responsive-archive-entry-banner .breadcrumb-list .chevron, .archive:not(.woocommerce) .site-content-header .breadcrumb-list .chevron, .responsive-archive-entry-banner #breadcrumbs .separator, .archive:not(.woocommerce) .site-content-header #breadcrumbs .separator, .responsive-archive-entry-banner .rank-math-breadcrumb .separator, .archive:not(.woocommerce) .site-content-header .rank-math-breadcrumb .separator').css('color', newval);
@@ -8053,7 +8020,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
             newval = responsivePaletteToVar( newval );
             var color = processThemeSettingForCSS('responsive_single_product_title_color') || newval;
             if (color && typeof color === 'string') {
-                if (color.includes('h1-color') || color.includes('palette')) {
+                if ( typeof color === 'string' && !color.includes('var(') && (color.includes('h1-color') || color.includes('palette')) ) {
                     color = 'var(--responsive-global-' + color + ')';
                 }
             }
@@ -8066,7 +8033,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
             var color = processThemeSettingForCSS('responsive_single_product_text_color') || newval;
-            if (color && typeof color === 'string' && color.includes('palette')) {
+            if ( typeof color === 'string' && !color.includes('var(') && (color && typeof color === 'string' && color.includes('palette')) ) {
                 color = 'var(--responsive-global-' + color + ')';
             }
             $('.single-product .site-content-header, .single-product .responsive-single-product-entry-banner').css('color', color ? color : '');
@@ -8078,7 +8045,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
             var color = processThemeSettingForCSS('responsive_single_product_title_link_color') || newval;
-            if (color && typeof color === 'string' && color.includes('palette')) {
+            if ( typeof color === 'string' && !color.includes('var(') && (color && typeof color === 'string' && color.includes('palette')) ) {
                 color = 'var(--responsive-global-' + color + ')';
             }
             var styleId = 'responsive-single-product-title-link-color-preview';
@@ -8100,7 +8067,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
             var color = processThemeSettingForCSS('responsive_single_product_title_link_hover_color') || newval;
-            if (color && typeof color === 'string' && color.includes('palette')) {
+            if ( typeof color === 'string' && !color.includes('var(') && (color && typeof color === 'string' && color.includes('palette')) ) {
                 color = 'var(--responsive-global-' + color + ')';
             }
             var styleId = 'responsive-single-product-title-link-hover-color-preview';
@@ -8260,7 +8227,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
          value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
             if ( ! newval ) { newval = responsiveTextFallbackColor(); }
-            if( newval && newval.includes('palette') ) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && newval.includes('palette') ) ) {
                     newval = 'var(--responsive-global-' + newval + ')';
             }
             jQuery( 'style#responsive-page-title-area-text-color' ).remove();
@@ -8278,7 +8245,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
             if ( ! newval ) { newval = responsiveTitleFallbackColor(); }
-        if( newval && newval.includes('palette') ) {
+        if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && newval.includes('palette') ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
         }
         jQuery( 'style#responsive-page-title-area-title-color' ).remove();
@@ -8294,7 +8261,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_page_title_area_link_color', function(value) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
-             if( newval && newval.includes('palette') ) {
+             if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && newval.includes('palette') ) ) {
                     newval = 'var(--responsive-global-' + newval + ')';
             }
             var styleId = 'responsive-page-title-area-link-color-preview';
@@ -8315,7 +8282,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_page_title_area_link_hover_color', function(value) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
-             if( newval && newval.includes('palette') ) {
+             if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && newval.includes('palette') ) ) {
                     newval = 'var(--responsive-global-' + newval + ')';
             }
             var styleId = 'responsive-page-title-area-link-hover-color-preview';
@@ -8336,7 +8303,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_page_title_area_breadcrumb_color', function(value) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
-            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-color')) ) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && (newval.includes('palette') || newval.includes('breadcrumb-color')) ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $('.page .entry-header .breadcrumbs .breadcrumb-list .breadcrumb-current, .page .entry-header .breadcrumbs #breadcrumbs, .page .entry-header .breadcrumbs #breadcrumbs .breadcrumb_last, .page .entry-header .breadcrumbs .rank-math-breadcrumb, .page .entry-header .breadcrumbs .rank-math-breadcrumb .last, .responsive-single-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb-current, .responsive-single-entry-banner .breadcrumbs #breadcrumbs, .responsive-single-entry-banner .breadcrumbs #breadcrumbs .breadcrumb_last, .responsive-single-entry-banner .breadcrumbs .rank-math-breadcrumb, .responsive-single-entry-banner .breadcrumbs .rank-math-breadcrumb .last').css('color', newval);
@@ -8347,7 +8314,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_page_title_area_breadcrumb_link_color', function(value) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
-            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-link-color')) ) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && (newval.includes('palette') || newval.includes('breadcrumb-link-color')) ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $('.page .entry-header .breadcrumbs .breadcrumb-list .breadcrumb a, .page .entry-header .breadcrumbs .breadcrumb-list .breadcrumb a *, .page .entry-header .breadcrumbs #breadcrumbs a, .page .entry-header .breadcrumbs #breadcrumbs a *, .page .entry-header .breadcrumbs .rank-math-breadcrumb a, .page .entry-header .breadcrumbs .rank-math-breadcrumb a *, .responsive-single-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb a, .responsive-single-entry-banner .breadcrumbs .breadcrumb-list .breadcrumb a *, .responsive-single-entry-banner .breadcrumbs #breadcrumbs a, .responsive-single-entry-banner .breadcrumbs #breadcrumbs a *, .responsive-single-entry-banner .breadcrumbs .rank-math-breadcrumb a, .responsive-single-entry-banner .breadcrumbs .rank-math-breadcrumb a *').css('color', newval);
@@ -8358,7 +8325,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_page_title_area_breadcrumb_link_hover_color', function(value) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
-            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-link-hover-color')) ) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && (newval.includes('palette') || newval.includes('breadcrumb-link-hover-color')) ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             var styleId = 'responsive-page-title-area-breadcrumb-link-hover-color-preview';
@@ -8379,7 +8346,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_page_title_area_breadcrumb_background_color', function(value) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
-            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-background-color')) ) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && (newval.includes('palette') || newval.includes('breadcrumb-background-color')) ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $('.page .entry-header .breadcrumbs ,.responsive-single-entry-banner .breadcrumbs').css('background-color', newval);
@@ -8390,7 +8357,7 @@ api( 'responsive_sticky_header_site_title_color', function( value ) {
     api( 'responsive_page_title_area_breadcrumb_separator_color', function(value) {
         value.bind(function(newval) {
             newval = responsivePaletteToVar( newval );
-            if( newval && (newval.includes('palette') || newval.includes('breadcrumb-separator-color')) ) {
+            if ( typeof newval === 'string' && !newval.includes('var(') && ( newval && (newval.includes('palette') || newval.includes('breadcrumb-separator-color')) ) ) {
                 newval = 'var(--responsive-global-' + newval + ')';
             }
             $('.page .entry-header .breadcrumb-list .chevron, .responsive-single-entry-banner .breadcrumb-list .chevron, .page .entry-header #breadcrumbs .separator, .responsive-single-entry-banner #breadcrumbs .separator, .page .entry-header .rank-math-breadcrumb .separator, .responsive-single-entry-banner .rank-math-breadcrumb .separator').css('color', newval);
