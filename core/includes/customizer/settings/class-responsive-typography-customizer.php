@@ -1489,6 +1489,11 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				// Loop through attributes.
 				foreach ( $attributes as $attribute ) {
 
+					// Skip excluded attributes (e.g. font color set to null).
+					if ( null === $attribute ) {
+						continue;
+					}
+
 					// Define val.
 					$default    = isset( $array['defaults'][ $attribute ] ) ? $array['defaults'][ $attribute ] : null;
 					$val        = isset( $get_mod[ $attribute ] ) ? $get_mod[ $attribute ] : $default;

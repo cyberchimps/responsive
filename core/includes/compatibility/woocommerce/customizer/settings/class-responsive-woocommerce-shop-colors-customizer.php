@@ -85,7 +85,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Colors_Customizer' ) ) :
 
 			// Button Border Color.
 			$add_to_cart_button_border_color_label = esc_html__( 'Border Color', 'responsive' );
-			responsive_color_control_with_device_switchers_and_hover( $wp_customize, 'add_to_cart_button_border', $add_to_cart_button_border_color_label, 'responsive_woocommerce_shop', 74.6, '', '', null, '', 'postMessage' );
+			responsive_color_control_with_device_switchers_and_hover( $wp_customize, 'add_to_cart_button_border', $add_to_cart_button_border_color_label, 'responsive_woocommerce_shop', 74.6, 'palette7', '', null, '', 'postMessage' );
 
 			// Button Border Radius.
 			$add_to_cart_button_radius_label = esc_html__( 'Border Radius', 'responsive' );

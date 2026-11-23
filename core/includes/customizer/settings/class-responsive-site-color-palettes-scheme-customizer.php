@@ -55,11 +55,12 @@ if ( ! class_exists( 'Responsive_Site_Color_Palettes_Scheme_Customizer' ) ) :
 				'responsive_global_color_palette_accent_color'          => '#3B82F6',
 				'responsive_global_color_palette_link_hover_color'      => '#10659C',
 				'responsive_global_color_palette_text_color'            => '#404040',
-				'responsive_global_color_palette_headings_color'        => '#404040',
+				'responsive_global_color_palette_headings_color'        => '#3B82F6',
 				'responsive_global_color_palette_content_bg_color'      => '#ffffff',
 				'responsive_global_color_palette_site_background_color' => '#f8fafc',
 				'responsive_global_color_palette_alt_background_color'  => '#ffffff',
-				'responsive_global_color_palette_subtle_background_color'  => '#10659C'
+				'responsive_global_color_palette_subtle_background_color'  => '#D4D4D4',
+				'responsive_global_color_palette_secondary_neutral_color' => '#AAAAAA'
 			);
 
 			foreach ( $default_colors as $setting_id => $default ) {
@@ -81,6 +82,19 @@ if ( ! class_exists( 'Responsive_Site_Color_Palettes_Scheme_Customizer' ) ) :
 					'sanitize_callback' => 'responsive_sanitize_builder',
 					'default'           => get_responsive_customizer_defaults('default_global_palette'),
 					'transport' => 'postMessage',
+				)
+			);
+
+			$wp_customize->add_setting(
+				'responsive_custom_palette_colors',
+				array(
+					'type'              => 'theme_mod',
+					'default'           => array(
+						'next_id' => 9,
+						'items'   => array(),
+					),
+					'sanitize_callback' => 'responsive_sanitize_custom_palette_colors',
+					'transport'         => 'postMessage',
 				)
 			);
 

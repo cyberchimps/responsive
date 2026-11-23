@@ -42,6 +42,7 @@ function setup() {
 	add_action( 'wp_enqueue_scripts', $n( 'responsive_js' ) );
 	add_action( 'wp_enqueue_scripts', $n( 'responsive_enqueue_comment_reply' ) );
 	add_action( 'wp_enqueue_scripts', $n( 'responsive_enqueue_scrolltotop' ) );
+	add_action( 'wp_enqueue_scripts', $n( 'responsive_enqueue_scroll_to_id' ) );
 	add_action( 'widgets_init', $n( 'responsive_register_widgets' ) );
 	add_filter( 'pre_update_option_show_on_front', $n( 'responsive_front_page_override' ), 10, 2 );
 	add_filter( 'body_class', $n( 'responsive_add_class' ), 999 );
@@ -121,12 +122,12 @@ function responsive_get_option_defaults() {
 		'blog_posts_index_layout_default' => 'default',
 		'site_layout_option'              => 'boxed',
 		'button_style'                    => 'default',
-		'responsive_button_hover_color'                   => 'palette7',
-		'responsive_cart_buttons_hover_color'             => 'palette7',
-		'responsive_cart_checkout_button_hover_color'     => 'palette7',
-		'responsive_add_to_cart_button_hover_color'       => 'palette7',
-		'responsive_header_button_bg_hover_color'            => 'palette7',
-		'responsive_mobile_header_button_bg_hover_color'     => 'palette7',
+		'responsive_button_hover_color'                   => 'palette1',
+		'responsive_cart_buttons_hover_color'             => 'palette1',
+		'responsive_cart_checkout_button_hover_color'     => 'palette1',
+		'responsive_add_to_cart_button_hover_color'       => 'palette1',
+		'responsive_header_button_bg_hover_color'            => 'palette1',
+		'responsive_mobile_header_button_bg_hover_color'     => 'palette1',
 		'home-widgets'                    => false,
 		'site_footer_option'              => 'footer-3-col',
 		'res_hide_site_title'             => false,
@@ -564,6 +565,39 @@ function responsive_enqueue_comment_reply() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+}
+
+/**
+ * Enqueue the Smooth Scroll to ID script when the option is enabled
+ * (Customize > Site Settings > Smooth Scroll).
+ */
+function responsive_enqueue_scroll_to_id() {
+	if ( 1 !== (int) get_theme_mod( 'responsive_enable_scroll_to_id', 0 ) ) {
+		return;
+	}
+
+	$suffix    = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+	$directory = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? 'js-dev' : 'js';
+
+	wp_enqueue_script( 'responsive-scroll-to-id', get_template_directory_uri() . '/core/' . $directory . '/scroll-to-id' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, true );
+
+	/**
+	 * Filter the Smooth Scroll to ID script arguments.
+	 *
+	 * - extraOffset:  extra pixels to subtract from the scroll position.
+	 * - excludeLinks: additional CSS selector(s) of links to ignore.
+	 */
+	wp_localize_script(
+		'responsive-scroll-to-id',
+		'responsiveScrollToId',
+		apply_filters(
+			'responsive_scroll_to_id_args',
+			array(
+				'extraOffset'  => 0,
+				'excludeLinks' => '',
+			)
+		)
+	);
 }
 
 /*
@@ -1543,10 +1577,10 @@ function defaults() {
 			'responsive_single_product_shipping_text'        => __( '& Free Shipping', 'responsive' ),
 			'responsive_single_product_tab_style'       => 'normal',
 			'responsive_single_product_tab_text_color'              => 'palette4',
-			'responsive_single_product_tab_text_hover_color'        => 'palette1',
-			'responsive_single_product_tab_text_active_color'       => 'palette1',
-			'responsive_single_product_tab_background_color'        => '#0066CC',
-			'responsive_single_product_tab_background_hover_color'  => '',
+			'responsive_single_product_tab_text_hover_color'        => '#FFFFFF',
+			'responsive_single_product_tab_text_active_color'       => '#FFFFFF',
+			'responsive_single_product_tab_background_color'        => 'palette0',
+			'responsive_single_product_tab_background_hover_color'  => 'palette1',
 			'responsive_single_product_tab_background_active_color' => 'palette7',
 			// Same fixed values WooCommerce itself uses for the store notice, so nothing changes until a color is picked.
 			'responsive_store_notice_text_color'                    => '#fcfbfe',
@@ -1614,8 +1648,12 @@ function defaults() {
 			'shop_title_container_background_layout2' => 'custom',
 			'page_title_inner_elements_spacing'   => 10,
 			'single_blog_post_title_color'        => 'h1-color',
+			'single_post_title_area_color'        => '',
 			'single_blog_post_text_color'		  => 'palette2',
-			'single_blog_post_link_color'		  => 'palette0',
+			'single_post_title_area_text_color'   => '',
+			'page_title_area_title_color'         => '',
+			'single_blog_post_link_color'		  => 'meta-text-color',
+			'single_page_meta_color'			  => 'meta-text-color',
 			'single_blog_post_link_hover_color'   => 'palette1',
 			'responsive_narrow_container_width'   => 750,
 			'single_blog_content_width'           => 100,
@@ -1639,14 +1677,14 @@ function defaults() {
 			'scroll_to_top_icon_hover'            => '#ffffff',
 			'scroll_to_top_icon_background'       => '#a8a6a6',
 			'scroll_to_top_icon_background_hover' => '#d1cfcf',
-			'add_to_cart_button'                  => '#0066CC',
-			'responsive_add_to_cart_button_hover_color' => 'palette7',
-			'responsive_cart_buttons_hover_color' => 'palette7',
-			'responsive_cart_checkout_button_hover_color' => 'palette7',
-			'responsive_header_button_bg_hover_color' => 'palette7',
-			'responsive_mobile_header_button_bg_hover_color' => 'palette7',
+			'add_to_cart_button'                  => 'palette0',
+			'responsive_add_to_cart_button_hover_color' => 'palette1',
+			'responsive_cart_buttons_hover_color' => 'palette1',
+			'responsive_cart_checkout_button_hover_color' => 'palette1',
+			'responsive_header_button_bg_hover_color' => 'palette1',
+			'responsive_mobile_header_button_bg_hover_color' => 'palette1',
 			'shop_product_price'                  => '#333333',
-			'content_header_heading'              => '#404040',
+			'content_header_heading'              => '',
 			'content_header_description'          => '#999999',
 			'breadcrumb'                          => 'palette2',
 			'breadcrumb_link'                     => 'palette0',
@@ -1659,18 +1697,18 @@ function defaults() {
 			'breadcrumb_link_hover'               => 'palette1',
 			'breadcrumb_separator_color'          => '#000000',
 			'footer_background'                   => '#333333',
-			'footer_text'                         => '#333333',
-			'footer_links'                        => '#0066CC',
-			'footer_links_hover'                  => '#ffffff',
+			'footer_text'                         => 'palette2',
+			'footer_links'                        => 'palette0',
+			'footer_links_hover'                  => 'palette1',
 			'header_background'                   => '#ffffff',
 			'header_border'                       => '#eaeaea',
 			'header_site_title'                   => '#404040',
 			'header_site_title_hover'             => '#10659C',
 			'header_text'						  => 'palette2',
 
-			'responsive_header_site_title_color'       => 'palette3',
+			'responsive_header_site_title_color'       => 'palette2',
 			'responsive_header_site_title_hover_color' => 'palette1',
-			'responsive_sidebar_headings_color'   => 'palette3',
+			'responsive_sidebar_headings_color'   => 'palette2',
 			'responsive_header_text_color'        => 'palette2',
 			'header_widget_text'                  => '#333333',
 			'header_widget_background'            => '#ffffff',
@@ -1702,11 +1740,12 @@ function defaults() {
 			'header_menu_background'              => 'transparent',
 			'header_mobile_menu_background'       => '#ffffff',
 			'header_menu_border'                  => '#eaeaea',
-			'header_active_menu_background'       => '#ffffff',
+			'header_active_menu_background'       => '',
+			'header_menu_active_background'       => '',
 			'header_menu_link'                    => '#333333',
 			'header_menu_link_hover'              => 'pallete1',
 			'responsive_header_menu_link_hover_color' => 'palette1',
-			'responsive_header_menu_link_color'   => 'palette3',
+			'responsive_header_menu_link_color'   => 'palette2',
 			'header_sub_menu_background'          => '#ffffff',
 			'header_sub_menu_link'                => '#333333',
 			'header_sub_menu_link_hover'          => '#10659C',
@@ -1778,33 +1817,33 @@ function defaults() {
 			'mobile_menu_toggle_border_width'	  => 1,
 			'menu_button_radius'                  => 0,
 			'responsive_alt_background_color'     => 'palette6',
-			'responsive_button_text_color'		  => 'palette6',
-			'responsive_button_hover_text_color'  => 'palette1',
+			'responsive_button_text_color'		  => 'palette4',
+			'responsive_button_hover_text_color'  => '',
 			'body_text'                           => '#404040',
-			'responsive_h1_text_color'            => 'headings-color',
-			'responsive_h2_text_color'            => 'headings-color',
-			'responsive_h3_text_color'            => 'headings-color',
-			'responsive_h4_text_color'            => 'headings-color',
-			'responsive_h5_text_color'            => 'headings-color',
-			'responsive_h6_text_color'            => 'headings-color',
+			'responsive_h1_text_color'            => '',
+			'responsive_h2_text_color'            => '',
+			'responsive_h3_text_color'            => '',
+			'responsive_h4_text_color'            => '',
+			'responsive_h5_text_color'            => '',
+			'responsive_h6_text_color'            => '',
 			'h2_text'                             => '#404040',
 			'h3_text'                             => '#404040',
 			'h4_text'                             => '#404040', 
 			'h5_text'                             => '#404040', 
 			'h6_text'                             => '#404040',
-			'responsive_all_heading_text_color'   => 'palette3',
-			'responsive_meta_text_color'          => 'palette0',
+			'responsive_all_heading_text_color'   => 'palette2',
+			'responsive_meta_text_color'          => 'palette3',
 			'link'                                => '#0066CC',
 			'link_hover'                          => '#10659C',
 			'button'                              => '#0066CC',
-			'button_hover'                        => 'palette7',
+			'button_hover'                        => 'palette1',
 			'button_text'                         => '#ffffff',
 			'button_hover_text'                   => '#ffffff',
-			'button_border'                       => '#10659C',
+			'button_border'                       => 'palette7',
 			'button_hover_border'                 => '#0066CC',
 			'inputs_background'                   => '#ffffff',
 			'inputs_text'                         => '#404040',
-			'inputs_border'                       => '#cccccc',
+			'inputs_border'                       => 'palette8',
 			'responsive_title_above_content_bg_color'      => '#ffffff',
 			'responsive_title_above_content_overlay_color' => '',
 			'responsive_blog_banner_background_color'       => 'title-above-content-bg-color',
@@ -1814,7 +1853,7 @@ function defaults() {
 			'responsive_page_featured_image_overlay_color'  => 'title-above-content-overlay-color',
 			'responsive_shop_banner_background_color'       => 'title-above-content-bg-color',
 			'responsive_shop_banner_overlay_color'          => '',
-			'responsive_shop_title_color'                   => 'h1-color',
+			'responsive_shop_title_color'                   => '',
 			'responsive_shop_text_color'                    => 'palette2',
 			'responsive_shop_title_link_color'              => 'breadcrumb-link-color',
 			'responsive_shop_title_link_hover_color'        => 'breadcrumb-link-hover-color',
@@ -1902,24 +1941,24 @@ function defaults() {
 			'responsive_box_background_color'     => 'palette4',
 			'responsive_sidebar_background_color' => 'palette4',
 			'responsive_add_to_cart_button_text_color' => 'palette4',
-			'responsive_add_to_cart_button_hover_text_color' => 'palette1',
+			'responsive_add_to_cart_button_hover_text_color' => '',
 			'responsive_body_text_color'          => 'palette2',
 			'responsive_sidebar_text_color'       => 'palette2',
 			'responsive_link_color'               => 'palette0',
 			'responsive_button_color'             => 'palette0',
-			'responsive_button_hover_color'       => 'palette7',
-			'responsive_secondary_button_text_color'        => 'palette0',
-			'responsive_secondary_button_hover_text_color'  => 'palette1',
-			'responsive_secondary_button_color'             => 'transparent',
-			'responsive_secondary_button_hover_color'       => 'palette0',
-			'responsive_secondary_button_border_color'       => 'palette0',
-			'responsive_secondary_button_hover_border_color' => 'palette0',
+			'responsive_button_hover_color'       => 'palette1',
+			'responsive_secondary_button_text_color'        => 'palette4',
+			'responsive_secondary_button_hover_text_color'  => '',
+			'responsive_secondary_button_color'             => 'palette0',
+			'responsive_secondary_button_hover_color'       => 'palette1',
+			'responsive_secondary_button_border_color'       => 'palette7',
+			'responsive_secondary_button_hover_border_color' => '#0066CC',
 			'responsive_sidebar_link_color'       => 'palette0',
 			'responsive_sidebar_link_hover_color' => 'palette1',
 			'responsive_shop_product_rating_color' => 'palette0',
 			'responsive_cart_checkout_button_color' => 'palette0',
-			'responsive_blog_item_meta_color'		=> 'palette0',
-			'responsive_blog_category_color'		=> 'palette0',
+			'responsive_blog_item_meta_color'		=> 'meta-text-color',
+			'responsive_blog_category_color'		=> 'meta-text-color',
 			'responsive_link_hover_color'         => 'palette1',
 			'responsive_header_search_color'      => '#333333',
 			'responsive_header_search_hover_color'=> '#333333',
@@ -1976,30 +2015,30 @@ function defaults() {
 					'below_right'          => array(),
 				),
 			),
-			'responsive_header_primary_row_bg_color'                  => '#FFFFFF',
+			'responsive_header_primary_row_bg_color'                  => 'palette4',
 			'responsive_header_primary_row_bg_hover_color'            => '#FFFFFF',
 			'responsive_header_primary_row_top_border_color'          => '#D4D4D4',
 			'responsive_header_primary_row_top_border_hover_color'    => '#D4D4D4',
-			'responsive_header_primary_row_bottom_border_color'       => '#D4D4D4',
-			'responsive_header_primary_row_bottom_border_hover_color' => '#D4D4D4',
-			'responsive_header_above_row_bg_color'                    => '#FFFFFF',
+			'responsive_header_primary_row_bottom_border_color'       => 'palette7',
+			'responsive_header_primary_row_bottom_border_hover_color' => '',
+			'responsive_header_above_row_bg_color'                    => 'palette4',
 			'responsive_header_above_row_bg_hover_color'              => '#FFFFFF',
 			'responsive_header_above_row_top_border_color'             => '#007CBA',
 			'responsive_header_above_row_top_border_hover_color'       => '#D9D9D9',
-			'responsive_header_above_row_bottom_border_color'         => '#007CBA',
+			'responsive_header_above_row_bottom_border_color'         => 'palette7',
 			'responsive_header_above_row_bottom_border_hover_color'   => '#D9D9D9',
-			'responsive_header_below_row_bg_color'                    => '#FFFFFF',
+			'responsive_header_below_row_bg_color'                    => 'palette4',
 			'responsive_header_below_row_bg_hover_color'              => '#FFFFFF',
 			'responsive_header_below_row_top_border_color'             => '#007CBA',
 			'responsive_header_below_row_top_border_hover_color'       => '#D9D9D9',
-			'responsive_header_below_row_bottom_border_color'         => '#007CBA',
+			'responsive_header_below_row_bottom_border_color'         => 'palette7',
 			'responsive_header_below_row_bottom_border_hover_color'   => '#D9D9D9',
-			'responsive_footer_above_row_bg_color'                    => '#333333',
-			'responsive_footer_above_row_border_color'                => '#FFFFFF',
-			'responsive_footer_primary_row_bg_color'                  => '#333333',
-			'responsive_footer_primary_row_border_color'              => '#aaaaaa',
-			'responsive_footer_below_row_bg_color'                    => '#FFFFFF',
-			'responsive_footer_below_row_border_color'                => '#D4D4D4',
+			'responsive_footer_above_row_bg_color'                    => 'palette4',
+			'responsive_footer_above_row_border_color'                => 'palette7',
+			'responsive_footer_primary_row_bg_color'                  => 'palette4',
+			'responsive_footer_primary_row_border_color'              => 'palette7',
+			'responsive_footer_below_row_bg_color'                    => 'palette4',
+			'responsive_footer_below_row_border_color'                => 'palette7',
 			'responsive_header_button_label'                          => 'Button',
 			'responsive_header_toggle_button_menu_label'			  => '',
 			'responsive_header_toggle_button_icon'                    => 'hamburger_solid',
@@ -2017,15 +2056,15 @@ function defaults() {
 			'responsive_mobile_header_button_size'					  => 'md', 
 			'responsive_header_button_padding_y'                      => 0,
 			'responsive_header_button_padding_x'                      => 0,
-			'responsive_header_button_color'                          => 'palette6',
-			'responsive_mobile_header_button_color'                   => 'palette6',
-			'responsive_header_button_hover_color'                    => 'palette1',
-			'responsive_mobile_header_button_hover_color'			  => 'palette1',
+			'responsive_header_button_color'                          => 'palette4',
+			'responsive_mobile_header_button_color'                   => 'palette4',
+			'responsive_header_button_hover_color'                    => '#ffffff',
+			'responsive_mobile_header_button_hover_color'			  => '#ffffff',
 			'responsive_header_button_bg_color'                       => 'palette0',
 			'responsive_mobile_header_button_bg_color'				  => 'palette0',
-			'responsive_header_button_bg_hover_color'                 => 'palette7',
-			'responsive_mobile_header_button_bg_hover_color'          => 'palette7',
-			'responsive_header_button_border_color'                   => '#000000',
+			'responsive_header_button_bg_hover_color'                 => 'palette1',
+			'responsive_mobile_header_button_bg_hover_color'          => 'palette1',
+			'responsive_header_button_border_color'                   => 'palette7',
 			'responsive_header_button_border_color_hover'             => '#000000',
 			'responsive_header_button_shadow_color'                   => '#FFFFFF',
 			'responsive_header_button_shadow_x'                       => 0,
@@ -2075,6 +2114,7 @@ function defaults() {
 			'responsive_header_contact_info_background_hover_color'   => '#DADEE3B5',
 			'responsive_header_contact_info_font_color'               => '#292929E6',
 			'responsive_header_contact_info_font_hover_color'         => '#216BDB',
+			'floatingb_qty_input_border_color'						  => 'palette7',
 			'responsive_header_contact_info_margin_y'                 => 0,
 			'responsive_header_contact_info_margin_x'                 => 0,
 			'responsive_header_mobile_off_canvas_content_alignment'   => 'left',
@@ -2131,7 +2171,7 @@ function defaults() {
 																			),
 																		),
 			'footer_copyright_text'                         			=> 'footer-text-color',
-			'footer_copyright_text_hover'                         		=> '#333333',
+			'footer_copyright_text_hover'                         		=> 'footer-text-color',
 			'footer_copyright_links'                                    => 'footer-links-color',
 			'footer_copyright_links_hover'                              => 'footer-links-hover-color',
 			'footer_copyright_link_style'                               => 'standard',
@@ -2385,7 +2425,7 @@ function defaults() {
 		'responsive_blog_title_area'            => true,
 		'responsive_comments_position'          => 'below',
 		'responsive_comments_border_width'      => 0,
-		'responsive_comments_border_color'      => '',
+		'responsive_comments_border_color'      => 'palette7',
 		'responsive_comments_border_radius'     => 8,
 		'responsive_comments_padding'           => 30,
 		'responsive_comments_margin_y'          => 28,
@@ -3625,6 +3665,19 @@ if( ! function_exists( 'responsive_prepare_css_value' ) ) {
 		}
 
 		$value = trim( $value );
+
+		// Custom palette colors (palette9+) may have been removed: fall back to the default.
+		if ( preg_match( '/^palette(\d+)$/', $value, $palette_match ) && (int) $palette_match[1] >= 9
+			&& ! \Reponsive\Core\GlobalPalette\Responsive_Global_Color_Palette::custom_color_exists( (int) $palette_match[1] ) ) {
+			$fallback = is_string( $default ) ? trim( $default ) : '';
+			if ( '' === $fallback || $fallback === $value ) {
+				return '';
+			}
+			if ( preg_match( '/^palette(\d+)$/', $fallback, $fb ) && (int) $fb[1] >= 9 ) {
+				return '';
+			}
+			$value = $fallback;
+		}
 
 		if ( is_string( $value ) && ( preg_match( '/^palette\d+$/', $value ) || false !== strpos( $value, 'headings-color' ) || false !== strpos( $value, 'site-background' ) || false !== strpos( $value, 'box-background' ) || false !== strpos( $value, 'h1-color' ) || false !== strpos( $value, 'footer-text-color' ) || false !== strpos( $value, 'footer-links-color' ) || false !== strpos( $value, 'footer-links-hover-color' ) || false !== strpos( $value, 'breadcrumb' ) ) || false !== strpos( $value, 'meta-text-color' ) ) {
 			return 'var(--responsive-global-' . $value . ')';

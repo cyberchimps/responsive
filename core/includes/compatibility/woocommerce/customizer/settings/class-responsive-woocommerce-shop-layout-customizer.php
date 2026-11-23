@@ -172,15 +172,9 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_popup_content_color',
 				$design_tab_ids_prefix . 'responsive_popup_continue_btn_bg_color',
 				$design_tab_ids_prefix . 'responsive_popup_continue_btn_border_color',
-				$design_tab_ids_prefix . 'responsive_popup_continue_btn_hover_bg_color',
-				$design_tab_ids_prefix . 'responsive_popup_continue_btn_hover_color',
-				$design_tab_ids_prefix . 'responsive_popup_continue_btn_hover_border_color',
 				$design_tab_ids_prefix . 'responsive_popup_cart_btn_bg_color',
 				$design_tab_ids_prefix . 'responsive_popup_cart_btn_color',
 				$design_tab_ids_prefix . 'responsive_popup_cart_btn_border_color',
-				$design_tab_ids_prefix . 'responsive_popup_cart_btn_hover_bg_color',
-				$design_tab_ids_prefix . 'responsive_popup_cart_btn_hover_color',
-				$design_tab_ids_prefix . 'responsive_popup_cart_btn_hover_border_color',
 				$design_tab_ids_prefix . 'responsive_popup_text_color',
 				$design_tab_ids_prefix . 'responsive_popup_continue_btn_color',
 			);
@@ -192,7 +186,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			
 			// product background color
 			$product_background_color_label =  esc_html__( 'Product Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'shop_product_background', $product_background_color_label, 'responsive_woocommerce_shop', 30,'#ffffff');
+			responsive_color_control( $wp_customize, 'shop_product_background', $product_background_color_label, 'responsive_woocommerce_shop', 30, '' );
 			
 			// Shop Background Color.
 			$shop_site_background_color_label = esc_html__( 'Shop Background', 'responsive' );

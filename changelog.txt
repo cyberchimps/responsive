@@ -8,6 +8,12 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(23/11/2026) Version 6.5.3
+[+] = New = Added a 9th Global Color in the Color Palette (Secondary Neutral)
+[+] = New = Allowing users to add upto 9 custom colors in the Global Color Palette
+[+] = New = Added Scroll To ID feature in Performance section
+[*] = Improvement = Allowing any color picker in the theme to link with any color from the color palette
+
 (12/11/2026) Version 6.5.2
 [+] = New = Added a feedback popup to the Responsive theme to help users share their feedback.
 [*] = Improvement = Updated the Customizer preview screen for an improved user experience.

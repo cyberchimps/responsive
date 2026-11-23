@@ -258,7 +258,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				'header_hover_menu_background',
 
 				// Active
-				Responsive\Core\get_responsive_customizer_defaults( 'header_active_menu_background' ),
+				Responsive\Core\get_responsive_customizer_defaults( 'header_menu_active_background' ),
 				'header_active_menu_background'
 			);
 			
