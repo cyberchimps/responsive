@@ -62,6 +62,11 @@
 					"name": "Subtle Background",
 					"slug": "responsive-global-palette7",
 					"color": "var(--responsive-global-palette7)"
+				},
+				{
+					"name": "Secondary Neutral",
+					"slug": "responsive-global-palette8",
+					"color": "var(--responsive-global-palette8)"
 				}
 			]
 		}

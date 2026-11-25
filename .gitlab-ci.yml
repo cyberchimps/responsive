@@ -1,0 +1,96 @@
+# Claude MR review - manual button, triggered when the dev is satisfied.
+#
+# Auth: uses the Claude Team plan subscription (not a pay-per-token API key).
+#
+# Prerequisites:
+# 1. On a machine with Claude Code installed and logged in to a Team seat,
+#    run `claude setup-token` and approve the browser OAuth prompt. It
+#    prints a token valid for one year - copy it.
+# 2. Settings -> CI/CD -> Variables, add:
+#    - CLAUDE_CODE_OAUTH_TOKEN  (the token from step 1, masked)
+#    - GITLAB_TOKEN             (Project/Group Access Token, "api" scope, masked)
+#      Used only to post the review as a comment on the MR.
+#    Do NOT also set ANTHROPIC_API_KEY on this job/project/group - if both
+#    are present, the API key takes precedence and the subscription token
+#    is ignored.
+# 3. Merge this file into your default branch.
+#
+# Note: usage draws from the seat that generated the token (shared with
+# that person's Claude chat/Cowork/Code usage), not separate org API
+# billing. Consider generating it from a dedicated seat if this job will
+# run often.
+ 
+stages:
+  - ai-review
+ 
+claude_review:
+  stage: ai-review
+  # No "image:" - if your runner uses the shell executor (not Docker), image
+  # is silently ignored and jobs run on the runner's bare host, which is what
+  # caused "npm: command not found". Installing Node via nvm here works
+  # whether the runner is Docker-backed or a plain shell executor.
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
+      when: manual
+  allow_failure: true   # a not-yet-run manual job should never block merge
+  before_script:
+    - unset ANTHROPIC_API_KEY   # safety: make sure the subscription token is what gets used
+    - export NVM_DIR="$HOME/.nvm"
+    - if [ ! -s "$NVM_DIR/nvm.sh" ]; then curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash; fi
+    - . "$NVM_DIR/nvm.sh"
+    - nvm install 20
+    - nvm use 20
+    - node -v && npm -v
+    - npm install -g @anthropic-ai/claude-code
+  script:
+    - git fetch origin "$CI_MERGE_REQUEST_TARGET_BRANCH_NAME"
+    - |
+      git diff "origin/$CI_MERGE_REQUEST_TARGET_BRANCH_NAME"...HEAD -- . \
+        ':(exclude)*.min.css' ':(exclude)*.min.js' ':(exclude)*-rtl.css' \
+        ':(exclude)core/css/style.css' ':(exclude)*.map' \
+        ':(exclude)package-lock.json' ':(exclude)languages/*' \
+        | head -c 300000 > diff.txt
+    - |
+      {
+        echo "You are a senior WordPress engineer reviewing a merge request";
+        echo "for a WordPress theme. Focus on bugs, security issues, and";
+        echo "regressions, with particular attention to WordPress-specific";
+        echo "practices:";
+        echo "- Output escaping: esc_html(), esc_attr(), esc_url(), esc_js()";
+        echo "  used wherever dynamic data is echoed into HTML/attributes/JS.";
+        echo "- Input sanitization: sanitize_text_field(), sanitize_email(),";
+        echo "  absint(), etc. applied to \$_GET/\$_POST/\$_REQUEST before use.";
+        echo "- SQL safety: \$wpdb queries use \$wpdb->prepare() with";
+        echo "  placeholders instead of directly interpolated variables.";
+        echo "- Nonce verification (wp_verify_nonce / check_admin_referer) on";
+        echo "  any form submission, AJAX handler, or state-changing request.";
+        echo "- Capability checks (current_user_can()) before privileged";
+        echo "  actions, especially in admin-facing or AJAX code.";
+        echo "- Proper enqueuing of scripts/styles via wp_enqueue_script() /";
+        echo "  wp_enqueue_style() rather than hardcoded <script>/<link> tags.";
+        echo "- Correct, translator-friendly i18n: strings wrapped in __()/";
+        echo "  _e()/esc_html__() etc. with a consistent text domain.";
+        echo "- Direct file access guarded where expected (e.g. ABSPATH check)";
+        echo "  in template/include files.";
+        echo "- No use of deprecated WordPress functions or raw eval()/";
+        echo "  extract() on user-influenced data.";
+        echo "- Hooks (add_action/add_filter) used correctly, without side";
+        echo "  effects that run on every page load unnecessarily.";
+        echo "The merge request diff is provided on stdin. It may be truncated";
+        echo "and generated files (minified/compiled CSS) are excluded.";
+        echo "Report findings by severity (critical/security first), citing";
+        echo "file and line. Be concise.";
+      } > review_instructions.txt
+    - claude -p "$(cat review_instructions.txt)" --model claude-haiku-4-5 < diff.txt > review-output.txt 2> review-error.txt || true
+    - |
+      if [ -s review-output.txt ]; then
+        PAYLOAD=$(jq -n --rawfile body review-output.txt '{"body": ("### Claude Code Review\n\n" + $body)}')
+      else
+        cat review-error.txt
+        PAYLOAD=$(jq -n '{"body": "### Claude Code Review\n\nReview failed. See the job log for details."}')
+      fi
+      curl --request POST \
+        --header "PRIVATE-TOKEN: $GITLAB_TOKEN" \
+        --header "Content-Type: application/json" \
+        --data "$PAYLOAD" \
+        "$CI_API_V4_URL/projects/$CI_PROJECT_ID/merge_requests/$CI_MERGE_REQUEST_IID/notes"

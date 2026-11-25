@@ -496,7 +496,7 @@
 				const palette = newval.palette;
 
 				// Define the correct order of palette keys to ensure proper mapping to CSS variables
-				const paletteKeyOrder = ['accent', 'link_hover', 'text', 'header_text', 'content_background', 'site_background', 'alt_background'];
+				const paletteKeyOrder = ['accent', 'link_hover', 'text', 'header_text', 'content_background', 'site_background', 'alt_background', 'subtle_background', 'secondary_neutral'];
 				
 				let cssVars = {};
 
@@ -702,7 +702,8 @@
 			'responsive_global_color_palette_content_bg_color': 4,
 			'responsive_global_color_palette_site_background_color': 5,
 			'responsive_global_color_palette_alt_background_color': 6,
-			'responsive_global_color_palette_subtle_background_color': 7
+			'responsive_global_color_palette_subtle_background_color': 7,
+			'responsive_global_color_palette_secondary_neutral_color': 8
 		};
 
 		Object.entries(globalPaletteMapping).forEach(function([settingId, index]) {
@@ -719,6 +720,42 @@
 				});
 			});
 		});
+	});
+
+	// User-added custom palette colors: keep --responsive-global-palette{id} in sync in the
+	// Customizer window and in the preview; unset vars of removed colors.
+	wp.customize('responsive_custom_palette_colors', function(setting) {
+		let appliedIds = [];
+		const getRoots = function() {
+			const roots = [document.documentElement];
+			const iframe = document.querySelector('#customize-preview iframe');
+			if (iframe && iframe.contentWindow && iframe.contentWindow.document) {
+				roots.push(iframe.contentWindow.document.documentElement);
+			}
+			return roots;
+		};
+		const apply = function(val) {
+			const items = val && Array.isArray(val.items) ? val.items : [];
+			const roots = getRoots();
+			const ids = items.map(function(i) { return String(i.id); });
+			appliedIds.forEach(function(id) {
+				if (ids.indexOf(id) === -1) {
+					roots.forEach(function(r) {
+						r.style.removeProperty('--responsive-global-palette' + id);
+						r.style.removeProperty('--e-global-color-responsivepalette' + id);
+					});
+				}
+			});
+			items.forEach(function(i) {
+				roots.forEach(function(r) {
+					r.style.setProperty('--responsive-global-palette' + i.id, i.color);
+					r.style.setProperty('--e-global-color-responsivepalette' + i.id, 'var(--responsive-global-palette' + i.id + ')');
+				});
+			});
+			appliedIds = ids;
+		};
+		apply(setting.get());
+		setting.bind(apply);
 	});
 
 	function applyToPreview(cssVars) {

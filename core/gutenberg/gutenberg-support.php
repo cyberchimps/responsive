@@ -26,7 +26,7 @@ function responsive_gutenberg_color_palette() {
 	$button_color            = esc_html( responsive_prepare_css_value( 'responsive_button_color', '#0066CC' ) );
 	$button_hover_color      = esc_html( responsive_prepare_css_value( 'responsive_button_hover_color' ) );
 	$button_text_color       = esc_html( responsive_prepare_css_value( 'responsive_button_text_color', '#FFFFFF' ) );
-	$button_hover_text_color = esc_html( responsive_prepare_css_value( 'responsive_button_hover_text_color', '#FFFFFF' ) );
+	$button_hover_text_color = esc_html( responsive_prepare_css_value( 'responsive_button_hover_text_color', '' ) );
 
 	$responsive_gutenberg_color_options = array(
 
@@ -104,8 +104,47 @@ function responsive_gutenberg_colors( $responsive_gutenberg_color_options ) {
 	$css .= ':root .has-responsive-global-palette-6-background-color { background-color: var(--responsive-global-palette6); }';
 	$css .= ':root .has-responsive-global-palette-7-color { color: var(--responsive-global-palette7); }';
 	$css .= ':root .has-responsive-global-palette-7-background-color { background-color: var(--responsive-global-palette7); }';
+	$css .= ':root .has-responsive-global-palette-8-color { color: var(--responsive-global-palette8); }';
+	$css .= ':root .has-responsive-global-palette-8-background-color { background-color: var(--responsive-global-palette8); }';
+	foreach ( Responsive_Global_Color_Palette::get_custom_colors() as $custom ) {
+		$n    = (int) $custom['id'];
+		$css .= ":root .has-responsive-global-palette-{$n}-color { color: var(--responsive-global-palette{$n}); }";
+		$css .= ":root .has-responsive-global-palette-{$n}-background-color { background-color: var(--responsive-global-palette{$n}); }";
+	}
 	return wp_strip_all_tags( $css );
 }
+
+/**
+ * Add user-added custom palette colors to the block editor palette (theme.json is static).
+ *
+ * @param WP_Theme_JSON_Data $theme_json Theme JSON data.
+ * @return WP_Theme_JSON_Data
+ */
+function responsive_add_custom_palette_to_theme_json( $theme_json ) {
+	$custom = Responsive_Global_Color_Palette::get_custom_colors();
+	if ( empty( $custom ) ) {
+		return $theme_json;
+	}
+	$data    = $theme_json->get_data();
+	$palette = isset( $data['settings']['color']['palette'] ) ? $data['settings']['color']['palette'] : array();
+	if ( isset( $palette['theme'] ) ) {
+		$palette = $palette['theme'];
+	}
+	foreach ( $custom as $item ) {
+		$palette[] = array(
+			'name'  => '' !== $item['name'] ? $item['name'] : 'Custom ' . ( $item['id'] - 8 ),
+			'slug'  => 'responsive-global-palette' . (int) $item['id'],
+			'color' => 'var(--responsive-global-palette' . (int) $item['id'] . ')',
+		);
+	}
+	return $theme_json->update_with(
+		array(
+			'version'  => 2,
+			'settings' => array( 'color' => array( 'palette' => $palette ) ),
+		)
+	);
+}
+add_filter( 'wp_theme_json_data_theme', 'responsive_add_custom_palette_to_theme_json' );
 
 /**
  * [customizer_css description].
@@ -121,7 +160,7 @@ function responsive_gutenberg_customizer_css() {
 	$button_color              = esc_html( responsive_prepare_css_value( 'responsive_button_color' ) );
 	$button_hover_color        = esc_html( responsive_prepare_css_value( 'responsive_button_hover_color' ) );
 	$button_text_color         = esc_html( responsive_prepare_css_value( 'responsive_button_text_color', '#FFFFFF' ) );
-	$button_hover_text_color   = esc_html( responsive_prepare_css_value( 'responsive_button_hover_text_color', '#FFFFFF' ) );
+	$button_hover_text_color   = esc_html( responsive_prepare_css_value( 'responsive_button_hover_text_color', '' ) );
 	$button_border_color       = esc_html( responsive_prepare_css_value( 'responsive_button_border_color', '#10659C' ) );
 	$button_hover_border_color = esc_html( responsive_prepare_css_value( 'responsive_button_hover_border_color', '#0066CC' ) );
 
@@ -129,6 +168,10 @@ function responsive_gutenberg_customizer_css() {
 	$secondary_button_hover_color        = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_color' ) ) );
 	$secondary_button_text_color         = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_text_color' ) ) );
 	$secondary_button_hover_text_color   = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_hover_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_text_color' ) ) );
+	// A blank hover text color means the normal state text color is used on hover too.
+	if ( '' === $secondary_button_hover_text_color ) {
+		$secondary_button_hover_text_color = $secondary_button_text_color;
+	}
 	$secondary_button_border_color       = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_border_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_border_color' ) ) );
 	$secondary_button_hover_border_color = esc_html( responsive_prepare_css_value( 'responsive_secondary_button_hover_border_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_secondary_button_hover_border_color' ) ) );
 
@@ -196,7 +239,7 @@ function responsive_gutenberg_customizer_css() {
 	$buttons_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_buttons_mobile_left_padding', 10 ) );
 	$buttons_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_buttons_mobile_top_padding', 10 ) );
 	$buttons_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_buttons_mobile_bottom_padding', 10 ) );
-	$box_background_color          = esc_html( get_theme_mod( 'responsive_box_background_color', '#ffffff' ) );
+	$box_background_color          = esc_html( responsive_prepare_css_value( 'responsive_box_background_color', '#ffffff' ) );
 
 	// Buttons border width new control.
 	$buttons_border_width_top 			= esc_html( get_theme_mod( 'responsive_buttons_border_width_top_border', 0 ) );
@@ -248,11 +291,11 @@ function responsive_gutenberg_customizer_css() {
 	$secondary_button_tablet_typography = get_theme_mod( 'secondary_button_tablet_typography' );
 	$secondary_button_mobile_typography = get_theme_mod( 'secondary_button_mobile_typography' );
 
-	$inputs_border_color               = esc_html( get_theme_mod( 'responsive_inputs_border_color', Responsive\Core\get_responsive_customizer_defaults( 'inputs_border' ) ) );
-	$inputs_text_color                 = esc_html( get_theme_mod( 'responsive_inputs_text_color', Responsive\Core\get_responsive_customizer_defaults( 'inputs_text' ) ) );
-	$inputs_background_color           = esc_html( get_theme_mod( 'responsive_inputs_background_color', Responsive\Core\get_responsive_customizer_defaults( 'inputs_background' ) ) );
+	$inputs_border_color               = esc_html( responsive_prepare_css_value( 'responsive_inputs_border_color', Responsive\Core\get_responsive_customizer_defaults( 'inputs_border' ) ) );
+	$inputs_text_color                 = esc_html( responsive_prepare_css_value( 'responsive_inputs_text_color', Responsive\Core\get_responsive_customizer_defaults( 'inputs_text' ) ) );
+	$inputs_background_color           = esc_html( responsive_prepare_css_value( 'responsive_inputs_background_color', Responsive\Core\get_responsive_customizer_defaults( 'inputs_background' ) ) );
 
-	$label_color                       = esc_html( get_theme_mod( 'responsive_label_color', Responsive\Core\get_responsive_customizer_defaults( 'label' ) ) );
+	$label_color                       = esc_html( responsive_prepare_css_value( 'responsive_label_color', Responsive\Core\get_responsive_customizer_defaults( 'label' ) ) );
 	// Input fields padding.
 	$inputs_padding_right              = esc_html( get_theme_mod( 'responsive_inputs_right_padding', 3 ) );
 	$inputs_padding_left               = esc_html( get_theme_mod( 'responsive_inputs_left_padding', 3 ) );
@@ -301,7 +344,7 @@ function responsive_gutenberg_customizer_css() {
 	$input_border_mobile_bottom_width  = esc_html( get_theme_mod( 'responsive_inputs_border_width_mobile_bottom_border', 1 ) );
 	$input_border_mobile_left_width    = esc_html( get_theme_mod( 'responsive_inputs_border_width_mobile_left_border', 1 ) );
 	// Form Fields -> Label Color.
-	$label_color                       = esc_html( get_theme_mod( 'responsive_label_color', Responsive\Core\get_responsive_customizer_defaults( 'label' ) ) );
+	$label_color                       = esc_html( responsive_prepare_css_value( 'responsive_label_color', Responsive\Core\get_responsive_customizer_defaults( 'label' ) ) );
 	$inputs_background_image           = get_theme_mod( 'responsive_inputs_background_image_toggle' ) ? esc_url( get_theme_mod( 'responsive_inputs_background_image' ) ) : null ;
 	$input_typography                  = get_theme_mod( 'input_typography');
 	$input_tablet_typography           = get_theme_mod( 'input_tablet_typography' );
@@ -386,14 +429,14 @@ function responsive_gutenberg_customizer_css() {
 		$cart_content_custom_width         = ( $cart_content_width / 100 ) * $responsive_container_width;
 		$checkout_custom_content_width     = ( $checkout_content_width / 100 ) * $responsive_container_width;
 	
-		$cart_buttons_color            	   = esc_html( get_theme_mod( 'responsive_cart_buttons_color', '#10659C' ) );
+		$cart_buttons_color            	   = esc_html( responsive_prepare_css_value( 'responsive_cart_buttons_color', '#10659C' ) );
 		$cart_buttons_text_color       	   = esc_html( responsive_prepare_css_value( 'responsive_cart_buttons_text_color', 'palette4' ) );
-		$cart_buttons_hover_color      	   = esc_html( get_theme_mod( 'responsive_cart_buttons_hover_color', '#0066CC' ) );
-		$cart_buttons_hover_text_color 	   = esc_html( responsive_prepare_css_value( 'responsive_cart_buttons_hover_text_color', 'palette1' ) );
+		$cart_buttons_hover_color      	   = esc_html( responsive_prepare_css_value( 'responsive_cart_buttons_hover_color', 'palette1' ) );
+		$cart_buttons_hover_text_color 	   = esc_html( responsive_prepare_css_value( 'responsive_cart_buttons_hover_text_color', '' ) );
 	
 		$cart_checkout_button_color             = esc_html( responsive_prepare_css_value( 'responsive_cart_checkout_button_color' ) );
 		$cart_checkout_button_hover_color       = esc_html( responsive_prepare_css_value( 'responsive_cart_checkout_button_hover_color', 'palette7' ) );
-		$cart_checkout_button_text_color        = esc_html( responsive_prepare_css_value( 'responsive_cart_checkout_button_text_color', 'palette4' ) );
+		$cart_checkout_button_text_color        = esc_html( responsive_prepare_css_value( 'responsive_cart_checkout_button_text_color', '' ) );
 		$cart_checkout_button_hover_text_color  = esc_html( responsive_prepare_css_value( 'responsive_cart_checkout_button_hover_text_color', 'palette1' ) );
 	}
 
@@ -451,7 +494,7 @@ function responsive_gutenberg_customizer_css() {
 		.edit-post-visual-editor.editor-styles-wrapper .wp-block h' . $i . ',
 		.wp-block-freeform.block-library-rich-text__tinymce h' . $i . ',
 		.wp-block-heading h' . $i . '.editor-rich-text__tinymce {
-			color: ' . esc_html( get_theme_mod( "responsive_h{$i}_text_color", '#333333' ) ) . ';
+			color: ' . esc_html( responsive_prepare_css_value( "responsive_h{$i}_text_color", '#333333' ) ) . ';
 		}';
 
 		if ( get_theme_mod( 'heading_h' . $i . '_typography' ) ) {

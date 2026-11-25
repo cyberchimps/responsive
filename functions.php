@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '6.5.1' );
+define( 'RESPONSIVE_THEME_VERSION', '6.5.3' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -61,13 +61,17 @@ require $responsive_template_directory . '/core/includes/modules/color-palette/c
 require $responsive_template_directory . '/core/includes/functions-deprecated.php';
 // Custom page walker.
 require $responsive_template_directory . '/core/includes/classes/class-responsive-walker-page.php';
-require $responsive_template_directory . '/admin/starter-custom-page/responsive-home-starter-content.php';
 
 if ( is_admin() ) {
 	/**
 	 * Admin Menu Settings
 	 */
 	require_once $responsive_template_directory . '/core/includes/classes/class-responsive-admin-settings.php';
+
+	/**
+	 * Optional feedback popup on Appearance > Themes > Add New Theme.
+	 */
+	require_once $responsive_template_directory . '/admin/feedback/class-responsive-theme-feedback.php';
 }
 
 /**
@@ -210,12 +214,6 @@ function responsive_free_setup() {
 	add_editor_style( 'core/css/gutenberg-editor.css' );
 	// Gutenberg editor color palette.
 	add_theme_support( 'editor-color-palette', responsive_gutenberg_color_palette() );
-
-	// Render Custom Starter content.
-	if ( class_exists( 'Responsive_Home_Starter_Content', false ) ) {
-		$responsive_home_starter_content = new Responsive_Home_Starter_Content();
-		add_theme_support( 'starter-content', $responsive_home_starter_content->get() );
-	}
 
 	$small_font_sizes  = get_theme_mod( 'meta_typography' );
 	$normal_sizes      = get_theme_mod( 'body_typography' );
@@ -1205,6 +1203,34 @@ function responsive_add_sub_toggles_to_secondary_menu( $args, $item, $depth ) {
 }
 
 add_filter( 'nav_menu_item_args', 'responsive_add_sub_toggles_to_secondary_menu', 10, 3 );
+
+/**
+ * Make sure sub menu items that have children show the dropdown indicator.
+ *
+ * The mega menu walkers (Responsive Pro / Add-ons) only print the inner indicator
+ * ( $args->link_after ) for top level items, so on desktop, where only the inner
+ * indicator is visible, nested items with a sub menu show no arrow at all.
+ * Add it when the walker left it out; walkers that already print it are untouched.
+ *
+ * @param string   $item_output The menu item's starting HTML output.
+ * @param WP_Post  $item        Menu item data object.
+ * @param int      $depth       Depth of the menu item.
+ * @param stdClass $args        An object of wp_nav_menu() arguments.
+ * @return string
+ */
+function responsive_add_sub_menu_indicator_to_nested_items( $item_output, $item, $depth, $args ) {
+	if ( $depth < 1 || empty( $args->link_after ) || false === strpos( $args->link_after, 'res-iconify-inner' ) ) {
+		return $item_output;
+	}
+
+	if ( ! in_array( 'menu-item-has-children', (array) $item->classes, true ) || false !== strpos( $item_output, 'res-iconify-inner' ) ) {
+		return $item_output;
+	}
+
+	// Place the indicator inside the link, right before its closing tag.
+	return preg_replace( '~</a>~', str_replace( '\\', '\\\\', $args->link_after ) . '</a>', $item_output, 1 );
+}
+add_filter( 'walker_nav_menu_start_el', 'responsive_add_sub_menu_indicator_to_nested_items', 10, 4 );
 
 if ( ! function_exists( 'responsive_display_date_box' ) ) {
 	/**
@@ -3980,5 +4006,147 @@ if ( ! function_exists( 'responsive_theme_background_updater_logo_width_6_5_0' )
 		}
 
 		update_option( 'responsive_logo_width_6_5_0_done', true );
+	}
+}
+
+if ( ! function_exists( 'responsive_theme_background_updater_color_defaults_6_5_3' ) ) {
+	/**
+	 * Handle backward compatibility for the revamped default colors.
+	 *
+	 * The default global palette and many color defaults changed in 6.5.3. Any color setting that
+	 * was never saved (theme_mod not set) used to render the old default, so the old default is saved
+	 * for those settings. Settings the user already saved are left untouched.
+	 *
+	 * @since 6.5.3
+	 * @return void
+	 */
+	function responsive_theme_background_updater_color_defaults_6_5_3() {
+
+		if ( get_option( 'responsive_color_defaults_6_5_3_done' ) ) {
+			return;
+		}
+
+		// Global palette: an unset palette used to fall back to the old Playful Default colors.
+		if ( false === get_theme_mod( 'responsive_global_color_palette', false ) ) {
+			set_theme_mod(
+				'responsive_global_color_palette',
+				array(
+					'style'   => 'playful-default',
+					'palette' => array(
+						'label'              => _x( 'Default', 'color palette name', 'responsive' ),
+						'accent'             => '#3B82F6',
+						'link_hover'         => '#10659C',
+						'text'               => '#404040',
+						'header_text'        => '#404040',
+						'content_background' => '#ffffff',
+						'site_background'    => '#f0f5fa',
+						'alt_background'     => '#ffffff',
+						'subtle_background'  => '#10659C',
+						'secondary_neutral'  => '#64748B',
+					),
+				)
+			);
+		}
+
+		// Theme mod => previous default.
+		$old_defaults = array(
+			// Buttons.
+			'responsive_button_text_color'                     => 'palette6',
+			'responsive_button_hover_color'                    => 'palette7',
+			'responsive_button_hover_text_color'               => 'palette1',
+			'responsive_button_border_color'                   => '#10659C',
+			'responsive_inputs_border_color'                   => '#cccccc',
+			'responsive_secondary_button_text_color'           => 'palette0',
+			'responsive_secondary_button_hover_text_color'     => 'palette1',
+			'responsive_secondary_button_color'                => 'transparent',
+			'responsive_secondary_button_hover_color'          => 'palette0',
+			'responsive_secondary_button_border_color'         => 'palette0',
+			'responsive_secondary_button_hover_border_color'   => 'palette0',
+
+			// Header button.
+			'responsive_header_button_color'                   => 'palette6',
+			'responsive_mobile_header_button_color'            => 'palette6',
+			'responsive_header_button_hover_color'             => 'palette1',
+			'responsive_mobile_header_button_hover_color'      => 'palette1',
+			'responsive_header_button_bg_hover_color'          => 'palette7',
+			'responsive_mobile_header_button_bg_hover_color'   => 'palette7',
+			'responsive_header_button_border_color'            => '#000000',
+			'responsive_mobile_header_button_border_color'     => '#000000',
+
+			// Header / footer.
+			'responsive_header_primary_row_bg_color'           => '#FFFFFF',
+			'responsive_header_above_row_bg_color'             => '#FFFFFF',
+			'responsive_header_below_row_bg_color'             => '#FFFFFF',
+			'responsive_header_site_title_color'               => 'palette3',
+			'responsive_header_menu_link_color'                => 'palette3',
+			'responsive_header_primary_row_bottom_border_color' => '#D4D4D4',
+			'responsive_header_primary_row_bottom_border_color_hover' => '#D4D4D4',
+			'responsive_header_primary_row_bottom_border_color_tablet_hover' => '#D4D4D4',
+			'responsive_header_primary_row_bottom_border_color_mobile_hover' => '#D4D4D4',
+			'responsive_header_active_menu_background_color'   => '#ffffff',
+			// Menu hover/active backgrounds used to fall back to white; the default is now blank.
+			'responsive_header_hover_menu_background_color'    => '#ffffff',
+			'responsive_transparent_header_active_menu_background_color' => '#ffffff',
+			'responsive_transparent_header_hover_menu_background_color'  => '#ffffff',
+			'responsive_header_off_canvas_menu_bg_hover_color' => '#ffffff',
+			'responsive_header_off_canvas_menu_bg_active_color' => '#ffffff',
+			'responsive_header_above_row_bottom_border_color'  => '#007CBA',
+			'responsive_header_below_row_bottom_border_color'  => '#007CBA',
+			'responsive_footer_above_row_bg_color'             => '#333333',
+			'responsive_footer_primary_row_bg_color'           => '#333333',
+			'responsive_footer_primary_row_bg_color_tablet'    => '#333333',
+			'responsive_footer_primary_row_bg_color_mobile'    => '#333333',
+			'responsive_footer_below_row_bg_color'             => '#FFFFFF',
+			'responsive_footer_below_row_bg_color_tablet'      => '#FFFFFF',
+			'responsive_footer_below_row_bg_color_mobile'      => '#FFFFFF',
+			'responsive_footer_above_row_border_color'         => '#FFFFFF',
+			'responsive_footer_primary_row_border_color'       => '#aaaaaa',
+			'responsive_footer_below_row_border_color'         => '#D4D4D4',
+
+			// Headings, meta and links.
+			'responsive_all_heading_text_color'                => 'palette3',
+			'responsive_sidebar_headings_color'                => 'palette3',
+			'responsive_meta_text_color'                       => 'palette0',
+			'responsive_blog_item_meta_color'                  => 'palette0',
+			'responsive_blog_category_color'                   => 'palette0',
+			'responsive_single_blog_post_link_color'           => 'palette0',
+			'responsive_page_title_area_link_color'            => 'palette0',
+
+			// WooCommerce.
+			'responsive_add_to_cart_button_color'              => '#0066CC',
+			'responsive_add_to_cart_button_hover_color'        => 'palette7',
+			'responsive_add_to_cart_button_hover_text_color'   => 'palette1',
+			'responsive_cart_buttons_color'                    => '#10659C',
+			'responsive_cart_buttons_hover_color'              => 'palette7',
+			'responsive_cart_buttons_hover_text_color'         => 'palette1',
+			'responsive_cart_checkout_button_hover_color'      => 'palette7',
+			'responsive_cart_checkout_button_hover_text_color' => 'palette1',
+			'responsive_single_product_tab_text_hover_color'   => 'palette1',
+			'responsive_single_product_tab_text_active_color'  => 'palette1',
+			'responsive_single_product_tab_background_color'   => '#0066CC',
+		);
+
+		foreach ( $old_defaults as $setting => $old_default ) {
+			if ( false === get_theme_mod( $setting, false ) ) {
+				set_theme_mod( $setting, $old_default );
+			}
+		}
+
+		// Add To Cart button border colors are new and default to palette7, which is output as a border-color.
+		// Before they existed the buttons took their border color from the global Buttons border color, so
+		// save that color for settings that were never saved to keep the previous border.
+		$previous_border_color = get_theme_mod( 'responsive_button_border_color', '' );
+		if ( '' === $previous_border_color || false === $previous_border_color ) {
+			$previous_border_color = Responsive\Core\get_responsive_customizer_defaults( 'button_border' );
+		}
+		if ( '' !== $previous_border_color && null !== $previous_border_color ) {
+			foreach ( array( 'responsive_add_to_cart_button_border_color', 'responsive_add_to_cart_button_border_color_tablet', 'responsive_add_to_cart_button_border_color_mobile' ) as $border_setting ) {
+				if ( false === get_theme_mod( $border_setting, false ) ) {
+					set_theme_mod( $border_setting, $previous_border_color );
+				}
+			}
+		}
+
+		update_option( 'responsive_color_defaults_6_5_3_done', true );
 	}
 }

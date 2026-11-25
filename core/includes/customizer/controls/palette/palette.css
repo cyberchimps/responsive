@@ -203,3 +203,224 @@
     gap : 10px;
     justify-content: center;
 }
+/* ---- Custom palette colors ---- */
+.responsive-selected-palette-all-colors .responsive-selected-palette-editor .responsive-selected-palette-pickers {
+    flex-wrap: wrap;
+}
+.responsive-custom-palette-anchor {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 0;
+}
+.responsive-custom-palette-remove {
+    position: absolute;
+    top: -3px;
+    right: -5px;
+    width: 14px;
+    height: 14px;
+    padding: 0;
+    border: 1px solid #9ca3af;
+    border-radius: 50%;
+    background: #fff;
+    color: #374151;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    line-height: 1;
+}
+.responsive-custom-palette-color:hover .responsive-custom-palette-remove,
+.responsive-custom-palette-remove:focus {
+    display: flex;
+}
+.responsive-add-custom-color {
+    box-sizing: border-box;
+    width: 26px;
+    height: 26px;
+    min-height: 26px;
+    padding: 0;
+    border: 1px dashed #374151;
+    border-radius: 50%;
+    background: transparent;
+    color: #374151;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.responsive-add-custom-color:hover {
+    background: #f3f4f6;
+}
+.responsive-custom-palette-name {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 0 8px;
+    text-align: center;
+    border: 0;
+    background: transparent;
+    font-size: 13px;
+    color: #374151;
+    box-shadow: none;
+}
+.responsive-custom-palette-name:focus {
+    border-bottom: 1px solid #3b82f6;
+    outline: 0;
+    box-shadow: none;
+}
+.responsive-palette-confirm-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    background: rgba(0, 0, 0, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 16px;
+}
+.responsive-palette-confirm {
+    background: #fff;
+    border-radius: 6px;
+    padding: 16px;
+    width: 280px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+.responsive-palette-confirm-title {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    font-weight: 600;
+    font-size: 14px;
+    color: #111827;
+}
+.responsive-palette-confirm p {
+    margin: 8px 0 16px;
+    color: #4b5563;
+}
+.responsive-palette-confirm-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+.responsive-palette-confirm-actions button {
+    padding: 4px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.responsive-palette-confirm-actions .is-cancel {
+    background: #fff;
+    border: 1px solid #2563eb;
+    color: #2563eb;
+}
+.responsive-palette-confirm-actions .is-remove {
+    background: #dc2626;
+    border: 1px solid #dc2626;
+    color: #fff;
+}
+
+/* ---- Link a color control to a palette color ---- */
+.responsive-palette-link-row {
+    /* Same 9-column grid for both rows so every swatch has identical size and alignment. */
+    display: grid;
+    grid-template-columns: repeat(9, minmax(0, 22px));
+    justify-content: space-between;
+    gap: 8px;
+    padding-right: 15px;
+    margin-bottom: 12px;
+    padding-left: 15px; 
+    padding-top: 12px;
+}
+.responsive-palette-link-row + .responsive-palette-link-row {
+    padding-top: 0;
+}
+.responsive-palette-link-swatch {
+    box-sizing: border-box;
+    min-width: 0;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    padding: 0;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.responsive-palette-link-swatch.is-selected {
+    box-shadow: 0 0 0 2px #fff, 0 0 0 3px #374151;
+}
+body.wp-customizer .wp-picker-container .wp-color-result.button {
+    position: relative;
+}
+.responsive-global-color-badge {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    pointer-events: none;
+}
+.responsive-global-color-badge svg.responsive-global-color-globe {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    filter: drop-shadow(0 0 1.5px rgba(0, 0, 0, 0.7));
+}
+.responsive-global-color-badge.is-light-color {
+    color: #000;
+}
+.responsive-global-color-badge.is-light-color svg.responsive-global-color-globe {
+    filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.7));
+}
+.responsive-global-color-badge svg.responsive-global-color-globe * {
+    fill: none;
+    stroke: currentColor;
+}
+.responsive-selected-palette-all-colors .responsive-selected-palette-editor .responsive-selected-palette-pickers {
+    gap: 6px;
+}
+.responsive-selected-palette-all-colors .responsive-selected-palette-editor .responsive-selected-palette-pickers {
+    justify-content: flex-start;
+}
+
+/* Keep the first 9 palette colors on a single row on narrow sidebars.
+   Both rows share the same 9-column grid so every swatch has an identical size. */
+.responsive-selected-palette-all-colors .responsive-selected-palette-editor .responsive-selected-palette-pickers {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+}
+.responsive-selected-palette-main-row,
+.responsive-selected-palette-custom-row {
+    display: grid;
+    grid-template-columns: repeat(9, minmax(0, 26px));
+    justify-content: start;
+    gap: 6px;
+}
+.responsive-selected-palette-main-row > .responsive-inline-color-picker,
+.responsive-selected-palette-custom-row > .responsive-inline-color-picker {
+    width: 100%;
+    min-width: 0;
+}
+.responsive-selected-palette-custom-row .responsive-inline-color-picker > div,
+.responsive-selected-palette-custom-row .responsive-inline-color-picker .wp-picker-container,
+.responsive-selected-palette-custom-row .responsive-inline-color-picker .wp-color-result {
+    width: 100%;
+    min-width: 0;
+}
+.responsive-selected-palette-custom-row .responsive-add-custom-color {
+    width: 100%;
+    max-width: 26px;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 1 / 1;
+}
+.responsive-selected-palette-custom-row:empty {
+    display: none;
+}
