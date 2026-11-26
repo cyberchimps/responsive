@@ -1,0 +1,39 @@
+.responsive-ps-label { margin: 0 0 8px; font-size: 13px; }
+/* Mirrors the customizer image radio control. */
+.responsive-ps-layout-grid { margin-bottom: 20px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.responsive-ps-layout-option { position: relative; padding: 8px; border: 1px solid #d2d2d2; border-radius: 4px; background: #fff; cursor: pointer; }
+.responsive-ps-layout-option img { display: block; width: 100%; height: auto; }
+.responsive-ps-layout-option.active { background: #1e73be; border-color: #007cba; }
+.responsive-ps-tooltip { visibility: hidden; position: absolute; z-index: 1; top: -38px; left: 48%; transform: translateX(-50%); min-width: 82px; padding: 10px 18px; border-radius: 6px; background: #3e3e3e; color: #fff; font-size: 12px; line-height: 100%; text-align: center; box-shadow: 0 4px 4px 0 #00000040; }
+.responsive-ps-tooltip::after { content: ""; position: absolute; top: 100%; left: 50%; margin-left: -5px; border: 5px solid; border-color: #3b3b3b transparent transparent transparent; }
+.responsive-ps-layout-option:hover .responsive-ps-tooltip { visibility: visible; }
+/* Mirrors the customizer select button control. */
+.responsive-ps-sidebar-extra { margin-top: 20px; }
+.responsive-ps-btn-group { display: flex; width: 100%; margin-bottom: 20px; }
+.responsive-ps-btn { flex-grow: 1; padding: 8px 10px; color: #666; background: #fff; border: 1px solid #d2d2d2; cursor: pointer; font-size: 13px; }
+.responsive-ps-btn:first-child { border-top-left-radius: 4px; border-bottom-left-radius: 4px; }
+.responsive-ps-btn:last-child { border-top-right-radius: 4px; border-bottom-right-radius: 4px; }
+.responsive-ps-btn.active { color: #fff; background: #1e73be; border-color: #1e73be; }
+
+/* Disable Elements: label on the left, toggle on the right, evenly spaced rows. */
+.responsive-ps-toggle-list { display: flex; flex-direction: column; }
+.responsive-ps-toggle-list .responsive-ps-toggle { margin: 0; padding: 14px 0; border-bottom: 1px solid #e5e5e5; }
+.responsive-ps-toggle-list .responsive-ps-toggle:first-child { padding-top: 4px; }
+.responsive-ps-toggle-list .responsive-ps-toggle:last-child { padding-bottom: 4px; border-bottom: 0; }
+.responsive-ps-toggle .components-base-control__field { margin: 0; }
+.responsive-ps-toggle .components-toggle-control__label,
+.responsive-ps-toggle .components-h-stack { width: 100%; }
+.responsive-ps-toggle .components-h-stack { flex-direction: row-reverse; justify-content: space-between; align-items: center; gap: 12px; }
+.responsive-ps-toggle .components-toggle-control__label { flex: 1; margin: 0; font-size: 13px; cursor: pointer; }
+
+/* Advanced Settings: sidebar entry (looks like a collapsed panel header) and modal table. */
+.responsive-ps-advanced-btn.components-button { display: flex; align-items: center; justify-content: space-between; width: 100%; height: auto; padding: 16px; border-top: 1px solid #e0e0e0; border-radius: 0; font-size: 13px; font-weight: 500; color: #1e1e1e; }
+.responsive-ps-modal { width: 640px; max-width: 100%; }
+.responsive-ps-table { width: 100%; border-collapse: collapse; }
+.responsive-ps-table th, .responsive-ps-table td { padding: 20px 16px; border-bottom: 1px solid #e5e5e5; vertical-align: top; }
+.responsive-ps-table tr:last-child th, .responsive-ps-table tr:last-child td { border-bottom: 0; }
+.responsive-ps-table th { width: 34%; text-align: left; font-size: 13px; font-weight: 600; color: #1e1e1e; }
+.responsive-ps-table td .responsive-ps-toggle { padding: 10px 0; border: 0; }
+.responsive-ps-table td .responsive-ps-toggle:first-child { padding-top: 0; }
+.responsive-ps-table td .responsive-ps-toggle:last-child { padding-bottom: 0; }
+.responsive-ps-table td .responsive-ps-btn-group { margin-bottom: 0; }

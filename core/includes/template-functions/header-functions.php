@@ -96,6 +96,9 @@ function header_column( $row, $column ) {
  * @param string $row the name of the row.
  */
 function display_header_row( $row = 'primary' ) {
+	if ( responsive_is_element_disabled( $row . '_header' ) ) {
+		return false;
+	}
 	$display = false;
 	foreach ( array( 'left', 'center', 'right' ) as $column ) {
 		$elements = get_theme_mod( 'responsive_header_desktop_items', Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_desktop_items' ) );

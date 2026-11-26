@@ -428,6 +428,11 @@ const TabsComponent = props => {
 			})
 		});
 
+		// Each footer row has its own Tabs control instance with its own `tab` state;
+		// only let an instance manage the row it belongs to, otherwise another row's
+		// instance (on the General tab) hides this row's controls.
+		const footerRowsForThisTabs = ['above', 'primary', 'below'].filter(r => id === `responsive_footer_${r}_row_tabs`);
+
 		const toggleTopBorderControls = (rowPrefix) => {
 			const sizeSetting = api(`responsive_footer_${rowPrefix}_row_top_border_size`);
 			if (!sizeSetting) return;
@@ -472,12 +477,12 @@ const TabsComponent = props => {
 			});
 		};
 
-		['above', 'primary', 'below'].forEach(rowPrefix => {
+		footerRowsForThisTabs.forEach(rowPrefix => {
 			toggleTopBorderControls(rowPrefix);
 			toggleBottomBorderControls(rowPrefix);
 		});
 
-		['above', 'primary', 'below'].forEach(rowPrefix => {
+		footerRowsForThisTabs.forEach(rowPrefix => {
 			const topSettingId = `responsive_footer_${rowPrefix}_row_top_border_size`;
 			if (api(topSettingId)) {
 				api(topSettingId, function(value) {
@@ -513,7 +518,7 @@ const TabsComponent = props => {
 			});
 		};
 
-		['above', 'primary', 'below'].forEach(rowPrefix => {
+		footerRowsForThisTabs.forEach(rowPrefix => {
 			toggleFooterLinkHoverBg(rowPrefix);
 			
 			const styleSettingId = `responsive_footer_${rowPrefix}_link_style`;
@@ -551,7 +556,7 @@ const TabsComponent = props => {
 		toggleColumnBorderControls('primary');
 		toggleColumnBorderControls('below');
 
-		['above', 'primary', 'below'].forEach(rowPrefix => {
+		footerRowsForThisTabs.forEach(rowPrefix => {
 			const settingId = `responsive_footer_${rowPrefix}_column_border_width`;
 			if (api(settingId)) {
 				api(settingId, function(value) {

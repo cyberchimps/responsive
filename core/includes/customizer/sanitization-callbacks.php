@@ -386,3 +386,47 @@ function responsive_sanitize_select_with_switchers( $input, $setting ) {
 	// If the input is a valid choice, return it; otherwise, return the default.
 	return array_key_exists( $input, $choices ) ? $input : $setting->default;
 }
+
+/**
+ * Sanitize the custom (user-added) palette colors.
+ *
+ * @param mixed $value Raw value.
+ * @return array{next_id:int,items:array}
+ */
+function responsive_sanitize_custom_palette_colors( $value ) {
+	$clean = array(
+		'next_id' => 9,
+		'items'   => array(),
+	);
+	if ( is_string( $value ) ) {
+		$value = json_decode( $value, true );
+	}
+	if ( ! is_array( $value ) ) {
+		return $clean;
+	}
+	$max_id = 8;
+	if ( ! empty( $value['items'] ) && is_array( $value['items'] ) ) {
+		foreach ( $value['items'] as $item ) {
+			if ( count( $clean['items'] ) >= 9 || ! is_array( $item ) || ! isset( $item['id'], $item['color'] ) ) {
+				continue;
+			}
+			$id = absint( $item['id'] );
+			if ( $id < 9 ) {
+				continue;
+			}
+			$color = responsive_sanitize_color( $item['color'] );
+			if ( '' === $color || null === $color ) {
+				continue;
+			}
+			$clean['items'][] = array(
+				'id'    => $id,
+				'name'  => isset( $item['name'] ) ? sanitize_text_field( $item['name'] ) : '',
+				'color' => $color,
+			);
+			$max_id = max( $max_id, $id );
+		}
+	}
+	$next_id          = isset( $value['next_id'] ) ? absint( $value['next_id'] ) : 9;
+	$clean['next_id'] = max( 9, $next_id, $max_id + 1 );
+	return $clean;
+}

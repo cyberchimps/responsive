@@ -45,6 +45,10 @@ function responsive_meta_box( $post ) {
 			'no'    => esc_html__( 'No Sidebar', 'responsive' ),
 		);
 	}
+	$screen          = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+	$is_block_editor = $screen && method_exists( $screen, 'is_block_editor' ) && $screen->is_block_editor();
+	// The block editor edits the sidebar position in the Responsive Settings panel instead.
+	if ( ! $is_block_editor ) :
 	?>
 	<div class="components-base-control ">
 		<div class="components-base-control__field" style="display: flex; flex-direction: column; justify-content: space-between; margin-bottom: 10px;">
@@ -67,6 +71,7 @@ function responsive_meta_box( $post ) {
 			</select>
 		</div>
 	</div>
+	<?php endif; ?>
 
 	<?php
 	$responsive_style_choices = array(
@@ -103,6 +108,8 @@ function responsive_meta_box( $post ) {
 		'1'        => esc_html__( 'Enable', 'responsive' ),
 		'disabled' => esc_html__( 'Disable', 'responsive' ),
 	);
+	// The block editor edits the transparent header in the Responsive Settings > Advanced Settings modal instead.
+	if ( ! $is_block_editor ) :
 	?>
 	<div class="components-base-control ">
 		<div class="components-base-control__field" style="display: flex; flex-direction: column; justify-content: space-between; margin-bottom: 10px;">
@@ -124,6 +131,7 @@ function responsive_meta_box( $post ) {
 			</select>
 		</div>
 	</div>
+	<?php endif; ?>
 
 	<div class="components-base-control ">
 		<div class="components-base-control__field" style="display: flex; flex-direction: column; justify-content: space-between; margin-bottom: 10px;">
@@ -154,7 +162,11 @@ function responsive_box_save( $post_id ) {
 		sanitize_text_field( wp_unslash( $_POST['responsive_nonce'] ) );
 	}
 
-	if ( isset( $_POST['responsive_page_meta_sidebar_position'] ) ) {
+	// In the block editor the sidebar position is saved through the REST API (Responsive Settings panel).
+	// Gutenberg then re-submits this legacy meta box with the value it rendered at page load, which would overwrite it.
+	$is_meta_box_loader = isset( $_REQUEST['meta-box-loader'] );
+
+	if ( ! $is_meta_box_loader && isset( $_POST['responsive_page_meta_sidebar_position'] ) ) {
 		update_post_meta( $post_id, 'responsive_page_meta_sidebar_position', sanitize_text_field( wp_unslash( $_POST['responsive_page_meta_sidebar_position'] ) ) );
 	}
 
@@ -162,7 +174,7 @@ function responsive_box_save( $post_id ) {
 		update_post_meta( $post_id, 'responsive_page_meta_layout_style', sanitize_text_field( wp_unslash( $_POST['responsive_page_meta_layout_style'] ) ) );
 	}
 
-	if ( isset( $_POST['responsive_page_meta_transparent_header'] ) ) {
+	if ( ! $is_meta_box_loader && isset( $_POST['responsive_page_meta_transparent_header'] ) ) {
 		update_post_meta( $post_id, 'responsive_page_meta_transparent_header', sanitize_text_field( wp_unslash( $_POST['responsive_page_meta_transparent_header'] ) ) );
 	}
 

@@ -547,6 +547,9 @@ function responsive_custom_footer() {
  * Single Blog Related Posts Entry
  */
 function responsive_single_blog_related_posts_entry() {
+	if ( \responsive_is_element_disabled( 'related_posts' ) ) {
+		return;
+	}
 	do_action( 'responsive_single_blog_related_posts_entry' );
 }
 

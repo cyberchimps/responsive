@@ -22,7 +22,7 @@ $continue_btn        = get_theme_mod( 'responsive_popup_continue_btn_text', 'Con
 $cart_btn            = get_theme_mod( 'responsive_popup_cart_btn_text', 'Go To The Cart' );
 $default_bottom_text = esc_html__( '[responsive_woo_free_shipping_left]', 'responsive' );
 $text                = get_theme_mod( 'responsive_popup_bottom_text', $default_bottom_text );
-$overlay             = get_theme_mod( 'responsive_popup_overlay_color', '#000000' );
+$overlay             = \Responsive\Core\responsive_prepare_css_value( 'responsive_popup_overlay_color', '#000000' );
 $opacity             = get_theme_mod( 'responsive_popup_overlay_color_opacity', '0.7' ); ?>
 
 <div id="woo-popup-wrap" class="mfp-hide">

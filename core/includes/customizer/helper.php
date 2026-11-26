@@ -969,12 +969,10 @@ if ( ! function_exists( 'responsive_schema_markup' ) ) {
  */
 function responsive_read_more_text( $text ) {
 
-	$read_more = get_theme_mod( 'responsive_blog_read_more_text', __( 'Read more →', 'responsive' ) );
-	if ( '' !== $read_more ) {
-		$text = $read_more;
-	}
+	// An empty saved value hides the read more link; a value that was never saved falls back to the default text.
+	$read_more = get_theme_mod( 'responsive_blog_read_more_text', $text );
 
-	return $text;
+	return '' !== trim( $read_more ) ? $read_more : '';
 }
 
 
@@ -1035,6 +1033,10 @@ if ( ! function_exists( 'responsive_post_link' ) ) {
 
 		$read_more_text = apply_filters( 'responsive_post_read_more', __( 'Read more →', 'responsive' ) );
 
+		if ( '' === trim( $read_more_text ) ) {
+			return apply_filters( 'responsive_post_link', ' &hellip;', $output_filter );
+		}
+
 		$post_link = sprintf(
 			esc_html( '%s' ),
 			'<a class="more-link" href="' . esc_url( get_permalink() ) . '"> ' . the_title( '<span class="screen-reader-text">', '</span>', false ) . ' ' . $read_more_text . '</a>'
@@ -1055,6 +1057,9 @@ if ( ! function_exists( 'responsive_modify_read_more_link' ) ) {
 	 */
 	function responsive_modify_read_more_link() {
 		$read_more_text = apply_filters( 'responsive_post_read_more', __( 'Read more →', 'responsive' ) );
+		if ( '' === trim( $read_more_text ) ) {
+			return '';
+		}
 		return '<p class="read-more"><a class="more-link" href="' . get_permalink() . '">' . $read_more_text . '</a></p>';
 	}
 }
@@ -1629,12 +1634,12 @@ function responsive_borderwidth_control( $wp_customize, $element, $section, $pri
  * @param  array   $unit_choices
  * @return void
  */
-function responsive_unit_borderwidth_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Border Width', $transport = 'postMessage', $unit_choices = array( 'px', 'em' ) ) {
+function responsive_unit_borderwidth_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Border Width', $transport = 'postMessage', $unit_choices = array( 'px', 'em' ), $sanitize_callback = 'responsive_sanitize_number' ) {
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_top_border',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_y,
 		)
 	);
@@ -1642,7 +1647,7 @@ function responsive_unit_borderwidth_control( $wp_customize, $element, $section,
 		'responsive_' . $element . '_left_border',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_x,
 		)
 	);
@@ -1650,7 +1655,7 @@ function responsive_unit_borderwidth_control( $wp_customize, $element, $section,
 		'responsive_' . $element . '_bottom_border',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_y,
 		)
 	);
@@ -1658,7 +1663,7 @@ function responsive_unit_borderwidth_control( $wp_customize, $element, $section,
 		'responsive_' . $element . '_right_border',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_x,
 		)
 	);
@@ -1666,7 +1671,7 @@ function responsive_unit_borderwidth_control( $wp_customize, $element, $section,
 		'responsive_' . $element . '_tablet_top_border',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_y,
 		)
 	);
@@ -1674,7 +1679,7 @@ function responsive_unit_borderwidth_control( $wp_customize, $element, $section,
 		'responsive_' . $element . '_tablet_right_border',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_x,
 		)
 	);
@@ -1682,7 +1687,7 @@ function responsive_unit_borderwidth_control( $wp_customize, $element, $section,
 		'responsive_' . $element . '_tablet_bottom_border',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_y,
 		)
 	);
@@ -1690,7 +1695,7 @@ function responsive_unit_borderwidth_control( $wp_customize, $element, $section,
 		'responsive_' . $element . '_tablet_left_border',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_x,
 		)
 	);
@@ -1699,7 +1704,7 @@ function responsive_unit_borderwidth_control( $wp_customize, $element, $section,
 		'responsive_' . $element . '_mobile_top_border',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_y,
 		)
 	);
@@ -1707,7 +1712,7 @@ function responsive_unit_borderwidth_control( $wp_customize, $element, $section,
 		'responsive_' . $element . '_mobile_right_border',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_x,
 		)
 	);
@@ -1715,7 +1720,7 @@ function responsive_unit_borderwidth_control( $wp_customize, $element, $section,
 		'responsive_' . $element . '_mobile_bottom_border',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_y,
 		)
 	);
@@ -1723,7 +1728,7 @@ function responsive_unit_borderwidth_control( $wp_customize, $element, $section,
 		'responsive_' . $element . '_mobile_left_border',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_x,
 		)
 	);
@@ -3012,56 +3017,60 @@ function responsive_get_available_design_styles() {
 						'accent'            => '#3B82F6',
 						'link_hover'		=> '#10659C',
 						'text'              => '#404040',
-						'header_text'       => '#404040',
+						'header_text'       => '#3B82F6',
 						'content_background' => '#ffffff',
 						'site_background'   => '#f0f5fa',
 						'alt_background'    => '#ffffff',
-						'subtle_background' => '#10659C'
-
+						'subtle_background' => '#D4D4D4',
+						'secondary_neutral'  => '#AAAAAA',
 					),
 					'one'     => array(
 						'label'             => _x( 'Frolic', 'color palette name', 'responsive' ),
-						'accent'            => '#3f46ae',
-						'link_hover'		=> '#313789',
-						'text'              => '#ecb43d',
-						'header_text'       => '#0F172A',
-						'content_background' => '#ffffff',
-						'site_background'   => '#f0f5fa',
-						'alt_background'    => '#f7fbff',
-						'subtle_background' => '#313789'
+						'accent'            => '#5146C2',
+						'link_hover'		=> '#3A3192',
+						'text'              => '#1B2A4A',
+						'header_text'       => '#4E596F',
+						'content_background' => '#FFFFFF',
+						'site_background'   => '#FFFBF0',
+						'alt_background'    => '#FCEDBE',
+						'subtle_background' => '#997924',
+						'secondary_neutral'  => '#747D92',
 					),
 					'two'     => array(
 						'label'             => _x( 'Coral', 'color palette name', 'responsive' ),
-						'accent'            => '#e06b6d',
-						'link_hover'		=> '#d74143',
-						'text'              => '#40896e',
-						'header_text'       => '#0F172A',
-						'content_background' => '#ffffff',
-						'site_background'   => '#f0f5fa',
-						'alt_background'    => '#fff7f7',
-						'subtle_background' => '#d74143'
+						'accent'            => '#2C50B0',
+						'link_hover'		=> '#213D88',
+						'text'              => '#1D223F',
+						'header_text'       => '#505162',
+						'content_background' => '#FFFCFA',
+						'site_background'   => '#FFF5F1',
+						'alt_background'    => '#FFDCD1',
+						'subtle_background' => '#D3442D',
+						'secondary_neutral'  => '#7A757F',
 					),
 					'three'   => array(
 						'label'             => _x( 'Organic', 'color palette name', 'responsive' ),
-						'accent'            => '#3c896d',
-						'link_hover'		=> '#2c6651',
-						'text'              => '#6b0369',
-						'header_text'       => '#0F172A',
-						'content_background' => '#ffffff',
-						'site_background'   => '#f0f5fa',
-						'alt_background'    => '#f2f9f7',
-						'subtle_background' => '#2c6651'
+						'accent'            => '#2B6443',
+						'link_hover'		=> '#225236',
+						'text'              => '#23261B',
+						'header_text'       => '#515547',
+						'content_background' => '#FFFDF7',
+						'site_background'   => '#F7F4EA',
+						'alt_background'    => '#EFE4CC',
+						'subtle_background' => '#8C7543',
+						'secondary_neutral'  => '#77796C',
 					),
 					'four'    => array(
 						'label'             => _x( 'Berry', 'color palette name', 'responsive' ),
-						'accent'            => '#117495',
-						'link_hover'		=> '#0c5067',
-						'text'              => '#d691c1',
-						'header_text'       => '#0F172A',
-						'content_background' => '#ffffff',
-						'site_background'   => '#f0f5fa',
-						'alt_background'    => '#f7feff',
-						'subtle_background' => '#0c5067'
+						'accent'            => '#A12F64',
+						'link_hover'		=> '#7A2049',
+						'text'              => '#20203F',
+						'header_text'       => '#52546E',
+						'content_background' => '#FFFFFF',
+						'site_background'   => '#F6F6FC',
+						'alt_background'    => '#E5E7F8',
+						'subtle_background' => '#6E74BB',
+						'secondary_neutral'  => '#75788C',
 					),
 				),
 			),
@@ -3072,47 +3081,51 @@ function responsive_get_available_design_styles() {
 				'color_schemes' => array(
 					'one'   => array(
 						'label'          => _x( 'Apricot', 'color palette name', 'responsive' ),
-						'accent'         => '#c76919',
-						'link_hover'	 => '#e5822e',
-						'text'           => '#122538',
-						'header_text'	 => '#0F172A',
-						'content_background' => '#ffffff',
-						'site_background'   => '#f0f5fa',
-						'alt_background' => '#f8f8f8',
-						'subtle_background' => '#e5822e'
+						'accent'         => '#964B18',
+						'link_hover'	 => '#7F3E12',
+						'text'           => '#2B2118',
+						'header_text'	 => '#65574C',
+						'content_background' => '#FFFAF3',
+						'site_background'   => '#F8EEE1',
+						'alt_background' => '#FCF5EC',
+						'subtle_background' => '#A6734D',
+						'secondary_neutral'  => '#8E7B6D',
 					),
 					'two'   => array(
 						'label'          => _x( 'Emerald', 'color palette name', 'responsive' ),
-						'accent'         => '#165153',
-						'link_hover'  	 => '#21787b',
-						'text'           => '#212121',
-						'header_text'    => '#0F172A',
-						'content_background' => '#ffffff',
-						'site_background'   => '#f0f5fa',
-						'alt_background' => '#f3f1f0',
-						'subtle_background' => '#21787b'
+						'accent'         => '#0D684A',
+						'link_hover'  	 => '#0A573D',
+						'text'           => '#132B25',
+						'header_text'    => '#495A55',
+						'content_background' => '#FFFFFF',
+						'site_background'   => '#FFF9F5',
+						'alt_background' => '#FBE5D8',
+						'subtle_background' => '#B5653E',
+						'secondary_neutral'  => '#717D79',
 					),
 					'three' => array(
 						'label'          => _x( 'Brick', 'color palette name', 'responsive' ),
-						'accent'         => '#87200e',
-						'link_hover'	 => '#b52b13',
-						'text'           => '#242611',
-						'header_text'    => '#0F172A',
-						'content_background' => '#ffffff',
-						'site_background'   => '#f0f5fa',
-						'alt_background' => '#f9f2ef',
-						'subtle_background' => '#b52b13'
+						'accent'         => '#9B412E',
+						'link_hover'	 => '#7A3123',
+						'text'           => '#2A1F1C',
+						'header_text'    => '#65544F',
+						'content_background' => '#FCF8F5',
+						'site_background'   => '#F4EAE5',
+						'alt_background' => '#FFFFFF',
+						'subtle_background' => '#A47060',
+						'secondary_neutral'  => '#8C7872',
 					),
 					'four'  => array(
 						'label'          => _x( 'Bronze', 'color palette name', 'responsive' ),
-						'accent'         => '#a88548',
-						'link_hover'     => '#846939',
-						'text'           => '#05212d',
-						'header_text'    => '#0F172A',
-						'content_background' => '#ffffff',
-						'site_background'   => '#f0f5fa',
-						'alt_background' => '#f9f4ef',
-						'subtle_background' => '#846939'
+						'accent'         => '#76561B',
+						'link_hover'     => '#634716',
+						'text'           => '#16253A',
+						'header_text'    => '#4B5665',
+						'content_background' => '#FFFDF9',
+						'site_background'   => '#F5F7FA',
+						'alt_background' => '#E2E9F2',
+						'subtle_background' => '#677B9B',
+						'secondary_neutral'  => '#727B88',
 					),
 				),
 			),
@@ -3123,36 +3136,39 @@ function responsive_get_available_design_styles() {
 				'color_schemes' => array(
 					'one'   => array(
 						'label'          => _x( 'Shade', 'color palette name', 'responsive' ),
-						'accent'         => '#000000',
-						'link_hover' 	 => '#808080',
-						'text'           => '#455a64',
-						'header_text'    => '#0F172A',
-						'content_background' => '#ffffff',
-						'site_background'   => '#f0f5fa',
-						'alt_background' => '#eceff1',
-						'subtle_background' => '#808080'
+						'accent'         => '#FF9408',
+						'link_hover' 	 => '#FFB347',
+						'text'           => '#F4F4F6',
+						'header_text'    => '#B4B9BB',
+						'content_background' => '#1A140F',
+						'site_background'   => '#100C08',
+						'alt_background' => '#3A1019',
+						'subtle_background' => '#D64519',
+						'secondary_neutral'  => '#7E8487',
 					),
 					'two'   => array(
 						'label'          => _x( 'Blush', 'color palette name', 'responsive' ),
-						'accent'         => '#c2185b',
-						'link_hover'	 => '#951246',
-						'text'           => '#ec407a',
-						'header_text'    => '#0F172A',
-						'content_background' => '#ffffff',
-						'site_background'   => '#f0f5fa',
-						'alt_background' => '#fce4ec',
-						'subtle_background' => '#951246'
+						'accent'         => '#2F4A6B',
+						'link_hover'	 => '#223650',
+						'text'           => '#3A1F2E',
+						'header_text'    => '#63505A',
+						'content_background' => '#FFFFFF',
+						'site_background'   => '#FFF7F8',
+						'alt_background' => '#FBE1E5',
+						'subtle_background' => '#BD5A6E',
+						'secondary_neutral'  => '#85747D',
 					),
 					'three'  => array(
 						'label'          => _x( 'Pacific', 'color palette name', 'responsive' ),
-						'accent'         => '#00796b',
-						'link_hover'	 => '#00463e',
-						'text'           => '#26a69a',
-						'header_text'    => '#0F172A',
-						'content_background' => '#ffffff',
-						'site_background'   => '#f0f5fa',
-						'alt_background' => '#e0f2f1',
-						'subtle_background' => '#00463e'
+						'accent'         => '#0D646E',
+						'link_hover'	 => '#0A5059',
+						'text'           => '#13263A',
+						'header_text'    => '#485663',
+						'content_background' => '#FFFFFF',
+						'site_background'   => '#FBF7F0',
+						'alt_background' => '#F3E5CE',
+						'subtle_background' => '#927240',
+						'secondary_neutral'  => '#6E7A84',
 					),
 				),
 			),
@@ -3162,15 +3178,16 @@ function responsive_get_available_design_styles() {
 				'label'         => _x( 'Trendy', 'design style name', 'responsive' ),
 				'color_schemes' => array(
 					'one'   => array(
-						'label'             => _x( 'Plum', 'color palette name', 'responsive' ),
-						'accent'            => '#000000',
-						'link_hover' 		=> '#808080',
-						'text'              => '#4d0859',
-						'header_text'       => '#0F172A',
-						'content_background' => '#ffffff',
-						'site_background'   => '#f0f5fa',
-						'alt_background'    => '#ded9e2',
-						'subtle_background' => '#808080'
+						'label'             => _x( 'Midnight', 'color palette name', 'responsive' ),
+						'accent'            => '#8FD6C6',
+						'link_hover' 		=> '#B7E6DB',
+						'text'              => '#EDE6F0',
+						'header_text'       => '#B8AABF',
+						'content_background' => '#251C2B',
+						'site_background'   => '#1C1521',
+						'alt_background'    => '#262446',
+						'subtle_background' => '#7C77A8',
+						'secondary_neutral'  => '#86778E',
 					),
 				),
 			),
@@ -3180,37 +3197,40 @@ function responsive_get_available_design_styles() {
 				'label'         => _x( 'Welcoming', 'design style name', 'responsive' ),
 				'color_schemes' => array(
 					'one'   => array(
-						'label'             => _x( 'Forest', 'color palette name', 'responsive' ),
-						'accent'            => '#165144',
-						'link_hover'	    => '#87dfcb',
-						'text'              => '#01332e',
-						'header_text'       => '#0F172A',
-						'content_background' => '#eeeeee',
-						'site_background'   => '#f0f5fa',
-						'alt_background'    => '#c9c9c9',
-						'subtle_background' => '#87dfcb'
+						'label'             => _x( 'Dark Forest', 'color palette name', 'responsive' ),
+						'accent'            => '#F2A68E',
+						'link_hover'	    => '#F7C8B8',
+						'text'              => '#ECF2EE',
+						'header_text'       => '#A8BAB0',
+						'content_background' => '#1A2621',
+						'site_background'   => '#131C18',
+						'alt_background'    => '#2C2F22',
+						'subtle_background' => '#8A8460',
+						'secondary_neutral'  => '#71867A',
 					),
 					'two' => array(
 						'label'             => _x( 'Mocha', 'color palette name', 'responsive' ),
-						'accent'            => '#5b3f20',
-						'link_hover'		=> '#ddbf9d',
-						'text'              => '#3f2404',
-						'header_text'       => '#0F172A',
-						'content_background' => '#eeeeee',
-						'site_background'   => '#f0f5fa',
-						'alt_background'    => '#c9c9c9',
-						'subtle_background' => '#ddbf9d'
+						'accent'            => '#7A5235',
+						'link_hover'		=> '#5E3F28',
+						'text'              => '#2B211A',
+						'header_text'       => '#62554B',
+						'content_background' => '#FBF8F4',
+						'site_background'   => '#F1EAE2',
+						'alt_background'    => '#F7F2EC',
+						'subtle_background' => '#937660',
+						'secondary_neutral'  => '#85796F',
 					),
 					'three'  => array(
 						'label'             => _x( 'Lavender', 'color palette name', 'responsive' ),
-						'accent'            => '#443a82',
-						'link_hover'	    => '#d4d1ea',
-						'text'              => '#2b226b',
-						'header_text'       => '#0F172A',
-						'content_background' => '#eeeeee',
-						'site_background'   => '#f0f5fa',
-						'alt_background'    => '#c9c9c9',
-						'subtle_background' => '#d4d1ea'
+						'accent'            => '#5E52A0',
+						'link_hover'	    => '#483E80',
+						'text'              => '#221E33',
+						'header_text'       => '#5A566E',
+						'content_background' => '#FAF9FD',
+						'site_background'   => '#EEECF7',
+						'alt_background'    => '#FFFFFF',
+						'subtle_background' => '#7F76B1',
+						'secondary_neutral'  => '#807992',
 					),
 				),
 			),
@@ -3501,12 +3521,12 @@ function responsive_radius_control( $wp_customize, $element, $section, $priority
  * @param  array   $unit_choices
  * @return void
  */
-function responsive_unit_radius_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Radius', $transport = 'postMessage', $unit_choices = array( 'px', 'em', '%' ) ) {
+function responsive_unit_radius_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Radius', $transport = 'postMessage', $unit_choices = array( 'px', 'em', '%' ), $sanitize_callback = 'responsive_sanitize_number' ) {
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_top_left_radius',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_y,
 		)
 	);
@@ -3514,7 +3534,7 @@ function responsive_unit_radius_control( $wp_customize, $element, $section, $pri
 		'responsive_' . $element . '_top_right_radius',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_x,
 		)
 	);
@@ -3522,7 +3542,7 @@ function responsive_unit_radius_control( $wp_customize, $element, $section, $pri
 		'responsive_' . $element . '_bottom_right_radius',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_y,
 		)
 	);
@@ -3530,7 +3550,7 @@ function responsive_unit_radius_control( $wp_customize, $element, $section, $pri
 		'responsive_' . $element . '_bottom_left_radius',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_x,
 		)
 	);
@@ -3538,7 +3558,7 @@ function responsive_unit_radius_control( $wp_customize, $element, $section, $pri
 		'responsive_' . $element . '_tablet_top_left_radius',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_y,
 		)
 	);
@@ -3546,7 +3566,7 @@ function responsive_unit_radius_control( $wp_customize, $element, $section, $pri
 		'responsive_' . $element . '_tablet_top_right_radius',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_x,
 		)
 	);
@@ -3554,7 +3574,7 @@ function responsive_unit_radius_control( $wp_customize, $element, $section, $pri
 		'responsive_' . $element . '_tablet_bottom_right_radius',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_y,
 		)
 	);
@@ -3562,7 +3582,7 @@ function responsive_unit_radius_control( $wp_customize, $element, $section, $pri
 		'responsive_' . $element . '_tablet_bottom_left_radius',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_x,
 		)
 	);
@@ -3571,7 +3591,7 @@ function responsive_unit_radius_control( $wp_customize, $element, $section, $pri
 		'responsive_' . $element . '_mobile_top_left_radius',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_y,
 		)
 	);
@@ -3579,7 +3599,7 @@ function responsive_unit_radius_control( $wp_customize, $element, $section, $pri
 		'responsive_' . $element . '_mobile_top_right_radius',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_x,
 		)
 	);
@@ -3587,7 +3607,7 @@ function responsive_unit_radius_control( $wp_customize, $element, $section, $pri
 		'responsive_' . $element . '_mobile_bottom_right_radius',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_y,
 		)
 	);
@@ -3595,7 +3615,7 @@ function responsive_unit_radius_control( $wp_customize, $element, $section, $pri
 		'responsive_' . $element . '_mobile_bottom_left_radius',
 		array(
 			'transport'         => $transport,
-			'sanitize_callback' => 'responsive_sanitize_number',
+			'sanitize_callback' => $sanitize_callback,
 			'default'           => $default_values_x,
 		)
 	);
@@ -4418,7 +4438,7 @@ function responsive_target_rules_for_related_posts() {
 
 	$allow_related_posts = false;
 
-	if ( 1 === get_theme_mod( 'responsive_single_blog_enable_related_posts', 0 ) && is_singular( 'post' ) ) {
+	if ( 1 === get_theme_mod( 'responsive_single_blog_enable_related_posts', 0 ) && is_singular( 'post' ) && ! responsive_is_element_disabled( 'related_posts' ) ) {
 		$allow_related_posts = true;
 	}
 
@@ -5034,7 +5054,7 @@ function responsive_button_presets_control( $wp_customize, $element, $label, $se
  * @param  [type]  $desc         [description].
  * @return void [description].
  */
-function responsive_color_control_with_device_switchers( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $desc='', $transport = 'postMessage', $has_reset = false ) {
+function responsive_color_control_with_device_switchers( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $desc='', $transport = 'postMessage', $has_reset = true ) {
 
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_color',
@@ -5100,7 +5120,7 @@ function responsive_color_control_with_device_switchers( $wp_customize, $element
  * @param  [type]  $transport     [description].
  * @return void [description].
  */
-function responsive_color_control_with_device_switchers_and_hover( $wp_customize, $element, $label, $section, $priority, $default, $default_hover = '', $active_call = null, $desc='', $transport = 'postMessage' ) {
+function responsive_color_control_with_device_switchers_and_hover( $wp_customize, $element, $label, $section, $priority, $default, $default_hover = '', $active_call = null, $desc='', $transport = 'postMessage', $has_reset = true ) {
 
 	// Normal color settings for each device
 	$wp_customize->add_setting(
@@ -5176,6 +5196,7 @@ function responsive_color_control_with_device_switchers_and_hover( $wp_customize
 				'priority'        => $priority,
 				'active_callback' => $active_call,
 				'description'     => $desc,
+				'has_reset'       => $has_reset,
 			)
 		)
 	);

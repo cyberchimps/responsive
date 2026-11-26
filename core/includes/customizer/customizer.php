@@ -426,6 +426,7 @@ function responsive_custom_customize_enqueue() {
 		$localize_array = array(
 			'path' => RESPONSIVE_THEME_URI . '/core/includes/customizer/assets/images/',
 			'paletteDesignStyles' => responsive_get_available_design_styles(),
+			'customPalette'       => \Reponsive\Core\GlobalPalette\Responsive_Global_Color_Palette::get_custom_colors(),
 		);
 		wp_localize_script( 'responsive-custom-control-react-script', 'localize', $localize_array );
 

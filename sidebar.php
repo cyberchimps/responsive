@@ -78,7 +78,8 @@ elseif ( class_exists( 'LifterLMS' ) ) {
             $meta_value = get_post_meta( get_the_ID(), 'responsive_page_meta_sidebar_position', true );
             $sidebar_position = $meta_value ? $meta_value : $get_sidebar_position( 'page', 'global' );
         } elseif ( is_single() ) {
-            $sidebar_position = $get_sidebar_position( 'single_blog', 'global' );
+            $meta_value = get_post_meta( get_the_ID(), 'responsive_page_meta_sidebar_position', true );
+            $sidebar_position = $meta_value ? $meta_value : $get_sidebar_position( 'single_blog', 'global' );
         } elseif ( is_home() || is_search() || is_archive() ) {
             $sidebar_position = $get_sidebar_position( 'blog', 'global' );
         } else {
@@ -111,7 +112,7 @@ elseif ( class_exists( 'LifterLMS' ) ) {
 
 	if (
 		( is_page() && 'no' === ( get_post_meta( get_the_ID(), 'responsive_page_meta_sidebar_position', true ) ?: $get_sidebar_position( 'page', 'global' ) ) ) ||
-		( is_single() && 'no' === $get_sidebar_position( 'single_blog', 'global' ) ) ||
+		( is_single() && 'no' === ( get_post_meta( get_the_ID(), 'responsive_page_meta_sidebar_position', true ) ?: $get_sidebar_position( 'single_blog', 'global' ) ) ) ||
 		( ( is_home() || is_search() || is_archive() ) && 'no' === $get_sidebar_position( 'blog', 'global' ) )
 	) {
 		return;

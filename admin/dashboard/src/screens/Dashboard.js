@@ -361,7 +361,11 @@ const DynamicPlusFeatureCard = ({ feature }) => {
                         <span>
                             <a target="_blank" href={feature.docsLink} className="w-fit text-blue-500 underline text-sm leading-5 font-normal cursor-pointer">Docs</a>
                             {feature.settingsText && (
-                                <> | <a href={feature.settingsLink} className={`w-fit underline text-sm leading-5 font-normal ${isEnabled ? ' text-blue-500 cursor-pointer' : 'text-gray-400 pointer-events-none'}`}>{feature.settingsText}</a></>
+                                <> | {feature.settingsTab ? (
+                                    <Link to="/settings" state={{ tab: feature.settingsTab }} className={`w-fit underline text-sm leading-5 font-normal ${isEnabled ? ' text-blue-500 cursor-pointer' : 'text-gray-400 pointer-events-none'}`}>{feature.settingsText}</Link>
+                                ) : (
+                                    <a href={feature.settingsLink} className={`w-fit underline text-sm leading-5 font-normal ${isEnabled ? ' text-blue-500 cursor-pointer' : 'text-gray-400 pointer-events-none'}`}>{feature.settingsText}</a>
+                                )}</>
                             )}
                         </span>
                         <ToggleControl checked={isEnabled} onChange={handleToggle} />

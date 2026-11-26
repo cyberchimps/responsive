@@ -393,11 +393,11 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 
 			// Single Blog Post Title Color
 			$single_blog_post_title_color_label = __( 'Title Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'single_blog_post_title', $single_blog_post_title_color_label, 'responsive_single_blog_post_title_layout', 10, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_title_color' ) );
+			responsive_color_control( $wp_customize, 'single_blog_post_title', $single_blog_post_title_color_label, 'responsive_single_blog_post_title_layout', 10, Responsive\Core\get_responsive_customizer_defaults( 'single_post_title_area_color' ) );
 
 			// Single Blog Post Text Color
 			$single_blog_post_text_color_label = __( 'Text Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'single_blog_post_text', $single_blog_post_text_color_label, 'responsive_single_blog_post_title_layout', 15, Responsive\Core\get_responsive_customizer_defaults( 'single_blog_post_text_color' ) );
+			responsive_color_control( $wp_customize, 'single_blog_post_text', $single_blog_post_text_color_label, 'responsive_single_blog_post_title_layout', 15, Responsive\Core\get_responsive_customizer_defaults( 'single_post_title_area_text_color' ) );
 
 			// Single Blog Post Link Color (with Hover)
 			$single_blog_post_link_color_label = __( 'Link Color', 'responsive' );

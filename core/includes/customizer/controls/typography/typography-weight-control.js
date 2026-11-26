@@ -92,7 +92,7 @@
 				weightMap           = responsive.weigthMap;
 			weightObject            = $.merge( inheritWeightObject, weightObject )
 			weightMap[ 'inherit' ]  = currentWeightTitle;
-			if ( fontValue == 'inherit' ) {
+			if ( fontValue == 'inherit' || fontValue == '' ) {
 				weightValue = init ? weightSelect.val() : 'inherit';
 			}
 			weightMap[ 'inherit' ] = currentWeightTitle;

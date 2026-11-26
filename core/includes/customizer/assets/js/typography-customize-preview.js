@@ -148,6 +148,7 @@
         } ), api( "page_title_typography[font-weight]", function( $swipe ) {
             $swipe.bind( function( dataAndEvents ) {
                 jQuery( 'style.customizer-typography-page_title-font-weight' ).remove();
+                if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
                 jQuery( 'head' ).append(
                     '<style class="customizer-typography-page_title-font-weight">'
                     + '.page .post-title, #main-blog h1{ font-weight:' + dataAndEvents +';}'
@@ -319,6 +320,7 @@
             if ( '' !== $font_preset_set )  return;
 
             jQuery( 'style.customizer-typography-body-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-body-font-weight">'
                 + responsive.selectorArray['body'] + ' { font-weight:' + dataAndEvents +' }'
@@ -436,6 +438,7 @@
             if ( '' !== $font_preset_set )  return;
 
             jQuery( 'style.customizer-typography-headings-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-headings-font-weight">'
                 + responsive.selectorArray['headings'] + ' { font-weight:' + dataAndEvents +';}'
@@ -511,6 +514,7 @@
             if ( '' !== $font_preset_set )  return;
 
             jQuery( 'style.customizer-typography-heading_h1-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h1-font-weight">'
                 + responsive.selectorArray['heading_h1'] + '{ font-weight:' + dataAndEvents +';}'
@@ -629,6 +633,7 @@
             if ( '' !== $font_preset_set )  return;
 
             jQuery( 'style.customizer-typography-heading_h2-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h2-font-weight">'
                 + responsive.selectorArray['heading_h2'] + '{ font-weight:' + dataAndEvents +';}'
@@ -747,6 +752,7 @@
             if ( '' !== $font_preset_set )  return;
 
             jQuery( 'style.customizer-typography-heading_h3-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h3-font-weight">'
                 + responsive.selectorArray['heading_h3'] + '{ font-weight:' + dataAndEvents +';}'
@@ -865,6 +871,7 @@
             if ( '' !== $font_preset_set )  return;
 
             jQuery( 'style.customizer-typography-heading_h4-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h4-font-weight">'
                 + responsive.selectorArray['heading_h4'] + '{ font-weight:' + dataAndEvents +';}'
@@ -983,6 +990,7 @@
             if ( '' !== $font_preset_set )  return;
 
             jQuery( 'style.customizer-typography-heading_h5-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h5-font-weight">'
                 + responsive.selectorArray['heading_h5'] + '{ font-weight:' + dataAndEvents +';}'
@@ -1101,6 +1109,7 @@
             if ( '' !== $font_preset_set )  return;
 
             jQuery( 'style.customizer-typography-heading_h6-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h6-font-weight">'
                 + responsive.selectorArray['heading_h6'] + '{ font-weight:' + dataAndEvents +';}'
@@ -1219,6 +1228,7 @@
             if ( '' !== $font_preset_set )  return;
             
             jQuery( 'style.customizer-typography-meta-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-meta-font-weight">'
                 + responsive.selectorArray['meta'] + '{ font-weight:' + dataAndEvents +';}'
@@ -1329,6 +1339,7 @@
     } ), api( "button_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-button-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-button-font-weight">'
                 + responsive.selectorArray['button'] + '{ font-weight:' + dataAndEvents +';}'
@@ -1549,6 +1560,7 @@
     } ), api( "input_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-input-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-input-font-weight">'
                 + responsive.selectorArray['input'] + '{ font-weight:' + dataAndEvents +';}'
@@ -1659,6 +1671,7 @@
     } ),api( "header_site_title_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-header_site_title-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-header_site_title-font-weight">'
                 + responsive.selectorArray['header_site_title2'] + '{ font-weight:' + dataAndEvents +';}'
@@ -1769,6 +1782,7 @@
     } ), api( "header_site_tagline_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-header_site_tagline-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-header_site_tagline-font-weight">'
                 + responsive.selectorArray['header_site_tagline'] + '{ font-weight:' + dataAndEvents +';}'
@@ -1879,6 +1893,7 @@
     } ), api( "header_widgets_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-header_widgets-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-header_widgets-font-weight">'
                 + responsive.selectorArray['header_widgets'] + '{ font-weight:' + dataAndEvents +';}'
@@ -1989,6 +2004,7 @@
     } ), api( "header_widgets2_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-header_widgets2-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-header_widgets2-font-weight">'
                 + responsive.selectorArray['header_widgets2'] + '{ font-weight:' + dataAndEvents +';}'
@@ -2100,6 +2116,7 @@
     } ), api( "header_menu_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-header_menu_typography-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-header_menu_typography-font-weight">'
                 + responsive.selectorArray['header_menu'] + '{ font-weight:' + dataAndEvents +';}'
@@ -2210,6 +2227,7 @@
     } ), api( "header_secondary_menu_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-header_secondary_menu_typography-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-header_secondary_menu_typography-font-weight">'
                 + responsive.selectorArray['header_secondary_menu'] + '{ font-weight:' + dataAndEvents +';}'
@@ -2320,6 +2338,7 @@
     } ), api( "sidebar_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-sidebar_typography-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-sidebar_typography-font-weight">'
                 + responsive.selectorArray['sidebar'] + ' { font-weight:' + dataAndEvents +';}'
@@ -2430,6 +2449,7 @@
     } ), api( "content_header_heading_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-content_header_heading-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-content_header_heading-font-weight">'
                 + responsive.selectorArray['content_header_heading'] + '{ font-weight:' + dataAndEvents +';}'
@@ -2540,6 +2560,7 @@
     } ), api( "content_header_description_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-content_header_description-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-content_header_description-font-weight">'
                 + responsive.selectorArray['content_header_description'] + '{ font-weight:' + dataAndEvents +';}'
@@ -2650,6 +2671,7 @@
     } ),  api( "breadcrumb_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-breadcrumb-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-breadcrumb-font-weight">'
                 + responsive.selectorArray['breadcrumb'] + '{ font-weight:' + dataAndEvents +';}'
@@ -2759,6 +2781,7 @@
     } ), api( "rp_section_title_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-rp_section_title_typography-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-rp_section_title_typography-font-weight">'
                 +  responsive.selectorArray['rp_section_title'] + '{ font-weight:' + dataAndEvents +';}'
@@ -2868,6 +2891,7 @@
     } ), api( "rp_post_title_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-rp_post_title_typography-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-rp_post_title_typography-font-weight">'
                 +  responsive.selectorArray['rp_post_title'] + '{ font-weight:' + dataAndEvents +';}'
@@ -2977,6 +3001,7 @@
     } ), api( "rp_meta_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-rp_meta_typography-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-rp_meta_typography-font-weight">'
                 +  responsive.selectorArray['rp_meta'] + '{ font-weight:' + dataAndEvents +';}'
@@ -3086,6 +3111,7 @@
     } ), api( "rp_content_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-rp_content_typography-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-rp_content_typography-font-weight">'
                 +  responsive.selectorArray['rp_content'] + '{ font-weight:' + dataAndEvents +';}'
@@ -3195,6 +3221,7 @@
     } ),  api( "footer_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_typography-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-footer_typography-font-weight">'
                 +  responsive.selectorArray['footer'] + '{ font-weight:' + dataAndEvents +';}'
@@ -3313,6 +3340,7 @@
     } ),  api( "footer_copyright_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_copyright_typography-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-footer_copyright_typography-font-weight">'
                 +  responsive.selectorArray['footer_copyright'] + '{ font-weight:' + dataAndEvents +';}'
@@ -3433,6 +3461,7 @@
         api( "header_off_canvas_menu_typography[font-weight]", function( $swipe ) {
             $swipe.bind( function( dataAndEvents ) {
                 jQuery( 'style.customizer-typography-header_off_canvas_menu_typography-font-weight' ).remove();
+                if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
                 jQuery( 'head' ).append(
                     '<style class="customizer-typography-header_off_canvas_menu_typography-font-weight">'
                     +  responsive.selectorArray['header_off_canvas_menu'] + '{ font-weight:' + dataAndEvents +';}'
@@ -3553,6 +3582,7 @@
     api( "header_social_item_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-header_social_item_typography-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-header_social_item_typography-font-weight">'
                 +  responsive.selectorArray['header_social'] + '{ font-weight:' + dataAndEvents +';}'
@@ -3674,6 +3704,7 @@
     api( "footer_social_item_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_social_item_typography-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-footer_social_item_typography-font-weight">'
                 +  responsive.selectorArray['footer_social'] + '{ font-weight:' + dataAndEvents +';}'
@@ -3806,6 +3837,7 @@
     api( "header_button_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-header_button_typography-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-header_button_typography-font-weight">'
                 +  responsive.selectorArray['header_button'] + '{ font-weight:' + dataAndEvents +';}'
@@ -3928,6 +3960,7 @@
     api( "mobile_header_button_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-mobile_header_button_typography-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-mobile_header_button_typography-font-weight">'
                 +  responsive.selectorArray['mobile_header_button'] + '{ font-weight:' + dataAndEvents +';}'
@@ -4051,6 +4084,7 @@
     api( "header_search_label_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-header_search_label_typography-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-header_search_label_typography-font-weight">'
                 +  responsive.selectorArray['header_search_label'] + '{ font-weight:' + dataAndEvents +';}'
@@ -4174,6 +4208,7 @@
     api( "header_contact_info_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-header_contact_info_typography-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-header_contact_info_typography-font-weight">'
                 +  responsive.selectorArray['header_contact_info'] + '{ font-weight:' + dataAndEvents +';}'
@@ -4283,6 +4318,7 @@
     } ), api( "mobile_header_widgets_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-mobile_header_widgets-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-mobile_header_widgets-font-weight">'
                 + responsive.selectorArray['mobile_header_widgets'] + '{ font-weight:' + dataAndEvents +';}'
@@ -4393,6 +4429,7 @@
     } ), api( "mobile_header_widgets2_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-mobile_header_widgets2-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-mobile_header_widgets2-font-weight">'
                 + responsive.selectorArray['mobile_header_widgets2'] + '{ font-weight:' + dataAndEvents +';}'
@@ -4503,6 +4540,7 @@
     } ), api( "mobile_header_social_item_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-mobile_header_social_item-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-mobile_header_social_item-font-weight">'
                 + responsive.selectorArray['mobile_header_social_item'] + '{ font-weight:' + dataAndEvents +';}'
@@ -4613,6 +4651,7 @@
     } ), api( "mobile_header_contact_info_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-mobile_header_contact_info-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-mobile_header_contact_info-font-weight">'
                 + responsive.selectorArray['mobile_header_contact_info'] + '{ font-weight:' + dataAndEvents +';}'
@@ -4733,6 +4772,7 @@
         api( "single_blog_post_title_typography[font-weight]", function( $swipe ) {
             $swipe.bind( function( dataAndEvents ) {
                 jQuery( 'style.customizer-typography-single_blog_post_title_typography-font-weight' ).remove();
+                if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
                 jQuery( 'head' ).append(
                     '<style class="customizer-typography-single_blog_post_title_typography-font-weight">'
                     +  responsive.selectorArray['single_blog_post_title'] + '{ font-weight:' + dataAndEvents +';}'
@@ -4842,6 +4882,7 @@
         api( "single_blog_post_title_typography[font-weight]", function( $swipe ) {
             $swipe.bind( function( dataAndEvents ) {
                 jQuery( 'style.customizer-typography-single_blog_post_title_typography-font-weight' ).remove();
+                if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
                 jQuery( 'head' ).append(
                     '<style class="customizer-typography-single_blog_post_title_typography-font-weight">'
                     +  responsive.selectorArray['single_blog_post_title'] + '{ font-weight:' + dataAndEvents +';}'
@@ -4957,6 +4998,7 @@
         api( "single_blog_post_text_typography[font-weight]", function( $swipe ) {
             $swipe.bind( function( dataAndEvents ) {
                 jQuery( 'style.customizer-typography-single_blog_post_text_typography-font-weight' ).remove();
+                if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
                 jQuery( 'head' ).append(
                     '<style class="customizer-typography-single_blog_post_text_typography-font-weight">'
                     +  responsive.selectorArray['single_blog_post_text'] + '{ font-weight:' + dataAndEvents +';}'
@@ -5069,6 +5111,7 @@
         api( "single_blog_post_meta_typography[font-weight]", function( $swipe ) {
             $swipe.bind( function( dataAndEvents ) {
                 jQuery( 'style.customizer-typography-single_blog_post_meta_typography-font-weight' ).remove();
+                if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
                 jQuery( 'head' ).append(
                     '<style class="customizer-typography-single_blog_post_meta_typography-font-weight">'
                     +  responsive.selectorArray['single_blog_post_meta'] + '{ font-weight:' + dataAndEvents +';}'
@@ -5273,6 +5316,7 @@
         api( "page_title_area_text_typography[font-weight]", function( $swipe ) {
             $swipe.bind( function( dataAndEvents ) {
                 jQuery( 'style.customizer-typography-page_title_area_text_typography-font-weight' ).remove();
+                if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
                 jQuery( 'head' ).append(
                     '<style class="customizer-typography-page_title_area_text_typography-font-weight">'
                     +  responsive.selectorArray['page_title_area_text'] + '{ font-weight:' + dataAndEvents +';}'
@@ -5383,6 +5427,7 @@
         api( "page_title_area_meta_typography[font-weight]", function( $swipe ) {
             $swipe.bind( function( dataAndEvents ) {
                 jQuery( 'style.customizer-typography-page_title_area_meta_typography-font-weight' ).remove();
+                if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
                 jQuery( 'head' ).append(
                     '<style class="customizer-typography-page_title_area_meta_typography-font-weight">'
                     +  responsive.selectorArray['page_title_area_meta'] + '{ font-weight:' + dataAndEvents +';}'
@@ -6177,6 +6222,7 @@
     api( "html_font_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-html_font_typography-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-html_font_typography-font-weight">'
                 +  responsive.selectorArray['html_font'] + '{ font-weight:' + dataAndEvents +';}'
@@ -6289,6 +6335,7 @@
         api( "html2_font_typography[font-weight]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-html2_font_typography-font-weight' ).remove();
+            if ( 'inherit' === dataAndEvents || '' === dataAndEvents ) { return; }
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-html2_font_typography-font-weight">'
                 +  responsive.selectorArray['html2_font'] + '{ font-weight:' + dataAndEvents +';}'

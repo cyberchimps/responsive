@@ -1801,6 +1801,13 @@ div.customize-section-description{
 #customize-control-responsive_header_below_row_bottom_border_color .responsive-color-reset-btn,#customize-control-responsive_header_below_row_bg_color .responsive-color-reset-btn {
 	margin-top : 20px;
 }
+.customize-control-responsive-color-with-devices-and-hover .responsive-color-reset-btn {
+	margin-top : 20px;
+}
+/* Footer top border color: main wrap has 24px margin + 1px border + 24px padding above the swatch, so offset the reset button to match. */
+#customize-control-responsive_footer_above_row_border_color .responsive-color-reset-btn,#customize-control-responsive_footer_primary_row_border_color .responsive-color-reset-btn,#customize-control-responsive_footer_below_row_border_color .responsive-color-reset-btn {
+	margin-top: 49px;
+}
 #customize-control-responsive_breadcrumb_color .responsive-color-reset-btn {
 	padding-top : 0px; 
 	margin-top : 13px;
@@ -2207,4 +2214,13 @@ ul.control-panel-nav_menus .customize-help-toggle:before {
 }
 #customize-control-responsive_single_product_title_area_title_typography_group {
 	padding-top: 12px;
+}
+#customize-control-responsive_preload_local_fonts{
+	padding-top: 20px;
+}
+#customize-control-responsive_flush_separator{
+	margin: 20px 0;
+}
+#customize-control-responsive_load_google_fonts_locally .responsive-toggle-control-wrapper{
+	padding-bottom: 0;
 }

@@ -55,7 +55,7 @@ if ( ! function_exists( 'check_is_responsive_addons_greater' ) ) {
 	<div class="site hfeed" id="page">
 		<?php
 		Responsive\responsive_header_top();
-		$responsive_show_header = true;
+		$responsive_show_header = ! responsive_is_element_disabled( 'header' );
 		if ( class_exists( 'WooCommerce' ) ) {
 			if ( ( 1 === get_theme_mod( 'responsive_distraction_free_woocommerce', 0 ) ) && (
 				( is_shop() && 1 === get_theme_mod( 'responsive_disable_shop_header_footer', 0 ) )
@@ -98,9 +98,11 @@ if ( ! function_exists( 'check_is_responsive_addons_greater' ) ) {
 				/**
 				 * Mobile/Tablet Header - Visible on screens 992px and below
 				 */
-				echo '<div class="responsive-mobile-header-wrapper">';
-				do_action( 'responsive_mobile_header' );
-				echo '</div>';
+				if ( ! responsive_is_element_disabled( 'mobile_header' ) ) {
+					echo '<div class="responsive-mobile-header-wrapper">';
+					do_action( 'responsive_mobile_header' );
+					echo '</div>';
+				}
 
 				/**
 				 * Responsive after header hook.

@@ -42,7 +42,40 @@ function responsive_get_content_classes() {
 }
 
 /**
- * Get current sidebar style
+ * Get a per-entry sidebar meta value (style / width), only when the entry's own
+ * Sidebar Position is Left or Right.
+ *
+ * @param string $key 'style' or 'width'.
+ * @return string
+ */
+function responsive_get_post_sidebar_meta( $key ) {
+	if ( ! is_singular( array( 'page', 'post' ) ) ) {
+		return '';
+	}
+	// Per-entry sidebar style / width only apply when its own Sidebar Position is Left or Right.
+	$position = get_post_meta( get_the_ID(), 'responsive_page_meta_sidebar_position', true );
+	if ( ! in_array( $position, array( 'left', 'right' ), true ) ) {
+		return '';
+	}
+	return get_post_meta( get_the_ID(), 'responsive_page_meta_sidebar_' . $key, true );
+}
+
+/**
+ * Whether an element is disabled for the current page / post via the editor's "Disable Elements" settings.
+ *
+ * @param string $element 'header', 'footer', 'banner' or 'related_posts'.
+ * @return bool
+ */
+function responsive_is_element_disabled( $element ) {
+	$post_types = ( 'related_posts' === $element ) ? array( 'post' ) : array( 'page', 'post' );
+	if ( ! is_singular( $post_types ) ) {
+		return false;
+	}
+	return (bool) get_post_meta( get_queried_object_id(), 'responsive_page_meta_disable_' . $element, true );
+}
+
+/**
+ * Get sidebar style.
  */
 function responsive_get_sidebar_style() {
 	$global_style = get_theme_mod( 'responsive_sidebar_style', 'boxed' );
@@ -53,6 +86,11 @@ function responsive_get_sidebar_style() {
 		if ( null !== $woo_style ) {
 			return $woo_style;
 		}
+	}
+
+	$meta_style = responsive_get_post_sidebar_meta( 'style' );
+	if ( in_array( $meta_style, array( 'boxed', 'unboxed' ), true ) ) {
+		return $meta_style;
 	}
 
 	if ( is_page() ) {

@@ -82,6 +82,9 @@ function mobile_header_column( $row, $column ) {
  * @param string $row the name of the row
  */
 function display_mobile_header_row( $row= 'primary' ) {
+	if ( responsive_is_element_disabled( 'mobile_header' ) ) {
+		return false;
+	}
 	$display = false; 
 	foreach( array('left', 'left_center', 'center', 'right_center', 'right' ) as $column ) {
 		$elements = get_theme_mod('responsive_header_mobile_tablet_items',

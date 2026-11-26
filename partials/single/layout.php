@@ -58,7 +58,7 @@ if ( in_array( $single_title_layout, array( 'post_title_layout1', 'post_title_la
 		// Get elements.
 		$elements = responsive_blog_single_elements_positioning();
 
-		if ( get_theme_mod( 'responsive_single_blog_post_title_layout', 'post_title_layout1' ) === 'post_title_layout1' ) {
+		if ( ! responsive_is_element_disabled( 'banner' ) && get_theme_mod( 'responsive_single_blog_post_title_layout', 'post_title_layout1' ) === 'post_title_layout1' ) {
 			?>
 			<?php
 			$header_style = '';

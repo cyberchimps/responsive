@@ -54,7 +54,7 @@ if ( in_array( $page_title_layout, array( 'post_title_layout1', 'post_title_layo
 			// Get posts format.
 			$format = get_post_format();
 
-			if ( get_theme_mod( 'responsive_page_title_layout', 'post_title_layout1' ) === 'post_title_layout1' ) {
+			if ( ! responsive_is_element_disabled( 'banner' ) && get_theme_mod( 'responsive_page_title_layout', 'post_title_layout1' ) === 'post_title_layout1' ) {
 				// Get elements.
 				$elements = responsive_page_single_elements_positioning();
 				?>

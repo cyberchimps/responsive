@@ -22,49 +22,6 @@ ul.products {
             padding-bottom: $base-line-height-px;
         }
 
-        .responsive-catalog-view-list & {
-            display: flex;
-            min-width: 100%;
-            margin: 0 0 $grid-gutter-width 0;
-
-            // Image takes a third of the row so list images stay a consistent
-            // size regardless of the uploaded file's dimensions.
-            a.woocommerce-LoopProduct-link {
-                flex: 0 0 33.333%;
-                max-width: 33.333%;
-            }
-
-            .responsive-shop-summary-wrap {
-                flex: 1;
-                min-width: 0;
-                padding-left: $base-line-height-px;
-            }
-
-            @media (max-width: 575px) {
-                flex-direction: column;
-
-                a.woocommerce-LoopProduct-link {
-                    flex-basis: auto;
-                    max-width: 100%;
-                }
-
-                .responsive-shop-summary-wrap {
-                    padding-left: 0;
-                }
-            }
-
-            .onsale {
-                top: 0;
-                right: auto;
-                left: 0;
-                margin: .5em .5em 0 0;
-            }
-
-            a img {
-                margin: 0;
-            }
-        }
-
         .product-content-aligmnment-center & {
             text-align: center;
 
@@ -113,6 +70,54 @@ ul.products {
 
         .onsale {
             line-height: 2.9;
+        }
+    }
+}
+
+// List view applies to shop loops only, not to product blocks (e.g. cart's "New in store").
+ul.products {
+    li.product {
+        .responsive-catalog-view-list & {
+            display: flex;
+            min-width: 100%;
+            margin: 0 0 $grid-gutter-width 0;
+
+            // Image takes a third of the row so list images stay a consistent
+            // size regardless of the uploaded file's dimensions.
+            a.woocommerce-LoopProduct-link {
+                flex: 0 0 33.333%;
+                max-width: 33.333%;
+            }
+
+            .responsive-shop-summary-wrap {
+                flex: 1;
+                min-width: 0;
+                padding-left: $base-line-height-px;
+            }
+
+            @media (max-width: 575px) {
+                flex-direction: column;
+
+                a.woocommerce-LoopProduct-link {
+                    flex-basis: auto;
+                    max-width: 100%;
+                }
+
+                .responsive-shop-summary-wrap {
+                    padding-left: 0;
+                }
+            }
+
+            .onsale {
+                top: 0;
+                right: auto;
+                left: 0;
+                margin: .5em .5em 0 0;
+            }
+
+            a img {
+                margin: 0;
+            }
         }
     }
 }
